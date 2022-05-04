@@ -1,0 +1,11 @@
+/*
+############     _components-index.scss      ############
+component specific, BEM (Block, Element, Modifier)
+@media for each component should be contained with the component.
+*/
+
+/* ---- Base Components ---- */
+@import "base-components/button";
+
+/* ---- Project Components ---- */
+@import "project-components/main-menu";

@@ -1,0 +1,41 @@
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes drop-in {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+}
+
+@keyframes pop-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.7);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes pop-in-center {
+	0% {
+		opacity: 0;
+		transform: scale(0.7) translateX(-50%);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateX(-50%);
+	}
+}

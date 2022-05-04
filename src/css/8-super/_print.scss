@@ -1,0 +1,38 @@
+/*
+PRINT SCSS
+ */
+
+@media print {
+
+	@page {
+		size: 8.5in 11in;
+		margin: .5in;
+	}
+
+	html, body {
+		font-family: "Source Sans Pro", sans-serif;
+		font-size: 8pt;
+		height: auto;
+		color: #000000;
+	}
+
+	//Print Utility Classes
+	.no-print {
+		display: none;
+	}
+
+	.avoid {
+		page-break-inside: avoid;
+	}
+
+	.page-break {
+		page-break-after: always;
+	}
+
+	.print-page-no-margin {
+		width: 8.5in;
+		margin: 0;
+		padding: 0;
+		box-shadow: none;
+	}
+}
