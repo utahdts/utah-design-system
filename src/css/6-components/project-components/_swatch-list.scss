@@ -1,0 +1,22 @@
+/*
+############     _popup.scss      ############
+*/
+
+.color-family {
+  display: flex;
+
+  &__title {
+
+  }
+  &__swatches {
+    list-style-type: none;
+    display: flex;
+    gap: 2px;
+  }
+  &__swatch {
+    width: 20px;
+    height: 20px;
+    border: none;
+  }
+
+}

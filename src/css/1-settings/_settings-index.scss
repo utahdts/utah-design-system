@@ -10,6 +10,16 @@ variables and settings
   --gray-color: gray;
 }
 
+.primary-color-background {
+  background-color: var(--primary-color);
+}
+.secondary-color-background {
+  background-color: var(--secondary-color);
+}
+.accent-color-background {
+  background-color: var(--accent-color);
+}
+
 $purple_00: #503854;
 $purple_01: #4e2d53;
 $purple_02: #4c2353;

@@ -1,0 +1,16 @@
+/*
+############     _popup.scss      ############
+*/
+
+.color-circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &.selected {
+      border: 1px solid black;
+    }
+}

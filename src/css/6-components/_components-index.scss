@@ -8,4 +8,7 @@ component specific, BEM (Block, Element, Modifier)
 @import "base-components/button";
 
 /* ---- Project Components ---- */
+@import "project-components/color-circle";
 @import "project-components/demo-content";
+@import "project-components/popup";
+@import "project-components/swatch-list";
