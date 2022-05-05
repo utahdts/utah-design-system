@@ -7,7 +7,7 @@ function ColorPopup() {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedCircle, setSelectedCircle] = useState(null);
 
-  function setColor(target, swatch) {
+  function setColor(swatch) {
     document.documentElement.style.setProperty(`--${selectedCircle}-color`, swatch);
   }
 
@@ -61,7 +61,7 @@ function ColorPopup() {
                     <SwatchList
                       colorFamily={color}
                       key={`swatch-list-color-${color.title}`}
-                      onColorSelected={(swatch) => setColor('primary', swatch)}
+                      onColorSelected={(swatch) => setColor(swatch)}
                       selectedColor={null}
                     />
                   ))
