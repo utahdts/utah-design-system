@@ -3,28 +3,44 @@
 */
 
 .header {
-  height: 5rem;
+  height: 100px;
+  padding: 0 $spacing16;
   background-color: white;
   display: flex;
+  gap: $spacing16;
   align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--gray-color);
+  border-bottom: 1px solid $neutral-gray-15;
+
+
+  &__utah-brand {
+    height: 52px;
+    width: 234px;
+    fill: var(--primary-color);
+  }
+
+  &__vertical-rule {
+    height: 52px;
+    width: 1px;
+    background: var(--gray-medium-color);
+  }
 
   &__department {
     font-size: 2rem;
-    width: 100%;
+    font-weight: 600;
+    color: var(--gray-medium-color);
   }
 
   &__sign-in {
     width: 100px;
     padding: 0.5rem;
     border-radius: 15px;
+    margin-left: auto;
   }
 }
 
 .menu-bar {
   height: 3rem;
-  background-color: var(--gray-color);
+  background-color: var(--gray-light-color);
 
   ul {
     list-style: none;
@@ -35,7 +51,7 @@
       margin-right: 1rem;
       a {
         text-decoration: none;
-        color: var(--black-color);
+        color: var(--gray-color);
       }
     }
   }

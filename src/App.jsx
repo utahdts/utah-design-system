@@ -1,5 +1,5 @@
 import ColorPopup from './components/ColorPopup';
-import DemoContent from './components/DemoContent';
+import DemoContent from './components/demo/DemoContent';
 import './css/index.scss';
 
 function App() {
