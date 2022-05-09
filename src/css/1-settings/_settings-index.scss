@@ -6,13 +6,13 @@ variables and settings
 @import './spacing';
 @import './color-swatches';
 
-:root {
-  --primary-color: purple;
-  --secondary-color: rgb(0, 255, 136);
-  --accent-color: gold;
-  --gray-color: #{$neutral-gray-04};
-  --gray-medium-color: #{$neutral-gray-06};
-  --gray-light-color: #{$neutral-gray-17};
+& {
+    --primary-color: purple;
+    --secondary-color: rgb(0, 255, 136);
+    --accent-color: gold;
+    --gray-color: #{$neutral-gray-04};
+    --gray-medium-color: #{$neutral-gray-06};
+    --gray-light-color: #{$neutral-gray-17};
 }
 
 .primary-color-background {

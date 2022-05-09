@@ -2,13 +2,20 @@ import { useState } from 'react';
 import ColorCircle from './ColorCircle';
 import colors from '../color/colors';
 import SwatchList from './SwatchList';
+import { useCssContext } from '../context/cssContext/CssContext';
 
 function ColorPopup() {
   const [isOpen, setIsOpen] = useState(true);
-  const [selectedCircle, setSelectedCircle] = useState(null);
+  const { CSS_VARIABLES_KEYS, setCssVariables } = useCssContext();
+  const [selectedCircle, setSelectedCircle] = useState(CSS_VARIABLES_KEYS.PRIMARY_COLOR);
 
   function setColor(swatch) {
-    document.documentElement.style.setProperty(`--${selectedCircle}-color`, swatch);
+    setCssVariables((oldCssVariables) => (
+      {
+        ...oldCssVariables,
+        [selectedCircle]: swatch,
+      }
+    ));
   }
 
   return (
@@ -29,8 +36,8 @@ function ColorPopup() {
               <div>
                 <ColorCircle
                   className="primary-color-background"
-                  isSelected={selectedCircle === 'primary'}
-                  onClick={() => setSelectedCircle('primary')}
+                  isSelected={selectedCircle === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
+                  onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.PRIMARY_COLOR)}
                 >
                   Primary
                   <br />
@@ -38,8 +45,8 @@ function ColorPopup() {
                 </ColorCircle>
                 <ColorCircle
                   className="secondary-color-background"
-                  isSelected={selectedCircle === 'secondary'}
-                  onClick={() => setSelectedCircle('secondary')}
+                  isSelected={selectedCircle === CSS_VARIABLES_KEYS.SECONDARY_COLOR}
+                  onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.SECONDARY_COLOR)}
                 >
                   Secondary
                   <br />
@@ -47,8 +54,8 @@ function ColorPopup() {
                 </ColorCircle>
                 <ColorCircle
                   className="accent-color-background"
-                  isSelected={selectedCircle === 'accent'}
-                  onClick={() => setSelectedCircle('accent')}
+                  isSelected={selectedCircle === CSS_VARIABLES_KEYS.ACCENT_COLOR}
+                  onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.ACCENT_COLOR)}
                 >
                   Accent
                   <br />
@@ -57,7 +64,7 @@ function ColorPopup() {
               </div>
               <div>
                 {
-                  colors.map((color) => (
+                  Object.values(colors).map((color) => (
                     <SwatchList
                       colorFamily={color}
                       key={`swatch-list-color-${color.title}`}

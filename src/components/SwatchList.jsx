@@ -23,7 +23,7 @@ function SwatchList({ colorFamily, onColorSelected, selectedColor }) {
           colorFamily.swatches.map((swatch) => (
             <li
               key={`color-family__swatch-${swatch}`}
-              className={selectedColor === swatch && 'selected'}
+              className={selectedColor === swatch ? 'selected' : null}
             >
               <button
                 className="color-family__swatch"

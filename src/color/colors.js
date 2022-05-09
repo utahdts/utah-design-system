@@ -4,8 +4,8 @@ export const colorsIndexes = {
   lightIndex: 17,
 };
 
-export default [
-  {
+export default {
+  PURPLE: {
     title: 'Purple',
     swatches: [
       '#503854', // purple 1
@@ -28,7 +28,7 @@ export default [
       '#f2edf2', // purple 18
     ],
   },
-  {
+  LIGHT_PURPLE: {
     title: 'Light Purple',
     swatches: [
       '#4e3250',
@@ -51,7 +51,7 @@ export default [
       '#f8eff8',
     ],
   },
-  {
+  SLATE: {
     title: 'Slate',
     swatches: [
       '#3b3c52',
@@ -74,7 +74,7 @@ export default [
       '#f1f1f4',
     ],
   },
-  {
+  INDIGO: {
     title: 'indigo',
     swatches: [
       '#343e51',
@@ -97,7 +97,7 @@ export default [
       '#edf2f4',
     ],
   },
-  {
+  AZUL: {
     title: 'Azul',
     swatches: [
       '#2f3d5a',
@@ -120,7 +120,7 @@ export default [
       '#eef3fc',
     ],
   },
-  {
+  CELEDON_GREEN: {
     title: 'Celedon Green',
     swatches: [
       '#27424b',
@@ -142,7 +142,8 @@ export default [
       '#dcecf2',
       '#edf5f8',
     ],
-  }, {
+  },
+  PINE_GREEN: {
     title: 'Pine Green',
     swatches: [
       '#244334',
@@ -165,7 +166,7 @@ export default [
       '#edf5f1',
     ],
   },
-  {
+  ASPEN_GREN: {
     title: 'Aspen Green',
     swatches: [
       '#2e4326',
@@ -188,7 +189,7 @@ export default [
       '#f0f4ee',
     ],
   },
-  {
+  RAPTOR_ROCK: {
     title: 'Raptor Rock',
     swatches: [
       '#4b3b27',
@@ -211,7 +212,7 @@ export default [
       '#f9f4ed',
     ],
   },
-  {
+  ORANGE: {
     title: 'Orange',
     swatches: [
       '#543623',
@@ -234,7 +235,7 @@ export default [
       '#fbf2ec',
     ],
   },
-  {
+  RED_ROCK: {
     title: 'Red Rock',
     swatches: [
       '#5d3122',
@@ -257,7 +258,7 @@ export default [
       '#f9f0ed',
     ],
   },
-  {
+  ROSE_RED: {
     title: 'Rose Red',
     swatches: [
       '#67292c',
@@ -280,7 +281,7 @@ export default [
       '#f8edee',
     ],
   },
-  {
+  ELECTRIC_BLUE: {
     title: 'Electric Blue',
     swatches: [
       '#26424e',
@@ -303,7 +304,7 @@ export default [
       '#f1faff',
     ],
   },
-  {
+  ELECTRIC_ORANGE: {
     title: 'Electric Orange',
     swatches: [
       '#4f392d',
@@ -326,7 +327,7 @@ export default [
       '#fff4ef',
     ],
   },
-  {
+  ELECTRIC_YELLOW: {
     title: 'Electric Yellow',
     swatches: [
       '#463d29',
@@ -349,7 +350,7 @@ export default [
       '#fff9ec',
     ],
   },
-  {
+  IRIS: {
     title: 'Iris',
     swatches: [
       '#483948',
@@ -372,7 +373,7 @@ export default [
       '#fbf9fb',
     ],
   },
-  {
+  SAGE_GREEN: {
     title: 'Sage Green',
     swatches: [
       '#31432e',
@@ -395,7 +396,7 @@ export default [
       '#f7fbf7',
     ],
   },
-  {
+  LIGHT_ORANGE: {
     title: 'Light Orange',
     swatches: [
       '#4f392d',
@@ -418,7 +419,7 @@ export default [
       '#fff8f2',
     ],
   },
-  {
+  NEUTRAL_GRAY: {
     title: 'Neutral Gray',
     swatches: [
       '#1f1f1f',
@@ -441,7 +442,7 @@ export default [
       '#f1f1f1',
     ],
   },
-  {
+  WARM_GRAY: {
     title: 'Warm Gray',
     swatches: [
       '#101010',
@@ -464,7 +465,7 @@ export default [
       '#f1f1f1',
     ],
   },
-  {
+  COOL_GRAY: {
     title: 'Cool Gray',
     swatches: [
       '#1a1e21',
@@ -487,4 +488,4 @@ export default [
       '#f1f1f2',
     ],
   },
-];
+};
