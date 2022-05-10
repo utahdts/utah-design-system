@@ -1,3 +1,33 @@
 /*
 ############     _button.scss      ############
 */
+
+button, .button {
+  background: white;
+  border-radius: 999px;
+  border: 2px solid var(--gray-color);
+  font-size: 1rem;
+  min-height: 36px;
+  padding: 0 var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  color: var(--gray-color);
+  
+  &:hover {
+    background: var(--gray-color);
+    color: white;
+  }
+
+  &--solid {
+    background: var(--gray-color);
+    color: white;
+    &:hover {
+      background-color: var(--gray-dark);
+      border-color: var(--gray-dark);
+    }
+  }
+
+}

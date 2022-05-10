@@ -3,14 +3,13 @@
 */
 
 .header {
-  height: 100px;
-  padding: 0 $spacing16;
+  // height: 100px;
+  padding: var(--spacing);
   background-color: white;
   display: flex;
-  gap: $spacing16;
+  gap: var(--spacing);
   align-items: center;
   border-bottom: 1px solid $neutral-gray-15;
-
 
   &__utah-brand {
     height: 52px;
@@ -31,27 +30,39 @@
   }
 
   &__sign-in {
-    width: 100px;
-    padding: 0.5rem;
-    border-radius: 15px;
     margin-left: auto;
   }
 }
 
 .menu-bar {
-  height: 3rem;
   background-color: var(--gray-light-color);
 
   ul {
-    list-style: none;
+    list-style-type: none;
     display: flex;
     margin: 0;
-    padding-top: 0.75rem;
+    padding: 0;
     li {
-      margin-right: 1rem;
       a {
+        display: block;
         text-decoration: none;
         color: var(--gray-color);
+        padding: var(--spacing);
+        &:hover {
+          background-color: var(--primary-color);
+          color: white;
+        }
+      }
+    }
+  }
+  .primary-color-is-light & {
+    ul {
+      li {
+        a {
+          &:hover {
+            color: var(--gray-color);  
+          }
+        }
       }
     }
   }

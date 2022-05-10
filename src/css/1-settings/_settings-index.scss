@@ -3,16 +3,23 @@
 variables and settings
 */
 
-@import './spacing';
-@import './color-swatches';
+@import "./spacing";
+@import "./color-swatches";
 
 & {
-    --primary-color: purple;
-    --secondary-color: rgb(0, 255, 136);
-    --accent-color: gold;
-    --gray-color: #{$neutral-gray-04};
-    --gray-medium-color: #{$neutral-gray-06};
-    --gray-light-color: #{$neutral-gray-17};
+  /* color */
+  --primary-color: purple;
+  --secondary-color: rgb(0, 255, 136);
+  --accent-color: gold;
+  --gray-color: #{$neutral-gray-04};
+  --gray-medium-color: #{$neutral-gray-06};
+  --gray-light-color: #{$neutral-gray-17};
+  --gray-dark: #{$neutral-gray-02};
+
+  /* transition timings */
+  --timing-quick: 200ms;
+  --timing-medium: 400ms;
+  --timing-slow: 600ms;
 }
 
 .primary-color-background {

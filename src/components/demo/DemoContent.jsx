@@ -7,7 +7,7 @@ import utahDotGreyImageUrl from '../../static/images/utah-dot-grey.png';
 
 function DemoContent() {
   return (
-    <div className="demo-content">
+    <div className="demo-content primary-color-is-light">
       <div className="header">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 52" className="header__utah-brand">
           <g>
@@ -18,10 +18,10 @@ function DemoContent() {
 
         <span className="header__vertical-rule" />
         <span className="header__department">Department of Health and Human Services</span>
-        <button className="header__sign-in" type="button">Sign In</button>
+        <button className="header__sign-in button--solid" type="button">Sign In</button>
       </div>
 
-      <div className="menu-bar">
+      <div className="menu-bar dark-text">
         <ul>
           <li><a href="#online-services">Online Services v</a></li>
           <li><a href="#government">Government v</a></li>
