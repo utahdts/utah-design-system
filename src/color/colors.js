@@ -120,8 +120,8 @@ export default {
       '#eef3fc',
     ],
   },
-  CELEDON_GREEN: {
-    title: 'Celedon Green',
+  CELEDON_BLUE: {
+    title: 'Celedon Blue',
     swatches: [
       '#27424b',
       '#205162',
@@ -141,6 +141,29 @@ export default {
       '#cbe3ec',
       '#dcecf2',
       '#edf5f8',
+    ],
+  },
+  CELEDON_GREEN: {
+    title: 'Celedon Green',
+    swatches: [
+      '#2a423f',
+      '#26524d',
+      '#23635b',
+      '#1f7369',
+      '#1c8478',
+      '#2c8c81',
+      '#3c958b',
+      '#4c9e94',
+      '#5ca79e',
+      '#6dafa8',
+      '#7db8b1',
+      '#8dc1bb',
+      '#9dcac5',
+      '#add3ce',
+      '#bedbd8',
+      '#cee4e2',
+      '#deedeb',
+      '#eef6f5',
     ],
   },
   PINE_GREEN: {
