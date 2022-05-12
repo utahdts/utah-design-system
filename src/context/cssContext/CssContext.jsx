@@ -28,7 +28,7 @@ export function CssContextProvider({ children }) {
     () => {
       setCssStateValue({ cssState, setCssState });
     },
-    [cssState, setCssState],
+    [cssState, setCssState]
   );
 
   return (
