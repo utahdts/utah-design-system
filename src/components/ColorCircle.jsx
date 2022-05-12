@@ -22,7 +22,7 @@ function ColorCircle({
     <div
       className={joinClassNames(['color-circle', isSelected && 'selected', className])}
       onClick={onClick}
-      onKeyUp={handleKeyPress(13, onClick)}
+      onKeyUp={handleKeyPress('Enter', onClick)}
       role="button"
       tabIndex="0"
     >

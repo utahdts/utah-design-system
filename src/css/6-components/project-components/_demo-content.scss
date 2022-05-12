@@ -3,7 +3,6 @@
 */
 
 .header {
-  // height: 100px;
   padding: var(--spacing);
   background-color: white;
   display: flex;
@@ -44,32 +43,56 @@
     padding: 0;
     li {
       a {
-        display: block;
+        display: flex;
+        align-items: center;
         text-decoration: none;
         color: var(--gray-color);
-        padding: var(--spacing);
-        &:hover {
-          background-color: var(--primary-color);
-          color: white;
+        padding: var(--spacing-xs) var(--spacing);
+        margin: var(--spacing-xs) 0;
+        border-radius: 999px;
+        transition: all var(--timing-quick) ease-in-out;
+        position: relative;
+        box-sizing: border-box;
+        
+        &::after {
+          content: "";
+          width: 100%;
+          height: var(--spacing-xxs);
+          background: transparent;
+          display: block;
+          position: absolute;
+          top: -8px;
+          left: 0;
+          // border-top-left-radius: var(--spacing-xxs);
+          // border-top-right-radius: var(--spacing-xxs);
+          border-bottom-left-radius: var(--spacing-xxs);
+          border-bottom-right-radius: var(--spacing-xxs);
         }
-      }
-    }
-  }
-  .primary-color-is-light & {
-    ul {
-      li {
-        a {
-          &:hover {
-            color: var(--gray-color);  
+
+        .icon-chevron-down {
+          font-size: 1rem;
+          margin-right: -2px;
+        }
+        
+        &:hover {
+          color: black;
+          background-color: $neutral-gray-16;
+        }
+        &.menu-item--selected {
+          &::after {
+            background: var(--primary-color);
           }
         }
+        // @at-root #{$primary-color-is-light}#{&} {
+        //   color: var(--gray-color);
+        // }
       }
     }
   }
 }
 
 .hero {
-  border-bottom: 11px solid var(--secondary-color);
+  
 }
 
 .squares {

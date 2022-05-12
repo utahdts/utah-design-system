@@ -5,11 +5,13 @@ import './css/index.scss';
 
 function App() {
   return (
-    <div className="utah-design-system">
-      <DemoContent />
-      <ColorPopup />
+    <>
+      <div className="utah-design-system primary-color-is-light">
+        <DemoContent />
+        <ColorPopup />
+      </div>
       <DemoAppStyle />
-    </div>
+    </>
   );
 }
 

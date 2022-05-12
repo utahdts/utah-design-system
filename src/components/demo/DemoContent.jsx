@@ -1,13 +1,14 @@
-import heroImageUrl from '../../static/images/department-hero.png';
+import heroImageUrl from '../../static/images/doctor-showing-medical-results.jpg';
 import kidnapperImageUrl from '../../static/images/kidnapper.png';
 import babyImageUrl from '../../static/images/baby.png';
 import traxImageUrl from '../../static/images/trax.png';
 import chattersImageUrl from '../../static/images/chatters.png';
 import utahDotGreyImageUrl from '../../static/images/utah-dot-grey.png';
+// import Icons from '../icons/Icons';
 
 function DemoContent() {
   return (
-    <div className="demo-content primary-color-is-light">
+    <div className="demo-content">
       <div className="header">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 52" className="header__utah-brand">
           <g>
@@ -23,9 +24,24 @@ function DemoContent() {
 
       <div className="menu-bar dark-text">
         <ul>
-          <li><a href="#online-services">Online Services v</a></li>
-          <li><a href="#government">Government v</a></li>
-          <li><a href="#visit-utah">Visit Utah v</a></li>
+          <li>
+            <a href="#online-services">
+              Online Services
+              <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
+            </a>
+          </li>
+          <li>
+            <a href="#government">
+              Government
+              <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
+            </a>
+          </li>
+          <li>
+            <a href="#visit-utah" className="menu-item--selected">
+              Visit Utah
+              <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
+            </a>
+          </li>
           <li><a href="#residents">Residents</a></li>
           <li><a href="#business">Business</a></li>
         </ul>

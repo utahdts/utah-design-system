@@ -1,1 +1,1 @@
-export default (key, handler) => (e) => e.code === key && handler();
+export default (code, handler) => (e) => e.code === code && handler();

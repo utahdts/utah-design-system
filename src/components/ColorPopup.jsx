@@ -3,14 +3,15 @@ import ColorCircle from './ColorCircle';
 import colors from '../color/colors';
 import SwatchList from './SwatchList';
 import { useCssContext } from '../context/cssContext/CssContext';
+import CSS_VARIABLES_KEYS from '../enums/cssVariablesKeys';
 
 function ColorPopup() {
   const [isOpen, setIsOpen] = useState(true);
-  const { CSS_VARIABLES_KEYS, setCssVariables } = useCssContext();
+  const { setCssState } = useCssContext();
   const [selectedCircle, setSelectedCircle] = useState(CSS_VARIABLES_KEYS.PRIMARY_COLOR);
 
   function setColor(swatch) {
-    setCssVariables((oldCssVariables) => (
+    setCssState((oldCssVariables) => (
       {
         ...oldCssVariables,
         [selectedCircle]: swatch,
