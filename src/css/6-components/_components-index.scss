@@ -6,9 +6,11 @@ component specific, BEM (Block, Element, Modifier)
 
 /* ---- Base Components ---- */
 @import "base-components/button";
+@import "base-components/icon-button";
 
 /* ---- Project Components ---- */
+@import "project-components/color-picker";
 @import "project-components/color-circle";
+@import "project-components/swatch-list";
 @import "project-components/demo-content";
 @import "project-components/popup";
-@import "project-components/swatch-list";

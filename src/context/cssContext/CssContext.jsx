@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import tinycolor from 'tinycolor2';
 import colors, { colorsIndexes } from '../../color/colors';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import CSS_STATE_KEYS from '../../enums/cssStateKeys';
@@ -21,11 +22,16 @@ export function CssContextProvider({ children }) {
     [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.AZUL.swatches[colorsIndexes.primeIndex],
     [CSS_VARIABLES_KEYS.ACCENT_COLOR]: colors.INDIGO.swatches[colorsIndexes.primeIndex],
     [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: false,
+    [CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT]: false,
+    [CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT]: false,
   });
   const [cssStateValue, setCssStateValue] = useState({ cssState, setCssState });
 
   useEffect(
     () => {
+      cssState[CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT] = !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], '#fff');
+      cssState[CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT] = !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], '#fff');
+      cssState[CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT] = !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], '#fff');
       setCssStateValue({ cssState, setCssState });
     },
     [cssState, setCssState]

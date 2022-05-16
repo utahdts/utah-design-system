@@ -22,19 +22,20 @@ function ColorPopup() {
   return (
     <div className="popup">
       <div className="popup__title-bar">
-        Come and drag me!
-        <a
-          href="#toggle"
+        <div className="popup__title">Color Picker</div>
+        <button
           onClick={() => setIsOpen((oldIsOpen) => !oldIsOpen)}
+          className="icon-button icon-button--plain"
+          type="button"
         >
-          {isOpen ? 'v' : '^'}
-        </a>
+          <span className={`material-symbols-outlined icon-button__icon ${isOpen ? '' : 'icon-button__icon--rotate180'}`}>expand_circle_down</span>
+        </button>
       </div>
       {
         isOpen
           ? (
-            <div>
-              <div>
+            <div className="color-picker">
+              <div className="color-picker__selectors">
                 <ColorCircle
                   className="primary-color-background"
                   isSelected={selectedCircle === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
@@ -63,7 +64,7 @@ function ColorPopup() {
                   10
                 </ColorCircle>
               </div>
-              <div>
+              <div className="color-picker__swatches">
                 {
                   Object.values(colors).map((color) => (
                     <SwatchList

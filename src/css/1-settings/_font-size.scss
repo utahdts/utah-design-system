@@ -1,0 +1,43 @@
+/*
+############     _font-size.scss      ############
+Font size variables
+*/
+
+& {
+  --font-size-xxs: .8125rem; //13
+  --font-size-xs:  .875rem;  //14
+  --font-size-s:   .9375rem; //15
+  --font-size:     1rem;
+  --font-size-l:   1.25rem;  //20
+  --font-size-xl:  1.5rem;   //24
+  --font-size-xxl: 1.75rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.5rem;
+  --font-size-7xl: 4.5rem;   //Ginormous
+}
+
+.font-size-xxs { font-size: var(--font-size-xxs); }
+.font-size-xs  { font-size: var(--font-size-xs);  }
+.font-size-s   { font-size: var(--font-size-s);   }
+.font-size     { font-size: var(--font-size);     }
+.font-size-l   { font-size: var(--font-size-l);   }
+.font-size-xl  { font-size: var(--font-size-xl);  }
+.font-size-xxl { font-size: var(--font-size-xxl); }
+.font-size-3xl { font-size: var(--font-size-3xl); }
+.font-size-4xl { font-size: var(--font-size-4xl); }
+.font-size-5xl { font-size: var(--font-size-5xl); }
+.font-size-6xl { font-size: var(--font-size-6xl); }
+.font-size-7xl { font-size: var(--font-size-7xl); }
+
+
+& {
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-black: 900;
+}
+
+.font-normal { font-weight: var(--font-normal); }
+.font-bold { font-weight: var(--font-bold); }
+.font-black { font-weight: var(--font-black); }

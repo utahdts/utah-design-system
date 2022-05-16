@@ -4,14 +4,28 @@
 
 .color-family {
   display: flex;
+  margin: 0 0 var(--spacing-xxs) 0;
 
   &__title {
-
+    margin: 0 var(--spacing-s) 0 0;
+    padding: 0 var(--spacing-s);
+    color: white;
+    border-radius: 999px;
+    min-height: unset;
+    border: none;
+    &#{$color-is-light} {
+      color: var(--gray-color);
+    }
   }
   &__swatches {
     list-style-type: none;
+    margin: 0 0 0 auto;
+    padding: 0;
     display: flex;
     gap: 2px;
+    li {
+      padding: 0;
+    }
   }
   &__swatch {
     width: 20px;

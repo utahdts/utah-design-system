@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import useKeyEvent from '../hooks/useKeyEvent';
+import handleKeyPress from '../util/handleKeyPress';
 import joinClassNames from '../util/joinClassNames';
 
 const propTypes = {
@@ -18,13 +18,11 @@ function ColorCircle({
   isSelected,
   onClick,
 }) {
-  const onClickEvent = useKeyEvent({ codes: ['Return', 'Enter'], handler: onClick });
-
   return (
     <div
       className={joinClassNames(['color-circle', isSelected && 'selected', className])}
       onClick={onClick}
-      onKeyUp={onClickEvent}
+      onKeyUp={handleKeyPress('Enter', onClick)}
       role="button"
       tabIndex="0"
     >

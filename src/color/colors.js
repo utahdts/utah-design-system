@@ -75,7 +75,7 @@ export default {
     ],
   },
   INDIGO: {
-    title: 'indigo',
+    title: 'Indigo',
     swatches: [
       '#343e51',
       '#2a4058',

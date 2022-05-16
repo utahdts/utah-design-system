@@ -3,21 +3,17 @@
 */
 
 .popup {
-  position: absolute;
+  position: fixed;
   top: 25%;
-  right: 75%;
-  height: 500px;
-  width: 250px;
+  left: 2%;
   background-color: white;
-  padding: 11px;
-  border: 1px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.4);
 
   &__title-bar {
-    border-bottom: 1px solid black;
-    padding-bottom: 5px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs);
   }
 }

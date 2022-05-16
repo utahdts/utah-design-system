@@ -1,0 +1,13 @@
+.color-picker {
+  &__selectors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--spacing);
+    background: $neutral-gray-14;
+    padding: var(--spacing);
+  }
+  &__swatches {
+    padding: var(--spacing);
+  }
+}

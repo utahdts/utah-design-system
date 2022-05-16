@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import tinycolor from 'tinycolor2';
+import CSS_CLASS_NAMES from '../enums/cssClassNames';
 
 const propTypes = {
   colorFamily: PropTypes.shape({
@@ -13,11 +15,18 @@ const defaultProps = {
 };
 
 function SwatchList({ colorFamily, onColorSelected, selectedColor }) {
+  const baseColor = colorFamily.swatches[4];
+  const colorIsLight = !tinycolor.isReadable(baseColor, '#fff');
   return (
     <div className="color-family">
-      <div className="color-family__title">
+      <button
+        className={`color-family__title ${colorIsLight ? CSS_CLASS_NAMES.COLOR_IS_LIGHT : ''}`}
+        style={{ backgroundColor: baseColor }}
+        type="button"
+        onClick={() => onColorSelected(baseColor)}
+      >
         {colorFamily.title}
-      </div>
+      </button>
       <ul className="color-family__swatches">
         {
           colorFamily.swatches.map((swatch) => (

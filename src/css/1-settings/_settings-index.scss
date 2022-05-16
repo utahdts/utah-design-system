@@ -5,6 +5,8 @@ variables and settings
 
 @import "./class-vars";
 @import "./spacing";
+@import "./grid";
+@import "./font-size";
 @import "./color-swatches";
 
 & {
@@ -15,7 +17,7 @@ variables and settings
   --gray-color: #{$neutral-gray-04};
   --gray-medium-color: #{$neutral-gray-06};
   --gray-light-color: #{$neutral-gray-17};
-  --gray-dark: #{$neutral-gray-02};
+  --gray-dark-color: #{$neutral-gray-02};
 
   /* transition timings */
   --timing-quick: 200ms;

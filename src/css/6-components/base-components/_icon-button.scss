@@ -1,14 +1,15 @@
 /*
-############     _button.scss      ############
+############     _icon-button.scss      ############
 */
 
-button, .button {
+.icon-button {
   background: white;
   border-radius: 999px;
   border: 2px solid var(--gray-color);
   font-size: 1rem;
   min-height: 36px;
-  padding: 0 var(--spacing-xl);
+  min-width: 36px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,6 +28,22 @@ button, .button {
     &:hover {
       background-color: var(--gray-dark-color);
       border-color: var(--gray-dark-color);
+    }
+  }
+
+  &--plain {
+    border-color: transparent;
+    &:hover {
+      background-color: $neutral-gray-16;
+      border-color: $neutral-gray-16;
+      color: var(--gray-dark-color);
+    }
+  }
+
+  &__icon {
+    transition: all var(--timing-quick) ease-in-out;
+    &--rotate180 {
+      transform: rotate(180deg);
     }
   }
 

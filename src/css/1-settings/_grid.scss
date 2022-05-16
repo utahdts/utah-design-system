@@ -1,0 +1,30 @@
+/*
+############     _font-size.scss      ############
+Grid variables
+*/
+
+& {
+  --grid-fixed: 1224px;
+}
+
+.grid-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.grid-fixed {
+  max-width: var(--grid-fixed);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-l);
+
+  &--2col {
+    grid-template-columns: 1fr 1fr;
+  }
+  &--3col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &--4col {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
