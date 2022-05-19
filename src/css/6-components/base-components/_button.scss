@@ -15,18 +15,88 @@ button, .button {
   cursor: pointer;
   transition: all 200ms ease-in-out;
   color: var(--gray-color);
-  
+
   &:hover {
     background: var(--gray-color);
     color: white;
   }
-
+}
+.button {
   &--solid {
     background: var(--gray-color);
     color: white;
+
     &:hover {
       background-color: var(--gray-dark-color);
       border-color: var(--gray-dark-color);
+    }
+
+    &.button--primary-color {
+      background-color: var(--primary-color);
+      color: white;
+      &:hover {
+        //todo: use a dark primary
+      }
+      @at-root #{$primary-color-is-light}#{&} {
+        color: var(--gray-on-primary-color);
+      }
+    }
+    &.button--secondary-color {
+      background-color: var(--secondary-color);
+      color: white;
+      &:hover {
+        //todo: use a dark secondary
+      }
+      @at-root #{$secondary-color-is-light}#{&} {
+        color: var(--gray-on-secondary-color);
+      }
+    }
+    &.button--accent-color {
+      background-color: var(--accent-color);
+      color: white;
+      &:hover {
+        //todo: use a dark accent
+      }
+      @at-root #{$accent-color-is-light}#{&} {
+        color: var(--gray-on-accent-color);
+      }
+    }
+
+
+  }
+
+  &--primary-color {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    &:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    @at-root #{$primary-color-is-light}#{&} {
+      //dark primary color because its too light
+      border-color: var(--primary-color-dark);
+      color: var(--primary-color-dark);
+      &:hover {
+        background-color: var(--primary-color-dark);
+        color: white;
+      }
+    }
+  }
+  &--secondary-color {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    &:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+  }
+  &--accent-color {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    &:hover {
+      background-color: var(--accent-color);
+      color: white;
     }
   }
 

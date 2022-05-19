@@ -1,9 +1,11 @@
+/* eslint-disable max-len */
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
 import colors, { colorsIndexes } from '../../color/colors';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import CSS_STATE_KEYS from '../../enums/cssStateKeys';
+import readableColor from '../../color/readableColor';
 
 // The global context object that tracks the context's state and provides components like the <CssContext.Provider/>
 const CssContext = React.createContext();
@@ -16,11 +18,25 @@ export function useCssContext() {
   return useContext(CssContext);
 }
 
+const fallbackGrayColors = ['#474747', '#3F3F3F', '#373737', '#2F2F2F', '#272727', '#1F1F1F', '#171717', '#0F0F0F', '#070707'];
+
 export function CssContextProvider({ children }) {
   const [cssState, setCssState] = useState({
     [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.PURPLE.swatches[colorsIndexes.primeIndex],
+    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.PURPLE.swatches[0],
+    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.PURPLE.swatches[17],
+    [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+
     [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.AZUL.swatches[colorsIndexes.primeIndex],
+    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]: colors.AZUL.swatches[1],
+    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]: colors.AZUL.swatches[17],
+    [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+
     [CSS_VARIABLES_KEYS.ACCENT_COLOR]: colors.INDIGO.swatches[colorsIndexes.primeIndex],
+    [CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]: colors.INDIGO.swatches[1],
+    [CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]: colors.INDIGO.swatches[17],
+    [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+
     [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: false,
     [CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT]: false,
     [CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT]: false,
@@ -32,6 +48,9 @@ export function CssContextProvider({ children }) {
       cssState[CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT] = !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], '#fff');
       cssState[CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT] = !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], '#fff');
       cssState[CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT] = !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], '#fff');
+      cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR] = readableColor({ color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' });
+      cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR] = readableColor({ color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' });
+      cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR] = readableColor({ color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' });
       setCssStateValue({ cssState, setCssState });
     },
     [cssState, setCssState]

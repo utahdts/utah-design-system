@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
-import CSS_CLASS_NAMES from '../enums/cssClassNames';
+import CSS_CLASS_NAMES from '../../enums/cssClassNames';
 
 const propTypes = {
   colorFamily: PropTypes.shape({

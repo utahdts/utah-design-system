@@ -1,13 +1,52 @@
+/*
+############     _color-picker.scss      ############
+*/
+
+$color-picker-base-size: 130px;
 .color-picker {
-  &__selectors {
+    height: $color-picker-base-size;
+    width: $color-picker-base-size;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: var(--spacing);
-    background: $neutral-gray-14;
-    padding: var(--spacing);
-  }
-  &__swatches {
-    padding: var(--spacing);
-  }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    // border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &.selected {
+      // border: 2px solid $electric-blue-04;
+      // box-shadow: inset 0 4px 10px rgba($color: black, $alpha: 0.6),
+      //   inset 0px -2px 8px rgba($color: white, $alpha: 0.7),
+      //   0px 2px 8px rgba($color: black, $alpha: .6),
+      //   0px 0px 8px 4px rgba($color: $electric-blue-04, $alpha: 1);
+      box-shadow: 0 4px 10px rgba($color: black, $alpha: 0.6);
+      z-index: 1;
+    }
+
+    &__hex-color-gray {
+      color: white;
+      background: #474747;
+      padding: 2px 4px;
+    }
+
+    &--small {
+      width: calc(#{$color-picker-base-size} / 2);
+      height: calc(#{$color-picker-base-size} / 2);
+    }
+    &--light {
+      color: var(--gray-color);
+    }
+
+    @at-root #{$primary-color-is-light}#{&}.primary-color-background {
+      color: var(--gray-on-primary-color);
+    }
+    @at-root #{$secondary-color-is-light}#{&}.secondary-color-background {
+      color: var(--gray-on-secondary-color);
+    }
+    @at-root #{$accent-color-is-light}#{&}.accent-color-background {
+      color: var(--gray-on-accent-color);
+    }
 }

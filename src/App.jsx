@@ -1,4 +1,4 @@
-import ColorPopup from './components/ColorPopup';
+import ColorPopup from './components/color/ColorPopup';
 import DemoContent from './components/demo/DemoContent';
 import DemoAppStyle from './components/demo/DemoAppStyle';
 import './css/index.scss';

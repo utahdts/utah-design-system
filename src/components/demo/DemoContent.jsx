@@ -59,10 +59,19 @@ function DemoContent() {
 
       <div className="grid-wrapper px-spacing-ls">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
-          <div className="card primary-color-background" style={{ height: '200px' }}>one</div>
           <div className="card primary-color-background">two</div>
           <div className="card primary-color-background">three</div>
+          <div className="card primary-color-background text-on-primary-color">
+            <div className="material-symbols-outlined card__icon">settings_suggest</div>
+            <div className="card__title mb-spacing">Services</div>
+            <div className="card__text mb-spacing-l">Find a service based on your individual needs</div>
+            <button type="button" className="button--secondary-color button--solid mb-spacing-l">Find Services</button>
+          </div>
         </div>
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <button type="button" className="button--primary-color">This is a button</button>
       </div>
 
       <div className="squares">
@@ -150,13 +159,13 @@ function DemoContent() {
 
       <div className="fonts-demo primary-color-background">
         <div className="text-on-primary-color">
-          <div className="font-size-xxs">font-size-xxs .8125rem 13px</div>
+          <div className="font-size-2xs">font-size-2xs .8125rem 13px</div>
           <div className="font-size-xs ">font-size-xs  .875rem 14px</div>
           <div className="font-size-s  ">font-size-s   .9375rem 15px</div>
           <div className="font-size    ">font-size     1rem 16px</div>
           <div className="font-size-l  ">font-size-l   1.25rem 20px</div>
           <div className="font-size-xl ">font-size-xl  1.5rem 24px</div>
-          <div className="font-size-xxl">font-size-xxl 1.75rem 28px</div>
+          <div className="font-size-2xl">font-size-2xl 1.75rem 28px</div>
           <div className="font-size-3xl">font-size-3xl 2rem 32px</div>
           <div className="font-size-4xl">font-size-4xl 2.5rem 40px</div>
           <div className="font-size-5xl">font-size-5xl 3rem 48px</div>
@@ -164,13 +173,13 @@ function DemoContent() {
           <div className="font-size-7xl">font-size-7xl 4.5rem 72px</div>
         </div>
         <div className="text-on-primary-color font-bold">
-          <div className="font-size-xxs">font-size-xxs .8125rem 13px</div>
+          <div className="font-size-2xs">font-size-2xs .8125rem 13px</div>
           <div className="font-size-xs ">font-size-xs  .875rem 14px</div>
           <div className="font-size-s  ">font-size-s   .9375rem 15px</div>
           <div className="font-size    ">font-size     1rem 16px</div>
           <div className="font-size-l  ">font-size-l   1.25rem 20px</div>
           <div className="font-size-xl ">font-size-xl  1.5rem 24px</div>
-          <div className="font-size-xxl">font-size-xxl 1.75rem 28px</div>
+          <div className="font-size-2xl">font-size-2xl 1.75rem 28px</div>
           <div className="font-size-3xl">font-size-3xl 2rem 32px</div>
           <div className="font-size-4xl">font-size-4xl 2.5rem 40px</div>
           <div className="font-size-5xl">font-size-5xl 3rem 48px</div>
