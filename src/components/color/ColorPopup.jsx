@@ -1,15 +1,41 @@
-import { useState } from 'react';
-import ColorPicker from './ColorPicker';
+import { useRef, useState } from 'react';
 import colors from '../../color/colors';
-import SwatchList from './SwatchList';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import useMousePositionTracker from '../../hooks/useMousePositionTracker';
+import rectContainsPoint from '../../util/rectContainsPoint';
 import ColorCompare from './ColorCompare';
+import ColorPicker from './ColorPicker';
+import SwatchList from './SwatchList';
 
 function ColorPopup() {
   const [isOpen, setIsOpen] = useState(true);
   const { cssState, setCssState } = useCssContext();
   const [selectedCircle, setSelectedCircle] = useState(CSS_VARIABLES_KEYS.PRIMARY_COLOR);
+  const [mousePositionOffset, setMousePositionOffset] = useState({ x: 0, y: 0 });
+  const draggableDivRef = useRef(null);
+
+  const { mousePosition } = useMousePositionTracker({
+    shouldBeginDrag: (e) => {
+      const mousePoint = ({ x: e.clientX, y: e.clientY });
+      const isMousedownInsideDiv = rectContainsPoint(draggableDivRef.current.getBoundingClientRect(), mousePoint);
+
+      if (isMousedownInsideDiv) {
+        // pick offset between top left and click position so that when mouse moves, it maintains that offset
+        setMousePositionOffset({
+          x: mousePoint.x - draggableDivRef.current.getBoundingClientRect().left,
+          y: mousePoint.y - draggableDivRef.current.getBoundingClientRect().top,
+        });
+      }
+
+      return isMousedownInsideDiv;
+    },
+  });
+
+  // remember last known mouse position so popup stays in place after drag finishes
+  const mousePositionRef = useRef(mousePosition);
+  mousePositionRef.current = mousePosition || mousePositionRef.current;
+
   function setColor(swatch) {
     setCssState((oldCssVariables) => (
       {
@@ -20,10 +46,17 @@ function ColorPopup() {
   }
 
   return (
-    <div className="popup">
-      <div
-        className="popup__title-bar"
-      >
+    <div
+      className="popup"
+      role="button"
+      style={{
+        position: mousePositionRef.current ? 'absolute' : null,
+        left: mousePositionRef.current?.x ? `${mousePositionRef.current.x - mousePositionOffset.x}px` : null,
+        top: mousePositionRef.current?.y ? `${mousePositionRef.current.y - mousePositionOffset.y + window.scrollY}px` : null,
+      }}
+      tabIndex="0"
+    >
+      <div className="popup__title-bar" ref={draggableDivRef}>
         <div className="popup__title">Color Picker</div>
         <button
           onClick={(e) => {
