@@ -117,7 +117,7 @@ button, .button {
         border-color: var(--secondary-color-dark);
       }
       @at-root #{$secondary-color-is-light}#{&} {
-        color: var(--gray-on-secondary-color)
+        color: var(--gray-on-secondary-color);
         border-color: var(--secondary-color-dark);
         &:hover {
           color: white;
