@@ -27,14 +27,14 @@ export function CssContextProvider({ children }) {
     [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.PURPLE.swatches[17],
     [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
 
-    [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.AZUL.swatches[colorsIndexes.primeIndex],
-    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]: colors.AZUL.swatches[1],
-    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]: colors.AZUL.swatches[17],
+    [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.CELEDON_GREEN.swatches[colorsIndexes.primeIndex],
+    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]: colors.CELEDON_GREEN.swatches[1],
+    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]: colors.CELEDON_GREEN.swatches[17],
     [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
 
-    [CSS_VARIABLES_KEYS.ACCENT_COLOR]: colors.INDIGO.swatches[colorsIndexes.primeIndex],
-    [CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]: colors.INDIGO.swatches[1],
-    [CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]: colors.INDIGO.swatches[17],
+    [CSS_VARIABLES_KEYS.ACCENT_COLOR]: colors.ELECTRIC_YELLOW.swatches[colorsIndexes.primeIndex],
+    [CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]: colors.ELECTRIC_YELLOW.swatches[1],
+    [CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]: colors.ELECTRIC_YELLOW.swatches[17],
     [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
 
     [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: false,

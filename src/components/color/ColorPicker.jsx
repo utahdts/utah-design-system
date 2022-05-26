@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
+import isLightColor from '../../color/isLightColor';
 import handleKeyPress from '../../util/handleKeyPress';
 import joinClassNames from '../../util/joinClassNames';
 
@@ -25,7 +26,7 @@ function ColorPicker({
   isSelected,
   onClick,
 }) {
-  const isLight = !tinycolor.isReadable(color, '#fff');
+  const isLight = isLightColor(color);
   return (
     <div
       className={joinClassNames(['color-picker', isSelected && 'selected', isLight && 'color-picker--light', className])}

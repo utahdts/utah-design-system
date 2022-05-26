@@ -4,6 +4,9 @@ import eslintPlugin from 'vite-plugin-eslint';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    devSourcemap: true,
+  },
   plugins: [
     react(),
     eslintPlugin(),

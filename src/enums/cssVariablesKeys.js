@@ -11,6 +11,7 @@ const CSS_VARIABLES_KEYS = {
   ACCENT_COLOR_DARK: '--accent-color-dark',
   ACCENT_COLOR_LIGHT: '--accent-color-light',
   GRAY_ON_ACCENT_COLOR: '--gray-on-accent-color',
+  GRAY_COLOR: '--gray-color',
 };
 
 export default CSS_VARIABLES_KEYS;

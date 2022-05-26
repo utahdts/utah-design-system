@@ -4,12 +4,12 @@ import colors from '../../color/colors';
 import SwatchList from './SwatchList';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import ColorCompare from './ColorCompare';
 
 function ColorPopup() {
   const [isOpen, setIsOpen] = useState(true);
   const { cssState, setCssState } = useCssContext();
   const [selectedCircle, setSelectedCircle] = useState(CSS_VARIABLES_KEYS.PRIMARY_COLOR);
-
   function setColor(swatch) {
     setCssState((oldCssVariables) => (
       {
@@ -21,10 +21,16 @@ function ColorPopup() {
 
   return (
     <div className="popup">
-      <div className="popup__title-bar">
+      <div
+        className="popup__title-bar"
+      >
         <div className="popup__title">Color Picker</div>
         <button
-          onClick={() => setIsOpen((oldIsOpen) => !oldIsOpen)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsOpen((oldIsOpen) => !oldIsOpen);
+          }}
           className="icon-button icon-button--plain mr-spacing"
           type="button"
         >
@@ -67,7 +73,8 @@ function ColorPopup() {
                     </ColorPicker>
                   </div>
                   <div className="color-pickers__compare-colors">
-                    <div className="primary-color--background">1</div>
+                    <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} />
+                    <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} />
                   </div>
                 </div>
 
@@ -102,6 +109,10 @@ function ColorPopup() {
                       Light
                     </ColorPicker>
                   </div>
+                  <div className="color-pickers__compare-colors">
+                    <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} />
+                    <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} />
+                  </div>
                 </div>
 
                 <div className="color-pickers__group">
@@ -134,6 +145,11 @@ function ColorPopup() {
                     >
                       Light
                     </ColorPicker>
+                  </div>
+
+                  <div className="color-pickers__compare-colors">
+                    <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} />
+                    <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} />
                   </div>
                 </div>
 

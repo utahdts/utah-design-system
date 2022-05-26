@@ -1,4 +1,5 @@
 import tinycolor from 'tinycolor2';
+import isLightColor from './isLightColor';
 
 /**
  * Given a color (#123) and a colorList, find the first color on the list the conforms to the target level: AA or AAA
@@ -11,7 +12,7 @@ import tinycolor from 'tinycolor2';
 function readableColor({ color, colorList, targetLevel = 'AA' }) {
   let foundColor = colorList.find((c) => (tinycolor.isReadable(color, c, { level: targetLevel, size: 'small' })));
   if (!foundColor) {
-    const isLight = !tinycolor.isReadable(color, '#fff');
+    const isLight = isLightColor(color);
     foundColor = isLight ? '#000' : '#FFF';
   }
 

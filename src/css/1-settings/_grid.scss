@@ -27,4 +27,8 @@ Grid variables
   &--4col {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+
+  .grid-column-span-2 {
+    grid-column: span 2;
+  }
 }

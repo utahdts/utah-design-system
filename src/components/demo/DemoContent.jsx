@@ -1,11 +1,17 @@
-import kidnapperImageUrl from '../../static/images/kidnapper.png';
+// import kidnapperImageUrl from '../../static/images/kidnapper.png';
+import dhhsBrand from '../../static/images/DHHS-Logo.svg';
 import babyImageUrl from '../../static/images/baby.png';
 import traxImageUrl from '../../static/images/trax.png';
 import chattersImageUrl from '../../static/images/chatters.png';
 import utahDotGreyImageUrl from '../../static/images/utah-dot-grey.png';
+import getBorderClass from '../../color/getBorderClass';
+import { useCssContext } from '../../context/cssContext/CssContext';
+import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 // import Icons from '../icons/Icons';
 
 function DemoContent() {
+  const { cssState } = useCssContext();
+
   return (
     <div className="demo-content">
       <div className="header">
@@ -50,6 +56,7 @@ function DemoContent() {
       <div className="hero mb-spacing-l">
         <div className="hero__image" />
         <svg className="hero__slant-color" viewBox="0 0 4000 400"><g><path d="M0,0H4000V400H268L0,0Z" /></g></svg>
+        <div className="hero__branding"><img src={dhhsBrand} alt="Health and Human Services Logo" /></div>
         <div className="hero__title-wrapper text-on-primary-color">
           <div className="hero__title">Department of Health &amp; Human Services</div>
           <div className="hero__title-h-divider" />
@@ -59,103 +66,214 @@ function DemoContent() {
 
       <div className="grid-wrapper px-spacing-ls">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
-          <div className="card primary-color-background">two</div>
-          <div className="card primary-color-background">three</div>
           <div className="card primary-color-background text-on-primary-color">
             <div className="material-symbols-outlined card__icon">settings_suggest</div>
+            <div className="card__title mb-spacing text-center">A to Z</div>
+            <div className="card__text mb-spacing-l">Find what you need here</div>
+            <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
+          </div>
+          <div className="card primary-color-background text-on-primary-color">
+            <div className="material-symbols-outlined card__icon">volunteer_activism</div>
+            <div className="card__title mb-spacing">Providers</div>
+            <div className="card__text mb-spacing-l mx-spacing text-center">Apply for a license, get a contract, or look up a policy</div>
+            <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
+          </div>
+          <div className="card primary-color-background text-on-primary-color">
+            <div className="material-symbols-outlined card__icon">campaign</div>
             <div className="card__title mb-spacing">Services</div>
-            <div className="card__text mb-spacing-l">Find a service based on your individual needs</div>
-            <button type="button" className="button--secondary-color button--solid mb-spacing-l">Find Services</button>
+            <div className="card__text mb-spacing-l text-center">Programs and services we provide</div>
+            <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
           </div>
         </div>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <button type="button" className="button--primary-color">This is a button</button>
+      <div className="grid-wrapper px-spacing-ls">
+        <div className="grid-fixed grid-fixed--3col mb-spacing-l">
+
+          <div className="card card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
+            <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Utah State Tax Commission</div>
+            <hr className="primary-color-background" />
+            <ul>
+              <li><a href="#dmv">Division of Motor Vehicles (DMV) <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#permits">Temporary Permits <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Renew Your Motor Vehicle Registration <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Vehicle inspections <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+            </ul>
+            <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
+          </div>
+
+          <div className="card card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
+            <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Cultural &amp; Community Engagement</div>
+            <hr className="primary-color-background" />
+            <ul>
+              <li><a href="#dmv">Division of Motor Vehicles (DMV) <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#permits">Temporary Permits <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Utah State Library <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Services for the Deaf and Hard of Hearing <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+            </ul>
+            <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
+          </div>
+
+          <div className="card card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
+            <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Health &amp; Human Services </div>
+            <hr className="primary-color-background" />
+            <ul>
+              <li><a href="#dmv">Office of Vital Records <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#permits">Epidemiology <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Coronavirus <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Mental Health Resources <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+            </ul>
+            <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
+          </div>
+
+        </div>
       </div>
 
-      <div className="squares">
-        <div className="squares__square">
-          <div className="square__title">
-            Utah State Tax Commission
-          </div>
-          <ul>
-            <li>Division of Motor Vehicles (DMV) &gt;</li>
-            <li>Temporary Permits &gt;</li>
-            <li>Renew Your Motor Vehicle registration &gt;</li>
-            <li>Vehicle inspections &gt;</li>
-          </ul>
-          <div className="square__button">
-            <button type="button">View More</button>
-          </div>
-        </div>
+      <div className="grid-wrapper px-spacing-ls">
+        <div className="grid-fixed grid-fixed--3col mb-spacing-l">
+          <div className="card card--align-flex-start gray-color-background dark-background-color white-color p-spacing-l grid-column-span-2">
+            <div className="card__title mb-spacing">Card Title Goes Here</div>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+              architectobeate vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+              sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+              voluptatem sequi nesciunt.
+            </p>
 
-        <div className="squares__square">
-          <div className="square__title">
-            Department of Cultural &amp; Community Engagement
+            <p>
+              Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+              velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+              aliquam quaerat boluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
+              corporis suscipit laboriosam.
+            </p>
+            <button type="button" className={`button--accent-color button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>Find Services</button>
           </div>
-          <ul>
-            <li>Arts and Museums &gt;</li>
-            <li>Housing and Community Development &gt;</li>
-            <li>Utah State Library &gt;</li>
-            <li>Services for hte Deaf and Hard of Hearing &gt;</li>
-          </ul>
-          <div className="square__button">
-            <button type="button">View More</button>
-          </div>
-        </div>
-
-        <div className="squares__square">
-          <div className="square__title">
-            Department of Health &amp; Human Services
-          </div>
-          <ul>
-            <li>Office of Vital Records &gt;</li>
-            <li>Epidemiology &gt;</li>
-            <li>Coronavirus &gt;</li>
-            <li>Mental Health Resources &gt;</li>
-          </ul>
-          <div className="square__button">
-            <button type="button">View More</button>
-          </div>
-        </div>
-
-        <div className="squares__square--double">
-          <div className="square__title">
-            Title of This Section
-          </div>
-
-          <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-            architectobeate vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-            sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt.
-          </p>
-
-          <p>
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-            velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-            aliquam quaerat boluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
-            corporis suscipit laboriosam.
-          </p>
-
-          <div className="square__button">
-            <button type="button">View More</button>
-          </div>
-
-        </div>
-
-        <div className="squares__square">
-          <div className="square__title">
-            Baby Your Baby
-          </div>
-          <img src={kidnapperImageUrl} alt="" />
-          <div className="square__button">
-            <button type="button">View More</button>
+          <div className="card card--align-flex-start gray-color-background white-color p-spacing-l">
+            Something
           </div>
         </div>
       </div>
+
+      <div className="grid-wrapper px-spacing-ls">
+        <div className="grid-fixed grid-fixed--2col mb-spacing-l">
+          <div className="gray-color-background dark-background-color p-spacing-l">
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }} className="mb-spacing">
+              <button type="button" className="button ">This is a default button</button>
+              <button type="button" className="button button--solid">This is a solid default button</button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }} className="mb-spacing">
+              <button type="button" className="button button--primary-color">This is a primary button</button>
+              <button type="button" className="button button--primary-color button--solid">This is a solid primary button</button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }} className="mb-spacing">
+              <button type="button" className="button button--secondary-color">This is a secondary button</button>
+              <button type="button" className="button button--secondary-color button--solid">This is a solid secondary button</button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+              <button type="button" className="button button--accent-color">This is a accent button</button>
+              <button type="button" className="button button--accent-color button--solid">This is a solid accent button</button>
+            </div>
+          </div>
+          <div className="gray-color-light-background p-spacing-l">
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }} className="mb-spacing">
+              <button type="button" className="button ">This is a default button</button>
+              <button type="button" className="button button--solid">This is a solid default button</button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }} className="mb-spacing">
+              <button type="button" className="button--primary-color">This is a primary button</button>
+              <button type="button" className="button button--primary-color button--solid">This is a solid primary button</button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }} className="mb-spacing">
+              <button type="button" className="button--secondary-color">This is a secondary button</button>
+              <button type="button" className="button button--secondary-color button--solid">This is a solid secondary button</button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+              <button type="button" className="button--accent-color">This is a accent button</button>
+              <button type="button" className="button button--accent-color button--solid">This is a solid accent button</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="heading-section secondary-color-light-background p-spacing-l">
+        <h1>Heading 1 - This is a heading</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <h2>Heading 2 - This is a heading</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <h3>Heading 3 - This is a heading</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <h4>Heading 4 - This is a heading</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <h5>Heading 5 - This is a heading</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <h6>Heading 6 - This is a heading</h6>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      {/*
+
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+          laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+          architectobeate vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+          sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+          voluptatem sequi nesciunt.
+        </p>
+
+        <p>
+          Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+          velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+          aliquam quaerat boluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
+          corporis suscipit laboriosam.
+        </p>
+
+        <div className="square__button">
+          <button type="button">View More</button>
+        </div>
+
+      </div>
+
+      <div className="squares__square">
+        <div className="square__title">
+          Baby Your Baby
+        </div>
+        <img src={kidnapperImageUrl} alt="" />
+        <div className="square__button">
+          <button type="button">View More</button>
+        </div>
+      </div>
+    </div> */}
 
       <div className="fonts-demo primary-color-background">
         <div className="text-on-primary-color">
@@ -188,20 +306,22 @@ function DemoContent() {
         </div>
       </div>
 
-      <div className="form">
+      <div className="form grid-wrapper">
         <img src={babyImageUrl} alt="baby" width="100%" />
 
-        <div className="form__section">
+        <div className="form__section py-spacing">
           <div className="section__title">
-            <span className="title__number">1</span>
+            <span className="title__number mx-spacing">1</span>
             <span className="title__name">Personal Information</span>
           </div>
 
-          <div className="section__inputs">
-            <div className="section__input">
-              <div className="input__label" htmlFor="firstName">First Name</div>
-              <div className="input__input">
-                <input id="firstName" name="firstName" />
+          <div className="section__inputs  pl-spacing-l mb-spacing">
+            <div className="section__input ">
+              <div className="input-wrapper">
+                <label>
+                  First Name
+                  <input type="text" id="firstName" name="firstName" />
+                </label>
               </div>
             </div>
 
@@ -241,77 +361,75 @@ function DemoContent() {
             </div>
           </div>
         </div>
-
-      </div>
-
-      <div className="form__section">
-        <div className="section__title">
-          <span className="title__number">2</span>
-          <span className="title__name">Vehicle Information</span>
-        </div>
-
-        <div className="section__inputs">
-          <div className="section__input">
-            <div className="input__label">Do you have your renewal notice?</div>
-            <div className="input__input">
-
-              <label htmlFor="renewalNotice-no">
-                no
-                <input id="renewalNotice-no" type="radio" name="renewalNotice" value="no" />
-              </label>
-              <label htmlFor="renewalNotice-yes">
-                yes
-                <input id="renewalNotice-yes" type="radio" name="renewalNotice" value="yes" />
-              </label>
-            </div>
+        <div className="form__section">
+          <div className="section__title">
+            <span className="title__number">2</span>
+            <span className="title__name">Vehicle Information</span>
           </div>
 
-          <div className="section__input">
-            <div className="input__label" htmlFor="currentOwnerLastName">Current Owner Last Name</div>
-            <div className="input__input">
-              <input id="currentOwnerLastName" name="currentOwnerLastName" />
+          <div className="section__inputs">
+            <div className="section__input">
+              <div className="input__label">Do you have your renewal notice?</div>
+              <div className="input__input">
+
+                <label htmlFor="renewalNotice-no">
+                  no
+                  <input id="renewalNotice-no" type="radio" name="renewalNotice" value="no" />
+                </label>
+                <label htmlFor="renewalNotice-yes">
+                  yes
+                  <input id="renewalNotice-yes" type="radio" name="renewalNotice" value="yes" />
+                </label>
+              </div>
             </div>
-          </div>
 
-          <div className="section__input">
-            <div className="input__label" htmlFor="physicalZipCode">Physical ZIP Code</div>
-            <div className="input__input">
-              <input id="physicalZipCode" name="physicalZipCode" />
+            <div className="section__input">
+              <div className="input__label" htmlFor="currentOwnerLastName">Current Owner Last Name</div>
+              <div className="input__input">
+                <input id="currentOwnerLastName" name="currentOwnerLastName" />
+              </div>
             </div>
-          </div>
 
-          <div className="section__input">
-            <div className="input__label">Does your vehicle have a license plate?</div>
-            <div className="input__input">
-
-              <label htmlFor="licensePlate-no">
-                no
-                <input id="licensePlate-no" type="radio" name="licensePlate" value="no" />
-              </label>
-              <label htmlFor="licensePlate-yes">
-                yes
-                <input id="licensePlate-yes" type="radio" name="licensePlate" value="yes" />
-              </label>
+            <div className="section__input">
+              <div className="input__label" htmlFor="physicalZipCode">Physical ZIP Code</div>
+              <div className="input__input">
+                <input id="physicalZipCode" name="physicalZipCode" />
+              </div>
             </div>
-          </div>
 
-          <div className="section__input">
-            <div className="input__label" htmlFor="licensePlate">License Plate</div>
-            <div className="input__input">
-              <input id="licensePlate" name="licensePlate" />
+            <div className="section__input">
+              <div className="input__label">Does your vehicle have a license plate?</div>
+              <div className="input__input">
+
+                <label htmlFor="licensePlate-no">
+                  no
+                  <input id="licensePlate-no" type="radio" name="licensePlate" value="no" />
+                </label>
+                <label htmlFor="licensePlate-yes">
+                  yes
+                  <input id="licensePlate-yes" type="radio" name="licensePlate" value="yes" />
+                </label>
+              </div>
             </div>
-          </div>
 
-          <div className="section__input">
-            <div className="input__label" htmlFor="vin">VIN (last 8 digits)</div>
-            <div className="input__input">
-              <input id="vin" name="vin" />
+            <div className="section__input">
+              <div className="input__label" htmlFor="licensePlate">License Plate</div>
+              <div className="input__input">
+                <input id="licensePlate" name="licensePlate" />
+              </div>
             </div>
-          </div>
 
-          <div className="section__input--notice">
-            <div className="input__notice">
-              Your license plate and VIN can be found on a previous registration
+            <div className="section__input">
+              <div className="input__label" htmlFor="vin">VIN (last 8 digits)</div>
+              <div className="input__input">
+                <input id="vin" name="vin" />
+              </div>
+            </div>
+
+            <div className="section__input--notice">
+              <div className="input__notice">
+                Your license plate and VIN can be found on a previous registration
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,12 @@
+.color-compare {
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--spacing-2xs);
+  &__swatch {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  &__contrast {
+    margin-left: var(--spacing-2xs);
+  }
+}

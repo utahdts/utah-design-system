@@ -11,6 +11,7 @@ variables and settings
 
 & {
   /* color */
+  /* ######## Pick these colors to match your desired style ######## */
   --primary-color: purple;
   --primary-color-dark: rgb(50, 0, 50);
   --primary-color-light: rgb(219, 159, 219);
@@ -25,6 +26,7 @@ variables and settings
   --accent-color-dark: rgb(114, 97, 0);
   --accent-color-light: rgb(245, 238, 196);
   --gray-on-accent-color: #474747;
+  /* ######## --------------------------------------------- ######## */
 
   --gray-color: #{$neutral-gray-04};
   --gray-medium-color: #{$neutral-gray-06};
@@ -37,18 +39,33 @@ variables and settings
   --timing-slow: 600ms;
 }
 
+ /* color utility classes */
 .primary-color-background { background-color: var(--primary-color); }
 .primary-color-dark-background { background-color: var(--primary-color-dark); }
 .primary-color-light-background { background-color: var(--primary-color-light); }
 .gray-on-primary-background { background-color: var(--gray-on-primary-color); }
+
+.primary-color { color: var(--primary-color); }
+.primary-color-border { border-color: var(--primary-color); }
 
 .secondary-color-background { background-color: var(--secondary-color); }
 .secondary-color-dark-background { background-color: var(--secondary-color-dark); }
 .secondary-color-light-background { background-color: var(--secondary-color-light); }
 .gray-on-secondary-background { background-color: var(--gray-on-secondary-color); }
 
+.secondary-color { color: var(--secondary-color) };
+.secondary-color-border { border-color: var(--secondary-color) };
+
 .accent-color-background { background-color: var(--accent-color); }
 .accent-color-dark-background { background-color: var(--accent-color-dark); }
 .accent-color-light-background { background-color: var(--accent-color-light); }
 .gray-on-accent-background { background-color: var(--gray-on-accent-color); }
+
+.accent-color { color: var(--accent-color) };
+.accent-color-border { border-color: var(--accent-color) };
+
+.gray-color-background { background-color: var(--gray-color); }
+.gray-color-light-background { background-color: var(--gray-light-color) }
+
+.white-color { color: white; }
 

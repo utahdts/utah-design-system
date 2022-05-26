@@ -15,3 +15,35 @@ utility classes, atomic css
 	position: absolute;
 	width: 1px;
 }
+
+/* alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* ----- Positioning ---- */
+.hcenter {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.vcenter {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.vcenter.right {
+	right: 0;
+}
+
+.vcenter.left {
+	left: 0;
+}
+
+.vcenter.hcenter {
+	transform: translate(-50%, -50%);
+}
+
