@@ -321,12 +321,16 @@ function DemoContent() {
             </div>
 
             <div className="section__inputs pl-spacing-l mb-spacing">
-              <div className="section__input ">
+              {/* <div className="section__input ">
                 <div className="input-wrapper">
-                  <label>
-                    First Name
-                    <input type="text" id="firstName" name="firstName" />
-                  </label>
+                  <label>First Name</label>
+                  <input type="text" id="firstName" name="firstName" />
+                </div>
+              </div> */}
+              <div className="section__input">
+                <div className="input__label" htmlFor="lastName">First Name</div>
+                <div className="input__input">
+                  <input id="firstName" name="firstName" />
                 </div>
               </div>
 
@@ -375,14 +379,14 @@ function DemoContent() {
             <div className="section__inputs pl-spacing-l mb-spacing">
               <div className="section__input">
                 <div className="input__label">Do you have your renewal notice?</div>
-                <div className="input__input">
+                <div className="input__input input__radio">
 
                   <label htmlFor="renewalNotice-no">
-                    no
+                    No&nbsp;
                     <input id="renewalNotice-no" type="radio" name="renewalNotice" value="no" />
                   </label>
                   <label htmlFor="renewalNotice-yes">
-                    yes
+                    Yes&nbsp;
                     <input id="renewalNotice-yes" type="radio" name="renewalNotice" value="yes" />
                   </label>
                 </div>
@@ -404,14 +408,14 @@ function DemoContent() {
 
               <div className="section__input">
                 <div className="input__label">Does your vehicle have a license plate?</div>
-                <div className="input__input">
+                <div className="input__input input__radio">
 
                   <label htmlFor="licensePlate-no">
-                    no
+                    No&nbsp;
                     <input id="licensePlate-no" type="radio" name="licensePlate" value="no" />
                   </label>
                   <label htmlFor="licensePlate-yes">
-                    yes
+                    Yes&nbsp;
                     <input id="licensePlate-yes" type="radio" name="licensePlate" value="yes" />
                   </label>
                 </div>
@@ -436,6 +440,12 @@ function DemoContent() {
                   Your license plate and VIN can be found on a previous registration
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="form__section mx-spacing-l">
+            <div className="section__title">
+              <span className="title__number mx-spacing">3</span>
+              <button type="submit">Start Renewal</button>
             </div>
           </div>
         </div>

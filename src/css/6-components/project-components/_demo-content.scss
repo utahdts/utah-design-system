@@ -333,25 +333,38 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border-left: 2px solid var(--secondary-color);
+  gap: 1.5rem;
+  position: relative;
 
   .section__title {
     color: var(--secondary-color);
+    position: relative;
+    padding-top: .35rem;
+    padding-left: 2.2rem;
+    font-size: var(--font-size-xl);
 
     .title__number {
       border: 1px solid var(--secondary-color);
       border-radius: 50px;
       display: inline-block;
-      min-width: 20px;
-      padding: 10px;
+      min-width: 30px;
+      padding: .7rem;
       text-align: center;
       background: white;
-      position: relative;
+      position: absolute;
+      top: -.5rem;
+      left: -2.75rem;
+      z-index: 999;
     }
+    
   }
+
+
   .section__inputs {
-    margin-left: var(--spacing-2xs);
+    margin-left: var(--spacing-s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
   }
 
   .section__input {
@@ -363,6 +376,21 @@
       border-radius: 13px;
     }
   }
+}
+.form__section::after {
+  content: '';
+  position: absolute;
+  top: 2.6rem;
+  height: 90%;
+  border-left: 2px solid var(--secondary-color);
+}
+
+.input__input input {
+  margin-top: 5px;
+}
+input[type="radio"] {
+  margin-top: 7px;
+  margin-right: 20px;
 }
 
 .collapsible-section {
