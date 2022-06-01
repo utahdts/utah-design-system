@@ -1,6 +1,5 @@
 // import kidnapperImageUrl from '../../static/images/kidnapper.png';
 import dhhsBrand from '../../static/images/DHHS-Logo.svg';
-import babyImageUrl from '../../static/images/baby.png';
 import traxImageUrl from '../../static/images/trax.png';
 import chattersImageUrl from '../../static/images/chatters.png';
 import utahDotGreyImageUrl from '../../static/images/utah-dot-grey.png';
@@ -147,7 +146,11 @@ function DemoContent() {
               aliquam quaerat boluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
               corporis suscipit laboriosam.
             </p>
-            <button type="button" className={`button--accent-color button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>Find Services</button>
+            <div className="flex flex-row self-stretch gap">
+              <button type="button" className={`button button--accent-color ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Button One</button>
+              <button type="button" className={`button button--accent-color ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Button Two</button>
+              <button type="button" className={`button button--accent-color button--solid ml-auto ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Default Button</button>
+            </div>
           </div>
           <div className="card card--align-flex-start gray-color-background white-color p-spacing-l">
             Something
@@ -306,129 +309,132 @@ function DemoContent() {
         </div>
       </div>
 
-      <div className="form grid-wrapper">
-        <img src={babyImageUrl} alt="baby" width="100%" />
+      <div className="hero-section hero-section--baby">
+        <div className="hero-section__title">Please fill out the form below</div>
+      </div>
+      <div className="form__wrapper">
+        <div className="form">
+          <div className="form__section py-spacing mx-spacing-l">
+            <div className="section__title">
+              <span className="title__number mx-spacing">1</span>
+              <span className="title__name">Personal Information</span>
+            </div>
 
-        <div className="form__section py-spacing">
-          <div className="section__title">
-            <span className="title__number mx-spacing">1</span>
-            <span className="title__name">Personal Information</span>
+            <div className="section__inputs pl-spacing-l mb-spacing">
+              <div className="section__input ">
+                <div className="input-wrapper">
+                  <label>
+                    First Name
+                    <input type="text" id="firstName" name="firstName" />
+                  </label>
+                </div>
+              </div>
+
+              <div className="section__input">
+                <div className="input__label" htmlFor="lastName">Last Name</div>
+                <div className="input__input">
+                  <input id="lastName" name="lastName" />
+                </div>
+              </div>
+
+              <div className="section__input">
+                <div className="input__label" htmlFor="phoneNumber">Phone Number</div>
+                <div className="input__input">
+                  <input id="phoneNumber" name="phoneNumber" />
+                </div>
+              </div>
+
+              <div className="section__input">
+                <div className="input__label" htmlFor="streetAddress">Street Address</div>
+                <div className="input__input">
+                  <input id="streetAddress" name="streetAddress" />
+                </div>
+              </div>
+
+              <div className="section__input">
+                <div className="input__label" htmlFor="city">City</div>
+                <div className="input__input">
+                  <input id="city" name="city" />
+                </div>
+              </div>
+
+              <div className="section__input">
+                <div className="input__label" htmlFor="zip">Zip</div>
+                <div className="input__input">
+                  <input id="zip" name="zip" />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="section__inputs  pl-spacing-l mb-spacing">
-            <div className="section__input ">
-              <div className="input-wrapper">
-                <label>
-                  First Name
-                  <input type="text" id="firstName" name="firstName" />
-                </label>
-              </div>
+          <div className="form__section mx-spacing-l">
+            <div className="section__title">
+              <span className="title__number mx-spacing">2</span>
+              <span className="title__name">Vehicle Information</span>
             </div>
 
-            <div className="section__input">
-              <div className="input__label" htmlFor="lastName">Last Name</div>
-              <div className="input__input">
-                <input id="lastName" name="lastName" />
+            <div className="section__inputs pl-spacing-l mb-spacing">
+              <div className="section__input">
+                <div className="input__label">Do you have your renewal notice?</div>
+                <div className="input__input">
+
+                  <label htmlFor="renewalNotice-no">
+                    no
+                    <input id="renewalNotice-no" type="radio" name="renewalNotice" value="no" />
+                  </label>
+                  <label htmlFor="renewalNotice-yes">
+                    yes
+                    <input id="renewalNotice-yes" type="radio" name="renewalNotice" value="yes" />
+                  </label>
+                </div>
               </div>
-            </div>
 
-            <div className="section__input">
-              <div className="input__label" htmlFor="phoneNumber">Phone Number</div>
-              <div className="input__input">
-                <input id="phoneNumber" name="phoneNumber" />
+              <div className="section__input">
+                <div className="input__label" htmlFor="currentOwnerLastName">Current Owner Last Name</div>
+                <div className="input__input">
+                  <input id="currentOwnerLastName" name="currentOwnerLastName" />
+                </div>
               </div>
-            </div>
 
-            <div className="section__input">
-              <div className="input__label" htmlFor="streetAddress">Street Address</div>
-              <div className="input__input">
-                <input id="streetAddress" name="streetAddress" />
+              <div className="section__input">
+                <div className="input__label" htmlFor="physicalZipCode">Physical ZIP Code</div>
+                <div className="input__input">
+                  <input id="physicalZipCode" name="physicalZipCode" />
+                </div>
               </div>
-            </div>
 
-            <div className="section__input">
-              <div className="input__label" htmlFor="city">City</div>
-              <div className="input__input">
-                <input id="city" name="city" />
+              <div className="section__input">
+                <div className="input__label">Does your vehicle have a license plate?</div>
+                <div className="input__input">
+
+                  <label htmlFor="licensePlate-no">
+                    no
+                    <input id="licensePlate-no" type="radio" name="licensePlate" value="no" />
+                  </label>
+                  <label htmlFor="licensePlate-yes">
+                    yes
+                    <input id="licensePlate-yes" type="radio" name="licensePlate" value="yes" />
+                  </label>
+                </div>
               </div>
-            </div>
 
-            <div className="section__input">
-              <div className="input__label" htmlFor="zip">Zip</div>
-              <div className="input__input">
-                <input id="zip" name="zip" />
+              <div className="section__input">
+                <div className="input__label" htmlFor="licensePlate">License Plate</div>
+                <div className="input__input">
+                  <input id="licensePlate" name="licensePlate" />
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="form__section">
-          <div className="section__title">
-            <span className="title__number">2</span>
-            <span className="title__name">Vehicle Information</span>
-          </div>
 
-          <div className="section__inputs">
-            <div className="section__input">
-              <div className="input__label">Do you have your renewal notice?</div>
-              <div className="input__input">
-
-                <label htmlFor="renewalNotice-no">
-                  no
-                  <input id="renewalNotice-no" type="radio" name="renewalNotice" value="no" />
-                </label>
-                <label htmlFor="renewalNotice-yes">
-                  yes
-                  <input id="renewalNotice-yes" type="radio" name="renewalNotice" value="yes" />
-                </label>
+              <div className="section__input">
+                <div className="input__label" htmlFor="vin">VIN (last 8 digits)</div>
+                <div className="input__input">
+                  <input id="vin" name="vin" />
+                </div>
               </div>
-            </div>
 
-            <div className="section__input">
-              <div className="input__label" htmlFor="currentOwnerLastName">Current Owner Last Name</div>
-              <div className="input__input">
-                <input id="currentOwnerLastName" name="currentOwnerLastName" />
-              </div>
-            </div>
-
-            <div className="section__input">
-              <div className="input__label" htmlFor="physicalZipCode">Physical ZIP Code</div>
-              <div className="input__input">
-                <input id="physicalZipCode" name="physicalZipCode" />
-              </div>
-            </div>
-
-            <div className="section__input">
-              <div className="input__label">Does your vehicle have a license plate?</div>
-              <div className="input__input">
-
-                <label htmlFor="licensePlate-no">
-                  no
-                  <input id="licensePlate-no" type="radio" name="licensePlate" value="no" />
-                </label>
-                <label htmlFor="licensePlate-yes">
-                  yes
-                  <input id="licensePlate-yes" type="radio" name="licensePlate" value="yes" />
-                </label>
-              </div>
-            </div>
-
-            <div className="section__input">
-              <div className="input__label" htmlFor="licensePlate">License Plate</div>
-              <div className="input__input">
-                <input id="licensePlate" name="licensePlate" />
-              </div>
-            </div>
-
-            <div className="section__input">
-              <div className="input__label" htmlFor="vin">VIN (last 8 digits)</div>
-              <div className="input__input">
-                <input id="vin" name="vin" />
-              </div>
-            </div>
-
-            <div className="section__input--notice">
-              <div className="input__notice">
-                Your license plate and VIN can be found on a previous registration
+              <div className="section__input--notice">
+                <div className="input__notice">
+                  Your license plate and VIN can be found on a previous registration
+                </div>
               </div>
             </div>
           </div>

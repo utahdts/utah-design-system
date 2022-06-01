@@ -191,7 +191,7 @@
     height: 130px;
     position: absolute;
     border-radius: 999px;
-    z-index: 100;
+    z-index: 1;
     background: white;
     left: 50%;
     top: 50%;
@@ -291,16 +291,50 @@
   gap: var(--spacing-l);
 }
 
-.form {
-  flex-direction: column;
+.hero-section {
+  height: 375px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  &__title {
+    background: var(--secondary-color);
+    color: white;
+    width: 100%;
+    max-width: var(--grid-fixed);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    padding: var(--spacing);
+    box-sizing: border-box;
+    @at-root #{$secondary-color-is-light}#{&} {
+      color: var(--gray-color);
+    }
+  }
+  &--baby {
+    background: url('../static/images/baby.jpg') no-repeat left/cover;
+  }
 
 }
-.form__section{
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--grid-fixed);
   width: 100%;
-  background-color: var(--primary-color-light);
+  background-color: var(--gray-light-color);
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+.form__section{
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border-left: 2px solid var(--secondary-color);
 
   .section__title {
     color: var(--secondary-color);
@@ -310,8 +344,10 @@
       border-radius: 50px;
       display: inline-block;
       min-width: 20px;
-      min-height: 20px;
+      padding: 10px;
       text-align: center;
+      background: white;
+      position: relative;
     }
   }
   .section__inputs {
@@ -319,6 +355,7 @@
   }
 
   .section__input {
+
     &--notice {
       padding: 7px;
       background-color: white;
