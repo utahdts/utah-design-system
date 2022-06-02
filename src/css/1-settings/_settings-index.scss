@@ -34,9 +34,25 @@ variables and settings
   --gray-dark-color: #{$neutral-gray-02};
 
   /* transition timings */
+  --timing-xquick: 100ms;
   --timing-quick: 200ms;
   --timing-medium: 400ms;
   --timing-slow: 600ms;
+
+  /* rounded corners */
+  --radius-small: 6px;
+  --radius-medium: 9px;
+  --radius-large: 12px;
+  --radius-circle: 999px;
+
+  /* form element sizes */
+  --form-ele-xsmall: 20px;
+  --form-ele-small: 30px;
+  --form-ele-medium: 36px;
+  --form-ele-large: 40px;
+  --form-ele-xlarge: 50px;
+
+
 }
 
  /* color utility classes */

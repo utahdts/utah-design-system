@@ -1,0 +1,23 @@
+.info-box {
+  display: flex;
+  align-items: center;
+  min-height: var(--form-ele-medium);
+  background: white;
+  position: relative;
+  border-radius: var(--radius-small);
+
+  &::before {
+    content: '';
+    display: block;
+    width: var(--spacing-xs);
+    height: 100%;
+    border-top-left-radius: var(--radius-small);
+    border-bottom-left-radius: var(--radius-small);
+    background-color: var(--secondary-color);
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-s);
+  }
+}

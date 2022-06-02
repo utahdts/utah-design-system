@@ -7,7 +7,7 @@ button, .button {
   border-radius: 999px;
   border: 2px solid var(--gray-color);
   font-size: 1rem;
-  min-height: 36px;
+  min-height: var(--form-ele-medium);
   padding: 0 var(--spacing-xl);
   display: flex;
   align-items: center;

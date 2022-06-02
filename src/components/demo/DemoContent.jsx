@@ -52,7 +52,7 @@ function DemoContent() {
         </ul>
       </div>
 
-      <div className="hero mb-spacing-l">
+      <div className="hero">
         <div className="hero__image" />
         <svg className="hero__slant-color" viewBox="0 0 4000 400"><g><path d="M0,0H4000V400H268L0,0Z" /></g></svg>
         <div className="hero__branding"><img src={dhhsBrand} alt="Health and Human Services Logo" /></div>
@@ -62,6 +62,8 @@ function DemoContent() {
           <div className="hero__sub-title">Office of Vital Records</div>
         </div>
       </div>
+
+      <div className="secondary-color-bar mb-spacing-l" />
 
       <div className="grid-wrapper px-spacing-ls">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
@@ -314,173 +316,158 @@ function DemoContent() {
       </div>
       <div className="form__wrapper">
         <div className="form">
-          <div className="form__section py-spacing mx-spacing-l">
-            <div className="section__title">
-              <span className="title__number mx-spacing">1</span>
-              <span className="title__name">Personal Information</span>
+          <div className="form__section pt-spacing-l">
+            <div className="form__section-title secondary-color">
+              <div className="form__section-title-number secondary-color-border">1</div>
+              <div className="form__section-title-name">Personal Information</div>
             </div>
 
-            <div className="section__inputs pl-spacing-l mb-spacing">
-              {/* <div className="section__input ">
-                <div className="input-wrapper">
-                  <label>First Name</label>
-                  <input type="text" id="firstName" name="firstName" />
-                </div>
-              </div> */}
-              <div className="section__input">
-                <div className="input__label" htmlFor="lastName">First Name</div>
-                <div className="input__input">
-                  <input id="firstName" name="firstName" />
+            <div className="form__section-inputs">
+              <div className="input-wrapper">
+                <label htmlFor="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" />
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" />
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" />
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="streetAddress">Street Address</label>
+                <input type="text" id="streetAddress" name="streetAddress" />
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="city">City</label>
+                <input type="text" id="city" name="city" />
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="zip">Zip</label>
+                <input type="text" id="zip" name="zip" />
+              </div>
+            </div>
+          </div>
+          <div className="form__section">
+            <div className="form__section-title secondary-color">
+              <div className="form__section-title-number secondary-color-border">2</div>
+              <div className="form__section-title-name">Other Information</div>
+            </div>
+
+            <div className="form__section-inputs">
+              <div className="input-wrapper">
+                <div>Do have a favorite color?</div>
+                <div className="input__radio">
+                  <label htmlFor="favoriteColor-no">
+                    <input id="favoriteColor-no" type="radio" name="favoriteColor" value="no" />
+                    No
+                  </label>
+                  <label htmlFor="favoriteColor-yes">
+                    <input id="favoriteColor-yes" type="radio" name="favoriteColor" value="yes" />
+                    Yes
+                  </label>
                 </div>
               </div>
 
-              <div className="section__input">
-                <div className="input__label" htmlFor="lastName">Last Name</div>
-                <div className="input__input">
-                  <input id="lastName" name="lastName" />
-                </div>
+              <div className="input-wrapper">
+                <label htmlFor="favoriteColorName">What is your favorite color?</label>
+                <input type="text" id="favoriteColorName" name="favoriteColorName" />
               </div>
 
-              <div className="section__input">
-                <div className="input__label" htmlFor="phoneNumber">Phone Number</div>
-                <div className="input__input">
-                  <input id="phoneNumber" name="phoneNumber" />
-                </div>
+              <div className="input-wrapper">
+                <label htmlFor="favoriteColorName2">What is your 2nd favorite color?</label>
+                <input type="text" id="favoriteColorName2" name="favoriteColorName2" />
               </div>
 
-              <div className="section__input">
-                <div className="input__label" htmlFor="streetAddress">Street Address</div>
-                <div className="input__input">
-                  <input id="streetAddress" name="streetAddress" />
-                </div>
-              </div>
-
-              <div className="section__input">
-                <div className="input__label" htmlFor="city">City</div>
-                <div className="input__input">
-                  <input id="city" name="city" />
-                </div>
-              </div>
-
-              <div className="section__input">
-                <div className="input__label" htmlFor="zip">Zip</div>
-                <div className="input__input">
-                  <input id="zip" name="zip" />
+              <div className="info-box">
+                <div className="info-box__content">
+                  It is imporant that you have a favorite color because reasons.
                 </div>
               </div>
             </div>
           </div>
-          <div className="form__section mx-spacing-l">
-            <div className="section__title">
-              <span className="title__number mx-spacing">2</span>
-              <span className="title__name">Vehicle Information</span>
-            </div>
-
-            <div className="section__inputs pl-spacing-l mb-spacing">
-              <div className="section__input">
-                <div className="input__label">Do you have your renewal notice?</div>
-                <div className="input__input input__radio">
-
-                  <label htmlFor="renewalNotice-no">
-                    No&nbsp;
-                    <input id="renewalNotice-no" type="radio" name="renewalNotice" value="no" />
-                  </label>
-                  <label htmlFor="renewalNotice-yes">
-                    Yes&nbsp;
-                    <input id="renewalNotice-yes" type="radio" name="renewalNotice" value="yes" />
-                  </label>
-                </div>
+          <div className="form__section mb-spacing-l">
+            <div className="form__section-title secondary-color">
+              <div className="form__section-title-number secondary-color-border">3</div>
+              <div className="form__section-title-name flex justify-between" style={{ width: '100%' }}>
+                <button type="button" className="button button--secondary-color">Cancel</button>
+                <button type="button" className="button button--secondary-color button--solid">Submit Form</button>
               </div>
-
-              <div className="section__input">
-                <div className="input__label" htmlFor="currentOwnerLastName">Current Owner Last Name</div>
-                <div className="input__input">
-                  <input id="currentOwnerLastName" name="currentOwnerLastName" />
-                </div>
-              </div>
-
-              <div className="section__input">
-                <div className="input__label" htmlFor="physicalZipCode">Physical ZIP Code</div>
-                <div className="input__input">
-                  <input id="physicalZipCode" name="physicalZipCode" />
-                </div>
-              </div>
-
-              <div className="section__input">
-                <div className="input__label">Does your vehicle have a license plate?</div>
-                <div className="input__input input__radio">
-
-                  <label htmlFor="licensePlate-no">
-                    No&nbsp;
-                    <input id="licensePlate-no" type="radio" name="licensePlate" value="no" />
-                  </label>
-                  <label htmlFor="licensePlate-yes">
-                    Yes&nbsp;
-                    <input id="licensePlate-yes" type="radio" name="licensePlate" value="yes" />
-                  </label>
-                </div>
-              </div>
-
-              <div className="section__input">
-                <div className="input__label" htmlFor="licensePlate">License Plate</div>
-                <div className="input__input">
-                  <input id="licensePlate" name="licensePlate" />
-                </div>
-              </div>
-
-              <div className="section__input">
-                <div className="input__label" htmlFor="vin">VIN (last 8 digits)</div>
-                <div className="input__input">
-                  <input id="vin" name="vin" />
-                </div>
-              </div>
-
-              <div className="section__input--notice">
-                <div className="input__notice">
-                  Your license plate and VIN can be found on a previous registration
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="form__section mx-spacing-l">
-            <div className="section__title">
-              <span className="title__number mx-spacing">3</span>
-              <button type="submit">Start Renewal</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="collapsible-section">
-        <div className="collapsible-section__bar">
-          <div className="collapsible-section-bar__title">Title of this Section</div>
-          <div className="collapsible-section-bar__arrow">v</div>
+      {/* <div className="accordion-section">
+        <div className="accordion-section__bar">
+          <div className="accordion-section-bar__title">Title of this Section</div>
+          <div className="accordion-section-bar__arrow">v</div>
         </div>
-      </div>
-
-      <div className="collapsible-section">
-        <div className="collapsible-section__bar">
-          <div className="collapsible-section-bar__title">Title of this Section</div>
-          <div className="collapsible-section-bar__arrow">v</div>
+      </div> */}
+      <div className="accordian mb-spacing">
+        <div className="accordion-section">
+          <button type="button" className="accordion-section__button p-spacing" aria-controls="accordion-preview-content" aria-expanded="false">
+            <h2>Title of this Section</h2>
+            <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
+            {/* Todo: up chevron arrow when content is expanded */}
+          </button>
+          <div id="accordion-preview-content" className="accordion-section__content" hidden>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+              veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+              consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+            </p>
+            <img src={traxImageUrl} alt="trax" />
+          </div>
         </div>
-        <div className="collapsible-section__content">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-            veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-          </p>
-          <p>
-            Neque porro quisquam est, qui dolrem ipsum quia dolor sit amet, consectetur,
-            adipisci velit, sedquia non numquam eius modi tempora incidunt ut labore et
-            dolore
-            <a href="#magnam">magnam aliquam quaerat volupatem</a>
-            . Ut enim ad
-            minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
-          </p>
-          <img src={traxImageUrl} alt="trax" />
+        <div className="accordion-section">
+          <button type="button" className="accordion-section__button p-spacing" aria-controls="accordion-preview-content" aria-expanded="false">
+            <h2>Title of this Section</h2>
+            <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
+          </button>
+          <div id="accordion-preview-content" className="accordion-section__content">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+              veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+              consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+            </p>
+            <img src={traxImageUrl} alt="trax" />
+          </div>
         </div>
+        {/* <div className="accordion-section">
+          <div className="accordion-section__bar">
+            <div className="accordion-section-bar__title">Title of this Section</div>
+            <div className="accordion-section-bar__arrow">v</div>
+          </div>
+          <div className="accordion-section__content">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+              veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+              consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+            </p>
+            <p>
+              Neque porro quisquam est, qui dolrem ipsum quia dolor sit amet, consectetur,
+              adipisci velit, sedquia non numquam eius modi tempora incidunt ut labore et
+              dolore
+              <a href="#magnam">magnam aliquam quaerat volupatem</a>
+              . Ut enim ad
+              minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+            </p>
+            <img src={traxImageUrl} alt="trax" />
+          </div>
+        </div> */}
       </div>
 
       <div className="follow-container">
