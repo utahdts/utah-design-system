@@ -132,6 +132,12 @@
     }
   }
 }
+.text-on-secondary-color {
+  color: white;
+  @at-root #{$secondary-color-is-light}#{&} {
+    color: var(--gray-on-secondary-color);
+  }
+}
 
 
 .hero {
@@ -233,6 +239,10 @@
     font-size: var(--font-size-3xl);
     text-transform: uppercase;
     font-weight: var(--font-weight-bold);
+    box-sizing: border-box;
+    &--full {
+      width: 100%;
+    }
   }
   &__text {
 
@@ -282,6 +292,10 @@
   .action-button {
     margin-top: auto;
   }
+}
+
+.card-image {
+  background: url("../static/images/mom-baby.jpg") no-repeat center/cover;
 }
 
 .fonts-demo {
@@ -384,79 +398,101 @@
       flex-direction: column;
       gap: var(--spacing);
     }
-}
+  }
 
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-3xs);
-}
-
-
-
-  .section__input {
-
-    &--notice {
-      padding: 7px;
-      background-color: white;
-      border-left: 5px solid var(--secondary-color);
-      border-radius: 13px;
-    }
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3xs);
   }
 }
 
-.accordion-section {
+
+.social-bar {
+  padding: var(--spacing);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: var(--spacing-2xl);
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  // &__bar {
-  //   background-color: var(--primary-color);
-  //   height: 3rem;
-  //   display: flex;
-  //   padding: 11px;
-  //   justify-content: space-between;
-  //   color: white;
-  // }
-  &__button {
-    background-color: var(--primary-color);
-    height: 3rem;
+
+  &__wrapper {
     display: flex;
-    justify-content: space-between;
-    color: white;
-    width: 100%;
-    border-radius: 0;
+    justify-content: center;
   }
-  .accordion-section__content {
-    background-color: var(--gray-light-color);
-    padding: var(--spacing);
-    // max-width: var(--grid-fixed);
-    width: 90%
+
+  &__title {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
   }
-}
-
-.follow-container {
-  background-color: var(--secondary-color);
-  display: flex;
-  padding: 11px;
-}
-
-.footer {
-  background-color: gray;
-
-  .footer__menu ul {
-    list-style: none;
-    li a {
-      font-style: none;
-      color: white;
+  &__icons-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing);
+    li {
+      padding: 0;
+      margin: 0;
     }
   }
-  .footer-menu__title {
-    font-weight: bold;
+  &__icon {
+    text-decoration: none;
+    height: var(--spacing-xl);
+    width: var(--spacing-xl);
+    background: white;
+    display: block;
+    border-radius: var(--radius-small);
   }
-  .footer__site-links {
-    list-style: none;
+}
+
+.page-footer {
+  background-color: var(--gray-color);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xl);
+
+  &__title {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-xs);
+  }
+  &__line {
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: var(--spacing-l);
+  }
+  &__info,
+  &_menus {
+    flex: 1 1 20%
+  }
+  &__menus {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-l);
+  }
+  &__menu {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 var(--spacing-l) 0;
+      li {
+        padding: 0;
+        margin: 0 0 var(--spacing-2xs) 0;
+        a {
+          color: white;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .link-icon {
+            font-size: var(--font-size-xs);
+          }
+        }
+      }
+    }
   }
 }

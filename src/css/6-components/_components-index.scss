@@ -5,6 +5,7 @@ component specific, BEM (Block, Element, Modifier)
 */
 
 /* ---- Base Components ---- */
+@import "base-components/accordion/accordion";
 @import "base-components/buttons/button";
 @import "base-components/buttons/icon-button";
 @import "base-components/forms/text-input";

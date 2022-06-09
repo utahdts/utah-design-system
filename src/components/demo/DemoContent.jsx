@@ -1,11 +1,12 @@
 // import kidnapperImageUrl from '../../static/images/kidnapper.png';
 import dhhsBrand from '../../static/images/DHHS-Logo.svg';
-import traxImageUrl from '../../static/images/trax.png';
-import chattersImageUrl from '../../static/images/chatters.png';
-import utahDotGreyImageUrl from '../../static/images/utah-dot-grey.png';
+import traxImageUrl from '../../static/images/trax.jpg';
 import getBorderClass from '../../color/getBorderClass';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import Accordion from '../containers/Accordion';
+import UtahUnbrand from './UtahUnbrand';
+import LinkIcon from '../navigation/LinkIcon';
 // import Icons from '../icons/Icons';
 
 function DemoContent() {
@@ -14,12 +15,7 @@ function DemoContent() {
   return (
     <div className="demo-content">
       <div className="header">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 52" className="header__utah-brand">
-          <g>
-            <circle id="Ellipse_1" data-name="Ellipse 1" cx="26" cy="26" r="26" />
-            <path id="Path_1" data-name="Path 1" d="M22.978,8.151q-9.623,0-14.295-5.584T4.012-14.748v-23.6H16.094v25.007q0,6.111,1.651,8.6a5.821,5.821,0,0,0,5.233,2.494,6,6,0,0,0,5.3-2.494Q30-7.232,30-13.343V-38.35h11.66v23.6q0,11.731-4.566,17.315T22.978,8.151Zm37.229-.843V-28.235H48.125V-38.35H84.37v10.115H72.289V7.308Zm39.9-22.2-.773,3.161h8.429l-.773-3.161q-.843-3.3-1.686-7.165t-1.686-7.305h-.281q-.773,3.512-1.58,7.34T100.1-14.889ZM82.544,7.308,96.452-38.35h14.611L124.971,7.308H112.187l-2.248-9.694H97.155L94.907,7.308Zm46.782,0V-38.35h12.082v17h13.627v-17h12.082V7.308H155.035V-10.815H141.408V7.308Z" transform="translate(65.883 40.35)" />
-          </g>
-        </svg>
+        <UtahUnbrand className="header__utah-brand" />
 
         <span className="header__vertical-rule" />
         <span className="header__department">Department of Health and Human Services</span>
@@ -95,10 +91,10 @@ function DemoContent() {
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Utah State Tax Commission</div>
             <hr className="primary-color-background" />
             <ul>
-              <li><a href="#dmv">Division of Motor Vehicles (DMV) <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#permits">Temporary Permits <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#dmv">Renew Your Motor Vehicle Registration <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#dmv">Vehicle inspections <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Division of Motor Vehicles (DMV) <LinkIcon /></a></li>
+              <li><a href="#permits">Temporary Permits <LinkIcon /></a></li>
+              <li><a href="#dmv">Renew Your Motor Vehicle Registration <LinkIcon /></a></li>
+              <li><a href="#dmv">Vehicle inspections <LinkIcon /></a></li>
             </ul>
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
@@ -107,10 +103,10 @@ function DemoContent() {
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Cultural &amp; Community Engagement</div>
             <hr className="primary-color-background" />
             <ul>
-              <li><a href="#dmv">Division of Motor Vehicles (DMV) <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#permits">Temporary Permits <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#dmv">Utah State Library <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#dmv">Services for the Deaf and Hard of Hearing <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Division of Motor Vehicles (DMV) <LinkIcon /></a></li>
+              <li><a href="#permits">Temporary Permits <LinkIcon /></a></li>
+              <li><a href="#dmv">Utah State Library <LinkIcon /></a></li>
+              <li><a href="#dmv">Services for the Deaf and Hard of Hearing <LinkIcon /></a></li>
             </ul>
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
@@ -119,10 +115,10 @@ function DemoContent() {
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Health &amp; Human Services </div>
             <hr className="primary-color-background" />
             <ul>
-              <li><a href="#dmv">Office of Vital Records <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#permits">Epidemiology <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#dmv">Coronavirus <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
-              <li><a href="#dmv">Mental Health Resources <span className="material-symbols-outlined link-icon">chevron_right</span></a></li>
+              <li><a href="#dmv">Office of Vital Records <LinkIcon /></a></li>
+              <li><a href="#permits">Epidemiology <LinkIcon /></a></li>
+              <li><a href="#dmv">Coronavirus <LinkIcon /></a></li>
+              <li><a href="#dmv">Mental Health Resources <LinkIcon /></a></li>
             </ul>
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
@@ -154,8 +150,9 @@ function DemoContent() {
               <button type="button" className={`button button--accent-color button--solid ml-auto ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Default Button</button>
             </div>
           </div>
-          <div className="card card--align-flex-start gray-color-background white-color p-spacing-l">
-            Something
+          <div className="card card-image justify-between">
+            <div className="card__title card__title--full secondary-color-background text-on-secondary-color p-spacing text-center">Program Name</div>
+            <button type="button" className="button mb-spacing-l">Learn More</button>
           </div>
         </div>
       </div>
@@ -314,7 +311,7 @@ function DemoContent() {
       <div className="hero-section hero-section--baby">
         <div className="hero-section__title">Please fill out the form below</div>
       </div>
-      <div className="form__wrapper">
+      <div className="form__wrapper mb-spacing-l">
         <div className="form">
           <div className="form__section pt-spacing-l">
             <div className="form__section-title secondary-color">
@@ -404,87 +401,107 @@ function DemoContent() {
         </div>
       </div>
 
-      {/* <div className="accordion-section">
-        <div className="accordion-section__bar">
-          <div className="accordion-section-bar__title">Title of this Section</div>
-          <div className="accordion-section-bar__arrow">v</div>
+      <div className="flex flex-col items-center full-width">
+        <div className="content-width">
+          <Accordion
+            className="mb-spacing-l"
+            headerClassName="primary-color-background white-color"
+            headerContent="Title of this section"
+          >
+            <div className="flex flex-row">
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet. Ut enim tempore sed autem aspernatur eum minus fugit
+                  ad quia voluptas aut repellendus nemo aut quam libero. Et alias quia
+                  <a href="https://www.loremipzum.com">Est fugit ut repudiandae galisum aut dolore dolores</a>
+                  sed rerum animi qui animi harum.
+                </p>
+                <p>
+                  Cum molestiae aliquid et quibusdam quia et illum explicabo. Est itaque sapiente
+                  aut minima minima ut reprehenderit optio aut sint natus?
+                </p>
+                <p>
+                  At fugiat dolorum aut recusandae eveniet ut dicta pariatur sed illo dicta ut culpa
+                  nihil non illo quis cum eligendi earum? Eum necessitatibus dolores in iure laborum
+                  <a href="https://www.loremipzum.com">Id reprehenderit ut ratione doloremque 33 magnam perferendis in veniam quam.</a>
+                  Est voluptatem veniam sit doloremque omnis sit sint quam.
+                </p>
+                <p>
+                  Hic omnis reiciendis et cupiditate velit 33 assumenda fuga qui rerum minima et inventore numquam. Et voluptas nemo
+                  <a href="https://www.loremipzum.com">Hic saepe qui expedita inventore cum eius voluptatem</a>
+                  qui commodi quia ut reiciendis maxime. Ab distinctio vitae aut numquam cupiditate
+                  sed dolores deserunt nam pariatur nemo non dignissimos dolore sed quasi delectus.
+                  Qui laborum quam qui natus dolorum et fugit fuga?
+                </p>
+              </div>
+              <img src={traxImageUrl} alt="trax" className="ml-spacing" />
+            </div>
+          </Accordion>
+          <Accordion
+            className="mb-spacing-l"
+            headerClassName="button button--secondary-color button--solid"
+            headerContent="Title of this section 2"
+          >
+            <div className="flex flex-row gap">
+              <p>
+                Lorem ipsum dolor sit amet. Ut enim tempore sed autem aspernatur eum minus fugit
+                ad quia voluptas aut repellendus nemo aut quam libero. Et alias quia
+                <a href="https://www.loremipzum.com"> Est fugit ut repudiandae galisum aut dolore dolores</a>
+                sed rerum animi qui animi harum.
+              </p>
+              <p>
+                Cum molestiae aliquid et quibusdam quia et illum explicabo. Est itaque sapiente
+                aut minima minima ut reprehenderit optio aut sint natus?
+              </p>
+              <p>
+                At fugiat dolorum aut recusandae eveniet ut dicta pariatur sed illo dicta ut culpa
+                nihil non illo quis cum eligendi earum? Eum necessitatibus dolores in iure laborum
+                <a href="https://www.loremipzum.com"> Id reprehenderit ut ratione doloremque 33 magnam perferendis in veniam quam.</a>
+                Est voluptatem veniam sit doloremque omnis sit sint quam.
+              </p>
+
+            </div>
+          </Accordion>
+
         </div>
-      </div> */}
-      <div className="accordian mb-spacing">
-        <div className="accordion-section">
-          <button type="button" className="accordion-section__button p-spacing" aria-controls="accordion-preview-content" aria-expanded="false">
-            <h2>Title of this Section</h2>
-            <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
-            {/* Todo: up chevron arrow when content is expanded */}
-          </button>
-          <div id="accordion-preview-content" className="accordion-section__content" hidden>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-              veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-              consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-            </p>
-            <img src={traxImageUrl} alt="trax" />
-          </div>
-        </div>
-        <div className="accordion-section">
-          <button type="button" className="accordion-section__button p-spacing" aria-controls="accordion-preview-content" aria-expanded="false">
-            <h2>Title of this Section</h2>
-            <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
-          </button>
-          <div id="accordion-preview-content" className="accordion-section__content">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-              veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-              consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-            </p>
-            <img src={traxImageUrl} alt="trax" />
-          </div>
-        </div>
-        {/* <div className="accordion-section">
-          <div className="accordion-section__bar">
-            <div className="accordion-section-bar__title">Title of this Section</div>
-            <div className="accordion-section-bar__arrow">v</div>
-          </div>
-          <div className="accordion-section__content">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-              veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-              consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-            </p>
-            <p>
-              Neque porro quisquam est, qui dolrem ipsum quia dolor sit amet, consectetur,
-              adipisci velit, sedquia non numquam eius modi tempora incidunt ut labore et
-              dolore
-              <a href="#magnam">magnam aliquam quaerat volupatem</a>
-              . Ut enim ad
-              minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
-            </p>
-            <img src={traxImageUrl} alt="trax" />
-          </div>
-        </div> */}
       </div>
 
-      <div className="follow-container">
-        <p>Follow DHHS</p>
-        <img src={chattersImageUrl} alt="chatters" />
+      <div className="social-bar__wrapper secondary-color-background text-on-secondary-color contne">
+        <div className="social-bar content-width">
+          <div className="social-bar__title">Follow DHHS</div>
+          <ul className="social-bar__icons-list">
+            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
+            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
+            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
+            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
+            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
+            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div className="footer">
-        <div className="footer__line">
-          <div className="footer__menus">
-
-            <div className="footer__menu">
-              <div className="footer-menu__title">
+      <div className="page-footer">
+        <div className="page-footer__line">
+          <div className="page-footer__info">
+            <div className="page-footer__title">Department of Health and Human Services</div>
+            <p>
+              <strong>Headquarters</strong>
+              <br />
+              Multi-Agency State Office Building
+              <br />
+              195 North 1950 West
+              <br />
+              Salt Lake City, Ut 84116
+              <br />
+            </p>
+          </div>
+          <div className="page-footer__menus">
+            <div className="page-footer__menu">
+              <div className="page-footer__title">
                 Online Services
               </div>
               <ul>
-                <li><a href="#Online Service One">Online Service One</a></li>
+                <li><a href="#Online Service One">Online Service One <LinkIcon /></a></li>
                 <li><a href="#Online Service And More">Online Service And More</a></li>
                 <li><a href="#Online Service Another One">Online Service Another One</a></li>
                 <li><a href="#Online Service More">Online Service More</a></li>
@@ -496,38 +513,39 @@ function DemoContent() {
                 <li><a href="#Online Service">Online Service</a></li>
                 <li><a href="#More Online Services">More Online Services</a></li>
               </ul>
-
             </div>
 
-            <div className="footer__menu">
-              <div className="footer-menu__title">
-                Another Footer
+            <div>
+              <div className="page-footer__menu">
+                <div className="page-footer__title">
+                  Another Footer
+                </div>
+                <ul>
+                  <li><a href="#Sed ut perspiciatis">Sed ut perspiciatis</a></li>
+                  <li><a href="#Unde omnis iste natus error sit">Unde omnis iste natus error sit</a></li>
+                  <li><a href="#Eaque ipsa quae ab ilio inventore veritalis">Eaque ipsa quae ab ilio inventore veritalis</a></li>
+                  <li><a href="#Aspernatur aut odit aut fugit">Aspernatur aut odit aut fugit</a></li>
+                </ul>
               </div>
-              <ul>
-                <li><a href="#Sed ut perspiciatis">Sed ut perspiciatis</a></li>
-                <li><a href="#Unde omnis iste natus error sit">Unde omnis iste natus error sit</a></li>
-                <li><a href="#Eaque ipsa quae ab ilio inventore veritalis">Eaque ipsa quae ab ilio inventore veritalis</a></li>
-                <li><a href="#Aspernatur aut odit aut fugit">Aspernatur aut odit aut fugit</a></li>
-              </ul>
-            </div>
 
-            <div className="footer__menu">
-              <div className="footer-menu__title">
-                Footer List
+              <div className="page-footer__menu">
+                <div className="page-footer__title">
+                  Footer List
+                </div>
+                <ul>
+                  <li><a href="#Online Service One">Online Service One</a></li>
+                  <li><a href="#Online Service And More">Online Service And More</a></li>
+                  <li><a href="#Online Service Another One">Online Service Another One</a></li>
+                  <li><a href="#Online service More">Online service More</a></li>
+                  <li><a href="#Online service">Online service</a></li>
+                  <li><a href="#Online Service One At A Location">Online Service One At A Location</a></li>
+                </ul>
               </div>
-              <ul>
-                <li><a href="#Online Service One">Online Service One</a></li>
-                <li><a href="#ONline Service And More">ONline Service And More</a></li>
-                <li><a href="#Online Service Another One">Online Service Another One</a></li>
-                <li><a href="#Online service More">Online service More</a></li>
-                <li><a href="#Online service">Online service</a></li>
-                <li><a href="#Online Service One At A Location">Online Service One At A Location</a></li>
-              </ul>
             </div>
 
           </div>
 
-          <div>
+          <div className="page-footer__info">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dororenque
             laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
             architecto beatae vitae dicta sut explicabo. Nemo enim ipsam voluptatem quia voluptas
@@ -537,10 +555,10 @@ function DemoContent() {
           </div>
         </div>
 
-        <div className="footer__line">
-          <img src={utahDotGreyImageUrl} alt="utah dot" />
+        <div className="page-footer__line">
+          <UtahUnbrand className="page-footer__utah-brand" />
           | An official website of the state of utah
-          <ul className="footer__site-links">
+          <ul className="page-footer__site-links">
             <li>UTAH.GOV</li>
             <li>Utah.gov Home</li>
             <li>Terms of Use</li>

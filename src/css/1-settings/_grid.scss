@@ -4,7 +4,7 @@ Grid variables
 */
 
 & {
-  --grid-fixed: 1224px;
+  --grid-fixed: var(--content-width);
   --grid-fixed-half: calc(var(--grid-fixed) / 2);
   --grid-fixed-form: calc(var(--grid-fixed) / 2.3);
   --grid-fixed-third: calc(var(--grid-fixed) / 3);
