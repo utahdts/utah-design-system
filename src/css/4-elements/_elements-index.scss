@@ -1,0 +1,48 @@
+/*
+############     _elements-index.scss      ############
+elemental html: h1, h2, h3, ul, li, etc.
+*/
+
+& {
+	margin: 0;
+	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: white;
+  color: var(--gray-color);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  margin: 0;
+}
+h2 {
+  font-size: var(--font-size-3xl);
+  margin: 0;
+}
+h3 {
+  font-size: var(--font-size-2xl );
+  margin: 0;
+}
+h4 {
+  font-size: var(--font-size-l);
+  margin: 0;
+}
+h5 {
+  font-size: var(--font-size);
+  margin: 0;
+}
+h6 {
+  font-size: var(--font-size);
+  margin: 0;
+}
+
+p {
+  margin: 0 0 var(--spacing-l);
+}
+
+code {
+	font-family: 'Source Code Pro', monospace;
+}
+
+

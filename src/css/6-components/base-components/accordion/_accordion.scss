@@ -1,0 +1,28 @@
+.accordion {
+
+  &__header,
+  &__header.button {
+    border-radius: 0;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    padding: var(--spacing);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  &__content {
+      background: var(--gray-light-color);
+      padding: 0;
+      box-sizing: border-box;
+      height: 0;
+      overflow: hidden;
+
+      &--open {
+        height: auto;
+        padding: var(--spacing);
+      }
+  }
+}

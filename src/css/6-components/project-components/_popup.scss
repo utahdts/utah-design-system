@@ -1,0 +1,22 @@
+/*
+############     _popup.scss      ############
+*/
+
+.popup {
+  position: fixed;
+  top: 25%;
+  left: 2%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.4);
+  z-index: 1000;
+
+  &__title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    padding: var(--spacing);
+  }
+}

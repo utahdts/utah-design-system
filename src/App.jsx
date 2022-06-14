@@ -1,45 +1,32 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import ColorPopup from './components/color/ColorPopup';
+import DemoContent from './components/demo/DemoContent';
+import DemoAppStyle from './components/demo/DemoAppStyle';
+import './css/index.scss';
+import { useCssContext } from './context/cssContext/CssContext';
+import CSS_STATE_KEYS from './enums/cssStateKeys';
+import joinClassNames from './util/joinClassNames';
+import CSS_CLASS_NAMES from './enums/cssClassNames';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { cssState } = useCssContext();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <>
+      <div
+        className={
+          joinClassNames([
+            'utah-design-system',
+            cssState?.[CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.PRIMARY_COLOR_IS_LIGHT : '',
+            cssState?.[CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.SECONDARY_COLOR_IS_LIGHT : '',
+            cssState?.[CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.ACCENT_COLOR_IS_LIGHT : '',
+          ])
+        }
+      >
+        <DemoContent />
+        <ColorPopup />
+      </div>
+      <DemoAppStyle />
+    </>
+  );
 }
 
-export default App
+export default App;

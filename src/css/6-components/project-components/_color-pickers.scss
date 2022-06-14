@@ -1,0 +1,20 @@
+.color-pickers {
+  &__selectors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--spacing);
+    background: white;
+    padding: var(--spacing);
+  }
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+  &__light-dark {
+    display: flex;
+  }
+  &__swatches {
+    padding: var(--spacing);
+  }
+}
