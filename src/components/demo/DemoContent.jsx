@@ -1,4 +1,3 @@
-// import kidnapperImageUrl from '../../static/images/kidnapper.png';
 import dhhsBrand from '../../static/images/DHHS-Logo.svg';
 import traxImageUrl from '../../static/images/trax.jpg';
 import getBorderClass from '../../color/getBorderClass';
@@ -7,7 +6,6 @@ import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import Accordion from '../containers/Accordion';
 import UtahUnbrand from './UtahUnbrand';
 import LinkIcon from '../navigation/LinkIcon';
-// import Icons from '../icons/Icons';
 
 function DemoContent() {
   const { cssState } = useCssContext();
@@ -91,10 +89,30 @@ function DemoContent() {
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Utah State Tax Commission</div>
             <hr className="primary-color-background" />
             <ul>
-              <li><a href="#dmv">Division of Motor Vehicles (DMV) <LinkIcon /></a></li>
-              <li><a href="#permits">Temporary Permits <LinkIcon /></a></li>
-              <li><a href="#dmv">Renew Your Motor Vehicle Registration <LinkIcon /></a></li>
-              <li><a href="#dmv">Vehicle inspections <LinkIcon /></a></li>
+              <li>
+                <a href="#dmv">
+                  <span>Division of Motor Vehicles (DMV) </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#permits">
+                  <span>Temporary Permits </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#dmv">
+                  <span>Renew Your Motor Vehicle Registration </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#dmv">
+                  <span>Vehicle inspections </span>
+                  <LinkIcon />
+                </a>
+              </li>
             </ul>
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
@@ -103,10 +121,30 @@ function DemoContent() {
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Cultural &amp; Community Engagement</div>
             <hr className="primary-color-background" />
             <ul>
-              <li><a href="#dmv">Division of Motor Vehicles (DMV) <LinkIcon /></a></li>
-              <li><a href="#permits">Temporary Permits <LinkIcon /></a></li>
-              <li><a href="#dmv">Utah State Library <LinkIcon /></a></li>
-              <li><a href="#dmv">Services for the Deaf and Hard of Hearing <LinkIcon /></a></li>
+              <li>
+                <a href="#dmv">
+                  <span>Division of Motor Vehicles (DMV) </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#permits">
+                  <span>Temporary Permits </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#dmv">
+                  <span>Utah State Library </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#dmv">
+                  <span>Services for the Deaf and Hard of Hearing </span>
+                  <LinkIcon />
+                </a>
+              </li>
             </ul>
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
@@ -115,10 +153,30 @@ function DemoContent() {
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Health &amp; Human Services </div>
             <hr className="primary-color-background" />
             <ul>
-              <li><a href="#dmv">Office of Vital Records <LinkIcon /></a></li>
-              <li><a href="#permits">Epidemiology <LinkIcon /></a></li>
-              <li><a href="#dmv">Coronavirus <LinkIcon /></a></li>
-              <li><a href="#dmv">Mental Health Resources <LinkIcon /></a></li>
+              <li>
+                <a href="#dmv">
+                  <span>Office of Vital Records </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#permits">
+                  <span>Epidemiology </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#dmv">
+                  <span>Coronavirus </span>
+                  <LinkIcon />
+                </a>
+              </li>
+              <li>
+                <a href="#dmv">
+                  <span>Mental Health Resources </span>
+                  <LinkIcon />
+                </a>
+              </li>
             </ul>
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
@@ -501,7 +559,12 @@ function DemoContent() {
                 Online Services
               </div>
               <ul>
-                <li><a href="#Online Service One">Online Service One <LinkIcon /></a></li>
+                <li>
+                  <a href="#Online Service One">
+                    <span>Online Service One </span>
+                    <LinkIcon />
+                  </a>
+                </li>
                 <li><a href="#Online Service And More">Online Service And More</a></li>
                 <li><a href="#Online Service Another One">Online Service Another One</a></li>
                 <li><a href="#Online Service More">Online Service More</a></li>

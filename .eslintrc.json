@@ -39,12 +39,6 @@
               "functions": "never"
           }
         ],
-        "react/jsx-one-expression-per-line": [
-          "warn",
-          {
-            "allow": "single-child"
-          }
-        ],
         "jsx-a11y/label-has-associated-control": [ 2, {
           "assert": "either",
           "depth": 3
