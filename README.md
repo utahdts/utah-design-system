@@ -1,12 +1,14 @@
 # utah-design-system
-Front end React Application for viewing the Utah Design System :point_right: [View Here](https://friendly-potato-062a6bfe.pages.github.io/) :point_left:
+Front end React Application for viewing the Utah Design System :point_right: [View Here](https://utahdts.github.io/utah-design-system/) :point_left:<br>
+#utah-design-system<br>
 
 
 # Agency
 - DTS
 
 # Stakeholders
-- Customer Contact: John Angus
+- Product Owner: Joseph Sharp
+- Digital Experience Team
 
 ### Technologies
 - NPM
@@ -14,11 +16,11 @@ Front end React Application for viewing the Utah Design System :point_right: [Vi
 - JavaScript/React
 
 ## Getting started
-Download the source code
+- Download the source code
 
 
 ### Installing
-1. install npm on your machine
+1. Install npm on your machine
 1. run `npm install` to install dependencies
 1. run `npm run dev` to start watching for changes, building, and serving
 
@@ -32,3 +34,6 @@ We use [SemVer](http://semver.org/) for versioning.
 * Casey Wardle
 * Joseph Sharp
 * Austin Haws
+
+## License
+Apache License Version 2.0
