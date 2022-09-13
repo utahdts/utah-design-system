@@ -1,5 +1,5 @@
 {
-  "name": "utah-design-system",
+  "name": "utah-design-system-website",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -12,7 +12,8 @@
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tinycolor2": "^1.4.2"
+    "tinycolor2": "^1.4.2",
+    "utah-design-system-react-library": "file:../library"
   },
   "devDependencies": {
     "@types/react": "18.0.19",

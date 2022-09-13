@@ -1,11 +1,11 @@
-import dhhsBrand from '../../static/images/DHHS-Logo.svg';
-import traxImageUrl from '../../static/images/trax.jpg';
+import { Accordion } from 'utah-design-system-react-library';
 import getBorderClass from '../../color/getBorderClass';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import Accordion from '../containers/Accordion';
-import UtahUnbrand from './UtahUnbrand';
+import dhhsBrand from '../../static/images/DHHS-Logo.svg';
+import traxImageUrl from '../../static/images/trax.jpg';
 import LinkIcon from '../navigation/LinkIcon';
+import UtahUnbrand from './UtahUnbrand';
 
 function DemoContent() {
   const { cssState } = useCssContext();
