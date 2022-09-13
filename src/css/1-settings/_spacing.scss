@@ -3,7 +3,9 @@
 8px horizontal spacing
 */
 
-& {
+@use "../1-settings/class-vars";
+
+#{class-vars.$base-class} {
   --spacing-3xs: 2px;
   --spacing-2xs: 4px;
   --spacing-xs:  8px;

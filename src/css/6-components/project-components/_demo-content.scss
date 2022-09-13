@@ -1,3 +1,6 @@
+@use "../../1-settings/class-vars";
+@use "../../1-settings/color-swatches";
+
 /*
 ############     _header.scss      ############
 */
@@ -8,7 +11,7 @@
   display: flex;
   gap: var(--spacing);
   align-items: center;
-  border-bottom: 1px solid $neutral-gray-15;
+  border-bottom: 1px solid color-swatches.$neutral-gray-15;
 
   &__utah-brand {
     height: 52px;
@@ -82,7 +85,7 @@
 
         &:hover {
           color: black;
-          background-color: $neutral-gray-16;
+          background-color: color-swatches.$neutral-gray-16;
         }
         &.menu-item--selected {
           &::after {
@@ -104,7 +107,7 @@
 
 .text-on-primary-color {
   color: white;
-  @at-root #{$primary-color-is-light}#{&} {
+  #{class-vars.$base-class}#{class-vars.$primary-color-is-light} & {
     color: var(--gray-on-primary-color);
   }
 }
@@ -113,7 +116,7 @@
   a {
     color: var(--primary-color);
   }
-  @at-root #{$primary-color-is-light}#{&} {
+  #{class-vars.$base-class}#{class-vars.$primary-color-is-light} & {
     a {
       color: var(--primary-color-dark);
     }
@@ -124,7 +127,7 @@
     a {
       color: var(--primary-color);
     }
-    @at-root #{$primary-color-is-light}#{&} {
+    #{class-vars.$base-class}#{class-vars.$primary-color-is-light} & {
       color: var(--primary-color-dark);
       a {
         color: var(--primary-color-dark);
@@ -134,7 +137,7 @@
 }
 .text-on-secondary-color {
   color: white;
-  @at-root #{$secondary-color-is-light}#{&} {
+  #{class-vars.$base-class}#{class-vars.$secondary-color-is-light} & {
     color: var(--gray-on-secondary-color);
   }
 }
@@ -183,7 +186,7 @@
     height: 1px;
     background: white;
     margin: var(--spacing) 0;
-    @at-root #{$primary-color-is-light}#{&} {
+    @at-root #{class-vars.$primary-color-is-light}#{&} {
       background: var(--gray-color);
     }
   }
@@ -254,7 +257,7 @@
     border: none;
     margin: 0 var(--spacing-l) var(--spacing);
     &.primary-color-background {
-      @at-root #{$primary-color-is-light}#{&} {
+      @at-root #{class-vars.$primary-color-is-light}#{&} {
         background-color: var(--primary-color-dark);
       }
     }
@@ -277,7 +280,7 @@
         &:hover {
           background: var(--primary-color);
           color: white;
-          @at-root #{$primary-color-is-light}#{&} {
+          @at-root #{class-vars.$primary-color-is-light}#{&} {
             background-color: var(--primary-color-dark);
             color: white;
           }
@@ -320,7 +323,7 @@
     font-weight: var(--font-weight-bold);
     padding: var(--spacing);
     box-sizing: border-box;
-    @at-root #{$secondary-color-is-light}#{&} {
+    @at-root #{class-vars.$secondary-color-is-light}#{&} {
       color: var(--gray-color);
     }
   }

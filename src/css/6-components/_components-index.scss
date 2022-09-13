@@ -5,17 +5,17 @@ component specific, BEM (Block, Element, Modifier)
 */
 
 /* ---- Base Components ---- */
-@import "base-components/accordion/accordion";
-@import "base-components/buttons/button";
-@import "base-components/buttons/icon-button";
-@import "base-components/forms/text-input";
-@import "base-components/forms/info-box";
-@import "base-components/forms/radio-button";
+@use "base-components/accordion/accordion";
+@use "base-components/buttons/button";
+@use "base-components/buttons/icon-button";
+@use "base-components/forms/text-input";
+@use "base-components/forms/info-box";
+@use "base-components/forms/radio-button";
 
 /* ---- Project Components ---- */
-@import "project-components/color-picker";
-@import "project-components/color-pickers";
-@import "project-components/swatch-list";
-@import "project-components/color-compare";
-@import "project-components/demo-content";
-@import "project-components/popup";
+@use "project-components/color-picker";
+@use "project-components/color-pickers";
+@use "project-components/swatch-list";
+@use "project-components/color-compare";
+@use "project-components/demo-content";
+@use "project-components/popup";

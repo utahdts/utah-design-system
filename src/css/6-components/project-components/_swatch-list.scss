@@ -1,3 +1,5 @@
+@use "../../1-settings/class-vars";
+
 /*
 ############     _popup.scss      ############
 */
@@ -13,7 +15,7 @@
     border-radius: 999px;
     min-height: unset;
     border: none;
-    &#{$color-is-light} {
+    &#{class-vars.$color-is-light} {
       color: var(--gray-color);
     }
   }

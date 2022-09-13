@@ -1,6 +1,7 @@
 import ColorPopup from './components/color/ColorPopup';
 import DemoContent from './components/demo/DemoContent';
 import DemoAppStyle from './components/demo/DemoAppStyle';
+import './css/3-generic/normalize.css';
 import './css/index.scss';
 import { useCssContext } from './context/cssContext/CssContext';
 import CSS_STATE_KEYS from './enums/cssStateKeys';

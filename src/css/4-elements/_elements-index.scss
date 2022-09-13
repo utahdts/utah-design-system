@@ -2,8 +2,9 @@
 ############     _elements-index.scss      ############
 elemental html: h1, h2, h3, ul, li, etc.
 */
+@use "../1-settings/class-vars";
 
-& {
+#{class-vars.$base-class} {
 	margin: 0;
 	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;

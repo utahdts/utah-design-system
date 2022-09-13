@@ -1,3 +1,5 @@
+@use "../../1-settings/class-vars";
+
 /*
 ############     _color-picker.scss      ############
 */
@@ -40,13 +42,13 @@ $color-picker-base-size: 130px;
       color: var(--gray-color);
     }
 
-    @at-root #{$primary-color-is-light}#{&}.primary-color-background {
+    @at-root #{class-vars.$primary-color-is-light}#{&}.primary-color-background {
       color: var(--gray-on-primary-color);
     }
-    @at-root #{$secondary-color-is-light}#{&}.secondary-color-background {
+    @at-root #{class-vars.$secondary-color-is-light}#{&}.secondary-color-background {
       color: var(--gray-on-secondary-color);
     }
-    @at-root #{$accent-color-is-light}#{&}.accent-color-background {
+    @at-root #{class-vars.$accent-color-is-light}#{&}.accent-color-background {
       color: var(--gray-on-accent-color);
     }
 }

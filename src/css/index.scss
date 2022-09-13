@@ -1,3 +1,4 @@
+@use "sass:meta";
 /*
 BEM standard: Block, Element, Modifier
    Block: use dashes to separate words:
@@ -15,37 +16,37 @@ BEM standard: Block, Element, Modifier
     - super-list--flat
     - cats-r-great--black
  */
- 
- // normalize.css
- @import "./3-generic/normalize.css";
 
-.utah-design-system {
-  // variables and settings
-  @import "./1-settings/settings-index";
 
-  // mixins, functions
-  @import "./2-tools/tools-index";
+// normalize.css
+// @include meta.load-css("./3-generic/normalize.css");
 
-  // css resets, etc.
-  @import "./3-generic/generic-index";
+// variables and settings
+@include meta.load-css("1-settings/settings-index");
 
-  // elemental html: h1, h2, h3, ul, li, etc.
-  @import "./4-elements/elements-index";
+// mixins, functions
+@include meta.load-css("2-tools/tools-index");
 
-  // containers and general design patterns, 2up, 3up etc
-  @import "./5-objects/objects-index";
+// css resets, etc.
+@include meta.load-css("3-generic/generic-index");
 
-  // component specific, BEM
-  // @media for each component should be contained with the component.
-  @import "./6-components/components-index";
+// elemental html: h1, h2, h3, ul, li, etc.
+@include meta.load-css("4-elements/elements-index");
 
-  // utility classes
-  @import "./7-utilities/utilities-index";
+// containers and general design patterns, 2up, 3up etc
+@include meta.load-css("5-objects/objects-index");
 
-  // overall theme options for the above
-  @import "./8-super/super-index";
+// component specific, BEM
+// @media for each component should be contained with the component.
+@include meta.load-css("6-components/components-index");
 
-  // test css, temporary css,
-  // this css should eventually be categorized above
-  @import "./9-tip/tip-index";
-}
+// utility classes
+@include meta.load-css("7-utilities/utilities-index");
+
+// overall theme options for the above
+@include meta.load-css("8-super/super-index");
+
+// test css, temporary css,
+// this css should eventually be categorized above
+@include meta.load-css("9-tip/tip-index");
+

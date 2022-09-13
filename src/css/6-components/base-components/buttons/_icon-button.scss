@@ -1,3 +1,5 @@
+@use "../../../1-settings/color-swatches";
+
 /*
 ############     _icon-button.scss      ############
 */
@@ -34,8 +36,8 @@
   &--plain {
     border-color: transparent;
     &:hover {
-      background-color: $neutral-gray-16;
-      border-color: $neutral-gray-16;
+      background-color: color-swatches.$neutral-gray-16;
+      border-color: color-swatches.$neutral-gray-16;
       color: var(--gray-dark-color);
     }
   }

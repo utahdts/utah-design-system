@@ -2,8 +2,9 @@
 ############     _font-size.scss      ############
 Font size variables
 */
+@use "../1-settings/class-vars";
 
-& {
+#{class-vars.$base-class} {
   --font-size-2xs: .8125rem; //13
   --font-size-xs:  .875rem;  //14
   --font-size-s:   .9375rem; //15
@@ -32,7 +33,7 @@ Font size variables
 .font-size-7xl { font-size: var(--font-size-7xl); }
 
 
-& {
+#{class-vars.$base-class} {
   --font-weight-normal: 400;
   --font-weight-semi-bold: 600;
   --font-weight-bold: 700;

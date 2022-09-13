@@ -2,8 +2,9 @@
 ############     _font-size.scss      ############
 Grid variables
 */
+@use "../1-settings/class-vars";
 
-& {
+#{class-vars.$base-class} {
   --grid-fixed: var(--content-width);
   --grid-fixed-half: calc(var(--grid-fixed) / 2);
   --grid-fixed-form: calc(var(--grid-fixed) / 2.3);

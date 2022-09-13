@@ -3,4 +3,4 @@
 Overall overrides, @media, themes, etc. that supersede styles higher in the pyramid
 */
 
-@import "print";
+@use "print";
