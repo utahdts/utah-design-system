@@ -1,0 +1,21 @@
+/*
+############     _components-index.scss      ############
+component specific, BEM (Block, Element, Modifier)
+@media for each component should be contained with the component.
+*/
+
+/* ---- Base Components ---- */
+@use "base-components/accordion/accordion";
+@use "base-components/buttons/button";
+@use "base-components/buttons/icon-button";
+@use "base-components/forms/text-input";
+@use "base-components/forms/info-box";
+@use "base-components/forms/radio-button";
+
+/* ---- Project Components ---- */
+@use "project-components/color-picker";
+@use "project-components/color-pickers";
+@use "project-components/swatch-list";
+@use "project-components/color-compare";
+@use "project-components/demo-content";
+@use "project-components/popup";

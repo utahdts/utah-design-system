@@ -1,0 +1,61 @@
+/*
+############     _spacing.scss      ############
+8px horizontal spacing
+*/
+
+@use "../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xs:  8px;
+  --spacing-s:   12px;
+  --spacing:     16px;
+  --spacing-l:   24px;
+  --spacing-xl:  32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  --spacing-5xl: 80px;
+  --spacing-6xl: 96px;
+}
+
+.m-spacing { margin: var(--spacing); }
+.mt-spacing { margin-top: var(--spacing); }
+.mr-spacing { margin-right: var(--spacing); }
+.mb-spacing { margin-bottom: var(--spacing); }
+.ml-spacing { margin-left: var(--spacing); }
+.mx-spacing { margin-left: var(--spacing); margin-right: var(--spacing); }
+.my-spacing { margin-top: var(--spacing); margin-bottom: var(--spacing); }
+
+.m-spacing-l { margin: var(--spacing-l); }
+.mt-spacing-l { margin-top: var(--spacing-l); }
+.mr-spacing-l { margin-right: var(--spacing-l); }
+.mb-spacing-l { margin-bottom: var(--spacing-l); }
+.ml-spacing-l { margin-left: var(--spacing-l); }
+.mx-spacing-l { margin-left: var(--spacing-l); margin-right: var(--spacing-l); }
+.my-spacing-l { margin-top: var(--spacing-l); margin-bottom: var(--spacing-l); }
+
+.p-spacing { padding: var(--spacing); }
+.pt-spacing { padding-top: var(--spacing); }
+.pr-spacing { padding-right: var(--spacing); }
+.pb-spacing { padding-bottom: var(--spacing); }
+.pl-spacing { padding-left: var(--spacing); }
+.px-spacing { padding-left: var(--spacing); padding-right: var(--spacing); }
+.py-spacing { padding-top: var(--spacing); padding-bottom: var(--spacing); }
+
+.p-spacing-l { padding: var(--spacing-l); }
+.pt-spacing-l { padding-top: var(--spacing-l); }
+.pr-spacing-l { padding-right: var(--spacing-l); }
+.pb-spacing-l { padding-bottom: var(--spacing-l); }
+.pl-spacing-l { padding-left: var(--spacing-l); }
+.px-spacing-l { padding-left: var(--spacing-l); padding-right: var(--spacing-l); }
+.py-spacing-l { padding-top: var(--spacing-l); padding-bottom: var(--spacing-l); }
+
+.m-auto { margin: auto }
+.mt-auto { margin-top: auto }
+.mr-auto { margin-right: auto }
+.mb-auto { margin-bottom: auto }
+.ml-auto { margin-left: auto }
+.mx-auto { margin-left: auto; margin-right: auto }
+.my-auto { margin-top: auto; margin-bottom: auto }
