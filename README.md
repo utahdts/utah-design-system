@@ -50,7 +50,7 @@ Apache License Version 2.0
 * .gitignore
 * .editorconfig
 * .eslintrc.json
-* dist/     //TODO: is this how this should work
+* dist/
   > You may use these assets in your project
   * assets/
     * css
