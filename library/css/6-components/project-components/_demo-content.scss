@@ -152,7 +152,7 @@
   &__image {
     width: 100%;
     height: 100%;
-    background: url('../static/images/doctor-showing-medical-results.jpg') no-repeat left/75%;
+    background: url('../../website/src/static/images/doctor-showing-medical-results.jpg') no-repeat left/75%;
   }
 
   $hero-slant-width: 268px;
@@ -298,7 +298,7 @@
 }
 
 .card-image {
-  background: url("../static/images/mom-baby.jpg") no-repeat center/cover;
+  background: url("../../website/src/static/images/mom-baby.jpg") no-repeat center/cover;
 }
 
 .fonts-demo {
@@ -328,7 +328,7 @@
     }
   }
   &--baby {
-    background: url('../static/images/baby.jpg') no-repeat left/cover;
+    background: url('../../website/src/static/images/baby.jpg') no-repeat left/cover;
   }
 
 }
