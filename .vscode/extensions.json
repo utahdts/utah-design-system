@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "SonarSource.sonarlint-vscode",
+        "formulahendry.auto-rename-tag",
+        "EditorConfig.EditorConfig"
+    ]
+}
