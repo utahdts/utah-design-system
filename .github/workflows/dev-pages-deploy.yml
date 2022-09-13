@@ -13,12 +13,12 @@ jobs:
 
       - name: Install Library 🔧
         run: |
-          cd /library
+          cd library
           npm install
           
       - name: Install Website and Build 📖
         run: |
-          cd /website
+          cd website
           npm install
           npm run build
 
