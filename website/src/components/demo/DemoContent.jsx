@@ -1,4 +1,4 @@
-import { Accordion } from 'utah-design-system-react-library';
+import { Accordion, version } from 'utah-design-system-react-library';
 import getBorderClass from '../../color/getBorderClass';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
@@ -6,6 +6,7 @@ import dhhsBrand from '../../static/images/DHHS-Logo.svg';
 import traxImageUrl from '../../static/images/trax.jpg';
 import LinkIcon from '../navigation/LinkIcon';
 import UtahUnbrand from './UtahUnbrand';
+import websitePackageJson from '../../../package.json';
 
 function DemoContent() {
   const { cssState } = useCssContext();
@@ -629,6 +630,13 @@ function DemoContent() {
             <li>Accessibility</li>
             <li>Translate</li>
           </ul>
+        </div>
+        <div className="page-footer__version">
+          <span>Website Version </span>
+          <span>{websitePackageJson.version}</span>
+          <span> | </span>
+          <span>Library Version </span>
+          <span>{version}</span>
         </div>
       </div>
 
