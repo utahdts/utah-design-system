@@ -11,9 +11,14 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
+      - name: Install Library 🔧
         run: |
-          cd website
+          cd /library
+          npm install
+          
+      - name: Install Website and Build 📖
+        run: |
+          cd /website
           npm install
           npm run build
 
