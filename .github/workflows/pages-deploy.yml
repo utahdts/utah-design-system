@@ -13,6 +13,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          cd website
           npm install
           npm run build
 
