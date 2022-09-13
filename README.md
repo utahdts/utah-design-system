@@ -41,6 +41,8 @@ Apache License Version 2.0
 
 ## Repository Map
 * .github/
+    * CODEOWNERS
+      > tells which users have special rights
     * workflows/
       > These run deploys and other actions relevant to the code base
 * LICENSE
@@ -48,7 +50,7 @@ Apache License Version 2.0
 * .gitignore
 * .editorconfig
 * .eslintrc.json
-* dist/
+* dist/     //TODO: is this how this should work
   > You may use these assets in your project
   * assets/
     * css
@@ -65,9 +67,13 @@ Apache License Version 2.0
 * library/
     > these are the compiled parts separate from the website that the website also uses
     * css/ 
-      > css files that make up the design system
+      > css files that make up the design system (ITCSS)
     * js/
     * react/
+      * components/
+      * contexts/
+      * hooks/
+      * ...
     * boilerplate/ 
       > starter project that grabs all the pieces for a new website
     * static/
