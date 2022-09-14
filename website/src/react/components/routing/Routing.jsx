@@ -6,6 +6,7 @@ import {
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import { menuItemsMain } from './menus';
 import pages from './pages';
+import RoutePage from './RoutePage';
 
 const propTypes = {};
 const defaultProps = {};
@@ -46,7 +47,7 @@ function Routing() {
           <Route
             key={`design-system-routing__page__${page.path}-${page.pageTitle}`}
             path={page.path}
-            element={element}
+            element={<RoutePage page={page}>{element}</RoutePage>}
           />
         );
       })}
