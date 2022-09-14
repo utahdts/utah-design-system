@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import MenuItemShape from '../../propTypesShapes/MenuItemsShape';
+import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
   menuItems: MenuItemShape.isRequired,
@@ -8,13 +9,14 @@ const defaultProps = {};
 
 function MainMenu({ menuItems }) {
   return (
-    <div>
+    <div className="menu-bar dark-text">
       <ul>
         {menuItems.map((menuItem) => (
           <li key={`main-menu__nav-link__${menuItem.link}-${menuItem.title}}`}>
             <NavLink
-              className="TODO: joe-put-a-class-name-here?"
+              className={(navData) => joinClassNames('menu-item', navData.isActive && 'menu-item--selected')}
               to={menuItem.link}
+              end
             >
               {menuItem.title}
             </NavLink>

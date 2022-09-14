@@ -1,3 +1,6 @@
+import handleKeyPress from './react/util/handleKeyPress';
+import joinClassNames from './react/util/joinClassNames';
+import rectContainsPoint from './react/util/rectContainsPoint';
 import packageJson from './package.json';
 import SegmentedButton from './react/components/buttons/SegmentedButton';
 import Accordion from './react/components/containers/accordion/Accordion';
@@ -13,9 +16,12 @@ const { version } = packageJson;
 export {
   Accordion,
   DocumentationTemplate,
+  handleKeyPress,
+  joinClassNames,
   LandingTemplate,
   MainMenu,
   MenuItemShape,
+  rectContainsPoint,
   SegmentedButton,
   UtahHeader,
   UtahUnbrand,

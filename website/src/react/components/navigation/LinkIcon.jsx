@@ -1,6 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import joinClassNames from '../../util/joinClassNames';
+import React from 'react';
+import { joinClassNames } from 'utah-design-system-react-library';
 
 const propTypes = {
   className: PropTypes.string,

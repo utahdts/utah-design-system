@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
-import colors from '../../util/color/colors';
+import { rectContainsPoint } from 'utah-design-system-react-library';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';
-import rectContainsPoint from '../../util/rectContainsPoint';
+import colors from '../../util/color/colors';
 import ColorCompare from './ColorCompare';
 import ColorPicker from './ColorPicker';
 import SwatchList from './SwatchList';

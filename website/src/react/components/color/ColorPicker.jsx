@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
+import { handleKeyPress, joinClassNames } from 'utah-design-system-react-library';
 import isLightColor from '../../util/color/isLightColor';
-import handleKeyPress from '../../util/handleKeyPress';
-import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
