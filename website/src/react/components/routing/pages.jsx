@@ -1,8 +1,11 @@
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import Demo from '../demo/Demo';
+import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
+import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import HomeLanding from '../websiteContent/HomeLanding';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/SegmentedButtonDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -42,7 +45,21 @@ const pages = {
   main: {
     content: <HomeLanding />,
     path: '/',
-    pageTitle: 'Main Template',
+    pageTitle: 'Home',
+    template: layoutTemplatesEnum.landingTemplate,
+  },
+
+  guidelines: {
+    content: <GuidelinesLanding />,
+    path: '/guidelines',
+    pageTitle: 'Guidelines/Standards',
+    template: layoutTemplatesEnum.landingTemplate,
+  },
+
+  foundation: {
+    content: <FoundationLanding />,
+    path: '/foundation',
+    pageTitle: 'Foundation',
     template: layoutTemplatesEnum.landingTemplate,
   },
 
@@ -50,6 +67,13 @@ const pages = {
     content: <LibraryLanding />,
     path: '/library',
     pageTitle: 'Library',
+    template: layoutTemplatesEnum.landingTemplate,
+  },
+
+  resources: {
+    content: <ResourcesLanding />,
+    path: '/resources',
+    pageTitle: 'Resources',
     template: layoutTemplatesEnum.landingTemplate,
   },
 
