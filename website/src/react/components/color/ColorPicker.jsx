@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
-import isLightColor from '../../color/isLightColor';
+import isLightColor from '../../util/color/isLightColor';
 import handleKeyPress from '../../util/handleKeyPress';
 import joinClassNames from '../../util/joinClassNames';
 

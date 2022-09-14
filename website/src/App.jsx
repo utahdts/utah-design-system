@@ -1,12 +1,11 @@
-import ColorPopup from './components/color/ColorPopup';
-import DemoContent from './components/demo/DemoContent';
-import DemoAppStyle from './components/demo/DemoAppStyle';
+import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import 'utah-design-system-react-library/css/3-generic/normalize.css';
 import 'utah-design-system-react-library/css/index.scss';
-import { useCssContext } from './context/cssContext/CssContext';
-import CSS_STATE_KEYS from './enums/cssStateKeys';
-import joinClassNames from './util/joinClassNames';
-import CSS_CLASS_NAMES from './enums/cssClassNames';
+import { useCssContext } from './react/context/cssContext/CssContext';
+import CSS_STATE_KEYS from './react/enums/cssStateKeys';
+import joinClassNames from './react/util/joinClassNames';
+import CSS_CLASS_NAMES from './react/enums/cssClassNames';
+import Routing from './react/components/routing/Routing';
 
 function App() {
   const { cssState } = useCssContext();
@@ -22,8 +21,7 @@ function App() {
           ])
         }
       >
-        <DemoContent />
-        <ColorPopup />
+        <Routing />
       </div>
       <DemoAppStyle />
     </>

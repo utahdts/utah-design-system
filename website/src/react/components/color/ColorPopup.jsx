@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import colors from '../../color/colors';
+import colors from '../../util/color/colors';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';

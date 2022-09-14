@@ -1,5 +1,5 @@
 import tinycolor from 'tinycolor2';
-import CSS_CLASS_NAMES from '../enums/cssClassNames';
+import CSS_CLASS_NAMES from '../../enums/cssClassNames';
 import isLightColor from './isLightColor';
 
 function getBorderClass({ backgroundColor, foregroundColor, targetContrast = 3 }) {

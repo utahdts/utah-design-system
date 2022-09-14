@@ -2,10 +2,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
-import colors, { colorsIndexes } from '../../color/colors';
+import colors, { colorsIndexes } from '../../util/color/colors';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import CSS_STATE_KEYS from '../../enums/cssStateKeys';
-import readableColor from '../../color/readableColor';
+import readableColor from '../../util/color/readableColor';
 
 // The global context object that tracks the context's state and provides components like the <CssContext.Provider/>
 const CssContext = React.createContext();
