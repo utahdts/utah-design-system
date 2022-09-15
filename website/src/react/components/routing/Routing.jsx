@@ -4,7 +4,7 @@ import {
   LandingTemplate,
 } from 'utah-design-system-react-library';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
-import { menuItemsMain } from './menus';
+import { menuItemsLibrarySecondary, menuItemsMain } from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
 
@@ -22,8 +22,10 @@ function Routing() {
             element = (
               <DocumentationTemplate
                 content={page.content}
+                currentPageLink={page.link}
                 menuItemsMain={menuItemsMain}
-                // menuItemsSecondary={menuItemsFoundationSecondary}
+                menuItemsSecondary={menuItemsLibrarySecondary}
+                mainMenuLink={page.mainMenuLinkFunc && page.mainMenuLinkFunc()}
               />
             );
             break;
@@ -45,8 +47,8 @@ function Routing() {
 
         return (
           <Route
-            key={`design-system-routing__page__${page.path}-${page.pageTitle}`}
-            path={page.path}
+            key={`design-system-routing__page__${page.link}-${page.pageTitle}`}
+            path={page.link}
             element={<RoutePage page={page}>{element}</RoutePage>}
           />
         );

@@ -16,7 +16,7 @@ import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
  *
  *  interface Page {
  *    content: React.FC,
- *    path: string | (() => string)),
+ *    link: string | (() => string)),
  *    pageTitle: string | (() => string)),
  *    template: PropTypes.oneOf(layoutTemplatesEnum),
  *  }
@@ -26,13 +26,13 @@ import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
  *  const url = usePageUrl({page});
  *    Example:
  *      const history = useHistory();
- *      const url = usePageUrl({page: pages.main, anchor: 'exampleJunk'});
+ *      const url = usePageUrl({page: pages.home, anchor: 'exampleJunk'});
  *      const onClick = () => history.push(url);
  *
  * --- useGoToPageUrl ---
  *  const gotoUrl = useGoToPageUrl({page});
  *    Example:
- *      const gotoUrl = usePageUrl({page: pages.main, anchor: 'exampleJunk'});
+ *      const gotoUrl = usePageUrl({page: pages.home, anchor: 'exampleJunk'});
  *      <button onClick={gotoUrl}>go to url</button>
  *
  * Rules of thumb:
@@ -42,53 +42,85 @@ import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 
 const pages = {
   // === Main top menu pages === //
-  main: {
+  home: {
     content: <HomeLanding />,
-    path: '/',
+    link: '/',
     pageTitle: 'Home',
     template: layoutTemplatesEnum.landingTemplate,
   },
 
   guidelines: {
     content: <GuidelinesLanding />,
-    path: '/guidelines',
+    link: '/guidelines',
     pageTitle: 'Guidelines/Standards',
     template: layoutTemplatesEnum.landingTemplate,
   },
 
   foundation: {
     content: <FoundationLanding />,
-    path: '/foundation',
+    link: '/foundation',
     pageTitle: 'Foundation',
     template: layoutTemplatesEnum.landingTemplate,
   },
 
   library: {
     content: <LibraryLanding />,
-    path: '/library',
+    link: '/library',
     pageTitle: 'Library',
     template: layoutTemplatesEnum.landingTemplate,
   },
 
   resources: {
     content: <ResourcesLanding />,
-    path: '/resources',
+    link: '/resources',
     pageTitle: 'Resources',
     template: layoutTemplatesEnum.landingTemplate,
   },
 
   // === library documentation components === //
+  forms: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/forms',
+    pageTitle: 'Forms',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.documentationTemplate,
+  },
+  form: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/form',
+    pageTitle: 'Form',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.documentationTemplate,
+  },
+
+  buttons: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/buttons',
+    pageTitle: 'Buttons',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.documentationTemplate,
+  },
+
+  button: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/buttons/button',
+    pageTitle: 'Button',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.documentationTemplate,
+  },
+
   segmentedButton: {
     content: <SegmentedButtonDocumentation />,
-    path: '/library/components/buttons/segmented-button',
+    link: '/library/components/buttons/segmented-button',
     pageTitle: 'Segmented Button',
+    mainMenuLinkFunc: () => pages.library.link,
     template: layoutTemplatesEnum.documentationTemplate,
   },
 
   // === purple page === //
   purple: {
     content: <Demo />,
-    path: '/purple',
+    link: '/purple',
     pageTitle: 'Purple',
     template: layoutTemplatesEnum.landingTemplate,
   },

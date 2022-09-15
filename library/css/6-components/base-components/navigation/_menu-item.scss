@@ -1,0 +1,12 @@
+.menu-item {
+  
+  &__chevron {
+
+  }
+	&__sub-menu {
+    display: none;
+    &--open {
+      display: block;
+    }
+  }
+}

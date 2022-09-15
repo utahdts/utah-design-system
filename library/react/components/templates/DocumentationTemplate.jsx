@@ -1,19 +1,34 @@
 import PropTypes from 'prop-types';
+import MenuItemHierarchalShape from '../../propTypesShapes/MenuItemHierarchalShape';
 import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
 import MainMenu from '../navigation/MainMenu';
+import SidePanelNavigation from '../navigation/SidePanelNavigation';
+import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
   content: PropTypes.element.isRequired,
+  currentPageLink: PropTypes.string.isRequired,
   menuItemsMain: MenuItemsShape.isRequired,
-  // secondaryMenuItems: MenuItemsHierarchicalShape.isRequired,
+  menuItemsSecondary: MenuItemHierarchalShape.isRequired,
+  mainMenuLink: PropTypes.string.isRequired,
 };
 const defaultProps = {};
 
-function DocumentationTemplate({ content, menuItemsMain }) {
+function DocumentationTemplate({
+  content,
+  currentPageLink,
+  menuItemsMain,
+  menuItemsSecondary,
+  mainMenuLink,
+}) {
   return (
     <>
-      <MainMenu menuItems={menuItemsMain} />
-      {content}
+      <UtahHeader />
+      <MainMenu menuItems={menuItemsMain} selectedMenuLink={mainMenuLink} />
+      <div className="documentation-template">
+        <SidePanelNavigation menuItems={menuItemsSecondary} currentPageLink={currentPageLink} />
+        {content}
+      </div>
     </>
   );
 }

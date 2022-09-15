@@ -1,26 +1,21 @@
-import { NavLink } from 'react-router-dom';
-import MenuItemShape from '../../propTypesShapes/MenuItemsShape';
-import joinClassNames from '../../util/joinClassNames';
+import PropTypes from 'prop-types';
+import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
+import MenuItem from './MenuItem';
 
 const propTypes = {
-  menuItems: MenuItemShape.isRequired,
+  menuItems: MenuItemsShape.isRequired,
+  selectedMenuLink: PropTypes.string,
 };
-const defaultProps = {};
+const defaultProps = {
+  selectedMenuLink: null,
+};
 
-function MainMenu({ menuItems }) {
+function MainMenu({ menuItems, selectedMenuLink }) {
   return (
     <div className="menu-bar dark-text">
       <ul>
         {menuItems.map((menuItem) => (
-          <li key={`main-menu__nav-link__${menuItem.link}-${menuItem.title}}`}>
-            <NavLink
-              className={(navData) => joinClassNames('menu-item', navData.isActive && 'menu-item--selected')}
-              to={menuItem.link}
-              end
-            >
-              {menuItem.title}
-            </NavLink>
-          </li>
+          <MenuItem menuItem={menuItem} key={`main-menu__nav-link__${menuItem.link}-${menuItem.title}}`} selectedMenuLink={selectedMenuLink} />
         ))}
       </ul>
     </div>

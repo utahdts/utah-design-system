@@ -3,7 +3,7 @@ import layoutTemplatesEnum from '../enums/layoutTemplatesEnum';
 
 export default PropTypes.shape({
   content: PropTypes.element.isRequired,
-  path: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
   pageTitle: PropTypes.string.isRequired,
   template: PropTypes.oneOf(Object.values(layoutTemplatesEnum)).isRequired,
 });
