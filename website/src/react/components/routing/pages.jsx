@@ -1,4 +1,5 @@
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
+import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
@@ -46,83 +47,169 @@ const pages = {
     content: <HomeLanding />,
     link: '/',
     pageTitle: 'Home',
-    template: layoutTemplatesEnum.landingTemplate,
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
   },
 
   guidelines: {
     content: <GuidelinesLanding />,
     link: '/guidelines',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Guidelines/Standards',
-    template: layoutTemplatesEnum.landingTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   foundation: {
     content: <FoundationLanding />,
     link: '/foundation',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Foundation',
-    template: layoutTemplatesEnum.landingTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   library: {
     content: <LibraryLanding />,
     link: '/library',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Library',
-    template: layoutTemplatesEnum.landingTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   resources: {
     content: <ResourcesLanding />,
     link: '/resources',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Resources',
-    template: layoutTemplatesEnum.landingTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   // === library documentation components === //
-  forms: {
+  // === basic atomic === //
+  anchors: {
     content: <SegmentedButtonDocumentation />,
-    link: '/library/components/forms',
-    pageTitle: 'Forms',
+    link: '/library/components/basic/anchor',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Anchors',
     mainMenuLinkFunc: () => pages.library.link,
-    template: layoutTemplatesEnum.documentationTemplate,
-  },
-  form: {
-    content: <SegmentedButtonDocumentation />,
-    link: '/library/components/form',
-    pageTitle: 'Form',
-    mainMenuLinkFunc: () => pages.library.link,
-    template: layoutTemplatesEnum.documentationTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  buttons: {
+  horizontalRule: {
     content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons',
-    pageTitle: 'Buttons',
+    link: '/library/components/basic/hr',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Horizontal Rule',
     mainMenuLinkFunc: () => pages.library.link,
-    template: layoutTemplatesEnum.documentationTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  links: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/basic/links',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Links',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  tags: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/basic/tag',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Tags',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  type: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/basic/type',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Type and Text',
+    // TODO: maybe mainMenuLinkFunc can be replaced by pages.parentLinks?
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === buttons === //
   button: {
     content: <SegmentedButtonDocumentation />,
     link: '/library/components/buttons/button',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button',
     mainMenuLinkFunc: () => pages.library.link,
-    template: layoutTemplatesEnum.documentationTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  buttonGroup: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/buttons/segmented',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Button Group',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  confirmationButton: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/buttons/segmented',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Confirmation Button',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  iconButton: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/buttons/iconButton',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Icon Button',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   segmentedButton: {
     content: <SegmentedButtonDocumentation />,
     link: '/library/components/buttons/segmented-button',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Segmented Button',
     mainMenuLinkFunc: () => pages.library.link,
-    template: layoutTemplatesEnum.documentationTemplate,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // will go away VVVVVVVV
+  forms: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/forms',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Forms',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  form: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/form',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Form',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  buttons: {
+    content: <SegmentedButtonDocumentation />,
+    link: '/library/components/buttons',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Buttons',
+    mainMenuLinkFunc: () => pages.library.link,
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   // === purple page === //
   purple: {
     content: <Demo />,
     link: '/purple',
+    menuItemsSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Purple',
-    template: layoutTemplatesEnum.landingTemplate,
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
   },
 };
 

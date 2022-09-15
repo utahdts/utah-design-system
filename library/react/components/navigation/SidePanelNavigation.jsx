@@ -1,19 +1,21 @@
-import PropTypes from 'prop-types';
-import MenuItemHierarchalShape from '../../propTypesShapes/MenuItemHierarchalShape';
+import MenuItemShape from '../../propTypesShapes/MenuItemShape';
+import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
 import MenuItem from './MenuItem';
 
 const propTypes = {
-  currentPageLink: PropTypes.string.isRequired,
-  menuItems: MenuItemHierarchalShape.isRequired,
+  currentMenuItem: MenuItemShape,
+  menuItems: MenuItemsShape.isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  currentMenuItem: null,
+};
 
-function SidePanelNavigation({ currentPageLink, menuItems }) {
+function SidePanelNavigation({ currentMenuItem, menuItems }) {
   return (
     <div className="menu-side-panel">
       <ul>
         {menuItems.map((menuItem) => (
-          <MenuItem menuItem={menuItem} key={`menu-side-panel__menu-item__${menuItem.link}-${menuItem.title}}`} currentPageLink={currentPageLink} />
+          <MenuItem currentMenuItem={currentMenuItem} menuItem={menuItem} key={`menu-side-panel__menu-item__${menuItem.link}-${menuItem.title}}`} />
         ))}
       </ul>
     </div>

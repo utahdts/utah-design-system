@@ -4,7 +4,8 @@ import {
   LandingTemplate,
 } from 'utah-design-system-react-library';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
-import { menuItemsLibrarySecondary, menuItemsMain } from './menus';
+import menusEnum from '../../enums/menusEnum';
+import { menuItemsFoundationSecondary, menuItemsLibrarySecondary, menuItemsMain } from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
 
@@ -18,19 +19,38 @@ function Routing() {
         let element;
 
         switch (page.template) {
-          case layoutTemplatesEnum.documentationTemplate:
+          case layoutTemplatesEnum.DOCUMENTATION_TEMPLATE: {
+            let menuItemsSecondary;
+            switch (page.menuItemsSecondary) {
+              case menusEnum.MAIN_MENU:
+                menuItemsSecondary = menuItemsMain;
+                break;
+              case menusEnum.SECONDARY_MENU_FOUNDATION:
+                menuItemsSecondary = menuItemsFoundationSecondary;
+                break;
+              case menusEnum.SECONDARY_MENU_LIBRARY:
+                menuItemsSecondary = menuItemsLibrarySecondary;
+                break;
+              case menusEnum.SECONDARY_MENU_GUIDELINES:
+                menuItemsSecondary = menuItemsLibrarySecondary;
+                break;
+              case menusEnum.SECONDARY_MENU_RESOURCES:
+                menuItemsSecondary = menuItemsLibrarySecondary;
+                break;
+              default:
+                throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.title}'; menuItemsSecondary='${page.menuItemsSecondary}'`);
+            }
             element = (
               <DocumentationTemplate
                 content={page.content}
-                currentPageLink={page.link}
                 menuItemsMain={menuItemsMain}
-                menuItemsSecondary={menuItemsLibrarySecondary}
-                mainMenuLink={page.mainMenuLinkFunc && page.mainMenuLinkFunc()}
+                menuItemsSecondary={menuItemsSecondary}
               />
             );
+          }
             break;
 
-          case layoutTemplatesEnum.landingTemplate:
+          case layoutTemplatesEnum.LANDING_TEMPLATE:
             element = (
               <LandingTemplate
                 content={page.content}

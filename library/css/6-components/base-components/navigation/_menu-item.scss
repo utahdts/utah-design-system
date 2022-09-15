@@ -1,5 +1,9 @@
 .menu-item {
   
+  &__title {
+    display: flex;
+    flex-direction: row;
+  }
   &__chevron {
 
   }

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import MenuItemHierarchalShape from '../../propTypesShapes/MenuItemHierarchalShape';
+import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
+import usePrepMenuItems from '../../hooks/usePrepMenuItems';
 import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
 import MainMenu from '../navigation/MainMenu';
 import SidePanelNavigation from '../navigation/SidePanelNavigation';
@@ -7,26 +8,26 @@ import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
   content: PropTypes.element.isRequired,
-  currentPageLink: PropTypes.string.isRequired,
   menuItemsMain: MenuItemsShape.isRequired,
-  menuItemsSecondary: MenuItemHierarchalShape.isRequired,
-  mainMenuLink: PropTypes.string.isRequired,
+  menuItemsSecondary: MenuItemsShape.isRequired,
 };
 const defaultProps = {};
 
 function DocumentationTemplate({
   content,
-  currentPageLink,
   menuItemsMain,
   menuItemsSecondary,
-  mainMenuLink,
 }) {
+  const menuItemsMainComputed = usePrepMenuItems({ menuItems: menuItemsMain });
+  const menuItemsSecondaryComputed = usePrepMenuItems({ menuItems: menuItemsSecondary });
+  const currentMenuItem = useCurrentMenuItem(menuItemsMainComputed, menuItemsSecondaryComputed);
+
   return (
     <>
       <UtahHeader />
-      <MainMenu menuItems={menuItemsMain} selectedMenuLink={mainMenuLink} />
+      <MainMenu currentMenuItem={currentMenuItem} menuItems={menuItemsMainComputed} />
       <div className="documentation-template">
-        <SidePanelNavigation menuItems={menuItemsSecondary} currentPageLink={currentPageLink} />
+        <SidePanelNavigation currentMenuItem={currentMenuItem} menuItems={menuItemsSecondaryComputed} />
         {content}
       </div>
     </>

@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
+import usePrepMenuItems from '../../hooks/usePrepMenuItems';
 import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
 import MainMenu from '../navigation/MainMenu';
 import UtahHeader from '../utahHeader/UtahHeader';
@@ -10,10 +12,12 @@ const propTypes = {
 const defaultProps = {};
 
 function LandingTemplate({ content, menuItemsMain }) {
+  const menuItemsMainComputed = usePrepMenuItems({ menuItems: menuItemsMain });
+  const currentMenuItem = useCurrentMenuItem(menuItemsMainComputed);
   return (
     <>
       <UtahHeader />
-      <MainMenu menuItems={menuItemsMain} />
+      <MainMenu currentMenuItem={currentMenuItem} menuItems={menuItemsMainComputed} />
       {content}
     </>
   );

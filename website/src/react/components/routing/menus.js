@@ -10,24 +10,79 @@ export const menuItemsMain = [
 
 export const menuItemsLibrarySecondary = [
   {
-    link: pages.buttons.link,
-    title: pages.buttons.pageTitle,
+    isMenuHeader: true,
+    title: 'Basic Atomic',
     parentLinks: [pages.library.link],
     children: [
-      { link: pages.button.link, title: pages.button.pageTitle, parentLinks: [pages.library.link, pages.buttons.link] },
-      { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle, parentLinks: [pages.library.link, pages.buttons.link] },
+      { link: pages.anchors.link, title: pages.anchors.pageTitle },
+      { link: pages.horizontalRule.link, title: pages.horizontalRule.pageTitle },
+      { link: pages.links.link, title: pages.links.pageTitle },
+      { link: pages.tags.link, title: pages.tags.pageTitle },
+      { link: pages.type.link, title: pages.type.pageTitle },
+    ],
+  },
+  {
+    isMenuHeader: true,
+    title: 'Buttons',
+    parentLinks: [pages.library.link],
+    children: [
+      { link: pages.button.link, title: pages.button.pageTitle },
+      { link: pages.buttonGroup.link, title: pages.buttonGroup.pageTitle },
+      { link: pages.confirmationButton.link, title: pages.confirmationButton.pageTitle },
+      { link: pages.iconButton.link, title: pages.iconButton.pageTitle },
+      { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
     ],
   },
   {
     link: pages.forms.link,
     title: pages.forms.pageTitle,
-    parentLinks: [pages.library.link],
     children: [
-      { link: pages.form.link, title: pages.form.pageTitle, parentLinks: [pages.library.link, pages.forms.link] },
+      { link: pages.form.link, title: pages.form.pageTitle },
     ],
   },
   // placeholder VVVVVVVVV
-  { link: pages.library.link, title: pages.library.pageTitle, parentLinks: [] },
+  { link: pages.library.link, title: pages.library.pageTitle },
 ];
 
-export const menuItemsFoundationSecondary = [];
+export const menuItemsFoundationSecondary = [
+  {
+    link: '/foundation/',
+    title: 'Spacing',
+    parentLinks: [pages.foundation.link],
+  },
+  {
+    link: '/foundation/',
+    title: 'Typography',
+    parentLinks: [pages.foundation.link],
+  },
+  {
+    link: '/foundation/',
+    title: 'Depth / Elevation / Shadows',
+    parentLinks: [pages.foundation.link],
+  },
+  {
+    link: '/foundation/',
+    title: 'Shape (rounded corners)',
+    parentLinks: [pages.foundation.link],
+  },
+  {
+    link: '/foundation/',
+    title: 'Motion / Timing',
+    parentLinks: [pages.foundation.link],
+  },
+  {
+    link: '/foundation/',
+    title: 'Color',
+    parentLinks: [pages.foundation.link],
+  },
+  {
+    link: '/foundation/',
+    title: 'Layout (Flex, Grid System)',
+    parentLinks: [pages.foundation.link],
+  },
+  {
+    link: '/foundation/',
+    title: 'Opacity',
+    parentLinks: [pages.foundation.link],
+  },
+];
