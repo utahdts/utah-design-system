@@ -119,16 +119,6 @@ const menuLibraryComponentsSecondary = {
         { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
       ],
     },
-    {
-      link: pages.patterns.link,
-      title: pages.patterns.pageTitle,
-      parentLinks: [pages.library.link],
-    },
-    {
-      link: pages.templates.link,
-      title: pages.templates.pageTitle,
-      parentLinks: [pages.library.link],
-    },
   ],
 };
 
@@ -145,16 +135,6 @@ const menuLibraryPatternsSecondary = {
       title: 'Buttons',
       parentLinks: [pages.library.link],
     },
-    {
-      link: pages.patterns.link,
-      title: pages.patterns.pageTitle,
-      parentLinks: [pages.library.link],
-    },
-    {
-      link: pages.templates.link,
-      title: pages.templates.pageTitle,
-      parentLinks: [pages.library.link],
-    },
   ],
 };
 
@@ -165,27 +145,6 @@ const menuLibraryTemplatesSecondary = {
     {
       title: '404 Page',
       link: pages.anchors.link, // wrong!
-      parentLinks: [pages.library.link],
-    },
-    {
-      title: '...',
-      parentLinks: [pages.library.link],
-      children: [
-        { link: pages.button.link, title: pages.button.pageTitle },
-        { link: pages.buttonGroup.link, title: pages.buttonGroup.pageTitle },
-        { link: pages.confirmationButton.link, title: pages.confirmationButton.pageTitle },
-        { link: pages.iconButton.link, title: pages.iconButton.pageTitle },
-        { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
-      ],
-    },
-    {
-      link: pages.patterns.link,
-      title: pages.patterns.pageTitle,
-      parentLinks: [pages.library.link],
-    },
-    {
-      link: pages.templates.link,
-      title: pages.templates.pageTitle,
       parentLinks: [pages.library.link],
     },
   ],
