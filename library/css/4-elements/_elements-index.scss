@@ -44,6 +44,9 @@ p {
 
 code {
 	font-family: 'Source Code Pro', monospace;
+  background: var(--code-color);
+  padding: 0 var(--spacing-2xs);
+  border-radius: 2px;
 }
 
 ul {

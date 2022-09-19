@@ -3,6 +3,7 @@ import {
   DocumentationTemplate,
   LandingTemplate,
 } from 'utah-design-system-react-library';
+import OnThisPage from 'utah-design-system-react-library/react/components/navigation/OnThisPage';
 import SidePanelNavigation from 'utah-design-system-react-library/react/components/navigation/SidePanelNavigation';
 import useCurrentMenuItem from 'utah-design-system-react-library/react/hooks/useCurrentMenuItem';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
@@ -53,7 +54,7 @@ function Routing() {
                 currentMenuItem={currentMenuItem}
                 mainMenu={allMenus.menuMain}
                 sidePanelLeftContent={<SidePanelNavigation currentMenuItem={currentMenuItem} menus={menuSecondary} />}
-                sidePanelRightContent={<div />}
+                sidePanelRightContent={<OnThisPage />}
               />
             );
           }

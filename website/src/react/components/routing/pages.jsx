@@ -8,6 +8,7 @@ import SegmentedButtonDocumentation from '../websiteContent/library/components/b
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
+import ButtonDocumentation from '../websiteContent/library/components/buttons/ButtonDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -216,7 +217,7 @@ const pages = {
     link: '/resources/demo',
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Demo Page',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
   },
   colorPicker: {
     content: <PLACEHOLDERDOCUMENTATION />,
@@ -291,7 +292,7 @@ const pages = {
 
   // === buttons === //
   button: {
-    content: <SegmentedButtonDocumentation />,
+    content: <ButtonDocumentation />,
     link: '/library/components/buttons/button',
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button',

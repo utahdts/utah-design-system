@@ -12,40 +12,6 @@ function DemoContent() {
 
   return (
     <div className="demo-content">
-      <div className="header">
-        <UtahUnbrand className="header__utah-brand" />
-
-        <span className="header__vertical-rule" />
-        <span className="header__department">Department of Health and Human Services</span>
-        <button className="header__sign-in button--solid" type="button">Sign In</button>
-      </div>
-
-      <div className="menu-bar dark-text">
-        <ul>
-          <li>
-            <a href="#online-services">
-              Online Services
-              <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
-            </a>
-          </li>
-          <li>
-            <a href="#government">
-              Government
-              <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
-            </a>
-          </li>
-          <li>
-            <a href="#visit-utah" className="menu-item--selected">
-              Visit Utah
-              <span className="material-symbols-outlined icon-chevron-down">expand_more</span>
-            </a>
-          </li>
-          <li><a href="#residents">Residents</a></li>
-          <li><a href="#business">Business</a></li>
-          <li className="menu-item__search"><a href="#search"><span className="material-symbols-outlined menu-item__search-icon">search</span></a></li>
-        </ul>
-      </div>
-
       <div className="hero">
         <div className="hero__image" />
         <svg className="hero__slant-color" viewBox="0 0 4000 400"><g><path d="M0,0H4000V400H268L0,0Z" /></g></svg>
