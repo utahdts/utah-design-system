@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
 import usePrepMenuItems from '../../hooks/usePrepMenuItems';
 import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
+import MenusWithHeaderShape from '../../propTypesShapes/MenusWithHeaderShape';
 import MainMenu from '../navigation/MainMenu';
 import SidePanelNavigation from '../navigation/SidePanelNavigation';
 import UtahHeader from '../utahHeader/UtahHeader';
@@ -9,7 +10,7 @@ import UtahHeader from '../utahHeader/UtahHeader';
 const propTypes = {
   content: PropTypes.element.isRequired,
   menuItemsMain: MenuItemsShape.isRequired,
-  menuItemsSecondary: MenuItemsShape.isRequired,
+  menuItemsSecondary: PropTypes.oneOfType([MenuItemsShape, MenusWithHeaderShape]).isRequired,
 };
 const defaultProps = {};
 

@@ -221,14 +221,12 @@ test('calculateMenuItemsParents - top level: isMenuHeader', () => {
         { link: links.button, title: 'Button' },
         { link: links.segmentedButton, title: 'Segmented Button' },
       ],
-      isMenuHeader: true,
       parentLinks: [links.library],
       title: 'Buttons',
     }],
   })).toStrictEqual(
     [
       {
-        isMenuHeader: true,
         link: 'menuHeader::Buttons',
         parentLinks: [links.library],
         title: 'Buttons',
@@ -259,7 +257,6 @@ test('calculateMenuItemsParents - child: has isMenuHeader', () => {
       parentLinks: [links.library],
       children: [
         {
-          isMenuHeader: true,
           children: [
             { link: links.button, title: 'Button2' },
             { link: links.segmentedButton, title: 'Segmented Button' },
@@ -276,7 +273,6 @@ test('calculateMenuItemsParents - child: has isMenuHeader', () => {
       title: 'Buttons',
       children: [
         {
-          isMenuHeader: true,
           children: [
             {
               children: undefined,

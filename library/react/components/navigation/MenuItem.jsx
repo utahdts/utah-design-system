@@ -2,6 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import useStateEffect from '../../hooks/useStateEffect';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import joinClassNames from '../../util/joinClassNames';
+import IconButton from '../buttons/IconButton';
 
 const propTypes = {
   currentMenuItem: MenuItemShape,
@@ -24,7 +25,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
       <span className="menu-item__title">
         {/* === menu item title === */}
         {
-          menuItem.isMenuHeader
+          (!menuItem?.link || menuItem?.link?.includes('::'))
             ? <div>{menuItem.title}</div>
             : (
               <NavLink
@@ -41,24 +42,24 @@ function MenuItem({ currentMenuItem, menuItem }) {
         {
           menuItem.children
             ? (
-              <button
-                className={joinClassNames(
+              <IconButton
+                classNames={joinClassNames(
                   'menu-item__chevron',
                   'icon-button',
                   isChildrenOpen && 'menu-item__chevron--open'
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                type="button"
-              >
-                <svg
-                  height="20"
-                  width="20"
-                  style={{ fill: 'currentColor' }}
-                  className={isChildrenOpen ? '' : 'rotate270'}
-                >
-                  <path d="M10 12.812 5 7.812 6.229 6.583 10 10.354 13.771 6.583 15 7.812Z" />
-                </svg>
-              </button>
+                icon={(
+                  <svg
+                    height="20"
+                    width="20"
+                    style={{ fill: 'currentColor' }}
+                    className={isChildrenOpen ? '' : 'rotate270'}
+                  >
+                    <path d="M10 12.812 5 7.812 6.229 6.583 10 10.354 13.771 6.583 15 7.812Z" />
+                  </svg>
+                )}
+              />
             )
             : null
         }

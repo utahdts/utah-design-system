@@ -5,7 +5,13 @@ import {
 } from 'utah-design-system-react-library';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
-import { menuItemsFoundationSecondary, menuItemsLibrarySecondary, menuItemsMain } from './menus';
+import {
+  menuItemsFoundationSecondary,
+  menuItemsGuidelinesSecondary,
+  menuItemsLibrarySecondary,
+  menuItemsMain,
+  menuItemsResourcesSecondary,
+} from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
 
@@ -32,10 +38,10 @@ function Routing() {
                 menuItemsSecondary = menuItemsLibrarySecondary;
                 break;
               case menusEnum.SECONDARY_MENU_GUIDELINES:
-                menuItemsSecondary = menuItemsLibrarySecondary;
+                menuItemsSecondary = menuItemsGuidelinesSecondary;
                 break;
               case menusEnum.SECONDARY_MENU_RESOURCES:
-                menuItemsSecondary = menuItemsLibrarySecondary;
+                menuItemsSecondary = menuItemsResourcesSecondary;
                 break;
               default:
                 throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.title}'; menuItemsSecondary='${page.menuItemsSecondary}'`);

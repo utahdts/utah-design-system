@@ -10,7 +10,6 @@ import identity from 'lodash/identity';
  *
  * Example incoming data:
  * {
- *   isMenuHeader: true,
  *   title: 'Buttons',
  *   parentLinks: [pages.library.link],
  *   children: [
@@ -21,7 +20,6 @@ import identity from 'lodash/identity';
 
 * Example outgoing data:
  * {
- *   isMenuHeader: true,
  *   title: 'Buttons',
  *   parentLinks: [pages.library.link],
  *   children: [
@@ -36,7 +34,7 @@ import identity from 'lodash/identity';
  */
 function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
   return (menuItems || []).map((menuItem) => {
-    const menuItemLink = menuItem.isMenuHeader ? `menuHeader::${menuItem.title}` : menuItem.link;
+    const menuItemLink = menuItem.link || `menuHeader::${menuItem.title}`;
     return {
       ...menuItem,
       link: menuItemLink,

@@ -3,7 +3,7 @@ import tinycolor from 'tinycolor2';
 import CSS_CLASS_NAMES from '../../enums/cssClassNames';
 
 const propTypes = {
-  colorFamily: PropTypes.shape({
+  colorFamily: PropTypes.exact({
     title: PropTypes.string.isRequired,
     swatches: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
