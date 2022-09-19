@@ -1,35 +1,41 @@
 import PropTypes from 'prop-types';
-import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
-import usePrepMenuItems from '../../hooks/usePrepMenuItems';
-import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
-import MenusWithHeaderShape from '../../propTypesShapes/MenusWithHeaderShape';
+import MenuItemShape from '../../propTypesShapes/MenuItemShape';
+import MenuShape from '../../propTypesShapes/MenuShape';
 import MainMenu from '../navigation/MainMenu';
-import SidePanelNavigation from '../navigation/SidePanelNavigation';
 import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
   content: PropTypes.element.isRequired,
-  menuItemsMain: MenuItemsShape.isRequired,
-  menuItemsSecondary: PropTypes.oneOfType([MenuItemsShape, MenusWithHeaderShape]).isRequired,
+  currentMenuItem: MenuItemShape,
+  mainMenu: MenuShape.isRequired,
+  sidePanelRightContent: PropTypes.element.isRequired,
+  sidePanelLeftContent: PropTypes.element.isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  currentMenuItem: null,
+};
 
 function DocumentationTemplate({
   content,
-  menuItemsMain,
-  menuItemsSecondary,
+  currentMenuItem,
+  mainMenu,
+  sidePanelRightContent,
+  sidePanelLeftContent,
 }) {
-  const menuItemsMainComputed = usePrepMenuItems({ menuItems: menuItemsMain });
-  const menuItemsSecondaryComputed = usePrepMenuItems({ menuItems: menuItemsSecondary });
-  const currentMenuItem = useCurrentMenuItem(menuItemsMainComputed, menuItemsSecondaryComputed);
-
   return (
     <>
       <UtahHeader />
-      <MainMenu currentMenuItem={currentMenuItem} menuItems={menuItemsMainComputed} />
+      <MainMenu currentMenuItem={currentMenuItem} mainMenu={mainMenu} />
       <div className="documentation-template">
-        <SidePanelNavigation currentMenuItem={currentMenuItem} menuItems={menuItemsSecondaryComputed} />
-        {content}
+        <div className="documentation-template__side-panel-left">
+          {sidePanelLeftContent}
+        </div>
+        <div className="documentation-template__content">
+          {content}
+        </div>
+        <div className="documentation-template__side-panel-right">
+          {sidePanelRightContent}
+        </div>
       </div>
     </>
   );

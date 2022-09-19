@@ -3,15 +3,11 @@ import {
   DocumentationTemplate,
   LandingTemplate,
 } from 'utah-design-system-react-library';
+import SidePanelNavigation from 'utah-design-system-react-library/react/components/navigation/SidePanelNavigation';
+import useCurrentMenuItem from 'utah-design-system-react-library/react/hooks/useCurrentMenuItem';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
-import {
-  menuItemsFoundationSecondary,
-  menuItemsGuidelinesSecondary,
-  menuItemsLibrarySecondary,
-  menuItemsMain,
-  menuItemsResourcesSecondary,
-} from './menus';
+import allMenus from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
 
@@ -19,38 +15,45 @@ const propTypes = {};
 const defaultProps = {};
 
 function Routing() {
+  const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
+
   return (
     <Routes>
       {Object.values(pages).map((page) => {
         let element;
-
         switch (page.template) {
           case layoutTemplatesEnum.DOCUMENTATION_TEMPLATE: {
-            let menuItemsSecondary;
-            switch (page.menuItemsSecondary) {
+            let menuSecondary;
+            switch (page.menuSecondary) {
               case menusEnum.MAIN_MENU:
-                menuItemsSecondary = menuItemsMain;
+                menuSecondary = [allMenus.menuMain];
                 break;
               case menusEnum.SECONDARY_MENU_FOUNDATION:
-                menuItemsSecondary = menuItemsFoundationSecondary;
+                menuSecondary = [allMenus.menuFoundationSecondary];
                 break;
               case menusEnum.SECONDARY_MENU_LIBRARY:
-                menuItemsSecondary = menuItemsLibrarySecondary;
+                menuSecondary = [
+                  allMenus.menuLibraryComponentsSecondary,
+                  allMenus.menuLibraryPatternsSecondary,
+                  allMenus.menuLibraryTemplatesSecondary,
+                ];
                 break;
               case menusEnum.SECONDARY_MENU_GUIDELINES:
-                menuItemsSecondary = menuItemsGuidelinesSecondary;
+                menuSecondary = [allMenus.menuGuidelinesSecondary];
                 break;
               case menusEnum.SECONDARY_MENU_RESOURCES:
-                menuItemsSecondary = menuItemsResourcesSecondary;
+                menuSecondary = [allMenus.menuResourcesSecondary];
                 break;
               default:
-                throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.title}'; menuItemsSecondary='${page.menuItemsSecondary}'`);
+                throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.title}'; menuSecondary='${page.menuSecondary}'`);
             }
             element = (
               <DocumentationTemplate
                 content={page.content}
-                menuItemsMain={menuItemsMain}
-                menuItemsSecondary={menuItemsSecondary}
+                currentMenuItem={currentMenuItem}
+                mainMenu={allMenus.menuMain}
+                sidePanelLeftContent={<SidePanelNavigation currentMenuItem={currentMenuItem} menus={menuSecondary} />}
+                sidePanelRightContent={<div />}
               />
             );
           }
@@ -60,7 +63,7 @@ function Routing() {
             element = (
               <LandingTemplate
                 content={page.content}
-                menuItemsMain={menuItemsMain}
+                mainMenu={allMenus.menuMain}
               />
             );
             break;

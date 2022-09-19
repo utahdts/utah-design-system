@@ -1,20 +1,20 @@
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
-import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
+import MenuShape from '../../propTypesShapes/MenuShape';
 import MenuItem from './MenuItem';
 
 const propTypes = {
   currentMenuItem: MenuItemShape,
-  menuItems: MenuItemsShape.isRequired,
+  mainMenu: MenuShape.isRequired,
 };
 const defaultProps = {
   currentMenuItem: null,
 };
 
-function MainMenu({ currentMenuItem, menuItems }) {
+function MainMenu({ currentMenuItem, mainMenu }) {
   return (
     <div className="menu-bar dark-text">
       <ul>
-        {menuItems.map((menuItem) => (
+        {mainMenu?.menuItems?.map((menuItem) => (
           <MenuItem menuItem={menuItem} key={`main-menu__nav-link__${menuItem.link}-${menuItem.title}}`} currentMenuItem={currentMenuItem} />
         ))}
       </ul>

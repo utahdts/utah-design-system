@@ -9,7 +9,7 @@ export default PropTypes.exact({
   link: PropTypes.string.isRequired,
 
   // which secondary menu items to show for this page (left side menu); not all layouts use this
-  menuItemsSecondary: PropTypes.string,
+  menuSecondary: PropTypes.string,
 
   // the title of the page to show in the browser tab
   pageTitle: PropTypes.string.isRequired,

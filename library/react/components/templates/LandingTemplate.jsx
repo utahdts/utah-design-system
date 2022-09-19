@@ -1,23 +1,23 @@
 import PropTypes from 'prop-types';
-import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
-import usePrepMenuItems from '../../hooks/usePrepMenuItems';
-import MenuItemsShape from '../../propTypesShapes/MenuItemsShape';
+import MenuItemShape from '../../propTypesShapes/MenuItemShape';
+import MenuShape from '../../propTypesShapes/MenuShape';
 import MainMenu from '../navigation/MainMenu';
 import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
   content: PropTypes.element.isRequired,
-  menuItemsMain: MenuItemsShape.isRequired,
+  currentMenuItem: MenuItemShape,
+  mainMenu: MenuShape.isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  currentMenuItem: null,
+};
 
-function LandingTemplate({ content, menuItemsMain }) {
-  const menuItemsMainComputed = usePrepMenuItems({ menuItems: menuItemsMain });
-  const currentMenuItem = useCurrentMenuItem(menuItemsMainComputed);
+function LandingTemplate({ content, currentMenuItem, mainMenu }) {
   return (
     <>
       <UtahHeader />
-      <MainMenu currentMenuItem={currentMenuItem} menuItems={menuItemsMainComputed} />
+      <MainMenu currentMenuItem={currentMenuItem} mainMenu={mainMenu} />
       {content}
     </>
   );
