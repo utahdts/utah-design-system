@@ -1,0 +1,18 @@
+.menu-side-panel {
+  padding: 0 var(--spacing-2xl) 0 var(--spacing-4xl);
+
+  ul {
+    padding-left: var(--spacing-s);
+
+    &:first-child {
+      border-left: 1px solid #DBDBDB;
+    }
+  }
+  .menu-item {
+    line-height: var(--spacing-xl);
+
+    &__sub-menu--open {
+      padding-left: var(--spacing-l);
+    }
+  }
+}
