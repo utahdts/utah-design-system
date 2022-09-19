@@ -26,15 +26,17 @@ function DocumentationTemplate({
     <>
       <UtahHeader />
       <MainMenu currentMenuItem={currentMenuItem} mainMenu={mainMenu} />
-      <div className="documentation-template">
-        <div className="documentation-template__side-panel-left">
-          {sidePanelLeftContent}
-        </div>
-        <main className="documentation-template__content">
-          {content}
-        </main>
-        <div className="documentation-template__side-panel-right">
-          {sidePanelRightContent}
+      <div className="documentation-template__wrapper">
+        <div className="documentation-template">
+          <div className="documentation-template__side-panel-left">
+            {sidePanelLeftContent}
+          </div>
+          <main className="documentation-template__content">
+            {content}
+          </main>
+          <div className="documentation-template__side-panel-right">
+            {sidePanelRightContent}
+          </div>
         </div>
       </div>
     </>
