@@ -33,6 +33,10 @@ variables and settings
   --gray-light-color: #{color-swatches.$neutral-gray-17};
   --gray-dark-color: #{color-swatches.$neutral-gray-02};
 
+  --code-color: #{color-swatches.$neutral-gray-16};
+
+
+
   /* transition timings */
   --timing-xquick: 100ms;
   --timing-quick: 200ms;
@@ -54,6 +58,7 @@ variables and settings
   --form-ele-xlarge: 50px;
 
   --content-width: 1224px;
+  --documentation-width: 740px;
 
 }
 

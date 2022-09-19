@@ -1,0 +1,17 @@
+.documentation-template {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+
+  &__side-panel-left {
+
+  }
+  &__content {
+    flex: 1 1 auto;
+    max-width: var(--documentaion-width);
+  }
+  &__side-panel-right{
+
+  }
+}
