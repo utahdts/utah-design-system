@@ -1,0 +1,8 @@
+.tab-group {
+	&__panel {
+		display: none;
+		&--selected {
+			display: block;
+		}
+	}
+}

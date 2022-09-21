@@ -1,4 +1,7 @@
 import SandboxExample from '../../../../sandbox/SandboxExample';
+import ButtonExampleCodeReact from './ButtonExampleCodeReact';
+import ButtonExampleRender from './ButtonExampleRender';
+import ButtonPrimaryExampleProps from './ButtonPrimaryExampleProps';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -12,9 +15,9 @@ function ButtonDocumentation() {
       <hr />
       <h2>Example</h2>
       <SandboxExample
-        CodeExample={ButtonExampleCode}
+        CodeExample={ButtonExampleCodeReact}
         PropsExample={ButtonPrimaryExampleProps}
-        RenderExample={ButtonPrimaryExampleRender}
+        RenderExample={ButtonExampleRender}
       />
 
       {/*

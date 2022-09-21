@@ -1,6 +1,6 @@
 const sandboxCodeTypeEnum = {
-  html: 'HTML',
-  react: 'React',
+  HTML: 'HTML',
+  REACT: 'React',
 };
 
 export default sandboxCodeTypeEnum;

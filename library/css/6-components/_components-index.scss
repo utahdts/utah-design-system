@@ -5,7 +5,8 @@ component specific, BEM (Block, Element, Modifier)
 */
 
 /* ---- Base Components ---- */
-@use "base-components/accordion/accordion";
+@use "base-components/containers/accordion";
+@use "base-components/containers/tab-group";
 @use "base-components/buttons/button";
 @use "base-components/buttons/icon-button";
 @use "base-components/forms/text-input";

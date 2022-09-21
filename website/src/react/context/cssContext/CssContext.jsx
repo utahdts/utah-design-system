@@ -20,6 +20,9 @@ export function useCssContext() {
 
 const fallbackGrayColors = ['#474747', '#3F3F3F', '#373737', '#2F2F2F', '#272727', '#1F1F1F', '#171717', '#0F0F0F', '#070707'];
 
+const propTypes = { children: PropTypes.node.isRequired };
+const defaultProps = {};
+
 export function CssContextProvider({ children }) {
   const [cssState, setCssState] = useState({
     [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.PURPLE.swatches[colorsIndexes.primeIndex],
@@ -62,5 +65,5 @@ export function CssContextProvider({ children }) {
     </CssContext.Provider>
   );
 }
-CssContextProvider.propTypes = { children: PropTypes.node.isRequired };
-CssContextProvider.defaultProps = {};
+CssContextProvider.propTypes = propTypes;
+CssContextProvider.defaultProps = defaultProps;
