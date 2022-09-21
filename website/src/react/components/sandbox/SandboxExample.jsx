@@ -24,7 +24,9 @@ const defaultProps = {};
 
 function cleanHtmlForInnerHTML(html) {
   return (html || '').replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+    .replace(/>/g, '&gt;')
+    // change `disabled=""` to be just `disabled`
+    .replace(/=""/g, '');
 }
 function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
   const [state, setState] = useImmer({
@@ -45,25 +47,25 @@ function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
   return (
     <div>
       <div>
-        <RenderExample state={state} setState={setState} renderedRef={renderedRef} />
+        <RenderExample state={state} setState={setState} innerRef={renderedRef} />
         <PropsExample state={state} setState={setState} />
       </div>
       <div>
-        <TabGroup>
+        <TabGroup defaultValue={sandboxCodeTypeEnum.REACT}>
           <TabGroupTitle className="TODO: --hidden?">Code Example</TabGroupTitle>
           <TabList>
-            <Tab>{sandboxCodeTypeEnum.HTML}</Tab>
-            <Tab>{sandboxCodeTypeEnum.REACT}</Tab>
+            <Tab id={sandboxCodeTypeEnum.HTML}>{sandboxCodeTypeEnum.HTML}</Tab>
+            <Tab id={sandboxCodeTypeEnum.REACT}>{sandboxCodeTypeEnum.REACT}</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>
+            <TabPanel tabId={sandboxCodeTypeEnum.HTML}>
               <div
                 className="what-the-flip"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: innerHtml }}
               />
             </TabPanel>
-            <TabPanel><CodeExample state={state} /></TabPanel>
+            <TabPanel tabId={sandboxCodeTypeEnum.REACT}><CodeExample state={state} /></TabPanel>
           </TabPanels>
         </TabGroup>
       </div>

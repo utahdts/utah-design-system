@@ -1,3 +1,4 @@
+import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 
@@ -8,11 +9,39 @@ const propTypes = {
 };
 const defaultProps = {};
 
-function ButtonExampleCode({ state }) {
+function ButtonExampleCode({
+  state: {
+    props: {
+      appearance,
+      isBusy,
+      className,
+      color,
+      isDisabled,
+      id,
+      style,
+      title,
+      type,
+    },
+  },
+}) {
+  const displayedProps = [
+    appearance ? `appearance="${appearance}"` : null,
+    color ? `color="${color}"` : null,
+    isBusy ? 'busy={true}' : null,
+    isDisabled ? 'disabled={true}' : null,
+    id ? `id="${id}"` : null,
+    className ? `className="${className}"` : null,
+    style ? `style="${style}"` : null,
+    (type && type !== 'button') ? `type="${type}"` : null,
+  ].filter(identity);
+
   return (
     <div>
-      &lt;Button&gt;
-      {state.props.title}
+      &lt;
+      {`Button${displayedProps.length ? ' ' : ''}`}
+      {displayedProps.join(' ')}
+      &gt;
+      {title}
       &lt;/Button&gt;
     </div>
   );

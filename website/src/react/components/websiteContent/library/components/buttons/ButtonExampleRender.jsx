@@ -1,27 +1,48 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
 import { RefShape } from 'utah-design-system-react-library';
+import Button from 'utah-design-system-react-library/react/components/buttons/Button';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 
 const propTypes = {
   state: PropTypes.shape({
     props: ButtonExamplePropsShape.isRequired,
   }).isRequired,
-  renderedRef: RefShape,
+  innerRef: RefShape,
 };
 const defaultProps = {
-  renderedRef: null,
+  innerRef: null,
 };
 
-function ButtonExampleRender({ state, renderedRef }) {
+function ButtonExampleRender({
+  state: {
+    props: {
+      appearance,
+      isBusy,
+      className,
+      color,
+      isDisabled,
+      id,
+      title,
+      type,
+    },
+  },
+  innerRef,
+}) {
   return (
-    <button
-      ref={renderedRef}
-      type="button"
-      className="button button--primary-color button--solid"
+    <Button
+      appearance={appearance}
+      className={className}
+      color={color}
+      id={id}
+      innerRef={innerRef}
+      isBusy={isBusy}
+      isDisabled={isDisabled}
+      onClick={() => { console.log('You have clicked the button.'); }}
+      type={type}
     >
-      {state.props.title || ''}
-    </button>
+      {title || ''}
+    </Button>
   );
 }
 

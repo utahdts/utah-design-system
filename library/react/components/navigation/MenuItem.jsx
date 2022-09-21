@@ -43,7 +43,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
           menuItem.children
             ? (
               <IconButton
-                classNames={joinClassNames(
+                className={joinClassNames(
                   'menu-item__chevron',
                   'icon-button',
                   isChildrenOpen && 'menu-item__chevron--open'

@@ -1,8 +1,17 @@
-.tab-group {
-	&__panel {
-		display: none;
-		&--selected {
-			display: block;
-		}
-	}
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .tab-group {
+    &__tab {
+      &--selected {
+        background: red;
+      }
+    }
+    &__panel {
+      display: none;
+      &--selected {
+        display: block;
+      }
+    }
+  }
 }

@@ -7,6 +7,9 @@ function OnThisPage() {
       === On This Page ===
       <br />
       🚧 work in progress 🚧
+      {/*
+        * [ ] content in a "sandbox" component probably should not show up on "on this page"
+       */}
     </div>
   );
 }

@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
-  classNames: PropTypes.string,
+  className: PropTypes.string,
   icon: PropTypes.node.isRequired,
   onClick: PropTypes.func,
 };
 const defaultProps = {
-  classNames: null,
+  className: null,
   onClick: null,
 };
 
-function IconButton({ classNames, icon, onClick }) {
+function IconButton({ className, icon, onClick }) {
   return (
     <button
       onClick={(e) => {
@@ -19,7 +19,7 @@ function IconButton({ classNames, icon, onClick }) {
         e.stopPropagation();
         onClick();
       }}
-      className={joinClassNames(classNames, 'icon-button icon-button--plain mr-spacing')}
+      className={joinClassNames(className, 'icon-button icon-button--plain mr-spacing')}
       type="button"
     >
       {icon}

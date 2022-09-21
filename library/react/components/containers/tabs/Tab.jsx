@@ -1,55 +1,41 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect } from 'react';
-import { useImmer } from 'use-immer';
+import React, { useContext } from 'react';
 import handleEvent from '../../../util/handleEvent';
 import joinClassNames from '../../../util/joinClassNames';
 import TabGroupContext from './TabGroupContext';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
+  // a tab id must be provided for accessibility and selecting tab
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 const defaultProps = {};
 
-function Tab({ children }) {
+function Tab({ children, id }) {
   const {
-    registerTab,
-    selectedTabIndex,
+    selectedTabId,
     setSelectedTabId,
     tabGroupId,
-    unregisterTab,
   } = useContext(TabGroupContext);
-  const [tabId, setTabId] = useImmer(NaN);
-
-  useEffect(
-    () => {
-      setTabId(registerTab());
-      return () => unregisterTab(tabId);
-    },
-    []
-  );
 
   return (
-    Number.isNaN(tabId)
-      ? null
-      : (
-        <button
-          // `aria-controls` must match the TabPanel's `id`
-          aria-controls={`tabpanel-${tabGroupId}-${tabId}`}
-          aria-selected={selectedTabIndex === tabId}
-          className={joinClassNames(
-            selectedTabIndex === tabId && 'tab-group__tab--selected',
-            'tab-group__tab'
-          )}
-          // `id` must match the TabPanel's `aria-labelledby`
-          id={`tab-${tabGroupId}-${tabId}`}
-          onClick={handleEvent(() => setSelectedTabId(tabId))}
-          role="tab"
-          tabIndex="-1"
-          type="button"
-        >
-          {children}
-        </button>
-      )
+    <button
+      // `aria-controls` must match the TabPanel's `id`
+      aria-controls={`tabpanel-${tabGroupId}-${id}`}
+      aria-selected={selectedTabId === id}
+      className={joinClassNames(
+        (selectedTabId === id) && 'tab-group__tab--selected',
+        'tab-group__tab'
+      )}
+      // `id` must match the TabPanel's `aria-labelledby`
+      id={`tab-${tabGroupId}-${id}`}
+      onClick={handleEvent(() => setSelectedTabId(id))}
+      role="tab"
+      tabIndex="-1"
+      type="button"
+    >
+      {children}
+    </button>
   );
 }
 
