@@ -60,7 +60,7 @@ function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
           <TabPanels>
             <TabPanel tabId={sandboxCodeTypeEnum.HTML}>
               <div
-                className="what-the-flip"
+                className="TODO: how classy should i be?"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: innerHtml }}
               />
