@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import useStateEffect from '../../hooks/useStateEffect';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
@@ -20,18 +21,33 @@ function MenuItem({ currentMenuItem, menuItem }) {
     dependencyList: [currentMenuItem, menuItem, pathname],
   });
 
+  const navLinkRef = useRef(null);
+
+  useLayoutEffect(
+    () => {
+      if (navLinkRef.current) {
+        if (navLinkRef.current.classList.contains('menu-item--selected')) {
+          navLinkRef.current.setAttribute('aria-current', 'page');
+        } else {
+          navLinkRef.current.removeAttribute('aria-current');
+        }
+      }
+    }
+  );
+
   return (
     <li className="menu-item">
       <span className="menu-item__title">
         {/* === menu item title === */}
         {
           (!menuItem?.link || menuItem?.link?.includes('::'))
-            ? <div>{menuItem.title}</div>
+            ? <div id={`menu-item-${menuItem.id}-${menuItem.link}`}>{menuItem.title}</div>
             : (
               <NavLink
                 className={(navData) => joinClassNames((currentMenuItem?.parentLinks?.includes(menuItem.link) || navData.isActive) && 'menu-item--selected')}
                 end
                 to={menuItem.link}
+                ref={navLinkRef}
               >
                 {menuItem.title}
               </NavLink>
@@ -43,6 +59,8 @@ function MenuItem({ currentMenuItem, menuItem }) {
           menuItem.children
             ? (
               <IconButton
+                aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
+                aria-expanded={isChildrenOpen ? 'true' : 'false'}
                 className={joinClassNames(
                   'menu-item__chevron',
                   'icon-button',

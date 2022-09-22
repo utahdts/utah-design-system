@@ -5,4 +5,6 @@ export default PropTypes.exact({
   header: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   menuItems: MenuItemsShape.isRequired,
+  titleTagClassName: PropTypes.string,
+  titleTagName: PropTypes.string,
 });

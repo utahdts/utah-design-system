@@ -11,9 +11,15 @@ const defaultProps = {
   onClick: null,
 };
 
-function IconButton({ className, icon, onClick }) {
+function IconButton({
+  className,
+  icon,
+  onClick,
+  ...rest
+}) {
   return (
     <button
+      {...rest}
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();

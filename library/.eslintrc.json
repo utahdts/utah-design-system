@@ -45,6 +45,14 @@
         "assert": "either",
         "depth": 3
       }
+    ],
+    "react/jsx-props-no-spreading": [
+      true, 
+      {
+        "html": "ignore",
+        "custom": "enforce",
+        "explicitSpread": "enforce"
+      }
     ]
   }
 }
