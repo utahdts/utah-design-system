@@ -17,7 +17,7 @@ function LandingTemplate({ content, currentMenuItem, mainMenu }) {
   return (
     <>
       <UtahHeader />
-      <MainMenu currentMenuItem={currentMenuItem} mainMenu={mainMenu} />
+      <MainMenu currentMenuItem={currentMenuItem} menu={mainMenu} />
       {content}
     </>
   );

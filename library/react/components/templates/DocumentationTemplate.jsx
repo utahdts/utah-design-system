@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import MenuShape from '../../propTypesShapes/MenuShape';
-import MainMenu from '../navigation/MainMenu';
 import UtahHeader from '../utahHeader/UtahHeader';
+import MainMenu from '../navigation/MainMenu';
 
 const propTypes = {
   content: PropTypes.element.isRequired,
@@ -25,7 +25,7 @@ function DocumentationTemplate({
   return (
     <>
       <UtahHeader />
-      <MainMenu currentMenuItem={currentMenuItem} mainMenu={mainMenu} />
+      <MainMenu currentMenuItem={currentMenuItem} menu={mainMenu} />
       <div className="documentation-template__wrapper">
         <div className="documentation-template">
           <div className="documentation-template__side-panel-left">

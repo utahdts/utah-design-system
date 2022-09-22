@@ -8,6 +8,7 @@ import TabGroupTitle from './react/components/containers/tabs/TabGroupTitle';
 import TabList from './react/components/containers/tabs/TabList';
 import TabPanel from './react/components/containers/tabs/TabPanel';
 import TabPanels from './react/components/containers/tabs/TabPanels';
+import HorizontalMenu from './react/components/navigation/HorizontalMenu';
 import MainMenu from './react/components/navigation/MainMenu';
 import DocumentationTemplate from './react/components/templates/DocumentationTemplate';
 import LandingTemplate from './react/components/templates/LandingTemplate';
@@ -28,6 +29,7 @@ export {
   IconButton,
   joinClassNames,
   LandingTemplate,
+  HorizontalMenu,
   MainMenu,
   MenuItemShape,
   rectContainsPoint,

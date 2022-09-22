@@ -1,25 +1,25 @@
+import PropTypes from 'prop-types';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import MenuShape from '../../propTypesShapes/MenuShape';
-import MenuItem from './MenuItem';
+import joinClassNames from '../../util/joinClassNames';
+import HorizontalMenu from './HorizontalMenu';
 
 const propTypes = {
+  className: PropTypes.string,
   currentMenuItem: MenuItemShape,
-  mainMenu: MenuShape.isRequired,
+  menu: MenuShape.isRequired,
 };
 const defaultProps = {
+  className: null,
   currentMenuItem: null,
 };
 
-function MainMenu({ currentMenuItem, mainMenu }) {
-  return (
-    <div className="menu-bar dark-text">
-      <ul>
-        {mainMenu?.menuItems?.map((menuItem) => (
-          <MenuItem menuItem={menuItem} key={`main-menu__nav-link__${menuItem.link}-${menuItem.title}}`} currentMenuItem={currentMenuItem} />
-        ))}
-      </ul>
-    </div>
-  );
+function MainMenu({
+  className,
+  currentMenuItem,
+  menu,
+}) {
+  return <HorizontalMenu className={joinClassNames(className, 'menu-bar dark-text')} id="main-menu" menu={menu} currentMenuItem={currentMenuItem} />;
 }
 
 MainMenu.propTypes = propTypes;
