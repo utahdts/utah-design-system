@@ -38,7 +38,19 @@ function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
   const [innerHtml, setInnerHtml] = useState('');
   useLayoutEffect(
     () => {
-      setInnerHtml(cleanHtmlForInnerHTML(renderedRef.current?.outerHTML));
+      let cleanHTML = cleanHtmlForInnerHTML(renderedRef.current?.outerHTML);
+
+      const events = [
+        'onClick',
+      ]
+        .filter((event) => renderedRef.current && renderedRef.current[event.toLowerCase()])
+        .map((event) => ` ${event}={() => { /* ... do something ... */ } `)
+        .join(' ');
+      if (events) {
+        const endStartTag = cleanHTML.indexOf('&gt;');
+        cleanHTML = `${cleanHTML.substring(0, endStartTag)} ${events} ${cleanHTML.substring(endStartTag)}`;
+      }
+      setInnerHtml(cleanHTML);
     },
     // only update when the properties change so as not to get an infinite loop
     [state.props]

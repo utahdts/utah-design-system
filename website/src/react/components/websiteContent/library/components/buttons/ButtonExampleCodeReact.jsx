@@ -33,6 +33,7 @@ function ButtonExampleCode({
     className ? `className="${className}"` : null,
     style ? `style="${style}"` : null,
     (type && type !== 'button') ? `type="${type}"` : null,
+    'onClick={() => { /* ... do something ... */ }',
   ].filter(identity);
 
   return (
