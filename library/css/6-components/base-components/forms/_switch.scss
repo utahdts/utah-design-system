@@ -1,0 +1,59 @@
+@import "../../../1-settings/color-swatches";
+
+.switch[aria-checked] {
+  display: block;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  padding: 0;
+  position: relative;
+  min-height: 20px;
+}
+
+.switch[aria-checked]:focus,
+.switch[aria-checked]:hover {
+  outline: none;
+}
+
+.switch[aria-checked]:focus::before,
+.switch[aria-checked]:hover::before {
+  box-shadow: 0 0 0.5em $warm-gray-02;
+}
+
+.switch[aria-checked]::before,
+.switch[aria-checked]::after {
+  content: "";
+  position: absolute;
+  height: 16px;
+  transition: all 0.25s ease;
+}
+
+.switch[aria-checked]::before {
+  left: 0;
+  top: 0.2em;
+  width: 32px;
+  border: 1px solid $warm-gray-08;
+  background: $warm-gray-08;
+  border-radius: 16px;
+}
+
+.switch[aria-checked]::after {
+  left: 1px;
+  top: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  border: 1px solid $warm-gray-08;
+}
+
+.switch[aria-checked=true]::after {
+  left: 16px;
+  border-color: $aspen-green-08;
+  color: $aspen-green-08;
+}
+
+.switch[aria-checked=true]::before {
+  background-color: $aspen-green-08;
+  border-color: $aspen-green-08;
+}
