@@ -57,12 +57,12 @@ function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
   );
 
   return (
-    <div>
-      <div>
+    <div className="sandbox-example">
+      <div className="sandbox-example__top">
         <RenderExample state={state} setState={setState} innerRef={renderedRef} />
         <PropsExample state={state} setState={setState} />
       </div>
-      <div>
+      <div className="sandbox-example__bottom">
         <TabGroup defaultValue={sandboxCodeTypeEnum.REACT}>
           <TabGroupTitle className="TODO: --hidden?">Code Example</TabGroupTitle>
           <TabList>
