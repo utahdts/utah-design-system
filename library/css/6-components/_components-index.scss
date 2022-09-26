@@ -17,9 +17,5 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/templates/documenation-template";
 
 /* ---- Project Components ---- */
-@use "project-components/color-picker";
-@use "project-components/color-pickers";
 @use "project-components/swatch-list";
-@use "project-components/color-compare";
-@use "project-components/demo-content";
 @use "project-components/popup";

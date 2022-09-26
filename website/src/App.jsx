@@ -1,6 +1,7 @@
 import { joinClassNames } from 'utah-design-system-react-library';
 import 'utah-design-system-react-library/css/3-generic/normalize.css';
 import 'utah-design-system-react-library/css/index.scss';
+import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import Routing from './react/components/routing/Routing';
 import { useCssContext } from './react/context/cssContext/CssContext';

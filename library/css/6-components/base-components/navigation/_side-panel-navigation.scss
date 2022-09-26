@@ -1,23 +1,27 @@
-.menu-side-panel {
-  margin: var(--spacing) 0 0 0;
-  &:first-child {
-    margin: 0;
-  }
-  &__header {
-    font-size: var(--font-size);
-  }
-  ul {
-    // padding-left: var(--spacing-s);
+@use "../../../1-settings/class-vars";
 
-    ul:first-of-type {
-      border-left: 1px solid #DBDBDB;
+#{class-vars.$base-class} {
+  .menu-side-panel {
+    margin: var(--spacing) 0 0 0;
+    &:first-child {
+      margin: 0;
     }
-  }
-  .menu-item {
-    line-height: var(--spacing-xl);
+    &__header {
+      font-size: var(--font-size);
+    }
+    ul {
+      // padding-left: var(--spacing-s);
 
-    &__sub-menu--open {
-      padding-left: var(--spacing-l);
+      ul:first-of-type {
+        border-left: 1px solid #DBDBDB;
+      }
+    }
+    .menu-item {
+      line-height: var(--spacing-xl);
+
+      &__sub-menu--open {
+        padding-left: var(--spacing-l);
+      }
     }
   }
 }
