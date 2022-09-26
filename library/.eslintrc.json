@@ -47,7 +47,7 @@
       }
     ],
     "react/jsx-props-no-spreading": [
-      true, 
+      2,
       {
         "html": "ignore",
         "custom": "enforce",
