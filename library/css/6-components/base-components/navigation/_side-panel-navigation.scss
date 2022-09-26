@@ -1,9 +1,15 @@
 .menu-side-panel {
-
+  margin: var(--spacing) 0 0 0;
+  &:first-child {
+    margin: 0;
+  }
+  &__header {
+    font-size: var(--font-size);
+  }
   ul {
-    padding-left: var(--spacing-s);
+    // padding-left: var(--spacing-s);
 
-    &:first-child {
+    ul:first-of-type {
       border-left: 1px solid #DBDBDB;
     }
   }

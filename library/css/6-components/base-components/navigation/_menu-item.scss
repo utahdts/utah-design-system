@@ -1,17 +1,37 @@
-.menu-item {
-  
-  &__title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  &__chevron {
+@use "../../../1-settings/class-vars";
 
-  }
-	&__sub-menu {
-    display: none;
-    &--open {
-      display: block;
+#{class-vars.$base-class} {
+  .menu-item {
+
+    &__title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    &__button-title {
+      border: none;
+      padding: 0;
+      background: none;
+      &:hover {
+        background: none;
+        color: var(--primary-color);
+      }
+    }
+    a {
+      text-decoration: none;
+      color: var(--gray-color);
+      &.menu-item--selected {
+        color: var(--primary-color);
+      }
+    }
+    &__chevron {
+
+    }
+    &__sub-menu {
+      display: none;
+      &--open {
+        display: block;
+      }
     }
   }
 }
