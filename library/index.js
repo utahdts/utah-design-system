@@ -8,6 +8,8 @@ import TabGroupTitle from './react/components/containers/tabs/TabGroupTitle';
 import TabList from './react/components/containers/tabs/TabList';
 import TabPanel from './react/components/containers/tabs/TabPanel';
 import TabPanels from './react/components/containers/tabs/TabPanels';
+import Form from './react/components/forms/Form';
+import TextInput from './react/components/forms/TextInput';
 import HorizontalMenu from './react/components/navigation/HorizontalMenu';
 import MainMenu from './react/components/navigation/MainMenu';
 import DocumentationTemplate from './react/components/templates/DocumentationTemplate';
@@ -19,6 +21,8 @@ import RefShape from './react/propTypesShapes/RefShape';
 import handleKeyPress from './react/util/handleKeyPress';
 import joinClassNames from './react/util/joinClassNames';
 import rectContainsPoint from './react/util/rectContainsPoint';
+import setValueAtPath from './react/util/state/setValueAtPath';
+import valueAtPath from './react/util/state/valueAtPath';
 
 const { version } = packageJson;
 
@@ -26,6 +30,7 @@ export {
   Accordion,
   DocumentationTemplate,
   handleKeyPress,
+  Form,
   IconButton,
   joinClassNames,
   LandingTemplate,
@@ -35,13 +40,16 @@ export {
   rectContainsPoint,
   RefShape,
   SegmentedButton,
+  setValueAtPath,
   Tab,
   TabGroup,
   TabGroupTitle,
   TabList,
   TabPanel,
   TabPanels,
+  TextInput,
   UtahHeader,
   UtahUnbrand,
+  valueAtPath,
   version,
 };

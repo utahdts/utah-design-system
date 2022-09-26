@@ -2,6 +2,7 @@
 import produce from 'immer';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { Form, TextInput } from 'utah-design-system-react-library';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 
 const propTypes = {
@@ -43,68 +44,48 @@ function ButtonPrimaryExampleProps({ setState, state }) {
   return (
     <div>
       <div>
-        {/* dirty engine, validation engine,  */}
-        {/* trickle down but overrideable properties like validationStyle so a child can have different values from the form but uses the form if a value isn't set */}
+        <Form
+          // onSubmit(({ state, validationErrors }) => ... do whatever ...)
+          state={state}
+          setState={setState}
+        >
+          <TextInput id="props.title" label="Title" />
 
-        <Validation validationStyle={ON_BLURRED, ALWAYS}>
-          <Form
-            // when the submit button is pressed...?
-            onSubmit={({ data, isDirty, isValid }) => {}}
-            onChange={(id, newValue) => setMyData((draftData) => { draftData[id] = newValue})}
-          >
-            <TextInput id="personTelephone" type="tel" doValidation={true} validationType="Tel" validationError="this is wrong" label="Title" label={<div>My Label</div>} onChange={(value) => setMyData((draftData) => { draftData['telephone'] = newValue})} validationStyle={BLURRED, ALWAYS}/>
-            <TextInput customValidation={value => !value ? 'incorrect value' : true} />
-            ...
+          <label htmlFor="button-sandbox-busy">Busy</label>
+          <input id="button-sandbox-isBusy" type="checkbox" onChange={onChangeField('isBusy')} />
+          <br />
 
-            <Form onSubmit={({isValid}) => {}} onChange={(newValue) => setMyData((draftData) => { draftData[???] = newValue})} >
-              <TextInput type="tel" doValidation={true} validationType="Tel" validationError="this is wrong" label="Title" label={<div>My Label</div>} onChange={(value) => setMyData((draftData) => { draftData['telephone'] = newValue})} validationStyle={BLURRED, ALWAYS}/>
-              <TextInput customValidation={value => !value ? 'incorrect value' : true} />
-            </Form>
+          <TextInput id="props.className" label="Class" />
 
-            ...
-          </Form>
-        </Validation>
+          <label htmlFor="button-sandbox-appearance">Appearance </label>
+          <select id="button-sandbox-appearance" onChange={onChangeField('appearance')} value={state.props.appearance}>
+            <option value="solid">Solid</option>
+            <option value="outlined">Outlined</option>
+          </select>
+          <br />
+          <label htmlFor="button-sandbox-color">Color </label>
+          <select id="button-sandbox-color" onChange={onChangeField('color')} value={state.props.color}>
+            <option value="primary">Primary</option>
+            <option value="secondary">Secondary</option>
+            <option value="accent">Accent</option>
+            <option value="none">None</option>
+          </select>
+          <br />
+          <label htmlFor="button-sandbox-isDisabled">Disabled: </label>
+          <input id="button-sandbox-isDisabled" type="checkbox" onChange={onChangeField('isDisabled')} />
+          <br />
 
+          <TextInput id="props.id" label="ID" />
 
-
-        <label htmlFor="button-sandbox-buttonText">Title </label>
-        <input id="button-sandbox-buttonText" type="text" value={state.props.title || ''} onChange={onChangeField('title')} />
-        <br />
-        <label htmlFor="button-sandbox-busy">Busy</label>
-        <input id="button-sandbox-isBusy" type="checkbox" onChange={onChangeField('isBusy')} />
-        <br />
-        <label htmlFor="className">Class </label>
-        <input id="button-sandbox-className" type="text" value={state.props.className || ''} onChange={onChangeField('className')} />
-        <br />
-        <label htmlFor="button-sandbox-appearance">Appearance </label>
-        <select id="button-sandbox-appearance" onChange={onChangeField('appearance')} value={state.props.appearance}>
-          <option value="solid">Solid</option>
-          <option value="outlined">Outlined</option>
-        </select>
-        <br />
-        <label htmlFor="button-sandbox-color">Color </label>
-        <select id="button-sandbox-color" onChange={onChangeField('color')} value={state.props.color}>
-          <option value="primary">Primary</option>
-          <option value="secondary">Secondary</option>
-          <option value="accent">Accent</option>
-          <option value="none">None</option>
-        </select>
-        <br />
-        <label htmlFor="button-sandbox-isDisabled">Disabled: </label>
-        <input id="button-sandbox-isDisabled" type="checkbox" onChange={onChangeField('isDisabled')} />
-        <br />
-        <label htmlFor="button-sandbox-id">ID: </label>
-        <input id="button-sandbox-id" type="text" value={state.props.id || ''} onChange={onChangeField('id')} />
-        <br />
-        <label htmlFor="button-sandbox-type">Type: </label>
-        <select id="button-sandbox-type" onChange={onChangeField('type')}>
-          <option value="button">Button</option>
-          <option value="reset">Reset</option>
-          <option value="submit">Submit</option>
-        </select>
+          <label htmlFor="button-sandbox-type">Type: </label>
+          <select id="button-sandbox-type" onChange={onChangeField('type')}>
+            <option value="button">Button</option>
+            <option value="reset">Reset</option>
+            <option value="submit">Submit</option>
+          </select>
+        </Form>
       </div>
     </div>
-
   );
 }
 

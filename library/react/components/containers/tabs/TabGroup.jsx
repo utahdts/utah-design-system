@@ -53,7 +53,7 @@ function TabGroup({
   );
   return (
     <TabGroupContext.Provider value={contextValue}>
-      <div className={joinClassNames('tab-group', className)}>
+      <div className={joinClassNames('tab-group', className)} id={`tab-group-${tabGroupState.id}`}>
         {children}
       </div>
     </TabGroupContext.Provider>
