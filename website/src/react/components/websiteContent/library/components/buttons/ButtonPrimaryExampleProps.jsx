@@ -43,6 +43,30 @@ function ButtonPrimaryExampleProps({ setState, state }) {
   return (
     <div>
       <div>
+        {/* dirty engine, validation engine,  */}
+        {/* trickle down but overrideable properties like validationStyle so a child can have different values from the form but uses the form if a value isn't set */}
+
+        <Validation validationStyle={ON_BLURRED, ALWAYS}>
+          <Form
+            // when the submit button is pressed...?
+            onSubmit={({ data, isDirty, isValid }) => {}}
+            onChange={(id, newValue) => setMyData((draftData) => { draftData[id] = newValue})}
+          >
+            <TextInput id="personTelephone" type="tel" doValidation={true} validationType="Tel" validationError="this is wrong" label="Title" label={<div>My Label</div>} onChange={(value) => setMyData((draftData) => { draftData['telephone'] = newValue})} validationStyle={BLURRED, ALWAYS}/>
+            <TextInput customValidation={value => !value ? 'incorrect value' : true} />
+            ...
+
+            <Form onSubmit={({isValid}) => {}} onChange={(newValue) => setMyData((draftData) => { draftData[???] = newValue})} >
+              <TextInput type="tel" doValidation={true} validationType="Tel" validationError="this is wrong" label="Title" label={<div>My Label</div>} onChange={(value) => setMyData((draftData) => { draftData['telephone'] = newValue})} validationStyle={BLURRED, ALWAYS}/>
+              <TextInput customValidation={value => !value ? 'incorrect value' : true} />
+            </Form>
+
+            ...
+          </Form>
+        </Validation>
+
+
+
         <label htmlFor="button-sandbox-buttonText">Title </label>
         <input id="button-sandbox-buttonText" type="text" value={state.props.title || ''} onChange={onChangeField('title')} />
         <br />

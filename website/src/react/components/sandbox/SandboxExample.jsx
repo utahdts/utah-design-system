@@ -16,9 +16,10 @@ import {
 import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
 
 const propTypes = {
-  CodeExample: PropTypes.func.isRequired,
-  PropsExample: PropTypes.func.isRequired,
-  RenderExample: PropTypes.func.isRequired,
+  // these use SCREAMING_SNAKE_CASE so that they are identifiable as component variable names and not the real component names
+  CODE_EXAMPLE: PropTypes.func.isRequired,
+  PROPS_EXAMPLE: PropTypes.func.isRequired,
+  RENDER_EXAMPLE: PropTypes.func.isRequired,
 };
 const defaultProps = {};
 
@@ -28,7 +29,7 @@ function cleanHtmlForInnerHTML(html) {
     // change `disabled=""` to be just `disabled`
     .replace(/=""/g, '');
 }
-function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
+function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
   const [state, setState] = useImmer({
     props: {},
   });
@@ -59,8 +60,13 @@ function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
   return (
     <div className="sandbox-example">
       <div className="sandbox-example__top">
-        <RenderExample state={state} setState={setState} innerRef={renderedRef} />
-        <PropsExample state={state} setState={setState} />
+        <div className="sandbox-example__component">
+          <RENDER_EXAMPLE state={state} setState={setState} innerRef={renderedRef} />
+        </div>
+        <div className="sandbox-example__props-inputs">
+          <PROPS_EXAMPLE state={state} setState={setState} />
+
+        </div>
       </div>
       <div className="sandbox-example__bottom">
         <TabGroup defaultValue={sandboxCodeTypeEnum.REACT}>
@@ -77,7 +83,7 @@ function SandboxExample({ CodeExample, PropsExample, RenderExample }) {
                 dangerouslySetInnerHTML={{ __html: innerHtml }}
               />
             </TabPanel>
-            <TabPanel tabId={sandboxCodeTypeEnum.REACT}><CodeExample state={state} /></TabPanel>
+            <TabPanel tabId={sandboxCodeTypeEnum.REACT}><CODE_EXAMPLE state={state} /></TabPanel>
           </TabPanels>
         </TabGroup>
       </div>

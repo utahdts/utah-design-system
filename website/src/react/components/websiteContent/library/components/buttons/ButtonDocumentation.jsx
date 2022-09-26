@@ -15,9 +15,9 @@ function ButtonDocumentation() {
       <hr />
       <h2>Example</h2>
       <SandboxExample
-        CodeExample={ButtonExampleCodeReact}
-        PropsExample={ButtonPrimaryExampleProps}
-        RenderExample={ButtonExampleRender}
+        CODE_EXAMPLE={ButtonExampleCodeReact}
+        PROPS_EXAMPLE={ButtonPrimaryExampleProps}
+        RENDER_EXAMPLE={ButtonExampleRender}
       />
     </div>
   );
