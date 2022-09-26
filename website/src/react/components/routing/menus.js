@@ -98,6 +98,7 @@ const menuLibraryComponentsSecondary = {
   id: 'library-components',
   menuItems: [
     {
+      id: 'components__basic-atomic',
       title: 'Basic Atomic',
       parentLinks: [pages.library.link],
       children: [
@@ -109,6 +110,7 @@ const menuLibraryComponentsSecondary = {
       ],
     },
     {
+      id: 'components__buttons',
       title: 'Buttons',
       parentLinks: [pages.library.link],
       children: [
@@ -133,6 +135,7 @@ const menuLibraryPatternsSecondary = {
     },
     {
       title: 'Buttons',
+      link: pages.anchors.link, // wrong!
       parentLinks: [pages.library.link],
     },
   ],

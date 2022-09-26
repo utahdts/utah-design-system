@@ -35,13 +35,28 @@ function MenuItem({ currentMenuItem, menuItem }) {
     }
   );
 
+  if ((!menuItem?.link || menuItem?.link?.includes('::') || menuItem.children) && !menuItem.id) {
+    console.error('A parent MenuItem requires an `id` to empower aria-labelledby', menuItem);
+  }
+
   return (
     <li className="menu-item">
       <span className="menu-item__title">
         {/* === menu item title === */}
         {
           (!menuItem?.link || menuItem?.link?.includes('::'))
-            ? <div id={`menu-item-${menuItem.id}-${menuItem.link}`}>{menuItem.title}</div>
+            ? (
+              <button
+                aria-expanded={isChildrenOpen ? 'true' : 'false'}
+                aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
+                className="menu-item__button-title"
+                id={`menu-item-${menuItem.id}-${menuItem.link}`}
+                onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
+                type="button"
+              >
+                {menuItem.title}
+              </button>
+            )
             : (
               <NavLink
                 className={(navData) => joinClassNames((currentMenuItem?.parentLinks?.includes(menuItem.link) || navData.isActive) && 'menu-item--selected')}
