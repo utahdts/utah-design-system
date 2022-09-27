@@ -27,6 +27,7 @@ function ButtonPrimaryExampleProps({ setState, state }) {
         // eslint-disable-next-line no-param-reassign
         draftState.props.appearance = 'outlined';
         draftState.props.color = 'none';
+        draftState.props.size = 'medium';
         draftState.props.title = 'Button Title';
         draftState.props.type = 'button';
       }));
@@ -49,12 +50,12 @@ function ButtonPrimaryExampleProps({ setState, state }) {
           <TextInput id="props.className" label="Class" className="input--height-xsmall" />
 
           {/* TODO: what about optgroup? */}
-          <Select id="props.appearance" label="Appearance">
+          <Select id="props.appearance" label="Appearance" className="input--height-xsmall">
             <SelectOption label="Outlined" value="outlined" />
             <SelectOption label="Solid" value="solid" />
           </Select>
 
-          <Select id="props.color" label="Color">
+          <Select id="props.color" label="Color" className="input--height-xsmall">
             <SelectOption label="Primary" value="primary" />
             <SelectOption label="Secondary" value="secondary" />
             <SelectOption label="Accent" value="accent" />
@@ -65,10 +66,17 @@ function ButtonPrimaryExampleProps({ setState, state }) {
 
           <TextInput id="props.id" label="ID" className="input--height-xsmall" />
 
-          <Select id="props.type" label="Type">
+          <Select id="props.type" label="Type" className="input--height-xsmall">
             <SelectOption label="Button" value="button" />
             <SelectOption label="Reset" value="reset" />
             <SelectOption label="Submit" value="submit" />
+          </Select>
+
+          <Select id="props.size" label="Size" className="input--height-xsmall">
+            <SelectOption label="Small" value="small" />
+            <SelectOption label="Medium" value="medium" />
+            <SelectOption label="Large" value="large" />
+            <SelectOption label="X-Large" value="xlarge" />
           </Select>
         </Form>
       </div>

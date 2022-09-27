@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { RefShape } from 'utah-design-system-react-library';
+import { joinClassNames, RefShape } from 'utah-design-system-react-library';
 import Button from 'utah-design-system-react-library/react/components/buttons/Button';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 
@@ -23,6 +23,7 @@ function ButtonExampleRender({
       color,
       isDisabled,
       id,
+      size,
       title,
       type,
     },
@@ -32,7 +33,7 @@ function ButtonExampleRender({
   return (
     <Button
       appearance={appearance}
-      className={className}
+      className={joinClassNames(className, size !== 'medium' && `button--${size}`)}
       color={color}
       id={id}
       innerRef={innerRef}

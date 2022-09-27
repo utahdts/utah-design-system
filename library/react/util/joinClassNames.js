@@ -13,7 +13,7 @@ export default (...classNames) => (
     .flat(Infinity)
 
     // trim spaces off
-    .map(trim)
+    .map((className) => (typeof className === 'string' ? trim(className) : className))
 
     // remove blanks
     .filter(identity)

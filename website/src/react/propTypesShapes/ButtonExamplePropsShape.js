@@ -8,6 +8,7 @@ export default PropTypes.exact({
   isDisabled: PropTypes.bool,
   id: PropTypes.string,
   onClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
   // title is put in as the "children" of the Button component
   title: PropTypes.string,
   type: PropTypes.oneOf(['button', 'reset', 'submit']),

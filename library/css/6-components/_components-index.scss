@@ -9,8 +9,10 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/containers/tab-group";
 @use "base-components/buttons/button";
 @use "base-components/buttons/icon-button";
+@use "base-components/forms/input-wrapper";
 @use "base-components/forms/text-input";
 @use "base-components/forms/checkbox";
+@use "base-components/forms/select-input";
 @use "base-components/forms/info-box";
 @use "base-components/forms/radio-button";
 @use "base-components/navigation/menu-item";
