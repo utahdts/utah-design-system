@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import FormContext from '../../components/forms/FormContext';
 import valueAtPath from '../../util/state/valueAtPath';
+import onKeyPress from '../../util/onKeyPress';
 
 /**
  * A component can be
@@ -32,10 +33,12 @@ export default function useCurrentValuesFromForm({
     validationErrors,
   } = useContext(FormContext) || {};
 
+  const currentOnSubmit = onSubmit ?? contextOnSubmit;
   return {
     currentErrorMessage: errorMessage ?? (validationErrors && validationErrors[id]),
     currentOnChange: onChange ?? (contextOnChange && ((e) => contextOnChange({ id, e }))),
-    currentOnSubmit: onSubmit ?? contextOnSubmit,
+    currentOnSubmit,
     currentValue: (value ?? (state && valueAtPath({ object: state, path: id }))) || '',
+    currentOnFormKeyPress: onKeyPress({ targetKey: 'Enter', func: (e) => currentOnSubmit && currentOnSubmit(e) }),
   };
 }

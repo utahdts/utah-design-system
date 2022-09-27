@@ -3,7 +3,7 @@
  * @param {func} the function to call when the given key is pressed
  * @returns function that checks for the keypress and fires function when pressed
  */
-export default function useOnKeyPress({ targetKey, func }) {
+export default function onKeyPress({ targetKey, func }) {
   return (e) => {
     if (e.key === targetKey) {
       func(e);

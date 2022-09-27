@@ -4,6 +4,8 @@ import RefShape from '../../propTypesShapes/RefShape';
 import ErrorMessage from './ErrorMessage';
 
 const propTypes = {
+  // children are the options
+  children: PropTypes.node,
   className: PropTypes.string,
   errorMessage: PropTypes.string,
   innerRef: RefShape,
@@ -18,6 +20,7 @@ const propTypes = {
   value: PropTypes.string,
 };
 const defaultProps = {
+  children: null,
   className: null,
   errorMessage: null,
   innerRef: null,
@@ -27,7 +30,8 @@ const defaultProps = {
   value: null,
 };
 
-function TextInput({
+function Select({
+  children,
   className,
   errorMessage,
   innerRef,
@@ -53,10 +57,10 @@ function TextInput({
   });
 
   return (
-    <div className="input-wrapper input-wrapper--text-input">
+    <div className="input-wrapper input-wrapper--select">
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id}>{label}</label>
-      <input
+      <select
         aria-describedby={currentErrorMessage ? `${id}-error` : null}
         className={className}
         disabled={isDisabled}
@@ -64,16 +68,17 @@ function TextInput({
         onChange={currentOnChange}
         onKeyPress={currentOnFormKeyPress}
         ref={innerRef}
-        type="text"
         value={currentValue}
         {...rest}
-      />
+      >
+        {children}
+      </select>
       <ErrorMessage errorMessage={currentErrorMessage} id={id} />
     </div>
   );
 }
 
-TextInput.propTypes = propTypes;
-TextInput.defaultProps = defaultProps;
+Select.propTypes = propTypes;
+Select.defaultProps = defaultProps;
 
-export default TextInput;
+export default Select;

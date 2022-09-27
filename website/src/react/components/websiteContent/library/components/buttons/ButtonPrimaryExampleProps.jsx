@@ -2,7 +2,13 @@
 import produce from 'immer';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { CheckBox, Form, TextInput } from 'utah-design-system-react-library';
+import {
+  CheckBox,
+  Form,
+  Select,
+  SelectOption,
+  TextInput,
+} from 'utah-design-system-react-library';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 
 const propTypes = {
@@ -28,19 +34,6 @@ function ButtonPrimaryExampleProps({ setState, state }) {
     []
   );
 
-  function onChangeField(field) {
-    return (e) => setState((draftState) => {
-      switch (field) {
-        case 'isBusy':
-        case 'isDisabled':
-          draftState.props[field] = e.target.checked;
-          break;
-        default:
-          draftState.props[field] = e.target.value;
-          break;
-      }
-    });
-  }
   return (
     <div>
       <div>
@@ -55,36 +48,28 @@ function ButtonPrimaryExampleProps({ setState, state }) {
 
           <TextInput id="props.className" label="Class" className="input--height-xsmall" />
 
-          <div className="input-wrapper">
-            <label htmlFor="button-sandbox-appearance">Appearance</label>
-            <select id="button-sandbox-appearance" onChange={onChangeField('appearance')} value={state.props.appearance}>
-              <option value="solid">Solid</option>
-              <option value="outlined">Outlined</option>
-            </select>
-          </div>
+          {/* TODO: what about optgroup? */}
+          <Select id="props.appearance" label="Appearance">
+            <SelectOption label="Outlined" value="outlined" />
+            <SelectOption label="Solid" value="solid" />
+          </Select>
 
-          <div className="input-wrapper">
-            <label htmlFor="button-sandbox-color">Color</label>
-            <select id="button-sandbox-color" onChange={onChangeField('color')} value={state.props.color}>
-              <option value="primary">Primary</option>
-              <option value="secondary">Secondary</option>
-              <option value="accent">Accent</option>
-              <option value="none">None</option>
-            </select>
-          </div>
+          <Select id="props.color" label="Color">
+            <SelectOption label="Primary" value="primary" />
+            <SelectOption label="Secondary" value="secondary" />
+            <SelectOption label="Accent" value="accent" />
+            <SelectOption label="None" value="none" />
+          </Select>
 
           <CheckBox id="props.isDisabled" label="Disabled" />
 
           <TextInput id="props.id" label="ID" className="input--height-xsmall" />
 
-          <div className="input-wrapper">
-            <label htmlFor="button-sandbox-type">Type</label>
-            <select id="button-sandbox-type" onChange={onChangeField('type')}>
-              <option value="button">Button</option>
-              <option value="reset">Reset</option>
-              <option value="submit">Submit</option>
-            </select>
-          </div>
+          <Select id="props.type" label="Type">
+            <SelectOption label="Button" value="button" />
+            <SelectOption label="Reset" value="reset" />
+            <SelectOption label="Submit" value="submit" />
+          </Select>
         </Form>
       </div>
     </div>

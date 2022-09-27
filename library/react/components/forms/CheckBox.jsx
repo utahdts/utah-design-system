@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm';
 import RefShape from '../../propTypesShapes/RefShape';
-import onKeyPress from '../../util/onKeyPress';
+import ErrorMessage from './ErrorMessage';
 
 const propTypes = {
   className: PropTypes.string,
@@ -37,11 +37,12 @@ function CheckBox({
   onChange,
   onSubmit,
   value,
+  ...rest
 }) {
   const {
     currentErrorMessage,
     currentOnChange,
-    currentOnSubmit,
+    currentOnFormKeyPress,
     currentValue,
   } = useCurrentValuesFromForm({
     errorMessage,
@@ -55,25 +56,18 @@ function CheckBox({
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id}>{label}</label>
       <input
+        aria-describedby={currentErrorMessage ? `${id}-error` : null}
         checked={currentValue}
         className={className}
         disabled={isDisabled}
         id={id}
         onChange={currentOnChange}
-        onKeyPress={onKeyPress({ targetKey: 'Enter', func: (e) => currentOnSubmit && currentOnSubmit(e) })}
+        onKeyPress={currentOnFormKeyPress}
         ref={innerRef}
         type="checkbox"
-        aria-describedby={currentErrorMessage ? `${id}-error` : null}
+        {...rest}
       />
-      {
-        currentErrorMessage
-          ? (
-            <div className="input-wrapper__error-message" id={`${id}-error`}>
-              {currentErrorMessage}
-            </div>
-          )
-          : null
-      }
+      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
     </div>
   );
 }

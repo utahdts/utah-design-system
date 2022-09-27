@@ -10,6 +10,8 @@ import TabPanel from './react/components/containers/tabs/TabPanel';
 import TabPanels from './react/components/containers/tabs/TabPanels';
 import CheckBox from './react/components/forms/CheckBox';
 import Form from './react/components/forms/Form';
+import Select from './react/components/forms/Select';
+import SelectOption from './react/components/forms/SelectOption';
 import TextInput from './react/components/forms/TextInput';
 import HorizontalMenu from './react/components/navigation/HorizontalMenu';
 import MainMenu from './react/components/navigation/MainMenu';
@@ -39,10 +41,12 @@ export {
   HorizontalMenu,
   MainMenu,
   MenuItemShape,
+  SelectOption,
   rectContainsPoint,
   RefShape,
   SegmentedButton,
   setValueAtPath,
+  Select,
   Tab,
   TabGroup,
   TabGroupTitle,
