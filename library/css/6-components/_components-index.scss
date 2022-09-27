@@ -15,6 +15,7 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/navigation/menu-item";
 @use "base-components/navigation/side-panel-navigation";
 @use "base-components/templates/documenation-template";
+@use "base-components/forms/input";
 
 /* ---- Project Components ---- */
 @use "project-components/swatch-list";

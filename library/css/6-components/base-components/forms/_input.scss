@@ -1,0 +1,10 @@
+input.input,
+.input {
+  &--height-small {
+    min-height: var(--form-ele-small);
+  }
+
+  &--height-xsmall {
+    min-height: var(--form-ele-xsmall);
+  }
+}

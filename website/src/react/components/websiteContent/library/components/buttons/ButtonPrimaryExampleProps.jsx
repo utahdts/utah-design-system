@@ -49,40 +49,48 @@ function ButtonPrimaryExampleProps({ setState, state }) {
           state={state}
           setState={setState}
         >
-          <TextInput id="props.title" label="Title" className="input--height-small" />
+          <TextInput id="props.title" label="Title" className="input--height-xsmall" />
 
-          <label htmlFor="button-sandbox-busy">Busy</label>
-          <input id="button-sandbox-isBusy" type="checkbox" onChange={onChangeField('isBusy')} />
-          <br />
+          <div className="input-wrapper">
+            <input id="button-sandbox-isBusy" type="checkbox" onChange={onChangeField('isBusy')} />
+            <label htmlFor="button-sandbox-busy">Busy</label>
+          </div>
 
-          <TextInput id="props.className" label="Class" />
+          <TextInput id="props.className" label="Class" className="input--height-xsmall" />
 
-          <label htmlFor="button-sandbox-appearance">Appearance </label>
-          <select id="button-sandbox-appearance" onChange={onChangeField('appearance')} value={state.props.appearance}>
-            <option value="solid">Solid</option>
-            <option value="outlined">Outlined</option>
-          </select>
-          <br />
-          <label htmlFor="button-sandbox-color">Color </label>
-          <select id="button-sandbox-color" onChange={onChangeField('color')} value={state.props.color}>
-            <option value="primary">Primary</option>
-            <option value="secondary">Secondary</option>
-            <option value="accent">Accent</option>
-            <option value="none">None</option>
-          </select>
-          <br />
-          <label htmlFor="button-sandbox-isDisabled">Disabled: </label>
-          <input id="button-sandbox-isDisabled" type="checkbox" onChange={onChangeField('isDisabled')} />
-          <br />
+          <div className="input-wrapper">
+            <label htmlFor="button-sandbox-appearance">Appearance</label>
+            <select id="button-sandbox-appearance" onChange={onChangeField('appearance')} value={state.props.appearance}>
+              <option value="solid">Solid</option>
+              <option value="outlined">Outlined</option>
+            </select>
+          </div>
 
-          <TextInput id="props.id" label="ID" />
+          <div className="input-wrapper">
+            <label htmlFor="button-sandbox-color">Color</label>
+            <select id="button-sandbox-color" onChange={onChangeField('color')} value={state.props.color}>
+              <option value="primary">Primary</option>
+              <option value="secondary">Secondary</option>
+              <option value="accent">Accent</option>
+              <option value="none">None</option>
+            </select>
+          </div>
 
-          <label htmlFor="button-sandbox-type">Type: </label>
-          <select id="button-sandbox-type" onChange={onChangeField('type')}>
-            <option value="button">Button</option>
-            <option value="reset">Reset</option>
-            <option value="submit">Submit</option>
-          </select>
+          <div className="input-wrapper">
+            <input id="button-sandbox-isDisabled" type="checkbox" onChange={onChangeField('isDisabled')} />
+            <label htmlFor="button-sandbox-isDisabled">Disabled</label>
+          </div>
+
+          <TextInput id="props.id" label="ID" className="input--height-xsmall" />
+
+          <div className="input-wrapper">
+            <label htmlFor="button-sandbox-type">Type</label>
+            <select id="button-sandbox-type" onChange={onChangeField('type')}>
+              <option value="button">Button</option>
+              <option value="reset">Reset</option>
+              <option value="submit">Submit</option>
+            </select>
+          </div>
         </Form>
       </div>
     </div>
