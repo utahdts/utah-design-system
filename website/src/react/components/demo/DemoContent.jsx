@@ -335,15 +335,15 @@ function DemoContent() {
       <div className="hero-section hero-section--baby">
         <div className="hero-section__title">Please fill out the form below</div>
       </div>
-      <div className="form__wrapper mb-spacing-l">
-        <div className="form">
-          <div className="form__section pt-spacing-l">
-            <div className="form__section-title secondary-color">
-              <div className="form__section-title-number secondary-color-border">1</div>
-              <div className="form__section-title-name">Personal Information</div>
+      <div className="demo-form__wrapper mb-spacing-l">
+        <div className="demo-form">
+          <div className="demo-form__section pt-spacing-l">
+            <div className="demo-form__section-title secondary-color">
+              <div className="demo-form__section-title-number secondary-color-border">1</div>
+              <div className="demo-form__section-title-name">Personal Information</div>
             </div>
 
-            <div className="form__section-inputs">
+            <div className="demo-form__section-inputs">
               <div className="input-wrapper">
                 <label htmlFor="firstName">First Name</label>
                 <input type="text" id="firstName" name="firstName" />
@@ -375,13 +375,13 @@ function DemoContent() {
               </div>
             </div>
           </div>
-          <div className="form__section">
-            <div className="form__section-title secondary-color">
-              <div className="form__section-title-number secondary-color-border">2</div>
-              <div className="form__section-title-name">Other Information</div>
+          <div className="demo-form__section">
+            <div className="demo-form__section-title secondary-color">
+              <div className="demo-form__section-title-number secondary-color-border">2</div>
+              <div className="demo-form__section-title-name">Other Information</div>
             </div>
 
-            <div className="form__section-inputs">
+            <div className="demo-form__section-inputs">
               <div className="input-wrapper">
                 <div>Do have a favorite color?</div>
                 <div className="input__radio">
@@ -413,10 +413,10 @@ function DemoContent() {
               </div>
             </div>
           </div>
-          <div className="form__section mb-spacing-l">
-            <div className="form__section-title secondary-color">
-              <div className="form__section-title-number secondary-color-border">3</div>
-              <div className="form__section-title-name flex justify-between" style={{ width: '100%' }}>
+          <div className="demo-form__section mb-spacing-l">
+            <div className="demo-form__section-title secondary-color">
+              <div className="demo-form__section-title-number secondary-color-border">3</div>
+              <div className="demo-form__section-title-name flex justify-between" style={{ width: '100%' }}>
                 <button type="button" className="button button--secondary-color">Cancel</button>
                 <button type="button" className="button button--secondary-color button--solid">Submit Form</button>
               </div>

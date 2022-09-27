@@ -49,7 +49,7 @@ function ButtonPrimaryExampleProps({ setState, state }) {
           state={state}
           setState={setState}
         >
-          <TextInput id="props.title" label="Title" />
+          <TextInput id="props.title" label="Title" className="input--height-small" />
 
           <label htmlFor="button-sandbox-busy">Busy</label>
           <input id="button-sandbox-isBusy" type="checkbox" onChange={onChangeField('isBusy')} />

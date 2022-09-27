@@ -15,7 +15,7 @@ const propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 
-  // should a "setState" compliant state setter
+  // should be a "setState" compliant state setter
   setState: PropTypes.func,
   state: PropTypes.shape({}),
 };

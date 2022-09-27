@@ -21,7 +21,7 @@ const propTypes = {
   value: PropTypes.string,
 };
 const defaultProps = {
-  className: 'text-input-wrapper',
+  className: null,
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
@@ -53,9 +53,9 @@ function TextInput({
   const onSubmitUse = onSubmit ?? contextOnSubmit;
 
   return (
-    <div className={joinClassNames('text-input-wrapper', className)}>
+    <div className={joinClassNames('input-wrapper', className)}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id}>{label} </label>
+      <label htmlFor={id}> {label} </label>
       <input
         disabled={isDisabled}
         id={id}

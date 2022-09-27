@@ -11,4 +11,8 @@ input[type="text"] {
     outline: 2px solid var(--secondary-color);
     border-color: var(--secondary-color);
   }
+
+  &.input--height-small {
+    min-height: var(--form-ele-small);
+  }
 }
