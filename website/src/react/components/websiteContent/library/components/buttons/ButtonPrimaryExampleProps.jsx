@@ -2,7 +2,7 @@
 import produce from 'immer';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { Form, TextInput } from 'utah-design-system-react-library';
+import { CheckBox, Form, TextInput } from 'utah-design-system-react-library';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 
 const propTypes = {
@@ -51,10 +51,7 @@ function ButtonPrimaryExampleProps({ setState, state }) {
         >
           <TextInput id="props.title" label="Title" className="input--height-xsmall" />
 
-          <div className="input-wrapper">
-            <input id="button-sandbox-isBusy" type="checkbox" onChange={onChangeField('isBusy')} />
-            <label htmlFor="button-sandbox-busy">Busy</label>
-          </div>
+          <CheckBox id="props.isBusy" label="Busy" />
 
           <TextInput id="props.className" label="Class" className="input--height-xsmall" />
 
@@ -76,10 +73,7 @@ function ButtonPrimaryExampleProps({ setState, state }) {
             </select>
           </div>
 
-          <div className="input-wrapper">
-            <input id="button-sandbox-isDisabled" type="checkbox" onChange={onChangeField('isDisabled')} />
-            <label htmlFor="button-sandbox-isDisabled">Disabled</label>
-          </div>
+          <CheckBox id="props.isDisabled" label="Disabled" />
 
           <TextInput id="props.id" label="ID" className="input--height-xsmall" />
 

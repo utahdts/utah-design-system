@@ -15,7 +15,7 @@ const propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 
-  // should be a "setState" compliant state setter
+  // should a "setState" compliant state setter
   setState: PropTypes.func,
   state: PropTypes.shape({}),
 };
@@ -54,12 +54,17 @@ function Form({
       dirtyIds: {}, // id: oldValue  ; null object for not dirty
       validationErrors: {}, // id:[errors] ; null object for isValid
       onChange: ({ e, id }) => {
+        const newValue = (
+          e.target.type === 'checkbox'
+            ? e.target.checked
+            : e.target.value
+        );
         if (onChange) {
-          onChange(id, e.target.value);
+          onChange(id, newValue);
         }
         if (setState) {
           setState(produce((draftState) => {
-            setValueAtPath({ object: draftState, path: id, value: e.target.value });
+            setValueAtPath({ object: draftState, path: id, value: newValue });
           }));
         }
       },

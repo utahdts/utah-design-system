@@ -53,7 +53,7 @@ function TextInput({
   const onSubmitUse = onSubmit ?? contextOnSubmit;
 
   return (
-    <div className="input-wrapper">
+    <div className="input-wrapper input-wrapper--text-input">
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id}>{label}</label>
       <input
@@ -66,7 +66,7 @@ function TextInput({
         type="text"
         value={valueUse}
       />
-      <div className="text-input-wrapper__error-message">
+      <div className="input-wrapper__error-message">
         {errorMessageUse}
       </div>
     </div>

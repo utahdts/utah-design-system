@@ -8,6 +8,7 @@ import TabGroupTitle from './react/components/containers/tabs/TabGroupTitle';
 import TabList from './react/components/containers/tabs/TabList';
 import TabPanel from './react/components/containers/tabs/TabPanel';
 import TabPanels from './react/components/containers/tabs/TabPanels';
+import CheckBox from './react/components/forms/CheckBox';
 import Form from './react/components/forms/Form';
 import TextInput from './react/components/forms/TextInput';
 import HorizontalMenu from './react/components/navigation/HorizontalMenu';
@@ -28,6 +29,7 @@ const { version } = packageJson;
 
 export {
   Accordion,
+  CheckBox,
   DocumentationTemplate,
   handleKeyPress,
   Form,
