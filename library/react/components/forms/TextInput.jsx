@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import onKeyPress from '../../util/onKeyPress';
 import RefShape from '../../propTypesShapes/RefShape';
-import joinClassNames from '../../util/joinClassNames';
-import FormContext from './FormContext';
+import onKeyPress from '../../util/onKeyPress';
 import valueAtPath from '../../util/state/valueAtPath';
+import FormContext from './FormContext';
 
 const propTypes = {
   className: PropTypes.string,
@@ -47,16 +46,18 @@ function TextInput({
     state,
     validationErrors,
   } = useContext(FormContext) || {};
+
   const valueUse = (value ?? (state && valueAtPath({ object: state, path: id }))) || '';
   const errorMessageUse = errorMessage ?? (validationErrors && validationErrors[id]);
   const onChangeUse = onChange ?? (contextOnChange && ((e) => contextOnChange({ id, e })));
   const onSubmitUse = onSubmit ?? contextOnSubmit;
 
   return (
-    <div className={joinClassNames('input-wrapper', className)}>
+    <div className="input-wrapper">
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id}> {label} </label>
+      <label htmlFor={id}>{label}</label>
       <input
+        className={className}
         disabled={isDisabled}
         id={id}
         onChange={onChangeUse}
