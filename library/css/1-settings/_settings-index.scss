@@ -8,6 +8,7 @@ variables and settings
 @use "grid";
 @use "font-stuff";
 @use "color-swatches";
+@use "icons";
 
 #{class-vars.$base-class} {
   /* color */
@@ -26,9 +27,9 @@ variables and settings
   --accent-color-dark: rgb(114, 97, 0);
   --accent-color-light: rgb(245, 238, 196);
   --gray-on-accent-color: #474747;
-  
+
   --form-ele-color: #{color-swatches.$azul-04};
-  
+
   /* ######## --------------------------------------------- ######## */
 
   --gray-color: #{color-swatches.$neutral-gray-04};
