@@ -1,17 +1,25 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
+import joinClassNames from '../../../util/joinClassNames';
 import TabGroupContext from './TabGroupContext';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
-const defaultProps = {};
+const defaultProps = {
+  className: null,
+};
 
-function TabList({ children }) {
+function TabList({ children, className }) {
   const { tabGroupId } = useContext(TabGroupContext);
 
   return (
-    <div className="tab-group__list" role="tablist" aria-labelledby={`tab-group-${tabGroupId}`}>
+    <div
+      className={joinClassNames(className, 'tab-group__list')}
+      role="tablist"
+      aria-labelledby={`tab-group-${tabGroupId}`}
+    >
       {children}
     </div>
   );

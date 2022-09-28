@@ -5,12 +5,15 @@ import TabGroupContext from './TabGroupContext';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   // a tabId id must be provided for accessibility and selecting tabs
   tabId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  className: null,
+};
 
-function TabPanel({ children, tabId }) {
+function TabPanel({ children, className, tabId }) {
   const { selectedTabId, tabGroupId } = useContext(TabGroupContext);
 
   return (
@@ -18,6 +21,7 @@ function TabPanel({ children, tabId }) {
       // `aria-labelledby` must match the related Tab's `id`
       aria-labelledby={`tab-${tabGroupId}-${tabId}`}
       className={joinClassNames(
+        className,
         selectedTabId === tabId && 'tab-group__panel--selected',
         'tab-group__panel'
       )}

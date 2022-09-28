@@ -53,18 +53,21 @@ function Form({
       formId: formState.formId,
       dirtyIds: {}, // id: oldValue  ; null object for not dirty
       validationErrors: {}, // id:[errors] ; null object for isValid
-      onChange: ({ e, id }) => {
-        const newValue = (
-          e.target.type === 'checkbox'
-            ? e.target.checked
-            : e.target.value
-        );
+      onChange: ({ e, id, newValue }) => {
+        let currentValue = newValue;
+        if (currentValue === undefined) {
+          currentValue = (
+            e.target.type === 'checkbox'
+              ? e.target.checked
+              : e.target.value
+          );
+        }
         if (onChange) {
-          onChange(id, newValue);
+          onChange(id, currentValue);
         }
         if (setState) {
           setState(produce((draftState) => {
-            setValueAtPath({ object: draftState, path: id, value: newValue });
+            setValueAtPath({ object: draftState, path: id, value: currentValue });
           }));
         }
       },

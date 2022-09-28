@@ -23,4 +23,12 @@
     padding: var(--spacing);
     border-radius: var(--radius-medium);
   }
+  &__bottom {
+    margin: var(--spacing) 0 0 0;
+    background: var(--gray-light-color);
+    border-radius: var(--radius-medium);
+    code {
+      background-color: transparent;
+    }
+  }
 }

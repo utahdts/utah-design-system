@@ -45,7 +45,7 @@ function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
         'onClick',
       ]
         .filter((event) => renderedRef.current && renderedRef.current[event.toLowerCase()])
-        .map((event) => ` ${event}={() => { /* ... do something ... */ } `)
+        .map((event) => ` ${event}="() => { /* ... do something ... */ }" `)
         .join(' ');
       if (events) {
         const endStartTag = cleanHTML.indexOf('&gt;');
@@ -70,20 +70,24 @@ function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
       </div>
       <div className="sandbox-example__bottom">
         <TabGroup defaultValue={sandboxCodeTypeEnum.REACT}>
-          <TabGroupTitle className="TODO: --hidden?">Code Example</TabGroupTitle>
-          <TabList>
+          <TabGroupTitle className="visually-hidden">Code Example</TabGroupTitle>
+          <TabList className="tab-group--small-text">
             <Tab id={sandboxCodeTypeEnum.HTML}>{sandboxCodeTypeEnum.HTML}</Tab>
             <Tab id={sandboxCodeTypeEnum.REACT}>{sandboxCodeTypeEnum.REACT}</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId={sandboxCodeTypeEnum.HTML}>
-              <div
-                className="TODO: how classy should i be?"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: innerHtml }}
-              />
+            <TabPanel tabId={sandboxCodeTypeEnum.HTML} className="px-spacing pb-spacing">
+              <pre>
+                <code
+                  className="language-xml"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{ __html: innerHtml }}
+                />
+              </pre>
             </TabPanel>
-            <TabPanel tabId={sandboxCodeTypeEnum.REACT}><CODE_EXAMPLE state={state} /></TabPanel>
+            <TabPanel tabId={sandboxCodeTypeEnum.REACT} className="px-spacing pb-spacing">
+              <CODE_EXAMPLE state={state} />
+            </TabPanel>
           </TabPanels>
         </TabGroup>
       </div>

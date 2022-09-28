@@ -36,7 +36,7 @@ export default function useCurrentValuesFromForm({
   const currentOnSubmit = onSubmit ?? contextOnSubmit;
   return {
     currentErrorMessage: errorMessage ?? (validationErrors && validationErrors[id]),
-    currentOnChange: onChange ?? (contextOnChange && ((e) => contextOnChange({ id, e }))),
+    currentOnChange: onChange ?? (contextOnChange && ((e, newValue) => contextOnChange({ e, id, newValue }))),
     currentOnSubmit,
     currentValue: (value ?? (state && valueAtPath({ object: state, path: id }))) || '',
     currentOnFormKeyPress: onKeyPress({ targetKey: 'Enter', func: (e) => currentOnSubmit && currentOnSubmit(e) }),

@@ -25,9 +25,9 @@ const defaultProps = {};
 
 export function CssContextProvider({ children }) {
   const [cssState, setCssState] = useState({
-    [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.PURPLE.swatches[colorsIndexes.primeIndex],
-    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.PURPLE.swatches[0],
-    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.PURPLE.swatches[17],
+    [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.AZUL.swatches[colorsIndexes.primeIndex],
+    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.AZUL.swatches[0],
+    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.AZUL.swatches[17],
     [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
 
     [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.CELEDON_GREEN.swatches[colorsIndexes.primeIndex],

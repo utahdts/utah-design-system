@@ -12,6 +12,7 @@ import CheckBox from './react/components/forms/CheckBox';
 import Form from './react/components/forms/Form';
 import Select from './react/components/forms/Select';
 import SelectOption from './react/components/forms/SelectOption';
+import Switch from './react/components/forms/Switch';
 import TextInput from './react/components/forms/TextInput';
 import HorizontalMenu from './react/components/navigation/HorizontalMenu';
 import MainMenu from './react/components/navigation/MainMenu';
@@ -47,6 +48,7 @@ export {
   SegmentedButton,
   setValueAtPath,
   Select,
+  Switch,
   Tab,
   TabGroup,
   TabGroupTitle,

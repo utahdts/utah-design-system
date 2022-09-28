@@ -7,6 +7,7 @@ import {
   Form,
   Select,
   SelectOption,
+  Switch,
   TextInput,
 } from 'utah-design-system-react-library';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
@@ -45,7 +46,8 @@ function ButtonPrimaryExampleProps({ setState, state }) {
         >
           <TextInput id="props.title" label="Title" className="input--height-xsmall" />
 
-          <CheckBox id="props.isBusy" label="Busy" />
+          {/* <CheckBox id="props.isBusy" label="Busy" /> */}
+          <Switch id="props.isBusy" label="Busy" labelOn="On" labelOff="Off" width={40} />
 
           <TextInput id="props.className" label="Class" className="input--height-xsmall" />
 

@@ -47,6 +47,10 @@ elemental html: h1, h2, h3, ul, li, etc.
     padding: 0 var(--spacing-2xs);
     border-radius: var(--radius-xsmall);
   }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 
   ul {
     list-style: none;

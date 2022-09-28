@@ -1,4 +1,7 @@
+@use "../../../2-tools/tools-index";
+
 select {
+  color: var(--gray-color);
 	min-height: var(--form-ele-medium);
   border-radius: var(--radius-small);
   box-sizing: border-box;
@@ -7,4 +10,8 @@ select {
   padding: 0 var(--spacing-xs);
   box-sizing: border-box;
 	appearance: none;
+  background: white var(--icon-chevron-dark) no-repeat right 5px center;
+  background-size: 16px;
+
+  @include tools-index.form-ele-hover-medium;
 }

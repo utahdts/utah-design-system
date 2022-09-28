@@ -1,4 +1,7 @@
+@use "../../../2-tools/tools-index";
+
 input[type="text"] {
+  color: var(--gray-color);
   min-height: var(--form-ele-medium);
   border-radius: var(--radius-small);
   box-sizing: border-box;
@@ -6,6 +9,8 @@ input[type="text"] {
   width: 100%;
   padding: 0 var(--spacing-xs);
   box-sizing: border-box;
+
+  @include tools-index.form-ele-hover-medium;
 
   &:focus-visible {
     outline: 2px solid var(--secondary-color);

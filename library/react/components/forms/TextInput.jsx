@@ -61,6 +61,7 @@ function TextInput({
         className={className}
         disabled={isDisabled}
         id={id}
+        name={id}
         onChange={currentOnChange}
         onKeyPress={currentOnFormKeyPress}
         ref={innerRef}
