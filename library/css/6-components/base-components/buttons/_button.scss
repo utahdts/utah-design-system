@@ -22,8 +22,33 @@
       background: var(--gray-color);
       color: white;
     }
+
+    &[disabled], &[disable]:hover {
+      cursor: not-allowed;
+      background: white;
+      color: var(--gray-medium-color);
+      border-color: var(--gray-light-color);
+    }
   }
   .button {
+
+    /* ------------ SIZES ------------ */
+    &--small {
+      font-size: .938rem;
+      min-height: var(--form-ele-small);
+      padding: 0 var(--spacing);
+    }
+
+    &--large {
+      font-size: 1.25rem;
+      min-height: var(--form-ele-large);
+    }
+
+    &--xlarge {
+      font-size: 1.5rem;
+      min-height: var(--form-ele-xlarge);
+      padding: 0 var(--spacing-2xl);
+    }
 
     &--primary-color {
       border-color: var(--primary-color);
@@ -154,6 +179,13 @@
 
       &.contrast-border-light {
         border-color: white;
+      }
+
+      &[disabled], &[disable]:hover {
+        cursor: not-allowed;
+        background: var(--gray-light-color);
+        color: white;
+        border-color: var(--gray-light-color);
       }
     }
   }

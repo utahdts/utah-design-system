@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import handleEvent from '../../util/handleEvent';
 import joinClassNames from '../../util/joinClassNames';
+import Spinner from '../widgetsIndicators/Spinner';
 
 const propTypes = {
   appearance: PropTypes.oneOf(['solid', 'outlined']),
@@ -56,7 +57,7 @@ function Button({
         (appearance && appearance !== 'outlined') ? `button--${appearance}` : null,
         (color && color !== 'none') ? `button--${color}-color` : null
       )}
-      disabled={isDisabled}
+      disabled={isDisabled || isBusy}
       id={id}
       onClick={handleEvent((e) => onClick(e))}
       ref={innerRef}
@@ -65,7 +66,8 @@ function Button({
     >
       {children}
       {
-        isBusy ? 'TODO:SPINNER!' : null
+        // One-size-fits-all?
+        isBusy ? <Spinner value={0.25} size={22} strokeWidth={12} className="ml-spacing-xs" /> : null
       }
     </button>
   );

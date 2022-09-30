@@ -56,18 +56,17 @@ variables and settings
   --radius-large: 12px;
   --radius-circle: 999px;
 
-  //TODO: convert these to rem
   /* form element sizes */
-  --form-ele-2xsmall: 20px;
-  --form-ele-xsmall: 24px;
-  --form-ele-small: 30px;
-  --form-ele-medium: 36px;
-  --form-ele-large: 40px;
-  --form-ele-xlarge: 50px;
+  --form-ele-2xsmall: 1.25rem;
+  --form-ele-xsmall: 1.5rem;
+  --form-ele-small: 1.875rem;
+  --form-ele-medium: 2.25rem;
+  --form-ele-large: 2.5rem;
+  --form-ele-xlarge: 3.125rem;
 
-  --form-checkbox-small: 14px;
-  --form-checkbox-medium: 18px;
-  --form-checkbox-large: 22px;
+  --form-checkbox-small: 0.875rem;
+  --form-checkbox-medium: 1.125rem;
+  --form-checkbox-large: 1.375rem;
 
     /* content layout sizes */
   --content-width: 1224px;
