@@ -121,6 +121,14 @@ const menuLibraryComponentsSecondary = {
         { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
       ],
     },
+    {
+      id: 'components__forms',
+      title: 'Forms',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.switch.link, title: pages.switch.pageTitle },
+      ],
+    },
   ],
 };
 

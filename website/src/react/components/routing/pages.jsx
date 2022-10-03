@@ -9,6 +9,7 @@ import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/ButtonDocumentation';
+import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -328,6 +329,15 @@ const pages = {
     link: '/library/components/buttons/segmented-button',
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Segmented Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === forms === //
+  switch: {
+    content: <SwitchDocumentation />,
+    link: '/library/components/forms/switch',
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Switch',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

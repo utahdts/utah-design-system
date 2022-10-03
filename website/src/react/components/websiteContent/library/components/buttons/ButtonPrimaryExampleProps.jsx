@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import produce from 'immer';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import {
@@ -24,14 +23,14 @@ function ButtonPrimaryExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
-      setState(produce((draftState) => {
+      setState((draftState) => {
         // eslint-disable-next-line no-param-reassign
         draftState.props.appearance = 'outlined';
         draftState.props.color = 'none';
         draftState.props.size = 'medium';
         draftState.props.title = 'Button Title';
         draftState.props.type = 'button';
-      }));
+      });
     },
     []
   );

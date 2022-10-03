@@ -1,6 +1,5 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
-import produce from 'immer';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import { useImmer } from 'use-immer';
@@ -11,11 +10,13 @@ import FormContext from './FormContext';
 const propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  // key/value pairs of data, where the key is the `id` of the nested form components
+  // respond to field changes for key/value pairs of data, where the key is the `id` of the nested form components/inputs.
+  // ie ({ e, id, value }) => { ... do something ... }
+  // if both onChange AND setState are given, then the returned value from onChange will be passed to setState
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 
-  // should a "setState" compliant state setter
+  // a "setState" compliant state setter
   setState: PropTypes.func,
   state: PropTypes.shape({}),
 };
@@ -63,12 +64,12 @@ function Form({
           );
         }
         if (onChange) {
-          onChange(id, currentValue);
+          currentValue = onChange({ e, id, value: currentValue });
         }
         if (setState) {
-          setState(produce((draftState) => {
+          setState((draftState) => {
             setValueAtPath({ object: draftState, path: id, value: currentValue });
-          }));
+          });
         }
       },
       onSubmit: () => {

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import handleEvent from '../../util/handleEvent';
 import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
@@ -20,11 +21,7 @@ function IconButton({
   return (
     <button
       {...rest}
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        onClick();
-      }}
+      onClick={handleEvent(onClick)}
       className={joinClassNames(className, 'icon-button icon-button--plain mr-spacing')}
       type="button"
     >

@@ -7,9 +7,9 @@ import joinClassNames from '../../util/joinClassNames';
 const propTypes = {
   className: PropTypes.string,
   errorMessage: PropTypes.string,
-  innerRef: RefShape,
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
   id: PropTypes.string.isRequired,
+  innerRef: RefShape,
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelOff: PropTypes.node,
@@ -39,8 +39,8 @@ const defaultProps = {
 function Switch({
   className,
   errorMessage,
-  innerRef,
   id,
+  innerRef,
   isDisabled,
   label,
   labelOn,
@@ -64,8 +64,12 @@ function Switch({
     onSubmit,
     value,
   });
+
   return (
-    <div className="input-wrapper input-wrapper--switch">
+    <div
+      className="input-wrapper input-wrapper--switch"
+      ref={innerRef}
+    >
       <label
         className={joinClassNames('switch__wrapper', currentValue && 'switch__wrapper--on')}
         htmlFor={id}
@@ -82,7 +86,6 @@ function Switch({
           name={id}
           onChange={currentOnChange}
           onKeyPress={currentOnFormKeyPress}
-          ref={innerRef}
           type="checkbox"
           {...rest}
         />

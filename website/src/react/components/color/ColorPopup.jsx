@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { rectContainsPoint } from 'utah-design-system-react-library';
+import handleEvent from 'utah-design-system-react-library/react/util/handleEvent';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';
@@ -59,11 +60,7 @@ function ColorPopup() {
       <div className="popup__title-bar" ref={draggableDivRef}>
         <div className="popup__title">Color Picker</div>
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsOpen((oldIsOpen) => !oldIsOpen);
-          }}
+          onClick={handleEvent(() => setIsOpen((oldIsOpen) => !oldIsOpen))}
           className="icon-button icon-button--plain mr-spacing"
           type="button"
         >
