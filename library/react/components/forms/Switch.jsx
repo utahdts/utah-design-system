@@ -12,12 +12,13 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  labelOff: PropTypes.string,
-  labelOn: PropTypes.string,
+  labelOff: PropTypes.node,
+  labelOn: PropTypes.node,
   // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
+  sliderChildren: PropTypes.node,
   value: PropTypes.bool,
   width: PropTypes.number,
 };
@@ -30,6 +31,7 @@ const defaultProps = {
   labelOn: null,
   onChange: null,
   onSubmit: null,
+  sliderChildren: null,
   value: null,
   width: null,
 };
@@ -45,6 +47,7 @@ function Switch({
   labelOff,
   onChange,
   onSubmit,
+  sliderChildren,
   value,
   width,
   ...rest
@@ -83,7 +86,7 @@ function Switch({
           type="checkbox"
           {...rest}
         />
-        <span className={joinClassNames('switch__slider', currentValue && 'switch__slider--on')} />
+        <span className={joinClassNames('switch__slider', currentValue && 'switch__slider--on')}>{sliderChildren}</span>
         {
           (labelOn || labelOff)
             ? (
