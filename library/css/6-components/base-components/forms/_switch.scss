@@ -18,13 +18,14 @@ input[type=checkbox].switch {
     right: 0;
     transform: translateX(calc(100% + var(--spacing-2xs)));
     color: var(--gray-color);
+    min-width: max-content;
   }
   &__wrapper {
-    min-width: 30px;
+    min-width: 20px;
     background: color-swatches.$neutral-gray-08;
     color: white;
     border-radius: var(--radius-circle);
-    min-height: var(--form-ele-2xsmall);
+    min-height: var(--form-ele-small3x);
     padding: var(--spacing-3xs);
     position: relative;
     display: inline-flex;
@@ -38,27 +39,37 @@ input[type=checkbox].switch {
   }
   &__slider {
     display: block;
-    height: var(--form-ele-2xsmall);
-    width: var(--form-ele-2xsmall);
+    height: var(--form-ele-small3x);
+    width: var(--form-ele-small3x);
     border-radius: var(--radius-circle);
     background: white;
     position: absolute;
     left: 2px;
     transition: all var(--timing-quick);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &--on {
       left: 100%;
       transform: translateX(calc(-100% - 2px));
       background: white;
     }
+    svg {
+      fill: var(--gray-color);
+      width: .8rem;
+      height: .8rem;
+    }
   }
   &__inner-label {
     position: relative;
     width: 100%;
-    height: var(--form-ele-2xsmall);
+    height: var(--form-ele-small3x);
+    font-size: var(--font-size-s);
+    line-height: var(--font-size-s);
     &-on, &-off {
       // display: none;
       // width: 25px;
-      width: calc(100% - var(--form-ele-2xsmall));
+      width: calc(100% - var(--form-ele-2small1x));
       position: absolute;
       right: 2px;
       opacity: 0;

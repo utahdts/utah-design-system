@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
+import { formElementSizesEnum } from 'utah-design-system-react-library';
 
 export default PropTypes.exact({
   appearance: PropTypes.string,
-  isBusy: PropTypes.bool,
   className: PropTypes.string,
   color: PropTypes.string,
-  isDisabled: PropTypes.bool,
+  iconLeft: PropTypes.string,
+  iconRight: PropTypes.string,
   id: PropTypes.string,
+  isBusy: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+  size: PropTypes.oneOf([formElementSizesEnum.SMALL, formElementSizesEnum.MEDIUM, formElementSizesEnum.LARGE, formElementSizesEnum.LARGE1X]),
   // title is put in as the "children" of the Button component
   title: PropTypes.string,
   type: PropTypes.oneOf(['button', 'reset', 'submit']),

@@ -63,7 +63,6 @@ Apache License Version 2.0
     > these are the compiled parts separate from the website that the website also uses
     * css/
       > css files that make up the design system (ITCSS)
-    * js/
     * react/
       * components/
         * buttons/
@@ -77,11 +76,11 @@ Apache License Version 2.0
       * propTypesShapes/
         > PropTypes.shape definitions for common propType objects
       * ...
-    * boilerplate/ 
+    * boilerplate/
       > starter project that grabs all the pieces for a new website
     * static/
         * icons/
-* website/ 
+* website/
   > This is the collection of rules and design system specifications
     * src/
       * css/
@@ -91,7 +90,7 @@ Apache License Version 2.0
             * HomeLanding
             * foundation/
               * FoundationLanding
-              * ... foundation documentation 
+              * ... foundation documentation
             * library/
               * LibraryLanding
               * components/
@@ -105,14 +104,14 @@ Apache License Version 2.0
             * resources/
               * ResourcesLanding
               * ...
-            
+
         * context/
         * enums/
         * hooks/
         * util/
           * color/
       * static/
-      
+
 	* index.html???
 	* package.json
 	* vite.config.js

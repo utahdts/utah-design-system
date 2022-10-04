@@ -50,19 +50,20 @@ variables and settings
   --timing-slow: 600ms;
 
   /* rounded corners */
-  --radius-xsmall: 3px;
+  --radius-small1x: 3px;
   --radius-small: 6px;
   --radius-medium: 9px;
   --radius-large: 12px;
   --radius-circle: 999px;
 
   /* form element sizes */
-  --form-ele-2xsmall: 1.25rem;
-  --form-ele-xsmall: 1.5rem;
+  --form-ele-small3x: 1rem;
+  --form-ele-small2x: 1.25rem;
+  --form-ele-small1x: 1.5rem;
   --form-ele-small: 1.875rem;
   --form-ele-medium: 2.25rem;
   --form-ele-large: 2.5rem;
-  --form-ele-xlarge: 3.125rem;
+  --form-ele-large1x: 3.125rem;
 
   --form-checkbox-small: 0.875rem;
   --form-checkbox-medium: 1.125rem;

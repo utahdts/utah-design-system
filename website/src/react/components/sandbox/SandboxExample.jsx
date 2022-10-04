@@ -86,7 +86,11 @@ function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
               </pre>
             </TabPanel>
             <TabPanel tabId={sandboxCodeTypeEnum.REACT} className="px-spacing pb-spacing">
-              <CODE_EXAMPLE state={state} />
+              <pre>
+                <code>
+                  <CODE_EXAMPLE state={state} />
+                </code>
+              </pre>
             </TabPanel>
           </TabPanels>
         </TabGroup>

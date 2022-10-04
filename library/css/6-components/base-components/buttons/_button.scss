@@ -21,6 +21,9 @@
     &:hover {
       background: var(--gray-color);
       color: white;
+      svg {
+        fill: white;
+      }
     }
 
     &[disabled], &[disable]:hover {
@@ -44,10 +47,26 @@
       min-height: var(--form-ele-large);
     }
 
-    &--xlarge {
+    &--large1x {
       font-size: 1.5rem;
-      min-height: var(--form-ele-xlarge);
+      min-height: var(--form-ele-large1x);
       padding: 0 var(--spacing-2xl);
+    }
+
+    &--icon-left, &--icon-right {
+      display: flex;
+      align-items: center;
+      svg {
+        height: .8rem;
+        width: .8rem;
+        fill: var(--gray-color);
+      }
+    }
+    &--icon-left {
+      margin-right: var(--spacing-xs)
+    }
+    &--icon-right {
+      margin-left: var(--spacing-xs)
     }
 
     &--primary-color {
@@ -56,6 +75,9 @@
       &:hover {
         background-color: var(--primary-color);
         color: white;
+        svg {
+          fill: white;
+        }
       }
 
       @at-root #{class-vars.$primary-color-is-light}#{&} {

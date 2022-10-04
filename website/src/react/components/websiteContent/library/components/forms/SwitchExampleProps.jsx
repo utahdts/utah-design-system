@@ -2,8 +2,10 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import {
-  CheckBox,
   Form,
+  formElementSizesEnum,
+  Select,
+  SelectOption,
   Switch,
   TextInput,
 } from 'utah-design-system-react-library';
@@ -17,7 +19,8 @@ const propTypes = {
 };
 const defaultProps = {};
 
-const DEFAULT_SWITCH_WIDTH = 50;
+const DEFAULT_SWITCH_WIDTH = 80;
+const DEFAULT_ICON = 'none';
 
 function SwitchExampleProps({ setState, state }) {
   // default property values
@@ -25,9 +28,11 @@ function SwitchExampleProps({ setState, state }) {
     () => {
       setState((draftState) => {
         // eslint-disable-next-line no-param-reassign
+        draftState.props.icon = DEFAULT_ICON;
         draftState.props.label = 'Switch Label';
         draftState.props.labelOff = 'Label Off';
         draftState.props.labelOn = 'Label On';
+        draftState.props.size = formElementSizesEnum.MEDIUM;
         draftState.props.value = true;
         draftState.props.width = DEFAULT_SWITCH_WIDTH;
       });
@@ -49,21 +54,27 @@ function SwitchExampleProps({ setState, state }) {
           state={state}
           setState={setState}
         >
-          <TextInput id="props.className" label="Class" className="input--height-xsmall" />
+          <TextInput id="props.className" label="Class" className="input--height-small1x" />
 
-          <TextInput id="props.id" label="ID" className="input--height-xsmall" />
+          <TextInput id="props.id" label="ID" className="input--height-small1x" />
 
-          <CheckBox id="props.isDisabled" label="Disabled" />
+          <Switch id="props.isDisabled" label="Disabled" />
 
-          <TextInput id="props.label" label="Label" className="input--height-xsmall" />
+          <TextInput id="props.label" label="Label" className="input--height-small1x" />
 
-          <TextInput id="props.labelOff" label="Label - Off" className="input--height-xsmall" />
+          <TextInput id="props.labelOff" label="Label - Off" className="input--height-small1x" />
 
-          <TextInput id="props.labelOn" label="Label - On" className="input--height-xsmall" />
+          <TextInput id="props.labelOn" label="Label - On" className="input--height-small1x" />
 
           <Switch id="props.value" label="Value" labelOn="On" labelOff="Off" width={40} />
 
-          <TextInput id="props.width" label="Width" className="input--height-xsmall" />
+          <TextInput id="props.width" label="Width" className="input--height-small1x" />
+
+          <Select id="props.icon" label="Icon (sliderChildren)" className="input--height-small1x">
+            <SelectOption label="Check" value="IconCheck" />
+            <SelectOption label="Light Mode" value="IconLightMode" />
+            <SelectOption label="None" value="none" />
+          </Select>
         </Form>
       </div>
     </div>

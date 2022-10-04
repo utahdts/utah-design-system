@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { joinClassNames, RefShape } from 'utah-design-system-react-library';
+import { RefShape } from 'utah-design-system-react-library';
 import Button from 'utah-design-system-react-library/react/components/buttons/Button';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
+import Icons from '../../../../icons/Icons';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -22,6 +23,8 @@ function ButtonExampleRender({
       className,
       color,
       isDisabled,
+      iconLeft,
+      iconRight,
       id,
       size,
       title,
@@ -33,13 +36,16 @@ function ButtonExampleRender({
   return (
     <Button
       appearance={appearance}
-      className={joinClassNames(className, size !== 'medium' && `button--${size}`)}
+      className={className}
       color={color}
+      iconLeft={((iconLeft === 'none') || !iconLeft) ? null : Icons[iconLeft]()}
+      iconRight={((iconRight === 'none') || !iconRight) ? null : Icons[iconRight]()}
       id={id}
       innerRef={innerRef}
       isBusy={isBusy}
       isDisabled={isDisabled}
       onClick={() => { console.log('You have clicked the button.'); }}
+      size={size}
       type={type}
     >
       {title || ''}

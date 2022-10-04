@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import {
-  CheckBox,
   Form,
+  formElementSizesEnum,
   Select,
   SelectOption,
   Switch,
@@ -27,6 +27,8 @@ function ButtonPrimaryExampleProps({ setState, state }) {
         // eslint-disable-next-line no-param-reassign
         draftState.props.appearance = 'outlined';
         draftState.props.color = 'none';
+        draftState.props.iconLeft = 'none';
+        draftState.props.iconRight = 'none';
         draftState.props.size = 'medium';
         draftState.props.title = 'Button Title';
         draftState.props.type = 'button';
@@ -43,42 +45,53 @@ function ButtonPrimaryExampleProps({ setState, state }) {
           state={state}
           setState={setState}
         >
-          <TextInput id="props.title" label="Title" className="input--height-xsmall" />
-
-          {/* <CheckBox id="props.isBusy" label="Busy" /> */}
-          <Switch id="props.isBusy" label="Busy" labelOn="On" labelOff="Off" width={40} />
-
-          <TextInput id="props.className" label="Class" className="input--height-xsmall" />
-
-          {/* TODO: what about optgroup? */}
-          <Select id="props.appearance" label="Appearance" className="input--height-xsmall">
+          <Select id="props.appearance" label="Appearance" className="input--height-small1x">
             <SelectOption label="Outlined" value="outlined" />
             <SelectOption label="Solid" value="solid" />
           </Select>
 
-          <Select id="props.color" label="Color" className="input--height-xsmall">
+          <Switch id="props.isBusy" label="Busy" />
+
+          <TextInput id="props.className" label="Class" className="input--height-small1x" />
+
+          <Select id="props.color" label="Color" className="input--height-small1x">
             <SelectOption label="Primary" value="primary" />
             <SelectOption label="Secondary" value="secondary" />
             <SelectOption label="Accent" value="accent" />
             <SelectOption label="None" value="none" />
           </Select>
 
-          <CheckBox id="props.isDisabled" label="Disabled" />
+          <Switch id="props.isDisabled" label="Disabled" width={20} />
 
-          <TextInput id="props.id" label="ID" className="input--height-xsmall" />
+          <Select id="props.iconLeft" label="Icon Left" className="input--height-small1x">
+            <SelectOption label="Chevron" value="IconChevron" />
+            <SelectOption label="Arrow" value="IconArrowLeft" />
+            <SelectOption label="None" value="none" />
+          </Select>
 
-          <Select id="props.type" label="Type" className="input--height-xsmall">
+          <Select id="props.iconRight" label="Icon Right" className="input--height-small1x">
+            <SelectOption label="Chevron" value="IconChevron" />
+            <SelectOption label="Arrow" value="IconArrowRight" />
+            <SelectOption label="None" value="none" />
+          </Select>
+
+          <TextInput id="props.id" label="ID" className="input--height-small1x" />
+
+          <Select id="props.size" label="Size" className="input--height-small1x">
+            <SelectOption label="Small" value={formElementSizesEnum.SMALL} />
+            <SelectOption label="Medium" value={formElementSizesEnum.MEDIUM} />
+            <SelectOption label="Large" value={formElementSizesEnum.LARGE} />
+            <SelectOption label="Large 1X" value={formElementSizesEnum.LARGE1X} />
+          </Select>
+
+          <TextInput id="props.title" label="Title (children)" className="input--height-small1x" />
+
+          <Select id="props.type" label="Type" className="input--height-small1x">
             <SelectOption label="Button" value="button" />
             <SelectOption label="Reset" value="reset" />
             <SelectOption label="Submit" value="submit" />
           </Select>
 
-          <Select id="props.size" label="Size" className="input--height-xsmall">
-            <SelectOption label="Small" value="small" />
-            <SelectOption label="Medium" value="medium" />
-            <SelectOption label="Large" value="large" />
-            <SelectOption label="X-Large" value="xlarge" />
-          </Select>
         </Form>
       </div>
     </div>

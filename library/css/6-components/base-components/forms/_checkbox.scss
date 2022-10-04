@@ -4,7 +4,7 @@ input[type="checkbox"] {
 	width: var(--form-checkbox-medium);
 	height: var(--form-checkbox-medium);
 	position: relative;
-  border-radius: var(--radius-xsmall);
+  border-radius: var(--radius-small1x);
 	border: 1px solid var(--gray-color);
 	background-color: white;
   box-sizing: border-box;
@@ -37,7 +37,7 @@ input[type="checkbox"] {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 30%;
-		border-radius: var(--radius-xsmall);
+		border-radius: var(--radius-small1x);
     width: 100%;
     height: 100%;
     opacity: 0;

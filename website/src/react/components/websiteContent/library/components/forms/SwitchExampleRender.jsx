@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { RefShape, Switch } from 'utah-design-system-react-library';
 import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
+import Icons from '../../../../icons/Icons';
 
 const propTypes = {
   innerRef: RefShape,
@@ -19,6 +20,7 @@ function SwitchExampleRender({
   state: {
     props: {
       className,
+      icon,
       id,
       isDisabled,
       label,
@@ -36,8 +38,8 @@ function SwitchExampleRender({
       id={id || 'switch-example-render-id'}
       isDisabled={isDisabled}
       label={label || 'Switch Label'}
-      labelOff={labelOff || 'Off'}
-      labelOn={labelOn || 'On'}
+      labelOff={labelOff}
+      labelOn={labelOn}
       value={!!value}
       width={width}
       innerRef={innerRef}
@@ -45,6 +47,7 @@ function SwitchExampleRender({
         // eslint-disable-next-line no-param-reassign
         draftState.props.value = !draftState.props.value;
       })}
+      sliderChildren={((icon === 'none') || !icon) ? null : Icons[icon]()}
     />
   );
 }

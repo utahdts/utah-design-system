@@ -1,5 +1,6 @@
 import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
+import { formElementSizesEnum } from 'utah-design-system-react-library';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 
 const propTypes = {
@@ -16,8 +17,11 @@ function ButtonExampleCode({
       isBusy,
       className,
       color,
+      iconLeft,
+      iconRight,
       isDisabled,
       id,
+      size,
       style,
       title,
       type,
@@ -27,6 +31,8 @@ function ButtonExampleCode({
   const displayedProps = [
     appearance ? `appearance="${appearance}"` : null,
     color ? `color="${color}"` : null,
+    (iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null,
+    (iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null,
     isBusy ? 'busy={true}' : null,
     isDisabled ? 'disabled={true}' : null,
     id ? `id="${id}"` : null,
@@ -34,17 +40,18 @@ function ButtonExampleCode({
     style ? `style="${style}"` : null,
     (type && type !== 'button') ? `type="${type}"` : null,
     'onClick={() => { /* ... do something ... */ }',
+    (!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`,
   ].filter(identity);
 
   return (
-    <div>
+    <>
       &lt;
       {`Button${displayedProps.length ? ' ' : ''}`}
       {displayedProps.join(' ')}
       &gt;
       {title}
       &lt;/Button&gt;
-    </div>
+    </>
   );
 }
 

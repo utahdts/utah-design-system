@@ -13,6 +13,7 @@ function SwitchExampleCodeReact({
   state: {
     props: {
       className,
+      icon,
       id,
       isDisabled,
       label,
@@ -33,6 +34,7 @@ function SwitchExampleCodeReact({
     'onChange={() => { /* ... do something ... */ }',
     `value={${value}}`,
     width ? `width={${width}}` : null,
+    (icon && icon !== 'none') ? `sliderChildren={icons.${icon}()}` : null,
   ].filter(identity);
 
   return (
