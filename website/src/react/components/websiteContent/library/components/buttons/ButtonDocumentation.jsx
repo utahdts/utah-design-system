@@ -3,7 +3,7 @@ import SandboxExample from '../../../../sandbox/SandboxExample';
 import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleRender from './ButtonExampleRender';
 import ButtonPrimaryExampleProps from './ButtonPrimaryExampleProps';
-import StaticExamples from '../../../../staticExamples/StaticExamples';
+import StaticExample from '../../../../staticExamples/StaticExample';
 import Icons from '../../../../icons/Icons';
 
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -22,7 +22,7 @@ function ButtonDocumentation() {
         PROPS_EXAMPLE={ButtonPrimaryExampleProps}
         RENDER_EXAMPLE={ButtonExampleRender}
       />
-      <StaticExamples
+      <StaticExample
         quickTips={(
           <ul>
             <li>Comes before secondary in the tab order.</li>
@@ -42,7 +42,7 @@ function ButtonDocumentation() {
         title="Primary"
       />
 
-      <StaticExamples
+      <StaticExample
         quickTips={(
           <ul>
             <li>Should be less emphasized than primary buttons.</li>
@@ -76,7 +76,7 @@ function ButtonDocumentation() {
         title="Secondary"
       />
 
-      <StaticExamples
+      <StaticExample
         renderedExample={(
           <>
             <Button

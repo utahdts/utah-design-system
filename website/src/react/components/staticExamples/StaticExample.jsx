@@ -9,7 +9,7 @@ const defaultProps = {
   quickTips: null,
 };
 
-function StaticExamples({ quickTips, renderedExample, title }) {
+function StaticExample({ quickTips, renderedExample, title }) {
   return (
     <div className="static-example">
       <h3>{title}</h3>
@@ -25,7 +25,7 @@ function StaticExamples({ quickTips, renderedExample, title }) {
   );
 }
 
-StaticExamples.propTypes = propTypes;
-StaticExamples.defaultProps = defaultProps;
+StaticExample.propTypes = propTypes;
+StaticExample.defaultProps = defaultProps;
 
-export default StaticExamples;
+export default StaticExample;
