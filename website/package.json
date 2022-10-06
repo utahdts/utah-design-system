@@ -16,7 +16,7 @@
     "react-router-dom": "6.4.0",
     "tinycolor2": "^1.4.2",
     "use-immer": "0.7.0",
-    "utah-design-system-react-library": "file:../library"
+    "utah-design-system-react-library": "0.0.1"
   },
   "devDependencies": {
     "@types/react": "18.0.19",
