@@ -17,6 +17,7 @@
     cursor: pointer;
     transition: all 200ms ease-in-out;
     color: var(--gray-color);
+    text-decoration: none;
 
     &:hover {
       background: var(--gray-color);
