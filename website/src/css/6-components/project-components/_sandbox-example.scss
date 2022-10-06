@@ -3,6 +3,7 @@
 .sandbox-example {
   display: flex;
   flex-direction: column;
+  margin: 0 0 var(--spacing) 0 ;
 
   &__top {
     display: flex;

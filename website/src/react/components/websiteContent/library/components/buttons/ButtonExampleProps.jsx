@@ -19,7 +19,7 @@ const propTypes = {
 };
 const defaultProps = {};
 
-function ButtonPrimaryExampleProps({ setState, state }) {
+function ButtonExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
@@ -98,7 +98,7 @@ function ButtonPrimaryExampleProps({ setState, state }) {
   );
 }
 
-ButtonPrimaryExampleProps.propTypes = propTypes;
-ButtonPrimaryExampleProps.defaultProps = defaultProps;
+ButtonExampleProps.propTypes = propTypes;
+ButtonExampleProps.defaultProps = defaultProps;
 
-export default ButtonPrimaryExampleProps;
+export default ButtonExampleProps;

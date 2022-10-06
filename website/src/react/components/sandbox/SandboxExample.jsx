@@ -69,7 +69,7 @@ function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
         </div>
       </div>
       <div className="sandbox-example__bottom">
-        <TabGroup defaultValue={sandboxCodeTypeEnum.REACT}>
+        <TabGroup defaultValue={sandboxCodeTypeEnum.HTML}>
           <TabGroupTitle className="visually-hidden">Code Example</TabGroupTitle>
           <TabList className="tab-group--small-text">
             <Tab id={sandboxCodeTypeEnum.HTML}>{sandboxCodeTypeEnum.HTML}</Tab>

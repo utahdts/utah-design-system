@@ -7,6 +7,7 @@ elemental html: h1, h2, h3, ul, li, etc.
 #{class-vars.$base-class} {
 	margin: 0;
 	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: white;
@@ -53,8 +54,8 @@ elemental html: h1, h2, h3, ul, li, etc.
   }
 
   ul {
-    list-style: none;
-    padding: 0;
+    list-style-type: disc;
+    padding: 0 0 0 var(--spacing-2xl);
     margin: 0;
   }
 

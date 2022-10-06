@@ -11,6 +11,8 @@
     }
     ul {
       // padding-left: var(--spacing-s);
+      list-style-type: none;
+      padding: 0;
 
       ul:first-of-type {
         border-left: 1px solid #DBDBDB;

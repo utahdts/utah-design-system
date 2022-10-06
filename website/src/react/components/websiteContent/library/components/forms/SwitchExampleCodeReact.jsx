@@ -38,12 +38,12 @@ function SwitchExampleCodeReact({
   ].filter(identity);
 
   return (
-    <div>
+    <>
       &lt;
       {`Switch${displayedProps.length ? ' ' : ''}`}
       {displayedProps.join(' ')}
       /&gt;
-    </div>
+    </>
   );
 }
 

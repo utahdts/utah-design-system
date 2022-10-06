@@ -3,7 +3,12 @@ const defaultProps = {};
 
 function HomeLanding() {
   return (
-    <div>Introduction to the Utah Design System</div>
+    <div className="landing-page-template">
+      <div className="content-width">
+        <h1>Welcome to the State of Utah Design System</h1>
+        <p>What&apos;s going on here?</p>
+      </div>
+    </div>
   );
 }
 

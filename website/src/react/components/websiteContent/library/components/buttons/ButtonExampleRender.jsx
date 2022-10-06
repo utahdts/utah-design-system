@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { RefShape } from 'utah-design-system-react-library';
+import { RefShape, useBanner } from 'utah-design-system-react-library';
 import Button from 'utah-design-system-react-library/react/components/buttons/Button';
 import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
 import Icons from '../../../../icons/Icons';
@@ -33,6 +33,7 @@ function ButtonExampleRender({
   },
   innerRef,
 }) {
+  const showBanner = useBanner();
   return (
     <Button
       appearance={appearance}
@@ -44,7 +45,7 @@ function ButtonExampleRender({
       innerRef={innerRef}
       isBusy={isBusy}
       isDisabled={isDisabled}
-      onClick={() => { console.log('You have clicked the button.'); }}
+      onClick={() => showBanner({ message: 'You have clicked the button.' })}
       size={size}
       type={type}
     >

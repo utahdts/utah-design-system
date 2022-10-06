@@ -29,6 +29,7 @@ import rectContainsPoint from './react/util/rectContainsPoint';
 import setValueAtPath from './react/util/state/setValueAtPath';
 import valueAtPath from './react/util/state/valueAtPath';
 import formElementSizesEnum from './react/enums/formElementSizesEnum';
+import useBanner from './react/hooks/useBanner';
 
 const { version } = packageJson;
 
@@ -60,6 +61,7 @@ export {
   TabPanel,
   TabPanels,
   TextInput,
+  useBanner,
   UtahHeader,
   UtahUnbrand,
   valueAtPath,
