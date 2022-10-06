@@ -7,6 +7,10 @@ export default defineConfig({
   css: {
     devSourcemap: true,
   },
+  build: {
+    minify: false,
+    sourcemap: true,
+  },
   plugins: [
     react(),
     eslintPlugin(),
