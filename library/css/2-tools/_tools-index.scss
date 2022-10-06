@@ -2,3 +2,32 @@
 ############     _tools-index.scss      ############
 scss mixins and functions
 */
+
+@mixin form-ele-hover-base {
+  box-shadow: var(--hover-gray-color) 0 0 0 0;
+  transition: box-shadow var(--timing-xquick) ease-in-out;
+}
+@mixin form-ele-hover-hovered($size) {
+  box-shadow: var(--hover-gray-color) 0 0 0 $size;
+  border-color: black;
+}
+
+@mixin form-ele-hover($size) {
+  @include form-ele-hover-base;
+
+  &:hover {
+    @include form-ele-hover-hovered($size);
+  }
+}
+
+@mixin form-ele-hover-medium {
+  @include form-ele-hover(3px);
+}
+
+@mixin form-ele-hover-medium {
+  @include form-ele-hover(5px);
+}
+
+@mixin form-ele-hover-large {
+  @include form-ele-hover(7px);
+}

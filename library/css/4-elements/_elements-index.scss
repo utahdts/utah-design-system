@@ -7,43 +7,62 @@ elemental html: h1, h2, h3, ul, li, etc.
 #{class-vars.$base-class} {
 	margin: 0;
 	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: white;
   color: var(--gray-color);
-}
 
-h1 {
-  font-size: var(--font-size-4xl);
-  margin: 0;
-}
-h2 {
-  font-size: var(--font-size-3xl);
-  margin: 0;
-}
-h3 {
-  font-size: var(--font-size-2xl );
-  margin: 0;
-}
-h4 {
-  font-size: var(--font-size-l);
-  margin: 0;
-}
-h5 {
-  font-size: var(--font-size);
-  margin: 0;
-}
-h6 {
-  font-size: var(--font-size);
-  margin: 0;
-}
+  h1 {
+    font-size: var(--font-size-4xl);
+    margin: 0;
+  }
+  h2 {
+    font-size: var(--font-size-3xl);
+    margin: 0;
+  }
+  h3 {
+    font-size: var(--font-size-2xl );
+    margin: 0;
+  }
+  h4 {
+    font-size: var(--font-size-l);
+    margin: 0;
+  }
+  h5 {
+    font-size: var(--font-size);
+    margin: 0;
+  }
+  h6 {
+    font-size: var(--font-size);
+    margin: 0;
+  }
 
-p {
-  margin: 0 0 var(--spacing-l);
+  p {
+    margin: 0 0 var(--spacing-l);
+  }
+
+  code {
+    font-family: 'Source Code Pro', monospace;
+    background: var(--code-color);
+    padding: 0 var(--spacing-2xs);
+    border-radius: var(--radius-small1x);
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding: 0 0 0 var(--spacing-2xl);
+    margin: 0;
+  }
+
+  hr {
+    height: 0;
+    width: 100%;
+    border: none;
+    border-top: 1px solid var(--gray-border);
+  }
 }
-
-code {
-	font-family: 'Source Code Pro', monospace;
-}
-
-

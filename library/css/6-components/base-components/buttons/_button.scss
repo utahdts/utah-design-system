@@ -3,328 +3,384 @@
 /*
 ############     _button.scss      ############
 */
-
-button, .button {
-  background: white;
-  border-radius: 999px;
-  border: 2px solid var(--gray-color);
-  font-size: 1rem;
-  min-height: var(--form-ele-medium);
-  padding: 0 var(--spacing-xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-  color: var(--gray-color);
-
-  &:hover {
-    background: var(--gray-color);
-    color: white;
-  }
-}
-.button {
-
-  &--primary-color {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-    &:hover {
-      background-color: var(--primary-color);
-      color: white;
-    }
-
-    @at-root #{class-vars.$primary-color-is-light}#{&} {
-      //dark primary color because its too light
-      border-color: var(--primary-color-dark);
-      color: var(--primary-color-dark);
-      &:hover {
-        background-color: var(--primary-color-dark);
-        color: white;
-      }
-    }
-  }
-  &--secondary-color {
-    border-color: var(--secondary-color);
-    color: var(--secondary-color);
-    &:hover {
-      background-color: var(--secondary-color);
-      color: white;
-    }
-
-    @at-root #{class-vars.$secondary-color-is-light}#{&} {
-      //dark secondary color because its too light
-      border-color: var(--secondary-color-dark);
-      color: var(--secondary-color-dark);
-      &:hover {
-        background-color: var(--secondary-color-dark);
-        color: white;
-      }
-    }
-  }
-  &--accent-color {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-    &:hover {
-      background-color: var(--accent-color);
-      color: white;
-    }
-
-    @at-root #{class-vars.$accent-color-is-light}#{&} {
-      //dark accent color because its too light
-      border-color: var(--accent-color-dark);
-      color: var(--accent-color-dark);
-      &:hover {
-        background-color: var(--accent-color-dark);
-        color: white;
-      }
-    }
-  }
-  /* ------------ SOLID COLOR ------------ */
-  &--solid {
-    background: var(--gray-color);
-    color: white;
+#{class-vars.$base-class} {
+  button, .button {
+    background: white;
+    border-radius: 999px;
+    border: 2px solid var(--gray-color);
+    font-size: 1rem;
+    min-height: var(--form-ele-medium);
+    padding: 0 var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    color: var(--gray-color);
+    text-decoration: none;
 
     &:hover {
-      background-color: var(--gray-dark-color);
-      border-color: var(--gray-dark-color);
-    }
-
-    &.button--primary-color {
-      background-color: var(--primary-color);
-      border-color: var(--primary-color);
+      background: var(--gray-color);
       color: white;
-      &:hover {
-        background-color: var(--primary-color-dark);
-        border-color: var(--primary-color-dark);
-      }
-      @at-root #{class-vars.$primary-color-is-light}#{&} {
-        color: var(--gray-on-primary-color);
-        border-color: var(--primary-color-dark);
-        &:hover {
-          color: white;
-          border-color: var(--primary-color-dark);
-        }
-      }
-      &.contrast-border-dark {
-        border-color: var(--gray-on-primary-color);
+      svg {
+        fill: white;
       }
     }
 
-    &.button--secondary-color {
-      background-color: var(--secondary-color);
-      border-color: var(--secondary-color);
-      color: white;
-      &:hover {
-        background-color: var(--secondary-color-dark);
-        border-color: var(--secondary-color-dark);
-      }
-      @at-root #{class-vars.$secondary-color-is-light}#{&} {
-        color: var(--gray-on-secondary-color);
-        border-color: var(--secondary-color-dark);
-        &:hover {
-          color: white;
-          border-color: var(--secondary-color-dark);
-        }
-      }
-      &.contrast-border-dark {
-        border-color: var(--gray-on-secondary-color);
-      }
-    }
-
-    &.button--accent-color {
-      background-color: var(--accent-color);
-      border-color: var(--accent-color);
-      color: white;
-      &:hover {
-        background-color: var(--accent-color-dark);
-        border-color: var(--accent-color-dark);
-      }
-      @at-root #{class-vars.$accent-color-is-light}#{&} {
-        color: var(--gray-on-accent-color);
-        border-color: var(--accent-color-dark);
-        &:hover {
-          color: white;
-          border-color: var(--accent-color-dark);
-        }
-      }
-      &.contrast-border-dark {
-        border-color: var(--gray-on-accent-color);
-      }
-    }
-
-    &.contrast-border-light {
-      border-color: white;
-    }
-  }
-}
-
-/* ------------ Show a dark contrast color on a light background ------------ */
-.primary-color-background {
-  .button {
-    &--solid {
-      &.contrast-border-dark {
-        border-color: var(--gray-on-primary-color);
-      }
-    }
-  }
-}
-.secondary-color-background {
-  .button {
-    &--solid {
-      &.contrast-border-dark {
-        border-color: var(--gray-on-secondary-color);
-      }
-    }
-  }
-}
-.accent-color-background {
-  .button {
-    &--solid {
-      &.contrast-border-dark {
-        border-color: var(--gray-on-accent-color);
-      }
-    }
-  }
-}
-/* ------------ Show a light contrast color on dark background ------------ */
-//TODO: Other colors! and Solid buttons
-.dark-background-color {
-  .button {
-    border-color: white;
-    background: none;
-    color: white;
-    &:hover {
-      border-color: white;
+    &[disabled], &[disable]:hover {
+      cursor: not-allowed;
       background: white;
-      color: var(--gray-color);
+      color: var(--gray-medium-color);
+      border-color: var(--gray-light-color);
+    }
+  }
+  .button {
+
+    /* ------------ SIZES ------------ */
+    &--small {
+      font-size: .938rem;
+      min-height: var(--form-ele-small);
+      padding: 0 var(--spacing);
     }
 
-    &.button--primary-color {
+    &--large {
+      font-size: 1.25rem;
+      min-height: var(--form-ele-large);
+    }
+
+    &--large1x {
+      font-size: 1.5rem;
+      min-height: var(--form-ele-large1x);
+      padding: 0 var(--spacing-2xl);
+    }
+
+    &--icon-left, &--icon-right {
+      display: flex;
+      align-items: center;
+      svg {
+        height: .8rem;
+        width: .8rem;
+        fill: var(--gray-color);
+      }
+    }
+    &--icon-left {
+      margin-right: var(--spacing-xs)
+    }
+    &--icon-right {
+      margin-left: var(--spacing-xs)
+    }
+
+    &--primary-color {
       border-color: var(--primary-color);
-      background: white;
       color: var(--primary-color);
       &:hover {
-        border-color: white;
-        background: var(--primary-color);
+        background-color: var(--primary-color);
         color: white;
+        svg {
+          fill: white;
+        }
       }
+
       @at-root #{class-vars.$primary-color-is-light}#{&} {
-        border-color: var(--primary-color);
-        background: none;
-        color: var(--primary-color);
+        //dark primary color because its too light
+        border-color: var(--primary-color-dark);
+        color: var(--primary-color-dark);
         &:hover {
-          background: var(--primary-color);
-          color: var(--gray-color);
+          background-color: var(--primary-color-dark);
+          color: white;
         }
       }
     }
-
-    &.button--secondary-color {
+    &--secondary-color {
       border-color: var(--secondary-color);
-      background: white;
       color: var(--secondary-color);
       &:hover {
-        border-color: white;
-        background: var(--secondary-color);
+        background-color: var(--secondary-color);
         color: white;
       }
+
       @at-root #{class-vars.$secondary-color-is-light}#{&} {
-        border-color: var(--secondary-color);
-        background: none;
-        color: var(--secondary-color);
+        //dark secondary color because its too light
+        border-color: var(--secondary-color-dark);
+        color: var(--secondary-color-dark);
         &:hover {
-          background: var(--secondary-color);
-          color: var(--gray-color);
+          background-color: var(--secondary-color-dark);
+          color: white;
         }
       }
     }
-
-    &.button--accent-color {
+    &--accent-color {
       border-color: var(--accent-color);
-      background: white;
       color: var(--accent-color);
       &:hover {
-        border-color: white;
-        background: var(--accent-color);
+        background-color: var(--accent-color);
         color: white;
       }
+
       @at-root #{class-vars.$accent-color-is-light}#{&} {
-        border-color: var(--accent-color);
-        background: none;
-        color: var(--accent-color);
+        //dark accent color because its too light
+        border-color: var(--accent-color-dark);
+        color: var(--accent-color-dark);
         &:hover {
-          background: var(--accent-color);
-          color: var(--gray-color);
+          background-color: var(--accent-color-dark);
+          color: white;
         }
       }
     }
-
+    /* ------------ SOLID COLOR ------------ */
     &--solid {
-      border-color: white;
-      background: white;
-      color: var(--gray-color);
+      background: var(--gray-color);
+      color: white;
+
       &:hover {
-        border-color: white;
-        background: none;
-        color: white;
+        background-color: var(--gray-dark-color);
+        border-color: var(--gray-dark-color);
       }
 
       &.button--primary-color {
-        border-color: white;
-        background: var(--primary-color);
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
         color: white;
         &:hover {
-          border-color: var(--primary-color);
-          background: white;
-          color: var(--primary-color);
+          background-color: var(--primary-color-dark);
+          border-color: var(--primary-color-dark);
+        }
+        @at-root #{class-vars.$primary-color-is-light}#{&} {
+          color: var(--gray-on-primary-color);
+          border-color: var(--primary-color-dark);
+          &:hover {
+            color: white;
+            border-color: var(--primary-color-dark);
+          }
+        }
+        &.contrast-border-dark {
+          border-color: var(--gray-on-primary-color);
+        }
+      }
+
+      &.button--secondary-color {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+        color: white;
+        &:hover {
+          background-color: var(--secondary-color-dark);
+          border-color: var(--secondary-color-dark);
+        }
+        @at-root #{class-vars.$secondary-color-is-light}#{&} {
+          color: var(--gray-on-secondary-color);
+          border-color: var(--secondary-color-dark);
+          &:hover {
+            color: white;
+            border-color: var(--secondary-color-dark);
+          }
+        }
+        &.contrast-border-dark {
+          border-color: var(--gray-on-secondary-color);
+        }
+      }
+
+      &.button--accent-color {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+        color: white;
+        &:hover {
+          background-color: var(--accent-color-dark);
+          border-color: var(--accent-color-dark);
+        }
+        @at-root #{class-vars.$accent-color-is-light}#{&} {
+          color: var(--gray-on-accent-color);
+          border-color: var(--accent-color-dark);
+          &:hover {
+            color: white;
+            border-color: var(--accent-color-dark);
+          }
+        }
+        &.contrast-border-dark {
+          border-color: var(--gray-on-accent-color);
+        }
+      }
+
+      &.contrast-border-light {
+        border-color: white;
+      }
+
+      &[disabled], &[disable]:hover {
+        cursor: not-allowed;
+        background: var(--gray-light-color);
+        color: white;
+        border-color: var(--gray-light-color);
+      }
+    }
+  }
+
+  /* ------------ Show a dark contrast color on a light background ------------ */
+  .primary-color-background {
+    .button {
+      &--solid {
+        &.contrast-border-dark {
+          border-color: var(--gray-on-primary-color);
+        }
+      }
+    }
+  }
+  .secondary-color-background {
+    .button {
+      &--solid {
+        &.contrast-border-dark {
+          border-color: var(--gray-on-secondary-color);
+        }
+      }
+    }
+  }
+  .accent-color-background {
+    .button {
+      &--solid {
+        &.contrast-border-dark {
+          border-color: var(--gray-on-accent-color);
+        }
+      }
+    }
+  }
+  /* ------------ Show a light contrast color on dark background ------------ */
+  //TODO: Other colors! and Solid buttons
+  .dark-background-color {
+    .button {
+      border-color: white;
+      background: none;
+      color: white;
+      &:hover {
+        border-color: white;
+        background: white;
+        color: var(--gray-color);
+      }
+
+      &.button--primary-color {
+        border-color: var(--primary-color);
+        background: white;
+        color: var(--primary-color);
+        &:hover {
+          border-color: white;
+          background: var(--primary-color);
+          color: white;
         }
         @at-root #{class-vars.$primary-color-is-light}#{&} {
           border-color: var(--primary-color);
-          background :var(--primary-color);
-          color: var(--gray-color);
+          background: none;
+          color: var(--primary-color);
           &:hover {
-            background: var(--primary-color-dark);
-            color: white;
+            background: var(--primary-color);
+            color: var(--gray-color);
           }
         }
       }
 
       &.button--secondary-color {
-        border-color: white;
-        background: var(--secondary-color);
-        color: white;
+        border-color: var(--secondary-color);
+        background: white;
+        color: var(--secondary-color);
         &:hover {
-          border-color: var(--secondary-color);
-          background: white;
-          color: var(--secondary-color);
+          border-color: white;
+          background: var(--secondary-color);
+          color: white;
         }
         @at-root #{class-vars.$secondary-color-is-light}#{&} {
           border-color: var(--secondary-color);
-          background :var(--secondary-color);
-          color: var(--gray-color);
+          background: none;
+          color: var(--secondary-color);
           &:hover {
-            background: var(--secondary-color-dark);
-            color: white;
+            background: var(--secondary-color);
+            color: var(--gray-color);
           }
         }
       }
 
       &.button--accent-color {
-        border-color: white;
-        background: var(--accent-color);
-        color: white;
+        border-color: var(--accent-color);
+        background: white;
+        color: var(--accent-color);
         &:hover {
-          border-color: var(--accent-color);
-          background: white;
-          color: var(--accent-color);
+          border-color: white;
+          background: var(--accent-color);
+          color: white;
         }
         @at-root #{class-vars.$accent-color-is-light}#{&} {
           border-color: var(--accent-color);
-          background :var(--accent-color);
-          color: var(--gray-color);
+          background: none;
+          color: var(--accent-color);
           &:hover {
-            background: var(--accent-color-dark);
-            color: white;
+            background: var(--accent-color);
+            color: var(--gray-color);
+          }
+        }
+      }
+
+      &--solid {
+        border-color: white;
+        background: white;
+        color: var(--gray-color);
+        &:hover {
+          border-color: white;
+          background: none;
+          color: white;
+        }
+
+        &.button--primary-color {
+          border-color: white;
+          background: var(--primary-color);
+          color: white;
+          &:hover {
+            border-color: var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+          }
+          @at-root #{class-vars.$primary-color-is-light}#{&} {
+            border-color: var(--primary-color);
+            background :var(--primary-color);
+            color: var(--gray-color);
+            &:hover {
+              background: var(--primary-color-dark);
+              color: white;
+            }
+          }
+        }
+
+        &.button--secondary-color {
+          border-color: white;
+          background: var(--secondary-color);
+          color: white;
+          &:hover {
+            border-color: var(--secondary-color);
+            background: white;
+            color: var(--secondary-color);
+          }
+          @at-root #{class-vars.$secondary-color-is-light}#{&} {
+            border-color: var(--secondary-color);
+            background :var(--secondary-color);
+            color: var(--gray-color);
+            &:hover {
+              background: var(--secondary-color-dark);
+              color: white;
+            }
+          }
+        }
+
+        &.button--accent-color {
+          border-color: white;
+          background: var(--accent-color);
+          color: white;
+          &:hover {
+            border-color: var(--accent-color);
+            background: white;
+            color: var(--accent-color);
+          }
+          @at-root #{class-vars.$accent-color-is-light}#{&} {
+            border-color: var(--accent-color);
+            background :var(--accent-color);
+            color: var(--gray-color);
+            &:hover {
+              background: var(--accent-color-dark);
+              color: white;
+            }
           }
         }
       }

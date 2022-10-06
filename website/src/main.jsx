@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { CssContextProvider } from './context/cssContext/CssContext';
+import { CssContextProvider } from './react/context/cssContext/CssContext';
 
-ReactDOM.createRoot(document.getElementById('root')).render((
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CssContextProvider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </CssContextProvider>
   </React.StrictMode>
-));
+);
