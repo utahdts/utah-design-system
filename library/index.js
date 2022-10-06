@@ -30,6 +30,14 @@ import setValueAtPath from './react/util/state/setValueAtPath';
 import valueAtPath from './react/util/state/valueAtPath';
 import formElementSizesEnum from './react/enums/formElementSizesEnum';
 import useBanner from './react/hooks/useBanner';
+import Table from './react/components/table/Table';
+import TableBody from './react/components/table/TableBody';
+import TableCell from './react/components/table/TableCell';
+import TableHead from './react/components/table/TableHead';
+import TableHeadCell from './react/components/table/TableHeadCell';
+import TableHeadRow from './react/components/table/TableHeadRow';
+import TableRow from './react/components/table/TableRow';
+import TableWrapper from './react/components/table/TableWrapper';
 
 const { version } = packageJson;
 
@@ -57,6 +65,14 @@ export {
   Tab,
   TabGroup,
   TabGroupTitle,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableHeadRow,
+  TableRow,
+  TableWrapper,
   TabList,
   TabPanel,
   TabPanels,

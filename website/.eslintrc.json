@@ -50,6 +50,7 @@
             "custom": "enforce",
             "explicitSpread": "enforce"
           }
-        ]
+        ],
+        "import/no-cycle": "off"
     }
 }

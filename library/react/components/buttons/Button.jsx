@@ -7,8 +7,6 @@ import Spinner from '../widgetsIndicators/Spinner';
 
 const propTypes = {
   appearance: PropTypes.oneOf(['solid', 'outlined']),
-  // if the button is busy then it shows a spinner indicator on it and disables the button
-  isBusy: PropTypes.bool,
   // most often is the title of the button, but can also contain most anything
   children: PropTypes.node.isRequired,
   // modify your button via classname like 'button--primary' and other modifiers found in the button.scss
@@ -19,6 +17,8 @@ const propTypes = {
   innerRef: RefShape,
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
+  // if the button is busy then it shows a spinner indicator on it and disables the button
+  isBusy: PropTypes.bool,
   // button isDisabled state
   isDisabled: PropTypes.bool,
   // the button id
