@@ -1,8 +1,8 @@
 .landing-page-template {
   display: flex;
   justify-content: center;
-}
 
-.content-width {
-  max-width: var(--content-width);
+  .content-width {
+    max-width: var(--content-width-narrow);
+  }
 }

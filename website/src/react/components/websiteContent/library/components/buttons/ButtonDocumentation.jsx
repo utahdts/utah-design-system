@@ -336,7 +336,6 @@ function ButtonDocumentation() {
             //           </TableBodyDataCellTemplate>
             //         </TableBodyDataRowTemplate>
             //       </TableBodyData>
-
             //       {/* can't auto sort / filter static content */}
             //       <TableRow recordId={someDataRecord.id} record={someDataRecord}> {/* need for onclick? but not for rendering,
             //   so require record OR recordId if table has onTrClick */}
