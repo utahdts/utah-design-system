@@ -23,15 +23,15 @@
       background: var(--gray-color);
       color: white;
       svg {
-        fill: white;
+        fill: currentColor;
       }
     }
 
     &[disabled], &[disable]:hover {
       cursor: not-allowed;
-      background: white;
-      color: var(--gray-medium-color);
-      border-color: var(--gray-light-color);
+      background: white !important;
+      color: var(--form-ele-disabled-color) !important;
+      border-color: var(--form-ele-disabled-color) !important;
     }
   }
   .button {
@@ -54,13 +54,13 @@
       padding: 0 var(--spacing-2xl);
     }
 
-    &--icon-left, &--icon-right {
+    &--icon {
       display: flex;
       align-items: center;
       svg {
         height: .8rem;
         width: .8rem;
-        fill: var(--gray-color);
+        fill: currentColor;
       }
     }
     &--icon-left {
@@ -206,9 +206,9 @@
 
       &[disabled], &[disable]:hover {
         cursor: not-allowed;
-        background: var(--gray-light-color);
-        color: white;
-        border-color: var(--gray-light-color);
+        background: var(--form-ele-disabled-color) !important;
+        color: white !important;
+        border-color: var(--form-ele-disabled-color) !important;
       }
     }
   }

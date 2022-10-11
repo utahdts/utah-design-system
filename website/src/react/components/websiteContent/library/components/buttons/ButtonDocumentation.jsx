@@ -155,7 +155,7 @@ function ButtonDocumentation() {
         renderedExample={(
           <>
             <Button
-              appearance="solid"
+              appearance="outlined"
               color="primary"
               iconLeft={Icons.IconCheck()}
               onClick={() => showBanner({ message: '`left icon` button clicked' })}
@@ -163,7 +163,7 @@ function ButtonDocumentation() {
               Button
             </Button>
             <Button
-              appearance="outlined"
+              appearance="solid"
               color="primary"
               iconRight={Icons.IconArrowRight()}
               onClick={() => showBanner({ message: '`see more` button clicked' })}
