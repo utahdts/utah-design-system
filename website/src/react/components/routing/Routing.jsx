@@ -11,6 +11,7 @@ import menusEnum from '../../enums/menusEnum';
 import allMenus from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
+import HomeLanding from '../websiteContent/HomeLanding';
 
 const propTypes = {};
 const defaultProps = {};
@@ -83,6 +84,7 @@ function Routing() {
           />
         );
       })}
+      <Route path="/" element={<HomeLanding />} />
     </Routes>
   );
 }
