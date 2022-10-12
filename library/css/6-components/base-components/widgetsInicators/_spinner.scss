@@ -23,14 +23,6 @@
     stroke-linecap: round;
     transform-origin: center;
     transition: stroke-dashoffset .2s cubic-bezier(.4,1,.75,.9);
-
-    .button--secondary-color & {
-      stroke: var(--secondary-color);
-    }
-
-    .accent-color-is-light .button--accent-color & {
-      stroke: var(--accent-color-dark);
-    }
   }
 }
 

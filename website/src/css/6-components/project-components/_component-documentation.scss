@@ -1,0 +1,14 @@
+table {
+  th.css-classes {
+    width: 45%;
+  }
+}
+
+.documentation-content {
+  &--wider {
+    margin: 0 -4rem;
+  }
+  &--small-text {
+    font-size: var(--font-size-s);
+  }
+}
