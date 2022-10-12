@@ -351,7 +351,7 @@ function ButtonDocumentation() {
                         <TableCell>&apos;none&apos;</TableCell>
                         <TableCell>
                           Determines the color from the theme that will be used while rendering the button. Depending on the
-                          <em> appearance</em> of the button, this can effect the border and/or fill color of the button.
+                          <span className="font-semi-bold"> appearance</span> of the button, this can effect the border and/or fill color of the button.
                         </TableCell>
                       </TableRow>
 
@@ -361,7 +361,7 @@ function ButtonDocumentation() {
                         <TableCell>null</TableCell>
                         <TableCell>
                           This ref will be attached to the rendered &lt;button&gt; element allowing the parent component to interact
-                          directly with the actual <em>button</em> DOM element.
+                          directly with the actual <span className="font-semi-bold">button</span> DOM element.
                         </TableCell>
                       </TableRow>
 
@@ -370,7 +370,7 @@ function ButtonDocumentation() {
                         <TableCell><code>node</code></TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the left of the button title, but any <em>node</em> is allowed.
+                          Intended to be an &lt;svg&gt; image to be placed to the left of the button title, but any <span className="font-semi-bold">node</span> is allowed.
                         </TableCell>
                       </TableRow>
 
@@ -379,7 +379,7 @@ function ButtonDocumentation() {
                         <TableCell><code>node</code></TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the right of the button title, but any <em>node</em> is allowed.
+                          Intended to be an &lt;svg&gt; image to be placed to the right of the button title, but any <span className="font-semi-bold">node</span> is allowed.
                         </TableCell>
                       </TableRow>
 
@@ -405,7 +405,7 @@ function ButtonDocumentation() {
                         </TableCell>
                         <TableCell>false</TableCell>
                         <TableCell>
-                          When <strong>isBusy</strong> is true, a spinner will be shown in the button.
+                          When <span className="font-semi-bold">isBusy</span> is true, a spinner will be shown in the button.
                           This is useful for showing the user that an action
                           that triggered when the button was pressed is still running.
                         </TableCell>
@@ -420,7 +420,7 @@ function ButtonDocumentation() {
                         </TableCell>
                         <TableCell>false</TableCell>
                         <TableCell>
-                          When <strong>isDisabled</strong> is true, the button will become unclickable
+                          When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
                           and its appearance will change to be more subdued
                           so that the user can tell the button is unusable.
                         </TableCell>
@@ -465,7 +465,7 @@ function ButtonDocumentation() {
                         </TableCell>
                         <TableCell>&apos;button&apos;</TableCell>
                         <TableCell>
-                          The HTML <em>type</em> attribute value to put on the &lt;button&gt; element.
+                          The HTML <span className="font-semi-bold">type</span> attribute value to put on the &lt;button&gt; element.
                         </TableCell>
                       </TableRow>
 
