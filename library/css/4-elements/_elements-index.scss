@@ -44,10 +44,16 @@ elemental html: h1, h2, h3, ul, li, etc.
 
   code {
     font-family: 'Source Code Pro', monospace;
-    font-size: .95rem;
+    font-size: .95em;
     background: var(--code-color);
     padding: 0 var(--spacing-2xs);
     border-radius: var(--radius-small1x);
+    display: inline-block;
+    margin: 0 0 var(--spacing-xs) 0;
+    &.primary-color {
+      color: var(--primary-color);
+      background: var(--primary-color-light);
+    }
   }
   pre {
     white-space: pre-wrap;
