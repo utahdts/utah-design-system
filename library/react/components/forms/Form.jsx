@@ -1,11 +1,10 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useImmer } from 'use-immer';
 import joinClassNames from '../../util/joinClassNames';
-import setValueAtPath from '../../util/state/setValueAtPath';
-import FormContext from './FormContext';
+import FormContextProvider from './FormContextProvider';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -48,50 +47,18 @@ function Form({
     };
   });
 
-  // use memo so that context's state object pointer doesn't change every render
-  const contextValue = useMemo(
-    () => ({
-      formId: formState.formId,
-      dirtyIds: {}, // id: oldValue  ; null object for not dirty
-      validationErrors: {}, // id:[errors] ; null object for isValid
-      onChange: ({ e, id, newValue }) => {
-        let currentValue = newValue;
-        if (currentValue === undefined) {
-          currentValue = (
-            e.target.type === 'checkbox'
-              ? e.target.checked
-              : e.target.value
-          );
-        }
-        if (onChange) {
-          currentValue = onChange({ e, id, value: currentValue });
-        }
-        if (setState) {
-          setState((draftState) => {
-            setValueAtPath({ object: draftState, path: id, value: currentValue });
-          });
-        }
-      },
-      onSubmit: () => {
-        // calculate validation errors
-        if (onSubmit) {
-          onSubmit({
-            validationErrors: null,
-            state,
-          });
-        }
-      },
-      state,
-    }),
-    [formState, state]
-  );
-
   return (
-    <FormContext.Provider value={contextValue}>
+    <FormContextProvider
+      formState={formState}
+      onChange={onChange}
+      onSubmit={onSubmit}
+      setState={setState}
+      state={state}
+    >
       <form className={joinClassNames('form', className)} id={`form-${formState.formId}`} {...rest}>
         {children}
       </form>
-    </FormContext.Provider>
+    </FormContextProvider>
   );
 }
 
