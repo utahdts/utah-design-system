@@ -1,12 +1,12 @@
 table {
   border-collapse: collapse;
-  line-height: 1.7;
   thead {
     border-bottom: 1px solid var(--gray-color);
     tr {
       th {
         text-align: center;
         font-weight: bold;
+        padding: var(--spacing-s);
         &.text-left {
           text-align: left;
         }
@@ -16,4 +16,37 @@ table {
       }
     }
   }
+  tbody {
+    tr {
+      td {
+        vertical-align: top;
+        padding: var(--spacing-s);
+      }
+    }
+  }
+  &.table {
+    &--alt {
+      tbody {
+        tr:nth-child(2n) {
+          td {
+            background-color: #F5F5F5;
+          }
+        }
+      }
+    }
+    &--lines-x {
+      tbody {
+        tr {
+          td {
+            border-bottom: 1px solid var(--gray-medium-light-color)
+          }
+        }
+        tr:last-child {
+          td {
+            border-bottom: 1px solid var(--gray-color)
+          }
+        }
+      }
+    }
+  };
 }

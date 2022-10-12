@@ -44,6 +44,7 @@ elemental html: h1, h2, h3, ul, li, etc.
 
   code {
     font-family: 'Source Code Pro', monospace;
+    font-size: .95rem;
     background: var(--code-color);
     padding: 0 var(--spacing-2xs);
     border-radius: var(--radius-small1x);

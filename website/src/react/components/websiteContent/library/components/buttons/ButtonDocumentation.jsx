@@ -212,6 +212,15 @@ function ButtonDocumentation() {
           </>
         )}
       />
+      <h2>Guidance</h2>
+      <h3>When to use</h3>
+      <h3>When to use something else</h3>
+      <h3>Usability guidance</h3>
+      <h3>Accessability</h3>
+      <h4>Contrast</h4>
+      <h4>Keyboard interactivity</h4>
+      <h4>Screen readers</h4>
+      <h3>Do / Don&apos;t</h3>
 
       <h2>Settings and Props</h2>
       <TabGroup defaultValue="button-props-css">
@@ -222,7 +231,7 @@ function ButtonDocumentation() {
         <TabPanels>
           <TabPanel tabId="button-props-css">
             <TableWrapper>
-              <Table>
+              <Table className="table--lines-x">
                 <TableHead>
                   <TableHeadRow>
                     <TableHeadCell className="text-left css-classes">CSS Class</TableHeadCell>
@@ -231,46 +240,46 @@ function ButtonDocumentation() {
                 </TableHead>
                 <TableBody>
                   <TableRow>
-                    <TableCell>.button</TableCell>
+                    <TableCell><code>.button</code></TableCell>
                     <TableCell>The base css class for a button.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button--small</TableCell>
+                    <TableCell><code>.button--small</code></TableCell>
                     <TableCell>CSS class modifier for a small button.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button--large</TableCell>
+                    <TableCell><code>.button--large</code></TableCell>
                     <TableCell>CSS class modifier for a large button.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button--large1x</TableCell>
+                    <TableCell><code>.button--large1x</code></TableCell>
                     <TableCell>CSS class modifier for a extra large button.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button--primary-color</TableCell>
+                    <TableCell><code>.button--primary-color</code></TableCell>
                     <TableCell>CSS class modifier for a button in the primary color.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button--secondary-color</TableCell>
+                    <TableCell><code>.button--secondary-color</code></TableCell>
                     <TableCell>CSS class modifier for a button in the secondary color.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button--accent-color</TableCell>
+                    <TableCell><code>.button--accent-color</code></TableCell>
                     <TableCell>CSS class modifier for a button in the accent color.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button--solid</TableCell>
+                    <TableCell><code>.button--solid</code></TableCell>
                     <TableCell>CSS class modifier for a button that has a solid color (instead of being outlined).</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button.contrast-border-light</TableCell>
+                    <TableCell><code>.button.contrast-border-light</code></TableCell>
                     <TableCell>
                       CSS class modifier to provide a light border around a dark button (used to help the button meet 3:1 contrast ratio on a dark
                       background).
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>.button.contrast-border-dark</TableCell>
+                    <TableCell><code>.button.contrast-border-dark</code></TableCell>
                     <TableCell>
                       CSS class modifier to provide a dark border around a light button (used to help the button meet 3:1 contrast ratio on a light
                       background).
