@@ -15,7 +15,7 @@ if (window.location.href.includes('/dev/')) {
 } else {
   baseName = 'utah-design-system';
 }
-console.log(baseName);
+console.log(`baseName: ${baseName || '/'}`);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CssContextProvider>

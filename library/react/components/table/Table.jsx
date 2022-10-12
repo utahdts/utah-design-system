@@ -19,9 +19,10 @@ function Table({
   className,
   innerRef,
   id,
+  ...rest
 }) {
   return (
-    <table className={joinClassNames('some-table-classname', className)} id={id} ref={innerRef}>
+    <table className={joinClassNames('some-table-classname', className)} id={id} ref={innerRef} role="grid" {...rest}>
       {children}
     </table>
   );

@@ -22,6 +22,7 @@ function TableWrapper({
   className,
   innerRef,
   id,
+  ...rest
 }) {
   const [state, setState] = useImmer({});
 
@@ -35,7 +36,7 @@ function TableWrapper({
 
   return (
     <TableContext.Provider value={contextValue}>
-      <div className={joinClassNames('some-table-wrapper-classname', className)} id={id} ref={innerRef}>
+      <div className={joinClassNames('some-table-wrapper-classname', className)} id={id} ref={innerRef} {...rest}>
         {children}
       </div>
     </TableContext.Provider>

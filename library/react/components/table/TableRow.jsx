@@ -7,11 +7,17 @@ const propTypes = {
   className: PropTypes.string,
   innerRef: RefShape,
   id: PropTypes.string,
+  // (e) => { ... do something ... }
+  onClick: PropTypes.func,
+  // (e) => { ... do something ... }
+  onDoubleClick: PropTypes.func,
 };
 const defaultProps = {
   className: null,
   innerRef: null,
   id: null,
+  onClick: null,
+  onDoubleClick: null,
 };
 
 function TableRow({
@@ -19,9 +25,19 @@ function TableRow({
   className,
   innerRef,
   id,
+  onClick,
+  onDoubleClick,
+  ...rest
 }) {
   return (
-    <tr className={joinClassNames('some-TableRow-classname', className)} id={id} ref={innerRef}>
+    <tr
+      className={joinClassNames('some-TableRow-classname', className)}
+      id={id}
+      ref={innerRef}
+      onClick={onClick}
+      onDoubleClick={onDoubleClick}
+      {...rest}
+    >
       {children}
     </tr>
   );

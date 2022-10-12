@@ -19,9 +19,10 @@ function TableFootCell({
   className,
   innerRef,
   id,
+  ...rest
 }) {
   return (
-    <td className={joinClassNames('some-TableFootCell-classname', className)} id={id} ref={innerRef}>
+    <td className={joinClassNames('some-TableFootCell-classname', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </td>
   );
