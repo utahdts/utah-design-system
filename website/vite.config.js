@@ -30,11 +30,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
   preview: {
     port: 8080,
   },
-  base: './'
+  base: '/'
   };
 
   if (mode === 'dev-pages') {
-    config.base = '/dev/';
+    config.base = '/utah-design-system/dev/';
     return config;
   } else {
     return config;
