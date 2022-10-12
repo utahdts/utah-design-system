@@ -18,7 +18,7 @@ jobs:
       - name: Install Website and Build 📖
         run: |
           cd website
-          npm run build
+          npm run build-dev-pages
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
