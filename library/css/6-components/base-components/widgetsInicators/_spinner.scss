@@ -1,0 +1,38 @@
+@use "../../../1-settings/color-swatches";
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  vertical-align: middle;
+  svg {
+    display: block;
+    path {
+      fill: none;
+    }
+  }
+  &__animation {
+    animation: spinner-animation .5s linear infinite;
+
+  }
+  &__track {
+    stroke: color-swatches.$neutral-gray-12;
+  }
+  &__value {
+    stroke: var(--form-ele-color);
+    stroke-linecap: round;
+    transform-origin: center;
+    transition: stroke-dashoffset .2s cubic-bezier(.4,1,.75,.9);
+  }
+}
+
+@keyframes spinner-animation {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(1turn);
+  }
+}

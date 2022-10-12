@@ -42,6 +42,15 @@
         "jsx-a11y/label-has-associated-control": [ 2, {
           "assert": "either",
           "depth": 3
-        }]
+        }],
+        "react/jsx-props-no-spreading": [
+          2,
+          {
+            "html": "ignore",
+            "custom": "enforce",
+            "explicitSpread": "enforce"
+          }
+        ],
+        "import/no-cycle": "off"
     }
 }

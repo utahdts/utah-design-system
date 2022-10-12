@@ -1,0 +1,35 @@
+.documentation-template {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: var(--content-width-wide);
+  justify-content: space-around;
+  align-items: flex-start;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__side-panel-left {
+    border-right: 1px solid var(--gray-border);
+    padding: var(--documentation-padding);
+    width: var(--documentation-left-width);
+  }
+  &__content {
+    flex: 1 1 auto;
+    max-width: var(--documentation-width);
+    padding: var(--documentation-padding);
+
+    h1 {
+      margin: calc(-1 * var(--spacing-xs)) 0 0 0;
+    }
+  }
+  &__side-panel-right{
+    border-left: 1px solid var(--gray-border);
+    padding: var(--documentation-padding);
+    width: var(--documentation-right-width);
+  }
+
+
+}

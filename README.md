@@ -50,7 +50,7 @@ Apache License Version 2.0
 * .gitignore
 * .editorconfig
 * .eslintrc.json
-* dist/     //TODO: is this how this should work
+* dist/
   > You may use these assets in your project
   * assets/
     * css
@@ -58,23 +58,60 @@ Apache License Version 2.0
     * react
     * static
   * index.html
-* website/ 
-  > This is the collection of rules and design system specifications
-    * src/
-	* index.html???
-	* package.json
-	* vite.config.js
 * library/
+  * src/
     > these are the compiled parts separate from the website that the website also uses
-    * css/ 
+    * css/
       > css files that make up the design system (ITCSS)
-    * js/
     * react/
       * components/
+        * buttons/
+          * SegmentedButton.jsx
+          * ...
+        * templates
+          * DocumentationTemplate
+          * LandingTemplate
       * contexts/
       * hooks/
+      * propTypesShapes/
+        > PropTypes.shape definitions for common propType objects
       * ...
-    * boilerplate/ 
+    * boilerplate/
       > starter project that grabs all the pieces for a new website
     * static/
         * icons/
+* website/
+  > This is the collection of rules and design system specifications
+    * src/
+      * css/
+      * react/
+        * components/
+          * websiteContent/
+            * HomeLanding
+            * foundation/
+              * FoundationLanding
+              * ... foundation documentation
+            * library/
+              * LibraryLanding
+              * components/
+                * buttons/
+                  * ButtonDocumentation
+                  * SegmentedButtonDocumentation
+              * patterns/
+                * ... some patterns
+              * templates/
+                * ... some templates
+            * resources/
+              * ResourcesLanding
+              * ...
+
+        * context/
+        * enums/
+        * hooks/
+        * util/
+          * color/
+      * static/
+
+	* index.html???
+	* package.json
+	* vite.config.js

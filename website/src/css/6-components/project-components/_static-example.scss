@@ -1,0 +1,22 @@
+.static-example {
+  margin: 0 0 var(--spacing-l) 0;
+
+  h3.static-example__title {
+    margin: 0 0 var(--spacing-xs) 0;
+  }
+  &__component-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing);
+    background-color: var(--gray-light-color);
+    padding: var(--spacing);
+    border-radius: var(--radius-medium);
+    margin: 0 0 var(--spacing) 0 ;
+  }
+
+  &__quick-tips {
+    ul {
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import joinClassNames from '../../../util/joinClassNames';
+import handleEvent from '../../../util/handleEvent';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -46,11 +47,7 @@ function Accordion({
       <button
         className={joinClassNames(['accordion__header', headerClassName])}
         type="button"
-        onClick={(event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          toggleAccordion();
-        }}
+        onClick={handleEvent(toggleAccordion)}
       >
         {headerContent}
         <span className={`material-symbols-outlined icon-button__icon ${stateIsOpen ? '' : 'icon-button__icon--rotate180'}`}>expand_circle_down</span>

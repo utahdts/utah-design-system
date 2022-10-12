@@ -1,52 +1,54 @@
 @use "../../../1-settings/color-swatches";
-
+@use "../../../1-settings/class-vars";
 /*
 ############     _icon-button.scss      ############
 */
+#{class-vars.$base-class} {
 
-.icon-button {
-  background: white;
-  border-radius: 999px;
-  border: 2px solid var(--gray-color);
-  font-size: 1rem;
-  min-height: 36px;
-  min-width: 36px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-  color: var(--gray-color);
-  
-  &:hover {
-    background: var(--gray-color);
-    color: white;
-  }
-
-  &--solid {
-    background: var(--gray-color);
-    color: white;
+  .icon-button {
+    background: white;
+    border-radius: 999px;
+    border: 2px solid var(--gray-color);
+    font-size: 1rem;
+    min-height: 36px;
+    min-width: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    color: var(--gray-color);
+    
     &:hover {
-      background-color: var(--gray-dark-color);
-      border-color: var(--gray-dark-color);
+      background: var(--gray-color);
+      color: white;
     }
-  }
 
-  &--plain {
-    border-color: transparent;
-    &:hover {
-      background-color: color-swatches.$neutral-gray-16;
-      border-color: color-swatches.$neutral-gray-16;
-      color: var(--gray-dark-color);
+    &--solid {
+      background: var(--gray-color);
+      color: white;
+      &:hover {
+        background-color: var(--gray-dark-color);
+        border-color: var(--gray-dark-color);
+      }
     }
-  }
 
-  &__icon {
-    transition: all var(--timing-quick) ease-in-out;
-    &--rotate180 {
-      transform: rotate(180deg);
+    &--plain {
+      border-color: transparent;
+      &:hover {
+        background-color: color-swatches.$neutral-gray-16;
+        border-color: color-swatches.$neutral-gray-16;
+        color: var(--gray-dark-color);
+      }
     }
-  }
 
+    &__icon {
+      transition: all var(--timing-quick) ease-in-out;
+      &--rotate180 {
+        transform: rotate(180deg);
+      }
+    }
+
+  }
 }

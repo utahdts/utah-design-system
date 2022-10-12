@@ -8,6 +8,7 @@ variables and settings
 @use "grid";
 @use "font-stuff";
 @use "color-swatches";
+@use "icons";
 
 #{class-vars.$base-class} {
   /* color */
@@ -26,12 +27,23 @@ variables and settings
   --accent-color-dark: rgb(114, 97, 0);
   --accent-color-light: rgb(245, 238, 196);
   --gray-on-accent-color: #474747;
+
+  --form-ele-color: #{color-swatches.$azul-05};
+  --form-ele-disabled-color :#{color-swatches.$neutral-gray-10};
+
   /* ######## --------------------------------------------- ######## */
 
   --gray-color: #{color-swatches.$neutral-gray-04};
   --gray-medium-color: #{color-swatches.$neutral-gray-06};
+  --gray-medium-light-color: #{color-swatches.$neutral-gray-15};
   --gray-light-color: #{color-swatches.$neutral-gray-17};
   --gray-dark-color: #{color-swatches.$neutral-gray-02};
+
+  --hover-gray-color: rgba(0,0,0,0.07);
+
+  --code-color: #{color-swatches.$neutral-gray-16};
+  --gray-border: #{color-swatches.$neutral-gray-15};
+
 
   /* transition timings */
   --timing-xquick: 100ms;
@@ -40,21 +52,33 @@ variables and settings
   --timing-slow: 600ms;
 
   /* rounded corners */
+  --radius-small1x: 3px;
   --radius-small: 6px;
   --radius-medium: 9px;
   --radius-large: 12px;
   --radius-circle: 999px;
 
-  //TODO: convert these to rem
   /* form element sizes */
-  --form-ele-xsmall: 20px;
-  --form-ele-small: 30px;
-  --form-ele-medium: 36px;
-  --form-ele-large: 40px;
-  --form-ele-xlarge: 50px;
+  --form-ele-small3x: 1rem;
+  --form-ele-small2x: 1.25rem;
+  --form-ele-small1x: 1.5rem;
+  --form-ele-small: 1.875rem;
+  --form-ele-medium: 2.25rem;
+  --form-ele-large: 2.5rem;
+  --form-ele-large1x: 3.125rem;
 
+  --form-checkbox-small: 0.875rem;
+  --form-checkbox-medium: 1.125rem;
+  --form-checkbox-large: 1.375rem;
+
+    /* content layout sizes */
+  --content-width-narrow: 800px;
   --content-width: 1224px;
-
+  --content-width-wide: 1432px;
+  --documentation-width: 700px;
+  --documentation-left-width: 200px;
+  --documentation-right-width: 200px;
+  --documentation-padding: var(--spacing-4xl) var(--spacing-xl);
 }
 
  /* color utility classes */

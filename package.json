@@ -1,0 +1,7 @@
+{
+  "name": "design-system-packages",
+  "workspaces": [
+    "library",
+    "website"
+  ]
+}
