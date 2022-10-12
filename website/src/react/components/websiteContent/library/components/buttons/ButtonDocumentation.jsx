@@ -221,13 +221,12 @@ function ButtonDocumentation() {
         </TabList>
         <TabPanels>
           <TabPanel tabId="button-props-css">
-            <h3>React Button Properties</h3>
             <TableWrapper>
               <Table>
                 <TableHead>
                   <TableHeadRow>
-                    <TableHeadCell>CSS Class</TableHeadCell>
-                    <TableHeadCell>Description</TableHeadCell>
+                    <TableHeadCell className="text-left css-classes">CSS Class</TableHeadCell>
+                    <TableHeadCell className="text-left ">Description</TableHeadCell>
                   </TableHeadRow>
                 </TableHead>
                 <TableBody>

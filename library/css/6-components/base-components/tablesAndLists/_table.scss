@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+  line-height: 1.7;
+  thead {
+    border-bottom: 1px solid var(--gray-color);
+    tr {
+      th {
+        text-align: center;
+        font-weight: bold;
+        &.text-left {
+          text-align: left;
+        }
+        &.text-right {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
