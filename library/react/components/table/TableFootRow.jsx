@@ -19,9 +19,10 @@ function TableFootRow({
   className,
   innerRef,
   id,
+  ...rest
 }) {
   return (
-    <tr className={joinClassNames('some-TableFootRow-classname', className)} id={id} ref={innerRef}>
+    <tr className={joinClassNames('some-TableFootRow-classname', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tr>
   );

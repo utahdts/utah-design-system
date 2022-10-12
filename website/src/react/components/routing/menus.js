@@ -129,6 +129,12 @@ const menuLibraryComponentsSecondary = {
         { link: pages.switch.link, title: pages.switch.pageTitle },
       ],
     },
+    {
+      id: 'components__table',
+      title: 'Table',
+      link: pages.table.link,
+      parentLinks: [pages.library.link],
+    },
   ],
 };
 

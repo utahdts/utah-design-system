@@ -3,25 +3,42 @@ import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
-  innerRef: RefShape,
   id: PropTypes.string,
+  innerRef: RefShape,
+  onClick: PropTypes.func,
+  onDoubleClick: PropTypes.func,
 };
 const defaultProps = {
+  children: null,
   className: null,
-  innerRef: null,
   id: null,
+  innerRef: null,
+  onClick: null,
+  onDoubleClick: null,
 };
 
 function TableCell({
   children,
   className,
-  innerRef,
   id,
+  innerRef,
+  onClick,
+  onDoubleClick,
+  ...rest
 }) {
   return (
-    <td className={joinClassNames('some-TableCell-classname', className)} id={id} ref={innerRef}>
+    <td
+      className={joinClassNames('some-TableCell-classname', className)}
+      id={id}
+      ref={innerRef}
+      onClick={onClick}
+      onDoubleClick={onDoubleClick}
+      onKeyPress={() => console.log('TODO: what should keypress on td do?')}
+      role="gridcell"
+      {...rest}
+    >
       {children}
     </td>
   );
