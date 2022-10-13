@@ -27,7 +27,6 @@ function SwitchExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
-        // eslint-disable-next-line no-param-reassign
         draftState.props.icon = DEFAULT_ICON;
         draftState.props.label = 'Switch Label';
         draftState.props.labelOff = 'Label Off';

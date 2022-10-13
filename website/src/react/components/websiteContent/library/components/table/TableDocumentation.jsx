@@ -20,6 +20,9 @@ import {
   TableWrapper,
   TextInput,
 } from 'utah-design-system-react-library';
+import TableSortingRule from 'utah-design-system-react-library/react/components/table/TableSortingRule';
+import TableSortingRules from 'utah-design-system-react-library/react/components/table/TableSortingRules';
+import tableSortingRuleFieldType from 'utah-design-system-react-library/react/enums/tableSortingRuleFieldType';
 
 const propTypes = {};
 const defaultProps = {};
@@ -28,43 +31,66 @@ function TableDocumentation() {
   const [tableData, setTableData] = useImmer([
     {
       name: 'Joseph Sharp',
+      potency: 3.25,
       role: 'Master of All Things',
       uppityDate: '2022-10-05',
+      uppityDateDate: new Date('2022-10-05'),
     },
     {
       name: 'Casey Wardle',
+      potency: 100.25,
       role: 'Nothing is impossible',
       uppityDate: '2010-08-04',
+      uppityDateDate: new Date('2010-08-04'),
     },
     {
       name: 'Sarah Farnsworth',
+      potency: 55.24,
       role: 'Intelligence Incarnate',
       uppityDate: '2012-02-23',
+      uppityDateDate: new Date('2012-02-23'),
     },
     {
       name: 'Gaëtan Grimaud',
+      potency: 31.19,
       role: 'Oh, I already got that done',
       uppityDate: '2013-01-11',
+      uppityDateDate: new Date('2013-01-11'),
     },
     {
       name: 'Brittany Hancock',
+      potency: 92.12,
       role: 'Service Now be Dammed',
       uppityDate: '2015-04-28',
+      uppityDateDate: new Date('2015-04-28'),
     },
     {
       name: 'Robert Wallis',
+      potency: 42,
       role: 'My Staff Infection',
       uppityDate: '2008-12-29',
+      uppityDateDate: new Date('2008-12-29'),
     },
     {
       name: 'Samir Mulahalilovic',
+      potency: 10.12,
       role: 'Gimme Java or give me... React...',
       uppityDate: '1995-07-25',
+      uppityDateDate: new Date('1995-07-25'),
     },
     {
       name: 'Veronica Miluk',
+      potency: 72.27,
       role: 'Let\'s get this straight',
       uppityDate: '2025-10-11',
+      uppityDateDate: new Date('2025-10-11'),
+    },
+    {
+      name: 'Austin Haws',
+      potency: -13.666,
+      role: 'Firing squad',
+      uppityDate: null,
+      uppityDateDate: null,
     },
   ]);
 
@@ -74,24 +100,30 @@ function TableDocumentation() {
       <h3>Dynamic Data Table Example</h3>
       <TableWrapper>
         <Table className="my-uber-special-snowflake-table">
-          {
-            // <TableSortingRules defaultValue="description" onChange={({ value }) => setValue(value)} value={value}>
-            //   {/* Order here determines which rules to apply first, though the current th's "field" is pushed to the top of the sort list */}
-            //   <TableSortingRule field="name" fieldType="string|date|number" defaultAscending={true|false}
-            //     customRule={({ fieldValueA, fieldValueB, recordA, recordB, records, recordAIndex, recordBIndex }) =>
-            //           { return comparison(recordA, recordB);}}/>
-            //   <TableSortingRule field="flavor" fieldType="string|date|number" />
-            //   <TableSortingRule field="description" fieldType="string|date|number" />
-            //   <TableSortingRule field="lastName" sortBy="string|date|number" />
-            // </TableSortingRules>
-          }
+          {/* <TableSortingRules
+          defaultValue="description" onChange={({ value }) => console.log('TableSortingRules.onChange', value)} value={null}> */}
+          <TableSortingRules defaultValue="name">
+            {/* Order here determines which rules to apply first, though the current th's "field" is pushed to the top of the sort list */}
+            <TableSortingRule
+              recordFieldPath="name"
+              defaultIsAscending={false}
+              // sort by lastName
+              customSort={({ fieldValueA, fieldValueB }) => (fieldValueA || '').split(' ').pop().localeCompare((fieldValueB || '').split(' ').pop())}
+            />
+            <TableSortingRule recordFieldPath="potency" fieldType={tableSortingRuleFieldType.NUMBER} />
+            <TableSortingRule recordFieldPath="role" />
+            <TableSortingRule recordFieldPath="uppityDate" fieldType={tableSortingRuleFieldType.STRING} />
+            <TableSortingRule recordFieldPath="uppityDateDate" fieldType={tableSortingRuleFieldType.DATE} />
+            {/* lastName field does not exist... */}
+            <TableSortingRule recordFieldPath="lastName" />
+          </TableSortingRules>
 
           {
             // <TableFilters>
-            //   <TableFilter field="petName" filterType="string" filterIcon={Icons.IconCheck} defaultValue={someDefaultValue}
+            //   <TableFilter recordFieldPath="petName" filterType="string" filterIcon={Icons.IconCheck} defaultValue={someDefaultValue}
             //         onChange={({value}) => setValue(value)} value={value}
             //   /> {/* filterType is optional defaults to string? */}
-            //   <TableFilter field="flavor">
+            //   <TableFilter recordFieldPath="flavor">
             //     <TableHeadFilterOption value="pistachio">Pistachio</TableHeadFilterOption>
             //     <TableHeadFilterOption value="&">M&amp;M</TableHeadFilterOption>
             //   </TableFilter>
@@ -100,18 +132,30 @@ function TableDocumentation() {
 
           <TableHead>
             <TableHeadRow>
-              {/* sortFields allows defining custom sort ordering */}
-              <TableHeadCell field="name" sortFields={['name', 'role', 'description']}>
+              {/* tableSortingFieldPaths allows defining custom sort ordering (note that rule for description doesn't exist) */}
+              <TableHeadCell recordFieldPath="name">
                 Name
               </TableHeadCell>
 
               {/* field does not have matching sorter so does not sort */}
-              <TableHeadCell field="role">
+              <TableHeadCell recordFieldPath="potency">
+                Potency
+              </TableHeadCell>
+
+              <TableHeadCell recordFieldPath="potency-no-sort">
+                Potency (no sort)
+              </TableHeadCell>
+
+              <TableHeadCell recordFieldPath="role">
                 Role
               </TableHeadCell>
 
-              <TableHeadCell field="uppityDate">
+              <TableHeadCell recordFieldPath="uppityDate" tableSortingFieldPaths={['uppityDateDate']}>
                 Uppity Date
+              </TableHeadCell>
+
+              <TableHeadCell recordFieldPath="uppityDateByName" tableSortingFieldPaths={['lastName', 'name']}>
+                Uppity Date (sort by custom name)
               </TableHeadCell>
 
               {/* with no field, this header does not filter nor sort, and putting a ThFilter inside of it should probably show a warning */}
@@ -137,7 +181,11 @@ function TableDocumentation() {
                 }) => console.log('TableBodyDataRowTemplate.doubleClick', e, record, recordIndex, records)}
                 className={({ record, records }) => (records.length && record.isSelected ? 'selected' : null)}
               >
-                <TableBodyDataCellTemplate field="name" />
+                <TableBodyDataCellTemplate recordFieldPath="name" />
+
+                <TableBodyDataCellTemplate recordFieldPath="potency" />
+
+                <TableBodyDataCellTemplate recordFieldPath="potency" />
 
                 <TableBodyDataCellTemplate
                   onClick={({ record, field }) => console.log('TableBodyDataCellTemplate.click:', record, field)}
@@ -153,15 +201,19 @@ function TableDocumentation() {
                         key={`record-uppity-date-input-${tableData[recordIndex]}`}
                         label="Uppity Date"
                         onChange={(e) => setTableData((draftRecords) => { draftRecords[recordIndex].uppityDate = e.target.value; })}
-                        value={record.uppityDate}
+                        value={record.uppityDate || ''}
                       />
                       <input
                         onChange={(e) => setTableData((draftRecords) => { draftRecords[recordIndex].uppityDate = e.target.value; })}
                         type="text"
-                        value={record.uppityDate}
+                        value={record.uppityDate || ''}
                       />
                     </>
                   )}
+                </TableBodyDataCellTemplate>
+
+                <TableBodyDataCellTemplate>
+                  {({ record }) => record.uppityDate}
                 </TableBodyDataCellTemplate>
 
                 <TableBodyDataCellTemplate onClick={({ record, field }) => console.log('TableBodyDataCellTemplate.click', record, field)}>
@@ -204,23 +256,29 @@ function TableDocumentation() {
               </TableCell>
             </TableRow>
 
-            {
-              //     <TableBodyData data={[... inspector2.inspections]}> {/* by providing the list in the tbody it is more composable and
-              // the developer can see that they can provide a list or just static content */}
-              //       <TableBodyDataRowTemplate onClick={({ e, isDoubleClick }) => { doSomething() }}>
-              //         <TableBodyDataCell>
-              //           {({ record, list, recordIndex }) => <TableCell>{record.name}</TableCell>}
-              //         </TableBodyDataCell>
-              //         <TableBodyDataCell>
-              //           {({ record, list, recordIndex }) => <TableCell>{record.name}</TableCell>}
-              //         </TableBodyDataCell>
-              //         <TableBodyDataCell>
-              //           example of children being jsx instead of a function
-              //           {Icons.IconChevron()}
-              //         </TableBodyDataCell>
-              //       </TableBodyDataRowTemplate>
-              //     </TableBodyData>
-            }
+            <TableBodyData
+              records={[
+                // eslint-disable-next-line object-curly-newline
+                { id: 1, color: 'black', rating: 6.025, velocity: '99mph' },
+                // eslint-disable-next-line object-curly-newline
+                { id: 3, color: 'blue', rating: 4.013, velocity: '12mph' },
+                // eslint-disable-next-line object-curly-newline
+                { id: 5, color: 'green', rating: 3.218, velocity: '38mph' },
+                // eslint-disable-next-line object-curly-newline
+                { id: 4, color: 'red', rating: 1.218, velocity: '124mph' },
+                // eslint-disable-next-line object-curly-newline
+                { id: 2, color: 'white', rating: 3.107, velocity: '32mph' },
+                // eslint-disable-next-line object-curly-newline
+                { id: -2, color: 'yellow', rating: 3.978, velocity: '80mph' },
+              ]}
+              recordIdField="id"
+            >
+              <TableBodyDataRowTemplate>
+                <TableBodyDataCellTemplate recordFieldPath="color" />
+                <TableBodyDataCellTemplate recordFieldPath="rating" />
+                <TableBodyDataCellTemplate recordFieldPath="velocity" />
+              </TableBodyDataRowTemplate>
+            </TableBodyData>
 
             <tr><td>doing something supitd</td></tr>
           </TableBody>

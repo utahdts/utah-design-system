@@ -24,7 +24,6 @@ function ButtonExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
-        // eslint-disable-next-line no-param-reassign
         draftState.props.appearance = 'outlined';
         draftState.props.color = 'none';
         draftState.props.iconLeft = 'none';

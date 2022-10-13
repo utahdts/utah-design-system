@@ -51,6 +51,7 @@
             "explicitSpread": "enforce"
           }
         ],
-        "import/no-cycle": "off"
+        "import/no-cycle": "off",
+        "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsForRegex": ["^draft"] }]
     }
 }

@@ -44,7 +44,6 @@ function SwitchExampleRender({
       width={width}
       innerRef={innerRef}
       onChange={() => setState((draftState) => {
-        // eslint-disable-next-line no-param-reassign
         draftState.props.value = !draftState.props.value;
       })}
       sliderChildren={((icon === 'none') || !icon) ? null : Icons[icon]()}
