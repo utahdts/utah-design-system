@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react';
 import eslintPlugin from 'vite-plugin-eslint';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command, mode, ssrBuild }) => {
+  let config = {
   css: {
     devSourcemap: true,
   },
@@ -29,5 +30,13 @@ export default defineConfig({
   preview: {
     port: 8080,
   },
-  base: './'
+  base: '/'
+  };
+
+  if (mode === 'dev-pages') {
+    config.base = '/utah-design-system/dev/';
+    return config;
+  } else {
+    return config;
+  }
 });
