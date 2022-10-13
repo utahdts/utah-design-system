@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import TableContext from './TableContext';
 import joinClassNames from '../../util/joinClassNames';
+import useRefAlways from '../../hooks/useRefAlways';
+import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
+import valueAtPath from '../../util/state/valueAtPath';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -24,10 +27,76 @@ function TableWrapper({
   id,
   ...rest
 }) {
-  const [state, setState] = useImmer({});
+  const [state, setState] = useImmer({
+    // when sorting, should the sort order for a rule be the "default"
+    // ie a rule defaults to ascending so when currentSortingOrderIsDefault is true then sort that rule ascending
+    currentSortingOrderIsDefault: true,
+    // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order
+    sortingRules: {},
+    // (func) when table sorting changes, this callback will be called: from <TableSortingRules>
+    tableSortingOnChange: null,
+    // (string | [string]) the current recordFieldPath name for the current header being sorted
+    // array if <TableHeadCell> specifies sort order; otherwise, sort fields in registration order
+    // set when a TableHeadCell is selected and sets its tableSortingFieldPaths as the tableSortingFieldPath
+    // TableBodyData uses this value to sort its records
+    tableSortingFieldPath: null,
+    // a TableHeadCell can provide tableSortingFieldPaths to customize which sorters to use in which order
+    tableSortingFieldPaths: null,
+  });
+  const stateRef = useRefAlways(state);
 
   const contextValue = useMemo(
     () => ({
+      // register a new rule for sorting, generally from a <TableSortingRule>
+      registerSortingRule: (sortingRule) => setState((draftState) => {
+        draftState.sortingRules[sortingRule.recordFieldPath] = {
+          ...sortingRule,
+          sorter: (
+            (recordA, recordB, records) => {
+              const fieldValueA = valueAtPath({ object: recordA.record, path: sortingRule.recordFieldPath });
+              const fieldValueB = valueAtPath({ object: recordB.record, path: sortingRule.recordFieldPath });
+
+              let result;
+              if (sortingRule.customSort) {
+                // custom sorting
+                result = sortingRule.customSort({
+                  fieldValueA,
+                  fieldValueB,
+                  recordA: recordA.record,
+                  recordAIndex: recordA.recordIndex,
+                  recordB: recordB.record,
+                  recordBIndex: recordB.recordIndex,
+                  records,
+                });
+              } else {
+                // sort by field type
+                switch (sortingRule.fieldType) {
+                  case tableSortingRuleFieldType.DATE:
+                    result = (fieldValueA?.getTime() || 0) - (fieldValueB?.getTime() || 0);
+                    break;
+
+                  case tableSortingRuleFieldType.NUMBER:
+                    result = Number(fieldValueA || 0) - Number(fieldValueB || 0);
+                    break;
+
+                  case tableSortingRuleFieldType.STRING:
+                    result = (fieldValueA || '').localeCompare(fieldValueB || '');
+                    break;
+
+                  default:
+                    throw new Error(`Unknown tableSortingRuleFieldType '${sortingRule.fieldType}'`);
+                }
+              }
+
+              // return sort result modified for sort order
+              return result * (stateRef.current.currentSortingOrderIsDefault ? 1 : -1) * (sortingRule.defaultIsAscending ? 1 : -1);
+            }
+          ),
+        };
+      }),
+      // unregister a rule for sorting, generally when a <TableSortingRule> unmounts
+      unregisterSortingRule: (recordFieldPath) => setState((draftState) => { delete draftState.sortingRules[recordFieldPath]; }),
+
       setState,
       state,
     }),

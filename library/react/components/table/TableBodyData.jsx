@@ -1,8 +1,12 @@
+import identity from 'lodash/identity';
+import castArray from 'lodash/castArray';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import valueAtPath from '../../util/state/valueAtPath';
 import TableBodyDataRowContext from './TableBodyDataRowContext';
+import TableContext from './TableContext';
+import chainSorters from '../../util/chainSorters';
 
 const propTypes = {
   // the TableBodyDataRowTemplate and TableBodyDataCellTemplate elements making up the repeatable section
@@ -17,12 +21,33 @@ const defaultProps = {};
 function TableBodyData({ children, recordIdField, records }) {
   const [recordsForContexts, setRecordsForContexts] = useImmer(null);
 
+  const {
+    state: {
+      currentSortingOrderIsDefault,
+      sortingRules,
+      tableSortingFieldPath,
+      tableSortingFieldPaths,
+    },
+  } = useContext(TableContext);
+
   useEffect(
     () => {
-      // create ForContexts once for the context provider so as to avoid recreating objects
-      setRecordsForContexts(records?.map((record, recordIndex) => ({ record, recordIndex, records })));
+      const newRecordsForContext = records?.map((record, recordIndex) => ({ record, recordIndex, records }));
+
+      // apply sorting if a column is selected
+      if (tableSortingFieldPath || tableSortingFieldPaths) {
+        const sorters = castArray(tableSortingFieldPaths || tableSortingFieldPath)
+          .map((sortingValue) => sortingRules[sortingValue]?.sorter)
+          .filter(identity);
+        newRecordsForContext.sort(chainSorters(sorters, newRecordsForContext));
+      }
+
+      // create forContexts once for the context provider so as to avoid recreating objects
+      setRecordsForContexts(newRecordsForContext);
+
+      // TODO: useEffect for when filter changes to filter the records...
     },
-    [records]
+    [currentSortingOrderIsDefault, records, tableSortingFieldPath, tableSortingFieldPaths]
   );
 
   return (
