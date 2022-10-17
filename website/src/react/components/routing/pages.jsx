@@ -303,7 +303,7 @@ const pages = {
 
   buttonGroup: {
     content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons/segmented',
+    link: '/library/components/buttons/button-group',
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button Group',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,

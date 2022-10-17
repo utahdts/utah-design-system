@@ -16,12 +16,14 @@ import {
   TabPanel,
   TabPanels,
 } from 'utah-design-system-react-library';
+import { NavLink } from 'react-router-dom';
 import SandboxExample from '../../../../sandbox/SandboxExample';
 import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleRender from './ButtonExampleRender';
 import ButtonExampleProps from './ButtonExampleProps';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import Icons from '../../../../icons/Icons';
+import pages from '../../../../routing/pages';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -42,13 +44,6 @@ function ButtonDocumentation() {
       />
       <StaticExample
         title="Emphasized Button (Solid)"
-        quickTips={(
-          <ul>
-            <li>Comes before unemphasized buttons in the tab order.</li>
-            <li>Solid color.</li>
-            <li>Reversed fill color on solid background.</li>
-          </ul>
-        )}
         renderedExample={(
           <>
             <Button
@@ -80,22 +75,23 @@ function ButtonDocumentation() {
             </Button>
           </>
         )}
+        quickTips={(
+          <ul>
+            <li>Used to emphasize a button when multiple buttons appear on a page or in close proximity.</li>
+            <li>When used in proximity to other buttons:
+              <ul>
+                <li>Should appear on the right.</li>
+                {/* TODO: Talk about tab order!!!! */}
+                <li>Comes before unemphasized buttons in the tab order.</li>
+              </ul>
+            </li>
+            <li>Solid color.</li>
+          </ul>
+        )}
       />
 
       <StaticExample
         title="Unemphasized Button (Outlined)"
-        quickTips={(
-          <ul>
-            <li>Should be less emphasized than emphasized buttons.</li>
-            <li>Options:
-              <ul>
-                <li>Preferred: no fill color, has border.</li>
-                <li>Optional: neutral fill color.</li>
-              </ul>
-            </li>
-            <li>Reversed color on solid background, but still no fill color.</li>
-          </ul>
-        )}
         renderedExample={(
           <>
             <Button
@@ -127,6 +123,19 @@ function ButtonDocumentation() {
             </Button>
           </>
         )}
+        quickTips={(
+          <ul>
+            <li>Used to deemphasize a button. The default look of a non-emphasized button.</li>
+            <li>When used in proximity to other buttons:
+              <ul>
+                <li>Should appear on the left of an emphasized button.</li>
+                {/* TODO: Talk about tab order!!!! */}
+                <li>Comes after emphasized buttons in the tab order.</li>
+              </ul>
+            </li>
+            <li>Solid outline. Text matches the button color.</li>
+          </ul>
+        )}
       />
 
       <StaticExample
@@ -148,6 +157,19 @@ function ButtonDocumentation() {
               Okay
             </Button>
           </>
+        )}
+        quickTips={(
+          <ul>
+            <li>When two or more buttons are in close proximity, and you wish to have an emphasized button:
+              <ul>
+                <li>The emphasized button will appear on the right.</li>
+                <li>One or more unemphasized buttons will appear on the left.</li>
+                <li>If you wish to use more than 3 buttons in proximity consider
+                  using a <NavLink to={pages.buttonGroup.link}>Button Group</NavLink>.
+                </li>
+              </ul>
+            </li>
+          </ul>
         )}
       />
       <StaticExample
@@ -171,6 +193,13 @@ function ButtonDocumentation() {
               See More
             </Button>
           </>
+        )}
+        quickTips={(
+          <ul>
+            <li>An icon can be use on the left or the right.</li>
+            <li>It is is preferred that you only use a single icon per button.</li>
+            <li>An icon should be simple and change color with the button text.</li>
+          </ul>
         )}
       />
       <StaticExample
@@ -210,6 +239,32 @@ function ButtonDocumentation() {
               Large 1X
             </Button>
           </>
+        )}
+        quickTips={(
+          <ul>
+            <li>The preferred button size is the default (medium).</li>
+            <li>Do not mix button of different sizes in close proximity.</li>
+          </ul>
+        )}
+      />
+      <StaticExample
+        title="Busy"
+        renderedExample={(
+          <Button
+            appearance="solid"
+            color="primary"
+            onClick={() => showBanner({ message: 'medium button clicked' })}
+            size={formElementSizesEnum.MEDIUM}
+            isBusy
+          >
+            Submit Now
+          </Button>
+        )}
+        quickTips={(
+          <ul>
+            <li>Use a busy button state to indicate to the user that some asynchronous process is taking place.</li>
+            <li>Do not use more than one busy button per view.</li>
+          </ul>
         )}
       />
       <h2>Guidance</h2>
