@@ -35,6 +35,9 @@ input[type=checkbox].switch {
     }
 
     @include tools-index.form-ele-hover-medium;
+    &:has(input:focus) {
+      @include tools-index.form-ele-focus-appearance;
+    }
 
   }
   &__slider {
