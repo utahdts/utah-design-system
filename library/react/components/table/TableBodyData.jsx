@@ -24,6 +24,7 @@ function TableBodyData({ children, recordIdField, records }) {
   const {
     state: {
       currentSortingOrderIsDefault,
+      filterValues,
       sortingRules,
       tableSortingFieldPath,
       tableSortingFieldPaths,
@@ -32,7 +33,7 @@ function TableBodyData({ children, recordIdField, records }) {
 
   useEffect(
     () => {
-      const newRecordsForContext = records?.map((record, recordIndex) => ({ record, recordIndex, records }));
+      let newRecordsForContext = records?.map((record, recordIndex) => ({ record, recordIndex, records }));
 
       // apply sorting if a column is selected
       if (tableSortingFieldPath || tableSortingFieldPaths) {
@@ -42,12 +43,32 @@ function TableBodyData({ children, recordIdField, records }) {
         newRecordsForContext.sort(chainSorters(sorters, newRecordsForContext));
       }
 
+      // filter records by filter fields
+      newRecordsForContext = newRecordsForContext.filter((recordInfo) => (
+        Object.entries(filterValues.value || {})
+          // preformat filter values for optimization
+          .map(([filterKey, filterValue]) => [filterKey, filterValue.split(' ').map((s) => s.toLowerCase())])
+          .reduce(
+            (isMatch, [filterFieldPath, filterValue]) => (
+              isMatch
+              && (
+                // break apart the value by spaces to allow partial multi phrase filtering
+                filterValue.every((filterValuePiece) => (
+                  (valueAtPath({ object: recordInfo.record, path: filterFieldPath }) || '')
+                    // lowercase so that uppercase isn't an issue
+                    .toLocaleLowerCase()
+                    .includes(filterValuePiece)
+                ))
+              )
+            ),
+            true
+          )
+      ));
+
       // create forContexts once for the context provider so as to avoid recreating objects
       setRecordsForContexts(newRecordsForContext);
-
-      // TODO: useEffect for when filter changes to filter the records...
     },
-    [currentSortingOrderIsDefault, records, tableSortingFieldPath, tableSortingFieldPaths]
+    [currentSortingOrderIsDefault, filterValues, records, tableSortingFieldPath, tableSortingFieldPaths]
   );
 
   return (

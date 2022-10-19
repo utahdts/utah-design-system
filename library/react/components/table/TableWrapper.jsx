@@ -31,6 +31,16 @@ function TableWrapper({
     // when sorting, should the sort order for a rule be the "default"
     // ie a rule defaults to ascending so when currentSortingOrderIsDefault is true then sort that rule ascending
     currentSortingOrderIsDefault: true,
+    // [recordFieldPath]: filterValue <== the current filtering values from <TableFilter... /> components
+    filterValues: {
+      // context level values from a <TableFilters /> component (<TableFilter... /> child components would override/chain these values)
+      // defaultValue - object of [recordFieldPath]:value pairs for filtering inputs
+      defaultValue: null,
+      // onChange to call for any filter change
+      onChange: null,
+      // value - object of [recordFieldPath]:value pairs for filtering inputs
+      value: null,
+    },
     // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order
     sortingRules: {},
     // (func) when table sorting changes, this callback will be called: from <TableSortingRules>

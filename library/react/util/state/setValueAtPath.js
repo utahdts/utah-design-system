@@ -48,7 +48,7 @@ export default function setValueAtPath({ object, path, value }) {
       let childObj;
       if (isObject(nextLevel)) {
         childObj = nextLevel[pathPiece];
-        if (childObj === undefined) {
+        if (childObj === undefined || childObj === null) {
           // childObj is missing, so add a blank object
           nextLevel[pathPiece] = {};
           childObj = nextLevel[pathPiece];

@@ -1,15 +1,13 @@
-/* eslint-disable no-param-reassign */
 import { useImmer } from 'use-immer';
 import {
   Button,
-  handleEvent,
-  Switch,
+  handleEvent, Switch,
   Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
-  TableCell,
+  TableCell, TableFilters, TableFilterTextInput,
   TableFoot,
   TableFootCell,
   TableFootRow,
@@ -35,6 +33,7 @@ function TableDocumentation() {
       role: 'Master of All Things',
       uppityDate: '2022-10-05',
       uppityDateDate: new Date('2022-10-05'),
+      address: { street: 'Pummel Dr' },
     },
     {
       name: 'Casey Wardle',
@@ -42,6 +41,7 @@ function TableDocumentation() {
       role: 'Nothing is impossible',
       uppityDate: '2010-08-04',
       uppityDateDate: new Date('2010-08-04'),
+      address: { street: 'Easy Street' },
     },
     {
       name: 'Sarah Farnsworth',
@@ -49,6 +49,7 @@ function TableDocumentation() {
       role: 'Intelligence Incarnate',
       uppityDate: '2012-02-23',
       uppityDateDate: new Date('2012-02-23'),
+      address: { street: 'Panda Express' },
     },
     {
       name: 'Gaëtan Grimaud',
@@ -56,6 +57,7 @@ function TableDocumentation() {
       role: 'Oh, I already got that done',
       uppityDate: '2013-01-11',
       uppityDateDate: new Date('2013-01-11'),
+      address: { street: 'The Gathering' },
     },
     {
       name: 'Brittany Hancock',
@@ -63,6 +65,7 @@ function TableDocumentation() {
       role: 'Service Now be Dammed',
       uppityDate: '2015-04-28',
       uppityDateDate: new Date('2015-04-28'),
+      address: { street: 'Princesses Dr' },
     },
     {
       name: 'Robert Wallis',
@@ -70,6 +73,7 @@ function TableDocumentation() {
       role: 'My Staff Infection',
       uppityDate: '2008-12-29',
       uppityDateDate: new Date('2008-12-29'),
+      address: { street: 'Rock & Roll' },
     },
     {
       name: 'Samir Mulahalilovic',
@@ -77,6 +81,7 @@ function TableDocumentation() {
       role: 'Gimme Java or give me... React...',
       uppityDate: '1995-07-25',
       uppityDateDate: new Date('1995-07-25'),
+      address: { street: 'Greatness begins here' },
     },
     {
       name: 'Veronica Miluk',
@@ -84,6 +89,7 @@ function TableDocumentation() {
       role: 'Let\'s get this straight',
       uppityDate: '2025-10-11',
       uppityDateDate: new Date('2025-10-11'),
+      address: { street: 'Gallop & Trot' },
     },
     {
       name: 'Austin Haws',
@@ -91,6 +97,7 @@ function TableDocumentation() {
       role: 'Firing squad',
       uppityDate: null,
       uppityDateDate: null,
+      address: { street: 'Greasewood Dr' },
     },
   ]);
 
@@ -118,50 +125,69 @@ function TableDocumentation() {
             <TableSortingRule recordFieldPath="lastName" />
           </TableSortingRules>
 
-          {
-            // <TableFilters>
-            //   <TableFilter recordFieldPath="petName" filterType="string" filterIcon={Icons.IconCheck} defaultValue={someDefaultValue}
-            //         onChange={({value}) => setValue(value)} value={value}
-            //   /> {/* filterType is optional defaults to string? */}
-            //   <TableFilter recordFieldPath="flavor">
-            //     <TableHeadFilterOption value="pistachio">Pistachio</TableHeadFilterOption>
-            //     <TableHeadFilterOption value="&">M&amp;M</TableHeadFilterOption>
-            //   </TableFilter>
-            // </TableFilters>
-          }
-
           <TableHead>
             <TableHeadRow>
-              {/* tableSortingFieldPaths allows defining custom sort ordering (note that rule for description doesn't exist) */}
-              <TableHeadCell recordFieldPath="name">
-                Name
-              </TableHeadCell>
+              <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
 
               {/* field does not have matching sorter so does not sort */}
-              <TableHeadCell recordFieldPath="potency">
-                Potency
-              </TableHeadCell>
+              <TableHeadCell recordFieldPath="potency">Potency</TableHeadCell>
 
-              <TableHeadCell recordFieldPath="potency-no-sort">
-                Potency (no sort)
-              </TableHeadCell>
+              <TableHeadCell recordFieldPath="potency-no-sort">Potency (no sort)</TableHeadCell>
 
-              <TableHeadCell recordFieldPath="role">
-                Role
-              </TableHeadCell>
+              <TableHeadCell recordFieldPath="role">Role</TableHeadCell>
 
-              <TableHeadCell recordFieldPath="uppityDate" tableSortingFieldPaths={['uppityDateDate']}>
-                Uppity Date
-              </TableHeadCell>
+              <TableHeadCell recordFieldPath="uppityDate" tableSortingFieldPaths={['uppityDateDate']}>Uppity Date</TableHeadCell>
 
               <TableHeadCell recordFieldPath="uppityDateByName" tableSortingFieldPaths={['lastName', 'name']}>
                 Uppity Date (sort by custom name)
               </TableHeadCell>
 
+              <TableHeadCell recordFieldPath="address.street" tableSortingFieldPaths={['uppityDateDate']}>Uppity Date</TableHeadCell>
+
               {/* with no field, this header does not filter nor sort, and putting a ThFilter inside of it should probably show a warning */}
               {/* useful for action columns */}
               <TableHeadCell />
             </TableHeadRow>
+
+            {/* three ways to interact with filters: controlled, uncontrolled, uncontrolled with default value */}
+            {/* <TableFilters value={ } onChange={ }> */}
+            {/* <TableFilters defaultValue={ }> */}
+            <TableFilters>
+              <TableFilterTextInput recordFieldPath="name" defaultValue="ase ardl" />
+
+              {
+                //  four ways to interact with filters:
+                //   [√] filter context,
+                //   [√] controlled,
+                //   [√] uncontrolled,
+                //   [ ] uncontrolled with default value
+                // <TableFilterSelect
+                //   isMultiSelect
+                //   recordFieldPath="flavor"
+                // >
+                //   <TableFilterSelectOption value="pistachio">Pistachio</TableFilterSelectOption>
+                //   <TableFilterSelectOption value="&">M&amp;M</TableFilterSelectOption>
+                // </TableFilterSelect>
+
+                // {/* Place holder to create a <th> but not do filtering */}
+                // <TableFilterNone />
+
+                // <TableFilterCustom>
+                //   {({ filterValues, setFilterValues }) => (
+                //     <Button
+                //       onClick={(e) => {
+                //         e.stopPropagation();
+                //         setFilterValues((draftState) => { draftState.selected = !draftState.selected; });
+                //       }}
+                //     >
+                //       Selected (
+                //       {filterValues.selected ? 'Y' : 'N'}
+                //       )
+                //     </Button>
+                //   )}
+                // </TableFilterCustom>
+              }
+            </TableFilters>
           </TableHead>
 
           <TableBody>
