@@ -11,6 +11,7 @@ import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION
 import ButtonDocumentation from '../websiteContent/library/components/buttons/ButtonDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
+import pageUrls from './pageUrls';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -295,7 +296,7 @@ const pages = {
   // === buttons === //
   button: {
     content: <ButtonDocumentation />,
-    link: '/library/components/buttons/button',
+    link: pageUrls.button,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -303,7 +304,7 @@ const pages = {
 
   buttonGroup: {
     content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons/button-group',
+    link: pageUrls.buttonGroup,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button Group',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -319,7 +320,7 @@ const pages = {
 
   iconButton: {
     content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons/iconButton',
+    link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,

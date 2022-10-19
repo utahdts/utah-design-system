@@ -23,7 +23,7 @@ import ButtonExampleRender from './ButtonExampleRender';
 import ButtonExampleProps from './ButtonExampleProps';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import Icons from '../../../../icons/Icons';
-import pages from '../../../../routing/pages';
+import pageUrls from '../../../../routing/pageUrls';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -165,7 +165,7 @@ function ButtonDocumentation() {
                 <li>The emphasized button will appear on the right.</li>
                 <li>One or more unemphasized buttons will appear on the left.</li>
                 <li>If you wish to use more than 3 buttons in proximity consider
-                  using a <NavLink to={pages.buttonGroup.link}>Button Group</NavLink>.
+                  using a <NavLink to={pageUrls.buttonGroup}>Button Group</NavLink>.
                 </li>
               </ul>
             </li>
@@ -267,15 +267,68 @@ function ButtonDocumentation() {
           </ul>
         )}
       />
-      <h2>Guidance</h2>
+      <h2 className="mb-spacing">Guidance</h2>
       <h3>When to use</h3>
+      <ul className="mb-spacing">
+        <li>Use a button to indicate an action.</li>
+        <li>
+          Choose a button style that will give the desired emphasis to the action:
+          <ul>
+            <li>Important actions should be emphasized to stand out from other actions on the view or in the immediate area.</li>
+            <li>You can further emphasize buttons with size and color.</li>
+          </ul>
+        </li>
+      </ul>
+
       <h3>When to use something else</h3>
+      <ul className="mb-spacing">
+        <li>Generally, use a link for navigation, especially when there are other action buttons in the view.</li>
+        <li>Always, use a link for navigation within a paragraph of text.</li>
+        <li>
+          Style a link as a button:
+          <ul>
+            <li>Use the button style if it also includes a visual indicator such as an arrow icon. For example <code>Read More -&gt;</code>.</li>
+            <li>Use the button style for a call to action. For example, <code>Register Now {Icons.IconArrowRight()}</code>.</li>
+          </ul>
+        </li>
+      </ul>
+
       <h3>Usability guidance</h3>
+      <ul className="mb-spacing">
+        <li>Keep button text short. Use action words to describe what the button will do.</li>
+        <li>Use Title Case capitalization.
+          Such as, <code>Download</code>, <code>View More</code>, <code>Sign In</code>, or <code>Sign Out</code>.
+        </li>
+        <li>
+          Lead with a verb by making the first word of the button’s text a verb.
+          For example, instead of <code>Information Request</code>, label the button <code>Request Information</code>.
+        </li>
+        <li>Use icons in a button to help describe the action.</li>
+        <li>Avoid using too many buttons on a view. Too many button will cause confusion and distraction.</li>
+        <li>Consider using an <NavLink to={pageUrls.iconButton}>icon button</NavLink> in compact layouts.</li>
+      </ul>
+
       <h3>Accessability</h3>
       <h4>Contrast</h4>
+      <ul>
+        <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
+        <li>The button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
+      </ul>
       <h4>Keyboard interactivity</h4>
+      <ul>
+        <li>The button should display a visible focus state when users tab to them. This focus state should be <code>3:1</code> contrast ratio.</li>
+        <li>
+          Avoid using non-standard html markup for a button such as a <code>div</code> tag.
+          <ul>
+            <li>The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+          </ul>
+        </li>
+      </ul>
       <h4>Screen readers</h4>
-      <h3>Do / Don&apos;t</h3>
+      <ul>
+        <li>A Button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG)</li>
+      </ul>
+      <h3>Do / Don’t</h3>
 
       <h2>Settings and Props</h2>
       <div className="documentation-content--small-text">
@@ -350,7 +403,7 @@ function ButtonDocumentation() {
               <h3>React Button Properties</h3>
               <div className="documentation-content--small-text">
                 <TableWrapper>
-                  <Table>
+                  <Table className="table--lines-x">
                     <TableHead>
                       <TableHeadRow>
                         <TableHeadCell className="text-left">Property</TableHeadCell>
