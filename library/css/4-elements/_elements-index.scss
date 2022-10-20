@@ -24,10 +24,12 @@ elemental html: h1, h2, h3, ul, li, etc.
   }
   h3 {
     font-size: var(--font-size-2xl );
+    font-weight: var(--font-weight-normal);
     margin: 0;
   }
   h4 {
     font-size: var(--font-size-l);
+    font-weight: var(--font-weight-normal);
     margin: 0;
   }
   h5 {
@@ -47,10 +49,8 @@ elemental html: h1, h2, h3, ul, li, etc.
     font-family: 'Source Code Pro', monospace;
     font-size: .95em;
     background: var(--code-color);
-    padding: 0 var(--spacing-2xs);
+    padding: var(--spacing-3xs) var(--spacing-xs);
     border-radius: var(--radius-small1x);
-    display: inline-block;
-    margin: 0 0 var(--spacing-xs) 0;
     &.primary-color {
       color: var(--primary-color);
       background: var(--primary-color-light);
@@ -65,7 +65,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     list-style-type: disc;
     padding: 0 0 0 var(--spacing-2xl);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.7;
   }
 
   hr {
@@ -73,5 +73,14 @@ elemental html: h1, h2, h3, ul, li, etc.
     width: 100%;
     border: none;
     border-top: 1px solid var(--gray-border);
+  }
+
+  a[href] {
+    color: var(--primary-color);
+    // display: inline-block;
+    &:hover {
+      // background-color: var(--hover-gray-color);
+      box-shadow: 0 0 0 2px var(--hover-gray-color), inset 0 0 0 1000px var(--hover-gray-color);
+    }
   }
 }

@@ -17,13 +17,13 @@ import {
   TabPanels,
 } from 'utah-design-system-react-library';
 import { NavLink } from 'react-router-dom';
-import SandboxExample from '../../../../sandbox/SandboxExample';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleRender from './ButtonExampleRender';
 import ButtonExampleProps from './ButtonExampleProps';
-import StaticExample from '../../../../staticExamples/StaticExample';
-import Icons from '../../../../icons/Icons';
-import pageUrls from '../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import Icons from '../../../../../icons/Icons';
+import pageUrls from '../../../../../routing/pageUrls';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -33,7 +33,7 @@ function ButtonDocumentation() {
   const showBanner = useBanner();
   return (
     <div className="documentation-content">
-      <h1>Button</h1>
+      <h1 id="h1-top">Button</h1>
       <p className="lead-in">A <code>&lt;button&gt;</code> element is a clickable component that triggers an action.</p>
       <hr />
       <h2>Example</h2>
@@ -287,13 +287,16 @@ function ButtonDocumentation() {
         <li>
           Style a link as a button:
           <ul>
-            <li>Use the button style if it also includes a visual indicator such as an arrow icon. For example <code>Read More -&gt;</code>.</li>
+            <li>
+              Use the button style if it also includes a visual indicator such as an arrow icon.
+              For example <code>Read More {Icons.IconArrowRight()}</code>.
+            </li>
             <li>Use the button style for a call to action. For example, <code>Register Now {Icons.IconArrowRight()}</code>.</li>
           </ul>
         </li>
       </ul>
 
-      <h3>Usability guidance</h3>
+      <h3 className="mb-spacing">Usability guidance</h3>
       <ul className="mb-spacing">
         <li>Keep button text short. Use action words to describe what the button will do.</li>
         <li>Use Title Case capitalization.
@@ -306,16 +309,21 @@ function ButtonDocumentation() {
         <li>Use icons in a button to help describe the action.</li>
         <li>Avoid using too many buttons on a view. Too many button will cause confusion and distraction.</li>
         <li>Consider using an <NavLink to={pageUrls.iconButton}>icon button</NavLink> in compact layouts.</li>
+        <li>Always set the type attribute to define the purpose of the button.
+          The type attribute can accept three values: <code>submit</code>, <code>button</code>, and <code>reset</code>.
+          If no type attribute is defined, the button will behave as a <code>submit</code> button.
+        </li>
+        <li>Generally avoid stacking one button on top of another. Place them side-by-side if there is room.</li>
       </ul>
 
-      <h3>Accessability</h3>
+      <h3 className="mb-spacing">Accessability</h3>
       <h4>Contrast</h4>
-      <ul>
+      <ul className="mb-spacing">
         <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
         <li>The button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
       </ul>
       <h4>Keyboard interactivity</h4>
-      <ul>
+      <ul className="mb-spacing">
         <li>The button should display a visible focus state when users tab to them. This focus state should be <code>3:1</code> contrast ratio.</li>
         <li>
           Avoid using non-standard html markup for a button such as a <code>div</code> tag.
@@ -325,10 +333,9 @@ function ButtonDocumentation() {
         </li>
       </ul>
       <h4>Screen readers</h4>
-      <ul>
-        <li>A Button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG)</li>
+      <ul className="mb-spacing">
+        <li>A Button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG).</li>
       </ul>
-      <h3>Do / Don’t</h3>
 
       <h2>Settings and Props</h2>
       <div className="documentation-content--small-text">
@@ -416,9 +423,11 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">appearance</code></TableCell>
                         <TableCell>
-                          <code>&apos;solid&apos;</code>
-                          <span> | </span>
-                          <code>&apos;outlined&apos;</code>
+                          <div className="props-code-wrapper">
+                            <code>&apos;solid&apos;</code>
+                            <span> | </span>
+                            <code>&apos;outlined&apos;</code>
+                          </div>
                         </TableCell>
                         <TableCell>&apos;outlined&apos;</TableCell>
                         <TableCell>
@@ -448,13 +457,15 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">color</code></TableCell>
                         <TableCell>
-                          <code>&apos;primary&apos;</code>
-                          <span> | </span>
-                          <code>&apos;secondary&apos;</code>
-                          <span> | </span>
-                          <code>&apos;accent&apos;</code>
-                          <span> | </span>
-                          <code>&apos;none&apos;</code>
+                          <div className="props-code-wrapper">
+                            <code>&apos;primary&apos;</code>
+                            <span> | </span>
+                            <code>&apos;secondary&apos;</code>
+                            <span> | </span>
+                            <code>&apos;accent&apos;</code>
+                            <span> | </span>
+                            <code>&apos;none&apos;</code>
+                          </div>
                         </TableCell>
                         <TableCell>&apos;none&apos;</TableCell>
                         <TableCell>
@@ -494,9 +505,11 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">id</code></TableCell>
                         <TableCell>
-                          <code>string</code>
-                          <span> | </span>
-                          <code>number</code>
+                          <div className="props-code-wrapper">
+                            <code>string</code>
+                            <span> | </span>
+                            <code>number</code>
+                          </div>
                         </TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
@@ -507,9 +520,11 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">isBusy</code></TableCell>
                         <TableCell>
-                          <code>true</code>
-                          <span> | </span>
-                          <code>false</code>
+                          <div className="props-code-wrapper">
+                            <code>true</code>
+                            <span> | </span>
+                            <code>false</code>
+                          </div>
                         </TableCell>
                         <TableCell>false</TableCell>
                         <TableCell>
@@ -522,9 +537,11 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">isDisabled</code></TableCell>
                         <TableCell>
-                          <code>true</code>
-                          <span> | </span>
-                          <code>false</code>
+                          <div className="props-code-wrapper">
+                            <code>true</code>
+                            <span> | </span>
+                            <code>false</code>
+                          </div>
                         </TableCell>
                         <TableCell>false</TableCell>
                         <TableCell>
@@ -546,15 +563,17 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">size</code></TableCell>
                         <TableCell>
-                          <code>formElementSizesEnum</code>
-                          <span> | </span>
-                          <code>&apos;small&apos;</code>
-                          <span> | </span>
-                          <code>&apos;medium&apos;</code>
-                          <span> | </span>
-                          <code>&apos;large&apos;</code>
-                          <span> | </span>
-                          <code>&apos;large1x&apos;</code>
+                          <div className="props-code-wrapper">
+                            <code>formElementSizesEnum</code>
+                            <span> | </span>
+                            <code>&apos;small&apos;</code>
+                            <span> | </span>
+                            <code>&apos;medium&apos;</code>
+                            <span> | </span>
+                            <code>&apos;large&apos;</code>
+                            <span> | </span>
+                            <code>&apos;large1x&apos;</code>
+                          </div>
                         </TableCell>
                         <TableCell>&apos;medium&apos;</TableCell>
                         <TableCell>
@@ -565,11 +584,13 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">type</code></TableCell>
                         <TableCell>
-                          <code>&apos;button&apos;</code>
-                          <span> | </span>
-                          <code>&apos;reset&apos;</code>
-                          <span> | </span>
-                          <code>&apos;submit&apos;</code>
+                          <div className="props-code-wrapper">
+                            <code>&apos;button&apos;</code>
+                            <span> | </span>
+                            <code>&apos;reset&apos;</code>
+                            <span> | </span>
+                            <code>&apos;submit&apos;</code>
+                          </div>
                         </TableCell>
                         <TableCell>&apos;button&apos;</TableCell>
                         <TableCell>

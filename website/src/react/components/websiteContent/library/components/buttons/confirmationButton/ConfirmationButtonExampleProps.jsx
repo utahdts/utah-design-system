@@ -9,7 +9,7 @@ import {
   Switch,
   TextInput,
 } from 'utah-design-system-react-library';
-import ButtonExamplePropsShape from '../../../../../propTypesShapes/ButtonExamplePropsShape';
+import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,
@@ -19,10 +19,10 @@ const propTypes = {
 };
 const defaultProps = {};
 
-function ButtonExampleProps({ setState, state }) {
-  // default property values
+function ConfirmationButtonExampleProps({ setState, state }) {
   useEffect(
     () => {
+      // default property values
       setState((draftState) => {
         draftState.props.appearance = 'outlined';
         draftState.props.color = 'none';
@@ -38,10 +38,9 @@ function ButtonExampleProps({ setState, state }) {
 
   return (
     <Form
-      // onSubmit(({ state, validationErrors }) => ... do whatever ...)
+      className="form--stacked"
       state={state}
       setState={setState}
-      className="form--stacked"
     >
       <Select id="props.appearance" label="Appearance" className="input--height-small1x">
         <SelectOption label="Outlined" value="outlined" />
@@ -93,7 +92,7 @@ function ButtonExampleProps({ setState, state }) {
   );
 }
 
-ButtonExampleProps.propTypes = propTypes;
-ButtonExampleProps.defaultProps = defaultProps;
+ConfirmationButtonExampleProps.propTypes = propTypes;
+ConfirmationButtonExampleProps.defaultProps = defaultProps;
 
-export default ButtonExampleProps;
+export default ConfirmationButtonExampleProps;

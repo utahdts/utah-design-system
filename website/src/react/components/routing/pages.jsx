@@ -8,10 +8,11 @@ import SegmentedButtonDocumentation from '../websiteContent/library/components/b
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
-import ButtonDocumentation from '../websiteContent/library/components/buttons/ButtonDocumentation';
+import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import pageUrls from './pageUrls';
+import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -217,7 +218,7 @@ const pages = {
   },
   demo: {
     content: <Demo />,
-    link: '/resources/demo',
+    link: pageUrls.demoPage,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Demo Page',
     template: layoutTemplatesEnum.LANDING_TEMPLATE,
@@ -311,8 +312,8 @@ const pages = {
   },
 
   confirmationButton: {
-    content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons/segmented',
+    content: <ConfirmationButtonDocumentation />,
+    link: pageUrls.confirmationButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Confirmation Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
