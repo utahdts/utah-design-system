@@ -17,13 +17,13 @@ import {
   TabPanels,
 } from 'utah-design-system-react-library';
 import { NavLink } from 'react-router-dom';
-import SandboxExample from '../../../../sandbox/SandboxExample';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleRender from './ButtonExampleRender';
 import ButtonExampleProps from './ButtonExampleProps';
-import StaticExample from '../../../../staticExamples/StaticExample';
-import Icons from '../../../../icons/Icons';
-import pageUrls from '../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import Icons from '../../../../../icons/Icons';
+import pageUrls from '../../../../../routing/pageUrls';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -33,7 +33,7 @@ function ButtonDocumentation() {
   const showBanner = useBanner();
   return (
     <div className="documentation-content">
-      <h1>Button</h1>
+      <h1 id="h1-top">Button</h1>
       <p className="lead-in">A <code>&lt;button&gt;</code> element is a clickable component that triggers an action.</p>
       <hr />
       <h2>Example</h2>

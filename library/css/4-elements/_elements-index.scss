@@ -74,4 +74,13 @@ elemental html: h1, h2, h3, ul, li, etc.
     border: none;
     border-top: 1px solid var(--gray-border);
   }
+
+  a[href] {
+    color: var(--primary-color);
+    // display: inline-block;
+    &:hover {
+      // background-color: var(--hover-gray-color);
+      box-shadow: 0 0 0 2px var(--hover-gray-color), inset 0 0 0 1000px var(--hover-gray-color);
+    }
+  }
 }

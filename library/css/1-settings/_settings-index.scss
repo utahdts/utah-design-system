@@ -59,13 +59,13 @@ variables and settings
   --radius-circle: 999px;
 
   /* form element sizes */
-  --form-ele-small3x: 1rem;
+  --form-ele-small3x: 1rem;                         //small switch
   --form-ele-small2x: 1.25rem;
   --form-ele-small1x: 1.5rem;
-  --form-ele-small: 1.875rem;
-  --form-ele-medium: 2.25rem;
-  --form-ele-large: 2.5rem;
-  --form-ele-large1x: 3.125rem;
+  --form-ele-small: 1.875rem;    //small button
+  --form-ele-medium: 2.25rem;    //medium button
+  --form-ele-large: 2.5rem;      //large button
+  --form-ele-large1x: 3.125rem;  //large1x button
 
   --form-checkbox-small: 0.875rem;
   --form-checkbox-medium: 1.125rem;
