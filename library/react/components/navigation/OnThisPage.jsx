@@ -1,15 +1,30 @@
-const propTypes = {};
+import RefShape from '../../propTypesShapes/RefShape';
+import OnThisPageHeadersLevel from './OnThisPageHeadersLevel';
+import findElementsByTagNameMatch from './util/findElementsByTagNameMatch';
+import groupElementsByHeaderLevel from './util/groupElementsByHeaderLevel';
+
+const propTypes = {
+  contentRef: RefShape.isRequired,
+};
 const defaultProps = {};
 
-function OnThisPage() {
+function OnThisPage({ contentRef }) {
+  const headers = findElementsByTagNameMatch(contentRef.current);
+  const headersTree = groupElementsByHeaderLevel(headers);
+
   return (
     <div>
-      === On This Page ===
-      <br />
-      🚧 work in progress 🚧
-      {/*
-        * [ ] content in a "sandbox" component probably should not show up on "on this page"
-       */}
+      {
+        headersTree?.length
+          ? (
+            <>
+              === On This Page ===
+              <br />
+              <OnThisPageHeadersLevel headersLevel={headersTree} />
+            </>
+          )
+          : null
+      }
     </div>
   );
 }
