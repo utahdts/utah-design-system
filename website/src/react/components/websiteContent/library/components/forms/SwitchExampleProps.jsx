@@ -67,6 +67,11 @@ function SwitchExampleProps({ setState, state }) {
 
           <Switch id="props.value" label="Value" labelOn="On" labelOff="Off" width={40} />
 
+          <Select id="props.size" label="Size" className="input--height-small1x">
+            <SelectOption label="Medium" value={formElementSizesEnum.MEDIUM} />
+            <SelectOption label="Large" value={formElementSizesEnum.LARGE} />
+          </Select>
+
           <TextInput id="props.width" label="Width" className="input--height-small1x" />
 
           <Select id="props.icon" label="Icon (sliderChildren)" className="input--height-small1x">

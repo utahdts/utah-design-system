@@ -38,10 +38,22 @@ input[type=checkbox].switch {
     &:has(input:focus) {
       @include tools-index.form-ele-focus-appearance;
     }
+  }
+  &--large {
+    &.switch__wrapper {
+      min-height: var(--form-ele-small1x);
+    }
 
+    .switch__slider {
+      height: var(--form-ele-small1x);
+      width: var(--form-ele-small1x);
+    }
+
+    .switch__label {
+      font-size: var(--font-size-l);
+    }
   }
   &__slider {
-    display: block;
     height: var(--form-ele-small3x);
     width: var(--form-ele-small3x);
     border-radius: var(--radius-circle);
@@ -59,8 +71,8 @@ input[type=checkbox].switch {
     }
     svg {
       fill: var(--gray-color);
-      width: .8rem;
-      height: .8rem;
+      width: .65rem;
+      height: .65rem;
     }
   }
   &__inner-label {
@@ -88,6 +100,13 @@ input[type=checkbox].switch {
       color: white;
       right: unset;
       left: 2px;
+    }
+  }
+  &--disabled {
+    background: var(--form-ele-disabled-color);
+    cursor: not-allowed;
+    &.switch__wrapper--on {
+      background: var(--form-ele-color-light);
     }
   }
 }

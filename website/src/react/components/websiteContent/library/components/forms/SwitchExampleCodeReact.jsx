@@ -19,6 +19,7 @@ function SwitchExampleCodeReact({
       label,
       labelOff,
       labelOn,
+      size,
       value,
       width,
     },
@@ -33,6 +34,7 @@ function SwitchExampleCodeReact({
     labelOn ? `labelOn="${labelOn}"` : null,
     'onChange={() => { /* ... do something ... */ }',
     `value={${value}}`,
+    size ? `size="${size}"` : null,
     width ? `width={${width}}` : null,
     (icon && icon !== 'none') ? `sliderChildren={icons.${icon}()}` : null,
   ].filter(identity);
