@@ -284,6 +284,20 @@ function SwitchDocumentation() {
                         <TableCell>The function to call when the enter key is pressed.</TableCell>
                       </TableRow>
                       <TableRow>
+                        <TableCell><code className="primary-color">size</code></TableCell>
+                        <TableCell>
+                          <div className="props-code-wrapper">
+                            <code>formElementSizesEnum</code>
+                            <span> | </span>
+                            <code>&apos;medium&apos;</code>
+                            <span> | </span>
+                            <code>&apos;large&apos;</code>
+                          </div>
+                        </TableCell>
+                        <TableCell>&apos;medium&apos;</TableCell>
+                        <TableCell>Determines how much space the switch will consume on the page.</TableCell>
+                      </TableRow>
+                      <TableRow>
                         <TableCell><code className="primary-color">sliderChildren</code></TableCell>
                         <TableCell>
                           <div className="props-code-wrapper">
