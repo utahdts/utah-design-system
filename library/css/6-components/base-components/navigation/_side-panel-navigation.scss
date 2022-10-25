@@ -40,7 +40,7 @@
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
-            //a chicklet
+            //a chiclet
             &::after {
               content: '';
               position: absolute;
@@ -54,7 +54,6 @@
           }
         }
       }
-
 
       button {
         min-height: unset;
@@ -72,6 +71,7 @@
         }
       }
       &__chevron {
+        padding: var(--spacing-xs);
         svg {
           transition: transform var(--timing-quick) ease;
         }
