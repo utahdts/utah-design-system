@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { RefShape, useBanner } from 'utah-design-system-react-library';
+import { Icons, RefShape, useBanner } from 'utah-design-system-react-library';
 import Button from 'utah-design-system-react-library/react/components/buttons/Button';
 import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
-import Icons from '../../../../../icons/Icons';
 
 const propTypes = {
   state: PropTypes.shape({

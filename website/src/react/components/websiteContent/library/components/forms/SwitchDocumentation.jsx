@@ -1,4 +1,5 @@
 import {
+  Icons,
   TabGroup,
   TabList,
   Tab,
@@ -10,7 +11,6 @@ import SwitchExampleCodeReact from './SwitchExampleCodeReact';
 import SwitchExampleRender from './SwitchExampleRender';
 import SwitchPrimaryExampleProps from './SwitchExampleProps';
 import StaticExample from '../../../../staticExamples/StaticExample';
-import icons from '../../../../icons/Icons';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -83,7 +83,7 @@ function SwitchDocumentation() {
           <Switch
             label="With Icon"
             id="switch-icon"
-            sliderChildren={icons.IconCheck()}
+            sliderChildren={Icons.IconCheck()}
           />
         )}
         quickTips={(

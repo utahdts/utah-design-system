@@ -1,6 +1,7 @@
 import {
   Button,
   formElementSizesEnum,
+  Icons,
   useBanner,
   Tab,
   TabGroup,
@@ -22,7 +23,6 @@ import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleRender from './ButtonExampleRender';
 import ButtonExampleProps from './ButtonExampleProps';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import Icons from '../../../../../icons/Icons';
 import pageUrls from '../../../../../routing/pageUrls';
 
 /* eslint-disable react/jsx-one-expression-per-line */

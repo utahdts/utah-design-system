@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { NavLink } from 'react-router-dom';
+import { Icons } from 'utah-design-system-react-library';
 import travolta from '../../../static/images/travolta.gif';
-import Icons from '../icons/Icons';
 import pageUrls from '../routing/pageUrls';
 
 const propTypes = {};

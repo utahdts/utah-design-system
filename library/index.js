@@ -53,6 +53,7 @@ import joinClassNames from './react/util/joinClassNames';
 import rectContainsPoint from './react/util/rectContainsPoint';
 import setValueAtPath from './react/util/state/setValueAtPath';
 import valueAtPath from './react/util/state/valueAtPath';
+import Icons from './react/components/icons/Icons';
 
 const { version } = packageJson;
 
@@ -68,6 +69,7 @@ export {
   FormContextProvider,
   formElementSizesEnum,
   IconButton,
+  Icons,
   joinClassNames,
   LandingTemplate,
   HorizontalMenu,

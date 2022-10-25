@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { RefShape, Switch } from 'utah-design-system-react-library';
+import { Icons, RefShape, Switch } from 'utah-design-system-react-library';
 import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
-import Icons from '../../../../icons/Icons';
 
 const propTypes = {
   innerRef: RefShape,
