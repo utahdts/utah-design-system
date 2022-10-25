@@ -3,26 +3,55 @@
 #{class-vars.$base-class} {
   .menu-side-panel {
     margin: var(--spacing) 0 0 0;
+    font-size: var(--font-size-xs);
+
     &:first-child {
       margin: 0;
     }
     &__header {
       font-size: var(--font-size);
     }
+    &>ul {
+      margin-left: calc(0px - var(--spacing));
+    }
     ul {
-      // padding-left: var(--spacing-s);
       list-style-type: none;
       padding: 0;
 
       ul:first-of-type {
         border-left: 1px solid #DBDBDB;
+        margin-left: var(--spacing)
       }
     }
     .menu-item {
-      line-height: var(--spacing-xl);
+      &__title {
+        a {
+          flex: 1 0 auto;
+          padding: var(--spacing-2xs) var(--spacing);
+          display: block;
+          border-radius: var(--radius-circle);
+          &:hover {
+            box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+          }
+        }
+      }
+      button {
+        min-height: unset;
+        min-width: unset;
+      }
+      &__button-title {
+        flex: 1 0 auto;
+        justify-content: flex-start;
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-2xs) var(--spacing);
+        line-height: 1.7;
 
+        &:hover {
+          box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+        }
+      }
       &__sub-menu--open {
-        padding-left: var(--spacing-l);
+        // padding-left: var(--spacing);
       }
     }
   }

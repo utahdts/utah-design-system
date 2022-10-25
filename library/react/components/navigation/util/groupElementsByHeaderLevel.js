@@ -1,5 +1,5 @@
 export default function groupElementsByHeaderLevel(headers) {
-  console.warn('Need to jest unit test: groupElementsByHeaderLevel');
+  // console.warn('Need to jest unit test: groupElementsByHeaderLevel');
   if (!headers?.length) {
     return [];
   }

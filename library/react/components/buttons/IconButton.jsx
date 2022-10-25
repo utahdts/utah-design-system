@@ -22,7 +22,7 @@ function IconButton({
     <button
       {...rest}
       onClick={handleEvent(onClick)}
-      className={joinClassNames(className, 'icon-button icon-button--plain mr-spacing')}
+      className={joinClassNames(className, 'icon-button icon-button--plain')}
       type="button"
     >
       {icon}

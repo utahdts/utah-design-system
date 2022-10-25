@@ -36,7 +36,7 @@ function ButtonDocumentation() {
       <h1 id="h1-top">Button</h1>
       <p className="lead-in">A <code>&lt;button&gt;</code> element is a clickable component that triggers an action.</p>
       <hr />
-      <h2>Example</h2>
+      <h2 id="section-example">Example</h2>
       <SandboxExample
         CODE_EXAMPLE={ButtonExampleCodeReact}
         PROPS_EXAMPLE={ButtonExampleProps}
@@ -267,8 +267,8 @@ function ButtonDocumentation() {
           </ul>
         )}
       />
-      <h2 className="mb-spacing">Guidance</h2>
-      <h3>When to use</h3>
+      <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
+      <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
         <li>Use a button to indicate an action.</li>
         <li>
@@ -280,7 +280,7 @@ function ButtonDocumentation() {
         </li>
       </ul>
 
-      <h3>When to use something else</h3>
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>Generally, use a link for navigation, especially when there are other action buttons in the view.</li>
         <li>Always, use a link for navigation within a paragraph of text.</li>
@@ -296,7 +296,7 @@ function ButtonDocumentation() {
         </li>
       </ul>
 
-      <h3 className="mb-spacing">Usability guidance</h3>
+      <h3 id="section-usability" className="mb-spacing">Usability guidance</h3>
       <ul className="mb-spacing">
         <li>Keep button text short. Use action words to describe what the button will do.</li>
         <li>Use Title Case capitalization.
@@ -316,13 +316,13 @@ function ButtonDocumentation() {
         <li>Generally avoid stacking one button on top of another. Place them side-by-side if there is room.</li>
       </ul>
 
-      <h3 className="mb-spacing">Accessability</h3>
-      <h4>Contrast</h4>
+      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
         <li>The button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
       </ul>
-      <h4>Keyboard interactivity</h4>
+      <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
         <li>The button should display a visible focus state when users tab to them. This focus state should be <code>3:1</code> contrast ratio.</li>
         <li>
@@ -332,12 +332,12 @@ function ButtonDocumentation() {
           </ul>
         </li>
       </ul>
-      <h4>Screen readers</h4>
+      <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>A Button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG).</li>
       </ul>
 
-      <h2>Settings and Props</h2>
+      <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
         <TabGroup defaultValue="button-props-css">
           <TabList>
@@ -407,7 +407,6 @@ function ButtonDocumentation() {
             </TabPanel>
 
             <TabPanel tabId="button-props-react">
-              <h3>React Button Properties</h3>
               <div className="documentation-content--small-text">
                 <TableWrapper>
                   <Table className="table--lines-x">
