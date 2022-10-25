@@ -22,7 +22,7 @@ function SwitchDocumentation() {
       <h1>Switch</h1>
       <p className="lead-in">A <code>&lt;switch&gt;</code> element is a switchable component that switches on a switch action.</p>
       <hr />
-      <h2>Example</h2>
+      <h2 id="example">Example</h2>
       <SandboxExample
         CODE_EXAMPLE={SwitchExampleCodeReact}
         PROPS_EXAMPLE={SwitchPrimaryExampleProps}
@@ -57,6 +57,12 @@ function SwitchDocumentation() {
         title="Sizes"
         renderedExample={(
           <div className="flex-col">
+            <Switch
+              label="Small"
+              id="switch-small"
+              size={formElementSizesEnum.SMALL}
+              width={20}
+            />
             <Switch
               label="Medium"
               id="switch-medium"
@@ -121,7 +127,7 @@ function SwitchDocumentation() {
           </ul>
         )}
       />
-      <h2 className="mb-spacing">Guidance</h2>
+      <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
         <li>Use when a user is only allowed to select between two short options.</li>
@@ -132,7 +138,7 @@ function SwitchDocumentation() {
         <li>Don&apos;t use for longer choice names.</li>
       </ul>
 
-      <h2>Settings and Props</h2>
+      <h2 id="settings">Settings and Props</h2>
       <div className="documentation-content--small-text">
         <TabGroup defaultValue="switch-props-css">
           <TabList>
@@ -150,6 +156,10 @@ function SwitchDocumentation() {
                     </TableHeadRow>
                   </TableHead>
                   <TableBody>
+                    <TableRow>
+                      <TableCell><code>.switch--small</code></TableCell>
+                      <TableCell>CSS class modifier for a small switch.</TableCell>
+                    </TableRow>
                     <TableRow>
                       <TableCell><code>.switch--large</code></TableCell>
                       <TableCell>CSS class modifier for a large switch.</TableCell>
@@ -288,6 +298,8 @@ function SwitchDocumentation() {
                         <TableCell>
                           <div className="props-code-wrapper">
                             <code>formElementSizesEnum</code>
+                            <span> | </span>
+                            <code>&apos;small&apos;</code>
                             <span> | </span>
                             <code>&apos;medium&apos;</code>
                             <span> | </span>
