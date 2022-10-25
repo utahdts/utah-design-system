@@ -39,6 +39,22 @@ input[type=checkbox].switch {
       @include tools-index.form-ele-focus-appearance;
     }
   }
+  &--small {
+    &.switch__wrapper {
+      min-height: var(--form-ele-small4x);
+    }
+
+    .switch__slider {
+      height: var(--form-ele-small4x);
+      width: var(--form-ele-small4x);
+    }
+
+    .switch__inner-label {
+      font-size: var(--font-size-xs);
+      height: var(--form-ele-small4x);
+      line-height: var(--form-ele-small4x);
+    }
+  }
   &--large {
     &.switch__wrapper {
       min-height: var(--form-ele-small1x);
@@ -47,10 +63,6 @@ input[type=checkbox].switch {
     .switch__slider {
       height: var(--form-ele-small1x);
       width: var(--form-ele-small1x);
-    }
-
-    .switch__label {
-      font-size: var(--font-size-l);
     }
   }
   &__slider {

@@ -19,7 +19,7 @@ const propTypes = {
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
-  size: PropTypes.oneOf([formElementSizesEnum.MEDIUM, formElementSizesEnum.LARGE]),
+  size: PropTypes.oneOf([formElementSizesEnum.SMALL, formElementSizesEnum.MEDIUM, formElementSizesEnum.LARGE]),
   sliderChildren: PropTypes.node,
   value: PropTypes.bool,
   width: PropTypes.number,
