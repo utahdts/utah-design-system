@@ -12,17 +12,8 @@
       padding: 0;
       margin-left: calc(0px - var(--spacing));
 
-
       ul {
         margin-left: var(--spacing);
-
-        // do we want a line?
-        // &:first-of-type {
-        //   border-left: 1px solid #DBDBDB;
-        // }
-        a {
-          padding-left: var(--spacing-l);
-        }
       }
       a {
         text-decoration: none;
