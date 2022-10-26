@@ -57,6 +57,7 @@ function Button({
   onClick,
   size,
   type,
+  ...rest
 }) {
   return (
     <button
@@ -74,6 +75,7 @@ function Button({
       ref={innerRef}
       // eslint-disable-next-line react/button-has-type
       type={type}
+      {...rest}
     >
       {
         iconLeft

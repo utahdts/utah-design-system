@@ -29,7 +29,8 @@ variables and settings
   --gray-on-accent-color: #474747;
 
   --form-ele-color: #{color-swatches.$azul-05};
-  --form-ele-disabled-color :#{color-swatches.$neutral-gray-10};
+  --form-ele-color-light: #{color-swatches.$azul-10};
+  --form-ele-disabled-color: #{color-swatches.$neutral-gray-10};
 
   /* ######## --------------------------------------------- ######## */
 
@@ -40,6 +41,7 @@ variables and settings
   --gray-dark-color: #{color-swatches.$neutral-gray-02};
 
   --hover-gray-color: rgba(0,0,0,0.07);
+  --hover-gray-color-opaque: rgba(233,233,233);
 
   --code-color: #{color-swatches.$neutral-gray-16};
   --gray-border: #{color-swatches.$neutral-gray-15};
@@ -59,13 +61,14 @@ variables and settings
   --radius-circle: 999px;
 
   /* form element sizes */
+  --form-ele-small4x: .75rem;      //small switch
   --form-ele-small3x: 1rem;
   --form-ele-small2x: 1.25rem;
   --form-ele-small1x: 1.5rem;
-  --form-ele-small: 1.875rem;
-  --form-ele-medium: 2.25rem;
-  --form-ele-large: 2.5rem;
-  --form-ele-large1x: 3.125rem;
+  --form-ele-small: 1.875rem;    //small button
+  --form-ele-medium: 2.25rem;    //medium button
+  --form-ele-large: 2.5rem;      //large button
+  --form-ele-large1x: 3.125rem;  //large1x button
 
   --form-checkbox-small: 0.875rem;
   --form-checkbox-medium: 1.125rem;
@@ -78,7 +81,7 @@ variables and settings
   --documentation-width: 700px;
   --documentation-left-width: 200px;
   --documentation-right-width: 200px;
-  --documentation-padding: var(--spacing-4xl) var(--spacing-xl);
+  --documentation-padding: var(--spacing-2xl) var(--spacing-xl);
 }
 
  /* color utility classes */

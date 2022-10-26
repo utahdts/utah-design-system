@@ -12,7 +12,6 @@ const propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 const defaultProps = {
-  // todo: no magic number!
   colorGray: null,
   isSelected: false,
 };

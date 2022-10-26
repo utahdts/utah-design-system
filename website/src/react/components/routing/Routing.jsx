@@ -1,23 +1,22 @@
+import { useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import {
-  DocumentationTemplate,
-  LandingTemplate,
-} from 'utah-design-system-react-library';
+import { DocumentationTemplate, LandingTemplate } from 'utah-design-system-react-library';
 import OnThisPage from 'utah-design-system-react-library/react/components/navigation/OnThisPage';
 import SidePanelNavigation from 'utah-design-system-react-library/react/components/navigation/SidePanelNavigation';
 import useCurrentMenuItem from 'utah-design-system-react-library/react/hooks/useCurrentMenuItem';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
+import HomeLanding from '../websiteContent/HomeLanding';
 import allMenus from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
-import HomeLanding from '../websiteContent/HomeLanding';
 
 const propTypes = {};
 const defaultProps = {};
 
 function Routing() {
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
+  const contentRef = useRef();
 
   return (
     <Routes>
@@ -52,10 +51,11 @@ function Routing() {
             element = (
               <DocumentationTemplate
                 content={page.content}
+                contentRef={contentRef}
                 currentMenuItem={currentMenuItem}
                 mainMenu={allMenus.menuMain}
                 sidePanelLeftContent={<SidePanelNavigation currentMenuItem={currentMenuItem} menus={menuSecondary} />}
-                sidePanelRightContent={<OnThisPage />}
+                sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />
             );
           }

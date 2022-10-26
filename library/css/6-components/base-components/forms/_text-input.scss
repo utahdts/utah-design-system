@@ -11,10 +11,5 @@ input[type="text"] {
   box-sizing: border-box;
 
   @include tools-index.form-ele-hover-medium;
-
-  &:focus-visible {
-    outline: 2px solid var(--secondary-color);
-    border-color: var(--secondary-color);
-  }
-
+  @include tools-index.form-ele-focus;
 }

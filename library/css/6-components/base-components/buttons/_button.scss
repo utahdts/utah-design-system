@@ -1,4 +1,5 @@
 @use "../../../1-settings/class-vars";
+@use "../../../2-tools/tools-index";
 
 /*
 ############     _button.scss      ############
@@ -41,6 +42,9 @@
       transform: scale(.96);
       box-shadow: inset 0 3px 5px rgba(0,0,0,0.5);
     }
+
+    @include tools-index.form-ele-focus;
+
   }
   .button {
 

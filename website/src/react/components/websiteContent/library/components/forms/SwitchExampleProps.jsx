@@ -27,7 +27,6 @@ function SwitchExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
-        // eslint-disable-next-line no-param-reassign
         draftState.props.icon = DEFAULT_ICON;
         draftState.props.label = 'Switch Label';
         draftState.props.labelOff = 'Label Off';
@@ -67,6 +66,12 @@ function SwitchExampleProps({ setState, state }) {
           <TextInput id="props.labelOn" label="Label - On" className="input--height-small1x" />
 
           <Switch id="props.value" label="Value" labelOn="On" labelOff="Off" width={40} />
+
+          <Select id="props.size" label="Size" className="input--height-small1x">
+            <SelectOption label="Small" value={formElementSizesEnum.SMALL} />
+            <SelectOption label="Medium" value={formElementSizesEnum.MEDIUM} />
+            <SelectOption label="Large" value={formElementSizesEnum.LARGE} />
+          </Select>
 
           <TextInput id="props.width" label="Width" className="input--height-small1x" />
 

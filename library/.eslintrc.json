@@ -54,6 +54,7 @@
         "custom": "enforce",
         "explicitSpread": "enforce"
       }
-    ]
+    ],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsForRegex": ["^draft"] }]
   }
 }
