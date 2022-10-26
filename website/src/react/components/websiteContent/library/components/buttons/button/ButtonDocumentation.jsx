@@ -78,11 +78,10 @@ function ButtonDocumentation() {
         quickTips={(
           <ul>
             <li>Used to emphasize a button when multiple buttons appear on a page or in close proximity.</li>
+            <li>Limit the number of emphasized buttons in a view to ensure your button emphasis isn’t diluted</li>
             <li>When used in proximity to other buttons:
               <ul>
                 <li>Should appear on the right.</li>
-                {/* TODO: Talk about tab order!!!! */}
-                <li>Comes before unemphasized buttons in the tab order.</li>
               </ul>
             </li>
             <li>Solid color.</li>
@@ -125,12 +124,10 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Used to deemphasize a button. The default look of a non-emphasized button.</li>
+            <li>Used to deemphasize a button. This is the default look of a button.</li>
             <li>When used in proximity to other buttons:
               <ul>
                 <li>Should appear on the left of an emphasized button.</li>
-                {/* TODO: Talk about tab order!!!! */}
-                <li>Comes after emphasized buttons in the tab order.</li>
               </ul>
             </li>
             <li>Solid outline. Text matches the button color.</li>
@@ -321,10 +318,11 @@ function ButtonDocumentation() {
       <ul className="mb-spacing">
         <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
         <li>The button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
+        <li>The button’s focus state should be <code>3:1</code> contrast ratio.</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>The button should display a visible focus state when users tab to them. This focus state should be <code>3:1</code> contrast ratio.</li>
+        <li>The button should display a visible focus state when users tab to them.</li>
         <li>
           Avoid using non-standard html markup for a button such as a <code>div</code> tag.
           <ul>
