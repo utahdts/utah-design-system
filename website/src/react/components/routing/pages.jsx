@@ -13,6 +13,7 @@ import SwitchDocumentation from '../websiteContent/library/components/forms/Swit
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import pageUrls from './pageUrls';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
+import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -320,7 +321,7 @@ const pages = {
   },
 
   iconButton: {
-    content: <SegmentedButtonDocumentation />,
+    content: <IconButtonDocumentation />,
     link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',
