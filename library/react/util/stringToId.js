@@ -1,6 +1,6 @@
 /**
  * Convert an input string such as a title to a valid html id
- * @param {string} inputString The string to convert to a html id string
+ * @param {string} inputString The string to convert to an html id string
  */
 export default function stringToId(inputString) {
   let retVal;
