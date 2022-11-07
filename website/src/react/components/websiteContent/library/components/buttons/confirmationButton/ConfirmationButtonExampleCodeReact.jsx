@@ -46,11 +46,11 @@ function ConfirmationButtonExampleCode({
   return (
     <>
       &lt;
-      {`Button${displayedProps.length ? ' ' : ''}`}
+      {`ConfirmationButton${displayedProps.length ? ' ' : ''}`}
       {displayedProps.join(' ')}
       &gt;
       {title}
-      &lt;/Button&gt;
+      &lt;/ConfirmationButton&gt;
     </>
   );
 }

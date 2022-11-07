@@ -1,5 +1,6 @@
 import packageJson from './package.json';
 import Button from './react/components/buttons/Button';
+import ConfirmationButton from './react/components/buttons/ConfirmationButton';
 import IconButton from './react/components/buttons/IconButton';
 import SegmentedButton from './react/components/buttons/SegmentedButton';
 import Accordion from './react/components/containers/accordion/Accordion';
@@ -60,6 +61,7 @@ const { version } = packageJson;
 export {
   Accordion,
   Button,
+  ConfirmationButton,
   CheckBox,
   DocumentationTemplate,
   handleEvent,
