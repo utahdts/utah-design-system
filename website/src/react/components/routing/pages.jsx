@@ -4,7 +4,7 @@ import Demo from '../demo/Demo';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import HomeLanding from '../websiteContent/HomeLanding';
-import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/SegmentedButtonDocumentation';
+import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
@@ -13,6 +13,7 @@ import SwitchDocumentation from '../websiteContent/library/components/forms/Swit
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import pageUrls from './pageUrls';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
+import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -320,7 +321,7 @@ const pages = {
   },
 
   iconButton: {
-    content: <SegmentedButtonDocumentation />,
+    content: <IconButtonDocumentation />,
     link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',

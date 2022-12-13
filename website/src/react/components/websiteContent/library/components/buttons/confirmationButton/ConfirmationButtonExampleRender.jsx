@@ -1,9 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { RefShape, useBanner } from 'utah-design-system-react-library';
-import Button from 'utah-design-system-react-library/react/components/buttons/Button';
+import {
+  ConfirmationButton,
+  Icons,
+  RefShape,
+  useBanner,
+} from 'utah-design-system-react-library';
 import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
-import Icons from '../../../../../icons/Icons';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -35,7 +38,7 @@ function ConfirmationButtonExampleRender({
 }) {
   const showBanner = useBanner();
   return (
-    <Button
+    <ConfirmationButton
       appearance={appearance}
       className={className}
       color={color}
@@ -50,7 +53,7 @@ function ConfirmationButtonExampleRender({
       type={type}
     >
       {title || ''}
-    </Button>
+    </ConfirmationButton>
   );
 }
 

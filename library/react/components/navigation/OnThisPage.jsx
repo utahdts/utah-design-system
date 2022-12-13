@@ -13,13 +13,12 @@ function OnThisPage({ contentRef }) {
   const headersTree = groupElementsByHeaderLevel(headers);
 
   return (
-    <div>
+    <div className="on-this-page">
       {
         headersTree?.length
           ? (
             <>
-              === On This Page ===
-              <br />
+              <h2 className="on-this-page__header">On this page</h2>
               <OnThisPageHeadersLevel headersLevel={headersTree} />
             </>
           )

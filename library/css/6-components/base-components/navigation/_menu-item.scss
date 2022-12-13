@@ -25,7 +25,14 @@
       }
     }
     &__chevron {
-
+      transform: rotate(-90deg);
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+      &--open {
+        transform: rotate(0deg);
+      }
     }
     &__sub-menu {
       display: none;

@@ -10,14 +10,20 @@ const defaultProps = {};
 
 function OnThisPageHeadersLevel({ headersLevel }) {
   return (
-    <ul>
+    <ul className="on-this-page__list">
       {
-        headersLevel.map((header) => (
-          <li key={`on-this-page-ul-${header.node.id}`}>
-            <a href={`#${header.node.id}`}>{header.node.innerHTML}</a>
-            {header.children?.length ? <OnThisPageHeadersLevel headersLevel={header.children} /> : null}
-          </li>
-        ))
+        headersLevel.map((header) => {
+          let node = null;
+          if (header.node.id) {
+            node = (
+              <li key={`on-this-page-ul-${header.node.id}`}>
+                <a href={`#${header.node.id}`}>{header.node.innerHTML}</a>
+                {header.children?.length ? <OnThisPageHeadersLevel headersLevel={header.children} /> : null}
+              </li>
+            );
+          }
+          return node;
+        })
       }
     </ul>
   );

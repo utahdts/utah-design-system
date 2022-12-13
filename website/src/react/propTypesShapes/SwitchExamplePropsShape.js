@@ -8,6 +8,7 @@ export default PropTypes.exact({
   label: PropTypes.string,
   labelOff: PropTypes.string,
   labelOn: PropTypes.string,
+  size: PropTypes.string,
   value: PropTypes.bool,
   width: PropTypes.number,
 });

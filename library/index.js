@@ -1,5 +1,6 @@
 import packageJson from './package.json';
 import Button from './react/components/buttons/Button';
+import ConfirmationButton from './react/components/buttons/ConfirmationButton';
 import IconButton from './react/components/buttons/IconButton';
 import SegmentedButton from './react/components/buttons/SegmentedButton';
 import Accordion from './react/components/containers/accordion/Accordion';
@@ -53,12 +54,14 @@ import joinClassNames from './react/util/joinClassNames';
 import rectContainsPoint from './react/util/rectContainsPoint';
 import setValueAtPath from './react/util/state/setValueAtPath';
 import valueAtPath from './react/util/state/valueAtPath';
+import Icons from './react/components/icons/Icons';
 
 const { version } = packageJson;
 
 export {
   Accordion,
   Button,
+  ConfirmationButton,
   CheckBox,
   DocumentationTemplate,
   handleEvent,
@@ -68,6 +71,7 @@ export {
   FormContextProvider,
   formElementSizesEnum,
   IconButton,
+  Icons,
   joinClassNames,
   LandingTemplate,
   HorizontalMenu,

@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { RefShape, Switch } from 'utah-design-system-react-library';
+import { Icons, RefShape, Switch } from 'utah-design-system-react-library';
 import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
-import Icons from '../../../../icons/Icons';
 
 const propTypes = {
   innerRef: RefShape,
@@ -26,6 +25,7 @@ function SwitchExampleRender({
       label,
       labelOff,
       labelOn,
+      size,
       value,
       width,
     },
@@ -41,6 +41,7 @@ function SwitchExampleRender({
       labelOff={labelOff}
       labelOn={labelOn}
       value={!!value}
+      size={size}
       width={width}
       innerRef={innerRef}
       onChange={() => setState((draftState) => {

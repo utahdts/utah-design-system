@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import Icons from '../icons/Icons';
 import useStateEffect from '../../hooks/useStateEffect';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import joinClassNames from '../../util/joinClassNames';
@@ -36,6 +37,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
   );
 
   if ((!menuItem?.link || menuItem?.link?.includes('::') || menuItem.children) && !menuItem.id) {
+    // eslint-disable-next-line no-console
     console.error('A parent MenuItem requires an `id` to empower aria-labelledby', menuItem);
   }
 
@@ -82,16 +84,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
                   isChildrenOpen && 'menu-item__chevron--open'
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                icon={(
-                  <svg
-                    height="20"
-                    width="20"
-                    style={{ fill: 'currentColor' }}
-                    className={isChildrenOpen ? '' : 'rotate270'}
-                  >
-                    <path d="M10 12.812 5 7.812 6.229 6.583 10 10.354 13.771 6.583 15 7.812Z" />
-                  </svg>
-                )}
+                icon={Icons.IconChevron()}
               />
             )
             : null
