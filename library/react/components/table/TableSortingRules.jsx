@@ -25,6 +25,7 @@ function TableSortingRules({
   useEffect(
     () => {
       if ((onChange && state.tableSortingOnChange) || (defaultValue && state.tableSortingFieldPath)) {
+        // eslint-disable-next-line no-console
         console.error('A TableWrapper should only have one TableSortingRules section.');
       } else {
         if (onChange) {

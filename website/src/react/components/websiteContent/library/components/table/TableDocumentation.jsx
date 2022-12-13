@@ -104,7 +104,7 @@ function TableDocumentation() {
   return (
     <div className="documentation-content">
 
-      <h3>Dynamic Data Table Example</h3>
+      <h3 id="table__dynamic-table-example">Dynamic Data Table Example</h3>
       <TableWrapper>
         <Table className="my-uber-special-snowflake-table">
           {/* <TableSortingRules
@@ -193,18 +193,28 @@ function TableDocumentation() {
           <TableBody>
             <TableBodyData records={tableData} recordIdField="name">
               <TableBodyDataRowTemplate
-                onClick={({
-                  e,
-                  record,
-                  recordIndex,
-                  records,
-                }) => console.log('TableBodyDataRowTemplate.click', e, record, recordIndex, records)}
-                onDoubleClick={({
-                  e,
-                  record,
-                  recordIndex,
-                  records,
-                }) => console.log('TableBodyDataRowTemplate.doubleClick', e, record, recordIndex, records)}
+                onClick={
+                  ({
+                    e,
+                    record,
+                    recordIndex,
+                    records,
+                  }) => {
+                    // eslint-disable-next-line no-console
+                    console.log('TableBodyDataRowTemplate.click', e, record, recordIndex, records);
+                  }
+                }
+                onDoubleClick={
+                  ({
+                    e,
+                    record,
+                    recordIndex,
+                    records,
+                  }) => {
+                    // eslint-disable-next-line no-console
+                    console.log('TableBodyDataRowTemplate.doubleClick', e, record, recordIndex, records);
+                  }
+                }
                 className={({ record, records }) => (records.length && record.isSelected ? 'selected' : null)}
               >
                 <TableBodyDataCellTemplate recordFieldPath="name" />
@@ -214,7 +224,12 @@ function TableDocumentation() {
                 <TableBodyDataCellTemplate recordFieldPath="potency" />
 
                 <TableBodyDataCellTemplate
-                  onClick={({ record, field }) => console.log('TableBodyDataCellTemplate.click:', record, field)}
+                  onClick={
+                    ({ record, field }) => {
+                      // eslint-disable-next-line no-console
+                      console.log('TableBodyDataCellTemplate.click:', record, field);
+                    }
+                  }
                 >
                   {({ record }) => record.role}
                 </TableBodyDataCellTemplate>
@@ -242,7 +257,12 @@ function TableDocumentation() {
                   {({ record }) => record.uppityDate}
                 </TableBodyDataCellTemplate>
 
-                <TableBodyDataCellTemplate onClick={({ record, field }) => console.log('TableBodyDataCellTemplate.click', record, field)}>
+                <TableBodyDataCellTemplate
+                  onClick={({ record, field }) => {
+                    // eslint-disable-next-line no-console
+                    console.log('TableBodyDataCellTemplate.click', record, field);
+                  }}
+                >
                   {({ record, recordIndex }) => (
                     <>
                       <Switch
@@ -253,6 +273,7 @@ function TableDocumentation() {
                       />
                       <Button
                         onClick={handleEvent((e) => {
+                          // eslint-disable-next-line no-console
                           console.log('td button clicked', e);
                           setTableData((draftRecords) => { draftRecords[recordIndex].selected = !draftRecords[recordIndex].selected; });
                         })}
@@ -265,7 +286,12 @@ function TableDocumentation() {
               </TableBodyDataRowTemplate>
             </TableBodyData>
 
-            <TableRow onClick={() => alert('You have clicked on the pet name!')}>
+            <TableRow
+              onClick={() => {
+                // eslint-disable-next-line no-alert
+                alert('You have clicked on the pet name!');
+              }}
+            >
               <TableCell>
                 <div>
                   <span>petName</span>
@@ -323,7 +349,7 @@ function TableDocumentation() {
         {/* Should pagination be in a tfoot? no. it is outside of groupings and outside of the table! */}
       </TableWrapper>
 
-      <h3>Static Table Example</h3>
+      <h3 id="table__static-table-example">Static Table Example</h3>
       <TableWrapper className="austin-class-to-see-the-data">
         <Table>
           <TableHead>
