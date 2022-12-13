@@ -5,7 +5,7 @@ import {
   Tab,
   TabPanels,
   TabPanel, TableWrapper, Table, TableHead, TableHeadRow, TableHeadCell, TableBody, TableRow, TableCell, Switch, formElementSizesEnum,
-} from 'utah-design-system-react-library';
+} from '@utahdts/utah-design-system';
 import SandboxExample from '../../../../sandbox/SandboxExample';
 import SwitchExampleCodeReact from './SwitchExampleCodeReact';
 import SwitchExampleRender from './SwitchExampleRender';

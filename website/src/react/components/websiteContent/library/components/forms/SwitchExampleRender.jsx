@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
-import { Icons, RefShape, Switch } from 'utah-design-system-react-library';
+import { Icons, RefShape, Switch } from '@utahdts/utah-design-system';
 import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
 
 const propTypes = {

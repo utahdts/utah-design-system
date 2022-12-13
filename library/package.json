@@ -1,5 +1,5 @@
 {
-  "name": "utah-design-system-react-library",
+  "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
   "version": "0.0.1",
@@ -7,7 +7,9 @@
   "scripts": {
     "test:ci": "NODE_OPTIONS='--experimental-vm-modules' jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
-    "testw": "NODE_OPTIONS='--experimental-vm-modules' jest --watch"
+    "testw": "NODE_OPTIONS='--experimental-vm-modules' jest --watch",
+    "sass-build": "sass --no-source-map ./css/index.scss ./css/build/utah-design-system.css",
+    "test-publish": "npm publish --dry-run"
   },
   "repository": {
     "type": "git",

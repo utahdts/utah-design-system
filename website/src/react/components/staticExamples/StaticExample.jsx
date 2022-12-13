@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import stringToId from 'utah-design-system-react-library/react/util/stringToId';
+import stringToId from '@utahdts/utah-design-system/react/util/stringToId';
 
 const propTypes = {
   quickTips: PropTypes.node,

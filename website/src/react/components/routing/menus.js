@@ -1,4 +1,4 @@
-import calculateMenuItemsParents from 'utah-design-system-react-library/react/util/menuItems/calculateMenuItemsParents';
+import calculateMenuItemsParents from '@utahdts/utah-design-system/react/util/menuItems/calculateMenuItemsParents';
 import pages from './pages';
 
 const menuMain = {
