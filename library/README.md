@@ -48,7 +48,7 @@ At a limited scale, some files have been pre-processed to CSS so that it can be 
 unpkg.com/:package@:version/:file
 ```
 
-| resource                | supports | CDN URL                                                                                 |
-|-------------------------|---|-----------------------------------------------------------------------------------------|
-| index.scss<br>(All CSS) |Auro WCs| https://unpkg.com/@utahdts/utah-design-system@:version/css/build/utah-design-system.css |
+| resource                |  CDN URL                                                                                 |
+|-------------------------|-----------------------------------------------------------------------------------------|
+| index.scss<br>(All CSS) | https://unpkg.com/@utahdts/utah-design-system@:version/css/build/utah-design-system.css |
 
