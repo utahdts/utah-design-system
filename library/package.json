@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "0.0.1",
+  "version": "0.0.2-beta",
   "main": "index.js",
   "scripts": {
     "test:ci": "NODE_OPTIONS='--experimental-vm-modules' jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",

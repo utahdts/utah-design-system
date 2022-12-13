@@ -1,7 +1,7 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "0.0.2-beta",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
