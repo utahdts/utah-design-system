@@ -39,7 +39,7 @@ function TableWrapper({
       // onChange to call for any filter change
       onChange: null,
       // value - object of [recordFieldPath]:value pairs for filtering inputs
-      value: null,
+      value: {},
     },
     // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order
     sortingRules: {},

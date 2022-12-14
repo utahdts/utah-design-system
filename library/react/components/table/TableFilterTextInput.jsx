@@ -23,7 +23,7 @@ const defaultProps = {
   value: null,
 };
 
-function TableFilter({
+function TableFilterTextInput({
   className,
   defaultValue,
   innerRef,
@@ -45,7 +45,7 @@ function TableFilter({
     value,
   });
   return (
-    <th className={joinClassNames('some-TableFilter-className', className)} id={id} ref={innerRef}>
+    <th className={joinClassNames('some-TableFilterTextInput-className', className)} id={id} ref={innerRef}>
       <TextInput
         id={`table-filter-text-input-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}
@@ -58,7 +58,7 @@ function TableFilter({
   );
 }
 
-TableFilter.propTypes = propTypes;
-TableFilter.defaultProps = defaultProps;
+TableFilterTextInput.propTypes = propTypes;
+TableFilterTextInput.defaultProps = defaultProps;
 
-export default TableFilter;
+export default TableFilterTextInput;

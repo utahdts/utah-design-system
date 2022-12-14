@@ -21,6 +21,7 @@ import {
 import TableSortingRule from 'utah-design-system-react-library/react/components/table/TableSortingRule';
 import TableSortingRules from 'utah-design-system-react-library/react/components/table/TableSortingRules';
 import tableSortingRuleFieldType from 'utah-design-system-react-library/react/enums/tableSortingRuleFieldType';
+import TableDocumentationFilteringTableExample from './exampleTables/TableDocumentationFilteringTableExample';
 import TableDocumentationSimpleTableExample from './exampleTables/TableDocumentationSimpleTableExample';
 import TableDocumentationSortingTableExample from './exampleTables/TableDocumentationSortingTableExample';
 
@@ -108,6 +109,7 @@ function TableDocumentation() {
 
       <TableDocumentationSimpleTableExample />
       <TableDocumentationSortingTableExample />
+      <TableDocumentationFilteringTableExample />
       {/* filtering */}
       {/* totals */}
       {/* pagination */}

@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
-import joinClassNames from '../../util/joinClassNames';
+import SelectOption from '../forms/SelectOption';
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   innerRef: RefShape,
   id: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  value: PropTypes.any.isRequired,
 };
 const defaultProps = {
   className: null,
@@ -14,21 +16,28 @@ const defaultProps = {
   id: null,
 };
 
-function TableFilter({
-  children,
+function TableFilterSelectOption({
   className,
   innerRef,
   id,
+  label,
+  value,
   ...rest
 }) {
   return (
-    <th className={joinClassNames('some-TableFilter-classname', className)} id={id} ref={innerRef} {...rest}>
-      {children}
-    </th>
+    <SelectOption
+      className={className}
+      innerRef={innerRef}
+      id={id}
+      label={label}
+      value={value}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...rest}
+    />
   );
 }
 
-TableFilter.propTypes = propTypes;
-TableFilter.defaultProps = defaultProps;
+TableFilterSelectOption.propTypes = propTypes;
+TableFilterSelectOption.defaultProps = defaultProps;
 
-export default TableFilter;
+export default TableFilterSelectOption;
