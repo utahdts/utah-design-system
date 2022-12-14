@@ -12,7 +12,7 @@ import {
 import TableSortingRule from 'utah-design-system-react-library/react/components/table/TableSortingRule';
 import TableSortingRules from 'utah-design-system-react-library/react/components/table/TableSortingRules';
 import tableSortingRuleFieldType from 'utah-design-system-react-library/react/enums/tableSortingRuleFieldType';
-import exampleData from './exampleData';
+import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};
 const defaultProps = {};
@@ -60,7 +60,7 @@ function TableDocumentationSortingTableExample() {
           </TableHead>
 
           <TableBody>
-            <TableBodyData records={exampleData} recordIdField="id">
+            <TableBodyData records={examplePresidentsData} recordIdField="id">
               <TableBodyDataRowTemplate>
                 <TableBodyDataCellTemplate recordFieldPath="name" />
                 <TableBodyDataCellTemplate recordFieldPath="nthPresident" />

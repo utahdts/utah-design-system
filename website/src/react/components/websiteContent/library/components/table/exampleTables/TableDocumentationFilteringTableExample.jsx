@@ -15,7 +15,7 @@ import {
   TableWrapper,
 } from 'utah-design-system-react-library';
 import TableFilterDate from 'utah-design-system-react-library/react/components/table/TableFilterDate';
-import exampleData from './exampleData';
+import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};
 const defaultProps = {};
@@ -98,7 +98,7 @@ function TableDocumentationFilteringTableExample() {
           </TableHead>
 
           <TableBody>
-            <TableBodyData records={exampleData} recordIdField="id">
+            <TableBodyData records={examplePresidentsData} recordIdField="id">
               <TableBodyDataRowTemplate>
                 <TableBodyDataCellTemplate recordFieldPath="name" />
                 <TableBodyDataCellTemplate recordFieldPath="nthPresident" />
