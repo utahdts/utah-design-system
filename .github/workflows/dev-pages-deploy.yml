@@ -20,6 +20,7 @@ jobs:
           npm install
           cd library
           npm run sass-build
+          npm run rollup
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

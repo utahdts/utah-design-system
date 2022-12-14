@@ -26,10 +26,16 @@ $ npm i @utahdts/utah-design-system
 ### Using the React components
 
 ```JavaScript
+// compiled
 import { DocumentationTemplate, LandingTemplate } from '@utahdts/utah-design-system';
+
+// uncompiled style
 import OnThisPage from '@utahdts/utah-design-system/react/components/navigation/OnThisPage';
 import SidePanelNavigation from '@utahdts/utah-design-system/react/components/navigation/SidePanelNavigation';
 import useCurrentMenuItem from '@utahdts/utah-design-system/react/hooks/useCurrentMenuItem';
+
+//import all scss
+import '@utahdts/utah-design-system/css/index.scss';
 ```
 
 ### Using the files in Sass
@@ -46,6 +52,7 @@ At a limited scale, some files have been pre-processed to CSS so that it can be 
 
 ```
 unpkg.com/:package@:version/:file
+unpkg.com/@utahdts/utah-design-system@0.0.2/css/build/utah-design-system.css
 ```
 
 | resource                |  CDN URL                                                                                 |

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';

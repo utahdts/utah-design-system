@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import RefShape from '../../propTypesShapes/RefShape';

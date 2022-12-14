@@ -2,12 +2,19 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "0.0.2-beta",
-  "main": "index.js",
+  "version": "0.0.2",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "css",
+    "dist",
+    "react"
+  ],
   "scripts": {
     "test:ci": "NODE_OPTIONS='--experimental-vm-modules' jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "testw": "NODE_OPTIONS='--experimental-vm-modules' jest --watch",
+    "rollup": "rollup -c",
     "sass-build": "sass --no-source-map ./css/index.scss ./css/build/utah-design-system.css",
     "test-publish": "npm publish --dry-run"
   },
@@ -38,6 +45,13 @@
     "use-immer": "0.7.0"
   },
   "devDependencies": {
+    "@babel/core": "7.20.5",
+    "@babel/preset-env": "7.20.2",
+    "@babel/preset-react": "7.18.6",
+    "@rollup/plugin-babel": "6.0.3",
+    "@rollup/plugin-commonjs": "21.0.1",
+    "@rollup/plugin-json": "5.0.2",
+    "@rollup/plugin-node-resolve": "13.0.6",
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
     "eslint": "8.23.1",
