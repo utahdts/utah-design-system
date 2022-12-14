@@ -12,4 +12,4 @@ export default function findElementsByTagNameMatch(element) {
   ]
     .flat(Infinity)
     .filter(identity);
-};
+}
