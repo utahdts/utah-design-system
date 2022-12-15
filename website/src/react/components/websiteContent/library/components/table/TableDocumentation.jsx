@@ -1,5 +1,6 @@
 import TableDocumentationFilteringTableExample from './exampleTables/TableDocumentationFilteringTableExample';
 import TableDocumentationFooterExample from './exampleTables/TableDocumentationFooterExample';
+import TableDocumentationPaginationTableExample from './exampleTables/TableDocumentationPaginationTableExample';
 import TableDocumentationSimpleTableExample from './exampleTables/TableDocumentationSimpleTableExample';
 import TableDocumentationSortingTableExample from './exampleTables/TableDocumentationSortingTableExample';
 
@@ -14,11 +15,7 @@ function TableDocumentation() {
       <TableDocumentationSortingTableExample />
       <TableDocumentationFilteringTableExample />
       <TableDocumentationFooterExample />
-
-      {/* pagination */}
-
-      {/* <TablePagination recordsPerPage={25} /> */}
-      {/* Should pagination be in a tfoot? no. it is outside of groupings and outside of the table! */}
+      <TableDocumentationPaginationTableExample />
 
     </div>
   );

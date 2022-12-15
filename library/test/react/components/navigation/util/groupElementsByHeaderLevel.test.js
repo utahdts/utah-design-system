@@ -1,4 +1,4 @@
-import groupElementsByHeaderLevel from '../../../../../react/components/navigation/util/groupElementsByHeaderLevel'
+import groupElementsByHeaderLevel from '../../../../../react/components/navigation/util/groupElementsByHeaderLevel';
 
 test('groupElementsByHeaderLevel: empty', () => {
   expect(groupElementsByHeaderLevel([])).toStrictEqual([]);

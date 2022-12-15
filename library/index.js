@@ -18,8 +18,11 @@ import Select from './react/components/forms/Select';
 import SelectOption from './react/components/forms/SelectOption';
 import Switch from './react/components/forms/Switch';
 import TextInput from './react/components/forms/TextInput';
+import Icons from './react/components/icons/Icons';
 import HorizontalMenu from './react/components/navigation/HorizontalMenu';
 import MainMenu from './react/components/navigation/MainMenu';
+import Pagination from './react/components/pagination/Pagination';
+import usePaginatedList from './react/components/pagination/usePaginatedList';
 import Table from './react/components/table/Table';
 import TableBody from './react/components/table/TableBody';
 import TableBodyData from './react/components/table/TableBodyData';
@@ -54,7 +57,6 @@ import joinClassNames from './react/util/joinClassNames';
 import rectContainsPoint from './react/util/rectContainsPoint';
 import setValueAtPath from './react/util/state/setValueAtPath';
 import valueAtPath from './react/util/state/valueAtPath';
-import Icons from './react/components/icons/Icons';
 
 const { version } = packageJson;
 
@@ -77,12 +79,13 @@ export {
   HorizontalMenu,
   MainMenu,
   MenuItemShape,
-  SelectOption,
+  Pagination,
   rectContainsPoint,
   RefShape,
   SegmentedButton,
   setValueAtPath,
   Select,
+  SelectOption,
   Switch,
   Tab,
   TabGroup,
@@ -112,6 +115,7 @@ export {
   TabPanels,
   TextInput,
   useBanner,
+  usePaginatedList,
   UtahHeader,
   UtahUnbrand,
   valueAtPath,
