@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - npm_publish
+      - dev
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
@@ -10,29 +10,19 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Setup Node 🚧
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'  
+
       - name: NPM Install 🔧
         run: |
           npm install
-          cd library
-          npm run sass-build
-          npm run rollup
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
-#      - name: Install Website and Build 📖
-#        run: |
-#          cd website
-#          npm run build-dev-pages
-#
-#      - name: Deploy 🚀
-#        uses: JamesIves/github-pages-deploy-action@v4.3.3
-#        with:
-#          branch: gh-pages # The branch the action should deploy to.
-#          folder: website/dist # The folder the action should deploy.
-#          target-folder: dev
+
+      - name: Install Website and Build 📖
+        run: |
+          cd website
+          npm run build-dev-pages
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: website/dist # The folder the action should deploy.
+          target-folder: dev
