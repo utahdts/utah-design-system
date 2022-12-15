@@ -14,7 +14,7 @@ jobs:
       - name: NPM Install 🔧
         run: |
           npm install
-          
+
       - name: Install Website and Build 📖
         run: |
           cd website

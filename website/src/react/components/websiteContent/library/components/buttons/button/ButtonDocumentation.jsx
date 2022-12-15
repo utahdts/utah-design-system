@@ -16,7 +16,7 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-} from 'utah-design-system-react-library';
+} from '@utahdts/utah-design-system';
 import { NavLink } from 'react-router-dom';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import ButtonExampleCodeReact from './ButtonExampleCodeReact';

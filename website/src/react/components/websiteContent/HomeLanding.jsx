@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { NavLink } from 'react-router-dom';
-import { Icons } from 'utah-design-system-react-library';
+import { Icons } from '@utahdts/utah-design-system';
 import travolta from '../../../static/images/travolta.gif';
 import pageUrls from '../routing/pageUrls';
 

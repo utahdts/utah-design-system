@@ -1,0 +1,8 @@
+#tests
+test
+coverage
+jest.config.js
+junit.xml
+
+#linters
+.eslintrc*

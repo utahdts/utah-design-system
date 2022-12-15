@@ -1,7 +1,7 @@
 import { useImmer } from 'use-immer';
-import { FormContextProvider, joinClassNames } from 'utah-design-system-react-library';
-import 'utah-design-system-react-library/css/3-generic/normalize.css';
-import 'utah-design-system-react-library/css/index.scss';
+import { FormContextProvider, joinClassNames } from '@utahdts/utah-design-system';
+import '@utahdts/utah-design-system/css/3-generic/normalize.css';
+import '@utahdts/utah-design-system/css/index.scss';
 import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import Routing from './react/components/routing/Routing';

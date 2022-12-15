@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { formElementSizesEnum } from 'utah-design-system-react-library';
+import { formElementSizesEnum } from '@utahdts/utah-design-system';
 
 export default PropTypes.exact({
   appearance: PropTypes.string,

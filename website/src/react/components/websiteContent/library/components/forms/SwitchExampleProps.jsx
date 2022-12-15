@@ -8,7 +8,7 @@ import {
   SelectOption,
   Switch,
   TextInput,
-} from 'utah-design-system-react-library';
+} from '@utahdts/utah-design-system';
 import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
 
 const propTypes = {
