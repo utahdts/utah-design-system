@@ -50,7 +50,7 @@ function TableHeadCell({
             : 'table-header--sort-opposite-order'
         ),
         (recordFieldPath !== null && tableSortingFieldPath === recordFieldPath) && (
-          (sortingRule.defaultIsAscending && currentSortingOrderIsDefault)
+          (sortingRule?.defaultIsAscending && currentSortingOrderIsDefault)
             ? 'another-bad-classname-saying-that-this-column-is-sorting-by-ascending'
             : 'another-bad-classname-saying-that-this-column-is-sorting-by-descending'
         )
