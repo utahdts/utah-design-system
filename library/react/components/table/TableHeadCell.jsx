@@ -35,6 +35,8 @@ function TableHeadCell({
   ...rest
 }) {
   const { setState, state: { currentSortingOrderIsDefault, sortingRules, tableSortingFieldPath } } = useContext(TableContext);
+  const sortingRule = sortingRules && recordFieldPath && sortingRules[recordFieldPath];
+
   return (
     <th
       className={joinClassNames(
@@ -46,6 +48,11 @@ function TableHeadCell({
           currentSortingOrderIsDefault
             ? 'another-bad-classname-saying-that-this-column-is-sorting-by-default-order'
             : 'another-bad-classname-saying-that-this-column-is-sorting-by-not-default-/-opposite-order'
+        ),
+        (recordFieldPath !== null && tableSortingFieldPath === recordFieldPath) && (
+          (sortingRule.defaultIsAscending && currentSortingOrderIsDefault)
+            ? 'another-bad-classname-saying-that-this-column-is-sorting-by-ascending'
+            : 'another-bad-classname-saying-that-this-column-is-sorting-by-descending'
         )
       )}
       id={id}
