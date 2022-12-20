@@ -19,7 +19,7 @@ function TableDocumentationSimpleTableExample() {
         This is the simplest as it does not have dynamic data, filtering, sorting, nor any other features.
       </p>
       <TableWrapper>
-        <Table id="simple-table">
+        <Table id="simple-table" className="table table--lines-x table--v-align-center">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell>TSP</TableHeadCell>

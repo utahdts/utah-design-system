@@ -19,10 +19,10 @@ const defaultProps = {};
 
 function TableDocumentationSortingTableExample() {
   return (
-    <div className="documentation-content">
+    <div className="documentation-content mt-spacing-l">
       <h3 id="table__sorting-table-example">Table Example: Sorting Data</h3>
       <TableWrapper>
-        <Table>
+        <Table className="table table--lines-x table--alt table--v-align-center table--condensed">
           <TableSortingRules defaultValue="name">
             {/*
               Order here determines which rules to apply first.
@@ -49,12 +49,12 @@ function TableDocumentationSortingTableExample() {
 
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
-              <TableHeadCell recordFieldPath="nthPresident">Nth President</TableHeadCell>
-              <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
-              <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
-              <TableHeadCell recordFieldPath="funFacts">Fun Facts</TableHeadCell>
-              <TableHeadCell recordFieldPath="birthplace" tableSortingFieldPaths={['birthplace.state', 'birthplace.county']}>Birth Place</TableHeadCell>
+              <TableHeadCell recordFieldPath="name" className="text-left">Name</TableHeadCell>
+              <TableHeadCell recordFieldPath="nthPresident" className="text-left">No.</TableHeadCell>
+              <TableHeadCell recordFieldPath="politicalParty" className="text-left">Party</TableHeadCell>
+              <TableHeadCell recordFieldPath="inauguration" className="text-left">Inauguration</TableHeadCell>
+              {/* <TableHeadCell recordFieldPath="funFacts" className="text-left">Fun Facts</TableHeadCell> */}
+              <TableHeadCell recordFieldPath="birthplace" tableSortingFieldPaths={['birthplace.state', 'birthplace.county']} className="text-left">Birth Place</TableHeadCell>
               <TableHeadCell />
             </TableHeadRow>
           </TableHead>
@@ -66,12 +66,12 @@ function TableDocumentationSortingTableExample() {
                 <TableBodyDataCellTemplate recordFieldPath="nthPresident" />
                 <TableBodyDataCellTemplate recordFieldPath="politicalParty" />
                 <TableBodyDataCellTemplate recordFieldPath="inauguration" />
-                <TableBodyDataCellTemplate recordFieldPath="funFacts" />
+                {/* <TableBodyDataCellTemplate recordFieldPath="funFacts" /> */}
                 <TableBodyDataCellTemplate recordFieldPath="birthPlace">
                   {({ record }) => [record.birthplace.county, record.birthplace.state].join(', ')}
                 </TableBodyDataCellTemplate>
                 <TableBodyDataCellTemplate>
-                  <Button onClick={() => { }}>Do Something...</Button>
+                  <Button className="button--small" onClick={() => { }}>More</Button>
                 </TableBodyDataCellTemplate>
               </TableBodyDataRowTemplate>
             </TableBodyData>
