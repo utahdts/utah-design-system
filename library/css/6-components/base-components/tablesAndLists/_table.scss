@@ -75,4 +75,20 @@ table {
       }
     }
   };
+  .table-header {
+    position: relative;
+    &--sorted {
+      &::before {
+        content: '';
+        height: 7px;
+        width: 100%;
+        background: var(--primary-color);
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        border-radius: var(--radius-circle);
+      }
+    }
+  }
 }

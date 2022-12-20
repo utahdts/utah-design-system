@@ -19,8 +19,8 @@ const defaultProps = {};
 
 function TableDocumentationSortingTableExample() {
   return (
-    <div className="documentation-content mt-spacing-l">
-      <h3 id="table__sorting-table-example">Table Example: Sorting Data</h3>
+    <div className="static-example">
+      <h3 id="static-example__title">Table Example: Sorting Data</h3>
       <TableWrapper>
         <Table className="table table--lines-x table--alt table--v-align-center table--condensed">
           <TableSortingRules defaultValue="name">

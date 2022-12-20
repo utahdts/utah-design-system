@@ -38,14 +38,14 @@ function TableHeadCell({
   return (
     <th
       className={joinClassNames(
-        'some-TableHeadCell-classname',
+        'table-header',
         className,
-        (sortingRules[recordFieldPath] || tableSortingFieldPaths) && 'this-td-is-sortable!-by-clicking-on-the-th!',
-        (tableSortingFieldPath === recordFieldPath) && 'i-am-a-bad-classname-denoting-that-this-th-is-currently-the-sorted-column',
-        (tableSortingFieldPath === recordFieldPath) && (
+        (sortingRules[recordFieldPath] || tableSortingFieldPaths) && 'table-header--sortable',
+        (recordFieldPath !== null && tableSortingFieldPath === recordFieldPath) && 'table-header--sorted',
+        (recordFieldPath !== null && tableSortingFieldPath === recordFieldPath) && (
           currentSortingOrderIsDefault
-            ? 'another-bad-classname-saying-that-this-column-is-sorting-by-default-order'
-            : 'another-bad-classname-saying-that-this-column-is-sorting-by-not-default-/-opposite-order'
+            ? 'table-header--sort-default-order'
+            : 'table-header--sort-opposite-order'
         )
       )}
       id={id}
