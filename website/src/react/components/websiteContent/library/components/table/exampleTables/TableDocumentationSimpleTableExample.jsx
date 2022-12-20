@@ -12,14 +12,14 @@ const defaultProps = {};
 
 function TableDocumentationSimpleTableExample() {
   return (
-    <>
-      <h3 id="table__simple-table-example">Table Example: Simple Static Data</h3>
+    <div className="static-example">
+      <h3 id="static-example__title">Table Example: Simple Static Data</h3>
       <p>
         This table is static data using Design System components in a manual layout.
         This is the simplest as it does not have dynamic data, filtering, sorting, nor any other features.
       </p>
       <TableWrapper>
-        <Table id="simple-table">
+        <Table id="simple-table" className="table table--lines-x table--v-align-center">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell>TSP</TableHeadCell>
@@ -125,7 +125,7 @@ function TableDocumentationSimpleTableExample() {
           </TableBody>
         </Table>
       </TableWrapper>
-    </>
+    </div>
   );
 }
 
