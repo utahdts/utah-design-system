@@ -13,7 +13,7 @@ const defaultProps = {};
 function TableDocumentationSimpleTableExample() {
   return (
     <div className="static-example">
-      <h3 id="static-example__title">Table Example: Simple Static Data</h3>
+      <h3 id="table__simple-table-example" className="static-example__title">Table Example: Simple Static Data</h3>
       <p>
         This table is static data using Design System components in a manual layout.
         This is the simplest as it does not have dynamic data, filtering, sorting, nor any other features.

@@ -20,7 +20,7 @@ const defaultProps = {};
 function TableDocumentationSortingTableExample() {
   return (
     <div className="static-example">
-      <h3 id="static-example__title">Table Example: Sorting Data</h3>
+      <h3 id="table__sorting-table-example" className="static-example__title">Table Example: Sorting Data</h3>
       <TableWrapper>
         <Table className="table table--lines-x table--alt table--v-align-center table--condensed">
           <TableSortingRules defaultValue="name">
