@@ -16,6 +16,7 @@ if (window.location.href.includes('/dev/')) {
 } else {
   baseName = 'utah-design-system';
 }
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CssContextProvider>

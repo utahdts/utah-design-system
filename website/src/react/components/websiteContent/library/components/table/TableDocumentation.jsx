@@ -22,7 +22,6 @@ function TableDocumentation() {
       <TableDocumentationFilteringTableExample />
       <TableDocumentationFooterExample />
       <TableDocumentationPaginationTableExample />
-
     </div>
   );
 }

@@ -13,8 +13,8 @@ import {
   TableHeadCell,
   TableHeadRow,
   TableWrapper,
-} from 'utah-design-system-react-library';
-import TableFilterDate from 'utah-design-system-react-library/react/components/table/TableFilterDate';
+} from '@utahdts/utah-design-system';
+import TableFilterDate from '@utahdts/utah-design-system/react/components/table/TableFilterDate';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};

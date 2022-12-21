@@ -1,4 +1,4 @@
-import { Accordion, UtahUnbrand, version } from 'utah-design-system-react-library';
+import { Accordion, UtahUnbrand, version } from '@utahdts/utah-design-system';
 import websitePackageJson from '../../../../package.json';
 import dhhsBrand from '../../../static/images/DHHS-Logo.svg';
 import traxImageUrl from '../../../static/images/trax.jpg';

@@ -8,10 +8,10 @@ import {
   TableHeadCell,
   TableHeadRow,
   TableWrapper,
-} from 'utah-design-system-react-library';
-import TableSortingRule from 'utah-design-system-react-library/react/components/table/TableSortingRule';
-import TableSortingRules from 'utah-design-system-react-library/react/components/table/TableSortingRules';
-import tableSortingRuleFieldType from 'utah-design-system-react-library/react/enums/tableSortingRuleFieldType';
+} from '@utahdts/utah-design-system';
+import TableSortingRule from '@utahdts/utah-design-system/react/components/table/TableSortingRule';
+import TableSortingRules from '@utahdts/utah-design-system/react/components/table/TableSortingRules';
+import tableSortingRuleFieldType from '@utahdts/utah-design-system/react/enums/tableSortingRuleFieldType';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};

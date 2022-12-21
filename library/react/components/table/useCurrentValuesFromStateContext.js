@@ -29,7 +29,7 @@ export default function useCurrentValuesFromStateContext({
   // the value the child component was given
   value,
 }) {
-  const { setState: setStateContext, state: stateContext } = useContext(context);
+  const { setState: setStateContext, state: stateContext } = useContext(context) || {};
   const [stateLocal, setStateLocal] = useImmer(defaultValue);
 
   const fullContextStatePath = `filterValues.value.${contextStatePath}`;
@@ -37,13 +37,13 @@ export default function useCurrentValuesFromStateContext({
   // put default value in to current filter value on mount if there is one
   useEffect(
     () => {
-      if (defaultValue) {
+      if (setStateContext && defaultValue) {
         setStateContext((draftStateContext) => {
           setValueAtPath({ object: draftStateContext, path: fullContextStatePath, value: defaultValue });
         });
       }
     },
-    [defaultValue]
+    [defaultValue, !setStateContext]
   );
 
   return {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
-import { handleKeyPress, joinClassNames } from 'utah-design-system-react-library';
+import { handleKeyPress, joinClassNames } from '@utahdts/utah-design-system';
 import isLightColor from '../../util/color/isLightColor';
 
 const propTypes = {
@@ -41,7 +41,7 @@ function ColorPicker({
       </div>
       {colorGray && isLight
         ? <div className="color-picker__hex-color-gray" style={{ background: `${colorGray}` }}>{colorGray}</div>
-        : null }
+        : null}
     </div>
   );
 }

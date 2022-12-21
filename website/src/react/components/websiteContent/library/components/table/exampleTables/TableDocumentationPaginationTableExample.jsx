@@ -9,9 +9,9 @@ import {
   TableHeadRow,
   TableWrapper,
   TextInput,
-} from 'utah-design-system-react-library';
-import Pagination from 'utah-design-system-react-library/react/components/pagination/Pagination';
-import usePaginatedList from 'utah-design-system-react-library/react/components/pagination/usePaginatedList';
+} from '@utahdts/utah-design-system';
+import Pagination from '@utahdts/utah-design-system/react/components/pagination/Pagination';
+import usePaginatedList from '@utahdts/utah-design-system/react/components/pagination/usePaginatedList';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};

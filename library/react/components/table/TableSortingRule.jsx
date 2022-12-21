@@ -14,7 +14,7 @@ const propTypes = {
   // recordFieldPath should match with a recordFieldPath for a <TableHeadCell> in the table
   // OR as one of the tableSortingFieldPaths in a<TableHeadCell>
   // if your records need a calculated field, it is suggested to calculate the value and store it on the record and set this path to the
-  // calculated value's path. This way the value does not have to be recalculatd on every render.
+  // calculated value's path. This way the value does not have to be recalculated on every render.
   recordFieldPath: PropTypes.string.isRequired,
 };
 const defaultProps = {
@@ -29,20 +29,22 @@ function TableSortingRule({
   fieldType,
   recordFieldPath,
 }) {
-  const { registerSortingRule, unregisterSortingRule } = useContext(TableContext);
+  const { registerSortingRule, unregisterSortingRule } = useContext(TableContext) || {};
 
   // register this sorting rule with the context
   useEffect(
     () => {
-      registerSortingRule({
-        customSort,
-        defaultIsAscending,
-        fieldType,
-        recordFieldPath,
-      });
-      return () => unregisterSortingRule(recordFieldPath);
+      if (registerSortingRule) {
+        registerSortingRule({
+          customSort,
+          defaultIsAscending,
+          fieldType,
+          recordFieldPath,
+        });
+      }
+      return () => unregisterSortingRule && unregisterSortingRule(recordFieldPath);
     },
-    []
+    [!registerSortingRule, !unregisterSortingRule]
   );
 
   // this component does not render anything

@@ -12,7 +12,7 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-} from 'utah-design-system-react-library';
+} from '@utahdts/utah-design-system';
 import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
 
 const propTypes = {

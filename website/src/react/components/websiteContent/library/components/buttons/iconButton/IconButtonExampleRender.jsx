@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { RefShape } from 'utah-design-system-react-library';
+import { RefShape } from '@utahdts/utah-design-system';
 import IconButtonPropsShape from '../../../../../../propTypesShapes/IconButtonPropsShape';
 
 const propTypes = {

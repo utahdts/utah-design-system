@@ -9,7 +9,7 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-} from 'utah-design-system-react-library';
+} from '@utahdts/utah-design-system';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import SegmentedButtonExampleCodeReact from './SegmentedButtonExampleCodeReact';
 import SegmentedButtonExampleProps from './SegmentedButtonExampleProps';

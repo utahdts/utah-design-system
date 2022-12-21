@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { Form } from 'utah-design-system-react-library';
+import { Form } from '@utahdts/utah-design-system';
 import SegmentedButtonPropsShape from '../../../../../../propTypesShapes/SegmentedButtonPropsShape';
 
 const propTypes = {
@@ -14,7 +14,7 @@ const defaultProps = {};
 function SegmentedButtonExampleProps({ setState, state }) {
   useEffect(
     () => {
-      setState(() => {});
+      setState(() => { });
     },
     []
   );

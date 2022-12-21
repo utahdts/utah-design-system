@@ -1,7 +1,7 @@
+import { FormContextProvider, joinClassNames } from '@utahdts/utah-design-system';
+import '@utahdts/utah-design-system/css/3-generic/normalize.css';
+import '@utahdts/utah-design-system/css/index.scss';
 import { useImmer } from 'use-immer';
-import { FormContextProvider, joinClassNames } from 'utah-design-system-react-library';
-import 'utah-design-system-react-library/css/3-generic/normalize.css';
-import 'utah-design-system-react-library/css/index.scss';
 import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import Routing from './react/components/routing/Routing';
@@ -12,7 +12,6 @@ import CSS_STATE_KEYS from './react/enums/cssStateKeys';
 function App() {
   const { cssState } = useCssContext();
   const [state, setState] = useImmer({});
-
   return (
     // Wrap entire app in a FormContextProvider so that input components don't have to be "controlled" nor inside <Form>
     <FormContextProvider setState={setState} state={state}>

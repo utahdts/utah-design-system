@@ -49,6 +49,7 @@ import UtahHeader from './react/components/utahHeader/UtahHeader';
 import UtahUnbrand from './react/components/utahHeader/UtahUnbrand';
 import formElementSizesEnum from './react/enums/formElementSizesEnum';
 import useBanner from './react/hooks/useBanner';
+import useMountingTracker from './react/hooks/useMountingTracker';
 import MenuItemShape from './react/propTypesShapes/MenuItemsShape';
 import RefShape from './react/propTypesShapes/RefShape';
 import handleEvent from './react/util/handleEvent';
@@ -115,6 +116,7 @@ export {
   TabPanels,
   TextInput,
   useBanner,
+  useMountingTracker,
   usePaginatedList,
   UtahHeader,
   UtahUnbrand,

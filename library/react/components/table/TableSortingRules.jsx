@@ -21,39 +21,41 @@ function TableSortingRules({
   onChange,
   value,
 }) {
-  const { setState, state } = useContext(TableContext);
+  const { setState, state } = useContext(TableContext) || {};
   useEffect(
     () => {
-      if ((onChange && state.tableSortingOnChange) || (defaultValue && state.tableSortingFieldPath)) {
-        // eslint-disable-next-line no-console
-        console.error('A TableWrapper should only have one TableSortingRules section.');
-      } else {
-        if (onChange) {
-          setState((draftState) => { draftState.tableSortingOnChange = onChange; });
+      if (setState && state) {
+        if ((onChange && state?.tableSortingOnChange) || (defaultValue && state?.tableSortingFieldPath)) {
+          // eslint-disable-next-line no-console
+          console.error('A TableWrapper should only have one TableSortingRules section.');
+        } else {
+          if (onChange) {
+            setState((draftState) => { draftState.tableSortingOnChange = onChange; });
+          }
+          if (defaultValue) {
+            setState((draftState) => { draftState.tableSortingFieldPath = defaultValue; });
+          }
         }
-        if (defaultValue) {
-          setState((draftState) => { draftState.tableSortingFieldPath = defaultValue; });
-        }
-      }
 
-      // unset the onChange if this component gets unmounted
+        // unset the onChange if this component gets unmounted
+      }
       return () => {
-        if (onChange === state.tableSortingOnChange) {
+        if (setState && onChange === state?.tableSortingOnChange) {
           setState((draftState) => { draftState.tableSortingOnChange = null; });
         }
       };
     },
-    []
+    [!setState, !state]
   );
 
   // controlled by parent, so set value to current value
   useEffect(
     () => {
-      if (value !== undefined) {
+      if (value !== undefined && setState) {
         setState((draftState) => { draftState.tableSortingFieldPath = value; });
       }
     },
-    [value]
+    [value, !setState, !state]
   );
 
   return children;

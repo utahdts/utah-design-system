@@ -5,7 +5,7 @@ import {
   TableHeadRow,
   TableRow,
   TableWrapper,
-} from 'utah-design-system-react-library';
+} from '@utahdts/utah-design-system';
 
 const propTypes = {};
 const defaultProps = {};

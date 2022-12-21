@@ -1,12 +1,27 @@
 {
-  "name": "utah-design-system-react-library",
+  "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "0.0.1",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "dist/utah-design-system.umd.js",
+  "module": "dist/utah-design-system.es.js",
+  "files": [
+    "css",
+    "dist",
+    "react"
+  ],
+  "peerDependencies": {
+    "react": "18.x",
+    "react-router-dom": "6.x"
+  },
   "scripts": {
+    "test:ci": "NODE_OPTIONS='--experimental-vm-modules' jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
     "test": "vitest run",
-    "testw": "vitest watch"
+    "testw": "vitest watch",
+    "build": "vite build",
+    "watch": "vite build --watch",
+    "sass-build": "sass --no-source-map ./css/index.scss ./css/build/utah-design-system.css",
+    "test-publish": "npm publish --dry-run"
   },
   "repository": {
     "type": "git",
@@ -37,6 +52,7 @@
   "devDependencies": {
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
+    "@vitejs/plugin-react": "3.0.0",
     "eslint": "8.23.1",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.26.0",

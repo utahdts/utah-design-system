@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import PropTypes from 'prop-types';
 import {
   ConfirmationButton,
   Icons,
   RefShape,
   useBanner,
-} from 'utah-design-system-react-library';
+} from '@utahdts/utah-design-system';
+import PropTypes from 'prop-types';
 import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
 
 const propTypes = {

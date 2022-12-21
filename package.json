@@ -4,5 +4,13 @@
     "library",
     "utah-header",
     "website"
-  ]
+  ],
+  "scripts": {
+    "clean": "rimraf package-lock.json & rimraf node_modules & rimraf ./website/node_modules & rimraf ./library/node_modules & rimraf ./library/dist & rimraf ./utah-header/node_modules",
+    "watchLib": "cd library && npm run watch",
+    "dev": "cd website & npm run dev"
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2"
+  }
 }
