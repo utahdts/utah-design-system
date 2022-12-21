@@ -8,8 +8,11 @@ import SegmentedButtonDocumentation from '../websiteContent/library/components/b
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
-import ButtonDocumentation from '../websiteContent/library/components/buttons/ButtonDocumentation';
+import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
+import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
+import pageUrls from './pageUrls';
+import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -215,7 +218,7 @@ const pages = {
   },
   demo: {
     content: <Demo />,
-    link: '/resources/demo',
+    link: pageUrls.demoPage,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Demo Page',
     template: layoutTemplatesEnum.LANDING_TEMPLATE,
@@ -294,7 +297,7 @@ const pages = {
   // === buttons === //
   button: {
     content: <ButtonDocumentation />,
-    link: '/library/components/buttons/button',
+    link: pageUrls.button,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -302,15 +305,15 @@ const pages = {
 
   buttonGroup: {
     content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons/segmented',
+    link: pageUrls.buttonGroup,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button Group',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   confirmationButton: {
-    content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons/segmented',
+    content: <ConfirmationButtonDocumentation />,
+    link: pageUrls.confirmationButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Confirmation Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -318,7 +321,7 @@ const pages = {
 
   iconButton: {
     content: <SegmentedButtonDocumentation />,
-    link: '/library/components/buttons/iconButton',
+    link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -338,6 +341,15 @@ const pages = {
     link: '/library/components/forms/switch',
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Switch',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === table === //
+  table: {
+    content: <TableDocumentation />,
+    link: '/library/components/table/table',
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Table',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

@@ -3,12 +3,13 @@ import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   innerRef: RefShape,
   id: PropTypes.string,
 };
 const defaultProps = {
+  children: null,
   className: null,
   innerRef: null,
   id: null,
@@ -19,9 +20,10 @@ function TableBody({
   className,
   innerRef,
   id,
+  ...rest
 }) {
   return (
-    <tbody className={joinClassNames('some-TableBody-head-classname', className)} id={id} ref={innerRef}>
+    <tbody className={joinClassNames('some-TableBody-classname', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tbody>
   );

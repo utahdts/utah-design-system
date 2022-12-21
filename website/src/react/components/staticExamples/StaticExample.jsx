@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import stringToId from '@utahdts/utah-design-system/react/util/stringToId';
 
 const propTypes = {
   quickTips: PropTypes.node,
@@ -12,7 +13,7 @@ const defaultProps = {
 function StaticExample({ quickTips, renderedExample, title }) {
   return (
     <div className="static-example">
-      <h3 className="static-example__title">{title}</h3>
+      <h3 id={stringToId(title)} className="static-example__title">{title}</h3>
       <div className="static-example__component-wrapper">
         {renderedExample}
       </div>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
-import { handleKeyPress, joinClassNames } from 'utah-design-system-react-library';
+import { handleKeyPress, joinClassNames } from '@utahdts/utah-design-system';
 import isLightColor from '../../util/color/isLightColor';
 
 const propTypes = {
@@ -12,7 +12,6 @@ const propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 const defaultProps = {
-  // todo: no magic number!
   colorGray: null,
   isSelected: false,
 };

@@ -76,9 +76,11 @@ describe('test object at path reducer', () => {
     };
 
     const result = setValueAtPath({ object, path: 'a.b.c.d.j.k.l.m', value: 3 });
-    expect(result.a.b.c.d).toEqual({ g: 'gggg' });
+    expect(result.a.b.c.d).toEqual({ g: 'gggg', j: { k: { l: { m: 3 } } } });
 
-    expect(setValueAtPath({ object: {}, path: 'a.b.c.d.j.k.l.m', value: 3 })).toEqual({});
+    expect(setValueAtPath({ object: {}, path: 'a.b.c.d.j.k.l.m', value: 3 })).toEqual({
+      a: { b: { c: { d: { j: { k: { l: { m: 3 } } } } } } },
+    });
     expect(setValueAtPath({ object: { a: 3 }, path: 'a.b.c.d.j.k.l.m', value: 3 })).toEqual({ a: 3 });
 
     // setting field on non-object
@@ -212,5 +214,12 @@ describe('test object at path reducer', () => {
       value: { test: 'test' },
     });
     expect(testResult).toEqual(expectedResult);
+  });
+
+  it('path missing object', () => {
+    const object = {};
+
+    // missing.field = value
+    expect(setValueAtPath({ object, path: 'missing.field', value: 'i exist!' })).toEqual({ missing: { field: 'i exist!' } });
   });
 });

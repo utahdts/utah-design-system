@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import { NavLink } from 'react-router-dom';
+import { Icons } from '@utahdts/utah-design-system';
 import travolta from '../../../static/images/travolta.gif';
+import pageUrls from '../routing/pageUrls';
 
 const propTypes = {};
 const defaultProps = {};
@@ -27,12 +30,20 @@ function HomeLanding() {
         <div className="flex flex-col items-center mb-spacing">
           <img src={travolta} alt="John Travolta" />
           <NavLink
-            to="/resources/demo"
+            to={pageUrls.demoPage}
             className="button button--primary-color"
           >
             View Demo Page
+            <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
           </NavLink>
         </div>
+
+        <h2>Progress Log</h2>
+        <ul className="mb-spacing">
+          <li>
+            <NavLink to={pageUrls.button}>Button documentation</NavLink> page is complete.
+          </li>
+        </ul>
 
         <h2>Why a design system?</h2>
         <p>
@@ -43,7 +54,7 @@ function HomeLanding() {
         <p>
           In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require DTS and Executive
           Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
-          design standards and navigation standards”:
+          design standards and navigation standards”
         </p>
 
       </div>

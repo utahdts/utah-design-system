@@ -16,12 +16,15 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/forms/info-box";
 @use "base-components/forms/radio-button";
 @use "base-components/forms/switch";
+@use "base-components/navigation/main-menu";
 @use "base-components/navigation/menu-item";
 @use "base-components/navigation/side-panel-navigation";
 @use "base-components/templates/documenation-template";
 @use "base-components/templates/landing-page-template";
 @use "base-components/forms/input";
 @use "base-components/widgetsInicators/spinner";
+@use "base-components/tablesAndLists/table";
+@use "base-components/templates/on-this-page";
 
 /* ---- Project Components ---- */
 @use "project-components/swatch-list";

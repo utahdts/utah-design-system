@@ -1,0 +1,33 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .on-this-page {
+    font-size: var(--font-size-xs);
+    &__header {
+      font-size: var(--font-size);
+      font-weight: bold;
+    }
+    &__list {
+      list-style-type: none;
+      padding: 0;
+      margin-left: calc(0px - var(--spacing));
+
+      ul {
+        margin-left: var(--spacing);
+      }
+      a {
+        text-decoration: none;
+        color: var(--gray-color);
+        padding: var(--spacing-2xs) var(--spacing);
+        display: block;
+        margin-right: calc(0px - var(--spacing));
+        border-radius: var(--radius-circle);
+        transition: all var(--timing-quick) ease-in-out;
+        &:hover {
+          box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}

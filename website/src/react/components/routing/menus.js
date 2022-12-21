@@ -1,4 +1,4 @@
-import calculateMenuItemsParents from 'utah-design-system-react-library/react/util/menuItems/calculateMenuItemsParents';
+import calculateMenuItemsParents from '@utahdts/utah-design-system/react/util/menuItems/calculateMenuItemsParents';
 import pages from './pages';
 
 const menuMain = {
@@ -128,6 +128,12 @@ const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.switch.link, title: pages.switch.pageTitle },
       ],
+    },
+    {
+      id: 'components__table',
+      title: 'Table',
+      link: pages.table.link,
+      parentLinks: [pages.library.link],
     },
   ],
 };

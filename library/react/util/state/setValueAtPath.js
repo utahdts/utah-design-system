@@ -48,17 +48,19 @@ export default function setValueAtPath({ object, path, value }) {
       let childObj;
       if (isObject(nextLevel)) {
         childObj = nextLevel[pathPiece];
-        if (childObj !== undefined) {
+        if (childObj === undefined || childObj === null) {
+          // childObj is missing, so add a blank object
+          nextLevel[pathPiece] = {};
+          childObj = nextLevel[pathPiece];
+        } else if (isObject(childObj)) {
           // no need to clone a non-object
-          if (isObject(childObj)) {
-            if (isArray(childObj)) {
-              childObj = childObj.concat([]);
-            } else {
-              childObj = { ...childObj };
-            }
-            // put clone back in state so that the pointers change which will trigger react to render
-            nextLevel[pathPiece] = childObj;
+          if (isArray(childObj)) {
+            childObj = childObj.concat([]);
+          } else {
+            childObj = { ...childObj };
           }
+          // put clone back in state so that the pointers change which will trigger react to render
+          nextLevel[pathPiece] = childObj;
         }
       }
       return childObj;

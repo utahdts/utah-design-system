@@ -19,9 +19,15 @@ function TableHead({
   className,
   innerRef,
   id,
+  ...rest
 }) {
   return (
-    <thead className={joinClassNames('some-TableHead-head-classname', className)} id={id} ref={innerRef}>
+    <thead
+      className={joinClassNames('some-TableHead-classname', className)}
+      id={id}
+      ref={innerRef}
+      {...rest}
+    >
       {children}
     </thead>
   );

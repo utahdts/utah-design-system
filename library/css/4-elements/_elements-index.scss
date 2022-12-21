@@ -8,6 +8,7 @@ elemental html: h1, h2, h3, ul, li, etc.
 	margin: 0;
 	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
   font-size: 16px;
+  line-height: 1.3;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: white;
@@ -23,10 +24,12 @@ elemental html: h1, h2, h3, ul, li, etc.
   }
   h3 {
     font-size: var(--font-size-2xl );
+    font-weight: var(--font-weight-normal);
     margin: 0;
   }
   h4 {
     font-size: var(--font-size-l);
+    font-weight: var(--font-weight-normal);
     margin: 0;
   }
   h5 {
@@ -44,9 +47,14 @@ elemental html: h1, h2, h3, ul, li, etc.
 
   code {
     font-family: 'Source Code Pro', monospace;
+    font-size: .95em;
     background: var(--code-color);
-    padding: 0 var(--spacing-2xs);
+    padding: var(--spacing-3xs) var(--spacing-xs);
     border-radius: var(--radius-small1x);
+    &.primary-color {
+      color: var(--primary-color);
+      background: var(--primary-color-light);
+    }
   }
   pre {
     white-space: pre-wrap;
@@ -57,6 +65,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     list-style-type: disc;
     padding: 0 0 0 var(--spacing-2xl);
     margin: 0;
+    line-height: 1.7;
   }
 
   hr {
@@ -64,5 +73,17 @@ elemental html: h1, h2, h3, ul, li, etc.
     width: 100%;
     border: none;
     border-top: 1px solid var(--gray-border);
+  }
+
+  a[href] {
+    color: var(--primary-color);
+    &:hover {
+      box-shadow: -3px -1px 0 0px var(--hover-gray-color-opaque),
+                  3px -1px 0 0px var(--hover-gray-color-opaque),
+                  3px 1px 0 0px var(--hover-gray-color-opaque),
+                  -3px 1px 0 0px var(--hover-gray-color-opaque),
+                  inset 0 0 0 1000px var(--hover-gray-color-opaque);
+      color: var(--primary-color-dark);
+    }
   }
 }
