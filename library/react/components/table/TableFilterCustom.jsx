@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
+import TableContext from './TableContext';
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.func.isRequired,
   className: PropTypes.string,
   innerRef: RefShape,
   id: PropTypes.string,
@@ -14,21 +16,32 @@ const defaultProps = {
   id: null,
 };
 
-function TableFilter({
+function TableFilterCustom({
   children,
   className,
   innerRef,
   id,
   ...rest
 }) {
+  const { setState: setStateContext, state: stateContext } = useContext(TableContext);
   return (
-    <th className={joinClassNames('some-TableFilter-classname', className)} id={id} ref={innerRef} {...rest}>
-      {children}
+    <th className={joinClassNames('some-TableFilterCustom-classname', className)} id={id} ref={innerRef} {...rest}>
+      {children({
+        // current filter values (key => value)
+        filterValues: stateContext.filterValues.value,
+
+        // 'setter' function that will update just the filterValues.value of the table context
+        setFilterValues: (setFilterValuesFunc) => {
+          setStateContext((draftStateContext) => {
+            setFilterValuesFunc(draftStateContext.filterValues.value);
+          });
+        },
+      })}
     </th>
   );
 }
 
-TableFilter.propTypes = propTypes;
-TableFilter.defaultProps = defaultProps;
+TableFilterCustom.propTypes = propTypes;
+TableFilterCustom.defaultProps = defaultProps;
 
-export default TableFilter;
+export default TableFilterCustom;

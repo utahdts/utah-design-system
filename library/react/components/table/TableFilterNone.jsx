@@ -3,18 +3,19 @@ import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   innerRef: RefShape,
   id: PropTypes.string,
 };
 const defaultProps = {
+  children: null,
   className: null,
   innerRef: null,
   id: null,
 };
 
-function TableFilter({
+function TableFilterNone({
   children,
   className,
   innerRef,
@@ -22,13 +23,13 @@ function TableFilter({
   ...rest
 }) {
   return (
-    <th className={joinClassNames('some-TableFilter-classname', className)} id={id} ref={innerRef} {...rest}>
+    <th className={joinClassNames('some-TableFilterNone-classname', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </th>
   );
 }
 
-TableFilter.propTypes = propTypes;
-TableFilter.defaultProps = defaultProps;
+TableFilterNone.propTypes = propTypes;
+TableFilterNone.defaultProps = defaultProps;
 
-export default TableFilter;
+export default TableFilterNone;

@@ -10,11 +10,13 @@ if (window.location.href.includes('/dev/')) {
 } else if (
   window.location.href.includes('localhost')
   || window.location.href.includes('127.0.0.1')
+  || window.location.href.includes('.local.')
 ) {
   baseName = '';
 } else {
   baseName = 'utah-design-system';
 }
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CssContextProvider>

@@ -5,7 +5,7 @@ import MainMenu from '../navigation/MainMenu';
 import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
-  content: PropTypes.element.isRequired,
+  content: PropTypes.func.isRequired,
   currentMenuItem: MenuItemShape,
   mainMenu: MenuShape.isRequired,
 };
@@ -13,12 +13,12 @@ const defaultProps = {
   currentMenuItem: null,
 };
 
-function LandingTemplate({ content, currentMenuItem, mainMenu }) {
+function LandingTemplate({ content: Content, currentMenuItem, mainMenu }) {
   return (
     <>
       <UtahHeader />
       <MainMenu currentMenuItem={currentMenuItem} menu={mainMenu} />
-      {content}
+      <Content />
     </>
   );
 }
