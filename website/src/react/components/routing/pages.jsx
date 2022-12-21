@@ -4,16 +4,17 @@ import Demo from '../demo/Demo';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import HomeLanding from '../websiteContent/HomeLanding';
-import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
-import LibraryLanding from '../websiteContent/library/LibraryLanding';
-import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
-import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
-import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
-import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
-import pageUrls from './pageUrls';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
+import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
+import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
+import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
+import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation';
+import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
+import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
+import pageUrls from './pageUrls';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -201,6 +202,14 @@ const pages = {
     pageTitle: 'Patterns',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  utahHeader: {
+    content: <UtahHeaderDocumentation />,
+    link: '/library/patterns/utahHeader',
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Utah Header',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   templates: {
     content: <PLACEHOLDERDOCUMENTATION />,
     link: '/library/templates',

@@ -1,0 +1,31 @@
+{
+  "name": "utah-design-system-header",
+  "version": "1.0.0",
+  "description": "Utah Header for the Utah Design System",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utahdts/utah-design-system.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/utahdts/utah-design-system/issues"
+  },
+  "homepage": "https://github.com/utahdts/utah-design-system#readme",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "eslint": "8.23.1",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "sass": "1.54.9",
+    "vite": "3.1.0",
+    "vite-plugin-eslint": "1.8.1"
+  },
+  "type": "module"
+}
