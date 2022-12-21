@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-import { Route, Routes } from 'react-router-dom';
 import { DocumentationTemplate, LandingTemplate } from '@utahdts/utah-design-system';
 import OnThisPage from '@utahdts/utah-design-system/react/components/navigation/OnThisPage';
 import SidePanelNavigation from '@utahdts/utah-design-system/react/components/navigation/SidePanelNavigation';
 import useCurrentMenuItem from '@utahdts/utah-design-system/react/hooks/useCurrentMenuItem';
+import { useRef } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import HomeLanding from '../websiteContent/HomeLanding';
@@ -17,7 +17,6 @@ const defaultProps = {};
 function Routing() {
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef();
-
   return (
     <Routes>
       {Object.values(pages).map((page) => {

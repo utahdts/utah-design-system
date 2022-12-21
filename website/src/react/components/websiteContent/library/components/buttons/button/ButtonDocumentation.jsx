@@ -271,8 +271,21 @@ function ButtonDocumentation() {
         <li>
           Choose a button style that will give the desired emphasis to the action:
           <ul>
-            <li>Important actions should be emphasized to stand out from other actions on the view or in the immediate area.</li>
+            <li>Important actions should be emphasized (solid button) to stand out from other actions on the view or in the immediate area.</li>
             <li>You can further emphasize buttons with size and color.</li>
+          </ul>
+        </li>
+        <li>
+          If a <code>&lt;button&gt;</code> must be used for navigation you are required to implement the following ARIA properties:<br />
+          <em>
+            (Note: Where possible, it is recommended that you use a native <code>&lt;a&gt;</code> element rather than the link role,
+            as native elements are more widely supported by user agents and assistive technology.)
+          </em>
+          <ul>
+            <li>Use <code>role=&quot;link&quot;</code>.</li>
+            <li>Use the <code>tabindex</code>attribute with a value of 0 to ensure the link is in the correct tab focus order.</li>
+            <li>You will need to style to button to appear as a link where needed.</li>
+            <li>Example: <code>&lt;button type=&quot;button&quot; role=&quot;link&quot; tabindex=&quot;0&quot;&gt;My Button&lt;/button&gt;</code></li>
           </ul>
         </li>
       </ul>

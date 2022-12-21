@@ -1,5 +1,6 @@
 import packageJson from './package.json';
 import Button from './react/components/buttons/Button';
+import ConfirmationButton from './react/components/buttons/ConfirmationButton';
 import IconButton from './react/components/buttons/IconButton';
 import SegmentedButton from './react/components/buttons/SegmentedButton';
 import Accordion from './react/components/containers/accordion/Accordion';
@@ -17,8 +18,11 @@ import Select from './react/components/forms/Select';
 import SelectOption from './react/components/forms/SelectOption';
 import Switch from './react/components/forms/Switch';
 import TextInput from './react/components/forms/TextInput';
+import Icons from './react/components/icons/Icons';
 import HorizontalMenu from './react/components/navigation/HorizontalMenu';
 import MainMenu from './react/components/navigation/MainMenu';
+import Pagination from './react/components/pagination/Pagination';
+import usePaginatedList from './react/components/pagination/usePaginatedList';
 import Table from './react/components/table/Table';
 import TableBody from './react/components/table/TableBody';
 import TableBodyData from './react/components/table/TableBodyData';
@@ -45,6 +49,7 @@ import UtahHeader from './react/components/utahHeader/UtahHeader';
 import UtahUnbrand from './react/components/utahHeader/UtahUnbrand';
 import formElementSizesEnum from './react/enums/formElementSizesEnum';
 import useBanner from './react/hooks/useBanner';
+import useMountingTracker from './react/hooks/useMountingTracker';
 import MenuItemShape from './react/propTypesShapes/MenuItemsShape';
 import RefShape from './react/propTypesShapes/RefShape';
 import handleEvent from './react/util/handleEvent';
@@ -53,13 +58,13 @@ import joinClassNames from './react/util/joinClassNames';
 import rectContainsPoint from './react/util/rectContainsPoint';
 import setValueAtPath from './react/util/state/setValueAtPath';
 import valueAtPath from './react/util/state/valueAtPath';
-import Icons from './react/components/icons/Icons';
 
 const { version } = packageJson;
 
 export {
   Accordion,
   Button,
+  ConfirmationButton,
   CheckBox,
   DocumentationTemplate,
   handleEvent,
@@ -75,12 +80,13 @@ export {
   HorizontalMenu,
   MainMenu,
   MenuItemShape,
-  SelectOption,
+  Pagination,
   rectContainsPoint,
   RefShape,
   SegmentedButton,
   setValueAtPath,
   Select,
+  SelectOption,
   Switch,
   Tab,
   TabGroup,
@@ -110,6 +116,8 @@ export {
   TabPanels,
   TextInput,
   useBanner,
+  useMountingTracker,
+  usePaginatedList,
   UtahHeader,
   UtahUnbrand,
   valueAtPath,

@@ -1,0 +1,16 @@
+@use "../../library/css/1-settings/settings-index";
+@use "../../library/css/1-settings/spacing";
+
+.utah-logo__vert-line {
+  border-right: 1px solid black;
+}
+.utah-logo-svg {
+  svg {
+    // TESTING THAT THE CSS WORKS !!!
+    width: 400px;
+    fill: var(--secondary-color);
+    margin-left: var(--spacing);
+    font-family: SourceSansPro-Regular, 'Source Sans Pro';
+    font-size: 14px;
+  }
+}

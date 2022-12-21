@@ -41,10 +41,11 @@ function TableFilters({
       if (
         state.filterValues.defaultValue
         || state.filterValues.onChange
-        || state.filterValues.value
+        || (state.filterValues.value && Object.values(state.filterValues.value).length)
       ) {
         // if you want to do more than one Filters section, then you'll want to update the context's
         // filterValues.onChange to be an array... and maybe some other changes... ymmv
+        // eslint-disable-next-line no-console
         console.warn('defaultValue, onChange, or value were already set for Filters. There should only be one <TableFilters/> section in a table.');
       }
 
@@ -58,7 +59,7 @@ function TableFilters({
         setState((draftState) => {
           draftState.filterValues.defaultValue = null;
           draftState.filterValues.onChange = null;
-          draftState.filterValues.value = null;
+          draftState.filterValues.value = {};
         });
       };
     },

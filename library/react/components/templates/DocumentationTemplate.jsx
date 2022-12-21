@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import MenuShape from '../../propTypesShapes/MenuShape';
-import UtahHeader from '../utahHeader/UtahHeader';
-import MainMenu from '../navigation/MainMenu';
 import RefShape from '../../propTypesShapes/RefShape';
+import MainMenu from '../navigation/MainMenu';
+import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
-  content: PropTypes.element.isRequired,
+  content: PropTypes.func.isRequired,
   contentRef: RefShape.isRequired,
   currentMenuItem: MenuItemShape,
   mainMenu: MenuShape.isRequired,
@@ -18,7 +18,7 @@ const defaultProps = {
 };
 
 function DocumentationTemplate({
-  content,
+  content: Content,
   contentRef,
   currentMenuItem,
   mainMenu,
@@ -35,7 +35,7 @@ function DocumentationTemplate({
             {sidePanelLeftContent}
           </div>
           <main className="documentation-template__content" ref={contentRef}>
-            {content}
+            <Content />
           </main>
           <div className="documentation-template__side-panel-right">
             {sidePanelRightContent}

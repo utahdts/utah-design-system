@@ -12,7 +12,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'index.js'),
       name: '@utahdts/utah-design-system',
       // the proper extensions will be added
-      formats:['es', 'umd'],
+      formats: ['es', 'umd'],
       fileName: (format) => `utah-design-system.${format}.js`,
     },
     rollupOptions: {

@@ -125,7 +125,7 @@ function ColorPopup() {
                       className="secondary-color-dark-background color-picker--small"
                       isSelected={selectedCircle === CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK}
                       onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK)}
-                      color={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
+                      color={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]}
                     >
                       Dark
                     </ColorPicker>

@@ -1,5 +1,5 @@
+// @ts-check
 export default function groupElementsByHeaderLevel(headers) {
-  // console.warn('Need to jest unit test: groupElementsByHeaderLevel');
   if (!headers?.length) {
     return [];
   }
@@ -12,11 +12,6 @@ export default function groupElementsByHeaderLevel(headers) {
 
     const newNode = { node: currentHeader, children: [], level: Number(currentHeader.tagName.substring(1)) };
     const parentNode = nodesHierarchyStack[nodesHierarchyStack.length - 1];
-
-    if (parentNode.level !== -1 && Math.abs(newNode.level - parentNode.level) > 1) {
-      // eslint-disable-next-line no-console
-      console.error('header chaining skips a level!', { newNode, parentNode });
-    }
 
     if (newNode.level === parentNode.level) {
       // sibling of last node so pop last node from parent stack and create a new parent as this node

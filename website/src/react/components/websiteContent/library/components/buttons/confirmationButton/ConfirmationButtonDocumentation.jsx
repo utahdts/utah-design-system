@@ -1,8 +1,4 @@
 import {
-  Button,
-  formElementSizesEnum,
-  Icons,
-  useBanner,
   Tab,
   TabGroup,
   Table,
@@ -17,20 +13,16 @@ import {
   TabPanel,
   TabPanels,
 } from '@utahdts/utah-design-system';
-import { NavLink } from 'react-router-dom';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import ConfirmationButtonExampleCodeReact from './ConfirmationButtonExampleCodeReact';
 import ConfirmationButtonExampleRender from './ConfirmationButtonExampleRender';
 import ConfirmationButtonExampleProps from './ConfirmationButtonExampleProps';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import pageUrls from '../../../../../routing/pageUrls';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
 function ConfirmationButtonDocumentation() {
-  const showBanner = useBanner();
   return (
     <div className="documentation-content">
       <h1>Confirmation Button</h1>
@@ -41,231 +33,6 @@ function ConfirmationButtonDocumentation() {
         CODE_EXAMPLE={ConfirmationButtonExampleCodeReact}
         PROPS_EXAMPLE={ConfirmationButtonExampleProps}
         RENDER_EXAMPLE={ConfirmationButtonExampleRender}
-      />
-      <StaticExample
-        title="Emphasized Button (Solid)"
-        renderedExample={(
-          <>
-            <Button
-              appearance="solid"
-              color="primary"
-              onClick={() => showBanner({ message: 'primary emphasized button clicked' })}
-            >
-              Primary Color
-            </Button>
-            <Button
-              appearance="solid"
-              color="secondary"
-              onClick={() => showBanner({ message: 'secondary emphasized button clicked' })}
-            >
-              Secondary Color
-            </Button>
-            <Button
-              appearance="solid"
-              color="accent"
-              onClick={() => showBanner({ message: 'accent emphasized button clicked' })}
-            >
-              Accent Color
-            </Button>
-            <Button
-              appearance="solid"
-              onClick={() => showBanner({ message: 'default emphasized button clicked' })}
-            >
-              No Color
-            </Button>
-          </>
-        )}
-        quickTips={(
-          <ul>
-            <li>Used to emphasize a button when multiple buttons appear on a page or in close proximity.</li>
-            <li>When used in proximity to other buttons:
-              <ul>
-                <li>Should appear on the right.</li>
-                {/* TODO: Talk about tab order!!!! */}
-                <li>Comes before unemphasized buttons in the tab order.</li>
-              </ul>
-            </li>
-            <li>Solid color.</li>
-          </ul>
-        )}
-      />
-
-      <StaticExample
-        title="Unemphasized Button (Outlined)"
-        renderedExample={(
-          <>
-            <Button
-              appearance="outlined"
-              color="primary"
-              onClick={() => showBanner({ message: 'primary unemphasized  button clicked' })}
-            >
-              Primary Color
-            </Button>
-            <Button
-              appearance="outlined"
-              color="secondary"
-              onClick={() => showBanner({ message: 'secondary unemphasized  button clicked' })}
-            >
-              Secondary Color
-            </Button>
-            <Button
-              appearance="outlined"
-              color="accent"
-              onClick={() => showBanner({ message: 'accent unemphasized  button clicked' })}
-            >
-              Accent Color
-            </Button>
-            <Button
-              appearance="outlined"
-              onClick={() => showBanner({ message: 'unemphasized button clicked' })}
-            >
-              No Color
-            </Button>
-          </>
-        )}
-        quickTips={(
-          <ul>
-            <li>Used to deemphasize a button. The default look of a non-emphasized button.</li>
-            <li>When used in proximity to other buttons:
-              <ul>
-                <li>Should appear on the left of an emphasized button.</li>
-                {/* TODO: Talk about tab order!!!! */}
-                <li>Comes after emphasized buttons in the tab order.</li>
-              </ul>
-            </li>
-            <li>Solid outline. Text matches the button color.</li>
-          </ul>
-        )}
-      />
-
-      <StaticExample
-        title="Button Emphasis"
-        renderedExample={(
-          <>
-            <Button
-              appearance="outlined"
-              color="primary"
-              onClick={() => showBanner({ message: 'cancel button clicked' })}
-            >
-              Cancel
-            </Button>
-            <Button
-              appearance="solid"
-              color="primary"
-              onClick={() => showBanner({ message: 'ok button clicked' })}
-            >
-              Okay
-            </Button>
-          </>
-        )}
-        quickTips={(
-          <ul>
-            <li>When two or more buttons are in close proximity, and you wish to have an emphasized button:
-              <ul>
-                <li>The emphasized button will appear on the right.</li>
-                <li>One or more unemphasized buttons will appear on the left.</li>
-                <li>If you wish to use more than 3 buttons in proximity consider
-                  using a <NavLink to={pageUrls.buttonGroup}>Button Group</NavLink>.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        )}
-      />
-      <StaticExample
-        title="With Icon"
-        renderedExample={(
-          <>
-            <Button
-              appearance="outlined"
-              color="primary"
-              iconLeft={Icons.IconCheck()}
-              onClick={() => showBanner({ message: '`left icon` button clicked' })}
-            >
-              Button
-            </Button>
-            <Button
-              appearance="solid"
-              color="primary"
-              iconRight={Icons.IconArrowRight()}
-              onClick={() => showBanner({ message: '`see more` button clicked' })}
-            >
-              See More
-            </Button>
-          </>
-        )}
-        quickTips={(
-          <ul>
-            <li>An icon can be use on the left or the right.</li>
-            <li>It is is preferred that you only use a single icon per button.</li>
-            <li>An icon should be simple and change color with the button text.</li>
-          </ul>
-        )}
-      />
-      <StaticExample
-        title="Sizes"
-        renderedExample={(
-          <>
-            <Button
-              appearance="solid"
-              color="primary"
-              onClick={() => showBanner({ message: 'small button clicked' })}
-              size={formElementSizesEnum.SMALL}
-            >
-              Small
-            </Button>
-            <Button
-              appearance="solid"
-              color="primary"
-              onClick={() => showBanner({ message: 'medium button clicked' })}
-              size={formElementSizesEnum.MEDIUM}
-            >
-              Medium
-            </Button>
-            <Button
-              appearance="solid"
-              color="primary"
-              onClick={() => showBanner({ message: 'large button clicked' })}
-              size={formElementSizesEnum.LARGE}
-            >
-              Large
-            </Button>
-            <Button
-              appearance="solid"
-              color="primary"
-              onClick={() => showBanner({ message: 'large1x button clicked' })}
-              size={formElementSizesEnum.LARGE1X}
-            >
-              Large 1X
-            </Button>
-          </>
-        )}
-        quickTips={(
-          <ul>
-            <li>The preferred button size is the default (medium).</li>
-            <li>Do not mix button of different sizes in close proximity.</li>
-          </ul>
-        )}
-      />
-      <StaticExample
-        title="Busy"
-        renderedExample={(
-          <Button
-            appearance="solid"
-            color="primary"
-            onClick={() => showBanner({ message: 'medium button clicked' })}
-            size={formElementSizesEnum.MEDIUM}
-            isBusy
-          >
-            Submit Now
-          </Button>
-        )}
-        quickTips={(
-          <ul>
-            <li>Use a busy button state to indicate to the user that some asynchronous process is taking place.</li>
-            <li>Do not use more than one busy button per view.</li>
-          </ul>
-        )}
       />
       <h2 className="mb-spacing">Guidance</h2>
       <h3>When to use</h3>
@@ -278,63 +45,6 @@ function ConfirmationButtonDocumentation() {
             <li>You can further emphasize buttons with size and color.</li>
           </ul>
         </li>
-      </ul>
-
-      <h3>When to use something else</h3>
-      <ul className="mb-spacing">
-        <li>Generally, use a link for navigation, especially when there are other action buttons in the view.</li>
-        <li>Always, use a link for navigation within a paragraph of text.</li>
-        <li>
-          Style a link as a button:
-          <ul>
-            <li>
-              Use the button style if it also includes a visual indicator such as an arrow icon.
-              For example <code>Read More {Icons.IconArrowRight()}</code>.
-            </li>
-            <li>Use the button style for a call to action. For example, <code>Register Now {Icons.IconArrowRight()}</code>.</li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3 className="mb-spacing">Usability guidance</h3>
-      <ul className="mb-spacing">
-        <li>Keep button text short. Use action words to describe what the button will do.</li>
-        <li>Use Title Case capitalization.
-          Such as, <code>Download</code>, <code>View More</code>, <code>Sign In</code>, or <code>Sign Out</code>.
-        </li>
-        <li>
-          Lead with a verb by making the first word of the button’s text a verb.
-          For example, instead of <code>Information Request</code>, label the button <code>Request Information</code>.
-        </li>
-        <li>Use icons in a button to help describe the action.</li>
-        <li>Avoid using too many buttons on a view. Too many button will cause confusion and distraction.</li>
-        <li>Consider using an <NavLink to={pageUrls.iconButton}>icon button</NavLink> in compact layouts.</li>
-        <li>Always set the type attribute to define the purpose of the button.
-          The type attribute can accept three values: <code>submit</code>, <code>button</code>, and <code>reset</code>.
-          If no type attribute is defined, the button will behave as a <code>submit</code> button.
-        </li>
-        <li>Generally avoid stacking one button on top of another. Place them side-by-side if there is room.</li>
-      </ul>
-
-      <h3 className="mb-spacing">Accessability</h3>
-      <h4>Contrast</h4>
-      <ul className="mb-spacing">
-        <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
-        <li>The button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
-      </ul>
-      <h4>Keyboard interactivity</h4>
-      <ul className="mb-spacing">
-        <li>The button should display a visible focus state when users tab to them. This focus state should be <code>3:1</code> contrast ratio.</li>
-        <li>
-          Avoid using non-standard html markup for a button such as a <code>div</code> tag.
-          <ul>
-            <li>The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
-          </ul>
-        </li>
-      </ul>
-      <h4>Screen readers</h4>
-      <ul className="mb-spacing">
-        <li>A Button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG).</li>
       </ul>
 
       <h2>Settings and Props</h2>

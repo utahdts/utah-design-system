@@ -41,7 +41,7 @@ function ColorPicker({
       </div>
       {colorGray && isLight
         ? <div className="color-picker__hex-color-gray" style={{ background: `${colorGray}` }}>{colorGray}</div>
-        : null }
+        : null}
     </div>
   );
 }

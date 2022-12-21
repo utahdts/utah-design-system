@@ -143,9 +143,9 @@ const menuLibraryPatternsSecondary = {
   id: 'library-patterns',
   menuItems: [
     {
-      title: 'Headers',
-      link: pages.anchors.link, // wrong!
-      parentLinks: [pages.library.link],
+      title: 'Utah Header',
+      link: pages.utahHeader.link,
+      parentLinks: [pages.patterns.link],
     },
     {
       title: 'Buttons',

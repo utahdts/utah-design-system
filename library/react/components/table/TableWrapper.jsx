@@ -1,12 +1,12 @@
+import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import PropTypes from 'prop-types';
-import RefShape from '../../propTypesShapes/RefShape';
-import TableContext from './TableContext';
-import joinClassNames from '../../util/joinClassNames';
-import useRefAlways from '../../hooks/useRefAlways';
 import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
+import useRefAlways from '../../hooks/useRefAlways';
+import RefShape from '../../propTypesShapes/RefShape';
+import joinClassNames from '../../util/joinClassNames';
 import valueAtPath from '../../util/state/valueAtPath';
+import TableContext from './TableContext';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -39,7 +39,7 @@ function TableWrapper({
       // onChange to call for any filter change
       onChange: null,
       // value - object of [recordFieldPath]:value pairs for filtering inputs
-      value: null,
+      value: {},
     },
     // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order
     sortingRules: {},
@@ -112,7 +112,6 @@ function TableWrapper({
     }),
     [state]
   );
-
   return (
     <TableContext.Provider value={contextValue}>
       <div className={joinClassNames('some-table-wrapper-classname', className)} id={id} ref={innerRef} {...rest}>
