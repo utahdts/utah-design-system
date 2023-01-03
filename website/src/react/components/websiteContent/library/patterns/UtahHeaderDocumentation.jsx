@@ -9,7 +9,9 @@ function UtahHeaderDocumentation() {
     () => {
       loadHeader();
       return () => {
-        removeHeader();
+        if (false) {
+          removeHeader();
+        }
       };
     },
     []

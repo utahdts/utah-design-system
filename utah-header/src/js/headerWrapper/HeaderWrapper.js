@@ -1,8 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
-import actionItemsWrapper from './html/ActionItemsWrapper.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import logoTitleWrapper from './html/LogoTitleWrapper.html?raw';
 import renderDOM from '../../misc/renderDOM';
+import LogoTitle from '../logoTitle/LogoTitle';
 import UtahLogo from '../utahLogo/UtahLogo';
 // eslint-disable-next-line import/no-unresolved
 import headerWrapper from './html/HeaderWrapper.html?raw';
@@ -10,8 +8,7 @@ import headerWrapper from './html/HeaderWrapper.html?raw';
 import verticalLineHtml from './html/VerticalLine.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import headerLogoWrapper from './html/HeaderLogoWrapper.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import headerCitizenExperienceWrapper from './html/HeaderCitizenExperienceWrapper.html?raw';
+import CitizenExperience from '../citizenExperience/CitizenExperience';
 
 /**
  * Creates the header wrapper DOM and appends the:
@@ -25,15 +22,13 @@ export default function HeaderWrapper() {
   const logoWrapper = renderDOM(headerLogoWrapper);
   header.appendChild(logoWrapper);
 
-  // logo isn't a wrapper...
   logoWrapper.appendChildAll(UtahLogo());
 
   logoWrapper.appendChildAll(renderDOM(verticalLineHtml));
-  logoWrapper.appendChildAll(renderDOM(logoTitleWrapper));
 
-  const citizenExperienceWrapper = renderDOM(headerCitizenExperienceWrapper);
-  header.appendChild(citizenExperienceWrapper);
-  citizenExperienceWrapper.appendChildAll(renderDOM(actionItemsWrapper));
+  logoWrapper.appendChildAll(LogoTitle());
+
+  logoWrapper.appendChildAll(CitizenExperience());
 
   return header;
 }

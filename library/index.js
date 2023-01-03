@@ -45,8 +45,6 @@ import TableRow from './react/components/table/TableRow';
 import TableWrapper from './react/components/table/TableWrapper';
 import DocumentationTemplate from './react/components/templates/DocumentationTemplate';
 import LandingTemplate from './react/components/templates/LandingTemplate';
-import UtahHeader from './react/components/utahHeader/UtahHeader';
-import UtahUnbrand from './react/components/utahHeader/UtahUnbrand';
 import formElementSizesEnum from './react/enums/formElementSizesEnum';
 import useBanner from './react/hooks/useBanner';
 import useMountingTracker from './react/hooks/useMountingTracker';
@@ -118,8 +116,6 @@ export {
   useBanner,
   useMountingTracker,
   usePaginatedList,
-  UtahHeader,
-  UtahUnbrand,
   valueAtPath,
   version,
 };
