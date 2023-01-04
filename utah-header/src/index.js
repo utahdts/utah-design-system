@@ -1,10 +1,11 @@
 // @ts-check
 import packageJson from '../package.json';
-import HeaderWrapper from './js/headerWrapper/HeaderWrapper';
+import HeaderWrapper from './js/renderables/headerWrapper/HeaderWrapper';
 import './misc/Prototypes';
 import './css/index.scss';
 
 const fileVersion = packageJson.version.replace(/\./g, '');
+// eslint-disable-next-line no-console
 console.log(`Utah Header v${fileVersion}`);
 
 // const cssFileName = `utahHeader.css`;

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import renderDOM from '../../misc/renderDOM';
+import renderDOM from '../../../misc/renderDOM';
 import LogoTitle from '../logoTitle/LogoTitle';
 import UtahLogo from '../utahLogo/UtahLogo';
 // eslint-disable-next-line import/no-unresolved

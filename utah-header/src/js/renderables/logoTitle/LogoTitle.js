@@ -1,7 +1,7 @@
-import renderDOM from '../../misc/renderDOM';
+import renderDOM from '../../../misc/renderDOM';
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
-import { getSettings } from '../settings/settings';
+import { getSettings } from '../../settings/settings';
 
 export default function LogoTitle() {
   const titleWrapper = renderDOM(LogoTitleWrapper);

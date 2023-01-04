@@ -1,4 +1,4 @@
-import renderDOM from '../../misc/renderDOM';
+import renderDOM from '../../../misc/renderDOM';
 // eslint-disable-next-line import/no-unresolved
 import UtahIdHtml from './html/UtahIdWrapper.html?raw';
 
