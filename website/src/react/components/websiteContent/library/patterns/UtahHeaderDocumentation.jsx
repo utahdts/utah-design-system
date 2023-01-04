@@ -1,21 +1,7 @@
-import { useEffect } from 'react';
-import loadHeader, { removeHeader } from 'utah-design-system-header';
-
 const propTypes = {};
 const defaultProps = {};
 
 function UtahHeaderDocumentation() {
-  useEffect(
-    () => {
-      loadHeader();
-      return () => {
-        if (false) {
-          removeHeader();
-        }
-      };
-    },
-    []
-  );
   return (
     <div>
       <p>TODO:</p>

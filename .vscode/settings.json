@@ -4,6 +4,7 @@
         "renderables",
         "tinycolor",
         "unemphasize",
+        "utds",
         "xsmall"
     ],
     "editor.unicodeHighlight.allowedCharacters": {

@@ -6,13 +6,18 @@ import { getSettings } from '../../settings/settings';
 export default function LogoTitle() {
   const titleWrapper = renderDOM(LogoTitleWrapper);
 
-  // TODO: Render the Agency Logo out of settings()
-  getSettings();
+  // Render Logo image
+  const settingsLogo = getSettings().logo;
+  if (settingsLogo) {
+    titleWrapper.querySelector('.utds-title-wrapper__logo').appendChild(renderDOM(settingsLogo));
+  }
 
-  // There are two things to render: Agency Logo and/or Title
-  // TODO: get title out of settings()
-  const title = document.createTextNode('Utah Design System');
-  titleWrapper.appendChild(title);
+  // Render Title text
+  const settingsTitle = getSettings().title;
+  if (settingsTitle) {
+    const title = document.createTextNode(settingsTitle);
+    titleWrapper.querySelector('.utds-title-wrapper__title').appendChild(title);
+  }
 
   return titleWrapper;
 }

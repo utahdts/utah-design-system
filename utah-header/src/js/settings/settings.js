@@ -1,4 +1,5 @@
 import size from '../enumerations/size';
+import { loadHeader } from '../lifecycle/lifecycle';
 
 /**
  * @typedef {import('../enumerations/size').Size} Size
@@ -20,7 +21,11 @@ import size from '../enumerations/size';
  * }
  */
 
-/** @type {Settings} */
+/**
+ * !~! Do not export settings !~!
+ * Interact with `settings` using getSettings() and setSettings().
+ * @type {Settings} the current settings of the header
+ * */
 let settings = {
   size: size.MEDIUM,
   title: null,
@@ -39,5 +44,13 @@ export function getSettings() {
  */
 export function setSettings(newSettings) {
   settings = { ...settings || {}, ...newSettings };
+  const existingHeader = document.querySelector('.utah-design-system.utds-header');
+  if (existingHeader) {
+    // don't call removeHeader because that will trigger an unload event,
+    // but setting `settings` probably shouldn't be considered an "unload" event
+    existingHeader.remove();
+  }
+  loadHeader();
+
   return settings;
 }
