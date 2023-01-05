@@ -1,5 +1,6 @@
-import ICON_TYPES from "./IconTypes";
-import renderDOM from "./renderDOM";
+// TODO: review this file for inclusion
+import ICON_TYPES from './IconTypes';
+import renderDOM from './renderDOM';
 
 /**
  * Render an image/icon as an svg, function that returns a rendered dom element, a dom node, or an image url
@@ -9,46 +10,51 @@ import renderDOM from "./renderDOM";
  * @param {[string]} cssClasses - CSS classes to add to the iconWrapper
  * @returns HTMLElement
  */
-export default function ({ icon, iconType, iconWrapper, cssClasses }) {
-	let renderIcon;
+export default function renderIcon({
+  icon,
+  iconType,
+  iconWrapper,
+  cssClasses,
+}) {
+  let renderedIcon;
 
-	switch (iconType) {
-		case ICON_TYPES.FUNCTION:
-			renderIcon = icon();
-			break;
+  switch (iconType) {
+    case ICON_TYPES.FUNCTION:
+      renderedIcon = icon();
+      break;
 
-		case ICON_TYPES.STRING:
-			renderIcon = renderDOM(icon);
-			break;
+    case ICON_TYPES.STRING:
+      renderedIcon = renderDOM(icon);
+      break;
 
-		case ICON_TYPES.URL:
-			renderIcon = document.createElement('img');
-			renderIcon.src = icon;
-			break;
+    case ICON_TYPES.URL:
+      renderedIcon = document.createElement('img');
+      renderedIcon.src = icon;
+      break;
 
-		case ICON_TYPES.DOMNODE:
-			renderIcon = icon;
-			break;
+    case ICON_TYPES.DOMNODE:
+      renderedIcon = icon;
+      break;
 
-		default:
-			// With no iconType specified, we have to fall back to detection.
-			if (typeof icon === 'string') {
-				renderIcon = renderDOM(icon);
-			} else if (typeof icon === 'object' && icon.src) {
-				renderIcon = document.createElement('img');
-				renderIcon.src = icon.src;
-			} else if (typeof icon === 'function') {
-				renderIcon = icon();
-			} else {
-				renderIcon = icon;
-			}
-			break;
-	}
+    default:
+      // With no iconType specified, we have to fall back to detection.
+      if (typeof icon === 'string') {
+        renderedIcon = renderDOM(icon);
+      } else if (typeof icon === 'object' && icon.src) {
+        renderedIcon = document.createElement('img');
+        renderedIcon.src = icon.src;
+      } else if (typeof icon === 'function') {
+        renderedIcon = icon();
+      } else {
+        renderedIcon = icon;
+      }
+      break;
+  }
 
-	if (renderIcon) {
-		if (cssClasses) {
-			iconWrapper.classList.add(...cssClasses);
-		}
-		iconWrapper.appendChildAll(renderIcon);
-	}
+  if (renderedIcon) {
+    if (cssClasses) {
+      iconWrapper.classList.add(...cssClasses);
+    }
+    iconWrapper.appendChildAll(renderedIcon);
+  }
 }

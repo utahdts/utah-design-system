@@ -2,36 +2,37 @@ import renderDOM from '../../../misc/renderDOM';
 // eslint-disable-next-line import/no-unresolved
 import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
 // eslint-disable-next-line import/no-unresolved
-import ActionItem from './html/ActionItem.html?raw';
-// eslint-disable-next-line import/no-unresolved
 import WaffleIcon from '../icons/html/Waffle.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import QuestionIcon from '../icons/html/QuestionIcon.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import AlertIcon from '../icons/html/AlertIcon.html?raw';
-
-function actionItem({ title, icon, className }) {
-  const actionItemElement = renderDOM(ActionItem);
-  const titleElement = document.createTextNode(title);
-  actionItemElement.querySelector('.utds-header-action-item__title').appendChildAll(titleElement);
-  const iconButton = actionItemElement.querySelector('.utds-header-action-item__icon-button');
-  if (className) {
-    iconButton.classList.add(className);
-  }
-  iconButton.appendChildAll(renderDOM(icon));
-  return actionItemElement;
-}
+import actionItem from './ActionItem';
 
 function waffleActionItem() {
-  return actionItem({ title: 'Waffle', icon: WaffleIcon, className: 'icon-waffle' });
+  return actionItem({
+    action: () => console.log('Waffle clicked'),
+    className: 'icon-waffle',
+    icon: WaffleIcon,
+    showTitle: false,
+    title: 'Waffle',
+  });
 }
 
 function helpActionItem() {
-  return actionItem({ title: 'Help', icon: QuestionIcon });
+  return actionItem({
+    action: () => console.log('Help clicked'),
+    icon: QuestionIcon,
+    title: 'Help',
+  });
 }
 
 function alertsActionItem() {
-  return actionItem({ title: 'Alerts', icon: AlertIcon });
+  return actionItem({
+    action: () => console.log('Alerts clicked'),
+    icon: AlertIcon,
+    title: 'Alerts',
+  });
 }
 
 export default function ActionItems() {

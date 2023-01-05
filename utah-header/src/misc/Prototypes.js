@@ -1,6 +1,6 @@
 /**
  * This file should be used to setup Prototype functions,
- * and should be called once at App start to make the function available.
+ * and should be called once at App start to make the functionalities available.
  */
 
 /**
@@ -15,6 +15,7 @@ Node.prototype.appendChildAll = function appendChildAll(child) {
   } else if (child instanceof Node) {
     this.appendChild(child);
   } else {
+    // eslint-disable-next-line no-console
     console.error('Node.appendChildAll: Unknown child element!', child);
   }
 };

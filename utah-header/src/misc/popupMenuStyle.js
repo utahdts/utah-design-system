@@ -1,4 +1,5 @@
-import {CSS_CLASSES} from "./cssClasses";
+// TODO: review this file for inclusion
+import CSS_CLASSES from '../js/enumerations/cssClasses';
 
 /**
  * An enum for the possible popup menu styles
@@ -6,7 +7,7 @@ import {CSS_CLASSES} from "./cssClasses";
  * @enum {string}
  */
 export default {
-	DEFAULT: '',
-	GRID: CSS_CLASSES.UT_POPUP_PANEL_MENU_GRID,
-	CARD: CSS_CLASSES.UT_POPUP_PANEL_MENU_CARD
+  DEFAULT: '',
+  GRID: CSS_CLASSES.UT_POPUP_PANEL_MENU_GRID,
+  CARD: CSS_CLASSES.UT_POPUP_PANEL_MENU_CARD,
 };
