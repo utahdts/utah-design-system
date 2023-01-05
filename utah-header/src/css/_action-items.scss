@@ -2,4 +2,30 @@
  &-action-items-wrapper {
   display: flex;
  }
+ &-header-action-item {
+  display: flex;
+  align-items: center;
+  margin: 0 var(--spacing-l) 0 0;
+  position: relative;
+  &__icon-button {
+    &.icon-button {
+      border: 2px solid transparent;
+      position: relative;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gray-color);
+    }
+    &.icon-waffle {
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  &__title {
+
+  }
+ }
 }
