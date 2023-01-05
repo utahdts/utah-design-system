@@ -66,8 +66,10 @@ export default function actionItem({
 
     case 'object':
       if (action instanceof HTMLElement) {
+        // TODO: show child node popup
         iconButton.onclick = () => console.log('Action Item: show child node popup', action);
       } else {
+        // TODO: show popup menu
         iconButton.onclick = () => console.log('Action Item: show menu', action);
       }
       break;
