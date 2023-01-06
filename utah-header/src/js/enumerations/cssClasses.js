@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * @param {string | string[]} cssClasses - the class or classes to which to prefix a period, multiples will be combined as a single selector
  * ie: `.class1.class2` instead of `.class1 .class2`
@@ -9,7 +10,6 @@ export function getCssClassSelector(cssClasses) {
 
 /**
  * An enum for CSS classes used in the utah.gov header
- * @readonly
  * @enum {string}
  */
 export default {

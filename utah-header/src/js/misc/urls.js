@@ -1,4 +1,4 @@
-// TODO: review this file for inclusion
+// @ts-check
 /*
 URL for other developers to use:
 prod/at/dev: https://id.utah.gov/api/userInfo
@@ -7,7 +7,7 @@ URLs for DTS Hosting Engineering development:
 utah id development at: https://id.at.utah.gov/api/userInfo
 utah id development dev: https://id.dev.utah.gov/api/userInfo
 */
-import ENVIRONMENT from './environment';
+import ENVIRONMENT from '../enumerations/environments';
 
 /**
  * URLS and URL parts for generating UtahID URLs
@@ -29,10 +29,11 @@ const URLS = {
 
 /**
  * Generate a url based on domain, path, params
- * @param {string} domain - The domain and protocol part of the url: e.g. https://id.utah.gov
- * @param {string} path - The path part of the url
- * @param {string[]} params - Array of params to add to the url. Note: do not include ? or & in the params
- * @param {string} env - The environment the web service is running under
+ * @param {object} url
+ * @param {string} url.domain - The domain and protocol part of the url: e.g. https://id.utah.gov
+ * @param {string} url.path - The path part of the url
+ * @param {string[]} url.params - Array of params to add to the url. Note: do not include ? or & in the params
+ * @param {string} url.env - The environment the web service is running under
  * @returns {string}
  */
 export function generateURL({

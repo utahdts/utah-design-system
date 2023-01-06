@@ -1,7 +1,6 @@
 // @ts-check
 import packageJson from '../package.json';
 import './css/index.scss';
-import './misc/Prototypes';
 
 // report version for troubleshooting sake
 const fileVersion = packageJson.version.replace(/\./g, '');

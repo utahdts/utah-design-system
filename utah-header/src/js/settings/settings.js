@@ -1,35 +1,14 @@
-import size from '../enumerations/size';
+// @ts-check
 import { loadHeader } from '../lifecycle/lifecycle';
+import defaultSettings from './defaultSettings';
 
 /**
- * @typedef {import('../enumerations/size').Size} Size
- */
-
-/**
- * !! make sure to add fields both here and in SettingsInput (w/ additional undefined option) !!
- * @typedef Settings {
- *  @property {Size} size;
- *  @property {string | null} title;
- * }
+ * @typedef {import('../misc/jsDocTypes').Settings} Settings
+ * @typedef {import('../misc/jsDocTypes').SettingsInput} SettingsInput
 */
 
-/**
- * !! make sure to add fields both here and in Settings (w/o undefined option) !!
- * @typedef SettingsInput {
- *  @property {Size | undefined} size;
- *  @property {string | null | undefined} title;
- * }
- */
-
-/**
- * !~! Do not export settings !~!
- * Interact with `settings` using getSettings() and setSettings().
- * @type {Settings} the current settings of the header
- * */
-let settings = {
-  size: size.MEDIUM,
-  title: null,
-};
+// don't ever export this `settings` variable, instead use getSettings() and setSettings()
+let settings = { ...defaultSettings };
 
 /**
  * @returns {Settings} settings The current settings information
@@ -43,11 +22,13 @@ export function getSettings() {
  * @returns Settings
  */
 export function setSettings(newSettings) {
-  settings = { ...settings || {}, ...newSettings };
+  // note that if newSettings has a key/value where the value is undefined it WILL override the value to undefined
+  // but if newSettings is missing a key then the `undefined` value of the missing key will not override the default.
+  settings = { ...defaultSettings, ...newSettings };
   const existingHeader = document.querySelector('.utah-design-system.utds-header');
   if (existingHeader) {
     // don't call removeHeader because that will trigger an unload event,
-    // but setting `settings` probably shouldn't be considered an "unload" event
+    // and setting `settings` probably shouldn't be considered an "unload" event
     existingHeader.remove();
   }
   loadHeader();

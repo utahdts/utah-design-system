@@ -1,46 +1,28 @@
-import renderDOM from '../../../misc/renderDOM';
+// @ts-check
+
+import appendChildAll from '../../misc/appendChildAll';
+import { renderDOM } from '../../misc/renderDOM';
+import { getSettings } from '../../settings/settings';
+// @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import WaffleIcon from '../icons/html/Waffle.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import QuestionIcon from '../icons/html/QuestionIcon.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import AlertIcon from '../icons/html/AlertIcon.html?raw';
-import actionItem from './ActionItem';
+import renderActionItem from './renderActionItem';
 
-function waffleActionItem() {
-  return actionItem({
-    action: () => console.log('Waffle clicked'),
-    className: 'icon-waffle',
-    icon: WaffleIcon,
-    showTitle: false,
-    title: 'Waffle',
-  });
-}
-
-function helpActionItem() {
-  return actionItem({
-    action: () => console.log('Help clicked'),
-    icon: QuestionIcon,
-    title: 'Help',
-  });
-}
-
-function alertsActionItem() {
-  return actionItem({
-    action: () => console.log('Alerts clicked'),
-    icon: AlertIcon,
-    title: 'Alerts',
-  });
-}
-
+/**
+ * @returns {HTMLCollection | Element | null}
+ */
 export default function ActionItems() {
-  const actionItemsWrapper = renderDOM(ActionItemsWrapper);
+  const { actionItems } = getSettings();
+  let actionItemsWrapper = null;
 
-  actionItemsWrapper.appendChildAll(waffleActionItem());
-  actionItemsWrapper.appendChildAll(helpActionItem());
-  actionItemsWrapper.appendChildAll(alertsActionItem());
+  if (actionItems?.length) {
+    actionItemsWrapper = renderDOM(ActionItemsWrapper);
+
+    getSettings()
+      .actionItems
+      ?.map((actionItemToRender) => renderActionItem(actionItemToRender))
+      ?.forEach((renderedActionItem) => appendChildAll(actionItemsWrapper, renderedActionItem));
+  }
 
   return actionItemsWrapper;
 }
