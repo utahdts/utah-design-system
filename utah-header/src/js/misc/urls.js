@@ -32,7 +32,7 @@ const URLS = {
  * @param {object} url
  * @param {string} url.domain - The domain and protocol part of the url: e.g. https://id.utah.gov
  * @param {string} url.path - The path part of the url
- * @param {string[]} url.params - Array of params to add to the url. Note: do not include ? or & in the params
+ * @param {string[]} [url.params] - Array of params to add to the url. Note: do not include ? or & in the params
  * @param {string} url.env - The environment the web service is running under
  * @returns {string}
  */

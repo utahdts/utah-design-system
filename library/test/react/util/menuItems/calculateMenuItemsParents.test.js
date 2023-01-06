@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import calculateMenuItemsParents from '../../../../react/util/menuItems/calculateMenuItemsParents';
 
 const links = {

@@ -9,4 +9,5 @@ export default {
   AT: 'a2',
   DEV: 'a3',
   CUSTOM: 'custom',
+  UNITTEST: 'unittest',
 };

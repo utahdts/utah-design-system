@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import stringToId from '../../../react/util/stringToId';
 
 test('stringToId', () => {

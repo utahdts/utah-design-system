@@ -1,4 +1,5 @@
-import findElementsByTagNameMatch from '../../../../../react/components/navigation/util/findElementsByTagNameMatch'
+import { expect, test } from 'vitest';
+import findElementsByTagNameMatch from '../../../../../react/components/navigation/util/findElementsByTagNameMatch';
 
 const h2a = { id: 'h2a', tagName: 'h2' };
 const h2b = { id: 'h2b', tagName: 'h2' };
@@ -6,7 +7,7 @@ const h3a = { id: 'h3a', tagName: 'h3' };
 const h2c = {
   id: 'h2c',
   tagName: 'h2',
-  children: [h3a, h3a]
+  children: [h3a, h3a],
 };
 const h1a = { id: 'h1a', tagName: 'h1' };
 const h4a = { id: 'h4a', tagName: 'h4' };
@@ -23,7 +24,7 @@ const h4c = {
 const h2d = {
   id: 'h2d',
   tagName: 'h2',
-  children: [h1a, h4a]
+  children: [h1a, h4a],
 };
 const h2e = {
   id: 'h2e',
@@ -33,7 +34,7 @@ const h2e = {
     h4b,
     h2d,
     h1a,
-  ]
+  ],
 };
 
 test('findElementsByTagNameMatch: match (only h2, h3)', () => {
@@ -65,4 +66,3 @@ test('findElementsByTagNameMatch: parent match - children do not match', () => {
 test('findElementsByTagNameMatch: multi-level', () => {
   expect(findElementsByTagNameMatch(h2e)).toStrictEqual([h2e, h2c, h3a, h3a, h3a, h3a, h2d]);
 });
-
