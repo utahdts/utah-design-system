@@ -1,23 +1,29 @@
 .utds {
  &-action-items-wrapper {
   display: flex;
+  gap: var(--spacing);
+  margin-right: var(--spacing);
  }
  &-header-action-item {
   display: flex;
   align-items: center;
-  margin: 0 var(--spacing-l) 0 0;
   position: relative;
   &__icon-button {
     &.icon-button {
       border: 2px solid transparent;
       position: relative;
-      padding: 0 var(--spacing-s);
       &:hover {
         background: var(--hover-gray-color);
         color: black;
         svg {
           fill: black;
         }
+      }
+    }
+    &--has-title {
+      .icon-button {
+        padding: 0 var(--spacing-s);
+        flex-direction: row-reverse;
       }
     }
     svg {
@@ -33,7 +39,7 @@
     }
   }
   &__title {
-
+    margin-left: var(--spacing-xs);
   }
  }
 }

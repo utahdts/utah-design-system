@@ -19,8 +19,12 @@ export default function renderActionItem(actionItem) {
   const actionItemElement = renderDOMSingle(ActionItemHtml);
   const titleElement = document.createTextNode(actionItem.title);
 
-  const firstItem = actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement;
-  const titleDiv = firstItem.querySelector(getCssClassSelector(cssClasses.ACTION_ITEM__TITLE));
+  const actionItemWrapper = actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement;
+  if (actionItem.showTitle) {
+    actionItemWrapper.classList.add(cssClasses.ACTION_ITEM__ICON_BUTTON_TITLE);
+  }
+
+  const titleDiv = actionItemWrapper.querySelector(getCssClassSelector(cssClasses.ACTION_ITEM__TITLE));
   if (!titleDiv) {
     throw new Error('renderActionItem: titleDiv not found');
   }
