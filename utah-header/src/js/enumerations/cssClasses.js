@@ -34,6 +34,12 @@ export default {
   LOGO_VERT_LINE: 'utds-logo-vert-line',
   LOGO: 'utds-logo-wrapper',
 
+  POPUP_MENU: 'utds-header-popup-menu',
+  POPUP_MENU__LINK: 'utds-header-popup-menu__link',
+  POPUP_MENU__LINK_TEXT: 'utds-header-popup-menu__link-text',
+
+  POPUP_WRAPPER: 'utds-header-popup-wrapper',
+
   SIZE__LARGE: 'large',
   SIZE__MEDIUM: 'medium',
 

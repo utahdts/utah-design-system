@@ -25,5 +25,8 @@
     "vite-plugin-eslint": "1.8.1",
     "vitest": "0.26.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@popperjs/core": "2.11.6"
+  }
 }

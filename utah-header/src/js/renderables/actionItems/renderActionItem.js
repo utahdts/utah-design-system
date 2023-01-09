@@ -1,13 +1,16 @@
 // @ts-check
-import appendChildAll from '../../misc/appendChildAll';
-import { renderDOM, renderDOMSingle } from '../../misc/renderDOM';
+import { createPopper } from '@popperjs/core';
 import cssClasses, { getCssClassSelector } from '../../enumerations/cssClasses';
+import appendChildAll from '../../misc/appendChildAll';
+import { renderDOMSingle } from '../../misc/renderDOM';
+import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ActionItemHtml from './html/ActionItem.html?raw';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').ActionItem} ActionItem
+ * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
  */
 
 /**
@@ -18,6 +21,10 @@ import ActionItemHtml from './html/ActionItem.html?raw';
 export default function renderActionItem(actionItem) {
   const actionItemElement = renderDOMSingle(ActionItemHtml);
   const titleElement = document.createTextNode(actionItem.title);
+
+  // put an id on the button
+  // have popup aria reference the id of the button
+  // track if it is expanded or not
 
   const actionItemWrapper = actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement;
   if (actionItem.showTitle) {
@@ -42,8 +49,13 @@ export default function renderActionItem(actionItem) {
   if (actionItem.className) {
     iconButton.classList.add(actionItem.className);
   }
-  // TODO: use title for accessibility
-  appendChildAll(iconButton, renderDOM(actionItem.icon));
+  // TODO: aria
+  //   button: aria-haspopup : menu, dialog, true
+  //   popup: role="menu", role="dialog"
+
+  const actionItemIcon = renderDOMSingle(actionItem.icon);
+  actionItemIcon.setAttribute('role', 'presentation');
+  appendChildAll(iconButton, actionItemIcon);
 
   if (!(iconButton instanceof HTMLElement)) {
     throw new Error('renderActionItem: iconButton is not an HTMLElement');
@@ -56,11 +68,26 @@ export default function renderActionItem(actionItem) {
 
     case 'object':
       if (actionItem.action instanceof HTMLElement) {
-        // TODO: show child node popup
+        /* TODO: show child node popup
+        *               * aria-haspopup="true"
+        *               * aria-controls="ID"
+        *               * aria-expanded="true/false"
+        */
         iconButton.onclick = () => console.log('Action Item: show child node popup', actionItem.action);
       } else {
-        // TODO: show popup menu
-        iconButton.onclick = () => console.log('Action Item: show menu', actionItem.action);
+        /* TODO: show popup menu
+        *               * aria-haspopup="true"
+        *               * aria-controls="ID"
+        *               * aria-expanded="true/false"
+        */
+        const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.action)));
+        appendChildAll(actionItemElement, popupMenu);
+
+        iconButton.onclick = () => {
+          const htmlElement = /** @type {HTMLElement} */(popupMenu);
+          createPopper(iconButton, htmlElement, { placement: 'bottom' });
+          htmlElement.style.display = 'block';
+        };
       }
       break;
 

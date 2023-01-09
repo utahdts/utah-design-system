@@ -7,27 +7,32 @@
  * For menu items that are links to other locations
  * @typedef MenuItemUrlAction {
  *  @property {string} url - the url to which to go when interacted with
- *  @property {boolean} openInNewTab;
+ *  @property {boolean} [openInNewTab]
  * }
  *
  * A menu item in the menu, can have children
  * @typedef MenuItem {
  *  @property {MenuItemUrlAction | function | MenuItem[]} action - onClick function, link url, children menus
- *  @property {string | undefined} className - can be used for `selected` or any other purpose
- *  @property {ChildNode} icon
+ *  @property {string} [className] - can be used for `selected` or any other purpose
+ *  @property {ChildNode} [icon]
  *  @property {string} title
  * }
  *
- * @typedef Menu {
- *  @property {string | undefined} className;
- *  @property {MenuItem[] | undefined} menuItems;
- *  @property {string} title;
+ * @typedef PopupMenu {
+ *  @property {string} [className]
+ *  @property {MenuItem[]} menuItems
+ *  @property {string} title
  * }
  *
  * @typedef {(this: GlobalEventHandlers, ev: MouseEvent) => any} OnClick
  *
  * @typedef ActionItem {
- *  @property {OnClick | Menu | ChildNode } action - function: onClick callback, Object[]: array of MenuItems, ChildNode: content to show in a popup.
+ *  @property {OnClick | PopupMenu | ChildNode } action - function: onClick callback, Object[]: array of MenuItems, ChildNode: content in a popup.
+ * // TODO:
+ *      notes: if using Menu or ChildNode
+ *               * aria-haspopup="true"
+ *               * aria-controls="ID"
+ *               * aria-expanded="true/false"
  *  @property {string} [className] - CSS classes for the action item
  *  @property {string} icon - Should be an SVG
  *  @property {boolean} showTitle – Should the title always be visible?

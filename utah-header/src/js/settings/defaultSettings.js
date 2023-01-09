@@ -22,7 +22,36 @@ import sizes from '../enumerations/sizes';
 export default {
   actionItems: [
     {
-      action: () => console.log('Waffle clicked'),
+      action: {
+        menuItems: [
+          {
+            action: { url: 'https://google.com?search=how realisitic can you be' },
+            title: 'Item #1',
+          },
+          // {
+          //   action: { url: 'https://utah.gov', openInNewTab: true },
+          //   title: 'Utah.Gov',
+          // },
+          // {
+          //   action: () => console.log('Custom menu item triggered'),
+          //   title: 'Custom menu item',
+          // },
+          // {
+          //   action: [
+          //     {
+          //       title: 'i am a child',
+          //       action: { url: 'https://dts.utah.gov' },
+          //     },
+          //     {
+          //       title: 'i am a child 2oo',
+          //       action: { url: 'https://dts.utah.gov/2' },
+          //     },
+          //   ],
+          //   title: 'I have children!!',
+          // },
+        ],
+        title: 'Divisions Menu',
+      },
       className: 'icon-waffle',
       icon: WaffleIcon,
       showTitle: true,

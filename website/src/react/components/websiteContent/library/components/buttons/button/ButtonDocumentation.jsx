@@ -1,9 +1,7 @@
 import {
   Button,
   formElementSizesEnum,
-  Icons,
-  useBanner,
-  Tab,
+  Icons, Tab,
   TabGroup,
   Table,
   TableBody,
@@ -16,14 +14,16 @@ import {
   TabList,
   TabPanel,
   TabPanels,
+  useBanner,
 } from '@utahdts/utah-design-system';
+import { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import ButtonExampleCodeReact from './ButtonExampleCodeReact';
-import ButtonExampleRender from './ButtonExampleRender';
-import ButtonExampleProps from './ButtonExampleProps';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import ButtonExampleCodeReact from './ButtonExampleCodeReact';
+import ButtonExampleProps from './ButtonExampleProps';
+import ButtonExampleRender from './ButtonExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -49,27 +49,27 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={() => showBanner({ message: 'primary emphasized button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'primary emphasized button clicked' }))}
             >
               Primary Color
             </Button>
             <Button
               appearance="solid"
               color="secondary"
-              onClick={() => showBanner({ message: 'secondary emphasized button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'secondary emphasized button clicked' }))}
             >
               Secondary Color
             </Button>
             <Button
               appearance="solid"
               color="accent"
-              onClick={() => showBanner({ message: 'accent emphasized button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'accent emphasized button clicked' }))}
             >
               Accent Color
             </Button>
             <Button
               appearance="solid"
-              onClick={() => showBanner({ message: 'default emphasized button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'default emphasized button clicked' }))}
             >
               No Color
             </Button>
@@ -96,27 +96,27 @@ function ButtonDocumentation() {
             <Button
               appearance="outlined"
               color="primary"
-              onClick={() => showBanner({ message: 'primary unemphasized  button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'primary unemphasized  button clicked' }))}
             >
               Primary Color
             </Button>
             <Button
               appearance="outlined"
               color="secondary"
-              onClick={() => showBanner({ message: 'secondary unemphasized  button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'secondary unemphasized  button clicked' }))}
             >
               Secondary Color
             </Button>
             <Button
               appearance="outlined"
               color="accent"
-              onClick={() => showBanner({ message: 'accent unemphasized  button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'accent unemphasized  button clicked' }))}
             >
               Accent Color
             </Button>
             <Button
               appearance="outlined"
-              onClick={() => showBanner({ message: 'unemphasized button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'unemphasized button clicked' }))}
             >
               No Color
             </Button>
@@ -142,14 +142,14 @@ function ButtonDocumentation() {
             <Button
               appearance="outlined"
               color="primary"
-              onClick={() => showBanner({ message: 'cancel button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'cancel button clicked' }))}
             >
               Cancel
             </Button>
             <Button
               appearance="solid"
               color="primary"
-              onClick={() => showBanner({ message: 'ok button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'ok button clicked' }))}
             >
               Okay
             </Button>
@@ -177,7 +177,7 @@ function ButtonDocumentation() {
               appearance="outlined"
               color="primary"
               iconLeft={Icons.IconCheck()}
-              onClick={() => showBanner({ message: '`left icon` button clicked' })}
+              onClick={useCallback(() => showBanner({ message: '`left icon` button clicked' }))}
             >
               Button
             </Button>
@@ -185,7 +185,7 @@ function ButtonDocumentation() {
               appearance="solid"
               color="primary"
               iconRight={Icons.IconArrowRight()}
-              onClick={() => showBanner({ message: '`see more` button clicked' })}
+              onClick={useCallback(() => showBanner({ message: '`see more` button clicked' }))}
             >
               See More
             </Button>
@@ -206,7 +206,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={() => showBanner({ message: 'small button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'small button clicked' }))}
               size={formElementSizesEnum.SMALL}
             >
               Small
@@ -214,7 +214,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={() => showBanner({ message: 'medium button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
               size={formElementSizesEnum.MEDIUM}
             >
               Medium
@@ -222,7 +222,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={() => showBanner({ message: 'large button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'large button clicked' }))}
               size={formElementSizesEnum.LARGE}
             >
               Large
@@ -230,7 +230,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={() => showBanner({ message: 'large1x button clicked' })}
+              onClick={useCallback(() => showBanner({ message: 'large1x button clicked' }))}
               size={formElementSizesEnum.LARGE1X}
             >
               Large 1X
@@ -250,7 +250,7 @@ function ButtonDocumentation() {
           <Button
             appearance="solid"
             color="primary"
-            onClick={() => showBanner({ message: 'medium button clicked' })}
+            onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
             size={formElementSizesEnum.MEDIUM}
             isBusy
           >
