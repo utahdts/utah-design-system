@@ -46,6 +46,11 @@
  *  @property {string | null} title
  * }
  *
+ * @typedef GlobalEventType {
+ *  @property {() => void} globalOnClick
+ *  @property {() => void} globalOnKeypress
+ * }
+ *
  * @typedef {Partial<Settings>} SettingsInput
 */
 

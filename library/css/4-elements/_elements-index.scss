@@ -5,13 +5,13 @@ elemental html: h1, h2, h3, ul, li, etc.
 @use "../1-settings/class-vars";
 
 #{class-vars.$base-class} {
-	margin: 0;
-	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
   font-size: 16px;
   line-height: 1.4;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: white;
   color: var(--gray-color);
 
   h1 {

@@ -2,11 +2,12 @@
 @use "../../../library/css/1-settings/spacing";
 
 .utds-header-popup-wrapper {
-	position: absolute;
-	padding: var(--spacing);
-	border-radius: var(--radius-medium);
-	box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
-	z-index: 100;
-	min-width: 200px;
-	background: white;
+  position: absolute;
+  padding: var(--spacing);
+  border-radius: var(--radius-medium);
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+  z-index: 100;
+  min-width: 200px;
+  background: white;
+  top:100%;
 }

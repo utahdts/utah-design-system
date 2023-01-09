@@ -28,7 +28,8 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 
   } else if (typeof popupMenuItem.action === 'function') {
     // on click custom action, so hookup onclick
-
+    const htmlElement = /** @type {HTMLElement} */(menuItemWrapper);
+    htmlElement.onclick = popupMenuItem.action;
   } else {
     // link object, so hook up href
     const aHref = menuItemWrapper.querySelector(getCssClassSelector(cssClasses.POPUP_MENU__LINK));

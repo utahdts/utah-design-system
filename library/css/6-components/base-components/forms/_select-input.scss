@@ -2,14 +2,14 @@
 
 select {
   color: var(--gray-color);
-	min-height: var(--form-ele-medium);
+  min-height: var(--form-ele-medium);
   border-radius: var(--radius-small);
   box-sizing: border-box;
   border: 1px solid var(--gray-color);
   width: 100%;
   padding: 0 var(--spacing-xs);
   box-sizing: border-box;
-	appearance: none;
+  appearance: none;
   background: white var(--icon-chevron-dark) no-repeat right 5px center;
   background-size: 16px;
 

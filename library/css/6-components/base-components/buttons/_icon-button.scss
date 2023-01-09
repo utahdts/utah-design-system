@@ -17,9 +17,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 200ms ease-in-out;
     color: var(--gray-color);
-    
+
     &:hover {
       background: var(--gray-color);
       color: white;

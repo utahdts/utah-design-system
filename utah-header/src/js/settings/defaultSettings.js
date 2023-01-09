@@ -28,14 +28,18 @@ export default {
             action: { url: 'https://google.com?search=how realisitic can you be' },
             title: 'Item #1',
           },
-          // {
-          //   action: { url: 'https://utah.gov', openInNewTab: true },
-          //   title: 'Utah.Gov',
-          // },
-          // {
-          //   action: () => console.log('Custom menu item triggered'),
-          //   title: 'Custom menu item',
-          // },
+          {
+            action: { url: 'https://utah.gov', openInNewTab: true },
+            title: 'Utah.Gov',
+          },
+          {
+            action: (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              console.log('Custom menu item triggered');
+            },
+            title: 'Custom menu item',
+          },
           // {
           //   action: [
           //     {

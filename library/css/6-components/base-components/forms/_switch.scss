@@ -124,7 +124,7 @@ input[type=checkbox].switch {
 }
 
 .input-wrapper {
-	&--switch {
+  &--switch {
     label {
       // padding: var(--spacing-3xs) var(--spacing) var(--spacing-3xs) var(--spacing-xl);
       padding: var(--spacing-3xs) var(--spacing-xs);

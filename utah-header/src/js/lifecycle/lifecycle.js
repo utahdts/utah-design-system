@@ -2,6 +2,7 @@
 import cssClasses, { getCssClassSelector } from '../enumerations/cssClasses';
 import events from '../enumerations/events';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
+import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 
 export function loadHeader() {
   const existingHeader = document.querySelector(getCssClassSelector([cssClasses.UTAH_DESIGN_SYSTEM, cssClasses.HEADER]));
@@ -22,6 +23,8 @@ export function loadHeader() {
     const header = HeaderWrapper();
     document.body.insertBefore(header, document.body.firstChild);
 
+    loadGlobalEvents();
+
     // Trigger a custom event ('utahHeaderLoaded') that developers can listen for
     // in their applications.
     // The event needs to wait for the UMD library to load the global window.utahHeader
@@ -33,6 +36,8 @@ export function loadHeader() {
 
 export function removeHeader() {
   document.querySelector(getCssClassSelector([cssClasses.UTAH_DESIGN_SYSTEM, cssClasses.HEADER]))?.remove();
+
+  unloadGlobalEvents();
 
   // take the event dispatch out of this execution flow to allow for timing of events *after* this execution flow.
   setTimeout(() => document.dispatchEvent(new Event(events.HEADER_UNLOADED)), 0);

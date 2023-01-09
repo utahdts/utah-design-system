@@ -83,10 +83,16 @@ export default function renderActionItem(actionItem) {
         const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.action)));
         appendChildAll(actionItemElement, popupMenu);
 
-        iconButton.onclick = () => {
-          const htmlElement = /** @type {HTMLElement} */(popupMenu);
-          createPopper(iconButton, htmlElement, { placement: 'bottom' });
-          htmlElement.style.display = 'block';
+        iconButton.onclick = (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          if (popupMenu.classList.contains(cssClasses.VISUALLY_HIDDEN)) {
+            const htmlElement = /** @type {HTMLElement} */(popupMenu);
+            createPopper(iconButton, htmlElement, { placement: 'bottom' });
+            htmlElement.classList.remove(cssClasses.VISUALLY_HIDDEN);
+          } else {
+            popupMenu.classList.add(cssClasses.VISUALLY_HIDDEN);
+          }
         };
       }
       break;
