@@ -11,10 +11,12 @@
     &.icon-button {
       border: 2px solid transparent;
       position: relative;
+      padding: 0 var(--spacing-s);
       &:hover {
         background: var(--hover-gray-color);
+        color: black;
         svg {
-          fill: var(--gray-color);
+          fill: black;
         }
       }
     }

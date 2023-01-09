@@ -25,8 +25,8 @@ export default {
       action: () => console.log('Waffle clicked'),
       className: 'icon-waffle',
       icon: WaffleIcon,
-      showTitle: false,
-      title: 'Waffle',
+      showTitle: true,
+      title: 'Divisions',
     },
     {
       action: () => console.log('Alerts clicked'),
