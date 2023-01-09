@@ -12,7 +12,7 @@
  *
  * A menu item in the menu, can have children
  * @typedef MenuItem {
- *  @property {MenuItemUrlAction | function | MenuItem[]} action - onClick function, link url, children menus
+ *  @property {MenuItemUrlAction | ((e: Event) => void) | MenuItem[]} action - onClick function, link url, children menus
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon]
  *  @property {string} title

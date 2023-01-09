@@ -22,16 +22,17 @@ import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 function renderPopupMenuItem(menuUl, popupMenuItem) {
   const menuItemWrapper = renderDOMSingle(PopupMenuItemHtml);
 
-  // <!-- three types: parent, custom function, link -->
+  // three types of action: parent, custom function, link
   if (Array.isArray(popupMenuItem.action)) {
-    // submenu, more menu items!
-
+    // === submenu, more menu items! === //
+    const subMenu = renderMenu(popupMenuItem, popupMenuItem.action);
+    appendChildAll(menuItemWrapper, subMenu);
   } else if (typeof popupMenuItem.action === 'function') {
-    // on click custom action, so hookup onclick
+    // === on click custom action, so hookup onclick === //
     const htmlElement = /** @type {HTMLElement} */(menuItemWrapper);
     htmlElement.onclick = popupMenuItem.action;
   } else {
-    // link object, so hook up href
+    // === link object, so hook up href === //
     const aHref = menuItemWrapper.querySelector(getCssClassSelector(cssClasses.POPUP_MENU__LINK));
     if (!aHref) {
       throw new Error('renderPopupMenuItem: aHref not found');
@@ -59,14 +60,26 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 }
 
 /**
+ * @param {PopupMenu | MenuItem} _parentMenu
+ * @param {MenuItem[]} menuItems
+ * @returns {Element}
+ */
+function renderMenu(_parentMenu, menuItems) {
+  const menuWrapper = renderDOMSingle(PopupMenuHtml);
+
+  menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem));
+  // TODO: where should PopupMenu.title be exposed?
+  return menuWrapper;
+}
+
+/**
  * @param {PopupMenu} popupMenu - the action item to add
  * @returns {Element}
  */
 export default function renderPopupMenu(popupMenu) {
   const popupWrapper = renderPopup();
-  const menuWrapper = renderDOMSingle(PopupMenuHtml);
 
-  popupMenu.menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem));
+  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
 
   appendChildAll(popupWrapper, menuWrapper);
 

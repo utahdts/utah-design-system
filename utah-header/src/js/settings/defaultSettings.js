@@ -40,19 +40,19 @@ export default {
             },
             title: 'Custom menu item',
           },
-          // {
-          //   action: [
-          //     {
-          //       title: 'i am a child',
-          //       action: { url: 'https://dts.utah.gov' },
-          //     },
-          //     {
-          //       title: 'i am a child 2oo',
-          //       action: { url: 'https://dts.utah.gov/2' },
-          //     },
-          //   ],
-          //   title: 'I have children!!',
-          // },
+          {
+            action: [
+              {
+                title: 'i am a child',
+                action: { url: 'https://dts.utah.gov' },
+              },
+              {
+                title: 'i am a child 2oo',
+                action: { url: 'https://dts.utah.gov/2' },
+              },
+            ],
+            title: 'I have children!!',
+          },
         ],
         title: 'Divisions Menu',
       },
