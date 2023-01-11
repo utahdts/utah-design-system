@@ -1,121 +1,63 @@
+export { default as Button } from './react/components/buttons/Button';
+export { default as ConfirmationButton } from './react/components/buttons/ConfirmationButton';
+export { default as IconButton } from './react/components/buttons/IconButton';
+export { default as SegmentedButton } from './react/components/buttons/SegmentedButton';
+export { default as Accordion } from './react/components/containers/accordion/Accordion';
+export { default as Tab } from './react/components/containers/tabs/Tab';
+export { default as TabGroup } from './react/components/containers/tabs/TabGroup';
+export { default as TabGroupTitle } from './react/components/containers/tabs/TabGroupTitle';
+export { default as TabList } from './react/components/containers/tabs/TabList';
+export { default as TabPanel } from './react/components/containers/tabs/TabPanel';
+export { default as TabPanels } from './react/components/containers/tabs/TabPanels';
+export { default as CheckBox } from './react/components/forms/CheckBox';
+export { default as Form } from './react/components/forms/Form';
+export { default as FormContext } from './react/components/forms/FormContext';
+export { default as FormContextProvider } from './react/components/forms/FormContextProvider';
+export { default as Select } from './react/components/forms/Select';
+export { default as SelectOption } from './react/components/forms/SelectOption';
+export { default as Switch } from './react/components/forms/Switch';
+export { default as TextInput } from './react/components/forms/TextInput';
+export { default as Icons } from './react/components/icons/Icons';
+export { default as HorizontalMenu } from './react/components/navigation/HorizontalMenu';
+export { default as MainMenu } from './react/components/navigation/MainMenu';
+export { default as Pagination } from './react/components/pagination/Pagination';
+export { default as usePaginatedList } from './react/components/pagination/usePaginatedList';
+export { default as Table } from './react/components/table/Table';
+export { default as TableBody } from './react/components/table/TableBody';
+export { default as TableBodyData } from './react/components/table/TableBodyData';
+export { default as TableBodyDataCellTemplate } from './react/components/table/TableBodyDataCellTemplate';
+export { default as TableBodyDataRowTemplate } from './react/components/table/TableBodyDataRowTemplate';
+export { default as TableCell } from './react/components/table/TableCell';
+export { default as TableFilterCustom } from './react/components/table/TableFilterCustom';
+export { default as TableFilterNone } from './react/components/table/TableFilterNone';
+export { default as TableFilters } from './react/components/table/TableFilters';
+export { default as TableFilterSelect } from './react/components/table/TableFilterSelect';
+export { default as TableFilterSelectOption } from './react/components/table/TableFilterSelectOption';
+export { default as TableFilterTextInput } from './react/components/table/TableFilterTextInput';
+export { default as TableFoot } from './react/components/table/TableFoot';
+export { default as TableFootCell } from './react/components/table/TableFootCell';
+export { default as TableFootRow } from './react/components/table/TableFootRow';
+export { default as TableHead } from './react/components/table/TableHead';
+export { default as TableHeadCell } from './react/components/table/TableHeadCell';
+export { default as TableHeadRow } from './react/components/table/TableHeadRow';
+export { default as TableRow } from './react/components/table/TableRow';
+export { default as TableSortingRule } from './react/components/table/TableSortingRule';
+export { default as TableSortingRules } from './react/components/table/TableSortingRules';
+export { default as TableWrapper } from './react/components/table/TableWrapper';
+export { default as DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
+export { default as LandingTemplate } from './react/components/templates/LandingTemplate';
+export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
+export { default as tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
+export { default as useBanner } from './react/hooks/useBanner';
+export { default as useMountingTracker } from './react/hooks/useMountingTracker';
+export { default as MenuItemShape } from './react/propTypesShapes/MenuItemsShape';
+export { default as RefShape } from './react/propTypesShapes/RefShape';
+export { default as handleEvent } from './react/util/handleEvent';
+export { default as handleKeyPress } from './react/util/handleKeyPress';
+export { default as joinClassNames } from './react/util/joinClassNames';
+export { default as rectContainsPoint } from './react/util/rectContainsPoint';
+export { default as setValueAtPath } from './react/util/state/setValueAtPath';
+export { default as valueAtPath } from './react/util/state/valueAtPath';
+
 import packageJson from './package.json';
-import Button from './react/components/buttons/Button';
-import ConfirmationButton from './react/components/buttons/ConfirmationButton';
-import IconButton from './react/components/buttons/IconButton';
-import SegmentedButton from './react/components/buttons/SegmentedButton';
-import Accordion from './react/components/containers/accordion/Accordion';
-import Tab from './react/components/containers/tabs/Tab';
-import TabGroup from './react/components/containers/tabs/TabGroup';
-import TabGroupTitle from './react/components/containers/tabs/TabGroupTitle';
-import TabList from './react/components/containers/tabs/TabList';
-import TabPanel from './react/components/containers/tabs/TabPanel';
-import TabPanels from './react/components/containers/tabs/TabPanels';
-import CheckBox from './react/components/forms/CheckBox';
-import Form from './react/components/forms/Form';
-import FormContext from './react/components/forms/FormContext';
-import FormContextProvider from './react/components/forms/FormContextProvider';
-import Select from './react/components/forms/Select';
-import SelectOption from './react/components/forms/SelectOption';
-import Switch from './react/components/forms/Switch';
-import TextInput from './react/components/forms/TextInput';
-import Icons from './react/components/icons/Icons';
-import HorizontalMenu from './react/components/navigation/HorizontalMenu';
-import MainMenu from './react/components/navigation/MainMenu';
-import Pagination from './react/components/pagination/Pagination';
-import usePaginatedList from './react/components/pagination/usePaginatedList';
-import Table from './react/components/table/Table';
-import TableBody from './react/components/table/TableBody';
-import TableBodyData from './react/components/table/TableBodyData';
-import TableBodyDataCellTemplate from './react/components/table/TableBodyDataCellTemplate';
-import TableBodyDataRowTemplate from './react/components/table/TableBodyDataRowTemplate';
-import TableCell from './react/components/table/TableCell';
-import TableFilterCustom from './react/components/table/TableFilterCustom';
-import TableFilterNone from './react/components/table/TableFilterNone';
-import TableFilters from './react/components/table/TableFilters';
-import TableFilterSelect from './react/components/table/TableFilterSelect';
-import TableFilterSelectOption from './react/components/table/TableFilterSelectOption';
-import TableFilterTextInput from './react/components/table/TableFilterTextInput';
-import TableFoot from './react/components/table/TableFoot';
-import TableFootCell from './react/components/table/TableFootCell';
-import TableFootRow from './react/components/table/TableFootRow';
-import TableHead from './react/components/table/TableHead';
-import TableHeadCell from './react/components/table/TableHeadCell';
-import TableHeadRow from './react/components/table/TableHeadRow';
-import TableRow from './react/components/table/TableRow';
-import TableWrapper from './react/components/table/TableWrapper';
-import DocumentationTemplate from './react/components/templates/DocumentationTemplate';
-import LandingTemplate from './react/components/templates/LandingTemplate';
-import formElementSizesEnum from './react/enums/formElementSizesEnum';
-import useBanner from './react/hooks/useBanner';
-import useMountingTracker from './react/hooks/useMountingTracker';
-import MenuItemShape from './react/propTypesShapes/MenuItemsShape';
-import RefShape from './react/propTypesShapes/RefShape';
-import handleEvent from './react/util/handleEvent';
-import handleKeyPress from './react/util/handleKeyPress';
-import joinClassNames from './react/util/joinClassNames';
-import rectContainsPoint from './react/util/rectContainsPoint';
-import setValueAtPath from './react/util/state/setValueAtPath';
-import valueAtPath from './react/util/state/valueAtPath';
-
-const { version } = packageJson;
-
-export {
-  Accordion,
-  Button,
-  ConfirmationButton,
-  CheckBox,
-  DocumentationTemplate,
-  handleEvent,
-  handleKeyPress,
-  Form,
-  FormContext,
-  FormContextProvider,
-  formElementSizesEnum,
-  IconButton,
-  Icons,
-  joinClassNames,
-  LandingTemplate,
-  HorizontalMenu,
-  MainMenu,
-  MenuItemShape,
-  Pagination,
-  rectContainsPoint,
-  RefShape,
-  SegmentedButton,
-  setValueAtPath,
-  Select,
-  SelectOption,
-  Switch,
-  Tab,
-  TabGroup,
-  TabGroupTitle,
-  Table,
-  TableBody,
-  TableBodyData,
-  TableBodyDataCellTemplate,
-  TableBodyDataRowTemplate,
-  TableCell,
-  TableFilterCustom,
-  TableFilterNone,
-  TableFilters,
-  TableFilterSelect,
-  TableFilterSelectOption,
-  TableFilterTextInput,
-  TableFoot,
-  TableFootCell,
-  TableFootRow,
-  TableHead,
-  TableHeadCell,
-  TableHeadRow,
-  TableRow,
-  TableWrapper,
-  TabList,
-  TabPanel,
-  TabPanels,
-  TextInput,
-  useBanner,
-  useMountingTracker,
-  usePaginatedList,
-  valueAtPath,
-  version,
-};
+export const { version } = packageJson;
