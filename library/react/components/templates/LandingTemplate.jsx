@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import MenuShape from '../../propTypesShapes/MenuShape';
 import MainMenu from '../navigation/MainMenu';
-import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
   content: PropTypes.func.isRequired,
@@ -16,7 +15,6 @@ const defaultProps = {
 function LandingTemplate({ content: Content, currentMenuItem, mainMenu }) {
   return (
     <>
-      <UtahHeader />
       <MainMenu currentMenuItem={currentMenuItem} menu={mainMenu} />
       <Content />
     </>

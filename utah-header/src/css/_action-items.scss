@@ -1,0 +1,45 @@
+.utds {
+ &-action-items-wrapper {
+  display: flex;
+  gap: var(--spacing);
+  margin-right: var(--spacing);
+ }
+ &-header-action-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  &__icon-button {
+    &.icon-button {
+      border: 2px solid transparent;
+      position: relative;
+      &:hover {
+        background: var(--hover-gray-color);
+        color: black;
+        svg {
+          fill: black;
+        }
+      }
+    }
+    &--has-title {
+      .icon-button {
+        padding: 0 var(--spacing-s);
+        flex-direction: row-reverse;
+      }
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gray-color);
+    }
+    &.icon-waffle {
+      svg {
+        width: 17px;
+        height: 17px;
+      }
+    }
+  }
+  &__title {
+    margin-left: var(--spacing-xs);
+  }
+ }
+}

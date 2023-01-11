@@ -52,7 +52,7 @@ function HomeLanding() {
         </p>
 
         <p>
-          In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require DTS and Executive
+          In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require that DTS and Executive
           Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
           design standards and navigation standards”
         </p>

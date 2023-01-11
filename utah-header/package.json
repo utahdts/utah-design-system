@@ -15,9 +15,6 @@
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
   "homepage": "https://github.com/utahdts/utah-design-system#readme",
-  "dependencies": {
-
-  },
   "devDependencies": {
     "eslint": "8.23.1",
     "eslint-config-airbnb": "19.0.4",
@@ -25,7 +22,11 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "sass": "1.54.9",
     "vite": "4.0.0",
-    "vite-plugin-eslint": "1.8.1"
+    "vite-plugin-eslint": "1.8.1",
+    "vitest": "0.26.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@popperjs/core": "2.11.6"
+  }
 }

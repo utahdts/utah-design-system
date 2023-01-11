@@ -14,14 +14,14 @@ utility classes, atomic css
 }
 
 .visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /* alignment */
@@ -82,38 +82,38 @@ utility classes, atomic css
 
 /* ----- Positioning ---- */
 .hcenter {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .vcenter {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .vcenter.right {
-	right: 0;
+  right: 0;
 }
 
 .vcenter.left {
-	left: 0;
+  left: 0;
 }
 
 .vcenter.hcenter {
-	transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /* ----- Transformation ---- */
 .rotate90 {
-	transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .rotate180 {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .rotate270 {
-	transform: rotate(270deg);
+  transform: rotate(270deg);
 }

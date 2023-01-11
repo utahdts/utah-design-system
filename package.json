@@ -7,10 +7,19 @@
   ],
   "scripts": {
     "clean": "rimraf package-lock.json & rimraf node_modules & rimraf ./website/node_modules & rimraf ./library/node_modules & rimraf ./library/dist & rimraf ./utah-header/node_modules",
+    "reset": "run-s clean npmi dev",
+    "npmi": "npm i",
     "watchLib": "cd library && npm run watch",
-    "dev": "cd website & npm run dev"
+    "websiteDev": "cd website && npm run dev",
+    "dev": "run-p websiteDev watchLib",
+    "test": "vitest",
+    "circular": "npx madge --circular .",
+    "circularg": "npx madge --circular --image circular.svg ."
   },
   "devDependencies": {
-    "rimraf": "3.0.2"
+    "npm-run-all": "4.1.5",
+    "rimraf": "3.0.2",
+    "vite": "4.0.4",
+    "vitest": "0.25.7"
   }
 }

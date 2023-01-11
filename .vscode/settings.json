@@ -1,11 +1,15 @@
 {
-	"cSpell.words": [
-		"immer",
-		"tinycolor",
-		"unemphasize",
-		"xsmall"
-	],
-	"editor.unicodeHighlight.allowedCharacters": {
-		"’": true
-	}
+    "cSpell.words": [
+        "immer",
+        "popperjs",
+        "renderables",
+        "tinycolor",
+        "unemphasize",
+        "Unemphasized",
+        "utds",
+        "xsmall"
+    ],
+    "editor.unicodeHighlight.allowedCharacters": {
+        "’": true
+    }
 }

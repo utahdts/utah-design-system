@@ -7,6 +7,7 @@ import valueAtPath from '../../util/state/valueAtPath';
 import TableBodyDataRowContext from './TableBodyDataRowContext';
 import TableContext from './TableContext';
 import chainSorters from '../../util/chainSorters';
+import toSafeString from '../../util/toSafeString';
 
 const propTypes = {
   // the TableBodyDataRowTemplate and TableBodyDataCellTemplate elements making up the repeatable section
@@ -54,10 +55,10 @@ function TableBodyData({ children, recordIdField, records }) {
               && (
                 // break apart the value by spaces to allow partial multi phrase filtering
                 filterValue.every((filterValuePiece) => (
-                  (valueAtPath({ object: recordInfo.record, path: filterFieldPath }) || '')
+                  (toSafeString(valueAtPath({ object: recordInfo.record, path: filterFieldPath })))
                     // lowercase so that uppercase isn't an issue
-                    .toLocaleLowerCase()
-                    .includes(filterValuePiece)
+                    ?.toLocaleLowerCase()
+                    ?.includes(filterValuePiece)
                 ))
               )
             ),

@@ -3,7 +3,6 @@ import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import MenuShape from '../../propTypesShapes/MenuShape';
 import RefShape from '../../propTypesShapes/RefShape';
 import MainMenu from '../navigation/MainMenu';
-import UtahHeader from '../utahHeader/UtahHeader';
 
 const propTypes = {
   content: PropTypes.func.isRequired,
@@ -27,7 +26,6 @@ function DocumentationTemplate({
 }) {
   return (
     <>
-      <UtahHeader />
       <MainMenu currentMenuItem={currentMenuItem} menu={mainMenu} />
       <div className="documentation-template__wrapper">
         <div className="documentation-template">

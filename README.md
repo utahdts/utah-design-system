@@ -114,6 +114,6 @@ Apache License Version 2.0
           * color/
       * static/
 
-	* index.html???
-	* package.json
-	* vite.config.js
+  * index.html???
+  * package.json
+  * vite.config.js

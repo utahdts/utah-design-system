@@ -1,0 +1,33 @@
+@use "../../../library/css/1-settings/settings-index";
+@use "../../../library/css/1-settings/spacing";
+
+.utds-header-popup {
+  &__wrapper {
+    position: absolute;
+    padding: var(--spacing);
+    border-radius: var(--radius-medium);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    z-index: 100;
+    min-width: 200px;
+    background: white;
+    top:100%;
+  }
+
+  &__arrow {
+		visibility: hidden;
+
+		&, &:before {
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			background: inherit;
+			z-index: -1;
+		}
+
+		&:before {
+			visibility: visible;
+			content: '';
+			transform: rotate(45deg);
+		}
+	}
+}

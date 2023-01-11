@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import findMenuItemInMenusByPathname from '../../../../react/util/menuItems/findMenuItemInMenusByPathname';
 
 test('findMenuItemInMenusByPathname: null menu items', () => {
