@@ -1,0 +1,17 @@
+@media screen and (max-width: var(--media-size__tablet-landscape__PLACEHOLDER)) {
+  /* put your media query here for tablet landscape */
+}
+
+@media screen and (max-width: var(--media-size__tablet-portrait__PLACEHOLDER)) {
+  .utds-header {
+    height: 60px;
+    padding: var(--spacing-xs) var(--spacing);
+  }
+  .utds-title-wrapper {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media screen and (max-width: var(--media-size__mobile__PLACEHOLDER)) {
+  /* put your media query here for mobile */
+}

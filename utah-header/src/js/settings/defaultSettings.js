@@ -77,4 +77,10 @@ export default {
   showTitle: true,
   size: sizes.MEDIUM,
   title: 'Utah Design System',
+  titleURL: '/',
+  mediaSizes: {
+    mobile: 640,
+    tabletPortrait: 768,
+    tabletLandscape: 1024,
+  },
 };

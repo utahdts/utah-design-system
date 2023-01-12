@@ -1,5 +1,5 @@
 // @ts-check
-import cssClasses, { getCssClassSelector } from '../../enumerations/cssClasses';
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
 import { renderDOMSingle } from '../../misc/renderDOM';
 import renderPopup from '../popup/renderPopup';
@@ -33,7 +33,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     htmlElement.onclick = popupMenuItem.action;
   } else {
     // === link object, so hook up href === //
-    const aHref = menuItemWrapper.querySelector(getCssClassSelector(cssClasses.POPUP_MENU__LINK));
+    const aHref = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK));
     if (!aHref) {
       throw new Error('renderPopupMenuItem: aHref not found');
     }
@@ -43,7 +43,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     }
   }
 
-  const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(cssClasses.POPUP_MENU__LINK_TEXT));
+  const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT));
   if (!titleSpan) {
     throw new Error('renderPopupMenuItem: titleSpan not found');
   }

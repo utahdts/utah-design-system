@@ -1,10 +1,13 @@
 // @ts-check
 import { renderDOMSingle } from '../../misc/renderDOM';
-import cssClasses, { getCssClassSelector } from '../../enumerations/cssClasses';
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import { getSettings } from '../../settings/settings';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 import appendChildAll from '../../misc/appendChildAll';
 import isString from '../../misc/isString';
 
@@ -12,13 +15,17 @@ import isString from '../../misc/isString';
  * @returns {HTMLCollection | Element}
  */
 export default function LogoTitle() {
-  const logoTitleWrapper = renderDOMSingle(LogoTitleWrapper);
+  const logoTitleURL = getSettings().titleURL;
+  const logoTitleWrapper = !logoTitleURL ? renderDOMSingle(LogoTitleWrapper) : renderDOMSingle(LogoTitleWrapperLink);
   if (!logoTitleWrapper) {
     throw new Error('LogoTitle: titleWrapper is null');
   }
+  if (logoTitleURL) {
+    logoTitleWrapper.setAttribute('href', logoTitleURL);
+  }
 
   // Render Logo image
-  const logoWrapper = logoTitleWrapper.querySelector(getCssClassSelector(cssClasses.TITLE__LOGO));
+  const logoWrapper = logoTitleWrapper.querySelector(getCssClassSelector(domConstants.TITLE__LOGO));
   if (!logoWrapper) {
     throw new Error('LogoTitle: logoWrapper is null');
   }
@@ -40,10 +47,10 @@ export default function LogoTitle() {
 
   // Render Title text
   const title = document.createTextNode(settingsTitle);
-  const titleWrapper = logoTitleWrapper.querySelector(getCssClassSelector(cssClasses.TITLE__TITLE));
+  const titleWrapper = logoTitleWrapper.querySelector(getCssClassSelector(domConstants.TITLE__TITLE));
   titleWrapper?.appendChild(title);
   if (!settingsShowTitle && settingsLogo) {
-    titleWrapper?.classList.add(cssClasses.VISUALLY_HIDDEN);
+    titleWrapper?.classList.add(domConstants.VISUALLY_HIDDEN);
   }
 
   return logoTitleWrapper;

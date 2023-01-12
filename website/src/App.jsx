@@ -5,8 +5,7 @@ import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import { setSettings } from 'utah-design-system-header';
 import './css/index.scss';
-// eslint-disable-next-line import/no-unresolved
-import logo from './logo.svg?raw';
+import logoPng from './static/images/designSystemCircleGray.png';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import Routing from './react/components/routing/Routing';
 import { useCssContext } from './react/context/cssContext/CssContext';
@@ -20,8 +19,8 @@ function App() {
   useEffect(
     () => {
       setSettings({
+        logo: `<img src=${logoPng} id="design-system-logo" />`,
         title: 'Utah Design System',
-        logo,
       });
     },
     []

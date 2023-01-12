@@ -1,4 +1,4 @@
-import cssClasses, { getCssClassSelector } from '../enumerations/cssClasses';
+import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 
 /**
  * @typedef {import('../misc/jsDocTypes').GlobalEventType} GlobalEventType
@@ -22,10 +22,10 @@ export function loadGlobalEvents() {
 
   globalEventFuncs.globalOnClick = () => {
     // hide all menus
-    const popups = document.querySelectorAll(getCssClassSelector(cssClasses.POPUP_WRAPPER));
+    const popups = document.querySelectorAll(getCssClassSelector(domConstants.POPUP_WRAPPER));
     Array.from(popups)
-      .filter((popup) => !popup.classList.contains(cssClasses.VISUALLY_HIDDEN))
-      .forEach((popup) => popup.classList.add(cssClasses.VISUALLY_HIDDEN));
+      .filter((popup) => !popup.classList.contains(domConstants.VISUALLY_HIDDEN))
+      .forEach((popup) => popup.classList.add(domConstants.VISUALLY_HIDDEN));
   };
   document.addEventListener('click', globalEventFuncs.globalOnClick);
 
@@ -33,9 +33,9 @@ export function loadGlobalEvents() {
     switch (e.key) {
       case 'Escape':
         // hide all menus
-        Array.from(document.querySelectorAll(getCssClassSelector(cssClasses.POPUP_WRAPPER)))
-          .filter((popup) => !popup.classList.contains(cssClasses.VISUALLY_HIDDEN))
-          .forEach((popup) => popup.classList.add(cssClasses.VISUALLY_HIDDEN));
+        Array.from(document.querySelectorAll(getCssClassSelector(domConstants.POPUP_WRAPPER)))
+          .filter((popup) => !popup.classList.contains(domConstants.VISUALLY_HIDDEN))
+          .forEach((popup) => popup.classList.add(domConstants.VISUALLY_HIDDEN));
         break;
       default:
     }
