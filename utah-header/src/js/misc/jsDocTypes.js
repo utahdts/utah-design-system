@@ -42,7 +42,7 @@
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems]
  *  @property {Element | string} [logo]
- *  @property {Size | string} size - // TODO: remove `| string` so size has to be one of the `Size` types #justgototypescriptalready
+ *  @property {string} size - // TODO: remove `| string` so size has to be one of the `Size` types #justgototypescriptalready
  *  @property {string | null} title
  * }
  *
