@@ -19,7 +19,7 @@ import sizes from '../../enumerations/sizes';
 
 /**
  * Creates the header wrapper DOM and appends the:
- * Utah logo, flexible space, and action items wrappers to it.
+ * Utah logo, flexible space, Agency Logo, and citizen experience (action items, utah id button) to it.
  *
  * @returns {Element}
  */
@@ -37,7 +37,7 @@ export default function HeaderWrapper() {
 
   appendChildAll(logoWrapper, LogoTitle());
 
-  appendChildAll(logoWrapper, CitizenExperience());
+  appendChildAll(header, CitizenExperience());
 
   return header;
 }

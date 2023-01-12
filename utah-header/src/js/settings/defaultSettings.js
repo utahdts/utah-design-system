@@ -74,6 +74,7 @@ export default {
       title: 'Help',
     },
   ],
+  showTitle: true,
   size: sizes.MEDIUM,
-  title: null,
+  title: 'Utah Design System',
 };

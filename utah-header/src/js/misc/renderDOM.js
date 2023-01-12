@@ -33,6 +33,9 @@ export function renderDOM(str) {
  */
 export function renderDOMSingle(str) {
   const dom = renderDOM(str);
+  if (dom instanceof HTMLCollection && dom.length > 1) {
+    throw new Error('renderDOMSingle: must render a single element');
+  }
   const firstChild = dom instanceof HTMLCollection ? dom[0] : dom;
   if (!firstChild) {
     // eslint-disable-next-line no-console

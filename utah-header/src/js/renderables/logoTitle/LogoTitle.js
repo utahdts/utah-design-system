@@ -1,5 +1,5 @@
 // @ts-check
-import { renderDOM, renderDOMSingle } from '../../misc/renderDOM';
+import { renderDOMSingle } from '../../misc/renderDOM';
 import cssClasses, { getCssClassSelector } from '../../enumerations/cssClasses';
 import { getSettings } from '../../settings/settings';
 // @ts-ignore
@@ -12,35 +12,39 @@ import isString from '../../misc/isString';
  * @returns {HTMLCollection | Element}
  */
 export default function LogoTitle() {
-  const titleWrapper = renderDOMSingle(LogoTitleWrapper);
-  if (!titleWrapper) {
+  const logoTitleWrapper = renderDOMSingle(LogoTitleWrapper);
+  if (!logoTitleWrapper) {
     throw new Error('LogoTitle: titleWrapper is null');
   }
 
   // Render Logo image
-  const logoWrapper = titleWrapper.querySelector(getCssClassSelector(cssClasses.TITLE__LOGO));
+  const logoWrapper = logoTitleWrapper.querySelector(getCssClassSelector(cssClasses.TITLE__LOGO));
   if (!logoWrapper) {
     throw new Error('LogoTitle: logoWrapper is null');
   }
 
   const settingsLogo = getSettings().logo;
+  const settingsShowTitle = getSettings().showTitle;
+  const settingsTitle = getSettings().title;
   if (settingsLogo) {
     /** @type {HTMLCollection | Element} */
     let settingsLogoElement;
     if (isString(settingsLogo)) {
-      settingsLogoElement = renderDOM(/** @type {string} */(settingsLogo));
+      settingsLogoElement = renderDOMSingle(/** @type {string} */(settingsLogo));
     } else {
       settingsLogoElement = /** @type {Element} */ (settingsLogo);
     }
+    settingsLogoElement.setAttribute('role', 'presentation');
     appendChildAll(logoWrapper, settingsLogoElement);
   }
 
   // Render Title text
-  const settingsTitle = getSettings().title;
-  if (settingsTitle) {
-    const title = document.createTextNode(settingsTitle);
-    titleWrapper.querySelector(getCssClassSelector(cssClasses.TITLE__TITLE))?.appendChild(title);
+  const title = document.createTextNode(settingsTitle);
+  const titleWrapper = logoTitleWrapper.querySelector(getCssClassSelector(cssClasses.TITLE__TITLE));
+  titleWrapper?.appendChild(title);
+  if (!settingsShowTitle && settingsLogo) {
+    titleWrapper?.classList.add(cssClasses.VISUALLY_HIDDEN);
   }
 
-  return titleWrapper;
+  return logoTitleWrapper;
 }

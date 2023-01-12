@@ -41,9 +41,10 @@
  *
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems]
- *  @property {Element | string} [logo]
+ *  @property {Element | string} [logo] Must be an image or an SVG
+ *  @property {boolean} showTitle
  *  @property {string} size - // TODO: remove `| string` so size has to be one of the `Size` types #justgototypescriptalready
- *  @property {string | null} title
+ *  @property {string} title
  * }
  *
  * @typedef GlobalEventType {
