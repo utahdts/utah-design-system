@@ -3,6 +3,7 @@ import { createPopper } from '@popperjs/core';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import showHideElement from '../../misc/showHideElement';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -86,12 +87,21 @@ export default function renderActionItem(actionItem) {
         iconButton.onclick = (e) => {
           e.stopPropagation();
           e.preventDefault();
-          if (popupMenu.classList.contains(domConstants.VISUALLY_HIDDEN)) {
+
+          if (popupMenu.classList.contains('utds-header-popup__wrapper--hidden')) {
             const htmlElement = /** @type {HTMLElement} */(popupMenu);
-            createPopper(iconButton, htmlElement, { placement: 'bottom' });
-            htmlElement.classList.remove(domConstants.VISUALLY_HIDDEN);
+            createPopper(iconButton, htmlElement, {
+              placement: 'bottom',
+              modifiers: [
+                {
+                  name: 'offset',
+                  options: { offset: [0, 8] },
+                },
+              ],
+            });
+            showHideElement(popupMenu, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           } else {
-            popupMenu.classList.add(domConstants.VISUALLY_HIDDEN);
+            showHideElement(popupMenu, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           }
         };
       }

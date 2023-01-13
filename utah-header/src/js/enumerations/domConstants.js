@@ -45,8 +45,11 @@ export default {
   POPUP_MENU: 'utds-header-popup-menu',
   POPUP_MENU__LINK: 'utds-header-popup-menu__link',
   POPUP_MENU__LINK_TEXT: 'utds-header-popup-menu__link-text',
+  POPUP__HIDDEN: 'utds-header-popup__wrapper--hidden',
+  POPUP__VISIBLE: 'utds-header-popup__wrapper--visible',
 
-  POPUP_WRAPPER: 'utds-header-popup-wrapper',
+  POPUP_ARROW: 'utds-header-popup__arrow',
+  POPUP_WRAPPER: 'utds-header-popup__wrapper',
 
   SIZE__LARGE: 'large',
   SIZE__MEDIUM: 'medium',
