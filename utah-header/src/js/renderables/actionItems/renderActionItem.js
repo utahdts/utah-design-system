@@ -88,14 +88,14 @@ export default function renderActionItem(actionItem) {
           e.stopPropagation();
           e.preventDefault();
 
-          if (popupMenu.classList.contains('utds-header-popup__wrapper--hidden')) {
+          if (popupMenu.classList.contains('utds-popup__wrapper--hidden')) {
             const htmlElement = /** @type {HTMLElement} */(popupMenu);
             createPopper(iconButton, htmlElement, {
               placement: 'bottom',
               modifiers: [
                 {
                   name: 'offset',
-                  options: { offset: [0, 8] },
+                  options: { offset: [0, 11] },
                 },
               ],
             });

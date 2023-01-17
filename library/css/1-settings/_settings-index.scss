@@ -83,6 +83,13 @@ variables and settings
   --documentation-left-width: 200px;
   --documentation-right-width: 200px;
   --documentation-padding: var(--spacing-2xl) var(--spacing-xl);
+
+  /* elevation box shadows */
+  --drop-shadow-color: rgba(0, 0, 0, 0.3);
+  --elevation-small: 0 3px 6px var(--drop-shadow-color);
+  --elevation-medium: 0 6px 12px var(--drop-shadow-color);
+  --elevation-large: 0 12px 16px var(--drop-shadow-color);
+
 }
 
  /* color utility classes */

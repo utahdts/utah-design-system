@@ -81,7 +81,12 @@ export default function renderPopupMenu(popupMenu) {
 
   const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
 
-  appendChildAll(popupWrapper, menuWrapper);
+  const contentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
+  if (!contentWrapper) {
+    throw new Error('renderPopupMenu: contentWrapper not found');
+  }
+
+  appendChildAll(contentWrapper, menuWrapper);
 
   return popupWrapper;
 }
