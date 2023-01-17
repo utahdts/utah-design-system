@@ -32,6 +32,7 @@ export default {
 
   // Header Components
   ACTION_ITEM: 'utds-header-action-item',
+  ACTION_ITEM__BADGE_WRAPPER__BADGE: 'utds-header-action-item__badge-wrapper',
   ACTION_ITEM__ICON_BUTTON: 'utds-header-action-item__icon-button',
   ACTION_ITEM__ICON_BUTTON_TITLE: 'utds-header-action-item__icon-button--has-title',
   ACTION_ITEM__TITLE: 'utds-header-action-item__title',

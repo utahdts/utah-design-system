@@ -8,6 +8,7 @@ import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ActionItemHtml from './html/ActionItem.html?raw';
+import renderActionItemBadge from './renderActionItemBadge';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').ActionItem} ActionItem
@@ -50,6 +51,9 @@ export default function renderActionItem(actionItem) {
   if (actionItem.className) {
     iconButton.classList.add(actionItem.className);
   }
+
+  renderActionItemBadge(actionItem, actionItemElement);
+
   // TODO: aria
   //   button: aria-haspopup : menu, dialog, true
   //   popup: role="menu", role="dialog"
