@@ -1,11 +1,11 @@
 // @ts-check
 /**
- * @param {string | string[]} cssClasses - the class or classes to which to prefix a period, multiples will be combined as a single selector
+ * @param {string | string[]} domConstants - the class or classes to which to prefix a period, multiples will be combined as a single selector
  * ie: `.class1.class2` instead of `.class1 .class2`
  * @returns {string} the combined classes
  */
-export function getCssClassSelector(cssClasses) {
-  return `.${(Array.isArray(cssClasses) ? cssClasses : [cssClasses]).join('.')}`;
+export function getCssClassSelector(domConstants) {
+  return `.${(Array.isArray(domConstants) ? domConstants : [domConstants]).join('.')}`;
 }
 
 /**
@@ -19,8 +19,16 @@ export default {
   // HTML elements
   ICON_BUTTON: 'icon-button',
 
+  // IDs
+  CSS_HEADER_MEDIA_TAG_ID: 'cssHeaderMediaTag',
+
   // Modifiers
   VISUALLY_HIDDEN: 'visually-hidden',
+
+  // Replacement Placeholders
+  MEDIA_SIZE__MOBILE__PLACEHOLDER: 'var(--media-size__mobile__PLACEHOLDER)',
+  MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER: 'var(--media-size__tablet-landscape__PLACEHOLDER)',
+  MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER: 'var(--media-size__tablet-portrait__PLACEHOLDER)',
 
   // Header Components
   ACTION_ITEM: 'utds-header-action-item',
@@ -37,8 +45,11 @@ export default {
   POPUP_MENU: 'utds-header-popup-menu',
   POPUP_MENU__LINK: 'utds-header-popup-menu__link',
   POPUP_MENU__LINK_TEXT: 'utds-header-popup-menu__link-text',
+  POPUP__HIDDEN: 'utds-header-popup__wrapper--hidden',
+  POPUP__VISIBLE: 'utds-header-popup__wrapper--visible',
 
-  POPUP_WRAPPER: 'utds-header-popup-wrapper',
+  POPUP_ARROW: 'utds-header-popup__arrow',
+  POPUP_WRAPPER: 'utds-header-popup__wrapper',
 
   SIZE__LARGE: 'large',
   SIZE__MEDIUM: 'medium',

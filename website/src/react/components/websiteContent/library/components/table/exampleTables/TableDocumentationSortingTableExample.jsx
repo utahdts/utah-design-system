@@ -23,31 +23,31 @@ function TableDocumentationSortingTableExample() {
       <h3 id="table__sorting-table-example" className="static-example__title">Table Example: Sorting Data</h3>
       <TableWrapper>
         <Table className="table table--lines-x table--alt table--v-align-center table--condensed">
-          <TableSortingRules defaultValue="name">
-            {/*
-              Order here determines which rules to apply first.
-              The "selected" TableHeadCell's "recordFieldPath" is pushed to the top of the TableSortingRule list
-              and then the rest of the TableSortingRules are applied in order.
-            */}
-            <TableSortingRule
-              recordFieldPath="name"
-              // sort by lastName
-              customSort={({ fieldValueA, fieldValueB }) => {
-                function getLastName(fullName) {
-                  return (fullName || '').split(' ').pop();
-                }
-                return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
-              }}
-            />
-            <TableSortingRule recordFieldPath="nthPresident" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
-            <TableSortingRule recordFieldPath="politicalParty" />
-            <TableSortingRule recordFieldPath="inauguration" />
-            <TableSortingRule recordFieldPath="inaugurationDate" fieldType={tableSortingRuleFieldType.DATE} />
-            <TableSortingRule recordFieldPath="birthplace.state" />
-            <TableSortingRule recordFieldPath="birthplace.county" />
-          </TableSortingRules>
-
           <TableHead>
+            <TableSortingRules defaultValue="name">
+              {/*
+                Order here determines which rules to apply first.
+                The "selected" TableHeadCell's "recordFieldPath" is pushed to the top of the TableSortingRule list
+                and then the rest of the TableSortingRules are applied in order.
+              */}
+              <TableSortingRule
+                recordFieldPath="name"
+                // sort by lastName
+                customSort={({ fieldValueA, fieldValueB }) => {
+                  function getLastName(fullName) {
+                    return (fullName || '').split(' ').pop();
+                  }
+                  return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
+                }}
+              />
+              <TableSortingRule recordFieldPath="nthPresident" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
+              <TableSortingRule recordFieldPath="politicalParty" />
+              <TableSortingRule recordFieldPath="inauguration" />
+              <TableSortingRule recordFieldPath="inaugurationDate" fieldType={tableSortingRuleFieldType.DATE} />
+              <TableSortingRule recordFieldPath="birthplace.state" />
+              <TableSortingRule recordFieldPath="birthplace.county" />
+            </TableSortingRules>
+
             <TableHeadRow>
               <TableHeadCell recordFieldPath="name" className="text-left">Name</TableHeadCell>
               <TableHeadCell recordFieldPath="nthPresident" className="text-left">No.</TableHeadCell>

@@ -83,18 +83,18 @@ function TableExampleRender({
       innerRef={innerRef}
     >
       <Table id="example-interactive-table" className="table table--lines-x table--v-align-center">
-        {
-          // TODO: make this work for realz, wathc out for remounting sorting rules
-          isSorting
-            ? (
-              <TableSortingRules defaultValue="category">
-                <TableSortingRule recordFieldPath="symbol" />
-                <TableSortingRule recordFieldPath="year" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
-              </TableSortingRules>
-            )
-            : null
-        }
         <TableHead>
+          {
+            isSorting
+              ? (
+                <TableSortingRules defaultValue="category">
+                  <TableSortingRule recordFieldPath="category" />
+                  <TableSortingRule recordFieldPath="symbol" />
+                  <TableSortingRule recordFieldPath="year" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
+                </TableSortingRules>
+              )
+              : null
+          }
           {
             isFiltering
               ? (
@@ -107,9 +107,9 @@ function TableExampleRender({
               : null
           }
           <TableHeadRow>
-            <TableHeadCell>Category</TableHeadCell>
-            <TableHeadCell>Symbol</TableHeadCell>
-            <TableHeadCell>As Of Year</TableHeadCell>
+            <TableHeadCell recordFieldPath="category">Category</TableHeadCell>
+            <TableHeadCell recordFieldPath="symbol">Symbol</TableHeadCell>
+            <TableHeadCell recordFieldPath="year">As Of Year</TableHeadCell>
           </TableHeadRow>
         </TableHead>
         <TableBody>

@@ -1,3 +1,5 @@
+import packageJson from './package.json';
+
 export { default as Button } from './react/components/buttons/Button';
 export { default as ConfirmationButton } from './react/components/buttons/ConfirmationButton';
 export { default as IconButton } from './react/components/buttons/IconButton';
@@ -59,5 +61,4 @@ export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { default as setValueAtPath } from './react/util/state/setValueAtPath';
 export { default as valueAtPath } from './react/util/state/valueAtPath';
 
-import packageJson from './package.json';
 export const { version } = packageJson;

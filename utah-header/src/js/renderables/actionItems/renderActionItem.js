@@ -1,8 +1,9 @@
 // @ts-check
 import { createPopper } from '@popperjs/core';
-import cssClasses, { getCssClassSelector } from '../../enumerations/cssClasses';
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import showHideElement from '../../misc/showHideElement';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -28,21 +29,21 @@ export default function renderActionItem(actionItem) {
 
   const actionItemWrapper = actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement;
   if (actionItem.showTitle) {
-    actionItemWrapper.classList.add(cssClasses.ACTION_ITEM__ICON_BUTTON_TITLE);
+    actionItemWrapper.classList.add(domConstants.ACTION_ITEM__ICON_BUTTON_TITLE);
   }
 
-  const titleDiv = actionItemWrapper.querySelector(getCssClassSelector(cssClasses.ACTION_ITEM__TITLE));
+  const titleDiv = actionItemWrapper.querySelector(getCssClassSelector(domConstants.ACTION_ITEM__TITLE));
   if (!titleDiv) {
     throw new Error('renderActionItem: titleDiv not found');
   }
   appendChildAll(titleDiv, titleElement);
   if (actionItem.showTitle) {
-    titleDiv.classList.remove(cssClasses.VISUALLY_HIDDEN);
+    titleDiv.classList.remove(domConstants.VISUALLY_HIDDEN);
   } else {
-    titleDiv.classList.add(cssClasses.VISUALLY_HIDDEN);
+    titleDiv.classList.add(domConstants.VISUALLY_HIDDEN);
   }
 
-  const iconButton = actionItemElement.querySelector(getCssClassSelector(cssClasses.ACTION_ITEM__ICON_BUTTON));
+  const iconButton = actionItemElement.querySelector(getCssClassSelector(domConstants.ACTION_ITEM__ICON_BUTTON));
   if (!iconButton) {
     throw new Error('renderActionItem: iconButton not found');
   }
@@ -86,12 +87,21 @@ export default function renderActionItem(actionItem) {
         iconButton.onclick = (e) => {
           e.stopPropagation();
           e.preventDefault();
-          if (popupMenu.classList.contains(cssClasses.VISUALLY_HIDDEN)) {
+
+          if (popupMenu.classList.contains('utds-header-popup__wrapper--hidden')) {
             const htmlElement = /** @type {HTMLElement} */(popupMenu);
-            createPopper(iconButton, htmlElement, { placement: 'bottom' });
-            htmlElement.classList.remove(cssClasses.VISUALLY_HIDDEN);
+            createPopper(iconButton, htmlElement, {
+              placement: 'bottom',
+              modifiers: [
+                {
+                  name: 'offset',
+                  options: { offset: [0, 8] },
+                },
+              ],
+            });
+            showHideElement(popupMenu, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           } else {
-            popupMenu.classList.add(cssClasses.VISUALLY_HIDDEN);
+            showHideElement(popupMenu, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           }
         };
       }

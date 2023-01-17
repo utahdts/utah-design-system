@@ -18,6 +18,15 @@ export function getSettings() {
 }
 
 /**
+ * @param {SettingsInput} settingsToValidate
+ */
+function validateSettings(settingsToValidate) {
+  if (!settingsToValidate.showTitle && !settingsToValidate.logo) {
+    throw new Error('validateSettings: A title must be shown if there is no logo. Please change the `showTitle` setting to be `true` or provide a logo image.');
+  }
+}
+
+/**
  * @param {SettingsInput} newSettings
  * @returns Settings
  */
@@ -25,6 +34,7 @@ export function setSettings(newSettings) {
   // note that if newSettings has a key/value where the value is undefined it WILL override the value to undefined
   // but if newSettings is missing a key then the `undefined` value of the missing key will not override the default.
   settings = { ...defaultSettings, ...newSettings };
+  validateSettings(settings);
   const existingHeader = document.querySelector('.utah-design-system.utds-header');
   if (existingHeader) {
     // don't call removeHeader because that will trigger an unload event,

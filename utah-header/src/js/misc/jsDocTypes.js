@@ -26,6 +26,12 @@
  *
  * @typedef {(this: GlobalEventHandlers, ev: MouseEvent) => any} OnClick
  *
+ * @typedef MediaSizes {
+ *   @property {number} mobile
+ *   @property {number} tabletLandscape
+ *   @property {number} tabletPortrait
+ * }
+ *
  * @typedef ActionItem {
  *  @property {OnClick | PopupMenu | ChildNode } action - function: onClick callback, Object[]: array of MenuItems, ChildNode: content in a popup.
  * // TODO:
@@ -41,9 +47,12 @@
  *
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems]
- *  @property {Element | string} [logo]
- *  @property {Size | string} size - // TODO: remove `| string` so size has to be one of the `Size` types #justgototypescriptalready
- *  @property {string | null} title
+ *  @property {Element | string} [logo] - Must be an image or an SVG
+ *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
+ *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
+ *  @property {string} size - size has to be one of the `Size` types
+ *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
+ *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
  * }
  *
  * @typedef GlobalEventType {
@@ -54,5 +63,5 @@
  * @typedef {Partial<Settings>} SettingsInput
 */
 
-// without this export, `@typedef import` reports this file 'is not a module'... #justgototypescriptalready
+// without this export, `@typedef import` reports this file 'is not a module'...
 export default false;

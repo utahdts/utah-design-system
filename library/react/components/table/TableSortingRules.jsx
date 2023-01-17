@@ -29,19 +29,20 @@ function TableSortingRules({
           // eslint-disable-next-line no-console
           console.error('A TableWrapper should only have one TableSortingRules section.');
         } else {
-          if (onChange) {
-            setState((draftState) => { draftState.tableSortingOnChange = onChange; });
-          }
-          if (defaultValue) {
-            setState((draftState) => { draftState.tableSortingFieldPath = defaultValue; });
-          }
+          setState((draftState) => {
+            draftState.tableSortingFieldPath = defaultValue;
+            draftState.tableSortingOnChange = onChange;
+          });
         }
-
-        // unset the onChange if this component gets unmounted
       }
+
       return () => {
-        if (setState && onChange === state?.tableSortingOnChange) {
-          setState((draftState) => { draftState.tableSortingOnChange = null; });
+        // unset the sortingRules when this component gets unmounted
+        if (setState) {
+          setState((draftState) => {
+            draftState.tableSortingFieldPath = null;
+            draftState.tableSortingOnChange = null;
+          });
         }
       };
     },
