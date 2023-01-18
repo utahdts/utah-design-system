@@ -44,11 +44,29 @@ export default {
             action: [
               {
                 title: 'i am a child',
-                action: { url: 'https://dts.utah.gov' },
+                action: [
+                  {
+                    title: 'i am a child',
+                    action: { url: 'https://dts.utah.gov' },
+                  },
+                  {
+                    title: 'i am a child 2oo',
+                    action: { url: 'https://dts.utah.gov/2' },
+                  },
+                ],
               },
               {
                 title: 'i am a child 2oo',
-                action: { url: 'https://dts.utah.gov/2' },
+                action: [
+                  {
+                    title: 'i am a child2',
+                    action: { url: 'https://dts.utah.gov' },
+                  },
+                  {
+                    title: 'i am a child 2oo2',
+                    action: { url: 'https://dts.utah.gov/2' },
+                  },
+                ],
               },
             ],
             title: 'I have children!!',
@@ -64,6 +82,8 @@ export default {
     {
       action: () => console.log('Alerts clicked'),
       badge: {
+        // Note: make sure the `label` is plural/singular to match the value
+        label: 'Unread Alert',
         value: 1,
       },
       icon: AlertIcon,
@@ -72,6 +92,10 @@ export default {
     },
     {
       action: () => console.log('Help clicked'),
+      badge: {
+        // Note: make sure the `label` is plural/singular to match the value
+        label: 'Help Items Available',
+      },
       icon: QuestionIcon,
       showTitle: false,
       title: 'Help',

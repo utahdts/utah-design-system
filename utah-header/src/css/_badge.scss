@@ -1,7 +1,7 @@
 .utds-badge {
   &__wrapper {
     align-items: center;
-    background-color: var(--alert-color);
+    background-color: var(--danger-color);
     border-radius: var(--radius-circle);
     box-sizing: border-box;
     color: white;
@@ -16,13 +16,19 @@
     position: absolute;
     right: 0;
     top: 0;
+   
+    &--action-item {
+      right: -2px;
+      top: -2px
+    }
 
     &--small {
       height: 9px;
       min-width: unset;
-      right: 5px;
-      top: 5px;
+      right: 2px;
+      top: 2px;
       width: 9px;
     }
+
   }
 }

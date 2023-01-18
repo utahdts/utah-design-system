@@ -23,6 +23,8 @@ export default {
   CSS_HEADER_MEDIA_TAG_ID: 'cssHeaderMediaTag',
 
   // Modifiers
+  IS_CLOSED: 'is-closed',
+  IS_OPEN: 'is-open',
   VISUALLY_HIDDEN: 'visually-hidden',
 
   // Replacement Placeholders
@@ -36,8 +38,11 @@ export default {
   ACTION_ITEM__ICON_BUTTON_TITLE: 'utds-header-action-item__icon-button--has-title',
   ACTION_ITEM__TITLE: 'utds-header-action-item__title',
 
+  BADGE__LABEL: 'utds-badge__label',
+  BADGE__VALUE: 'utds-badge__value',
   BADGE_WRAPPER: 'utds-badge__wrapper',
   BADGE_WRAPPER__SMALL: 'utds-badge__wrapper--small',
+  BADGE_WRAPPER__ACTION_ITEM: 'utds-badge__wrapper--action-item',
 
   CITIZEN_EXPERIENCE: 'utds-citizen-experience-wrapper',
 

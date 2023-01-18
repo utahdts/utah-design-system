@@ -42,6 +42,7 @@
  *
  * @typedef Badge {
  *  @property {string} [className] - a class to add to the badge for custom formatting like color
+ *  @property {string} label - the label for the screen reader to read describing the badge
  *  @property {number} [value] - the value to show in the badge
  * }
  *

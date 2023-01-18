@@ -52,7 +52,10 @@ export default function renderActionItem(actionItem) {
     iconButton.classList.add(actionItem.className);
   }
 
-  renderActionItemBadge(actionItem, actionItemElement);
+  const badge = renderActionItemBadge(actionItem);
+  if (badge) {
+    iconButton.appendChild(badge);
+  }
 
   // TODO: aria
   //   button: aria-haspopup : menu, dialog, true
