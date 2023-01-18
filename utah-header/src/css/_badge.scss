@@ -1,0 +1,28 @@
+.utds-badge {
+  &__wrapper {
+    align-items: center;
+    background-color: var(--alert-color);
+    border-radius: var(--radius-circle);
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-size: var(--font-size-2xs);
+    font-weight: var(--font-weight-semi-bold);
+    height: 15px;
+    justify-content: center;
+    line-height: var(--font-size-2xs);
+    min-width: 15px;
+    padding: 1px 2px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &--small {
+      height: 9px;
+      min-width: unset;
+      right: 5px;
+      top: 5px;
+      width: 9px;
+    }
+  }
+}

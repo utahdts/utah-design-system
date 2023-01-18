@@ -1,4 +1,3 @@
-/* eslint-disable jsdoc/tag-lines */
 // @ts-check
 
 /**
@@ -33,7 +32,7 @@
  *  @property {string} title - the title of the menu
  * }
  *
- * @typedef {function(GlobalEventHandlers, MouseEvent): any} OnClick
+ * @typedef {(this: GlobalEventHandlers, ev: MouseEvent) => any} OnClick
  *
  * @typedef MediaSizes {
  *   @property {number} mobile - mobile sized render area
@@ -42,7 +41,7 @@
  * }
  *
  * @typedef Badge {
- *  @property {string} [color] - the background color of the badge
+ *  @property {string} [className] - a class to add to the badge for custom formatting like color
  *  @property {number} [value] - the value to show in the badge
  * }
  *

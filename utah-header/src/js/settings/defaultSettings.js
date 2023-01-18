@@ -64,8 +64,7 @@ export default {
     {
       action: () => console.log('Alerts clicked'),
       badge: {
-        color: 'red',
-        value: 10,
+        value: 1,
       },
       icon: AlertIcon,
       showTitle: false,

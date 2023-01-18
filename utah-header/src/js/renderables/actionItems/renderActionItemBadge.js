@@ -1,4 +1,5 @@
 // @ts-check
+import domConstants from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOM';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -19,12 +20,14 @@ export default function renderActionItemBadge(actionItem, actionItemElement) {
     /** @type HTMLElement */
     const badgeWrapper = /** @type {HTMLElement} */(renderDOMSingle(BadgeWrapperHtml));
 
-    if (actionItem.badge.value || actionItem.badge.value === 0) {
+    if ((actionItem.badge.value || actionItem.badge.value === 0)) {
       badgeWrapper.appendChild(document.createTextNode(`${actionItem.badge.value}`));
+    } else {
+      badgeWrapper.classList.add(domConstants.BADGE_WRAPPER__SMALL);
     }
 
-    if (actionItem.badge.color) {
-      badgeWrapper.style.backgroundColor = actionItem.badge.color;
+    if (actionItem.badge.className) {
+      badgeWrapper.classList.add(actionItem.badge.className);
     }
 
     actionItemElement.appendChild(badgeWrapper);
