@@ -4,7 +4,9 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
 import appendChildAll from '../../misc/appendChildAll';
 import { renderDOMSingle } from '../../misc/renderDOM';
 import showHideElement from '../../misc/showHideElement';
+import renderPopup from '../popup/renderPopup';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
+import uuidv4 from '../../misc/uuidv4';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ActionItemHtml from './html/ActionItem.html?raw';
@@ -76,24 +78,29 @@ export default function renderActionItem(actionItem) {
 
     case 'object':
       if (actionItem.action instanceof HTMLElement) {
-        /* TODO: show child node popup
-        *               * aria-haspopup="true"
-        *               * aria-controls="ID"
-        *               * aria-expanded="true/false"
-        */
         iconButton.onclick = () => console.log('Action Item: show child node popup', actionItem.action);
+        iconButton.setAttribute('aria-haspopup', 'true');
+        // TODO: Make a popup and the content inside
+        const popupWrapper = renderPopup();
+        const popupContentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
+        if (!popupContentWrapper) {
+          throw new Error('renderPopupMenu: contentWrapper not found');
+        }
+        popupContentWrapper.appendChild(actionItem.action);
       } else {
-        /* TODO: show popup menu
-        *               * aria-haspopup="true"
-        *               * aria-controls="ID"
-        *               * aria-expanded="true/false"
-        */
+        iconButton.setAttribute('aria-haspopup', 'menu');
+        const popupId = uuidv4();
+        iconButton.setAttribute('aria-controls', popupId);
+        iconButton.setAttribute('aria-expanded', 'false');
         const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.action)));
+        popupMenu.setAttribute('id', popupId);
         appendChildAll(actionItemElement, popupMenu);
 
         iconButton.onclick = (e) => {
           e.stopPropagation();
           e.preventDefault();
+
+          iconButton.setAttribute('aria-expanded', 'true');
 
           if (popupMenu.classList.contains('utds-popup__wrapper--hidden')) {
             const htmlElement = /** @type {HTMLElement} */(popupMenu);
@@ -109,6 +116,7 @@ export default function renderActionItem(actionItem) {
             showHideElement(popupMenu, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           } else {
             showHideElement(popupMenu, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+            iconButton.setAttribute('aria-expanded', 'false');
           }
         };
       }

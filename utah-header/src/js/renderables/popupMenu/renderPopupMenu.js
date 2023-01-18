@@ -3,6 +3,7 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
 import appendChildAll from '../../misc/appendChildAll';
 import { renderDOMSingle } from '../../misc/renderDOM';
 import renderPopup from '../popup/renderPopup';
+import uuidv4 from '../../misc/uuidv4';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuHtml from './html/PopupMenu.html?raw';
@@ -31,16 +32,22 @@ function toggleChildMenuExpansion(element) {
   parent.querySelectorAll(':scope > ul')
     .forEach((childUl) => {
       // toggle chevron direction class
-      const chevron = childUl.closest('li')?.querySelector(':scope > button svg');
+      const button = childUl.closest('li')?.querySelector(':scope > button');
+      if (!button) {
+        throw new Error('toggleChildMenuExpansion: button not found');
+      }
+      const chevron = button.querySelector(':scope > svg');
       if (!chevron) {
         throw new Error('toggleChildMenuExpansion: chevron not found');
       }
       // toggle child menu items open close
       childUl.classList.toggle(domConstants.VISUALLY_HIDDEN);
       if (childUl.classList.contains(domConstants.VISUALLY_HIDDEN)) {
+        button.setAttribute('aria-expanded', 'false');
         chevron.classList.add(domConstants.IS_CLOSED);
         chevron.classList.remove(domConstants.IS_OPEN);
       } else {
+        button.setAttribute('aria-expanded', 'true');
         chevron.classList.remove(domConstants.IS_CLOSED);
         chevron.classList.add(domConstants.IS_OPEN);
       }
@@ -79,10 +86,15 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
   if (Array.isArray(popupMenuItem.action)) {
     // === submenu, more menu items! === //
     const subMenu = renderMenu(popupMenuItem, popupMenuItem.action);
+    subMenu.removeAttribute('role');
+    const subMenuId = uuidv4();
+    subMenu.setAttribute('id', subMenuId);
     // these are all sub children so hide them initially
     subMenu.classList.add(domConstants.VISUALLY_HIDDEN);
     menuItemWrapper.appendChild(subMenu);
     menuButton.onclick = handleMenuExpansion(menuButton);
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-controls', subMenuId);
     const chevron = renderDOMSingle(ChevronIconHtml);
     chevron.classList.add(domConstants.IS_CLOSED);
     menuButton.appendChild(chevron);
@@ -109,11 +121,6 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 
   appendChildAll(menuUl, menuItemWrapper);
 
-  /* TODO: show child node popup
-  *               * aria-haspopup="true"
-  *               * aria-controls="ID"
-  *               * aria-expanded="true/false"
-  */
   return menuItemWrapper;
 }
 
@@ -140,6 +147,8 @@ export default function renderPopupMenu(popupMenu) {
 
   // create the menu
   const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
+  menuWrapper.setAttribute('aria-label', popupMenu.title);
+  menuWrapper.setAttribute('id', uuidv4());
 
   // put the menu in the popup
   const popupContentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
