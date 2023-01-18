@@ -9,6 +9,9 @@ import PopupMenuHtml from './html/PopupMenu.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
@@ -16,31 +19,86 @@ import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
  */
 
 /**
+ * @param {HTMLElement} element the ul or child of a ul that has uls inside of it that need open/closed
+*/
+function toggleChildMenuExpansion(element) {
+  const parent = element.closest('li');
+  if (!parent) {
+    // eslint-disable-next-line no-console
+    console.error('element', element);
+    throw new Error('toggleChildMenuExpansion: parent not found for child');
+  }
+  parent.querySelectorAll(':scope > ul')
+    .forEach((childUl) => {
+      // toggle chevron direction class
+      const chevron = childUl.closest('li')?.querySelector(':scope > button svg');
+      if (!chevron) {
+        throw new Error('toggleChildMenuExpansion: chevron not found');
+      }
+      // toggle child menu items open close
+      childUl.classList.toggle(domConstants.VISUALLY_HIDDEN);
+      if (childUl.classList.contains(domConstants.VISUALLY_HIDDEN)) {
+        chevron.classList.add(domConstants.IS_CLOSED);
+        chevron.classList.remove(domConstants.IS_OPEN);
+      } else {
+        chevron.classList.remove(domConstants.IS_CLOSED);
+        chevron.classList.add(domConstants.IS_OPEN);
+      }
+    });
+}
+
+/**
+ * @param {HTMLElement} htmlElement the element on which to toggle opening and closing its children
+ * @returns {function(this: GlobalEventHandlers, MouseEvent): any} an event handler for toggling open child menus
+ */
+function handleMenuExpansion(htmlElement) {
+  return (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleChildMenuExpansion(htmlElement);
+  };
+}
+
+/**
  * @param {Element} menuUl
  * @param {MenuItem} popupMenuItem
+ * @return {HTMLElement}
  */
 function renderPopupMenuItem(menuUl, popupMenuItem) {
   const menuItemWrapper = renderDOMSingle(PopupMenuItemHtml);
+  const menuButton = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(':scope > button'));
+  if (!menuButton) {
+    throw new Error('renderPopupMenuItem: menuButton not found');
+  }
+  const menuAHref = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK));
+  if (!menuAHref) {
+    throw new Error('renderPopupMenuItem: aHref not found');
+  }
 
   // three types of action: parent, custom function, link
   if (Array.isArray(popupMenuItem.action)) {
     // === submenu, more menu items! === //
     const subMenu = renderMenu(popupMenuItem, popupMenuItem.action);
-    appendChildAll(menuItemWrapper, subMenu);
+    // these are all sub children so hide them initially
+    subMenu.classList.add(domConstants.VISUALLY_HIDDEN);
+    menuItemWrapper.appendChild(subMenu);
+    menuButton.onclick = handleMenuExpansion(menuButton);
+    const chevron = renderDOMSingle(ChevronIconHtml);
+    chevron.classList.add(domConstants.IS_CLOSED);
+    menuButton.appendChild(chevron);
+
+    menuAHref.remove();
   } else if (typeof popupMenuItem.action === 'function') {
     // === on click custom action, so hookup onclick === //
-    const htmlElement = /** @type {HTMLElement} */(menuItemWrapper);
-    htmlElement.onclick = popupMenuItem.action;
+    menuButton.onclick = popupMenuItem.action;
+    menuAHref.remove();
   } else {
     // === link object, so hook up href === //
-    const aHref = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK));
-    if (!aHref) {
-      throw new Error('renderPopupMenuItem: aHref not found');
-    }
-    aHref.setAttribute('href', popupMenuItem.action.url);
+    menuAHref.setAttribute('href', popupMenuItem.action.url);
     if (popupMenuItem.action.openInNewTab) {
-      aHref.setAttribute('target', '_blank');
+      menuAHref.setAttribute('target', '_blank');
     }
+    menuButton.remove();
   }
 
   const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT));
@@ -62,31 +120,33 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 /**
  * @param {PopupMenu | MenuItem} _parentMenu
  * @param {MenuItem[]} menuItems
- * @returns {Element}
+ * @returns {HTMLElement}
  */
 function renderMenu(_parentMenu, menuItems) {
   const menuWrapper = renderDOMSingle(PopupMenuHtml);
 
   menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem));
-  // TODO: where should PopupMenu.title be exposed?
+
   return menuWrapper;
 }
 
 /**
- * @param {PopupMenu} popupMenu - the action item to add
- * @returns {Element}
+ * @param {PopupMenu} popupMenu - the menu to display
+ * @returns {HTMLElement}
  */
 export default function renderPopupMenu(popupMenu) {
+  // create the popup
   const popupWrapper = renderPopup();
 
+  // create the menu
   const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
 
-  const contentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
-  if (!contentWrapper) {
+  // put the menu in the popup
+  const popupContentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
+  if (!popupContentWrapper) {
     throw new Error('renderPopupMenu: contentWrapper not found');
   }
-
-  appendChildAll(contentWrapper, menuWrapper);
+  popupContentWrapper.appendChild(menuWrapper);
 
   return popupWrapper;
 }
