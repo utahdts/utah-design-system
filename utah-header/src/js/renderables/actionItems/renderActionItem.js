@@ -1,9 +1,7 @@
 // @ts-check
-import { createPopper } from '@popperjs/core';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
 import { renderDOMSingle } from '../../misc/renderDOM';
-import showHideElement from '../../misc/showHideElement';
 import renderPopup from '../popup/renderPopup';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 import uuidv4 from '../../misc/uuidv4';
@@ -94,29 +92,7 @@ export default function renderActionItem(actionItem) {
         popupContentWrapper.appendChild(actionItem.action);
         actionItemElement.appendChild(popupWrapper);
 
-        // toggle popup content visibility on click
-        iconButton.onclick = (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-
-          iconButton.setAttribute('aria-expanded', 'true');
-
-          if (popupWrapper.classList.contains('utds-popup__wrapper--hidden')) {
-            createPopper(iconButton, popupWrapper, {
-              placement: 'bottom',
-              modifiers: [
-                {
-                  name: 'offset',
-                  options: { offset: [0, 11] },
-                },
-              ],
-            });
-            showHideElement(popupWrapper, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          } else {
-            showHideElement(popupWrapper, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-            iconButton.setAttribute('aria-expanded', 'false');
-          }
-        };
+        popupFocusHandler(actionItemWrapper, iconButton, popupWrapper);
       } else {
         iconButton.setAttribute('aria-haspopup', 'menu');
         const popupId = uuidv4();

@@ -94,6 +94,9 @@ export default {
       action: (() => {
         const div = document.createElement('div');
         div.appendChild(document.createTextNode('Hello World!'));
+        const button = document.createElement('button');
+        button.appendChild(document.createTextNode('Do not press me.'));
+        div.appendChild(button);
         return div;
       })(),
       badge: {
