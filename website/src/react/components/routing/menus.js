@@ -130,11 +130,19 @@ const menuLibraryComponentsSecondary = {
       ],
     },
     {
-      id: 'components__menus',
+      id: 'components__navigation',
       title: 'Navigation',
       parentLinks: [pages.library.link],
       children: [
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
+      ],
+    },
+    {
+      id: 'components__popups',
+      title: 'Pop Ups',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.popUps.link, title: pages.popUps.pageTitle },
       ],
     },
     {

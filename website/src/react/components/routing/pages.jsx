@@ -10,6 +10,7 @@ import IconButtonDocumentation from '../websiteContent/library/components/button
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
+import PopUpsDocumentation from '../websiteContent/library/components/popUps/popUps/PopUpsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation';
@@ -355,12 +356,21 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  // === Menus === //
+  // === Navigation === //
   verticalMenu: {
     content: VerticalMenuDocumentation,
     link: pageUrls.verticalMenu,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Vertical Menu',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === Pop Ups === //
+  popUps: {
+    content: PopUpsDocumentation,
+    link: pageUrls.popUps,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Pop Ups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
