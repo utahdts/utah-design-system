@@ -11,6 +11,7 @@ import uuidv4 from '../../misc/uuidv4';
 // eslint-disable-next-line import/no-unresolved
 import ActionItemHtml from './html/ActionItem.html?raw';
 import renderActionItemBadge from './renderActionItemBadge';
+import popupFocusHandler from '../../misc/popupFocusHandler';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').ActionItem} ActionItem
@@ -30,7 +31,7 @@ export default function renderActionItem(actionItem) {
   // have popup aria reference the id of the button
   // track if it is expanded or not
 
-  const actionItemWrapper = actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement;
+  const actionItemWrapper = /** @type {HTMLElement} */(actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement);
   if (actionItem.showTitle) {
     actionItemWrapper.classList.add(domConstants.ACTION_ITEM__ICON_BUTTON_TITLE);
   }
@@ -78,15 +79,44 @@ export default function renderActionItem(actionItem) {
 
     case 'object':
       if (actionItem.action instanceof HTMLElement) {
-        iconButton.onclick = () => console.log('Action Item: show child node popup', actionItem.action);
+        // create popup content and make it visually-hidden
         iconButton.setAttribute('aria-haspopup', 'true');
-        // TODO: Make a popup and the content inside
+        const popupId = uuidv4();
+        iconButton.setAttribute('aria-controls', popupId);
+        iconButton.setAttribute('aria-expanded', 'false');
+
         const popupWrapper = renderPopup();
-        const popupContentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
+        popupWrapper.setAttribute('id', popupId);
+        const popupContentWrapper = /** @type {HTMLElement} */(popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
         if (!popupContentWrapper) {
           throw new Error('renderPopupMenu: contentWrapper not found');
         }
         popupContentWrapper.appendChild(actionItem.action);
+        actionItemElement.appendChild(popupWrapper);
+
+        // toggle popup content visibility on click
+        iconButton.onclick = (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+
+          iconButton.setAttribute('aria-expanded', 'true');
+
+          if (popupWrapper.classList.contains('utds-popup__wrapper--hidden')) {
+            createPopper(iconButton, popupWrapper, {
+              placement: 'bottom',
+              modifiers: [
+                {
+                  name: 'offset',
+                  options: { offset: [0, 11] },
+                },
+              ],
+            });
+            showHideElement(popupWrapper, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+          } else {
+            showHideElement(popupWrapper, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+            iconButton.setAttribute('aria-expanded', 'false');
+          }
+        };
       } else {
         iconButton.setAttribute('aria-haspopup', 'menu');
         const popupId = uuidv4();
@@ -96,29 +126,7 @@ export default function renderActionItem(actionItem) {
         popupMenu.setAttribute('id', popupId);
         appendChildAll(actionItemElement, popupMenu);
 
-        iconButton.onclick = (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-
-          iconButton.setAttribute('aria-expanded', 'true');
-
-          if (popupMenu.classList.contains('utds-popup__wrapper--hidden')) {
-            const htmlElement = /** @type {HTMLElement} */(popupMenu);
-            createPopper(iconButton, htmlElement, {
-              placement: 'bottom',
-              modifiers: [
-                {
-                  name: 'offset',
-                  options: { offset: [0, 11] },
-                },
-              ],
-            });
-            showHideElement(popupMenu, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          } else {
-            showHideElement(popupMenu, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-            iconButton.setAttribute('aria-expanded', 'false');
-          }
-        };
+        popupFocusHandler(actionItemWrapper, iconButton, popupMenu);
       }
       break;
 

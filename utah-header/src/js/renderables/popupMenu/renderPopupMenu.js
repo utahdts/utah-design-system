@@ -100,6 +100,20 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     menuButton.appendChild(chevron);
 
     menuAHref.remove();
+
+    // open all parent uls so that this menu item shows
+    menuItemWrapper.addEventListener('focusin', (e) => {
+      // Do not stop propagation as trickling-up will make parents open
+      for (let childUl = /** @type Element | null | undefined */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
+        childUl.classList.remove(domConstants.VISUALLY_HIDDEN);
+        menuButton.setAttribute('aria-expanded', 'true');
+        // if target is the button then don't expand chevron just yet, wait for a child to be visible (happens when tabbing to the chevron menu item)
+        if (e.target !== menuButton) {
+          chevron.classList.remove(domConstants.IS_CLOSED);
+          chevron.classList.add(domConstants.IS_OPEN);
+        }
+      }
+    });
   } else if (typeof popupMenuItem.action === 'function') {
     // === on click custom action, so hookup onclick === //
     menuButton.onclick = popupMenuItem.action;

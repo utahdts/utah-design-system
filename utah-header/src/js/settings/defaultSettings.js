@@ -91,7 +91,11 @@ export default {
       title: 'Alerts',
     },
     {
-      action: () => console.log('Help clicked'),
+      action: (() => {
+        const div = document.createElement('div');
+        div.appendChild(document.createTextNode('Hello World!'));
+        return div;
+      })(),
       badge: {
         // Note: make sure the `label` is plural/singular to match the value
         label: 'Help Items Available',
