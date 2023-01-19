@@ -162,7 +162,7 @@ function ButtonDocumentation() {
                 <li>The emphasized button will appear on the right.</li>
                 <li>One or more unemphasized buttons will appear on the left.</li>
                 <li>If you wish to use more than 3 buttons in proximity consider
-                  using a <NavLink to={pageUrls.buttonGroup}>Button Group</NavLink>.
+                  using a <NavLink to={pageUrls.buttonGroup} className="icon-external-link">Button Group</NavLink>.
                 </li>
               </ul>
             </li>

@@ -68,5 +68,5 @@ export default {
   TITLE__TITLE: 'utds-title-wrapper__title',
 
   UTAH_ID: 'utds-utah-id-wrapper',
-  UTAH_ID__SIGN_IN: 'utds-utah-id__sign-in',
+  UTAH_ID__BUTTON: 'utds-utah-id__button',
 };
