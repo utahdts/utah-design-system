@@ -9,6 +9,7 @@ import ConfirmationButtonDocumentation from '../websiteContent/library/component
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
+import VerticalMenuDocumentation from '../websiteContent/library/components/menus/verticalMenu/VerticalMenuDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation';
@@ -351,6 +352,15 @@ const pages = {
     link: '/library/components/forms/switch',
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Switch',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === Menus === //
+  verticalMenu: {
+    content: VerticalMenuDocumentation,
+    link: pageUrls.verticalMenu,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Vertical Menu',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

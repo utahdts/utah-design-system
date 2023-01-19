@@ -4,6 +4,7 @@ const pageUrls = {
   confirmationButton: '/library/components/buttons/confirmation-button',
   demoPage: '/resources/demo-page',
   iconButton: '/library/components/buttons/icon-button',
+  verticalMenu: '/library/components/menus/vertical-menu',
 };
 
 export default pageUrls;
