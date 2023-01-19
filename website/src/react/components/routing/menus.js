@@ -131,7 +131,7 @@ const menuLibraryComponentsSecondary = {
     },
     {
       id: 'components__menus',
-      title: 'Menus',
+      title: 'Navigation',
       parentLinks: [pages.library.link],
       children: [
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },

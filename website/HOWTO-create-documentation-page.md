@@ -78,7 +78,7 @@ You now have a fully navigable component documentation page. Make sure that your
 
 ## Example sequence
 Here is an example of how the `VerticalMenuDocumentation` page was created:
-1. Create new folder of `website/src/react/websiteContent/library/components/menus/verticalMenu`
+1. Create new folder of `website/src/react/websiteContent/library/components/navigation/verticalMenu`
 1. Copy files from the `website/src/react/websiteContent/library/components/buttons/iconButton` folder in to the `verticalMenu` folder
 1. Rename the files to replace `IconButton` with `VerticalMenu`
 1. Open each of the copied files and replace `IconButton` with `VerticalMenu`
