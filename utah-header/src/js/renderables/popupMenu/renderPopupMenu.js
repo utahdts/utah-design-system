@@ -13,9 +13,6 @@ import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import ExternalLinkIconHtml from '../icons/html/ExternalLinkIcon.html?raw';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
@@ -126,8 +123,6 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     menuAHref.setAttribute('href', popupMenuItem.action.url);
     if (popupMenuItem.action.openInNewTab) {
       menuAHref.setAttribute('target', '_blank');
-      // menuAHref.classList.add('external-link');
-      menuAHref.appendChild(renderDOMSingle(ExternalLinkIconHtml));
     }
     menuButton.remove();
   }
@@ -137,6 +132,9 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     throw new Error('renderPopupMenuItem: titleSpan not found');
   }
   titleSpan.appendChild(document.createTextNode(popupMenuItem.title));
+  if (popupMenuItem.action.openInNewTab) {
+    titleSpan.classList.add('utds-icon-after-ext-link');
+  }
 
   appendChildAll(menuUl, menuItemWrapper);
 
