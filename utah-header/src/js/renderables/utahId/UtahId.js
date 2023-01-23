@@ -79,10 +79,10 @@ export default function UtahId() {
     {
       isPerformPopup: () => !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated,
       onClick: (e) => {
-        e.preventDefault();
-        e.stopPropagation();
         if (!utahIdData?.isDefinitive || !utahIdData?.userInfo?.authenticated) {
-          window.location.href = `https://id.utah.gov/logout?goto=${window.location}`;
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.href = `https://id.utah.gov/login?goto=${window.location}`;
         }
       },
     }

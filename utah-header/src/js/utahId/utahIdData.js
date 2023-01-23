@@ -30,7 +30,6 @@ let previousUtahIdData = {
  * @param {UserData} data the current information to store
  */
 function maybeTriggerAuthEvent(newUtahIdData) {
-  console.log('trigger auth:', newUtahIdData);
   if (
     newUtahIdData?.userInfoHash !== previousUtahIdData.userInfoHash
     || newUtahIdData?.isDefinitive !== previousUtahIdData.isDefinitive
