@@ -25,8 +25,7 @@ function authChangedEventHandler(e) {
     utahIdButton.innerHTML = '';
 
     if (utahIdData.userInfo && utahIdData.userInfo?.authenticated) {
-      const name = [utahIdData.userInfo.first, utahIdData.userInfo.last].filter((s) => !!s).join(' ');
-      utahIdButton.appendChild(document.createTextNode(`Hello, ${name}`));
+      utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.first || ''}`));
     } else {
       utahIdButton.appendChild(document.createTextNode('UtahID Sign In'));
     }
