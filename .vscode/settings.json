@@ -12,5 +12,6 @@
   ],
   "editor.unicodeHighlight.allowedCharacters": {
     "’": true
-  }
+  },
+  "typescript.preferences.quoteStyle": "single"
 }

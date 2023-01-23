@@ -79,6 +79,33 @@
  * be problematic in other IDEs that don't support typescript "out of the box".
  // eslint-disable-next-line jsdoc/no-undefined-types
  * @typedef {Partial<Settings>} SettingsInput
+ *
+ * // UtahId Data types
+ * @typedef UserInfoUrls {
+ *  @property {string} profile
+ *  @property {string} signin
+ *  @property {string} signout
+ * }
+ * @typedef UserInfo {
+ *  @property {boolean} authenticated
+ *  @property {boolean | null | undefined} disabled
+ *  @property {string} env
+ *  @property {string | null | undefined} first
+ *  @property {string | null | undefined} id
+ *  @property {string | null | undefined} last
+ *  @property {[string] | null | undefined} mail
+ *  @property {string | null | undefined} middle
+ *  @property {string | null | undefined} status
+ *  @property {string | undefined} type
+ *  @property {UserInfoUrls} urls
+ *  @property {string | null | undefined} username
+ * }
+ * @typedef UtahIdData {
+ *  @property {boolean} isDefinitive - true when the user's state is known, false while the ajax request is inflight
+ *  @property {string | null} lastError - true when the user's state is known, false while the ajax request is inflight
+ *  @property {UserInfo | null} userInfo - the current logged in user info or null if not found
+ *  @property {number} userInfoHash - hash of the userInfo for detecting changes
+ * }
  */
 
 // without this export, `@typedef import` reports this file 'is not a module'...

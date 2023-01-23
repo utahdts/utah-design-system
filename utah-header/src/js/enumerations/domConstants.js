@@ -13,8 +13,12 @@ export function getCssClassSelector(domConstants) {
  * @enum {string}
  */
 export default {
+  // Global Information
   UTAH_DESIGN_SYSTEM: 'utah-design-system',
   HEADER: 'utds-header',
+
+  // DOM events
+  EVENT_AUTH_CHANGED: 'utds-auth-changed',
 
   // HTML elements
   ICON_BUTTON: 'icon-button',

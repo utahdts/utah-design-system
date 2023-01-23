@@ -1,6 +1,7 @@
-import { defineConfig, searchForWorkspaceRoot } from 'vite'
 import react from '@vitejs/plugin-react';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
+import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, ssrBuild }) => {
@@ -15,6 +16,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     plugins: [
       react(),
       eslintPlugin(),
+      // basicSsl(),
+      mkcert({
+        force: true,
+        hosts: ['*.utah.gov', 'localhost', '127.0.0.1', '::1'],
+      }),
     ],
     server: {
       fs: {
@@ -25,6 +31,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
           '../library'
         ]
       },
+      https: true,
       port: 9180,
     },
     preview: {
