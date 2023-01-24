@@ -36,11 +36,155 @@
     -moz-osx-font-smoothing: grayscale;
   }
   .utds-icon-before-ext-link::before,
-  .utds-icon-after-ext-link::after{
+  .utds-icon-after-ext-link::after {
     content: '\0041';
     font-size: .65em;
   }
 
+  .utds-icon-before-waffle::before,
+  .utds-icon-after-waffle::after {
+    content: '\0042';
+  }
+
+  .utds-icon-before-alerts::before,
+  .utds-icon-after-alerts::after {
+    content: '\0043';
+  }
+
+  .utds-icon-before-help::before,
+  .utds-icon-after-help::after {
+    content: '\0044';
+  }
+
+  .utds-icon-before-bookmark::before,
+  .utds-icon-after-bookmark::after {
+    content: '\0045';
+  }
+
+  .utds-icon-before-search::before,
+  .utds-icon-after-search::after {
+    content: '\0046';
+  }
+
+  .utds-icon-before-check::before,
+  .utds-icon-after-check::after {
+    content: '\0047';
+  }
+
+  .utds-icon-before-star::before,
+  .utds-icon-after-star::after {
+    content: '\0048';
+  }
+
+  .utds-icon-before-info::before,
+  .utds-icon-after-info::after {
+    content: '\0049';
+  }
+
+  .utds-icon-before-unfold-less::before,
+  .utds-icon-after-unfold-less::after {
+    content: '\004a';
+  }
+
+  .utds-icon-before-unfold-more::before,
+  .utds-icon-after-unfold-more::after {
+    content: '\004b';
+  }
+
+  .utds-icon-before-circle-chevron-down::before,
+  .utds-icon-after-circle-chevron-down::after {
+    content: '\004c';
+  }
+
+  .utds-icon-before-circle-chevron-up::before,
+  .utds-icon-after-circle-chevron-up::after {
+    content: '\004d';
+  }
+
+  .utds-icon-before-chevron-up::before,
+  .utds-icon-after-chevron-up::after {
+    content: '\004e';
+  }
+
+  .utds-icon-before-chevron-right::before,
+  .utds-icon-after-chevron-right::after {
+    content: '\004f';
+  }
+
+  .utds-icon-before-chevron-down::before,
+  .utds-icon-after-chevron-down::after {
+    content: '\0050';
+  }
+
+  .utds-icon-before-chevron-left::before,
+  .utds-icon-after-chevron-left::after {
+    content: '\0051';
+  }
+
+  .utds-icon-before-arrow-up::before,
+  .utds-icon-after-arrow-up::after {
+    content: '\0052';
+  }
+
+  .utds-icon-before-arrow-right::before,
+  .utds-icon-after-arrow-right::after {
+    content: '\0053';
+  }
+
+  .utds-icon-before-arrow-down::before,
+  .utds-icon-after-arrow-down::after {
+    content: '\0054';
+  }
+
+  .utds-icon-before-arrow-left::before,
+  .utds-icon-after-arrow-left::after {
+    content: '\0055';
+  }
+
+  .utds-icon-before-plus::before,
+  .utds-icon-after-plus::after {
+    content: '\0056';
+  }
+
+  .utds-icon-before-minus::before,
+  .utds-icon-after-minus::after {
+    content: '\0057';
+  }
+
+  .utds-icon-before-x::before,
+  .utds-icon-after-x::after {
+    content: '\0058';
+  }
+
+  .utds-icon-before-edit::before,
+  .utds-icon-after-edit::after {
+    content: '\0059';
+  }
+
+  .utds-icon-before-edit-box::before,
+  .utds-icon-after-edit-box::after {
+    content: '\005a';
+  }
+
+  .utds-icon-before-verified::before,
+  .utds-icon-after-verified::after {
+    content: '\0061';
+  }
+
+  .utds-icon-before-gear::before,
+  .utds-icon-after-gear::after {
+    content: '\0062';
+  }
+
+  .utds-icon-before-doc::before,
+  .utds-icon-after-doc::after {
+    content: '\0063';
+  }
+
+  .utds-icon-before-doc-square::before,
+  .utds-icon-after-doc-square::after {
+    content: '\0064';
+  }
 }
 
 
