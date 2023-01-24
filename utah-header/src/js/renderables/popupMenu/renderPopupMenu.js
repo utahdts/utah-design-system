@@ -83,9 +83,9 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
   }
 
   // three types of action: parent, custom function, link
-  if (Array.isArray(popupMenuItem.action)) {
+  if (popupMenuItem.actionMenu) {
     // === submenu, more menu items! === //
-    const subMenu = renderMenu(popupMenuItem, popupMenuItem.action);
+    const subMenu = renderMenu(popupMenuItem, popupMenuItem.actionMenu);
     subMenu.removeAttribute('role');
     const subMenuId = uuidv4();
     subMenu.setAttribute('id', subMenuId);
@@ -114,17 +114,21 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
         }
       }
     });
-  } else if (typeof popupMenuItem.action === 'function') {
+  } else if (popupMenuItem.actionFunction) {
     // === on click custom action, so hookup onclick === //
-    menuButton.onclick = popupMenuItem.action;
+    menuButton.onclick = popupMenuItem.actionFunction;
     menuAHref.remove();
-  } else {
+  } else if (popupMenuItem.actionUrl) {
     // === link object, so hook up href === //
-    menuAHref.setAttribute('href', popupMenuItem.action.url);
-    if (popupMenuItem.action.openInNewTab) {
+    menuAHref.setAttribute('href', popupMenuItem.actionUrl.url);
+    if (popupMenuItem.actionUrl.openInNewTab) {
       menuAHref.setAttribute('target', '_blank');
     }
     menuButton.remove();
+  } else {
+    // eslint-disable-next-line no-console
+    console.error(popupMenuItem);
+    throw new Error('renderPopupMenuItem: popupMenuItem must have either actionMenu, actionFunction, or actionUrl');
   }
 
   const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT));
@@ -132,7 +136,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     throw new Error('renderPopupMenuItem: titleSpan not found');
   }
   titleSpan.appendChild(document.createTextNode(popupMenuItem.title));
-  if (popupMenuItem.action.openInNewTab) {
+  if (popupMenuItem.actionUrl?.openInNewTab) {
     titleSpan.classList.add('utds-icon-after-ext-link');
   }
 

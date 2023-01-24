@@ -40,7 +40,7 @@ export default function UtahId() {
   const popUpMenu = {
     menuItems: [
       {
-        action: {
+        actionUrl: {
           url: 'https://id.utah.gov/',
           openInNewTab: true,
         },
@@ -48,7 +48,7 @@ export default function UtahId() {
         title: 'UtahID Profile',
       },
       {
-        action: {
+        actionUrl: {
           url: `https://id.utah.gov/logout?goto=${window.location}`,
         },
         title: 'Sign Out',

@@ -15,12 +15,16 @@
  * For menu items that are links to other locations
  * @typedef MenuItemUrlAction {
  *  @property {string} url - the url to which to go when interacted with
- *  @property {boolean} [openInNewTab]
+ *  @property {boolean} [openInNewTab] - true to have the link open in a new window defaults to `false` if not provided
  * }
  *
  * A menu item in the menu, can have children
  * @typedef MenuItem {
- *  @property {MenuItemUrlAction | (function(Event): void) | MenuItem[]} action - onClick function, link url, children menus
+ *  // should be only one of the following three action types
+ *  @property {MenuItemUrlAction} [actionUrl] - link url
+ *  @property {(function(Event): void)} [actionFunction] - onClick function
+ *  @property {MenuItem[]} [actionMenu] - children menus
+ *
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {string} title - title for the menu item
@@ -46,13 +50,12 @@
  *  @property {number} [value] - the value to show in the badge
  * }
  *
- * // TODO:
- *      notes: if using Menu or ChildNode
- *               - aria-haspopup="true"
- *               - aria-controls="ID"
- *               - aria-expanded="true/false"
  * @typedef ActionItem {
- *  @property {OnClick | PopupMenu | ChildNode } action - func: onClick callback, Object[]: array of MenuItems, ChildNode: content in a popup.
+ *  // should be only one of the following three action types
+ *  @property {OnClick} [actionOnClick] - func: onClick callback
+ *  @property {PopupMenu} [actionPopupMenu] - Object[]: array of MenuItems
+ *  @property {ChildNode} [actionDom] - ChildNode: content in a popup.
+ *
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon
  *  @property {string} icon - Should be an SVG
@@ -62,7 +65,7 @@
  *
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
- *  @property {Element | string} [logo] - Must be an image or an SVG
+ *  @property {Element | string} [logo] - Must be an image or an SVG as a string
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
  *  @property {string} size - size has to be one of the `Size` types
@@ -86,6 +89,7 @@
  *  @property {string} signin
  *  @property {string} signout
  * }
+ *
  * @typedef UserInfo {
  *  @property {boolean} authenticated
  *  @property {boolean | null | undefined} disabled
