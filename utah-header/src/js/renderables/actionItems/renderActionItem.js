@@ -76,7 +76,7 @@ export default function renderActionItem(actionItem) {
       break;
 
     case 'object':
-      if (actionItem.action instanceof HTMLElement) {
+      if (actionItem.action instanceof Node) {
         // create popup content and make it visually-hidden
         iconButton.setAttribute('aria-haspopup', 'true');
         const popupId = uuidv4();
@@ -92,7 +92,7 @@ export default function renderActionItem(actionItem) {
         popupContentWrapper.appendChild(actionItem.action);
         actionItemElement.appendChild(popupWrapper);
 
-        popupFocusHandler(actionItemWrapper, iconButton, popupWrapper);
+        popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, undefined);
       } else {
         iconButton.setAttribute('aria-haspopup', 'menu');
         const popupId = uuidv4();
@@ -102,7 +102,7 @@ export default function renderActionItem(actionItem) {
         popupMenu.setAttribute('id', popupId);
         appendChildAll(actionItemElement, popupMenu);
 
-        popupFocusHandler(actionItemWrapper, iconButton, popupMenu);
+        popupFocusHandler(actionItemWrapper, iconButton, popupMenu, undefined);
       }
       break;
 
