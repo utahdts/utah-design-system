@@ -11,6 +11,7 @@ import Routing from './react/components/routing/Routing';
 import { useCssContext } from './react/context/cssContext/CssContext';
 import CSS_CLASS_NAMES from './react/enums/cssClassNames';
 import CSS_STATE_KEYS from './react/enums/cssStateKeys';
+import logoPng from './static/images/designSystemCircleGray.png';
 
 const propTypes = {};
 const defaultProps = {};
@@ -21,7 +22,10 @@ function App() {
 
   useEffect(
     () => {
-      setSettings(defaultSettings);
+      setSettings({
+        ...defaultSettings,
+        logo: `<img src=${logoPng} id="design-system-logo" />`,
+      });
     },
     []
   );
