@@ -34,7 +34,7 @@ function IconsDocumentation() {
       <div className="icon-example__grid mb-spacing">
         {iconsDocumentationIcons.map((icon) => (
           <button
-            className="icon-example__item"
+            className="icon-example__button"
             key={`${icon.cssClass}-icon-button`}
             type="button"
             onClick={(e) => {
@@ -51,7 +51,7 @@ function IconsDocumentation() {
         title="Accessible Icon Strategy 1"
         renderedExample={(
           <>
-            <div ref={iconDOMRef1}>
+            <div ref={iconDOMRef1} className="icon-example__">
               <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} aria-hidden="true" />
               <span className="visually-hidden">{state?.currentIcon?.title}</span>
             </div>
