@@ -5,7 +5,7 @@ import { renderDOMSingle } from '../../misc/renderDOM';
 import PopupHtml from './html/Popup.html?raw';
 
 /**
- * @returns {Element}
+ * @returns {HTMLElement}
  */
 export default function renderPopup() {
   return renderDOMSingle(PopupHtml);

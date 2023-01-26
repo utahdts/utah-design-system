@@ -1,0 +1,54 @@
+.utds-header-popup-menu {
+  @at-root #{ul}#{&} {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    ul {
+      padding-left: var(--spacing-s);
+    }
+  }
+
+  button.utds-header-popup-menu__link,
+  a.utds-header-popup-menu__link {
+    border-radius: var(--radius-circle);
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: var(--gray-color);
+    display: flex;
+    font-size: var(--font-size-2xs);
+    justify-content: flex-start;
+    line-height: 1.7;
+    margin: var(--spacing-2xs) 0;
+    min-height: unset;
+    padding: var(--spacing-2xs) var(--spacing);
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+    &:hover {
+      background: var(--hover-gray-color);
+      color: var(--primary-color);
+    }
+    &:active {
+      transform: none;
+    }
+  }
+  a.utds-header-popup-menu__link {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  &__link-text {
+    flex: 1 0 auto;
+  }
+  & .icon-chevron {
+    fill: currentColor;
+    height: 10px;
+    transform: rotate(-90deg);
+    transition: transform var(--timing-quick) ease;
+    width: 10px;
+    &.is-open {
+      transform: rotate(0deg);;
+    }
+  }
+}

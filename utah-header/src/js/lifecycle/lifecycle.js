@@ -7,6 +7,7 @@ import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 // eslint-disable-next-line import/no-unresolved
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
 import { getSettings } from '../settings/settings';
+import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -52,6 +53,8 @@ export function loadHeader() {
     setTimeout(() => document.dispatchEvent(new Event(events.HEADER_LOADED)), 0);
 
     loadCssSettings();
+
+    fetchUtahIdUserDataAsync();
   }
 }
 

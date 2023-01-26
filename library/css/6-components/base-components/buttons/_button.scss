@@ -19,6 +19,7 @@
     transition: all 200ms ease-in-out, transform 100ms ease, box-shadow 100ms ease;
     color: var(--gray-color);
     text-decoration: none;
+    position: relative;
 
     &:hover {
       background: var(--gray-color);

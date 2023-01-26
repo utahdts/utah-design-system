@@ -1,15 +1,17 @@
 {
-    "cSpell.words": [
-        "immer",
-        "popperjs",
-        "renderables",
-        "tinycolor",
-        "unemphasize",
-        "Unemphasized",
-        "utds",
-        "xsmall"
-    ],
-    "editor.unicodeHighlight.allowedCharacters": {
-        "’": true
-    }
+  "cSpell.words": [
+    "ATTOW",
+    "immer",
+    "popperjs",
+    "renderables",
+    "tinycolor",
+    "unemphasize",
+    "Unemphasized",
+    "utds",
+    "xsmall"
+  ],
+  "editor.unicodeHighlight.allowedCharacters": {
+    "’": true
+  },
+  "typescript.preferences.quoteStyle": "single"
 }

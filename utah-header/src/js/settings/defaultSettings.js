@@ -22,18 +22,18 @@ import sizes from '../enumerations/sizes';
 export default {
   actionItems: [
     {
-      action: {
+      actionPopupMenu: {
         menuItems: [
           {
-            action: { url: 'https://google.com?search=how realisitic can you be' },
+            actionUrl: { url: 'https://google.com?search=how realisitic can you be' },
             title: 'Item #1',
           },
           {
-            action: { url: 'https://utah.gov', openInNewTab: true },
+            actionUrl: { url: 'https://utah.gov', openInNewTab: true },
             title: 'Utah.Gov',
           },
           {
-            action: (e) => {
+            actionFunction: (e) => {
               e.stopPropagation();
               e.preventDefault();
               console.log('Custom menu item triggered');
@@ -41,14 +41,32 @@ export default {
             title: 'Custom menu item',
           },
           {
-            action: [
+            actionMenu: [
               {
                 title: 'i am a child',
-                action: { url: 'https://dts.utah.gov' },
+                actionMenu: [
+                  {
+                    title: 'i am a child',
+                    actionUrl: { url: 'https://dts.utah.gov' },
+                  },
+                  {
+                    title: 'i am a child 2oo',
+                    actionUrl: { url: 'https://dts.utah.gov/2' },
+                  },
+                ],
               },
               {
                 title: 'i am a child 2oo',
-                action: { url: 'https://dts.utah.gov/2' },
+                actionMenu: [
+                  {
+                    title: 'i am a child2',
+                    actionUrl: { url: 'https://dts.utah.gov' },
+                  },
+                  {
+                    title: 'i am a child 2oo2',
+                    actionUrl: { url: 'https://dts.utah.gov/2' },
+                  },
+                ],
               },
             ],
             title: 'I have children!!',
@@ -62,13 +80,29 @@ export default {
       title: 'Divisions',
     },
     {
-      action: () => console.log('Alerts clicked'),
+      actionOnClick: () => console.log('Alerts clicked'),
+      badge: {
+        // Note: make sure the `label` is plural/singular to match the value
+        label: 'Unread Alert',
+        value: 1,
+      },
       icon: AlertIcon,
       showTitle: false,
       title: 'Alerts',
     },
     {
-      action: () => console.log('Help clicked'),
+      actionDom: (() => {
+        const div = document.createElement('div');
+        div.appendChild(document.createTextNode('Hello World!'));
+        const button = document.createElement('button');
+        button.appendChild(document.createTextNode('Do not press me.'));
+        div.appendChild(button);
+        return div;
+      })(),
+      badge: {
+        // Note: make sure the `label` is plural/singular to match the value
+        label: 'Help Items Available',
+      },
       icon: QuestionIcon,
       showTitle: false,
       title: 'Help',

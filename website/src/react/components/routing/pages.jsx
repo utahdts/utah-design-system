@@ -9,10 +9,13 @@ import ConfirmationButtonDocumentation from '../websiteContent/library/component
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
+import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
+import PopUpsDocumentation from '../websiteContent/library/components/popUps/popUps/PopUpsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
-import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation';
+import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
+import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
 
@@ -241,7 +244,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   icons: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: IconsDocumentation,
     link: '/resources/icons',
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Icons',
@@ -351,6 +354,24 @@ const pages = {
     link: '/library/components/forms/switch',
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Switch',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === Navigation === //
+  verticalMenu: {
+    content: VerticalMenuDocumentation,
+    link: pageUrls.verticalMenu,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Vertical Menu',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === Pop Ups === //
+  popUps: {
+    content: PopUpsDocumentation,
+    link: pageUrls.popUps,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Pop Ups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

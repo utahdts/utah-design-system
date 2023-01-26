@@ -13,8 +13,12 @@ export function getCssClassSelector(domConstants) {
  * @enum {string}
  */
 export default {
+  // Global Information
   UTAH_DESIGN_SYSTEM: 'utah-design-system',
   HEADER: 'utds-header',
+
+  // DOM events
+  EVENT_AUTH_CHANGED: 'utds-auth-changed',
 
   // HTML elements
   ICON_BUTTON: 'icon-button',
@@ -23,6 +27,8 @@ export default {
   CSS_HEADER_MEDIA_TAG_ID: 'cssHeaderMediaTag',
 
   // Modifiers
+  IS_CLOSED: 'is-closed',
+  IS_OPEN: 'is-open',
   VISUALLY_HIDDEN: 'visually-hidden',
 
   // Replacement Placeholders
@@ -36,6 +42,12 @@ export default {
   ACTION_ITEM__ICON_BUTTON_TITLE: 'utds-header-action-item__icon-button--has-title',
   ACTION_ITEM__TITLE: 'utds-header-action-item__title',
 
+  BADGE__LABEL: 'utds-badge__label',
+  BADGE__VALUE: 'utds-badge__value',
+  BADGE_WRAPPER: 'utds-badge__wrapper',
+  BADGE_WRAPPER__SMALL: 'utds-badge__wrapper--small',
+  BADGE_WRAPPER__ACTION_ITEM: 'utds-badge__wrapper--action-item',
+
   CITIZEN_EXPERIENCE: 'utds-citizen-experience-wrapper',
 
   LOGO_SVG: 'utah-logo-svg',
@@ -45,11 +57,12 @@ export default {
   POPUP_MENU: 'utds-header-popup-menu',
   POPUP_MENU__LINK: 'utds-header-popup-menu__link',
   POPUP_MENU__LINK_TEXT: 'utds-header-popup-menu__link-text',
-  POPUP__HIDDEN: 'utds-header-popup__wrapper--hidden',
-  POPUP__VISIBLE: 'utds-header-popup__wrapper--visible',
+  POPUP__HIDDEN: 'utds-popup__wrapper--hidden',
+  POPUP__VISIBLE: 'utds-popup__wrapper--visible',
 
-  POPUP_ARROW: 'utds-header-popup__arrow',
-  POPUP_WRAPPER: 'utds-header-popup__wrapper',
+  POPUP_ARROW: 'utds-popup__arrow',
+  POPUP_CONTENT_WRAPPER: 'utds-popup__content',
+  POPUP_WRAPPER: 'utds-popup__wrapper',
 
   SIZE__LARGE: 'large',
   SIZE__MEDIUM: 'medium',
@@ -59,5 +72,5 @@ export default {
   TITLE__TITLE: 'utds-title-wrapper__title',
 
   UTAH_ID: 'utds-utah-id-wrapper',
-  UTAH_ID__SIGN_IN: 'utds-utah-id__sign-in',
+  UTAH_ID__BUTTON: 'utds-utah-id__button',
 };

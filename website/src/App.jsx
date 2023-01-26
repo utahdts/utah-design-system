@@ -4,13 +4,17 @@ import '@utahdts/utah-design-system/css/index.scss';
 import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import { setSettings } from 'utah-design-system-header';
+import defaultSettings from 'utah-design-system-header/src/js/settings/defaultSettings';
 import './css/index.scss';
-import logoPng from './static/images/designSystemCircleGray.png';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import Routing from './react/components/routing/Routing';
 import { useCssContext } from './react/context/cssContext/CssContext';
 import CSS_CLASS_NAMES from './react/enums/cssClassNames';
 import CSS_STATE_KEYS from './react/enums/cssStateKeys';
+import logoPng from './static/images/designSystemCircleGray.png';
+
+const propTypes = {};
+const defaultProps = {};
 
 function App() {
   const { cssState } = useCssContext();
@@ -19,8 +23,8 @@ function App() {
   useEffect(
     () => {
       setSettings({
+        ...defaultSettings,
         logo: `<img src=${logoPng} id="design-system-logo" />`,
-        title: 'Utah Design System',
       });
     },
     []
@@ -45,5 +49,8 @@ function App() {
     </FormContextProvider>
   );
 }
+
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
 
 export default App;

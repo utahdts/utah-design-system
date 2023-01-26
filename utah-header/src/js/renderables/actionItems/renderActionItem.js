@@ -1,13 +1,15 @@
 // @ts-check
-import { createPopper } from '@popperjs/core';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
+import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
-import showHideElement from '../../misc/showHideElement';
+import uuidv4 from '../../misc/uuidv4';
+import renderPopup from '../popup/renderPopup';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ActionItemHtml from './html/ActionItem.html?raw';
+import renderActionItemBadge from './renderActionItemBadge';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').ActionItem} ActionItem
@@ -23,11 +25,7 @@ export default function renderActionItem(actionItem) {
   const actionItemElement = renderDOMSingle(ActionItemHtml);
   const titleElement = document.createTextNode(actionItem.title);
 
-  // put an id on the button
-  // have popup aria reference the id of the button
-  // track if it is expanded or not
-
-  const actionItemWrapper = actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement;
+  const actionItemWrapper = /** @type {HTMLElement} */(actionItemElement instanceof HTMLCollection ? actionItemElement[0] : actionItemElement);
   if (actionItem.showTitle) {
     actionItemWrapper.classList.add(domConstants.ACTION_ITEM__ICON_BUTTON_TITLE);
   }
@@ -50,9 +48,11 @@ export default function renderActionItem(actionItem) {
   if (actionItem.className) {
     iconButton.classList.add(actionItem.className);
   }
-  // TODO: aria
-  //   button: aria-haspopup : menu, dialog, true
-  //   popup: role="menu", role="dialog"
+
+  const badge = renderActionItemBadge(actionItem);
+  if (badge) {
+    iconButton.appendChild(badge);
+  }
 
   const actionItemIcon = renderDOMSingle(actionItem.icon);
   actionItemIcon.setAttribute('role', 'presentation');
@@ -62,55 +62,40 @@ export default function renderActionItem(actionItem) {
     throw new Error('renderActionItem: iconButton is not an HTMLElement');
   }
 
-  switch (typeof actionItem.action) {
-    case 'function':
-      iconButton.onclick = actionItem.action;
-      break;
+  if (actionItem.actionOnClick) {
+    iconButton.onclick = actionItem.actionOnClick;
+  } else if (actionItem.actionDom) {
+    // create popup content and make it visually-hidden
+    iconButton.setAttribute('aria-haspopup', 'true');
+    const popupId = uuidv4();
+    iconButton.setAttribute('aria-controls', popupId);
+    iconButton.setAttribute('aria-expanded', 'false');
 
-    case 'object':
-      if (actionItem.action instanceof HTMLElement) {
-        /* TODO: show child node popup
-        *               * aria-haspopup="true"
-        *               * aria-controls="ID"
-        *               * aria-expanded="true/false"
-        */
-        iconButton.onclick = () => console.log('Action Item: show child node popup', actionItem.action);
-      } else {
-        /* TODO: show popup menu
-        *               * aria-haspopup="true"
-        *               * aria-controls="ID"
-        *               * aria-expanded="true/false"
-        */
-        const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.action)));
-        appendChildAll(actionItemElement, popupMenu);
+    const popupWrapper = renderPopup();
+    popupWrapper.setAttribute('id', popupId);
+    const popupContentWrapper = /** @type {HTMLElement} */(popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
+    if (!popupContentWrapper) {
+      throw new Error('renderPopupMenu: contentWrapper not found');
+    }
+    popupContentWrapper.appendChild(actionItem.actionDom);
+    actionItemElement.appendChild(popupWrapper);
 
-        iconButton.onclick = (e) => {
-          e.stopPropagation();
-          e.preventDefault();
+    popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, undefined);
+  } else if (actionItem.actionPopupMenu) {
+    iconButton.setAttribute('aria-haspopup', 'menu');
+    const popupId = uuidv4();
+    iconButton.setAttribute('aria-controls', popupId);
+    iconButton.setAttribute('aria-expanded', 'false');
+    const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.actionPopupMenu)));
+    popupMenu.setAttribute('id', popupId);
+    appendChildAll(actionItemElement, popupMenu);
 
-          if (popupMenu.classList.contains('utds-header-popup__wrapper--hidden')) {
-            const htmlElement = /** @type {HTMLElement} */(popupMenu);
-            createPopper(iconButton, htmlElement, {
-              placement: 'bottom',
-              modifiers: [
-                {
-                  name: 'offset',
-                  options: { offset: [0, 8] },
-                },
-              ],
-            });
-            showHideElement(popupMenu, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          } else {
-            showHideElement(popupMenu, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          }
-        };
-      }
-      break;
-
-    default:
-      // eslint-disable-next-line no-console
-      console.error(actionItem.action);
-      throw new Error(`Action Item: unknown action type '${typeof actionItem.action}'`);
+    popupFocusHandler(actionItemWrapper, iconButton, popupMenu, undefined);
+  } else {
+    // eslint-disable-next-line no-console
+    console.error(actionItem);
+    throw new Error('Action Item: no defined action; must have either actionOnClick, actionDom, or actionPopupMenu');
   }
+
   return actionItemElement;
 }

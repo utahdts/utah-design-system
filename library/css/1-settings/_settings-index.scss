@@ -47,6 +47,10 @@ variables and settings
   --code-color: #{color-swatches.$neutral-gray-16};
   --gray-border: #{color-swatches.$neutral-gray-15};
 
+  --danger-color: #ba0000;
+  --warning-color: #ba6300;
+  --info-color: var(--secondary-color);
+  --success-color: #2f8700;
 
   /* transition timings */
   --timing-xquick: 100ms;
@@ -83,6 +87,13 @@ variables and settings
   --documentation-left-width: 200px;
   --documentation-right-width: 200px;
   --documentation-padding: var(--spacing-2xl) var(--spacing-xl);
+
+  /* elevation box shadows */
+  --drop-shadow-color: rgba(0, 0, 0, 0.3);
+  --elevation-small: 0 3px 6px var(--drop-shadow-color);
+  --elevation-medium: 0 6px 12px var(--drop-shadow-color);
+  --elevation-large: 0 12px 16px var(--drop-shadow-color);
+
 }
 
  /* color utility classes */
@@ -114,4 +125,5 @@ variables and settings
 .gray-color-light-background { background-color: var(--gray-light-color) }
 
 .white-color { color: white; }
+
 
