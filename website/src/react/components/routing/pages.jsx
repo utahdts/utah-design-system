@@ -13,7 +13,7 @@ import VerticalMenuDocumentation from '../websiteContent/library/components/navi
 import PopUpsDocumentation from '../websiteContent/library/components/popUps/popUps/PopUpsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
-import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation';
+import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';

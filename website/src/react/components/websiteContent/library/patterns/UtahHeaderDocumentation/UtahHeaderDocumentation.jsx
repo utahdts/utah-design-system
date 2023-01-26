@@ -13,12 +13,14 @@ import {
 } from '@utahdts/utah-design-system';
 import { useRef } from 'react';
 import { setSettings } from 'utah-design-system-header';
+import useInteractiveHeaderJsonState from './useInteractiveHeaderJsonState';
 
 const propTypes = {};
 const defaultProps = {};
 
 function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef();
+  const [headerJson] = useInteractiveHeaderJsonState();
 
   return (
     <div className="documentation-content">
@@ -31,7 +33,7 @@ function UtahHeaderDocumentation() {
       <div>
         <div>
           <textarea
-            defaultValue={JSON.stringify(JSON.parse('{"title": "{INTERACTIVE} Utah Design System"}'), null, 4)}
+            defaultValue={headerJson}
             ref={interactiveTextAreaRef}
             // TODO: style should be changed to css?
             style={{ width: '100%', height: '500px' }}
