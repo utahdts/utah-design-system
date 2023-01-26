@@ -46,8 +46,8 @@
     content: '\0042';
   }
 
-  .utds-icon-before-alerts::before,
-  .utds-icon-after-alerts::after {
+  .utds-icon-before-alert::before,
+  .utds-icon-after-alert::after {
     content: '\0043';
   }
 
@@ -151,8 +151,8 @@
     content: '\0057';
   }
 
-  .utds-icon-before-x::before,
-  .utds-icon-after-x::after {
+  .utds-icon-before-x-icon::before,
+  .utds-icon-after-x-icon::after {
     content: '\0058';
   }
 
@@ -184,6 +184,16 @@
   .utds-icon-before-doc-square::before,
   .utds-icon-after-doc-square::after {
     content: '\0064';
+  }
+
+  .utds-icon-before-warning::before,
+  .utds-icon-after-warning::after {
+    content: '\0065';
+  }
+
+  .utds-icon-before-error::before,
+  .utds-icon-after-error::after {
+    content: '\0066';
   }
 }
 
