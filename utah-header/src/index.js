@@ -8,4 +8,4 @@ const fileVersion = packageJson.version.replace(/\./g, '');
 console.log(`Utah Header v${fileVersion}`);
 
 export { loadHeader, removeHeader } from './js/lifecycle/lifecycle';
-export { getSettings, setSettings } from './js/settings/settings';
+export { getUtahHeaderSettings, setUtahHeaderSettings } from './js/settings/settings';

@@ -1,7 +1,7 @@
 // @ts-check
 import { renderDOMSingle } from '../../misc/renderDOM';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import { getSettings } from '../../settings/settings';
+import { getUtahHeaderSettings } from '../../settings/settings';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
@@ -15,7 +15,7 @@ import isString from '../../misc/isString';
  * @returns {HTMLCollection | Element}
  */
 export default function LogoTitle() {
-  const logoTitleURL = getSettings().titleURL;
+  const logoTitleURL = getUtahHeaderSettings().titleURL;
   const logoTitleWrapper = !logoTitleURL ? renderDOMSingle(LogoTitleWrapper) : renderDOMSingle(LogoTitleWrapperLink);
   if (!logoTitleWrapper) {
     throw new Error('LogoTitle: titleWrapper is null');
@@ -30,9 +30,9 @@ export default function LogoTitle() {
     throw new Error('LogoTitle: logoWrapper is null');
   }
 
-  const settingsLogo = getSettings().logo;
-  const settingsShowTitle = getSettings().showTitle;
-  const settingsTitle = getSettings().title;
+  const settingsLogo = getUtahHeaderSettings().logo;
+  const settingsShowTitle = getUtahHeaderSettings().showTitle;
+  const settingsTitle = getUtahHeaderSettings().title;
   if (settingsLogo) {
     /** @type {HTMLCollection | Element} */
     let settingsLogoElement;

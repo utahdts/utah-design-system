@@ -3,8 +3,7 @@ import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
 import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import { setSettings } from 'utah-design-system-header';
-import defaultSettings from 'utah-design-system-header/src/js/settings/defaultSettings';
+import { getUtahHeaderSettings, setUtahHeaderSettings } from 'utah-design-system-header';
 import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import Routing from './react/components/routing/Routing';
@@ -22,8 +21,8 @@ function App() {
 
   useEffect(
     () => {
-      setSettings({
-        ...defaultSettings,
+      setUtahHeaderSettings({
+        ...getUtahHeaderSettings(),
         logo: `<img src=${logoPng} id="design-system-logo" />`,
       });
     },

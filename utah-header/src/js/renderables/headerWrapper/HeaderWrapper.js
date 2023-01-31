@@ -14,7 +14,7 @@ import CitizenExperience from '../citizenExperience/CitizenExperience';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import headerLogoWrapper from './html/HeaderLogoWrapper.html?raw';
-import { getSettings } from '../../settings/settings';
+import { getUtahHeaderSettings } from '../../settings/settings';
 import sizes from '../../enumerations/sizes';
 
 /**
@@ -26,7 +26,7 @@ import sizes from '../../enumerations/sizes';
 export default function HeaderWrapper() {
   const header = renderDOMSingle(headerWrapper);
 
-  header.classList.add(`utds-header--${getSettings().size?.toLowerCase() || sizes.MEDIUM}`);
+  header.classList.add(`utds-header--${getUtahHeaderSettings().size?.toLowerCase() || sizes.MEDIUM}`);
 
   const logoWrapper = renderDOMSingle(headerLogoWrapper);
   header.appendChild(logoWrapper);

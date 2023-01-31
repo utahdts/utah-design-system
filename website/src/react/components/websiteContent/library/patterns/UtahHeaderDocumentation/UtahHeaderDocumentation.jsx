@@ -11,8 +11,7 @@ import {
   TabPanel,
   TabPanels,
 } from '@utahdts/utah-design-system';
-import { useRef } from 'react';
-import { setSettings } from 'utah-design-system-header';
+import { useCallback, useRef } from 'react';
 import useInteractiveHeaderJsonState from './useInteractiveHeaderJsonState';
 
 const propTypes = {};
@@ -20,7 +19,7 @@ const defaultProps = {};
 
 function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef();
-  const [headerJson] = useInteractiveHeaderJsonState();
+  const [headerJson, setHeaderJson] = useInteractiveHeaderJsonState();
 
   return (
     <div className="documentation-content">
@@ -44,23 +43,12 @@ function UtahHeaderDocumentation() {
           <div>
             <Button
               id="apply-interactive-utah-header"
-              onClick={() => {
-                try {
-                  const newSettingsString = interactiveTextAreaRef.current.value;
-                  // eslint-disable-next-line no-eval
-                  const newSettings = JSON.parse(newSettingsString);
-                  console.log({ newSettings });
-                  setSettings(newSettings);
-                } catch (e) {
-                  console.error(e);
-                  alert(e.message);
-                }
-              }}
+              onClick={useCallback(() => setHeaderJson(interactiveTextAreaRef.current.value))}
             >
               Apply
             </Button>
           </div>
-          <div>Reset</div>
+          <div><Button onClick={useCallback(() => setHeaderJson(''))}>Reset</Button></div>
           <div>Preset #1</div>
           <div>Preset #2</div>
           <div>Preset #3</div>

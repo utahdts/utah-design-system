@@ -62,8 +62,8 @@ export default function renderActionItem(actionItem) {
     throw new Error('renderActionItem: iconButton is not an HTMLElement');
   }
 
-  if (actionItem.actionOnClick) {
-    iconButton.onclick = actionItem.actionOnClick;
+  if (actionItem.actionFunction) {
+    iconButton.onclick = actionItem.actionFunction;
   } else if (actionItem.actionDom) {
     // create popup content and make it visually-hidden
     iconButton.setAttribute('aria-haspopup', 'true');
@@ -94,7 +94,7 @@ export default function renderActionItem(actionItem) {
   } else {
     // eslint-disable-next-line no-console
     console.error(actionItem);
-    throw new Error('Action Item: no defined action; must have either actionOnClick, actionDom, or actionPopupMenu');
+    throw new Error('Action Item: no defined action; must have either actionFunction, actionDom, or actionPopupMenu');
   }
 
   return actionItemElement;

@@ -19,7 +19,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       // basicSsl(),
       mkcert({
         force: true,
-        hosts: ['*.utah.gov', 'localhost', '127.0.0.1', '::1'],
+        hosts: ['*.utah.gov', '*.local.utah.gov', '127.0.0.1', 'localhost', '::1'],
       }),
     ],
     server: {

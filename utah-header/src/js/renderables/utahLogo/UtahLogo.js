@@ -1,6 +1,6 @@
 import { renderDOM } from '../../misc/renderDOM';
 import sizes from '../../enumerations/sizes';
-import { getSettings } from '../../settings/settings';
+import { getUtahHeaderSettings } from '../../settings/settings';
 // eslint-disable-next-line import/no-unresolved
 import UtahLogoLargeHtml from './html/UtahLogoLarge.html?raw';
 // eslint-disable-next-line import/no-unresolved
@@ -11,7 +11,7 @@ import UtahLogoMediumHtml from './html/UtahLogoMedium.html?raw';
  */
 export default function UtahLogo() {
   let sizedLogo;
-  switch (getSettings().size) {
+  switch (getUtahHeaderSettings().size) {
     case sizes.LARGE:
       sizedLogo = UtahLogoLargeHtml;
       break;
@@ -22,7 +22,7 @@ export default function UtahLogo() {
       break;
 
     default:
-      throw new Error(`Unknown settings size: '${getSettings().size}`);
+      throw new Error(`Unknown settings size: '${getUtahHeaderSettings().size}`);
   }
 
   return renderDOM(sizedLogo);
