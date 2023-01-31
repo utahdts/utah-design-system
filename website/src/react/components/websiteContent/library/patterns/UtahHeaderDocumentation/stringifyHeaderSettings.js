@@ -38,5 +38,5 @@ export default function stringifyHeaderSettings(settingsObject) {
     }
   });
 
-  return JSON.stringify(copySettings);
+  return JSON.stringify(copySettings, undefined, 4);
 }

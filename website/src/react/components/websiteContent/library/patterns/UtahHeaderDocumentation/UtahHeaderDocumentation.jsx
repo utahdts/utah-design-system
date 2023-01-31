@@ -12,6 +12,7 @@ import {
   TabPanels,
 } from '@utahdts/utah-design-system';
 import { useCallback, useRef } from 'react';
+import baseSettings from 'utah-design-system-header/src/js/settings/baseSettings';
 import useInteractiveHeaderJsonState from './useInteractiveHeaderJsonState';
 
 const propTypes = {};
@@ -19,7 +20,12 @@ const defaultProps = {};
 
 function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef();
-  const [headerJson, setHeaderJson] = useInteractiveHeaderJsonState();
+  const {
+    headerJsonString,
+    setHeaderJsonString,
+    headerIsOn,
+    setHeaderIsOn,
+  } = useInteractiveHeaderJsonState();
 
   return (
     <div className="documentation-content">
@@ -32,23 +38,43 @@ function UtahHeaderDocumentation() {
       <div>
         <div>
           <textarea
-            defaultValue={headerJson}
+            defaultValue={headerJsonString}
             ref={interactiveTextAreaRef}
             // TODO: style should be changed to css?
             style={{ width: '100%', height: '500px' }}
           />
         </div>
         <div>
-          <div>on/off</div>
+          <div>
+            {/* TODO: this is probably better as a toggle button than a button that changes its title */}
+            <Button
+              className={`interactive-utah-header__custom-header-is-${headerIsOn ? 'on' : 'off'}`}
+              onClick={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn))}
+            >
+              {`Turn ${headerIsOn ? 'Off' : 'On'} Custom Header`}
+            </Button>
+          </div>
           <div>
             <Button
               id="apply-interactive-utah-header"
-              onClick={useCallback(() => setHeaderJson(interactiveTextAreaRef.current.value))}
+              onClick={useCallback(() => setHeaderJsonString(interactiveTextAreaRef.current.value))}
             >
               Apply
             </Button>
           </div>
-          <div><Button onClick={useCallback(() => setHeaderJson(''))}>Reset</Button></div>
+          <div>
+            <Button
+              onClick={useCallback(
+                () => {
+                  const resetHeaderString = JSON.stringify(baseSettings, undefined, 4);
+                  setHeaderJsonString(resetHeaderString);
+                  interactiveTextAreaRef.current = resetHeaderString;
+                }
+              )}
+            >
+              Reset
+            </Button>
+          </div>
           <div>Preset #1</div>
           <div>Preset #2</div>
           <div>Preset #3</div>
