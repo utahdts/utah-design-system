@@ -10,19 +10,31 @@ import isString from './isString';
  */
 export function renderDOM(str) {
   const domParser = new DOMParser();
-  const rendered = /** @type {Document} */ (isString(str) ? domParser.parseFromString(str, 'text/html') : str);
 
-  const firstChild = (
-    rendered.body.children.length > 1
-      ? rendered.body.children
-      : rendered.body.children.item(0)
-  );
-  if (!firstChild) {
+  /** @type {HTMLCollection | Element} */
+  let result;
+  if (isString(str)) {
+    const rendered = /** @type {Document} */ (isString(str) ? domParser.parseFromString(str, 'text/html') : str);
+
+    const maybeResult = (
+      rendered.body.children.length > 1
+        ? rendered.body.children
+        : rendered.body.children.item(0)
+    );
+    if (!maybeResult) {
+      // eslint-disable-next-line no-console
+      console.error(str);
+      throw new Error('renderDOM: nothing rendered');
+    }
+    result = maybeResult;
+  } else if (/** @type {unknown} */ (str) instanceof Element) {
+    result = str;
+  } else {
     // eslint-disable-next-line no-console
     console.error(str);
-    throw new Error('renderDOM: nothing rendered');
+    throw new Error(`renderDOM: str is not a string nor a DOM Element : '${str}'`);
   }
-  return firstChild;
+  return result;
 }
 
 /**

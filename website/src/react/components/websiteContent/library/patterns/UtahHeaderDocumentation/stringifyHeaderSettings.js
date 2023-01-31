@@ -3,7 +3,7 @@ import copyObjectWithoutFields from '../../../../../util/copyObjectWithoutFields
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
 /**
- * @typedef {import('../misc/jsDocTypes').Settings} Settings
+ * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
 /**
