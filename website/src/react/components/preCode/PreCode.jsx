@@ -19,7 +19,7 @@ function PreCode({ codeRaw }) {
   );
 
   return (
-    <div className="gimme-some-class">
+    <div className="pre-code-block">
       <pre>
         <code
           className="language-xml"

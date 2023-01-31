@@ -15,6 +15,7 @@ function IconsDocumentation() {
   const iconDOMRef1 = useRef();
   const iconDOMRef2 = useRef();
   const iconDOMRef3 = useRef();
+  const iconDOMRef4 = useRef();
 
   function clickIconButton(icon) {
     setState((draftState) => {
@@ -42,18 +43,21 @@ function IconsDocumentation() {
               clickIconButton(icon);
             }}
           >
-            <span className={`utds-icon-before-${icon.cssClass}`} role="img" title={icon.title} />
+            <span className={`utds-icon-before-${icon.cssClass}`} aria-hidden="true" />
             <span className="font-size-2xs">{`${icon.cssClass} (${icon.letter})`}</span>
           </button>
         ))}
       </div>
       <StaticExample
         title="Accessible Icon Strategy 1"
+        className="icon-example__static"
         renderedExample={(
           <>
-            <div ref={iconDOMRef1} className="icon-example__">
-              <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} aria-hidden="true" />
-              <span className="visually-hidden">{state?.currentIcon?.title}</span>
+            <div className="icon-example__icon-big">
+              <div ref={iconDOMRef1}>
+                <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} aria-hidden="true" />
+                <span className="visually-hidden">{state?.currentIcon?.title}</span>
+              </div>
             </div>
             <div>
               <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef1} />
@@ -70,10 +74,13 @@ function IconsDocumentation() {
 
       <StaticExample
         title="Accessible Icon Strategy 2"
+        className="icon-example__static"
         renderedExample={(
           <>
-            <div ref={iconDOMRef2}>
-              <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} role="img" title={state?.currentIcon?.title} />
+            <div className="icon-example__icon-big">
+              <div ref={iconDOMRef2}>
+                <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} role="img" title={state?.currentIcon?.title} />
+              </div>
             </div>
             <div>
               <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef2} />
@@ -91,20 +98,28 @@ function IconsDocumentation() {
 
       <StaticExample
         title="Accessible Icon Strategy 3"
+        className="icon-example__static"
         renderedExample={(
           <>
-            <div ref={iconDOMRef3}>
-              <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} aria-hidden="true" />
-              <span>{state?.currentIcon?.title.toUpperCase()}</span>
+            <div className="icon-example__icon-with-text">
+              <div ref={iconDOMRef3}>
+                <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} aria-hidden="true" />
+                <span>{state?.currentIcon?.title}</span>
+              </div>
+              <div ref={iconDOMRef4}>
+                <span>{state?.currentIcon?.title}</span>
+                <span className={`utds-icon-after-${state?.currentIcon?.cssClass}`} aria-hidden="true" />
+              </div>
             </div>
             <div>
               <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef3} />
+              <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef4} />
             </div>
           </>
         )}
         quickTips={(
           <ul>
-            <li>The icon ignored by screen readers. Use this for icons that are purely decorative and provide no additional context.</li>
+            <li>The icon is ignored by screen readers. Use this for icons that are purely decorative and provide no additional context.</li>
             <li>The icon is accompanied by visible text which is read by the screen reader.</li>
           </ul>
         )}
@@ -113,7 +128,55 @@ function IconsDocumentation() {
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li>Use only when needed.</li>
+        <li>Icons can provide extra context and clarity for web users.</li>
+        <li>Icons can draw attention to useful actions and messages.</li>
+        <li>Use in conjunction with some kind of accompanying text or action, such as a link, list, or icon button.</li>
+        <li>Icons can provide meaning when space is limited in a web view.</li>
+      </ul>
+
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
+      <ul className="mb-spacing">
+        <li>Generally icons shouldn&apos;t be used as a replacement for text if there is ample room.</li>
+        <li>Choose a different icon when the meaning is ambiguous, or communicate the action through text.</li>
+        <li>Don&apos;t use an icon as a replacement for an illustrative image or photograph.</li>
+      </ul>
+
+      <h3 id="section-usability">Usability guidance</h3>
+      <ul className="mb-spacing">
+        <li>The font icons above can be positioned <code>before</code> or <code>after</code> the accompanying text or elements. For example:
+          <ul>
+            <li>
+              <code>class=&quot;utds-icon-before-help&quot;</code>
+            </li>
+            <li>
+              <code>class=&quot;utds-icon-after-help&quot;</code>
+            </li>
+          </ul>
+        </li>
+        <li>Icons should always be used in conjunction with some action or text.</li>
+        <li>You should be consistent with your icon usage across websites and applications.
+          Don&apos;t use an icon in an unintuitive way. (e.g. Don&apos;t use a search icon to indicate an item can be edited.)
+        </li>
+        <li>Neighboring icons should maintain a similar relative size.</li>
+      </ul>
+
+      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h4 id="section-contrast">Contrast</h4>
+      <ul className="mb-spacing">
+        <li>An icon that provides contextual meaning must maintain a <code>4.5:1</code> contrast ratio or better at a readable size.</li>
+      </ul>
+      <h4 id="section-screen-readers">Screen readers</h4>
+      <ul className="mb-spacing">
+        <li>Icons that provide semantic meaning must have some kind of descriptive text. (See accessible icon strategies above.)</li>
+        <li>Accessible inline SVG icon strategy:
+          <pre className="gray-block mt-auto">
+            &lt;svg viewBox=&quot;0 0 20 20&quot; role=&quot;img&quot;&gt;<br />
+            &nbsp;&nbsp;&lt;title&gt;Description of Action&lt;/title&gt;<br />
+            &nbsp;&nbsp;&lt;g&gt;...&lt;/g&gt;<br />
+            &lt;/svg&gt;<br />
+          </pre>
+        </li>
+        <li>Icons that are purely decorative should be hidden with <code>aria-hidden=&quot;true&quot;</code> attribute.</li>
       </ul>
     </div>
   );

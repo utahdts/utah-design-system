@@ -1,6 +1,6 @@
 export default [
   {
-    cssClass: 'ext-link',
+    cssClass: 'external-link',
     title: 'external link',
     letter: 'A',
   },

@@ -17,8 +17,8 @@
     [class*='utds-icon-before-'] {
       line-height: 1;
     }
-    .utds-icon-before-ext-link::before,
-    .utds-icon-after-ext-link::after {
+    .utds-icon-before-external-link::before,
+    .utds-icon-after-external-link::after {
       font-size: 1em;
     }
   }
@@ -26,9 +26,56 @@
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    // gap: var(--spacing-2xs);
     border-top: 1px solid var(--gray-border);
     border-left: 1px solid var(--gray-border);
+  }
+
+  &__static {
+    .pre-code-block {
+      code {
+        padding: 0;
+        background: none;
+      }
+    };
+  }
+
+  &__icon-big {
+    font-size: 4rem;
+    line-height: 1;
+    padding: 0 var(--spacing);
+    border-right: 1px solid var(--gray-border);
+
+    .utds-icon-before-external-link::before,
+    .utds-icon-after-external-link::after {
+      font-size: 1em;
+    }
+
+    [class*='utds-icon-before-'] {
+      display: flex;
+      align-items: center;
+    }
+    .visually-hidden {
+      font-size: 1rem;
+    }
+  }
+
+  &__icon-with-text {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-l);
+    font-size: 1rem;
+    padding: var(--spacing-xs) var(--spacing);
+    border-right: 1px solid var(--gray-border);
+
+    & > div {
+      display: flex;
+      align-items: center;
+    }
+    [class*='utds-icon-before-'] {
+      display: flex;
+      align-items: center;
+    }
   }
 
 }
