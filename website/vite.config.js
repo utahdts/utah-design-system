@@ -32,6 +32,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         ]
       },
       https: true,
+      host: 'designsystem.local.utah.gov',
       port: 9180,
     },
     preview: {
