@@ -6,15 +6,15 @@ import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
-import { getSettings } from '../settings/settings';
+import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
   const mediaQueriesCssReplaced = mediaQueriesCSS
-    .replace(domConstants.MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER, `${getSettings().mediaSizes.tabletPortrait}px`)
-    .replace(domConstants.MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER, `${getSettings().mediaSizes.tabletLandscape}px`)
-    .replace(domConstants.MEDIA_SIZE__MOBILE__PLACEHOLDER, `${getSettings().mediaSizes.mobile}px`);
+    .replace(domConstants.MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER, `${getUtahHeaderSettings().mediaSizes.tabletPortrait}px`)
+    .replace(domConstants.MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER, `${getUtahHeaderSettings().mediaSizes.tabletLandscape}px`)
+    .replace(domConstants.MEDIA_SIZE__MOBILE__PLACEHOLDER, `${getUtahHeaderSettings().mediaSizes.mobile}px`);
   let cssHeaderMediaTag = document.getElementById(domConstants.CSS_HEADER_MEDIA_TAG_ID);
   if (!cssHeaderMediaTag) {
     cssHeaderMediaTag = document.createElement('style');

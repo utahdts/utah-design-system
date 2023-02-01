@@ -128,7 +128,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
   } else {
     // eslint-disable-next-line no-console
     console.error(popupMenuItem);
-    throw new Error('renderPopupMenuItem: popupMenuItem must have either actionMenu, actionFunction, or actionUrl');
+    throw new Error(`renderPopupMenuItem: popupMenuItem must have either actionMenu, actionFunction, or actionUrl (${'popupMenuItem.title'})`);
   }
 
   const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT));

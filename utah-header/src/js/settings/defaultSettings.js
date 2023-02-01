@@ -16,9 +16,9 @@ import sizes from '../enumerations/sizes';
 
 /**
  * !~! Do not use defaultSettings directly !~!
- * Interact with `settings` using getSettings() and setSettings().
+ * Interact with `settings` using getUtahHeaderSettings() and setUtahHeaderSettings().
  * @type {Settings} the current settings of the header
- * */
+ */
 export default {
   actionItems: [
     {
@@ -80,7 +80,7 @@ export default {
       title: 'Divisions',
     },
     {
-      actionOnClick: () => console.log('Alerts clicked'),
+      actionFunction: () => console.log('Alerts clicked'),
       badge: {
         // Note: make sure the `label` is plural/singular to match the value
         label: 'Unread Alert',

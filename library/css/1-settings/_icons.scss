@@ -34,9 +34,10 @@
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin-right: var(--spacing-2xs);
   }
-  .utds-icon-before-ext-link::before,
-  .utds-icon-after-ext-link::after {
+  .utds-icon-before-external-link::before,
+  .utds-icon-after-external-link::after {
     content: '\0041';
     font-size: .65em;
   }

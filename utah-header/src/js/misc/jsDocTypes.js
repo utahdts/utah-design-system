@@ -7,6 +7,8 @@
  *
  * @typedef {Element} ChildNode
  *
+ * @typedef {(function(Event): void)} EventAction
+ *
  * @interface Partial - typescript has "Partial" built-in while JSDoc does not know about "type utilities"
  *
  * @typedef {'SMALL' | 'MEDIUM' | 'LARGE'} Size
@@ -22,7 +24,7 @@
  * @typedef MenuItem {
  *  // should be only one of the following three action types
  *  @property {MenuItemUrlAction} [actionUrl] - link url
- *  @property {(function(Event): void)} [actionFunction] - onClick function
+ *  @property {EventAction} [actionFunction] - onClick function
  *  @property {MenuItem[]} [actionMenu] - children menus
  *
  *  @property {string} [className] - can be used for `selected` or any other purpose
@@ -35,8 +37,6 @@
  *  @property {MenuItem[]} menuItems - the menu items to show in the menu
  *  @property {string} title - the title of the menu
  * }
- *
- * @typedef {(this: GlobalEventHandlers, ev: MouseEvent) => any} OnClick
  *
  * @typedef MediaSizes {
  *   @property {number} mobile - mobile sized render area
@@ -52,7 +52,7 @@
  *
  * @typedef ActionItem {
  *  // should be only one of the following three action types
- *  @property {OnClick} [actionOnClick] - func: onClick callback
+ *  @property {EventAction} [actionFunction] - func: onClick callback
  *  @property {PopupMenu} [actionPopupMenu] - Object[]: array of MenuItems
  *  @property {ChildNode} [actionDom] - ChildNode: content in a popup.
  *

@@ -7,7 +7,8 @@
   ],
   "scripts": {
     "clean": "rimraf package-lock.json & rimraf ./website/dist & rimraf ./library/dist & rimraf ./website/node_modules & rimraf ./library/node_modules & rimraf ./utah-header/node_modules & rimraf node_modules",
-    "reset": "run-s clean npmi dev",
+    "build": "cd library && npm run build && cd ../website && npm run build && cd ..",
+    "reset": "run-s clean npmi build dev",
     "npmi": "npm i",
     "watchLib": "cd library && npm run watch",
     "websiteDev": "cd website && npm run dev",

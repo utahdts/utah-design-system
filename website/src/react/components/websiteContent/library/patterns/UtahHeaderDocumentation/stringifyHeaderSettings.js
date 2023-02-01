@@ -1,9 +1,42 @@
+import valueAtPath from '@utahdts/utah-design-system/react/util/state/valueAtPath';
+import copyObjectWithoutFields from '../../../../../util/copyObjectWithoutFields';
+import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
+
+/**
+ * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
+*/
+
+/**
+ * turns functions and DOM in to strings so they can be saved correctly
+ * @param {Settings} settingsObject
+ * @returns {string}
+ */
 export default function stringifyHeaderSettings(settingsObject) {
-  console.log(settingsObject);
-  // convert to string
-  // find usages of DOM and functions (remember nesting! might be easiest to make a func
-  // tion that searches for a nested object with a given key and return that object)
-  //   convert DOM to DOM using renderDOM
-  //   convert functions to a placeholder function that just does an alert with the function contents when triggered
-  return JSON.stringify(settingsObject);
+  const customFields = ['actionFunction', 'actionDom', 'icon', 'logo'];
+  const actionItems = objectsPathsWithKeys(settingsObject, customFields);
+
+  const copySettings = copyObjectWithoutFields(settingsObject, customFields);
+
+  actionItems.forEach((actionItem) => {
+    switch (actionItem.searchKey) {
+      case 'actionFunction':
+        // convert functions to strings
+        valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = actionItem.object[actionItem.searchKey].toString();
+        break;
+
+      case 'actionDom':
+      case 'icon':
+      case 'logo': {
+        const possiblyDOM = actionItem.object[actionItem.searchKey];
+        valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = (
+          possiblyDOM instanceof window.Element ? possiblyDOM.outerHTML : possiblyDOM
+        );
+      } break;
+
+      default:
+        throw new Error(`stringifyHeaderSettings: Invalid searchKey for actionItem: '${actionItem.searchKey}'`);
+    }
+  });
+
+  return JSON.stringify(copySettings, undefined, 4);
 }

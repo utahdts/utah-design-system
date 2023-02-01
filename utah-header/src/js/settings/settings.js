@@ -1,5 +1,6 @@
 // @ts-check
 import { loadHeader } from '../lifecycle/lifecycle';
+import baseSettings from './baseSettings';
 import defaultSettings from './defaultSettings';
 
 /**
@@ -7,13 +8,13 @@ import defaultSettings from './defaultSettings';
  * @typedef {import('../misc/jsDocTypes').SettingsInput} SettingsInput
 */
 
-// don't ever export this `settings` variable, instead use getSettings() and setSettings()
+// don't ever export this `settings` variable, instead use getUtahHeaderSettings() and setUtahHeaderSettings()
 let settings = { ...defaultSettings };
 
 /**
  * @returns {Settings} settings The current settings information
  */
-export function getSettings() {
+export function getUtahHeaderSettings() {
   return settings;
 }
 
@@ -30,10 +31,10 @@ function validateSettings(settingsToValidate) {
  * @param {SettingsInput} newSettings
  * @returns Settings
  */
-export function setSettings(newSettings) {
+export function setUtahHeaderSettings(newSettings) {
   // note that if newSettings has a key/value where the value is undefined it WILL override the value to undefined
   // but if newSettings is missing a key then the `undefined` value of the missing key will not override the default.
-  settings = { ...defaultSettings, ...newSettings };
+  settings = { ...baseSettings, ...newSettings };
   validateSettings(settings);
   const existingHeader = document.querySelector('.utah-design-system.utds-header');
   if (existingHeader) {

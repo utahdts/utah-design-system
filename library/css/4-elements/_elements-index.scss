@@ -47,7 +47,7 @@ elemental html: h1, h2, h3, ul, li, etc.
 
   code {
     font-family: 'Source Code Pro', monospace;
-    font-size: .95em;
+    font-size: .95rem;
     background: var(--code-color);
     padding: var(--spacing-3xs) var(--spacing-xs);
     border-radius: var(--radius-small1x);
@@ -57,8 +57,15 @@ elemental html: h1, h2, h3, ul, li, etc.
     }
   }
   pre {
+    font-family: 'Source Code Pro', monospace;
+    font-size: .95rem;
     white-space: pre-wrap;
     word-wrap: break-word;
+    &.gray-block {
+      background: var(--gray-light-color);
+      padding: var(--spacing-s) var(--spacing);
+      border-radius: var(--radius-medium);
+    }
   }
 
   ul, ol {

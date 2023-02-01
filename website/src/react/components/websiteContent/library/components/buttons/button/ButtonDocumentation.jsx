@@ -306,7 +306,7 @@ function ButtonDocumentation() {
         </li>
       </ul>
 
-      <h3 id="section-usability" className="mb-spacing">Usability guidance</h3>
+      <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
         <li>Keep button text short. Use action words to describe what the button will do.</li>
         <li>Use Title Case capitalization.
