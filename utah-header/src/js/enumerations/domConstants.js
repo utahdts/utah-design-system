@@ -60,6 +60,8 @@ export default {
   POPUP__HIDDEN: 'utds-popup__wrapper--hidden',
   POPUP__VISIBLE: 'utds-popup__wrapper--visible',
 
+  EXTERNAL_LINK: 'utds-icon-after-external-link',
+
   POPUP_ARROW: 'utds-popup__arrow',
   POPUP_CONTENT_WRAPPER: 'utds-popup__content',
   POPUP_WRAPPER: 'utds-popup__wrapper',

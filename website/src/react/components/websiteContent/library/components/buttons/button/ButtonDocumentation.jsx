@@ -169,6 +169,7 @@ function ButtonDocumentation() {
           </ul>
         )}
       />
+
       <StaticExample
         title="With Icon"
         renderedExample={(
@@ -199,6 +200,7 @@ function ButtonDocumentation() {
           </ul>
         )}
       />
+
       <StaticExample
         title="Sizes"
         renderedExample={(
@@ -244,6 +246,7 @@ function ButtonDocumentation() {
           </ul>
         )}
       />
+
       <StaticExample
         title="Busy"
         renderedExample={(
@@ -264,19 +267,111 @@ function ButtonDocumentation() {
           </ul>
         )}
       />
+
+      <StaticExample
+        title="Enabled/Disabled"
+        renderedExample={(
+          <>
+            <Button
+              color="primary"
+              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
+              size={formElementSizesEnum.MEDIUM}
+            >
+              Cancel
+            </Button>
+            <Button
+              appearance="solid"
+              color="primary"
+              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
+              size={formElementSizesEnum.MEDIUM}
+              disabled
+            >
+              Submit
+            </Button>
+          </>
+        )}
+        quickTips={(
+          <ul>
+            <li>Disabled buttons do not allow user interaction.</li>
+            <li>Disabled buttons are visually &quot;grayed out&quot;.</li>
+            <li>Use the built-in attribute <code>disabled</code> to disable a button.</li>
+          </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Hover"
+        renderedExample={(
+          <>
+            <Button
+              color="secondary"
+              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
+              size={formElementSizesEnum.MEDIUM}
+            >
+              Hover Me
+            </Button>
+            <Button
+              appearance="solid"
+              color="secondary"
+              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
+              size={formElementSizesEnum.MEDIUM}
+            >
+              Hover Me
+            </Button>
+          </>
+        )}
+        quickTips={(
+          <ul>
+            <li>Hover is the state when a pointing cursor enters the button boundary.</li>
+            <li>The hover state changes from the normal state to provide the user with a visual cue.</li>
+          </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Pressed"
+        renderedExample={(
+          <>
+            <Button
+              color="primary"
+              className="active"
+              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
+              size={formElementSizesEnum.MEDIUM}
+            >
+              Pressed
+            </Button>
+            <Button
+              appearance="solid"
+              color="primary"
+              className="active"
+              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
+              size={formElementSizesEnum.MEDIUM}
+            >
+              Pressed
+            </Button>
+          </>
+        )}
+        quickTips={(
+          <ul>
+            <li>The button produces a visual cue that it is being pressed.</li>
+          </ul>
+        )}
+      />
+
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li>Use a button to indicate an action.</li>
+        <li><strong>Buttons are for actions.</strong> Use a button to indicate an action.</li>
         <li>
-          Choose a button style that will give the desired emphasis to the action:
+          <strong>Emphasize buttons.</strong> Choose a button style that will give the desired emphasis to the action:
           <ul>
             <li>Important actions should be emphasized (solid button) to stand out from other actions on the view or in the immediate area.</li>
             <li>You can further emphasize buttons with size and color.</li>
           </ul>
         </li>
         <li>
-          If a <code>&lt;button&gt;</code> must be used for navigation you are required to implement the following ARIA properties:<br />
+          <strong>Navigation buttons.</strong> If a <code>&lt;button&gt;</code> must be used for navigation you are required to implement the
+          following ARIA properties:<br />
           <em>
             (Note: Where possible, it is recommended that you use a native <code>&lt;a&gt;</code> element rather than the link role,
             as native elements are more widely supported by user agents and assistive technology.)
@@ -292,10 +387,10 @@ function ButtonDocumentation() {
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li>Generally, use a link for navigation, especially when there are other action buttons in the view.</li>
-        <li>Always, use a link for navigation within a paragraph of text.</li>
+        <li><strong>Navigation.</strong> Generally, use a link for navigation, especially when there are other action buttons in the view.</li>
+        <li><strong>Paragraph navigation.</strong> Always, use a link for navigation within a paragraph of text.</li>
         <li>
-          Style a link as a button:
+          <strong>Style a link as a button:</strong>
           <ul>
             <li>
               Use the button style if it also includes a visual indicator such as an arrow icon.
@@ -308,22 +403,22 @@ function ButtonDocumentation() {
 
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
-        <li>Keep button text short. Use action words to describe what the button will do.</li>
-        <li>Use Title Case capitalization.
+        <li><strong>Keep button text short.</strong> Use action words to describe what the button will do.</li>
+        <li><strong>Use Title Case capitalization.</strong>
           Such as, <code>Download</code>, <code>View More</code>, <code>Sign In</code>, or <code>Sign Out</code>.
         </li>
         <li>
-          Lead with a verb by making the first word of the button’s text a verb.
+          <strong>Lead with a verb.</strong> Make the first word of the button’s text a verb.
           For example, instead of <code>Information Request</code>, label the button <code>Request Information</code>.
         </li>
-        <li>Use icons in a button to help describe the action.</li>
-        <li>Avoid using too many buttons on a view. Too many button will cause confusion and distraction.</li>
-        <li>Consider using an <NavLink to={pageUrls.iconButton}>icon button</NavLink> in compact layouts.</li>
-        <li>Always set the type attribute to define the purpose of the button.
-          The type attribute can accept three values: <code>submit</code>, <code>button</code>, and <code>reset</code>.
+        <li><strong>Icons help provide clarity.</strong> Use icons in a button to help describe the action.</li>
+        <li><strong>Avoid using too many buttons in a view.</strong> Too many button will cause confusion and distraction.</li>
+        <li><strong>Icon Buttons.</strong> Consider using an <NavLink to={pageUrls.iconButton}>icon button</NavLink> in compact layouts.</li>
+        <li><strong>Always set the type attribute to define the purpose of the button.</strong> The type attribute
+          can accept three values: <code>submit</code>, <code>button</code>, and <code>reset</code>.
           If no type attribute is defined, the button will behave as a <code>submit</code> button.
         </li>
-        <li>Generally avoid stacking one button on top of another. Place them side-by-side if there is room.</li>
+        <li><strong>Avoid stacking.</strong> Generally avoid stacking one button on top of another. Place them side-by-side if there is room.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
