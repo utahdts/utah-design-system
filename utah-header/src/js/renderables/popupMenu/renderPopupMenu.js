@@ -137,7 +137,17 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
   }
   titleSpan.appendChild(document.createTextNode(popupMenuItem.title));
   if (popupMenuItem.actionUrl?.openInNewTab) {
-    titleSpan.classList.add('utds-icon-after-ext-link');
+    // Add an icon to indicate the external link opens in a new tab
+    const externalLinkIcon = document.createElement('span');
+    externalLinkIcon.classList.add(domConstants.EXTERNAL_LINK);
+    externalLinkIcon.setAttribute('aria-hidden', 'true');
+
+    // Add a message for screen readers
+    const externalLinkMessage = document.createElement('span');
+    externalLinkMessage.appendChild(document.createTextNode('opens in a new tab'));
+    externalLinkMessage.classList.add(domConstants.VISUALLY_HIDDEN);
+    titleSpan.appendChild(externalLinkMessage);
+    titleSpan.appendChild(externalLinkIcon);
   }
 
   appendChildAll(menuUl, menuItemWrapper);

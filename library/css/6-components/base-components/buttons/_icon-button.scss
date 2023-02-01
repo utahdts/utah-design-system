@@ -49,5 +49,13 @@
       }
     }
 
+    [class*='utds-icon-before-'] {
+      line-height: .5;
+      &::before {
+        margin: 0;
+        font-size: 20px;
+      }
+    }
+
   }
 }
