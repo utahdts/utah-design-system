@@ -34,12 +34,12 @@
       background: white !important;
       color: var(--form-ele-disabled-color) !important;
       border-color: var(--form-ele-disabled-color) !important;
-      &:active {
+      &:active, &.active {
         transform: none;
         box-shadow: none;
       }
     }
-    &:active {
+    &:active, &.active {
       transform: scale(.96);
       box-shadow: inset 0 3px 5px rgba(0,0,0,0.5);
     }
