@@ -8,7 +8,7 @@ import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
 /**
  * turns string functions and DOM in to actual functions and DOM
- * @param {string} parseHeaderSettings
+ * @param {string} settingsString
  * @returns {Settings}
  */
 export default function parseHeaderSettings(settingsString) {
@@ -31,7 +31,9 @@ export default function parseHeaderSettings(settingsString) {
       case 'icon':
       case 'logo': {
         const domString = actionItem.object[actionItem.searchKey];
-        valueAtPath({ object: resultSettings, path: actionItem.path })[actionItem.searchKey] = renderDOM(domString);
+        valueAtPath({ object: resultSettings, path: actionItem.path })[actionItem.searchKey] = (
+          (!domString || domString === 'null') ? null : renderDOM(domString)
+        );
       } break;
 
       default:

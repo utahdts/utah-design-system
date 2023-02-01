@@ -11,21 +11,80 @@ import {
   TabPanel,
   TabPanels,
 } from '@utahdts/utah-design-system';
-import { useCallback, useRef } from 'react';
-import baseSettings from 'utah-design-system-header/src/js/settings/baseSettings';
-import useInteractiveHeaderJsonState from './useInteractiveHeaderJsonState';
+import { useCallback, useEffect, useRef } from 'react';
+import { useImmer } from 'use-immer';
+import logoPng from '../../../../../../static/images/designSystemCircleGray.png';
+import useInteractiveHeaderState from './useInteractiveHeaderState';
+import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
 
 const propTypes = {};
 const defaultProps = {};
 
+const LOGO_IMAGE = `<img src="${logoPng}" id="design-system-logo" />`;
+const PRESET_VALUE_NONE = '--none--';
+const PRESETS = [
+  {
+    options: [
+      {
+        settingsSnippet: {
+          logo: null,
+          showTitle: true,
+          title: 'State of Utah Preset Title',
+        },
+        title: 'None',
+        value: PRESET_VALUE_NONE,
+      },
+      {
+        settingsSnippet: {
+          logo: null,
+          showTitle: true,
+          title: 'State of Utah Preset Title',
+        },
+        title: 'Just Title',
+        value: 'just-title',
+      },
+      {
+        settingsSnippet: {
+          logo: LOGO_IMAGE,
+          showTitle: false,
+        },
+        title: 'Just Brand',
+        value: 'just-brand',
+      },
+      {
+        settingsSnippet: {
+          logo: LOGO_IMAGE,
+          showTitle: true,
+          title: 'State of Utah Preset Title',
+        },
+        title: 'Title & Brand',
+        value: 'brand-and-title',
+      },
+    ],
+    stateKey: 'agencyBrandTitle',
+    title: 'Agency Brand/Title',
+  },
+];
+
 function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef();
   const {
-    headerJsonString,
-    setHeaderJsonString,
+    headerString,
+    setHeaderString,
     headerIsOn,
     setHeaderIsOn,
-  } = useInteractiveHeaderJsonState();
+    reset: resetHeader,
+    setHeaderSettings,
+  } = useInteractiveHeaderState();
+  const [presetValues, setPresetValues] = useImmer(() => PRESETS.reduce((state, preset) => ({ ...state, [preset.stateKey]: PRESET_VALUE_NONE }), {}));
+
+  useEffect(
+    () => {
+      // when string is changed externally (reset, apply), update the text area
+      interactiveTextAreaRef.current.value = headerString;
+    },
+    [headerString]
+  );
 
   return (
     <div className="documentation-content">
@@ -38,7 +97,7 @@ function UtahHeaderDocumentation() {
       <div>
         <div>
           <textarea
-            defaultValue={headerJsonString}
+            defaultValue={headerString}
             ref={interactiveTextAreaRef}
             // TODO: style should be changed to css?
             style={{ width: '100%', height: '500px' }}
@@ -57,27 +116,39 @@ function UtahHeaderDocumentation() {
           <div>
             <Button
               id="apply-interactive-utah-header"
-              onClick={useCallback(() => setHeaderJsonString(interactiveTextAreaRef.current.value))}
+              onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value))}
             >
               Apply
             </Button>
           </div>
           <div>
-            <Button
-              onClick={useCallback(
-                () => {
-                  const resetHeaderString = JSON.stringify(baseSettings, undefined, 4);
-                  setHeaderJsonString(resetHeaderString);
-                  interactiveTextAreaRef.current = resetHeaderString;
-                }
-              )}
-            >
-              Reset
-            </Button>
+            <Button onClick={resetHeader}>Reset</Button>
           </div>
-          <div>Preset #1</div>
-          <div>Preset #2</div>
-          <div>Preset #3</div>
+          {
+            PRESETS.map((preset) => (
+              <UtahHeaderInteractivePresetSelector
+                key={`preset__${preset.title}`}
+                onSelect={(_e, selectedOption) => (
+                  setPresetValues((draftPresetValues) => {
+                    // update state
+                    draftPresetValues[preset.stateKey] = selectedOption.value;
+
+                    // set the new settings object as the new settings state
+                    // apply just the preset.settingsSnippet fields to the settings
+                    setHeaderSettings((draftHeaderObject) => {
+                      Object.entries(selectedOption.settingsSnippet)
+                        .forEach(([settingKey, settingValue]) => {
+                          draftHeaderObject[settingKey] = settingValue;
+                        });
+                    });
+                  })
+                )}
+                options={preset.options}
+                title={preset.title}
+                value={presetValues[preset.stateKey]}
+              />
+            ))
+          }
         </div>
       </div>
 

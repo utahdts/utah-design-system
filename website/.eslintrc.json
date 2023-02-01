@@ -40,7 +40,7 @@
       {
         "arrays": "always-multiline",
         "objects": "always-multiline",
-        "imports": "always-multiline",
+        "imports": "only-multiline",
         "exports": "always-multiline",
         "functions": "never"
       }
@@ -68,6 +68,13 @@
         "ignorePropertyModificationsForRegex": [
           "^draft"
         ]
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "enforceInMethodNames": false,
+        "enforceInClassFields": false
       }
     ]
   }

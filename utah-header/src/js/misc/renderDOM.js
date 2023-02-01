@@ -29,6 +29,8 @@ export function renderDOM(str) {
     result = maybeResult;
   } else if (/** @type {unknown} */ (str) instanceof Element) {
     result = str;
+  } else if (!str) {
+    throw new Error('renderDOM: falsy string passed; cannot render nothing');
   } else {
     // eslint-disable-next-line no-console
     console.error(str);
