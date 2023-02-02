@@ -1,5 +1,7 @@
 import {
   Button,
+  formElementSizesEnum,
+  Switch,
   Tab,
   TabGroup,
   Table, TableBody, TableCell,
@@ -9,62 +11,15 @@ import {
   TableWrapper,
   TabList,
   TabPanel,
-  TabPanels,
+  TabPanels
 } from '@utahdts/utah-design-system';
 import { useCallback, useEffect, useRef } from 'react';
-import { useImmer } from 'use-immer';
-import logoPng from '../../../../../../static/images/designSystemCircleGray.png';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
+import utahHeaderPresets from './utahHeaderPresets';
 
 const propTypes = {};
 const defaultProps = {};
-
-const LOGO_IMAGE = `<img src="${logoPng}" id="design-system-logo" />`;
-const PRESET_VALUE_NONE = '--none--';
-const PRESETS = [
-  {
-    options: [
-      {
-        settingsSnippet: {
-          logo: null,
-          showTitle: true,
-          title: 'State of Utah Preset Title',
-        },
-        title: 'None',
-        value: PRESET_VALUE_NONE,
-      },
-      {
-        settingsSnippet: {
-          logo: null,
-          showTitle: true,
-          title: 'State of Utah Preset Title',
-        },
-        title: 'Just Title',
-        value: 'just-title',
-      },
-      {
-        settingsSnippet: {
-          logo: LOGO_IMAGE,
-          showTitle: false,
-        },
-        title: 'Just Brand',
-        value: 'just-brand',
-      },
-      {
-        settingsSnippet: {
-          logo: LOGO_IMAGE,
-          showTitle: true,
-          title: 'State of Utah Preset Title',
-        },
-        title: 'Title & Brand',
-        value: 'brand-and-title',
-      },
-    ],
-    stateKey: 'agencyBrandTitle',
-    title: 'Agency Brand/Title',
-  },
-];
 
 function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef();
@@ -76,7 +31,6 @@ function UtahHeaderDocumentation() {
     reset: resetHeader,
     setHeaderSettings,
   } = useInteractiveHeaderState();
-  const [presetValues, setPresetValues] = useImmer(() => PRESETS.reduce((state, preset) => ({ ...state, [preset.stateKey]: PRESET_VALUE_NONE }), {}));
 
   useEffect(
     () => {
@@ -93,62 +47,65 @@ function UtahHeaderDocumentation() {
         The Utah Header provides cross-site functionality and appearance.
       </p>
       <hr />
-      <h2 id="section-example">Example</h2>
-      <div>
-        <div>
-          <textarea
-            defaultValue={headerString}
-            ref={interactiveTextAreaRef}
-            // TODO: style should be changed to css?
-            style={{ width: '100%', height: '500px' }}
-          />
-        </div>
-        <div>
-          <div>
-            {/* TODO: this is probably better as a toggle button than a button that changes its title */}
-            <Button
-              className={`interactive-utah-header__custom-header-is-${headerIsOn ? 'on' : 'off'}`}
-              onClick={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn))}
-            >
-              {`Turn ${headerIsOn ? 'Off' : 'On'} Custom Header`}
-            </Button>
+      <div className="header-config__title">
+        <h2 id="section-example">Header Config</h2>
+        <Switch
+          id="header-config-on-off"
+          label="Turn On/Off Custom Header"
+          labelClassName="visually-hidden"
+          labelOn="Header Config On"
+          labelOff="Header Config Off"
+          onChange={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn))}
+          size={formElementSizesEnum.LARGE}
+          value={headerIsOn}
+          width={140}
+        />
+      </div>
+      <div className="sandbox-example">
+        <div className="sandbox-example__top">
+          <div className="sandbox-example__component">
+            <textarea
+              defaultValue={headerString}
+              className="sandbox-example__code-editor"
+              ref={interactiveTextAreaRef}
+              // TODO: style should be changed to css?
+              style={{ width: '100%', height: '500px' }}
+            />
           </div>
-          <div>
-            <Button
-              id="apply-interactive-utah-header"
-              onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value))}
-            >
-              Apply
-            </Button>
+          <div className="sandbox-example__props-inputs header-config__controls">
+            <div className="header-config__presets">
+              {
+                utahHeaderPresets.map((preset) => (
+                  <UtahHeaderInteractivePresetSelector
+                    key={`preset__${preset.title}`}
+                    onSelect={(_e, selectedOption) => (
+                      // set the new settings object as the new settings state
+                      // apply just the preset.settingsSnippet fields to the settings
+                      setHeaderSettings((draftHeaderObject) => {
+                        Object.entries(selectedOption.settingsSnippet)
+                          .forEach(([settingKey, settingValue]) => {
+                            draftHeaderObject[settingKey] = settingValue;
+                          });
+                      })
+                    )}
+                    options={preset.options}
+                    title={preset.title}
+                  />
+                ))
+              }
+            </div>
+            <div className="header-config__apply-reset">
+              <Button onClick={resetHeader}>Reset</Button>
+              <Button
+                appearance="solid"
+                color="primary"
+                id="apply-interactive-utah-header"
+                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value))}
+              >
+                Apply
+              </Button>
+            </div>
           </div>
-          <div>
-            <Button onClick={resetHeader}>Reset</Button>
-          </div>
-          {
-            PRESETS.map((preset) => (
-              <UtahHeaderInteractivePresetSelector
-                key={`preset__${preset.title}`}
-                onSelect={(_e, selectedOption) => (
-                  setPresetValues((draftPresetValues) => {
-                    // update state
-                    draftPresetValues[preset.stateKey] = selectedOption.value;
-
-                    // set the new settings object as the new settings state
-                    // apply just the preset.settingsSnippet fields to the settings
-                    setHeaderSettings((draftHeaderObject) => {
-                      Object.entries(selectedOption.settingsSnippet)
-                        .forEach(([settingKey, settingValue]) => {
-                          draftHeaderObject[settingKey] = settingValue;
-                        });
-                    });
-                  })
-                )}
-                options={preset.options}
-                title={preset.title}
-                value={presetValues[preset.stateKey]}
-              />
-            ))
-          }
         </div>
       </div>
 

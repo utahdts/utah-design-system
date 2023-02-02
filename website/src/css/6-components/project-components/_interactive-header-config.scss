@@ -1,0 +1,51 @@
+.sandbox-example {
+  &__code-editor {
+    font-family: var(--fixed-width-font-family);
+    font-weight: var(----font-weight-normal);
+    font-size: var(--font-size-2xs);
+  }
+}
+
+.header-config {
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    .input-wrapper {
+      margin: 0;
+    }
+  }
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+  }
+  &__presets {
+    flex: 1;
+    
+  }
+  &__apply-reset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    
+  }
+}
+
+.interactive-utah-header-preset {
+  
+  &__options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-2xs);
+  }
+  &__single-option {
+    flex: 1 1 40%;
+    button {
+      width: 100%;
+    }
+  }
+}

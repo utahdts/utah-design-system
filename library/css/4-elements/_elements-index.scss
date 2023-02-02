@@ -6,7 +6,7 @@ elemental html: h1, h2, h3, ul, li, etc.
 
 #{class-vars.$base-class} {
   margin: 0;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  font-family: var(--normal-font-family);
   font-size: 16px;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
@@ -46,7 +46,7 @@ elemental html: h1, h2, h3, ul, li, etc.
   }
 
   code {
-    font-family: 'Source Code Pro', monospace;
+    font-family: var(--fixed-width-font-family);
     font-size: .95rem;
     background: var(--code-color);
     padding: var(--spacing-3xs) var(--spacing-xs);
@@ -57,7 +57,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     }
   }
   pre {
-    font-family: 'Source Code Pro', monospace;
+    font-family: var(--fixed-width-font-family);
     font-size: .95rem;
     white-space: pre-wrap;
     word-wrap: break-word;

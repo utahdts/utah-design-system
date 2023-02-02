@@ -1,3 +1,4 @@
+import { Button, formElementSizesEnum } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -8,15 +9,11 @@ const propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
     })
   ).isRequired,
 
   // title representing the preset list
   title: PropTypes.string.isRequired,
-
-  // the current selected value of the list (must have something required even if it is "none")
-  value: PropTypes.string.isRequired,
 };
 const defaultProps = {};
 
@@ -24,7 +21,6 @@ function UtahHeaderInteractivePresetSelector({
   onSelect,
   options,
   title,
-  value,
 }) {
   return (
     <div className="interactive-utah-header-preset">
@@ -34,11 +30,14 @@ function UtahHeaderInteractivePresetSelector({
       <div className="interactive-utah-header-preset__options">
         {
           options.map((option) => (
-            <div key={`${title}__${option.value}`} className="interactive-utah-header-preset-option">
-              <span className="interactive-utah-header-preset-option__title">
+            <div key={`${title}__${option.title}`} className="interactive-utah-header-preset__single-option">
+              <Button
+                size={formElementSizesEnum.SMALL}
+                id={`apply-option__${title}__${option.title}`}
+                onClick={(e) => onSelect(e, option)}
+              >
                 {option.title}
-              </span>
-              <input type="checkbox" checked={value === option.value} onChange={(e) => onSelect(e, option)} />
+              </Button>
             </div>
           ))
         }

@@ -13,6 +13,7 @@ const propTypes = {
   innerRef: RefShape,
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  labelClassName: PropTypes.string,
   labelOff: PropTypes.node,
   labelOn: PropTypes.node,
   // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
@@ -29,6 +30,7 @@ const defaultProps = {
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
+  labelClassName: '',
   labelOff: null,
   labelOn: null,
   onChange: null,
@@ -46,6 +48,7 @@ function Switch({
   innerRef,
   isDisabled,
   label,
+  labelClassName,
   labelOn,
   labelOff,
   onChange,
@@ -84,7 +87,7 @@ function Switch({
         htmlFor={id}
         style={width && { width: `${width}px` }}
       >
-        <span className="switch__label">{label}</span>
+        <span className={joinClassNames('switch__label', labelClassName)}>{label}</span>
 
         <input
           aria-describedby={currentErrorMessage ? `${id}-error` : null}
