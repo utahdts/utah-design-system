@@ -13,7 +13,12 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
-import { useCallback, useEffect, useRef } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
 import utahHeaderPresets from './utahHeaderPresets';
@@ -38,6 +43,20 @@ function UtahHeaderDocumentation() {
       interactiveTextAreaRef.current.value = headerString;
     },
     [headerString]
+  );
+
+  // hook up dirty state checking for the apply button
+  const [isDirty, setIsDirty] = useState(false);
+  const isDirtyIntervalRef = useRef(NaN);
+  useEffect(
+    () => {
+      isDirtyIntervalRef.current = setInterval(() => {
+        setIsDirty(!headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
+      }, 500);
+
+      return () => clearInterval(isDirtyIntervalRef.current);
+    },
+    [headerIsOn, headerString]
   );
 
   return (
@@ -100,6 +119,7 @@ function UtahHeaderDocumentation() {
                 appearance="solid"
                 color="primary"
                 id="apply-interactive-utah-header"
+                isDisabled={!isDirty}
                 onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value))}
               >
                 Apply
