@@ -59,12 +59,17 @@ export default function useInteractiveHeaderState() {
   useEffect(() => () => { setUtahHeaderSettings(originalHeader.current); }, []);
 
   // toggle header on/off and remove when unmounted
+  const prevHeaderIsOn = useRef(headerIsOn);
   useEffect(
     () => {
-      originalHeader.current = getUtahHeaderSettings();
-      if (headerIsOn) {
-        setUtahHeaderSettings(headerSettings);
+      if (!prevHeaderIsOn.current) {
+        // grab current header in case interactive header is being turned on
+        originalHeader.current = getUtahHeaderSettings();
       }
+      prevHeaderIsOn.current = headerIsOn;
+
+      // have to set to originalHeader in case settings just got turned off
+      setUtahHeaderSettings(headerIsOn ? headerSettings : originalHeader.current);
 
       // store to local storage when changed
       localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, stringifyHeaderSettings(headerSettings));
