@@ -79,7 +79,7 @@ function UtahHeaderDocumentation() {
                   <UtahHeaderInteractivePresetSelector
                     key={`preset__${preset.title}`}
                     onSelect={(_e, selectedOption) => (
-                      // set the new settings object as the new settings state
+                      // set the new settings object as the new settings state and
                       // apply just the preset.settingsSnippet fields to the settings
                       setHeaderSettings((draftHeaderObject) => {
                         Object.entries(selectedOption.settingsSnippet)

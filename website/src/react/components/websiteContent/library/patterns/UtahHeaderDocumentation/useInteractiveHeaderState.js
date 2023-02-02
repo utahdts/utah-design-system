@@ -1,5 +1,6 @@
 // @ts-check
 import {
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -38,7 +39,7 @@ import stringifyHeaderSettings from './stringifyHeaderSettings';
 export default function useInteractiveHeaderState() {
   const originalHeader = useRef(getUtahHeaderSettings());
 
-  // a real Settings object is the core 'source-of-truth' that everything else spins off of
+  // a real Settings object is the core 'source-of-truth' off of which everything else spins
   const [headerSettings, setHeaderSettings] = useImmer(() => {
     const settingsFromStorage = localStorage.getItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS);
 
@@ -60,9 +61,30 @@ export default function useInteractiveHeaderState() {
   // toggle header on/off and remove when unmounted
   useEffect(
     () => {
-      setUtahHeaderSettings(headerIsOn ? headerSettings : originalHeader.current);
+      originalHeader.current = getUtahHeaderSettings();
+      if (headerIsOn) {
+        setUtahHeaderSettings(headerSettings);
+      }
+
+      // store to local storage when changed
+      localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, stringifyHeaderSettings(headerSettings));
     },
     [headerIsOn, headerSettings]
+  );
+
+  /**
+   * Outside influences may have changed the header (like adding a logo image), so
+   * get the current settings before clobbering them with the "interactive" settings
+   * @param {React.SetStateAction<boolean>} headerIsOnMaybeFunc either the new value or a function (old) => new
+   */
+  const setHeaderIsOnSafely = useCallback(
+    (headerIsOnMaybeFunc) => {
+      if (!headerIsOn) {
+        originalHeader.current = getUtahHeaderSettings();
+      }
+      setHeaderIsOn(headerIsOnMaybeFunc);
+    },
+    [headerIsOn]
   );
 
   /** @type {InteractiveHeaderState} */
@@ -74,17 +96,17 @@ export default function useInteractiveHeaderState() {
         localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, newHeaderString);
 
         setHeaderSettings(newSettings);
-        setHeaderIsOn(true);
+        setHeaderIsOnSafely(true);
       },
 
       headerSettings,
       setHeaderSettings: (...args) => {
         setHeaderSettings(...args);
-        setHeaderIsOn(true);
+        setHeaderIsOnSafely(true);
       },
 
       headerIsOn,
-      setHeaderIsOn,
+      setHeaderIsOn: setHeaderIsOnSafely,
 
       originalHeader: originalHeader.current,
 
