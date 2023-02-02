@@ -87,8 +87,7 @@ function UtahHeaderDocumentation() {
               defaultValue={headerString}
               className="sandbox-example__code-editor"
               ref={interactiveTextAreaRef}
-              // TODO: style should be changed to css?
-              style={{ width: '100%', height: '500px' }}
+              wrap="off"
             />
           </div>
           <div className="sandbox-example__props-inputs header-config__controls">
