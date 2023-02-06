@@ -3,6 +3,7 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
 import events from '../../enumerations/events';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import { fetchUtahIdUserDataAsync, getCurrentUtahIdData } from '../../utahId/utahIdData';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -21,11 +22,14 @@ let utahIdData = null;
 function authChangedEventHandler(e) {
   /** @type UtahIdData */
   utahIdData = /** @type UtahIdData */(/** @type any */(e).detail);
-  if (utahIdButton && utahIdData.isDefinitive) {
+
+  // it's ok if utahIdData is not definitive
+  // - when it does become definitive it will update the button
+  // - maybe it was fetched and got a user and became indeterminate to fetch again but will get same result again
+  if (utahIdButton) {
     // kill contents so can be loaded with correct content
     utahIdButton.innerHTML = '';
-
-    if (utahIdData.userInfo && utahIdData.userInfo?.authenticated) {
+    if (utahIdData?.userInfo && utahIdData.userInfo?.authenticated) {
       utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.first || ''}`));
     } else {
       utahIdButton.appendChild(document.createTextNode('UtahID Sign In'));
@@ -91,6 +95,12 @@ export default function UtahId() {
   // remove in case already added
   document.removeEventListener(events.AUTH_CHANGED, authChangedEventHandler);
   document.addEventListener(events.AUTH_CHANGED, authChangedEventHandler);
+
+  // fire a fetch event to make sure data gets loaded
+  fetchUtahIdUserDataAsync();
+
+  // load previous data so the button doesn't flicker as much
+  authChangedEventHandler({ detail: getCurrentUtahIdData() });
 
   return utahIdWrapper;
 }

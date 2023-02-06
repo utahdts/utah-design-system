@@ -105,7 +105,7 @@
  *  @property {string | null | undefined} username
  * }
  * @typedef UtahIdData {
- *  @property {boolean} isDefinitive - true when the user's state is known, false while the ajax request is inflight
+ *  @property {boolean | null} isDefinitive - true when the user's state is known, false while the ajax request is inflight
  *  @property {string | null} lastError - true when the user's state is known, false while the ajax request is inflight
  *  @property {UserInfo | null} userInfo - the current logged in user info or null if not found
  *  @property {number} userInfoHash - hash of the userInfo for detecting changes
