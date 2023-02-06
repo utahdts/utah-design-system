@@ -19,6 +19,8 @@ import {
   useRef,
   useState
 } from 'react';
+import events from 'utah-design-system-header/src/js/enumerations/events';
+import PreCode from '../../../../preCode/PreCode';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
 import utahHeaderPresets from './utahHeaderPresets';
@@ -133,6 +135,30 @@ function UtahHeaderDocumentation() {
       <ul className="mb-spacing">
         <li>Use always.</li>
       </ul>
+
+      <h2 id="section-utahid-events" className="mb-spacing">UtahID Events</h2>
+      <h3 id="section-loaded">UtahID: Loaded</h3>
+      <div>
+        The Utah Header must load before your javascript code can be interact with it. Once the header is loaded it fires&nbsp;
+        {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+        a global document event `{events.utahHeaderLoaded}`. Your code can listen for this event to know when it is safe
+        to call utah header functions like `setUtahHeaderSettings()`.
+        <PreCode codeRaw={`addEventListener('${events.HEADER_LOADED}', () => setUtahHeaderSettings({title: 'My utah.gov Site'}))`} />
+      </div>
+
+      <h3 id="section-unloaded">UtahID: Unloaded</h3>
+      <div>
+        When the Utah Header is removed, the `unloaded` event will fire. Your code can listen for this event.
+        <PreCode codeRaw={`addEventListener('${events.HEADER_UNLOADED}', () => alert('Where did the header go?'))`} />
+      </div>
+
+      <h3 id="section-auth-changed">UtahID: Auth Changed</h3>
+      <div>
+        The Utah ID Button in the top right of the header makes an ajax request to check the current user&apos;s logged in status with UtahID. &nbsp;
+        Your javascript code can listen to this event in order to get basic current user information. Seeing as this information is javascript &nbsp;
+        provided, it is not trustworthy. You will want to get tokens and/or codes from Utah Login that your server side code can verify.
+        <PreCode codeRaw={`addEventListener('${events.AUTH_CHANGED}', (e) => alert(e.detail ? e.detail.userInfo.first + ' is logged in' : 'User is not logged in'))`} />
+      </div>
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">

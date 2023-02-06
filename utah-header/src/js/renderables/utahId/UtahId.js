@@ -1,5 +1,6 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import events from '../../enumerations/events';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
@@ -88,8 +89,8 @@ export default function UtahId() {
   );
 
   // remove in case already added
-  document.removeEventListener(domConstants.EVENT_AUTH_CHANGED, authChangedEventHandler);
-  document.addEventListener(domConstants.EVENT_AUTH_CHANGED, authChangedEventHandler);
+  document.removeEventListener(events.AUTH_CHANGED, authChangedEventHandler);
+  document.addEventListener(events.AUTH_CHANGED, authChangedEventHandler);
 
   return utahIdWrapper;
 }

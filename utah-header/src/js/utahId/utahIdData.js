@@ -1,4 +1,4 @@
-import domConstants from '../enumerations/domConstants';
+import events from '../enumerations/events';
 import toHash from '../misc/toHash';
 /**
 * @typedef {import('../misc/jsDocTypes').UtahIdData} UtahIdData
@@ -36,7 +36,7 @@ function maybeTriggerAuthEvent(newUtahIdData) {
   ) {
     document.dispatchEvent(
       new CustomEvent(
-        domConstants.EVENT_AUTH_CHANGED,
+        events.AUTH_CHANGED,
         {
           bubbles: true,
           cancelable: true,
