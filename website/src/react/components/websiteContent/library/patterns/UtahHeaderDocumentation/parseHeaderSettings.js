@@ -24,7 +24,7 @@ export default function parseHeaderSettings(settingsString) {
         // convert function strings to actual MOCKED functions with contents as an alert
         const functionObject = valueAtPath({ object: resultSettings, path: actionItem.path });
         // eslint-disable-next-line no-alert
-        functionObject[actionItem.searchKey] = (() => alert(actionItem.object[actionItem.searchKey].toString()));
+        functionObject[actionItem.searchKey] = (() => alert('Utah Header - placeholder function invoked'));
       } break;
 
       case 'actionDom':

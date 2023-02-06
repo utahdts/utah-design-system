@@ -2,18 +2,21 @@
 // @ts-check
 import sizes from 'utah-design-system-header/src/js/enumerations/sizes';
 import { describe, expect, test } from 'vitest';
-import stringifyHeaderSettings from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';
+import stringifyHeaderSettings, { FUNCTION_PLACEHOLDER } from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';
 
 /**
  * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
 const MATCH_BASIC_FIELDS = [
-  '"showTitle":true',
-  '"size":"MEDIUM"',
-  '"title":"Utah Design System"',
-  '"titleURL":"/"',
-  '"mediaSizes":{"mobile":640,"tabletPortrait":768,"tabletLandscape":1024}',
+  '"showTitle": true',
+  '"size": "MEDIUM"',
+  '"title": "Utah Design System"',
+  '"titleURL": "/"',
+  '"mediaSizes": {',
+  '"mobile": 640,',
+  '"tabletPortrait": 768,',
+  '"tabletLandscape": 1024',
 ];
 
 /**
@@ -58,7 +61,7 @@ describe('stringifyHeaderSettings', () => {
     };
 
     const result = stringifyHeaderSettings(settings);
-    expect(result).toSatisfy(doesMatchStrings([...MATCH_BASIC_FIELDS, '"logo":"just-a-string"']));
+    expect(result).toSatisfy(doesMatchStrings([...MATCH_BASIC_FIELDS, '"logo": "just-a-string"']));
   });
 
   test('logo: DOM', () => {
@@ -77,7 +80,7 @@ describe('stringifyHeaderSettings', () => {
     };
 
     const result = stringifyHeaderSettings(settings);
-    expect(result).toSatisfy(doesMatchStrings([...MATCH_BASIC_FIELDS, '"logo":"<div></div>"']));
+    expect(result).toSatisfy(doesMatchStrings([...MATCH_BASIC_FIELDS, '"logo": "<div></div>"']));
   });
 
   test('actionItems: actionFunction', () => {
@@ -106,10 +109,10 @@ describe('stringifyHeaderSettings', () => {
     const result = stringifyHeaderSettings(settings);
     expect(result).toSatisfy(doesMatchStrings([
       ...MATCH_BASIC_FIELDS,
-      '"actionFunction":"() => alert(\'time to die\')"',
-      '"icon":"i-am-an-icon',
-      '"showTitle":true',
-      '"title":"action item for life!"',
+      `"actionFunction": "${FUNCTION_PLACEHOLDER}"`,
+      '"icon": "i-am-an-icon',
+      '"showTitle": true',
+      '"title": "action item for life!"',
     ]));
   });
 
@@ -138,10 +141,10 @@ describe('stringifyHeaderSettings', () => {
     const result = stringifyHeaderSettings(settings);
     expect(result).toSatisfy(doesMatchStrings([
       ...MATCH_BASIC_FIELDS,
-      '"actionDom":"<span></span>',
-      '"icon":"i-am-an-icon',
-      '"showTitle":true',
-      '"title":"action item for life!"',
+      '"actionDom": "<span></span>',
+      '"icon": "i-am-an-icon',
+      '"showTitle": true',
+      '"title": "action item for life!"',
     ]));
   });
 
@@ -179,8 +182,8 @@ describe('stringifyHeaderSettings', () => {
     const result = stringifyHeaderSettings(settings);
     expect(result).toSatisfy(doesMatchStrings([
       ...MATCH_BASIC_FIELDS,
-      '"title":"action-menu-1-a"',
-      '"actionFunction":"() => alert(\'time to live\')"',
+      '"title": "action-menu-1-a"',
+      `"actionFunction": "${FUNCTION_PLACEHOLDER}"`,
     ]));
   });
 
@@ -223,8 +226,8 @@ describe('stringifyHeaderSettings', () => {
     const result = stringifyHeaderSettings(settings);
     expect(result).toSatisfy(doesMatchStrings([
       ...MATCH_BASIC_FIELDS,
-      '"title":"action-menu-1-a-1"',
-      '"actionFunction":"() => alert(\'time to live\')"',
+      '"title": "action-menu-1-a-1"',
+      `"actionFunction": "${FUNCTION_PLACEHOLDER}"`,
     ]));
   });
 });
