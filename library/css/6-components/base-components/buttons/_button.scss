@@ -50,6 +50,13 @@
   .button {
 
     /* ------------ SIZES ------------ */
+    &--small1x {
+      font-size: .85rem;
+      min-height: var(--form-ele-small1x);
+      padding: 0 var(--spacing-xs);
+      border-width: 1px;
+    }
+
     &--small {
       font-size: .938rem;
       min-height: var(--form-ele-small);

@@ -75,6 +75,7 @@ function ButtonExampleProps({ setState, state }) {
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
 
       <Select id="props.size" label="Size" className="input--height-small1x">
+        <SelectOption label="Small 1X" value={formElementSizesEnum.SMALL1X} />
         <SelectOption label="Small" value={formElementSizesEnum.SMALL} />
         <SelectOption label="Medium" value={formElementSizesEnum.MEDIUM} />
         <SelectOption label="Large" value={formElementSizesEnum.LARGE} />

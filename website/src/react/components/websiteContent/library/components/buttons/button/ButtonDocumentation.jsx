@@ -209,6 +209,14 @@ function ButtonDocumentation() {
               appearance="solid"
               color="primary"
               onClick={useCallback(() => showBanner({ message: 'small button clicked' }))}
+              size={formElementSizesEnum.SMALL1X}
+            >
+              Small 1X
+            </Button>
+            <Button
+              appearance="solid"
+              color="primary"
+              onClick={useCallback(() => showBanner({ message: 'small button clicked' }))}
               size={formElementSizesEnum.SMALL}
             >
               Small

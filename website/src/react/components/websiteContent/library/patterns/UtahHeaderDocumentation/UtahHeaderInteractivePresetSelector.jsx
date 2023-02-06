@@ -32,7 +32,7 @@ function UtahHeaderInteractivePresetSelector({
           options.map((option) => (
             <div key={`${title}__${option.title}`} className="interactive-utah-header-preset__single-option">
               <Button
-                size={formElementSizesEnum.SMALL}
+                size={formElementSizesEnum.SMALL1X}
                 id={`apply-option__${title}__${option.title}`}
                 onClick={(e) => onSelect(e, option)}
               >
