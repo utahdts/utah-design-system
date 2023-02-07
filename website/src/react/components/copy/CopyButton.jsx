@@ -62,8 +62,23 @@ function CopyButton({ copyRef, onCopy }) {
             console.error('Clipboard is not available');
           }
         }}
+        title="Copy Code"
       />
-      <div className={`copy-button__feedback hcenter ${state.showFeedback && 'copy-button__feedback--visible'}`}>Copied</div>
+      <div
+        className={`copy-button__feedback hcenter ${state.showFeedback && 'copy-button__feedback--visible'}`}
+        aria-live="polite"
+      >
+        {
+          state.showFeedback
+            ? (
+              <span>
+                Copied
+                <span className="visually-hidden">to clipboard</span>
+              </span>
+            )
+            : <span aria-hidden="true">Copied</span>
+        }
+      </div>
     </div>
   );
 }

@@ -85,6 +85,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
                 icon={Icons.IconChevron()}
+                title="expand sub-menu"
               />
             )
             : null
