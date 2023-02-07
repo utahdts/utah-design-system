@@ -20,6 +20,7 @@ import {
   useState
 } from 'react';
 import events from 'utah-design-system-header/src/js/enumerations/events';
+import CopyButton from '../../../../copy/CopyButton';
 import PreCode from '../../../../preCode/PreCode';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
@@ -91,6 +92,7 @@ function UtahHeaderDocumentation() {
               ref={interactiveTextAreaRef}
               wrap="off"
             />
+            <CopyButton copyRef={interactiveTextAreaRef} />
           </div>
           <div className="sandbox-example__props-inputs header-config__controls">
             <div className="header-config__presets">

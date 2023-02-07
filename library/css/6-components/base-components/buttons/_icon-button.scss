@@ -20,7 +20,7 @@
     color: var(--gray-color);
 
     &:hover {
-      background: var(--gray-color);
+      background: var(--hover-gray-color-opaque);
       color: white;
     }
 
@@ -36,7 +36,6 @@
     &--plain {
       border-color: transparent;
       &:hover {
-        background-color: color-swatches.$neutral-gray-16;
         border-color: color-swatches.$neutral-gray-16;
         color: var(--gray-dark-color);
       }
