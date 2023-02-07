@@ -24,7 +24,7 @@ function SidePanelNavigation({ currentMenuItem, menus }) {
           >
             {menu.header}
           </TitleTagName>
-          <ul key={`side-panel-navigation-menu__${menu.id}`}>
+          <ul key={`side-panel-navigation-menu__${menu.id}`} role="menu">
             {menu.menuItems.map((menuItem) => (
               <MenuItem currentMenuItem={currentMenuItem} menuItem={menuItem} key={`menu-side-panel__menu-item__${menuItem.link}-${menuItem.title}}`} />
             ))}
