@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "development": "ut-dts-ui-ux-sandbox-dev",
+    "production": "ut-dts-ui-ux-sandbox-prod"
+  }
+}

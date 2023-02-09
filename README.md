@@ -2,7 +2,6 @@
 
 # utah-design-system
 Front end React Application for viewing the Utah Design System :point_right: [View Here](https://utahdts.github.io/utah-design-system/) :point_left:<br>
-#utah-design-system<br>
 
 # Agency
 - DTS
