@@ -37,8 +37,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     },
     preview: {
       port: 8080,
-    },
-    base: '/'
+    }
   };
 
   return config;
