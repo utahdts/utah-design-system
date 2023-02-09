@@ -154,7 +154,7 @@ function IconButtonDocumentation() {
       <ul className="mb-spacing">
         <li><strong>No associated button action</strong>. Use a plain icon when there is no associated button action.</li>
         <li><strong>Multiple icon buttons in a table row</strong>. Avoid using more than 1 icon button in a table row to avoid confusion and to simplify the table information.</li>
-        <li><strong>When there is space, use a button with text</strong>. Generally, use a button with text when there is enough space.</li>
+        <li><strong>When space is available, use a button with text</strong>. Generally, use a button with text when there is enough space.</li>
         <li><strong>Use text link for navigation within a paragraph of text</strong>.</li>
         <li><strong>Icon button style as a link</strong>. Avoid using the icon button style as a link. Generally icon buttons are used for actions.</li>
       </ul>
