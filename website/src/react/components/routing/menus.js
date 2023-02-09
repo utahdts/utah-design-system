@@ -151,6 +151,14 @@ const menuLibraryComponentsSecondary = {
       link: pages.table.link,
       parentLinks: [pages.library.link],
     },
+    {
+      id: 'components__widgets-indicators',
+      title: 'Widgets & Indicators',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.badges.link, title: pages.badges.pageTitle },
+      ],
+    },
   ],
 };
 
