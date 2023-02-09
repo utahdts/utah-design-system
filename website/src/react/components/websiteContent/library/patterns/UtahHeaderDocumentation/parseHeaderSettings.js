@@ -6,6 +6,9 @@ import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
  * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
+export class ParseHeaderSettingsError extends Error {
+}
+
 /**
  * turns string functions and DOM in to actual functions and DOM
  * @param {string} settingsString
@@ -13,7 +16,12 @@ import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
  */
 export default function parseHeaderSettings(settingsString) {
   /** @type {Settings} */
-  const resultSettings = JSON.parse(settingsString);
+  let resultSettings;
+  try {
+    resultSettings = JSON.parse(settingsString);
+  } catch (e) {
+    throw new ParseHeaderSettingsError(e);
+  }
 
   const customFields = ['actionFunction', 'actionDom', 'icon', 'logo'];
   const actionItems = objectsPathsWithKeys(resultSettings, customFields);

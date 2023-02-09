@@ -29,6 +29,8 @@ import stringifyHeaderSettings from './stringifyHeaderSettings';
  *
  *  @property {Settings} originalHeader
  *
+ *  @property {string | null} parseError
+ *
  *  @property {() => void} reset
  * }
  */
@@ -54,6 +56,7 @@ export default function useInteractiveHeaderState() {
   });
 
   const [headerIsOn, setHeaderIsOn] = useState(false);
+  const [parseError, setParseError] = useState(/** @type {string | null} */(null));
 
   // remove interactive header when unmounted
   useEffect(() => () => { setUtahHeaderSettings(originalHeader.current); }, []);
@@ -97,17 +100,23 @@ export default function useInteractiveHeaderState() {
     () => ({
       headerString: stringifyHeaderSettings(headerSettings),
       setHeaderString: (newHeaderString) => {
-        const newSettings = parseHeaderSettings(newHeaderString);
-        localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, newHeaderString);
+        try {
+          const newSettings = parseHeaderSettings(newHeaderString);
+          localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, newHeaderString);
 
-        setHeaderSettings(newSettings);
-        setHeaderIsOnSafely(true);
+          setHeaderSettings(newSettings);
+          setHeaderIsOnSafely(true);
+          setParseError(null);
+        } catch (e) {
+          setParseError(e.message);
+        }
       },
 
       headerSettings,
       setHeaderSettings: (...args) => {
         setHeaderSettings(...args);
         setHeaderIsOnSafely(true);
+        setParseError(null);
       },
 
       headerIsOn,
@@ -115,8 +124,13 @@ export default function useInteractiveHeaderState() {
 
       originalHeader: originalHeader.current,
 
-      reset: () => setHeaderSettings(baseSettings),
+      parseError,
+
+      reset: () => {
+        setHeaderSettings(baseSettings);
+        setParseError(null);
+      },
     }),
-    [headerIsOn, headerSettings]
+    [headerIsOn, headerSettings, parseError]
   );
 }

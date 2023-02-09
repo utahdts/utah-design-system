@@ -20,6 +20,7 @@ import {
   useState
 } from 'react';
 import events from 'utah-design-system-header/src/js/enumerations/events';
+import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import PreCode from '../../../../preCode/PreCode';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
@@ -30,15 +31,17 @@ const propTypes = {};
 const defaultProps = {};
 
 function UtahHeaderDocumentation() {
-  const interactiveTextAreaRef = useRef();
+  const interactiveTextAreaRef = useRef(/** @type {HTMLInputElement} */(null));
   const {
     headerString,
     setHeaderString,
     headerIsOn,
+    parseError,
     setHeaderIsOn,
     reset: resetHeader,
     setHeaderSettings,
   } = useInteractiveHeaderState();
+  const { column, position, row } = useTextAreaCaretRowColumn(interactiveTextAreaRef);
 
   useEffect(
     () => {
@@ -93,6 +96,19 @@ function UtahHeaderDocumentation() {
               wrap="off"
             />
             <CopyButton copyRef={interactiveTextAreaRef} />
+            {
+              parseError
+                ? <div className="you-have-a-serious-error-with-your-lifestyle">{parseError.replace(/^SyntaxError: /, '')}</div>
+                : undefined
+            }
+            <div className="gps-engaged">
+              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+              <span>position: {position}</span>
+              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+              <span>row: {row}</span>
+              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+              <span>column: {column}</span>
+            </div>
           </div>
           <div className="sandbox-example__props-inputs header-config__controls">
             <div className="header-config__presets">
