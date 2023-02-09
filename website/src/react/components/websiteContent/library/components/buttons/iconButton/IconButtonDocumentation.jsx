@@ -140,8 +140,8 @@ function IconButtonDocumentation() {
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>When a compact button is required</strong>. Icon buttons should be used when a compact button is required, such as in a toolbar, header, or action bar.</li>
-        <li><strong>When there are 2 or 3 adjacent icon buttons</strong>. They are often used when there are 2 or 3 adjacent icon buttons that perform actions on a single item.</li>
+        <li><strong>Compact buttons</strong>. Icon buttons should be used when a compact button is required, such as in a toolbar, header, or action bar.</li>
+        <li><strong>Adjacent icon buttons</strong>. They are often used when there are 2 or 3 adjacent icon buttons that perform actions on a single item.</li>
       </ul>
       <p>There are two types of icon buttons: standard and contained.</p>
 
@@ -152,22 +152,22 @@ function IconButtonDocumentation() {
 
       <h3 id="section-when-to-use">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>When there is no associated button action</strong>. Use a plain icon when there is no associated button action.</li>
-        <li><strong>Avoid using more than 1 icon button in a table row</strong>. Avoid using more than 1 icon button in a table row to avoid confusion and to simplify the table information.</li>
-        <li><strong>When there is space available to use a button with text</strong>. Generally, use a button with text when there is enough space.</li>
-        <li><strong>Always use a text link for navigation within a paragraph of text</strong>.</li>
-        <li><strong>Avoid using the icon button style as a link</strong>. Avoid using the icon button style as a link. Generally icon buttons are used for actions.</li>
+        <li><strong>No associated button action</strong>. Use a plain icon when there is no associated button action.</li>
+        <li><strong>Multiple icon buttons in a table row</strong>. Avoid using more than 1 icon button in a table row to avoid confusion and to simplify the table information.</li>
+        <li><strong>When there is space, use a button with text</strong>. Generally, use a button with text when there is enough space.</li>
+        <li><strong>Use text link for navigation within a paragraph of text</strong>.</li>
+        <li><strong>Icon button style as a link</strong>. Avoid using the icon button style as a link. Generally icon buttons are used for actions.</li>
       </ul>
 
       <h3 id="section-when-to-use">Usability Guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Clearly communicate the purpose of the button</strong>. The icon in the button should clearly communicate the purpose of the button and be unambiguous to the user.</li>
-        <li><strong>Visually display actions in a compact layout</strong>. Use icon buttons to display actions in a compact layout.</li>
-        <li><strong>Triggers actions to open menus, modals or search</strong>. Icon buttons can represent opening actions such as opening an overflow menu, a modal or search, or represent binary actions that can be toggled on and off, such as a favorite or bookmark.</li>
-        <li><strong>Can be grouped together or stand alone</strong>. Icon buttons can be grouped together or they can stand alone.</li>
-        <li><strong>Typically presented in a row</strong>. Icon buttons are typically presented in a row when they are grouped together.</li>
+        <li><strong>Clearly communicates purpose</strong>. The icon in the button should clearly communicate the purpose of the button and be unambiguous to the user.</li>
+        <li><strong>Compact layout</strong>. Use icon buttons to display actions in a compact layout.</li>
+        <li><strong>Triggers action</strong>. Icon buttons can represent opening actions such as opening an overflow menu, a modal or search, or represent binary actions that can be toggled on and off, such as a favorite or bookmark.</li>
+        <li><strong>Grouped together or stand alone</strong>. Icon buttons can be grouped together or they can stand alone.</li>
+        <li><strong>Presented in a row</strong>. Icon buttons are typically presented in a row when they are grouped together.</li>
         <li><strong>When hovered, include a tool tip</strong>. When the button is hovered, include a tooltip that describes the button’s action, rather than the name of the icon itself.</li>
-        <li><strong>Touch devices should include a minimum touchzone of 48px</strong>. Icon buttons should have a minimum touch zone of 48px to make it easier to activate on a touch device.</li>
+        <li><strong>Minimum touchzone for touch devices</strong>. Icon buttons should have a minimum touch zone of 48px to make it easier to activate on a touch device.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
