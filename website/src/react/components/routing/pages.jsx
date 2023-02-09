@@ -12,6 +12,7 @@ import SwitchDocumentation from '../websiteContent/library/components/forms/Swit
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopUpsDocumentation from '../websiteContent/library/components/popUps/popUps/PopUpsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
+import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
@@ -345,6 +346,15 @@ const pages = {
     link: '/library/components/buttons/segmented-button',
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Segmented Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === widgets & indicators === //
+  badges: {
+    content: BadgesDocumentation,
+    link: '/library/components/widgets-indicators/badges',
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Badges',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
