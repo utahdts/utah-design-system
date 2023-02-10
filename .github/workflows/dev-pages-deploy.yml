@@ -2,7 +2,7 @@ name: DEV Build and Deploy
 on:
   push:
     branches:
-      - 2023Q1S3-deploy
+      - dev
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.

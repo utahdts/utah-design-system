@@ -15,7 +15,7 @@
     "react-router-dom": "6.x"
   },
   "scripts": {
-    "test:ci": "NODE_OPTIONS='--experimental-vm-modules' jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
+    "test:ci": "vitest run --coverage",
     "test": "vitest run",
     "testw": "vitest watch",
     "build": "vite build",
@@ -52,6 +52,7 @@
   "devDependencies": {
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
+    "@vitest/coverage-istanbul": "0.28.4",
     "@vitejs/plugin-react": "3.0.0",
     "eslint": "8.23.1",
     "eslint-config-airbnb": "19.0.4",
