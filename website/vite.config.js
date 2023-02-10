@@ -37,12 +37,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     },
     preview: {
       port: 8080,
-    },
-    base: '/'
+    }
   };
 
-  if (mode === 'dev-pages') {
-    config.base = '/utah-design-system/dev/';
-  }
   return config;
 });
