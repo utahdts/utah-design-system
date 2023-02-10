@@ -57,12 +57,12 @@ function UtahHeaderDocumentation() {
   useEffect(
     () => {
       isDirtyIntervalRef.current = setInterval(() => {
-        setIsDirty(!headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
+        setIsDirty(parseError || !headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
       }, 500);
 
       return () => clearInterval(isDirtyIntervalRef.current);
     },
-    [headerIsOn, headerString]
+    [headerIsOn, headerString, parseError]
   );
 
   return (
@@ -89,26 +89,37 @@ function UtahHeaderDocumentation() {
       <div className="sandbox-example">
         <div className="sandbox-example__top">
           <div className="sandbox-example__component">
-            <textarea
-              defaultValue={headerString}
-              className="sandbox-example__code-editor"
-              ref={interactiveTextAreaRef}
-              wrap="off"
-            />
-            <CopyButton copyRef={interactiveTextAreaRef} />
+            <div className="sandbox-example__code-editor-wrapper">
+              <textarea
+                defaultValue={headerString}
+                className="sandbox-example__code-editor"
+                ref={interactiveTextAreaRef}
+                wrap="off"
+              />
+              <CopyButton copyRef={interactiveTextAreaRef} />
+              <div className="sandbox-example__code-info">
+                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+                <span>Pos {position}, </span>
+                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+                <span>Ln {row}, </span>
+                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+                <span>Col {column}</span>
+              </div>
+            </div>
+
             {
               parseError
-                ? <div className="you-have-a-serious-error-with-your-lifestyle">{parseError.replace(/^SyntaxError: /, '')}</div>
+                ? (
+                  <div className="sandbox-example__code-error">
+                    <div>
+                      <span className="utds-icon-before-error" aria-hidden="true" />
+                      <span className="visually-hidden">error</span>
+                    </div>
+                    {parseError.replace(/^SyntaxError: /, '')}
+                  </div>
+                )
                 : undefined
             }
-            <div className="gps-engaged">
-              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-              <span>position: {position}</span>
-              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-              <span>row: {row}</span>
-              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-              <span>column: {column}</span>
-            </div>
           </div>
           <div className="sandbox-example__props-inputs header-config__controls">
             <div className="header-config__presets">
