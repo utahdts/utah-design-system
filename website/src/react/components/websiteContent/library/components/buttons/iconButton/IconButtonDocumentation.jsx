@@ -141,12 +141,6 @@ function IconButtonDocumentation() {
         <li><strong>Compact buttons</strong>. Icon buttons should be used when a compact button is required, such as in a toolbar, header, or action bar.</li>
         <li><strong>Adjacent icon buttons</strong>. They are often used when there are 2 or 3 adjacent icon buttons that perform actions on a single item.</li>
       </ul>
-      <p>There are two types of icon buttons: standard and contained.</p>
-
-      <ol className="mb-spacing">
-        <li>Standard Icon</li>
-        <li>Contained Icon</li>
-      </ol>
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
@@ -165,7 +159,7 @@ function IconButtonDocumentation() {
         <li><strong>Grouped together or stand alone</strong>. Icon buttons can be grouped together or they can stand alone.</li>
         <li><strong>Presented in a row</strong>. Icon buttons are typically presented in a row when they are grouped together.</li>
         <li><strong>When hovered, include a tool tip</strong>. When the button is hovered, include a tooltip that describes the button’s action, rather than the name of the icon itself.</li>
-        <li><strong>Minimum touchzone for touch devices</strong>. Icon buttons should have a minimum touch zone of 48px to make it easier to activate on a touch device.</li>
+        <li><strong>Minimum touchzone for touch devices</strong>. Icon buttons should have a minimum touch zone of 36-48px to make it easier to activate on a touch device.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
