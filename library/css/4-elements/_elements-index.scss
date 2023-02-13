@@ -49,7 +49,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     font-family: var(--fixed-width-font-family);
     font-size: .95rem;
     background: var(--code-color);
-    padding: var(--spacing-3xs) var(--spacing-xs);
+    padding: var(--spacing-3xs) var(--spacing-2xs);
     border-radius: var(--radius-small1x);
     &.primary-color {
       color: var(--primary-color);
