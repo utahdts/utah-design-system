@@ -26,9 +26,7 @@ function IconButtonDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Icon Button</h1>
       <p className="lead-in">
-        Icon
-        <code>&lt;buttons&gt;</code>
-        are primarily buttons that include a single icon, without visible text labels by default.
+        Icon <code>&lt;buttons&gt;</code> are primarily buttons that include a single icon, without visible text labels by default.
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
@@ -150,7 +148,7 @@ function IconButtonDocumentation() {
         <li>Contained Icon</li>
       </ol>
 
-      <h3 id="section-when-to-use">When to use something else</h3>
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>No associated button action</strong>. Use a plain icon when there is no associated button action.</li>
         <li><strong>Multiple icon buttons in a table row</strong>. Avoid using more than 1 icon button in a table row to avoid confusion and to simplify the table information.</li>
@@ -159,7 +157,7 @@ function IconButtonDocumentation() {
         <li><strong>Icon button style as a link</strong>. Avoid using the icon button style as a link. Generally icon buttons are used for actions.</li>
       </ul>
 
-      <h3 id="section-when-to-use">Usability Guidance</h3>
+      <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
         <li><strong>Clearly communicates purpose</strong>. The icon in the button should clearly communicate the purpose of the button and be unambiguous to the user.</li>
         <li><strong>Compact layout</strong>. Use icon buttons to display actions in a compact layout.</li>
