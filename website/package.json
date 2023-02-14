@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
+    "@utahdts/utah-design-system": "0.1.0",
     "immer": "9.0.15",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
@@ -16,20 +18,23 @@
     "react-router-dom": "6.4.0",
     "tinycolor2": "^1.4.2",
     "use-immer": "0.7.0",
-    "utah-design-system-react-library": "0.0.1"
+    "utah-design-system-header": "1.0.0"
   },
   "devDependencies": {
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
-    "@vitejs/plugin-react": "2.1.0",
+    "@vitejs/plugin-react": "3.0.0",
     "eslint": "8.23.1",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
+    "happy-dom": "8.2.0",
     "sass": "1.54.9",
-    "vite": "3.1.0",
-    "vite-plugin-eslint": "1.8.1"
+    "vite": "4.1.1",
+    "vite-plugin-eslint": "1.8.1",
+    "vite-plugin-mkcert": "1.13.0",
+    "vitest": "0.28.4"
   }
 }

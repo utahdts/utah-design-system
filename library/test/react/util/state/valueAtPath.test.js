@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import valueAtPath from '../../../../react/util/state/valueAtPath';
 
 describe('valueAtPath:', () => {

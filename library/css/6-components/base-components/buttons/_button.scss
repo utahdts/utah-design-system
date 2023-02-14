@@ -1,4 +1,5 @@
 @use "../../../1-settings/class-vars";
+@use "../../../2-tools/tools-index";
 
 /*
 ############     _button.scss      ############
@@ -18,6 +19,7 @@
     transition: all 200ms ease-in-out, transform 100ms ease, box-shadow 100ms ease;
     color: var(--gray-color);
     text-decoration: none;
+    position: relative;
 
     &:hover {
       background: var(--gray-color);
@@ -32,19 +34,29 @@
       background: white !important;
       color: var(--form-ele-disabled-color) !important;
       border-color: var(--form-ele-disabled-color) !important;
-      &:active {
+      &:active, &.active {
         transform: none;
         box-shadow: none;
       }
     }
-    &:active {
+    &:active, &.active {
       transform: scale(.96);
       box-shadow: inset 0 3px 5px rgba(0,0,0,0.5);
     }
+
+    @include tools-index.form-ele-focus;
+
   }
   .button {
 
     /* ------------ SIZES ------------ */
+    &--small1x {
+      font-size: .85rem;
+      min-height: var(--form-ele-small1x);
+      padding: 0 var(--spacing-xs);
+      border-width: 1px;
+    }
+
     &--small {
       font-size: .938rem;
       min-height: var(--form-ele-small);

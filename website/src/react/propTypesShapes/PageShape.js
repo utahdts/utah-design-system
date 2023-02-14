@@ -3,9 +3,9 @@ import layoutTemplatesEnum from '../enums/layoutTemplatesEnum';
 
 export default PropTypes.exact({
   // the React component that renders the content for this page
-  content: PropTypes.element.isRequired,
+  content: PropTypes.func.isRequired,
 
-  // the url `link` for this page. This correlates with menu item `links`so opted for `link` instead of `path`
+  // the url `link` for this page. This correlates with menu item `links` so opted for `link` instead of `path`
   link: PropTypes.string.isRequired,
 
   // which secondary menu items to show for this page (left side menu); not all layouts use this

@@ -1,0 +1,21 @@
+.utds {
+  &-header {
+    padding: var(--spacing-s) var(--spacing-l);
+    border-bottom: 1px solid #d7d7d7 !important;
+    width: 100%;
+    justify-content: flex-start;
+    height: 78px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+    &--large {
+      height: 84px;
+    }
+
+    &--small {
+      height: 60px;
+    }
+  }
+}

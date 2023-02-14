@@ -24,8 +24,23 @@
     h1 {
       margin: calc(-1 * var(--spacing-xs)) 0 0 0;
     }
+    code {
+      svg {
+        height: 10px;
+      }
+    }
+    table {
+      .props-code-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-xs);
+        flex-wrap: wrap;
+      }
+    }
   }
   &__side-panel-right{
+    position: sticky;
+    top: 0;
     border-left: 1px solid var(--gray-border);
     padding: var(--documentation-padding);
     width: var(--documentation-right-width);

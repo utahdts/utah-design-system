@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useRefAlways from 'utah-design-system-react-library/react/hooks/useRefAlways';
+import useRefAlways from '@utahdts/utah-design-system/react/hooks/useRefAlways';
 
 /**
  * Stale state is an issue! Occurs mainly inside event callbacks where the callback's

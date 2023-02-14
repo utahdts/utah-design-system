@@ -12,10 +12,10 @@ const propTypes = {
   value: (props, propName, componentName) => {
     const number = Number(props[propName]);
     if (!Number.isNaN(props[propName]) && Number.isNaN(number)) {
-      return new Error(`Invalid prop '${propName}' passed to ${componentName}. Must be a number.`);
+      throw new Error(`Invalid prop '${propName}' passed to ${componentName}. Must be a number.`);
     }
     if (number !== undefined && (number < 0 || number > 1)) {
-      return new Error(`Invalid prop '${propName}' passed to ${componentName}. Must be a number between 0 and 1 (inclusive).`);
+      throw new Error(`Invalid prop '${propName}' passed to ${componentName}. Must be a number between 0 and 1 (inclusive).`);
     }
     return false;
   },

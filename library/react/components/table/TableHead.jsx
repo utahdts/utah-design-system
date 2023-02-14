@@ -22,7 +22,12 @@ function TableHead({
   ...rest
 }) {
   return (
-    <thead className={joinClassNames('some-TableHead-classname', className)} id={id} ref={innerRef} {...rest}>
+    <thead
+      className={joinClassNames('some-TableHead-classname', className)}
+      id={id}
+      ref={innerRef}
+      {...rest}
+    >
       {children}
     </thead>
   );

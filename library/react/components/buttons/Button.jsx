@@ -25,7 +25,13 @@ const propTypes = {
   id: PropTypes.string,
   // event for when the button is clicked: (e) => { ... do something with e ...}
   onClick: PropTypes.func.isRequired,
-  size: PropTypes.oneOf([formElementSizesEnum.SMALL, formElementSizesEnum.MEDIUM, formElementSizesEnum.LARGE, formElementSizesEnum.LARGE1X]),
+  size: PropTypes.oneOf([
+    formElementSizesEnum.SMALL1X,
+    formElementSizesEnum.SMALL,
+    formElementSizesEnum.MEDIUM,
+    formElementSizesEnum.LARGE,
+    formElementSizesEnum.LARGE1X,
+  ]),
   // button type
   type: PropTypes.oneOf(['button', 'reset', 'submit']),
 };
@@ -57,6 +63,7 @@ function Button({
   onClick,
   size,
   type,
+  ...rest
 }) {
   return (
     <button
@@ -74,6 +81,7 @@ function Button({
       ref={innerRef}
       // eslint-disable-next-line react/button-has-type
       type={type}
+      {...rest}
     >
       {
         iconLeft

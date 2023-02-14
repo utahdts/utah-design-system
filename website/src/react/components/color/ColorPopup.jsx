@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
-import { rectContainsPoint } from 'utah-design-system-react-library';
-import handleEvent from 'utah-design-system-react-library/react/util/handleEvent';
+import { rectContainsPoint } from '@utahdts/utah-design-system';
+import handleEvent from '@utahdts/utah-design-system/react/util/handleEvent';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';
@@ -125,7 +125,7 @@ function ColorPopup() {
                       className="secondary-color-dark-background color-picker--small"
                       isSelected={selectedCircle === CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK}
                       onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK)}
-                      color={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
+                      color={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]}
                     >
                       Dark
                     </ColorPicker>

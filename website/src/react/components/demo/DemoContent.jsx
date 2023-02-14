@@ -1,4 +1,4 @@
-import { Accordion, UtahUnbrand, version } from 'utah-design-system-react-library';
+import { Accordion, version } from '@utahdts/utah-design-system';
 import websitePackageJson from '../../../../package.json';
 import dhhsBrand from '../../../static/images/DHHS-Logo.svg';
 import traxImageUrl from '../../../static/images/trax.jpg';
@@ -585,7 +585,6 @@ function DemoContent() {
         </div>
 
         <div className="page-footer__line">
-          <UtahUnbrand className="page-footer__utah-brand" />
           | An official website of the state of utah
           <ul className="page-footer__site-links">
             <li>UTAH.GOV</li>

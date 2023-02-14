@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import joinClassNames from '../../../react/util/joinClassNames';
 
 test('joinClassNames', () => {

@@ -3,6 +3,7 @@ import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm
 import RefShape from '../../propTypesShapes/RefShape';
 import ErrorMessage from './ErrorMessage';
 import joinClassNames from '../../util/joinClassNames';
+import formElementSizesEnum from '../../enums/formElementSizesEnum';
 
 const propTypes = {
   className: PropTypes.string,
@@ -12,12 +13,14 @@ const propTypes = {
   innerRef: RefShape,
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  labelClassName: PropTypes.string,
   labelOff: PropTypes.node,
   labelOn: PropTypes.node,
   // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
+  size: PropTypes.oneOf([formElementSizesEnum.SMALL, formElementSizesEnum.MEDIUM, formElementSizesEnum.LARGE]),
   sliderChildren: PropTypes.node,
   value: PropTypes.bool,
   width: PropTypes.number,
@@ -27,10 +30,12 @@ const defaultProps = {
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
+  labelClassName: '',
   labelOff: null,
   labelOn: null,
   onChange: null,
   onSubmit: null,
+  size: formElementSizesEnum.MEDIUM,
   sliderChildren: null,
   value: null,
   width: null,
@@ -43,10 +48,12 @@ function Switch({
   innerRef,
   isDisabled,
   label,
+  labelClassName,
   labelOn,
   labelOff,
   onChange,
   onSubmit,
+  size,
   sliderChildren,
   value,
   width,
@@ -71,11 +78,16 @@ function Switch({
       ref={innerRef}
     >
       <label
-        className={joinClassNames('switch__wrapper', currentValue && 'switch__wrapper--on')}
+        className={joinClassNames(
+          'switch__wrapper',
+          size === formElementSizesEnum.MEDIUM ? null : `switch--${size}`,
+          isDisabled ? 'switch--disabled' : null,
+          currentValue && 'switch__wrapper--on'
+        )}
         htmlFor={id}
         style={width && { width: `${width}px` }}
       >
-        <span className="switch__label">{label}</span>
+        <span className={joinClassNames('switch__label', labelClassName)}>{label}</span>
 
         <input
           aria-describedby={currentErrorMessage ? `${id}-error` : null}

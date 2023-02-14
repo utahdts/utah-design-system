@@ -17,11 +17,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 200ms ease-in-out;
     color: var(--gray-color);
-    
+
     &:hover {
-      background: var(--gray-color);
+      background: var(--hover-gray-color-opaque);
       color: white;
     }
 
@@ -37,7 +36,6 @@
     &--plain {
       border-color: transparent;
       &:hover {
-        background-color: color-swatches.$neutral-gray-16;
         border-color: color-swatches.$neutral-gray-16;
         color: var(--gray-dark-color);
       }
@@ -47,6 +45,14 @@
       transition: all var(--timing-quick) ease-in-out;
       &--rotate180 {
         transform: rotate(180deg);
+      }
+    }
+
+    [class*='utds-icon-before-'] {
+      line-height: .5;
+      &::before {
+        margin: 0;
+        font-size: 20px;
       }
     }
 

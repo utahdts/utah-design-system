@@ -1,4 +1,4 @@
-import calculateMenuItemsParents from 'utah-design-system-react-library/react/util/menuItems/calculateMenuItemsParents';
+import calculateMenuItemsParents from '@utahdts/utah-design-system/react/util/menuItems/calculateMenuItemsParents';
 import pages from './pages';
 
 const menuMain = {
@@ -130,10 +130,34 @@ const menuLibraryComponentsSecondary = {
       ],
     },
     {
+      id: 'components__navigation',
+      title: 'Navigation',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
+      ],
+    },
+    {
+      id: 'components__popups',
+      title: 'Pop Ups',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.popUps.link, title: pages.popUps.pageTitle },
+      ],
+    },
+    {
       id: 'components__table',
       title: 'Table',
       link: pages.table.link,
       parentLinks: [pages.library.link],
+    },
+    {
+      id: 'components__widgets-indicators',
+      title: 'Widgets & Indicators',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.badges.link, title: pages.badges.pageTitle },
+      ],
     },
   ],
 };
@@ -143,9 +167,9 @@ const menuLibraryPatternsSecondary = {
   id: 'library-patterns',
   menuItems: [
     {
-      title: 'Headers',
-      link: pages.anchors.link, // wrong!
-      parentLinks: [pages.library.link],
+      title: 'Utah Header',
+      link: pages.utahHeader.link,
+      parentLinks: [pages.patterns.link],
     },
     {
       title: 'Buttons',

@@ -3,26 +3,80 @@
 #{class-vars.$base-class} {
   .menu-side-panel {
     margin: var(--spacing) 0 0 0;
+    font-size: var(--font-size-xs);
+
     &:first-child {
       margin: 0;
     }
     &__header {
       font-size: var(--font-size);
     }
+    &>ul {
+      margin-left: calc(0px - var(--spacing));
+    }
     ul {
-      // padding-left: var(--spacing-s);
       list-style-type: none;
       padding: 0;
 
       ul:first-of-type {
         border-left: 1px solid #DBDBDB;
+        margin-left: var(--spacing)
       }
     }
     .menu-item {
-      line-height: var(--spacing-xl);
+      &__title {
+        a {
+          flex: 1 0 auto;
+          padding: var(--spacing-2xs) var(--spacing);
+          display: block;
+          border-radius: var(--radius-circle);
+          position: relative;
+          transition: all var(--timing-quick) ease-in-out;
 
-      &__sub-menu--open {
-        padding-left: var(--spacing-l);
+          &:hover {
+            box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+            color: var(--primary-color);
+          }
+          &.menu-item--selected {
+            font-weight: bold;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+            //a chiclet
+            &::after {
+              content: '';
+              position: absolute;
+              left: -3px;
+              top: 0;
+              width: 5px;
+              height: 100%;
+              background: var(--primary-color);
+              border-radius: var(--radius-circle);
+            }
+          }
+        }
+      }
+
+      button {
+        min-height: unset;
+        min-width: unset;
+      }
+      &__button-title {
+        flex: 1 0 auto;
+        justify-content: flex-start;
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-2xs) var(--spacing);
+        line-height: 1.7;
+
+        &:hover {
+          box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+        }
+      }
+      &__chevron {
+        padding: var(--spacing-xs);
+        svg {
+          transition: transform var(--timing-quick) ease;
+        }
       }
     }
   }

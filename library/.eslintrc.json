@@ -1,11 +1,16 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
-    "jest/globals": true
+    "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
-  "ignorePatterns": ["vite.config.js"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb"
+  ],
+  "ignorePatterns": [
+    "vite.config.js",
+    "dist/**"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -13,8 +18,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "jest"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
+    "linebreak-style": "off",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
     "max-len": [
@@ -52,6 +60,15 @@
         "html": "ignore",
         "custom": "enforce",
         "explicitSpread": "enforce"
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsForRegex": [
+          "^draft"
+        ]
       }
     ]
   }
