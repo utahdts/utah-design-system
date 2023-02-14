@@ -2,7 +2,7 @@ name: PROD Build and Deploy
 on:
   push:
     branches:
-      - main
+      - main-build-fix
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
@@ -22,6 +22,11 @@ jobs:
       - name: NPM Install 🔧
         run: |
           npm install
+
+      - name: Build library 🔧
+        run: |
+          cd library
+          npm run build 
 
       - name: Install Website and Build 📖
         run: |
