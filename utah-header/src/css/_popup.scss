@@ -9,6 +9,9 @@ $dsc: rgb(0,0,0);
     position: absolute;
     z-index: 100;
     background: none transparent;
+    // initial position so that the popup doesn't go off the screen
+    left: 0;
+    top: 0;
 
     transition: opacity 100ms ease-in-out;
 
