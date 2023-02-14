@@ -18,6 +18,8 @@ import UtahIdHtml from './html/UtahIdWrapper.html?raw';
 let utahIdButton = null;
 /** @type UtahIdData | null */
 let utahIdData = null;
+/** @type HTMLElement | null */
+let utahIdPopUpMenu = null;
 
 function authChangedEventHandler(e) {
   /** @type UtahIdData */
@@ -33,6 +35,36 @@ function authChangedEventHandler(e) {
       utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.first || ''}`));
     } else {
       utahIdButton.appendChild(document.createTextNode('UtahID Sign In'));
+    }
+    doAriaForUtahId();
+  }
+}
+
+function doAriaForUtahId() {
+  if (utahIdButton && utahIdPopUpMenu) {
+    // Is user signed in?
+    const userSignedIn = !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated;
+
+    // Add aria-haspopup, aria-controls, and aria-expanded to the button to tie in the menu
+    // Hide the menu from aria when the user is not signed in
+    const menu = utahIdPopUpMenu.querySelector(getCssClassSelector(domConstants.POPUP_MENU));
+    if (!menu) {
+      throw new Error('UtahId: Utah ID menu not found');
+    }
+    const menuId = menu.getAttribute('id');
+    if (!menuId) {
+      throw new Error('UtahId: menuId not found');
+    }
+    if (userSignedIn) {
+      utahIdButton.setAttribute('aria-haspopup', 'menu');
+      utahIdButton.setAttribute('aria-controls', menuId);
+      utahIdButton.setAttribute('aria-expanded', 'false');
+      utahIdPopUpMenu.removeAttribute('aria-hidden');
+    } else {
+      utahIdButton.removeAttribute('aria-haspopup');
+      utahIdButton.removeAttribute('aria-controls');
+      utahIdButton.removeAttribute('aria-expanded');
+      utahIdPopUpMenu.setAttribute('aria-hidden', 'true');
     }
   }
 }
@@ -63,7 +95,7 @@ export default function UtahId() {
   };
 
   // create popup content DOM
-  const utahIdPopUpMenu = renderPopupMenu(popUpMenu);
+  utahIdPopUpMenu = renderPopupMenu(popUpMenu);
 
   // create UtahID wrapper w/ button DOM
   const utahIdWrapper = renderDOMSingle(UtahIdHtml);
@@ -76,6 +108,9 @@ export default function UtahId() {
   if (!utahIdButton) {
     throw new Error('UtahId: utahIdButton not found');
   }
+
+  doAriaForUtahId();
+
   popupFocusHandler(
     utahIdWrapper,
     utahIdButton,
