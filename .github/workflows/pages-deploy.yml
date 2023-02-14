@@ -2,7 +2,7 @@ name: PROD Build and Deploy
 on:
   push:
     branches:
-      - main-build-fix
+      - main
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
