@@ -11,7 +11,13 @@ export default PropTypes.exact({
   isBusy: PropTypes.bool,
   isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf([formElementSizesEnum.SMALL, formElementSizesEnum.MEDIUM, formElementSizesEnum.LARGE, formElementSizesEnum.LARGE1X]),
+  size: PropTypes.oneOf([
+    formElementSizesEnum.SMALL1X,
+    formElementSizesEnum.SMALL,
+    formElementSizesEnum.MEDIUM,
+    formElementSizesEnum.LARGE,
+    formElementSizesEnum.LARGE1X,
+  ]),
   // title is put in as the "children" of the Button component
   title: PropTypes.string,
   type: PropTypes.oneOf(['button', 'reset', 'submit']),

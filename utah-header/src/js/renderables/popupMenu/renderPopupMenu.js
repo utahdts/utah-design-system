@@ -86,7 +86,6 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
   if (popupMenuItem.actionMenu) {
     // === submenu, more menu items! === //
     const subMenu = renderMenu(popupMenuItem, popupMenuItem.actionMenu);
-    subMenu.removeAttribute('role');
     const subMenuId = uuidv4();
     subMenu.setAttribute('id', subMenuId);
     // these are all sub children so hide them initially

@@ -159,4 +159,9 @@ export default [
     title: 'error',
     letter: 'f',
   },
+  {
+    cssClass: 'copy',
+    title: 'copy',
+    letter: 'g',
+  },
 ];

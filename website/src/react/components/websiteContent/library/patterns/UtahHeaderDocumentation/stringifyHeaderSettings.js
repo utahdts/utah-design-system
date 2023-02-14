@@ -2,6 +2,8 @@ import valueAtPath from '@utahdts/utah-design-system/react/util/state/valueAtPat
 import copyObjectWithoutFields from '../../../../../util/copyObjectWithoutFields';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
+export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
+
 /**
  * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
 */
@@ -21,7 +23,7 @@ export default function stringifyHeaderSettings(settingsObject) {
     switch (actionItem.searchKey) {
       case 'actionFunction':
         // convert functions to strings
-        valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = actionItem.object[actionItem.searchKey].toString();
+        valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = FUNCTION_PLACEHOLDER;
         break;
 
       case 'actionDom':
@@ -38,5 +40,5 @@ export default function stringifyHeaderSettings(settingsObject) {
     }
   });
 
-  return JSON.stringify(copySettings, undefined, 4);
+  return JSON.stringify(copySettings, undefined, 2);
 }

@@ -1,4 +1,4 @@
-import domConstants from '../enumerations/domConstants';
+import events from '../enumerations/events';
 import toHash from '../misc/toHash';
 /**
 * @typedef {import('../misc/jsDocTypes').UtahIdData} UtahIdData
@@ -8,17 +8,8 @@ import toHash from '../misc/toHash';
  * @type {UtahIdData}
  */
 const utahIdData = {
-  isDefinitive: false,
-  lastError: null,
-  userInfo: null,
-  userInfoHash: NaN,
-};
-
-/**
- * @type {UtahIdData}
- */
-let previousUtahIdData = {
-  isDefinitive: false,
+  // null = not yet loaded, false = ajaxing, true = have a result (may be error or user data)
+  isDefinitive: null,
   lastError: null,
   userInfo: null,
   userInfoHash: NaN,
@@ -27,16 +18,14 @@ let previousUtahIdData = {
 /**
  * when auth status changes, call this to notify the world including the Sign In button
  *
- * @param {UserData} data the current information to store
+ * @param {UtahIdData} newUtahIdData the current information to store
  */
 function maybeTriggerAuthEvent(newUtahIdData) {
-  if (
-    newUtahIdData?.userInfoHash !== previousUtahIdData.userInfoHash
-    || newUtahIdData?.isDefinitive !== previousUtahIdData.isDefinitive
-  ) {
+  // something asked for new information, so fire off that new information has arrived
+  if (newUtahIdData.isDefinitive) {
     document.dispatchEvent(
       new CustomEvent(
-        domConstants.EVENT_AUTH_CHANGED,
+        events.AUTH_CHANGED,
         {
           bubbles: true,
           cancelable: true,
@@ -45,40 +34,46 @@ function maybeTriggerAuthEvent(newUtahIdData) {
       )
     );
   }
-  previousUtahIdData = { ...utahIdData.userInfoHash };
 }
 
 /**
  * @returns Promise<UtahIdData>
  */
 export async function fetchUtahIdUserDataAsync() {
-  utahIdData.isDefinitive = false;
-
-  return fetch(
-    'https://id.utah.gov/api/userInfo',
-    {
-      credentials: 'include',
-    }
-  )
-    .then((resp) => resp.json())
-    .then((result) => {
-      if (result.status === 200) {
-        utahIdData.lastError = null;
-        utahIdData.userInfo = /** @type UserInfo */ (result.data);
-        utahIdData.userInfoHash = toHash(result.data);
-      } else {
-        throw new Error(result.err);
+  /** @type Promise<UtahIdData> */
+  let result = null;
+  if (utahIdData.isDefinitive === false) {
+    result = Promise.resolve(utahIdData);
+  } else {
+    // catches true && null cases, both of which allow a refetch
+    utahIdData.isDefinitive = false;
+    result = fetch(
+      'https://id.utah.gov/api/userInfo',
+      {
+        credentials: 'include',
       }
-    })
-    .catch((error) => {
-      utahIdData.lastError = error;
-      utahIdData.userInfo = null;
-      utahIdData.userInfoHash = NaN;
-    })
-    .finally(() => {
-      utahIdData.isDefinitive = true;
-      maybeTriggerAuthEvent(utahIdData);
-    });
+    )
+      .then((resp) => resp.json())
+      .then((authResult) => {
+        if (authResult.status === 200) {
+          utahIdData.lastError = null;
+          utahIdData.userInfo = /** @type UserInfo */ (authResult.data);
+          utahIdData.userInfoHash = toHash(authResult.data);
+        } else {
+          throw new Error(authResult.err);
+        }
+      })
+      .catch((error) => {
+        utahIdData.lastError = error;
+        utahIdData.userInfo = null;
+        utahIdData.userInfoHash = NaN;
+      })
+      .finally(() => {
+        utahIdData.isDefinitive = true;
+        maybeTriggerAuthEvent(utahIdData);
+      });
+  }
+  return result;
 }
 
 /**

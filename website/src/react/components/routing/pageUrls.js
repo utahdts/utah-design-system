@@ -1,4 +1,5 @@
 const pageUrls = {
+  badges: '/library/widgets-indicators/badges',
   button: '/library/components/buttons/button',
   buttonGroup: '/library/components/buttons/button-group',
   confirmationButton: '/library/components/buttons/confirmation-button',

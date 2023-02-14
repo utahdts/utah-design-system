@@ -1,36 +1,30 @@
 /* eslint-disable no-param-reassign */
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
 import {
   Form,
   formElementSizesEnum,
   Select,
   SelectOption,
   Switch,
-  TextInput,
+  TextInput
 } from '@utahdts/utah-design-system';
-import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import BadgesExamplePropsShape from '../../../../../../propTypesShapes/BadgesExamplePropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,
   state: PropTypes.shape({
-    props: ButtonExamplePropsShape.isRequired,
+    props: BadgesExamplePropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
 
-function ButtonExampleProps({ setState, state }) {
+function BadgesExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
       setState((draftState) => {
-        draftState.props.appearance = 'outlined';
-        draftState.props.color = 'none';
-        draftState.props.iconLeft = 'none';
-        draftState.props.iconRight = 'none';
-        draftState.props.size = 'medium';
-        draftState.props.title = 'Button Title';
-        draftState.props.type = 'button';
+        draftState.props.onClick = () => alert('I am so ashamed');
       });
     },
     []
@@ -94,7 +88,7 @@ function ButtonExampleProps({ setState, state }) {
   );
 }
 
-ButtonExampleProps.propTypes = propTypes;
-ButtonExampleProps.defaultProps = defaultProps;
+BadgesExampleProps.propTypes = propTypes;
+BadgesExampleProps.defaultProps = defaultProps;
 
-export default ButtonExampleProps;
+export default BadgesExampleProps;

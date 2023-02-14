@@ -196,6 +196,11 @@
   .utds-icon-after-error::after {
     content: '\0066';
   }
+
+  .utds-icon-before-copy::before,
+  .utds-icon-after-copy::after {
+    content: '\0067';
+  }
 }
 
 

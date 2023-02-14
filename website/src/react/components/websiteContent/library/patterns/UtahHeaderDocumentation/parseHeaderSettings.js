@@ -6,14 +6,22 @@ import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
  * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
+export class ParseHeaderSettingsError extends Error {
+}
+
 /**
  * turns string functions and DOM in to actual functions and DOM
- * @param {string} parseHeaderSettings
+ * @param {string} settingsString
  * @returns {Settings}
  */
 export default function parseHeaderSettings(settingsString) {
   /** @type {Settings} */
-  const resultSettings = JSON.parse(settingsString);
+  let resultSettings;
+  try {
+    resultSettings = JSON.parse(settingsString);
+  } catch (e) {
+    throw new ParseHeaderSettingsError(e);
+  }
 
   const customFields = ['actionFunction', 'actionDom', 'icon', 'logo'];
   const actionItems = objectsPathsWithKeys(resultSettings, customFields);
@@ -24,14 +32,16 @@ export default function parseHeaderSettings(settingsString) {
         // convert function strings to actual MOCKED functions with contents as an alert
         const functionObject = valueAtPath({ object: resultSettings, path: actionItem.path });
         // eslint-disable-next-line no-alert
-        functionObject[actionItem.searchKey] = (() => alert(actionItem.object[actionItem.searchKey].toString()));
+        functionObject[actionItem.searchKey] = (() => alert('Utah Header - placeholder function invoked'));
       } break;
 
       case 'actionDom':
       case 'icon':
       case 'logo': {
         const domString = actionItem.object[actionItem.searchKey];
-        valueAtPath({ object: resultSettings, path: actionItem.path })[actionItem.searchKey] = renderDOM(domString);
+        valueAtPath({ object: resultSettings, path: actionItem.path })[actionItem.searchKey] = (
+          (!domString || domString === 'null') ? null : renderDOM(domString)
+        );
       } break;
 
       default:

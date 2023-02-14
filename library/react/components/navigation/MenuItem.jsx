@@ -85,6 +85,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
                 icon={Icons.IconChevron()}
+                title="expand sub-menu"
               />
             )
             : null
@@ -95,7 +96,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
       {
         menuItem.children
           ? (
-            <ul className={joinClassNames('menu-item__sub-menu', isChildrenOpen ? 'menu-item__sub-menu--open' : '')}>
+            <ul className={joinClassNames('menu-item__sub-menu', isChildrenOpen ? 'menu-item__sub-menu--open' : '')} role="menu">
               {menuItem.children?.map((menuItemChild) => (
                 <MenuItem
                   key={`menu-item__child__${menuItemChild.link}-${menuItemChild.title}}`}

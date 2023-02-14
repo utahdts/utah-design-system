@@ -1,6 +1,7 @@
 @use "../../../2-tools/tools-index";
 
-input[type="text"] {
+input[type="text"],
+textarea {
   color: var(--gray-color);
   min-height: var(--form-ele-medium);
   border-radius: var(--radius-small);
@@ -12,4 +13,8 @@ input[type="text"] {
 
   @include tools-index.form-ele-hover-medium;
   @include tools-index.form-ele-focus;
+}
+
+textarea {
+  padding: var(--spacing-xs);
 }
