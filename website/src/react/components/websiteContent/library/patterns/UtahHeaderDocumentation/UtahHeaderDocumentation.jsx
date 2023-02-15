@@ -23,6 +23,7 @@ import events from 'utah-design-system-header/src/js/enumerations/events';
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import PreCode from '../../../../preCode/PreCode';
+import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
 import utahHeaderPresets from './utahHeaderPresets';
@@ -96,7 +97,10 @@ function UtahHeaderDocumentation() {
                 ref={interactiveTextAreaRef}
                 wrap="off"
               />
-              <CopyButton copyRef={interactiveTextAreaRef} />
+              <CopyButton
+                copyRef={interactiveTextAreaRef}
+                onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy))}
+              />
               <div className="sandbox-example__code-info">
                 {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
                 <span>Pos {position}, </span>
