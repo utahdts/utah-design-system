@@ -88,7 +88,8 @@ export default function useInteractiveHeaderState() {
 
       // have to set to originalHeader in case settings just got turned off
       try {
-        setUtahHeaderSettings(headerIsOn ? headerSettings : originalHeader.current);
+        // have to stringify and parse to have the functions and dom and stuff changed to the right objects
+        setUtahHeaderSettings(headerIsOn ? parseHeaderSettings(stringifyHeaderSettings(headerSettings)) : originalHeader.current);
         setParseError(null);
       } catch (e) {
         setUtahHeaderSettings(originalHeader.current);

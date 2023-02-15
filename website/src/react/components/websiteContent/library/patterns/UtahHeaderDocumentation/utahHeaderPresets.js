@@ -126,6 +126,36 @@ const utahHeaderPresets = [
         },
         title: 'Help',
       },
+      // actionItems: settings
+      {
+        settingsSnippet: {
+          actionItems: [
+            {
+              actionPopupMenu: {
+                menuItems: [
+                  {
+                    actionUrl: { url: 'https://utah.gov' },
+                    title: 'Settings',
+                  },
+                  {
+                    actionUrl: { url: 'https://utah.gov', openInNewTab: true },
+                    title: 'Utah.Gov',
+                  },
+                  {
+                    actionFunction: FUNCTION_PLACEHOLDER,
+                    title: 'Clickable menu item',
+                  },
+                ],
+                title: 'Settings Menu',
+              },
+              icon: '<span class="utds-icon-before-gear" aria-hidden="true" />',
+              showTitle: false,
+              title: 'Settings',
+            },
+          ],
+        },
+        title: 'Settings',
+      },
     ],
     title: 'Action Items',
   },
@@ -138,12 +168,10 @@ if (!actionItemsPreset) {
   throw new Error('utahHeaderPresets: "Action Items" preset not found.');
 }
 actionItemsPreset.options.push({
-  title: 'Waffle, Alerts, Help',
+  title: 'All',
   settingsSnippet: {
     actionItems: [
-      ...actionItemsPreset.options[1].settingsSnippet.actionItems,
-      ...actionItemsPreset.options[2].settingsSnippet.actionItems,
-      ...actionItemsPreset.options[3].settingsSnippet.actionItems,
+      ...actionItemsPreset.options.map((option) => option.settingsSnippet.actionItems).flat(),
     ],
   },
 });
