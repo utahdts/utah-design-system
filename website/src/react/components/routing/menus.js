@@ -169,7 +169,7 @@ const menuLibraryPatternsSecondary = {
     {
       title: 'Utah Header',
       link: pages.utahHeader.link,
-      parentLinks: [pages.patterns.link],
+      parentLinks: [pages.library.link],
     },
     {
       title: 'Buttons',
