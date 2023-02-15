@@ -71,6 +71,7 @@
  *  @property {string} size - size has to be one of the `Size` types
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
  *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
+ *  @property {UtahIDSettings | boolean} utahId - settings for the utahId button; true = turned on, false = turned off, object = custom interactivity
  * }
  *
  * @typedef GlobalEventType {
@@ -85,31 +86,46 @@
  *
  * // UtahId Data types
  * @typedef UserInfoUrls {
- *  @property {string} profile
- *  @property {string} signin
- *  @property {string} signout
+ *  @property {string} profile - eg https://id.utah.gov/
+ *  @property {string} signin - eg https://id.utah.gov/login
+ *  @property {string} signout - eg https://id.utah.gov/logout
  * }
  *
+ * // User fields from the UtahId authority
  * @typedef UserInfo {
- *  @property {boolean} authenticated
- *  @property {boolean | null | undefined} disabled
- *  @property {string} env
- *  @property {string | null | undefined} first
- *  @property {string | null | undefined} id
- *  @property {string | null | undefined} last
- *  @property {[string] | null | undefined} mail
- *  @property {string | null | undefined} middle
- *  @property {string | null | undefined} status
- *  @property {string | undefined} type
- *  @property {UserInfoUrls} urls
- *  @property {string | null | undefined} username
+ *  @property {boolean} authenticated - the current information is ratified with the authority
+ *  @property {boolean | null | undefined} [disabled]
+ *  @property {string | undefined} [env] - the UtahId environment
+ *  @property {string | null | undefined} first - the name shown on the UtahId button when logged in
+ *  @property {string | null | undefined} [id]
+ *  @property {string | null | undefined} [last]
+ *  @property {[string] | null | undefined} [mail]
+ *  @property {string | null | undefined} [middle]
+ *  @property {string | null | undefined} [status]
+ *  @property {string | undefined} [type]
+ *  @property {UserInfoUrls} urls - sign in/out urls and profile for usage in the UtahId menu
+ *  @property {string | null | undefined} [username]
  * }
+ *
  * @typedef UtahIdData {
  *  @property {boolean | null} isDefinitive - true when the user's state is known, false while the ajax request is inflight
  *  @property {string | null} lastError - true when the user's state is known, false while the ajax request is inflight
  *  @property {UserInfo | null} userInfo - the current logged in user info or null if not found
- *  @property {number} userInfoHash - hash of the userInfo for detecting changes
  * }
+ *
+ * // only fill in what you want to change, the rest will be defaults
+ * // The UtahID header will auto fetch the user from UtahID if it is not told that your application will be controlling the signed in user
+ * // This may cause the header to jump as data comes from UtahID and your application gets data from its data source.
+ * // To prevent this jankiness, your application should call setUtahHeaderSettings with a userInfo.currentUser value of `null`. This way
+ * // the header knows not to fetch the user and your application can later call setSettings again with the current user.
+ * @typedef UtahIDSettings {
+ *  @property {UserInfo | undefined | null} currentUser - null: app controls the user, undefined: header will fetch current user
+ *  @property {function(UtahIdData): void | undefined} [onAuthChanged] - when the user changes (nothing to something, vice versa, or to someone else)
+ *  @property {function(Event): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in
+ *  @property {function(Event): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered
+ *  @property {[MenuItem] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu)
+ * }
+ *
  */
 
 // without this export, `@typedef import` reports this file 'is not a module'...

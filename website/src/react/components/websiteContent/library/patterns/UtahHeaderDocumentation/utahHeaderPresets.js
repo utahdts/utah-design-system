@@ -16,6 +16,26 @@ const utahHeaderPresets = [
     title: 'Header Size',
   },
 
+  // --- UtahID --- //
+  {
+    options: [
+      { settingsSnippet: { utahId: false }, title: 'None' },
+      { settingsSnippet: { utahId: true }, title: 'Automatic' },
+      {
+        settingsSnippet: {
+          utahId: {
+            currentUser: {
+              authenticated: true,
+              first: 'Philo',
+            },
+          },
+        },
+        title: 'App Controls',
+      },
+    ],
+    title: 'UtahId Integration',
+  },
+
   // --- Agency Brand / Title --- //
   {
     options: [

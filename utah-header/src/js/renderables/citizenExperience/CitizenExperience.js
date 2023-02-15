@@ -2,6 +2,7 @@
 
 import appendChildAll from '../../misc/appendChildAll';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import { getUtahHeaderSettings } from '../../settings/settings';
 import ActionItems from '../actionItems/ActionItems';
 import UtahId from '../utahId/UtahId';
 // @ts-ignore
@@ -16,7 +17,9 @@ export default function CitizenExperience() {
     appendChildAll(citizenExperienceWrapper, actionItems);
   }
 
-  appendChildAll(citizenExperienceWrapper, UtahId());
+  if (getUtahHeaderSettings().utahId !== false) {
+    appendChildAll(citizenExperienceWrapper, UtahId());
+  }
 
   return citizenExperienceWrapper;
 }
