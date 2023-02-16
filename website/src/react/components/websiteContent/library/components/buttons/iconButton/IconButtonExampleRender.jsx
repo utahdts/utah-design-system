@@ -1,10 +1,10 @@
+import { IconButton, RefShape, useBanner } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import { RefShape } from '@utahdts/utah-design-system';
-import IconButtonPropsShape from '../../../../../../propTypesShapes/IconButtonPropsShape';
+import IconButtonExamplePropsShape from '../../../../../../propTypesShapes/IconButtonExamplePropsShape';
 
 const propTypes = {
   state: PropTypes.shape({
-    props: IconButtonPropsShape.isRequired,
+    props: IconButtonExamplePropsShape.isRequired,
   }).isRequired,
   innerRef: RefShape,
 };
@@ -15,18 +15,30 @@ const defaultProps = {
 function IconButtonExampleRender({
   state: {
     props: {
+      appearance,
+      color,
+      iconCssClass,
       id,
+      isDisabled,
+      size,
+      title,
     },
   },
   innerRef,
 }) {
+  const showBanner = useBanner();
   return (
-    <p
+    <IconButton
+      appearance={appearance}
+      color={color}
+      icon={<span className={`utds-icon-before-${iconCssClass}`} aria-hidden="true" />}
       id={id}
-      ref={innerRef}
-    >
-      Component goes here!
-    </p>
+      innerRef={innerRef}
+      isDisabled={isDisabled}
+      onClick={() => showBanner({ message: 'You have clicked the icon button.' })}
+      size={size}
+      title={title || ''}
+    />
   );
 }
 

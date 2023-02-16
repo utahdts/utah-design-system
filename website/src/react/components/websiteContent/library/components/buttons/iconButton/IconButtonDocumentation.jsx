@@ -257,7 +257,7 @@ function IconButtonDocumentation() {
             <li>Disabled buttons are visually “grayed out”.</li>
             <li>Use the built-in attribute “disabled” to disable a button.</li>
           </ul>
-          )}
+        )}
       />
       <StaticExample
         title="Hovered"
@@ -269,7 +269,7 @@ function IconButtonDocumentation() {
             <li>Hover is the state when a pointing cursor enters the button boundary.</li>
             <li>The hover state changes from the normal state to provide the user with a visual cue.</li>
           </ul>
-          )}
+        )}
       />
       <StaticExample
         title="Pressed"
@@ -307,7 +307,7 @@ function IconButtonDocumentation() {
         <li><strong>Grouped together or stand alone</strong>. Icon buttons can be grouped together or they can stand alone.</li>
         <li><strong>Presented in a row</strong>. Icon buttons are typically presented in a row when they are grouped together.</li>
         <li><strong>When hovered, include a tool tip</strong>. When the button is hovered, include a tooltip that describes the button’s action, rather than the name of the icon itself.</li>
-        <li><strong>Minimum touchzone for touch devices</strong>. Icon buttons should have a minimum touch zone of 36-48px to make it easier to activate on a touch device.</li>
+        <li><strong>Minimum touch zone for touch devices</strong>. Icon buttons should have a minimum touch zone of 36-48px to make it easier to activate on a touch device.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
