@@ -1,6 +1,5 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import events from '../../enumerations/events';
 import utahIdUrls from '../../enumerations/utahIdUrls';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
@@ -23,10 +22,11 @@ let utahIdData = null;
 /** @type HTMLElement | null */
 let utahIdPopUpMenu = null;
 
-function authChangedEventHandler(e) {
-  /** @type UtahIdData */
-  utahIdData = /** @type UtahIdData */(/** @type any */(e).detail);
-
+/**
+ * @param {UtahIdData} newUtahIdData
+ */
+export function authChangedEventHandler(newUtahIdData) {
+  utahIdData = newUtahIdData;
   // it's ok if utahIdData is not definitive
   // - when it does become definitive it will update the button
   // - maybe it was fetched and got a user and became indeterminate to fetch again but will get same result again
@@ -136,15 +136,11 @@ export default function UtahId() {
     }
   );
 
-  // remove in case already added
-  document.removeEventListener(events.AUTH_CHANGED, authChangedEventHandler);
-  document.addEventListener(events.AUTH_CHANGED, authChangedEventHandler);
-
   // fire a fetch event to make sure data gets loaded
   fetchUtahIdUserDataAsync();
 
   // load previous data so the button doesn't flicker as much
-  authChangedEventHandler({ detail: getCurrentUtahIdData() });
+  authChangedEventHandler(getCurrentUtahIdData());
 
   return utahIdWrapper;
 }

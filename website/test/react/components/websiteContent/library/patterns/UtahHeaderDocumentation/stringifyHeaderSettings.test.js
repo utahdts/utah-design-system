@@ -139,15 +139,33 @@ describe('stringifyHeaderSettings', () => {
         onSignOut: () => console.log('too small to live'),
       },
     };
+  });
+
+  test('actionItems: onAuthChanged', () => {
+    /** @type {Settings} */
+    const settings = {
+      showTitle: true,
+      size: sizes.MEDIUM,
+      title: 'Utah Design System',
+      titleURL: '/',
+      mediaSizes: {
+        mobile: 640,
+        tabletPortrait: 768,
+        tabletLandscape: 1024,
+      },
+      utahId: {
+        currentUser: undefined,
+        onAuthChanged: () => console.log('too small to live'),
+      },
+    };
 
     const result = stringifyHeaderSettings(settings);
     expect(result).toSatisfy(doesMatchStrings([
       ...MATCH_BASIC_FIELDS,
-      `"onProfile": "${FUNCTION_PLACEHOLDER}"`,
-      `"onSignIn": "${FUNCTION_PLACEHOLDER}"`,
-      `"onSignOut": "${FUNCTION_PLACEHOLDER}"`,
-      '"currentUser": null',
+      `"onAuthChanged": "${FUNCTION_PLACEHOLDER}"`,
     ]));
+    // undefined doesn't get carried over so that it is really undefined
+    expect(result.includes('currentUser')).toBeFalsy();
   });
 
   test('actionItems: actionDom', () => {

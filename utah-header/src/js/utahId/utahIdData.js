@@ -1,6 +1,6 @@
-import events from '../enumerations/events';
 import utahIdUrls from '../enumerations/utahIdUrls';
 import setTimeoutPromise from '../misc/setTimeoutPromise';
+import { authChangedEventHandler } from '../renderables/utahId/UtahId';
 import { getUtahHeaderSettings } from '../settings/settings';
 /**
 * @typedef {import('../misc/jsDocTypes').UtahIdData} UtahIdData
@@ -24,16 +24,11 @@ const utahIdData = {
 function maybeTriggerAuthEvent(newUtahIdData) {
   // something asked for new information, so fire off that new information has arrived
   if (newUtahIdData.isDefinitive) {
-    document.dispatchEvent(
-      new CustomEvent(
-        events.AUTH_CHANGED,
-        {
-          bubbles: true,
-          cancelable: true,
-          detail: newUtahIdData,
-        }
-      )
-    );
+    // call auth changed so name updates in button
+    authChangedEventHandler(newUtahIdData);
+
+    // give settings callback a crack at the auth change
+    getUtahHeaderSettings()?.utahId?.onAuthChanged?.(newUtahIdData);
   }
 }
 

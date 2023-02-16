@@ -23,12 +23,14 @@ export default function parseHeaderSettings(settingsString) {
     throw new ParseHeaderSettingsError(e);
   }
 
-  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onProfile', 'onSignIn', 'onSignOut'];
+  // !!!! Changes here need to also be made in stringifyHeaderSettings.js !!!! //
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut'];
   const actionItems = objectsPathsWithKeys(resultSettings, customFields);
 
   actionItems.forEach((actionItem) => {
     switch (actionItem.searchKey) {
       case 'actionFunction':
+      case 'onAuthChanged':
       case 'onProfile':
       case 'onSignIn':
       case 'onSignOut': {
