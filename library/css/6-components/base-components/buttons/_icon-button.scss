@@ -8,8 +8,8 @@
   .icon-button {
     border-radius: 999px;
     font-size: 1rem;
-    min-height: 36px;
-    min-width: 36px;
+    min-height: var(--form-ele-medium);
+    min-width: var(--form-ele-medium);
     padding: 0;
     display: flex;
     align-items: center;
@@ -81,7 +81,49 @@
       line-height: .5;
       &::before {
         margin: 0;
-        font-size: 20px;
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ------------ SIZES ------------ */
+    &--small1x {
+      font-size: .85rem;
+      min-height: var(--form-ele-small1x);
+      min-width: var(--form-ele-small1x);
+      border-width: 1px;
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1rem;
+      }
+    }
+
+    &--small {
+      font-size: .938rem;
+      min-height: var(--form-ele-small);
+      min-width: var(--form-ele-small);
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1.125rem;
+      }
+    }
+
+    &--large {
+      font-size: 1.25rem;
+      min-height: var(--form-ele-large);
+      min-width: var(--form-ele-large);
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1.45rem;
+      }
+    }
+
+    &--large1x {
+      font-size: 1.5rem;
+      min-height: var(--form-ele-large1x);
+      min-width: var(--form-ele-large1x);
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1.7rem;
       }
     }
 

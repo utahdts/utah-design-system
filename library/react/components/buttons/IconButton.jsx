@@ -78,7 +78,7 @@ function IconButton({
         // default color is none
         (color && color !== 'none') ? `button--${color}-color` : null,
         // default size is medium
-        (size && size !== formElementSizesEnum.MEDIUM) ? `button--${size}` : null
+        (size && size !== formElementSizesEnum.MEDIUM) ? `icon-button--${size}` : null
       )}
       disabled={isDisabled}
       id={id}

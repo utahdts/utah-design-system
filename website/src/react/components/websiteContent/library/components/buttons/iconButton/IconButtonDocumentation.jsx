@@ -182,7 +182,6 @@ function IconButtonDocumentation() {
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
-              color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               size={formElementSizesEnum.MEDIUM}
               title="Settings"
