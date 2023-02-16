@@ -1,8 +1,10 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import events from '../../enumerations/events';
+import utahIdUrls from '../../enumerations/utahIdUrls';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import { getUtahHeaderSettings } from '../../settings/settings';
 import { fetchUtahIdUserDataAsync, getCurrentUtahIdData } from '../../utahId/utahIdData';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
@@ -73,21 +75,24 @@ function doAriaForUtahId() {
  * @returns {HTMLCollection | Element}
  */
 export default function UtahId() {
+  const settings = getUtahHeaderSettings();
+
+  const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onProfile);
+  const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
+  const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignOut);
+
   /** @type PopupMenu */
   const popUpMenu = {
     menuItems: [
       {
-        actionUrl: {
-          url: 'https://id.utah.gov/',
-          openInNewTab: true,
-        },
+        actionUrl: onProfile ? undefined : { url: utahIdUrls.PROFILE, openInNewTab: true },
+        actionFunction: onProfile || undefined,
         className: 'external-link',
         title: 'UtahID Profile',
       },
       {
-        actionUrl: {
-          url: `https://id.utah.gov/logout?goto=${window.location}`,
-        },
+        actionUrl: onSignOut ? undefined : { url: utahIdUrls.SIGN_OUT },
+        actionFunction: onSignOut || undefined,
         title: 'Sign Out',
       },
     ],
@@ -119,9 +124,13 @@ export default function UtahId() {
       isPerformPopup: () => !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated,
       onClick: (e) => {
         if (!utahIdData?.isDefinitive || !utahIdData?.userInfo?.authenticated) {
-          e.preventDefault();
-          e.stopPropagation();
-          window.location.href = `https://id.utah.gov/login?goto=${window.location}`;
+          if (onSignIn) {
+            onSignIn(e);
+          } else {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = utahIdUrls.SIGN_IN;
+          }
         }
       },
     }

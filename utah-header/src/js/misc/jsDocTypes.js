@@ -84,13 +84,6 @@
  // eslint-disable-next-line jsdoc/no-undefined-types
  * @typedef {Partial<Settings>} SettingsInput
  *
- * // UtahId Data types
- * @typedef UserInfoUrls {
- *  @property {string} profile - eg https://id.utah.gov/
- *  @property {string} signin - eg https://id.utah.gov/login
- *  @property {string} signout - eg https://id.utah.gov/logout
- * }
- *
  * // User fields from the UtahId authority
  * @typedef UserInfo {
  *  @property {boolean} authenticated - the current information is ratified with the authority
@@ -103,7 +96,6 @@
  *  @property {string | null | undefined} [middle]
  *  @property {string | null | undefined} [status]
  *  @property {string | undefined} [type]
- *  @property {UserInfoUrls} urls - sign in/out urls and profile for usage in the UtahId menu
  *  @property {string | null | undefined} [username]
  * }
  *
@@ -121,6 +113,7 @@
  * @typedef UtahIDSettings {
  *  @property {UserInfo | undefined | null} currentUser - null: app controls the user, undefined: header will fetch current user
  *  @property {function(UtahIdData): void | undefined} [onAuthChanged] - when the user changes (nothing to something, vice versa, or to someone else)
+ *  @property {function(Event): void | undefined} [onProfile] - when the UtahId's menu item for the user's profile is triggered
  *  @property {function(Event): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in
  *  @property {function(Event): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered
  *  @property {[MenuItem] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu)
@@ -128,5 +121,5 @@
  *
  */
 
-// without this export, `@typedef import` reports this file 'is not a module'...
+// without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
 export default false;

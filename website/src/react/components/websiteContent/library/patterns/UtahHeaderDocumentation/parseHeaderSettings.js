@@ -23,12 +23,15 @@ export default function parseHeaderSettings(settingsString) {
     throw new ParseHeaderSettingsError(e);
   }
 
-  const customFields = ['actionFunction', 'actionDom', 'icon', 'logo'];
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onProfile', 'onSignIn', 'onSignOut'];
   const actionItems = objectsPathsWithKeys(resultSettings, customFields);
 
   actionItems.forEach((actionItem) => {
     switch (actionItem.searchKey) {
-      case 'actionFunction': {
+      case 'actionFunction':
+      case 'onProfile':
+      case 'onSignIn':
+      case 'onSignOut': {
         // convert function strings to actual MOCKED functions with contents as an alert
         const functionObject = valueAtPath({ object: resultSettings, path: actionItem.path });
         // eslint-disable-next-line no-alert

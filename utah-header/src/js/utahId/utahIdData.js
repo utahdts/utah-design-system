@@ -1,4 +1,5 @@
 import events from '../enumerations/events';
+import utahIdUrls from '../enumerations/utahIdUrls';
 import setTimeoutPromise from '../misc/setTimeoutPromise';
 import { getUtahHeaderSettings } from '../settings/settings';
 /**
@@ -79,14 +80,9 @@ export async function fetchUtahIdUserDataAsync() {
     } else if (settings.utahId === true || settings.utahId?.currentUser === undefined) {
       // 👆 catches true && null cases, both of which allow a refetch 👆
 
-      // header is on OR utahId settings has an `undefined` user, SO header controls the user!
+      // header is on OR utahId settings has an `undefined` user: Header controls the user!
       utahIdData.isDefinitive = false;
-      result = fetch(
-        'https://id.utah.gov/api/userInfo',
-        {
-          credentials: 'include',
-        }
-      )
+      result = fetch(utahIdUrls.USER_INFO, { credentials: 'include' })
         .then((resp) => resp.json())
         .then((authResult) => {
           if (authResult.status === 200) {

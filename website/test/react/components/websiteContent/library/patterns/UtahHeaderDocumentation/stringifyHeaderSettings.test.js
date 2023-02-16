@@ -40,6 +40,7 @@ describe('stringifyHeaderSettings', () => {
         tabletPortrait: 768,
         tabletLandscape: 1024,
       },
+      utahId: false,
     };
 
     expect(stringifyHeaderSettings(settings)).toSatisfy(doesMatchStrings(MATCH_BASIC_FIELDS));
@@ -58,6 +59,7 @@ describe('stringifyHeaderSettings', () => {
         tabletLandscape: 1024,
       },
       logo: 'just-a-string',
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -77,6 +79,7 @@ describe('stringifyHeaderSettings', () => {
         tabletLandscape: 1024,
       },
       logo: document.createElement('div'),
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -104,6 +107,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -113,6 +117,36 @@ describe('stringifyHeaderSettings', () => {
       '"icon": "i-am-an-icon',
       '"showTitle": true',
       '"title": "action item for life!"',
+    ]));
+  });
+
+  test('actionItems: onSignIn/onSignOut/onProfile', () => {
+    /** @type {Settings} */
+    const settings = {
+      showTitle: true,
+      size: sizes.MEDIUM,
+      title: 'Utah Design System',
+      titleURL: '/',
+      mediaSizes: {
+        mobile: 640,
+        tabletPortrait: 768,
+        tabletLandscape: 1024,
+      },
+      utahId: {
+        currentUser: null,
+        onProfile: () => console.log('just right to live'),
+        onSignIn: () => console.log('too big to live'),
+        onSignOut: () => console.log('too small to live'),
+      },
+    };
+
+    const result = stringifyHeaderSettings(settings);
+    expect(result).toSatisfy(doesMatchStrings([
+      ...MATCH_BASIC_FIELDS,
+      `"onProfile": "${FUNCTION_PLACEHOLDER}"`,
+      `"onSignIn": "${FUNCTION_PLACEHOLDER}"`,
+      `"onSignOut": "${FUNCTION_PLACEHOLDER}"`,
+      '"currentUser": null',
     ]));
   });
 
@@ -136,6 +170,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -177,6 +212,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -221,6 +257,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
