@@ -41,6 +41,12 @@
   &__link-text {
     flex: 1 0 auto;
   }
+  &__divider {
+    display: block;
+    margin: var(--spacing-s) var(--spacing-s);
+    height: 1px;
+    background-color: var(--gray-medium-light-color);
+  }
   & .icon-chevron {
     fill: currentColor;
     height: 10px;

@@ -81,6 +81,10 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
   if (!menuAHref) {
     throw new Error('renderPopupMenuItem: aHref not found');
   }
+  const menuDivider = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__DIVIDER));
+  if (!menuDivider) {
+    throw new Error('renderPopupMenuItem: menuDivider not found');
+  }
 
   // three types of action: parent, custom function, link
   if (popupMenuItem.actionMenu) {
@@ -117,6 +121,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     // === on click custom action, so hookup onclick === //
     menuButton.onclick = popupMenuItem.actionFunction;
     menuAHref.remove();
+    menuDivider.remove();
   } else if (popupMenuItem.actionUrl) {
     // === link object, so hook up href === //
     menuAHref.setAttribute('href', popupMenuItem.actionUrl.url);
@@ -124,29 +129,37 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
       menuAHref.setAttribute('target', '_blank');
     }
     menuButton.remove();
+    menuDivider.remove();
+  } else if (popupMenuItem.isDivider) {
+    menuAHref.remove();
+    menuButton.remove();
+    menuItemWrapper.setAttribute('aria-hidden', 'true');
   } else {
     // eslint-disable-next-line no-console
     console.error(popupMenuItem);
-    throw new Error(`renderPopupMenuItem: popupMenuItem must have either actionMenu, actionFunction, or actionUrl (${'popupMenuItem.title'})`);
+    throw new Error(`renderPopupMenuItem: popupMenuItem must have either actionMenu, actionFunction, actionUrl, or isDivider (${'popupMenuItem.title'})`);
   }
 
-  const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT));
-  if (!titleSpan) {
-    throw new Error('renderPopupMenuItem: titleSpan not found');
-  }
-  titleSpan.appendChild(document.createTextNode(popupMenuItem.title));
-  if (popupMenuItem.actionUrl?.openInNewTab) {
-    // Add an icon to indicate the external link opens in a new tab
-    const externalLinkIcon = document.createElement('span');
-    externalLinkIcon.classList.add(domConstants.EXTERNAL_LINK);
-    externalLinkIcon.setAttribute('aria-hidden', 'true');
+  // dividers do not use a title, though title still required in jsDoc for troubleshooting and simplicity of jsDoc
+  if (!popupMenuItem.isDivider) {
+    const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT));
+    if (!titleSpan) {
+      throw new Error('renderPopupMenuItem: titleSpan not found');
+    }
+    titleSpan.appendChild(document.createTextNode(popupMenuItem.title));
+    if (popupMenuItem.actionUrl?.openInNewTab) {
+      // Add an icon to indicate the external link opens in a new tab
+      const externalLinkIcon = document.createElement('span');
+      externalLinkIcon.classList.add(domConstants.EXTERNAL_LINK);
+      externalLinkIcon.setAttribute('aria-hidden', 'true');
 
-    // Add a message for screen readers
-    const externalLinkMessage = document.createElement('span');
-    externalLinkMessage.appendChild(document.createTextNode('opens in a new tab'));
-    externalLinkMessage.classList.add(domConstants.VISUALLY_HIDDEN);
-    titleSpan.appendChild(externalLinkMessage);
-    titleSpan.appendChild(externalLinkIcon);
+      // Add a message for screen readers
+      const externalLinkMessage = document.createElement('span');
+      externalLinkMessage.appendChild(document.createTextNode('opens in a new tab'));
+      externalLinkMessage.classList.add(domConstants.VISUALLY_HIDDEN);
+      titleSpan.appendChild(externalLinkMessage);
+      titleSpan.appendChild(externalLinkIcon);
+    }
   }
 
   appendChildAll(menuUl, menuItemWrapper);

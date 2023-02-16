@@ -26,6 +26,7 @@
  *  @property {MenuItemUrlAction} [actionUrl] - link url
  *  @property {EventAction} [actionFunction] - onClick function
  *  @property {MenuItem[]} [actionMenu] - children menus
+ *  @property {boolean} [isDivider] - this menu item is a divider between other menu items
  *
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item

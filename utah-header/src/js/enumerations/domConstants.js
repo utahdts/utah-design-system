@@ -52,6 +52,7 @@ export default {
   LOGO: 'utds-logo-wrapper',
 
   POPUP_MENU: 'utds-header-popup-menu',
+  POPUP_MENU__DIVIDER: 'utds-header-popup-menu__divider',
   POPUP_MENU__LINK: 'utds-header-popup-menu__link',
   POPUP_MENU__LINK_TEXT: 'utds-header-popup-menu__link-text',
   POPUP__HIDDEN: 'utds-popup__wrapper--hidden',

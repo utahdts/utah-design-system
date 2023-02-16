@@ -46,6 +46,23 @@ const utahHeaderPresets = [
         },
         title: 'Without User',
       },
+      {
+        settingsSnippet: {
+          utahId: {
+            menuItems: [
+              {
+                actionUrl: { url: 'https://utah.gov', openInNewTab: true },
+                title: 'Utah.Gov',
+              },
+              {
+                actionFunction: FUNCTION_PLACEHOLDER,
+                title: 'Custom menu item',
+              },
+            ],
+          },
+        },
+        title: 'Menu Items',
+      },
     ],
     title: 'UtahId Integration',
   },

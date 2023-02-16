@@ -81,9 +81,17 @@ export default function UtahId() {
   const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
   const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignOut);
 
+  const customUtahIdMenuItems = (settings.utahId !== true && settings.utahId !== false && settings.utahId?.menuItems) || [];
+  if (customUtahIdMenuItems.length) {
+    customUtahIdMenuItems.push({
+      isDivider: true,
+      title: '--divider--',
+    });
+  }
   /** @type PopupMenu */
   const popUpMenu = {
     menuItems: [
+      ...customUtahIdMenuItems,
       {
         actionUrl: onProfile ? undefined : { url: utahIdUrls.PROFILE, openInNewTab: true },
         actionFunction: onProfile || undefined,
