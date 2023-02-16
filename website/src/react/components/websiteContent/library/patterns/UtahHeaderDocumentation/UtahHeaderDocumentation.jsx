@@ -188,9 +188,33 @@ function UtahHeaderDocumentation() {
       <h3 id="section-auth-changed">UtahID: Auth Changed</h3>
       <div>
         The Utah ID Button in the top right of the header makes an ajax request to check the current user&apos;s logged in status with UtahID. &nbsp;
-        Your javascript code can listen to this event in order to get basic current user information. Seeing as this information is javascript &nbsp;
-        provided, it is not trustworthy. You will want to get tokens and/or codes from Utah Login that your server side code can verify.
-        <PreCode codeRaw={`addEventListener('${events.AUTH_CHANGED}', (e) => alert(e.detail ? e.detail.userInfo.first + ' is logged in' : 'User is not logged in'))`} />
+        Your javascript code can provide a callback in order to get the current user&apos;s basic information. Seeing as this information is&nbsp;
+        javascript provided, it is not trustworthy. You will want to get tokens and/or codes from Utah Login that your server side code can verify.
+        <PreCode
+          codeRaw={`  // Example Utah Header Settings Object w/ onAuthChanged
+  {
+    ...
+    "utahId": {
+      ...
+      // 
+      "onAuthChanged": (
+        /**
+         * @param {UtahIdData | null}
+         * @returns {void}
+         */
+        (newUserData) => {
+          if (newUserData?.userInfo?.first) {
+            alert(\`Hello \${newUserData.userInfo.first}!\`);
+          } else {
+            alert('User is signed out');
+          }
+        }
+      ),
+      ...
+    }
+    ...
+  }`}
+        />
       </div>
 
       <h2 id="section-settings-props">Settings and Props</h2>

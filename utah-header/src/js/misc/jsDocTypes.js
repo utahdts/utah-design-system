@@ -112,11 +112,11 @@
  * // the header knows not to fetch the user and your application can later call setSettings again with the current user.
  * @typedef UtahIDSettings {
  *  @property {UserInfo | undefined | null} currentUser - null: app controls the user, undefined: header will fetch current user
- *  @property {function(UtahIdData): void | undefined} [onAuthChanged] - when the user changes (nothing to something, vice versa, or to someone else)
- *  @property {function(Event): void | undefined} [onProfile] - when the UtahId's menu item for the user's profile is triggered
- *  @property {function(Event): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in
- *  @property {function(Event): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered
- *  @property {[MenuItem] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu)
+ *  @property {function(UtahIdData): void | undefined} [onAuthChanged] - auth user changes, eg (newUserData) => { ... do something ... }
+ *  @property {function(Event): void | undefined} [onProfile] - when the UtahId's menu item for the user's profile is triggered: (e) => { }
+ *  @property {function(Event): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in: (e) => { }
+ *  @property {function(Event): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
+ *  @property {[MenuItem] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
  * }
  *
  */
