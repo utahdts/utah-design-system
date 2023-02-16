@@ -1,6 +1,10 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 import {
+  componentColors,
+  formElementSizesEnum,
+  IconButton,
+  ICON_BUTTON_APPEARANCE,
   Tab,
   TabGroup,
   Table, TableBody, TableCell,
@@ -38,7 +42,31 @@ function IconButtonDocumentation() {
       <StaticExample
         title="Emphasized Icon Buttons (solid background boundary)"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.SECONDARY}
+              icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.ACCENT}
+              icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              icon={(<span className="utds-icon-before-x-icon" aria-hidden="true" />)}
+              title="Settings"
+            />
+          </>
         )}
         quickTips={(
           <ul>
@@ -57,7 +85,31 @@ function IconButtonDocumentation() {
       <StaticExample
         title="Unemphasized Icon Buttons (outlined boundary)"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
+              color={componentColors.SECONDARY}
+              icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
+              color={componentColors.ACCENT}
+              icon={(<span className="utds-icon-before-check" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
+              icon={(<span className="utds-icon-before-star" aria-hidden="true" />)}
+              title="Settings"
+            />
+          </>
         )}
         quickTips={(
           <ul>
@@ -75,7 +127,31 @@ function IconButtonDocumentation() {
       <StaticExample
         title="Borderless Icon Buttons (no visible button boundary)"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              color={componentColors.SECONDARY}
+              icon={(<span className="utds-icon-before-info" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              color={componentColors.ACCENT}
+              icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
+              title="Settings"
+            />
+          </>
         )}
         quickTips={(
           <ul>
@@ -87,21 +163,93 @@ function IconButtonDocumentation() {
         )}
       />
       <StaticExample
-        title="Icon buttons may have a toggled state such as selected / unselected"
+        title="Sizes"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              size={formElementSizesEnum.SMALL1X}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              size={formElementSizesEnum.SMALL}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              size={formElementSizesEnum.MEDIUM}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              size={formElementSizesEnum.LARGE}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              size={formElementSizesEnum.LARGE1X}
+              title="Settings"
+            />
+          </>
         )}
         quickTips={(
           <ul>
-            <li>When pressed the icon button changes state between on/off or selected/unselected.</li>
-            <li>For borderless buttons, use solid and outline icons to indicate a selected or unselected state.</li>
+            <li>The preferred button size is the default (medium).</li>
+            <li>Do not mix button of different sizes in close proximity.</li>
           </ul>
-          )}
+        )}
       />
       <StaticExample
         title="Enabled / Disabled"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              title="Settings"
+              isDisabled
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
+              icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
+              icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
+              title="Settings"
+              isDisabled
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
+              title="Settings"
+              isDisabled
+            />
+          </>
         )}
         quickTips={(
           <ul>

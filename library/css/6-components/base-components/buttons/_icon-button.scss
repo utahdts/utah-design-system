@@ -6,9 +6,7 @@
 #{class-vars.$base-class} {
 
   .icon-button {
-    background: white;
     border-radius: 999px;
-    border: 2px solid var(--gray-color);
     font-size: 1rem;
     min-height: 36px;
     min-width: 36px;
@@ -17,27 +15,58 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: var(--gray-color);
 
-    &:hover {
-      background: var(--hover-gray-color-opaque);
-      color: white;
-    }
-
-    &--solid {
-      background: var(--gray-color);
-      color: white;
-      &:hover {
-        background-color: var(--gray-dark-color);
-        border-color: var(--gray-dark-color);
-      }
-    }
-
-    &--plain {
+    &--borderless {
       border-color: transparent;
+      background: transparent;
       &:hover {
-        border-color: color-swatches.$neutral-gray-16;
         color: var(--gray-dark-color);
+        background: var(--hover-gray-color);
+      }
+      &.button--primary-color {
+        &:hover {
+          color: var(--primary-color-dark);
+        }
+      }
+      &.button--secondary-color {
+        &:hover {
+          color: var(--secondary-color-dark);
+        }
+      }
+      &.button--accent-color {
+        &:hover {
+          color: var(--accent-color-dark);
+        }
+      }
+      @at-root #{class-vars.$primary-color-is-light}#{&} {
+        &.button--primary-color {
+          border-color: transparent;
+          &:hover {
+            color: var(--primary-color-dark);
+            background: var(--hover-gray-color);
+          }
+        }
+      }
+      @at-root #{class-vars.$secondary-color-is-light}#{&} {
+        &.button--secondary-color {
+          border-color: transparent;
+          &:hover {
+            color: var(--secondary-color-dark);
+            background: var(--hover-gray-color);
+          }
+        }
+      }
+      @at-root #{class-vars.$accent-color-is-light}#{&} {
+        &.button--accent-color {
+          border-color: transparent;
+          &:hover {
+            color: var(--accent-color-dark);
+            background: var(--hover-gray-color);
+          }
+        }
+      }
+      &[disabled], &[disable]:hover {
+        border-color: transparent;
       }
     }
 

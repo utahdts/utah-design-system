@@ -1,35 +1,91 @@
 import PropTypes from 'prop-types';
+import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
+import componentColors from '../../enums/componentColors';
+import formElementSizesEnum from '../../enums/formElementSizesEnum';
+import RefShape from '../../propTypesShapes/RefShape';
 import handleEvent from '../../util/handleEvent';
 import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
+  // the appearance of the button
+  appearance: PropTypes.oneOf([
+    ICON_BUTTON_APPEARANCE.OUTLINED,
+    ICON_BUTTON_APPEARANCE.SOLID,
+    ICON_BUTTON_APPEARANCE.BORDERLESS,
+  ]),
   // css classes for the button
   className: PropTypes.string,
+  // the base color of the button
+  color: PropTypes.oneOf([
+    componentColors.PRIMARY,
+    componentColors.SECONDARY,
+    componentColors.ACCENT,
+    componentColors.NONE,
+  ]),
   // the icon for the button
   icon: PropTypes.node.isRequired,
+  // the button id
+  id: PropTypes.string,
+  // a ref to attach to the actual DOM <button> element
+  innerRef: RefShape,
+  // button isDisabled state
+  isDisabled: PropTypes.bool,
   // what to do when the button is clicked
   onClick: PropTypes.func,
+  size: PropTypes.oneOf([
+    formElementSizesEnum.SMALL1X,
+    formElementSizesEnum.SMALL,
+    formElementSizesEnum.MEDIUM,
+    formElementSizesEnum.LARGE,
+    formElementSizesEnum.LARGE1X,
+  ]),
   // A title is used for accessibility purposes to describe the button for screen readers
   title: PropTypes.string.isRequired,
 };
 const defaultProps = {
+  appearance: ICON_BUTTON_APPEARANCE.OUTLINED,
   className: null,
+  color: componentColors.NONE,
+  id: null,
+  innerRef: null,
+  isDisabled: false,
   onClick: null,
+  size: formElementSizesEnum.MEDIUM,
 };
 
 function IconButton({
+  appearance,
   className,
+  color,
   icon,
+  id,
+  innerRef,
+  isDisabled,
   onClick,
+  size,
   title,
   ...rest
 }) {
   return (
     <button
-      {...rest}
+      className={joinClassNames(
+        'button icon-button',
+        className,
+        // default appearance is outlined
+        // (appearance && appearance !== ICON_BUTTON_APPEARANCE.OUTLINED) ? `button--${appearance}` : null,
+        (appearance && appearance === ICON_BUTTON_APPEARANCE.SOLID) ? `button--${appearance}` : null,
+        (appearance && appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? `icon-button--${appearance}` : null,
+        // default color is none
+        (color && color !== 'none') ? `button--${color}-color` : null,
+        // default size is medium
+        (size && size !== formElementSizesEnum.MEDIUM) ? `button--${size}` : null
+      )}
+      disabled={isDisabled}
+      id={id}
       onClick={handleEvent(onClick)}
-      className={joinClassNames(className, 'icon-button icon-button--plain')}
+      ref={innerRef}
       type="button"
+      {...rest}
     >
       {icon}
       <span className="visually-hidden">{title}</span>

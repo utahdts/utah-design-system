@@ -60,5 +60,7 @@ export { default as joinClassNames } from './react/util/joinClassNames';
 export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { default as setValueAtPath } from './react/util/state/setValueAtPath';
 export { default as valueAtPath } from './react/util/state/valueAtPath';
+export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
+export { default as componentColors } from './react/enums/componentColors';
 
 export const { version } = packageJson;

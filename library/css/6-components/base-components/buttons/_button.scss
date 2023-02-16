@@ -21,12 +21,13 @@
     text-decoration: none;
     position: relative;
 
+    svg {
+      fill: currentColor;
+    }
+
     &:hover {
       background: var(--gray-color);
       color: white;
-      svg {
-        fill: currentColor;
-      }
     }
 
     &[disabled], &[disable]:hover {
