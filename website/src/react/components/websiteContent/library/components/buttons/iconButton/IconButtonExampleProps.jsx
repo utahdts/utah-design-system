@@ -51,8 +51,9 @@ function IconButtonExampleProps({ setState, state }) {
       </Select>
 
       <Select id="props.appearance" label="Appearance" className="input--height-small1x">
-        <SelectOption label="Outlined" value="outlined" />
-        <SelectOption label="Solid" value="solid" />
+        <SelectOption label="Outlined" value={ICON_BUTTON_APPEARANCE.OUTLINED} />
+        <SelectOption label="Solid" value={ICON_BUTTON_APPEARANCE.SOLID} />
+        <SelectOption label="Borderless" value={ICON_BUTTON_APPEARANCE.BORDERLESS} />
       </Select>
 
       <Select id="props.color" label="Color" className="input--height-small1x">

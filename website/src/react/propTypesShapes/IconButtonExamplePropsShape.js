@@ -1,9 +1,9 @@
-import { formElementSizesEnum } from '@utahdts/utah-design-system';
+import { componentColors, formElementSizesEnum, ICON_BUTTON_APPEARANCE } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 
 export default PropTypes.exact({
-  appearance: PropTypes.string,
-  color: PropTypes.string,
+  appearance: PropTypes.oneOf(Object.values(ICON_BUTTON_APPEARANCE)),
+  color: PropTypes.oneOf(Object.values(componentColors)),
   iconCssClass: PropTypes.string,
   id: PropTypes.string,
   isDisabled: PropTypes.bool,
