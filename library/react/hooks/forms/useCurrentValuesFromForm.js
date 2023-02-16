@@ -24,6 +24,7 @@ export default function useCurrentValuesFromForm({
   value,
 }) {
   if (!id) {
+    // eslint-disable-next-line no-console
     console.error('useCurrentValuesFromForm: `id` is required');
   }
   const {
