@@ -239,11 +239,13 @@ function IconButtonDocumentation() {
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
               title="Settings"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
               title="Settings"
               isDisabled
@@ -261,7 +263,7 @@ function IconButtonDocumentation() {
       <StaticExample
         title="Hovered"
         renderedExample={(
-          <p>Here is an example</p>
+          <div>Hover over the examples above.</div>
         )}
         quickTips={(
           <ul>
