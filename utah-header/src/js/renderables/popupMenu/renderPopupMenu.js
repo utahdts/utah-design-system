@@ -117,6 +117,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
         }
       }
     });
+    menuDivider.remove();
   } else if (popupMenuItem.actionFunction) {
     // === on click custom action, so hookup onclick === //
     menuButton.onclick = popupMenuItem.actionFunction;
