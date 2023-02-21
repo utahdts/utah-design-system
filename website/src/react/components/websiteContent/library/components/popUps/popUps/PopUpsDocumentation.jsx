@@ -1,4 +1,5 @@
 import {
+  Popup,
   Tab,
   TabGroup,
   Table, TableBody, TableCell,
@@ -8,23 +9,27 @@ import {
   TableWrapper,
   TabList,
   TabPanel,
-  TabPanels,
+  TabPanels
 } from '@utahdts/utah-design-system';
+import { useRef, useState } from 'react';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import PopUpsExampleCodeReact from './PopUpsExampleCodeReact';
-import PopUpsExampleProps from './PopUpsExampleProps';
-import PopUpsExampleRender from './PopUpsExampleRender';
+import PopUpsExampleCodeReact from './PopupsExampleCodeReact';
+import PopUpsExampleProps from './PopupsExampleProps';
+import PopUpsExampleRender from './PopupsExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
 function PopUpsDocumentation() {
+  const buttonRef = useRef();
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Pop Ups</h1>
-      <p className="lead-in">
+      <div className="lead-in">
         <p>
           Popups are *non-modal boxes that are triggered by some input from the end user (e.g. clicking a target, or key presses).
           When the popup is triggered, new content is displayed near the triggering element. The popup is elevated above the main content of the page.
@@ -35,7 +40,7 @@ function PopUpsDocumentation() {
             or message. View more information on <a href="www.someLink.com" target="_blank">modals</a>
           </em>
         </p>
-      </p>
+      </div>
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
@@ -46,7 +51,24 @@ function PopUpsDocumentation() {
       <StaticExample
         title="Basic Popup"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <button
+              onClick={() => setIsPopupVisible((oldIsVisible) => !oldIsVisible)}
+              onMouseEnter={() => setIsPopupVisible(true)}
+              onMouseLeave={() => setIsPopupVisible(false)}
+              ref={buttonRef}
+              type="button"
+            >
+              Toggle Popup
+            </button>
+            <Popup
+              isVisible={isPopupVisible}
+              onVisibleChange={(_e, isVisible) => setIsPopupVisible(isVisible)}
+              referenceElement={buttonRef}
+            >
+              <div>I am content in a Popup</div>
+            </Popup>
+          </>
         )}
         quickTips={(
           <ul>

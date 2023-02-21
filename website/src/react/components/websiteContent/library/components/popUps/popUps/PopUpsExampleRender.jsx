@@ -1,10 +1,12 @@
-import PropTypes from 'prop-types';
 import { RefShape } from '@utahdts/utah-design-system';
-import PopUpsPropsShape from '../../../../../../propTypesShapes/PopUpsPropsShape';
+import Popup from '@utahdts/utah-design-system/react/components/popups/Popup';
+import PropTypes from 'prop-types';
+import { useRef, useState } from 'react';
+import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
 
 const propTypes = {
   state: PropTypes.shape({
-    props: PopUpsPropsShape.isRequired,
+    props: PopupsPropsShape.isRequired,
   }).isRequired,
   innerRef: RefShape,
 };
@@ -20,13 +22,29 @@ function PopUpsExampleRender({
   },
   innerRef,
 }) {
+  const buttonRef = useRef();
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   return (
-    <p
-      id={id}
-      ref={innerRef}
-    >
-      Component goes here!
-    </p>
+    <>
+      <button
+        onClick={() => setIsPopupVisible((oldIsVisible) => !oldIsVisible)}
+        onMouseEnter={() => setIsPopupVisible(true)}
+        onMouseLeave={() => setIsPopupVisible(false)}
+        ref={buttonRef}
+        type="button"
+      >
+        Toggle Popup
+      </button>
+      <Popup
+        id={id}
+        innerRef={innerRef}
+        isVisible={isPopupVisible}
+        onVisibleChange={(_e, isVisible) => setIsPopupVisible(isVisible)}
+        referenceElement={buttonRef}
+      >
+        <div>I am content in a Popup</div>
+      </Popup>
+    </>
   );
 }
 

@@ -1,0 +1,88 @@
+// Drop Shadow Color
+$dsc: rgb(0,0,0);
+
+.popper-popup {
+	&__content {
+		z-index: 100;
+		margin: 0;
+		
+		transition: opacity 100ms ease-in-out;
+
+		&--visible {
+			opacity: 1;
+			.popper-popup__inner {
+				transform: scale(1);
+			}
+		}
+		&--hidden {
+			opacity: 0;
+			pointer-events: none;
+			.popper-popup__inner {
+				transform: scale(.7);
+			}
+		}
+	}
+	&__inner {
+		transition: transform 100ms ease-in-out;
+		background: white;
+		border-radius: 5px;
+		box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
+	}
+	&__arrow {
+		visibility: hidden;
+		
+		&, &:before {
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			background: inherit;
+			z-index: -1;
+		}
+
+		&:before {
+			visibility: visible;
+			content: '';
+			transform: rotate(45deg);
+		}
+	}
+
+	&__content[data-popper-placement^='top'] {
+		box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
+		.popper-popup__inner {
+			transform-origin: bottom;
+		}
+		& .popper-popup__arrow {
+			bottom: -4px;
+		}
+	}
+	
+	&__content[data-popper-placement^='bottom'] {
+		box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 -15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);	
+		.popper-popup__inner {
+			transform-origin: top;
+		}
+		& .popper-popup__arrow {
+			top: -4px;
+		}
+	}
+	
+	&__content[data-popper-placement^='left'] {
+		box-shadow: 0 3px 5px -1px rgba($dsc,.2), 15px 0 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);	
+		.popper-popup__inner {
+			transform-origin: right;
+		}
+		& .popper-popup__arrow {
+			right: -4px;
+		}
+	}
+	
+	&__content[data-popper-placement^='right'] {
+		box-shadow: 0 3px 5px -1px rgba($dsc,.2), -15px 0 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);	
+		.popper-popup__inner {
+			transform-origin: left;
+		}
+		& .popper-popup__arrow {
+			left: -4px;
+		}
+	}
+}

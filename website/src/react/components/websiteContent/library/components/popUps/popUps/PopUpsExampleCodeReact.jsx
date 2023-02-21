@@ -1,6 +1,6 @@
 import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
-import PopUpsPropsShape from '../../../../../../propTypesShapes/PopUpsPropsShape';
+import PopUpsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
 
 const propTypes = {
   state: PropTypes.shape({

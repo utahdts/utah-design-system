@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Form } from '@utahdts/utah-design-system';
-import PopUpsPropsShape from '../../../../../../propTypesShapes/PopUpsPropsShape';
+import PopUpsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,

@@ -1,4 +1,9 @@
+// @ts-check
 import PropTypes from 'prop-types';
+
+/**
+ * @typedef {{current: Element}} RefCurrent
+ */
 
 /**
  * @typedef {((args: any[]) => any) | {current: Element}} Ref

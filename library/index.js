@@ -15,6 +15,7 @@ export { default as CheckBox } from './react/components/forms/CheckBox';
 export { default as Form } from './react/components/forms/Form';
 export { default as FormContext } from './react/components/forms/FormContext';
 export { default as FormContextProvider } from './react/components/forms/FormContextProvider';
+export { default as Popup } from './react/components/popups/Popup';
 export { default as Select } from './react/components/forms/Select';
 export { default as SelectOption } from './react/components/forms/SelectOption';
 export { default as Switch } from './react/components/forms/Switch';

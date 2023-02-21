@@ -20,7 +20,7 @@ let utahIdButton = null;
 /** @type UtahIdData | null */
 let utahIdData = null;
 /** @type HTMLElement | null */
-let utahIdPopUpMenu = null;
+let utahIdPopupMenu = null;
 
 /**
  * @param {UtahIdData} newUtahIdData
@@ -43,13 +43,13 @@ export function authChangedEventHandler(newUtahIdData) {
 }
 
 function doAriaForUtahId() {
-  if (utahIdButton && utahIdPopUpMenu) {
+  if (utahIdButton && utahIdPopupMenu) {
     // Is user signed in?
     const userSignedIn = !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated;
 
     // Add aria-haspopup, aria-controls, and aria-expanded to the button to tie in the menu
     // Hide the menu from aria when the user is not signed in
-    const menu = utahIdPopUpMenu.querySelector(getCssClassSelector(domConstants.POPUP_MENU));
+    const menu = utahIdPopupMenu.querySelector(getCssClassSelector(domConstants.POPUP_MENU));
     if (!menu) {
       throw new Error('UtahId: Utah ID menu not found');
     }
@@ -61,12 +61,12 @@ function doAriaForUtahId() {
       utahIdButton.setAttribute('aria-haspopup', 'menu');
       utahIdButton.setAttribute('aria-controls', menuId);
       utahIdButton.setAttribute('aria-expanded', 'false');
-      utahIdPopUpMenu.removeAttribute('aria-hidden');
+      utahIdPopupMenu.removeAttribute('aria-hidden');
     } else {
       utahIdButton.removeAttribute('aria-haspopup');
       utahIdButton.removeAttribute('aria-controls');
       utahIdButton.removeAttribute('aria-expanded');
-      utahIdPopUpMenu.setAttribute('aria-hidden', 'true');
+      utahIdPopupMenu.setAttribute('aria-hidden', 'true');
     }
   }
 }
@@ -108,14 +108,14 @@ export default function UtahId() {
   };
 
   // create popup content DOM
-  utahIdPopUpMenu = renderPopupMenu(popUpMenu);
+  utahIdPopupMenu = renderPopupMenu(popUpMenu);
 
   // create UtahID wrapper w/ button DOM
   const utahIdWrapper = renderDOMSingle(UtahIdHtml);
   if (!utahIdWrapper) {
     throw new Error('UtahId: utahIdWrapper not found');
   }
-  utahIdWrapper.appendChild(utahIdPopUpMenu);
+  utahIdWrapper.appendChild(utahIdPopupMenu);
 
   utahIdButton = /** @type HTMLElement */ (utahIdWrapper.querySelector(getCssClassSelector(domConstants.UTAH_ID__BUTTON)));
   if (!utahIdButton) {
@@ -127,7 +127,7 @@ export default function UtahId() {
   popupFocusHandler(
     utahIdWrapper,
     utahIdButton,
-    utahIdPopUpMenu,
+    utahIdPopupMenu,
     {
       isPerformPopup: () => !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated,
       onClick: (e) => {
