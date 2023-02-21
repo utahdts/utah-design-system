@@ -53,6 +53,26 @@ const defaultProps = {
   size: formElementSizesEnum.MEDIUM,
 };
 
+/**
+ * @typedef {import('../../propTypesShapes/RefShape').Ref} Ref
+ * @typedef IconButtonProps {
+ *   @property {'solid', 'outlined' | 'borderless' | undefined} [appearance]
+ *   @property {string | null | undefined} [className]
+ *   @property {'primary' | 'secondary' | 'accent' | 'none' | undefined} [color]
+ *   @property {Element} icon
+ *   @property {string | null | undefined} [id]
+ *   @property {Ref | null | undefined} [innerRef]
+ *   @property {boolean} [isDisabled]
+ *   @property {(e: Event) => void | null | undefined} [onClick]
+ *   @property {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} size
+ *   @property {string} title
+ * }
+ */
+
+/**
+ * @param {IconButtonProps} props
+ * @returns {JSX.Element}
+ */
 function IconButton({
   appearance,
   className,
