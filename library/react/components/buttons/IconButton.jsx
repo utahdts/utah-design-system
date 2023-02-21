@@ -64,7 +64,7 @@ const defaultProps = {
  *   @property {Ref | null | undefined} [innerRef]
  *   @property {boolean} [isDisabled]
  *   @property {(e: Event) => void | null | undefined} [onClick]
- *   @property {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} size
+ *   @property {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [size]
  *   @property {string} title
  * }
  */

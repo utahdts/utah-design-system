@@ -588,16 +588,6 @@ function ButtonDocumentation() {
                       </TableRow>
 
                       <TableRow>
-                        <TableCell><code className="primary-color">innerRef</code></TableCell>
-                        <TableCell><code>MutableRefObject</code></TableCell>
-                        <TableCell>null</TableCell>
-                        <TableCell>
-                          This ref will be attached to the rendered &lt;button&gt; element allowing the parent component to interact
-                          directly with the actual <span className="font-semi-bold">button</span> DOM element.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
                         <TableCell><code className="primary-color">iconLeft</code></TableCell>
                         <TableCell><code>node</code></TableCell>
                         <TableCell>null</TableCell>
@@ -627,6 +617,16 @@ function ButtonDocumentation() {
                         <TableCell>null</TableCell>
                         <TableCell>
                           An id to put on the &lt;button&gt; element.
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell><code className="primary-color">innerRef</code></TableCell>
+                        <TableCell><code>MutableRefObject</code></TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>
+                          This ref will be attached to the rendered &lt;button&gt; element allowing the parent component to interact
+                          directly with the actual <span className="font-semi-bold">button</span> DOM element.
                         </TableCell>
                       </TableRow>
 
