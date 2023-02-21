@@ -10,7 +10,7 @@ import IconButtonDocumentation from '../websiteContent/library/components/button
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
-import PopupsDocumentation from '../websiteContent/library/components/popUps/popUps/PopupsDocumentation';
+import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
