@@ -21,6 +21,7 @@ import IconButtonExampleCodeReact from './IconButtonExampleCodeReact';
 import IconButtonExampleProps from './IconButtonExampleProps';
 import IconButtonExampleRender from './IconButtonExampleRender';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import ButtonCssClassesDocumentation from '../button/ButtonCssClassesDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -83,7 +84,7 @@ function IconButtonDocumentation() {
         )}
       />
       <StaticExample
-        title="Unemphasized Icon Buttons (outlined boundary)"
+        title="Unemphasized Icon Buttons (outlined boundary)*"
         renderedExample={(
           <>
             <IconButton
@@ -121,6 +122,7 @@ function IconButtonDocumentation() {
               </ul>
             </li>
             <li>Solid outline. Icon matches the button color</li>
+            <li>* - This is the default appearance of an icon button.</li>
           </ul>
         )}
       />
@@ -275,7 +277,28 @@ function IconButtonDocumentation() {
       <StaticExample
         title="Pressed"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.SOLID}
+              className="button--active"
+              color={componentColors.PRIMARY}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
+              className="button--active"
+              icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              className="button--active"
+              color={componentColors.SECONDARY}
+              icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
+              title="Settings"
+            />
+          </>
         )}
         quickTips={(
           <ul>
@@ -353,22 +376,30 @@ function IconButtonDocumentation() {
           </TabList>
           <TabPanels>
             <TabPanel tabId="segmented-button-props-css">
+              <h3>Icon Button Specific CSS Classes</h3>
               <TableWrapper>
                 <Table className="table--lines-x">
                   <TableHead>
                     <TableHeadRow>
-                      <TableHeadCell className="text-left css-classes">Css Classes</TableHeadCell>
-                      <TableHeadCell className="text-left">Description</TableHeadCell>
+                      <TableHeadCell className="text-left css-classes">CSS Classes</TableHeadCell>
+                      <TableHeadCell className="text-left ">Description</TableHeadCell>
                     </TableHeadRow>
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code>.class</code></TableCell>
-                      <TableCell>Class description.</TableCell>
+                      <TableCell><code>.icon-button</code></TableCell>
+                      <TableCell>The base css class for an icon button. You must include both <code>button</code> and <code>icon-button</code> classes for it to render properly.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.icon-button--borderless</code></TableCell>
+                      <TableCell>Render an icon button without a visible button boundary.</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
               </TableWrapper>
+
+              <h3 className="mt-spacing-l">CSS Classes shared with Button</h3>
+              <ButtonCssClassesDocumentation />
             </TabPanel>
             <TabPanel tabId="segmented-button-props-react">
               <TableWrapper>
