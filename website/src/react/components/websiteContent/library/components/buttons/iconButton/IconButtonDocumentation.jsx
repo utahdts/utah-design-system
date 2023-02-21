@@ -424,10 +424,10 @@ function IconButtonDocumentation() {
                           <code>&apos;borderless&apos;</code>
                         </div>
                       </TableCell>
-                      <TableCell>&apos;outlined&apos;</TableCell>
+                      <TableCell><code>&apos;outlined&apos;</code></TableCell>
                       <TableCell>
                         Determines how the button will be formatted. Solid buttons have a solid fill color and denote emphasis
-                        to the user. Outlined buttons have an outline but no fill causing them to be less emphasized. Borderless have no outline nor filling.
+                        to the user. Outlined buttons have an outline but no fill causing them to be less emphasized. Borderless have no button boundary.
                       </TableCell>
                     </TableRow>
 
@@ -453,7 +453,7 @@ function IconButtonDocumentation() {
                           <code>&apos;none&apos;</code>
                         </div>
                       </TableCell>
-                      <TableCell>&apos;none&apos;</TableCell>
+                      <TableCell><code>&apos;none&apos;</code></TableCell>
                       <TableCell>
                         Determines the color from the theme that will be used while rendering the button. Depending on the
                         <span className="font-semi-bold"> appearance</span> of the button, this can effect the border and/or fill color of the button.
@@ -462,8 +462,8 @@ function IconButtonDocumentation() {
 
                     <TableRow>
                       <TableCell><code className="primary-color">icon</code></TableCell>
-                      <TableCell><code>Element</code></TableCell>
-                      <TableCell>required</TableCell>
+                      <TableCell><code>react node</code></TableCell>
+                      <TableCell><em>required</em></TableCell>
                       <TableCell>
                         This is the icon that will be displayed. There are a myriad of css-class icons available. See the example sandbox at the top of the&nbsp;
                         page to see options and an example of usage.
@@ -504,7 +504,7 @@ function IconButtonDocumentation() {
                           <code>false</code>
                         </div>
                       </TableCell>
-                      <TableCell>false</TableCell>
+                      <TableCell><code>false</code></TableCell>
                       <TableCell>
                         When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
                         and its appearance will change to be more subdued
@@ -538,7 +538,7 @@ function IconButtonDocumentation() {
                           <code>&apos;large1x&apos;</code>
                         </div>
                       </TableCell>
-                      <TableCell>&apos;medium&apos;</TableCell>
+                      <TableCell><code>&apos;medium&apos;</code></TableCell>
                       <TableCell>
                         Determines how much space the button will consume on the page.
                       </TableCell>
@@ -551,7 +551,7 @@ function IconButtonDocumentation() {
                           <code>string</code>
                         </div>
                       </TableCell>
-                      <TableCell>&apos;required&apos;</TableCell>
+                      <TableCell><em>required</em></TableCell>
                       <TableCell>
                         A title is required for accessability and is used for the pop over tooltip.
                       </TableCell>

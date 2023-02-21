@@ -86,8 +86,7 @@ function Button({
       className={joinClassNames(
         'button',
         className,
-        // default appearance is outlined
-        (appearance && appearance !== BUTTON_APPEARANCE.OUTLINED) ? `button--${appearance}` : null,
+        `button--${appearance}`,
         // default color is none
         (color && color !== 'none') ? `button--${color}-color` : null,
         // default size is medium

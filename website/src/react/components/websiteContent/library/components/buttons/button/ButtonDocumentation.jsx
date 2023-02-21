@@ -486,7 +486,7 @@ function ButtonDocumentation() {
                             <code>&apos;outlined&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;outlined&apos;</TableCell>
+                        <TableCell><code>&apos;outlined&apos;</code></TableCell>
                         <TableCell>
                           Determines how the button will be formatted. Solid buttons have a solid fill color and denote emphasis
                           to the user. Outlined buttons have an outline but no fill causing them to be less emphasized.
@@ -495,8 +495,8 @@ function ButtonDocumentation() {
 
                       <TableRow>
                         <TableCell><code className="primary-color">children</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
-                        <TableCell>(required)</TableCell>
+                        <TableCell><code>react node</code></TableCell>
+                        <TableCell><em>required</em></TableCell>
                         <TableCell>
                           Most often, children is the title of button. But, you can have it be any element to be rendered inside the button.
                         </TableCell>
@@ -524,7 +524,7 @@ function ButtonDocumentation() {
                             <code>&apos;none&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;none&apos;</TableCell>
+                        <TableCell><code>&apos;none&apos;</code></TableCell>
                         <TableCell>
                           Determines the color from the theme that will be used while rendering the button. Depending on the
                           <span className="font-semi-bold"> appearance</span> of the button, this can effect the border and/or fill color of the button.
@@ -532,20 +532,30 @@ function ButtonDocumentation() {
                       </TableRow>
 
                       <TableRow>
-                        <TableCell><code className="primary-color">iconLeft</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
+                        <TableCell><code className="primary-color">innerRef</code></TableCell>
+                        <TableCell><code>MutableRefObject</code></TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the left of the button title, but any <span className="font-semi-bold">node</span> is allowed.
+                          This ref will be attached to the rendered &lt;button&gt; element allowing the parent component to interact
+                          directly with the actual <span className="font-semi-bold">button</span> DOM element.
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell><code className="primary-color">iconLeft</code></TableCell>
+                        <TableCell><code>react node</code></TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>
+                          Intended to be an &lt;svg&gt; image to be placed to the left of the button title, but any <span className="font-semi-bold">react node</span> is allowed.
                         </TableCell>
                       </TableRow>
 
                       <TableRow>
                         <TableCell><code className="primary-color">iconRight</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
+                        <TableCell><code>react node</code></TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the right of the button title, but any <span className="font-semi-bold">node</span> is allowed.
+                          Intended to be an &lt;svg&gt; image to be placed to the right of the button title, but any <span className="font-semi-bold">react node</span> is allowed.
                         </TableCell>
                       </TableRow>
 
@@ -565,16 +575,6 @@ function ButtonDocumentation() {
                       </TableRow>
 
                       <TableRow>
-                        <TableCell><code className="primary-color">innerRef</code></TableCell>
-                        <TableCell><code>MutableRefObject</code></TableCell>
-                        <TableCell>null</TableCell>
-                        <TableCell>
-                          This ref will be attached to the rendered &lt;button&gt; element allowing the parent component to interact
-                          directly with the actual <span className="font-semi-bold">button</span> DOM element.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
                         <TableCell><code className="primary-color">isBusy</code></TableCell>
                         <TableCell>
                           <div className="props-code-wrapper">
@@ -583,7 +583,7 @@ function ButtonDocumentation() {
                             <code>false</code>
                           </div>
                         </TableCell>
-                        <TableCell>false</TableCell>
+                        <TableCell><code>false</code></TableCell>
                         <TableCell>
                           When <span className="font-semi-bold">isBusy</span> is true, a spinner will be shown in the button.
                           This is useful for showing the user that an action
@@ -600,7 +600,7 @@ function ButtonDocumentation() {
                             <code>false</code>
                           </div>
                         </TableCell>
-                        <TableCell>false</TableCell>
+                        <TableCell><code>false</code></TableCell>
                         <TableCell>
                           When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
                           and its appearance will change to be more subdued
@@ -611,7 +611,7 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">onClick</code></TableCell>
                         <TableCell><code>function</code></TableCell>
-                        <TableCell>required</TableCell>
+                        <TableCell><em>required</em></TableCell>
                         <TableCell>
                           The function to call when the button is pressed.
                         </TableCell>
@@ -632,7 +632,7 @@ function ButtonDocumentation() {
                             <code>&apos;large1x&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;medium&apos;</TableCell>
+                        <TableCell><code>&apos;medium&apos;</code></TableCell>
                         <TableCell>
                           Determines how much space the button will consume on the page.
                         </TableCell>
@@ -649,7 +649,7 @@ function ButtonDocumentation() {
                             <code>&apos;submit&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;button&apos;</TableCell>
+                        <TableCell><code>&apos;button&apos;</code></TableCell>
                         <TableCell>
                           The HTML <span className="font-semi-bold">type</span> attribute value to put on the &lt;button&gt; element.
                         </TableCell>

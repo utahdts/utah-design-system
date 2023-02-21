@@ -91,10 +91,7 @@ function IconButton({
       className={joinClassNames(
         'button icon-button',
         className,
-        // default appearance is outlined
-        // (appearance && appearance !== ICON_BUTTON_APPEARANCE.OUTLINED) ? `button--${appearance}` : null,
-        (appearance && appearance === ICON_BUTTON_APPEARANCE.SOLID) ? `button--${appearance}` : null,
-        (appearance && appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? `icon-button--${appearance}` : null,
+        `${(appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? 'icon-button--' : 'button--'}${appearance}`,
         // default color is none
         (color && color !== 'none') ? `button--${color}-color` : null,
         // default size is medium
