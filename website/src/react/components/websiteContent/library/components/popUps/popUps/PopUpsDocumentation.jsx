@@ -200,11 +200,28 @@ function PopUpsDocumentation() {
       <h4>Aria Examples</h4>
       <h5>Menu</h5>
       <code>
-        &lt;Button <br />
-        aria-haspopup=&quot;menu&quot;
-        <br />&gt;
+        &lt;<strong>button</strong>&nbsp;aria-haspopup=&quot;menu&quot;&nbsp;aria-controls=&quot;<em>some-unique-id</em>&quot;
+        &nbsp;aria-expanded=&quot;false&quot;&gt;
+        <br />&nbsp;Show Menu<br />&lt;/<strong>button</strong>&gt;
+      </code> <br />
+      <code>
+        &lt;<strong>div</strong> id=&quot;<em>some-unique-id</em>&quot;&gt;<br />
+        &nbsp; &lt;<strong>ul</strong>  role=&quot;navigation&quot;  aria-label=&quot;popup-name&quot;&gt;&nbsp;...
+        &lt;/<strong>ul</strong>&gt;<br />
+        &lt;/<strong>div</strong>&gt;
       </code>
-
+      <h5>Popup</h5>
+      <code>
+        &lt;<strong>button</strong>&nbsp;id=&quot;<em>some-unique-id</em>&quot;&nbsp;aria-haspopup=&quot;true&quot;
+        &nbsp;aria-controls=&quot;menu&quot;&gt;<br />
+        &nbsp;View Popup<br />&lt;/<strong>button</strong>&gt;<br />
+        &lt;<strong>ul</strong>&nbsp;aria-labelledby=&quot;<em>some-unique-id</em>&quot;
+        &nbsp;id=&quot;<em>some-unique-menu-id</em>&quot;&nbsp;role=&quot;menu&quot;&gt;&nbsp;<br />&nbsp;
+        &lt;<strong>li</strong>&nbsp;role=&quot;presentation&quot;&gt;<br />
+        &nbsp;&nbsp;&nbsp;&lt;<strong>a</strong>&nbsp;role=&quot;menuitem&quot;&gt;...&lt;/<strong>a</strong>&gt;<br />
+        &nbsp;&nbsp;&lt;/<strong>li</strong>&gt;<br />
+        &lt;/<strong>ul</strong>&gt;
+      </code>
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
         <TabGroup defaultValue="segmented-button-props-css">
