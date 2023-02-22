@@ -1,6 +1,7 @@
-import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import PopUpsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
+import ExampleCodeReactCode from '../../../../../sandbox/ExampleCodeReactCode';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -8,33 +9,6 @@ const propTypes = {
   }).isRequired,
 };
 const defaultProps = {};
-
-function renderCode(code, isRenderable) {
-  return (
-    isRenderable
-      ? (
-        <>
-          <span>
-            {code}
-          </span>
-          <br />
-        </>
-      )
-      : undefined
-  );
-}
-
-function renderExampleProps(displayProps, keyBase) {
-  return displayProps.map((displayProp, displayPropIndex) => ([
-    // eslint-disable-next-line react/no-array-index-key
-    displayPropIndex !== 0 ? <br key={`${keyBase}}-br-${displayPropIndex}`} /> : undefined,
-    // eslint-disable-next-line react/no-array-index-key
-    <span key={`${keyBase}-line-${displayPropIndex}`}>
-      &nbsp;&nbsp;
-      {displayProp}
-    </span>,
-  ]));
-}
 
 function PopUpsExampleCode({
   state: {
@@ -45,30 +19,15 @@ function PopUpsExampleCode({
     },
   },
 }) {
-  const displayedPropsButton = [
-    popupType === 'onClick' ? 'onClick={onClickEvent}' : undefined,
-    popupType === 'onHover' ? 'onMouseEnter={onMouseEnter}' : undefined,
-    popupType === 'onHover' ? 'onMouseLeave={onMouseLeave}' : undefined,
-    'ref={buttonRef}',
-    'type="button"',
-  ].filter(identity);
-
-  const displayedPropsPopup = [
-    'isVisible={isVisible}',
-    'onVisibleChange={useCallback((_e, newIsVisible) => setIsVisible(newIsVisible))}',
-    `placement="${placement}"`,
-    'referenceElement={buttonRef}',
-  ].filter(identity);
-
   return (
     <>
       <span className="example-code-react__comment">&#47;&#47; -- Before Render --</span>
       <br />
       const [isVisible, setIsVisible] = useState(false);
       <br />
-      {renderCode('const onClickEvent = () => setVisible((oldVisible) => !oldVisible);', popupType === 'onClick')}
-      {renderCode('const onMouseEnter = () => setVisible(true);', popupType === 'onHover')}
-      {renderCode('const onMouseLeave = () => setVisible(false);', popupType === 'onHover')}
+      <ExampleCodeReactCode isRenderable={popupType === 'onClick'} code="const onClickEvent = () => setVisible((oldVisible) => !oldVisible);" />
+      <ExampleCodeReactCode isRenderable={popupType === 'onHover'} code="const onMouseEnter = () => setVisible(true);" />
+      <ExampleCodeReactCode isRenderable={popupType === 'onHover'} code="const onMouseEnter = () => setVisible(false);" />
       const buttonRef = useRef();
       <br />
 
@@ -77,11 +36,13 @@ function PopUpsExampleCode({
       <br />
       <span className="example-code-react__comment">&#47;&#47; Button controlling popup</span>
       <br />
-      &lt;
-      {`button${displayedPropsButton.length ? ' ' : ''}`}
+      &lt;button
       <br />
-      {renderExampleProps(displayedPropsButton, 'button-props')}
-      <br />
+      <ExampleCodeReactProp displayProp={popupType === 'onClick' ? 'onClick={onClickEvent}' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={popupType === 'onHover' ? 'onMouseEnter={onMouseEnter}' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={popupType === 'onHover' ? 'onMouseLeave={onMouseLeave}' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp="ref={buttonRef}" indentLevel={1} />
+      <ExampleCodeReactProp displayProp="type=&quot;button&quot;" indentLevel={1} />
       &gt;
       <br />
       &nbsp;&nbsp;Toggle Popup
@@ -90,15 +51,15 @@ function PopUpsExampleCode({
 
       <br />
       <br />
-      <span className="example-code-react__comment">&#47;&#47; Popup tied to button controller</span>
+      <span className="example-code-react__comment">&#47;&#47; Popup controlled by button</span>
       <br />
-      &lt;
-      {`Popup${displayedPropsPopup.length ? ' ' : ''}`}
+      &lt;Popup
       <br />
-      {renderExampleProps(displayedPropsPopup, 'popup-props')}
-      &gt;
-      <br />
-      &lt;&#47;Popup&gt;
+      <ExampleCodeReactProp displayProp="isVisible={isVisible}" indentLevel={1} />
+      <ExampleCodeReactProp displayProp="onVisibleChange={useCallback((_e, newIsVisible) => setIsVisible(newIsVisible))}" indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`placement="${placement}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp="referenceElement={buttonRef}" indentLevel={1} />
+      /&gt;
     </>
   );
 }
