@@ -15,12 +15,15 @@ function useClickOutside(ref, handler, isDisabled = false) {
       let startedWhenMounted = false;
 
       const listener = (event) => {
-        // Do nothing if `mousedown` or `touchstart` started inside ref element
-        if (startedInside || !startedWhenMounted) return;
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target)) return;
+        if (
+          // Do nothing if `mousedown` or `touchstart` started inside ref element
+          (!startedInside && startedWhenMounted)
 
-        handler(event);
+          // Do nothing if clicking ref's element or descendent elements
+          && (ref.current && !ref.current.contains(event.target))
+        ) {
+          handler(event);
+        }
       };
 
       const validateEventStart = (event) => {

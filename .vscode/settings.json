@@ -4,6 +4,7 @@
     "borderless",
     "immer",
     "popperjs",
+    "Renderable",
     "renderables",
     "tinycolor",
     "unclickable",

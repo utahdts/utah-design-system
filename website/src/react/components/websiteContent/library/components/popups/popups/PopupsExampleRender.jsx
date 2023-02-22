@@ -1,10 +1,11 @@
 import { RefShape } from '@utahdts/utah-design-system';
 import Popup from '@utahdts/utah-design-system/react/components/popups/Popup';
 import PropTypes from 'prop-types';
-import { useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
 
 const propTypes = {
+  setState: PropTypes.func.isRequired,
   state: PropTypes.shape({
     props: PopupsPropsShape.isRequired,
   }).isRequired,
@@ -15,31 +16,42 @@ const defaultProps = {
 };
 
 function PopUpsExampleRender({
+  setState,
   state: {
     props: {
-      id,
+      isVisible,
+      placement,
+      popupType,
     },
   },
   innerRef,
 }) {
   const buttonRef = useRef();
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  // eslint-disable-next-line no-param-reassign
+  const onClickEvent = useCallback(() => setState((oldState) => { oldState.props.isVisible = !oldState.props.isVisible; }));
+  // eslint-disable-next-line no-param-reassign
+  const onMouseEnter = useCallback(() => setState((oldState) => { oldState.props.isVisible = true; }));
+  // eslint-disable-next-line no-param-reassign
+  const onMouseLeave = useCallback(() => setState((oldState) => { oldState.props.isVisible = false; }));
+
   return (
     <>
       <button
-        onClick={() => setIsPopupVisible((oldIsVisible) => !oldIsVisible)}
-        onMouseEnter={() => setIsPopupVisible(true)}
-        onMouseLeave={() => setIsPopupVisible(false)}
+        onClick={popupType === 'onClick' ? onClickEvent : undefined}
+        onMouseEnter={popupType === 'onHover' ? onMouseEnter : undefined}
+        onMouseLeave={popupType === 'onHover' ? onMouseLeave : undefined}
         ref={buttonRef}
         type="button"
       >
         Toggle Popup
       </button>
       <Popup
-        id={id}
         innerRef={innerRef}
-        isVisible={isPopupVisible}
-        onVisibleChange={(_e, isVisible) => setIsPopupVisible(isVisible)}
+        isVisible={!!isVisible}
+        // eslint-disable-next-line no-param-reassign
+        onVisibleChange={useCallback((_e, newIsVisible) => setState((oldState) => { oldState.props.isVisible = newIsVisible; }))}
+        placement={placement}
         referenceElement={buttonRef}
       >
         <div>I am content in a Popup</div>

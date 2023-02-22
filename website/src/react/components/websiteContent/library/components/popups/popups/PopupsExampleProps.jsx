@@ -1,6 +1,13 @@
+import {
+  Form,
+  Select,
+  SelectOption,
+  Switch
+} from '@utahdts/utah-design-system';
+import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
+import startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { Form } from '@utahdts/utah-design-system';
 import PopUpsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
 
 const propTypes = {
@@ -14,7 +21,11 @@ const defaultProps = {};
 function PopUpsExampleProps({ setState, state }) {
   useEffect(
     () => {
-      setState(() => { });
+      setState((draftState) => {
+        draftState.props.isVisible = false;
+        draftState.props.placement = popperPlacement.BOTTOM;
+        draftState.props.popupType = 'onClick';
+      });
     },
     []
   );
@@ -25,7 +36,21 @@ function PopUpsExampleProps({ setState, state }) {
       setState={setState}
       className="form--stacked"
     >
-      Form goes here.
+      <Select id="props.placement" label="Placement" className="input--height-small1x">
+        {
+          Object.entries(popperPlacement)
+            .map(([placementKey, placementValue]) => (
+              <SelectOption key={`popups__interactive-prop__${placementKey}`} label={startCase(placementValue)} value={placementValue} />
+            ))
+        }
+      </Select>
+
+      <Select id="props.popupType" label="Event Type" className="input--height-small1x">
+        <SelectOption key="popups__interactive-prop__onClick" label="onClick" value="onClick" />
+        <SelectOption key="popups__interactive-prop__onHover" label="onHover" value="onHover" />
+      </Select>
+
+      <Switch id="props.isVisible" label="Visible" width={20} />
     </Form>
   );
 }

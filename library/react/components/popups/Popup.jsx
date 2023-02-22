@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import popperPlacement from '../../enums/popperPlacement';
 import useClickOutside from '../../hooks/useClickOutside';
@@ -84,7 +84,12 @@ function Popup({
     [isVisible]
   );
 
-  useClickOutside(popperRef, (e) => onVisibleChange(e, false));
+  const onVisibleChangeCallback = useCallback((e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    onVisibleChange(e, false);
+  });
+  useClickOutside(popperRef, onVisibleChangeCallback, !isVisible);
 
   return (
     <div
