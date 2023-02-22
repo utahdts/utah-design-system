@@ -1,7 +1,7 @@
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import IconButtonExamplePropsShape from '../../../../../../propTypesShapes/IconButtonExamplePropsShape';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -23,23 +23,19 @@ function IconButtonExampleCode({
     },
   },
 }) {
-  const displayedProps = [
-    appearance ? `appearance="${appearance}"` : null,
-    color ? `color="${color}"` : null,
-    `icon={<span className={\`utds-icon-before-${iconCssClass}\`} aria-hidden="true" />}`,
-    isDisabled ? 'disabled={true}' : null,
-    id ? `id="${id}"` : null,
-    'onClick={() => { /* ... do something ... */ }',
-    (!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`,
-    `title="${title}"`,
-  ].filter(identity);
-
   return (
     <>
-      &lt;
-      {`IconButton${displayedProps.length ? ' ' : ''}`}
-      {displayedProps.join(' ')}
-      &nbsp;/&gt;
+      &lt;IconButton
+      <br />
+      <ExampleCodeReactProp displayProp={appearance ? `appearance="${appearance}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={color ? `color="${color}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`icon={<span className={\`utds-icon-before-${iconCssClass}\`} aria-hidden="true" />}`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isDisabled ? 'disabled={true}' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'onClick={() => { /* ... do something ... */}'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`title="${title}"`} indentLevel={1} />
+      /&gt;
     </>
   );
 }

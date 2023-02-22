@@ -2,6 +2,7 @@ import { formElementSizesEnum } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import BadgesExamplePropsShape from '../../../../../../propTypesShapes/BadgesExamplePropsShape';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import SandboxIndent from '../../../../../sandbox/SandboxIndent';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -46,6 +47,7 @@ function BadgesExampleCode({
       <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`} indentLevel={1} />
       &gt;
       <br />
+      <SandboxIndent indentLevel={1} />
       {title}
       <br />
       &lt;/Badges&gt;
