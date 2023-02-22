@@ -5,6 +5,7 @@ import {
   Switch
 } from '@utahdts/utah-design-system';
 import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
+import setValueAtPath from '@utahdts/utah-design-system/react/util/state/setValueAtPath';
 import startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
@@ -32,9 +33,15 @@ function PopUpsExampleProps({ setState, state }) {
 
   return (
     <Form
-      state={state}
-      setState={setState}
       className="form--stacked"
+      onChange={({ e, id, value }) => {
+        e.stopPropagation();
+        e.preventDefault();
+        setState((draftState) => {
+          setValueAtPath({ object: draftState, path: id, value });
+        });
+      }}
+      state={state}
     >
       <Select id="props.placement" label="Placement" className="input--height-small1x">
         {

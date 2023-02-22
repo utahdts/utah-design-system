@@ -28,8 +28,12 @@ function PopUpsExampleRender({
 }) {
   const buttonRef = useRef();
 
-  // eslint-disable-next-line no-param-reassign
-  const onClickEvent = useCallback(() => setState((oldState) => { oldState.props.isVisible = !oldState.props.isVisible; }));
+  const onClickEvent = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // eslint-disable-next-line no-param-reassign
+    setState((oldState) => { oldState.props.isVisible = !oldState.props.isVisible; });
+  });
   // eslint-disable-next-line no-param-reassign
   const onMouseEnter = useCallback(() => setState((oldState) => { oldState.props.isVisible = true; }));
   // eslint-disable-next-line no-param-reassign
