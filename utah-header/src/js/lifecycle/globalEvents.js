@@ -16,7 +16,7 @@ export function unloadGlobalEvents() {
 }
 
 function hideAllMenus() {
-  const popups = document.querySelectorAll(getCssClassSelector(domConstants.POPUP_WRAPPER));
+  const popups = document.querySelectorAll(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.POPUP_WRAPPER]));
   Array.from(popups)
     .filter((popup) => !popup.classList.contains(domConstants.POPUP__HIDDEN))
     .forEach((popup) => {
@@ -49,7 +49,7 @@ export function loadGlobalEvents() {
         hideAllMenus();
         break;
       default:
-        // any other key is ignored
+      // any other key is ignored
     }
   };
   document.addEventListener('keyup', globalEventFuncs.globalOnKeypress);

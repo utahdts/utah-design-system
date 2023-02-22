@@ -52,6 +52,7 @@ export { default as LandingTemplate } from './react/components/templates/Landing
 export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { default as tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { default as useBanner } from './react/hooks/useBanner';
+export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useMountingTracker } from './react/hooks/useMountingTracker';
 export { default as MenuItemShape } from './react/propTypesShapes/MenuItemsShape';
 export { default as RefShape } from './react/propTypesShapes/RefShape';

@@ -5,7 +5,6 @@ import {
   Switch
 } from '@utahdts/utah-design-system';
 import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
-import setValueAtPath from '@utahdts/utah-design-system/react/util/state/setValueAtPath';
 import startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
@@ -35,13 +34,7 @@ function PopUpsExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
-      onChange={({ e, id, value }) => {
-        e.stopPropagation();
-        e.preventDefault();
-        setState((draftState) => {
-          setValueAtPath({ object: draftState, path: id, value });
-        });
-      }}
+      setState={setState}
       state={state}
     >
       <Select id="props.placement" label="Placement" className="input--height-small1x">
@@ -58,9 +51,7 @@ function PopUpsExampleProps({ setState, state }) {
         <SelectOption key="popups__interactive-prop__onHover" label="onHover" value="onHover" />
       </Select>
 
-      <Switch id="props.hasCloseButton" label="Close Button" width={20} />
-
-      <Switch id="props.isVisible" label="Visible" width={20} />
+      <Switch id="props.hasCloseButton" label="Close Icon" width={20} />
     </Form>
   );
 }
