@@ -23,6 +23,7 @@ function PopUpsExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
+        draftState.props.hasCloseButton = false;
         draftState.props.isVisible = false;
         draftState.props.placement = popperPlacement.BOTTOM;
         draftState.props.popupType = 'onClick';
@@ -56,6 +57,8 @@ function PopUpsExampleProps({ setState, state }) {
         <SelectOption key="popups__interactive-prop__onClick" label="onClick" value="onClick" />
         <SelectOption key="popups__interactive-prop__onHover" label="onHover" value="onHover" />
       </Select>
+
+      <Switch id="props.hasCloseButton" label="Close Button" width={20} />
 
       <Switch id="props.isVisible" label="Visible" width={20} />
     </Form>

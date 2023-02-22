@@ -5,6 +5,7 @@ import popperPlacement from '../../enums/popperPlacement';
 import useClickOutside from '../../hooks/useClickOutside';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
+import IconButton from '../buttons/IconButton';
 
 const propTypes = {
   // The content of the popup
@@ -12,6 +13,9 @@ const propTypes = {
 
   // CSS class to apply to the popup
   className: PropTypes.string,
+
+  // the top right `X` close button
+  hasCloseButton: PropTypes.bool,
 
   id: PropTypes.string,
 
@@ -36,6 +40,7 @@ const propTypes = {
 
 const defaultProps = {
   className: undefined,
+  hasCloseButton: false,
   id: null,
   innerRef: null,
   offset: [0, 11],
@@ -45,6 +50,7 @@ const defaultProps = {
 function Popup({
   children,
   className,
+  hasCloseButton,
   id,
   innerRef,
   isVisible,
@@ -107,6 +113,17 @@ function Popup({
         {children}
         <div ref={arrowRef} style={styles.arrow} className="popup__arrow" />
       </div>
+      {
+        hasCloseButton
+          ? (
+            <IconButton
+              icon={<span className="utds-icon-before-x-icon" />}
+              onClick={(e) => onVisibleChange(e, false)}
+              title="Close Popup"
+            />
+          )
+          : undefined
+      }
     </div>
   );
 }

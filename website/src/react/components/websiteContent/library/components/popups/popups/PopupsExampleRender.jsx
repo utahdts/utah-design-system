@@ -19,6 +19,7 @@ function PopUpsExampleRender({
   setState,
   state: {
     props: {
+      hasCloseButton,
       isVisible,
       placement,
       popupType,
@@ -52,6 +53,7 @@ function PopUpsExampleRender({
       </button>
       <Popup
         innerRef={innerRef}
+        hasCloseButton={!!hasCloseButton}
         isVisible={!!isVisible}
         // eslint-disable-next-line no-param-reassign
         onVisibleChange={useCallback((_e, newIsVisible) => setState((oldState) => { oldState.props.isVisible = newIsVisible; }))}

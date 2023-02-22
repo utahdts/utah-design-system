@@ -68,10 +68,7 @@ function PopUpsDocumentation() {
             </button>
             <Popup
               isVisible={isPopupVisible}
-              onVisibleChange={(_e, isVisible) => {
-                console.log('onVisibleChange');
-                setIsPopupVisible(isVisible);
-              }}
+              onVisibleChange={(_e, isVisible) => setIsPopupVisible(isVisible)}
               referenceElement={buttonRef}
               placement={popperPlacement.TOP}
             >

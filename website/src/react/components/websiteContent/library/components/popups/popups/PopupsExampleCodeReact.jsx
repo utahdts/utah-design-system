@@ -13,6 +13,7 @@ const defaultProps = {};
 function PopUpsExampleCode({
   state: {
     props: {
+      hasCloseButton,
       // isVisible,
       placement,
       popupType,
@@ -55,6 +56,7 @@ function PopUpsExampleCode({
       <br />
       &lt;Popup
       <br />
+      <ExampleCodeReactProp displayProp={`hasCloseButton={${hasCloseButton ? 'true' : 'false'}}`} indentLevel={1} />
       <ExampleCodeReactProp displayProp="isVisible={isVisible}" indentLevel={1} />
       <ExampleCodeReactProp displayProp="onVisibleChange={useCallback((_e, newIsVisible) => setIsVisible(newIsVisible))}" indentLevel={1} />
       <ExampleCodeReactProp displayProp={`placement="${placement}"`} indentLevel={1} />
