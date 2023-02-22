@@ -36,8 +36,8 @@ $dsc: rgb(0,0,0);
       border-radius: var(--radius-medium);
       border: 1px solid var(--gray-3-1-contrast);
       box-sizing: border-box;
-      min-width: 200px;
-      padding: var(--spacing);
+      min-width: 180px;
+      padding: var(--spacing-s);
       transition: transform 100ms ease-in-out;
       box-shadow: var(--elevation-small);
     }
@@ -61,13 +61,13 @@ $dsc: rgb(0,0,0);
     }
 
 
-    &__content[data-popper-placement^='top'] {
+    &__wrapper[data-popper-placement^='top'] {
       .popup__content {
         // box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
         transform-origin: bottom;
       }
       .popup__arrow {
-        bottom: -4px;
+        bottom: -6px;
         &::before {
           border-bottom: 1px solid var(--gray-3-1-contrast);
           border-right: 1px solid var(--gray-3-1-contrast);
@@ -95,7 +95,7 @@ $dsc: rgb(0,0,0);
         transform-origin: right;
       }
       .popup__arrow {
-        right: -4px;
+        right: -6px;
         &::before {
           border-top: 1px solid var(--gray-3-1-contrast);
           border-right: 1px solid var(--gray-3-1-contrast);
@@ -109,7 +109,7 @@ $dsc: rgb(0,0,0);
         transform-origin: left;
       }
       .popup__arrow {
-        left: -4px;
+        left: -7px;
         &::before {
           border-bottom: 1px solid var(--gray-3-1-contrast);
           border-left: 1px solid var(--gray-3-1-contrast);

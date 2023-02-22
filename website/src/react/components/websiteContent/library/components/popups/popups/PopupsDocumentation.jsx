@@ -11,6 +11,7 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
+import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
 import { useRef, useState } from 'react';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -53,9 +54,13 @@ function PopUpsDocumentation() {
         renderedExample={(
           <>
             <button
-              onClick={() => setIsPopupVisible((oldIsVisible) => !oldIsVisible)}
-              onMouseEnter={() => setIsPopupVisible(true)}
-              onMouseLeave={() => setIsPopupVisible(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setIsPopupVisible((oldIsVisible) => !oldIsVisible);
+              }}
+              // onMouseEnter={() => setIsPopupVisible(true)}
+              // onMouseLeave={() => setIsPopupVisible(false)}
               ref={buttonRef}
               type="button"
             >
@@ -63,8 +68,12 @@ function PopUpsDocumentation() {
             </button>
             <Popup
               isVisible={isPopupVisible}
-              onVisibleChange={(_e, isVisible) => setIsPopupVisible(isVisible)}
+              onVisibleChange={(_e, isVisible) => {
+                console.log('onVisibleChange');
+                setIsPopupVisible(isVisible);
+              }}
               referenceElement={buttonRef}
+              placement={popperPlacement.TOP}
             >
               <div>I am content in a Popup</div>
             </Popup>
@@ -215,7 +224,7 @@ function PopUpsDocumentation() {
           trigger the popup to open.
         </li>
         <li>Screen readers typically announce the name and role of the element first followed by the state of the element.</li>
-        <li>Remeber that the focus is set on the first interactive element within the popup after it opens.</li>
+        <li>Remember that the focus is set on the first interactive element within the popup after it opens.</li>
         <li>Ensure that the user can easily close the popup and return to the main content of the website.</li>
         <li>Use popup menus sparingly. Too many popup menus can create &apos;noise&apos; in screen readers.</li>
       </ul>

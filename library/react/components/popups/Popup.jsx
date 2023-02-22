@@ -38,7 +38,7 @@ const defaultProps = {
   className: undefined,
   id: null,
   innerRef: null,
-  offset: [0, 8],
+  offset: [0, 11],
   placement: popperPlacement.BOTTOM,
 };
 
