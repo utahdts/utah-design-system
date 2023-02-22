@@ -1,6 +1,6 @@
-import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
+import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -25,25 +25,21 @@ function SwitchExampleCodeReact({
     },
   },
 }) {
-  const displayedProps = [
-    className ? `className="${className}"` : null,
-    id ? `id="${id}"` : null,
-    isDisabled ? 'disabled={true}' : null,
-    label ? `label="${label}"` : null,
-    labelOff ? `labelOff="${labelOff}"` : null,
-    labelOn ? `labelOn="${labelOn}"` : null,
-    'onChange={() => { /* ... do something ... */ }',
-    `value={${value}}`,
-    size ? `size="${size}"` : null,
-    width ? `width={${width}}` : null,
-    (icon && icon !== 'none') ? `sliderChildren={icons.${icon}()}` : null,
-  ].filter(identity);
-
   return (
     <>
-      &lt;
-      {`Switch${displayedProps.length ? ' ' : ''}`}
-      {displayedProps.join(' ')}
+      &lt;Switch
+      <br />
+      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isDisabled ? 'disabled={true}' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={labelOff ? `labelOff="${labelOff}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={labelOn ? `labelOn="${labelOn}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'onChange={() => { /* ... do something ... */ }'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`value={${value}}`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={size ? `size="${size}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={width ? `width={${width}}` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={(icon && icon !== 'none') ? `sliderChildren={icons.${icon}()}` : null} indentLevel={1} />
       /&gt;
     </>
   );
