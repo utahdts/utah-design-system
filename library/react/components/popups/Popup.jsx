@@ -93,14 +93,14 @@ function Popup({
       style={styles.popper}
       {...attributes.popper}
       className={joinClassNames(
-        'popper-popup__content',
+        'popup__wrapper',
         className,
-        isVisible ? 'popper-popup__content--visible' : 'popper-popup__content--hidden'
+        isVisible ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
       )}
     >
-      <div className="popper-popup__inner">
+      <div className="popup__content">
         {children}
-        <div ref={arrowRef} style={styles.arrow} className="popper-popup__arrow" />
+        <div ref={arrowRef} style={styles.arrow} className="popup__arrow" />
       </div>
     </div>
   );
