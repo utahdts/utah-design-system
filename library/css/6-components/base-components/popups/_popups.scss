@@ -30,6 +30,11 @@ $dsc: rgb(0,0,0);
           transform: scale(.7);
         }
       }
+      &--close-button {
+        .popup__content {
+          padding-right: var(--spacing-2xl);
+        }
+      }
     }
     &__content {
       background: white;
@@ -40,6 +45,15 @@ $dsc: rgb(0,0,0);
       padding: var(--spacing-s);
       transition: transform 100ms ease-in-out;
       box-shadow: var(--elevation-small);
+    }
+
+    &__close-button {
+      position: absolute;
+      top: var(--spacing-xs);
+      right: var(--spacing-xs);
+      .utds-icon-before-x-icon::before {
+        font-size: .7rem;
+      }
     }
 
     &__arrow {

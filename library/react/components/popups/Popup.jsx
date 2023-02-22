@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
+import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
+import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import popperPlacement from '../../enums/popperPlacement';
 import useClickOutside from '../../hooks/useClickOutside';
 import useGlobalKeyEvent from '../../hooks/useGlobalKeyEvent';
@@ -108,24 +110,28 @@ function Popup({
       className={joinClassNames(
         'popup__wrapper',
         className,
+        hasCloseButton ? 'popup__wrapper--close-button' : null,
         isVisible ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
       )}
     >
       <div className="popup__content">
         {children}
         <div ref={arrowRef} style={styles.arrow} className="popup__arrow" />
+        {
+          hasCloseButton
+            ? (
+              <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                className="popup__close-button"
+                icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                onClick={(e) => onVisibleChange(e, false)}
+                title="Close Popup"
+                size={formElementSizesEnum.SMALL}
+              />
+            )
+            : undefined
+        }
       </div>
-      {
-        hasCloseButton
-          ? (
-            <IconButton
-              icon={<span className="utds-icon-before-x-icon" />}
-              onClick={(e) => onVisibleChange(e, false)}
-              title="Close Popup"
-            />
-          )
-          : undefined
-      }
     </div>
   );
 }
