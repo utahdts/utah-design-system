@@ -135,6 +135,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     menuAHref.remove();
     menuButton.remove();
     menuItemWrapper.setAttribute('aria-hidden', 'true');
+    menuItemWrapper.setAttribute('role', 'separator');
   } else {
     // eslint-disable-next-line no-console
     console.error(popupMenuItem);
