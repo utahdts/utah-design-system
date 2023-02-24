@@ -60,7 +60,10 @@ function PopUpsExampleRender({
         placement={placement}
         referenceElement={buttonRef}
       >
-        <div>I am content in a Popup</div>
+        <div>
+          <div className="font-size-l mb-spacing-xs"><strong>Example Popup</strong></div>
+          <div>This is an example of a popup with content.</div>
+        </div>
       </Popup>
     </>
   );

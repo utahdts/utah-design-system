@@ -46,8 +46,8 @@ const defaultProps = {
   hasCloseButton: false,
   id: null,
   innerRef: null,
-  offset: [0, 11],
-  placement: popperPlacement.BOTTOM,
+  offset: [0, 10],
+  placement: popperPlacement.AUTO,
 };
 
 function Popup({
@@ -61,6 +61,7 @@ function Popup({
   onVisibleChange,
   placement,
   referenceElement,
+  ...rest
 }) {
   const popperRef = useRef();
   const arrowRef = useRef();
@@ -113,10 +114,9 @@ function Popup({
         hasCloseButton ? 'popup__wrapper--close-button' : null,
         isVisible ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
       )}
+      {...rest}
     >
       <div className="popup__content">
-        {children}
-        <div ref={arrowRef} style={styles.arrow} className="popup__arrow" />
         {
           hasCloseButton
             ? (
@@ -131,6 +131,8 @@ function Popup({
             )
             : undefined
         }
+        {children}
+        <div ref={arrowRef} style={styles.arrow} className="popup__arrow" />
       </div>
     </div>
   );

@@ -1,4 +1,10 @@
+/* eslint-disable max-len */
 import {
+  Button,
+  BUTTON_APPEARANCE,
+  BUTTON_TYPES,
+  componentColors,
+  formElementSizesEnum,
   Popup,
   Tab,
   TabGroup,
@@ -12,7 +18,8 @@ import {
   TabPanels
 } from '@utahdts/utah-design-system';
 import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
-import { useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { useImmer } from 'use-immer';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import PopUpsExampleCodeReact from './PopupsExampleCodeReact';
@@ -25,7 +32,22 @@ const defaultProps = {};
 
 function PopUpsDocumentation() {
   const buttonRef = useRef();
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const button2Ref = useRef();
+  const [popupsState, setPopupsState] = useImmer({
+    example1: false,
+    example2: false,
+    editorExample: false,
+  });
+
+  useEffect(() => {
+    if (popupsState.editorExample) {
+      console.log('visible');
+      document.getElementById('editor-example-textarea').focus();
+    } else {
+      console.log('not visible');
+      document.getElementById('button-for-editor-example').focus();
+    }
+  }, [popupsState.editorExample]);
 
   return (
     <div className="documentation-content">
@@ -38,7 +60,7 @@ function PopUpsDocumentation() {
         <p>
           <em>
             *Differentiation: Modals are boxes containing content that disables the page content and focuses the user’s attention on a single task
-            or message. View more information on <a href="www.someLink.com" target="_blank">modals</a>
+            or message. View more information on <a href="www.someLink.com" target="_blank">modals</a>.
           </em>
         </p>
       </div>
@@ -57,22 +79,48 @@ function PopUpsDocumentation() {
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
-                setIsPopupVisible((oldIsVisible) => !oldIsVisible);
+                setPopupsState((draftState) => { draftState.example1 = !draftState.example1; });
               }}
-              // onMouseEnter={() => setIsPopupVisible(true)}
-              // onMouseLeave={() => setIsPopupVisible(false)}
               ref={buttonRef}
               type="button"
             >
               Toggle Popup
             </button>
             <Popup
-              isVisible={isPopupVisible}
-              onVisibleChange={(_e, isVisible) => setIsPopupVisible(isVisible)}
+              isVisible={popupsState.example1}
+              onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example1 = isVisible; })}
               referenceElement={buttonRef}
-              placement={popperPlacement.TOP}
+              placement={popperPlacement.BOTTOM}
             >
               <div>I am content in a Popup</div>
+            </Popup>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setPopupsState((draftState) => { draftState.example2 = !draftState.example2; });
+              }}
+              ref={button2Ref}
+              aria-haspopup="dialog"
+              aria-controls="id-for-example2"
+              aria-expanded={popupsState.example2}
+              type="button"
+              id="button-for-example-2"
+            >
+              Toggle Popup Example 2
+            </button>
+            <Popup
+              isVisible={popupsState.example2}
+              onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example2 = isVisible; })}
+              referenceElement={button2Ref}
+              placement={popperPlacement.TOP}
+              hasCloseButton
+              id="id-for-example2"
+              aria-labelledby="button-for-example-2"
+              role="dialog"
+            >
+              <div>I am content in a Popup with a close button.</div>
             </Popup>
           </>
         )}
@@ -80,28 +128,26 @@ function PopUpsDocumentation() {
           <ul>
             <li>A basic popup should have only a single brief sentence or description.</li>
             <li>
-              An icon button is used to close the popup and can be used in combination with
-              clicking outside of the popup, or mashing the escape key.
+              To close the popup you may use an icon button, toggle the action button, click outside of the popup, or mash the escape key.
             </li>
-            <li>Typically these should not interfere with the users ability to continue their work</li>
+            <li>Typically these should not interfere with the users ability to continue their work.</li>
           </ul>
         )}
       />
       <StaticExample
         title="Popup Menu"
         renderedExample={(
-          <p>Here is an example</p>
+          <p>TODO: when we have vertical menus.</p>
         )}
         quickTips={(
           <ul>
             <li>A menu popup has a list of items, and possibly icon buttons, that the user can select.</li>
             <li>
-              Avoid  selection lists that have more than 15 options to choose from.
+              Avoid selection lists that have more than 15 options to choose from.
               Lists may not be visible on mobile screens if there are too many options.
             </li>
             <li>
-              An icon button is used to close the popup and can be used in combination with
-              clicking outside of the popup, or mashing the escape key.
+              Close a popup menu by toggling the button, clicking outside of the popup, or mashing the escape key.
             </li>
           </ul>
         )}
@@ -109,7 +155,7 @@ function PopUpsDocumentation() {
       <StaticExample
         title="Popup Menu with Flyout Popups"
         renderedExample={(
-          <p>Here is an example</p>
+          <p>TODO: When we have flyout popups.</p>
         )}
         quickTips={(
           <ul>
@@ -125,7 +171,59 @@ function PopUpsDocumentation() {
       <StaticExample
         title="Popup Editor"
         renderedExample={(
-          <p>Here is an example</p>
+          <>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setPopupsState((draftState) => { draftState.editorExample = !draftState.editorExample; });
+              }}
+              ref={button2Ref}
+              aria-haspopup="dialog"
+              aria-controls="id-for-editorExample"
+              aria-expanded={popupsState.editorExample}
+              type="button"
+              id="button-for-editor-example"
+            >
+              Toggle Editor Popup Example
+            </button>
+            <Popup
+              aria-labelledby="button-for-editor-example"
+              className="popup__wrapper--close-button-absolute"
+              hasCloseButton
+              id="id-for-editorExample"
+              isVisible={popupsState.editorExample}
+              onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.editorExample = isVisible; })}
+              placement={popperPlacement.TOP}
+              referenceElement={button2Ref}
+              role="dialog"
+            >
+              <>
+                <div className="flex flex-col gap-xs">
+                  <label htmlFor="editor-example-textarea"><strong>What is ultimate question?</strong></label>
+                  <textarea name="editor-example-textarea" id="editor-example-textarea" className="mb-spacing-s" style={{ width: '300px' }} />
+                </div>
+                <div className="flex justify-end gap-xs">
+                  <Button
+                    type={BUTTON_TYPES.BUTTON}
+                    size={formElementSizesEnum.SMALL}
+                    onClick={() => setPopupsState((draftState) => { draftState.editorExample = false; })}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type={BUTTON_TYPES.BUTTON}
+                    appearance={BUTTON_APPEARANCE.SOLID}
+                    color={componentColors.PRIMARY}
+                    size={formElementSizesEnum.SMALL}
+                    onClick={() => setPopupsState((draftState) => { draftState.editorExample = false; })}
+                  >
+                    Okay
+                  </Button>
+                </div>
+              </>
+            </Popup>
+          </>
         )}
         quickTips={(
           <ul>
@@ -175,8 +273,8 @@ function PopUpsDocumentation() {
       <ul className="mb-spacing">
         <li><strong>Hover above the content.</strong> A popup should overlap in front of other UI elements. View more information about <a href="www.somelink.com" target="_blank">elevation</a>.</li>
         <li>
-          <strong>Popup positioning.</strong> Popups should always be positioned within the viewable areas of the screen and be <code>8px</code>
-          away from the element that launched them. The popup should appear next to (left, right, top, bottom) the element that launched it.
+          <strong>Popup positioning.</strong> Popups should always be positioned within the viewable areas of the screen and be <code>6-12px</code> away from the element that launched them.
+          The popup should appear next to (left, right, top, bottom) the element that launched it.
         </li>
       </ul>
       <h4>User Experience</h4>
@@ -187,7 +285,7 @@ function PopUpsDocumentation() {
           use on mobile devices.
         </li>
         <li>
-          <strong>Easy to dismiss.</strong>Popups should be easily dismissable using a combination of an icon button,  clicking outside of the popup,
+          <strong>Easy to dismiss.</strong>Popups should be easily dismissible using a combination of an icon button,  clicking outside of the popup,
           or mashing the escape key.
         </li>
       </ul>
@@ -199,7 +297,7 @@ function PopUpsDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Default focus should go to the first interative element.</li>
+        <li>Default focus should go to the first interactive element.</li>
         <li>User should be able to open, close and navigate within the popup using only the keyboard.</li>
         <li>
           Be sure the content in the popup does not disappear prematurely and is visible until the user chooses to dismiss it or move away from it.
@@ -225,31 +323,31 @@ function PopUpsDocumentation() {
         <li>Ensure that the user can easily close the popup and return to the main content of the website.</li>
         <li>Use popup menus sparingly. Too many popup menus can create &apos;noise&apos; in screen readers.</li>
       </ul>
-      <h4>Aria Examples</h4>
-      <h5>Menu</h5>
-      <code>
-        &lt;<strong>button</strong>&nbsp;aria-haspopup=&quot;menu&quot;&nbsp;aria-controls=&quot;<em>some-unique-id</em>&quot;
-        &nbsp;aria-expanded=&quot;false&quot;&gt;
-        <br />&nbsp;Show Menu<br />&lt;/<strong>button</strong>&gt;
-      </code> <br />
-      <code>
-        &lt;<strong>div</strong> id=&quot;<em>some-unique-id</em>&quot;&gt;<br />
-        &nbsp; &lt;<strong>ul</strong>  role=&quot;navigation&quot;  aria-label=&quot;popup-name&quot;&gt;&nbsp;...
-        &lt;/<strong>ul</strong>&gt;<br />
-        &lt;/<strong>div</strong>&gt;
-      </code>
-      <h5>Popup</h5>
-      <code>
-        &lt;<strong>button</strong>&nbsp;id=&quot;<em>some-unique-id</em>&quot;&nbsp;aria-haspopup=&quot;true&quot;
-        &nbsp;aria-controls=&quot;menu&quot;&gt;<br />
-        &nbsp;View Popup<br />&lt;/<strong>button</strong>&gt;<br />
-        &lt;<strong>ul</strong>&nbsp;aria-labelledby=&quot;<em>some-unique-id</em>&quot;
-        &nbsp;id=&quot;<em>some-unique-menu-id</em>&quot;&nbsp;role=&quot;menu&quot;&gt;&nbsp;<br />&nbsp;
-        &lt;<strong>li</strong>&nbsp;role=&quot;presentation&quot;&gt;<br />
-        &nbsp;&nbsp;&nbsp;&lt;<strong>a</strong>&nbsp;role=&quot;menuitem&quot;&gt;...&lt;/<strong>a</strong>&gt;<br />
-        &nbsp;&nbsp;&lt;/<strong>li</strong>&gt;<br />
-        &lt;/<strong>ul</strong>&gt;
-      </code>
+      <h4 className="mb-spacing">Aria Examples</h4>
+
+      <h5>Popup Dialog</h5>
+      <pre className="gray-block">
+        &lt;button type=&quot;button&quot; aria-haspopup=&quot;dialog&quot; aria-controls=&quot;some-unique-popup-id&quot; aria-expanded=&quot;false&quot; id=&quot;some-unique-button-id&quot;&gt;<br />
+        &nbsp;&nbsp;Toggle Popup Button<br />
+        &lt;/button&gt;<br />
+        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot;&gt;<br />
+        &nbsp;&nbsp;Popup Content<br />
+        &lt;/div&gt;<br />
+      </pre>
+
+      <h5>Popup Menu</h5>
+      <pre className="gray-block">
+        &lt;button type=&quot;button&quot; aria-haspopup=&quot;menu&quot; aria-controls=&quot;some-unique-popup-id&quot; aria-expanded=&quot;false&quot; id=&quot;some-unique-button-id&quot;&gt;<br />
+        &nbsp;&nbsp;Toggle Popup Menu Button<br />
+        &lt;/button&gt;<br />
+        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot;&gt;<br />
+        &nbsp;&nbsp;&lt;ul role=&quot;menu&quot; aria-label=&quot;Menu Name&quot;&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 1&lt;/li&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 2&lt;/li&gt;<br />
+        &nbsp;&nbsp;&lt;/ul&gt;<br />
+        &lt;/div&gt;<br />
+      </pre>
+
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
         <TabGroup defaultValue="segmented-button-props-css">

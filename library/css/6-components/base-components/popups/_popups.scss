@@ -30,15 +30,17 @@ $dsc: rgb(0,0,0);
           transform: scale(.7);
         }
       }
-      &--close-button {
-        .popup__content {
-          padding-right: var(--spacing-2xl);
+      &--close-button-absolute {
+        .popup__close-button {
+          position: absolute;
+          top: var(--spacing-xs);
+          right: var(--spacing-xs);
         }
       }
     }
     &__content {
       background: white;
-      border-radius: var(--radius-medium);
+      border-radius: var(--radius-small);
       border: 1px solid var(--gray-3-1-contrast);
       box-sizing: border-box;
       min-width: 180px;
@@ -48,9 +50,7 @@ $dsc: rgb(0,0,0);
     }
 
     &__close-button {
-      position: absolute;
-      top: var(--spacing-xs);
-      right: var(--spacing-xs);
+      float: right;
       .utds-icon-before-x-icon::before {
         font-size: .7rem;
       }
@@ -61,8 +61,8 @@ $dsc: rgb(0,0,0);
 
       &, &::before {
         position: absolute;
-        width: 11px;
-        height: 11px;
+        width: 9px;
+        height: 9px;
         background: inherit;
         z-index: -1;
       }
@@ -81,7 +81,7 @@ $dsc: rgb(0,0,0);
         transform-origin: bottom;
       }
       .popup__arrow {
-        bottom: -6px;
+        bottom: -5px;
         &::before {
           border-bottom: 1px solid var(--gray-3-1-contrast);
           border-right: 1px solid var(--gray-3-1-contrast);
@@ -95,7 +95,7 @@ $dsc: rgb(0,0,0);
         transform-origin: top;
       }
       .popup__arrow {
-        top: -7px;
+        top: -6px;
         &::before {
           border-top: 1px solid var(--gray-3-1-contrast);
           border-left: 1px solid var(--gray-3-1-contrast);
@@ -109,7 +109,7 @@ $dsc: rgb(0,0,0);
         transform-origin: right;
       }
       .popup__arrow {
-        right: -6px;
+        right: -5px;
         &::before {
           border-top: 1px solid var(--gray-3-1-contrast);
           border-right: 1px solid var(--gray-3-1-contrast);
@@ -123,7 +123,7 @@ $dsc: rgb(0,0,0);
         transform-origin: left;
       }
       .popup__arrow {
-        left: -7px;
+        left: -6px;
         &::before {
           border-bottom: 1px solid var(--gray-3-1-contrast);
           border-left: 1px solid var(--gray-3-1-contrast);
