@@ -41,9 +41,11 @@ function PopUpsDocumentation() {
 
   useEffect(() => {
     if (popupsState.editorExample) {
+      // eslint-disable-next-line no-console
       console.log('visible');
       document.getElementById('editor-example-textarea').focus();
     } else {
+      // eslint-disable-next-line no-console
       console.log('not visible');
       document.getElementById('button-for-editor-example').focus();
     }

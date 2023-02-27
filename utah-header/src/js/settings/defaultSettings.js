@@ -36,6 +36,7 @@ export default {
             actionFunction: (e) => {
               e.stopPropagation();
               e.preventDefault();
+              // eslint-disable-next-line no-console
               console.log('Custom menu item triggered');
             },
             title: 'Custom menu item',
@@ -80,7 +81,10 @@ export default {
       title: 'Divisions',
     },
     {
-      actionFunction: () => console.log('Alerts clicked'),
+      actionFunction: () => (
+        // eslint-disable-next-line no-console
+        console.log('Alerts clicked')
+      ),
       badge: {
         // Note: make sure the `label` is plural/singular to match the value
         label: 'Unread Alert',
