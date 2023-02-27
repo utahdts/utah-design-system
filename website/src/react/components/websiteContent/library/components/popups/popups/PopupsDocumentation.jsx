@@ -376,6 +376,14 @@ function PopupsDocumentation() {
                       <TableCell><code>.popup__arrow</code></TableCell>
                       <TableCell>The arrow for the popup.</TableCell>
                     </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__close-button</code></TableCell>
+                      <TableCell>The class for the close button (icon button).</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__wrapper--close-button-absolute</code></TableCell>
+                      <TableCell>Will position the close button absolutely instead of floating it.</TableCell>
+                    </TableRow>
                   </TableBody>
                 </Table>
               </TableWrapper>
@@ -393,7 +401,19 @@ function PopupsDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code className="primary-color">props</code></TableCell>
+                      <TableCell><code className="primary-color">children</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>node</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        The content of the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">className</code></TableCell>
                       <TableCell>
                         <div className="props-code-wrapper">
                           <code>string</code>
@@ -401,7 +421,103 @@ function PopupsDocumentation() {
                       </TableCell>
                       <TableCell>null</TableCell>
                       <TableCell>
-                        What does this do?
+                        This css class will be added to the popup wrapper.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">hasCloseButton</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>boolean</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>false</TableCell>
+                      <TableCell>
+                        Controls whether the close button will appear on the popup or not.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">id</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>string</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>null</TableCell>
+                      <TableCell>
+                        The <code>id</code> attribute of the popup wrapper.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">innerRef</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>react ref</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>null</TableCell>
+                      <TableCell>
+                        The ref for the popup wrapper.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">isVisible</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>boolean</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        The popup component is controlled. You must provide the visible state of the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">offset</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>array of numbers</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>[0, 10]</TableCell>
+                      <TableCell>
+                        The offset used by Popper to position the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">onVisibleChange</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>function</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        A function that is triggered when the visibility of the popup should changes. The new visible value is passed as a parameter.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">placement</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>string</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>popperPlacement.AUTO</TableCell>
+                      <TableCell>
+                        The default placement of the popup. See the popperPlacement ENUM for the correct values to use.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">referenceElement</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>react ref</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        A ref to the button or place where the popup will appear. Usually this is the button that activated the popup.
                       </TableCell>
                     </TableRow>
                   </TableBody>
