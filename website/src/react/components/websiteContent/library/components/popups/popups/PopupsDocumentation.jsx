@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Button,
   BUTTON_APPEARANCE,
@@ -31,13 +32,13 @@ import PopupsExampleCodeReact from './PopupsExampleCodeReact';
 import PopupsExampleProps from './PopupsExampleProps';
 import PopupsExampleRender from './PopupsExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
 function PopupsDocumentation() {
   const buttonRef = useRef();
   const button2Ref = useRef();
+  const buttonEditorRef = useRef();
   const [popupsState, setPopupsState] = useImmer({
     example1: false,
     example2: false,
@@ -45,13 +46,10 @@ function PopupsDocumentation() {
   });
 
   useEffect(() => {
+    // set the focus on the button or text input depending on visibility
     if (popupsState.editorExample) {
-      // eslint-disable-next-line no-console
-      console.log('visible');
       document.getElementById('editor-example-textarea').focus();
     } else {
-      // eslint-disable-next-line no-console
-      console.log('not visible');
       document.getElementById('button-for-editor-example').focus();
     }
   }, [popupsState.editorExample]);
@@ -83,6 +81,10 @@ function PopupsDocumentation() {
         renderedExample={(
           <>
             <button
+              aria-controls="id-for-example1"
+              aria-expanded={popupsState.example1}
+              aria-haspopup="dialog"
+              id="button-for-example1"
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
@@ -94,37 +96,39 @@ function PopupsDocumentation() {
               Toggle Popup
             </button>
             <Popup
+              aria-labelledby="button-for-example1"
+              id="id-for-example1"
               isVisible={popupsState.example1}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example1 = isVisible; })}
-              referenceElement={buttonRef}
               placement={popperPlacement.BOTTOM}
+              referenceElement={buttonRef}
             >
               <div>I am content in a Popup</div>
             </Popup>
 
             <button
+              aria-controls="id-for-example2"
+              aria-expanded={popupsState.example2}
+              aria-haspopup="dialog"
+              id="button-for-example-2"
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
                 setPopupsState((draftState) => { draftState.example2 = !draftState.example2; });
               }}
               ref={button2Ref}
-              aria-haspopup="dialog"
-              aria-controls="id-for-example2"
-              aria-expanded={popupsState.example2}
               type="button"
-              id="button-for-example-2"
             >
               Toggle Popup Example 2
             </button>
             <Popup
-              isVisible={popupsState.example2}
-              onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example2 = isVisible; })}
-              referenceElement={button2Ref}
-              placement={popperPlacement.TOP}
+              aria-labelledby="button-for-example-2"
               hasCloseButton
               id="id-for-example2"
-              aria-labelledby="button-for-example-2"
+              isVisible={popupsState.example2}
+              onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example2 = isVisible; })}
+              placement={popperPlacement.TOP}
+              referenceElement={button2Ref}
               role="dialog"
             >
               <div>I am content in a Popup with a close button.</div>
@@ -180,17 +184,17 @@ function PopupsDocumentation() {
         renderedExample={(
           <>
             <button
+              aria-controls="id-for-editorExample"
+              aria-expanded={popupsState.editorExample}
+              aria-haspopup="dialog"
+              id="button-for-editor-example"
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
                 setPopupsState((draftState) => { draftState.editorExample = !draftState.editorExample; });
               }}
-              ref={button2Ref}
-              aria-haspopup="dialog"
-              aria-controls="id-for-editorExample"
-              aria-expanded={popupsState.editorExample}
+              ref={buttonEditorRef}
               type="button"
-              id="button-for-editor-example"
             >
               Toggle Editor Popup Example
             </button>
@@ -202,7 +206,7 @@ function PopupsDocumentation() {
               isVisible={popupsState.editorExample}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.editorExample = isVisible; })}
               placement={popperPlacement.TOP}
-              referenceElement={button2Ref}
+              referenceElement={buttonEditorRef}
               role="dialog"
             >
               <>
