@@ -26,7 +26,8 @@ import PopUpsExampleCodeReact from './PopupsExampleCodeReact';
 import PopUpsExampleProps from './PopupsExampleProps';
 import PopUpsExampleRender from './PopupsExampleRender';
 // eslint-disable-next-line import/no-unresolved
-// import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
+import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
+import PreCode from '../../../../../preCode/PreCode';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -343,20 +344,7 @@ function PopUpsDocumentation() {
       </pre>
 
       <h5>Popup Menu</h5>
-      <pre className="gray-block">
-        &lt;button type=&quot;button&quot; aria-haspopup=&quot;menu&quot; aria-controls=&quot;some-unique-popup-id&quot; aria-expanded=&quot;false&quot; id=&quot;some-unique-button-id&quot;&gt;<br />
-        &nbsp;&nbsp;Toggle Popup Menu Button<br />
-        &lt;/button&gt;<br />
-        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot; class=&quot;popup__wrapper popup__wrapper--hidden&quot;&gt;<br />
-        &nbsp;&nbsp;&lt;div class=&quot;popup__arrow&quot;&gt;&lt;/div&gt;<br />
-        &nbsp;&nbsp;&lt;div class=&quot;popup__content&quot;&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul role=&quot;menu&quot; aria-label=&quot;Menu Name&quot;&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 1&lt;/li&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 2&lt;/li&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br />
-        &nbsp;&nbsp;&lt;/div&gt;<br />
-        &lt;/div&gt;<br />
-      </pre>
+      <PreCode codeRaw={PopupExampleAriaMenu} />
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">

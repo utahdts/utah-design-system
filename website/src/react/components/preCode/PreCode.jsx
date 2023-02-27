@@ -19,15 +19,8 @@ function PreCode({ codeRaw }) {
   );
 
   return (
-    <div className="pre-code-block">
-      <pre>
-        <code
-          className="language-xml"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: codeInnerHtml }}
-        />
-      </pre>
-    </div>
+    // eslint-disable-next-line react/no-danger
+    <pre className="gray-block" dangerouslySetInnerHTML={{ __html: codeInnerHtml }} />
   );
 }
 
