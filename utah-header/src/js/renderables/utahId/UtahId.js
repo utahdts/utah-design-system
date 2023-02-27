@@ -89,7 +89,7 @@ export default function UtahId() {
     });
   }
   /** @type PopupMenu */
-  const popUpMenu = {
+  const popupMenu = {
     menuItems: [
       ...customUtahIdMenuItems,
       {
@@ -108,7 +108,7 @@ export default function UtahId() {
   };
 
   // create popup content DOM
-  utahIdPopupMenu = renderPopupMenu(popUpMenu);
+  utahIdPopupMenu = renderPopupMenu(popupMenu);
 
   // create UtahID wrapper w/ button DOM
   const utahIdWrapper = renderDOMSingle(UtahIdHtml);

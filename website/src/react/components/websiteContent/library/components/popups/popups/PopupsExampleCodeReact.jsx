@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-import PopUpsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
+import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
 import ExampleCodeReactCode from '../../../../../sandbox/ExampleCodeReactCode';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({
-    props: PopUpsPropsShape.isRequired,
+    props: PopupsPropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
 
-function PopUpsExampleCode({
+function PopupsExampleCode({
   state: {
     props: {
       hasCloseButton,
@@ -66,7 +66,7 @@ function PopUpsExampleCode({
   );
 }
 
-PopUpsExampleCode.propTypes = propTypes;
-PopUpsExampleCode.defaultProps = defaultProps;
+PopupsExampleCode.propTypes = propTypes;
+PopupsExampleCode.defaultProps = defaultProps;
 
-export default PopUpsExampleCode;
+export default PopupsExampleCode;

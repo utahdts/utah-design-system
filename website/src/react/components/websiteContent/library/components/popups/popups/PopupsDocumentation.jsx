@@ -27,15 +27,15 @@ import StaticExample from '../../../../../staticExamples/StaticExample';
 import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
-import PopUpsExampleCodeReact from './PopupsExampleCodeReact';
-import PopUpsExampleProps from './PopupsExampleProps';
-import PopUpsExampleRender from './PopupsExampleRender';
+import PopupsExampleCodeReact from './PopupsExampleCodeReact';
+import PopupsExampleProps from './PopupsExampleProps';
+import PopupsExampleRender from './PopupsExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
-function PopUpsDocumentation() {
+function PopupsDocumentation() {
   const buttonRef = useRef();
   const button2Ref = useRef();
   const [popupsState, setPopupsState] = useImmer({
@@ -58,7 +58,7 @@ function PopUpsDocumentation() {
 
   return (
     <div className="documentation-content">
-      <h1 id="h1-top">Pop Ups</h1>
+      <h1 id="h1-top">Popups</h1>
       <div className="lead-in">
         <p>
           Popups are *non-modal boxes that are triggered by some input from the end user (e.g. clicking a target, or key presses).
@@ -74,9 +74,9 @@ function PopUpsDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
-        RENDER_EXAMPLE={PopUpsExampleRender}
-        PROPS_EXAMPLE={PopUpsExampleProps}
-        CODE_EXAMPLE={PopUpsExampleCodeReact}
+        RENDER_EXAMPLE={PopupsExampleRender}
+        PROPS_EXAMPLE={PopupsExampleProps}
+        CODE_EXAMPLE={PopupsExampleCodeReact}
       />
       <StaticExample
         title="Basic Popup"
@@ -415,7 +415,7 @@ function PopUpsDocumentation() {
   );
 }
 
-PopUpsDocumentation.propTypes = propTypes;
-PopUpsDocumentation.defaultProps = defaultProps;
+PopupsDocumentation.propTypes = propTypes;
+PopupsDocumentation.defaultProps = defaultProps;
 
-export default PopUpsDocumentation;
+export default PopupsDocumentation;

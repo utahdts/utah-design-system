@@ -15,7 +15,7 @@ const defaultProps = {
   innerRef: null,
 };
 
-function PopUpsExampleRender({
+function PopupsExampleRender({
   setState,
   state: {
     props: {
@@ -69,7 +69,7 @@ function PopUpsExampleRender({
   );
 }
 
-PopUpsExampleRender.propTypes = propTypes;
-PopUpsExampleRender.defaultProps = defaultProps;
+PopupsExampleRender.propTypes = propTypes;
+PopupsExampleRender.defaultProps = defaultProps;
 
-export default PopUpsExampleRender;
+export default PopupsExampleRender;

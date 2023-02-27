@@ -376,12 +376,12 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  // === Pop Ups === //
-  popUps: {
+  // === Popups === //
+  popups: {
     content: PopupsDocumentation,
-    link: pageUrls.popUps,
+    link: pageUrls.popups,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Pop Ups',
+    pageTitle: 'Popups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
