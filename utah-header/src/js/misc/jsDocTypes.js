@@ -14,6 +14,10 @@
  * @typedef {'SMALL' | 'MEDIUM' | 'LARGE'} Size
  * Should be Synced with the enumerations/sizes object
  *
+ * @typedef MainMenu {
+ *  @property {MenuItem[]} menuItems
+ * }
+ *
  * For menu items that are links to other locations
  * @typedef MenuItemUrlAction {
  *  @property {string} url - the url to which to go when interacted with
@@ -26,10 +30,10 @@
  *  @property {MenuItemUrlAction} [actionUrl] - link url
  *  @property {EventAction} [actionFunction] - onClick function
  *  @property {MenuItem[]} [actionMenu] - children menus
- *  @property {boolean} [isDivider] - this menu item is a divider between other menu items
  *
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
+ *  @property {boolean} [isDivider] - this menu item is a divider between other menu items
  *  @property {string} title - title for the menu item
  * }
  *
@@ -67,6 +71,7 @@
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
  *  @property {Element | string} [logo] - Must be an image or an SVG as a string
+ *  @property {MainMenu} [mainMenu] - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
  *  @property {string} size - size has to be one of the `Size` types
