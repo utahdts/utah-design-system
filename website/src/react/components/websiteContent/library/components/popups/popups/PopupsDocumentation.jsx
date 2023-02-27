@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Button,
   BUTTON_APPEARANCE,
@@ -20,22 +21,24 @@ import {
 import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
 import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
+import PreCode from '../../../../../preCode/PreCode';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import PopUpsExampleCodeReact from './PopupsExampleCodeReact';
-import PopUpsExampleProps from './PopupsExampleProps';
-import PopUpsExampleRender from './PopupsExampleRender';
+// eslint-disable-next-line import/no-unresolved
+import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
-import PreCode from '../../../../../preCode/PreCode';
+import PopupsExampleCodeReact from './PopupsExampleCodeReact';
+import PopupsExampleProps from './PopupsExampleProps';
+import PopupsExampleRender from './PopupsExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
-function PopUpsDocumentation() {
+function PopupsDocumentation() {
   const buttonRef = useRef();
   const button2Ref = useRef();
+  const buttonEditorRef = useRef();
   const [popupsState, setPopupsState] = useImmer({
     example1: false,
     example2: false,
@@ -43,20 +46,17 @@ function PopUpsDocumentation() {
   });
 
   useEffect(() => {
+    // set the focus on the button or text input depending on visibility
     if (popupsState.editorExample) {
-      // eslint-disable-next-line no-console
-      console.log('visible');
       document.getElementById('editor-example-textarea').focus();
     } else {
-      // eslint-disable-next-line no-console
-      console.log('not visible');
       document.getElementById('button-for-editor-example').focus();
     }
   }, [popupsState.editorExample]);
 
   return (
     <div className="documentation-content">
-      <h1 id="h1-top">Pop Ups</h1>
+      <h1 id="h1-top">Popups</h1>
       <div className="lead-in">
         <p>
           Popups are *non-modal boxes that are triggered by some input from the end user (e.g. clicking a target, or key presses).
@@ -72,15 +72,19 @@ function PopUpsDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
-        RENDER_EXAMPLE={PopUpsExampleRender}
-        PROPS_EXAMPLE={PopUpsExampleProps}
-        CODE_EXAMPLE={PopUpsExampleCodeReact}
+        RENDER_EXAMPLE={PopupsExampleRender}
+        PROPS_EXAMPLE={PopupsExampleProps}
+        CODE_EXAMPLE={PopupsExampleCodeReact}
       />
       <StaticExample
         title="Basic Popup"
         renderedExample={(
           <>
             <button
+              aria-controls="id-for-example1"
+              aria-expanded={popupsState.example1}
+              aria-haspopup="dialog"
+              id="button-for-example1"
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
@@ -92,37 +96,39 @@ function PopUpsDocumentation() {
               Toggle Popup
             </button>
             <Popup
+              aria-labelledby="button-for-example1"
+              id="id-for-example1"
               isVisible={popupsState.example1}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example1 = isVisible; })}
-              referenceElement={buttonRef}
               placement={popperPlacement.BOTTOM}
+              referenceElement={buttonRef}
             >
               <div>I am content in a Popup</div>
             </Popup>
 
             <button
+              aria-controls="id-for-example2"
+              aria-expanded={popupsState.example2}
+              aria-haspopup="dialog"
+              id="button-for-example-2"
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
                 setPopupsState((draftState) => { draftState.example2 = !draftState.example2; });
               }}
               ref={button2Ref}
-              aria-haspopup="dialog"
-              aria-controls="id-for-example2"
-              aria-expanded={popupsState.example2}
               type="button"
-              id="button-for-example-2"
             >
               Toggle Popup Example 2
             </button>
             <Popup
-              isVisible={popupsState.example2}
-              onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example2 = isVisible; })}
-              referenceElement={button2Ref}
-              placement={popperPlacement.TOP}
+              aria-labelledby="button-for-example-2"
               hasCloseButton
               id="id-for-example2"
-              aria-labelledby="button-for-example-2"
+              isVisible={popupsState.example2}
+              onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example2 = isVisible; })}
+              placement={popperPlacement.TOP}
+              referenceElement={button2Ref}
               role="dialog"
             >
               <div>I am content in a Popup with a close button.</div>
@@ -178,17 +184,17 @@ function PopUpsDocumentation() {
         renderedExample={(
           <>
             <button
+              aria-controls="id-for-editorExample"
+              aria-expanded={popupsState.editorExample}
+              aria-haspopup="dialog"
+              id="button-for-editor-example"
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
                 setPopupsState((draftState) => { draftState.editorExample = !draftState.editorExample; });
               }}
-              ref={button2Ref}
-              aria-haspopup="dialog"
-              aria-controls="id-for-editorExample"
-              aria-expanded={popupsState.editorExample}
+              ref={buttonEditorRef}
               type="button"
-              id="button-for-editor-example"
             >
               Toggle Editor Popup Example
             </button>
@@ -200,7 +206,7 @@ function PopUpsDocumentation() {
               isVisible={popupsState.editorExample}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.editorExample = isVisible; })}
               placement={popperPlacement.TOP}
-              referenceElement={button2Ref}
+              referenceElement={buttonEditorRef}
               role="dialog"
             >
               <>
@@ -331,20 +337,10 @@ function PopUpsDocumentation() {
       <h4 className="mb-spacing">Aria Examples</h4>
 
       <h5>Popup Dialog</h5>
-      <pre className="gray-block">
-        &lt;button type=&quot;button&quot; aria-haspopup=&quot;dialog&quot; aria-controls=&quot;some-unique-popup-id&quot; aria-expanded=&quot;false&quot; id=&quot;some-unique-button-id&quot;&gt;<br />
-        &nbsp;&nbsp;Toggle Popup Button<br />
-        &lt;/button&gt;<br />
-        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot; class=&quot;popup__wrapper popup__wrapper--hidden&quot;&gt;<br />
-        &nbsp;&nbsp;&lt;div class=&quot;popup__arrow&quot;&gt;&lt;/div&gt;<br />
-        &nbsp;&nbsp;&lt;div class=&quot;popup__content&quot;&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Popup Content<br />
-        &nbsp;&nbsp;&lt;/div&gt;<br />
-        &lt;/div&gt;<br />
-      </pre>
+      <PreCode className="gray-block" codeRaw={PopupExampleAriaDialog} />
 
       <h5>Popup Menu</h5>
-      <PreCode codeRaw={PopupExampleAriaMenu} />
+      <PreCode className="gray-block" codeRaw={PopupExampleAriaMenu} />
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
@@ -384,6 +380,14 @@ function PopUpsDocumentation() {
                       <TableCell><code>.popup__arrow</code></TableCell>
                       <TableCell>The arrow for the popup.</TableCell>
                     </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__close-button</code></TableCell>
+                      <TableCell>The class for the close button (icon button).</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__wrapper--close-button-absolute</code></TableCell>
+                      <TableCell>Will position the close button absolutely instead of floating it.</TableCell>
+                    </TableRow>
                   </TableBody>
                 </Table>
               </TableWrapper>
@@ -401,7 +405,19 @@ function PopUpsDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code className="primary-color">props</code></TableCell>
+                      <TableCell><code className="primary-color">children</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>node</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        The content of the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">className</code></TableCell>
                       <TableCell>
                         <div className="props-code-wrapper">
                           <code>string</code>
@@ -409,7 +425,103 @@ function PopUpsDocumentation() {
                       </TableCell>
                       <TableCell>null</TableCell>
                       <TableCell>
-                        What does this do?
+                        This css class will be added to the popup wrapper.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">hasCloseButton</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>boolean</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>false</TableCell>
+                      <TableCell>
+                        Controls whether the close button will appear on the popup or not.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">id</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>string</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>null</TableCell>
+                      <TableCell>
+                        The <code>id</code> attribute of the popup wrapper.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">innerRef</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>react ref</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>null</TableCell>
+                      <TableCell>
+                        The ref for the popup wrapper.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">isVisible</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>boolean</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        The popup component is controlled. You must provide the visible state of the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">offset</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>array of numbers</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>[0, 10]</TableCell>
+                      <TableCell>
+                        The offset used by Popper to position the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">onVisibleChange</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>function</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        A function that is triggered when the visibility of the popup should changes. The new visible value is passed as a parameter.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">placement</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>string</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>popperPlacement.AUTO</TableCell>
+                      <TableCell>
+                        The default placement of the popup. See the popperPlacement ENUM for the correct values to use.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">referenceElement</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>react ref</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        A ref to the button or place where the popup will appear. Usually this is the button that activated the popup.
                       </TableCell>
                     </TableRow>
                   </TableBody>
@@ -423,7 +535,7 @@ function PopUpsDocumentation() {
   );
 }
 
-PopUpsDocumentation.propTypes = propTypes;
-PopUpsDocumentation.defaultProps = defaultProps;
+PopupsDocumentation.propTypes = propTypes;
+PopupsDocumentation.defaultProps = defaultProps;
 
-export default PopUpsDocumentation;
+export default PopupsDocumentation;

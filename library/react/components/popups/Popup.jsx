@@ -12,7 +12,7 @@ import IconButton from '../buttons/IconButton';
 
 const propTypes = {
   // The content of the popup
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 
   // CSS class to apply to the popup
   className: PropTypes.string,
@@ -22,7 +22,7 @@ const propTypes = {
 
   id: PropTypes.string,
 
-  // ref to the popup container
+  // ref to the popup wrapper
   innerRef: RefShape,
 
   // Control the visibility of the popup
@@ -42,7 +42,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  className: undefined,
+  className: null,
   hasCloseButton: false,
   id: null,
   innerRef: null,

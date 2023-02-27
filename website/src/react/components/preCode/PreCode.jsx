@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react';
 import cleanHtmlForInnerHTML from './cleanHtmlForInnerHTML';
 
 const propTypes = {
+  className: PropTypes.string,
   // the raw unformatted DOM code string (probably from an innerHTML?)
   codeRaw: PropTypes.string.isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  className: '',
+};
 
-function PreCode({ codeRaw }) {
+function PreCode({ className, codeRaw }) {
   const [codeInnerHtml, setCodeInnerHtml] = useState(null);
 
   useEffect(
@@ -20,7 +23,7 @@ function PreCode({ codeRaw }) {
 
   return (
     // eslint-disable-next-line react/no-danger
-    <pre className="gray-block" dangerouslySetInnerHTML={{ __html: codeInnerHtml }} />
+    <pre className={className} dangerouslySetInnerHTML={{ __html: codeInnerHtml }} />
   );
 }
 

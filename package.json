@@ -12,7 +12,7 @@
     "npmi": "npm i",
     "watchLib": "cd library && npm run watch",
     "websiteDev": "cd website && npm run dev",
-    "dev": "npm run build && run-p websiteDev watchLib",
+    "dev": "run-p websiteDev watchLib",
     "test": "vitest",
     "circular": "npx madge --circular .",
     "circularg": "npx madge --circular --image circular.svg ."

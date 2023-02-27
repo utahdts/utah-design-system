@@ -8,17 +8,17 @@ import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlace
 import startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import PopUpsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
+import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,
   state: PropTypes.shape({
-    props: PopUpsPropsShape.isRequired,
+    props: PopupsPropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
 
-function PopUpsExampleProps({ setState, state }) {
+function PopupsExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
@@ -56,7 +56,7 @@ function PopUpsExampleProps({ setState, state }) {
   );
 }
 
-PopUpsExampleProps.propTypes = propTypes;
-PopUpsExampleProps.defaultProps = defaultProps;
+PopupsExampleProps.propTypes = propTypes;
+PopupsExampleProps.defaultProps = defaultProps;
 
-export default PopUpsExampleProps;
+export default PopupsExampleProps;

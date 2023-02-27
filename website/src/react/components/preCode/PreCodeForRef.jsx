@@ -5,15 +5,18 @@ import cleanHtmlForInnerHTML from './cleanHtmlForInnerHTML';
 import PreCode from './PreCode';
 
 const propTypes = {
+  className: PropTypes.string,
   // what dependencies determine when the targetRef has changed content
   // eslint-disable-next-line react/forbid-prop-types
   deps: PropTypes.array.isRequired,
   // target DOM element from which to pull the DOM string
   targetRef: RefShape.isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  className: '',
+};
 
-function PreCodeForRef({ deps, targetRef }) {
+function PreCodeForRef({ className, deps, targetRef }) {
   const [innerHtml, setInnerHtml] = useState('');
 
   useLayoutEffect(
@@ -38,7 +41,7 @@ function PreCodeForRef({ deps, targetRef }) {
     deps
   );
 
-  return <PreCode codeRaw={innerHtml} />;
+  return <PreCode className={className} codeRaw={innerHtml} />;
 }
 
 PreCodeForRef.propTypes = propTypes;
