@@ -1,3 +1,7 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-indent */
 import {
   Button,
   formElementSizesEnum,
@@ -23,6 +27,7 @@ import events from 'utah-design-system-header/src/js/enumerations/events';
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import PreCode from '../../../../preCode/PreCode';
+import StaticExample from '../../../../staticExamples/StaticExample';
 import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
@@ -70,11 +75,14 @@ function UtahHeaderDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Utah Header</h1>
       <p className="lead-in">
-        The Utah Header provides cross-site functionality and appearance.
+      The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. The purpose of its components is to promote a consistent look, feel and user experience throughout all state websites and applications.
+      </p>
+      <p className="lead-in">
+      The components contained within the header include the <strong>Utah Unbrand</strong>, <strong>Agency Icon and Title,</strong> and <strong>Action Items</strong>.
       </p>
       <hr />
       <div className="header-config__title">
-        <h2 id="section-example">Header Config</h2>
+        <h2 id="section-example">Example</h2>
         <Switch
           id="header-config-on-off"
           label="Turn On/Off Custom Header"
@@ -163,10 +171,82 @@ function UtahHeaderDocumentation() {
         </div>
       </div>
 
+      <StaticExample
+        title="Utah Unbrand"
+        renderedExample={(
+          <div>Hover over the examples above.</div>
+        )}
+        quickTips={(
+          <ul>
+            <li>The Unbrand/State brand is required on all headers.</li>
+            <li>The Unbrand helps the user to know that they are an official State website.</li>
+            <li>The color of the Unbrand can be changed to match the primary or secondary color of the site.</li>
+            <li>Depending on the height of the header it can have 3 different sizes</li>
+          </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Agency Icon and Title"
+        renderedExample={(
+          <div>Hover over the examples above.</div>
+        )}
+        quickTips={(
+          <ul>
+            <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
+            <li>The title is always required even if it’s not visible, so screen readers can identify the site.</li>
+            <li>If you are using an image, such as a png, jpg or svg that contains both the agency logo and title, the text of the agency title should be at least 14px as well.</li>
+          </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Action Items"
+        renderedExample={(
+          <div>Hover over the examples above.</div>
+        )}
+        quickTips={(
+          <ul>
+            <li>Action items are not required, but can be utilized based on need.</li>
+            <li>Action items are icon buttons that can be used in combination with badges.</li>
+            <li>The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation or frequently used services.</li>
+            <li>The Alert icon is represented by a bell icon. It will eventually be  linked to the Citizen Portal.</li>
+            <li>The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
+            <li>The Settings icon is represented by a gear icon. It is a popup menu that  allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
+            <li>The UtahID Login is a button that allows the user to login to their UtahID and Citizen Portal (eventually) accounts.</li>
+            <li>Action items can have 2 different types of popups.
+              <ul>
+                <li>Contains a menu</li>
+                <li>Contains custom content</li>
+              </ul>
+            </li>
+          </ul>
+        )}
+      />
+      <p>View more information on Popup Menus, Icon Buttons and Badges</p>
+
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li>Use always.</li>
+        <li><strong>Always</strong>. The header is required on all sites.</li>
+        <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
+      </ul>
+
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
+      <ul className="mb-spacing">
+        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
+      </ul>
+
+      <h3 id="section-usability-guidance">Usability Guidance</h3>
+      <ul className="mb-spacing">
+        <li><strong>Consistency</strong>. Never change the look and feel of the header as it is central to the citizens experience all public state websites and applications.</li>
+        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
+      </ul>
+
+      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h4 id="section-contrast">Contrast, Keyboard Interactivity and Screen Readers</h4>
+      <ul className="mb-spacing">
+        <li><strong>Full accessibility</strong>. The Utah Header will have full accessibility for contrast, keyboard, and screen readers out of the box.</li>
       </ul>
 
       <h2 id="section-utahid-events" className="mb-spacing">UtahID Events</h2>
@@ -196,7 +276,7 @@ function UtahHeaderDocumentation() {
     ...
     "utahId": {
       ...
-      // 
+      //
       "onAuthChanged": (
         /**
          * @param {UtahIdData | null}
