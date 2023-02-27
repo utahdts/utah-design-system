@@ -31,7 +31,7 @@ const propTypes = {
   // button isDisabled state
   isDisabled: PropTypes.bool,
   // what to do when the button is clicked
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   size: PropTypes.oneOf([
     formElementSizesEnum.SMALL1X,
     formElementSizesEnum.SMALL,
@@ -49,7 +49,6 @@ const defaultProps = {
   id: null,
   innerRef: null,
   isDisabled: false,
-  onClick: null,
   size: formElementSizesEnum.MEDIUM,
 };
 
