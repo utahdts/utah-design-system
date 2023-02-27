@@ -25,6 +25,8 @@ import StaticExample from '../../../../../staticExamples/StaticExample';
 import PopUpsExampleCodeReact from './PopupsExampleCodeReact';
 import PopUpsExampleProps from './PopupsExampleProps';
 import PopUpsExampleRender from './PopupsExampleRender';
+// eslint-disable-next-line import/no-unresolved
+// import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -281,6 +283,7 @@ function PopUpsDocumentation() {
       </ul>
       <h4>User Experience</h4>
       <ul className="mb-spacing">
+        <li><strong>Float above the content.</strong> Popup box should display over the main page content using a drop-shadow on the box.</li>
         <li><strong>Trigger event onClick.</strong> The user should be able to click on the element to trigger the interaction.</li>
         <li>
           <strong>Mobile experience.</strong> Avoid using fly-out menus as they are difficult for users with reduced dexterity and are difficult to
@@ -294,7 +297,6 @@ function PopUpsDocumentation() {
       <h3 id="section-accessibility">Accessability</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Popup box should display over the main page content using a drop-shadow on the box.</li>
         <li>The popup boundary (the outside edge of the popup) must maintain a <code>3:1</code> contrast ratio or better.</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
@@ -323,7 +325,7 @@ function PopUpsDocumentation() {
         <li>Screen readers typically announce the name and role of the element first followed by the state of the element.</li>
         <li>Remember that the focus is set on the first interactive element within the popup after it opens.</li>
         <li>Ensure that the user can easily close the popup and return to the main content of the website.</li>
-        <li>Use popup menus sparingly. Too many popup menus can create &apos;noise&apos; in screen readers.</li>
+        <li>Use popup menus sparingly. Too many popup menus can create &quot;noise&quot; in screen readers.</li>
       </ul>
       <h4 className="mb-spacing">Aria Examples</h4>
 
@@ -332,8 +334,11 @@ function PopUpsDocumentation() {
         &lt;button type=&quot;button&quot; aria-haspopup=&quot;dialog&quot; aria-controls=&quot;some-unique-popup-id&quot; aria-expanded=&quot;false&quot; id=&quot;some-unique-button-id&quot;&gt;<br />
         &nbsp;&nbsp;Toggle Popup Button<br />
         &lt;/button&gt;<br />
-        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot;&gt;<br />
-        &nbsp;&nbsp;Popup Content<br />
+        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot; class=&quot;popup__wrapper popup__wrapper--hidden&quot;&gt;<br />
+        &nbsp;&nbsp;&lt;div class=&quot;popup__arrow&quot;&gt;&lt;/div&gt;<br />
+        &nbsp;&nbsp;&lt;div class=&quot;popup__content&quot;&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;Popup Content<br />
+        &nbsp;&nbsp;&lt;/div&gt;<br />
         &lt;/div&gt;<br />
       </pre>
 
@@ -342,11 +347,14 @@ function PopUpsDocumentation() {
         &lt;button type=&quot;button&quot; aria-haspopup=&quot;menu&quot; aria-controls=&quot;some-unique-popup-id&quot; aria-expanded=&quot;false&quot; id=&quot;some-unique-button-id&quot;&gt;<br />
         &nbsp;&nbsp;Toggle Popup Menu Button<br />
         &lt;/button&gt;<br />
-        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot;&gt;<br />
-        &nbsp;&nbsp;&lt;ul role=&quot;menu&quot; aria-label=&quot;Menu Name&quot;&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 1&lt;/li&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 2&lt;/li&gt;<br />
-        &nbsp;&nbsp;&lt;/ul&gt;<br />
+        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot; class=&quot;popup__wrapper popup__wrapper--hidden&quot;&gt;<br />
+        &nbsp;&nbsp;&lt;div class=&quot;popup__arrow&quot;&gt;&lt;/div&gt;<br />
+        &nbsp;&nbsp;&lt;div class=&quot;popup__content&quot;&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul role=&quot;menu&quot; aria-label=&quot;Menu Name&quot;&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 1&lt;/li&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Menu Item 2&lt;/li&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br />
+        &nbsp;&nbsp;&lt;/div&gt;<br />
         &lt;/div&gt;<br />
       </pre>
 
@@ -369,8 +377,24 @@ function PopUpsDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code>.class</code></TableCell>
-                      <TableCell>Class description.</TableCell>
+                      <TableCell><code>.popup__wrapper</code></TableCell>
+                      <TableCell>The outer wrapper of a popup.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__wrapper--hidden</code></TableCell>
+                      <TableCell>The hidden state of the popup.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__wrapper--visible</code></TableCell>
+                      <TableCell>The visible state of the popup.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__content</code></TableCell>
+                      <TableCell>The content of the popup.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.popup__arrow</code></TableCell>
+                      <TableCell>The arrow for the popup.</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
