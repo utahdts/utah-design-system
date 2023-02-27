@@ -20,14 +20,16 @@ import {
 import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
 import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
+import PreCode from '../../../../../preCode/PreCode';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+// eslint-disable-next-line import/no-unresolved
+import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
+// eslint-disable-next-line import/no-unresolved
+import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
 import PopUpsExampleCodeReact from './PopupsExampleCodeReact';
 import PopUpsExampleProps from './PopupsExampleProps';
 import PopUpsExampleRender from './PopupsExampleRender';
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
-import PreCode from '../../../../../preCode/PreCode';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -331,20 +333,10 @@ function PopUpsDocumentation() {
       <h4 className="mb-spacing">Aria Examples</h4>
 
       <h5>Popup Dialog</h5>
-      <pre className="gray-block">
-        &lt;button type=&quot;button&quot; aria-haspopup=&quot;dialog&quot; aria-controls=&quot;some-unique-popup-id&quot; aria-expanded=&quot;false&quot; id=&quot;some-unique-button-id&quot;&gt;<br />
-        &nbsp;&nbsp;Toggle Popup Button<br />
-        &lt;/button&gt;<br />
-        &lt;div id=&quot;some-unique-popup-id&quot; aria-labelledby=&quot;some-unique-button-id&quot; class=&quot;popup__wrapper popup__wrapper--hidden&quot;&gt;<br />
-        &nbsp;&nbsp;&lt;div class=&quot;popup__arrow&quot;&gt;&lt;/div&gt;<br />
-        &nbsp;&nbsp;&lt;div class=&quot;popup__content&quot;&gt;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Popup Content<br />
-        &nbsp;&nbsp;&lt;/div&gt;<br />
-        &lt;/div&gt;<br />
-      </pre>
+      <PreCode className="gray-block" codeRaw={PopupExampleAriaDialog} />
 
       <h5>Popup Menu</h5>
-      <PreCode codeRaw={PopupExampleAriaMenu} />
+      <PreCode className="gray-block" codeRaw={PopupExampleAriaMenu} />
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
