@@ -3,6 +3,7 @@
     "ATTOW",
     "borderless",
     "immer",
+    "jankiness",
     "popperjs",
     "Renderable",
     "renderables",
@@ -12,6 +13,7 @@
     "Unemphasized",
     "utahdts",
     "utds",
+    "uuidv",
     "xsmall"
   ],
   "editor.unicodeHighlight.allowedCharacters": {

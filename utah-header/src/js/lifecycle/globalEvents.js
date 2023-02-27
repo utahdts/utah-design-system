@@ -44,12 +44,8 @@ export function loadGlobalEvents() {
   document.addEventListener('click', globalEventFuncs.globalOnClick);
 
   globalEventFuncs.globalOnKeypress = (e) => {
-    switch (e.key) {
-      case 'Escape':
-        hideAllMenus();
-        break;
-      default:
-      // any other key is ignored
+    if (e.key === 'Escape') {
+      hideAllMenus();
     }
   };
   document.addEventListener('keyup', globalEventFuncs.globalOnKeypress);

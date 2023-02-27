@@ -134,11 +134,18 @@ describe('stringifyHeaderSettings', () => {
       },
       utahId: {
         currentUser: null,
-        onProfile: () => console.log('just right to live'),
-        onSignIn: () => console.log('too big to live'),
-        onSignOut: () => console.log('too small to live'),
+        onProfile: () => { 'just right to live'; },
+        onSignIn: () => { 'too big to live'; },
+        onSignOut: () => { 'too small to live'; },
       },
     };
+    const result = stringifyHeaderSettings(settings);
+    expect(result).toSatisfy(doesMatchStrings([
+      ...MATCH_BASIC_FIELDS,
+      `"onProfile": "${FUNCTION_PLACEHOLDER}"`,
+      `"onSignIn": "${FUNCTION_PLACEHOLDER}"`,
+      `"onSignOut": "${FUNCTION_PLACEHOLDER}"`,
+    ]));
   });
 
   test('actionItems: onAuthChanged', () => {
@@ -155,7 +162,7 @@ describe('stringifyHeaderSettings', () => {
       },
       utahId: {
         currentUser: undefined,
-        onAuthChanged: () => console.log('too small to live'),
+        onAuthChanged: () => { 'too small to live'; },
       },
     };
 
