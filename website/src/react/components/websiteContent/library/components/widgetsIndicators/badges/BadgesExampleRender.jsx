@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { RefShape } from '@utahdts/utah-design-system';
-import Button from '@utahdts/utah-design-system/react/components/buttons/Button';
+import { Button, RefShape } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import BadgesExamplePropsShape from '../../../../../../propTypesShapes/BadgesExamplePropsShape';
 

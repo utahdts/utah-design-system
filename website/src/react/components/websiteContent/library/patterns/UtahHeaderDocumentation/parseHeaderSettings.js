@@ -1,4 +1,4 @@
-import valueAtPath from '@utahdts/utah-design-system/react/util/state/valueAtPath';
+import { valueAtPath } from '@utahdts/utah-design-system';
 import { renderDOM } from 'utah-design-system-header/src/js/misc/renderDOM';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 

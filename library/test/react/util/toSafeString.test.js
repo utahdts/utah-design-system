@@ -1,6 +1,6 @@
 // @ts-check
-import toSafeString from '@utahdts/utah-design-system/react/util/toSafeString';
 import { describe, expect, test } from 'vitest';
+import toSafeString from '../../../react/util/toSafeString';
 
 describe('toSafeString', () => {
   test('empties', () => {

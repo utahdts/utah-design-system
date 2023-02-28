@@ -1,10 +1,12 @@
-import { useState } from 'react';
 import {
   Button, Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
-  TableBodyDataRowTemplate, TableFilterCustom, TableFilterNone,
+  TableBodyDataRowTemplate,
+  TableFilterCustom,
+  TableFilterDate,
+  TableFilterNone,
   TableFilters,
   TableFilterSelect,
   TableFilterSelectOption,
@@ -12,9 +14,9 @@ import {
   TableHead,
   TableHeadCell,
   TableHeadRow,
-  TableWrapper,
+  TableWrapper
 } from '@utahdts/utah-design-system';
-import TableFilterDate from '@utahdts/utah-design-system/react/components/table/TableFilterDate';
+import { useState } from 'react';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};

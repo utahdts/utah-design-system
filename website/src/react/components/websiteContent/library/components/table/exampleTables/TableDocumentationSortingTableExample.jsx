@@ -4,14 +4,15 @@ import {
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
-  TableBodyDataRowTemplate, TableHead,
+  TableBodyDataRowTemplate,
+  TableHead,
   TableHeadCell,
   TableHeadRow,
-  TableWrapper,
+  TableSortingRule,
+  tableSortingRuleFieldType,
+  TableSortingRules,
+  TableWrapper
 } from '@utahdts/utah-design-system';
-import TableSortingRule from '@utahdts/utah-design-system/react/components/table/TableSortingRule';
-import TableSortingRules from '@utahdts/utah-design-system/react/components/table/TableSortingRules';
-import tableSortingRuleFieldType from '@utahdts/utah-design-system/react/enums/tableSortingRuleFieldType';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};

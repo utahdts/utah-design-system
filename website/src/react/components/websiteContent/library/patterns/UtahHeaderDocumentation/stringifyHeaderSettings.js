@@ -1,4 +1,4 @@
-import valueAtPath from '@utahdts/utah-design-system/react/util/state/valueAtPath';
+import { valueAtPath } from '@utahdts/utah-design-system';
 import copyObjectWithoutFields from '../../../../../util/copyObjectWithoutFields';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 

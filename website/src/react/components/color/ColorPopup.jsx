@@ -1,6 +1,5 @@
+import { handleEvent, rectContainsPoint } from '@utahdts/utah-design-system';
 import { useRef, useState } from 'react';
-import { rectContainsPoint } from '@utahdts/utah-design-system';
-import handleEvent from '@utahdts/utah-design-system/react/util/handleEvent';
 import { useCssContext } from '../../context/cssContext/CssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';

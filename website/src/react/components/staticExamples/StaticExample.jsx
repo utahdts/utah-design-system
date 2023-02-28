@@ -1,6 +1,5 @@
+import { joinClassNames, stringToId } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import stringToId from '@utahdts/utah-design-system/react/util/stringToId';
-import { joinClassNames } from '@utahdts/utah-design-system';
 
 const propTypes = {
   className: PropTypes.string,
