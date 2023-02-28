@@ -9,7 +9,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@utahdts/utah-design-system": "0.2.0",
+    "@utahdts/utah-design-system": "0.3.0",
     "immer": "9.0.19",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
@@ -18,7 +18,7 @@
     "react-router-dom": "6.8.1",
     "tinycolor2": "^1.4.2",
     "use-immer": "0.8.1",
-    "utah-design-system-header": "1.0.0"
+    "utah-design-system-header": "1.1.0"
   },
   "devDependencies": {
     "@types/react": "18.0.28",
