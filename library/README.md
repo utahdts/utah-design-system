@@ -30,9 +30,9 @@ $ npm i @utahdts/utah-design-system
 import { DocumentationTemplate, LandingTemplate } from '@utahdts/utah-design-system';
 
 // uncompiled style
-import OnThisPage from '@utahdts/utah-design-system/react/components/navigation/OnThisPage';
-import SidePanelNavigation from '@utahdts/utah-design-system/react/components/navigation/SidePanelNavigation';
-import useCurrentMenuItem from '@utahdts/utah-design-system/react/hooks/useCurrentMenuItem';
+import { OnThisPage } from '@utahdts/utah-design-systemOnThisPage';
+import { SidePanelNavigation } from '@utahdts/utah-design-system';
+import { useCurrentMenuItem } from '@utahdts/utah-design-system';
 
 //import all scss
 import '@utahdts/utah-design-system/css/index.scss';

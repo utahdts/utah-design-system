@@ -1,7 +1,7 @@
-import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
-import { formElementSizesEnum } from '@utahdts/utah-design-system';
 import TableExamplePropsShape from '../../../../../propTypesShapes/TableExamplePropsShape';
+import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
+import SandboxIndent from '../../../../sandbox/SandboxIndent';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -13,44 +13,127 @@ const defaultProps = {};
 function TableExampleCodeReact({
   state: {
     props: {
-      appearance,
-      isBusy,
       className,
-      color,
-      iconLeft,
-      iconRight,
-      isDisabled,
       id,
-      size,
-      style,
-      title,
-      type,
+      isFiltering,
+      // isPaginating,
+      isSorting,
     },
   },
 }) {
-  const displayedProps = [
-    appearance ? `appearance="${appearance}"` : null,
-    color ? `color="${color}"` : null,
-    (iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null,
-    (iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null,
-    isBusy ? 'busy={true}' : null,
-    isDisabled ? 'disabled={true}' : null,
-    id ? `id="${id}"` : null,
-    className ? `className="${className}"` : null,
-    style ? `style="${style}"` : null,
-    (type && type !== 'button') ? `type="${type}"` : null,
-    'onClick={() => { /* ... do something ... */ }',
-    (!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`,
-  ].filter(identity);
-
+  // for curly brackets &rcub wsa not working, so had to use decimal... :shrug:
+  // RCUB = &#125;
+  // LCUB = &#123;
   return (
     <>
-      &lt;
-      {`Button${displayedProps.length ? ' ' : ''}`}
-      {displayedProps.join(' ')}
+      &lt;TableWrapper
+      {(className || id) ? <br /> : undefined}
+      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       &gt;
-      {title}
-      &lt;/Button&gt;
+      <br />
+      <SandboxIndent indentLevel={1} />
+      &lt;Table&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;TableHead&gt;
+      <br />
+      {
+        isSorting
+          ? (
+            <>
+              <SandboxIndent indentLevel={3} />
+              &lt;TableSortingRules defaultValue=&quot;category&quot;&gt;
+              <br />
+              <SandboxIndent indentLevel={4} />
+              &lt;TableSortingRule recordFieldPath=&quot;category&quot; /&gt;
+              <br />
+              <SandboxIndent indentLevel={4} />
+              &lt;TableSortingRule recordFieldPath=&quot;symbol&quot; /&gt;
+              <br />
+              <SandboxIndent indentLevel={4} />
+              {/* eslint-disable-next-line max-len */}
+              &lt;TableSortingRule recordFieldPath=&quot;year&quot; fieldType=&#123;tableSortingRuleFieldType.NUMBER&#125; defaultIsAscending=&#123;false&#125; /&gt;
+              <br />
+              <SandboxIndent indentLevel={3} />
+              &lt;/TableSortingRules&gt;
+              <br />
+            </>
+          )
+          : null
+      }
+      {
+        isFiltering
+          ? (
+            <>
+              <SandboxIndent indentLevel={3} />
+              &lt;TableFilters&gt;
+              <br />
+              <SandboxIndent indentLevel={4} />
+              &lt;TableFilterTextInput recordFieldPath=&quot;category&quot; /&gt;
+              <br />
+              <SandboxIndent indentLevel={4} />
+              &lt;TableFilterTextInput recordFieldPath=&quot;symbol&quot; /&gt;
+              <br />
+              <SandboxIndent indentLevel={4} />
+              &lt;TableFilterTextInput recordFieldPath=&quot;year&quot; /&gt;
+              <br />
+              <SandboxIndent indentLevel={3} />
+              &lt;/TableFilters&gt;
+              <br />
+            </>
+          )
+          : null
+      }
+      <SandboxIndent indentLevel={3} />
+      &lt;TableHeadRow&gt;
+      <br />
+      <SandboxIndent indentLevel={4} />
+      &lt;TableHeadCell recordFieldPath=&quot;category&quot;&gt;Category&lt;/TableHeadCell&gt;
+      <br />
+      <SandboxIndent indentLevel={4} />
+      &lt;TableHeadCell recordFieldPath=&quot;symbol&quot;&gt;Symbol&lt;/TableHeadCell&gt;
+      <br />
+      <SandboxIndent indentLevel={4} />
+      &lt;TableHeadCell recordFieldPath=&quot;year&quot;&gt;As Of Year&lt;/TableHeadCell&gt;
+      <br />
+      <SandboxIndent indentLevel={3} />
+      &lt;/TableHeadRow&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;/TableHead&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;TableBody&gt;
+      <br />
+      <SandboxIndent indentLevel={3} />
+      &lt;TableBodyData records=&#123;stateSymbols&#125; recordIdField=&quot;category&quot;&gt;
+      <br />
+      <SandboxIndent indentLevel={4} />
+      &lt;TableBodyDataRowTemplate&gt;
+      <br />
+      <SandboxIndent indentLevel={5} />
+      &lt;TableBodyDataCellTemplate recordFieldPath=&quot;category&quot; /&gt;
+      <br />
+      <SandboxIndent indentLevel={5} />
+      &lt;TableBodyDataCellTemplate recordFieldPath=&quot;symbol&quot; /&gt;
+      <br />
+      <SandboxIndent indentLevel={5} />
+      &lt;TableBodyDataCellTemplate recordFieldPath=&quot;year&quot; /&gt;
+      <br />
+      <SandboxIndent indentLevel={4} />
+      &lt;/TableBodyDataRowTemplate&gt;
+      <br />
+      <SandboxIndent indentLevel={3} />
+      &lt;/TableBodyData&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;/TableBody&gt;
+      <br />
+      <SandboxIndent indentLevel={1} />
+      &lt;/Table&gt;
+      <br />
+      &lt;/TableWrapper&gt;
     </>
   );
 }

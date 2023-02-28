@@ -1,26 +1,38 @@
 import { RefShape } from '@utahdts/utah-design-system';
+import { html } from 'js-beautify';
 import PropTypes from 'prop-types';
 import { useLayoutEffect, useState } from 'react';
-import cleanHtmlForInnerHTML from './cleanHtmlForInnerHTML';
 import PreCode from './PreCode';
 
 const propTypes = {
+  className: PropTypes.string,
   // what dependencies determine when the targetRef has changed content
   // eslint-disable-next-line react/forbid-prop-types
   deps: PropTypes.array.isRequired,
   // target DOM element from which to pull the DOM string
   targetRef: RefShape.isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  className: '',
+};
 
-function PreCodeForRef({ deps, targetRef }) {
+function PreCodeForRef({ className, deps, targetRef }) {
   const [innerHtml, setInnerHtml] = useState('');
 
   useLayoutEffect(
     () => {
       // PreCode also calls cleanHtmlForInnerHTML, but that shouldn't break anything... 🤞
-      let cleanHTML = cleanHtmlForInnerHTML(targetRef.current?.outerHTML);
-
+      let cleanHTML = html(
+        targetRef.current?.outerHTML
+          // place some mandatory newlines because js-beautify is not fully smart
+          .replace(/>([a-z])/gi, '>\n$1')
+          .replace(/([a-z])<\//gi, '$1\n</'),
+        {
+          indent_size: 2,
+          wrap_attributes: 'force-expand-multiline',
+          inline: [],
+        }
+      );
       // add output for events that have functions and other non-rendered content
       const events = [
         'onClick',
@@ -38,7 +50,7 @@ function PreCodeForRef({ deps, targetRef }) {
     deps
   );
 
-  return <PreCode codeRaw={innerHtml} />;
+  return <PreCode className={className} codeRaw={innerHtml} />;
 }
 
 PreCodeForRef.propTypes = propTypes;

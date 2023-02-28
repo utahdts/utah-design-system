@@ -32,7 +32,7 @@ export function loadHeader() {
     // TODO: but then header will bounce in to view from the top...
     // TODO: could place a placeholder div that is the same size of the header, then settimeout to load header after css loads...?
 
-    // // Load the Main Menu
+    // TODO: Load the Main Menu
     // if (document.body.firstChild) {
     //   document.body.insertBefore(MainMenu(), document.body.firstChild);
     // } else {

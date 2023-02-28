@@ -16,7 +16,7 @@ export function unloadGlobalEvents() {
 }
 
 function hideAllMenus() {
-  const popups = document.querySelectorAll(getCssClassSelector(domConstants.POPUP_WRAPPER));
+  const popups = document.querySelectorAll(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.POPUP_WRAPPER]));
   Array.from(popups)
     .filter((popup) => !popup.classList.contains(domConstants.POPUP__HIDDEN))
     .forEach((popup) => {
@@ -44,12 +44,8 @@ export function loadGlobalEvents() {
   document.addEventListener('click', globalEventFuncs.globalOnClick);
 
   globalEventFuncs.globalOnKeypress = (e) => {
-    switch (e.key) {
-      case 'Escape':
-        hideAllMenus();
-        break;
-      default:
-        // any other key is ignored
+    if (e.key === 'Escape') {
+      hideAllMenus();
     }
   };
   document.addEventListener('keyup', globalEventFuncs.globalOnKeypress);

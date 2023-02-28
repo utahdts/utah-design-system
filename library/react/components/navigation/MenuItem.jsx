@@ -5,6 +5,7 @@ import useStateEffect from '../../hooks/useStateEffect';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
+import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 
 const propTypes = {
   currentMenuItem: MenuItemShape,
@@ -76,11 +77,11 @@ function MenuItem({ currentMenuItem, menuItem }) {
           menuItem.children
             ? (
               <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
                 aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
                 className={joinClassNames(
                   'menu-item__chevron',
-                  'icon-button',
                   isChildrenOpen && 'menu-item__chevron--open'
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}

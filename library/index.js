@@ -1,6 +1,7 @@
 import packageJson from './package.json';
 
 export { default as Button } from './react/components/buttons/Button';
+export { default as calculateMenuItemsParents } from './react/util/menuItems/calculateMenuItemsParents';
 export { default as ConfirmationButton } from './react/components/buttons/ConfirmationButton';
 export { default as IconButton } from './react/components/buttons/IconButton';
 export { default as SegmentedButton } from './react/components/buttons/SegmentedButton';
@@ -15,6 +16,8 @@ export { default as CheckBox } from './react/components/forms/CheckBox';
 export { default as Form } from './react/components/forms/Form';
 export { default as FormContext } from './react/components/forms/FormContext';
 export { default as FormContextProvider } from './react/components/forms/FormContextProvider';
+export { default as popperPlacement } from './react/enums/popperPlacement';
+export { default as Popup } from './react/components/popups/Popup';
 export { default as Select } from './react/components/forms/Select';
 export { default as SelectOption } from './react/components/forms/SelectOption';
 export { default as Switch } from './react/components/forms/Switch';
@@ -22,7 +25,10 @@ export { default as TextInput } from './react/components/forms/TextInput';
 export { default as Icons } from './react/components/icons/Icons';
 export { default as HorizontalMenu } from './react/components/navigation/HorizontalMenu';
 export { default as MainMenu } from './react/components/navigation/MainMenu';
+export { default as OnThisPage } from './react/components/navigation/OnThisPage';
 export { default as Pagination } from './react/components/pagination/Pagination';
+export { default as SidePanelNavigation } from './react/components/navigation/SidePanelNavigation';
+export { default as stringToId } from './react/util/stringToId';
 export { default as usePaginatedList } from './react/components/pagination/usePaginatedList';
 export { default as Table } from './react/components/table/Table';
 export { default as TableBody } from './react/components/table/TableBody';
@@ -31,6 +37,7 @@ export { default as TableBodyDataCellTemplate } from './react/components/table/T
 export { default as TableBodyDataRowTemplate } from './react/components/table/TableBodyDataRowTemplate';
 export { default as TableCell } from './react/components/table/TableCell';
 export { default as TableFilterCustom } from './react/components/table/TableFilterCustom';
+export { default as TableFilterDate } from './react/components/table/TableFilterDate';
 export { default as TableFilterNone } from './react/components/table/TableFilterNone';
 export { default as TableFilters } from './react/components/table/TableFilters';
 export { default as TableFilterSelect } from './react/components/table/TableFilterSelect';
@@ -51,7 +58,11 @@ export { default as LandingTemplate } from './react/components/templates/Landing
 export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { default as tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { default as useBanner } from './react/hooks/useBanner';
+export { default as useCurrentMenuItem } from './react/hooks/useCurrentMenuItem';
+export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useMountingTracker } from './react/hooks/useMountingTracker';
+export { default as useRefLazy } from './react/hooks/useRefLazy';
+export { default as useRefAlways } from './react/hooks/useRefAlways';
 export { default as MenuItemShape } from './react/propTypesShapes/MenuItemsShape';
 export { default as RefShape } from './react/propTypesShapes/RefShape';
 export { default as handleEvent } from './react/util/handleEvent';
@@ -60,5 +71,7 @@ export { default as joinClassNames } from './react/util/joinClassNames';
 export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { default as setValueAtPath } from './react/util/state/setValueAtPath';
 export { default as valueAtPath } from './react/util/state/valueAtPath';
+export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
+export { default as componentColors } from './react/enums/componentColors';
 
 export const { version } = packageJson;

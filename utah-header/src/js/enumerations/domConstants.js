@@ -52,16 +52,17 @@ export default {
   LOGO: 'utds-logo-wrapper',
 
   POPUP_MENU: 'utds-header-popup-menu',
+  POPUP_MENU__DIVIDER: 'utds-header-popup-menu__divider',
   POPUP_MENU__LINK: 'utds-header-popup-menu__link',
   POPUP_MENU__LINK_TEXT: 'utds-header-popup-menu__link-text',
-  POPUP__HIDDEN: 'utds-popup__wrapper--hidden',
-  POPUP__VISIBLE: 'utds-popup__wrapper--visible',
+  POPUP__HIDDEN: 'popup__wrapper--hidden',
+  POPUP__VISIBLE: 'popup__wrapper--visible',
 
   EXTERNAL_LINK: 'utds-icon-after-external-link',
 
-  POPUP_ARROW: 'utds-popup__arrow',
-  POPUP_CONTENT_WRAPPER: 'utds-popup__content',
-  POPUP_WRAPPER: 'utds-popup__wrapper',
+  POPUP_ARROW: 'popup__arrow',
+  POPUP_CONTENT_WRAPPER: 'popup__content',
+  POPUP_WRAPPER: 'popup__wrapper',
 
   SIZE__LARGE: 'large',
   SIZE__MEDIUM: 'medium',

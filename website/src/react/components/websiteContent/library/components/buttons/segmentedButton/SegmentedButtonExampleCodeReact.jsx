@@ -1,6 +1,7 @@
-import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import SegmentedButtonPropsShape from '../../../../../../propTypesShapes/SegmentedButtonPropsShape';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import SandboxIndent from '../../../../../sandbox/SandboxIndent';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -16,16 +17,16 @@ function SegmentedButtonExampleCode({
     },
   },
 }) {
-  const displayedProps = [
-    id ? `id="${id}"` : null,
-  ].filter(identity);
-
   return (
     <>
-      &lt;
-      {`SegmentedButton${displayedProps.length ? ' ' : ''}`}
-      {displayedProps.join(' ')}
+      &lt;SegmentedButton
+      <br />
+      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       &gt;
+      <br />
+      <SandboxIndent indentLevel={1} />
+      -- what goes here? --
+      <br />
       &lt;/SegmentedButton&gt;
     </>
   );

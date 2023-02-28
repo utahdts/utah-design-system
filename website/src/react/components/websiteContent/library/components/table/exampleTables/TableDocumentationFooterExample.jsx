@@ -10,12 +10,12 @@ import {
   TableHead,
   TableHeadCell,
   TableHeadRow,
+  TableSortingRule,
+  TableSortingRules,
+  tableSortingRuleFieldType,
   TableWrapper,
+  useRefLazy,
 } from '@utahdts/utah-design-system';
-import TableSortingRule from '@utahdts/utah-design-system/react/components/table/TableSortingRule';
-import TableSortingRules from '@utahdts/utah-design-system/react/components/table/TableSortingRules';
-import tableSortingRuleFieldType from '@utahdts/utah-design-system/react/enums/tableSortingRuleFieldType';
-import useRefLazy from '@utahdts/utah-design-system/react/hooks/useRefLazy';
 import exampleGovernorsData from './exampleGovernorsData';
 
 const propTypes = {};

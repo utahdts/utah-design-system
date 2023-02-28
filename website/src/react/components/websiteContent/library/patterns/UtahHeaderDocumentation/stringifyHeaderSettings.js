@@ -1,4 +1,4 @@
-import valueAtPath from '@utahdts/utah-design-system/react/util/state/valueAtPath';
+import { valueAtPath } from '@utahdts/utah-design-system';
 import copyObjectWithoutFields from '../../../../../util/copyObjectWithoutFields';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
@@ -14,7 +14,8 @@ export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
  * @returns {string}
  */
 export default function stringifyHeaderSettings(settingsObject) {
-  const customFields = ['actionFunction', 'actionDom', 'icon', 'logo'];
+  // !!!! Changes here need to also be made in parseHeaderSettings.js !!!! //
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut'];
   const actionItems = objectsPathsWithKeys(settingsObject, customFields);
 
   const copySettings = copyObjectWithoutFields(settingsObject, customFields);
@@ -22,6 +23,10 @@ export default function stringifyHeaderSettings(settingsObject) {
   actionItems.forEach((actionItem) => {
     switch (actionItem.searchKey) {
       case 'actionFunction':
+      case 'onAuthChanged':
+      case 'onProfile':
+      case 'onSignIn':
+      case 'onSignOut':
         // convert functions to strings
         valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = FUNCTION_PLACEHOLDER;
         break;

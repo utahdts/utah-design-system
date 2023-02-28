@@ -9,32 +9,33 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@utahdts/utah-design-system": "0.1.0",
-    "immer": "9.0.15",
+    "@utahdts/utah-design-system": "0.2.0",
+    "immer": "9.0.19",
+    "js-beautify": "1.14.7",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.4.0",
+    "react-router-dom": "6.8.1",
     "tinycolor2": "^1.4.2",
-    "use-immer": "0.7.0",
-    "utah-design-system-header": "1.0.0"
+    "use-immer": "0.8.1",
+    "utah-design-system-header": "1.1.0"
   },
   "devDependencies": {
-    "@types/react": "18.0.19",
-    "@types/react-dom": "18.0.6",
-    "@vitejs/plugin-react": "3.0.0",
-    "eslint": "8.23.1",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@vitejs/plugin-react": "3.1.0",
+    "eslint": "8.35.0",
     "eslint-config-airbnb": "19.0.4",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-react": "7.31.8",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
-    "happy-dom": "8.2.0",
-    "sass": "1.54.9",
-    "vite": "4.1.1",
+    "happy-dom": "8.9.0",
+    "sass": "1.58.3",
+    "vite": "4.1.4",
     "vite-plugin-eslint": "1.8.1",
-    "vite-plugin-mkcert": "1.13.0",
-    "vitest": "0.28.4"
+    "vite-plugin-mkcert": "1.13.3",
+    "vitest": "0.29.1"
   }
 }

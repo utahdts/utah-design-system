@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Pagination,
   Table,
   TableBody,
   TableBodyData,
@@ -9,9 +10,8 @@ import {
   TableHeadRow,
   TableWrapper,
   TextInput,
+  usePaginatedList,
 } from '@utahdts/utah-design-system';
-import Pagination from '@utahdts/utah-design-system/react/components/pagination/Pagination';
-import usePaginatedList from '@utahdts/utah-design-system/react/components/pagination/usePaginatedList';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};

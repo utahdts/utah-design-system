@@ -12,15 +12,15 @@
     "npmi": "npm i",
     "watchLib": "cd library && npm run watch",
     "websiteDev": "cd website && npm run dev",
-    "dev": "npm run build && run-p websiteDev watchLib",
+    "dev": "run-p websiteDev watchLib",
     "test": "vitest",
     "circular": "npx madge --circular .",
     "circularg": "npx madge --circular --image circular.svg ."
   },
   "devDependencies": {
     "npm-run-all": "4.1.5",
-    "rimraf": "3.0.2",
-    "vite": "4.1.1",
-    "vitest": "0.28.4"
+    "rimraf": "4.1.2",
+    "vite": "4.1.4",
+    "vitest": "0.29.1"
   }
 }

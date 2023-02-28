@@ -1,4 +1,4 @@
-import valueAtPath from '@utahdts/utah-design-system/react/util/state/valueAtPath';
+import { valueAtPath } from '@utahdts/utah-design-system';
 import { renderDOM } from 'utah-design-system-header/src/js/misc/renderDOM';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
@@ -23,12 +23,17 @@ export default function parseHeaderSettings(settingsString) {
     throw new ParseHeaderSettingsError(e);
   }
 
-  const customFields = ['actionFunction', 'actionDom', 'icon', 'logo'];
+  // !!!! Changes here need to also be made in stringifyHeaderSettings.js !!!! //
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut'];
   const actionItems = objectsPathsWithKeys(resultSettings, customFields);
 
   actionItems.forEach((actionItem) => {
     switch (actionItem.searchKey) {
-      case 'actionFunction': {
+      case 'actionFunction':
+      case 'onAuthChanged':
+      case 'onProfile':
+      case 'onSignIn':
+      case 'onSignOut': {
         // convert function strings to actual MOCKED functions with contents as an alert
         const functionObject = valueAtPath({ object: resultSettings, path: actionItem.path });
         // eslint-disable-next-line no-alert
