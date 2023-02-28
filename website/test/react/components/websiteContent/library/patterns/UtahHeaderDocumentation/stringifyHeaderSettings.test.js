@@ -40,6 +40,7 @@ describe('stringifyHeaderSettings', () => {
         tabletPortrait: 768,
         tabletLandscape: 1024,
       },
+      utahId: false,
     };
 
     expect(stringifyHeaderSettings(settings)).toSatisfy(doesMatchStrings(MATCH_BASIC_FIELDS));
@@ -58,6 +59,7 @@ describe('stringifyHeaderSettings', () => {
         tabletLandscape: 1024,
       },
       logo: 'just-a-string',
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -77,6 +79,7 @@ describe('stringifyHeaderSettings', () => {
         tabletLandscape: 1024,
       },
       logo: document.createElement('div'),
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -104,6 +107,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -114,6 +118,61 @@ describe('stringifyHeaderSettings', () => {
       '"showTitle": true',
       '"title": "action item for life!"',
     ]));
+  });
+
+  test('actionItems: onSignIn/onSignOut/onProfile', () => {
+    /** @type {Settings} */
+    const settings = {
+      showTitle: true,
+      size: sizes.MEDIUM,
+      title: 'Utah Design System',
+      titleURL: '/',
+      mediaSizes: {
+        mobile: 640,
+        tabletPortrait: 768,
+        tabletLandscape: 1024,
+      },
+      utahId: {
+        currentUser: null,
+        onProfile: () => { 'just right to live'; },
+        onSignIn: () => { 'too big to live'; },
+        onSignOut: () => { 'too small to live'; },
+      },
+    };
+    const result = stringifyHeaderSettings(settings);
+    expect(result).toSatisfy(doesMatchStrings([
+      ...MATCH_BASIC_FIELDS,
+      `"onProfile": "${FUNCTION_PLACEHOLDER}"`,
+      `"onSignIn": "${FUNCTION_PLACEHOLDER}"`,
+      `"onSignOut": "${FUNCTION_PLACEHOLDER}"`,
+    ]));
+  });
+
+  test('actionItems: onAuthChanged', () => {
+    /** @type {Settings} */
+    const settings = {
+      showTitle: true,
+      size: sizes.MEDIUM,
+      title: 'Utah Design System',
+      titleURL: '/',
+      mediaSizes: {
+        mobile: 640,
+        tabletPortrait: 768,
+        tabletLandscape: 1024,
+      },
+      utahId: {
+        currentUser: undefined,
+        onAuthChanged: () => { 'too small to live'; },
+      },
+    };
+
+    const result = stringifyHeaderSettings(settings);
+    expect(result).toSatisfy(doesMatchStrings([
+      ...MATCH_BASIC_FIELDS,
+      `"onAuthChanged": "${FUNCTION_PLACEHOLDER}"`,
+    ]));
+    // undefined doesn't get carried over so that it is really undefined
+    expect(result.includes('currentUser')).toBeFalsy();
   });
 
   test('actionItems: actionDom', () => {
@@ -136,6 +195,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -177,6 +237,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);
@@ -221,6 +282,7 @@ describe('stringifyHeaderSettings', () => {
           title: 'action item for life!',
         },
       ],
+      utahId: false,
     };
 
     const result = stringifyHeaderSettings(settings);

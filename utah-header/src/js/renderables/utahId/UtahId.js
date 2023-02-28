@@ -1,8 +1,9 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import events from '../../enumerations/events';
+import utahIdUrls from '../../enumerations/utahIdUrls';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import { getUtahHeaderSettings } from '../../settings/settings';
 import { fetchUtahIdUserDataAsync, getCurrentUtahIdData } from '../../utahId/utahIdData';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
@@ -19,12 +20,13 @@ let utahIdButton = null;
 /** @type UtahIdData | null */
 let utahIdData = null;
 /** @type HTMLElement | null */
-let utahIdPopUpMenu = null;
+let utahIdPopupMenu = null;
 
-function authChangedEventHandler(e) {
-  /** @type UtahIdData */
-  utahIdData = /** @type UtahIdData */(/** @type any */(e).detail);
-
+/**
+ * @param {UtahIdData} newUtahIdData
+ */
+export function authChangedEventHandler(newUtahIdData) {
+  utahIdData = newUtahIdData;
   // it's ok if utahIdData is not definitive
   // - when it does become definitive it will update the button
   // - maybe it was fetched and got a user and became indeterminate to fetch again but will get same result again
@@ -41,13 +43,13 @@ function authChangedEventHandler(e) {
 }
 
 function doAriaForUtahId() {
-  if (utahIdButton && utahIdPopUpMenu) {
+  if (utahIdButton && utahIdPopupMenu) {
     // Is user signed in?
     const userSignedIn = !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated;
 
     // Add aria-haspopup, aria-controls, and aria-expanded to the button to tie in the menu
     // Hide the menu from aria when the user is not signed in
-    const menu = utahIdPopUpMenu.querySelector(getCssClassSelector(domConstants.POPUP_MENU));
+    const menu = utahIdPopupMenu.querySelector(getCssClassSelector(domConstants.POPUP_MENU));
     if (!menu) {
       throw new Error('UtahId: Utah ID menu not found');
     }
@@ -59,12 +61,12 @@ function doAriaForUtahId() {
       utahIdButton.setAttribute('aria-haspopup', 'menu');
       utahIdButton.setAttribute('aria-controls', menuId);
       utahIdButton.setAttribute('aria-expanded', 'false');
-      utahIdPopUpMenu.removeAttribute('aria-hidden');
+      utahIdPopupMenu.removeAttribute('aria-hidden');
     } else {
       utahIdButton.removeAttribute('aria-haspopup');
       utahIdButton.removeAttribute('aria-controls');
       utahIdButton.removeAttribute('aria-expanded');
-      utahIdPopUpMenu.setAttribute('aria-hidden', 'true');
+      utahIdPopupMenu.setAttribute('aria-hidden', 'true');
     }
   }
 }
@@ -73,21 +75,32 @@ function doAriaForUtahId() {
  * @returns {HTMLCollection | Element}
  */
 export default function UtahId() {
+  const settings = getUtahHeaderSettings();
+
+  const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onProfile);
+  const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
+  const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignOut);
+
+  const customUtahIdMenuItems = (settings.utahId !== true && settings.utahId !== false && settings.utahId?.menuItems) || [];
+  if (customUtahIdMenuItems.length) {
+    customUtahIdMenuItems.push({
+      isDivider: true,
+      title: '--divider--',
+    });
+  }
   /** @type PopupMenu */
-  const popUpMenu = {
+  const popupMenu = {
     menuItems: [
+      ...customUtahIdMenuItems,
       {
-        actionUrl: {
-          url: 'https://id.utah.gov/',
-          openInNewTab: true,
-        },
+        actionUrl: onProfile ? undefined : { url: utahIdUrls.PROFILE, openInNewTab: true },
+        actionFunction: onProfile || undefined,
         className: 'external-link',
         title: 'UtahID Profile',
       },
       {
-        actionUrl: {
-          url: `https://id.utah.gov/logout?goto=${window.location}`,
-        },
+        actionUrl: onSignOut ? undefined : { url: utahIdUrls.SIGN_OUT },
+        actionFunction: onSignOut || undefined,
         title: 'Sign Out',
       },
     ],
@@ -95,14 +108,14 @@ export default function UtahId() {
   };
 
   // create popup content DOM
-  utahIdPopUpMenu = renderPopupMenu(popUpMenu);
+  utahIdPopupMenu = renderPopupMenu(popupMenu);
 
   // create UtahID wrapper w/ button DOM
   const utahIdWrapper = renderDOMSingle(UtahIdHtml);
   if (!utahIdWrapper) {
     throw new Error('UtahId: utahIdWrapper not found');
   }
-  utahIdWrapper.appendChild(utahIdPopUpMenu);
+  utahIdWrapper.appendChild(utahIdPopupMenu);
 
   utahIdButton = /** @type HTMLElement */ (utahIdWrapper.querySelector(getCssClassSelector(domConstants.UTAH_ID__BUTTON)));
   if (!utahIdButton) {
@@ -114,28 +127,28 @@ export default function UtahId() {
   popupFocusHandler(
     utahIdWrapper,
     utahIdButton,
-    utahIdPopUpMenu,
+    utahIdPopupMenu,
     {
       isPerformPopup: () => !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated,
       onClick: (e) => {
         if (!utahIdData?.isDefinitive || !utahIdData?.userInfo?.authenticated) {
-          e.preventDefault();
-          e.stopPropagation();
-          window.location.href = `https://id.utah.gov/login?goto=${window.location}`;
+          if (onSignIn) {
+            onSignIn(e);
+          } else {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = utahIdUrls.SIGN_IN;
+          }
         }
       },
     }
   );
 
-  // remove in case already added
-  document.removeEventListener(events.AUTH_CHANGED, authChangedEventHandler);
-  document.addEventListener(events.AUTH_CHANGED, authChangedEventHandler);
-
   // fire a fetch event to make sure data gets loaded
   fetchUtahIdUserDataAsync();
 
   // load previous data so the button doesn't flicker as much
-  authChangedEventHandler({ detail: getCurrentUtahIdData() });
+  authChangedEventHandler(getCurrentUtahIdData());
 
   return utahIdWrapper;
 }

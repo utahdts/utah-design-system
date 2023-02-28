@@ -24,6 +24,7 @@ function BadgesExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
+        // eslint-disable-next-line no-alert
         draftState.props.onClick = () => alert('I am so ashamed');
       });
     },

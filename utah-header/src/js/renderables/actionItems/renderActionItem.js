@@ -66,7 +66,7 @@ export default function renderActionItem(actionItem) {
     iconButton.onclick = actionItem.actionFunction;
   } else if (actionItem.actionDom) {
     // create popup content and make it visually-hidden
-    iconButton.setAttribute('aria-haspopup', 'true');
+    iconButton.setAttribute('aria-haspopup', 'dialog');
     const popupId = uuidv4();
     iconButton.setAttribute('aria-controls', popupId);
     iconButton.setAttribute('aria-expanded', 'false');

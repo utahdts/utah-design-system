@@ -36,6 +36,14 @@
   .mx-spacing-l { margin-left: var(--spacing-l); margin-right: var(--spacing-l); }
   .my-spacing-l { margin-top: var(--spacing-l); margin-bottom: var(--spacing-l); }
 
+  .m-spacing-s { margin: var(--spacing-s); }
+  .mt-spacing-s { margin-top: var(--spacing-s); }
+  .mr-spacing-s { margin-right: var(--spacing-s); }
+  .mb-spacing-s { margin-bottom: var(--spacing-s); }
+  .ml-spacing-s { margin-left: var(--spacing-s); }
+  .mx-spacing-s { margin-left: var(--spacing-s); margin-right: var(--spacing-s); }
+  .my-spacing-s { margin-top: var(--spacing-s); margin-bottom: var(--spacing-s); }
+
   .m-spacing-xs { margin: var(--spacing-xs); }
   .mt-spacing-xs { margin-top: var(--spacing-xs); }
   .mr-spacing-xs { margin-right: var(--spacing-xs); }

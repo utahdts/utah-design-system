@@ -43,6 +43,8 @@ export default function LogoTitle() {
     }
     settingsLogoElement.setAttribute('role', 'presentation');
     appendChildAll(logoWrapper, settingsLogoElement);
+  } else {
+    logoTitleWrapper.removeChild(logoWrapper);
   }
 
   // Render Title text

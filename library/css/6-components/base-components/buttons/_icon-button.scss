@@ -6,38 +6,68 @@
 #{class-vars.$base-class} {
 
   .icon-button {
-    background: white;
     border-radius: 999px;
-    border: 2px solid var(--gray-color);
     font-size: 1rem;
-    min-height: 36px;
-    min-width: 36px;
+    min-height: var(--form-ele-medium);
+    min-width: var(--form-ele-medium);
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: var(--gray-color);
 
-    &:hover {
-      background: var(--hover-gray-color-opaque);
-      color: white;
-    }
-
-    &--solid {
-      background: var(--gray-color);
-      color: white;
-      &:hover {
-        background-color: var(--gray-dark-color);
-        border-color: var(--gray-dark-color);
-      }
-    }
-
-    &--plain {
+    &--borderless {
       border-color: transparent;
+      background: transparent;
       &:hover {
-        border-color: color-swatches.$neutral-gray-16;
         color: var(--gray-dark-color);
+        background: var(--hover-gray-color);
+      }
+      &.button--primary-color {
+        &:hover {
+          color: var(--primary-color-dark);
+        }
+      }
+      &.button--secondary-color {
+        &:hover {
+          color: var(--secondary-color-dark);
+        }
+      }
+      &.button--accent-color {
+        &:hover {
+          color: var(--accent-color-dark);
+        }
+      }
+      @at-root #{class-vars.$primary-color-is-light}#{&} {
+        &.button--primary-color {
+          border-color: transparent;
+          &:hover {
+            color: var(--primary-color-dark);
+            background: var(--hover-gray-color);
+          }
+        }
+      }
+      @at-root #{class-vars.$secondary-color-is-light}#{&} {
+        &.button--secondary-color {
+          border-color: transparent;
+          &:hover {
+            color: var(--secondary-color-dark);
+            background: var(--hover-gray-color);
+          }
+        }
+      }
+      @at-root #{class-vars.$accent-color-is-light}#{&} {
+        &.button--accent-color {
+          border-color: transparent;
+          &:hover {
+            color: var(--accent-color-dark);
+            background: var(--hover-gray-color);
+          }
+        }
+      }
+      &[disabled], &[disable]:hover {
+        background: transparent !important;
+        border-color: transparent !important;
       }
     }
 
@@ -52,7 +82,49 @@
       line-height: .5;
       &::before {
         margin: 0;
-        font-size: 20px;
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ------------ SIZES ------------ */
+    &--small1x {
+      font-size: .85rem;
+      min-height: var(--form-ele-small1x);
+      min-width: var(--form-ele-small1x);
+      border-width: 1px;
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1rem;
+      }
+    }
+
+    &--small {
+      font-size: .938rem;
+      min-height: var(--form-ele-small);
+      min-width: var(--form-ele-small);
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1.125rem;
+      }
+    }
+
+    &--large {
+      font-size: 1.25rem;
+      min-height: var(--form-ele-large);
+      min-width: var(--form-ele-large);
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1.45rem;
+      }
+    }
+
+    &--large1x {
+      font-size: 1.5rem;
+      min-height: var(--form-ele-large1x);
+      min-width: var(--form-ele-large1x);
+
+      [class*='utds-icon-before-']::before {
+        font-size: 1.7rem;
       }
     }
 

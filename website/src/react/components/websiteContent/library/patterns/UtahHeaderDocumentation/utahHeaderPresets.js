@@ -6,17 +6,70 @@ import { FUNCTION_PLACEHOLDER } from './stringifyHeaderSettings';
 const LOGO_IMAGE = `<img src="${logoPng}" id="design-system-logo" />`;
 
 const utahHeaderPresets = [
+  // --- Size --- //
+  {
+    options: [
+      { settingsSnippet: { size: 'SMALL' }, title: 'Small' },
+      { settingsSnippet: { size: 'MEDIUM' }, title: 'Medium' },
+      { settingsSnippet: { size: 'LARGE' }, title: 'Large' },
+    ],
+    title: 'Header Size',
+  },
+
+  // --- UtahID --- //
+  {
+    options: [
+      { settingsSnippet: { utahId: false }, title: 'None' },
+      { settingsSnippet: { utahId: true }, title: 'Automatic' },
+      {
+        settingsSnippet: {
+          utahId: {
+            currentUser: {
+              authenticated: true,
+              first: 'Philo',
+            },
+            onProfile: FUNCTION_PLACEHOLDER,
+            onSignIn: FUNCTION_PLACEHOLDER,
+            onSignOut: FUNCTION_PLACEHOLDER,
+          },
+        },
+        title: 'With User',
+      },
+      {
+        settingsSnippet: {
+          utahId: {
+            currentUser: null,
+            onProfile: FUNCTION_PLACEHOLDER,
+            onSignIn: FUNCTION_PLACEHOLDER,
+            onSignOut: FUNCTION_PLACEHOLDER,
+          },
+        },
+        title: 'Without User',
+      },
+      {
+        settingsSnippet: {
+          utahId: {
+            menuItems: [
+              {
+                actionUrl: { url: 'https://utah.gov', openInNewTab: true },
+                title: 'Utah.Gov',
+              },
+              {
+                actionFunction: FUNCTION_PLACEHOLDER,
+                title: 'Custom menu item',
+              },
+            ],
+          },
+        },
+        title: 'Menu Items',
+      },
+    ],
+    title: 'UtahId Integration',
+  },
+
   // --- Agency Brand / Title --- //
   {
     options: [
-      {
-        settingsSnippet: {
-          logo: null,
-          showTitle: true,
-          title: 'State of Utah Preset Title',
-        },
-        title: 'None',
-      },
       {
         settingsSnippet: {
           logo: null,
@@ -124,18 +177,52 @@ const utahHeaderPresets = [
         },
         title: 'Help',
       },
+      // actionItems: settings
+      {
+        settingsSnippet: {
+          actionItems: [
+            {
+              actionPopupMenu: {
+                menuItems: [
+                  {
+                    actionUrl: { url: 'https://utah.gov' },
+                    title: 'Settings',
+                  },
+                  {
+                    actionUrl: { url: 'https://utah.gov', openInNewTab: true },
+                    title: 'Utah.Gov',
+                  },
+                  {
+                    actionFunction: FUNCTION_PLACEHOLDER,
+                    title: 'Clickable menu item',
+                  },
+                ],
+                title: 'Settings Menu',
+              },
+              icon: '<span class="utds-icon-before-gear" aria-hidden="true" />',
+              showTitle: false,
+              title: 'Settings',
+            },
+          ],
+        },
+        title: 'Settings',
+      },
     ],
     title: 'Action Items',
   },
 ];
 
-utahHeaderPresets[1].options.push({
-  title: 'Waffle, Alerts, Help',
+// add combo action item preset that uses same settings as the already entered presets
+const actionItemsPreset = utahHeaderPresets.find((preset) => preset.title === 'Action Items');
+if (!actionItemsPreset) {
+  // this means 'Action Items' the preset above got ganked
+  throw new Error('utahHeaderPresets: "Action Items" preset not found.');
+}
+actionItemsPreset.options.push({
+  title: 'All',
   settingsSnippet: {
     actionItems: [
-      ...utahHeaderPresets[1].options[1].settingsSnippet.actionItems,
-      ...utahHeaderPresets[1].options[2].settingsSnippet.actionItems,
-      ...utahHeaderPresets[1].options[3].settingsSnippet.actionItems,
+      ...actionItemsPreset.options.map((option) => option.settingsSnippet.actionItems).flat(),
     ],
   },
 });
