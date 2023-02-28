@@ -61,6 +61,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     font-size: .95rem;
     white-space: pre-wrap;
     word-wrap: break-word;
+    margin: 0 0 var(--spacing) 0;
     &.gray-block {
       background: var(--gray-light-color);
       padding: var(--spacing-s) var(--spacing);

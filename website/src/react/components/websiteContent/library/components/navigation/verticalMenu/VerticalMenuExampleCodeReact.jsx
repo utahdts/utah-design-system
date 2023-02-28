@@ -1,6 +1,7 @@
-import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import VerticalMenuPropsShape from '../../../../../../propTypesShapes/VerticalMenuPropsShape';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import SandboxIndent from '../../../../../sandbox/SandboxIndent';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -16,16 +17,16 @@ function VerticalMenuExampleCode({
     },
   },
 }) {
-  const displayedProps = [
-    id ? `id="${id}"` : null,
-  ].filter(identity);
-
   return (
     <>
-      &lt;
-      {`VerticalMenu${displayedProps.length ? ' ' : ''}`}
-      {displayedProps.join(' ')}
+      &lt;VerticalMenu
+      <br />
+      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       &gt;
+      <br />
+      <SandboxIndent indentLevel={1} />
+      -- What goes here? --
+      <br />
       &lt;/VerticalMenu&gt;
     </>
   );

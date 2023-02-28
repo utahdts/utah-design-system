@@ -37,7 +37,7 @@ ToDo:
   * Change the propType to be the `Shape for Props` of your new component
 
 ### Shape for Props
-Example: `IconButtonPropsShape.js`
+Example: `IconButtonExamplePropsShape.js`
 This file contains the React PropTypes `shape` of the properties used in this components interactive example. This shape is passed among the `Helper Components` to provide the properties functionality. Using properties greatly reduces the cognitive load of the developer by allowing the developer to easily understand the objects with which the developer paints their coded tapestry.
 
 ToDo:

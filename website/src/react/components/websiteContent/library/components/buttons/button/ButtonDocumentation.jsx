@@ -21,6 +21,7 @@ import { NavLink } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import ButtonCssClassesDocumentation from './ButtonCssClassesDocumentation';
 import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleProps from './ButtonExampleProps';
 import ButtonExampleRender from './ButtonExampleRender';
@@ -90,11 +91,10 @@ function ButtonDocumentation() {
       />
 
       <StaticExample
-        title="Unemphasized Button (Outlined)"
+        title="Unemphasized Button (Outlined)*"
         renderedExample={(
           <>
             <Button
-              appearance="outlined"
               color="primary"
               onClick={useCallback(() => showBanner({ message: 'primary unemphasized  button clicked' }))}
             >
@@ -131,6 +131,7 @@ function ButtonDocumentation() {
               </ul>
             </li>
             <li>Solid outline. Text matches the button color.</li>
+            <li>* - This is the default appearance of a button.</li>
           </ul>
         )}
       />
@@ -342,7 +343,7 @@ function ButtonDocumentation() {
           <>
             <Button
               color="primary"
-              className="active"
+              className="button--active"
               onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
               size={formElementSizesEnum.MEDIUM}
             >
@@ -351,7 +352,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              className="active"
+              className="button--active"
               onClick={useCallback(() => showBanner({ message: 'medium button clicked' }))}
               size={formElementSizesEnum.MEDIUM}
             >
@@ -460,64 +461,7 @@ function ButtonDocumentation() {
           </TabList>
           <TabPanels>
             <TabPanel tabId="button-props-css">
-              <TableWrapper>
-                <Table className="table--lines-x">
-                  <TableHead>
-                    <TableHeadRow>
-                      <TableHeadCell className="text-left css-classes">CSS Classes</TableHeadCell>
-                      <TableHeadCell className="text-left ">Description</TableHeadCell>
-                    </TableHeadRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell><code>.button</code></TableCell>
-                      <TableCell>The base css class for a button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--small</code></TableCell>
-                      <TableCell>CSS class modifier for a small button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--large</code></TableCell>
-                      <TableCell>CSS class modifier for a large button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--large1x</code></TableCell>
-                      <TableCell>CSS class modifier for a extra large button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--primary-color</code></TableCell>
-                      <TableCell>CSS class modifier for a button in the primary color.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--secondary-color</code></TableCell>
-                      <TableCell>CSS class modifier for a button in the secondary color.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--accent-color</code></TableCell>
-                      <TableCell>CSS class modifier for a button in the accent color.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--solid</code></TableCell>
-                      <TableCell>CSS class modifier for a button that has a solid color (instead of being outlined).</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button.contrast-border-light</code></TableCell>
-                      <TableCell>
-                        CSS class modifier to provide a light border around a dark button (used to help the button meet 3:1 contrast ratio on a dark
-                        background).
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button.contrast-border-dark</code></TableCell>
-                      <TableCell>
-                        CSS class modifier to provide a dark border around a light button (used to help the button meet 3:1 contrast ratio on a light
-                        background).
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableWrapper>
+              <ButtonCssClassesDocumentation />
             </TabPanel>
 
             <TabPanel tabId="button-props-react">
@@ -542,7 +486,7 @@ function ButtonDocumentation() {
                             <code>&apos;outlined&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;outlined&apos;</TableCell>
+                        <TableCell><code>&apos;outlined&apos;</code></TableCell>
                         <TableCell>
                           Determines how the button will be formatted. Solid buttons have a solid fill color and denote emphasis
                           to the user. Outlined buttons have an outline but no fill causing them to be less emphasized.
@@ -551,8 +495,8 @@ function ButtonDocumentation() {
 
                       <TableRow>
                         <TableCell><code className="primary-color">children</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
-                        <TableCell>(required)</TableCell>
+                        <TableCell><code>react node</code></TableCell>
+                        <TableCell><em>required</em></TableCell>
                         <TableCell>
                           Most often, children is the title of button. But, you can have it be any element to be rendered inside the button.
                         </TableCell>
@@ -580,7 +524,7 @@ function ButtonDocumentation() {
                             <code>&apos;none&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;none&apos;</TableCell>
+                        <TableCell><code>&apos;none&apos;</code></TableCell>
                         <TableCell>
                           Determines the color from the theme that will be used while rendering the button. Depending on the
                           <span className="font-semi-bold"> appearance</span> of the button, this can effect the border and/or fill color of the button.
@@ -599,19 +543,19 @@ function ButtonDocumentation() {
 
                       <TableRow>
                         <TableCell><code className="primary-color">iconLeft</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
+                        <TableCell><code>react node</code></TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the left of the button title, but any <span className="font-semi-bold">node</span> is allowed.
+                          Intended to be an &lt;svg&gt; image to be placed to the left of the button title, but any <span className="font-semi-bold">react node</span> is allowed.
                         </TableCell>
                       </TableRow>
 
                       <TableRow>
                         <TableCell><code className="primary-color">iconRight</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
+                        <TableCell><code>react node</code></TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the right of the button title, but any <span className="font-semi-bold">node</span> is allowed.
+                          Intended to be an &lt;svg&gt; image to be placed to the right of the button title, but any <span className="font-semi-bold">react node</span> is allowed.
                         </TableCell>
                       </TableRow>
 
@@ -639,7 +583,7 @@ function ButtonDocumentation() {
                             <code>false</code>
                           </div>
                         </TableCell>
-                        <TableCell>false</TableCell>
+                        <TableCell><code>false</code></TableCell>
                         <TableCell>
                           When <span className="font-semi-bold">isBusy</span> is true, a spinner will be shown in the button.
                           This is useful for showing the user that an action
@@ -656,7 +600,7 @@ function ButtonDocumentation() {
                             <code>false</code>
                           </div>
                         </TableCell>
-                        <TableCell>false</TableCell>
+                        <TableCell><code>false</code></TableCell>
                         <TableCell>
                           When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
                           and its appearance will change to be more subdued
@@ -667,7 +611,7 @@ function ButtonDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">onClick</code></TableCell>
                         <TableCell><code>function</code></TableCell>
-                        <TableCell>required</TableCell>
+                        <TableCell><em>required</em></TableCell>
                         <TableCell>
                           The function to call when the button is pressed.
                         </TableCell>
@@ -688,7 +632,7 @@ function ButtonDocumentation() {
                             <code>&apos;large1x&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;medium&apos;</TableCell>
+                        <TableCell><code>&apos;medium&apos;</code></TableCell>
                         <TableCell>
                           Determines how much space the button will consume on the page.
                         </TableCell>
@@ -705,7 +649,7 @@ function ButtonDocumentation() {
                             <code>&apos;submit&apos;</code>
                           </div>
                         </TableCell>
-                        <TableCell>&apos;button&apos;</TableCell>
+                        <TableCell><code>&apos;button&apos;</code></TableCell>
                         <TableCell>
                           The HTML <span className="font-semi-bold">type</span> attribute value to put on the &lt;button&gt; element.
                         </TableCell>

@@ -58,6 +58,21 @@ export default function useInteractiveHeaderState() {
   const [headerIsOn, setHeaderIsOn] = useState(false);
   const [parseError, setParseError] = useState(/** @type {string | null} */(null));
 
+  /**
+   * Outside influences may have changed the header (like adding a logo image), so
+   * get the current settings before clobbering them with the "interactive" settings
+   * @param {React.SetStateAction<boolean>} headerIsOnMaybeFunc either the new value or a function (old) => new
+   */
+  const setHeaderIsOnSafely = useCallback(
+    (headerIsOnMaybeFunc) => {
+      if (!headerIsOn) {
+        originalHeader.current = getUtahHeaderSettings();
+      }
+      setHeaderIsOn(headerIsOnMaybeFunc);
+    },
+    [headerIsOn]
+  );
+
   // remove interactive header when unmounted
   useEffect(() => () => { setUtahHeaderSettings(originalHeader.current); }, []);
 
@@ -72,27 +87,19 @@ export default function useInteractiveHeaderState() {
       prevHeaderIsOn.current = headerIsOn;
 
       // have to set to originalHeader in case settings just got turned off
-      setUtahHeaderSettings(headerIsOn ? headerSettings : originalHeader.current);
+      try {
+        // have to stringify and parse to have the functions and dom and stuff changed to the right objects
+        setUtahHeaderSettings(headerIsOn ? parseHeaderSettings(stringifyHeaderSettings(headerSettings)) : originalHeader.current);
+        setParseError(null);
+      } catch (e) {
+        setUtahHeaderSettings(originalHeader.current);
+        setParseError(e.message);
+      }
 
       // store to local storage when changed
       localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, stringifyHeaderSettings(headerSettings));
     },
     [headerIsOn, headerSettings]
-  );
-
-  /**
-   * Outside influences may have changed the header (like adding a logo image), so
-   * get the current settings before clobbering them with the "interactive" settings
-   * @param {React.SetStateAction<boolean>} headerIsOnMaybeFunc either the new value or a function (old) => new
-   */
-  const setHeaderIsOnSafely = useCallback(
-    (headerIsOnMaybeFunc) => {
-      if (!headerIsOn) {
-        originalHeader.current = getUtahHeaderSettings();
-      }
-      setHeaderIsOn(headerIsOnMaybeFunc);
-    },
-    [headerIsOn]
   );
 
   /** @type {InteractiveHeaderState} */

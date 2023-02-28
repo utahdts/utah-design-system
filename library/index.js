@@ -15,6 +15,7 @@ export { default as CheckBox } from './react/components/forms/CheckBox';
 export { default as Form } from './react/components/forms/Form';
 export { default as FormContext } from './react/components/forms/FormContext';
 export { default as FormContextProvider } from './react/components/forms/FormContextProvider';
+export { default as Popup } from './react/components/popups/Popup';
 export { default as Select } from './react/components/forms/Select';
 export { default as SelectOption } from './react/components/forms/SelectOption';
 export { default as Switch } from './react/components/forms/Switch';
@@ -51,6 +52,7 @@ export { default as LandingTemplate } from './react/components/templates/Landing
 export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { default as tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { default as useBanner } from './react/hooks/useBanner';
+export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useMountingTracker } from './react/hooks/useMountingTracker';
 export { default as MenuItemShape } from './react/propTypesShapes/MenuItemsShape';
 export { default as RefShape } from './react/propTypesShapes/RefShape';
@@ -60,5 +62,7 @@ export { default as joinClassNames } from './react/util/joinClassNames';
 export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { default as setValueAtPath } from './react/util/state/setValueAtPath';
 export { default as valueAtPath } from './react/util/state/valueAtPath';
+export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
+export { default as componentColors } from './react/enums/componentColors';
 
 export const { version } = packageJson;

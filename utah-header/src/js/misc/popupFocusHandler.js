@@ -74,7 +74,7 @@ export default function popupFocusHandler(wrapper, button, popup, options) {
             modifiers: [
               {
                 name: 'offset',
-                options: { offset: [0, 11] },
+                options: { offset: [0, 10] },
               },
             ],
           }

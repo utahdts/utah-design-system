@@ -139,10 +139,10 @@ const menuLibraryComponentsSecondary = {
     },
     {
       id: 'components__popups',
-      title: 'Pop Ups',
+      title: 'Popups',
       parentLinks: [pages.library.link],
       children: [
-        { link: pages.popUps.link, title: pages.popUps.pageTitle },
+        { link: pages.popups.link, title: pages.popups.pageTitle },
       ],
     },
     {
@@ -169,7 +169,7 @@ const menuLibraryPatternsSecondary = {
     {
       title: 'Utah Header',
       link: pages.utahHeader.link,
-      parentLinks: [pages.patterns.link],
+      parentLinks: [pages.library.link],
     },
     {
       title: 'Buttons',

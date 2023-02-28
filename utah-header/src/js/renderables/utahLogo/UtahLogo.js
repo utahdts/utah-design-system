@@ -22,7 +22,7 @@ export default function UtahLogo() {
       break;
 
     default:
-      throw new Error(`Unknown settings size: '${getUtahHeaderSettings().size}`);
+      throw new Error(`Unknown settings size: '${getUtahHeaderSettings().size}'`);
   }
 
   return renderDOM(sizedLogo);

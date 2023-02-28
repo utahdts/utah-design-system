@@ -1,0 +1,134 @@
+@use "../../../1-settings/settings-index";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/spacing";
+
+// Drop Shadow Color
+$dsc: rgb(0,0,0);
+
+#{class-vars.$base-class} {
+  .popup {
+    &__wrapper {
+      position: absolute;
+      z-index: 100;
+      background: none transparent;
+      // initial position so that the popup doesn't go off the screen
+      left: 0;
+      top: 0;
+
+      transition: opacity 100ms ease-in-out;
+
+      &--visible {
+        opacity: 1;
+        .popup__content {
+          transform: scale(1);
+        }
+      }
+      &--hidden {
+        opacity: 0;
+        pointer-events: none;
+        .popup__content {
+          transform: scale(.7);
+        }
+      }
+      &--close-button-absolute {
+        .popup__close-button {
+          position: absolute;
+          top: var(--spacing-xs);
+          right: var(--spacing-xs);
+        }
+      }
+    }
+    &__content {
+      background: white;
+      border-radius: var(--radius-small);
+      border: 1px solid var(--gray-3-1-contrast);
+      box-sizing: border-box;
+      min-width: 180px;
+      padding: var(--spacing-s);
+      transition: transform 100ms ease-in-out;
+      box-shadow: var(--elevation-small);
+    }
+
+    &__close-button {
+      float: right;
+      .utds-icon-before-x-icon::before {
+        font-size: .7rem;
+      }
+    }
+
+    &__arrow {
+      visibility: hidden;
+
+      &, &::before {
+        position: absolute;
+        width: 9px;
+        height: 9px;
+        background: inherit;
+        z-index: -1;
+      }
+
+      &::before {
+        visibility: visible;
+        content: '';
+        transform: rotate(45deg);
+      }
+    }
+
+
+    &__wrapper[data-popper-placement^='top'] {
+      .popup__content {
+        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
+        transform-origin: bottom;
+      }
+      .popup__arrow {
+        bottom: -5px;
+        &::before {
+          border-bottom: 1px solid var(--gray-3-1-contrast);
+          border-right: 1px solid var(--gray-3-1-contrast);
+        }
+      }
+    }
+
+    &__wrapper[data-popper-placement^='bottom'] {
+      .popup__content {
+        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 -15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
+        transform-origin: top;
+      }
+      .popup__arrow {
+        top: -6px;
+        &::before {
+          border-top: 1px solid var(--gray-3-1-contrast);
+          border-left: 1px solid var(--gray-3-1-contrast);
+        }
+      }
+    }
+
+    &__wrapper[data-popper-placement^='left'] {
+      .popup__content {
+        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), 15px 0 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
+        transform-origin: right;
+      }
+      .popup__arrow {
+        right: -5px;
+        &::before {
+          border-top: 1px solid var(--gray-3-1-contrast);
+          border-right: 1px solid var(--gray-3-1-contrast);
+        }
+      }
+    }
+
+    &__wrapper[data-popper-placement^='right'] {
+      .popup__content {
+        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), -15px 0 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
+        transform-origin: left;
+      }
+      .popup__arrow {
+        left: -6px;
+        &::before {
+          border-bottom: 1px solid var(--gray-3-1-contrast);
+          border-left: 1px solid var(--gray-3-1-contrast);
+        }
+      }
+    }
+  }
+}
