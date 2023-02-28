@@ -66,6 +66,8 @@ export default function renderActionItem(actionItem) {
     iconButton.onclick = actionItem.actionFunction;
   } else if (actionItem.actionDom) {
     // create popup content and make it visually-hidden
+    const iconButtonId = uuidv4();
+    iconButton.setAttribute('id', iconButtonId);
     iconButton.setAttribute('aria-haspopup', 'dialog');
     const popupId = uuidv4();
     iconButton.setAttribute('aria-controls', popupId);
@@ -73,6 +75,7 @@ export default function renderActionItem(actionItem) {
 
     const popupWrapper = renderPopup();
     popupWrapper.setAttribute('id', popupId);
+    popupWrapper.setAttribute('aria-labelledby', iconButtonId);
     const popupContentWrapper = /** @type {HTMLElement} */(popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
     if (!popupContentWrapper) {
       throw new Error('renderPopupMenu: contentWrapper not found');
@@ -82,12 +85,15 @@ export default function renderActionItem(actionItem) {
 
     popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, undefined);
   } else if (actionItem.actionPopupMenu) {
+    const iconButtonId = uuidv4();
+    iconButton.setAttribute('id', iconButtonId);
     iconButton.setAttribute('aria-haspopup', 'menu');
     const popupId = uuidv4();
     iconButton.setAttribute('aria-controls', popupId);
     iconButton.setAttribute('aria-expanded', 'false');
     const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.actionPopupMenu)));
     popupMenu.setAttribute('id', popupId);
+    popupMenu.setAttribute('aria-labelledby', iconButtonId);
     appendChildAll(actionItemElement, popupMenu);
 
     popupFocusHandler(actionItemWrapper, iconButton, popupMenu, undefined);
