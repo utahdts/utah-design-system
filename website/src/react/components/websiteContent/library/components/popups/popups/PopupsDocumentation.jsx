@@ -211,7 +211,7 @@ function PopupsDocumentation() {
             >
               <>
                 <div className="flex flex-col gap-xs">
-                  <label htmlFor="editor-example-textarea"><strong>What is ultimate question?</strong></label>
+                  <label htmlFor="editor-example-textarea"><strong>What is the ultimate question?</strong></label>
                   <textarea name="editor-example-textarea" id="editor-example-textarea" className="mb-spacing-s" style={{ width: '300px' }} />
                 </div>
                 <div className="flex justify-end gap-xs">
