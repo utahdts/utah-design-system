@@ -1,5 +1,4 @@
-import { RefShape } from '@utahdts/utah-design-system';
-import Popup from '@utahdts/utah-design-system/react/components/popups/Popup';
+import { Popup, RefShape } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useCallback, useRef } from 'react';
 import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
@@ -41,8 +40,12 @@ function PopupsExampleRender({
   const onMouseLeave = useCallback(() => setState((oldState) => { oldState.props.isVisible = false; }));
 
   return (
-    <>
+    <div ref={innerRef}>
       <button
+        aria-controls="popups-example-render-popup"
+        aria-expanded={!!isVisible}
+        aria-haspopup="dialog"
+        id="popups-example-render-button"
         onClick={popupType === 'onClick' ? onClickEvent : undefined}
         onMouseEnter={popupType === 'onHover' ? onMouseEnter : undefined}
         onMouseLeave={popupType === 'onHover' ? onMouseLeave : undefined}
@@ -52,20 +55,22 @@ function PopupsExampleRender({
         Toggle Popup
       </button>
       <Popup
-        innerRef={innerRef}
+        ariaLabelledBy="popups-example-render-button"
+        id="popups-example-render-popup"
         hasCloseButton={!!hasCloseButton}
         isVisible={!!isVisible}
         // eslint-disable-next-line no-param-reassign
         onVisibleChange={useCallback((_e, newIsVisible) => setState((oldState) => { oldState.props.isVisible = newIsVisible; }))}
         placement={placement}
         referenceElement={buttonRef}
+        role="dialog"
       >
         <div>
           <div className="font-size-l mb-spacing-xs"><strong>Example Popup</strong></div>
           <div>This is an example of a popup with content.</div>
         </div>
       </Popup>
-    </>
+    </div>
   );
 }
 

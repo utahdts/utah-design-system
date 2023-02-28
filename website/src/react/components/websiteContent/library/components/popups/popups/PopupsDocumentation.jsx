@@ -6,6 +6,7 @@ import {
   BUTTON_TYPES,
   componentColors,
   formElementSizesEnum,
+  popperPlacement,
   Popup,
   Tab,
   TabGroup,
@@ -18,7 +19,6 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
-import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
 import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import PreCode from '../../../../../preCode/PreCode';
@@ -96,12 +96,13 @@ function PopupsDocumentation() {
               Toggle Popup
             </button>
             <Popup
-              aria-labelledby="button-for-example1"
+              ariaLabelledBy="button-for-example1"
               id="id-for-example1"
               isVisible={popupsState.example1}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example1 = isVisible; })}
               placement={popperPlacement.BOTTOM}
               referenceElement={buttonRef}
+              role="dialog"
             >
               <div>I am content in a Popup</div>
             </Popup>
@@ -122,7 +123,7 @@ function PopupsDocumentation() {
               Toggle Popup Example 2
             </button>
             <Popup
-              aria-labelledby="button-for-example-2"
+              ariaLabelledBy="button-for-example-2"
               hasCloseButton
               id="id-for-example2"
               isVisible={popupsState.example2}
@@ -199,7 +200,7 @@ function PopupsDocumentation() {
               Toggle Editor Popup Example
             </button>
             <Popup
-              aria-labelledby="button-for-editor-example"
+              ariaLabelledBy="button-for-editor-example"
               className="popup__wrapper--close-button-absolute"
               hasCloseButton
               id="id-for-editorExample"

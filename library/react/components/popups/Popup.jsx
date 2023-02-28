@@ -11,6 +11,9 @@ import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
 
 const propTypes = {
+  // usually the id of the button that controls the popup
+  ariaLabelledBy: PropTypes.string.isRequired,
+
   // The content of the popup
   children: PropTypes.node.isRequired,
 
@@ -20,7 +23,8 @@ const propTypes = {
   // the top right `X` close button
   hasCloseButton: PropTypes.bool,
 
-  id: PropTypes.string,
+  // used for hooking up to the button that controls the popup by aria-control
+  id: PropTypes.string.isRequired,
 
   // ref to the popup wrapper
   innerRef: RefShape,
@@ -39,18 +43,21 @@ const propTypes = {
 
   // the anchor element around which the popup content will pop
   referenceElement: RefShape.isRequired,
+
+  // popup must tell its role for accessibility
+  role: PropTypes.oneOf(['dialog', 'grid', 'listbox', 'menu', 'tree']).isRequired,
 };
 
 const defaultProps = {
   className: null,
   hasCloseButton: false,
-  id: null,
   innerRef: null,
   offset: [0, 10],
   placement: popperPlacement.AUTO,
 };
 
 function Popup({
+  ariaLabelledBy,
   children,
   className,
   hasCloseButton,
@@ -61,6 +68,7 @@ function Popup({
   onVisibleChange,
   placement,
   referenceElement,
+  role,
   ...rest
 }) {
   const popperRef = useRef();
@@ -104,6 +112,7 @@ function Popup({
 
   return (
     <div
+      aria-labelledby={ariaLabelledBy}
       id={id}
       ref={popperRef}
       style={styles.popper}
@@ -114,6 +123,7 @@ function Popup({
         hasCloseButton ? 'popup__wrapper--close-button' : null,
         isVisible ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
       )}
+      role={role}
       {...rest}
     >
       <div className="popup__content">

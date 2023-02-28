@@ -1,7 +1,7 @@
 import { RefShape } from '@utahdts/utah-design-system';
+import { html } from 'js-beautify';
 import PropTypes from 'prop-types';
 import { useLayoutEffect, useState } from 'react';
-import cleanHtmlForInnerHTML from './cleanHtmlForInnerHTML';
 import PreCode from './PreCode';
 
 const propTypes = {
@@ -22,8 +22,17 @@ function PreCodeForRef({ className, deps, targetRef }) {
   useLayoutEffect(
     () => {
       // PreCode also calls cleanHtmlForInnerHTML, but that shouldn't break anything... 🤞
-      let cleanHTML = cleanHtmlForInnerHTML(targetRef.current?.outerHTML);
-
+      let cleanHTML = html(
+        targetRef.current?.outerHTML
+          // place some mandatory newlines because js-beautify is not fully smart
+          .replace(/>([a-z])/gi, '>\n$1')
+          .replace(/([a-z])<\//gi, '$1\n</'),
+        {
+          indent_size: 2,
+          wrap_attributes: 'force-expand-multiline',
+          inline: [],
+        }
+      );
       // add output for events that have functions and other non-rendered content
       const events = [
         'onClick',
