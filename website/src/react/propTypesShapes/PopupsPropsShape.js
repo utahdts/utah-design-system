@@ -1,4 +1,4 @@
-import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
+import { popperPlacement } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 
 export default PropTypes.exact({

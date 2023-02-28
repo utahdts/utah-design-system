@@ -1,10 +1,10 @@
 import {
   Form,
+  popperPlacement,
   Select,
   SelectOption,
   Switch
 } from '@utahdts/utah-design-system';
-import popperPlacement from '@utahdts/utah-design-system/react/enums/popperPlacement';
 import startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
