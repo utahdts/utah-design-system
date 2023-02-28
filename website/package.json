@@ -16,7 +16,7 @@
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.8.1",
+    "react-router-dom": "6.8.2",
     "tinycolor2": "^1.4.2",
     "use-immer": "0.8.1",
     "utah-design-system-header": "1.1.0"
