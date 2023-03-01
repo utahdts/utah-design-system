@@ -32,7 +32,7 @@ function toggleChildMenuExpansion(element) {
   parent.querySelectorAll(':scope > ul')
     .forEach((childUl) => {
       // toggle chevron direction class
-      const button = childUl.closest('li')?.querySelector(':scope > button');
+      const button = childUl.closest('li')?.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE));
       if (!button) {
         throw new Error('toggleChildMenuExpansion: button not found');
       }
@@ -73,11 +73,15 @@ function handleMenuExpansion(htmlElement) {
  */
 function renderPopupMenuItem(menuUl, popupMenuItem) {
   const menuItemWrapper = renderDOMSingle(PopupMenuItemHtml);
-  const menuButton = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(':scope > button'));
+  const menuItemTitleWrapper = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__TITLE));
+  if (!menuItemTitleWrapper) {
+    throw new Error('renderPopupMenuItem: menuItemTitleWrapper not found');
+  }
+  const menuButton = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE)));
   if (!menuButton) {
     throw new Error('renderPopupMenuItem: menuButton not found');
   }
-  const menuAHref = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK));
+  const menuAHref = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TITLE));
   if (!menuAHref) {
     throw new Error('renderPopupMenuItem: aHref not found');
   }
@@ -132,8 +136,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
     menuButton.remove();
     menuDivider.remove();
   } else if (popupMenuItem.isDivider) {
-    menuAHref.remove();
-    menuButton.remove();
+    menuItemTitleWrapper.remove();
     menuItemWrapper.setAttribute('aria-hidden', 'true');
     menuItemWrapper.setAttribute('role', 'separator');
   } else {
