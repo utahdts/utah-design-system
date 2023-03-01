@@ -59,6 +59,7 @@ export default {
   POPUP_MENU__LINK_TEXT: 'vertical-menu__link-text',
   POPUP__HIDDEN: 'popup__wrapper--hidden',
   POPUP__VISIBLE: 'popup__wrapper--visible',
+  POPUP__WRAPPER: 'popup__wrapper',
 
   EXTERNAL_LINK: 'utds-icon-after-external-link',
 

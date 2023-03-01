@@ -14,6 +14,8 @@
  * @typedef {'SMALL' | 'MEDIUM' | 'LARGE'} Size
  * Should be Synced with the enumerations/sizes object
  *
+ * @typedef {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} AriaHasPopupType
+ *
  * @typedef MainMenu {
  *  @property {MenuItem[]} menuItems
  * }

@@ -4,6 +4,8 @@ import domConstants from '../enumerations/domConstants';
 import showHideElement from './showHideElement';
 
 /**
+ * @typedef {import('../misc/jsDocTypes').AriaHasPopupType} AriaHasPopupType
+ *
  * @typedef PopupFocusHandlerOptions {
  *  @property {(() => boolean) | undefined} isPerformPopup should the popup pop open? Helpful for utahId that doesn't pop until user loaded
  *  @property {(function(Event): void) | undefined} onClick should the popup pop open? Helpful for utahId that doesn't pop until user loaded
@@ -19,9 +21,13 @@ import showHideElement from './showHideElement';
  * @param {HTMLElement} wrapper the wrapper containing the button and popup
  * @param {HTMLElement} button the button that toggles the popup to open/close
  * @param {HTMLElement} popup the actual popup being opened and closed
+ * @param {AriaHasPopupType} ariaHasPopup aria tag for popup type
  * @param {PopupFocusHandlerOptions | undefined} options
  */
-export default function popupFocusHandler(wrapper, button, popup, options) {
+export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options) {
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-haspopup', ariaHasPopup);
+
   wrapper.addEventListener('focusin', () => {
     if (!options?.isPerformPopup || options.isPerformPopup()) {
       createPopper(button, popup, {
