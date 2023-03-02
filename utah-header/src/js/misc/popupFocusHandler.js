@@ -5,11 +5,7 @@ import showHideElement from './showHideElement';
 
 /**
  * @typedef {import('../misc/jsDocTypes').AriaHasPopupType} AriaHasPopupType
- *
- * @typedef PopupFocusHandlerOptions {
- *  @property {(() => boolean) | undefined} isPerformPopup should the popup pop open? Helpful for utahId that doesn't pop until user loaded
- *  @property {(function(Event): void) | undefined} onClick should the popup pop open? Helpful for utahId that doesn't pop until user loaded
- * }
+ * @typedef {import('../misc/jsDocTypes').PopupFocusHandlerOptions} PopupFocusHandlerOptions
  */
 
 /**
@@ -28,8 +24,8 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-haspopup', ariaHasPopup);
 
-  wrapper.addEventListener('focusin', () => {
-    if (!options?.isPerformPopup || options.isPerformPopup()) {
+  function performPopup() {
+    if (!options?.isPerformPopup || (options?.isPerformPopup && options.isPerformPopup())) {
       createPopper(button, popup, {
         placement: 'bottom',
         modifiers: [
@@ -42,13 +38,31 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
       showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
       button.setAttribute('aria-expanded', 'true');
     }
-  });
-  wrapper.addEventListener('focusout', () => {
+  }
+
+  function hidePopup() {
     if (!options?.isPerformPopup || options.isPerformPopup()) {
       showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
       button.setAttribute('aria-expanded', 'false');
     }
-  });
+  }
+
+  wrapper.addEventListener('focusin', () => performPopup());
+  wrapper.addEventListener('focusout', () => hidePopup());
+
+  if (options?.shouldFocusOnHover) {
+    let delayTimeoutId = NaN;
+    wrapper.addEventListener('mouseenter', () => {
+      clearTimeout(delayTimeoutId);
+      delayTimeoutId = window.setTimeout(performPopup, 200);
+    });
+    wrapper.addEventListener('mouseleave', () => {
+      clearTimeout(delayTimeoutId);
+      delayTimeoutId = NaN;
+      hidePopup();
+    });
+  }
+
   let isButtonFocusedBeforeClick = null;
 
   // eslint-disable-next-line no-param-reassign
