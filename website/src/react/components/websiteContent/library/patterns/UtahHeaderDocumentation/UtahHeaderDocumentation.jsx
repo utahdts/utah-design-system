@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
@@ -5,6 +6,8 @@
 import {
   Button,
   formElementSizesEnum,
+  IconButton,
+  ICON_BUTTON_APPEARANCE,
   Switch,
   Tab,
   TabGroup,
@@ -32,6 +35,9 @@ import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
 import utahHeaderPresets from './utahHeaderPresets';
+// eslint-disable-next-line import/no-unresolved
+import utahUnbrandLarge from '../../../../../../../../utah-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
+import agencyBrand from '../../../../../../static/images/designSystemCircleGray.png';
 
 const propTypes = {};
 const defaultProps = {};
@@ -174,7 +180,8 @@ function UtahHeaderDocumentation() {
       <StaticExample
         title="Utah Unbrand"
         renderedExample={(
-          <div>Hover over the examples above.</div>
+          // eslint-disable-next-line react/no-danger
+          <div dangerouslySetInnerHTML={{ __html: utahUnbrandLarge }} style={{ height: '70px' }} />
         )}
         quickTips={(
           <ul>
@@ -189,7 +196,14 @@ function UtahHeaderDocumentation() {
       <StaticExample
         title="Agency Icon and Title"
         renderedExample={(
-          <div>Hover over the examples above.</div>
+          <div style={{ height: '70px' }}>
+            <h1 className="utds-logo-wrapper">
+              <a className="utds-title-wrapper" href="#">
+                <div className="utds-title-wrapper__logo"><img alt="agency brand" src={agencyBrand} /></div>
+                <div className="utds-title-wrapper__title">Utah Design System</div>
+              </a>
+            </h1>
+          </div>
         )}
         quickTips={(
           <ul>
@@ -203,7 +217,37 @@ function UtahHeaderDocumentation() {
       <StaticExample
         title="Action Items"
         renderedExample={(
-          <div>Hover over the examples above.</div>
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
+              // eslint-disable-next-line no-alert
+              onClick={() => alert('Triggered the search icon button')}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
+              // eslint-disable-next-line no-alert
+              onClick={() => alert('Triggered the bookmark icon button')}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
+              // eslint-disable-next-line no-alert
+              onClick={() => alert('Triggered the check icon button')}
+              title="Settings"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              // eslint-disable-next-line no-alert
+              onClick={() => alert('Triggered the star icon button')}
+              title="Settings"
+            />
+          </>
+
         )}
         quickTips={(
           <ul>
