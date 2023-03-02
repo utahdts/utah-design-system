@@ -13,10 +13,13 @@ import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
+import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
+ * @typedef {import('../../misc/jsDocTypes').ChildrenMenuType} ChildrenMenuType
  * @typedef {import('../../misc/jsDocTypes').MenuItem} MenuItem
+ * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
+ * @typedef {import('../../misc/jsDocTypes').RenderPopupMenuOptions} RenderPopupMenuOptions
  */
 
 /**
@@ -69,9 +72,10 @@ function handleMenuExpansion(htmlElement) {
 /**
  * @param {Element} menuUl
  * @param {MenuItem} popupMenuItem
+ * @param {RenderPopupMenuOptions} options
  * @return {HTMLElement}
  */
-function renderPopupMenuItem(menuUl, popupMenuItem) {
+function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   const menuItemWrapper = renderDOMSingle(PopupMenuItemHtml);
   const menuItemTitleWrapper = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__TITLE));
   if (!menuItemTitleWrapper) {
@@ -92,35 +96,62 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 
   // three types of action: parent, custom function, link
   if (popupMenuItem.actionMenu) {
-    // === submenu, more menu items! === //
-    const subMenu = renderMenu(popupMenuItem, popupMenuItem.actionMenu);
-    const subMenuId = uuidv4();
-    subMenu.setAttribute('id', subMenuId);
-    // these are all sub children so hide them initially
-    subMenu.classList.add(domConstants.VISUALLY_HIDDEN);
-    menuItemWrapper.appendChild(subMenu);
-    menuButton.onclick = handleMenuExpansion(menuButton);
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-controls', subMenuId);
-    const chevron = renderDOMSingle(ChevronIconHtml);
-    chevron.classList.add(domConstants.IS_CLOSED);
-    menuButton.appendChild(chevron);
+    switch (options.childrenMenuType) {
+      case childrenMenuTypes.FLYOUT_CHILD:
+        break;
 
-    menuAHref.remove();
+      case childrenMenuTypes.FLYOUT:
+      case childrenMenuTypes.INLINE:
+      case childrenMenuTypes.MEGA_MENU: {
+        // mega menu & inline
+        // flyout: first level is a popup and the sublevels are flyouts
+        //  mega menu: always expanded
+        //  inline: has toggle arrow to expand/collapse sections
 
-    // open all parent uls so that this menu item shows
-    menuItemWrapper.addEventListener('focusin', (e) => {
-      // Do not stop propagation as trickling-up will make parents open
-      for (let childUl = /** @type Element | null | undefined */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
-        childUl.classList.remove(domConstants.VISUALLY_HIDDEN);
-        menuButton.setAttribute('aria-expanded', 'true');
-        // if target is the button then don't expand chevron just yet, wait for a child to be visible (happens when tabbing to the chevron menu item)
-        if (e.target !== menuButton) {
-          chevron.classList.remove(domConstants.IS_CLOSED);
-          chevron.classList.add(domConstants.IS_OPEN);
-        }
-      }
-    });
+        // === submenu, more menu items! === //
+        const subMenu = renderMenu(
+          popupMenuItem,
+          popupMenuItem.actionMenu,
+          {
+            ...options,
+            childrenMenuType: ((
+              options.childrenMenuType === childrenMenuTypes.FLYOUT ? childrenMenuTypes.FLYOUT_CHILD : options.childrenMenuType
+            )),
+          }
+        );
+        const subMenuId = uuidv4();
+        subMenu.setAttribute('id', subMenuId);
+        // these are all sub children so hide them initially
+        subMenu.classList.add(domConstants.VISUALLY_HIDDEN);
+        menuItemWrapper.appendChild(subMenu);
+        menuButton.onclick = handleMenuExpansion(menuButton);
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-controls', subMenuId);
+        const chevron = renderDOMSingle(ChevronIconHtml);
+        chevron.classList.add(domConstants.IS_CLOSED);
+        menuButton.appendChild(chevron);
+
+        menuAHref.remove();
+
+        // open all parent uls so that this menu item shows
+        menuItemWrapper.addEventListener('focusin', (e) => {
+          // Do not stop propagation as trickling-up will make parents open
+          for (let childUl = /** @type Element | null | undefined */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
+            childUl.classList.remove(domConstants.VISUALLY_HIDDEN);
+            menuButton.setAttribute('aria-expanded', 'true');
+            // if target is the button then don't expand chevron just yet, wait for a child to be visible
+            // (happens when tabbing to the chevron menu item)
+            if (e.target !== menuButton) {
+              chevron.classList.remove(domConstants.IS_CLOSED);
+              chevron.classList.add(domConstants.IS_OPEN);
+            }
+          }
+        });
+      } break;
+
+      default:
+        throw new Error(`renderPopupMenuItem: childrenMenuType unknown '${popupMenuItem.actionMenu}'`);
+    }
     menuDivider.remove();
   } else if (popupMenuItem.actionFunction) {
     // === on click custom action, so hookup onclick === //
@@ -175,12 +206,13 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 /**
  * @param {PopupMenu | MenuItem} _parentMenu
  * @param {MenuItem[]} menuItems
+ * @param {RenderPopupMenuOptions} options
  * @returns {HTMLElement}
  */
-function renderMenu(_parentMenu, menuItems) {
+function renderMenu(_parentMenu, menuItems, options) {
   const menuWrapper = renderDOMSingle(PopupMenuHtml);
 
-  menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem));
+  menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem, options));
 
   return menuWrapper;
 }
@@ -188,9 +220,10 @@ function renderMenu(_parentMenu, menuItems) {
 /**
  * @param {PopupMenu} popupMenu - the menu to display
  * @param {Element} labelledByElement - the triggering component (must have an `id`)
+ * @param {RenderPopupMenuOptions} options
  * @returns {HTMLElement}
  */
-export default function renderPopupMenu(popupMenu, labelledByElement) {
+export default function renderPopupMenu(popupMenu, labelledByElement, options) {
   // create the popup
   const popupWrapper = renderPopup(labelledByElement);
 
@@ -201,7 +234,7 @@ export default function renderPopupMenu(popupMenu, labelledByElement) {
   }
 
   // create the menu
-  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
+  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems, options);
   menuWrapper.setAttribute('aria-label', popupMenu.title);
 
   popupContentWrapper.appendChild(menuWrapper);

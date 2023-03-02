@@ -39,7 +39,7 @@ export function setUtahHeaderSettings(newSettings) {
   settings = { ...baseSettings, ...newSettings };
   validateSettings(settings);
   const existingHeader = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]));
-  const existingMainMenu = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU]));
+  const existingMainMenu = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU__OUTER]));
   if (existingHeader) {
     // don't call removeHeader because that will trigger an unload event,
     // and setting `settings` probably shouldn't be considered an "unload" event

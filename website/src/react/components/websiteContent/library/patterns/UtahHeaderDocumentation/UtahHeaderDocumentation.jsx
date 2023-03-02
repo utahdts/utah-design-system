@@ -81,10 +81,10 @@ function UtahHeaderDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Utah Header</h1>
       <p className="lead-in">
-      The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. The purpose of its components is to promote a consistent look, feel and user experience throughout all state websites and applications.
+        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. The purpose of its components is to promote a consistent look, feel and user experience throughout all state websites and applications.
       </p>
       <p className="lead-in">
-      The components contained within the header include the <strong>Utah Unbrand</strong>, <strong>Agency Icon and Title,</strong> and <strong>Action Items</strong>.
+        The components contained within the header include the <strong>Utah Unbrand</strong>, <strong>Agency Icon and Title,</strong> and <strong>Action Items</strong>.
       </p>
       <hr />
       <div className="header-config__title">
@@ -222,28 +222,28 @@ function UtahHeaderDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the search icon button')}
+              onClick={() => alert('Triggered the waffle icon button')}
               title="Settings"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the bookmark icon button')}
+              onClick={() => alert('Triggered the alert icon button')}
               title="Settings"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the check icon button')}
+              onClick={() => alert('Triggered the help icon button')}
               title="Settings"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the star icon button')}
+              onClick={() => alert('Triggered the gear icon button')}
               title="Settings"
             />
           </>

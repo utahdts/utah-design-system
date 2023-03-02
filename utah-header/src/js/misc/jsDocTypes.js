@@ -23,6 +23,10 @@
  *  @property {boolean} [selected] - could be the current page or some other "selected" reason
  * }
  *
+ * @typedef {'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest'} Environments
+ *
+ * @typedef {'utahHeaderLoaded' | 'utahHeaderUnloaded'} Events
+ *
  * @typedef MainMenu {
  *  @property {MainMenuItem[]} menuItems
  *  @property {string} title
@@ -64,7 +68,15 @@
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
  *  @property {(function(Event): void)} [onClick] custom onclick handler
  * }
-
+ *
+ * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuType
+ * @typedef RenderPopupMenuOptions {
+ *  @property {ChildrenMenuType} childrenMenuType
+ *  - flyout: children in new popup
+ *  - inline: expandable children
+ *  - mega-menu: always expanded children
+ * }
+ *
  * @typedef Badge {
  *  @property {string} [className] - a class to add to the badge for custom formatting like color
  *  @property {string} label - the label for the screen reader to read describing the badge

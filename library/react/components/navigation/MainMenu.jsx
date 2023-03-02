@@ -19,7 +19,7 @@ function MainMenu({
   currentMenuItem,
   menu,
 }) {
-  return <HorizontalMenu className={joinClassNames(className, 'menu-bar dark-text')} id="main-menu" menu={menu} currentMenuItem={currentMenuItem} />;
+  return <HorizontalMenu className={joinClassNames(className, 'main-menu__wrapper menu-bar dark-text')} id="main-menu" menu={menu} currentMenuItem={currentMenuItem} />;
 }
 
 MainMenu.propTypes = propTypes;

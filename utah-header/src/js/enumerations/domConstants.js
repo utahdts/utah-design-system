@@ -54,6 +54,7 @@ export default {
   MAIN_MENU: 'main-menu__wrapper',
   MAIN_MENU__MENU_TOP: 'main-menu__menu-top',
   MAIN_MENU__NAV: 'main-menu__nav',
+  MAIN_MENU__OUTER: 'main-menu__outer',
   MAIN_MENU__SEARCH: 'main-menu__search',
   MAIN_MENU__TITLE: 'main-menu__title',
 

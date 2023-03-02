@@ -1,4 +1,5 @@
 // @ts-check
+import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import utahIdUrls from '../../enumerations/utahIdUrls';
 import popupFocusHandler from '../../misc/popupFocusHandler';
@@ -109,7 +110,7 @@ export default function UtahId() {
   }
 
   // create popup content DOM
-  utahIdPopupMenu = renderPopupMenu(popupMenu, utahIdButton);
+  utahIdPopupMenu = renderPopupMenu(popupMenu, utahIdButton, { childrenMenuType: childrenMenuTypes.INLINE });
   utahIdWrapper.appendChild(utahIdPopupMenu);
 
   doAriaForUtahId();

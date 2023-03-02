@@ -1,4 +1,5 @@
 // @ts-check
+import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
 import popupFocusHandler from '../../misc/popupFocusHandler';
@@ -81,7 +82,11 @@ export default function renderActionItem(actionItem) {
   } else if (actionItem.actionPopupMenu) {
     const iconButtonId = uuidv4();
     iconButton.setAttribute('id', iconButtonId);
-    const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.actionPopupMenu)), iconButton);
+    const popupMenu = renderPopupMenu(
+      (/** @type {PopupMenu} */ (actionItem.actionPopupMenu)),
+      iconButton,
+      { childrenMenuType: childrenMenuTypes.INLINE }
+    );
     appendChildAll(actionItemElement, popupMenu);
 
     popupFocusHandler(actionItemWrapper, iconButton, popupMenu, 'menu', undefined);

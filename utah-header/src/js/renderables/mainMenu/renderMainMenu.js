@@ -1,4 +1,5 @@
 // @ts-check
+import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
@@ -69,6 +70,7 @@ export default function renderMainMenu() {
       }
 
       if (menuItem.actionMenu) {
+        // render children menu items
         mainMenuItemButtonTitle.innerHTML = menuItem.title;
         mainMenuItemLinkTitle.remove();
 
@@ -77,13 +79,15 @@ export default function renderMainMenu() {
           menuItems: menuItem.actionMenu,
           title: menuItem.title,
         };
-        const subMenuPopup = renderPopupMenu(popupMenu, mainMenuItemTitle);
+        const subMenuPopup = renderPopupMenu(popupMenu, mainMenuItemTitle, { childrenMenuType: childrenMenuTypes.FLYOUT });
         mainMenuItem.appendChild(subMenuPopup);
         popupFocusHandler(mainMenuItem, mainMenuItemButtonTitle, subMenuPopup, 'menu', { shouldFocusOnHover: true });
       } else if (menuItem.actionFunction) {
+        // custom function when triggered
         mainMenuItemButtonTitle.innerHTML = menuItem.title;
         mainMenuItemLinkTitle.remove();
       } else if (menuItem.actionUrl) {
+        // go to url when triggered
         mainMenuItemLinkTitle.innerHTML = menuItem.title;
         mainMenuItemButtonTitle.remove();
       } else {
