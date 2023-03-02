@@ -77,9 +77,9 @@ export default function renderActionItem(actionItem) {
     }
     popupContentWrapper.appendChild(actionItem.actionDom);
     actionItemElement.appendChild(popupWrapper);
-
     popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, 'dialog', undefined);
   } else if (actionItem.actionPopupMenu) {
+    // content is a menu
     const iconButtonId = uuidv4();
     iconButton.setAttribute('id', iconButtonId);
     const popupMenu = renderPopupMenu(

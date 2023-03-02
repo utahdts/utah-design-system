@@ -64,11 +64,13 @@ export default {
   MENU_ITEM__TITLE: 'menu-item__title',
 
   POPUP_MENU: 'vertical-menu',
-  POPUP_MENU__DIVIDER: 'vertical-menu__divider',
-  POPUP_MENU__TITLE: 'vertical-menu__title',
-  POPUP_MENU__LINK_TITLE: 'vertical-menu__link-title',
   POPUP_MENU__BUTTON_TITLE: 'vertical-menu__button-title',
+  POPUP_MENU__CHEVRON: 'vertical-menu__chevron',
+  POPUP_MENU__DIVIDER: 'vertical-menu__divider',
   POPUP_MENU__LINK_TEXT: 'vertical-menu__link-text',
+  POPUP_MENU__LINK_TITLE: 'vertical-menu__link-title',
+  POPUP_MENU__TITLE: 'vertical-menu__title',
+
   POPUP__HIDDEN: 'popup__wrapper--hidden',
   POPUP__VISIBLE: 'popup__wrapper--visible',
   POPUP__WRAPPER: 'popup__wrapper',

@@ -1,5 +1,6 @@
 // @ts-check
 import { createPopper } from '@popperjs/core';
+import { popperPlacement } from '@utahdts/utah-design-system';
 import domConstants from '../enumerations/domConstants';
 import showHideElement from './showHideElement';
 
@@ -27,7 +28,7 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
   function performPopup() {
     if (!options?.isPerformPopup || (options?.isPerformPopup && options.isPerformPopup())) {
       createPopper(button, popup, {
-        placement: 'bottom',
+        placement: options?.popupPlacement || popperPlacement.BOTTOM,
         modifiers: [
           {
             name: 'offset',
@@ -49,17 +50,18 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
 
   wrapper.addEventListener('focusin', () => performPopup());
   wrapper.addEventListener('focusout', () => hidePopup());
-
   if (options?.shouldFocusOnHover) {
-    let delayTimeoutId = NaN;
+    let delayPopupTimeoutId = NaN;
+    let delayHideTimeoutId = NaN;
     wrapper.addEventListener('mouseenter', () => {
-      clearTimeout(delayTimeoutId);
-      delayTimeoutId = window.setTimeout(performPopup, 200);
+      clearTimeout(delayHideTimeoutId);
+      clearTimeout(delayPopupTimeoutId);
+      delayPopupTimeoutId = window.setTimeout(performPopup, 200);
     });
     wrapper.addEventListener('mouseleave', () => {
-      clearTimeout(delayTimeoutId);
-      delayTimeoutId = NaN;
-      hidePopup();
+      clearTimeout(delayHideTimeoutId);
+      clearTimeout(delayPopupTimeoutId);
+      delayHideTimeoutId = window.setTimeout(hidePopup, 200);
     });
   }
 
@@ -77,37 +79,40 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     }
   };
 
-  // eslint-disable-next-line no-param-reassign
-  button.onclick = (e) => {
-    if (!options?.isPerformPopup || options.isPerformPopup()) {
-      e.stopPropagation();
-      e.preventDefault();
+  if (!options?.preventOnClickHandling) {
+    // eslint-disable-next-line no-param-reassign
+    button.onclick = (e) => {
+      // for click popups
+      if (!options?.isPerformPopup || options.isPerformPopup()) {
+        e.stopPropagation();
+        e.preventDefault();
 
-      button.setAttribute('aria-expanded', 'true');
+        button.setAttribute('aria-expanded', 'true');
 
-      if (!isButtonFocusedBeforeClick && button === document.activeElement) {
-        createPopper(
-          button,
-          popup,
-          {
-            placement: 'bottom',
-            modifiers: [
-              {
-                name: 'offset',
-                options: { offset: [0, 10] },
-              },
-            ],
-          }
-        );
-        showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-      } else if (isButtonFocusedBeforeClick) {
-        showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-        button.setAttribute('aria-expanded', 'false');
-        /** @type {HTMLElement | null} */(document.activeElement)?.blur();
+        if (!isButtonFocusedBeforeClick && button === document.activeElement) {
+          createPopper(
+            button,
+            popup,
+            {
+              placement: 'bottom',
+              modifiers: [
+                {
+                  name: 'offset',
+                  options: { offset: [0, 10] },
+                },
+              ],
+            }
+          );
+          showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+        } else if (isButtonFocusedBeforeClick) {
+          showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+          button.setAttribute('aria-expanded', 'false');
+          /** @type {HTMLElement | null} */(document.activeElement)?.blur();
+        }
       }
-    }
-    if (options?.onClick) {
-      options.onClick(e);
-    }
-  };
+      if (options?.onClick) {
+        options.onClick(e);
+      }
+    };
+  }
 }

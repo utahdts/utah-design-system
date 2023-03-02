@@ -3,6 +3,7 @@ import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 // @ts-ignore
@@ -56,7 +57,7 @@ export default function renderMainMenu() {
       if (!mainMenuItemTitle) {
         throw new Error(`renderMainMenu(): sub menu title not found for ${menuItem.title}`);
       }
-      mainMenuItemTitle.setAttribute('id', 'main-menu');
+      mainMenuItemTitle.setAttribute('id', `main-menu-item__${menuItem.title}-${uuidv4()}`);
 
       const mainMenuItemButtonTitle = /** @type {HTMLElement} */ (
         mainMenuItemTitle.querySelector(getCssClassSelector(domConstants.MENU_ITEM__BUTTON_TITLE))
@@ -97,6 +98,7 @@ export default function renderMainMenu() {
   }
 
   /*
+  TODO: are all these things accounted for!
   <!-- <button aria-expanded="true" aria-labelledby="menu-item-components__popups-menuHeader::Popups"
       class="menu-item__button-title" id="menu-item-components__popups-menuHeader::Popups" type="button">Popups</button>
     <button class="button icon-button menu-item__chevron menu-item__chevron--open icon-button--borderless" type="button"
@@ -111,6 +113,31 @@ export default function renderMainMenu() {
     <li class="menu-item"><span class="menu-item__title"><a aria-current="page" class="menu-item--selected"
           href="/library/components/navigation/popups">Popups</a></span></li>
   </ul> -->
+  */
+  /*
+<!-- <button aria-expanded="true" aria-labelledby="menu-item-components__popups-menuHeader::Popups"
+    class="menu-item__button-title" id="menu-item-components__popups-menuHeader::Popups" type="button">Popups</button>
+  <button class="button icon-button menu-item__chevron menu-item__chevron--open icon-button--borderless" type="button"
+    aria-labelledby="menu-item-components__popups-menuHeader::Popups" aria-expanded="true">
+    <svg viewBox="0 0 10.75 6.834" class="icon-svg icon-chevron ">
+      <g>
+        <path d="M5.375,6.834L0,1.438,1.437,0l3.938,3.938L9.313,0l1.437,1.438L5.375,6.834Z"></path>
+      </g>
+    </svg>
+    <span class="visually-hidden">expand sub-menu</span></button></span>
+<ul class="menu-item__sub-menu--open" role="menu">
+  <li class="menu-item"><span class="menu-item__title"><a aria-current="page" class="menu-item--selected"
+        href="/library/components/navigation/popups">Popups</a></span></li>
+</ul> -->
+<!-- a vertical menu
+<li class="vertical-menu__item">
+  <span class="vertical-menu__title">
+    <a href="https://google.com?search=how realisitic can you be" class="vertical-menu__link-title">
+    <span class="vertical-menu__link-text">Item #1</span>
+    </a>
+  </span>
+</li>
+-->
   */
 
   return mainMenuWrapper;

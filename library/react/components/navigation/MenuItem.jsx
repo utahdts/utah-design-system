@@ -90,6 +90,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
             )
             : null
         }
+        <span className="menu-chiclet" />
       </span>
 
       {/* === children menu items === */}

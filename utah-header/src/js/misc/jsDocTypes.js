@@ -63,18 +63,33 @@
  *   @property {number} tabletPortrait - table portrait sized render area
  * }
  *
+ * these match the popper's position options
+ * @typedef {'auto' | 'auto-start' | 'auto-end' |
+ *   'bottom' | 'bottom-start' | 'bottom-end' |
+ *    'left' | 'left-start' | 'left-end' |
+ *    'right' | 'right-start' | 'right-end' |
+ *    'top' | 'top-start' | 'top-end'
+ * } PopupPlacement
+ *
  * @typedef PopupFocusHandlerOptions {
  *  @property {(() => boolean)} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
- *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
  *  @property {(function(Event): void)} [onClick] custom onclick handler
+ *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
+ *  @property {boolean} [preventOnClickHandling] turns of click handling for popup invocation
+ *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
+ * }
+ *
+ * @typedef RenderPopupOptions {
+ *  @property {boolean} [removePopupArrow] allows removing the popup border arrow for flyouts
  * }
  *
  * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuType
  * @typedef RenderPopupMenuOptions {
- *  @property {ChildrenMenuType} childrenMenuType
- *  - flyout: children in new popup
- *  - inline: expandable children
- *  - mega-menu: always expanded children
+ *   @property {ChildrenMenuType} childrenMenuType
+ *   - flyout: children in new popup
+ *   - inline: expandable children
+ *   - mega-menu: always expanded children
+ *   @property {boolean} [removePopupArrow] allows removing the popup border arrow for flyouts
  * }
  *
  * @typedef Badge {

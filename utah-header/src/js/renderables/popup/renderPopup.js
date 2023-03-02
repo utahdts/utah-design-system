@@ -4,12 +4,18 @@ import { renderDOMSingle } from '../../misc/renderDOM';
 // eslint-disable-next-line import/no-unresolved
 import PopupHtml from './html/Popup.html?raw';
 import uuidv4 from '../../misc/uuidv4';
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+
+/**
+ * @typedef {import('../../misc/jsDocTypes').RenderPopupOptions} RenderPopupOptions
+ */
 
 /**
  * @param {Element} labelledByElement - the triggering component (must have an `id`)
+ * @param {RenderPopupOptions} [options] - for flyouts and their ilk, the popup arrow should not be shown
  * @returns {HTMLElement}
  */
-export default function renderPopup(labelledByElement) {
+export default function renderPopup(labelledByElement, options) {
   const labelledById = labelledByElement.getAttribute('id');
   if (!labelledById) {
     throw new Error('renderPopup: labelledByElement does not have an `id` attribute');
@@ -21,6 +27,14 @@ export default function renderPopup(labelledByElement) {
   const popupWrapper = renderDOMSingle(PopupHtml);
   popupWrapper.setAttribute('id', popupWrapperId);
   popupWrapper.setAttribute('aria-labelledby', labelledById);
+
+  if (options?.removePopupArrow) {
+    const popupArrow = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_ARROW));
+    if (!popupArrow) {
+      throw new Error('renderPopup(): popup arrow missing (I wanted to remove it!!)');
+    }
+    popupArrow.remove();
+  }
 
   return popupWrapper;
 }
