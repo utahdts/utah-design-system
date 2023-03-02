@@ -51,6 +51,17 @@ export default {
   LOGO_VERT_LINE: 'utds-logo-vert-line',
   LOGO: 'utds-logo-wrapper',
 
+  MAIN_MENU: 'main-menu__wrapper',
+  MAIN_MENU__MENU_TOP: 'main-menu__menu-top',
+  MAIN_MENU__NAV: 'main-menu__nav',
+  MAIN_MENU__SEARCH: 'main-menu__search',
+  MAIN_MENU__TITLE: 'main-menu__title',
+
+  MENU_ITEM: 'menu-item',
+  MENU_ITEM__BUTTON_TITLE: 'menu-item__button-title',
+  MENU_ITEM__LINK_TITLE: 'menu-item__link-title',
+  MENU_ITEM__TITLE: 'menu-item__title',
+
   POPUP_MENU: 'vertical-menu',
   POPUP_MENU__DIVIDER: 'vertical-menu__divider',
   POPUP_MENU__TITLE: 'vertical-menu__title',
@@ -59,6 +70,7 @@ export default {
   POPUP_MENU__LINK_TEXT: 'vertical-menu__link-text',
   POPUP__HIDDEN: 'popup__wrapper--hidden',
   POPUP__VISIBLE: 'popup__wrapper--visible',
+  POPUP__WRAPPER: 'popup__wrapper',
 
   EXTERNAL_LINK: 'utds-icon-after-external-link',
 

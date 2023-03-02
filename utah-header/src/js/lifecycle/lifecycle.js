@@ -1,13 +1,14 @@
 // @ts-check
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import events from '../enumerations/events';
-import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
-import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
+import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
+import events from '../enumerations/events';
+import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
+import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
 import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
+import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -27,21 +28,15 @@ function loadCssSettings() {
 export function loadHeader() {
   const existingHeader = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]));
   if (!existingHeader) {
-    // TODO: CSS has potentially not loaded yet? so there will be a flicker between time header shows and css loads...
-    // TODO: could maybe set a timeout for loading the header so that css loads and then header renders...
-    // TODO: but then header will bounce in to view from the top...
-    // TODO: could place a placeholder div that is the same size of the header, then settimeout to load header after css loads...?
-
-    // TODO: Load the Main Menu
-    // if (document.body.firstChild) {
-    //   document.body.insertBefore(MainMenu(), document.body.firstChild);
-    // } else {
-    //   document.body.appendChildAll(MainMenu());
-    // }
-
     // Load the Header Wrapper
     const header = HeaderWrapper();
     document.body.insertBefore(header, document.body.firstChild);
+
+    // load the main menu
+    const mainMenu = renderMainMenu();
+    if (mainMenu) {
+      header.after(mainMenu);
+    }
 
     loadGlobalEvents();
 
@@ -60,6 +55,7 @@ export function loadHeader() {
 
 export function removeHeader() {
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]))?.remove();
+  document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU]))?.remove();
 
   unloadGlobalEvents();
 

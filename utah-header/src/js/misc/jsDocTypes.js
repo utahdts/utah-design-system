@@ -14,8 +14,18 @@
  * @typedef {'SMALL' | 'MEDIUM' | 'LARGE'} Size
  * Should be Synced with the enumerations/sizes object
  *
+ * @typedef {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} AriaHasPopupType
+ *
+ * @typedef {MenuItem} MainMenuItem {
+ *  // wordpress has the concept of a menu item that is a link AND has children, but when it goes mobile the link is no longer available
+ *  // so the wordpress conversion script will take a menu that has a link and children and auto insert the link as the first child
+ *  // TODO: so this could do that work automatically if it detects that scenario instead of throwing an error
+ *  @property {boolean} [selected] - could be the current page or some other "selected" reason
+ * }
+ *
  * @typedef MainMenu {
- *  @property {MenuItem[]} menuItems
+ *  @property {MainMenuItem[]} menuItems
+ *  @property {string} title
  * }
  *
  * For menu items that are links to other locations
@@ -49,6 +59,12 @@
  *   @property {number} tabletPortrait - table portrait sized render area
  * }
  *
+ * @typedef PopupFocusHandlerOptions {
+ *  @property {(() => boolean)} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
+ *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
+ *  @property {(function(Event): void)} [onClick] custom onclick handler
+ * }
+
  * @typedef Badge {
  *  @property {string} [className] - a class to add to the badge for custom formatting like color
  *  @property {string} label - the label for the screen reader to read describing the badge

@@ -122,4 +122,109 @@ export default {
   title: 'Utah Design System',
   titleURL: '/',
   utahId: true,
+  mainMenu: {
+    menuItems: [
+      {
+        actionUrl: { url: '/' },
+        title: 'Home',
+      },
+      {
+        actionFunction: () => alert('hello yous guy'),
+        title: 'do func',
+      },
+      {
+        actionMenu: [
+          {
+            title: 'Guidelines and Standards',
+            actionUrl: { url: '/guidelines' },
+          },
+        ],
+        title: 'Guidelines/Standards',
+      },
+      {
+        actionMenu: [
+          {
+            title: 'child1',
+            actionMenu: [
+              {
+                title: 'child1-1',
+                actionMenu: [
+                  {
+                    title: 'child1-1-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-1-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-1-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+              {
+                title: 'child1-2',
+                actionMenu: [
+                  {
+                    title: 'child1-2-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-2-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-2-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: 'child2',
+            actionMenu: [
+              {
+                title: 'child2-1',
+                actionMenu: [
+                  {
+                    title: 'child2-1-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-1-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-1-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+              {
+                title: 'child2-2',
+                actionMenu: [
+                  {
+                    title: 'child2-2-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-2-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-2-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        title: 'Childrens',
+      },
+    ],
+    title: 'Utah Design System Main Menu',
+  },
 };

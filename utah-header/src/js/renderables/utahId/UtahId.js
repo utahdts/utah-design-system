@@ -49,22 +49,12 @@ function doAriaForUtahId() {
 
     // Add aria-haspopup, aria-controls, and aria-expanded to the button to tie in the menu
     // Hide the menu from aria when the user is not signed in
-    const menu = utahIdPopupMenu.querySelector(getCssClassSelector(domConstants.POPUP_MENU));
-    if (!menu) {
-      throw new Error('UtahId: Utah ID menu not found');
-    }
-    const menuId = menu.getAttribute('id');
-    if (!menuId) {
-      throw new Error('UtahId: menuId not found');
-    }
     if (userSignedIn) {
       utahIdButton.setAttribute('aria-haspopup', 'menu');
-      utahIdButton.setAttribute('aria-controls', menuId);
       utahIdButton.setAttribute('aria-expanded', 'false');
       utahIdPopupMenu.removeAttribute('aria-hidden');
     } else {
       utahIdButton.removeAttribute('aria-haspopup');
-      utahIdButton.removeAttribute('aria-controls');
       utahIdButton.removeAttribute('aria-expanded');
       utahIdPopupMenu.setAttribute('aria-hidden', 'true');
     }
@@ -107,20 +97,20 @@ export default function UtahId() {
     title: 'Utah Id Menu',
   };
 
-  // create popup content DOM
-  utahIdPopupMenu = renderPopupMenu(popupMenu);
-
   // create UtahID wrapper w/ button DOM
   const utahIdWrapper = renderDOMSingle(UtahIdHtml);
   if (!utahIdWrapper) {
     throw new Error('UtahId: utahIdWrapper not found');
   }
-  utahIdWrapper.appendChild(utahIdPopupMenu);
 
   utahIdButton = /** @type HTMLElement */ (utahIdWrapper.querySelector(getCssClassSelector(domConstants.UTAH_ID__BUTTON)));
   if (!utahIdButton) {
     throw new Error('UtahId: utahIdButton not found');
   }
+
+  // create popup content DOM
+  utahIdPopupMenu = renderPopupMenu(popupMenu, utahIdButton);
+  utahIdWrapper.appendChild(utahIdPopupMenu);
 
   doAriaForUtahId();
 
@@ -128,6 +118,7 @@ export default function UtahId() {
     utahIdWrapper,
     utahIdButton,
     utahIdPopupMenu,
+    'menu',
     {
       isPerformPopup: () => !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated,
       onClick: (e) => {

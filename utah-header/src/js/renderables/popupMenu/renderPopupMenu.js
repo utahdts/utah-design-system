@@ -187,22 +187,23 @@ function renderMenu(_parentMenu, menuItems) {
 
 /**
  * @param {PopupMenu} popupMenu - the menu to display
+ * @param {Element} labelledByElement - the triggering component (must have an `id`)
  * @returns {HTMLElement}
  */
-export default function renderPopupMenu(popupMenu) {
+export default function renderPopupMenu(popupMenu, labelledByElement) {
   // create the popup
-  const popupWrapper = renderPopup();
-
-  // create the menu
-  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
-  menuWrapper.setAttribute('aria-label', popupMenu.title);
-  menuWrapper.setAttribute('id', uuidv4());
+  const popupWrapper = renderPopup(labelledByElement);
 
   // put the menu in the popup
   const popupContentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
   if (!popupContentWrapper) {
     throw new Error('renderPopupMenu: contentWrapper not found');
   }
+
+  // create the menu
+  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
+  menuWrapper.setAttribute('aria-label', popupMenu.title);
+
   popupContentWrapper.appendChild(menuWrapper);
 
   return popupWrapper;
