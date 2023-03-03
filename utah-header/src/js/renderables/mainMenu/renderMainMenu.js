@@ -1,6 +1,7 @@
 // @ts-check
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import findRecursive from '../../misc/findRecursive';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
 import uuidv4 from '../../misc/uuidv4';
@@ -70,6 +71,12 @@ export default function renderMainMenu() {
         throw new Error(`renderMainMenu(): link title not found for ${menuItem.title}`);
       }
 
+      // add selected to title if selected (or any children are selected)
+      if (menuItem.isSelected || (menuItem.actionMenu && findRecursive(menuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
+        mainMenuItemButtonTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
+        mainMenuItemLinkTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
+      }
+
       if (menuItem.actionMenu) {
         // render children menu items
         mainMenuItemButtonTitle.innerHTML = menuItem.title;
@@ -90,6 +97,10 @@ export default function renderMainMenu() {
       } else if (menuItem.actionUrl) {
         // go to url when triggered
         mainMenuItemLinkTitle.innerHTML = menuItem.title;
+        mainMenuItemLinkTitle.setAttribute('href', menuItem.actionUrl.url);
+        if (menuItem.actionUrl.openInNewTab) {
+          mainMenuItemLinkTitle.setAttribute('target', '_blank');
+        }
         mainMenuItemButtonTitle.remove();
       } else {
         throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);

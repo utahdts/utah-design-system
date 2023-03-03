@@ -129,6 +129,7 @@ export default {
         title: 'Home',
       },
       {
+        isSelected: true,
         actionFunction: () => alert('hello yous guy'),
         title: 'do func',
       },

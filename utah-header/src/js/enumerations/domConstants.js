@@ -61,6 +61,7 @@ export default {
   MENU_ITEM: 'menu-item',
   MENU_ITEM__BUTTON_TITLE: 'menu-item__button-title',
   MENU_ITEM__LINK_TITLE: 'menu-item__link-title',
+  MENU_ITEM__SELECTED: 'menu-item--selected',
   MENU_ITEM__TITLE: 'menu-item__title',
 
   POPUP_MENU: 'vertical-menu',

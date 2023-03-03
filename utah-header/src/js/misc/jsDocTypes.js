@@ -48,6 +48,7 @@
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {boolean} [isDivider] - this menu item is a divider between other menu items
+ *  @property {boolean} [isSelected] - is this menu item currently a selected thing (on its page?)
  *  @property {string} title - title for the menu item
  * }
  *

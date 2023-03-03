@@ -16,6 +16,7 @@ import PopupMenuHtml from './html/PopupMenu.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
+import findRecursive from '../../misc/findRecursive';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').ChildrenMenuType} ChildrenMenuType
@@ -237,6 +238,12 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
       titleSpanLink.appendChild(externalLinkMessage);
       titleSpanLink.appendChild(externalLinkIcon);
     }
+  }
+
+  // add selected to title if selected (or any children are selected)
+  if (popupMenuItem.isSelected || (popupMenuItem.actionMenu && findRecursive(popupMenuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
+    menuButton.classList.add(domConstants.MENU_ITEM__SELECTED);
+    menuAHref.classList.add(domConstants.MENU_ITEM__SELECTED);
   }
 
   appendChildAll(menuUl, menuItemWrapper);
