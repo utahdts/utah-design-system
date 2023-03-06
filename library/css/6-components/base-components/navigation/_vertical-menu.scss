@@ -28,9 +28,11 @@
       text-align: left;
       text-decoration: none;
       width: 100%;
+
       &:hover {
         background: var(--hover-gray-color);
         color: var(--primary-color);
+        box-shadow: none;
       }
       &:active {
         transform: none;
