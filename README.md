@@ -59,7 +59,7 @@ Apache License Version 2.0
     * react
     * static
   * index.html
-* library/
+* [library/](library/README.md)
   * src/
     > these are the compiled parts separate from the website that the website also uses
     * css/
@@ -81,7 +81,12 @@ Apache License Version 2.0
       > starter project that grabs all the pieces for a new website
     * static/
         * icons/
-* website/
+* [utah-header](utah-header/README.md)
+  > This is the utah header code and css
+    * src/
+      * css/
+      * js/
+* [website/](utah-header/README.md)
   > This is the collection of rules and design system specifications
     * src/
       * css/
