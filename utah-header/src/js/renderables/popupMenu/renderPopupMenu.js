@@ -101,6 +101,10 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   if (!menuAHref) {
     throw new Error('renderPopupMenuItem: aHref not found');
   }
+  const plainTitle = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__PLAIN_TITLE)));
+  if (!plainTitle) {
+    throw new Error('renderPopupMenuItem: plainTitle not found');
+  }
   const menuDivider = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__DIVIDER));
   if (!menuDivider) {
     throw new Error('renderPopupMenuItem: menuDivider not found');
@@ -148,15 +152,11 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
           }
         );
         menuAHref.remove();
+        plainTitle.remove();
         break;
       }
 
-      case childrenMenuTypes.INLINE:
-      case childrenMenuTypes.MEGA_MENU: {
-        // mega menu: always expanded
-        // inline: has toggle arrow to expand/collapse sections
-
-        // === submenu, more menu items! === //
+      case childrenMenuTypes.INLINE: {
         const subMenu = renderMenu(
           popupMenuItem,
           popupMenuItem.actionMenu,
@@ -174,6 +174,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
         menuButton.appendChild(chevron);
 
         menuAHref.remove();
+        plainTitle.remove();
 
         // open all parent uls so that this menu item shows
         menuItemWrapper.addEventListener('focusin', (e) => {
@@ -192,6 +193,22 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
         break;
       }
 
+      case childrenMenuTypes.MEGA_MENU: {
+        const subMenu = renderMenu(
+          popupMenuItem,
+          popupMenuItem.actionMenu,
+          options
+        );
+        const subMenuId = uuidv4();
+        subMenu.setAttribute('id', subMenuId);
+        menuItemWrapper.appendChild(subMenu);
+
+        menuAHref.remove();
+        menuButton.remove();
+        plainTitle.appendChild(document.createTextNode(popupMenuItem.title));
+        break;
+      }
+
       default:
         throw new Error(`renderPopupMenuItem: childrenMenuType unknown '${popupMenuItem.actionMenu}'`);
     }
@@ -201,6 +218,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     menuButton.onclick = popupMenuItem.actionFunction;
     menuAHref.remove();
     menuDivider.remove();
+    plainTitle.remove();
   } else if (popupMenuItem.actionUrl) {
     // === link object, so hook up href === //
     menuAHref.setAttribute('href', popupMenuItem.actionUrl.url);
@@ -209,7 +227,9 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     }
     menuButton.remove();
     menuDivider.remove();
+    plainTitle.remove();
   } else if (popupMenuItem.isDivider) {
+    // remove ALL title items by removing the wrapper (instead of individually)
     menuItemTitleWrapper.remove();
     menuItemWrapper.setAttribute('aria-hidden', 'true');
     menuItemWrapper.setAttribute('role', 'separator');

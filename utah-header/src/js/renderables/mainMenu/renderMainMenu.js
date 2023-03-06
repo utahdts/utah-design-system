@@ -88,9 +88,30 @@ export default function renderMainMenu() {
           menuItems: menuItem.actionMenu,
           title: menuItem.title,
         };
-        const subMenuPopup = renderPopupMenu(popupMenu, mainMenuItemButtonTitle, { childrenMenuType: childrenMenuTypes.FLYOUT });
+        const subMenuPopup = renderPopupMenu(
+          popupMenu,
+          mainMenuItemButtonTitle,
+          {
+            childrenMenuType: menuItem.childrenMenuType || childrenMenuTypes.FLYOUT,
+          }
+        );
         mainMenuItem.appendChild(subMenuPopup);
         popupFocusHandler(mainMenuItem, mainMenuItemButtonTitle, subMenuPopup, 'menu', { shouldFocusOnHover: true });
+        /** @type {string} */
+        let menuClass;
+        switch (menuItem.childrenMenuType) {
+          case childrenMenuTypes.INLINE:
+            menuClass = domConstants.MENU_ITEM__INLINE;
+            break;
+          case childrenMenuTypes.MEGA_MENU:
+            menuClass = domConstants.MENU_ITEM__MEGA_MENU;
+            break;
+          case childrenMenuTypes.FLYOUT:
+          default:
+            menuClass = domConstants.MENU_ITEM__FLY_OUT;
+            break;
+        }
+        mainMenuItem.classList.add(menuClass);
       } else if (menuItem.actionFunction) {
         // custom function when triggered
         mainMenuItemButtonTitle.innerHTML = menuItem.title;

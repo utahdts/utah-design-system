@@ -63,6 +63,9 @@ export default {
   MENU_ITEM__LINK_TITLE: 'menu-item__link-title',
   MENU_ITEM__SELECTED: 'menu-item--selected',
   MENU_ITEM__TITLE: 'menu-item__title',
+  MENU_ITEM__FLY_OUT: 'menu-item--fly_out',
+  MENU_ITEM__INLINE: 'menu-item--inline',
+  MENU_ITEM__MEGA_MENU: 'menu-item--mega-menu',
 
   POPUP_MENU: 'vertical-menu',
   POPUP_MENU__BUTTON_TITLE: 'vertical-menu__button-title',
@@ -70,6 +73,7 @@ export default {
   POPUP_MENU__DIVIDER: 'vertical-menu__divider',
   POPUP_MENU__LINK_TEXT: 'vertical-menu__link-text',
   POPUP_MENU__LINK_TITLE: 'vertical-menu__link-title',
+  POPUP_MENU__PLAIN_TITLE: 'vertical-menu__plain-title',
   POPUP_MENU__TITLE: 'vertical-menu__title',
 
   POPUP__HIDDEN: 'popup__wrapper--hidden',

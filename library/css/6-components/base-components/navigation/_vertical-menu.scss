@@ -7,7 +7,7 @@
     padding: 0;
   }
   .vertical-menu {
-    ul {
+    li > ul {
       padding-left: var(--spacing-s);
     }
 
@@ -61,7 +61,7 @@
         margin-right: 0;
       }
       &.is-open {
-        transform: rotate(90deg);;
+        transform: rotate(90deg);
       }
     }
   }

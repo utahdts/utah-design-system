@@ -16,11 +16,23 @@
  *
  * @typedef {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} AriaHasPopupType
  *
- * @typedef {MenuItem} MainMenuItem {
+ * @typedef MainMenuItem {
+ *  // this started as a copy of MenuItem but can diverge to be its own thing
  *  // wordpress has the concept of a menu item that is a link AND has children, but when it goes mobile the link is no longer available
  *  // so the wordpress conversion script will take a menu that has a link and children and auto insert the link as the first child
  *  // TODO: so this could do that work automatically if it detects that scenario instead of throwing an error
- *  @property {boolean} [selected] - could be the current page or some other "selected" reason
+ *
+ *  // should be only one of the following three action types
+ *  @property {MenuItemUrlAction} [actionUrl] - link url
+ *  @property {EventAction} [actionFunction] - onClick function
+ *  @property {MenuItem[]} [actionMenu] - children menus
+*
+ *  @property {ChildrenMenuType} [childrenMenuType] - default is "fly-out"
+ *  @property {string} [className] - can be used for `selected` or any other purpose
+ *  @property {ChildNode} [icon] - icon to show next to this menu item
+ *  @property {boolean} [isDivider] - this menu item is a divider between other menu items
+ *  @property {boolean} [isSelected] - is this menu item currently a selected thing (on its page?)
+ *  @property {string} title - title for the menu item
  * }
  *
  * @typedef {'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest'} Environments
