@@ -10,7 +10,7 @@ function HomeLanding() {
   return (
     <div className="landing-page-template">
       <div className="home-banner">
-        <div className="home-banner__title">Utah<br />Design<br />System</div>
+        <div className="home-banner__title background-frosted-dark">Utah<br />Design<br />System</div>
       </div>
       <div className="content-width">
         <h1 className="my-spacing-l">Welcome to the State of Utah Design System</h1>
@@ -42,7 +42,13 @@ function HomeLanding() {
         <h2>Progress Log</h2>
         <ul className="mb-spacing">
           <li>
-            <NavLink to={pageUrls.button}>Button documentation</NavLink> page is complete.
+            <NavLink to={pageUrls.button}>Button documentation</NavLink> <code>page is complete</code>
+          </li>
+          <li>
+            <NavLink to={pageUrls.iconButton}>Icon Button documentation</NavLink> <code>page is complete</code>
+          </li>
+          <li>
+            <NavLink to={pageUrls.Icons}>Icons documentation and resource</NavLink> <code>page is complete</code>
           </li>
         </ul>
 
