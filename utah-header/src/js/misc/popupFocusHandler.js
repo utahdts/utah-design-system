@@ -2,7 +2,38 @@
 import { createPopper } from '@popperjs/core';
 import domConstants from '../enumerations/domConstants';
 import popupPlacement from '../enumerations/popupPlacement';
+import { hideAllMenus } from '../lifecycle/globalEvents';
+import isTouchDevice from './isTouchDevice';
 import showHideElement from './showHideElement';
+
+/*
+   ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
+  |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |
+  | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
+  |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
+
+  If you do dare touch this, and you probably should if you need to, here are the testing scenarios to consider:
+  * have an action item (divisions) that pops open a menu with children
+    * tab through the action item so that the popup opens and tab through children so that they toggle open
+    * tabbing out of focus of the action item and children menus should then close the popup
+  * have two action items with popups (menu popup and dom content popup)
+    * click on one of the action icons to open the popup
+    * click on the other action icon to open its popup and close the other popup
+    * there was a point in time where the original popup was not closing
+  * have a header menu item with at least 3 levels deep of menu items
+    * tab to the children at the deepest level and make sure that the sub menus flyout
+  * accessibility: have an action item (divisions) that has a popup menu with children
+    * without tabbing or clicking, use accessibility (ctrl+opt+right-arrow) to move on top of the divisions action item
+    * trigger the menu (ctrl+opt+space) to have the menu toggle open
+  * do the same test as above but with the Utah ID button after logging in so that it opens the Utah Id menu
+  * have a main menu item whose children flyout and make sure hovering causes those menu items to flyout
+
+  Notes:
+  * mobile devices do not have focus events. This caused issues with putting logic in focus that would work in browser but not
+    in mobile and vice/versa.
+  * when targeting items via accessibility navigation (not tab key), items do not receive focus, so focus events again were
+    problematic.
+*/
 
 /**
  * @typedef {import('../misc/jsDocTypes').AriaHasPopupType} AriaHasPopupType
@@ -25,6 +56,12 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-haspopup', ariaHasPopup);
 
+  /*
+     ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
+    |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |
+    | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
+    |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
+  */
   function performPopup() {
     if (!options?.isPerformPopup || (options?.isPerformPopup && options.isPerformPopup())) {
       createPopper(button, popup, {
@@ -41,6 +78,12 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     }
   }
 
+  /*
+     ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
+    |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |
+    | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
+    |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
+  */
   function hidePopup() {
     if (!options?.isPerformPopup || options.isPerformPopup()) {
       showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
@@ -48,6 +91,12 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     }
   }
 
+  /*
+     ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
+    |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |
+    | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
+    |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
+  */
   wrapper.addEventListener('focusin', () => performPopup());
   wrapper.addEventListener('focusout', () => hidePopup());
   if (options?.shouldFocusOnHover) {
@@ -65,17 +114,21 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     });
   }
 
-  let isButtonFocusedBeforeClick = null;
+  let wasAlreadyOpen = false;
 
+  /*
+     ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
+    |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |
+    | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
+    |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
+  */
   // eslint-disable-next-line no-param-reassign
-  button.onmousedown = () => {
+  button.onmousedown = (e) => {
+    e.stopPropagation();
     if (!options?.isPerformPopup || options.isPerformPopup()) {
       // remember if is focused BEFORE click to know if menu needs shown or hidden during onclick
-      // the loop checks if the WRAPPER has something focused in it instead of just checking if the button is focused
-      isButtonFocusedBeforeClick = false;
-      for (let parent = document.activeElement; parent && !isButtonFocusedBeforeClick; parent = parent.parentElement) {
-        isButtonFocusedBeforeClick = parent === wrapper;
-      }
+      // @ts-ignore
+      wasAlreadyOpen = e.currentTarget?.getAttribute('aria-expanded') === 'true';
     }
   };
 
@@ -86,10 +139,24 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
       if (!options?.isPerformPopup || options.isPerformPopup()) {
         e.stopPropagation();
         e.preventDefault();
+        /*
+           ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
+          |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |
+          | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
+          |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
+        */
 
-        button.setAttribute('aria-expanded', 'true');
-
-        if (!isButtonFocusedBeforeClick && button === document.activeElement) {
+        // if !wasAlreadyOpen but aria-expanded is "true" then the 'focusin' opened it (tabbed to it?)
+        if (wasAlreadyOpen && button.getAttribute('aria-expanded') === 'true') {
+          showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+          button.setAttribute('aria-expanded', 'false');
+          /** @type {HTMLElement | null} */(document.activeElement)?.blur();
+          wasAlreadyOpen = false;
+        } else {
+          if (isTouchDevice()) {
+            hideAllMenus();
+          }
+          button.setAttribute('aria-expanded', 'true');
           createPopper(
             button,
             popup,
@@ -104,10 +171,7 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
             }
           );
           showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-        } else if (isButtonFocusedBeforeClick) {
-          showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          button.setAttribute('aria-expanded', 'false');
-          /** @type {HTMLElement | null} */(document.activeElement)?.blur();
+          wasAlreadyOpen = true;
         }
       }
       if (options?.onClick) {
@@ -116,3 +180,11 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     };
   }
 }
+/*
+   ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
+  |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |
+  | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
+  |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
+
+  -- see top for details --
+*/

@@ -15,8 +15,10 @@ export function unloadGlobalEvents() {
   globalEventFuncs = null;
 }
 
-function hideAllMenus() {
-  const popups = document.querySelectorAll(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.POPUP_WRAPPER]));
+export function hideAllMenus() {
+  const popups = document.querySelectorAll(
+    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`
+  );
   Array.from(popups)
     .filter((popup) => !popup.classList.contains(domConstants.POPUP__HIDDEN))
     .forEach((popup) => {
