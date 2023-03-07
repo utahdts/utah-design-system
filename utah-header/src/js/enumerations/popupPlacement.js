@@ -1,13 +1,6 @@
-/**
- * UTAHDS-572 don't want to import from header in to library, but jsDocTypes is in header, so dup it now
- * these match the popper's position options
- * @typedef {'auto' | 'auto-start' | 'auto-end' |
- *   'bottom' | 'bottom-start' | 'bottom-end' |
- *    'left' | 'left-start' | 'left-end' |
- *    'right' | 'right-start' | 'right-end' |
- *    'top' | 'top-start' | 'top-end'
- * } PopupPlacement
-*/
+// @ts-check
+
+/** @typedef {import('../misc/jsDocTypes').PopupPlacement} PopupPlacement */
 
 /** @enum {PopupPlacement} */
 export default {

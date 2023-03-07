@@ -16,8 +16,7 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system#readme",
   "dependencies": {
-    "@popperjs/core": "2.11.6",
-    "@utahdts/utah-design-system": "0.2.0"
+    "@popperjs/core": "2.11.6"
   },
   "devDependencies": {
     "eslint": "8.35.0",

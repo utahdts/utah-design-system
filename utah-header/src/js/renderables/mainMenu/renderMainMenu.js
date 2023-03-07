@@ -115,6 +115,7 @@ export default function renderMainMenu() {
       } else if (menuItem.actionFunction) {
         // custom function when triggered
         mainMenuItemButtonTitle.innerHTML = menuItem.title;
+        mainMenuItemButtonTitle.onclick = menuItem.actionFunction;
         mainMenuItemLinkTitle.remove();
       } else if (menuItem.actionUrl) {
         // go to url when triggered

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { renderDOM } from 'utah-design-system-header/src/js/misc/renderDOM';
+import { renderDOM } from '@utahdts/utah-design-system';
 import logoPng from '../../../../../../static/images/designSystemCircleGray.png';
 import { FUNCTION_PLACEHOLDER } from './stringifyHeaderSettings';
 

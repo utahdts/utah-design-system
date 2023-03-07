@@ -48,7 +48,8 @@
     "react": "18.x",
     "react-popper": "2.3.0",
     "react-router-dom": "6.x",
-    "use-immer": "0.8.1"
+    "use-immer": "0.8.1",
+    "utah-design-system-header": "1.1.0"
   },
   "devDependencies": {
     "@types/react": "18.0.28",

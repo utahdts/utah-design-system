@@ -1,12 +1,4 @@
 // @ts-check
-import { popperPlacement } from '@utahdts/utah-design-system';
-import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import appendChildAll from '../../misc/appendChildAll';
-import popupFocusHandler from '../../misc/popupFocusHandler';
-import { renderDOMSingle } from '../../misc/renderDOM';
-import uuidv4 from '../../misc/uuidv4';
-import renderPopup from '../popup/renderPopup';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
@@ -16,7 +8,16 @@ import PopupMenuHtml from './html/PopupMenu.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
+
+import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import popupPlacement from '../../enumerations/popupPlacement';
+import appendChildAll from '../../misc/appendChildAll';
 import findRecursive from '../../misc/findRecursive';
+import popupFocusHandler from '../../misc/popupFocusHandler';
+import { renderDOMSingle } from '../../misc/renderDOM';
+import uuidv4 from '../../misc/uuidv4';
+import renderPopup from '../popup/renderPopup';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').ChildrenMenuType} ChildrenMenuType
@@ -146,7 +147,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
           subMenuItemsPopup,
           'menu',
           {
-            popupPlacement: popperPlacement.RIGHT_START,
+            popupPlacement: popupPlacement.RIGHT_START,
             preventOnClickHandling: true,
             shouldFocusOnHover: true,
           }

@@ -6,7 +6,7 @@ import {
   BUTTON_TYPES,
   componentColors,
   formElementSizesEnum,
-  popperPlacement,
+  popupPlacement,
   Popup,
   Tab,
   TabGroup,
@@ -100,7 +100,7 @@ function PopupsDocumentation() {
               id="id-for-example1"
               isVisible={popupsState.example1}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example1 = isVisible; })}
-              placement={popperPlacement.BOTTOM}
+              placement={popupPlacement.BOTTOM}
               referenceElement={buttonRef}
               role="dialog"
             >
@@ -128,7 +128,7 @@ function PopupsDocumentation() {
               id="id-for-example2"
               isVisible={popupsState.example2}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example2 = isVisible; })}
-              placement={popperPlacement.TOP}
+              placement={popupPlacement.TOP}
               referenceElement={button2Ref}
               role="dialog"
             >
@@ -206,7 +206,7 @@ function PopupsDocumentation() {
               id="id-for-editorExample"
               isVisible={popupsState.editorExample}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.editorExample = isVisible; })}
-              placement={popperPlacement.TOP}
+              placement={popupPlacement.TOP}
               referenceElement={buttonEditorRef}
               role="dialog"
             >
@@ -508,9 +508,9 @@ function PopupsDocumentation() {
                           <code>string</code>
                         </div>
                       </TableCell>
-                      <TableCell>popperPlacement.AUTO</TableCell>
+                      <TableCell>popupPlacement.AUTO</TableCell>
                       <TableCell>
-                        The default placement of the popup. See the popperPlacement ENUM for the correct values to use.
+                        The default placement of the popup. See the popupPlacement ENUM for the correct values to use.
                       </TableCell>
                     </TableRow>
                     <TableRow>

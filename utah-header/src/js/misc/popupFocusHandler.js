@@ -1,7 +1,7 @@
 // @ts-check
 import { createPopper } from '@popperjs/core';
-import { popperPlacement } from '@utahdts/utah-design-system';
 import domConstants from '../enumerations/domConstants';
+import popupPlacement from '../enumerations/popupPlacement';
 import showHideElement from './showHideElement';
 
 /**
@@ -28,7 +28,7 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
   function performPopup() {
     if (!options?.isPerformPopup || (options?.isPerformPopup && options.isPerformPopup())) {
       createPopper(button, popup, {
-        placement: options?.popupPlacement || popperPlacement.BOTTOM,
+        placement: options?.popupPlacement || popupPlacement.BOTTOM,
         modifiers: [
           {
             name: 'offset',

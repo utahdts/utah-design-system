@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
+import { popupPlacement } from 'utah-design-system-header';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import popperPlacement from '../../enums/popperPlacement';
 import useClickOutside from '../../hooks/useClickOutside';
 import useGlobalKeyEvent from '../../hooks/useGlobalKeyEvent';
 import RefShape from '../../propTypesShapes/RefShape';
@@ -39,7 +39,7 @@ const propTypes = {
   onVisibleChange: PropTypes.func.isRequired,
 
   // The Popper Placement
-  placement: PropTypes.oneOf(Object.values(popperPlacement)),
+  placement: PropTypes.oneOf(Object.values(popupPlacement)),
 
   // the anchor element around which the popup content will pop
   referenceElement: RefShape.isRequired,
@@ -53,7 +53,7 @@ const defaultProps = {
   hasCloseButton: false,
   innerRef: null,
   offset: [0, 10],
-  placement: popperPlacement.AUTO,
+  placement: popupPlacement.AUTO,
 };
 
 function Popup({

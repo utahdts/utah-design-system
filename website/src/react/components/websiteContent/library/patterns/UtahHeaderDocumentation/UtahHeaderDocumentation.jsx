@@ -5,16 +5,20 @@
 /* eslint-disable react/jsx-indent */
 import {
   Button,
+  events,
   formElementSizesEnum,
   IconButton,
   ICON_BUTTON_APPEARANCE,
   Switch,
   Tab,
   TabGroup,
-  Table, TableBody, TableCell,
+  Table,
+  TableBody,
+  TableCell,
   TableHead,
   TableHeadCell,
-  TableHeadRow, TableRow,
+  TableHeadRow,
+  TableRow,
   TableWrapper,
   TabList,
   TabPanel,
@@ -26,7 +30,6 @@ import {
   useRef,
   useState
 } from 'react';
-import events from 'utah-design-system-header/src/js/enumerations/events';
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import PreCode from '../../../../preCode/PreCode';
