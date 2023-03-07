@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { NavLink } from 'react-router-dom';
 import { Icons } from '@utahdts/utah-design-system';
-import travolta from '../../../static/images/travolta.gif';
 import pageUrls from '../routing/pageUrls';
 
 const propTypes = {};
@@ -10,6 +9,9 @@ const defaultProps = {};
 function HomeLanding() {
   return (
     <div className="landing-page-template">
+      <div className="home-banner">
+        <div className="home-banner__title">Utah<br />Design<br />System</div>
+      </div>
       <div className="content-width">
         <h1 className="my-spacing-l">Welcome to the State of Utah Design System</h1>
 
@@ -28,7 +30,6 @@ function HomeLanding() {
         <p>This site is currently under construction. You can check back to see our progress.</p>
 
         <div className="flex flex-col items-center mb-spacing">
-          <img src={travolta} alt="John Travolta" />
           <NavLink
             to={pageUrls.demoPage}
             className="button button--primary-color"
