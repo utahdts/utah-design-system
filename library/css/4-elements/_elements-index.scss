@@ -82,7 +82,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     border-top: 1px solid var(--gray-border);
   }
 
-  a[href] {
+  a[href]:not(.button) {
     color: var(--primary-color);
     &:hover {
       box-shadow: -3px -1px 0 0px var(--hover-gray-color-opaque),

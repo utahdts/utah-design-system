@@ -31,7 +31,7 @@
           position: relative;
         }
 
-        a, button {
+        a[href], button {
           display: flex;
           align-items: center;
           text-decoration: none;

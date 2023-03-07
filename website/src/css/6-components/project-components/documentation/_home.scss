@@ -1,0 +1,16 @@
+.home-banner {
+  width: 100%;
+  background: url('../static/images/laptop-background.webp') no-repeat 100% center;
+  background-size: cover;
+
+  &__title {
+    color: white;
+    font-size: var(--font-size-6xl);
+    font-weight: bold;
+    width: 250px;
+    border-radius: var(--radius-large);
+    margin: var(--spacing-3xl);
+    padding: var(--spacing-l);
+    line-height: 1.2;
+  }
+}

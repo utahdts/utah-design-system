@@ -39,7 +39,7 @@ export default function renderMainMenu() {
       throw new Error('renderMainMenu(): titleTag not found');
     }
 
-    const mainMenuId = `main-menu__${settings.mainMenu.title}`;
+    const mainMenuId = 'main-menu__nav';
     mainMenuNav.setAttribute('aria-labelledby', mainMenuId);
     titleTag.setAttribute('id', mainMenuId);
     titleTag.innerHTML = settings.mainMenu.title;

@@ -130,6 +130,10 @@ export default {
         title: 'Home',
       },
       {
+        actionUrl: { url: '#' },
+        title: 'Link to Somewhere',
+      },
+      {
         isSelected: true,
         actionFunction: () => alert('hello yous guy'),
         title: 'do func',
@@ -230,7 +234,7 @@ export default {
       {
         actionMenu: [
           {
-            title: 'child1',
+            title: 'Title of section 1',
             actionMenu: [
               {
                 title: 'child1-1',
@@ -269,7 +273,7 @@ export default {
             ],
           },
           {
-            title: 'child2',
+            title: 'Title of section 2',
             actionMenu: [
               {
                 title: 'child2-1',
