@@ -130,6 +130,10 @@ export default {
         title: 'Home',
       },
       {
+        actionUrl: { url: '#' },
+        title: 'Link to Somewhere',
+      },
+      {
         isSelected: true,
         actionFunction: () => alert('hello yous guy'),
         title: 'do func',

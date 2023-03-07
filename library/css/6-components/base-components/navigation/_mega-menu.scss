@@ -19,7 +19,7 @@
           }
         }
       }
-      a[href] {
+      a[href].vertical-menu__link-title {
         text-decoration: underline;
         color: var(--primary-color);
       }
