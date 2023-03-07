@@ -35,6 +35,12 @@ export function authChangedEventHandler(newUtahIdData) {
     // kill contents so can be loaded with correct content
     utahIdButton.innerHTML = '';
     if (utahIdData?.userInfo && utahIdData.userInfo?.authenticated) {
+      // text in the button for screen readers
+      const utahIDText = document.createElement('span');
+      utahIDText.appendChild(document.createTextNode('UtahID Account:'));
+      utahIDText.classList.add(domConstants.VISUALLY_HIDDEN);
+      utahIdButton.appendChild(utahIDText);
+      // visible text in the button
       utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.first || ''}`));
     } else {
       utahIdButton.appendChild(document.createTextNode('UtahID Sign In'));
