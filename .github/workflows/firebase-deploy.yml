@@ -23,6 +23,11 @@ jobs:
         run: |
           npm install
 
+      - name: Build header 🔧
+        run: |
+          cd utah-header
+          npm run build 
+
       - name: Build library 🔧
         run: |
           cd library
