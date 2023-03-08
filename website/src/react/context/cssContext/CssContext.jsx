@@ -1,10 +1,9 @@
-/* eslint-disable max-len */
-import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
 import tinycolor from 'tinycolor2';
-import colors, { colorsIndexes } from '../../util/color/colors';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import CSS_STATE_KEYS from '../../enums/cssStateKeys';
+import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import colors, { colorsIndexes } from '../../util/color/colors';
 import readableColor from '../../util/color/readableColor';
 
 // The global context object that tracks the context's state and provides components like the <CssContext.Provider/>

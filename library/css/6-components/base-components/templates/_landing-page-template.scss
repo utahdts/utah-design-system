@@ -1,6 +1,8 @@
 .landing-page-template {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   .content-width {
     max-width: var(--content-width-narrow);

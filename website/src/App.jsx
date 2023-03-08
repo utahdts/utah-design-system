@@ -1,9 +1,9 @@
-import { FormContextProvider, joinClassNames } from '@utahdts/utah-design-system';
+import { FormContextProvider, joinClassNames, useUtahHeaderContext } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
+import '@utahdts/utah-design-system-header/src/css/index.scss';
 import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import { getUtahHeaderSettings, setUtahHeaderSettings } from 'utah-design-system-header';
 import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import Routing from './react/components/routing/Routing';
@@ -18,20 +18,21 @@ const defaultProps = {};
 function App() {
   const { cssState } = useCssContext();
   const [state, setState] = useImmer({});
+  const { setSettings } = useUtahHeaderContext();
 
+  // add logo to settings
   useEffect(
     () => {
-      setUtahHeaderSettings({
-        ...getUtahHeaderSettings(),
-        logo: `<img src=${logoPng} id="design-system-logo" />`,
+      setSettings((draftSettings) => {
+        draftSettings.logo = `<img src=${logoPng} id="design-system-logo" />`;
       });
     },
     []
   );
 
   return (
-    // Wrap entire app in a FormContextProvider so that input components don't have to be "controlled" nor inside <Form>
-    <FormContextProvider setState={setState} state={state}>
+    // Wrap entire app in a FormContextProvider so that input components don't have to be "controlled" nor inside a <Form>
+    <FormContextProvider FormContextProvider setState={setState} state={state}>
       <div
         className={
           joinClassNames([

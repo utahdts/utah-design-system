@@ -1,4 +1,5 @@
 // @ts-check
+import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
 import popupFocusHandler from '../../misc/popupFocusHandler';
@@ -68,35 +69,27 @@ export default function renderActionItem(actionItem) {
     // create popup content and make it visually-hidden
     const iconButtonId = uuidv4();
     iconButton.setAttribute('id', iconButtonId);
-    iconButton.setAttribute('aria-haspopup', 'dialog');
-    const popupId = uuidv4();
-    iconButton.setAttribute('aria-controls', popupId);
-    iconButton.setAttribute('aria-expanded', 'false');
 
-    const popupWrapper = renderPopup();
-    popupWrapper.setAttribute('id', popupId);
-    popupWrapper.setAttribute('aria-labelledby', iconButtonId);
+    const popupWrapper = renderPopup(iconButton);
     const popupContentWrapper = /** @type {HTMLElement} */(popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
     if (!popupContentWrapper) {
       throw new Error('renderPopupMenu: contentWrapper not found');
     }
     popupContentWrapper.appendChild(actionItem.actionDom);
     actionItemElement.appendChild(popupWrapper);
-
-    popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, undefined);
+    popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, 'dialog', undefined);
   } else if (actionItem.actionPopupMenu) {
+    // content is a menu
     const iconButtonId = uuidv4();
     iconButton.setAttribute('id', iconButtonId);
-    iconButton.setAttribute('aria-haspopup', 'menu');
-    const popupId = uuidv4();
-    iconButton.setAttribute('aria-controls', popupId);
-    iconButton.setAttribute('aria-expanded', 'false');
-    const popupMenu = renderPopupMenu((/** @type {PopupMenu} */ (actionItem.actionPopupMenu)));
-    popupMenu.setAttribute('id', popupId);
-    popupMenu.setAttribute('aria-labelledby', iconButtonId);
+    const popupMenu = renderPopupMenu(
+      (/** @type {PopupMenu} */ (actionItem.actionPopupMenu)),
+      iconButton,
+      { childrenMenuType: childrenMenuTypes.INLINE }
+    );
     appendChildAll(actionItemElement, popupMenu);
 
-    popupFocusHandler(actionItemWrapper, iconButton, popupMenu, undefined);
+    popupFocusHandler(actionItemWrapper, iconButton, popupMenu, 'menu', undefined);
   } else {
     // eslint-disable-next-line no-console
     console.error(actionItem);

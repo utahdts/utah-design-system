@@ -29,9 +29,9 @@ export default {
   VISUALLY_HIDDEN: 'visually-hidden',
 
   // Replacement Placeholders
-  MEDIA_SIZE__MOBILE__PLACEHOLDER: 'var(--media-size__mobile__PLACEHOLDER)',
-  MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER: 'var(--media-size__tablet-landscape__PLACEHOLDER)',
-  MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER: 'var(--media-size__tablet-portrait__PLACEHOLDER)',
+  MEDIA_SIZE__MOBILE__PLACEHOLDER: 'media-size__mobile__PLACEHOLDER',
+  MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER: 'media-size__tablet-landscape__PLACEHOLDER',
+  MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER: 'media-size__tablet-portrait__PLACEHOLDER',
 
   // Header Components
   ACTION_ITEM: 'utds-header-action-item',
@@ -51,14 +51,37 @@ export default {
   LOGO_VERT_LINE: 'utds-logo-vert-line',
   LOGO: 'utds-logo-wrapper',
 
-  POPUP_MENU: 'utds-header-popup-menu',
-  POPUP_MENU__DIVIDER: 'utds-header-popup-menu__divider',
-  POPUP_MENU__LINK: 'utds-header-popup-menu__link',
-  POPUP_MENU__LINK_TEXT: 'utds-header-popup-menu__link-text',
+  MAIN_MENU: 'main-menu__wrapper',
+  MAIN_MENU__MENU_TOP: 'main-menu__menu-top',
+  MAIN_MENU__NAV: 'main-menu__nav',
+  MAIN_MENU__OUTER: 'main-menu__outer',
+  MAIN_MENU__SEARCH: 'main-menu__search',
+  MAIN_MENU__TITLE: 'main-menu__title',
+
+  MENU_ITEM: 'menu-item',
+  MENU_ITEM__BUTTON_TITLE: 'menu-item__button-title',
+  MENU_ITEM__LINK_TITLE: 'menu-item__link-title',
+  MENU_ITEM__SELECTED: 'menu-item--selected',
+  MENU_ITEM__TITLE: 'menu-item__title',
+  MENU_ITEM__FLY_OUT: 'menu-item--fly_out',
+  MENU_ITEM__INLINE: 'menu-item--inline',
+  MENU_ITEM__MEGA_MENU: 'menu-item--mega-menu',
+
+  POPUP_MENU: 'vertical-menu',
+  POPUP_MENU__BUTTON_TITLE: 'vertical-menu__button-title',
+  POPUP_MENU__CHEVRON: 'vertical-menu__chevron',
+  POPUP_MENU__DIVIDER: 'vertical-menu__divider',
+  POPUP_MENU__LINK_TEXT: 'vertical-menu__link-text',
+  POPUP_MENU__LINK_TITLE: 'vertical-menu__link-title',
+  POPUP_MENU__PLAIN_TITLE: 'vertical-menu__plain-title',
+  POPUP_MENU__TITLE: 'vertical-menu__title',
+
   POPUP__HIDDEN: 'popup__wrapper--hidden',
   POPUP__VISIBLE: 'popup__wrapper--visible',
+  POPUP__WRAPPER: 'popup__wrapper',
 
   EXTERNAL_LINK: 'utds-icon-after-external-link',
+  EXTERNAL_LINK__NEW_TAB: 'utds-new-tab-link-a11y',
 
   POPUP_ARROW: 'popup__arrow',
   POPUP_CONTENT_WRAPPER: 'popup__content',

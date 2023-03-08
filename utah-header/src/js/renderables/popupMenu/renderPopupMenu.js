@@ -1,22 +1,32 @@
 // @ts-check
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import appendChildAll from '../../misc/appendChildAll';
-import { renderDOMSingle } from '../../misc/renderDOM';
-import renderPopup from '../popup/renderPopup';
-import uuidv4 from '../../misc/uuidv4';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuHtml from './html/PopupMenu.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
+
+import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import popupPlacement from '../../enumerations/popupPlacement';
+import appendChildAll from '../../misc/appendChildAll';
+import findRecursive from '../../misc/findRecursive';
+import popupFocusHandler from '../../misc/popupFocusHandler';
+import { renderDOMSingle } from '../../misc/renderDOM';
+import uuidv4 from '../../misc/uuidv4';
+import renderPopup from '../popup/renderPopup';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
+ * @typedef {import('../../misc/jsDocTypes').ChildrenMenuType} ChildrenMenuType
  * @typedef {import('../../misc/jsDocTypes').MenuItem} MenuItem
+ * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
+ * @typedef {import('../../misc/jsDocTypes').RenderPopupMenuOptions} RenderPopupMenuOptions
  */
 
 /**
@@ -32,11 +42,11 @@ function toggleChildMenuExpansion(element) {
   parent.querySelectorAll(':scope > ul')
     .forEach((childUl) => {
       // toggle chevron direction class
-      const button = childUl.closest('li')?.querySelector(':scope > button');
+      const button = childUl.closest('li')?.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE));
       if (!button) {
         throw new Error('toggleChildMenuExpansion: button not found');
       }
-      const chevron = button.querySelector(':scope > svg');
+      const chevron = button.querySelector(`:scope > ${getCssClassSelector(domConstants.POPUP_MENU__CHEVRON)}`);
       if (!chevron) {
         throw new Error('toggleChildMenuExpansion: chevron not found');
       }
@@ -67,73 +77,174 @@ function handleMenuExpansion(htmlElement) {
 }
 
 /**
+ * @returns {HTMLElement}
+ */
+function renderChevron() {
+  const chevron = renderDOMSingle(ChevronIconHtml);
+  chevron.classList.add(domConstants.IS_CLOSED);
+  return chevron;
+}
+
+/**
  * @param {Element} menuUl
  * @param {MenuItem} popupMenuItem
+ * @param {RenderPopupMenuOptions} options
  * @return {HTMLElement}
  */
-function renderPopupMenuItem(menuUl, popupMenuItem) {
+function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   const menuItemWrapper = renderDOMSingle(PopupMenuItemHtml);
-  const menuButton = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(':scope > button'));
+  const menuItemTitleWrapper = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__TITLE));
+  if (!menuItemTitleWrapper) {
+    throw new Error('renderPopupMenuItem: menuItemTitleWrapper not found');
+  }
+  const menuButton = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE)));
   if (!menuButton) {
     throw new Error('renderPopupMenuItem: menuButton not found');
   }
-  const menuAHref = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK));
+  const menuAHref = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TITLE)));
   if (!menuAHref) {
     throw new Error('renderPopupMenuItem: aHref not found');
+  }
+  const plainTitle = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__PLAIN_TITLE)));
+  if (!plainTitle) {
+    throw new Error('renderPopupMenuItem: plainTitle not found');
   }
   const menuDivider = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__DIVIDER));
   if (!menuDivider) {
     throw new Error('renderPopupMenuItem: menuDivider not found');
   }
+  const titleSpanButton = menuItemWrapper.querySelector(`button ${getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT)}`);
+  if (!titleSpanButton) {
+    throw new Error('renderPopupMenuItem: titleSpanButton not found');
+  }
+  const titleSpanLink = menuItemWrapper.querySelector(`a ${getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT)}`);
+  if (!titleSpanLink) {
+    throw new Error('renderPopupMenuItem: titleSpanLink not found');
+  }
 
   // three types of action: parent, custom function, link
   if (popupMenuItem.actionMenu) {
-    // === submenu, more menu items! === //
-    const subMenu = renderMenu(popupMenuItem, popupMenuItem.actionMenu);
-    const subMenuId = uuidv4();
-    subMenu.setAttribute('id', subMenuId);
-    // these are all sub children so hide them initially
-    subMenu.classList.add(domConstants.VISUALLY_HIDDEN);
-    menuItemWrapper.appendChild(subMenu);
-    menuButton.onclick = handleMenuExpansion(menuButton);
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-controls', subMenuId);
-    const chevron = renderDOMSingle(ChevronIconHtml);
-    chevron.classList.add(domConstants.IS_CLOSED);
-    menuButton.appendChild(chevron);
-
-    menuAHref.remove();
-
-    // open all parent uls so that this menu item shows
-    menuItemWrapper.addEventListener('focusin', (e) => {
-      // Do not stop propagation as trickling-up will make parents open
-      for (let childUl = /** @type Element | null | undefined */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
-        childUl.classList.remove(domConstants.VISUALLY_HIDDEN);
-        menuButton.setAttribute('aria-expanded', 'true');
-        // if target is the button then don't expand chevron just yet, wait for a child to be visible (happens when tabbing to the chevron menu item)
-        if (e.target !== menuButton) {
-          chevron.classList.remove(domConstants.IS_CLOSED);
-          chevron.classList.add(domConstants.IS_OPEN);
-        }
+    /** @type {HTMLElement | undefined} */
+    let chevron;
+    switch (options.childrenMenuType) {
+      case childrenMenuTypes.FLYOUT: {
+        // flyout: first level is a popup and the sublevels are a flyout
+        chevron = renderChevron();
+        menuButton.appendChild(chevron);
+        menuButton.setAttribute('id', uuidv4());
+        const subMenuItemsPopup = renderPopupMenu(
+          {
+            menuItems: popupMenuItem.actionMenu,
+            title: popupMenuItem.title,
+          },
+          menuButton,
+          {
+            ...options,
+            removePopupArrow: true,
+          }
+        );
+        menuItemWrapper.appendChild(subMenuItemsPopup);
+        popupFocusHandler(
+          menuItemWrapper,
+          menuButton,
+          subMenuItemsPopup,
+          'menu',
+          {
+            popupPlacement: popupPlacement.RIGHT_START,
+            preventOnClickHandling: true,
+            shouldFocusOnHover: true,
+          }
+        );
+        menuAHref.remove();
+        plainTitle.remove();
+        break;
       }
-    });
+
+      case childrenMenuTypes.INLINE: {
+        const subMenu = renderMenu(
+          popupMenuItem,
+          popupMenuItem.actionMenu,
+          options
+        );
+        const subMenuId = uuidv4();
+        subMenu.setAttribute('id', subMenuId);
+        // these are all sub children so hide them initially
+        subMenu.classList.add(domConstants.VISUALLY_HIDDEN);
+        menuItemWrapper.appendChild(subMenu);
+        menuButton.onclick = handleMenuExpansion(menuButton);
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-controls', subMenuId);
+        chevron = renderChevron();
+        menuButton.appendChild(chevron);
+
+        menuAHref.remove();
+        plainTitle.remove();
+
+        // open all parent uls so that this menu item shows
+        menuItemWrapper.addEventListener('focusin', (e) => {
+          // Do not stop propagation as trickling-up will make parents open
+          // if e.target is switched to e.currenttarget then tabbing through child popup menus does not open the children
+          for (let childUl = /** @type Element | null | undefined */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
+            childUl.classList.remove(domConstants.VISUALLY_HIDDEN);
+            menuButton.setAttribute('aria-expanded', 'true');
+            // if target is the button then don't expand chevron just yet, wait for a child to be visible
+            // (happens when tabbing to the chevron menu item)
+            if (e.currentTarget !== menuButton) {
+              chevron?.classList?.remove(domConstants.IS_CLOSED);
+              chevron?.classList?.add(domConstants.IS_OPEN);
+            }
+          }
+        });
+        break;
+      }
+
+      case childrenMenuTypes.MEGA_MENU: {
+        const subMenu = renderMenu(
+          popupMenuItem,
+          popupMenuItem.actionMenu,
+          options
+        );
+        const subMenuId = uuidv4();
+        subMenu.setAttribute('id', subMenuId);
+        menuItemWrapper.appendChild(subMenu);
+
+        menuAHref.remove();
+        menuButton.remove();
+        plainTitle.appendChild(document.createTextNode(popupMenuItem.title));
+        break;
+      }
+
+      default:
+        throw new Error(`renderPopupMenuItem: childrenMenuType unknown '${popupMenuItem.actionMenu}'`);
+    }
     menuDivider.remove();
   } else if (popupMenuItem.actionFunction) {
     // === on click custom action, so hookup onclick === //
     menuButton.onclick = popupMenuItem.actionFunction;
     menuAHref.remove();
     menuDivider.remove();
+    plainTitle.remove();
   } else if (popupMenuItem.actionUrl) {
     // === link object, so hook up href === //
     menuAHref.setAttribute('href', popupMenuItem.actionUrl.url);
-    if (popupMenuItem.actionUrl.openInNewTab) {
-      menuAHref.setAttribute('target', '_blank');
-    }
     menuButton.remove();
     menuDivider.remove();
-  } else if (popupMenuItem.isDivider) {
-    menuAHref.remove();
+    plainTitle.remove();
+  } else if (popupMenuItem.actionFunctionUrl) {
+    menuAHref.setAttribute('href', popupMenuItem.actionFunctionUrl.url);
+    menuAHref.onclick = (e) => {
+      if (!popupMenuItem.actionFunctionUrl?.skipHandleEvent) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      popupMenuItem.actionFunctionUrl?.actionFunction(e);
+    };
     menuButton.remove();
+    menuDivider.remove();
+    plainTitle.remove();
+  } else if (popupMenuItem.isDivider) {
+    // remove ALL title items by removing the wrapper (instead of individually)
+    menuItemTitleWrapper.remove();
     menuItemWrapper.setAttribute('aria-hidden', 'true');
     menuItemWrapper.setAttribute('role', 'separator');
   } else {
@@ -144,24 +255,21 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 
   // dividers do not use a title, though title still required in jsDoc for troubleshooting and simplicity of jsDoc
   if (!popupMenuItem.isDivider) {
-    const titleSpan = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT));
-    if (!titleSpan) {
-      throw new Error('renderPopupMenuItem: titleSpan not found');
-    }
-    titleSpan.appendChild(document.createTextNode(popupMenuItem.title));
-    if (popupMenuItem.actionUrl?.openInNewTab) {
-      // Add an icon to indicate the external link opens in a new tab
-      const externalLinkIcon = document.createElement('span');
-      externalLinkIcon.classList.add(domConstants.EXTERNAL_LINK);
-      externalLinkIcon.setAttribute('aria-hidden', 'true');
-
+    titleSpanButton.appendChild(document.createTextNode(popupMenuItem.title));
+    titleSpanLink.appendChild(document.createTextNode(popupMenuItem.title));
+    if (popupMenuItem.actionUrl?.openInNewTab || popupMenuItem.actionFunctionUrl?.openInNewTab) {
+      menuAHref.setAttribute('target', '_blank');
       // Add a message for screen readers
-      const externalLinkMessage = document.createElement('span');
-      externalLinkMessage.appendChild(document.createTextNode('opens in a new tab'));
-      externalLinkMessage.classList.add(domConstants.VISUALLY_HIDDEN);
-      titleSpan.appendChild(externalLinkMessage);
-      titleSpan.appendChild(externalLinkIcon);
+      const externalLinkMessage = renderDOMSingle(NewTabAccessibility);
+      titleSpanButton.appendChild(externalLinkMessage);
+      titleSpanLink.appendChild(externalLinkMessage);
     }
+  }
+
+  // add selected to title if selected (or any children are selected)
+  if (popupMenuItem.isSelected || (popupMenuItem.actionMenu && findRecursive(popupMenuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
+    menuButton.classList.add(domConstants.MENU_ITEM__SELECTED);
+    menuAHref.classList.add(domConstants.MENU_ITEM__SELECTED);
   }
 
   appendChildAll(menuUl, menuItemWrapper);
@@ -172,34 +280,37 @@ function renderPopupMenuItem(menuUl, popupMenuItem) {
 /**
  * @param {PopupMenu | MenuItem} _parentMenu
  * @param {MenuItem[]} menuItems
+ * @param {RenderPopupMenuOptions} options
  * @returns {HTMLElement}
  */
-function renderMenu(_parentMenu, menuItems) {
+function renderMenu(_parentMenu, menuItems, options) {
   const menuWrapper = renderDOMSingle(PopupMenuHtml);
 
-  menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem));
+  menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem, options));
 
   return menuWrapper;
 }
 
 /**
  * @param {PopupMenu} popupMenu - the menu to display
+ * @param {Element} labelledByElement - the triggering component (must have an `id`)
+ * @param {RenderPopupMenuOptions} options
  * @returns {HTMLElement}
  */
-export default function renderPopupMenu(popupMenu) {
+export default function renderPopupMenu(popupMenu, labelledByElement, options) {
   // create the popup
-  const popupWrapper = renderPopup();
-
-  // create the menu
-  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems);
-  menuWrapper.setAttribute('aria-label', popupMenu.title);
-  menuWrapper.setAttribute('id', uuidv4());
+  const popupWrapper = renderPopup(labelledByElement, { removePopupArrow: options.removePopupArrow });
 
   // put the menu in the popup
   const popupContentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));
   if (!popupContentWrapper) {
     throw new Error('renderPopupMenu: contentWrapper not found');
   }
+
+  // create the menu
+  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems, options);
+  menuWrapper.setAttribute('aria-label', popupMenu.title);
+
   popupContentWrapper.appendChild(menuWrapper);
 
   return popupWrapper;

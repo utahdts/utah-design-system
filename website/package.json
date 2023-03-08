@@ -19,7 +19,7 @@
     "react-router-dom": "6.8.2",
     "tinycolor2": "^1.4.2",
     "use-immer": "0.8.1",
-    "utah-design-system-header": "1.1.0"
+    "@utahdts/utah-design-system-header": "0.1.0"
   },
   "devDependencies": {
     "@types/react": "18.0.28",

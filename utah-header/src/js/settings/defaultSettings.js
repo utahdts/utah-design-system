@@ -9,6 +9,7 @@ import QuestionIcon from '../renderables/icons/html/QuestionIcon.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import AlertIcon from '../renderables/icons/html/AlertIcon.html?raw';
 import sizes from '../enumerations/sizes';
+import childrenMenuTypes from '../enumerations/childrenMenuTypes';
 
 /**
  * @typedef {import('../misc/jsDocTypes').Settings} Settings
@@ -122,4 +123,199 @@ export default {
   title: 'Utah Design System',
   titleURL: '/',
   utahId: true,
+  mainMenu: {
+    menuItems: [
+      {
+        actionUrl: { url: '/' },
+        title: 'Home',
+      },
+      {
+        actionUrl: { url: '#' },
+        title: 'Link to Somewhere',
+      },
+      {
+        isSelected: true,
+        actionFunction: () => alert('hello yous guy'),
+        title: 'do func',
+      },
+      {
+        actionMenu: [
+          {
+            title: 'Guidelines and Standards',
+            actionUrl: { url: '/guidelines' },
+          },
+        ],
+        title: 'Guidelines/Standards',
+      },
+      {
+        actionMenu: [
+          {
+            title: 'child1',
+            actionMenu: [
+              {
+                title: 'child1-1',
+                actionMenu: [
+                  {
+                    title: 'child1-1-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-1-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-1-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+              {
+                title: 'child1-2',
+                actionMenu: [
+                  {
+                    title: 'child1-2-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-2-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-2-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: 'child2',
+            actionMenu: [
+              {
+                title: 'child2-1',
+                actionMenu: [
+                  {
+                    title: 'child2-1-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-1-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-1-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+              {
+                title: 'child2-2',
+                actionMenu: [
+                  {
+                    title: 'child2-2-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-2-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-2-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        childrenMenuType: childrenMenuTypes.FLYOUT,
+        title: 'Childrens',
+      },
+      {
+        actionMenu: [
+          {
+            title: 'Title of section 1',
+            actionMenu: [
+              {
+                title: 'child1-1',
+                actionMenu: [
+                  {
+                    title: 'child1-1-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-1-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-1-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+              {
+                title: 'child1-2',
+                actionMenu: [
+                  {
+                    title: 'child1-2-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-2-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child1-2-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: 'Title of section 2',
+            actionMenu: [
+              {
+                title: 'child2-1',
+                actionMenu: [
+                  {
+                    title: 'child2-1-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-1-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-1-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+              {
+                title: 'child2-2',
+                actionMenu: [
+                  {
+                    title: 'child2-2-1',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-2-2',
+                    actionUrl: { url: '/children' },
+                  },
+                  {
+                    title: 'child2-2-3',
+                    actionUrl: { url: '/children' },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        childrenMenuType: childrenMenuTypes.MEGA_MENU,
+        title: 'MEGA MENU!',
+      },
+    ],
+    title: 'Utah Design System Main Menu',
+  },
 };

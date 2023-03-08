@@ -1,9 +1,12 @@
 // @ts-check
+
+/** @typedef {import('../misc/jsDocTypes').Size} Size */
+
 /**
- * @enum { string }
+ * @enum { Size }
 */
 export default {
-  SMALL: 'SMALL',
-  MEDIUM: 'MEDIUM',
-  LARGE: 'LARGE',
+  SMALL: /** @type {Size} */ ('SMALL'),
+  MEDIUM: /** @type {Size} */ ('MEDIUM'),
+  LARGE: /** @type {Size} */ ('LARGE'),
 };

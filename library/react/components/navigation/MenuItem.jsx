@@ -51,7 +51,6 @@ function MenuItem({ currentMenuItem, menuItem }) {
             ? (
               <button
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
-                aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
                 className="menu-item__button-title"
                 id={`menu-item-${menuItem.id}-${menuItem.link}`}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
@@ -91,6 +90,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
             )
             : null
         }
+        <span className="menu-chiclet" />
       </span>
 
       {/* === children menu items === */}

@@ -1,6 +1,6 @@
 import {
   Form,
-  popperPlacement,
+  popupPlacement,
   Select,
   SelectOption,
   Switch
@@ -24,7 +24,7 @@ function PopupsExampleProps({ setState, state }) {
       setState((draftState) => {
         draftState.props.hasCloseButton = false;
         draftState.props.isVisible = false;
-        draftState.props.placement = popperPlacement.BOTTOM;
+        draftState.props.placement = popupPlacement.BOTTOM;
         draftState.props.popupType = 'onClick';
       });
     },
@@ -39,7 +39,7 @@ function PopupsExampleProps({ setState, state }) {
     >
       <Select id="props.placement" label="Placement" className="input--height-small1x">
         {
-          Object.entries(popperPlacement)
+          Object.entries(popupPlacement)
             .map(([placementKey, placementValue]) => (
               <SelectOption key={`popups__interactive-prop__${placementKey}`} label={startCase(placementValue)} value={placementValue} />
             ))

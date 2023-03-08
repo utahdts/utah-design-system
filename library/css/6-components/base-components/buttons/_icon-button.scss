@@ -80,6 +80,7 @@
 
     [class*='utds-icon-before-'] {
       line-height: .5;
+      display: block;
       &::before {
         margin: 0;
         font-size: 1.25rem;

@@ -1,0 +1,68 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  ul.vertical-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .vertical-menu {
+    li > ul {
+      padding-left: var(--spacing-s);
+    }
+
+    button.vertical-menu__button-title,
+    a[href].vertical-menu__link-title {
+      border-radius: var(--radius-circle);
+      border: none;
+      box-shadow: none;
+      box-sizing: border-box;
+      color: var(--gray-color);
+      display: flex;
+      font-size: var(--font-size-2xs);
+      justify-content: flex-start;
+      line-height: 1.7;
+      margin: var(--spacing-2xs) 0;
+      min-height: unset;
+      padding: var(--spacing-2xs) var(--spacing);
+      text-align: left;
+      text-decoration: none;
+      width: 100%;
+
+      &:hover {
+        background: var(--hover-gray-color);
+        color: var(--primary-color);
+        box-shadow: none;
+      }
+      &:active {
+        transform: none;
+      }
+    }
+    a.vertical-menu__link-title {
+      &:hover {
+        box-shadow: none;
+      }
+    }
+    &__link-text {
+      flex: 1 0 auto;
+    }
+    &__divider {
+      display: block;
+      margin: var(--spacing-s) var(--spacing-s);
+      height: 1px;
+      background-color: var(--gray-medium-light-color);
+    }
+    & .utds-icon-before-chevron-right {
+      font-size: .6rem;
+      line-height: .5;
+      transform: rotate(0deg);
+      transition: transform var(--timing-quick) ease;
+      &::before {
+        margin-right: 0;
+      }
+      &.is-open {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
