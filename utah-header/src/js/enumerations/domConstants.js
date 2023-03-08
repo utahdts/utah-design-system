@@ -29,9 +29,9 @@ export default {
   VISUALLY_HIDDEN: 'visually-hidden',
 
   // Replacement Placeholders
-  MEDIA_SIZE__MOBILE__PLACEHOLDER: 'var(--media-size__mobile__PLACEHOLDER)',
-  MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER: 'var(--media-size__tablet-landscape__PLACEHOLDER)',
-  MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER: 'var(--media-size__tablet-portrait__PLACEHOLDER)',
+  MEDIA_SIZE__MOBILE__PLACEHOLDER: 'media-size__mobile__PLACEHOLDER',
+  MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER: 'media-size__tablet-landscape__PLACEHOLDER',
+  MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER: 'media-size__tablet-portrait__PLACEHOLDER',
 
   // Header Components
   ACTION_ITEM: 'utds-header-action-item',

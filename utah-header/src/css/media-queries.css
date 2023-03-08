@@ -1,8 +1,10 @@
-@media screen and (max-width: var(--media-size__tablet-landscape__PLACEHOLDER)) {
+/* @media is never in scope for --variables, so this is the only way to solve this. :-( */
+
+@media screen and (max-width: media-size__tablet-landscape__PLACEHOLDER) {
   /* put your media query here for tablet landscape */
 }
 
-@media screen and (max-width: var(--media-size__tablet-portrait__PLACEHOLDER)) {
+@media screen and (max-width: media-size__tablet-portrait__PLACEHOLDER) {
   .utds-header {
     height: 60px;
     padding: var(--spacing-xs) var(--spacing);
@@ -10,8 +12,14 @@
   .utds-title-wrapper {
     font-size: var(--font-size-xl);
   }
+  .utds-citizen-experience-wrapper {
+    display: none;
+  }
+  .utah-design-system .main-menu__nav {
+    display: none;
+  }
 }
 
-@media screen and (max-width: var(--media-size__mobile__PLACEHOLDER)) {
+@media screen and (max-width: media-size__mobile__PLACEHOLDER) {
   /* put your media query here for mobile */
 }
