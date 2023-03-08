@@ -81,6 +81,7 @@ export default {
   POPUP__WRAPPER: 'popup__wrapper',
 
   EXTERNAL_LINK: 'utds-icon-after-external-link',
+  EXTERNAL_LINK__NEW_TAB: 'utds-new-tab-link-a11y',
 
   POPUP_ARROW: 'popup__arrow',
   POPUP_CONTENT_WRAPPER: 'popup__content',

@@ -4,6 +4,9 @@
 import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
+import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
 import PopupMenuHtml from './html/PopupMenu.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -98,7 +101,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   if (!menuButton) {
     throw new Error('renderPopupMenuItem: menuButton not found');
   }
-  const menuAHref = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TITLE));
+  const menuAHref = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TITLE)));
   if (!menuAHref) {
     throw new Error('renderPopupMenuItem: aHref not found');
   }
@@ -224,9 +227,18 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   } else if (popupMenuItem.actionUrl) {
     // === link object, so hook up href === //
     menuAHref.setAttribute('href', popupMenuItem.actionUrl.url);
-    if (popupMenuItem.actionUrl.openInNewTab) {
-      menuAHref.setAttribute('target', '_blank');
-    }
+    menuButton.remove();
+    menuDivider.remove();
+    plainTitle.remove();
+  } else if (popupMenuItem.actionFunctionUrl) {
+    menuAHref.setAttribute('href', popupMenuItem.actionFunctionUrl.url);
+    menuAHref.onclick = (e) => {
+      if (!popupMenuItem.actionFunctionUrl?.skipHandleEvent) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      popupMenuItem.actionFunctionUrl?.actionFunction(e);
+    };
     menuButton.remove();
     menuDivider.remove();
     plainTitle.remove();
@@ -245,20 +257,12 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   if (!popupMenuItem.isDivider) {
     titleSpanButton.appendChild(document.createTextNode(popupMenuItem.title));
     titleSpanLink.appendChild(document.createTextNode(popupMenuItem.title));
-    if (popupMenuItem.actionUrl?.openInNewTab) {
-      // Add an icon to indicate the external link opens in a new tab
-      const externalLinkIcon = document.createElement('span');
-      externalLinkIcon.classList.add(domConstants.EXTERNAL_LINK);
-      externalLinkIcon.setAttribute('aria-hidden', 'true');
-
+    if (popupMenuItem.actionUrl?.openInNewTab || popupMenuItem.actionFunctionUrl?.openInNewTab) {
+      menuAHref.setAttribute('target', '_blank');
       // Add a message for screen readers
-      const externalLinkMessage = document.createElement('span');
-      externalLinkMessage.appendChild(document.createTextNode('opens in a new tab'));
-      externalLinkMessage.classList.add(domConstants.VISUALLY_HIDDEN);
+      const externalLinkMessage = renderDOMSingle(NewTabAccessibility);
       titleSpanButton.appendChild(externalLinkMessage);
-      titleSpanButton.appendChild(externalLinkIcon);
       titleSpanLink.appendChild(externalLinkMessage);
-      titleSpanLink.appendChild(externalLinkIcon);
     }
   }
 

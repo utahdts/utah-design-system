@@ -23,8 +23,13 @@
  *  // TODO: so this could do that work automatically if it detects that scenario instead of throwing an error
  *
  *  // should be only one of the following three action types
+ *  //   actionUrl: an <a> with a url for navigation
+ *  //   actionFunction: a <button> that when triggered calls a function
+ *  //   actionFunctionUrl: an <a> that when triggered calls a function (for Single Page Apps)
+ *  //   actionMenu: a <button> that when triggered exposes a sub menu of options
  *  @property {MenuItemUrlAction} [actionUrl] - link url
  *  @property {EventAction} [actionFunction] - onClick function
+ *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  *  @property {MenuItem[]} [actionMenu] - children menus
 *
  *  @property {ChildrenMenuType} [childrenMenuType] - default is "fly-out"
@@ -50,11 +55,26 @@
  *  @property {boolean} [openInNewTab] - true to have the link open in a new window defaults to `false` if not provided
  * }
  *
+ * @typedef MenuItemFunctionUrlAction {
+ *  // actually going to call this function to do what you want
+ *  @property {EventAction} actionFunction - onClick custom function to call when triggered
+ *  @property {boolean} [skipHandleEvent] - should handleEvent automatically be used to call your function to stop propagation and prevent default
+ *
+ *  // trick the user to think it's a normal link; you must set these to the correct values to match your custom function
+ *  @property {boolean} [openInNewTab] - true to have the link say it will open in a new window; defaults to `false`
+ *  @property {string} url - the url to show when hovered
+ * }
+ *
  * A menu item in the menu, can have children
  * @typedef MenuItem {
  *  // should be only one of the following three action types
+ *  //   actionUrl: an <a> with a url for navigation
+ *  //   actionFunction: a <button> that when triggered calls a function
+ *  //   actionFunctionUrl: an <a> that when triggered calls a function (for Single Page Apps)
+ *  //   actionMenu: a <button> that when triggered exposes a sub menu of options
  *  @property {MenuItemUrlAction} [actionUrl] - link url
  *  @property {EventAction} [actionFunction] - onClick function
+ *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  *  @property {MenuItem[]} [actionMenu] - children menus
  *
  *  @property {string} [className] - can be used for `selected` or any other purpose

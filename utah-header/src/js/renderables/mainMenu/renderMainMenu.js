@@ -1,4 +1,14 @@
 // @ts-check
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import MainMenuItem from './html/MainMenuItem.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
+
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import findRecursive from '../../misc/findRecursive';
@@ -7,12 +17,6 @@ import { renderDOMSingle } from '../../misc/renderDOM';
 import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import MainMenuItem from './html/MainMenuItem.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
@@ -67,7 +71,9 @@ export default function renderMainMenu() {
       }
       mainMenuItemButtonTitle.setAttribute('id', `${domConstants.MENU_ITEM__BUTTON_TITLE}__${menuItem.title}-${uuidv4()}`);
 
-      const mainMenuItemLinkTitle = mainMenuItemTitle.querySelector(getCssClassSelector(domConstants.MENU_ITEM__LINK_TITLE));
+      const mainMenuItemLinkTitle = /** @type {HTMLElement} */ (
+        mainMenuItemTitle.querySelector(getCssClassSelector(domConstants.MENU_ITEM__LINK_TITLE))
+      );
       if (!mainMenuItemLinkTitle) {
         throw new Error(`renderMainMenu(): link title not found for ${menuItem.title}`);
       }
@@ -117,16 +123,30 @@ export default function renderMainMenu() {
         mainMenuItemButtonTitle.innerHTML = menuItem.title;
         mainMenuItemButtonTitle.onclick = menuItem.actionFunction;
         mainMenuItemLinkTitle.remove();
+      } else if (menuItem.actionFunctionUrl) {
+        mainMenuItemLinkTitle.innerHTML = menuItem.title;
+        mainMenuItemLinkTitle.setAttribute('href', menuItem.actionFunctionUrl.url);
+
+        mainMenuItemLinkTitle.onclick = (e) => {
+          if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
+            e.stopPropagation();
+            e.preventDefault();
+          }
+          menuItem.actionFunctionUrl?.actionFunction(e);
+        };
+        mainMenuItemButtonTitle.remove();
       } else if (menuItem.actionUrl) {
         // go to url when triggered
         mainMenuItemLinkTitle.innerHTML = menuItem.title;
         mainMenuItemLinkTitle.setAttribute('href', menuItem.actionUrl.url);
-        if (menuItem.actionUrl.openInNewTab) {
-          mainMenuItemLinkTitle.setAttribute('target', '_blank');
-        }
         mainMenuItemButtonTitle.remove();
       } else {
         throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
+      }
+
+      if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {
+        mainMenuItemLinkTitle.setAttribute('target', '_blank');
+        mainMenuItemLinkTitle.appendChild(renderDOMSingle(NewTabAccessibility));
       }
     });
   }

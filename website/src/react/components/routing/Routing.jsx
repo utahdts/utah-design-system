@@ -31,7 +31,17 @@ function Routing() {
         draftSettings.mainMenu = {
           title: menuMain.header,
           menuItems: menuMain.menuItems.map((mainMenuItem) => ({
-            actionFunction: () => navigate(mainMenuItem.link),
+            actionFunctionUrl: {
+              actionFunction: (e) => {
+                if (!e.metaKey) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigate(mainMenuItem.link);
+                }
+              },
+              skipHandleEvent: true,
+              url: mainMenuItem.link,
+            },
             isSelected: (
               currentMenuItem.link === mainMenuItem.link
               || currentMenuItem?.parentLinks?.includes(mainMenuItem.link)
