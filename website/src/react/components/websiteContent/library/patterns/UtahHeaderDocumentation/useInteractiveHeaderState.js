@@ -8,7 +8,7 @@ import {
   useState
 } from 'react';
 import { useImmer } from 'use-immer';
-import { getUtahHeaderSettings, setUtahHeaderSettings } from 'utah-design-system-header';
+import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import localStorageKeys from '../../../../../enums/localStorageKeys';
 import parseHeaderSettings from './parseHeaderSettings';
 import stringifyHeaderSettings from './stringifyHeaderSettings';

@@ -14,7 +14,6 @@ Please see the [documentation site](https://utahdts.github.io/utah-design-system
 
 ## Install
 
-[![Build Status](https://img.shields.io/github/workflow/status/utahdts/utah-design-system/Build%20and%20Deploy?branch=dev&style=for-the-badge)](https://github.com/utahdts/utah-design-system/actions/workflows/dev-pages-deploy.yml)
 [![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system)
 [![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 [![issues](https://img.shields.io/github/issues-raw/utahdts/utah-design-system?style=for-the-badge)](https://github.com/utahdts/utah-design-system/issues)
@@ -59,3 +58,9 @@ unpkg.com/@utahdts/utah-design-system@0.0.2/css/build/utah-design-system.css
 |-------------------------|-----------------------------------------------------------------------------------------|
 | index.scss<br>(All CSS) | https://unpkg.com/@utahdts/utah-design-system@:version/css/build/utah-design-system.css |
 
+### Site Map
+
+- [Home](https://utahdts.github.io/utah-design-system/)
+- Library
+- [Header](https://utahdts.github.io/utah-design-system/utah-header/)
+- [Documentation and Examples](../website/README.md)

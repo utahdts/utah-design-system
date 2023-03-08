@@ -1,7 +1,6 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=utahdts_utah-design-system&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=utahdts_utah-design-system)
 
 # utah-design-system
-Front end React Application for viewing the Utah Design System :point_right: [View Here](https://utahdts.github.io/utah-design-system/) :point_left:<br>
 
 # Agency
 - DTS
@@ -86,7 +85,7 @@ Apache License Version 2.0
     * src/
       * css/
       * js/
-* [website/](utah-header/README.md)
+* [website/](website/README.md)
   > This is the collection of rules and design system specifications
     * src/
       * css/
@@ -121,3 +120,10 @@ Apache License Version 2.0
   * index.html???
   * package.json
   * vite.config.js
+
+### Site Map
+
+- Home
+- [Library](https://utahdts.github.io/utah-design-system/library/)
+- [Header](https://utahdts.github.io/utah-design-system/utah-header/)
+- [Documentation and Examples](website/README.md)

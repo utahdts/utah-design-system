@@ -1,4 +1,4 @@
-name: Build and Publish library
+name: Build and Publish utah-header
 on: [workflow_dispatch]
 jobs:
   build-and-deploy:
@@ -27,7 +27,7 @@ jobs:
           npm run build
       - name: NPM Publish 🔧
         run: |
-          cd library
+          cd utah-header
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
