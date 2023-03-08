@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import { getUtahHeaderSettings, setUtahHeaderSettings } from 'utah-design-system-header';
+import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 
 // The global context object that tracks the context's state and provides components like the <UtahHeaderContext.Provider/>
 const UtahHeaderContext = React.createContext();

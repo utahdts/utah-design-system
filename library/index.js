@@ -2,15 +2,15 @@ import packageJson from './package.json';
 
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
 export { default as Accordion } from './react/components/containers/accordion/Accordion';
-export { default as baseSettings } from 'utah-design-system-header/src/js/settings/baseSettings';
+export {
+  baseSettings, childrenMenuTypes, events, popupPlacement, renderDOM,
+} from '@utahdts/utah-design-system-header';
 export { default as Button } from './react/components/buttons/Button';
 export { default as calculateMenuItemsParents } from './react/util/menuItems/calculateMenuItemsParents';
 export { default as CheckBox } from './react/components/forms/CheckBox';
-export { default as childrenMenuTypes } from 'utah-design-system-header/src/js/enumerations/childrenMenuTypes';
 export { default as componentColors } from './react/enums/componentColors';
 export { default as ConfirmationButton } from './react/components/buttons/ConfirmationButton';
 export { default as DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
-export { default as events } from 'utah-design-system-header/src/js/enumerations/events';
 export { default as Form } from './react/components/forms/Form';
 export { default as FormContext } from './react/components/forms/FormContext';
 export { default as FormContextProvider } from './react/components/forms/FormContextProvider';
@@ -26,10 +26,8 @@ export { default as MenuItemShape } from './react/propTypesShapes/MenuItemsShape
 export { default as OnThisPage } from './react/components/navigation/OnThisPage';
 export { default as Pagination } from './react/components/pagination/Pagination';
 export { default as Popup } from './react/components/popups/Popup';
-export { default as popupPlacement } from 'utah-design-system-header/src/js/enumerations/popupPlacement';
 export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { default as RefShape } from './react/propTypesShapes/RefShape';
-export { renderDOM } from 'utah-design-system-header/src/js/misc/renderDOM';
 export { default as SegmentedButton } from './react/components/buttons/SegmentedButton';
 export { default as Select } from './react/components/forms/Select';
 export { default as SelectOption } from './react/components/forms/SelectOption';
