@@ -70,4 +70,4 @@ unpkg.com/@utahdts/utah-design-system-header/dist/style.css
 - [Home](https://utahdts.github.io/utah-design-system/)
 - [Library](https://utahdts.github.io/utah-design-system/library/)
 - Header
-- [Documentation and Examples](https://utahdts.github.io/utah-design-system/website/)
+- [Documentation and Examples](../website/README.md)

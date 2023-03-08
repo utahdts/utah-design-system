@@ -63,4 +63,4 @@ unpkg.com/@utahdts/utah-design-system@0.0.2/css/build/utah-design-system.css
 - [Home](https://utahdts.github.io/utah-design-system/)
 - Library
 - [Header](https://utahdts.github.io/utah-design-system/utah-header/)
-- [Documentation and Examples](https://utahdts.github.io/utah-design-system/website/)
+- [Documentation and Examples](../website/README.md)

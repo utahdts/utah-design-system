@@ -126,4 +126,4 @@ Apache License Version 2.0
 - Home
 - [Library](https://utahdts.github.io/utah-design-system/library/)
 - [Header](https://utahdts.github.io/utah-design-system/utah-header/)
-- [Documentation and Examples](https://utahdts.github.io/utah-design-system/website/)
+- [Documentation and Examples](website/README.md)
