@@ -2,7 +2,7 @@ name: DEV Build and Deploy to firebase
 on:
   push:
     branches:
-      - dev
+      - dev_header_deploy
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
@@ -22,6 +22,11 @@ jobs:
       - name: NPM Install 🔧
         run: |
           npm install
+          
+      - name: Build header 🔧
+        run: |
+          cd utah-header
+          npm run build 
           
       - name: Build library 🔧
         run: |
