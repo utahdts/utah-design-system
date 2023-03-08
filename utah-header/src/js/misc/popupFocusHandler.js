@@ -27,12 +27,18 @@ import showHideElement from './showHideElement';
     * trigger the menu (ctrl+opt+space) to have the menu toggle open
   * do the same test as above but with the Utah ID button after logging in so that it opens the Utah Id menu
   * have a main menu item whose children flyout and make sure hovering causes those menu items to flyout
+  * tab to a child menu in a popup menu that also has children menus
+    * this "middle" menu (has parent and children) when first focused should not have its chevron open nor show its children
+    * tabbing again to see this menu's children then opens the children and toggles the chevron
 
   Notes:
   * mobile devices do not have focus events. This caused issues with putting logic in focus that would work in browser but not
     in mobile and vice/versa.
   * when targeting items via accessibility navigation (not tab key), items do not receive focus, so focus events again were
     problematic.
+  * Added a timeout to the open/close because the focusin, mousedown, and onclick were fighting with timing issues
+    * sometimes onfocusin would fire first, other times onmousedown would fire first
+    * and they would cause each other to see different statuses because one would open and another would close the menu
 */
 
 /**
@@ -53,6 +59,12 @@ import showHideElement from './showHideElement';
  * @param {PopupFocusHandlerOptions | undefined} options
  */
 export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options) {
+  let delayPopupTimeoutId = NaN;
+  let delayHideTimeoutId = NaN;
+  const TIMEOUT_MS_LONG = 300;
+  const TIMEOUT_MS_MEDIUM = 150;
+  const TIMEOUT_MS_SHORT = 50;
+
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-haspopup', ariaHasPopup);
 
@@ -62,19 +74,30 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
     |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
   */
-  function performPopup() {
+  /**
+   * @param {number} delayMS
+   */
+  function performPopup(delayMS) {
+    clearTimeout(delayPopupTimeoutId);
+    clearTimeout(delayHideTimeoutId);
+
     if (!options?.isPerformPopup || (options?.isPerformPopup && options.isPerformPopup())) {
-      createPopper(button, popup, {
-        placement: options?.popupPlacement || popupPlacement.BOTTOM,
-        modifiers: [
-          {
-            name: 'offset',
-            options: { offset: [0, 11] },
-          },
-        ],
-      });
-      showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-      button.setAttribute('aria-expanded', 'true');
+      delayPopupTimeoutId = window.setTimeout(
+        () => {
+          createPopper(button, popup, {
+            placement: options?.popupPlacement || popupPlacement.BOTTOM,
+            modifiers: [
+              {
+                name: 'offset',
+                options: { offset: [0, 11] },
+              },
+            ],
+          });
+          showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+          button.setAttribute('aria-expanded', 'true');
+        },
+        delayMS
+      );
     }
   }
 
@@ -84,10 +107,20 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
     |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
   */
-  function hidePopup() {
+  /**
+   * @param {number} delayMS
+   */
+  function hidePopup(delayMS) {
+    clearTimeout(delayPopupTimeoutId);
+    clearTimeout(delayHideTimeoutId);
     if (!options?.isPerformPopup || options.isPerformPopup()) {
-      showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-      button.setAttribute('aria-expanded', 'false');
+      delayHideTimeoutId = window.setTimeout(
+        () => {
+          showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
+          button.setAttribute('aria-expanded', 'false');
+        },
+        delayMS
+      );
     }
   }
 
@@ -97,24 +130,14 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
     |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
   */
-  wrapper.addEventListener('focusin', () => performPopup());
-  wrapper.addEventListener('focusout', () => hidePopup());
+  wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
+
+  wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
+
   if (options?.shouldFocusOnHover) {
-    let delayPopupTimeoutId = NaN;
-    let delayHideTimeoutId = NaN;
-    wrapper.addEventListener('mouseenter', () => {
-      clearTimeout(delayHideTimeoutId);
-      clearTimeout(delayPopupTimeoutId);
-      delayPopupTimeoutId = window.setTimeout(performPopup, 200);
-    });
-    wrapper.addEventListener('mouseleave', () => {
-      clearTimeout(delayHideTimeoutId);
-      clearTimeout(delayPopupTimeoutId);
-      delayHideTimeoutId = window.setTimeout(hidePopup, 200);
-    });
+    wrapper.addEventListener('mouseenter', () => performPopup(TIMEOUT_MS_LONG));
+    wrapper.addEventListener('mouseleave', () => hidePopup(TIMEOUT_MS_LONG));
   }
-
-  let wasAlreadyOpen = false;
 
   /*
      ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
@@ -122,19 +145,11 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
     |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
   */
-  // eslint-disable-next-line no-param-reassign
-  button.onmousedown = (e) => {
-    e.stopPropagation();
-    if (!options?.isPerformPopup || options.isPerformPopup()) {
-      // remember if is focused BEFORE click to know if menu needs shown or hidden during onclick
-      // @ts-ignore
-      wasAlreadyOpen = e.currentTarget?.getAttribute('aria-expanded') === 'true';
-    }
-  };
 
   if (!options?.preventOnClickHandling) {
     // eslint-disable-next-line no-param-reassign
     button.onclick = (e) => {
+      const wasAlreadyOpen = button.getAttribute('aria-expanded') === 'true';
       // for click popups
       if (!options?.isPerformPopup || options.isPerformPopup()) {
         e.stopPropagation();
@@ -148,30 +163,13 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
 
         // if !wasAlreadyOpen but aria-expanded is "true" then the 'focusin' opened it (tabbed to it?)
         if (wasAlreadyOpen && button.getAttribute('aria-expanded') === 'true') {
-          showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          button.setAttribute('aria-expanded', 'false');
+          hidePopup(TIMEOUT_MS_SHORT);
           /** @type {HTMLElement | null} */(document.activeElement)?.blur();
-          wasAlreadyOpen = false;
         } else {
           if (isTouchDevice()) {
             hideAllMenus();
           }
-          button.setAttribute('aria-expanded', 'true');
-          createPopper(
-            button,
-            popup,
-            {
-              placement: 'bottom',
-              modifiers: [
-                {
-                  name: 'offset',
-                  options: { offset: [0, 10] },
-                },
-              ],
-            }
-          );
-          showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          wasAlreadyOpen = true;
+          performPopup(TIMEOUT_MS_SHORT);
         }
       }
       if (options?.onClick) {
