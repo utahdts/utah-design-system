@@ -1,13 +1,5 @@
 /* @media is never in scope for --variables, so this is the only way to solve this. :-( */
 
-.utah-design-system.utds-header-mobile-menu,
-.utah-design-system .utds-header-mobile__utah-id-wrapper,
-.utah-design-system .main-menu__hamburger,
-.utah-design-system .utds-header-mobile__vip-action-items--left,
-.utah-design-system .utds-header-mobile__vip-action-items--right {
-  display: none;
-}
-
 @media screen and (max-width: media-size__tablet-landscape__PLACEHOLDER) {
   /* put your media query here for tablet landscape */
 }
@@ -23,15 +15,20 @@
   .utds-citizen-experience-wrapper {
     display: none;
   }
+  .utah-design-system .main-menu__wrapper {
+    padding: 0 var(--spacing);
+  }
   .utah-design-system .main-menu__nav {
     display: none;
   }
   .utah-design-system.utds-header-mobile-menu,
-  .utah-design-system .utds-header-mobile__utah-id-wrapper,
-  .utah-design-system .main-menu__hamburger,
+  .utah-design-system .utds-header-mobile__utah-id-wrapper {
+    display: block;
+  }
+  .utah-design-system .icon-button.main-menu__hamburger,
   .utah-design-system .utds-header-mobile__vip-action-items--left,
   .utah-design-system .utds-header-mobile__vip-action-items--right {
-    display: block;
+    display: flex;
   }
 }
 

@@ -1,16 +1,25 @@
 .utah-design-system {
   .main-menu {
-    &__hamburger {
-      .icon-button .utds-icon-before-x-icon::before {
-        font-size: .7rem;
+    &__hamburger.icon-button {
+      .utds-icon-before-x-icon::before {
+        font-size: .9rem;
       }
     }
   }
 }
+
+.utah-design-system.utds-header-mobile-menu,
+.utah-design-system .utds-header-mobile__utah-id-wrapper,
+.utah-design-system .icon-button.main-menu__hamburger,
+.utah-design-system .utds-header-mobile__vip-action-items--left,
+.utah-design-system .utds-header-mobile__vip-action-items--right {
+  display: none;
+}
+
 .utds-header-mobile-menu {
   opacity: 0;
   pointer-events: none;
-  
+
   &.utah-design-system {
     transition: opacity 200ms ease;
     position: absolute;
@@ -76,8 +85,24 @@
         outline-offset: 0;
       }
     }
+
+    // action item icon
+    @at-root .utah-design-system #{&} {
+      .icon-button {
+        [class*=utds-icon-before-home]::before {
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
 
+  &__content {
+    padding: var(--spacing-s) var(--spacing);
+
+    .vertical-menu {
+      border-left: 1px solid var(--gray-medium-light-color)
+    }
+  }
 }
 
 .utds-header-mobile__utah-id-wrapper {
