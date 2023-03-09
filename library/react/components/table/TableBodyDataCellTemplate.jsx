@@ -40,6 +40,7 @@ function TableBodyDataCellTemplate({
 }) {
   // record, recordIndex, records
   const rowContextData = useContext(TableBodyDataRowContext);
+  const { record } = rowContextData;
 
   let content;
   if (isFunction(children)) {
@@ -47,7 +48,7 @@ function TableBodyDataCellTemplate({
   } else if (children) {
     content = children;
   } else if (recordFieldPath) {
-    content = valueAtPath({ object: rowContextData.record, path: recordFieldPath });
+    content = valueAtPath({ object: record, path: recordFieldPath });
   } else {
     content = null;
   }

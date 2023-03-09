@@ -9,8 +9,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@utahdts/utah-design-system": "file:../utah-header",
-    "@utahdts/utah-design-system-header": "file:../library",
+    "@utahdts/utah-design-system": "0.2.0",
+    "@utahdts/utah-design-system-header": "0.1.0",
     "immer": "9.0.19",
     "js-beautify": "1.14.7",
     "lodash": "4.17.21",

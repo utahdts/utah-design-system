@@ -53,6 +53,8 @@ export default {
 
   MAIN_MENU: 'main-menu__wrapper',
   MAIN_MENU__HAMBURGER: 'main-menu__hamburger',
+  MAIN_MENU__HAMBURGER_ID: 'utds-main-menu__hamburger',
+  MAIN_MENU__HAMBURGER_ICON_ID: 'utds-main-menu__hamburger-icon',
   MAIN_MENU__MENU_TOP: 'main-menu__menu-top',
   MAIN_MENU__NAV: 'main-menu__nav',
   MAIN_MENU__OUTER: 'main-menu__outer',

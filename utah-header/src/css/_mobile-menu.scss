@@ -1,0 +1,28 @@
+.utds-header-mobile-menu {
+  // opacity: 0;
+  // pointer-events: none;
+  transition: opacity 200ms ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__backdrop {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(16px) brightness(1.5);
+    -webkit-backdrop-filter: blur(16px) brightness(1.5);
+
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+  }
+  &__wrapper {
+    position: absolute;
+    background: white;
+
+  }
+}

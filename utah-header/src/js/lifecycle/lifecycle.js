@@ -7,6 +7,7 @@ import domConstants, { getCssClassSelector } from '../enumerations/domConstants'
 import events from '../enumerations/events';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
+import hookupHamburger from '../renderables/mobile/hookupHamburger';
 import renderMobileMenuWrapper from '../renderables/mobile/renderMobileMenuWrapper';
 import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
@@ -41,6 +42,8 @@ export function loadHeader() {
     }
     const mobileMenuWrapper = renderMobileMenuWrapper(utahIdPopup);
     header.after(mobileMenuWrapper);
+
+    hookupHamburger(mainMenuWrapper, mobileMenuWrapper);
 
     loadGlobalEvents();
 
