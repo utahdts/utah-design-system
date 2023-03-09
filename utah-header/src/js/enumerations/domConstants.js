@@ -52,6 +52,7 @@ export default {
   LOGO: 'utds-logo-wrapper',
 
   MAIN_MENU: 'main-menu__wrapper',
+  MAIN_MENU__HAMBURGER: 'main-menu__hamburger',
   MAIN_MENU__MENU_TOP: 'main-menu__menu-top',
   MAIN_MENU__NAV: 'main-menu__nav',
   MAIN_MENU__OUTER: 'main-menu__outer',
@@ -66,6 +67,16 @@ export default {
   MENU_ITEM__FLY_OUT: 'menu-item--fly_out',
   MENU_ITEM__INLINE: 'menu-item--inline',
   MENU_ITEM__MEGA_MENU: 'menu-item--mega-menu',
+
+  MOBILE__VIP_ACTION_ITEMS__LEFT: 'utds-header-mobile__vip-action-items--left',
+  MOBILE__UTAH_ID: 'utds-header-mobile__utah-id-wrapper',
+  MOBILE__VIP_ACTION_ITEMS__RIGHT: 'utds-header-mobile__vip-action-items--right',
+
+  MOBILE_MENU: 'utds-header-mobile-menu',
+  MOBILE_MENU_ACTION_BAR: 'utds-header-mobile-menu__action-bar',
+  MOBILE_MENU_BACKDROP: 'utds-header-mobile-menu__backdrop',
+  MOBILE_MENU_CONTENT: 'utds-header-mobile-menu__content',
+  MOBILE_MENU_WRAPPER: 'utds-header-mobile-menu__wrapper',
 
   POPUP_MENU: 'vertical-menu',
   POPUP_MENU__BUTTON_TITLE: 'vertical-menu__button-title',

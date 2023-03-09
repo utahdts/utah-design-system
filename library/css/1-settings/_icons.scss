@@ -201,6 +201,16 @@
   .utds-icon-after-copy::after {
     content: '\0067';
   }
+
+  .utds-icon-before-home-menu::before,
+  .utds-icon-after-home-menu::after {
+    content: '\0068';
+  }
+  
+  .utds-icon-before-hamburger::before,
+  .utds-icon-after-hamburger::after {
+    content: '\0069';
+  }
 }
 
 

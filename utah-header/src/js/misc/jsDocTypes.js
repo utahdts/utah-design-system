@@ -147,7 +147,7 @@
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
  *  @property {Element | string} [logo] - Must be an image or an SVG as a string
- *  @property {MainMenu} [mainMenu] - the main menu to show on a line below the citizen experience/unbrand line
+ *  @property {MainMenu} mainMenu - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
  *  @property {string} size - size has to be one of the `Size` types

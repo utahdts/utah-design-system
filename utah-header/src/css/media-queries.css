@@ -1,7 +1,22 @@
 /* @media is never in scope for --variables, so this is the only way to solve this. :-( */
 
+.utds-header-mobile-menu {
+  display: none;
+}
+.utds-header-mobile__utah-id-wrapper {
+  display: none;
+}
+.main-menu__hamburger,
+.utds-header-mobile__vip-action-items--left,
+.utds-header-mobile__vip-action-items--right {
+  display: none;
+}
+
 @media screen and (max-width: media-size__tablet-landscape__PLACEHOLDER) {
   /* put your media query here for tablet landscape */
+  .utds-header-mobile-menu {
+    display: none;
+  }
 }
 
 @media screen and (max-width: media-size__tablet-portrait__PLACEHOLDER) {
@@ -17,6 +32,9 @@
   }
   .utah-design-system .main-menu__nav {
     display: none;
+  }
+  .utds-header-mobile-menu {
+    display: block;
   }
 }
 

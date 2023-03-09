@@ -9,10 +9,12 @@ import showHideElement from '../misc/showHideElement';
 let globalEventFuncs;
 
 export function unloadGlobalEvents() {
-  document.removeEventListener('click', globalEventFuncs.globalOnClick);
-  document.removeEventListener('keyup', globalEventFuncs.globalOnKeypress);
+  if (globalEventFuncs) {
+    document.removeEventListener('click', globalEventFuncs.globalOnClick);
+    document.removeEventListener('keyup', globalEventFuncs.globalOnKeypress);
 
-  globalEventFuncs = null;
+    globalEventFuncs = null;
+  }
 }
 
 export function hideAllMenus() {

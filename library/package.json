@@ -18,8 +18,8 @@
     "test:ci": "vitest run --coverage",
     "test": "vitest run",
     "testw": "vitest watch",
-    "build": "vite build",
-    "watch": "vite build --watch",
+    "build": "vite build --mode development",
+    "watch": "vite build --watch --mode development",
     "sass-build": "sass --no-source-map ./css/index.scss ./css/build/utah-design-system.css",
     "test-publish": "npm publish --dry-run"
   },
@@ -42,14 +42,14 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
+    "@utahdts/utah-design-system-header": "0.1.0",
     "immer": "9.0.19",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
     "react-popper": "2.3.0",
     "react-router-dom": "6.x",
-    "use-immer": "0.8.1",
-    "@utahdts/utah-design-system-header": "0.1.0"
+    "use-immer": "0.8.1"
   },
   "devDependencies": {
     "@types/react": "18.0.28",
