@@ -1,52 +1,77 @@
 // @ts-check
-import domConstants from '../../enumerations/domConstants';
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
 
 /**
- * @param {HTMLElement} mainMenuWrapper
- * @param {HTMLElement} mobileMenuWrapper
+ * @param {string} callerContext what function called this? so the error message can be specific
+ * @returns {{ hamburger: HTMLElement, hamburgerIcon: HTMLElement, mobileMenu: HTMLElement }}
  */
-export default function hookupHamburger(mainMenuWrapper, mobileMenuWrapper) {
-  // get the hamburger icon
+function getHamburgerElements(callerContext) {
+  const mobileMenu = /** @type {HTMLElement} */ (document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU)));
+  if (!mobileMenu) {
+    throw new Error(`${callerContext}: mobileMenu not found`);
+  }
   const hamburger = document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ID);
   if (!hamburger) {
-    throw new Error('hookupHamburger: hamburger not found (🍔 🎶 I will gladly pay you Tuesday for a hamburger today 🎵 🍔)');
+    throw new Error(`${callerContext}: hamburger not found (🍔 🎶 I will gladly pay you Tuesday for a hamburger today 🎵 🍔)`);
   }
   const hamburgerIcon = /** @type {HTMLElement} */ (document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ICON_ID));
   if (!hamburgerIcon) {
-    throw new Error('hookupHamburger: hamburgerIcon not found');
+    throw new Error(`${callerContext}: hamburgerIcon not found`);
   }
 
-  // hookup aria-controls
-  const mobileMenuWrapperId = mobileMenuWrapper.getAttribute('id');
-  if (!mobileMenuWrapperId) {
-    throw new Error('hookupHamburger: mobileMenuWrapperId not found');
-  }
-  hamburger.setAttribute('aria-controls', mobileMenuWrapperId);
-  hamburger.setAttribute('aria-expanded', 'false');
-
-  // onclick will
-  hamburgerIcon.onclick = () => {
-    // show/hide the MMAB wrapper
-    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-    if (isExpanded) {
-      // close MMAB
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileMenuWrapper.classList.remove(domConstants.IS_OPEN);
-
-      // change from an 'X'
-      hamburgerIcon.classList.add('utds-icon-before-hamburger');
-      hamburgerIcon.classList.remove('utds-icon-before-x-icon');
-    } else {
-      // open MMAB
-      hamburger.setAttribute('aria-expanded', 'true');
-      mobileMenuWrapper.classList.add(domConstants.IS_OPEN);
-
-      // change to an 'X'
-      hamburgerIcon.classList.remove('utds-icon-before-hamburger');
-      hamburgerIcon.classList.add('utds-icon-before-x-icon');
-    }
-
-    // TODO:default to the home MMAB menu tab
-    // TODO: focus the user in to the modal...?
+  return {
+    hamburger,
+    hamburgerIcon,
+    mobileMenu,
   };
+}
+
+export function hideMobileMenu() {
+  const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('hideMobileMenu');
+  // close MMAB
+  hamburger.setAttribute('aria-expanded', 'false');
+  mobileMenu.classList.remove(domConstants.IS_OPEN);
+
+  // change from an 'X'
+  hamburgerIcon.classList.add('utds-icon-before-hamburger');
+  hamburgerIcon.classList.remove('utds-icon-before-x-icon');
+}
+
+export function showMobileMenu() {
+  const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('showMobileMenu');
+  // open MMAB
+  hamburger.setAttribute('aria-expanded', 'true');
+  mobileMenu.classList.add(domConstants.IS_OPEN);
+
+  // change to an 'X'
+  hamburgerIcon.classList.remove('utds-icon-before-hamburger');
+  hamburgerIcon.classList.add('utds-icon-before-x-icon');
+}
+
+/**
+ * @param {HTMLElement} mobileMainMenuContent
+ */
+export function hookupHamburger(mobileMainMenuContent) {
+  const { hamburger } = getHamburgerElements('hookupHamburger');
+
+  hideMobileMenu();
+
+  const homeActionItem = document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__HOME_ID);
+  if (!homeActionItem) {
+    throw new Error('hookupHamburger: homeActionItem not found');
+  }
+  const homeActionItemWrapper = /** @type {HTMLElement} */ (
+    homeActionItem.closest(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER))
+  );
+  if (!homeActionItemWrapper) {
+    throw new Error('hookupHamburger: homeActionItemWrapper not found');
+  }
+
+  mobileMenuInteractionHandler(
+    hamburger,
+    mobileMainMenuContent,
+    homeActionItemWrapper,
+    { ariaHasPopupType: 'menu', shouldOnClickCloseMenu: true }
+  );
 }

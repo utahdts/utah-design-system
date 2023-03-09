@@ -74,11 +74,17 @@ export default {
   MOBILE__UTAH_ID: 'utds-header-mobile__utah-id-wrapper',
   MOBILE__VIP_ACTION_ITEMS__RIGHT: 'utds-header-mobile__vip-action-items--right',
 
+  ACTION_ITEM__SELECTED: 'utds-header-mobile-menu__action-item--selected',
   MOBILE_MENU: 'utds-header-mobile-menu',
-  MOBILE_MENU_ACTION_BAR: 'utds-header-mobile-menu__action-bar',
-  MOBILE_MENU_BACKDROP: 'utds-header-mobile-menu__backdrop',
-  MOBILE_MENU_CONTENT: 'utds-header-mobile-menu__content',
-  MOBILE_MENU_WRAPPER: 'utds-header-mobile-menu__wrapper',
+  MOBILE_MENU__ACTION_BAR: 'utds-header-mobile-menu__action-bar',
+  MOBILE_MENU__BACKDROP: 'utds-header-mobile-menu__backdrop',
+  MOBILE_MENU__CONTENT: 'utds-header-mobile-menu__content',
+  MOBILE_MENU__CONTENT_ITEM: 'utds-header-mobile-menu__content_item',
+  MOBILE_MENU__WRAPPER: 'utds-header-mobile-menu__wrapper',
+
+  MOBILE_MENU_ACTON_BAR__HOME_ID: 'utds-header-mobile-menu_action-bar__home',
+  MOBILE_MENU_ACTON_BAR__PROFILE_ID: 'utds-header-mobile-menu_action-bar__profile',
+  MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER: 'utds-header-mobile-menu__action-item',
 
   POPUP_MENU: 'vertical-menu',
   POPUP_MENU__BUTTON_TITLE: 'vertical-menu__button-title',

@@ -211,6 +211,11 @@
   .utds-icon-after-hamburger::after {
     content: '\0069';
   }
+  
+  .utds-icon-before-account::before,
+  .utds-icon-after-account::after {
+    content: '\006a';
+  }
 }
 
 
