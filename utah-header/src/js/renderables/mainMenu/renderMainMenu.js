@@ -24,7 +24,7 @@ import { renderUtahIdForMobile } from '../utahId/UtahId';
  */
 
 /**
- * @returns {{mainMenuWrapper: HTMLElement, utahIdPopup: HTMLElement}}
+ * @returns {{mainMenuWrapper: HTMLElement, utahIdPopup: HTMLElement | null}}
  */
 export default function renderMainMenu() {
   const settings = getUtahHeaderSettings();
@@ -148,12 +148,16 @@ export default function renderMainMenu() {
     }
   });
 
-  const { button: utahIdButton, menu: utahIdPopup } = renderUtahIdForMobile();
-  const utahIdButtonWrapper = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MOBILE__UTAH_ID));
-  if (!utahIdButtonWrapper) {
-    throw new Error('renderMainMenu: utahIdButtonWrapper not found');
+  let utahIdPopup = null;
+  if (settings.utahId) {
+    const { button: utahIdButton, menu } = renderUtahIdForMobile();
+    utahIdPopup = menu;
+    const utahIdButtonWrapper = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MOBILE__UTAH_ID));
+    if (!utahIdButtonWrapper) {
+      throw new Error('renderMainMenu: utahIdButtonWrapper not found');
+    }
+    utahIdButtonWrapper.appendChild(utahIdButton);
   }
-  utahIdButtonWrapper.appendChild(utahIdButton);
 
   return { mainMenuWrapper, utahIdPopup };
 }

@@ -13,7 +13,7 @@ import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
 import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
 import { hookupHamburger } from '../renderables/mobile/hookupHamburger';
-import hookupUtahIdInMobileMenu from '../renderables/mobile/hookupUtahIdInMobileMenu';
+import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderables/mobile/hookupUtahIdInMobileMenu';
 import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
@@ -55,7 +55,11 @@ export function loadHeader() {
     mainMenuWithTitle.appendChild(mobileMenuHomeMenu);
     const mobileMenuHomeMenuContentItem = addMobileMenuContentItem(mainMenuWithTitle);
     hookupHamburger(mobileMenuHomeMenuContentItem);
-    hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup);
+    if (utahIdPopup) {
+      hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup);
+    } else {
+      removeUtahIdInMobileMenu();
+    }
 
     loadGlobalEvents();
 

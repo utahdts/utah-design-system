@@ -6,11 +6,25 @@ import { getCurrentUtahIdData } from '../../utahId/utahIdData';
 import addMobileMenuContentItem from './addMobileMenuContentItem';
 import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
 
+export function removeUtahIdInMobileMenu() {
+  const profileActionItem = document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__PROFILE_ID);
+  if (!profileActionItem) {
+    throw new Error('removeUtahIdInMobileMenu: profileActionItem not found');
+  }
+  const profileActionItemWrapper = /** @type {HTMLElement} */ (
+    profileActionItem.closest(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER))
+  );
+  if (!profileActionItemWrapper) {
+    throw new Error('removeUtahIdInMobileMenu: profileActionItemWrapper not found');
+  }
+  profileActionItemWrapper.remove();
+}
+
 /**
  * @param {HTMLElement} mobileMenuWrapper
  * @param {HTMLElement} utahIdPopup
  */
-export default function hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup) {
+export function hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup) {
   // get utahIdButton in the Mobile Menu
   const utahIdWrapper = document.querySelector(getCssClassSelector(domConstants.MOBILE__UTAH_ID));
   if (!utahIdWrapper) {
