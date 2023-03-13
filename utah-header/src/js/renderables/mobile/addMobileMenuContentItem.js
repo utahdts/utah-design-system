@@ -9,7 +9,7 @@ import uuidv4 from '../../misc/uuidv4';
 
 /**
  * @param {HTMLElement} mobileMenuContentItem
- * @returns {HTMLElement}
+ * @returns {HTMLElement} the already added element
  */
 export default function addMobileMenuContentItem(mobileMenuContentItem) {
   const mobileMenuWrapper = document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU__WRAPPER));

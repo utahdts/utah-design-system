@@ -58,7 +58,7 @@ function showContentItem(mobileContentWrapper, mobileMenuContentItem) {
  * @param {HTMLElement} mobileMenuContentItem - the content item wrapper to show in the mobile content
  * @param {HTMLElement} actionItemWrapper - the action item that should have focus after showing (may be the same as opening/closingElement)
  * @param {Object} options
- * @param {AriaHasPopupType} options.ariaHasPopupType
+ * @param {AriaHasPopupType | null} options.ariaHasPopupType - null if there is no content
  * @param {function} [options.onClickHandler] - func returns true: no further action will be taken (for UtahID), false: click will behave normally
  * @param {boolean} options.shouldOnClickCloseMenu - when menu is open and the element is triggered, should the menu close
  */
@@ -72,6 +72,9 @@ export default function mobileMenuInteractionHandler(
     shouldOnClickCloseMenu,
   }
 ) {
+  if (mobileMenuContentItem && !ariaHasPopupType) {
+    throw new Error('mobileMenuInteractionHandler: there is content, but the aria type is not given');
+  }
   const mobileMenu = /** @type {HTMLElement} */ (document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU)));
   if (!mobileMenu) {
     throw new Error('mobileMenuInteractionHandler: mobileMenu not found');
@@ -90,13 +93,15 @@ export default function mobileMenuInteractionHandler(
   if (!interactiveElementId) {
     throw new Error('mobileMenuInteractionHandler: interactiveElementId not found');
   }
-  const mobileMenuContentItemId = mobileMenuContentItem.getAttribute('id');
-  if (!mobileMenuContentItemId) {
-    throw new Error('mobileMenuInteractionHandler: mobileMenuContentId not found');
+  if (mobileMenuContentItem) {
+    const mobileMenuContentItemId = mobileMenuContentItem.getAttribute('id');
+    if (!mobileMenuContentItemId) {
+      throw new Error('mobileMenuInteractionHandler: mobileMenuContentId not found');
+    }
+    interactiveElement.setAttribute('aria-controls', mobileMenuContentItemId);
+    interactiveElement.setAttribute('aria-haspopup', ariaHasPopupType || '');
+    mobileMenuContentItem.setAttribute('aria-labelledby', interactiveElementId);
   }
-  interactiveElement.setAttribute('aria-controls', mobileMenuContentItemId);
-  interactiveElement.setAttribute('aria-haspopup', ariaHasPopupType);
-  mobileMenuContentItem.setAttribute('aria-labelledby', interactiveElementId);
 
   // openingElement.onclick - show mobile menu and show mobileMenuContentItem and select actionItemElement
   // eslint-disable-next-line no-param-reassign
@@ -111,19 +116,22 @@ export default function mobileMenuInteractionHandler(
         // show mobile menu
         showMobileMenu();
 
-        showContentItem(mobileContentWrapper, mobileMenuContentItem);
+        if (mobileMenuContentItem) {
+          showContentItem(mobileContentWrapper, mobileMenuContentItem);
+        }
 
         showActionItem(mobileMenuWrapper, actionItemWrapper);
       }
     }
   };
 
-  // eslint-disable-next-line no-param-reassign
-  actionItemWrapper.onclick = (e) => {
-    if (!(onClickHandler && onClickHandler(e))) {
-      // TODO: if action item is a custom function, don't switch tab...?
-      showContentItem(mobileContentWrapper, mobileMenuContentItem);
-      showActionItem(mobileMenuWrapper, actionItemWrapper);
-    }
-  };
+  if (mobileMenuContentItem) {
+    // eslint-disable-next-line no-param-reassign
+    actionItemWrapper.onclick = (e) => {
+      if (!(onClickHandler && onClickHandler(e))) {
+        showContentItem(mobileContentWrapper, mobileMenuContentItem);
+        showActionItem(mobileMenuWrapper, actionItemWrapper);
+      }
+    };
+  }
 }

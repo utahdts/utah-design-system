@@ -19,6 +19,7 @@ import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
+import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -60,6 +61,7 @@ export function loadHeader() {
     } else {
       removeUtahIdInMobileMenu();
     }
+    renderMobileActionItems();
 
     loadGlobalEvents();
 
