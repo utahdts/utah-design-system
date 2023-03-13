@@ -102,7 +102,15 @@
     .vertical-menu {
       border-left: 1px solid var(--gray-medium-light-color)
     }
+
+    &-item {
+      display: none;
+      &.is-open {
+        display: block;
+      }
+    }
   }
+
 }
 
 .utds-header-mobile__utah-id-wrapper {

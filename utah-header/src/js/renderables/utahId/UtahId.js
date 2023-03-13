@@ -11,10 +11,11 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
 import utahIdUrls from '../../enumerations/utahIdUrls';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
+import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
+import renderMenuWithTitle from '../menu/renderMenuWithTitle';
 import renderPopup from '../popup/renderPopup';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
-import uuidv4 from '../../misc/uuidv4';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').MenuItem} MenuItem
@@ -103,9 +104,10 @@ export function renderUtahIdButton() {
 }
 
 /**
+ * @param {boolean} shouldAddMenuTitle
  * @returns {HTMLElement}
  */
-export function renderUtahIdMenu() {
+export function renderUtahIdMenu(shouldAddMenuTitle) {
   const settings = getUtahHeaderSettings();
 
   const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onProfile);
@@ -136,10 +138,11 @@ export function renderUtahIdMenu() {
   ];
 
   const utahIdPopupMenu = renderMenu(popupMenuItems, { childrenMenuType: childrenMenuTypes.INLINE });
-  utahIdPopupMenu.setAttribute('aria-label', 'Utah Id Menu');
-  utahIdPopupMenu.setAttribute('id', uuidv4());
+  const returnMenu = shouldAddMenuTitle ? renderMenuWithTitle(utahIdPopupMenu, 'Utah ID Menu') : utahIdPopupMenu;
 
-  return utahIdPopupMenu;
+  returnMenu.setAttribute('aria-label', 'Utah Id Menu');
+  returnMenu.setAttribute('id', uuidv4());
+  return returnMenu;
 }
 
 /**
@@ -152,7 +155,7 @@ export function renderUtahIdForDesktop() {
   utahIdButton.setAttribute('id', uuidv4());
   utahIdWrapper.appendChild(utahIdButton);
 
-  const utahIdMenu = renderUtahIdMenu();
+  const utahIdMenu = renderUtahIdMenu(false);
   const utahIdPopupMenu = renderPopup(utahIdButton);
   const popupContentWrapper = /** @type {HTMLElement} */(utahIdPopupMenu.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
   if (!popupContentWrapper) {
@@ -205,7 +208,7 @@ export function renderUtahIdForMobile() {
   }
   utahIdWrapper.appendChild(utahIdButton);
 
-  const utahIdPopupMenu = renderUtahIdMenu();
+  const utahIdPopupMenu = renderUtahIdMenu(true);
   const utahIdPopupMenuId = utahIdPopupMenu.getAttribute('id');
   if (!utahIdPopupMenuId) {
     throw new Error('renderUtahIdForMobile: utahIdPopupMenu has no id');
@@ -218,78 +221,3 @@ export function renderUtahIdForMobile() {
 
   return { button: utahIdButton, menu: utahIdPopupMenu };
 }
-
-// export default function UtahId() {
-//   const settings = getUtahHeaderSettings();
-
-//   const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onProfile);
-//   const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
-//   const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignOut);
-
-//   const customUtahIdMenuItems = (settings.utahId !== true && settings.utahId !== false && settings.utahId?.menuItems) || [];
-//   if (customUtahIdMenuItems.length) {
-//     customUtahIdMenuItems.push({
-//       isDivider: true,
-//       title: '--divider--',
-//     });
-//   }
-//   /** @type PopupMenu */
-//   const popupMenu = {
-//     menuItems: [
-//       ...customUtahIdMenuItems,
-//       {
-//         actionUrl: onProfile ? undefined : { url: utahIdUrls.PROFILE, openInNewTab: true },
-//         actionFunction: onProfile || undefined,
-//         className: 'external-link',
-//         title: 'UtahID Profile',
-//       },
-//       {
-//         actionUrl: onSignOut ? undefined : { url: utahIdUrls.SIGN_OUT },
-//         actionFunction: onSignOut || undefined,
-//         title: 'Sign Out',
-//       },
-//     ],
-//     title: 'Utah Id Menu',
-//   };
-
-//   // create UtahID wrapper w/ button DOM
-//   const utahIdWrapper = renderDOMSingle(UtahIdWrapperHtml);
-
-//   const utahIdButton = renderUtahIdButton();
-//   utahIdWrapper.appendChild(utahIdButton);
-
-//   // create popup content DOM
-//   const utahIdPopupMenu = renderPopupMenu(popupMenu, utahIdButton, { childrenMenuType: childrenMenuTypes.INLINE });
-//   utahIdWrapper.appendChild(utahIdPopupMenu);
-
-//   doAriaForUtahId(utahIdButton, utahIdPopupMenu);
-
-//   popupFocusHandler(
-//     utahIdWrapper,
-//     utahIdButton,
-//     utahIdPopupMenu,
-//     'menu',
-//     {
-//       isPerformPopup: () => !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated,
-//       onClick: (e) => {
-//         if (!utahIdData?.isDefinitive || !utahIdData?.userInfo?.authenticated) {
-//           if (onSignIn) {
-//             onSignIn(e);
-//           } else {
-//             e.preventDefault();
-//             e.stopPropagation();
-//             window.location.href = utahIdUrls.SIGN_IN;
-//           }
-//         }
-//       },
-//     }
-//   );
-
-//   // fire a fetch event to make sure data gets loaded
-//   fetchUtahIdUserDataAsync();
-
-//   // load previous data so the button doesn't flicker as much
-//   authChangedEventHandler(getCurrentUtahIdData());
-
-//   return utahIdWrapper;
-// }

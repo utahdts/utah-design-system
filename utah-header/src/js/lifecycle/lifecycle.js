@@ -2,19 +2,23 @@
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
 
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import events from '../enumerations/events';
+import { renderDOMSingle } from '../misc/renderDOM';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
 import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
 import { hookupHamburger } from '../renderables/mobile/hookupHamburger';
 import hookupUtahIdInMobileMenu from '../renderables/mobile/hookupUtahIdInMobileMenu';
 import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
-import renderMobileMenuWrapper from '../renderables/mobile/renderMobileMenuWrapper';
 import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
+import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -43,11 +47,13 @@ export function loadHeader() {
     if (mainMenuWrapper) {
       header.after(mainMenuWrapper);
     }
-    const mobileMenuWrapper = renderMobileMenuWrapper(utahIdPopup);
+    const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
     header.after(mobileMenuWrapper);
 
     const mobileMenuHomeMenu = renderMobileMenuHomeMenu();
-    const mobileMenuHomeMenuContentItem = addMobileMenuContentItem(mobileMenuHomeMenu);
+    const mainMenuWithTitle = renderMenuWithTitle(mobileMenuHomeMenu, 'Main Menu');
+    mainMenuWithTitle.appendChild(mobileMenuHomeMenu);
+    const mobileMenuHomeMenuContentItem = addMobileMenuContentItem(mainMenuWithTitle);
     hookupHamburger(mobileMenuHomeMenuContentItem);
     hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup);
 

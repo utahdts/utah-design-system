@@ -1,7 +1,7 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import addMobileMenuContentItem from './addMobileMenuContentItem';
 import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
-import renderMobileMenuWrapper from './renderMobileMenuWrapper';
 
 /**
  * @param {HTMLElement} mobileMenuWrapper
@@ -33,6 +33,6 @@ export default function hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup)
   }
 
   // add mobileMenuWrapper to the mobile menu content
-  const utahIdPopupContentWrapper = renderMobileMenuWrapper(utahIdPopup);
+  const utahIdPopupContentWrapper = addMobileMenuContentItem(utahIdPopup);
   mobileMenuInteractionHandler(utahIdButton, utahIdPopupContentWrapper, profileActionItemWrapper, { ariaHasPopupType: 'menu', shouldOnClickCloseMenu: true });
 }

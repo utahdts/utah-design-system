@@ -50,9 +50,9 @@ export function showMobileMenu() {
 }
 
 /**
- * @param {HTMLElement} mobileMainMenuContent
+ * @param {HTMLElement} mobileMainMenuContentItem the menu content in the mobile main menu
  */
-export function hookupHamburger(mobileMainMenuContent) {
+export function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
 
   hideMobileMenu();
@@ -70,7 +70,7 @@ export function hookupHamburger(mobileMainMenuContent) {
 
   mobileMenuInteractionHandler(
     hamburger,
-    mobileMainMenuContent,
+    mobileMainMenuContentItem,
     homeActionItemWrapper,
     { ariaHasPopupType: 'menu', shouldOnClickCloseMenu: true }
   );
