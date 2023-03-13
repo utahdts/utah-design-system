@@ -41,8 +41,8 @@ function PreCodeForRef({ className, deps, targetRef }) {
         .map((event) => ` ${event}="() => { /* ... do something ... */ }" `)
         .join(' ');
       if (events) {
-        const endStartTag = cleanHTML.indexOf('&gt;');
-        cleanHTML = `${cleanHTML.substring(0, endStartTag)} ${events} ${cleanHTML.substring(endStartTag)}`;
+        const endStartTag = cleanHTML.indexOf('>');
+        cleanHTML = `${cleanHTML.substring(0, endStartTag)} ${events}\n${cleanHTML.substring(endStartTag)}`;
       }
       setInnerHtml(cleanHTML);
     },
