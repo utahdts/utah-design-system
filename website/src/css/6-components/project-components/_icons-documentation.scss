@@ -37,6 +37,9 @@
         background: none;
       }
     };
+    .static-example__component-wrapper {
+      justify-content: flex-start;
+    }
   }
 
   &__icon-big {
@@ -60,7 +63,7 @@
   }
 
   &__icon-with-text {
-    flex: 1 0 auto;
+    flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-l);
