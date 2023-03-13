@@ -62,10 +62,10 @@ export function authChangedEventHandler(newUtahIdData) {
         throw new Error(`authChangedEventHandler: popup id for button not found - ${popupId}`);
       }
       const utahIdPopupMenu = document.getElementById(popupId);
-      if (!utahIdPopupMenu) {
-        throw new Error(`authChangedEventHandler: popup not found for id ${popupId}`);
+      if (utahIdPopupMenu) {
+        // popup menu does not exist if the user is not logged in
+        doAriaForUtahId(utahIdButton, utahIdPopupMenu);
       }
-      doAriaForUtahId(utahIdButton, utahIdPopupMenu);
     }
   });
 }
@@ -111,7 +111,6 @@ export function renderUtahIdMenu(shouldAddMenuTitle) {
   const settings = getUtahHeaderSettings();
 
   const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onProfile);
-  // const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
   const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignOut);
 
   const customUtahIdMenuItems = (settings.utahId !== true && settings.utahId !== false && settings.utahId?.menuItems) || [];

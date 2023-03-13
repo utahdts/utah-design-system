@@ -59,6 +59,7 @@ function showContentItem(mobileContentWrapper, mobileMenuContentItem) {
  * @param {HTMLElement} actionItemWrapper - the action item that should have focus after showing (may be the same as opening/closingElement)
  * @param {Object} options
  * @param {AriaHasPopupType} options.ariaHasPopupType
+ * @param {function} [options.onClickHandler] - func returns true: no further action will be taken (for UtahID), false: click will behave normally
  * @param {boolean} options.shouldOnClickCloseMenu - when menu is open and the element is triggered, should the menu close
  */
 export default function mobileMenuInteractionHandler(
@@ -67,6 +68,7 @@ export default function mobileMenuInteractionHandler(
   actionItemWrapper,
   {
     ariaHasPopupType,
+    onClickHandler,
     shouldOnClickCloseMenu,
   }
 ) {
@@ -98,33 +100,30 @@ export default function mobileMenuInteractionHandler(
 
   // openingElement.onclick - show mobile menu and show mobileMenuContentItem and select actionItemElement
   // eslint-disable-next-line no-param-reassign
-  interactiveElement.onclick = () => {
-    const isAlreadyOpen = mobileMenu.classList.contains(domConstants.IS_OPEN);
-    if (isAlreadyOpen) {
-      if (shouldOnClickCloseMenu) {
-        hideMobileMenu();
+  interactiveElement.onclick = (e) => {
+    if (!(onClickHandler && onClickHandler(e))) {
+      const isAlreadyOpen = mobileMenu.classList.contains(domConstants.IS_OPEN);
+      if (isAlreadyOpen) {
+        if (shouldOnClickCloseMenu) {
+          hideMobileMenu();
+        }
+      } else {
+        // show mobile menu
+        showMobileMenu();
+
+        showContentItem(mobileContentWrapper, mobileMenuContentItem);
+
+        showActionItem(mobileMenuWrapper, actionItemWrapper);
       }
-    } else {
-      // show mobile menu
-      showMobileMenu();
-
-      showContentItem(mobileContentWrapper, mobileMenuContentItem);
-
-      showActionItem(mobileMenuWrapper, actionItemWrapper);
     }
   };
 
   // eslint-disable-next-line no-param-reassign
-  actionItemWrapper.onclick = () => {
-    // TODO: if action item is a custom function, don't switch tab...?
-    showContentItem(mobileContentWrapper, mobileMenuContentItem);
-    showActionItem(mobileMenuWrapper, actionItemWrapper);
+  actionItemWrapper.onclick = (e) => {
+    if (!(onClickHandler && onClickHandler(e))) {
+      // TODO: if action item is a custom function, don't switch tab...?
+      showContentItem(mobileContentWrapper, mobileMenuContentItem);
+      showActionItem(mobileMenuWrapper, actionItemWrapper);
+    }
   };
-
-  // show Mobile Menu - no don't do this right away
-  // showMobileMenu();
-
-  // show content
-
-  // select action item
 }

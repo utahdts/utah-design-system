@@ -1,5 +1,8 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import utahIdUrls from '../../enumerations/utahIdUrls';
+import { getUtahHeaderSettings } from '../../settings/settings';
+import { getCurrentUtahIdData } from '../../utahId/utahIdData';
 import addMobileMenuContentItem from './addMobileMenuContentItem';
 import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
 
@@ -31,8 +34,32 @@ export default function hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup)
   if (!profileActionItemWrapper) {
     throw new Error('hookupHamburger: profileActionItemWrapper not found');
   }
-
-  // add mobileMenuWrapper to the mobile menu content
+  // clicking button goes to mobile menu content menu
   const utahIdPopupContentWrapper = addMobileMenuContentItem(utahIdPopup);
-  mobileMenuInteractionHandler(utahIdButton, utahIdPopupContentWrapper, profileActionItemWrapper, { ariaHasPopupType: 'menu', shouldOnClickCloseMenu: true });
+  mobileMenuInteractionHandler(
+    utahIdButton,
+    utahIdPopupContentWrapper,
+    profileActionItemWrapper,
+    {
+      ariaHasPopupType: 'menu',
+      onClickHandler: (e) => {
+        const currentUtahIdData = getCurrentUtahIdData();
+        const settings = getUtahHeaderSettings();
+        let result = false;
+        if (!currentUtahIdData?.isDefinitive || !currentUtahIdData?.userInfo?.authenticated) {
+          result = true;
+          const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
+          if (onSignIn) {
+            onSignIn(e);
+          } else {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = utahIdUrls.SIGN_IN;
+          }
+        }
+        return result;
+      },
+      shouldOnClickCloseMenu: true,
+    }
+  );
 }
