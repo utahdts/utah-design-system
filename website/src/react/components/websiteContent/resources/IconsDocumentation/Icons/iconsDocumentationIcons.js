@@ -164,4 +164,19 @@ export default [
     title: 'copy',
     letter: 'g',
   },
+  {
+    cssClass: 'home-menu',
+    title: 'home-menu',
+    letter: 'h',
+  },
+  {
+    cssClass: 'hamburger',
+    title: 'hamburger',
+    letter: 'i',
+  },
+  {
+    cssClass: 'account',
+    title: 'account',
+    letter: 'j',
+  },
 ];
