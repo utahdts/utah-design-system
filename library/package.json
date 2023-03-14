@@ -17,6 +17,7 @@
     "test:ci": "vitest run --coverage",
     "test": "vitest run",
     "testw": "vitest watch",
+    "preview": "vite preview",
     "build": "vite build --mode development",
     "watch": "vite build --watch --mode development",
     "sass-build": "sass --no-source-map ./css/index.scss ./css/build/utah-design-system.css",

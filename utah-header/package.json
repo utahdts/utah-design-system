@@ -10,6 +10,7 @@
   "scripts": {
     "test": "vitest run",
     "build": "vite build --mode development",
+    "preview": "vite preview",
     "watch": "vite build --watch --mode development",
     "sass-build": "sass --no-source-map ./src/css/index.scss ./src/css/build/utah-design-system-header.css",
     "test-publish": "npm publish --dry-run"

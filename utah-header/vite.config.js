@@ -15,4 +15,7 @@ export default defineConfig({
     },
     sourceMap: 'inline',
   },
+  define: {
+    'process.env': {}
+  }
 });
