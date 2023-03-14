@@ -1,16 +1,18 @@
+/* eslint-disable import/no-named-as-default-member */
 import {
   DocumentationTemplate,
   LandingTemplate,
   OnThisPage,
   SidePanelNavigation,
-  useCurrentMenuItem
+  useCurrentMenuItem,
+  useUtahHeaderContext
 } from '@utahdts/utah-design-system';
-import { useRef } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import HomeLanding from '../websiteContent/HomeLanding';
-import allMenus from './menus';
+import allMenus, { menuMain } from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
 
@@ -20,6 +22,38 @@ const defaultProps = {};
 function Routing() {
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef();
+  const { setSettings } = useUtahHeaderContext();
+  const navigate = useNavigate();
+
+  useEffect(
+    () => {
+      setSettings((draftSettings) => {
+        draftSettings.mainMenu = {
+          title: menuMain.header,
+          menuItems: menuMain.menuItems.map((mainMenuItem) => ({
+            actionFunctionUrl: {
+              actionFunction: (e) => {
+                if (!e.metaKey) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigate(mainMenuItem.link);
+                }
+              },
+              skipHandleEvent: true,
+              url: mainMenuItem.link,
+            },
+            isSelected: (
+              currentMenuItem.link === mainMenuItem.link
+              || currentMenuItem?.parentLinks?.includes(mainMenuItem.link)
+            ),
+            title: mainMenuItem.title,
+          })),
+        };
+      });
+    },
+    [currentMenuItem]
+  );
+
   return (
     <Routes>
       {Object.values(pages).map((page) => {
@@ -54,8 +88,6 @@ function Routing() {
               <DocumentationTemplate
                 content={page.content}
                 contentRef={contentRef}
-                currentMenuItem={currentMenuItem}
-                mainMenu={allMenus.menuMain}
                 sidePanelLeftContent={<SidePanelNavigation currentMenuItem={currentMenuItem} menus={menuSecondary} />}
                 sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />
@@ -64,12 +96,7 @@ function Routing() {
             break;
 
           case layoutTemplatesEnum.LANDING_TEMPLATE:
-            element = (
-              <LandingTemplate
-                content={page.content}
-                mainMenu={allMenus.menuMain}
-              />
-            );
+            element = <LandingTemplate content={page.content} />;
             break;
 
           default:

@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 // @ts-check
-import sizes from 'utah-design-system-header/src/js/enumerations/sizes';
+import { sizes } from '@utahdts/utah-design-system-header';
 import { describe, expect, test } from 'vitest';
 import stringifyHeaderSettings, { FUNCTION_PLACEHOLDER } from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';
 

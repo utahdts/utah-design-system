@@ -45,3 +45,23 @@ scss mixins and functions
     @include form-ele-focus-appearance;
   }
 }
+
+@mixin selected-vertical-menu-item {
+  &.menu-item--selected {
+    font-weight: bold;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+    //a chiclet
+    &::after {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--primary-color);
+      border-radius: var(--radius-circle);
+    }
+  }
+}

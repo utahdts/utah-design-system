@@ -3,8 +3,7 @@
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
   "version": "0.2.0",
-  "main": "dist/utah-design-system.umd.js",
-  "module": "dist/utah-design-system.es.js",
+  "main": "index.js",
   "files": [
     "css",
     "dist",
@@ -18,8 +17,9 @@
     "test:ci": "vitest run --coverage",
     "test": "vitest run",
     "testw": "vitest watch",
-    "build": "vite build",
-    "watch": "vite build --watch",
+    "preview": "vite preview",
+    "build": "vite build --mode development",
+    "watch": "vite build --watch --mode development",
     "sass-build": "sass --no-source-map ./css/index.scss ./css/build/utah-design-system.css",
     "test-publish": "npm publish --dry-run"
   },
@@ -42,6 +42,7 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
+    "@utahdts/utah-design-system-header": "file:../utah-header",
     "immer": "9.0.19",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",

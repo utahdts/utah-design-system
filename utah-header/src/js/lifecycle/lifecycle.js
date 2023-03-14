@@ -1,13 +1,25 @@
 // @ts-check
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import events from '../enumerations/events';
-import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
-import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
+
+import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
+import events from '../enumerations/events';
+import { renderDOMSingle } from '../misc/renderDOM';
+import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
+import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
+import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
+import { hookupHamburger } from '../renderables/mobile/hookupHamburger';
+import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderables/mobile/hookupUtahIdInMobileMenu';
+import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
+import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
+import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
+import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -27,21 +39,29 @@ function loadCssSettings() {
 export function loadHeader() {
   const existingHeader = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]));
   if (!existingHeader) {
-    // TODO: CSS has potentially not loaded yet? so there will be a flicker between time header shows and css loads...
-    // TODO: could maybe set a timeout for loading the header so that css loads and then header renders...
-    // TODO: but then header will bounce in to view from the top...
-    // TODO: could place a placeholder div that is the same size of the header, then settimeout to load header after css loads...?
-
-    // TODO: Load the Main Menu
-    // if (document.body.firstChild) {
-    //   document.body.insertBefore(MainMenu(), document.body.firstChild);
-    // } else {
-    //   document.body.appendChildAll(MainMenu());
-    // }
-
     // Load the Header Wrapper
     const header = HeaderWrapper();
     document.body.insertBefore(header, document.body.firstChild);
+
+    // load the main menu
+    const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
+    if (mainMenuWrapper) {
+      header.after(mainMenuWrapper);
+    }
+    const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
+    header.after(mobileMenuWrapper);
+
+    const mobileMenuHomeMenu = renderMobileMenuHomeMenu();
+    const mainMenuWithTitle = renderMenuWithTitle(mobileMenuHomeMenu, 'Main Menu');
+    mainMenuWithTitle.appendChild(mobileMenuHomeMenu);
+    const mobileMenuHomeMenuContentItem = addMobileMenuContentItem(mainMenuWithTitle);
+    hookupHamburger(mobileMenuHomeMenuContentItem);
+    if (utahIdPopup) {
+      hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup);
+    } else {
+      removeUtahIdInMobileMenu();
+    }
+    renderMobileActionItems();
 
     loadGlobalEvents();
 
@@ -58,11 +78,18 @@ export function loadHeader() {
   }
 }
 
-export function removeHeader() {
+/**
+ * @param {boolean} shouldTriggerUnloadEvent if removing to readd, then the event shouldn't fire
+ */
+export function removeHeader(shouldTriggerUnloadEvent) {
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]))?.remove();
+  document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU__OUTER]))?.remove();
+  document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MOBILE_MENU]))?.remove();
 
   unloadGlobalEvents();
 
-  // take the event dispatch out of this execution flow to allow for timing of events *after* this execution flow.
-  setTimeout(() => document.dispatchEvent(new Event(events.HEADER_UNLOADED)), 0);
+  if (shouldTriggerUnloadEvent) {
+    // take the event dispatch out of this execution flow to allow for timing of events *after* this execution flow.
+    setTimeout(() => document.dispatchEvent(new Event(events.HEADER_UNLOADED)), 0);
+  }
 }

@@ -20,6 +20,7 @@
     color: var(--gray-color);
     text-decoration: none;
     position: relative;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 
     svg {
       fill: currentColor;

@@ -9,14 +9,18 @@ import showHideElement from '../misc/showHideElement';
 let globalEventFuncs;
 
 export function unloadGlobalEvents() {
-  document.removeEventListener('click', globalEventFuncs.globalOnClick);
-  document.removeEventListener('keyup', globalEventFuncs.globalOnKeypress);
+  if (globalEventFuncs) {
+    document.removeEventListener('click', globalEventFuncs.globalOnClick);
+    document.removeEventListener('keyup', globalEventFuncs.globalOnKeypress);
 
-  globalEventFuncs = null;
+    globalEventFuncs = null;
+  }
 }
 
-function hideAllMenus() {
-  const popups = document.querySelectorAll(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.POPUP_WRAPPER]));
+export function hideAllMenus() {
+  const popups = document.querySelectorAll(
+    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`
+  );
   Array.from(popups)
     .filter((popup) => !popup.classList.contains(domConstants.POPUP__HIDDEN))
     .forEach((popup) => {

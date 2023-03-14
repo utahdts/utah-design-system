@@ -15,7 +15,7 @@
       ul {
         margin-left: var(--spacing);
       }
-      a {
+      a[href] {
         text-decoration: none;
         color: var(--gray-color);
         padding: var(--spacing-2xs) var(--spacing);

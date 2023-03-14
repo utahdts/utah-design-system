@@ -1,4 +1,4 @@
-name: PROD Build and Deploy
+name: PROD Build and Deploy to firebase
 on:
   push:
     branches:
@@ -22,6 +22,11 @@ jobs:
       - name: NPM Install 🔧
         run: |
           npm install
+
+      - name: Build header 🔧
+        run: |
+          cd utah-header
+          npm run build 
 
       - name: Build library 🔧
         run: |

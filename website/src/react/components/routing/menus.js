@@ -1,8 +1,8 @@
 import { calculateMenuItemsParents } from '@utahdts/utah-design-system';
 import pages from './pages';
 
-const menuMain = {
-  // the header for the main menu never gets rendered
+export const menuMain = {
+  // the header/title for the main menu
   header: 'Main Menu',
   id: 'main-menu',
   menuItems: [
@@ -14,7 +14,7 @@ const menuMain = {
   ],
 };
 
-const menuFoundationSecondary = {
+export const menuFoundationSecondary = {
   header: 'Foundation',
   id: 'foundation',
   menuItems: [
@@ -61,7 +61,7 @@ const menuFoundationSecondary = {
   ],
 };
 
-const menuGuidelinesSecondary = {
+export const menuGuidelinesSecondary = {
   header: 'Guidelines and Standards',
   id: 'guidelines',
   menuItems: [
@@ -93,7 +93,7 @@ const menuGuidelinesSecondary = {
   ],
 };
 
-const menuLibraryComponentsSecondary = {
+export const menuLibraryComponentsSecondary = {
   header: 'Components',
   id: 'library-components',
   menuItems: [
@@ -162,7 +162,7 @@ const menuLibraryComponentsSecondary = {
   ],
 };
 
-const menuLibraryPatternsSecondary = {
+export const menuLibraryPatternsSecondary = {
   header: 'Patterns',
   id: 'library-patterns',
   menuItems: [
@@ -179,7 +179,7 @@ const menuLibraryPatternsSecondary = {
   ],
 };
 
-const menuLibraryTemplatesSecondary = {
+export const menuLibraryTemplatesSecondary = {
   header: 'Templates',
   id: 'library-templates',
   menuItems: [
@@ -191,7 +191,7 @@ const menuLibraryTemplatesSecondary = {
   ],
 };
 
-const menuResourcesSecondary = {
+export const menuResourcesSecondary = {
   header: 'Resources',
   id: 'resources',
   menuItems: [

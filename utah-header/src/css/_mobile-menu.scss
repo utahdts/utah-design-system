@@ -1,0 +1,121 @@
+.utah-design-system {
+  .main-menu {
+    &__hamburger.icon-button {
+      .utds-icon-before-x-icon::before {
+        font-size: .9rem;
+      }
+    }
+  }
+}
+
+.utah-design-system.utds-header-mobile-menu,
+.utah-design-system .utds-header-mobile__utah-id-wrapper,
+.utah-design-system .icon-button.main-menu__hamburger,
+.utah-design-system .utds-header-mobile__vip-action-items--left,
+.utah-design-system .utds-header-mobile__vip-action-items--right {
+  display: none;
+}
+
+.utds-header-mobile-menu {
+  opacity: 0;
+  pointer-events: none;
+
+  &.utah-design-system {
+    transition: opacity 200ms ease;
+    position: absolute;
+    top: 106px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: transparent;
+  }
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__backdrop {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px) brightness(60%);
+    // -webkit-backdrop-filter: blur(16px) brightness(1.5);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__wrapper {
+    position: absolute;
+    background: white;
+    border-radius: var(--radius-medium);
+    box-shadow: var(--elevation-small);
+    margin: var(--spacing-s);
+    width: calc(100% - (2 * var(--spacing-s)));
+  }
+  &__action-bar {
+    background: var(--gray-light-color);
+    border-top-right-radius: var(--radius-medium);
+    border-top-left-radius: var(--radius-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: var(--spacing-s);
+  }
+
+  &__action-item {
+    position: relative;
+    padding: var(--spacing-xs) 0;
+    &--selected {
+      span.menu-chiclet::after {
+        content: "";
+        width: 100%;
+        height: var(--spacing-2xs);
+        background: var(--primary-color);
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-top-left-radius: var(--spacing-2xs);
+        border-top-right-radius: var(--spacing-2xs);
+        outline: none;
+        outline-offset: 0;
+      }
+    }
+
+    // action item icon
+    @at-root .utah-design-system #{&} {
+      .icon-button {
+        [class*=utds-icon-before-home]::before {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: var(--spacing-s) var(--spacing);
+
+    .vertical-menu {
+      border-left: 1px solid var(--gray-medium-light-color)
+    }
+
+    &-item {
+      display: none;
+      &.is-open {
+        display: block;
+      }
+    }
+  }
+
+}
+
+.utds-header-mobile__utah-id-wrapper {
+  padding: var(--spacing-xs) 0;
+  button.utds-utah-id__button {
+    min-height: var(--form-ele-small);
+  }
+}

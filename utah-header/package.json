@@ -1,10 +1,19 @@
 {
-  "name": "utah-design-system-header",
-  "version": "1.1.0",
+  "name": "@utahdts/utah-design-system-header",
+  "version": "0.1.0",
   "description": "Utah Header for the Utah Design System",
   "main": "src/index.js",
+  "files": [
+    "src/css",
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "build": "vite build --mode development",
+    "preview": "vite preview",
+    "watch": "vite build --watch --mode development",
+    "sass-build": "sass --no-source-map ./src/css/index.scss ./src/css/build/utah-design-system-header.css",
+    "test-publish": "npm publish --dry-run"
   },
   "repository": {
     "type": "git",
@@ -16,8 +25,7 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system#readme",
   "dependencies": {
-    "@popperjs/core": "2.11.6",
-    "@utahdts/utah-design-system": "0.2.0"
+    "@popperjs/core": "2.11.6"
   },
   "devDependencies": {
     "eslint": "8.35.0",
