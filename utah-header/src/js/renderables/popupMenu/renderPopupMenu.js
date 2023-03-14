@@ -15,7 +15,6 @@ import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import popupPlacement from '../../enumerations/popupPlacement';
-import appendChildAll from '../../misc/appendChildAll';
 import findRecursive from '../../misc/findRecursive';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
@@ -271,7 +270,13 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     menuAHref.classList.add(domConstants.MENU_ITEM__SELECTED);
   }
 
-  appendChildAll(menuUl, menuItemWrapper);
+  if (popupMenuItem.isSelected) {
+    menuItemWrapper.classList.add(domConstants.MENU_ITEM__SELECTED);
+  } else {
+    menuItemWrapper.classList.remove(domConstants.MENU_ITEM__SELECTED);
+  }
+
+  menuUl.appendChild(menuItemWrapper);
 
   return menuItemWrapper;
 }
