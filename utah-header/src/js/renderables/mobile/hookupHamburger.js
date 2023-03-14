@@ -1,5 +1,7 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import { getUtahHeaderSettings } from '../../settings/settings';
+import renderActionItemBadge from '../actionItems/renderActionItemBadge';
 import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
 
 /**
@@ -54,6 +56,15 @@ export function showMobileMenu() {
  */
 export function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
+
+  const settings = getUtahHeaderSettings();
+  const actionItemHasBadge = settings.actionItems?.some((actionItem) => !!actionItem.badge);
+  if (actionItemHasBadge) {
+    const badge = renderActionItemBadge({ label: 'Home Badge' });
+    if (badge) {
+      hamburger.appendChild(badge);
+    }
+  }
 
   hideMobileMenu();
 

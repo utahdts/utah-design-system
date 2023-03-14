@@ -6,17 +6,17 @@ import { renderDOMSingle } from '../../misc/renderDOM';
 import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').ActionItem} ActionItem
+ * @typedef {import('../../misc/jsDocTypes').Badge} Badge
  */
 
 /**
  * renders a badge on an action item
- * @param {ActionItem} actionItem - the action which may have badge information
+ * @param {Badge | undefined} badge - the action's badge information
  * @return {HTMLElement | null}
  */
-export default function renderActionItemBadge(actionItem) {
+export default function renderActionItemBadge(badge) {
   let badgeWrapper = null;
-  if (actionItem.badge) {
+  if (badge) {
     /** @type HTMLElement */
     badgeWrapper = /** @type {HTMLElement} */(renderDOMSingle(BadgeWrapperHtml));
     badgeWrapper.classList.add(domConstants.BADGE_WRAPPER__ACTION_ITEM);
@@ -26,23 +26,23 @@ export default function renderActionItemBadge(actionItem) {
     if (!badgeLabel) {
       throw new Error('renderActionItemBadge: badgeLabel not found');
     }
-    badgeLabel.appendChild(document.createTextNode(actionItem.badge.label));
+    badgeLabel.appendChild(document.createTextNode(badge.label));
 
     // show value in badge if there is one
-    if ((actionItem.badge.value || actionItem.badge.value === 0)) {
+    if ((badge.value || badge.value === 0)) {
       const badgeValue = badgeWrapper.querySelector(getCssClassSelector(domConstants.BADGE__VALUE));
       if (!badgeValue) {
         throw new Error('renderActionItemBadge: badgeValue not found');
       }
-      badgeValue.appendChild(document.createTextNode(`${actionItem.badge.value}`));
+      badgeValue.appendChild(document.createTextNode(`${badge.value}`));
     } else {
       // no value so make it smaller
       badgeWrapper.classList.add(domConstants.BADGE_WRAPPER__SMALL);
     }
 
     // apply class name
-    if (actionItem.badge.className) {
-      badgeWrapper.classList.add(actionItem.badge.className);
+    if (badge.className) {
+      badgeWrapper.classList.add(badge.className);
     }
   }
 

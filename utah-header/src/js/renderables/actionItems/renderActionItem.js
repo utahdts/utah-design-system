@@ -50,7 +50,7 @@ export default function renderActionItem(actionItem) {
     iconButton.classList.add(actionItem.className);
   }
 
-  const badge = renderActionItemBadge(actionItem);
+  const badge = renderActionItemBadge(actionItem.badge);
   if (badge) {
     iconButton.appendChild(badge);
   }
