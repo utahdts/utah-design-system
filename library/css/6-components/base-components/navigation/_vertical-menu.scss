@@ -1,4 +1,5 @@
 @use "../../../1-settings/class-vars";
+@use "../../../2-tools/tools-index";
 
 #{class-vars.$base-class} {
   ul.vertical-menu {
@@ -28,6 +29,7 @@
       text-align: left;
       text-decoration: none;
       width: 100%;
+      position: relative;
 
       &:hover {
         background: var(--hover-gray-color);
@@ -37,6 +39,7 @@
       &:active {
         transform: none;
       }
+      @include tools-index.selected-vertical-menu-item;
     }
     a.vertical-menu__link-title {
       &:hover {
