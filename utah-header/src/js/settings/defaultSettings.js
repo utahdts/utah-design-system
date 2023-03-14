@@ -1,15 +1,19 @@
 // @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
-import WaffleIcon from '../renderables/icons/html/WaffleIcon.html?raw';
+import AlertIcon from '../renderables/icons/html/AlertIcon.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import GearIcon from '../renderables/icons/html/GearIcon.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import QuestionIcon from '../renderables/icons/html/QuestionIcon.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
-import AlertIcon from '../renderables/icons/html/AlertIcon.html?raw';
-import sizes from '../enumerations/sizes';
+import WaffleIcon from '../renderables/icons/html/WaffleIcon.html?raw';
+
 import childrenMenuTypes from '../enumerations/childrenMenuTypes';
+import sizes from '../enumerations/sizes';
 
 /**
  * @typedef {import('../misc/jsDocTypes').Settings} Settings
@@ -103,7 +107,7 @@ export default {
         button.appendChild(document.createTextNode('Do not press me.'));
         div.appendChild(button);
         return div;
-      })(),
+      }),
       badge: {
         // Note: make sure the `label` is plural/singular to match the value
         label: 'Help Items Available',
@@ -111,6 +115,20 @@ export default {
       icon: QuestionIcon,
       showTitle: false,
       title: 'Help',
+    },
+    {
+      actionDom: (() => {
+        const div = document.createElement('div');
+        div.appendChild(document.createTextNode('Toggle Language'));
+        const button = document.createElement('button');
+        button.appendChild(document.createTextNode('Speak Different'));
+        button.onclick = () => alert('lorem ipsum');
+        div.appendChild(button);
+        return div;
+      }),
+      icon: GearIcon,
+      showTitle: false,
+      title: 'Settings',
     },
   ],
   mediaSizes: {

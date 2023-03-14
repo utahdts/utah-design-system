@@ -2,7 +2,8 @@
   "name": "@utahdts/utah-design-system-header",
   "version": "0.1.0",
   "description": "Utah Header for the Utah Design System",
-  "main": "src/index.js",
+  "main": "dist/utah-design-system-header.umd.js",
+  "module": "dist/utah-design-system-header.es.js",
   "files": [
     "src/css",
     "dist"
@@ -10,7 +11,6 @@
   "scripts": {
     "test": "vitest run",
     "build": "vite build --mode development",
-    "preview": "vite preview",
     "watch": "vite build --watch --mode development",
     "sass-build": "sass --no-source-map ./src/css/index.scss ./src/css/build/utah-design-system-header.css",
     "test-publish": "npm publish --dry-run"

@@ -52,6 +52,9 @@ export default {
   LOGO: 'utds-logo-wrapper',
 
   MAIN_MENU: 'main-menu__wrapper',
+  MAIN_MENU__HAMBURGER: 'main-menu__hamburger',
+  MAIN_MENU__HAMBURGER_ID: 'utds-main-menu__hamburger',
+  MAIN_MENU__HAMBURGER_ICON_ID: 'utds-main-menu__hamburger-icon',
   MAIN_MENU__MENU_TOP: 'main-menu__menu-top',
   MAIN_MENU__NAV: 'main-menu__nav',
   MAIN_MENU__OUTER: 'main-menu__outer',
@@ -67,6 +70,23 @@ export default {
   MENU_ITEM__INLINE: 'menu-item--inline',
   MENU_ITEM__MEGA_MENU: 'menu-item--mega-menu',
 
+  MOBILE__VIP_ACTION_ITEMS__LEFT: 'utds-header-mobile__vip-action-items--left',
+  MOBILE__UTAH_ID: 'utds-header-mobile__utah-id-wrapper',
+  MOBILE__VIP_ACTION_ITEMS__RIGHT: 'utds-header-mobile__vip-action-items--right',
+
+  ACTION_ITEM__SELECTED: 'utds-header-mobile-menu__action-item--selected',
+  MOBILE_MENU: 'utds-header-mobile-menu',
+  MOBILE_MENU__ACTION_BAR: 'utds-header-mobile-menu__action-bar',
+  MOBILE_MENU__BACKDROP: 'utds-header-mobile-menu__backdrop',
+  MOBILE_MENU__CONTENT: 'utds-header-mobile-menu__content',
+  MOBILE_MENU__CONTENT_ITEM: 'utds-header-mobile-menu__content-item',
+  MOBILE_MENU__WRAPPER: 'utds-header-mobile-menu__wrapper',
+
+  MOBILE_MENU_ACTON_BAR__HOME_ID: 'utds-header-mobile-menu_action-bar__home',
+  MOBILE_MENU_ACTON_BAR__PROFILE_ID: 'utds-header-mobile-menu_action-bar__profile',
+  MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER: 'utds-header-mobile-menu__action-item',
+
+  // TODO: change popup_menu constants to be vertical_menu constants
   POPUP_MENU: 'vertical-menu',
   POPUP_MENU__BUTTON_TITLE: 'vertical-menu__button-title',
   POPUP_MENU__CHEVRON: 'vertical-menu__chevron',
@@ -75,6 +95,9 @@ export default {
   POPUP_MENU__LINK_TITLE: 'vertical-menu__link-title',
   POPUP_MENU__PLAIN_TITLE: 'vertical-menu__plain-title',
   POPUP_MENU__TITLE: 'vertical-menu__title',
+
+  POPUP_MENU_WRAPPER__WRAPPER: 'vertical-menu__wrapper',
+  POPUP_MENU_WRAPPER__WRAPPER_TITLE: 'vertical-menu__wrapper-title',
 
   POPUP__HIDDEN: 'popup__wrapper--hidden',
   POPUP__VISIBLE: 'popup__wrapper--visible',

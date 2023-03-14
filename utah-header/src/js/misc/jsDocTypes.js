@@ -105,8 +105,8 @@
  * } PopupPlacement
  *
  * @typedef PopupFocusHandlerOptions {
- *  @property {(() => boolean)} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
- *  @property {(function(Event): void)} [onClick] custom onclick handler
+ *  @property {() => boolean} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
+ *  @property {function(Event): void} [onClick] custom onclick handler
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
  *  @property {boolean} [preventOnClickHandling] turns of click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
@@ -135,19 +135,20 @@
  *  // should be only one of the following three action types
  *  @property {EventAction} [actionFunction] - func: onClick callback
  *  @property {PopupMenu} [actionPopupMenu] - Object[]: array of MenuItems
- *  @property {ChildNode} [actionDom] - ChildNode: content in a popup.
+ *  @property {function (): HTMLElement} [actionDom] - ChildNode: content in a popup.
  *
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon
  *  @property {string} icon - Should be an SVG
- *  @property {boolean} showTitle – Should the title always be visible?
+ *  @property {'left' | 'none' | 'right'} [mobileMenuLocation] - positioned right or left of the Utah ID button? not at all? default is right
+ *  @property {boolean} showTitle - Should the title always be visible?
  *  @property {string} title - Title of the action item (required for accessibility)
  * }
  *
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
  *  @property {Element | string} [logo] - Must be an image or an SVG as a string
- *  @property {MainMenu} [mainMenu] - the main menu to show on a line below the citizen experience/unbrand line
+ *  @property {MainMenu} mainMenu - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
  *  @property {string} size - size has to be one of the `Size` types

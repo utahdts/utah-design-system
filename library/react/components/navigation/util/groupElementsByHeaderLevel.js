@@ -7,9 +7,7 @@ export default function groupElementsByHeaderLevel(headers) {
   const nodesHierarchy = [];
   const nodesHierarchyStack = [{ children: nodesHierarchy, level: -1 }];
 
-  for (let headersIndex = 0; headersIndex < headers.length; headersIndex += 1) {
-    const currentHeader = headers[headersIndex];
-
+  headers.forEach((currentHeader) => {
     const newNode = { node: currentHeader, children: [], level: Number(currentHeader.tagName.substring(1)) };
     const parentNode = nodesHierarchyStack[nodesHierarchyStack.length - 1];
 
@@ -30,7 +28,7 @@ export default function groupElementsByHeaderLevel(headers) {
 
     // the newNode is the new potential parent for the next node
     nodesHierarchyStack.push(newNode);
-  }
+  });
 
   return nodesHierarchy;
 }

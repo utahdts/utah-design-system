@@ -11,7 +11,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     },
     build: {
       minify: false,
-      sourcemap: true,
+      sourcemap: "inline",
     },
     plugins: [
       react(),

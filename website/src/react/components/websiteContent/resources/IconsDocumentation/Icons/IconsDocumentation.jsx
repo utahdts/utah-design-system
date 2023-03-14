@@ -32,6 +32,23 @@ function IconsDocumentation() {
         The font file size is very small and should load quickly.
       </p>
       <hr />
+      <h2 id="section-icon-resource-location">Icon Resource Location</h2>
+      <p className="mb-spacing-xs">The Utah Design System Icons can be found on the State CDN:</p>
+      <pre className="gray-block gray-block--overflow">
+        <div className="gray-block__overflow-content">
+          {`@font-face {
+  font-family: 'utah design system';
+  src: url('https://cdn.utah.gov/design-system/fonts/utah-design-system.eot');
+  src: url('https://cdn.utah.gov/design-system/fonts/utah-design-system.eot?#iefix') format('embedded-opentype'),
+       url('https://cdn.utah.gov/design-system/fonts/utah-design-system.woff') format('woff'),
+       url('https://cdn.utah.gov/design-system/fonts/utah-design-system.ttf') format('truetype'),
+       url('https://cdn.utah.gov/design-system/fonts/utah-design-system.svg#utah-design-system') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}`}
+        </div>
+      </pre>
+      <hr />
       <h2 id="section-example">Example</h2>
       <div className="icon-example__grid mb-spacing">
         {iconsDocumentationIcons.map((icon) => (

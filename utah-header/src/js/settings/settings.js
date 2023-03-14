@@ -1,6 +1,5 @@
 // @ts-check
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import { loadHeader } from '../lifecycle/lifecycle';
+import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
 import baseSettings from './baseSettings';
 import defaultSettings from './defaultSettings';
 
@@ -38,14 +37,9 @@ export function setUtahHeaderSettings(newSettings) {
   // this is only a shallow copy, so merging nested settings does not happen.
   settings = { ...baseSettings, ...newSettings };
   validateSettings(settings);
-  const existingHeader = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]));
-  const existingMainMenu = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU__OUTER]));
-  if (existingHeader) {
-    // don't call removeHeader because that will trigger an unload event,
-    // and setting `settings` probably shouldn't be considered an "unload" event
-    existingHeader.remove();
-    existingMainMenu?.remove();
-  }
+
+  removeHeader(false);
+
   loadHeader();
 
   return settings;

@@ -15,8 +15,20 @@
   .utds-citizen-experience-wrapper {
     display: none;
   }
+  .utah-design-system .main-menu__wrapper {
+    padding: 0 var(--spacing);
+  }
   .utah-design-system .main-menu__nav {
     display: none;
+  }
+  .utah-design-system.utds-header-mobile-menu,
+  .utah-design-system .utds-header-mobile__utah-id-wrapper {
+    display: block;
+  }
+  .utah-design-system .icon-button.main-menu__hamburger,
+  .utah-design-system .utds-header-mobile__vip-action-items--left,
+  .utah-design-system .utds-header-mobile__vip-action-items--right {
+    display: flex;
   }
 }
 

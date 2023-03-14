@@ -1,5 +1,5 @@
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [
@@ -13,5 +13,9 @@ export default defineConfig({
       formats: ['es', 'umd'],
       fileName: (format) => `utah-design-system-header.${format}.js`,
     },
+    sourceMap: 'inline',
   },
-})
+  define: {
+    'process.env': {}
+  }
+});

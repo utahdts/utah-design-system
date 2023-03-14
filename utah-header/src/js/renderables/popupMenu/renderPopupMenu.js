@@ -15,7 +15,6 @@ import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import popupPlacement from '../../enumerations/popupPlacement';
-import appendChildAll from '../../misc/appendChildAll';
 import findRecursive from '../../misc/findRecursive';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOM';
@@ -162,7 +161,6 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
 
       case childrenMenuTypes.INLINE: {
         const subMenu = renderMenu(
-          popupMenuItem,
           popupMenuItem.actionMenu,
           options
         );
@@ -189,7 +187,8 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
             menuButton.setAttribute('aria-expanded', 'true');
             // if target is the button then don't expand chevron just yet, wait for a child to be visible
             // (happens when tabbing to the chevron menu item)
-            if (e.currentTarget !== menuButton) {
+            // using e.currentTarget caused the chevron to expand on the parent before the children were tabbed into
+            if (e.target !== menuButton) {
               chevron?.classList?.remove(domConstants.IS_CLOSED);
               chevron?.classList?.add(domConstants.IS_OPEN);
             }
@@ -200,7 +199,6 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
 
       case childrenMenuTypes.MEGA_MENU: {
         const subMenu = renderMenu(
-          popupMenuItem,
           popupMenuItem.actionMenu,
           options
         );
@@ -272,18 +270,23 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     menuAHref.classList.add(domConstants.MENU_ITEM__SELECTED);
   }
 
-  appendChildAll(menuUl, menuItemWrapper);
+  if (popupMenuItem.isSelected) {
+    menuItemWrapper.classList.add(domConstants.MENU_ITEM__SELECTED);
+  } else {
+    menuItemWrapper.classList.remove(domConstants.MENU_ITEM__SELECTED);
+  }
+
+  menuUl.appendChild(menuItemWrapper);
 
   return menuItemWrapper;
 }
 
 /**
- * @param {PopupMenu | MenuItem} _parentMenu
  * @param {MenuItem[]} menuItems
  * @param {RenderPopupMenuOptions} options
  * @returns {HTMLElement}
  */
-function renderMenu(_parentMenu, menuItems, options) {
+export function renderMenu(menuItems, options) {
   const menuWrapper = renderDOMSingle(PopupMenuHtml);
 
   menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem, options));
@@ -308,7 +311,7 @@ export default function renderPopupMenu(popupMenu, labelledByElement, options) {
   }
 
   // create the menu
-  const menuWrapper = renderMenu(popupMenu, popupMenu.menuItems, options);
+  const menuWrapper = renderMenu(popupMenu.menuItems, options);
   menuWrapper.setAttribute('aria-label', popupMenu.title);
 
   popupContentWrapper.appendChild(menuWrapper);
