@@ -9,7 +9,6 @@ textarea {
   border: 1px solid var(--gray-color);
   width: 100%;
   padding: 0 var(--spacing-xs);
-  box-sizing: border-box;
 
   @include tools-index.form-ele-hover-medium;
   @include tools-index.form-ele-focus;
