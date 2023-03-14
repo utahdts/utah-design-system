@@ -105,8 +105,8 @@
  * } PopupPlacement
  *
  * @typedef PopupFocusHandlerOptions {
- *  @property {(() => boolean)} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
- *  @property {(function(Event): void)} [onClick] custom onclick handler
+ *  @property {() => boolean} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
+ *  @property {function(Event): void} [onClick] custom onclick handler
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
  *  @property {boolean} [preventOnClickHandling] turns of click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
@@ -135,7 +135,7 @@
  *  // should be only one of the following three action types
  *  @property {EventAction} [actionFunction] - func: onClick callback
  *  @property {PopupMenu} [actionPopupMenu] - Object[]: array of MenuItems
- *  @property {ChildNode} [actionDom] - ChildNode: content in a popup.
+ *  @property {function (): HTMLElement} [actionDom] - ChildNode: content in a popup.
  *
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon

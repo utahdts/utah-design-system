@@ -70,8 +70,7 @@ export default function renderMobileActionItem(actionItem) {
   } else if (actionItem.actionDom) {
     const iconButtonId = uuidv4();
     iconButton.setAttribute('id', iconButtonId);
-    // make a copy! or else it will steal the content from the header
-    actionItemContent = /** @type {HTMLElement} */ (actionItem.actionDom.cloneNode(true));
+    actionItemContent = actionItem.actionDom();
   } else if (actionItem.actionPopupMenu) {
     // content is a menu
     const iconButtonId = uuidv4();

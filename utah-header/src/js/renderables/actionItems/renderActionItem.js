@@ -75,7 +75,7 @@ export default function renderActionItem(actionItem) {
     if (!popupContentWrapper) {
       throw new Error('renderPopupMenu: contentWrapper not found');
     }
-    popupContentWrapper.appendChild(actionItem.actionDom);
+    popupContentWrapper.appendChild(actionItem.actionDom());
     actionItemElement.appendChild(popupWrapper);
     popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, 'dialog', undefined);
   } else if (actionItem.actionPopupMenu) {
