@@ -21,6 +21,11 @@ Font size variables
   --font-size-5xl: 3rem;     //48
   --font-size-6xl: 3.5rem;   //56
   --font-size-7xl: 4.5rem;   //72
+
+  --font-weight-normal: 400;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
 }
 
 .font-size-2xs { font-size: var(--font-size-2xs); }
@@ -37,13 +42,6 @@ Font size variables
 .font-size-6xl { font-size: var(--font-size-6xl); }
 .font-size-7xl { font-size: var(--font-size-7xl); }
 
-
-#{class-vars.$base-class} {
-  --font-weight-normal: 400;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
-  --font-weight-black: 900;
-}
 
 .font-normal { font-weight: var(--font-weight-normal); }
 .font-semi-bold { font-weight: var(--font-weight-semi-bold); }
