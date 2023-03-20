@@ -18,6 +18,7 @@ import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
+import hookupToolTip from '../tooltip/hookupTooltip';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
@@ -158,6 +159,13 @@ export default function renderMainMenu() {
     }
     utahIdButtonWrapper.appendChild(utahIdButton);
   }
+
+  // search icon
+  const searchIcon = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MAIN_MENU__SEARCH));
+  if (!searchIcon || !(searchIcon instanceof HTMLElement)) {
+    throw new Error('renderMainMenu: searchIcon not found');
+  }
+  hookupToolTip(searchIcon, 'Search');
 
   return { mainMenuWrapper, utahIdPopup };
 }
