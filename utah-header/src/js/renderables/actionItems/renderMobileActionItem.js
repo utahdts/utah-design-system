@@ -2,6 +2,9 @@
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import MobileActionItemHtml from './html/MobileActionItem.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import ActionItemMenuContentHtml from './html/ActionItemMenuContent.html?raw';
 
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
@@ -75,7 +78,16 @@ export default function renderMobileActionItem(actionItem) {
     // content is a menu
     const iconButtonId = uuidv4();
     iconButton.setAttribute('id', iconButtonId);
-    actionItemContent = renderMenu(actionItem.actionPopupMenu.menuItems, { childrenMenuType: childrenMenuTypes.INLINE });
+
+    actionItemContent = renderDOMSingle(ActionItemMenuContentHtml);
+    const actionItemContentTitle = actionItemContent.querySelector(getCssClassSelector(domConstants.POPUP_MENU_WRAPPER__WRAPPER_TITLE));
+    if (!actionItemContentTitle) {
+      throw new Error('renderMobileActionItem: actionItemContentTitle not found');
+    }
+    actionItemContentTitle.appendChild(document.createTextNode(actionItem.actionPopupMenu.title));
+
+    const actionItemMenu = renderMenu(actionItem.actionPopupMenu.menuItems, { childrenMenuType: childrenMenuTypes.INLINE });
+    actionItemContent.appendChild(actionItemMenu);
   } else {
     // eslint-disable-next-line no-console
     console.error(actionItem);

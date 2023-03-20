@@ -117,6 +117,12 @@ export default {
   TITLE__LOGO: 'utds-title-wrapper__logo',
   TITLE__TITLE: 'utds-title-wrapper__title',
 
+  TOOLTIP: 'utds-tooltip',
+  TOOLTIP__CONTENT: 'tooltip__content',
+  TOOLTIP__WRAPPER: 'tooltip__wrapper',
+  TOOLTIP__WRAPPER__HIDDEN: 'tooltip__wrapper--hidden',
+  TOOLTIP__WRAPPER__VISIBLE: 'tooltip__wrapper--visible',
+
   UTAH_ID: 'utds-utah-id-wrapper',
   UTAH_ID__BUTTON: 'utds-utah-id__button',
 };

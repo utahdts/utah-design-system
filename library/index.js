@@ -33,6 +33,7 @@ export { default as Select } from './react/components/forms/Select';
 export { default as SelectOption } from './react/components/forms/SelectOption';
 export { default as setValueAtPath } from './react/util/state/setValueAtPath';
 export { default as SidePanelNavigation } from './react/components/navigation/SidePanelNavigation';
+export { default as Spinner } from './react/components/widgetsIndicators/Spinner';
 export { default as stringToId } from './react/util/stringToId';
 export { default as Switch } from './react/components/forms/Switch';
 export { default as Tab } from './react/components/containers/tabs/Tab';

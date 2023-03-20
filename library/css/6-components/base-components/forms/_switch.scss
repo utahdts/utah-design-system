@@ -170,16 +170,12 @@ input[type=checkbox].switch {
 }
 
 .switch-old::after {
-  left: 1px;
   top: 4px;
   background-color: #fff;
   border-radius: 50%;
   width: 14px;
   height: 14px;
   border: 1px solid color-swatches.$warm-gray-08;
-}
-
-.switch-old::after {
   left: 16px;
   border-color: color-swatches.$aspen-green-08;
   color: color-swatches.$aspen-green-08;

@@ -1,4 +1,8 @@
 // @ts-check
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import ActionItemHtml from './html/ActionItem.html?raw';
+
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import appendChildAll from '../../misc/appendChildAll';
@@ -7,9 +11,7 @@ import { renderDOMSingle } from '../../misc/renderDOM';
 import uuidv4 from '../../misc/uuidv4';
 import renderPopup from '../popup/renderPopup';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import ActionItemHtml from './html/ActionItem.html?raw';
+import hookupToolTip from '../tooltip/hookupTooltip';
 import renderActionItemBadge from './renderActionItemBadge';
 
 /**
@@ -95,6 +97,8 @@ export default function renderActionItem(actionItem) {
     console.error(actionItem);
     throw new Error('Action Item: no defined action; must have either actionFunction, actionDom, or actionPopupMenu');
   }
+
+  hookupToolTip(actionItemElement, actionItem.title);
 
   return actionItemElement;
 }
