@@ -165,7 +165,15 @@ export default function renderMainMenu() {
   if (!searchIcon || !(searchIcon instanceof HTMLElement)) {
     throw new Error('renderMainMenu: searchIcon not found');
   }
-  hookupToolTip(searchIcon, 'Search');
+  if (settings.onSearch) {
+    hookupToolTip(searchIcon, 'Search');
+    if (searchIcon.onclick) {
+      throw new Error('searchIcon already has onclick');
+    }
+    searchIcon.onclick = () => settings.onSearch?.('Not yet implemented (UTAHDS-562)');
+  } else {
+    searchIcon.remove();
+  }
 
   return { mainMenuWrapper, utahIdPopup };
 }
