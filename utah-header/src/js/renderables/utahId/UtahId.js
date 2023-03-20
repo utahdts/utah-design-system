@@ -100,6 +100,11 @@ export function renderUtahIdButton() {
   // create UtahID wrapper w/ button DOM
   const utahIdButton = renderDOMSingle(UtahIdButtonHtml);
   utahIdButton.setAttribute('id', uuidv4());
+
+  // set utah id user name change immediately to current value so that the button does not flicker
+  if (utahIdData) {
+    authChangedEventHandler(utahIdData);
+  }
   return utahIdButton;
 }
 
