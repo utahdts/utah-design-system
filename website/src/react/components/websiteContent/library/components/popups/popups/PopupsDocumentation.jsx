@@ -302,7 +302,7 @@ function PopupsDocumentation() {
           or mashing the escape key.
         </li>
       </ul>
-      <h3 id="section-accessibility">Accessability</h3>
+      <h3 id="section-accessibility">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>The popup boundary (the outside edge of the popup) must maintain a <code>3:1</code> contrast ratio or better.</li>
