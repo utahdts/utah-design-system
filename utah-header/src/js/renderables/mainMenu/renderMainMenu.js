@@ -172,6 +172,8 @@ export default function renderMainMenu() {
     }
     searchIcon.onclick = () => settings.onSearch?.('Not yet implemented (UTAHDS-562)');
   } else {
+    // add a blank div to consume space
+    searchIcon.parentElement?.insertBefore(renderDOMSingle('<div class="main-menu__search-placeholder">'), searchIcon);
     searchIcon.remove();
   }
 
