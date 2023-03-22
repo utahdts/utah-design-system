@@ -17,25 +17,25 @@ import {
 } from '@utahdts/utah-design-system';
 import SandboxExample from '../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../staticExamples/StaticExample';
-import BadgesExampleCodeReact from './TooltipsExampleCodeReact';
-import BadgesExampleProps from './TooltipsExampleProps';
-import BadgesExampleRender from './TooltipsExampleRender';
+import TooltipsExampleCodeReact from './TooltipsExampleCodeReact';
+import TooltipsExampleProps from './TooltipsExampleProps';
+import TooltipsExampleRender from './TooltipsExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
-function BadgesDocumentation() {
+function TooltipsDocumentation() {
   return (
     <div className="documentation-content">
-      <h1 id="h1-top">Badges</h1>
+      <h1 id="h1-top">Tooltips</h1>
       <p className="lead-in">Tooltips are floating labels to describe or add additional information when users hover over or focus on an interactive element.  Use sparingly.</p>
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
-        CODE_EXAMPLE={BadgesExampleCodeReact}
-        PROPS_EXAMPLE={BadgesExampleProps}
-        RENDER_EXAMPLE={BadgesExampleRender}
+        CODE_EXAMPLE={TooltipsExampleCodeReact}
+        PROPS_EXAMPLE={TooltipsExampleProps}
+        RENDER_EXAMPLE={TooltipsExampleRender}
       />
       <StaticExample
         title="Emphasized Badges (Solid)"
@@ -114,11 +114,11 @@ function BadgesDocumentation() {
                 <li>Icon Buttons</li>
               </ul>
             </li>Non-interactive elements (be mindful of keyboard accessibility):
-              <ul>
-                <li>Icons</li>
-                <li>Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)</li>
-                <li>Truncated text</li>
-              </ul>
+            <ul>
+              <li>Icons</li>
+              <li>Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)</li>
+              <li>Truncated text</li>
+            </ul>
           </ul>
         </li>
         <li>Only show one tooltip at a time.</li>
@@ -225,7 +225,7 @@ function BadgesDocumentation() {
   );
 }
 
-BadgesDocumentation.propTypes = propTypes;
-BadgesDocumentation.defaultProps = defaultProps;
+TooltipsDocumentation.propTypes = propTypes;
+TooltipsDocumentation.defaultProps = defaultProps;
 
-export default BadgesDocumentation;
+export default TooltipsDocumentation;

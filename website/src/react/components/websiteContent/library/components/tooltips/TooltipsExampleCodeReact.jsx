@@ -1,17 +1,17 @@
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import BadgesExamplePropsShape from '../../../../../propTypesShapes/BadgesExamplePropsShape';
+import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
 import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../sandbox/SandboxIndent';
 
 const propTypes = {
   state: PropTypes.shape({
-    props: BadgesExamplePropsShape.isRequired,
+    props: TooltipsExamplePropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
 
-function BadgesExampleCode({
+function TooltipExampleCode({
   state: {
     props: {
       appearance,
@@ -31,7 +31,7 @@ function BadgesExampleCode({
 }) {
   return (
     <>
-      &lt;Badges
+      &lt;Tooltip
       <br />
       <ExampleCodeReactProp displayProp={appearance ? `appearance="${appearance}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={color ? `color="${color}"` : null} indentLevel={1} />
@@ -50,12 +50,12 @@ function BadgesExampleCode({
       <SandboxIndent indentLevel={1} />
       {title}
       <br />
-      &lt;/Badges&gt;
+      &lt;/Tooltip&gt;
     </>
   );
 }
 
-BadgesExampleCode.propTypes = propTypes;
-BadgesExampleCode.defaultProps = defaultProps;
+TooltipExampleCode.propTypes = propTypes;
+TooltipExampleCode.defaultProps = defaultProps;
 
-export default BadgesExampleCode;
+export default TooltipExampleCode;

@@ -9,17 +9,17 @@ import {
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import BadgesExamplePropsShape from '../../../../../../propTypesShapes/BadgesExamplePropsShape';
+import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,
   state: PropTypes.shape({
-    props: BadgesExamplePropsShape.isRequired,
+    props: TooltipsExamplePropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
 
-function BadgesExampleProps({ setState, state }) {
+function TooltipsExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
@@ -89,7 +89,7 @@ function BadgesExampleProps({ setState, state }) {
   );
 }
 
-BadgesExampleProps.propTypes = propTypes;
-BadgesExampleProps.defaultProps = defaultProps;
+TooltipsExampleProps.propTypes = propTypes;
+TooltipsExampleProps.defaultProps = defaultProps;
 
-export default BadgesExampleProps;
+export default TooltipsExampleProps;

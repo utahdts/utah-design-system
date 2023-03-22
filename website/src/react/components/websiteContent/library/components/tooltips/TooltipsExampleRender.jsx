@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Button, RefShape } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import BadgesExamplePropsShape from '../../../../../../propTypesShapes/BadgesExamplePropsShape';
+import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
 
 const propTypes = {
   state: PropTypes.shape({
-    props: BadgesExamplePropsShape.isRequired,
+    props: TooltipsExamplePropsShape.isRequired,
   }).isRequired,
   innerRef: RefShape,
 };
@@ -13,7 +13,7 @@ const defaultProps = {
   innerRef: null,
 };
 
-function BadgesExampleRender({
+function TooltipsExampleRender({
   state: {
     props: {
       onClick,
@@ -32,7 +32,7 @@ function BadgesExampleRender({
   );
 }
 
-BadgesExampleRender.propTypes = propTypes;
-BadgesExampleRender.defaultProps = defaultProps;
+TooltipsExampleRender.propTypes = propTypes;
+TooltipsExampleRender.defaultProps = defaultProps;
 
-export default BadgesExampleRender;
+export default TooltipsExampleRender;
