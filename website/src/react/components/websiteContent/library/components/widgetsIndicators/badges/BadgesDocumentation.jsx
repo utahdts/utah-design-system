@@ -88,7 +88,7 @@ function BadgesDocumentation() {
         <li><strong>Hide badge when acknowledged</strong>: When a badge is used to indicate an unread notification, the badge gets hidden once it has been viewed or acknowledged by the user. </li>
       </ul>
 
-      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>Badges use a color intended to stand out against labels, icons, and navigation elements. Typically use the default color mapping (red) to avoid color conflict issues. You may use other colors to convey different meanings.</li>

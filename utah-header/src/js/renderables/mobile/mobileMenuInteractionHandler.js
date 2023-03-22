@@ -104,6 +104,11 @@ export default function mobileMenuInteractionHandler(
   }
 
   // openingElement.onclick - show mobile menu and show mobileMenuContentItem and select actionItemElement
+  if (interactiveElement.onclick) {
+    throw new Error('mobileMenuInteractionHandler: interactiveElement already has onclick');
+  }
+
+  // setup opening closing for things like utahid/hamburger
   // eslint-disable-next-line no-param-reassign
   interactiveElement.onclick = (e) => {
     if (!(onClickHandler && onClickHandler(e))) {
@@ -125,7 +130,11 @@ export default function mobileMenuInteractionHandler(
     }
   };
 
+  // do mobile content item show/hide
   if (mobileMenuContentItem) {
+    if (actionItemWrapper !== interactiveElement && actionItemWrapper.onclick) {
+      throw new Error('mobileMenuInteractionHandler: actionItemWrapper already has onclick');
+    }
     // eslint-disable-next-line no-param-reassign
     actionItemWrapper.onclick = (e) => {
       if (!(onClickHandler && onClickHandler(e))) {

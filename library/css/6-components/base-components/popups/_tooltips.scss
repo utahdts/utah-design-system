@@ -1,0 +1,97 @@
+@use "../../../1-settings/settings-index";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/spacing";
+
+#{class-vars.$base-class} {
+  .tooltip {
+    &__wrapper {
+      position: absolute;
+      z-index: 110;
+      background: none transparent;
+      // initial position so that the tooltip doesn't go off the screen
+      left: 0;
+      top: 0;
+
+      transition: opacity 100ms ease-in-out;
+
+      &--visible {
+        opacity: 1;
+        .tooltip__content {
+          transform: scale(1);
+        }
+      }
+      &--hidden {
+        opacity: 0;
+        pointer-events: none;
+        .tooltip__content {
+          transform: scale(.7);
+        }
+      }
+    }
+    &__content {
+      background: white;
+      border-radius: var(--radius-small);
+      background: var(--gray-color);
+      color: white;
+      box-sizing: border-box;
+      padding: var(--spacing-3xs) var(--spacing-s);
+      transition: transform 100ms ease-in-out;
+      box-shadow: var(--elevation-small);
+    }
+
+    &__arrow {
+      visibility: hidden;
+
+      &, &::before {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: inherit;
+        z-index: -1;
+      }
+
+      &::before {
+        visibility: visible;
+        content: '';
+        transform: rotate(45deg);
+      }
+    }
+
+
+    &__wrapper[data-popper-placement^='top'] {
+      .tooltip__content {
+        transform-origin: bottom;
+      }
+      .tooltip__arrow {
+        bottom: -2px;
+      }
+    }
+
+    &__wrapper[data-popper-placement^='bottom'] {
+      .tooltip__content {
+        transform-origin: top;
+      }
+      .tooltip__arrow {
+        top: -3px;
+      }
+    }
+
+    &__wrapper[data-popper-placement^='left'] {
+      .tooltip__content {
+        transform-origin: right;
+      }
+      .tooltip__arrow {
+        right: -2px;
+      }
+    }
+
+    &__wrapper[data-popper-placement^='right'] {
+      .tooltip__content {
+        transform-origin: left;
+      }
+      .tooltip__arrow {
+        left: -3px;
+      }
+    }
+  }
+}
