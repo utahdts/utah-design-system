@@ -5,7 +5,7 @@ import { describe, expect, test } from 'vitest';
 import stringifyHeaderSettings, { FUNCTION_PLACEHOLDER } from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';
 
 /**
- * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
+ * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
 const MATCH_BASIC_FIELDS = [
@@ -35,6 +35,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -53,6 +57,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -73,6 +81,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -93,6 +105,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -127,6 +143,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -155,6 +175,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -182,6 +206,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -189,7 +217,7 @@ describe('stringifyHeaderSettings', () => {
       },
       actionItems: [
         {
-          actionDom: document.createElement('span'),
+          actionDom: () => document.createElement('span'),
           icon: 'i-am-an-icon',
           showTitle: true,
           title: 'action item for life!',
@@ -215,6 +243,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,
@@ -255,6 +287,10 @@ describe('stringifyHeaderSettings', () => {
       size: sizes.MEDIUM,
       title: 'Utah Design System',
       titleURL: '/',
+      mainMenu: {
+        menuItems: [],
+        title: 'test-menu',
+      },
       mediaSizes: {
         mobile: 640,
         tabletPortrait: 768,

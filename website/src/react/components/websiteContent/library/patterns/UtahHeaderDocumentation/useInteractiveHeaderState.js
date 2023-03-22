@@ -14,7 +14,7 @@ import parseHeaderSettings from './parseHeaderSettings';
 import stringifyHeaderSettings from './stringifyHeaderSettings';
 
 /**
- * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
+ * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
 /**
