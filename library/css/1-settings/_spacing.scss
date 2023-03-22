@@ -18,8 +18,7 @@
   --spacing-4xl: 64px;
   --spacing-5xl: 80px;
   --spacing-6xl: 96px;
-}
-#{class-vars.$base-class} {
+
   .m-spacing { margin: var(--spacing); }
   .mt-spacing { margin-top: var(--spacing); }
   .mr-spacing { margin-right: var(--spacing); }

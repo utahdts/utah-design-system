@@ -18,6 +18,11 @@
     .menu-item__search {
       margin-left: auto;
     }
+
+    &__search-placeholder {
+      height: var(--form-ele-medium);
+      width: var(--form-ele-medium);
+    }
   }
 
   .horizontal-menu {

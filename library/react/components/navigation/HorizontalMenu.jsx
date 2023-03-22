@@ -7,7 +7,7 @@ import MenuItem from './MenuItem';
 const propTypes = {
   className: PropTypes.string,
   currentMenuItem: MenuItemShape,
-  // used for accessability labeling
+  // used for accessibility labeling
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   menu: MenuShape.isRequired,
   titleTagClassName: PropTypes.string,

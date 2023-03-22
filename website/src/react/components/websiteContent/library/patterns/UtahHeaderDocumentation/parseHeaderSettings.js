@@ -2,7 +2,7 @@ import { renderDOM, valueAtPath } from '@utahdts/utah-design-system';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
 /**
- * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
+ * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
 export class ParseHeaderSettingsError extends Error {

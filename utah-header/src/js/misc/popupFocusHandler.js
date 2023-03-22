@@ -1,6 +1,6 @@
 // @ts-check
 import { createPopper } from '@popperjs/core';
-import domConstants from '../enumerations/domConstants';
+import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import popupPlacement from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
 import isTouchDevice from './isTouchDevice';
@@ -95,6 +95,10 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
           });
           showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           button.setAttribute('aria-expanded', 'true');
+
+          // hide all tooltips
+          document.querySelectorAll(getCssClassSelector(domConstants.TOOLTIP__WRAPPER))
+            .forEach((tooltip) => tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__HIDDEN));
         },
         delayMS
       );
@@ -147,6 +151,9 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
   */
 
   if (!options?.preventOnClickHandling) {
+    if (button.onclick) {
+      throw new Error('popupFocusHandler: button already has onclick');
+    }
     // eslint-disable-next-line no-param-reassign
     button.onclick = (e) => {
       const wasAlreadyOpen = button.getAttribute('aria-expanded') === 'true';

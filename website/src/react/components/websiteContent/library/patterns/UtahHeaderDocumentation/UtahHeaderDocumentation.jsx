@@ -290,7 +290,7 @@ function UtahHeaderDocumentation() {
         <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
       </ul>
 
-      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast, Keyboard Interactivity and Screen Readers</h4>
       <ul className="mb-spacing">
         <li><strong>Full accessibility</strong>. The Utah Header will have full accessibility for contrast, keyboard, and screen readers out of the box.</li>

@@ -18,6 +18,7 @@ import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
+import hookupToolTip from '../tooltip/hookupTooltip';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
@@ -157,6 +158,23 @@ export default function renderMainMenu() {
       throw new Error('renderMainMenu: utahIdButtonWrapper not found');
     }
     utahIdButtonWrapper.appendChild(utahIdButton);
+  }
+
+  // search icon
+  const searchIcon = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MAIN_MENU__SEARCH));
+  if (!searchIcon || !(searchIcon instanceof HTMLElement)) {
+    throw new Error('renderMainMenu: searchIcon not found');
+  }
+  if (settings.onSearch) {
+    hookupToolTip(searchIcon, 'Search');
+    if (searchIcon.onclick) {
+      throw new Error('searchIcon already has onclick');
+    }
+    searchIcon.onclick = () => settings.onSearch?.('Not yet implemented (UTAHDS-562)');
+  } else {
+    // add a blank div to consume space
+    searchIcon.parentElement?.insertBefore(renderDOMSingle('<div class="main-menu__search-placeholder">'), searchIcon);
+    searchIcon.remove();
   }
 
   return { mainMenuWrapper, utahIdPopup };

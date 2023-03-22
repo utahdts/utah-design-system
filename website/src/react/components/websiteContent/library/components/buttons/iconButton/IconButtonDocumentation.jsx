@@ -386,7 +386,7 @@ function IconButtonDocumentation() {
         <li><strong>Minimum touch zone for touch devices</strong>. Icon buttons should have a minimum touch zone of 36-48px to make it easier to activate on a touch device.</li>
       </ul>
 
-      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>Icon buttons must maintain a 3:1 contrast ratio or better: The button boundary (the outside edge of the button) must maintain a 3:1 contrast ratio or better.</li>
@@ -605,7 +605,7 @@ function IconButtonDocumentation() {
                       </TableCell>
                       <TableCell><em>required</em></TableCell>
                       <TableCell>
-                        A title is required for accessability and is used for the pop over tooltip.
+                        A title is required for accessibility and is used for the pop over tooltip.
                       </TableCell>
                     </TableRow>
 

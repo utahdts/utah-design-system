@@ -136,6 +136,7 @@ export default {
     tabletPortrait: 768,
     tabletLandscape: 1024,
   },
+  onSearch: (search) => alert(search),
   showTitle: true,
   size: sizes.MEDIUM,
   title: 'Utah Design System',
