@@ -20,7 +20,7 @@
  *  // this started as a copy of MenuItem but can diverge to be its own thing
  *  // wordpress has the concept of a menu item that is a link AND has children, but when it goes mobile the link is no longer available
  *  // so the wordpress conversion script will take a menu that has a link and children and auto insert the link as the first child
- *  // TODO: so this could do that work automatically if it detects that scenario instead of throwing an error
+ *  // so this could do that work automatically if it detects that scenario instead of throwing an error
  *
  *  // should be only one of the following three action types
  *  //   actionUrl: an <a> with a url for navigation
