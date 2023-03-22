@@ -2,6 +2,7 @@
 import { NavLink } from 'react-router-dom';
 import { Icons } from '@utahdts/utah-design-system';
 import pageUrls from '../routing/pageUrls';
+import packageJSON from '../../../../package.json';
 
 const propTypes = {};
 const defaultProps = {};
@@ -61,8 +62,10 @@ function HomeLanding() {
         <p>
           In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require that DTS and Executive
           Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
-          design standards and navigation standards”
+          design standards and navigation standards”.
         </p>
+
+        <p className="home-version">Version: {packageJSON.version}</p>
 
       </div>
     </div>

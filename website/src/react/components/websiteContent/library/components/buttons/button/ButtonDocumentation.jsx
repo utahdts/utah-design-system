@@ -430,7 +430,7 @@ function ButtonDocumentation() {
         <li><strong>Avoid stacking.</strong> Generally avoid stacking one button on top of another. Place them side-by-side if there is room.</li>
       </ul>
 
-      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>

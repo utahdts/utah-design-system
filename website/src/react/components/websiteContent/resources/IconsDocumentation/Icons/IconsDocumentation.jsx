@@ -179,7 +179,7 @@ function IconsDocumentation() {
         </li>
       </ul>
 
-      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>An icon that provides contextual meaning must maintain a <code>4.5:1</code> contrast ratio or better at a readable size.</li>

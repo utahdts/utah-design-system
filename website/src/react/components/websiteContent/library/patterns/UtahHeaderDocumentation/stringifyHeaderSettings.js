@@ -5,7 +5,7 @@ import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
 
 /**
- * @typedef {import('utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
+ * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
 /**
