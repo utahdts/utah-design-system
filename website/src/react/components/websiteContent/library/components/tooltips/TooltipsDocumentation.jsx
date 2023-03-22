@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 /* eslint-disable max-len */
 import {
   Tab,
@@ -28,7 +29,7 @@ function BadgesDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Badges</h1>
-      <p className="lead-in">Badges convey dynamic information, such as counts or status. A badge can include labels or numbers.</p>
+      <p className="lead-in">Tooltips are floating labels to describe or add additional information when users hover over or focus on an interactive element.  Use sparingly.</p>
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
@@ -50,21 +51,19 @@ function BadgesDocumentation() {
 
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
-      <p>
-        Badges are used to indicate a notification, item count, or other information relating to a navigation destination.
-        Typically they are placed on the upper right corner of a component such as an icon button.
-      </p>
-
-      <p>There are two types of badges:</p>
-      <ol>
-        <li><strong>Small Badge (shape only, no characters)</strong>: A small badge is a simple circle, used to indicate a status change or an unread notification.</li>
-        <li><strong>Large Badge (usually contain numbers)</strong>: A large badge may contain numbers communicating item count information.</li>
-      </ol>
+      <ul>
+        <li><strong>Enhance Confidence</strong>: Use tooltips to increase certainty about an interaction.</li>
+        <li><strong>Interactive Elements</strong>: Use for icon-only buttons, text links (e.g. Opens in a new tab) or for a button with an associated keyboard shortcut.</li>
+        <li><strong>Brief Descriptions</strong>: Tooltips should be short and descriptive.</li>
+        <li><strong>Insufficient Space</strong>: Use when the description content would be too much information to include inline or create too much clutter.</li>
+      </ul>
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>If not alerting a customer to a notification change</strong>: Badges should be used to alert the user to a status change or unread notifications.</li>
-        <li><strong>It creates a conflict with another icon</strong>: If the badge overpowers the icon or creates confusion, consider changing the icon or icon size. Avoid using icons that look similar to badges.</li>
+        <li><strong>Redundant Text</strong>: Don’t use tooltips to restate visible UI text.</li>
+        <li><strong>Critical Information</strong>: To communicate critical information, including errors in forms or other interaction feedback. Consider using Modals or Notifications</li>
+        <li><strong>Avoid Links and Buttons</strong>: As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either of these, consider putting your content in a Popup.</li>
+        <li><strong>Keep it Brief</strong>: Good tooltips contain concise and helpful information. Keep it short (we recommend no more than 5 words max). If you need more space, consider using a Popup.</li>
       </ul>
 
       <h3 id="section-usability">Usability guidance</h3>
@@ -81,24 +80,70 @@ function BadgesDocumentation() {
             </li>
           </ul>
         </li>
-        <li><strong>Most commonly used with</strong>: Badges are most commonly used within other components, such as icon buttons, navigation elements, and tabs.</li>
-        <li><strong>Badge proximity</strong>: Keep the badge in close proximity to its parent element. When space permits, place the badge inside the parent element on the right side. (e.g. a navigation list item or regular button)</li>
-        <li><strong>Maximum character count</strong>: Ensure that badge labels don’t extend too far beyond the badge container. Typically don’t use more than 4 characters.</li>
-        <li><strong>Avoid changing the position</strong>: Badges have fixed positions. Generally, don’t change the position of the badge arbitrarily or place the badge directly over the parent component.</li>
-        <li><strong>Hide badge when acknowledged</strong>: When a badge is used to indicate an unread notification, the badge gets hidden once it has been viewed or acknowledged by the user. </li>
+        <li>Tooltips are used to provide additional information when space is tight.</li>
+        <li>Tooltips must be concise with one line of text.</li>
+        <li>Tooltips must be accessed via hover and focus only.</li>
+        <li>Use tooltips on Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations, Truncated text)—be mindful of keyboard accessibility.</li>
+        <li>Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely. If you’re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.</li>
+        <li>Never include any kind of error messages in a tooltip.</li>
+        <li>Tooltips have slightly different guidelines to Popups and Modals. For more information, see Popup and Modal guidelines.</li>
+        <li>If the information is crucial for a user to proceed, consider using a modal or inline notification instead.</li>
+        <li>The anatomy of a tooltip is made up of a container, description and arrow.
+          <ul>
+            <li>They do not include a title or heading. If you need to include a title, use a Popup.</li>
+          </ul>
+        </li>
+        <li>A tooltip is connected to a trigger element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered or focused. (More details below.)</li>
+        <li>Tooltip arrows are positioned to any side of the container, depending on available space within the browser viewport.
+          <ul>
+            <li>The arrow always points to the trigger element</li>
+          </ul>
+        </li>
+        <li>Needs to be discoverable:
+          <ul>
+            <li>E.g. an icon.</li>
+            <li>Avoid triggering tooltips from text that excludes a visual indicator (e.g. underline, dashed-underline or icon)</li>
+          </ul>
+        </li>
+        <li>Only trigger tooltips from:
+          <ul>
+            <li>Interactive Elements
+              <ul>
+                <li>Buttons</li>
+                <li>Links</li>
+                <li>Icon Buttons</li>
+              </ul>
+            </li>Non-interactive elements (be mindful of keyboard accessibility):
+              <ul>
+                <li>Icons</li>
+                <li>Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)</li>
+                <li>Truncated text</li>
+              </ul>
+          </ul>
+        </li>
+        <li>Only show one tooltip at a time.</li>
+      </ul>
+
+      <h3 id="section-behavior-and-animation" className="mb-spacing">Behavior and Animation</h3>
+      <ul className="mb-spacing">
+        <li>By default, the tooltip’s arrow centers to the trigger. The arrow may shift left, right, up, down depending on available space between trigger and viewport.</li>
+        <li>By default, a Tooltip drops down from the trigger point, by “slide fading” towards the bottom of the screen away from the trigger point.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
-      <h4 id="section-contrast">Contrast</h4>
+      <p>Preferred Method</p>
       <ul className="mb-spacing">
-        <li>Badges use a color intended to stand out against labels, icons, and navigation elements. Typically use the default color mapping (red) to avoid color conflict issues. You may use other colors to convey different meanings.</li>
-        <li>The majority of the badge boundary must maintain a <code>3:1</code> contrast between its surrounding elements.</li>
-        <li>The badge text must maintain a <code>4.5:1</code> contrast inside the badge.</li>
+        <li>Information contained in the tooltip should always be visible to the screen reader via visually hidden text, an aria-label, aria-labelledby, or aria-describedby.</li>
+        <li>It’s unnecessary to hide information from the screen reader in this instance unless it creates confusion for the user.</li>
       </ul>
 
-      <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
+      <p>If you must use a tooltip for a screen reader do the following:</p>
       <ul className="mb-spacing">
-        <li>Badges are most commonly used within other components, such as icon buttons, navigation elements, and tabs. They rarely, if ever, receive keyboard focus.</li>
+        <li>Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.</li>
+        <li>A tooltip’s trigger should be focusable, the tooltip should show on focus and hide on blur.</li>
+        <li>Use <code>aria-hidden=&quot;true&quot;</code> to prevent screen readers from reading hidden tooltips. Change value to <code>false</code> when tooltip is visible.</li>
+        <li>Tooltip trigger element should have an aria-describedby attribute which references to the <code>id</code> of the associated tooltip.</li>
+        <li>By default, tooltips use <code>role=&quot;tooltip&quot;</code></li>
       </ul>
 
       <h4 id="section-screen-readers">Screen readers</h4>
