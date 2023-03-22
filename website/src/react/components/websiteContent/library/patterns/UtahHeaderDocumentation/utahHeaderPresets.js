@@ -1,5 +1,4 @@
 // eslint-disable-next-line import/no-unresolved
-import { renderDOM } from '@utahdts/utah-design-system';
 import logoPng from '../../../../../../static/images/designSystemCircleGray.png';
 import { FUNCTION_PLACEHOLDER } from './stringifyHeaderSettings';
 
@@ -164,7 +163,7 @@ const utahHeaderPresets = [
         settingsSnippet: {
           actionItems: [
             {
-              actionDom: renderDOM('<div>Hello World! <button>Do not press me.</button></div>'),
+              actionDom: '<div>Hello World! <button>Do not press me.</button></div>',
               badge: {
                 // Note: make sure the `label` is plural/singular to match the value
                 label: 'Help Items Available',

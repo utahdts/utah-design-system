@@ -48,7 +48,8 @@ export default function useInteractiveHeaderState() {
     /** @type {Settings} */
     let resultSettings;
     if (settingsFromStorage) {
-      resultSettings = parseHeaderSettings(settingsFromStorage);
+      // include baseSettings in case localStorage settings are missing something (bargain basement migrator)
+      resultSettings = { ...baseSettings, ...parseHeaderSettings(settingsFromStorage) };
     } else {
       resultSettings = baseSettings;
     }

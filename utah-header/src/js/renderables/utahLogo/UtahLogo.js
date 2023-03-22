@@ -1,13 +1,17 @@
-import { renderDOM } from '../../misc/renderDOM';
-import sizes from '../../enumerations/sizes';
-import { getUtahHeaderSettings } from '../../settings/settings';
+// @ts-check
+// @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import UtahLogoLargeHtml from './html/UtahLogoLarge.html?raw';
+// @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import UtahLogoMediumHtml from './html/UtahLogoMedium.html?raw';
 
+import sizes from '../../enumerations/sizes';
+import renderDOMSingle from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/settings';
+
 /**
- * @returns {HTMLCollection | Element}
+ * @returns {Element}
  */
 export default function UtahLogo() {
   let sizedLogo;
@@ -25,5 +29,5 @@ export default function UtahLogo() {
       throw new Error(`Unknown settings size: '${getUtahHeaderSettings().size}'`);
   }
 
-  return renderDOM(sizedLogo);
+  return renderDOMSingle(sizedLogo);
 }

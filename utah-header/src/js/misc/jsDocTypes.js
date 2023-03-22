@@ -135,11 +135,11 @@
  *  // should be only one of the following three action types
  *  @property {EventAction} [actionFunction] - func: onClick callback
  *  @property {PopupMenu} [actionPopupMenu] - Object[]: array of MenuItems
- *  @property {function (): HTMLElement} [actionDom] - ChildNode: content in a popup.
+ *  @property {function (): HTMLElement | string} [actionDom] - ChildNode: content in a popup.
  *
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon
- *  @property {string} icon - Should be an SVG
+ *  @property {HTMLElement | string} icon - DOM or DOM string of icon to show
  *  @property {'left' | 'none' | 'right'} [mobileMenuLocation] - positioned right or left of the Utah ID button? not at all? default is right
  *  @property {boolean} showTitle - Should the title always be visible?
  *  @property {string} title - Title of the action item (required for accessibility)

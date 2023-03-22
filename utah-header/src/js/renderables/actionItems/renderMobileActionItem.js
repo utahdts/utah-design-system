@@ -8,8 +8,7 @@ import ActionItemMenuContentHtml from './html/ActionItemMenuContent.html?raw';
 
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import appendChildAll from '../../misc/appendChildAll';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
 import renderActionItemBadge from './renderActionItemBadge';
@@ -42,7 +41,7 @@ export default function renderMobileActionItem(actionItem) {
   if (!titleDiv) {
     throw new Error('renderActionItem: titleDiv not found');
   }
-  appendChildAll(titleDiv, titleElement);
+  titleDiv.appendChild(titleElement);
   if (actionItem.showTitle) {
     titleDiv.classList.remove(domConstants.VISUALLY_HIDDEN);
   } else {
@@ -64,7 +63,7 @@ export default function renderMobileActionItem(actionItem) {
 
   const actionItemIcon = renderDOMSingle(actionItem.icon);
   actionItemIcon.setAttribute('role', 'presentation');
-  appendChildAll(iconButton, actionItemIcon);
+  iconButton.appendChild(actionItemIcon);
 
   /** @type {HTMLElement | null} */
   let actionItemContent = null;
@@ -73,7 +72,7 @@ export default function renderMobileActionItem(actionItem) {
   } else if (actionItem.actionDom) {
     const iconButtonId = uuidv4();
     iconButton.setAttribute('id', iconButtonId);
-    actionItemContent = actionItem.actionDom();
+    actionItemContent = renderDOMSingle(typeof actionItem.actionDom === 'function' ? actionItem.actionDom() : actionItem.actionDom);
   } else if (actionItem.actionPopupMenu) {
     // content is a menu
     const iconButtonId = uuidv4();

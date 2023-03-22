@@ -1,10 +1,11 @@
 // @ts-check
-import { renderDOMSingle } from '../../misc/renderDOM';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupHtml from './html/Popup.html?raw';
-import uuidv4 from '../../misc/uuidv4';
+
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import renderDOMSingle from '../../misc/renderDOMSingle';
+import uuidv4 from '../../misc/uuidv4';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').RenderPopupOptions} RenderPopupOptions

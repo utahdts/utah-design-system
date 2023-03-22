@@ -22,7 +22,6 @@ export default function stringifyHeaderSettings(settingsObject) {
 
   actionItems.forEach((actionItem) => {
     switch (actionItem.searchKey) {
-      case 'actionDom':
       case 'actionFunction':
       case 'onAuthChanged':
       case 'onProfile':
@@ -32,6 +31,8 @@ export default function stringifyHeaderSettings(settingsObject) {
         valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = FUNCTION_PLACEHOLDER;
         break;
 
+      // ignore that actionDom can be a function (the example page just always shows strings since functions are such a bugger to work in the editor)
+      case 'actionDom':
       case 'icon':
       case 'logo': {
         const possiblyDOM = actionItem.object[actionItem.searchKey];

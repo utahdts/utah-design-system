@@ -6,7 +6,7 @@ import ToolTipHTML from './html/Tooltip.html?raw';
 import { createPopper } from '@popperjs/core';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import popupPlacement from '../../enumerations/popupPlacement';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 
 let tooltipCloseTimeoutId = NaN;
 /**

@@ -1,18 +1,18 @@
 // @ts-check
-import { renderDOMSingle } from '../../misc/renderDOM';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import { getUtahHeaderSettings } from '../../settings/settings';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
-import appendChildAll from '../../misc/appendChildAll';
+
+import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import isString from '../../misc/isString';
+import renderDOMSingle from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/settings';
 
 /**
- * @returns {HTMLCollection | Element}
+ * @returns {Element}
  */
 export default function LogoTitle() {
   const logoTitleURL = getUtahHeaderSettings().titleURL;
@@ -42,7 +42,7 @@ export default function LogoTitle() {
       settingsLogoElement = /** @type {Element} */ (settingsLogo);
     }
     settingsLogoElement.setAttribute('role', 'presentation');
-    appendChildAll(logoWrapper, settingsLogoElement);
+    logoWrapper.appendChild(settingsLogoElement);
   } else {
     logoTitleWrapper.removeChild(logoWrapper);
   }

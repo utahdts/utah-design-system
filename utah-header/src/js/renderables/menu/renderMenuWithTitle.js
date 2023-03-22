@@ -3,7 +3,7 @@
 // eslint-disable-next-line import/no-unresolved
 import MenuWithTitle from './html/MenuWithTitle.html?raw';
 
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 
 /**

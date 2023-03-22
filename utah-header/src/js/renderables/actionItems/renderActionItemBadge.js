@@ -1,6 +1,6 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
