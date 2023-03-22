@@ -11,7 +11,6 @@
   "dependencies": {
     "@utahdts/utah-design-system": "file:../library",
     "@utahdts/utah-design-system-header": "file:../utah-header",
-    "immer": "9.0.19",
     "js-beautify": "1.14.7",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
@@ -33,9 +32,9 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "happy-dom": "8.9.0",
     "sass": "1.59.3",
-    "vite": "4.1.4",
+    "vite": "4.2.1",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-mkcert": "1.13.3",
-    "vitest": "0.29.1"
+    "vitest": "0.29.7"
   }
 }

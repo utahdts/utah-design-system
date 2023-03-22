@@ -15,13 +15,14 @@ export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
  */
 export default function stringifyHeaderSettings(settingsObject) {
   // !!!! Changes here need to also be made in parseHeaderSettings.js !!!! //
-  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut'];
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut', 'actionDom'];
   const actionItems = objectsPathsWithKeys(settingsObject, customFields);
 
   const copySettings = copyObjectWithoutFields(settingsObject, customFields);
 
   actionItems.forEach((actionItem) => {
     switch (actionItem.searchKey) {
+      case 'actionDom':
       case 'actionFunction':
       case 'onAuthChanged':
       case 'onProfile':
@@ -31,7 +32,6 @@ export default function stringifyHeaderSettings(settingsObject) {
         valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = FUNCTION_PLACEHOLDER;
         break;
 
-      case 'actionDom':
       case 'icon':
       case 'logo': {
         const possiblyDOM = actionItem.object[actionItem.searchKey];
