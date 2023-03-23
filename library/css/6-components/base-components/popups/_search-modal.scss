@@ -1,0 +1,51 @@
+@use "../../../1-settings/settings-index";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/spacing";
+
+
+#{class-vars.$base-class} {
+  .search-modal {
+    &__form {
+      position: fixed;
+      top: 25%;
+      z-index: 1010;
+    }
+    &__input {
+      border-radius: var(--radius-circle);
+      border: none;
+      width: 50vw;
+      padding: var(--spacing) var(--spacing-l) var(--spacing) var(--spacing-3xl);
+      font-size: var(--font-size-l);
+    }
+    &__button{
+      position: absolute;
+      right: var(--spacing-s)
+
+    }
+    &__close-button {
+      position: absolute;
+      top: -10px;
+      right: 0;
+      transform: translateY(-100%);
+      & [class*=utds-icon-before-]::before {
+        font-size: 1rem;
+        color: white;
+      }
+      &:hover {
+        background: white;
+        & [class*=utds-icon-before-]::before {
+          color: var(--primary-color);
+        }
+      }
+    }
+    &__icon-search {
+      position: absolute;
+      top: calc(50% + 2px);
+      left: var(--spacing);
+      &[class*=utds-icon-before-]::before {
+        display: block;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
