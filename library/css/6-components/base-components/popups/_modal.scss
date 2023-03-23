@@ -1,0 +1,15 @@
+@use "../../../1-settings/settings-index";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/spacing";
+
+
+#{class-vars.$base-class} {
+  .modal-backdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+}
