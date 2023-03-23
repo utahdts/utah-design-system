@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 import {
   Tab,
@@ -15,13 +15,17 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
+import buttonDarkOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/button-dark-on-top.png';
+import buttonLightOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/button-light-on-top.png';
+import iconDarkOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/icon-dark-on-top.png';
+import iconLightOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/icon-light-on-top.png';
+import PreCode from '../../../../preCode/PreCode';
 import SandboxExample from '../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import TooltipsExampleCodeReact from './TooltipsExampleCodeReact';
 import TooltipsExampleProps from './TooltipsExampleProps';
 import TooltipsExampleRender from './TooltipsExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
@@ -38,13 +42,23 @@ function TooltipsDocumentation() {
         RENDER_EXAMPLE={TooltipsExampleRender}
       />
       <StaticExample
-        title="Emphasized Badges (Solid)"
-        renderedExample={(
-          <div>I am not a badge</div>
-        )}
+        title="Icon w/ Light Tooltip"
+        renderedExample={<img src={iconLightOnTop} alt="Icon with light tooltip on top" />}
+      />
+      <StaticExample
+        title="Icon w/ Dark Tooltip"
+        renderedExample={<img src={iconDarkOnTop} alt="Icon with dark tooltip on top" />}
+      />
+      <StaticExample
+        title="Button w/ Dark Tooltip"
+        renderedExample={<img src={buttonDarkOnTop} alt="Button with dark tooltip on top" />}
+      />
+      <StaticExample
+        title="Button w/ Light Tooltip"
+        renderedExample={<img src={buttonLightOnTop} alt="Button with light tooltip on top" />}
         quickTips={(
           <ul>
-            <li>All your badges are belong to us.</li>
+            <li>Always appears below, unless there isn&rsquo;t space.</li>
           </ul>
         )}
       />
@@ -60,31 +74,19 @@ function TooltipsDocumentation() {
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>Redundant Text</strong>: Don’t use tooltips to restate visible UI text.</li>
-        <li><strong>Critical Information</strong>: To communicate critical information, including errors in forms or other interaction feedback. Consider using Modals or Notifications</li>
+        <li><strong>Redundant Text</strong>: Don&rsquo;t use tooltips to restate visible UI text.</li>
+        <li><strong>Critical Information</strong>: To communicate critical information, including errors in forms or other interaction feedback. Consider using Modals or Notifications.</li>
         <li><strong>Avoid Links and Buttons</strong>: As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either of these, consider putting your content in a Popup.</li>
         <li><strong>Keep it Brief</strong>: Good tooltips contain concise and helpful information. Keep it short (we recommend no more than 5 words max). If you need more space, consider using a Popup.</li>
       </ul>
 
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Convey dynamic information with navigation</strong>:  Use badges with navigation items to convey dynamic information associated with that destination.</li>
-        <li><strong>Recommended Sizing</strong>:
-          <ul>
-            <li>Small badges should be smaller than large badges since they contain no information</li>
-            <li>Large badge should be large enough for the information to be readable.</li>
-            <li>Use a “+” to indicate a count greater than the available character count.
-              <ul>
-                <li>e.g. 9+, 99+, 999+</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
         <li>Tooltips are used to provide additional information when space is tight.</li>
         <li>Tooltips must be concise with one line of text.</li>
         <li>Tooltips must be accessed via hover and focus only.</li>
         <li>Use tooltips on Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations, Truncated text)—be mindful of keyboard accessibility.</li>
-        <li>Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely. If you’re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.</li>
+        <li>Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely. If you&rsquo;re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.</li>
         <li>Never include any kind of error messages in a tooltip.</li>
         <li>Tooltips have slightly different guidelines to Popups and Modals. For more information, see Popup and Modal guidelines.</li>
         <li>If the information is crucial for a user to proceed, consider using a modal or inline notification instead.</li>
@@ -126,37 +128,39 @@ function TooltipsDocumentation() {
 
       <h3 id="section-behavior-and-animation" className="mb-spacing">Behavior and Animation</h3>
       <ul className="mb-spacing">
-        <li>By default, the tooltip’s arrow centers to the trigger. The arrow may shift left, right, up, down depending on available space between trigger and viewport.</li>
-        <li>By default, a Tooltip drops down from the trigger point, by “slide fading” towards the bottom of the screen away from the trigger point.</li>
+        <li>By default, the tooltip&rsquo;s arrow centers to the trigger. The arrow may shift left, right, up, down depending on available space between trigger and viewport.</li>
+        <li>By default, a Tooltip drops down from the trigger point, by &quot;slide fading&quot; towards the bottom of the screen away from the trigger point.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
       <p>Preferred Method</p>
       <ul className="mb-spacing">
         <li>Information contained in the tooltip should always be visible to the screen reader via visually hidden text, an aria-label, aria-labelledby, or aria-describedby.</li>
-        <li>It’s unnecessary to hide information from the screen reader in this instance unless it creates confusion for the user.</li>
+        <li>It&rsquo;s unnecessary to hide information from the screen reader in this instance unless it creates confusion for the user.</li>
       </ul>
 
       <p>If you must use a tooltip for a screen reader do the following:</p>
       <ul className="mb-spacing">
-        <li>Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.</li>
-        <li>A tooltip’s trigger should be focusable, the tooltip should show on focus and hide on blur.</li>
+        <li>Tooltips contain limited content so we can use an &lsquo;announcer&rsquo; to announce tooltip content to people using screen readers e.g. using an ARIA live region.</li>
+        <li>A tooltip&rsquo;s trigger should be focusable, the tooltip should show on focus and hide on blur.</li>
         <li>Use <code>aria-hidden=&quot;true&quot;</code> to prevent screen readers from reading hidden tooltips. Change value to <code>false</code> when tooltip is visible.</li>
         <li>Tooltip trigger element should have an aria-describedby attribute which references to the <code>id</code> of the associated tooltip.</li>
         <li>By default, tooltips use <code>role=&quot;tooltip&quot;</code></li>
       </ul>
 
-      <h4 id="section-screen-readers">Screen readers</h4>
-      <ul className="mb-spacing">
-        <li>The accessibility label for a badge item will be read after its navigation destination or button label. (e.g. Alerts, 1 unread alert; News, 5 new news items)</li>
-        <li>Large badges will have their text read. Additional contextual information visible only to the screen reader may be required to provide context.
-          <ul>
-            <li>Good: 12 Unread Messages; 5 Unread Alerts</li>
-            <li>Bad: 12; 5</li>
-          </ul>
-        </li>
-        <li>Small badges will simply announce &quot;new notification” or “notifications available”.</li>
-      </ul>
+      <p>Tooltip is used for the <code>aria-labelledby</code>:</p>
+      <PreCode
+        className="gray-block"
+        codeRaw={`&lt;Button aria-labelledby=&quot;myTooltip&quot;&gt;Blergh&lt;/Button&gt;
+&lt;Tooltip id=&quot;myTooltip&quot;&gt;My text&lt;/Tooltip&gt;`}
+      />
+
+      <p>Hidden Tooltip because the accessible text is already there:</p>
+      <PreCode
+        className="gray-block"
+        codeRaw={`&lt;Button class=&quot;icon-button&quot; data-tooltip=&quot;Something&quot;&gt;&lt;span className=&quot;visually-hidden&quot;&gt;Description&lt;/span&gt;&lt;/Button&gt;
+&lt;Tooltip id=&quot;myTooltip&quot; aria-hidden&gt;Description&lt;/Tooltip&gt;`}
+      />
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
