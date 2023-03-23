@@ -160,7 +160,8 @@
  *
  * @typedef GlobalEventType {
  *  @property {function(): void} globalOnClick the current event handler for global on click events
- *  @property {function(): void} globalOnKeypress the current event handler for global on key press events
+ *  @property {function(): void} globalOnKeydown tracks when keys are pressed down
+ *  @property {function(): void} globalOnKeyup the current event handler for global on key press events
  * }
  *
  * Partial is a `typescript` utility that takes a type and makes all its properties optional. This works in vs-code IDEs but may

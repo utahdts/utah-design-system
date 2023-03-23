@@ -2,6 +2,9 @@
 
 @media screen and (max-width: media-size__tablet-landscape__PLACEHOLDER) {
   /* put your media query here for tablet landscape */
+  .utah-design-system .search-modal__input {
+    width: 75vw;
+  }
 }
 
 @media screen and (max-width: media-size__tablet-portrait__PLACEHOLDER) {
@@ -29,6 +32,16 @@
   .utah-design-system .utds-header-mobile__vip-action-items--left,
   .utah-design-system .utds-header-mobile__vip-action-items--right {
     display: flex;
+  }
+
+  .utah-design-system .search-modal__input {
+    width: 75vw;
+    padding: var(--spacing) var(--spacing) var(--spacing) var(--spacing-3xl);
+  }
+  .utah-design-system .search-modal__button-wrapper {
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%) translateY(110%);
   }
 }
 

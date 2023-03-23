@@ -14,19 +14,22 @@
       border-radius: var(--radius-circle);
       border: none;
       width: 50vw;
-      padding: var(--spacing) var(--spacing-l) var(--spacing) var(--spacing-3xl);
+      padding: var(--spacing) 170px var(--spacing) var(--spacing-3xl);
       font-size: var(--font-size-l);
     }
-    &__button{
+    &__button-wrapper {
       position: absolute;
       right: var(--spacing-s)
-
+    
+    }
+    &__close-button-wrapper {
+      position: fixed;
+      top: var(--spacing);
+      right: var(--spacing);
+      z-index: 1010;
     }
     &__close-button {
-      position: absolute;
-      top: -10px;
-      right: 0;
-      transform: translateY(-100%);
+      
       & [class*=utds-icon-before-]::before {
         font-size: 1rem;
         color: white;

@@ -109,6 +109,13 @@ export default {
   POPUP_CONTENT_WRAPPER: 'popup__content',
   POPUP_WRAPPER: 'popup__wrapper',
 
+  SEARCH__SEARCH_BACKDROP: 'search-backdrop',
+  SEARCH__SEARCH_CLOSE_BUTTON: 'search-modal__close-button',
+  SEARCH__SEARCH_BUTTON: 'search-modal__button',
+  SEARCH__SEARCH_BUTTON_WRAPPER: 'search-modal__button-wrapper',
+  SEARCH__SEARCH_INPUT: 'search-modal__input',
+  SEARCH__SEARCH_MODAL: 'search-modal',
+
   SIZE__LARGE: 'large',
   SIZE__MEDIUM: 'medium',
 
