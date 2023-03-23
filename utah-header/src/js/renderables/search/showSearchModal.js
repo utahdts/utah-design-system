@@ -14,6 +14,12 @@ function closeSearchModal() {
     throw new Error('closSearchModal: searchModal not found');
   }
   searchModal.remove();
+
+  const searchIcon = /** @type {HTMLElement} */ (document.querySelector(getCssClassSelector(domConstants.MAIN_MENU__SEARCH)));
+  if (!searchIcon) {
+    throw new Error('closSearchModal: searchIcon not found');
+  }
+  searchIcon.focus();
 }
 
 export default function showSearchModal() {
