@@ -207,6 +207,11 @@ export const menuResourcesSecondary = {
       parentLinks: [pages.resources.link],
     },
     {
+      link: pages.mockups.link,
+      title: pages.mockups.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+    {
       link: pages.demo.link,
       title: pages.demo.pageTitle,
       parentLinks: [pages.resources.link],

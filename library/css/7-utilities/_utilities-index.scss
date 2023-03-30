@@ -79,6 +79,13 @@ utility classes, atomic css
 .gap { gap: var(--spacing); }
 .gap-l { gap: var(--spacing-l); }
 
+.flex-4up {
+  flex: 0 1 25%;
+}
+.flex-4up-gap {
+  flex: 0 1 calc(25% - var(--spacing));
+}
+
 
 /* ----- Positioning ---- */
 .hcenter {

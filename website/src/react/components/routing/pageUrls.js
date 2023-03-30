@@ -28,6 +28,7 @@ const pageUrls = {
   layout: '/foundation/layout',
   library: '/library',
   links: '/library/components/basic/links',
+  mockups: '/resources/mockups',
   motionTiming: '/foundation/motionTiming',
   opacity: '/foundation/opacity',
   patterns: '/library/patterns',
