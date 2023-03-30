@@ -13,12 +13,13 @@ import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import findRecursive from '../../misc/findRecursive';
 import popupFocusHandler from '../../misc/popupFocusHandler';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
-import { renderUtahIdForMobile } from '../utahId/UtahId';
+import showSearchModal from '../search/showSearchModal';
 import hookupToolTip from '../tooltip/hookupTooltip';
+import { renderUtahIdForMobile } from '../utahId/UtahId';
 
 /**
  * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
@@ -170,7 +171,7 @@ export default function renderMainMenu() {
     if (searchIcon.onclick) {
       throw new Error('searchIcon already has onclick');
     }
-    searchIcon.onclick = () => settings.onSearch?.('Not yet implemented (UTAHDS-562)');
+    searchIcon.onclick = () => showSearchModal();
   } else {
     // add a blank div to consume space
     searchIcon.parentElement?.insertBefore(renderDOMSingle('<div class="main-menu__search-placeholder">'), searchIcon);

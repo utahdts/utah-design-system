@@ -16,7 +16,7 @@ test('groupElementsByHeaderLevel: single level', () => {
       children: [],
       level: 2,
       node: {
-        tagName: "h2",
+        tagName: 'h2',
       },
     }]);
 
@@ -25,7 +25,7 @@ test('groupElementsByHeaderLevel: single level', () => {
       children: [],
       level: 3,
       node: {
-        tagName: "h3",
+        tagName: 'h3',
       },
     }]);
 });
@@ -46,54 +46,48 @@ test('groupElementsByHeaderLevel: multiLevel', () => {
   ]))
     .toStrictEqual([
       {
-        "node": { "tagName": "h2" },
-        "children": [
+        node: { tagName: 'h2' },
+        children: [
           {
-            "node": { "tagName": "h3" },
-            "children": [
-              {
-                "node":
-                  { "tagName": "h4" }, "children": [], "level": 4
-              }
+            node: { tagName: 'h3' },
+            children: [
+              { node: { tagName: 'h4' }, children: [], level: 4 },
             ],
-            "level": 3
-          }
+            level: 3,
+          },
         ],
-        "level": 2
+        level: 2,
       },
       {
-        "node": { "tagName": "h2" }, "children": [], "level": 2
+        node: { tagName: 'h2' }, children: [], level: 2,
       },
       {
-        "node": { "tagName": "h1" },
-        "level": 1,
-        "children": [
-          { "node": { "tagName": "h2" }, "children": [], "level": 2 },
+        node: { tagName: 'h1' },
+        level: 1,
+        children: [
+          { node: { tagName: 'h2' }, children: [], level: 2 },
           {
-            "node": { "tagName": "h2" },
-            "level": 2,
-            "children": [
+            node: { tagName: 'h2' },
+            level: 2,
+            children: [
               {
-                "node": { "tagName": "h3" },
-                "level": 3,
-                "children": [
+                node: { tagName: 'h3' },
+                level: 3,
+                children: [
                   {
-                    "node": { "tagName": "h4" },
-                    "level": 4,
-                    "children": [
+                    node: { tagName: 'h4' },
+                    level: 4,
+                    children: [
                       {
-                        "node": { "tagName": "h5" },
-                        "level": 5,
-                        "children": [
-                          {
-                            "node":
-                              { "tagName": "h6" }, "children": [], "level": 6
-                          }
+                        node: { tagName: 'h5' },
+                        level: 5,
+                        children: [
+                          { node: { tagName: 'h6' }, children: [], level: 6 },
                         ],
                       }],
                   }],
               }],
           }],
-      }
+      },
     ]);
 });

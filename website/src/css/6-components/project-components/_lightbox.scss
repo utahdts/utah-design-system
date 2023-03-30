@@ -1,0 +1,66 @@
+@use "../../../../../library/css/1-settings/settings-index";
+@use "../../../../../library/css/1-settings/class-vars";
+@use "../../../../../library/css/1-settings/spacing";
+
+
+#{class-vars.$base-class} {
+  .lightbox {
+    &__image-thumbnail {
+      border-radius: unset;
+      padding: 0;
+      img {
+        width: 100%;
+      }
+      &:hover {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+      margin: 2rem 0 0 0;
+    }
+    &__image {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1010;
+
+      img {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        max-height: 100%;
+        padding: var(--spacing-2xl);
+        box-sizing: border-box;
+      }
+    }
+    &__button-text {
+      position: absolute;
+      top: -10px;
+      transform: translate(-50%, -100%);
+      font-size: var(--font-size-xs);
+      max-height: 2rem;
+      overflow: hidden;
+      border-radius: 0;
+    }
+    &__popup-text {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: var(--font-size-xs);
+      z-index: 1020;
+      color: white;
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-3xl);
+    }
+    &__close-button {
+      position: fixed;
+      top: var(--spacing);
+      right: var(--spacing);
+      z-index: 1020;
+    }
+  }
+}

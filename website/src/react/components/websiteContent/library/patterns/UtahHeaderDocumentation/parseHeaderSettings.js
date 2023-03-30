@@ -1,4 +1,4 @@
-import { renderDOM, valueAtPath } from '@utahdts/utah-design-system';
+import { valueAtPath } from '@utahdts/utah-design-system';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
 /**
@@ -42,11 +42,10 @@ export default function parseHeaderSettings(settingsString) {
       case 'actionDom':
       case 'icon':
       case 'logo': {
-        const domString = actionItem.object[actionItem.searchKey];
-        valueAtPath({ object: resultSettings, path: actionItem.path })[actionItem.searchKey] = (
-          (!domString || domString === 'null') ? null : renderDOM(domString)
-        );
-      } break;
+        // just leave it be, the code will call renderDOM on it
+        // actionDom COULD be a function, but don't allow that for this example tool since functions are pain in this context
+        break;
+      }
 
       default:
         throw new Error(`parseHeaderSettings: Invalid searchKey for actionItem: '${actionItem.searchKey}'`);

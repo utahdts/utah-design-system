@@ -229,8 +229,8 @@ describe('stringifyHeaderSettings', () => {
     const result = stringifyHeaderSettings(settings);
     expect(result).toSatisfy(doesMatchStrings([
       ...MATCH_BASIC_FIELDS,
-      '"actionDom": "<span></span>',
-      '"icon": "i-am-an-icon',
+      '"actionDom": "--replace with a real function--"',
+      '"icon": "i-am-an-icon"',
       '"showTitle": true',
       '"title": "action item for life!"',
     ]));

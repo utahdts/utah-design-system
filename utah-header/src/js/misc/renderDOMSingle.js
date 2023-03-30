@@ -8,7 +8,7 @@ import isString from './isString';
  * @param {string} str - HTML string to become rendered DOM
  * @returns {HTMLCollection | Element}
  */
-export function renderDOM(str) {
+function renderDOM(str) {
   const domParser = new DOMParser();
 
   /** @type {HTMLCollection | Element} */
@@ -42,11 +42,11 @@ export function renderDOM(str) {
 /**
  * Pull first element out of a collection if a collection was rendered
  *
- * @param {string} str
+ * @param {string | HTMLElement} str
  * @returns {HTMLElement}
  */
-export function renderDOMSingle(str) {
-  const dom = renderDOM(str);
+export default function renderDOMSingle(str) {
+  const dom = typeof str === 'string' ? renderDOM(str) : str;
   if (dom instanceof HTMLCollection && dom.length > 1) {
     throw new Error('renderDOMSingle: must render a single element');
   }

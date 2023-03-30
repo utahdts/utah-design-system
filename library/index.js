@@ -3,7 +3,7 @@ import packageJson from './package.json';
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
 export { default as Accordion } from './react/components/containers/accordion/Accordion';
 export {
-  baseSettings, childrenMenuTypes, events, popupPlacement, renderDOM,
+  baseSettings, childrenMenuTypes, events, popupPlacement, renderDOMSingle,
 } from '@utahdts/utah-design-system-header';
 export { default as Button } from './react/components/buttons/Button';
 export { default as calculateMenuItemsParents } from './react/util/menuItems/calculateMenuItemsParents';

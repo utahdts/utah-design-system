@@ -4,7 +4,7 @@
 import MobileMenuContentItemWrapper from './html/MobileMenuContentItemWrapper.html?raw';
 
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 
 /**

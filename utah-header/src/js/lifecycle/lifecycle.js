@@ -8,7 +8,7 @@ import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html
 
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import events from '../enumerations/events';
-import { renderDOMSingle } from '../misc/renderDOM';
+import renderDOMSingle from '../misc/renderDOMSingle';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
 import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';

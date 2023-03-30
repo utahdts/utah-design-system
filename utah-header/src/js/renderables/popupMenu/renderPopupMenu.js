@@ -17,7 +17,7 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
 import popupPlacement from '../../enumerations/popupPlacement';
 import findRecursive from '../../misc/findRecursive';
 import popupFocusHandler from '../../misc/popupFocusHandler';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import renderPopup from '../popup/renderPopup';
 

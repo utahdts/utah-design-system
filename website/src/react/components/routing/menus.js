@@ -152,6 +152,12 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
     },
     {
+      id: 'components__tooltips',
+      title: 'Tooltips',
+      link: pages.tooltips.link,
+      parentLinks: [pages.library.link],
+    },
+    {
       id: 'components__widgets-indicators',
       title: 'Widgets & Indicators',
       parentLinks: [pages.library.link],
@@ -185,7 +191,7 @@ export const menuLibraryTemplatesSecondary = {
   menuItems: [
     {
       title: '404 Page',
-      link: pages.anchors.link, // wrong!
+      link: pages.errorPage404.link, // wrong!
       parentLinks: [pages.library.link],
     },
   ],
@@ -198,6 +204,11 @@ export const menuResourcesSecondary = {
     {
       link: pages.github.link,
       title: pages.github.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+    {
+      link: pages.mockups.link,
+      title: pages.mockups.pageTitle,
       parentLinks: [pages.resources.link],
     },
     {

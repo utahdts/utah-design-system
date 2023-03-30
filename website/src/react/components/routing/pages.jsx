@@ -12,10 +12,12 @@ import SwitchDocumentation from '../websiteContent/library/components/forms/Swit
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
+import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
+import Mockups from '../websiteContent/resources/Mockups';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
@@ -59,14 +61,14 @@ const pages = {
   // === Main top menu pages === //
   home: {
     content: HomeLanding,
-    link: '/',
+    link: pageUrls.home,
     pageTitle: 'Home',
     template: layoutTemplatesEnum.LANDING_TEMPLATE,
   },
 
   guidelines: {
     content: GuidelinesLanding,
-    link: '/guidelines',
+    link: pageUrls.guidelines,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Guidelines/Standards',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -74,7 +76,7 @@ const pages = {
 
   foundation: {
     content: FoundationLanding,
-    link: '/foundation',
+    link: pageUrls.foundation,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Foundation',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -82,7 +84,7 @@ const pages = {
 
   library: {
     content: LibraryLanding,
-    link: '/library',
+    link: pageUrls.library,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Library',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -90,7 +92,7 @@ const pages = {
 
   resources: {
     content: ResourcesLanding,
-    link: '/resources',
+    link: pageUrls.resources,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Resources',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -99,35 +101,35 @@ const pages = {
   // === guidelines documentation components === //
   principles: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/guidelines/principles',
+    link: pageUrls.principles,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Principles',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   uxBestPractices: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/guidelines/uxBestPractices',
+    link: pageUrls.uxBestPractices,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'UX Best Practices',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   accessibility: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/guidelines/accessibility',
+    link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorGuidelines: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/guidelines/color',
+    link: pageUrls.colorGuidelines,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   design: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/guidelines/design',
+    link: pageUrls.design,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Design',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -136,56 +138,56 @@ const pages = {
   // === foundation documentation components === //
   spacing: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/spacing',
+    link: pageUrls.spacing,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Spacing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   typography: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/typography',
+    link: pageUrls.typography,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Typography',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   depthElevationShadows: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/depthElevationShadows',
+    link: pageUrls.depthElevationShadows,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Depth / Elevation / Shadows',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   shape: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/shape',
+    link: pageUrls.shape,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Shape (rounded corners)',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   motionTiming: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/motionTiming',
+    link: pageUrls.motionTiming,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Motion / Timing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorFoundation: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/color',
+    link: pageUrls.colorFoundation,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   layout: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/layout',
+    link: pageUrls.layout,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Layout (Flex, Grid System)',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   opacity: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/foundation/opacity',
+    link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Opacity',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -194,21 +196,21 @@ const pages = {
   // === library documentation components === //
   components: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/library/components',
+    link: pageUrls.components,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Components',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   patterns: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/library/patterns',
+    link: pageUrls.patterns,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Patterns',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   utahHeader: {
     content: UtahHeaderDocumentation,
-    link: '/library/patterns/utahHeader',
+    link: pageUrls.utahHeader,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Utah Header',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -216,7 +218,7 @@ const pages = {
 
   templates: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/library/templates',
+    link: pageUrls.templates,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Templates',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -225,9 +227,16 @@ const pages = {
   // === resources documentation components === //
   github: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/resources/github',
+    link: pageUrls.github,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'GitHub',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  mockups: {
+    content: Mockups,
+    link: pageUrls.mockups,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Mockups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   demo: {
@@ -239,28 +248,28 @@ const pages = {
   },
   colorPicker: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/resources/colorPicker',
+    link: pageUrls.colorPicker,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Color Picker',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   icons: {
     content: IconsDocumentation,
-    link: '/resources/icons',
+    link: pageUrls.icons,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Icons',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   contributeCommunity: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/resources/contributeCommunity',
+    link: pageUrls.contributeCommunity,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Contribute / Community',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   help: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: '/resources/help',
+    link: pageUrls.help,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Help',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -270,7 +279,7 @@ const pages = {
   // === basic atomic === //
   anchors: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/basic/anchor',
+    link: pageUrls.anchors,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Anchors',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -278,7 +287,7 @@ const pages = {
 
   horizontalRule: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/basic/hr',
+    link: pageUrls.horizontalRule,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Horizontal Rule',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -286,7 +295,7 @@ const pages = {
 
   links: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/basic/links',
+    link: pageUrls.links,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Links',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -294,7 +303,7 @@ const pages = {
 
   tags: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/basic/tag',
+    link: pageUrls.tags,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Tags',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -302,7 +311,7 @@ const pages = {
 
   type: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/basic/type',
+    link: pageUrls.type,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Type and Text',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -343,7 +352,7 @@ const pages = {
 
   segmentedButton: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/buttons/segmented-button',
+    link: pageUrls.segmentedButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Segmented Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -352,7 +361,7 @@ const pages = {
   // === widgets & indicators === //
   badges: {
     content: BadgesDocumentation,
-    link: '/library/components/widgets-indicators/badges',
+    link: pageUrls.badges,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Badges',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -361,7 +370,7 @@ const pages = {
   // === forms === //
   switch: {
     content: SwitchDocumentation,
-    link: '/library/components/forms/switch',
+    link: pageUrls.switch,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Switch',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -388,23 +397,32 @@ const pages = {
   // === table === //
   table: {
     content: TableDocumentation,
-    link: '/library/components/table/table',
+    link: pageUrls.table,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Table',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === tooltips === //
+  tooltips: {
+    content: TooltipsDocumentation,
+    link: pageUrls.tooltips,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Tooltips',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
   // will go away VVVVVVVV
   forms: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/forms',
+    link: pageUrls.forms,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Forms',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   form: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/form',
+    link: pageUrls.form,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Form',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -412,9 +430,17 @@ const pages = {
 
   buttons: {
     content: SegmentedButtonDocumentation,
-    link: '/library/components/buttons',
+    link: pageUrls.buttons,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Buttons',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  errorPage404: {
+    content: SegmentedButtonDocumentation,
+    link: pageUrls.errorPage404,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: '404 Page',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
