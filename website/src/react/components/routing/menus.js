@@ -126,6 +126,7 @@ export const menuLibraryComponentsSecondary = {
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
       ],

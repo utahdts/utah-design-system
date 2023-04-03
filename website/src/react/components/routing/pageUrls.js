@@ -11,6 +11,7 @@ const pageUrls = {
   components: '/library/components',
   confirmationButton: '/library/components/buttons/confirmation-button',
   contributeCommunity: '/resources/contributeCommunity',
+  dateInput: '/library/components/forms/dateInput',
   depthElevationShadows: '/foundation/depthElevationShadows',
   design: '/guidelines/design',
   demoPage: '/resources/demo-page',
