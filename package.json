@@ -8,13 +8,16 @@
   ],
   "scripts": {
     "build": "cd utah-header && npm run build && cd .. && cd library && npm run build && cd ../website && npm run build && cd ..",
-    "clean": "rimraf package-lock.json & rimraf ./website/dist & rimraf ./library/dist & rimraf ./website/node_modules & rimraf ./library/node_modules & rimraf ./utah-header/node_modules & rimraf node_modules",
+    "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
+    "cleanDist": "rimraf ./website/dist & rimraf ./library/dist & rimraf ./utah-header/dist",
+    "cleanNodeModules": "rimraf ./website/node_modules & rimraf ./library/node_modules & rimraf ./utah-header/node_modules & rimraf node_modules",
+    "cleanPackageLock": "rimraf package-lock.json",
     "circular": "npx madge --circular .",
     "circularg": "npx madge --circular --image circular.svg .",
     "dev": "npm run websiteDev",
     "headerDev": "cd utah-header && npm run watch",
     "npmi": "npm i",
-    "reset": "run-s clean npmi build websiteDev",
+    "reset": "run-s clean npmi websiteDev",
     "watchLib": "cd library && npm run watch",
     "websiteDev": "cd website && npm run dev"
   },
