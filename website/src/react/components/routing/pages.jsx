@@ -326,6 +326,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  modals: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.modals,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Modals',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   buttonGroup: {
     content: SegmentedButtonDocumentation,
     link: pageUrls.buttonGroup,
@@ -373,6 +381,13 @@ const pages = {
     link: pageUrls.switch,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Switch',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  textInput: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.textInput,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Text Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

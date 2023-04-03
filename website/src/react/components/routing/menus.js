@@ -127,7 +127,14 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.switch.link, title: pages.switch.pageTitle },
+        { link: pages.textInput.link, title: pages.textInput.pageTitle },
       ],
+    },
+    {
+      id: 'components__modals',
+      link: pages.modals.link,
+      title: 'Modals',
+      parentLinks: [pages.library.link],
     },
     {
       id: 'components__navigation',

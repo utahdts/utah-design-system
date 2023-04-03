@@ -30,17 +30,20 @@ import {
   useRef,
   useState
 } from 'react';
+import { Link } from 'react-router-dom';
+import agencyBrand from '../../../../../../static/images/designSystemCircleGray.png';
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import PreCode from '../../../../preCode/PreCode';
+import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
 import utahHeaderPresets from './utahHeaderPresets';
+
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandLarge from '../../../../../../../../utah-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
-import agencyBrand from '../../../../../../static/images/designSystemCircleGray.png';
 
 const propTypes = {};
 const defaultProps = {};
@@ -211,7 +214,7 @@ function UtahHeaderDocumentation() {
         quickTips={(
           <ul>
             <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
-            <li>The title is always required even if it’s not visible, so screen readers can identify the site.</li>
+            <li>The title is always required even if it&apos;s not visible, so screen readers can identify the site.</li>
             <li>If you are using an image, such as a png, jpg or svg that contains both the agency logo and title, the text of the agency title should be at least 14px as well.</li>
           </ul>
         )}
@@ -272,28 +275,61 @@ function UtahHeaderDocumentation() {
       />
       <p>View more information on Popup Menus, Icon Buttons and Badges</p>
 
+      <h2 id="section-main-menu" className="mb-spacing">Main Menu</h2>
+      The Main Menu and Search Component is the primary navigation tool for the entire site. It is comprised of two sections, the Main Menu and Search tools. To add increased trust, the Main Menu and Search tools will have a distinct look and feel that is similar across all agency sites.
+
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Always</strong>. The header is required on all sites.</li>
-        <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
+        <li><strong>Utah Header</strong>
+          <ul>
+            <li><strong>Always Use</strong>. The header is required on all sites.</li>
+            <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
+          </ul>
+        </li>
+        <li><strong>Main Menu</strong>
+          <ul>
+            <li><strong>Always use</strong>. The Main Menu and Search bar are used in conjunction with the Utah Header to instill a sense of trust that this is a State of Utah site.</li>
+            <li><strong>Main menu items can be links</strong>. Use this when you need to send the user to a specific url.</li>
+            <li><strong>Open up a list of menu items</strong>. Main menu items can display a list of sub menus in either a Popup menu or a Mega Menu.</li>
+            <li><strong>Menu items can be a custom function</strong>. If you would like the menu item to trigger a function.</li>
+            <li><strong>Sub menu options</strong>. Sub menu is a Vertical menu that can be displayed in Popups (e.g. Popup menu, Flyout or a Mega menu).</li>
+            <li>View more information on <Link to={pageUrls.popups}>Popups</Link>, <Link to={pageUrls.verticalMenu}>Vertical Menus</Link> or <Link to={pageUrls.links}>Links</Link> regarding internal versus external links.</li>
+          </ul>
+        </li>
       </ul>
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
+        <li><strong>No Search for not a lot of content</strong>. If there is not much content on the site, there may not be a need for the Search tool.</li>
+        <li><strong>Menu items that have a double role</strong>. Some WordPress menus have a mega menu where their menu items can be both a link and have a list of children menu items. This way the menu item can be triggered for navigation or can expand to its children items. Unfortunately, these combo menu items, when viewing in a smaller mobile view, no longer are triggerable so the user loses the ability to navigate to that menu item because triggering that menu item will expand the children menu items.<br />
+          Because of this limitation of mobile, it was decided to only ever allow one menu type for a menu item. It is suggested in the case where you do want a combo menu item, that the link be placed, instead of on the menu item, in the sub menu items as the first &quot;summary/overview&quot; link.
+        </li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Consistency</strong>. Never change the look and feel of the header as it is central to the citizens experience all public state websites and applications.</li>
+        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the citizens experience all public state websites and applications.</li>
         <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
+        <li><strong>Always use the Main Menu in conjunction with the Utah Header</strong>. The Utah Header and the Main Menu and Search bar will be used together across all state websites and applications.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
-      <h4 id="section-contrast">Contrast, Keyboard Interactivity and Screen Readers</h4>
-      <ul className="mb-spacing">
-        <li><strong>Full accessibility</strong>. The Utah Header will have full accessibility for contrast, keyboard, and screen readers out of the box.</li>
+      <h4 id="section-contrast">Contrast</h4>
+      <ul>
+        <li>Maintain a minimum 4.5:1 contrast ratio for all interactions (hover, focus).</li>
+      </ul>
+      <h4 id="section-keyboard-interactivity">Keyboard Interactivity</h4>
+      <ul>
+        <li>Users must be able to to navigate using the tab key.</li>
+        <li>Users must be able to select the navigation item using the Enter/Return keys.</li>
+      </ul>
+      <h4 id="section-screen-readers">Screen Readers</h4>
+      <ul>
+        <li>The main menu is a landmark role used for accessibility. It is recommended that you wrap the main menu in a &lt;nav&gt; tag, or as a fallback use role=&quot;navigation&quot;.</li>
+        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.modals}>Modals</Link>, <Link to={pageUrls.popups}>Popup menus and Fly-out menu</Link>.</li>
+        <li>To allow all users to easily search the site, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and <Link to={pageUrls.textInput}>Text Input</Link> for accessibility guidance.</li>
       </ul>
 
       <h2 id="section-utahid-events" className="mb-spacing">UtahID Events</h2>
