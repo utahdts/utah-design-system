@@ -32,6 +32,8 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import agencyBrand from '../../../../../../static/images/designSystemCircleGray.png';
+import mainMenuPng from '../../../../../../static/images/screenshots/components/websiteContent/library/patterns/utahHeaderDocumentation/main-menu.png';
+import searchPng from '../../../../../../static/images/screenshots/components/websiteContent/library/patterns/utahHeaderDocumentation/search.png';
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import PreCode from '../../../../preCode/PreCode';
@@ -273,7 +275,36 @@ function UtahHeaderDocumentation() {
           </ul>
         )}
       />
-      <p>View more information on Popup Menus, Icon Buttons and Badges</p>
+
+      <p>View more information on <Link to={pageUrls.popups}>Popup Menus</Link>, <Link to={pageUrls.iconButton}>Icon Buttons</Link> and <Link to={pageUrls.badges}>Badges</Link>.</p>
+
+      <StaticExample
+        title="Main Menu"
+        renderedExample={<img src={mainMenuPng} alt="Main Menu screen shot" />}
+        quickTips={(
+          <ul>
+            <li>Horizontal menu that serves as the main navigation for the site.</li>
+            <li>Typically list items in the menu should have no more than 2 words.</li>
+            <li>There are 3 types of menu items: Links, Custom Function, or a List of menu items (vertical menu). See below guidance for when to use each type and when not to use.</li>
+            <li>Sub-menus are Vertical menus displayed within a Popup (e.g. Popup menu, Flyout or a Mega menu). They are indicated by a down arrow to the right of the topic.</li>
+            <li>Has a &quot;chiclet&quot;, a thin line at the top of the active menu item.</li>
+            <li>Active list items will be bold, and the text color should match the primary color.</li>
+          </ul>
+        )}
+      />
+      <p>View more information on <Link to={pageUrls.popups}>Popups</Link>, or <Link to={pageUrls.verticalMenu}>Vertical menus</Link>.</p>
+
+      <StaticExample
+        title="Search"
+        renderedExample={<img src={searchPng} alt="Search screen shot" />}
+        quickTips={(
+          <ul>
+            <li>The Search functionality will be indicated by a Magnifying Glass icon button.</li>
+            <li>When the icon button is clicked, it will open a modal with a text input field.</li>
+          </ul>
+        )}
+      />
+      <p>View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>, <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</p>
 
       <h2 id="section-main-menu" className="mb-spacing">Main Menu</h2>
       The Main Menu and Search Component is the primary navigation tool for the entire site. It is comprised of two sections, the Main Menu and Search tools. To add increased trust, the Main Menu and Search tools will have a distinct look and feel that is similar across all agency sites.
