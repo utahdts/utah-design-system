@@ -17,6 +17,7 @@ import BadgesDocumentation from '../websiteContent/library/components/widgetsInd
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
+import Mockups from '../websiteContent/resources/Mockups';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
@@ -229,6 +230,13 @@ const pages = {
     link: pageUrls.github,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'GitHub',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  mockups: {
+    content: Mockups,
+    link: pageUrls.mockups,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Mockups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   demo: {
