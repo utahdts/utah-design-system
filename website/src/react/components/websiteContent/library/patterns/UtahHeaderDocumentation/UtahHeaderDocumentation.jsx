@@ -32,10 +32,12 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import agencyBrand from '../../../../../../static/images/designSystemCircleGray.png';
-import mainMenuPng from '../../../../../../static/images/screenshots/components/websiteContent/library/patterns/utahHeaderDocumentation/main-menu.png';
-import searchPng from '../../../../../../static/images/screenshots/components/websiteContent/library/patterns/utahHeaderDocumentation/search.png';
+import menusDropdownScreenshot from '../../../../../../static/images/mockups/MenusDropdown.jpg';
+import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
+
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
+import LightBox from '../../../../lightbox/LightBox';
 import PreCode from '../../../../preCode/PreCode';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
@@ -46,6 +48,8 @@ import utahHeaderPresets from './utahHeaderPresets';
 
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandLarge from '../../../../../../../../utah-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
+// eslint-disable-next-line import/no-unresolved
+import utahUnbrandMedium from '../../../../../../../../utah-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
 
 const propTypes = {};
 const defaultProps = {};
@@ -92,7 +96,8 @@ function UtahHeaderDocumentation() {
         The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. The purpose of its components is to promote a consistent look, feel and user experience throughout all state websites and applications.
       </p>
       <p className="lead-in">
-        The components contained within the header include the <strong>Utah Unbrand</strong>, <strong>Agency Icon and Title,</strong> and <strong>Action Items</strong>.
+        The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and Title</strong>
+        , <strong>Action Items</strong>, <strong>Main Menu</strong>, and <strong>Search</strong>.
       </p>
       <hr />
       <div className="header-config__title">
@@ -124,11 +129,8 @@ function UtahHeaderDocumentation() {
                 onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy))}
               />
               <div className="sandbox-example__code-info">
-                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
                 <span>Pos {position}, </span>
-                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
                 <span>Ln {row}, </span>
-                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
                 <span>Col {column}</span>
               </div>
             </div>
@@ -186,17 +188,27 @@ function UtahHeaderDocumentation() {
       </div>
 
       <StaticExample
-        title="Utah Unbrand"
+        title="Utah, an official website"
         renderedExample={(
-          // eslint-disable-next-line react/no-danger
-          <div dangerouslySetInnerHTML={{ __html: utahUnbrandLarge }} style={{ height: '70px' }} />
+          <>
+            {/* eslint-disable-next-line react/no-danger */}
+            <div dangerouslySetInnerHTML={{ __html: utahUnbrandLarge }} style={{ height: '70px' }} />
+            <div style={{ width: '100px' }}>&nbsp;</div>
+            {/* eslint-disable-next-line react/no-danger */}
+            <div dangerouslySetInnerHTML={{ __html: utahUnbrandMedium }} style={{ height: '60px' }} />
+          </>
         )}
         quickTips={(
           <ul>
-            <li>The Unbrand/State brand is required on all headers.</li>
-            <li>The Unbrand helps the user to know that they are an official State website.</li>
-            <li>The color of the Unbrand can be changed to match the primary or secondary color of the site.</li>
-            <li>Depending on the height of the header it can have 3 different sizes</li>
+            <li>The Utah identification is required on all headers.</li>
+            <li>The <code>Utah, an official website</code> helps the user to know that they are visiting an official State website.</li>
+            <li>At the moment, the color of the identification can be changed to match the primary or secondary color of the site.</li>
+            <li>Depending on the height of the header use one of the above sizes.
+              <ul>
+                <li>Utah, an official state website (for large headers)</li>
+                <li>Utah, an official website (for medium and small headers)</li>
+              </ul>
+            </li>
           </ul>
         )}
       />
@@ -204,10 +216,10 @@ function UtahHeaderDocumentation() {
       <StaticExample
         title="Agency Icon and Title"
         renderedExample={(
-          <div style={{ height: '70px' }}>
-            <h1 className="utds-logo-wrapper">
+          <div style={{ height: '50px' }}>
+            <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
               <a className="utds-title-wrapper" href="#">
-                <div className="utds-title-wrapper__logo"><img alt="agency brand" src={agencyBrand} /></div>
+                <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={agencyBrand} /></div>
                 <div className="utds-title-wrapper__title">Utah Design System</div>
               </a>
             </h1>
@@ -280,7 +292,7 @@ function UtahHeaderDocumentation() {
 
       <StaticExample
         title="Main Menu"
-        renderedExample={<img src={mainMenuPng} alt="Main Menu screen shot" />}
+        renderedExample={<LightBox image={menusDropdownScreenshot} alt="Main Menu Examples" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Horizontal menu that serves as the main navigation for the site.</li>
@@ -296,7 +308,19 @@ function UtahHeaderDocumentation() {
 
       <StaticExample
         title="Search"
-        renderedExample={<img src={searchPng} alt="Search screen shot" />}
+        renderedExample={(
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
+              // eslint-disable-next-line no-alert
+              onClick={() => alert('Triggered the search icon button')}
+              title="Search"
+            />
+            <div style={{ width: '100px' }}>&nbsp;</div>
+            <LightBox image={searchModalScreenshot} alt="Search Modal Example" className="flex-3up-gap" />
+          </>
+          )}
         quickTips={(
           <ul>
             <li>The Search functionality will be indicated by a Magnifying Glass icon button.</li>

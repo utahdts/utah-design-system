@@ -4,8 +4,6 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import {
-  formElementSizesEnum,
-  Switch,
   Tab,
   TabGroup,
   Table,
@@ -25,6 +23,8 @@ import StaticExample from '../../../../staticExamples/StaticExample';
 import DateInputExampleCodeReact from './DateInputExampleCodeReact';
 import DateInputPrimaryExampleProps from './DateInputExampleProps';
 import DateInputExampleRender from './DateInputExampleRender';
+import dateInputScreenshot from '../../../../../../static/images/screenshots/components/dateInput/dateInput.jpg';
+import LightBox from '../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -43,46 +43,14 @@ function DateInputDocumentation() {
         RENDER_EXAMPLE={DateInputExampleRender}
       />
       <StaticExample
-        title="Label"
-        renderedExample={(
-          <div className="flex-col">
-            <Switch
-              label="Label"
-              id="switch-label"
-              width={20}
-            />
-            <Switch
-              label="Inside Label"
-              id="switch-inside-label"
-              labelOn="on"
-              labelOff="off"
-              width={35}
-            />
-          </div>
-        )}
+        title="Date Input Examples"
+        renderedExample={<LightBox image={dateInputScreenshot} alt="Tooltips" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>A switch can contain a label within itself.</li>
-            <li>The inside label can be different based on whether the switch position is <code>on</code> or <code>off</code>.</li>
-          </ul>
-        )}
-      />
-      <StaticExample
-        title="Sizes"
-        renderedExample={(
-          <div className="flex-col">
-            <Switch
-              label="Small"
-              id="switch-small"
-              size={formElementSizesEnum.SMALL}
-              width={20}
-            />
-          </div>
-        )}
-        quickTips={(
-          <ul>
-            <li>The preferred switch size is the default (medium).</li>
-            <li>Do not mix switches of different sizes in close proximity.</li>
+            <li>A Date Input can also have a Calendar Icon Button.</li>
+            <li>When you press the icon button a date picker popup will appear.</li>
+            <li>You can navigate the popup using the keyboard. (see below)</li>
+            <li>Optionally, include a today button to quickly navigate to today’s date</li>
           </ul>
         )}
       />
