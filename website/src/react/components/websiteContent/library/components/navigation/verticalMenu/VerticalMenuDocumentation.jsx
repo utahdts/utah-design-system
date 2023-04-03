@@ -113,7 +113,7 @@ function VerticalMenuDocumentation() {
           options.
         </li>
       </ul>
-      <h3 id="section-when-to-use">When to use something else</h3>
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
           <strong>On mobile devices where menus have a long list of items.</strong> Avoid vertical menus when there is a long list of items.
@@ -126,7 +126,7 @@ function VerticalMenuDocumentation() {
           or <a href="www.someLink.com" target="_blank">Navigation</a>
         </li>
       </ul>
-      <h3 id="section-when-to-use">Usability Guidance</h3>
+      <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
         <li>
           <strong>Use short descriptive text.</strong> Structure items in the list in short, concise topics or action words that give enough
@@ -153,7 +153,7 @@ function VerticalMenuDocumentation() {
           understand the layout of the page.
         </li>
       </ul>
-      <h3 id="section-when-to-use">Accessibility</h3>
+      <h3 id="section-accessibility">Accessibility</h3>
       <h4>Contrast</h4>
       <ul className="mb-spacing">
         <li>Text in a vertical menu should pass a 4.5:1 ratio. Including when the text has focus</li>
