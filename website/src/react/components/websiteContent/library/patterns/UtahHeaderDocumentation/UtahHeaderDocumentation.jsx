@@ -150,7 +150,7 @@ function UtahHeaderDocumentation() {
             }
           </div>
           <div className="sandbox-example__props-inputs header-config__controls">
-            <div className="header-config__presets">
+            <div className="header-config__presets mb-spacing-s">
               {
                 utahHeaderPresets.map((preset) => (
                   <UtahHeaderInteractivePresetSelector
@@ -320,7 +320,7 @@ function UtahHeaderDocumentation() {
             <div style={{ width: '100px' }}>&nbsp;</div>
             <LightBox image={searchModalScreenshot} alt="Search Modal Example" className="flex-3up-gap" />
           </>
-          )}
+        )}
         quickTips={(
           <ul>
             <li>The Search functionality will be indicated by a Magnifying Glass icon button.</li>

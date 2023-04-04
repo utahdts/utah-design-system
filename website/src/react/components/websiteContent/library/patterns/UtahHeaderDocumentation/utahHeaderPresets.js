@@ -209,9 +209,131 @@ const utahHeaderPresets = [
     ],
     title: 'Action Items',
   },
+  // --- Main Menu --- //
+  {
+    options: [
+      // -- actionUrl -- //
+      {
+        settingsSnippet: {
+          mainMenu: {
+            menuItems: [
+              {
+                actionUrl: { url: '/' },
+                title: 'Home',
+              },
+            ],
+            title: 'Utah Design System Main Menu',
+          },
+        },
+        title: 'Url (Home)',
+      },
+      // -- actionFunction -- //
+      {
+        settingsSnippet: {
+          mainMenu: {
+            menuItems: [
+              {
+                actionFunction: FUNCTION_PLACEHOLDER,
+                title: 'Function',
+              },
+            ],
+            title: 'Utah Design System Main Menu',
+          },
+        },
+        title: 'Function',
+      },
+      // -- actionFunctionUrl -- //
+      {
+        settingsSnippet: {
+          mainMenu: {
+            menuItems: [
+              {
+                actionFunctionUrl: {
+                  actionFunction: FUNCTION_PLACEHOLDER,
+                  url: 'https://visible-url.edu',
+                },
+                title: 'Function/Url',
+              },
+            ],
+            title: 'Utah Design System Main Menu',
+          },
+        },
+        title: 'Func/Url',
+      },
+      // -- actionMenu -- //
+      {
+        settingsSnippet: {
+          mainMenu: {
+            menuItems: [
+              {
+                actionMenu: [
+                  {
+                    title: 'child2-1',
+                    actionMenu: [
+                      {
+                        title: 'child2-1-1',
+                        actionUrl: { url: '/children' },
+                      },
+                      {
+                        title: 'child2-1-2',
+                        actionUrl: { url: '/children' },
+                      },
+                      {
+                        title: 'child2-1-3',
+                        actionUrl: { url: '/children' },
+                      },
+                    ],
+                  },
+                  {
+                    title: 'child2-2',
+                    actionMenu: [
+                      {
+                        title: 'child2-2-1',
+                        actionUrl: { url: '/children' },
+                      },
+                      {
+                        title: 'child2-2-2',
+                        actionUrl: { url: '/children' },
+                      },
+                      {
+                        title: 'child2-2-3',
+                        actionUrl: { url: '/children' },
+                      },
+                    ],
+                  },
+                ],
+                title: 'Menu',
+              },
+            ],
+            title: 'Utah Design System Main Menu',
+          },
+        },
+        title: 'Menu',
+      },
+    ],
+    title: 'Main Menu',
+  },
 ];
 
-// add combo action item preset that uses same settings as the already entered presets
+// add combo action item presets that use same settings as the already entered presets
+
+// main menu - all
+const mainMenusPreset = utahHeaderPresets.find((preset) => preset.title === 'Main Menu');
+if (!mainMenusPreset) {
+  // this means 'Main Menu' the preset above got ganked
+  throw new Error('utahHeaderPresets: "Main Menu" preset not found.');
+}
+mainMenusPreset.options.push({
+  title: 'All',
+  settingsSnippet: {
+    mainMenu: {
+      menuItems: mainMenusPreset.options.map((option) => option.settingsSnippet.mainMenu.menuItems[0]),
+      title: 'Utah Design System Main Menu',
+    },
+  },
+});
+
+// action items - all
 const actionItemsPreset = utahHeaderPresets.find((preset) => preset.title === 'Action Items');
 if (!actionItemsPreset) {
   // this means 'Action Items' the preset above got ganked
