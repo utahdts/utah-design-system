@@ -229,7 +229,7 @@ function UtahHeaderDocumentation() {
           <ul>
             <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
             <li>The title is always required even if it&apos;s not visible, so screen readers can identify the site.</li>
-            <li>If you are using an image, such as a png, jpg or svg that contains both the agency logo and title, the text of the agency title should be at least 14px as well.</li>
+            <li>If you are using an image, such as a png, jpg or svg that contains both the agency logo and title, the text of the agency title should be at least 14px as well. The text should also maintain a <code>4.5:1</code> contrast ration against the background.</li>
           </ul>
         )}
       />
@@ -297,7 +297,7 @@ function UtahHeaderDocumentation() {
           <ul>
             <li>Horizontal menu that serves as the main navigation for the site.</li>
             <li>Typically list items in the menu should have no more than 2 words.</li>
-            <li>There are 3 types of menu items: Links, Custom Function, or a List of menu items (vertical menu). See below guidance for when to use each type and when not to use.</li>
+            <li>There are 3 types of menu items: Links, Custom Function, or a List of Menu Items (vertical menu). See below guidance for when to use each type and when not to use.</li>
             <li>Sub-menus are Vertical menus displayed within a Popup (e.g. Popup menu, Flyout or a Mega menu). They are indicated by a down arrow to the right of the topic.</li>
             <li>Has a &quot;chiclet&quot;, a thin line at the top of the active menu item.</li>
             <li>Active list items will be bold, and the text color should match the primary color.</li>
@@ -357,9 +357,10 @@ function UtahHeaderDocumentation() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
-        <li><strong>No Search for not a lot of content</strong>. If there is not much content on the site, there may not be a need for the Search tool.</li>
+        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content consider using the search as a way for visitors to easily find information.</li>
+        <li><strong>Avoid menus that are more than 3 levels deep.</strong> Menus that are more than 3 levels deep are a challenge to navigate for those with motor skill challenges. It can even be frustrating to those without motor skill challenges.</li>
         <li><strong>Menu items that have a double role</strong>. Some WordPress menus have a mega menu where their menu items can be both a link and have a list of children menu items. This way the menu item can be triggered for navigation or can expand to its children items. Unfortunately, these combo menu items, when viewing in a smaller mobile view, no longer are triggerable so the user loses the ability to navigate to that menu item because triggering that menu item will expand the children menu items.<br />
-          Because of this limitation of mobile, it was decided to only ever allow one menu type for a menu item. It is suggested in the case where you do want a combo menu item, that the link be placed, instead of on the menu item, in the sub menu items as the first &quot;summary/overview&quot; link.
+          <br />Because of this limitation of mobile, it was decided to only ever allow one menu type for a menu item. It is suggested in the case where you do want a combo menu item, that the link be placed, instead of on the menu item, in the sub menu items as the first &quot;summary/overview&quot; link.
         </li>
       </ul>
 
@@ -382,9 +383,10 @@ function UtahHeaderDocumentation() {
       </ul>
       <h4 id="section-screen-readers">Screen Readers</h4>
       <ul>
-        <li>The main menu is a landmark role used for accessibility. It is recommended that you wrap the main menu in a &lt;nav&gt; tag, or as a fallback use role=&quot;navigation&quot;.</li>
-        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.modals}>Modals</Link>, <Link to={pageUrls.popups}>Popup menus and Fly-out menu</Link>.</li>
-        <li>To allow all users to easily search the site, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and <Link to={pageUrls.textInput}>Text Input</Link> for accessibility guidance.</li>
+        <li>The main menu is a landmark role used for accessibility. It is recommended that you wrap the main menu in a <code>&lt;nav&gt;</code> tag, or as a fallback use <code>role=&quot;navigation&quot;</code>.</li>
+        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Fly-out Menus</Link>.</li>
+        <li>For the search form refer to accessability guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
+        <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
       </ul>
 
       <h2 id="section-utahid-events" className="mb-spacing">UtahID Events</h2>
