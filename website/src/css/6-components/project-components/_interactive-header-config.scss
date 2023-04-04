@@ -12,7 +12,7 @@
     font-weight: var(--font-weight-normal);
     font-size: var(--font-size-2xs);
     width: 100%;
-    min-height: 500px;
+    min-height: 546px;
     resize: none;
     padding-bottom: var(--spacing-xl);
     display: block;
@@ -100,4 +100,8 @@
       width: 100%;
     }
   }
+}
+
+h1.agency-brand-example {
+  margin: 0;
 }

@@ -15,10 +15,8 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
-import buttonDarkOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/button-dark-on-top.png';
-import buttonLightOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/button-light-on-top.png';
-import iconDarkOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/icon-dark-on-top.png';
-import iconLightOnTop from '../../../../../../static/images/screenshots/components/websiteContent/library/components/tooltips/icon-light-on-top.png';
+import tooltipsScreenshot from '../../../../../../static/images/mockups/Tooltips.jpg';
+import LightBox from '../../../../lightbox/LightBox';
 import PreCode from '../../../../preCode/PreCode';
 import SandboxExample from '../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../staticExamples/StaticExample';
@@ -42,23 +40,11 @@ function TooltipsDocumentation() {
         RENDER_EXAMPLE={TooltipsExampleRender}
       />
       <StaticExample
-        title="Icon w/ Light Tooltip"
-        renderedExample={<img src={iconLightOnTop} alt="Icon with light tooltip on top" />}
-      />
-      <StaticExample
-        title="Icon w/ Dark Tooltip"
-        renderedExample={<img src={iconDarkOnTop} alt="Icon with dark tooltip on top" />}
-      />
-      <StaticExample
-        title="Button w/ Dark Tooltip"
-        renderedExample={<img src={buttonDarkOnTop} alt="Button with dark tooltip on top" />}
-      />
-      <StaticExample
-        title="Button w/ Light Tooltip"
-        renderedExample={<img src={buttonLightOnTop} alt="Button with light tooltip on top" />}
+        title="Tooltip Examples"
+        renderedExample={<LightBox image={tooltipsScreenshot} alt="Tooltips" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>Always appears below, unless there isn&rsquo;t space.</li>
+            <li>Tooltips typically appear below their parent, unless there isn&rsquo;t space.</li>
           </ul>
         )}
       />

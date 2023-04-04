@@ -21,6 +21,7 @@ import Mockups from '../websiteContent/resources/Mockups';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
+import DateInputDocumentation from '../websiteContent/library/components/dateInput/DateInputDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -326,6 +327,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  modals: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.modals,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Modals',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   buttonGroup: {
     content: SegmentedButtonDocumentation,
     link: pageUrls.buttonGroup,
@@ -368,11 +377,25 @@ const pages = {
   },
 
   // === forms === //
+  dateInput: {
+    content: DateInputDocumentation,
+    link: pageUrls.dateInput,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Date Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   switch: {
     content: SwitchDocumentation,
     link: pageUrls.switch,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Switch',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  textInput: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.textInput,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Text Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

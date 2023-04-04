@@ -10,47 +10,43 @@ import { hideMobileMenu, showMobileMenu } from './hookupHamburger';
  * @param {HTMLElement} mobileMenuWrapper
  * @param {HTMLElement} actionItemWrapper
  */
-function showActionItem(mobileMenuWrapper, actionItemWrapper) {
+export function showActionItem(mobileMenuWrapper, actionItemWrapper) {
   // deselect all actionItemElements
-  mobileMenuWrapper.querySelectorAll(getCssClassSelector([
-    domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER,
-  ]))
-    .forEach((actionItem) => actionItem.classList.remove(domConstants.ACTION_ITEM__SELECTED));
+  mobileMenuWrapper.querySelectorAll(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER))
+    .forEach((actionItem) => {
+      actionItem.classList.remove(domConstants.ACTION_ITEM__SELECTED);
+      const button = actionItem.querySelector('button');
+      if (!button) {
+        throw new Error('showActionItem: actionWrapper does not have actionItem');
+      }
+      button.setAttribute('aria-selected', 'false');
+      button.setAttribute('tabIndex', '-1');
+    });
 
   // select passed in actionItemElement
   actionItemWrapper.classList.add(domConstants.ACTION_ITEM__SELECTED);
+  const button = actionItemWrapper.querySelector('button');
+  if (!button) {
+    throw new Error('showActionItem: actionWrapper does not have actionItem');
+  }
+  button.setAttribute('aria-selected', 'true');
+  button.removeAttribute('tabIndex');
+
+  // for accessibility, set focus on the selected action item
+  button.focus();
 }
 
 /**
  * @param {HTMLElement} mobileContentWrapper
  * @param {HTMLElement} mobileMenuContentItem
  */
-function showContentItem(mobileContentWrapper, mobileMenuContentItem) {
+export function showContentItem(mobileContentWrapper, mobileMenuContentItem) {
   // hide all mobileMenuContentItems
   mobileContentWrapper.querySelectorAll(getCssClassSelector(domConstants.MOBILE_MENU__CONTENT_ITEM))
-    .forEach((contentItem) => {
-      const ariaLabelledBy = contentItem.getAttribute('aria-labelledby');
-      if (ariaLabelledBy) {
-        const ariaLabelledByElement = document.getElementById(ariaLabelledBy);
-        if (ariaLabelledByElement) {
-          ariaLabelledByElement.setAttribute('aria-expanded', 'false');
-        }
-      }
-      contentItem.classList.remove(domConstants.IS_OPEN);
-    });
+    .forEach((contentItem) => contentItem.classList.remove(domConstants.IS_OPEN));
 
   // show the passed in mobileMenuContentItem
-  {
-    const ariaLabelledBy = mobileMenuContentItem.getAttribute('aria-labelledby');
-    if (ariaLabelledBy) {
-      //  controller: aria-expanded="false"
-      const ariaLabelledByElement = document.getElementById(ariaLabelledBy);
-      if (ariaLabelledByElement) {
-        ariaLabelledByElement.setAttribute('aria-expanded', 'false');
-      }
-    }
-    mobileMenuContentItem.classList.add(domConstants.IS_OPEN);
-  }
+  mobileMenuContentItem.classList.add(domConstants.IS_OPEN);
 }
 
 /**
@@ -88,8 +84,10 @@ export default function mobileMenuInteractionHandler(
     throw new Error('mobileMenuInteractionHandler: mobileContentWrapper not found');
   }
 
+  const actionItemButton = actionItemWrapper?.querySelector?.('button');
+
   // hookup aria to interactive & its content
-  const interactiveElementId = interactiveElement.getAttribute('id');
+  const interactiveElementId = (actionItemButton || interactiveElement).getAttribute('id');
   if (!interactiveElementId) {
     throw new Error('mobileMenuInteractionHandler: interactiveElementId not found');
   }
@@ -98,8 +96,7 @@ export default function mobileMenuInteractionHandler(
     if (!mobileMenuContentItemId) {
       throw new Error('mobileMenuInteractionHandler: mobileMenuContentId not found');
     }
-    interactiveElement.setAttribute('aria-controls', mobileMenuContentItemId);
-    interactiveElement.setAttribute('aria-haspopup', ariaHasPopupType || '');
+    (actionItemButton || interactiveElement).setAttribute('aria-controls', mobileMenuContentItemId);
     mobileMenuContentItem.setAttribute('aria-labelledby', interactiveElementId);
   }
 
