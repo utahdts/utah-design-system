@@ -126,8 +126,16 @@ export const menuLibraryComponentsSecondary = {
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
+        { link: pages.textInput.link, title: pages.textInput.pageTitle },
       ],
+    },
+    {
+      id: 'components__modals',
+      link: pages.modals.link,
+      title: 'Modals',
+      parentLinks: [pages.library.link],
     },
     {
       id: 'components__navigation',
@@ -149,6 +157,12 @@ export const menuLibraryComponentsSecondary = {
       id: 'components__table',
       title: 'Table',
       link: pages.table.link,
+      parentLinks: [pages.library.link],
+    },
+    {
+      id: 'components__tooltips',
+      title: 'Tooltips',
+      link: pages.tooltips.link,
       parentLinks: [pages.library.link],
     },
     {
@@ -185,7 +199,7 @@ export const menuLibraryTemplatesSecondary = {
   menuItems: [
     {
       title: '404 Page',
-      link: pages.anchors.link, // wrong!
+      link: pages.errorPage404.link, // wrong!
       parentLinks: [pages.library.link],
     },
   ],
@@ -198,6 +212,11 @@ export const menuResourcesSecondary = {
     {
       link: pages.github.link,
       title: pages.github.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+    {
+      link: pages.mockups.link,
+      title: pages.mockups.pageTitle,
       parentLinks: [pages.resources.link],
     },
     {

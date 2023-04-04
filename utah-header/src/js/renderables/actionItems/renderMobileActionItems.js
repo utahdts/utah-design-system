@@ -21,16 +21,11 @@ export default function renderMobileActionItems() {
   if (!homeActionItemWrapper) {
     throw new Error('renderMobileActionItems: homeActionItemWrapper not found');
   }
-  const profileActionItem = document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__PROFILE_ID);
-  if (!profileActionItem) {
-    throw new Error('renderMobileActionItems: profileActionItem not found');
-  }
+  const hasUtahId = !!getUtahHeaderSettings().utahId;
+  const profileActionItem = hasUtahId ? document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__PROFILE_ID) : null;
   const profileActionItemWrapper = (
-    /** @type {HTMLElement} */ (profileActionItem.closest(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER)))
+    /** @type {HTMLElement} */ (profileActionItem?.closest?.(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER)))
   );
-  if (!profileActionItemWrapper) {
-    throw new Error('renderMobileActionItems: profileActionItemWrapper not found');
-  }
 
   [...(getUtahHeaderSettings().actionItems || [])]
     ?.reverse()
@@ -49,8 +44,9 @@ export default function renderMobileActionItems() {
 
         case 'right':
         default:
+          // if right, but no admin button, just put on left with the rest of them (there is no right/left)
           // default to right if not specified
-          actionItemsWrapper = profileActionItemWrapper;
+          actionItemsWrapper = profileActionItemWrapper || homeActionItemWrapper;
           break;
       }
       if (actionItemsWrapper) {

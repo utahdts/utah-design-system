@@ -5,9 +5,8 @@ import ActionItemHtml from './html/ActionItem.html?raw';
 
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import appendChildAll from '../../misc/appendChildAll';
 import popupFocusHandler from '../../misc/popupFocusHandler';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import renderPopup from '../popup/renderPopup';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
@@ -37,7 +36,7 @@ export default function renderActionItem(actionItem) {
   if (!titleDiv) {
     throw new Error('renderActionItem: titleDiv not found');
   }
-  appendChildAll(titleDiv, titleElement);
+  titleDiv.appendChild(titleElement);
   if (actionItem.showTitle) {
     titleDiv.classList.remove(domConstants.VISUALLY_HIDDEN);
   } else {
@@ -59,7 +58,7 @@ export default function renderActionItem(actionItem) {
 
   const actionItemIcon = renderDOMSingle(actionItem.icon);
   actionItemIcon.setAttribute('role', 'presentation');
-  appendChildAll(iconButton, actionItemIcon);
+  iconButton.appendChild(actionItemIcon);
 
   if (!(iconButton instanceof HTMLElement)) {
     throw new Error('renderActionItem: iconButton is not an HTMLElement');
@@ -77,7 +76,7 @@ export default function renderActionItem(actionItem) {
     if (!popupContentWrapper) {
       throw new Error('renderPopupMenu: contentWrapper not found');
     }
-    popupContentWrapper.appendChild(actionItem.actionDom());
+    popupContentWrapper.appendChild(renderDOMSingle(typeof actionItem.actionDom === 'function' ? actionItem.actionDom() : actionItem.actionDom));
     actionItemElement.appendChild(popupWrapper);
     popupFocusHandler(actionItemWrapper, iconButton, popupWrapper, 'dialog', undefined);
   } else if (actionItem.actionPopupMenu) {
@@ -89,7 +88,7 @@ export default function renderActionItem(actionItem) {
       iconButton,
       { childrenMenuType: childrenMenuTypes.INLINE }
     );
-    appendChildAll(actionItemElement, popupMenu);
+    actionItemElement.appendChild(popupMenu);
 
     popupFocusHandler(actionItemWrapper, iconButton, popupMenu, 'menu', undefined);
   } else {

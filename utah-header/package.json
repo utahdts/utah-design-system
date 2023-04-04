@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Utah Header for the Utah Design System",
   "main": "src/index.js",
   "files": [
@@ -8,12 +8,12 @@
     "dist"
   ],
   "scripts": {
-    "test": "vitest run",
     "build": "vite build --mode development",
     "preview": "vite preview",
-    "watch": "vite build --watch --mode development",
     "sass-build": "sass --no-source-map ./src/css/index.scss ./src/css/build/utah-design-system-header.css",
-    "test-publish": "npm publish --dry-run"
+    "test-publish": "npm publish --dry-run",
+    "test": "vitest",
+    "watch": "vite build --watch --mode development"
   },
   "repository": {
     "type": "git",
@@ -33,9 +33,9 @@
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "sass": "1.59.3",
-    "vite": "4.1.4",
+    "vite": "4.2.1",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "0.29.2"
+    "vitest": "0.29.7"
   },
   "type": "module"
 }

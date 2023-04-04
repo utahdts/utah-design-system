@@ -10,6 +10,12 @@ import sizes from '../enumerations/sizes';
  * @type {Settings} base settings of the header
  */
 export default {
+  mainMenu: {
+    menuItems: [
+      { title: 'Home', actionUrl: { url: '/' } },
+    ],
+    title: 'Main Menu',
+  },
   mediaSizes: {
     mobile: 640,
     tabletPortrait: 768,

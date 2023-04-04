@@ -20,7 +20,7 @@
  *  // this started as a copy of MenuItem but can diverge to be its own thing
  *  // wordpress has the concept of a menu item that is a link AND has children, but when it goes mobile the link is no longer available
  *  // so the wordpress conversion script will take a menu that has a link and children and auto insert the link as the first child
- *  // TODO: so this could do that work automatically if it detects that scenario instead of throwing an error
+ *  // so this could do that work automatically if it detects that scenario instead of throwing an error
  *
  *  // should be only one of the following three action types
  *  //   actionUrl: an <a> with a url for navigation
@@ -135,11 +135,11 @@
  *  // should be only one of the following three action types
  *  @property {EventAction} [actionFunction] - func: onClick callback
  *  @property {PopupMenu} [actionPopupMenu] - Object[]: array of MenuItems
- *  @property {function (): HTMLElement} [actionDom] - ChildNode: content in a popup.
+ *  @property {function (): HTMLElement | string} [actionDom] - ChildNode: content in a popup.
  *
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon
- *  @property {string} icon - Should be an SVG
+ *  @property {HTMLElement | string} icon - DOM or DOM string of icon to show
  *  @property {'left' | 'none' | 'right'} [mobileMenuLocation] - positioned right or left of the Utah ID button? not at all? default is right
  *  @property {boolean} showTitle - Should the title always be visible?
  *  @property {string} title - Title of the action item (required for accessibility)
@@ -160,7 +160,8 @@
  *
  * @typedef GlobalEventType {
  *  @property {function(): void} globalOnClick the current event handler for global on click events
- *  @property {function(): void} globalOnKeypress the current event handler for global on key press events
+ *  @property {function(): void} globalOnKeydown tracks when keys are pressed down
+ *  @property {function(): void} globalOnKeyup the current event handler for global on key press events
  * }
  *
  * Partial is a `typescript` utility that takes a type and makes all its properties optional. This works in vs-code IDEs but may

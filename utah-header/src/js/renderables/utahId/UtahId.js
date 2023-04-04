@@ -10,7 +10,7 @@ import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import utahIdUrls from '../../enumerations/utahIdUrls';
 import popupFocusHandler from '../../misc/popupFocusHandler';
-import { renderDOMSingle } from '../../misc/renderDOM';
+import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderMenuWithTitle from '../menu/renderMenuWithTitle';
@@ -118,7 +118,7 @@ export function renderUtahIdMenu(shouldAddMenuTitle) {
   const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onProfile);
   const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignOut);
 
-  const customUtahIdMenuItems = (settings.utahId !== true && settings.utahId !== false && settings.utahId?.menuItems) || [];
+  const customUtahIdMenuItems = [...(settings.utahId !== true && settings.utahId !== false && settings.utahId?.menuItems) || []];
   if (customUtahIdMenuItems.length) {
     customUtahIdMenuItems.push({
       isDivider: true,

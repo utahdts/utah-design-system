@@ -7,11 +7,16 @@ import showHideElement from '../misc/showHideElement';
 
 /** @type {GlobalEventType} */
 let globalEventFuncs;
+export const globalKeyStatus = {};
+export const globalKeyModifiers = {
+  SHIFT: 'shift-key',
+};
 
 export function unloadGlobalEvents() {
   if (globalEventFuncs) {
     document.removeEventListener('click', globalEventFuncs.globalOnClick);
-    document.removeEventListener('keyup', globalEventFuncs.globalOnKeypress);
+    document.removeEventListener('keyup', globalEventFuncs.globalOnKeyup);
+    document.removeEventListener('keydown', globalEventFuncs.globalOnKeydown);
 
     globalEventFuncs = null;
   }
@@ -47,10 +52,22 @@ export function loadGlobalEvents() {
   globalEventFuncs.globalOnClick = hideAllMenus;
   document.addEventListener('click', globalEventFuncs.globalOnClick);
 
-  globalEventFuncs.globalOnKeypress = (e) => {
+  globalEventFuncs.globalOnKeyup = (e) => {
     if (e.key === 'Escape') {
       hideAllMenus();
     }
+    if (!e.shiftKey) {
+      globalKeyStatus[globalKeyModifiers.SHIFT] = false;
+    }
+    globalKeyStatus[e.key] = false;
   };
-  document.addEventListener('keyup', globalEventFuncs.globalOnKeypress);
+  document.addEventListener('keyup', globalEventFuncs.globalOnKeyup);
+
+  globalEventFuncs.globalOnKeydown = (e) => {
+    if (e.shiftKey) {
+      globalKeyStatus[globalKeyModifiers.SHIFT] = true;
+    }
+    globalKeyStatus[e.key] = true;
+  };
+  document.addEventListener('keydown', globalEventFuncs.globalOnKeydown);
 }

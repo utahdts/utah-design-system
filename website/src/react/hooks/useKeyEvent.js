@@ -1,6 +1,8 @@
 import identity from 'lodash/identity';
 import intersection from 'lodash/intersection';
 
+// TODO: This hook doesn't seem to do anything? How do you use it?
+
 // these match event's altKey, ctrlKey, metaKey, shiftKey names
 export const EVENT_MODIFIERS = {
   ALT: 'alt',

@@ -8,7 +8,7 @@ import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html
 
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import events from '../enumerations/events';
-import { renderDOMSingle } from '../misc/renderDOM';
+import renderDOMSingle from '../misc/renderDOMSingle';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
 import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
@@ -20,6 +20,7 @@ import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
 import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
+import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -57,11 +58,16 @@ export function loadHeader() {
     const mobileMenuHomeMenuContentItem = addMobileMenuContentItem(mainMenuWithTitle);
     hookupHamburger(mobileMenuHomeMenuContentItem);
     if (utahIdPopup) {
+      // this is a copy of the menu used in the top right profile button, which is labelled by that button, but instead, in mobile,
+      // the labeling is done at the tabPanel layer
+      utahIdPopup.closest('div')?.removeAttribute('aria-labelledby');
       hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup);
     } else {
       removeUtahIdInMobileMenu();
     }
     renderMobileActionItems();
+
+    hookupMobileActionItemKeyboarding();
 
     loadGlobalEvents();
 

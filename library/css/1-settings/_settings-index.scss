@@ -137,3 +137,8 @@ variables and settings
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
 }
+
+.backdrop-dark {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px) brightness(60%);
+}
