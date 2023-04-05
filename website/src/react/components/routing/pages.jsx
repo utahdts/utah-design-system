@@ -443,6 +443,13 @@ const pages = {
   },
 
   // === Navigation === //
+  sidePanelNavigation: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.sidePanelNavigation,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Side Panel Navigation',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   verticalMenu: {
     content: VerticalMenuDocumentation,
     link: pageUrls.verticalMenu,

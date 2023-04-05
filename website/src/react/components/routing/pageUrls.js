@@ -43,6 +43,7 @@ const pageUrls = {
   resources: '/resources',
   segmentedButton: '/library/components/buttons/segmented-button',
   shape: '/foundation/shape',
+  sidePanelNavigation: '/library/components/navigation/side-panel-navigation',
   spacing: '/foundation/spacing',
   switch: '/library/components/forms/switch',
   table: '/library/components/table/table',
