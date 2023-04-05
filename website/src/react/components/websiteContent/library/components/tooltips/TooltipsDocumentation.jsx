@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
+/* eslint-disable react/jsx-indent */
 import {
   Tab,
   TabGroup,

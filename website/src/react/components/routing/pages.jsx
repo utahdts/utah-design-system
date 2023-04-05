@@ -335,14 +335,6 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  modals: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.modals,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Modals',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   buttonGroup: {
     content: SegmentedButtonDocumentation,
     link: pageUrls.buttonGroup,
@@ -359,11 +351,35 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  dialog: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.dialog,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Dialog',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  elevation: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.elevation,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Elevation',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   iconButton: {
     content: IconButtonDocumentation,
     link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  modals: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.modals,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Modals',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

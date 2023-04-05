@@ -127,6 +127,18 @@ export const menuLibraryComponentsSecondary = {
       ],
     },
     {
+      id: 'components__dialogs',
+      link: pages.dialog.link,
+      title: 'Dialog',
+      parentLinks: [pages.library.link],
+    },
+    {
+      id: 'components__elevations',
+      link: pages.elevation.link,
+      title: 'Elevation',
+      parentLinks: [pages.library.link],
+    },
+    {
       id: 'components__forms',
       title: 'Forms',
       parentLinks: [pages.library.link],

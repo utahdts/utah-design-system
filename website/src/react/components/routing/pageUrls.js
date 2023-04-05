@@ -17,6 +17,8 @@ const pageUrls = {
   demoPage: '/resources/demo-page',
   depthElevationShadows: '/foundation/depthElevationShadows',
   design: '/guidelines/design',
+  dialog: '/library/dialog',
+  elevation: '/library/elevation',
   errorPage404: '/errors/404',
   form: '/library/components/form',
   forms: '/library/components/forms',

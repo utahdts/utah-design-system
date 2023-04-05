@@ -1,33 +1,39 @@
-/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-indent */
+// eslint-disable-next-line import/no-unresolved, import/order
+import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
+// eslint-disable-next-line import/no-unresolved, import/order
+import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
+
 import {
-  Button,
   BUTTON_APPEARANCE,
   BUTTON_TYPES,
-  componentColors,
-  formElementSizesEnum,
-  popupPlacement,
+  Button,
   Popup,
   Tab,
   TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
   Table, TableBody, TableCell,
   TableHead,
   TableHeadCell,
   TableHeadRow, TableRow,
   TableWrapper,
-  TabList,
-  TabPanel,
-  TabPanels
+  componentColors,
+  formElementSizesEnum,
+  popupPlacement
 } from '@utahdts/utah-design-system';
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import PreCode from '../../../../../preCode/PreCode';
+import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
 import PopupsExampleCodeReact from './PopupsExampleCodeReact';
 import PopupsExampleProps from './PopupsExampleProps';
 import PopupsExampleRender from './PopupsExampleRender';
@@ -64,8 +70,8 @@ function PopupsDocumentation() {
         </p>
         <p>
           <em>
-            *Differentiation: Modals are boxes containing content that disables the page content and focuses the user’s attention on a single task
-            or message. View more information on <a href="www.someLink.com" target="_blank">modals</a>.
+            *Differentiation: Modals are boxes containing content that disables the page content and focuses the user&apos;s attention on a single task
+            or message. View more information on <Link to={pageUrls.modals}>modals</Link>.
           </em>
         </p>
       </div>
@@ -138,9 +144,9 @@ function PopupsDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>A basic popup should have only a single brief sentence or description.</li>
+            <li>A basic <code>popup</code> should have only a single brief sentence or description.</li>
             <li>
-              To close the popup you may use an icon button, toggle the action button, click outside of the popup, or mash the escape key.
+              To close the <code>popup</code> you may use an <code>icon button</code>, toggle the action button, click outside of the popup, or mash the <code>escape</code> key.
             </li>
             <li>Typically these should not interfere with the users ability to continue their work.</li>
           </ul>
@@ -153,13 +159,13 @@ function PopupsDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>A menu popup has a list of items, and possibly icon buttons, that the user can select.</li>
+            <li>A <code>menu popup</code> has a list of items, and possibly <code>icon buttons</code>, that the user can select.</li>
             <li>
               Avoid selection lists that have more than 15 options to choose from.
               Lists may not be visible on mobile screens if there are too many options.
             </li>
             <li>
-              Close a popup menu by toggling the button, clicking outside of the popup, or mashing the escape key.
+              Close a <code>popup menu</code> by toggling the button, clicking outside of the popup, or mashing the <code>escape</code> key.
             </li>
           </ul>
         )}
@@ -172,11 +178,11 @@ function PopupsDocumentation() {
         quickTips={(
           <ul>
             <li>
-              After a user hovers over a list item in the primary popup menu,
-              a secondary fly-out popup appears next to the primary popup with another item list.
+              After a user <code>hovers</code> over a list item in the primary <code>popup menu</code>,
+              a secondary <code>fly-out popup</code> appears next to the <code>primary popup</code> with another item list.
             </li>
-            <li>A chevron icon should be used to identify a list item that has a sub list of items for the user to choose from.</li>
-            <li>Avoid using fly-out menus as they are difficult for users with reduced dexterity and are difficult to use on mobile devices</li>
+            <li>A <code>chevron icon</code> should be used to identify a list item that has a sub list of items for the user to choose from.</li>
+            <li>Avoid using <code>fly-out menus</code> as they are difficult for users with reduced dexterity and are difficult to use on mobile devices</li>
           </ul>
         )}
       />
@@ -239,11 +245,11 @@ function PopupsDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The popup editor should only contain one input element</li>
-            <li>Typically use two buttons, one to cancel the action and one to continue the action</li>
+            <li>The <code>popup editor</code> should only contain one input element</li>
+            <li>Typically use two buttons, one to <code>cancel</code> the action and one to <code>continue</code> the action</li>
             <li>
-              An icon button should be used to close the popup and can be used in combination with
-              clicking outside of the popup, or mashing the escape key.
+              An <code>icon button</code> should be used to close the <code>popup</code> and can be used in combination with
+              clicking outside of the popup, or mashing the <code>escape</code> key.
             </li>
           </ul>
         )}
@@ -253,15 +259,15 @@ function PopupsDocumentation() {
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Additional, non-critical, information.</strong> Use a popup to convey additional,
+          <strong>Additional, non-critical, information.</strong> Use a <code>popup</code> to convey additional,
           non-critical, information to assist the user in completing an action.
         </li>
         <li>
-          <strong>Limited space.</strong> Popups can be used to present the user with some interactivity when there is not enough space on the
-          screen for an inline action.
+          <strong>Limited space.</strong> <code>Popups</code> can be used to present the user with some interactivity when there is not enough space on the
+          screen for an <code>inline action</code>.
         </li>
         <li>
-          <strong>Minimal disruption to content flow.</strong> Use popups to create minimal disruption to the content flow, thereby not creating
+          <strong>Minimal disruption to content flow.</strong> Use <code>popups</code> to create minimal disruption to the content flow, thereby not creating
           an annoying or frustrating user experience.
         </li>
       </ul>
@@ -269,71 +275,71 @@ function PopupsDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Detailed content.</strong> If the content has detailed information that consists of more than a few sentences or more than
-          one input consider using a Dialog or Modal.
+          one input consider using a <Link to={pageUrls.dialog}>Dialog</Link> or <Link to={pageUrls.modals}>Modal</Link>.
         </li>
         <li>
-          <strong>Users full attention required.</strong> Always use a Modal if the user&apos;s full attention needs to be on a particular form
+          <strong>Users full attention required.</strong> Always use a <code>Modal</code> if the user&apos;s full attention needs to be on a particular form
           or content section.
         </li>
         <li>
-          <strong>Use a tooltip for one or two words.</strong> Consider using a tooltip if the information does not need a click to be dismissed
-          and the content is limited to one or two words. View more information on <a href="www.somelink.com" target="_blank">tooltips</a>.
+          <strong>Use a tooltip for one or two words.</strong> Consider using a <code>tooltip</code> if the information does not need a click to be dismissed
+          and the content is limited to one or two words. View more information on <Link to={pageUrls.tooltips}>tooltips</Link>.
         </li>
       </ul>
       <h3 id="section-usability">Usability Guidance</h3>
       <h4>Style</h4>
       <ul className="mb-spacing">
-        <li><strong>Hover above the content.</strong> A popup should overlap in front of other UI elements. View more information about <a href="www.somelink.com" target="_blank">elevation</a>.</li>
+        <li><strong>Hover above the content.</strong> A <code>popup</code> should overlap in front of other UI elements. View more information about <Link to={pageUrls.elevation}>elevation</Link>.</li>
         <li>
-          <strong>Popup positioning.</strong> Popups should always be positioned within the viewable areas of the screen and be <code>6-12px</code> away from the element that launched them.
-          The popup should appear next to (left, right, top, bottom) the element that launched it.
+          <strong>Popup positioning.</strong> <code>Popups</code> should always be positioned within the viewable areas of the screen and be <code>6-12px</code> away from the element that launched them.
+          The popup should appear next to (<code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>) the element that launched it.
         </li>
       </ul>
       <h4>User Experience</h4>
       <ul className="mb-spacing">
-        <li><strong>Float above the content.</strong> Popup box should display over the main page content using a drop-shadow on the box.</li>
+        <li><strong>Float above the content.</strong> <code>Popup box</code> should display over the main page content using a <code>drop-shadow</code> on the box.</li>
         <li><strong>Trigger event onClick.</strong> The user should be able to click on the element to trigger the interaction.</li>
         <li>
-          <strong>Mobile experience.</strong> Avoid using fly-out menus as they are difficult for users with reduced dexterity and are difficult to
+          <strong>Mobile experience.</strong> Avoid using <code>fly-out menus</code> as they are difficult for users with reduced dexterity and are difficult to
           use on mobile devices.
         </li>
         <li>
-          <strong>Easy to dismiss.</strong>Popups should be easily dismissible using a combination of an icon button,  clicking outside of the popup,
-          or mashing the escape key.
+          <strong>Easy to dismiss.</strong><code>Popups</code> should be easily dismissible using a combination of an icon button,  clicking outside of the popup,
+          or mashing the <code>escape</code> key.
         </li>
       </ul>
       <h3 id="section-accessibility">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>The popup boundary (the outside edge of the popup) must maintain a <code>3:1</code> contrast ratio or better.</li>
+        <li>The <code>popup boundary</code> (the outside edge of the popup) must maintain a <code>3:1</code> contrast ratio or better.</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Default focus should go to the first interactive element.</li>
-        <li>User should be able to open, close and navigate within the popup using only the keyboard.</li>
+        <li><code>Default focus</code> should go to the first interactive element.</li>
+        <li>User should be able to open, close and navigate within the <code>popup</code> using only the keyboard.</li>
         <li>
           Be sure the content in the popup does not disappear prematurely and is visible until the user chooses to dismiss it or move away from it.
         </li>
         <li>
-          Be sure the popup can be dismissed with the Escape key. Once dismissed, the user’s focus should return to the element that spawned the
-          popup.
+          Be sure the popup can be dismissed with the <code>Escape</code> key. Once dismissed, the user&apos;s focus should return to the element that spawned the
+          <code>popup</code>.
         </li>
         <li>Keyboard shortcuts include:</li>
         <ul>
-          <li>&quot;Enter&quot; key should open the popup</li>
-          <li>&quot;Esc&quot; key should dismiss the popup</li>
+          <li><code>Enter</code> key should open the popup</li>
+          <li><code>Esc</code> key should dismiss the popup</li>
         </ul>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>
-          When encountering an element that opens a popup, the user should be alerted to the purpose or intent of the popup and that their action will
-          trigger the popup to open.
+          When encountering an element that opens a <code>popup</code>, the user should be alerted to the purpose or intent of the <code>popup</code> and that their action will
+          trigger the <code>popup</code> to open.
         </li>
-        <li>Screen readers typically announce the name and role of the element first followed by the state of the element.</li>
-        <li>Remember that the focus is set on the first interactive element within the popup after it opens.</li>
-        <li>Ensure that the user can easily close the popup and return to the main content of the website.</li>
-        <li>Use popup menus sparingly. Too many popup menus can create &quot;noise&quot; in screen readers.</li>
+        <li>Screen readers typically announce the <code>name</code> and <code>role</code> of the element first followed by the state of the element.</li>
+        <li>Remember that the focus is set on the first interactive element within the <code>popup</code> after it opens.</li>
+        <li>Ensure that the user can easily close the <code>popup</code> and return to the main content of the website.</li>
+        <li>Use <code>popup menus</code> sparingly. Too many <code>popup menus</code> can create <code>noise</code> in screen readers.</li>
       </ul>
       <h4 className="mb-spacing">Aria Examples</h4>
 
