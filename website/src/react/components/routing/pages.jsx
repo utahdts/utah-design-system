@@ -10,15 +10,16 @@ import ButtonDocumentation from '../websiteContent/library/components/buttons/bu
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
-import DateInputDocumentation from '../websiteContent/library/components/forms/dateInput/DateInputDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
+import DateInputDocumentation from '../websiteContent/library/components/forms/dateInput/DateInputDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
+import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
@@ -234,6 +235,13 @@ const pages = {
   },
 
   // === resources documentation components === //
+  gettingStarted: {
+    content: GettingStarted,
+    link: pageUrls.gettingStarted,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Getting Started',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   github: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.github,

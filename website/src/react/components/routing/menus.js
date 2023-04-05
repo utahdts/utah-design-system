@@ -229,6 +229,11 @@ export const menuResourcesSecondary = {
   id: 'resources',
   menuItems: [
     {
+      link: pages.gettingStarted.link,
+      title: pages.gettingStarted.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+    {
       link: pages.github.link,
       title: pages.github.pageTitle,
       parentLinks: [pages.resources.link],
