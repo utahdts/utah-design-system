@@ -225,20 +225,19 @@ function VerticalMenuDocumentation() {
       <h4>ARIA Examples</h4>
       <h5>Landmark Menus</h5>
       <PreCode
-        codeRaw={`
-<div role="navigation">
+        className="gray-block"
+        codeRaw={`<div role="navigation">
   <ul>
     <li>
       <a>Menu item 1</a>
     </li>
   </ul>
-</div
-        `}
+</div`}
       />
       <h5>Popup or Child Menus</h5>
       <PreCode
-        codeRaw={`
-<button 
+        className="gray-block"
+        codeRaw={`<button 
   aria-haspopup="menu" 
   aria-controls="some-unique-id" 
   aria-expanded="false"
@@ -251,8 +250,7 @@ function VerticalMenuDocumentation() {
     <li>Item One</li>
     <li>Item Two</li>
   </ul
-</div>
-        `}
+</div>`}
       />
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">

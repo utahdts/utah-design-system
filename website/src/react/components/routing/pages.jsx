@@ -101,20 +101,6 @@ const pages = {
   },
 
   // === guidelines documentation components === //
-  principles: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.principles,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Principles',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  uxBestPractices: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.uxBestPractices,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'UX Best Practices',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
   accessibility: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.accessibility,
@@ -134,6 +120,27 @@ const pages = {
     link: pageUrls.design,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Design',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  notifications: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.notifications,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Notifications',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  principles: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.principles,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Principles',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  uxBestPractices: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.uxBestPractices,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'UX Best Practices',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

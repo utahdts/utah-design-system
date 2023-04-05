@@ -395,13 +395,19 @@ function UtahHeaderDocumentation() {
         The <code>Utah Header</code> must load before your javascript code can interact with it. Once the <code>header</code> is loaded it fires&nbsp;
         a global document event <code>{events.utahHeaderLoaded}</code>. Your code can listen for this event to know when it is safe
         to call utah header functions like <code>setUtahHeaderSettings()</code>.
-        <PreCode className="mt-spacing-l" codeRaw={`addEventListener('${events.HEADER_LOADED}', () => setUtahHeaderSettings({title: 'My utah.gov Site'}))`} />
+        <PreCode
+          className="gray-block"
+          codeRaw={`addEventListener('${events.HEADER_LOADED}', () => setUtahHeaderSettings({title: 'My utah.gov Site'}))`}
+        />
       </div>
 
       <h3 id="section-unloaded">UtahID: Unloaded</h3>
       <div>
         When the <code>Utah Header</code> is removed, the <code>unloaded</code> event will fire. Your code can listen for this event.
-        <PreCode className="mt-spacing-l" codeRaw={`addEventListener('${events.HEADER_UNLOADED}', () => alert('Where did the header go?'))`} />
+        <PreCode
+          className="gray-block"
+          codeRaw={`addEventListener('${events.HEADER_UNLOADED}', () => alert('Where did the header go?'))`}
+        />
       </div>
 
       <h3 id="section-auth-changed">UtahID: Auth Changed</h3>
@@ -410,8 +416,8 @@ function UtahHeaderDocumentation() {
         Your javascript code can provide a callback in order to get the current user&apos;s basic information. Seeing as this information is&nbsp;
         javascript provided, it is not trustworthy. You will want to get <code>tokens</code> and/or <code>codes</code> from <code>Utah Login</code> that your server side code can verify.
         <PreCode
-          className="mt-spacing-l"
-          codeRaw={`  // Example Utah Header Settings Object w/ onAuthChanged
+          className="gray-block"
+          codeRaw={`// Example Utah Header Settings Object w/ onAuthChanged
   {
     ...
     "utahId": {

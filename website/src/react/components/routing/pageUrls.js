@@ -35,6 +35,7 @@ const pageUrls = {
   modals: '/library/modals',
   motionTiming: '/foundation/motionTiming',
   multiSelect: '/library/components/forms/multiSelect',
+  notifications: '/guidelines/notifications',
   opacity: '/foundation/opacity',
   patterns: '/library/patterns',
   popups: '/library/components/navigation/popups',

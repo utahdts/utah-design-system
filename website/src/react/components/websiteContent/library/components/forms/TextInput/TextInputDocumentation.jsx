@@ -120,26 +120,24 @@ function TextInputDocumentation() {
               <strong>Preferred Method</strong>: Associate the <code>label</code> with the <code>input box</code> by adding <code>for=&quot;example&quot;</code> to the <code>label</code> and an <code>id=&quot;example&quot;</code> to the <code>input</code>.
               <br />
               <PreCode
-                codeRaw={`
-<div>
+                className="gray-block"
+                codeRaw={`<div>
   <label for="input1">My Label</label>
   <input type="text" id="input1" … />
   <label for="input1" class="error">Error Message</label>
-</div>
-                `}
+</div>`}
               />
             </li>
             <li>
               <strong>Secondary Method</strong>: <code>Inputs</code> can be nested inside the <code>label element</code> to create an implicit association between the two elements. The attributes <code>for</code> and <code>id</code> can still be used but are no longer needed.
               <br />
               <PreCode
-                codeRaw={`
-<label>
+                className="gray-block"
+                codeRaw={`<label>
   <span>My Label<span>
   <input …/>
   <div class="error">Error</div>
-<label>
-                `}
+<label>`}
               />
             </li>
           </ol>
@@ -168,23 +166,23 @@ function TextInputDocumentation() {
         <li>
           <strong>Text Input</strong>
           <PreCode
+            className="gray-block"
             codeRaw={`<div>
   <label for="input1">Some Input<label>
   <input type="text" id="input1">
   <label for="input1" class="error">Some Error</label>
-</div>          
-            `}
+</div>`}
           />
         </li>
         <li>
           <strong>Search Input</strong>
           <PreCode
+            className="gray-block"
             codeRaw={`<form role="search" aria-label="Sitewide">
   <label for="search1">Some Search Input<label>
   <input type="text" id="search1">
   <button class="visually-hidden?">Submit</button>
-</form>          
-            `}
+</form>`}
           />
         </li>
       </ul>

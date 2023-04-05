@@ -66,16 +66,6 @@ export const menuGuidelinesSecondary = {
   id: 'guidelines',
   menuItems: [
     {
-      link: pages.principles.link,
-      title: pages.principles.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.uxBestPractices.link,
-      title: pages.uxBestPractices.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
       link: pages.accessibility.link,
       title: pages.accessibility.pageTitle,
       parentLinks: [pages.guidelines.link],
@@ -88,6 +78,21 @@ export const menuGuidelinesSecondary = {
     {
       link: pages.design.link,
       title: pages.design.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.notifications.link,
+      title: pages.notifications.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.principles.link,
+      title: pages.principles.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.uxBestPractices.link,
+      title: pages.uxBestPractices.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
   ],
@@ -167,17 +172,12 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
     },
     {
-      id: 'components__tooltips',
-      title: 'Tooltips',
-      link: pages.tooltips.link,
-      parentLinks: [pages.library.link],
-    },
-    {
       id: 'components__widgets-indicators',
       title: 'Widgets & Indicators',
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
   ],
