@@ -12,7 +12,7 @@ const defaultProps = {};
 function ProgressLogVersionRow({ version }) {
   return (
     <TableRow>
-      <TableCell colspan="100" className="progress-log__version">{`Version ${version}`}</TableCell>
+      <TableCell colSpan="100" className="progress-log__version">{`Version ${version}`}</TableCell>
     </TableRow>
   );
 }
