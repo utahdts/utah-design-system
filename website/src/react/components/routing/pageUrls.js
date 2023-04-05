@@ -31,6 +31,7 @@ const pageUrls = {
   horizontalRule: '/library/components/basic/hr',
   iconButton: '/library/components/buttons/iconButton',
   icons: '/resources/icons',
+  introduction: '/resources/introduction',
   layout: '/foundation/layout',
   library: '/library',
   links: '/library/components/basic/links',

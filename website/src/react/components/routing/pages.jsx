@@ -21,6 +21,7 @@ import BadgesDocumentation from '../websiteContent/library/components/widgetsInd
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
+import Introduction from '../websiteContent/resources/Introduction';
 import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
@@ -235,6 +236,27 @@ const pages = {
   },
 
   // === resources documentation components === //
+  colorPicker: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.colorPicker,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Color Picker',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  contributeCommunity: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.contributeCommunity,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Contribute / Community',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  demo: {
+    content: Demo,
+    link: pageUrls.demoPage,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Demo Page',
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
+  },
   gettingStarted: {
     content: GettingStarted,
     link: pageUrls.gettingStarted,
@@ -249,25 +271,11 @@ const pages = {
     pageTitle: 'GitHub',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  mockups: {
-    content: Mockups,
-    link: pageUrls.mockups,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Mockups',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  demo: {
-    content: Demo,
-    link: pageUrls.demoPage,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Demo Page',
-    template: layoutTemplatesEnum.LANDING_TEMPLATE,
-  },
-  colorPicker: {
+  help: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.colorPicker,
+    link: pageUrls.help,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Color Picker',
+    pageTitle: 'Help',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   icons: {
@@ -277,18 +285,18 @@ const pages = {
     pageTitle: 'Icons',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  contributeCommunity: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.contributeCommunity,
+  introduction: {
+    content: Introduction,
+    link: pageUrls.introduction,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Contribute / Community',
+    pageTitle: 'Introduction',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  help: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.help,
+  mockups: {
+    content: Mockups,
+    link: pageUrls.mockups,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Help',
+    pageTitle: 'Mockups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
