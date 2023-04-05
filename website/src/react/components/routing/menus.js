@@ -126,9 +126,15 @@ export const menuLibraryComponentsSecondary = {
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
+        { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
+        { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
+        { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
+        { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
+        { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
     },
     {

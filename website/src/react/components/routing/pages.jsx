@@ -1,27 +1,28 @@
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
+import HomeLanding from '../websiteContent/HomeLanding';
+import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
-import HomeLanding from '../websiteContent/HomeLanding';
+import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
-import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
+import DateInputDocumentation from '../websiteContent/library/components/dateInput/DateInputDocumentation';
+import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
+import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
-import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
-import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
-import Mockups from '../websiteContent/resources/Mockups';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
+import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
-import DateInputDocumentation from '../websiteContent/library/components/dateInput/DateInputDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -377,11 +378,39 @@ const pages = {
   },
 
   // === forms === //
+  checkbox: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.checkbox,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Checkbox',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  comboBox: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.comboBox,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Combo Box',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   dateInput: {
     content: DateInputDocumentation,
     link: pageUrls.dateInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Date Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  multiSelect: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.multiSelect,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Multi Select',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  radioButton: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.radioButton,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Radio Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   switch: {
@@ -391,11 +420,25 @@ const pages = {
     pageTitle: 'Switch',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  textInput: {
+  textArea: {
     content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.textArea,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Text Area',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  textInput: {
+    content: TextInputDocumentation,
     link: pageUrls.textInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Text Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  validation: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.validation,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Validation',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

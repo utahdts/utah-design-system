@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
 import { Icons, RefShape, Switch } from '@utahdts/utah-design-system';
-import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
+import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
 
 const propTypes = {
   innerRef: RefShape,
@@ -14,7 +14,7 @@ const defaultProps = {
   innerRef: null,
 };
 
-function SwitchExampleRender({
+function TextInputExampleRender({
   setState,
   state: {
     props: {
@@ -52,7 +52,7 @@ function SwitchExampleRender({
   );
 }
 
-SwitchExampleRender.propTypes = propTypes;
-SwitchExampleRender.defaultProps = defaultProps;
+TextInputExampleRender.propTypes = propTypes;
+TextInputExampleRender.defaultProps = defaultProps;
 
-export default SwitchExampleRender;
+export default TextInputExampleRender;

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
-import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
+import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({

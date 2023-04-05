@@ -9,7 +9,7 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
+import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,
@@ -22,7 +22,7 @@ const defaultProps = {};
 const DEFAULT_SWITCH_WIDTH = 80;
 const DEFAULT_ICON = 'none';
 
-function SwitchExampleProps({ setState, state }) {
+function TextInputExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
@@ -86,7 +86,7 @@ function SwitchExampleProps({ setState, state }) {
   );
 }
 
-SwitchExampleProps.propTypes = propTypes;
-SwitchExampleProps.defaultProps = defaultProps;
+TextInputExampleProps.propTypes = propTypes;
+TextInputExampleProps.defaultProps = defaultProps;
 
-export default SwitchExampleProps;
+export default TextInputExampleProps;
