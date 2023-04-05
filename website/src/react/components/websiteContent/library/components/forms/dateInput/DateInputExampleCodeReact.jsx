@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import DateInputExamplePropsShape from '../../../../../propTypesShapes/DateInputExamplePropsShape';
-import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
+import DateInputExamplePropsShape from '../../../../../../propTypesShapes/DateInputExamplePropsShape';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({

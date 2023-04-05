@@ -9,7 +9,7 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import DateInputExamplePropsShape from '../../../../../propTypesShapes/DateInputExamplePropsShape';
+import DateInputExamplePropsShape from '../../../../../../propTypesShapes/DateInputExamplePropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,

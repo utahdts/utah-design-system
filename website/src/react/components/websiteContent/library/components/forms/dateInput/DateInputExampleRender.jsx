@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Icons, RefShape, Switch } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import DateInputExamplePropsShape from '../../../../../propTypesShapes/DateInputExamplePropsShape';
+import DateInputExamplePropsShape from '../../../../../../propTypesShapes/DateInputExamplePropsShape';
 
 const propTypes = {
   innerRef: RefShape,
