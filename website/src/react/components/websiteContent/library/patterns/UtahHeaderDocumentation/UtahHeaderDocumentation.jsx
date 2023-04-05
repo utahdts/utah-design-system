@@ -384,7 +384,7 @@ function UtahHeaderDocumentation() {
       <h4 id="section-screen-readers">Screen Readers</h4>
       <ul>
         <li>The <code>main menu</code> is a landmark role used for accessibility. It is recommended that you wrap the <code>main menu</code> in a <code>&lt;nav&gt;</code> tag, or as a fallback use <code>role=&quot;navigation&quot;</code>.</li>
-        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Fly-out Menus</Link>.</li>
+        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.</li>
         <li>For the <code>search form</code> refer to accessability guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
         <li>For the <code>search icon</code>, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
       </ul>

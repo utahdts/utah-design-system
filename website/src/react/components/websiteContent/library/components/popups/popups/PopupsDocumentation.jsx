@@ -179,10 +179,10 @@ function PopupsDocumentation() {
           <ul>
             <li>
               After a user <code>hovers</code> over a list item in the primary <code>popup menu</code>,
-              a secondary <code>fly-out popup</code> appears next to the <code>primary popup</code> with another item list.
+              a secondary <code>flyout popup</code> appears next to the <code>primary popup</code> with another item list.
             </li>
             <li>A <code>chevron icon</code> should be used to identify a list item that has a sub list of items for the user to choose from.</li>
-            <li>Avoid using <code>fly-out menus</code> as they are difficult for users with reduced dexterity and are difficult to use on mobile devices</li>
+            <li>Avoid using <code>flyout menus</code> as they are difficult for users with reduced dexterity and are difficult to use on mobile devices</li>
           </ul>
         )}
       />
@@ -300,7 +300,7 @@ function PopupsDocumentation() {
         <li><strong>Float above the content.</strong> <code>Popup box</code> should display over the main page content using a <code>drop-shadow</code> on the box.</li>
         <li><strong>Trigger event onClick.</strong> The user should be able to click on the element to trigger the interaction.</li>
         <li>
-          <strong>Mobile experience.</strong> Avoid using <code>fly-out menus</code> as they are difficult for users with reduced dexterity and are difficult to
+          <strong>Mobile experience.</strong> Avoid using <code>flyout menus</code> as they are difficult for users with reduced dexterity and are difficult to
           use on mobile devices.
         </li>
         <li>
