@@ -46,7 +46,7 @@ function TooltipsDocumentation() {
       />
       <StaticExample
         title="Tooltip Examples"
-        renderedExample={<LightBox image={tooltipsScreenshot} alt="Tooltips" className="flex-3up-gap" />}
+        renderedExample={<LightBox hideAlt image={tooltipsScreenshot} alt="Tooltips" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Tooltips typically appear below their parent, unless there isn&apos;t space.</li>
