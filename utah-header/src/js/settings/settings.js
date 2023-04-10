@@ -1,4 +1,5 @@
 // @ts-check
+import events from '../enumerations/events';
 import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
 import baseSettings from './baseSettings';
 import defaultSettings from './defaultSettings';
@@ -33,6 +34,23 @@ function doLoadHeader() {
   loadHeader();
 }
 
+// Trigger a custom event ('utahHeaderLoaded') that developers can listen for
+// in their applications.
+// The event needs to wait for the UMD library to load the global window.utahHeader
+// module. Use setTimeout to wait for this script to finish running before firing
+// the `utahHeaderLoaded` event.
+let isSetUtahHeaderSettingsCalled = false;
+const intervalId = setInterval(
+  () => {
+    if (isSetUtahHeaderSettingsCalled) {
+      clearInterval(intervalId);
+    } else {
+      document.dispatchEvent(new Event(events.HEADER_LOADED));
+    }
+  },
+  1
+);
+
 /**
  * @param {SettingsInput} newSettings
  * @returns Settings
@@ -43,6 +61,8 @@ export function setUtahHeaderSettings(newSettings) {
   // this is only a shallow copy, so merging nested settings does not happen.
   settings = { ...baseSettings, ...newSettings };
   validateSettings(settings);
+
+  isSetUtahHeaderSettingsCalled = true;
 
   if (document?.body) {
     doLoadHeader();
