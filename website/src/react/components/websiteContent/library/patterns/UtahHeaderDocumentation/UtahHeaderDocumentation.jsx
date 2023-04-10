@@ -93,7 +93,7 @@ function UtahHeaderDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Utah Header</h1>
       <p className="lead-in">
-        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. The purpose of its components is to promote a consistent look, feel and user experience throughout all state websites and applications.
+        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. The purpose of its components is to promote a consistent look, feel, and user experience throughout all state websites and applications.
       </p>
       <p className="lead-in">
         The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and Title</strong>
@@ -200,13 +200,13 @@ function UtahHeaderDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The Utah identification is required on all headers.</li>
+            <li>The <code>Utah</code> identification is required on all headers.</li>
             <li>The <code>Utah, an official website</code> helps the user to know that they are visiting an official State website.</li>
             <li>At the moment, the color of the identification can be changed to match the primary or secondary color of the site.</li>
-            <li>Depending on the height of the header use one of the above sizes.
+            <li>Depending on the height of the header use one of the above sizes (eg <code>SMALL</code>, <code>MEDIUM</code>, or <code>LARGE</code>).
               <ul>
-                <li>Utah, an official state website (for large headers)</li>
-                <li>Utah, an official website (for medium and small headers)</li>
+                <li><code>Utah, an official state website</code> (for <code>LARGE</code> headers)</li>
+                <li><code>Utah, an official website</code> (for <code>MEDIUM</code> and <code>SMALL</code> headers)</li>
               </ul>
             </li>
           </ul>
@@ -227,9 +227,9 @@ function UtahHeaderDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
-            <li>The title is always required even if it&apos;s not visible, so screen readers can identify the site.</li>
-            <li>If you are using an image, such as a png, jpg or svg that contains both the agency logo and title, the text of the agency title should be at least 14px as well. The text should also maintain a <code>4.5:1</code> contrast ration against the background.</li>
+            <li>The <code>Agency Icon and Title</code> section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
+            <li>The <code>title</code> is always required even if it is not visible, so screen readers can identify the site.</li>
+            <li>If you are using an <code>image</code>, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and title, the text of the <code>agency title</code> should be at least <code>14px</code> as well. The <code>text</code> should also maintain a <code>4.5:1</code> contrast ration against the background.</li>
           </ul>
         )}
       />
@@ -271,14 +271,14 @@ function UtahHeaderDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Action items are not required, but can be utilized based on need.</li>
-            <li>Action items are icon buttons that can be used in combination with badges.</li>
-            <li>The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation or frequently used services.</li>
-            <li>The Alert icon is represented by a bell icon. It will eventually be  linked to the Citizen Portal.</li>
-            <li>The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
-            <li>The Settings icon is represented by a gear icon. It is a popup menu that  allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
-            <li>The UtahID Login is a button that allows the user to login to their UtahID and Citizen Portal (eventually) accounts.</li>
-            <li>Action items can have 2 different types of popups.
+            <li><code>Action items</code> are not required, but can be utilized based on need.</li>
+            <li><code>Action items</code> are <code>icon buttons</code> that can be used in combination with <code>badges</code>.</li>
+            <li>The <code>Waffle icon</code> is represented by an icon that is a square made up of 9 dots. It is a <code>popup menu</code> that can contain additional navigation or frequently used services.</li>
+            <li>The <code>Alert icon</code> is represented by a bell icon. It will eventually be linked to the <code>Citizen Portal</code>.</li>
+            <li>The <code>Help icon</code> is represented by a question mark icon. It is a <code>popup menu</code> that provides help items relative to the site.</li>
+            <li>The <code>Settings icon</code> is represented by a gear icon. It is a <code>popup menu</code> that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
+            <li>The <code>UtahID Login</code> is a button that allows the user to login to their <code>UtahID</code> and <code>Citizen Portal</code> (eventually) accounts.</li>
+            <li><code>Action items</code> can have 2 different types of <code>popups</code>.
               <ul>
                 <li>Contains a menu</li>
                 <li>Contains custom content</li>
@@ -295,12 +295,12 @@ function UtahHeaderDocumentation() {
         renderedExample={<LightBox image={menusDropdownScreenshot} alt="Main Menu Examples" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>Horizontal menu that serves as the main navigation for the site.</li>
+            <li><code>Horizontal menu</code> that serves as the main navigation for the site.</li>
             <li>Typically list items in the menu should have no more than 2 words.</li>
-            <li>There are 3 types of menu items: Links, Custom Function, or a List of Menu Items (vertical menu). See below guidance for when to use each type and when not to use.</li>
-            <li>Sub-menus are Vertical menus displayed within a Popup (e.g. Popup menu, Flyout or a Mega menu). They are indicated by a down arrow to the right of the topic.</li>
+            <li>There are 3 types of menu items: <code>Links</code>, <code>Custom Function</code>, or a <code>List of Menu Items</code> (<code>vertical menu</code>). See below guidance for when to use each type and when not to use.</li>
+            <li><code>Sub-menus</code> are <code>Vertical menus</code> displayed within a <code>Popup</code> (e.g. <code>Popup menu</code>, <code>Flyout</code> or a <code>Mega menu</code>). They are indicated by a <code>down arrow</code> to the right of the topic.</li>
             <li>Has a &quot;chiclet&quot;, a thin line at the top of the active menu item.</li>
-            <li>Active list items will be bold, and the text color should match the primary color.</li>
+            <li>Active list items will be <code>bold</code>, and the text color should match the primary color.</li>
           </ul>
         )}
       />
@@ -323,15 +323,15 @@ function UtahHeaderDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The Search functionality will be indicated by a Magnifying Glass icon button.</li>
-            <li>When the icon button is clicked, it will open a modal with a text input field.</li>
+            <li>The <code>Search</code> functionality will be indicated by a Magnifying Glass <code>icon button</code>.</li>
+            <li>When the <code>icon button</code> is clicked, it will open a <code>modal</code> with a <code>text input field</code>.</li>
           </ul>
         )}
       />
       <p>View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>, <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</p>
 
       <h2 id="section-main-menu" className="mb-spacing">Main Menu</h2>
-      The Main Menu and Search Component is the primary navigation tool for the entire site. It is comprised of two sections, the Main Menu and Search tools. To add increased trust, the Main Menu and Search tools will have a distinct look and feel that is similar across all agency sites.
+      The <code>Main Menu</code> and <code>Search</code> Component is the primary navigation tool for the entire site. It is comprised of two sections, the <code>Main Menu</code> and <code>Search</code> tools. To add increased trust, the <code>Main Menu</code> and <code>Search</code> tools will have a distinct look and feel that is similar across all agency sites.
 
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
@@ -339,79 +339,85 @@ function UtahHeaderDocumentation() {
         <li><strong>Utah Header</strong>
           <ul>
             <li><strong>Always Use</strong>. The header is required on all sites.</li>
-            <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
+            <li><strong>Customizable header</strong>. The <code>action button group</code> can be omitted or customized to best fit the site needs.</li>
           </ul>
         </li>
         <li><strong>Main Menu</strong>
           <ul>
-            <li><strong>Always use</strong>. The Main Menu and Search bar are used in conjunction with the Utah Header to instill a sense of trust that this is a State of Utah site.</li>
+            <li><strong>Always use</strong>. The <code>Main Menu and Search</code> bar is used in conjunction with the <code>Utah Header</code> to instill a sense of trust that this is a <code>State of Utah</code> site.</li>
             <li><strong>Main menu items can be links</strong>. Use this when you need to send the user to a specific url.</li>
-            <li><strong>Open up a list of menu items</strong>. Main menu items can display a list of sub menus in either a Popup menu or a Mega Menu.</li>
+            <li><strong>Open up a list of menu items</strong>. <code>Main menu items</code> can display a list of sub menus in either a <code>Popup menu</code> or a <code>Mega Menu</code>.</li>
             <li><strong>Menu items can be a custom function</strong>. If you would like the menu item to trigger a function.</li>
-            <li><strong>Sub menu options</strong>. Sub menu is a Vertical menu that can be displayed in Popups (e.g. Popup menu, Flyout or a Mega menu).</li>
-            <li>View more information on <Link to={pageUrls.popups}>Popups</Link>, <Link to={pageUrls.verticalMenu}>Vertical Menus</Link> or <Link to={pageUrls.links}>Links</Link> regarding internal versus external links.</li>
+            <li><strong>Sub menu options</strong>. Sub menu is a <code>Vertical menu</code> that can be displayed in <code>Popups</code> (e.g. <code>Popup menu</code>, <code>Flyout</code> or a <code>Mega menu</code>).</li>
           </ul>
         </li>
       </ul>
+      <p>View more information on <Link to={pageUrls.popups}>Popups</Link>, <Link to={pageUrls.verticalMenu}>Vertical Menus</Link> or <Link to={pageUrls.links}>Links</Link> regarding internal versus external links.</p>
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
-        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content consider using the search as a way for visitors to easily find information.</li>
-        <li><strong>Avoid menus that are more than 3 levels deep.</strong> Menus that are more than 3 levels deep are a challenge to navigate for those with motor skill challenges. It can even be frustrating to those without motor skill challenges.</li>
-        <li><strong>Menu items that have a double role</strong>. Some WordPress menus have a mega menu where their menu items can be both a link and have a list of children menu items. This way the menu item can be triggered for navigation or can expand to its children items. Unfortunately, these combo menu items, when viewing in a smaller mobile view, no longer are triggerable so the user loses the ability to navigate to that menu item because triggering that menu item will expand the children menu items.<br />
-          <br />Because of this limitation of mobile, it was decided to only ever allow one menu type for a menu item. It is suggested in the case where you do want a combo menu item, that the link be placed, instead of on the menu item, in the sub menu items as the first &quot;summary/overview&quot; link.
+        <li><strong>Search is optional.</strong> If the site is small there may be no need for the <code>Search</code> tool. For sites that have more content consider using the search as a way for visitors to easily find information.</li>
+        <li><strong>Avoid menus that are more than 3 levels deep.</strong> <code>Menus</code> that are more than 3 levels deep are a challenge to navigate for those with motor skill challenges. It can even be frustrating to those without motor skill challenges.</li>
+        <li><strong>Menu items that have a double role</strong>. Some <code>WordPress menus</code> have a <code>mega menu</code> where their menu items can be both a link and have a list of children menu items. This way the menu item can be triggered for navigation or can expand to its children items. Unfortunately, these <code>combo menu items</code>, when viewing in a smaller mobile view, no longer are triggerable so the user loses the ability to navigate to that menu item because triggering that menu item will expand the children menu items.
+          <br />Because of this limitation of mobile, it was decided to only ever allow one menu type for a menu item. It is suggested, in the case where you do want a <code>combo menu item</code>, that the <code>link</code> be placed, instead of on the <code>menu item</code>, in the <code>sub menu</code> items as the first &quot;summary/overview&quot; link.
         </li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the citizens experience all public state websites and applications.</li>
-        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
-        <li><strong>Always use the Main Menu in conjunction with the Utah Header</strong>. The Utah Header and the Main Menu and Search bar will be used together across all state websites and applications.</li>
+        <li><strong>Consistency</strong>. Never change the look and feel of the <code>header</code> nor <code>main menu and search</code> bar as they are central to the <code>citizens experience</code> on all public state websites and applications.</li>
+        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the <code>header</code>. This will allow the developer to view the <code>header</code> in real time prior to implementing.</li>
+        <li><strong>Always use the Main Menu in conjunction with the Utah Header</strong>. The <code>Utah Header</code> and the Main <code>Menu and Search</code> bar will be used together across all state websites and applications.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul>
-        <li>Maintain a minimum 4.5:1 contrast ratio for all interactions (hover, focus).</li>
+        <li>Maintain a minimum <code>4.5:1 </code>contrast ratio for all interactions (e.g. <code>hover</code>, <code>focus</code>).</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard Interactivity</h4>
       <ul>
-        <li>Users must be able to to navigate using the tab key.</li>
-        <li>Users must be able to select the navigation item using the Enter/Return keys.</li>
+        <li>Users must be able to to navigate using the <code>tab</code> key.</li>
+        <li>Users must be able to select the navigation item using the <code>Enter/Return</code> keys.</li>
       </ul>
       <h4 id="section-screen-readers">Screen Readers</h4>
       <ul>
-        <li>The main menu is a landmark role used for accessibility. It is recommended that you wrap the main menu in a <code>&lt;nav&gt;</code> tag, or as a fallback use <code>role=&quot;navigation&quot;</code>.</li>
-        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Fly-out Menus</Link>.</li>
-        <li>For the search form refer to accessability guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
-        <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
+        <li>The <code>main menu</code> is a landmark role used for accessibility. It is recommended that you wrap the <code>main menu</code> in a <code>&lt;nav&gt;</code> tag, or as a fallback use <code>role=&quot;navigation&quot;</code>.</li>
+        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.</li>
+        <li>For the <code>search form</code> refer to accessability guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
+        <li>For the <code>search icon</code>, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
       </ul>
 
       <h2 id="section-utahid-events" className="mb-spacing">UtahID Events</h2>
       <h3 id="section-loaded">UtahID: Loaded</h3>
       <div>
-        The Utah Header must load before your javascript code can be interact with it. Once the header is loaded it fires&nbsp;
-        {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-        a global document event `{events.utahHeaderLoaded}`. Your code can listen for this event to know when it is safe
-        to call utah header functions like `setUtahHeaderSettings()`.
-        <PreCode codeRaw={`addEventListener('${events.HEADER_LOADED}', () => setUtahHeaderSettings({title: 'My utah.gov Site'}))`} />
+        The <code>Utah Header</code> must load before your javascript code can interact with it. Once the <code>header</code> is loaded it fires&nbsp;
+        a global document event <code>{events.utahHeaderLoaded}</code>. Your code can listen for this event to know when it is safe
+        to call utah header functions like <code>setUtahHeaderSettings()</code>.
+        <PreCode
+          className="gray-block"
+          codeRaw={`addEventListener('${events.HEADER_LOADED}', () => setUtahHeaderSettings({title: 'My utah.gov Site'}))`}
+        />
       </div>
 
       <h3 id="section-unloaded">UtahID: Unloaded</h3>
       <div>
-        When the Utah Header is removed, the `unloaded` event will fire. Your code can listen for this event.
-        <PreCode codeRaw={`addEventListener('${events.HEADER_UNLOADED}', () => alert('Where did the header go?'))`} />
+        When the <code>Utah Header</code> is removed, the <code>unloaded</code> event will fire. Your code can listen for this event.
+        <PreCode
+          className="gray-block"
+          codeRaw={`addEventListener('${events.HEADER_UNLOADED}', () => alert('Where did the header go?'))`}
+        />
       </div>
 
       <h3 id="section-auth-changed">UtahID: Auth Changed</h3>
       <div>
-        The Utah ID Button in the top right of the header makes an ajax request to check the current user&apos;s logged in status with UtahID. &nbsp;
+        The <code>Utah ID Button</code> in the top right of the header makes an ajax request to check the current user&apos;s logged in status with <code>UtahID</code>. &nbsp;
         Your javascript code can provide a callback in order to get the current user&apos;s basic information. Seeing as this information is&nbsp;
-        javascript provided, it is not trustworthy. You will want to get tokens and/or codes from Utah Login that your server side code can verify.
+        javascript provided, it is not trustworthy. You will want to get <code>tokens</code> and/or <code>codes</code> from <code>Utah Login</code> that your server side code can verify.
         <PreCode
-          codeRaw={`  // Example Utah Header Settings Object w/ onAuthChanged
+          className="gray-block"
+          codeRaw={`// Example Utah Header Settings Object w/ onAuthChanged
   {
     ...
     "utahId": {

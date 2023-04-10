@@ -66,16 +66,6 @@ export const menuGuidelinesSecondary = {
   id: 'guidelines',
   menuItems: [
     {
-      link: pages.principles.link,
-      title: pages.principles.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.uxBestPractices.link,
-      title: pages.uxBestPractices.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
       link: pages.accessibility.link,
       title: pages.accessibility.pageTitle,
       parentLinks: [pages.guidelines.link],
@@ -88,6 +78,21 @@ export const menuGuidelinesSecondary = {
     {
       link: pages.design.link,
       title: pages.design.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.notifications.link,
+      title: pages.notifications.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.principles.link,
+      title: pages.principles.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.uxBestPractices.link,
+      title: pages.uxBestPractices.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
   ],
@@ -122,13 +127,31 @@ export const menuLibraryComponentsSecondary = {
       ],
     },
     {
+      id: 'components__dialogs',
+      link: pages.dialog.link,
+      title: 'Dialog',
+      parentLinks: [pages.library.link],
+    },
+    {
+      id: 'components__elevations',
+      link: pages.elevation.link,
+      title: 'Elevation',
+      parentLinks: [pages.library.link],
+    },
+    {
       id: 'components__forms',
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
+        { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
+        { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
+        { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
+        { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
+        { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
     },
     {
@@ -142,6 +165,7 @@ export const menuLibraryComponentsSecondary = {
       title: 'Navigation',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
       ],
     },
@@ -160,17 +184,12 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
     },
     {
-      id: 'components__tooltips',
-      title: 'Tooltips',
-      link: pages.tooltips.link,
-      parentLinks: [pages.library.link],
-    },
-    {
       id: 'components__widgets-indicators',
       title: 'Widgets & Indicators',
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
   ],
@@ -209,6 +228,16 @@ export const menuResourcesSecondary = {
   header: 'Resources',
   id: 'resources',
   menuItems: [
+    {
+      link: pages.introduction.link,
+      title: pages.introduction.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+    {
+      link: pages.gettingStarted.link,
+      title: pages.gettingStarted.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
     {
       link: pages.github.link,
       title: pages.github.pageTitle,

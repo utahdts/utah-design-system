@@ -1,20 +1,20 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Icons, RefShape, Switch } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import DateInputExamplePropsShape from '../../../../../propTypesShapes/DateInputExamplePropsShape';
+import { Icons, RefShape, Switch } from '@utahdts/utah-design-system';
+import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
 
 const propTypes = {
   innerRef: RefShape,
   setState: PropTypes.func.isRequired,
   state: PropTypes.shape({
-    props: DateInputExamplePropsShape.isRequired,
+    props: SwitchExamplePropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {
   innerRef: null,
 };
 
-function DateInputExampleRender({
+function SwitchExampleRender({
   setState,
   state: {
     props: {
@@ -52,7 +52,7 @@ function DateInputExampleRender({
   );
 }
 
-DateInputExampleRender.propTypes = propTypes;
-DateInputExampleRender.defaultProps = defaultProps;
+SwitchExampleRender.propTypes = propTypes;
+SwitchExampleRender.defaultProps = defaultProps;
 
-export default DateInputExampleRender;
+export default SwitchExampleRender;

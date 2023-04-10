@@ -32,7 +32,7 @@
  *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  *  @property {MenuItem[]} [actionMenu] - children menus
 *
- *  @property {ChildrenMenuType} [childrenMenuType] - default is "fly-out"
+ *  @property {ChildrenMenuType} [childrenMenuType] - default is "flyout"
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {boolean} [isDivider] - this menu item is a divider between other menu items

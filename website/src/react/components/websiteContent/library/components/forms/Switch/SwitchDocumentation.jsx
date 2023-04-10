@@ -6,11 +6,11 @@ import {
   TabPanels,
   TabPanel, TableWrapper, Table, TableHead, TableHeadRow, TableHeadCell, TableBody, TableRow, TableCell, Switch, formElementSizesEnum,
 } from '@utahdts/utah-design-system';
-import SandboxExample from '../../../../sandbox/SandboxExample';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import SwitchExampleCodeReact from './SwitchExampleCodeReact';
 import SwitchExampleRender from './SwitchExampleRender';
 import SwitchPrimaryExampleProps from './SwitchExampleProps';
-import StaticExample from '../../../../staticExamples/StaticExample';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};

@@ -9,12 +9,12 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import DateInputExamplePropsShape from '../../../../../propTypesShapes/DateInputExamplePropsShape';
+import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,
   state: PropTypes.shape({
-    props: DateInputExamplePropsShape.isRequired,
+    props: SwitchExamplePropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
@@ -22,7 +22,7 @@ const defaultProps = {};
 const DEFAULT_SWITCH_WIDTH = 80;
 const DEFAULT_ICON = 'none';
 
-function DateInputExampleProps({ setState, state }) {
+function TextInputExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
@@ -86,7 +86,7 @@ function DateInputExampleProps({ setState, state }) {
   );
 }
 
-DateInputExampleProps.propTypes = propTypes;
-DateInputExampleProps.defaultProps = defaultProps;
+TextInputExampleProps.propTypes = propTypes;
+TextInputExampleProps.defaultProps = defaultProps;
 
-export default DateInputExampleProps;
+export default TextInputExampleProps;

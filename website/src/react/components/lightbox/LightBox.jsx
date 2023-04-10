@@ -7,13 +7,20 @@ import useKeyEventGlobal from '../../hooks/useKeyEventGlobal';
 const propTypes = {
   alt: PropTypes.string.isRequired,
   className: PropTypes.string,
+  hideAlt: PropTypes.bool,
   image: PropTypes.node.isRequired,
 };
 const defaultProps = {
   className: null,
+  hideAlt: false,
 };
 
-function LightBox({ alt, className, image }) {
+function LightBox({
+  alt,
+  className,
+  hideAlt,
+  image,
+}) {
   const [state, setState] = useImmer({ open: false });
 
   useKeyEventGlobal({
@@ -29,7 +36,7 @@ function LightBox({ alt, className, image }) {
     <>
       <button
         type="button"
-        className={joinClassNames('lightbox__image-thumbnail', className)}
+        className={joinClassNames('lightbox__image-thumbnail', hideAlt && 'lightbox__image-thumbnail--hiddenAlt', className)}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -39,7 +46,7 @@ function LightBox({ alt, className, image }) {
         }}
       >
         <img src={image} alt={alt} />
-        <span className="lightbox__button-text hcenter">{alt}</span>
+        {hideAlt ? null : <span className="lightbox__button-text hcenter">{alt}</span>}
       </button>
       {state.open && (
         <>

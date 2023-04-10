@@ -167,6 +167,8 @@ input[type=checkbox].switch {
   border: 1px solid color-swatches.$warm-gray-08;
   background: color-swatches.$warm-gray-08;
   border-radius: 16px;
+  background-color: color-swatches.$aspen-green-08;
+  border-color: color-swatches.$aspen-green-08;
 }
 
 .switch-old::after {
@@ -179,9 +181,4 @@ input[type=checkbox].switch {
   left: 16px;
   border-color: color-swatches.$aspen-green-08;
   color: color-swatches.$aspen-green-08;
-}
-
-.switch-old::before {
-  background-color: color-swatches.$aspen-green-08;
-  border-color: color-swatches.$aspen-green-08;
 }
