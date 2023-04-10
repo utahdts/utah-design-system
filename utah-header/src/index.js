@@ -1,11 +1,19 @@
 // @ts-check
 import packageJson from '../package.json';
 import './css/index.scss';
+import events from './js/enumerations/events';
 
 // report version for troubleshooting sake
 const fileVersion = packageJson.version.replace(/\./g, '');
 // eslint-disable-next-line no-console
 console.log(`Utah Header v${fileVersion}`);
+
+// Trigger a custom event ('utahHeaderLoaded') that developers can listen for
+// in their applications.
+// The event needs to wait for the UMD library to load the global window.utahHeader
+// module. Use setTimeout to wait for this script to finish running before firing
+// the `utahHeaderLoaded` event.
+setTimeout(() => document.dispatchEvent(new Event(events.HEADER_LOADED)), 0);
 
 export { default as childrenMenuTypes } from './js/enumerations/childrenMenuTypes';
 export { default as events } from './js/enumerations/events';
