@@ -40,15 +40,19 @@ function doLoadHeader() {
 // module. Use setTimeout to wait for this script to finish running before firing
 // the `utahHeaderLoaded` event.
 let isSetUtahHeaderSettingsCalled = false;
+const MAX_EVENT_FIRES = 15000;
+let numberEventFires = 0;
+
 const intervalId = setInterval(
   () => {
-    if (isSetUtahHeaderSettingsCalled) {
+    numberEventFires += 1;
+    if (numberEventFires >= MAX_EVENT_FIRES || isSetUtahHeaderSettingsCalled) {
       clearInterval(intervalId);
     } else {
       document.dispatchEvent(new Event(events.HEADER_LOADED));
     }
   },
-  1
+  2
 );
 
 /**
