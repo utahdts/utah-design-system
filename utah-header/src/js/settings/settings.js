@@ -27,6 +27,12 @@ function validateSettings(settingsToValidate) {
   }
 }
 
+function doLoadHeader() {
+  removeHeader(false);
+
+  loadHeader();
+}
+
 /**
  * @param {SettingsInput} newSettings
  * @returns Settings
@@ -38,9 +44,11 @@ export function setUtahHeaderSettings(newSettings) {
   settings = { ...baseSettings, ...newSettings };
   validateSettings(settings);
 
-  removeHeader(false);
-
-  loadHeader();
+  if (document?.body) {
+    doLoadHeader();
+  } else {
+    window.addEventListener('load', () => doLoadHeader());
+  }
 
   return settings;
 }
