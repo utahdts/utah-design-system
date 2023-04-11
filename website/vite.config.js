@@ -16,7 +16,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     plugins: [
       react(),
       eslintPlugin(),
-      // basicSsl(),
       mkcert({
         force: true,
         hosts: ['*.utah.gov', '*.local.utah.gov', '127.0.0.1', 'localhost', '::1'],

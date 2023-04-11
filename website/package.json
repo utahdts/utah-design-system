@@ -1,12 +1,13 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.4.1",
   "scripts": {
     "dev": "vite --mode development",
     "build": "vite build --mode development",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "testc": "vitest run --coverage"
   },
   "dependencies": {
     "@utahdts/utah-design-system": "file:../library",

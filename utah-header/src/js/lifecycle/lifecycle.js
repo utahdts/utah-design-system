@@ -81,13 +81,6 @@ export function loadHeader() {
 
     loadGlobalEvents();
 
-    // Trigger a custom event ('utahHeaderLoaded') that developers can listen for
-    // in their applications.
-    // The event needs to wait for the UMD library to load the global window.utahHeader
-    // module. Use setTimeout to wait for this script to finish running before firing
-    // the `utahHeaderLoaded` event.
-    setTimeout(() => document.dispatchEvent(new Event(events.HEADER_LOADED)), 0);
-
     loadCssSettings();
 
     fetchUtahIdUserDataAsync();

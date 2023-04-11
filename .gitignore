@@ -27,3 +27,4 @@ package-lock.json
 /library/junit.xml
 /library/coverage/*
 *.icloud
+coverage
