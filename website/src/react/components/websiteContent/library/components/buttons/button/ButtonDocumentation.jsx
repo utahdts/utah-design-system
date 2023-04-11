@@ -1,3 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable max-len */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Button,
   formElementSizesEnum,
@@ -26,7 +31,6 @@ import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleProps from './ButtonExampleProps';
 import ButtonExampleRender from './ButtonExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
@@ -78,9 +82,9 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Used to emphasize a button when multiple buttons appear on a page or in close proximity.</li>
-            <li>Limit the number of emphasized buttons in a view to ensure your button emphasis isn’t diluted</li>
-            <li>When used in proximity to other buttons:
+            <li>Used to emphasize a <code>button</code> when multiple <code>buttons</code> appear on a page or in close proximity.</li>
+            <li>Limit the number of <code>emphasized buttons</code> in a view to ensure your <code>button</code> emphasis isn&apos;t diluted</li>
+            <li>When used in proximity to other <code>buttons</code>:
               <ul>
                 <li>Should appear on the right.</li>
               </ul>
@@ -124,14 +128,14 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Used to deemphasize a button. This is the default look of a button.</li>
-            <li>When used in proximity to other buttons:
+            <li>Used to deemphasize a <code>button</code>. This is the default look of a <code>button</code>.</li>
+            <li>When used in proximity to other <code>buttons</code>:
               <ul>
-                <li>Should appear on the left of an emphasized button.</li>
+                <li>Should appear on the left of an <code>emphasized button</code>.</li>
               </ul>
             </li>
-            <li>Solid outline. Text matches the button color.</li>
-            <li>* - This is the default appearance of a button.</li>
+            <li>Solid outline. Text matches the <code>button</code> color.</li>
+            <li>* - This is the default appearance of a <code>button</code>.</li>
           </ul>
         )}
       />
@@ -158,11 +162,11 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>When two or more buttons are in close proximity, and you wish to have an emphasized button:
+            <li>When two or more <code>buttons</code> are in close proximity, and you wish to have an <code>emphasized button</code>:
               <ul>
-                <li>The emphasized button will appear on the right.</li>
-                <li>One or more unemphasized buttons will appear on the left.</li>
-                <li>If you wish to use more than 3 buttons in proximity consider
+                <li>The <code>emphasized button</code> will appear on the right.</li>
+                <li>One or more <code>unemphasized buttons</code> will appear on the left.</li>
+                <li>If you wish to use more than 3 <code>buttons</code> in proximity consider
                   using a <NavLink to={pageUrls.buttonGroup} className="utds-icon-after-ext-link">Button Group</NavLink>.
                 </li>
               </ul>
@@ -195,9 +199,9 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>An icon can be use on the left or the right.</li>
-            <li>It is is preferred that you only use a single icon per button.</li>
-            <li>An icon should be simple and change color with the button text.</li>
+            <li>An <code>icon</code> can be use on the left or the right.</li>
+            <li>It is is preferred that you only use a single <code>icon</code> per <code>button</code>.</li>
+            <li>An <code>icon</code> should be simple and change color with the <code>button text</code>.</li>
           </ul>
         )}
       />
@@ -250,8 +254,8 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The preferred button size is the default (medium).</li>
-            <li>Do not mix button of different sizes in close proximity.</li>
+            <li>The preferred <code>button</code> size is the default (<code>medium</code>).</li>
+            <li>Do not mix <code>buttons</code> of different sizes in close proximity.</li>
           </ul>
         )}
       />
@@ -271,8 +275,8 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Use a busy button state to indicate to the user that some asynchronous process is taking place.</li>
-            <li>Do not use more than one busy button per view.</li>
+            <li>Use a <code>busy button state</code> to indicate to the user that some asynchronous process is taking place.</li>
+            <li>Do not use more than one <code>busy button</code> per view.</li>
           </ul>
         )}
       />
@@ -301,9 +305,9 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Disabled buttons do not allow user interaction.</li>
-            <li>Disabled buttons are visually &quot;grayed out&quot;.</li>
-            <li>Use the built-in attribute <code>disabled</code> to disable a button.</li>
+            <li><code>Disabled buttons</code> do not allow user interaction.</li>
+            <li><code>Disabled buttons</code> are visually <code>grayed out</code>.</li>
+            <li>Use the built-in attribute <code>disabled</code> to disable a <code>button</code>.</li>
           </ul>
         )}
       />
@@ -331,8 +335,8 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Hover is the state when a pointing cursor enters the button boundary.</li>
-            <li>The hover state changes from the normal state to provide the user with a visual cue.</li>
+            <li><code>Hover</code> is the state when a <code>pointing cursor</code> enters the <code>button boundary</code>.</li>
+            <li>The <code>hover state</code> changes from the <code>normal state</code> to provide the user with a visual cue.</li>
           </ul>
         )}
       />
@@ -362,7 +366,7 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The button produces a visual cue that it is being pressed.</li>
+            <li>The <code>button</code> produces a visual cue that it is being pressed.</li>
           </ul>
         )}
       />
@@ -370,25 +374,25 @@ function ButtonDocumentation() {
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Buttons are for actions.</strong> Use a button to indicate an action.</li>
+        <li><strong>Buttons are for actions.</strong> Use a <code>button</code> to indicate an action.</li>
         <li>
-          <strong>Emphasize buttons.</strong> Choose a button style that will give the desired emphasis to the action:
+          <strong>Emphasize buttons.</strong> Choose a <code>button style</code> that will give the desired emphasis to the action:
           <ul>
-            <li>Important actions should be emphasized (solid button) to stand out from other actions on the view or in the immediate area.</li>
-            <li>You can further emphasize buttons with size and color.</li>
+            <li>Important actions should be emphasized (<code>solid button</code>) to stand out from other actions on the view or in the immediate area.</li>
+            <li>You can further emphasize <code>buttons</code> with size and color.</li>
           </ul>
         </li>
         <li>
-          <strong>Navigation buttons.</strong> If a <code>&lt;button&gt;</code> must be used for navigation you are required to implement the
+          <strong>Navigation buttons.</strong> If a <code>&lt;button&gt;</code> must be used for navigation, you are required to implement the
           following ARIA properties:<br />
           <em>
-            (Note: Where possible, it is recommended that you use a native <code>&lt;a&gt;</code> element rather than the link role,
+            (Note: Where possible, it is recommended that you use a native <code>&lt;a&gt;</code> element rather than the <code>link role</code>,
             as native elements are more widely supported by user agents and assistive technology.)
           </em>
           <ul>
             <li>Use <code>role=&quot;link&quot;</code>.</li>
-            <li>Use the <code>tabindex</code>attribute with a value of 0 to ensure the link is in the correct tab focus order.</li>
-            <li>You will need to style to button to appear as a link where needed.</li>
+            <li>Use the <code>tabindex</code>attribute with a value of <code>0</code> to ensure the <code>link</code> is in the correct <code>tab focus order</code>.</li>
+            <li>You will need to style a <code>button</code> to appear as a <code>link</code> where needed.</li>
             <li>Example: <code>&lt;button type=&quot;button&quot; role=&quot;link&quot; tabindex=&quot;0&quot;&gt;My Button&lt;/button&gt;</code></li>
           </ul>
         </li>
@@ -396,60 +400,60 @@ function ButtonDocumentation() {
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>Navigation.</strong> Generally, use a link for navigation, especially when there are other action buttons in the view.</li>
-        <li><strong>Paragraph navigation.</strong> Always, use a link for navigation within a paragraph of text.</li>
+        <li><strong>Navigation.</strong> Generally, use a <code>link</code> for navigation, especially when there are other <code>action buttons</code> in the view.</li>
+        <li><strong>Paragraph navigation.</strong> Always use a <code>link</code> for navigation within a paragraph of text.</li>
         <li>
           <strong>Style a link as a button:</strong>
           <ul>
             <li>
-              Use the button style if it also includes a visual indicator such as an arrow icon.
+              Use the <code>button style</code> if it also includes a visual indicator such as an <code>arrow icon</code>.
               For example <code>Read More {Icons.IconArrowRight()}</code>.
             </li>
-            <li>Use the button style for a call to action. For example, <code>Register Now {Icons.IconArrowRight()}</code>.</li>
+            <li>Use the <code>button style</code> for a call to action. For example, <code>Register Now {Icons.IconArrowRight()}</code>.</li>
           </ul>
         </li>
       </ul>
 
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Keep button text short.</strong> Use action words to describe what the button will do.</li>
+        <li><strong>Keep button text short.</strong> Use action words to describe what the <code>button</code> will do.</li>
         <li><strong>Use Title Case capitalization.</strong>
           Such as, <code>Download</code>, <code>View More</code>, <code>Sign In</code>, or <code>Sign Out</code>.
         </li>
         <li>
-          <strong>Lead with a verb.</strong> Make the first word of the button’s text a verb.
+          <strong>Lead with a verb.</strong> Make the first word of the <code>button&apos;s</code> text a verb.
           For example, instead of <code>Information Request</code>, label the button <code>Request Information</code>.
         </li>
-        <li><strong>Icons help provide clarity.</strong> Use icons in a button to help describe the action.</li>
-        <li><strong>Avoid using too many buttons in a view.</strong> Too many button will cause confusion and distraction.</li>
-        <li><strong>Icon Buttons.</strong> Consider using an <NavLink to={pageUrls.iconButton}>icon button</NavLink> in compact layouts.</li>
-        <li><strong>Always set the type attribute to define the purpose of the button.</strong> The type attribute
+        <li><strong>Icons help provide clarity.</strong> Use <code>icons</code> in a <code>button</code> to help describe the action.</li>
+        <li><strong>Avoid using too many buttons in a view.</strong> Too many <code>buttons</code> will cause confusion and distraction.</li>
+        <li><strong>Icon Buttons.</strong> Consider using an <NavLink to={pageUrls.iconButton}>Icon Button</NavLink> in compact layouts.</li>
+        <li><strong>Always set the type attribute to define the purpose of the button.</strong> The <code>type</code> attribute
           can accept three values: <code>submit</code>, <code>button</code>, and <code>reset</code>.
-          If no type attribute is defined, the button will behave as a <code>submit</code> button.
+          If no <code>type</code> attribute is defined, the <code>button</code> will behave as a <code>submit</code> button.
         </li>
-        <li><strong>Avoid stacking.</strong> Generally avoid stacking one button on top of another. Place them side-by-side if there is room.</li>
+        <li><strong>Avoid stacking.</strong> Generally, avoid stacking one <code>button</code> on top of another. Place them side-by-side if there is room.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
-        <li>The button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
-        <li>The button’s focus state should be <code>3:1</code> contrast ratio.</li>
+        <li>The <code>button boundary</code> (the outside edge of the <code>button</code>) must maintain a <code>3:1</code> contrast ratio or better.</li>
+        <li>The <code>button text</code> must maintain a <code>4.5:1</code> contrast ratio or better.</li>
+        <li>The <code>button&apos;s focus state</code> should be <code>3:1</code> contrast ratio.</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>The button should display a visible focus state when users tab to them.</li>
+        <li>The <code>button</code> should display a <code>visible focus state</code> when users tab to them.</li>
         <li>
-          Avoid using non-standard html markup for a button such as a <code>div</code> tag.
+          Avoid using non-standard html markup for a <code>button</code> such as a <code>div</code> tag.
           <ul>
-            <li>The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+            <li>The first rule of ARIA: <code>Before you use ARIA, use native HTML elements or attributes first!</code></li>
           </ul>
         </li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
-        <li>A Button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG).</li>
+        <li>A Button that contains an icon that adds additional information, the <code>icon</code> should have non-empty <code>alt text</code> (or <code>aria-label</code> for SVG).</li>
       </ul>
 
       <h2 id="section-settings-props">Settings and Props</h2>

@@ -1,27 +1,30 @@
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
+import HomeLanding from '../websiteContent/HomeLanding';
+import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
-import HomeLanding from '../websiteContent/HomeLanding';
+import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
-import SwitchDocumentation from '../websiteContent/library/components/forms/SwitchDocumentation';
+import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
+import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
+import DateInputDocumentation from '../websiteContent/library/components/forms/dateInput/DateInputDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
-import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
-import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
-import Mockups from '../websiteContent/resources/Mockups';
+import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
+import Introduction from '../websiteContent/resources/Introduction';
+import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
-import DateInputDocumentation from '../websiteContent/library/components/dateInput/DateInputDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -100,20 +103,6 @@ const pages = {
   },
 
   // === guidelines documentation components === //
-  principles: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.principles,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Principles',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  uxBestPractices: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.uxBestPractices,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'UX Best Practices',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
   accessibility: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.accessibility,
@@ -133,6 +122,27 @@ const pages = {
     link: pageUrls.design,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Design',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  notifications: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.notifications,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Notifications',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  principles: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.principles,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Principles',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  uxBestPractices: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.uxBestPractices,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'UX Best Practices',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -226,39 +236,11 @@ const pages = {
   },
 
   // === resources documentation components === //
-  github: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.github,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'GitHub',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  mockups: {
-    content: Mockups,
-    link: pageUrls.mockups,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Mockups',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  demo: {
-    content: Demo,
-    link: pageUrls.demoPage,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Demo Page',
-    template: layoutTemplatesEnum.LANDING_TEMPLATE,
-  },
   colorPicker: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.colorPicker,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Color Picker',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  icons: {
-    content: IconsDocumentation,
-    link: pageUrls.icons,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Icons',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   contributeCommunity: {
@@ -268,11 +250,53 @@ const pages = {
     pageTitle: 'Contribute / Community',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  demo: {
+    content: Demo,
+    link: pageUrls.demoPage,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Demo Page',
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
+  },
+  gettingStarted: {
+    content: GettingStarted,
+    link: pageUrls.gettingStarted,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Getting Started',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  github: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.github,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'GitHub',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   help: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.help,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Help',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  icons: {
+    content: IconsDocumentation,
+    link: pageUrls.icons,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Icons',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  introduction: {
+    content: Introduction,
+    link: pageUrls.introduction,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Introduction',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  mockups: {
+    content: Mockups,
+    link: pageUrls.mockups,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Mockups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -327,14 +351,6 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  modals: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.modals,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Modals',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   buttonGroup: {
     content: SegmentedButtonDocumentation,
     link: pageUrls.buttonGroup,
@@ -351,11 +367,35 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  dialog: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.dialog,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Dialog',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  elevation: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.elevation,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Elevation',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   iconButton: {
     content: IconButtonDocumentation,
     link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  modals: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.modals,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Modals',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -377,11 +417,39 @@ const pages = {
   },
 
   // === forms === //
+  checkbox: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.checkbox,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Checkbox',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  comboBox: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.comboBox,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Combo Box',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   dateInput: {
     content: DateInputDocumentation,
     link: pageUrls.dateInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Date Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  multiSelect: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.multiSelect,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Multi Select',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  radioButton: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.radioButton,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Radio Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   switch: {
@@ -391,15 +459,36 @@ const pages = {
     pageTitle: 'Switch',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  textInput: {
+  textArea: {
     content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.textArea,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Text Area',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  textInput: {
+    content: TextInputDocumentation,
     link: pageUrls.textInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Text Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  validation: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.validation,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Validation',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
 
   // === Navigation === //
+  sidePanelNavigation: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.sidePanelNavigation,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Side Panel Navigation',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   verticalMenu: {
     content: VerticalMenuDocumentation,
     link: pageUrls.verticalMenu,

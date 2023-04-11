@@ -1,0 +1,44 @@
+@use "../../../../../library/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .progress-log {
+    &__table {
+      width: 100%;
+    }
+    &__col-feature {
+      text-align: left;
+    }
+    &__version {
+      background-color: var(--gray-medium-light-color) !important;
+      font-weight: bold;
+    }
+  }
+  .checkbox-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-circle);
+    background: rgb(18, 134, 0);
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    &--unchecked {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-circle);
+      border: 1px solid var(--gray-color);
+    }
+
+    [class*=utds-icon-before-] {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: .8rem;
+    }
+    [class*=utds-icon-before-]::before {
+      display: block;
+      margin: 2px 0 0 0;
+    }
+  }
+}

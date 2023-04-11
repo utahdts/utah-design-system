@@ -12,7 +12,7 @@ import renderDOMSingle from '../misc/renderDOMSingle';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
 import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
-import { hookupHamburger } from '../renderables/mobile/hookupHamburger';
+import { hideMobileMenu, hookupHamburger } from '../renderables/mobile/hookupHamburger';
 import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderables/mobile/hookupUtahIdInMobileMenu';
 import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { getUtahHeaderSettings } from '../settings/settings';
@@ -52,6 +52,16 @@ export function loadHeader() {
     const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
     header.after(mobileMenuWrapper);
 
+    // hide mobile menu on background trigger
+    const mobileMenuBackdrop = /** @type {HTMLElement} */ (document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU__BACKDROP)));
+    if (!mobileMenuBackdrop) {
+      throw new Error('mobileMenuInteractionHandler: mobileMenuBackdrop not found');
+    }
+    if (mobileMenuBackdrop.onclick) {
+      throw new Error('mobileMenuInteractionHandler: mobileMenuBackdrop already has onclick');
+    }
+    mobileMenuBackdrop.onclick = () => hideMobileMenu();
+
     const mobileMenuHomeMenu = renderMobileMenuHomeMenu();
     const mainMenuWithTitle = renderMenuWithTitle(mobileMenuHomeMenu, 'Main Menu');
     mainMenuWithTitle.appendChild(mobileMenuHomeMenu);
@@ -70,13 +80,6 @@ export function loadHeader() {
     hookupMobileActionItemKeyboarding();
 
     loadGlobalEvents();
-
-    // Trigger a custom event ('utahHeaderLoaded') that developers can listen for
-    // in their applications.
-    // The event needs to wait for the UMD library to load the global window.utahHeader
-    // module. Use setTimeout to wait for this script to finish running before firing
-    // the `utahHeaderLoaded` event.
-    setTimeout(() => document.dispatchEvent(new Event(events.HEADER_LOADED)), 0);
 
     loadCssSettings();
 

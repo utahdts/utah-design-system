@@ -1,5 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-one-expression-per-line */
 import {
   componentColors,
   formElementSizesEnum,
@@ -79,9 +82,9 @@ function IconButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Emphasized icon buttons have a solid background.</li>
-            <li>Used to emphasize a button when multiple buttons appear on a page or in close proximity.</li>
-            <li>Limit the number of emphasized buttons in a view to ensure your button emphasis isn’t diluted</li>
+            <li>Emphasized <code>icon buttons</code> have a solid background.</li>
+            <li>Used to emphasize a <code>button</code> when multiple buttons appear on a page or in close proximity.</li>
+            <li>Limit the number of <code>emphasized buttons</code> in a view to ensure your <code>button</code> emphasis isn&apos;t diluted</li>
             <li>
               When used in proximity to other buttons:
               <ul>
@@ -130,15 +133,15 @@ function IconButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Used to deemphasize a button. This is the default look of a button.</li>
+            <li>Used to deemphasize a <code>button</code>. This is the default look of a <code>button</code>.</li>
             <li>
-              When used in proximity to other buttons:
+              When used in proximity to other <code>buttons</code>:
               <ul>
-                <li>Should appear on the left of an emphasized button.</li>
+                <li>Should appear on the left of an <code>emphasized button</code>.</li>
               </ul>
             </li>
-            <li>Solid outline. Icon matches the button color</li>
-            <li>* - This is the default appearance of an icon button.</li>
+            <li>Solid outline. <code>Icon</code> matches the <code>button color</code></li>
+            <li>* - This is the default appearance of an <code>icon button</code>.</li>
           </ul>
         )}
       />
@@ -181,10 +184,10 @@ function IconButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>While there may be cases where borderless buttons may sit next to Emphasized or Unemphasized buttons, using consistent button styles should be used when possible to lessen confusion.</li>
+            <li>While there may be cases where <code>borderless buttons</code> may sit next to <code>Emphasized</code> or <code>Unemphasized buttons</code>, using consistent <code>button styles</code> should be used when possible to lessen confusion.</li>
             <li>Does not have a border or background, except when hovered, pressed, or selected.</li>
-            <li>Used in more compact spaces like icon groupings and displays where text won’t comfortably fit alongside icons.</li>
-            <li>Icon buttons should have a minimum touch zone of 36-48px to make it easier to activate on a touch device.</li>
+            <li>Used in more compact spaces like <code>icon groupings</code> and <code>displays</code> where text won&apos;t comfortably fit alongside <code>icons</code>.</li>
+            <li><code>Icon buttons</code> should have a minimum touch zone of <code>36-48px</code> to make it easier to activate on a touch device.</li>
           </ul>
         )}
       />
@@ -240,8 +243,8 @@ function IconButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The preferred button size is the default (medium).</li>
-            <li>Do not mix button of different sizes in close proximity.</li>
+            <li>The preferred <code>button size</code> is the default (<code>medium</code>).</li>
+            <li>Do not mix <code>buttons</code> of different sizes in close proximity.</li>
           </ul>
         )}
       />
@@ -302,9 +305,9 @@ function IconButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Disabled buttons do not allow user interaction.</li>
-            <li>Disabled buttons are visually “grayed out”.</li>
-            <li>Use the built-in attribute “disabled” to disable a button.</li>
+            <li><code>Disabled buttons</code> do not allow user interaction.</li>
+            <li><code>Disabled buttons</code> are visually <code>grayed out</code>.</li>
+            <li>Use the built-in attribute <code>disabled</code> to disable a <code>button</code>.</li>
           </ul>
         )}
       />
@@ -315,8 +318,8 @@ function IconButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Hover is the state when a pointing cursor enters the button boundary.</li>
-            <li>The hover state changes from the normal state to provide the user with a visual cue.</li>
+            <li><code>Hover</code> is the state when a pointing cursor enters the <code>button boundary</code>.</li>
+            <li>The <code>hover state</code> changes from the <code>normal state</code> to provide the user with a visual cue.</li>
           </ul>
         )}
       />
@@ -354,7 +357,7 @@ function IconButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The button produces a visual cue that it is being pressed.</li>
+            <li>The <code>button</code> produces a visual cue that it is being pressed.</li>
           </ul>
         )}
       />
@@ -362,61 +365,61 @@ function IconButtonDocumentation() {
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Compact buttons</strong>. Icon buttons should be used when a compact button is required, such as in a toolbar, header, or action bar.</li>
-        <li><strong>Adjacent icon buttons</strong>. They are often used when there are 2 or 3 adjacent icon buttons that perform actions on a single item.</li>
+        <li><strong>Compact buttons</strong>. <code>Icon buttons</code> should be used when a <code>compact button</code> is required, such as in a <code>toolbar</code>, <code>header</code>, or <code>action bar</code>.</li>
+        <li><strong>Adjacent icon buttons</strong>. They are often used when there are 2 or 3 adjacent <code>icon buttons</code> that perform actions on a single item.</li>
       </ul>
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>No associated button action</strong>. Use a plain icon when there is no associated button action.</li>
-        <li><strong>Multiple icon buttons in a table row</strong>. Avoid using more than 1 icon button in a table row to avoid confusion and to simplify the table information.</li>
-        <li><strong>When space is available, use a button with text</strong>. Generally, use a button with text when there is enough space.</li>
+        <li><strong>No associated button action</strong>. Use a <code>plain icon</code> when there is no associated <code>button action</code>.</li>
+        <li><strong>Multiple icon buttons in a table row</strong>. Avoid using more than 1 <code>icon button</code> in a <code>table row</code> to avoid confusion and to simplify the table information.</li>
+        <li><strong>When space is available, use a button with text</strong>. Generally, use a <code>button with text</code> when there is enough space.</li>
         <li><strong>Use text link for navigation within a paragraph of text</strong>.</li>
-        <li><strong>Icon button style as a link</strong>. Avoid using the icon button style as a link. Generally icon buttons are used for actions.</li>
+        <li><strong>Icon button style as a link</strong>. Avoid using the <code>icon button style</code> as a <code>link</code>. Generally <code>icon buttons</code> are used for actions.</li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Clearly communicates purpose</strong>. The icon in the button should clearly communicate the purpose of the button and be unambiguous to the user.</li>
-        <li><strong>Compact layout</strong>. Use icon buttons to display actions in a compact layout.</li>
-        <li><strong>Triggers action</strong>. Icon buttons can represent opening actions such as opening an overflow menu, a modal or search, or represent binary actions that can be toggled on and off, such as a favorite or bookmark.</li>
-        <li><strong>Grouped together or stand alone</strong>. Icon buttons can be grouped together or they can stand alone.</li>
-        <li><strong>Presented in a row</strong>. Icon buttons are typically presented in a row when they are grouped together.</li>
-        <li><strong>When hovered, include a tool tip</strong>. When the button is hovered, include a tooltip that describes the button’s action, rather than the name of the icon itself.</li>
-        <li><strong>Minimum touch zone for touch devices</strong>. Icon buttons should have a minimum touch zone of 36-48px to make it easier to activate on a touch device.</li>
+        <li><strong>Clearly communicates purpose</strong>. The <code>icon</code> in the <code>button</code> should clearly communicate the purpose of the <code>button</code> and be unambiguous to the user.</li>
+        <li><strong>Compact layout</strong>. Use <code>icon buttons</code> to display actions in a compact layout.</li>
+        <li><strong>Triggers action</strong>. <code>Icon buttons</code> can represent opening actions such as opening an overflow menu, a modal or search, or represent binary actions that can be toggled on and off, such as a favorite or bookmark.</li>
+        <li><strong>Grouped together or stand alone</strong>. <code>Icon buttons</code> can be grouped together or they can stand alone.</li>
+        <li><strong>Presented in a row</strong>. <code>Icon buttons</code> are typically presented in a row when they are grouped together.</li>
+        <li><strong>When hovered, include a tool tip</strong>. When the <code>button</code> is hovered, include a <code>tooltip</code> that describes the button&apos;s action, rather than the name of the <code>icon</code> itself.</li>
+        <li><strong>Minimum touch zone for touch devices</strong>. <code>Icon buttons</code> should have a minimum touch zone of <code>36-48px</code> to make it easier to activate on a touch device.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Icon buttons must maintain a 3:1 contrast ratio or better: The button boundary (the outside edge of the button) must maintain a 3:1 contrast ratio or better.</li>
-        <li>Icon button text must maintain a 4.5:1 contrast ratio or better.</li>
-        <li>The icon button’s focus state should have a 3:1 contrast ratio.</li>
+        <li><code>Icon buttons</code> must maintain a <code>3:1</code> contrast ratio or better: The <code>button boundary</code> (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
+        <li><code>Icon button</code> text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
+        <li>The icon button&apos;s <code>focus state</code> should have a <code>3:1</code> contrast ratio.</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>When the icon button receives focus, the tooltip should be visible (except when the icon button displays a popup). </li>
-        <li>Buttons natively receive keyboard focus so there&apos;s no need to add a tabindex attribute.</li>
-        <li>The icon button should display a visible focus state when users tab to them.</li>
+        <li>When the <code>icon button</code> receives focus, the <code>tooltip</code> should be visible (except when the <code>icon button</code> displays a <code>popup</code>).</li>
+        <li><code>Buttons</code> natively receive keyboard focus so there&apos;s no need to add a <code>tabindex</code> attribute.</li>
+        <li>The <code>icon button</code> should display a visible <code>focus state</code> when users tab to it.</li>
         <li>
-          Avoid using non-standard html markup for an icon button such as a div tag.
+          Avoid using non-standard html markup for an <code>icon button</code> such as a <code>div</code> tag.
           <ul>
-            <li>The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+            <li>The first rule of ARIA: <code>Before you use ARIA, use native HTML elements or attributes first!</code></li>
           </ul>
         </li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>
-          Icon buttons should have an aria-label or visually hidden text to describe the action for people using assistive technologies, such as screen readers:
+          <code>Icon buttons</code> should have an <code>aria-label</code> or <code>visually hidden</code> text to describe the action for people using assistive technologies, such as screen readers:
           <ul>
-            <li>Generally don’t use more than 2 to 3 words.</li>
-            <li>Use verbs first; use only verbs where possible e.g. “Save”.</li>
-            <li>Avoid unnecessary words and articles, such as “the” or “a”.</li>
+            <li>Generally don&apos;t use more than 2 to 3 words.</li>
+            <li>Use verbs first; use only verbs where possible e.g. <code>Save</code>.</li>
+            <li>Avoid unnecessary words and articles, such as <code>the</code> or <code>a</code>.</li>
             <li>Use sentence case.</li>
           </ul>
         </li>
-        <li>Avoid using the words “image” or “icon” in the description label.  For example, if the icon is a magnifying lens used to promote a search, use the word “Search” instead of “magnifying lens”.</li>
+        <li>Avoid using the words <code>image</code> or <code>icon</code> in the description label. For example, if the <code>icon</code> is a magnifying lens used to promote a search, use the word <code>Search</code> instead of <code>magnifying lens</code>.</li>
       </ul>
 
       <h2 id="section-settings-props">Settings and Props</h2>

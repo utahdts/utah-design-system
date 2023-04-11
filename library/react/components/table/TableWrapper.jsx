@@ -20,6 +20,27 @@ const defaultProps = {
   id: null,
 };
 
+function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
+  let result;
+  switch (sortingRule.fieldType) {
+    case tableSortingRuleFieldType.DATE:
+      result = (fieldValueA?.getTime() || 0) - (fieldValueB?.getTime() || 0);
+      break;
+
+    case tableSortingRuleFieldType.NUMBER:
+      result = Number(fieldValueA || 0) - Number(fieldValueB || 0);
+      break;
+
+    case tableSortingRuleFieldType.STRING:
+      result = (fieldValueA || '').localeCompare(fieldValueB || '');
+      break;
+
+    default:
+      throw new Error(`Unknown tableSortingRuleFieldType '${sortingRule.fieldType}'`);
+  }
+  return result;
+}
+
 function TableWrapper({
   children,
   className,
@@ -80,22 +101,7 @@ function TableWrapper({
                 });
               } else {
                 // sort by field type
-                switch (sortingRule.fieldType) {
-                  case tableSortingRuleFieldType.DATE:
-                    result = (fieldValueA?.getTime() || 0) - (fieldValueB?.getTime() || 0);
-                    break;
-
-                  case tableSortingRuleFieldType.NUMBER:
-                    result = Number(fieldValueA || 0) - Number(fieldValueB || 0);
-                    break;
-
-                  case tableSortingRuleFieldType.STRING:
-                    result = (fieldValueA || '').localeCompare(fieldValueB || '');
-                    break;
-
-                  default:
-                    throw new Error(`Unknown tableSortingRuleFieldType '${sortingRule.fieldType}'`);
-                }
+                result = sortByFieldType(sortingRule, fieldValueA, fieldValueB);
               }
 
               // return sort result modified for sort order
@@ -114,7 +120,7 @@ function TableWrapper({
   );
   return (
     <TableContext.Provider value={contextValue}>
-      <div className={joinClassNames('some-table-wrapper-classname', className)} id={id} ref={innerRef} {...rest}>
+      <div className={joinClassNames('some-table-wrapper-className', className)} id={id} ref={innerRef} {...rest}>
         {children}
       </div>
     </TableContext.Provider>

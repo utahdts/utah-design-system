@@ -16,6 +16,9 @@
         color: var(--primary-color);
       }
       margin: 2rem 0 0 0;
+      &--hiddenAlt {
+        margin: 0;
+      }
     }
     &__image {
       position: fixed;
@@ -50,7 +53,6 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      font-size: var(--font-size-xs);
       z-index: 1020;
       color: white;
       font-weight: var(--font-weight-bold);

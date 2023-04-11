@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import SwitchExamplePropsShape from '../../../../../propTypesShapes/SwitchExamplePropsShape';
-import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
+import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -9,7 +9,7 @@ const propTypes = {
 };
 const defaultProps = {};
 
-function SwitchExampleCodeReact({
+function TextInputExampleCodeReact({
   state: {
     props: {
       className,
@@ -45,7 +45,7 @@ function SwitchExampleCodeReact({
   );
 }
 
-SwitchExampleCodeReact.propTypes = propTypes;
-SwitchExampleCodeReact.defaultProps = defaultProps;
+TextInputExampleCodeReact.propTypes = propTypes;
+TextInputExampleCodeReact.defaultProps = defaultProps;
 
-export default SwitchExampleCodeReact;
+export default TextInputExampleCodeReact;

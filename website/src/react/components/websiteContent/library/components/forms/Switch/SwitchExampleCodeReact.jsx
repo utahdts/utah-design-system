@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import DateInputExamplePropsShape from '../../../../../propTypesShapes/DateInputExamplePropsShape';
-import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
+import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
+import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 const propTypes = {
   state: PropTypes.shape({
-    props: DateInputExamplePropsShape.isRequired,
+    props: SwitchExamplePropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
 
-function DateInputExampleCodeReact({
+function SwitchExampleCodeReact({
   state: {
     props: {
       className,
@@ -45,7 +45,7 @@ function DateInputExampleCodeReact({
   );
 }
 
-DateInputExampleCodeReact.propTypes = propTypes;
-DateInputExampleCodeReact.defaultProps = defaultProps;
+SwitchExampleCodeReact.propTypes = propTypes;
+SwitchExampleCodeReact.defaultProps = defaultProps;
 
-export default DateInputExampleCodeReact;
+export default SwitchExampleCodeReact;

@@ -11,7 +11,7 @@ const defaultProps = {
   className: '',
 };
 
-function PreCode({ className, codeRaw }) {
+function PreCode({ className, codeRaw, ...rest }) {
   const [codeInnerHtml, setCodeInnerHtml] = useState(null);
 
   useEffect(
@@ -23,7 +23,7 @@ function PreCode({ className, codeRaw }) {
 
   return (
     // eslint-disable-next-line react/no-danger
-    <pre className={className} dangerouslySetInnerHTML={{ __html: codeInnerHtml }} />
+    <pre className={className} dangerouslySetInnerHTML={{ __html: codeInnerHtml }} {...rest} />
   );
 }
 
