@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Utah Header for the Utah Design System",
   "main": "src/index.js",
   "files": [
