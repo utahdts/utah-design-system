@@ -10,6 +10,9 @@ export default defineConfig({
   compilerOptions: {
     types: ['vitest/globals'],
   },
+  coverage: {
+    all: true,
+  },
   environment: 'happy-dom',
   plugins: [
     eslintPlugin(),

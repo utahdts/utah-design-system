@@ -13,6 +13,7 @@
     "sass-build": "sass --no-source-map ./src/css/index.scss ./src/css/build/utah-design-system-header.css",
     "test-publish": "npm publish --dry-run",
     "test": "vitest",
+    "testc": "vitest run --coverage",
     "watch": "vite build --watch --mode development"
   },
   "repository": {
