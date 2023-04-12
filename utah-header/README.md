@@ -1,5 +1,5 @@
 # Utah Header
-The Utah Header is part of the Utah Design System. It provides a common initial entry point experience for users of State of Utah websites. Please submit merge requests or start conversations with the Design System team for anything you would like to see incorporated in to the header.
+The Utah Header is part of the Utah Design System. It provides a common initial entry point experience for users of State of Utah websites. Please submit pull requests or start conversations with the Design System team for anything you would like to see incorporated in to the header.
 
 ## What's included
 
@@ -12,7 +12,7 @@ Please see the [documentation site](https://utahdts.github.io/utah-design-system
 
 ## Install
 
-[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system)
+[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system-header.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
 [![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```bash
@@ -53,7 +53,7 @@ At a limited scale, some files have been pre-processed to CSS so that it can be 
 
 ```
 unpkg.com/:package@:version/:file
-unpkg.com/@utahdts/utah-design-system-header@0.1.0/dist/style.css
+unpkg.com/@utahdts/utah-design-system-header@0.4.1/dist/style.css
 
 Get latest
 unpkg.com/@utahdts/utah-design-system-header/dist/style.css
