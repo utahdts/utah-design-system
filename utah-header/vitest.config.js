@@ -6,6 +6,12 @@ import eslintPlugin from 'vite-plugin-eslint';
 export default defineConfig({
   test: {
     coverage: {
+      all: true,
+      exclude: [
+        '**/index.js',
+        '**/enumerations',
+        '**/settings',
+      ],
       provider: 'istanbul',
       reporter: ['text', 'json', 'lcov'],
     },

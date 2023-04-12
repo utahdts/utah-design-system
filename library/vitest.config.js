@@ -2,7 +2,7 @@
 import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 
-export default defineConfig({
+export default defineConfig(() => ({
   test: {
     coverage: {
       all: true,
@@ -18,7 +18,11 @@ export default defineConfig({
     },
     globals: true,
   },
+  resolve: {
+    // mode is `development`, `production`, and this allows a custom condition (otherwise it defaulted back to development)
+    conditions: ['vitest'],
+  },
   plugins: [
     eslintPlugin(),
   ],
-});
+}));

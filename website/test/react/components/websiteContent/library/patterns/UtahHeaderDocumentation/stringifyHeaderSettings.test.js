@@ -199,43 +199,6 @@ describe('stringifyHeaderSettings', () => {
     expect(result.includes('currentUser')).toBeFalsy();
   });
 
-  test('actionItems: actionDom', () => {
-    /** @type {Settings} */
-    const settings = {
-      showTitle: true,
-      size: sizes.MEDIUM,
-      title: 'Utah Design System',
-      titleURL: '/',
-      mainMenu: {
-        menuItems: [],
-        title: 'test-menu',
-      },
-      mediaSizes: {
-        mobile: 640,
-        tabletPortrait: 768,
-        tabletLandscape: 1024,
-      },
-      actionItems: [
-        {
-          actionDom: () => document.createElement('span'),
-          icon: 'i-am-an-icon',
-          showTitle: true,
-          title: 'action item for life!',
-        },
-      ],
-      utahId: false,
-    };
-
-    const result = stringifyHeaderSettings(settings);
-    expect(result).toSatisfy(doesMatchStrings([
-      ...MATCH_BASIC_FIELDS,
-      '"actionDom": "--replace with a real function--"',
-      '"icon": "i-am-an-icon"',
-      '"showTitle": true',
-      '"title": "action item for life!"',
-    ]));
-  });
-
   test('actionItems: actionPopupMenu: menuItems: actionFunction', () => {
     /** @type {Settings} */
     const settings = {

@@ -1,8 +1,21 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Utah Header for the Utah Design System",
-  "main": "src/index.js",
+  "exports": {
+    ".": {
+      "vitest": "./src/index.js",
+      "development-local": "./src/index.js",
+      "development": "./dist/utah-design-system-header.es.js",
+      "import": "./dist/utah-design-system-header.es.js",
+      "module": "./dist/utah-design-system-header.es.js",
+      "require": "./dist/utah-design-system-header.umd.js",
+      "default": "./src/index.js"
+    },
+    "./css": "./dist/style.css",
+    "./src/css/index.scss": "./src/css/index.scss"
+  },
+  "main": "dist/utah-design-system-header.es.js",
   "files": [
     "src/css",
     "dist"

@@ -5,6 +5,7 @@ import { useImmer } from 'use-immer';
 import PreCodeForRef from '../../../../preCode/PreCodeForRef';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import iconsDocumentationIcons from './iconsDocumentationIcons';
+import PreCode from '../../../../preCode/PreCode';
 
 const propTypes = {};
 const defaultProps = {};
@@ -34,9 +35,9 @@ function IconsDocumentation() {
       <hr />
       <h2 id="section-icon-resource-location">Icon Resource Location</h2>
       <p className="mb-spacing-xs">The Utah Design System Icons can be found on the State CDN:</p>
-      <pre className="gray-block gray-block--overflow">
-        <div className="gray-block__overflow-content">
-          {`@font-face {
+      <PreCode
+        codeRaw={`
+@font-face {
   font-family: 'utah design system';
   src: url('https://cdn.utah.gov/design-system/fonts/utah-design-system.eot');
   src: url('https://cdn.utah.gov/design-system/fonts/utah-design-system.eot?#iefix') format('embedded-opentype'),
@@ -45,9 +46,11 @@ function IconsDocumentation() {
        url('https://cdn.utah.gov/design-system/fonts/utah-design-system.svg#utah-design-system') format('svg');
   font-weight: normal;
   font-style: normal;
-}`}
-        </div>
-      </pre>
+}
+        `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
       <hr />
       <h2 id="section-example">Example</h2>
       <div className="icon-example__grid mb-spacing">
@@ -78,7 +81,11 @@ function IconsDocumentation() {
               </div>
             </div>
             <div>
-              <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef1} />
+              <PreCodeForRef
+                allowScrollOverflow
+                deps={[state.currentIcon]}
+                targetRef={iconDOMRef1}
+              />
             </div>
           </>
         )}
