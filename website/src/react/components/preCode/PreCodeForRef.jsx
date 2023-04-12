@@ -5,18 +5,28 @@ import { useLayoutEffect, useState } from 'react';
 import PreCode from './PreCode';
 
 const propTypes = {
+  allowScrollOverflow: PropTypes.bool,
   className: PropTypes.string,
   // what dependencies determine when the targetRef has changed content
   // eslint-disable-next-line react/forbid-prop-types
   deps: PropTypes.array.isRequired,
+  showBackgroundColor: PropTypes.bool,
   // target DOM element from which to pull the DOM string
   targetRef: RefShape.isRequired,
 };
 const defaultProps = {
+  allowScrollOverflow: false,
   className: '',
+  showBackgroundColor: false,
 };
 
-function PreCodeForRef({ className, deps, targetRef }) {
+function PreCodeForRef({
+  allowScrollOverflow,
+  className,
+  deps,
+  showBackgroundColor,
+  targetRef,
+}) {
   const [innerHtml, setInnerHtml] = useState('');
 
   useLayoutEffect(
@@ -50,7 +60,14 @@ function PreCodeForRef({ className, deps, targetRef }) {
     deps
   );
 
-  return <PreCode className={className} codeRaw={innerHtml} />;
+  return (
+    <PreCode
+      allowScrollOverflow={allowScrollOverflow}
+      className={className}
+      codeRaw={innerHtml}
+      showBackgroundColor={showBackgroundColor}
+    />
+  );
 }
 
 PreCodeForRef.propTypes = propTypes;

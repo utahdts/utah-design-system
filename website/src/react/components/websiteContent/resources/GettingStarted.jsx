@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../routing/pageUrls';
+import PreCode from '../../preCode/PreCode';
 
 const propTypes = {};
 const defaultProps = {};
@@ -32,21 +33,21 @@ function GettingStarted() {
         The header is configured when the <code>utahHeaderLoaded</code> event fires.
         You can learn more about configuring the header on the <Link to={pageUrls.utahHeader}>Utah Header page</Link>.
       </p>
-      <pre className="gray-block gray-block--overflow">
-        <div className="gray-block__overflow-content">
-          {`
+      <PreCode
+        codeRaw={`
 <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
 <script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script>
 <script>
   //wait for the utah header to be ready
   document.addEventListener('utahHeaderLoaded', () => {
-     //set up the utah header
-     window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({title: 'My utah.gov Site'});
-   });
+      //set up the utah header
+      window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({title: 'My utah.gov Site'});
+    });
 </script>
-          `}
-        </div>
-      </pre>
+      `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
 
       <h2 id="h2-getting-started-designers">Getting started for designers</h2>
       <p>Coming soon</p>
