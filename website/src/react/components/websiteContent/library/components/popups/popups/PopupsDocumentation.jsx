@@ -37,6 +37,9 @@ import StaticExample from '../../../../../staticExamples/StaticExample';
 import PopupsExampleCodeReact from './PopupsExampleCodeReact';
 import PopupsExampleProps from './PopupsExampleProps';
 import PopupsExampleRender from './PopupsExampleRender';
+import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
+import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
+import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -154,9 +157,7 @@ function PopupsDocumentation() {
       />
       <StaticExample
         title="Popup Menu"
-        renderedExample={(
-          <p>TODO: when we have vertical menus.</p>
-        )}
+        renderedExample={<LightBox image={popupMenu} alt="Popup Menu" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>A <code>menu popup</code> has a list of items, and possibly <code>icon buttons</code>, that the user can select.</li>
@@ -172,9 +173,7 @@ function PopupsDocumentation() {
       />
       <StaticExample
         title="Popup Menu with Flyout Popups"
-        renderedExample={(
-          <p>TODO: When we have flyout popups.</p>
-        )}
+        renderedExample={<LightBox image={popupMenuFlyout} alt="Popup Menu with Flyout Popups" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
