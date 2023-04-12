@@ -18,10 +18,6 @@ export default defineConfig(() => ({
     },
     globals: true,
   },
-  resolve: {
-    // mode is `development`, `production`, and this allows a custom condition (otherwise it defaulted back to development)
-    conditions: ['vitest'],
-  },
   plugins: [
     eslintPlugin(),
   ],

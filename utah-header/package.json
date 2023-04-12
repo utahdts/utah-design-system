@@ -4,7 +4,6 @@
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
-      "vitest": "./src/index.js",
       "development-local": "./src/index.js",
       "development": "./dist/utah-design-system-header.es.js",
       "import": "./dist/utah-design-system-header.es.js",
