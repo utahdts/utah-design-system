@@ -7,7 +7,8 @@
       "import": "./dist/utah-design-system-header.es.js",
       "require": "./dist/utah-design-system-header.umd.js"
     },
-    "./css": "./dist/style.css"
+    "./css": "./dist/style.css",
+    "./src/css/index.scss": "./src/css/index.scss"
   },
   "main": "src/index.js",
   "files": [
