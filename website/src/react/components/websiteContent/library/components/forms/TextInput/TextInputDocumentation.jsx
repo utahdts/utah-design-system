@@ -19,11 +19,8 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import textInputClassFocusPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-class-focus.png';
-import textInputClassHoverPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-class-hover.png';
+import formInputs01 from '../../../../../../../static/images/mockups/FormInputs01.jpg';
 import textInputSearchPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-search.png';
-import textInputValidationPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-validation.png';
-import textInputPng from '../../../../../../../static/images/screenshots/components/textInput/textInput.png';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -31,6 +28,7 @@ import TextInputExampleCodeReact from './TextInputExampleCodeReact';
 import TextInputPrimaryExampleProps from './TextInputExampleProps';
 import TextInputExampleRender from './TextInputExampleRender';
 import PreCode from '../../../../../preCode/PreCode';
+import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -52,18 +50,7 @@ function TextInputDocumentation() {
       />
       <StaticExample
         title="Text Input"
-        renderedExample={(
-          <div className="flex-col">
-            <div className="flex-row">
-              <img src={textInputPng} alt="Example Text Input" />
-              <img src={textInputValidationPng} alt="Example Text Input validation" />
-            </div>
-            <div className="flex-row">
-              Hover <img src={textInputClassHoverPng} alt="Example Text Input Hover" />
-              Focus <img src={textInputClassFocusPng} alt="Example Text Input Focus" />
-            </div>
-          </div>
-        )}
+        renderedExample={<LightBox image={formInputs01} alt="Form Inputs" className="flex-4up-gap" />}
         quickTips={(
           <ul>
             <li><code>Text Input</code> is comprised of a <code>label</code> and an <code>input box</code>. Generally, the <code>label</code> should be above the <code>input box</code>.</li>
@@ -77,7 +64,7 @@ function TextInputDocumentation() {
 
       <StaticExample
         title="Search Input"
-        renderedExample={(<div className="flex-col"><img src={textInputSearchPng} alt="Example Text Input Search" /></div>)}
+        renderedExample={<LightBox image={textInputSearchPng} alt="Example Text Input Search" className="flex-4up-gap" />}
         quickTips={(
           <ul>
             <li>The <code>search input box</code> should have a <code>placeholder</code>. The <code>label</code> is still visible to screen readers. (Use the css class <code>visually-hidden</code> to hide the <code>label</code> on the screen.)</li>
