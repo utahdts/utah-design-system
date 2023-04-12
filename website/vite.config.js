@@ -13,6 +13,10 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       minify: false,
       sourcemap: "inline",
     },
+    resolve: {
+      // mode is `development`, `production`, and this allows a custom condition (otherwise it defaulted back to development)
+      conditions: [mode]
+    },
     plugins: [
       react(),
       eslintPlugin(),
