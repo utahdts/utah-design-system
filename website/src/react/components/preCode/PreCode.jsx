@@ -1,5 +1,8 @@
-import PropTypes from 'prop-types';
 import joinClassNames from '@utahdts/utah-design-system/react/util/joinClassNames';
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useImmer } from 'use-immer';
+import formatPreCode from './formatPreCode';
 
 const propTypes = {
   className: PropTypes.string,
@@ -21,6 +24,15 @@ function PreCode({
   showBackgroundColor,
   ...rest
 }) {
+  const [formattedCode, setFormattedCode] = useImmer(codeRaw || '');
+
+  useEffect(
+    () => {
+      setFormattedCode(formatPreCode(codeRaw));
+    },
+    [codeRaw]
+  );
+
   return (
     <pre
       className={joinClassNames(
@@ -31,7 +43,7 @@ function PreCode({
       {...rest}
     >
       <div className={joinClassNames(allowScrollOverflow && 'pre-block__overflow-content')}>
-        {codeRaw.replace(/(^\n)|(\n\s*$)/g, '')}
+        {formattedCode}
       </div>
     </pre>
   );

@@ -49,6 +49,70 @@ function GettingStarted() {
         showBackgroundColor
       />
 
+      <h4>Option 2: Create React App</h4>
+      <p>
+        This option pulls the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</Link> from npm and imports it in to an application created with <Link to="https://create-react-app.dev/">Create React App</Link>.
+        Here were the steps used to create the application and integrate the header:
+      </p>
+      <ol>
+        <li>
+          Create a react app with <Link to="https://create-react-app.dev/docs/getting-started">Create React App</Link><br />
+          <PreCode
+            codeRaw="npx create-react-app cra-utah-header-example"
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Install the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</Link><br />
+          <PreCode
+            codeRaw="npm i @utahdts/utah-design-system-header"
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Import the header (js/css) in to the application code&apos;s App.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/create-react-app</code> folder)<br />
+          <PreCode
+            codeRaw={`
+                import '@utahdts/utah-design-system-header/css';
+                import {setUtahHeaderSettings} from '@utahdts/utah-design-system-header';
+              `}
+            allowScrollOverflow
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Load header settings to show the header in the application code&apos;s App.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/create-react-app</code> folder)<br />
+          <PreCode
+            codeRaw={`
+                function App() {
+                  useEffect(
+                    () => {
+                      setUtahHeaderSettings({});
+                    },
+                    []
+                  );
+
+                  return (
+                    <div className="App">
+                    ...
+                    </div>
+                  );
+                }
+              `}
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Run the application to see the header<br />
+          <PreCode
+            codeRaw="npm start"
+            showBackgroundColor
+          />
+        </li>
+      </ol>
+      <p>
+        You can see the example code base in the Utah Design System&apos;s <code>/examples/utah-header/create-react-app</code> folder.
+      </p>
       <h2 id="h2-getting-started-designers">Getting started for designers</h2>
       <p>Coming soon</p>
     </div>
