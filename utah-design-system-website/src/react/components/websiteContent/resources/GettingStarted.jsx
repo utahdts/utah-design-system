@@ -28,6 +28,19 @@ function GettingStarted() {
       <p>There are multiple ways to integrate the Utah Header within your website or application.
         You can use the javascript and css directly from a CDN, or you can use NPM to pull the code into a project as a dependency.
       </p>
+
+      <h4>General Font Dependency</h4>
+      <p>The Utah Header depends on the awesome font <code>Source Sans Pro</code>. You should load this font in order for the &quot;Utah, an official website&quot;, menus, and other elements to render correctly.</p>
+      <PreCode
+        codeRaw={`
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
+
       <h4>Option 1: Universal Module Definition (UMD)</h4>
       <p>This option uses a CDN to include both the javascript and css in the <code>&lt;head&gt;</code>.
         The header is configured when the <code>utahHeaderLoaded</code> event fires.
@@ -35,21 +48,38 @@ function GettingStarted() {
       </p>
       <PreCode
         codeRaw={`
-<link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
-<script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script>
-<script>
-  //wait for the utah header to be ready
-  document.addEventListener('utahHeaderLoaded', () => {
-      //set up the utah header
-      window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({title: 'My utah.gov Site'});
-    });
-</script>
-      `}
+          <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
+          <script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script>
+          <script>
+            //wait for the utah header to be ready
+            document.addEventListener('utahHeaderLoaded', () => {
+                //set up the utah header
+                window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({title: 'My utah.gov Site'});
+              });
+          </script>
+        `}
         allowScrollOverflow
         showBackgroundColor
       />
 
-      <h4>Option 2: Create React App</h4>
+      <h4>Option 2: ES Module</h4>
+      <p>This option uses a CDN to import the utah header from a CDN ES Module.
+        The header is configured when you call <code>setUtahHeaderSettings</code> after importing the Utah Header code.
+        You can learn more about configuring the header on the <Link to={pageUrls.utahHeader}>Utah Header page</Link>.
+      </p>
+      <PreCode
+        codeRaw={`
+          <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
+          <script type="module">
+            import { setUtahHeaderSettings } from 'https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.es.js';
+            setUtahHeaderSettings({title: 'My Utah.gov Site (ES)'});
+          </script>
+        `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
+
+      <h4>Option 3: Create React App</h4>
       <p>
         This option pulls the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</Link> from npm and imports it in to an application created with <Link to="https://create-react-app.dev/">Create React App</Link>.
         Here were the steps used to create the application and integrate the header:
@@ -59,6 +89,7 @@ function GettingStarted() {
           Create a react app with <Link to="https://create-react-app.dev/docs/getting-started">Create React App</Link><br />
           <PreCode
             codeRaw="npx create-react-app cra-utah-header-example"
+            className="mt-spacing"
             showBackgroundColor
           />
         </li>
@@ -66,6 +97,7 @@ function GettingStarted() {
           Install the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</Link><br />
           <PreCode
             codeRaw="npm i @utahdts/utah-design-system-header"
+            className="mt-spacing"
             showBackgroundColor
           />
         </li>
@@ -77,6 +109,7 @@ function GettingStarted() {
                 import {setUtahHeaderSettings} from '@utahdts/utah-design-system-header';
               `}
             allowScrollOverflow
+            className="mt-spacing"
             showBackgroundColor
           />
         </li>
@@ -99,6 +132,7 @@ function GettingStarted() {
                   );
                 }
               `}
+            className="mt-spacing"
             showBackgroundColor
           />
         </li>
@@ -106,6 +140,7 @@ function GettingStarted() {
           Run the application to see the header<br />
           <PreCode
             codeRaw="npm start"
+            className="mt-spacing"
             showBackgroundColor
           />
         </li>
