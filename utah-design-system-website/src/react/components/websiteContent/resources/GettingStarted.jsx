@@ -145,8 +145,63 @@ function GettingStarted() {
           />
         </li>
       </ol>
+      <h4>Option 4: Vite Plain JS App</h4>
+      <ol>
+        <p>
+          This option pulls the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</Link> from npm and imports it in to a plain JS application created with <Link to="https://vitejs.dev/guide/">Vite</Link>.
+          Here were the steps used to create the application and integrate the header:
+        </p>
+        <ol>
+          <li>
+            Create a plain JS app with <Link to="https://vitejs.dev/guide">Vite</Link><br />
+            <PreCode
+              codeRaw="npm init vite@latest"
+              className="mt-spacing"
+              showBackgroundColor
+            />
+          </li>
+          <li>
+            Install the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</Link><br />
+            <PreCode
+              codeRaw="npm i @utahdts/utah-design-system-header"
+              className="mt-spacing"
+              showBackgroundColor
+            />
+          </li>
+          <li>
+            Import the header (js/css) in to the application code&apos;s main.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/vite</code> folder)<br />
+            <PreCode
+              codeRaw={`
+                import '@utahdts/utah-design-system-header/css';
+                import {setUtahHeaderSettings} from '@utahdts/utah-design-system-header';
+              `}
+              allowScrollOverflow
+              className="mt-spacing"
+              showBackgroundColor
+            />
+          </li>
+          <li>
+            Load header settings to show the header in the application code&apos;s main.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/vite</code> folder)<br />
+            <PreCode
+              codeRaw={`
+                setUtahHeaderSettings({});
+              `}
+              className="mt-spacing"
+              showBackgroundColor
+            />
+          </li>
+          <li>
+            Run the application to see the header<br />
+            <PreCode
+              codeRaw="npm run dev"
+              className="mt-spacing"
+              showBackgroundColor
+            />
+          </li>
+        </ol>
+      </ol>
       <p>
-        You can see the example code base in the Utah Design System&apos;s <code>/examples/utah-header/create-react-app</code> folder.
+        You can see the example code base in the Utah Design System&apos;s <code>/examples/utah-header/vite</code> folder.
       </p>
       <h2 id="h2-getting-started-designers">Getting started for designers</h2>
       <p>Coming soon</p>
