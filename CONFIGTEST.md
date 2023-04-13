@@ -51,6 +51,9 @@ npm run test:ci
 ```
 There is a `test` script as opposed to `test:ci`. Sonar runs the `test:ci` and it is the one that typically would fail.
 
+## package.json script
+There is a `proveconfig` package.json script that will run through these steps. ATTOW, the example tests must still be ran manually.
+
 ## Synopsis
 When fiddling with config, it was found that a change would fix one thing but break another. Make sure to run all these scenarios to prove your changes work.
 
