@@ -24,7 +24,6 @@ dist-ssr
 *.sln
 *.sw?
 package-lock.json
-/library/junit.xml
-/library/coverage/*
+junit.xml
 *.icloud
 coverage
