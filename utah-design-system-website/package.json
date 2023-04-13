@@ -6,6 +6,7 @@
     "dev": "vite --mode development-local",
     "build": "vite build --mode production-website",
     "preview": "vite preview",
+    "publishLibrary": "npm publish --access public",
     "test": "vitest",
     "testc": "vitest run --coverage"
   },

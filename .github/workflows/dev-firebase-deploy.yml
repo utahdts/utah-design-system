@@ -23,21 +23,10 @@ jobs:
         run: |
           npm install
           
-      - name: Build header 🔧
+      - name: Build 🔧
         run: |
-          cd utah-header
           npm run build 
           
-      - name: Build library 🔧
-        run: |
-          cd library
-          npm run build 
-
-      - name: Install Website and Build 📖
-        run: |
-          cd website
-          npm run build
- 
       - id: auth
         name: 🗝️ Authenticate to Google Cloud
         uses: google-github-actions/auth@v1

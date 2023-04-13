@@ -27,3 +27,4 @@ package-lock.json
 junit.xml
 *.icloud
 coverage
+build/
