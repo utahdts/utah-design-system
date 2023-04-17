@@ -17,17 +17,9 @@ jobs:
           npm install
       - name: NPM header Build 🔧
         run: |
-          cd utah-header
-          npm run sass-build
-          npm run build   
-      - name: NPM library Build 🔧
-        run: |
-          cd library
-          npm run sass-build
-          npm run build
+          npm run sassbuild
       - name: NPM Publish 🔧
         run: |
-          cd utah-header
-          npm publish --access public
+          npm run publishHeader
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

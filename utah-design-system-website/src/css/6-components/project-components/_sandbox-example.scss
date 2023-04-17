@@ -1,0 +1,39 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/color-swatches";
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .sandbox-example {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 var(--spacing) 0 ;
+
+    &__top {
+      display: flex;
+      flex-direction: row;
+      gap: var(--spacing);
+    }
+    &__component {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--gray-light-color);
+      padding: var(--spacing);
+      border-radius: var(--radius-medium);
+      flex: 2 1 70%;
+    }
+    &__props-inputs {
+      background-color: color-swatches.$neutral-gray-16;
+      padding: var(--spacing);
+      border-radius: var(--radius-medium);
+    }
+    &__bottom {
+      margin: var(--spacing) 0 0 0;
+      background: var(--gray-light-color);
+      border-radius: var(--radius-medium);
+      code {
+        background-color: transparent;
+      }
+    }
+  }
+}
