@@ -43,7 +43,7 @@
     "proveDev": "run-s reset",
     "proveExamples": "echo \"examples require manual testing!\";",
     "proveTest": "run-s cleani buildtest",
-    "publishHeader": "npm run publishHeader -workspace=@utahdts/utah-design-system",
+    "publishHeader": "npm run publishHeader -workspace=@utahdts/utah-design-system-header",
     "publishLibrary": "npm run publishLibrary -workspace=@utahdts/utah-design-system",
     "reset": "run-s cleani websiteDev",
     "sassbuild": "run-s sassBuildHeader buildHeader sassBuildLibrary buildLibrary"
