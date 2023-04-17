@@ -50,7 +50,7 @@ function HomeLanding() {
           </Link>
           <Link
             to={pageUrls.mockups}
-            className="button button--primary-color"
+            className="button button--primary-color mt-spacing-s"
           >
             View Mockups
             <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
