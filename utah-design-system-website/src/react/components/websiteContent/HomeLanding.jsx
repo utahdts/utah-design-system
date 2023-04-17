@@ -42,6 +42,13 @@ function HomeLanding() {
 
         <div className="flex flex-col items-center mb-spacing">
           <Link
+            to={pageUrls.gettingStarted}
+            className="button button--primary-color"
+          >
+            Getting Started
+            <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
+          </Link>
+          <Link
             to={pageUrls.mockups}
             className="button button--primary-color"
           >
