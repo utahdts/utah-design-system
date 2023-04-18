@@ -21,7 +21,6 @@ import BadgesDocumentation from '../websiteContent/library/components/widgetsInd
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
-import Introduction from '../websiteContent/resources/Introduction';
 import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import pageUrls from './pageUrls';
@@ -283,13 +282,6 @@ const pages = {
     link: pageUrls.icons,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Icons',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  introduction: {
-    content: Introduction,
-    link: pageUrls.introduction,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Introduction',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   mockups: {

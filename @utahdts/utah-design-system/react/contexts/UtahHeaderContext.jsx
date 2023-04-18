@@ -31,7 +31,8 @@ export function UtahHeaderContextProvider({ children }) {
   const providedSettings = useMemo(() => ({ settings, setSettings }), [settings]);
 
   return (
-    <UtahHeaderContext.Provider value={providedSettings}>
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
+    <UtahHeaderContext.Provider value={providedSettings || {}}>
       {children}
     </UtahHeaderContext.Provider>
   );

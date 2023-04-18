@@ -63,12 +63,15 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
-            <ProgressLogVersionRow version="0.3.0" />
+            <ProgressLogVersionRow version="0.4" />
+            <ProgressLogTableRow title="Getting Started" toUrl={pageUrls.gettingStarted} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Text Input" toUrl={pageUrls.textInput} isDefinitionChecked />
+            <ProgressLogVersionRow version="0.3" />
             <ProgressLogTableRow title="Date Input" toUrl={pageUrls.dateInput} isDefinitionChecked />
             <ProgressLogTableRow title="Main Menu" toUrl={`${pageUrls.utahHeader}#main-menu`} isDefinitionChecked />
             <ProgressLogTableRow title="Tooltips" toUrl={pageUrls.tooltips} isDefinitionChecked />
             <ProgressLogTableRow title="Utah.gov Header" toUrl={pageUrls.utahHeader} isDefinitionChecked isCssChecked isComponentExampleChecked />
-            <ProgressLogVersionRow version="0.2.0" />
+            <ProgressLogVersionRow version="0.2" />
             <ProgressLogTableRow title="Badges" toUrl={pageUrls.badges} isDefinitionChecked />
             <ProgressLogTableRow title="Buttons" toUrl={pageUrls.buttons} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Icon Button" toUrl={pageUrls.iconButton} isDefinitionChecked isCssChecked isComponentExampleChecked />
@@ -83,20 +86,27 @@ function ProgressLog() {
 
       <h2 className="mt-spacing-l">Task Log</h2>
       <ul>
-        <li>Version 0.3.0
+        <li>Version 0.4
           <ul>
-            <li>Add <Link to={pageUrls.mockups}>Mockups</Link> page</li>
-            <li>Utah Header: make mobile experience accessible</li>
-            <li>Add aria role and label to search form</li>
-            <li>Implement main menu search </li>
-            <li>Fix Utah Header Sandbox documentation page</li>
-            <li>Select main menu item for Demo Page</li>
-            <li>Fix unexpected missing generic font family</li>
-            <li>Fix ids for VerticalMenuDocumentation&apos;s (for On This Page)</li>
-            <li>Document different types of menus and menu items that can be used in the main menu</li>
-            <li>Add main menu presets to interactive utah header</li>
+            <li>Create a Getting Started Page</li>
+            <li>Combo Box: Define</li>
+            <li>Links: Define</li>
+            <li>Pagination: Define</li>
+            <li>Patterns - Footer: Define</li>
+            <li>SelectInput: Define</li>
+            <li>Multi-Select Input: Define</li>
+            <li>Table: Define</li>
+            <li>TextInput: Fill out Doc Page Definitions</li>
+            <li>TextInput: Static Examples</li>
+            <li>Cleanup TextInput Examples</li>
+            <li>Remove title: Tooltips popup example</li>
+            <li>Add documentation code highlighting</li>
+            <li>Set up tasks for writing tests</li>
+            <li>Fix consistency in documentation for: Flyout or Fly-out.</li>
+            <li>Add mockup to Popups: Popup Menu and Popup Menu with Flyout Popups</li>
+            <li>Add ability to close Mobile Main Menu</li>
+            <li>TableFilterSelectOptions : auto provide these options based on the data if no options were given as children to TableFilterSelect</li>
             <li>Maintenance tasks: dependencies, branches, versions...</li>
-            <li>TextInput: defined</li>
             <li><Link to="https://github.com/utahdts/utah-design-system/commits/dev" target="_blank">GitHub Commit Details</Link></li>
           </ul>
         </li>
