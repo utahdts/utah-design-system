@@ -134,11 +134,14 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
     |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
   */
-  wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
+  if (!options?.preventOnClickHandling) {
+    wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
 
-  wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
+    wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
+  }
 
   if (options?.shouldFocusOnHover) {
+    // @ts-ignore
     wrapper.addEventListener('mouseenter', () => performPopup(TIMEOUT_MS_LONG));
     wrapper.addEventListener('mouseleave', () => hidePopup(TIMEOUT_MS_LONG));
   }

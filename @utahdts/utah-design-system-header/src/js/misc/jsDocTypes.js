@@ -108,7 +108,7 @@
  *  @property {() => boolean} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
  *  @property {function(Event): void} [onClick] custom onclick handler
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
- *  @property {boolean} [preventOnClickHandling] turns of click handling for popup invocation
+ *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
  * }
  *

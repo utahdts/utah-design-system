@@ -47,9 +47,10 @@ export default {
 
   CITIZEN_EXPERIENCE: 'utds-citizen-experience-wrapper',
 
+  LOGO: 'utds-logo-wrapper',
+  LOGO_OFFICIAL_CLOSE_BUTTON: 'utds-official-website-popup__close-button',
   LOGO_SVG: 'utah-logo-svg',
   LOGO_VERT_LINE: 'utds-logo-vert-line',
-  LOGO: 'utds-logo-wrapper',
 
   MAIN_MENU: 'main-menu__wrapper',
   MAIN_MENU__HAMBURGER: 'main-menu__hamburger',

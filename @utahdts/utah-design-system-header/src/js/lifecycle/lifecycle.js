@@ -21,6 +21,7 @@ import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
 import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
 import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
+import renderOfficialWebsite from '../renderables/utahLogo/renderOfficialWebsite';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -43,6 +44,8 @@ export function loadHeader() {
     // Load the Header Wrapper
     const header = HeaderWrapper();
     document.body.insertBefore(header, document.body.firstChild);
+
+    header.after(renderOfficialWebsite());
 
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
