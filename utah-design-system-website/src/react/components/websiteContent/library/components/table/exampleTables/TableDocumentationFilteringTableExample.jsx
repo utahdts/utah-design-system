@@ -9,7 +9,6 @@ import {
   TableFilterNone,
   TableFilters,
   TableFilterSelect,
-  TableFilterSelectOption,
   TableFilterTextInput,
   TableHead,
   TableHeadCell,
@@ -54,16 +53,7 @@ function TableDocumentationFilteringTableExample() {
                 Providing TableFilterSelectOptions is optional;
                 If there are no TableFilterSelectOption children then it will load all the possible values from the data.
               */}
-              <TableFilterSelect recordFieldPath="politicalParty">
-                <TableFilterSelectOption label="" value="" />
-                <TableFilterSelectOption label="Democrat" value="Democrat" />
-                <TableFilterSelectOption label="Democratic-Republican" value="Democratic-Republican" />
-                <TableFilterSelectOption label="Federalist" value="Federalist" />
-                <TableFilterSelectOption label="National Union" value="National Union" />
-                <TableFilterSelectOption label="None" value="None" />
-                <TableFilterSelectOption label="Republican" value="Republican" />
-                <TableFilterSelectOption label="Whig" value="Whig" />
-              </TableFilterSelect>
+              <TableFilterSelect recordFieldPath="politicalParty" />
 
               {/* Date range filtering popup */}
               <TableFilterDate recordFieldPath="inauguration" />

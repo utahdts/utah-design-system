@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useImmer } from 'use-immer';
 import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
 import useRefAlways from '../../hooks/useRefAlways';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import valueAtPath from '../../util/state/valueAtPath';
-import TableContext from './TableContext';
+
+export const TableContext = React.createContext();
+
+export function useTableContext() {
+  return useContext(TableContext);
+}
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -41,6 +46,21 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
   return result;
 }
 
+/**
+ * tableData has both allData and filteredData separated by component guid. This function
+ * combines a particular data type in to a single array.
+ * @param {{string: Object[]}} tableData
+ * @param {'allData'|'filteredData'} whichField
+ * @returns {Object[]}
+ */
+function combineData(tableData, whichField) {
+  return (
+    Object.values(tableData)
+      .map((tableDatum) => tableDatum[whichField])
+      .flat()
+  );
+}
+
 function TableWrapper({
   children,
   className,
@@ -64,6 +84,20 @@ function TableWrapper({
     },
     // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order
     sortingRules: {},
+
+    // data for this table separated out by component GUID
+    //
+    // A table may have multiple dynamic and/or static sections of data yet some things, like
+    // a Table Select Filter that wants to show all the possible values, wants to know what all
+    // the possible data is for the table. Each data section needs to be able to add/remove its
+    // data since the data could morph at each render per component. This `tableData` then holds the data per
+    // component (use useComponentGuid() hook to get a guid) so that the component can add/remove its data
+    // without zapping other components' data but still give a full picture of all the data in the end.
+    // Use the context's exposed `setBodyDataForComponentGuid` to manipulate table data for a component
+    //
+    // { [guid]: {allData, filteredData }} - allData = all the records, filteredData = just the records being shown
+    tableData: {},
+
     // (func) when table sorting changes, this callback will be called: from <TableSortingRules>
     tableSortingOnChange: null,
     // (string | [string]) the current recordFieldPath name for the current header being sorted
@@ -78,6 +112,13 @@ function TableWrapper({
 
   const contextValue = useMemo(
     () => ({
+      // for analytic usage, rendering is generally done at the component level and not at the context level
+      // because each data section handles it differently. This allData is useful for filtering and other
+      // global table tooling that pokes through the data.
+      allData: combineData(stateRef.current.tableData, 'allData'),
+      // ATTOW: filteredData may/may not work with a TableRow and TableFilters?
+      filteredData: combineData(stateRef.current.tableData, 'filteredData'),
+
       // register a new rule for sorting, generally from a <TableSortingRule>
       registerSortingRule: (sortingRule) => setState((draftState) => {
         draftState.sortingRules[sortingRule.recordFieldPath] = {
@@ -112,6 +153,18 @@ function TableWrapper({
       }),
       // unregister a rule for sorting, generally when a <TableSortingRule> unmounts
       unregisterSortingRule: (recordFieldPath) => setState((draftState) => { delete draftState.sortingRules[recordFieldPath]; }),
+
+      /**
+       * data recording per table body section so as to form a full picture of the currently exposed data
+       * @param {string} guid the guid tied to this specific component instance (use useComponentGuid())
+       * @param {any[] | null} data the data for this component (or null on unmount)
+       * @param {any[] | null} [filteredData] the filtered data for this component (optional, defaults to [])
+       */
+      setBodyDataForComponentGuid: (guid, allData, filteredData) => {
+        setState((draftState) => {
+          draftState.tableData[guid] = { allData, filteredData: filteredData || [] };
+        });
+      },
 
       setState,
       state,

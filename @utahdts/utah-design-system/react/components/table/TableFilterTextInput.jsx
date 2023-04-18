@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TextInput from '../forms/TextInput';
-import TableContext from './TableContext';
+import { TableContext } from './TableWrapper';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
 const propTypes = {

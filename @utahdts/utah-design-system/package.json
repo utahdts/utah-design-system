@@ -10,7 +10,11 @@
       "production": "./dist/utah-design-system.es.js",
       "import": "./dist/utah-design-system.es.js",
       "require": "./dist/utah-design-system.umd.js",
-      "default": ["./dist/utah-design-system.es.js", "./dist/utah-design-system.umd.js", "./index.js"]
+      "default": [
+        "./dist/utah-design-system.es.js",
+        "./dist/utah-design-system.umd.js",
+        "./index.js"
+      ]
     },
     "./css": "./dist/style.css",
     "./css/3-generic/normalize.css": "./css/3-generic/normalize.css",
@@ -62,7 +66,8 @@
     "react": "18.x",
     "react-popper": "2.3.0",
     "react-router-dom": "6.x",
-    "use-immer": "0.9.0"
+    "use-immer": "0.9.0",
+    "uuid": "9.0.0"
   },
   "devDependencies": {
     "@types/react": "18.0.37",
