@@ -16,7 +16,10 @@ function GettingStarted() {
       <hr />
       <p id="h2-other-resources" className="mb-auto">Other resources to get help with getting started:</p>
       <ul>
-        <li><Link to="https://utahdesignsystem.slack.com" target="_blank">Slack Channel</Link></li>
+        <li>
+          <Link to="https://utahdesignsystem.slack.com" target="_blank">Please join our Design System Slack Channel!</Link>
+          <br />You can automatically join with your utah.gov email address.
+        </li>
         <li>Send us an email: <Link to="mailto:dts_ui@utah.gov">dts_ui@utah.gov</Link></li>
         <li><Link to="https://github.com/utahdts/utah-design-system" target="_blank">Git Repository</Link></li>
       </ul>
@@ -27,6 +30,9 @@ function GettingStarted() {
       <h3 id="h3-utah-header">Utah Header</h3>
       <p>There are multiple ways to integrate the Utah Header within your website or application.
         You can use the javascript and css directly from a CDN, or you can use NPM to pull the code into a project as a dependency.
+      </p>
+      <p>
+        You can view these demonstrations in the <code>examples</code> folder of the <Link to="https://github.com/utahdts/utah-design-system" target="_blank">Utah Design System Git Repository</Link>.
       </p>
 
       <h4>General Font Dependency</h4>
