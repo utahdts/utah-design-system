@@ -2,7 +2,7 @@
   "hosting": [
     {
       "site": "utah-design-system-dev",
-      "public": "website/dist",
+      "public": "utah-design-system-website/dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -20,7 +20,7 @@
     },
     {
       "site": "utah-design-system",
-      "public": "website/dist",
+      "public": "utah-design-system-website/dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

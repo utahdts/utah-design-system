@@ -1,0 +1,55 @@
+{
+  "name": "@utahdts/utah-design-system-header",
+  "version": "0.4.3",
+  "description": "Utah Header for the Utah Design System",
+  "exports": {
+    ".": {
+      "development-local": "./src/index.js",
+      "development": "./dist/utah-design-system-header.es.js",
+      "production": "./dist/utah-design-system-header.es.js",
+      "import": "./dist/utah-design-system-header.es.js",
+      "require": "./dist/utah-design-system-header.umd.js",
+      "default": ["./dist/utah-design-system-header.es.js", "./dist/utah-design-system-header.umd.js", "./src/index.js"]
+    },
+    "./css": "./dist/style.css",
+    "./src/css/index.scss": "./src/css/index.scss"
+  },
+  "main": "./src/index.js",
+  "files": [
+    "src/css",
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview",
+    "publishHeader": "npm publish --access public",
+    "sass-build": "sass --no-source-map ./src/css/index.scss ./src/css/build/utah-design-system-header.css",
+    "test-publish": "npm publish --dry-run",
+    "test": "vitest",
+    "testc": "vitest run --coverage",
+    "watch": "vite build --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utahdts/utah-design-system.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/utahdts/utah-design-system/issues"
+  },
+  "homepage": "https://github.com/utahdts/utah-design-system#readme",
+  "dependencies": {
+    "@popperjs/core": "2.11.7"
+  },
+  "devDependencies": {
+    "eslint": "8.37.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "sass": "1.60.0",
+    "vite": "4.2.1",
+    "vite-plugin-eslint": "1.8.1",
+    "vitest": "0.29.8"
+  },
+  "type": "module"
+}
