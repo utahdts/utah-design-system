@@ -8,20 +8,22 @@ import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html
 
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import events from '../enumerations/events';
+import checkForError from '../misc/checkForError';
+import notNull from '../misc/notNull';
 import renderDOMSingle from '../misc/renderDOMSingle';
+import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
+import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
 import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
 import { hideMobileMenu, hookupHamburger } from '../renderables/mobile/hookupHamburger';
 import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderables/mobile/hookupUtahIdInMobileMenu';
 import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
+import renderOfficialWebsite from '../renderables/utahLogo/renderOfficialWebsite';
 import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
-import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
-import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
 import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
-import renderOfficialWebsite from '../renderables/utahLogo/renderOfficialWebsite';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -38,12 +40,54 @@ function loadCssSettings() {
   document.body.appendChild(cssHeaderMediaTag);
 }
 
+/**
+ * Based on the current settings, determine in to which DOM element to insert the utah design system header.
+ * defaults to document.body (at the top)
+ *
+ * @returns {HTMLElement}
+ */
+function determineTargetElementForHeader() {
+  const settings = getUtahHeaderSettings();
+
+  /** @type {HTMLElement | null} */
+  let domTarget = document.body;
+  if (settings.domLocationTarget) {
+    const targets = (
+      [
+        settings.domLocationTarget.cssSelector,
+        settings.domLocationTarget.element,
+        settings.domLocationTarget.elementFunction,
+      ]
+        .filter((setting) => setting)
+    );
+    if (targets.length < 1) {
+      throw new Error('loadHeader: domLocationTarget must either have a value for one of its properties or not be specified at all');
+    } else if (targets.length > 1) {
+      throw new Error('loadHeader: domLocationTarget must only have one target specified');
+    }
+    if (settings.domLocationTarget.cssSelector) {
+      domTarget = document.querySelector(settings.domLocationTarget.cssSelector);
+      checkForError(!domTarget, `loadHeader: element not found for domLocationTarget.cssSelector ${settings.domLocationTarget.cssSelector}`);
+    } else if (settings.domLocationTarget.element) {
+      domTarget = settings.domLocationTarget.element;
+    } else if (settings.domLocationTarget.elementFunction) {
+      domTarget = settings.domLocationTarget.elementFunction();
+      checkForError(!domTarget, 'loadHeader: element not returned from domLocationTarget.elementFunction');
+    } else {
+      throw new Error('loadHeader: domLocationTarget must have at least one field set');
+    }
+  }
+  return notNull(domTarget, 'loadHeader: domTarget is null (how?!)');
+}
+
 export function loadHeader() {
   const existingHeader = document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]));
   if (!existingHeader) {
     // Load the Header Wrapper
     const header = HeaderWrapper();
-    document.body.insertBefore(header, document.body.firstChild);
+
+    const domTarget = determineTargetElementForHeader();
+    domTarget.insertBefore(header, domTarget.firstChild);
 
     const officialWebsite = renderOfficialWebsite();
     header.after(officialWebsite);
