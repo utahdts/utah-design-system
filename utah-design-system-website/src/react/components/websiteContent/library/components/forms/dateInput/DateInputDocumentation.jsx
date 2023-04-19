@@ -46,7 +46,7 @@ function DateInputDocumentation() {
       />
       <StaticExample
         title="Date Input Examples"
-        renderedExample={<LightBox image={dateInputScreenshot} alt="Tooltips" className="flex-3up-gap" />}
+        renderedExample={<LightBox image={dateInputScreenshot} alt="Date Input" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>A <code>Date Input</code> can also have a <code>Calendar Icon Button</code>.</li>
