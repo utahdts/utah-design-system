@@ -49,6 +49,7 @@ export default {
 
   LOGO: 'utds-logo-wrapper',
   LOGO_OFFICIAL_CLOSE_BUTTON: 'utds-official-website-popup__close-button',
+  LOGO_OFFICIAL_WRAPPER: 'utds-official-website-popup__wrapper',
   LOGO_SVG: 'utah-logo-svg',
   LOGO_VERT_LINE: 'utds-logo-vert-line',
 
