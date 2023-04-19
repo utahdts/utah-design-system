@@ -7,22 +7,9 @@ import {
   Button,
   events,
   formElementSizesEnum,
-  IconButton,
   ICON_BUTTON_APPEARANCE,
-  Switch,
-  Tab,
-  TabGroup,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableHeadRow,
-  TableRow,
-  TableWrapper,
-  TabList,
-  TabPanel,
-  TabPanels
+  IconButton,
+  Switch
 } from '@utahdts/utah-design-system';
 import {
   useCallback,
@@ -417,88 +404,72 @@ function UtahHeaderDocumentation() {
         javascript provided, it is not trustworthy. You will want to get <code>tokens</code> and/or <code>codes</code> from <code>Utah Login</code> that your server side code can verify.
         <PreCode
           className="gray-block"
-          codeRaw={`// Example Utah Header Settings Object w/ onAuthChanged
-  {
-    ...
-    "utahId": {
-      ...
-      //
-      "onAuthChanged": (
-        /**
-         * @param {UtahIdData | null}
-         * @returns {void}
-         */
-        (newUserData) => {
-          if (newUserData?.userInfo?.first) {
-            alert(\`Hello \${newUserData.userInfo.first}!\`);
-          } else {
-            alert('User is signed out');
-          }
-        }
-      ),
-      ...
-    }
-    ...
-  }`}
+          codeRaw={`
+            {
+              "utahId": {
+                "onAuthChanged": (
+                  (newUserData) => {
+                    if (newUserData?.userInfo?.first) {
+                      alert(\`Hello \${newUserData.userInfo.first}!\`);
+                    } else {
+                      alert('User is signed out');
+                    }
+                  }
+                ),
+              }
+            }
+        `}
         />
-      </div>
 
-      <h2 id="section-settings-props">Settings and Props</h2>
-      <div className="documentation-content--small-text">
-        <TabGroup defaultValue="segmented-button-props-css">
-          <TabList>
-            <Tab id="segmented-button-props-css">CSS</Tab>
-            <Tab id="segmented-button-props-react">JS</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel tabId="segmented-button-props-css">
-              <TableWrapper>
-                <Table className="table--lines-x">
-                  <TableHead>
-                    <TableHeadRow>
-                      <TableHeadCell className="text-left css-classes">Css Classes</TableHeadCell>
-                      <TableHeadCell className="text-left">Description</TableHeadCell>
-                    </TableHeadRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell><code>.class</code></TableCell>
-                      <TableCell>Class description.</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableWrapper>
-            </TabPanel>
-            <TabPanel tabId="segmented-button-props-react">
-              <TableWrapper>
-                <Table className="table--lines-x">
-                  <TableHead>
-                    <TableHeadRow>
-                      <TableHeadCell className="text-left">Property</TableHeadCell>
-                      <TableHeadCell className="text-left">Type</TableHeadCell>
-                      <TableHeadCell className="text-left">Default</TableHeadCell>
-                      <TableHeadCell className="text-left">Description</TableHeadCell>
-                    </TableHeadRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell><code className="primary-color">props</code></TableCell>
-                      <TableCell>
-                        <div className="props-code-wrapper">
-                          <code>string</code>
-                        </div>
-                      </TableCell>
-                      <TableCell>null</TableCell>
-                      <TableCell>
-                        What does this do?
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableWrapper>
-            </TabPanel>
-          </TabPanels>
-        </TabGroup>
+        <h2 id="section-provide-auth-user" className="mb-spacing">App Provided Authenticated User Information</h2>
+        <div>
+          By default, the State of Utah Header checks Utah ID for the current
+          logged in user. Your application can take control of this process and provide the current user information, in which case the
+          State of Utah Header will not look up current user information and will rely solely on your application for user information.
+          <br />
+          This example shows an authenticated user:
+          <PreCode
+            className="gray-block"
+            codeRaw={`
+              {
+                "utahId": {
+                  "currentUser": {
+                    "authenticated": true,
+                    "first": "Philo"
+                  }
+                }
+              }
+          `}
+          />
+          This example shows an unauthenticated user. This is a case where your application may have a cached user who is not yet verified. The
+          State of Utah Header will not trust this user information and will show the UtahID Sign In button.
+          <PreCode
+            className="gray-block"
+            codeRaw={`
+              {
+                "utahId": {
+                  "currentUser": {
+                    "authenticated": false,
+                    "first": "Philo"
+                  }
+                }
+              }
+          `}
+          />
+          By setting the currentUser to null, this example shows how the application tells the State of Utah Header that the application is
+          controlling the user authentication process and that there is not a currently logged in user. In contrast, setting currentUser to undefined
+          will indicate to the State of Utah Header that current user information should be fetched from Utah ID.
+          <PreCode
+            className="gray-block"
+            codeRaw={`
+              {
+                "utahId": {
+                  "currentUser": null
+                }
+              }
+          `}
+          />
+        </div>
       </div>
     </div>
   );

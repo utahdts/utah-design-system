@@ -18,7 +18,7 @@ import uuidv4 from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
 import showSearchModal from '../search/showSearchModal';
-import hookupToolTip from '../tooltip/hookupTooltip';
+import hookupTooltip from '../tooltip/hookupTooltip';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
 
 /**
@@ -167,7 +167,7 @@ export default function renderMainMenu() {
     throw new Error('renderMainMenu: searchIcon not found');
   }
   if (settings.onSearch) {
-    hookupToolTip(searchIcon, 'Search');
+    hookupTooltip(searchIcon, document.createTextNode('Search'));
     if (searchIcon.onclick) {
       throw new Error('searchIcon already has onclick');
     }

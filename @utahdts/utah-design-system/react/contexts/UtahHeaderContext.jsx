@@ -31,6 +31,9 @@ export function UtahHeaderContextProvider({ children }) {
   const providedSettings = useMemo(() => ({ settings, setSettings }), [settings]);
 
   return (
+    // Vite HMR was sometimes getting an "unspreadable" value for this context!
+    // The above useMemo() ALWAYS returns a spreadable object, so it seems it's got to
+    // be HMR's fault it's not always behaving? Why would providedSettings ever not be an object?
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <UtahHeaderContext.Provider value={providedSettings || {}}>
       {children}

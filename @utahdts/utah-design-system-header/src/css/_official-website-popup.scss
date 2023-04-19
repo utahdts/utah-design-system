@@ -1,0 +1,56 @@
+.utah-design-system {
+  &.utds-official-website-popup {
+    &__wrapper {
+      background: var(--gray-color);
+      color: white;
+      padding: var(--spacing-l);
+      position: relative;
+
+      &.visually-hidden {
+        position: absolute;
+      }
+    }
+  }
+  button.utds-official-website-popup__close-button {
+    position: absolute;
+    top: var(--spacing);
+    right: var(--spacing);
+
+    &.icon-button [class*=utds-icon-before-] {
+      color: white;
+      &::before {
+        font-size: .9rem;
+      }
+    }
+  }
+  .utds-official-website-popup {
+    &__heading {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semi-bold);
+      padding: 0 var(--spacing-xl) 0 0;
+      line-height: 1;
+      margin-bottom: var(--spacing-s);
+    }
+    &__content {
+      display: flex;
+      gap: var(--spacing-2xl);
+    }
+    &__col {
+      max-width: 400px;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-xs);
+
+      [class*=utds-icon-before-]::before {
+        margin: 0;
+      }
+
+      .big-icon[class*=utds-icon-before-] {
+        &::before {
+          font-size: 2.5rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

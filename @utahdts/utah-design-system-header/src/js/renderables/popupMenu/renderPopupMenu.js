@@ -12,9 +12,10 @@ import PopupMenuHtml from './html/PopupMenu.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 
+// eslint-disable-next-line import/order
+import { popupPlacement } from '@utahdts/utah-design-system';
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import popupPlacement from '../../enumerations/popupPlacement';
 import findRecursive from '../../misc/findRecursive';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import renderDOMSingle from '../../misc/renderDOMSingle';

@@ -48,17 +48,59 @@
     }
   }
 }
-.utah-logo-svg {
-  height: 100%;
-  position: relative;
-  margin-bottom: -4px;
-  svg {
+.utah-design-system {
+  .utah-logo-wrapper {
     height: 100%;
-    width: auto;
-    fill: var(--primary-color);
-    font-family: SourceSansPro-Regular, 'Source Sans Pro', Arial, Helvetica, sans-serif;
-    font-weight: normal;
-    font-size: 14px;
-    display: block;
+
+    .popup {
+      &__wrapper {
+
+      }
+      &__content {
+        border-radius: var(--radius-small);
+        background: var(--gray-color);
+        color: white;
+        box-sizing: border-box;
+        padding: var(--spacing-3xs) var(--spacing-s);
+        border-color: var(--gray-color)
+      }
+      &__arrow {
+        &::before {
+
+          border-color: var(--gray-color) !important;
+        }
+      }
+    }
+  }
+  button.utah-logo-svg {
+    height: 100%;
+    position: relative;
+    margin-bottom: -4px;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    &:hover {
+      background: none;
+    }
+    &:active {
+      box-shadow: none;
+    }
+    svg {
+      height: 100%;
+      width: auto;
+      fill: var(--primary-color);
+      font-family: SourceSansPro-Regular, 'Source Sans Pro', Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      font-size: 14px;
+      display: block;
+    }
+  }
+  .utds-official-website-hover {
+    &__wrapper {
+      font-size: 1rem;
+      font-weight: var(--font-weight-normal);
+      text-align: center;
+    }
   }
 }
+

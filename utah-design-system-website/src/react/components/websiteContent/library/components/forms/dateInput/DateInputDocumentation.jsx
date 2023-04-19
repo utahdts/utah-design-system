@@ -46,7 +46,7 @@ function DateInputDocumentation() {
       />
       <StaticExample
         title="Date Input Examples"
-        renderedExample={<LightBox image={dateInputScreenshot} alt="Tooltips" className="flex-3up-gap" />}
+        renderedExample={<LightBox image={dateInputScreenshot} alt="Date Input" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>A <code>Date Input</code> can also have a <code>Calendar Icon Button</code>.</li>
@@ -108,6 +108,7 @@ function DateInputDocumentation() {
       </ul>
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">
+        <li>Always pair a label with a date input. Include a <code>for</code> attribute on each label with a value matching the <code>id</code> attribute on the corresponding input.</li>
         <li>The <code>icon button</code> should have an accessible label such as &quot;Choose Date&quot;. This <code>label</code> should change to &quot;Change Date&quot; if the field already has a date entered. Optionally, you may also include the chosen date: &quot;Change Date, 03/14/2024&quot;.</li>
         <li>Visually, day names headers are abbreviated. Screen reader users will be provided the full names using the <code>abbr</code> attribute. e.g. <code>&lt;td abbr=&quot;Wednesday&quot;&gt;We&lt;/td&gt;</code></li>
         <li>Use an <code>aria-live</code> region for the Month - Year. When the user changes the month or year it will read to them the current month being displayed.</li>

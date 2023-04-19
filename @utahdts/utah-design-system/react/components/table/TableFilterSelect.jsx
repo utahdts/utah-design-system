@@ -2,11 +2,13 @@ import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
-import TableContext from './TableContext';
+import { TableContext } from './TableWrapper';
+import TableFilterSelectAllOptions from './TableFilterSelectAllOptions';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
+  // if no children (TableFilterSelect) are provided then it will automagically use TableFilterSelectAllOptions
+  children: PropTypes.node,
   className: PropTypes.string,
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   innerRef: RefShape,
@@ -16,6 +18,7 @@ const propTypes = {
   value: PropTypes.string,
 };
 const defaultProps = {
+  children: null,
   className: null,
   defaultValue: null,
   innerRef: null,
@@ -56,7 +59,17 @@ function TableFilterSelect({
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
-        {children}
+        {
+          children || (
+            <TableFilterSelectAllOptions
+              className={className}
+              idBase={id}
+              recordFieldPath={recordFieldPath}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...rest}
+            />
+          )
+        }
       </Select>
     </th>
   );
