@@ -4,7 +4,6 @@ export {
   baseSettings,
   childrenMenuTypes,
   events,
-  popupPlacement,
   renderDOMSingle,
 } from '@utahdts/utah-design-system-header';
 export { default as Button } from './react/components/buttons/Button';
@@ -63,6 +62,7 @@ export { UtahHeaderContextProvider, default as useUtahHeaderContext } from './re
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
 export { default as componentColors } from './react/enums/componentColors';
 export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
+export { default as popupPlacement } from './react/enums/popupPlacement';
 export { default as tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { default as useBanner } from './react/hooks/useBanner';
 export { default as useCurrentMenuItem } from './react/hooks/useCurrentMenuItem';

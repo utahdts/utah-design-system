@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @typedef {import('../misc/jsDocTypes').PopupPlacement} PopupPlacement */
+/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
 
 /** @enum {PopupPlacement} */
 export default {
