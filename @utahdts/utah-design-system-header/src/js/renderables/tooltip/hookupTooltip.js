@@ -1,11 +1,11 @@
 // @ts-ignore
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/order
 import ToolTipHTML from './html/Tooltip.html?raw';
 
 // eslint-disable-next-line import/order
 import { createPopper } from '@popperjs/core';
+import { popupPlacement } from '@utahdts/utah-design-system';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import popupPlacement from '../../enumerations/popupPlacement';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 
 let tooltipCloseTimeoutId = NaN;

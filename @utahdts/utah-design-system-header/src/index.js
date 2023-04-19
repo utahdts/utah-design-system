@@ -9,7 +9,6 @@ console.log(`Utah Header v${fileVersion}`);
 
 export { default as childrenMenuTypes } from './js/enumerations/childrenMenuTypes';
 export { default as events } from './js/enumerations/events';
-export { default as popupPlacement } from './js/enumerations/popupPlacement';
 export { default as sizes } from './js/enumerations/sizes';
 export { loadHeader, removeHeader } from './js/lifecycle/lifecycle';
 export { default as renderDOMSingle } from './js/misc/renderDOMSingle';
