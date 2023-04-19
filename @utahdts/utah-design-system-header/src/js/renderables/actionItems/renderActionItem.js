@@ -10,7 +10,7 @@ import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import renderPopup from '../popup/renderPopup';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
-import hookupToolTip from '../tooltip/hookupTooltip';
+import hookupTooltip from '../tooltip/hookupTooltip';
 import renderActionItemBadge from './renderActionItemBadge';
 
 /**
@@ -97,7 +97,7 @@ export default function renderActionItem(actionItem) {
     throw new Error('Action Item: no defined action; must have either actionFunction, actionDom, or actionPopupMenu');
   }
 
-  hookupToolTip(actionItemElement, actionItem.title);
+  hookupTooltip(actionItemElement, document.createTextNode(actionItem.title));
 
   return actionItemElement;
 }

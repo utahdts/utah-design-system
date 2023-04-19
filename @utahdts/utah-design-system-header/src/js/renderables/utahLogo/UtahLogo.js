@@ -11,11 +11,10 @@ import UtahOfficialWebsiteHoverContentHtml from './html/UtahOfficialWebsiteHover
 
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import sizes from '../../enumerations/sizes';
-import popupFocusHandler from '../../misc/popupFocusHandler';
 import renderDOMSingle from '../../misc/renderDOMSingle';
-import { getUtahHeaderSettings } from '../../settings/settings';
-import renderPopup from '../popup/renderPopup';
 import uuidv4 from '../../misc/uuidv4';
+import { getUtahHeaderSettings } from '../../settings/settings';
+import hookupTooltip from '../tooltip/hookupTooltip';
 
 /**
  * @returns {Element}
@@ -43,17 +42,7 @@ export default function UtahLogo() {
   }
 
   logoWrapper.setAttribute('id', uuidv4());
-  const logoPopupWrapper = renderPopup(logoWrapper);
-
-  const popupContentWrapper = /** @type {HTMLElement} */(logoPopupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
-  if (!popupContentWrapper) {
-    throw new Error('UtahLogo: contentWrapper not found');
-  }
-  const popupContent = renderDOMSingle(UtahOfficialWebsiteHoverContentHtml);
-  popupContent.setAttribute('id', uuidv4());
-  popupContentWrapper.appendChild(popupContent);
-  logoWrapper.appendChild(logoPopupWrapper);
-  popupFocusHandler(logoWrapper, logoButton, logoPopupWrapper, 'dialog', { shouldFocusOnHover: true, preventOnClickHandling: true });
+  hookupTooltip(logoWrapper, renderDOMSingle(UtahOfficialWebsiteHoverContentHtml));
 
   return logoWrapper;
 }
