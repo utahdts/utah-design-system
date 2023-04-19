@@ -4,10 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import comboBoxScreenshot from '../../../../../../../static/images/screenshots/components/comboBox/combobox.png';
-import LightBox from '../../../../../lightbox/LightBox';
 import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -23,12 +20,6 @@ function ComboBoxDocumentation() {
       </p>
 
       <hr />
-
-      <h2 id="example">Example</h2>
-      <StaticExample
-        title="ComboBox Examples"
-        renderedExample={<LightBox image={comboBoxScreenshot} alt="ComboBox" className="flex-3up-gap" />}
-      />
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
