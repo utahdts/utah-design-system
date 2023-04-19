@@ -179,4 +179,9 @@ export default [
     title: 'account',
     letter: 'j',
   },
+  {
+    cssClass: 'lock',
+    title: 'lock',
+    letter: 'k',
+  },
 ];
