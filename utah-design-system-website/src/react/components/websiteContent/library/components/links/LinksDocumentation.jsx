@@ -129,7 +129,7 @@ function LinksDocumentation() {
         </li>
         <li>
           The ARIA <code>role=&quot;link&quot;</code> can be used to identify an element as a hyperlink resource but is not needed if you are using the native <code>&lt;a&gt;</code> element
-          by itself within text content. Remember the first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
+          by itself within text content. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
         </li>
       </ul>
     </div>

@@ -148,6 +148,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
+        { link: pages.select.link, title: pages.select.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },

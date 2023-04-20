@@ -45,6 +45,7 @@ const pageUrls = {
   radioButton: '/library/components/forms/radioButton',
   resources: '/resources',
   segmentedButton: '/library/components/buttons/segmentedButton',
+  select: '/Library/components/forms/select',
   shape: '/foundation/shape',
   sidePanelNavigation: '/library/components/navigation/sidePanelNavigation',
   spacing: '/foundation/spacing',

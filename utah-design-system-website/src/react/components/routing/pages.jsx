@@ -11,9 +11,10 @@ import ConfirmationButtonDocumentation from '../websiteContent/library/component
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
+import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
+import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
-import DateInputDocumentation from '../websiteContent/library/components/forms/dateInput/DateInputDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
@@ -452,6 +453,13 @@ const pages = {
     link: pageUrls.radioButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Radio Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  select: {
+    content: SelectDocumentation,
+    link: pageUrls.select,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Select',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   switch: {
