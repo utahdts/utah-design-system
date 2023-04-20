@@ -22,6 +22,7 @@ import PopupsDocumentation from '../websiteContent/library/components/popups/pop
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
+import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
@@ -443,6 +444,13 @@ const pages = {
     pageTitle: 'Badges',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  stepIndicator: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.stepIndicator,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Step Indicators',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
 
   // === forms === //
   checkbox: {
@@ -517,6 +525,13 @@ const pages = {
   },
 
   // === Navigation === //
+  pagination: {
+    content: PaginationDocumentation,
+    link: pageUrls.pagination,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Pagination',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   sidePanelNavigation: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.sidePanelNavigation,
