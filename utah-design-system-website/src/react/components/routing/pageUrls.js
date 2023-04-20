@@ -57,6 +57,7 @@ const pageUrls = {
   tooltips: '/library/components/tooltips',
   type: '/library/components/basic/type',
   typography: '/foundation/typography',
+  utahFooter: '/library/patterns/utahFooter',
   utahHeader: '/library/patterns/utahHeader',
   uxBestPractices: '/guidelines/uxBestPractices',
   validation: '/library/components/validation',

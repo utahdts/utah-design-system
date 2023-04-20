@@ -20,6 +20,7 @@ import PopupsDocumentation from '../websiteContent/library/components/popups/pop
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
+import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
@@ -218,6 +219,13 @@ const pages = {
     link: pageUrls.patterns,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Patterns',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  utahFooter: {
+    content: UtahFooterDocumentation,
+    link: pageUrls.utahFooter,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Utah Footer',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   utahHeader: {

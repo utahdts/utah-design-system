@@ -200,13 +200,13 @@ export const menuLibraryPatternsSecondary = {
   id: 'library-patterns',
   menuItems: [
     {
-      title: 'Utah Header',
-      link: pages.utahHeader.link,
+      title: 'Utah Footer',
+      link: pages.utahFooter.link,
       parentLinks: [pages.library.link],
     },
     {
-      title: 'Buttons',
-      link: pages.anchors.link, // wrong!
+      title: 'Utah Header',
+      link: pages.utahHeader.link,
       parentLinks: [pages.library.link],
     },
   ],
