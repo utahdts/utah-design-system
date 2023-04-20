@@ -3,6 +3,7 @@ import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import { useEffect } from 'react';
 import './App.css';
 import logo from './logo.svg';
+import { ExternalLink } from '@utahdts/utah-design-system';
 
 function App() {
   useEffect(
@@ -19,14 +20,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ExternalLink href="https://reactjs.org" className="App-link">Learn React</ExternalLink>
       </header>
     </div>
   );

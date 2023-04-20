@@ -21,14 +21,10 @@ import {
 import { Link } from 'react-router-dom';
 import formInputs01 from '../../../../../../../static/images/mockups/FormInputs01.jpg';
 import textInputSearchPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-search.png';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import TextInputExampleCodeReact from './TextInputExampleCodeReact';
-import TextInputPrimaryExampleProps from './TextInputExampleProps';
-import TextInputExampleRender from './TextInputExampleRender';
-import PreCode from '../../../../../preCode/PreCode';
 import LightBox from '../../../../../lightbox/LightBox';
+import PreCode from '../../../../../preCode/PreCode';
+import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};
@@ -43,11 +39,6 @@ function TextInputDocumentation() {
       </p>
       <hr />
       <h2 id="example">Example</h2>
-      <SandboxExample
-        CODE_EXAMPLE={TextInputExampleCodeReact}
-        PROPS_EXAMPLE={TextInputPrimaryExampleProps}
-        RENDER_EXAMPLE={TextInputExampleRender}
-      />
       <StaticExample
         title="Text Input"
         renderedExample={<LightBox image={formInputs01} alt="Form Inputs" className="flex-4up-gap" />}

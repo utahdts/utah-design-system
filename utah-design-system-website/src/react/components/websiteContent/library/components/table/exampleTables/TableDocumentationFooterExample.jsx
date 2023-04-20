@@ -30,7 +30,7 @@ function TableDocumentationFooterExample() {
   })));
   return (
     <>
-      <h3 id="table__footer-table-example">Table Example: Footer</h3>
+      <h3 id="table__footer-table-example">Footer</h3>
       <p>This table has a footer!</p>
       <TableWrapper>
         <Table id="footer-table">

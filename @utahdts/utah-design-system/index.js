@@ -26,6 +26,7 @@ export { default as SelectOption } from './react/components/forms/SelectOption';
 export { default as Switch } from './react/components/forms/Switch';
 export { default as TextInput } from './react/components/forms/TextInput';
 export { default as Icons } from './react/components/icons/Icons';
+export { default as ExternalLink } from './react/components/navigation/ExternalLink';
 export { default as HorizontalMenu } from './react/components/navigation/HorizontalMenu';
 export { default as OnThisPage } from './react/components/navigation/OnThisPage';
 export { default as SidePanelNavigation } from './react/components/navigation/SidePanelNavigation';

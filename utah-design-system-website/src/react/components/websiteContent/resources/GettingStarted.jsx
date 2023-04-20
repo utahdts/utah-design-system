@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-one-expression-per-line */
+import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../routing/pageUrls';
 import PreCode from '../../preCode/PreCode';
+import pageUrls from '../../routing/pageUrls';
 
 const propTypes = {};
 const defaultProps = {};
@@ -17,11 +18,11 @@ function GettingStarted() {
       <p id="h2-other-resources" className="mb-auto">Other resources to get help with getting started:</p>
       <ul>
         <li>
-          <Link to="https://utahdesignsystem.slack.com" target="_blank">Please join our Design System Slack Channel!</Link>
+          <ExternalLink href="https://utahdesignsystem.slack.com">Please join our Design System Slack Channel!</ExternalLink>
           <br />You can automatically join with your utah.gov email address.
         </li>
-        <li>Send us an email: <Link to="mailto:dts_ui@utah.gov">dts_ui@utah.gov</Link></li>
-        <li><Link to="https://github.com/utahdts/utah-design-system" target="_blank">Git Repository</Link></li>
+        <li>Send us an email: <ExternalLink href="mailto:dts_ui@utah.gov">dts_ui@utah.gov</ExternalLink></li>
+        <li><ExternalLink href="https://github.com/utahdts/utah-design-system">Git Repository</ExternalLink></li>
       </ul>
       <hr />
 
@@ -32,7 +33,7 @@ function GettingStarted() {
         You can use the javascript and css directly from a CDN, or you can use NPM to pull the code into a project as a dependency.
       </p>
       <p>
-        You can view these demonstrations in the <code>examples</code> folder of the <Link to="https://github.com/utahdts/utah-design-system" target="_blank">Utah Design System Git Repository</Link>.
+        You can view these demonstrations in the <code>examples</code> folder of the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System Git Repository</ExternalLink>.
       </p>
 
       <h4>General Font Dependency</h4>
@@ -87,12 +88,12 @@ function GettingStarted() {
 
       <h4>Option 3: Create React App</h4>
       <p>
-        This option pulls the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</Link> from npm and imports it in to an application created with <Link to="https://create-react-app.dev/">Create React App</Link>.
+        This option pulls the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</ExternalLink> from npm and imports it in to an application created with <ExternalLink href="https://create-react-app.dev/">Create React App</ExternalLink>.
         Here were the steps used to create the application and integrate the header:
       </p>
       <ol>
         <li>
-          Create a react app with <Link to="https://create-react-app.dev/docs/getting-started">Create React App</Link><br />
+          Create a react app with <ExternalLink href="https://create-react-app.dev/docs/getting-started">Create React App</ExternalLink><br />
           <PreCode
             codeRaw="npx create-react-app cra-utah-header-example"
             className="mt-spacing"
@@ -100,7 +101,7 @@ function GettingStarted() {
           />
         </li>
         <li>
-          Install the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</Link><br />
+          Install the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</ExternalLink><br />
           <PreCode
             codeRaw="npm i @utahdts/utah-design-system-header"
             className="mt-spacing"
@@ -108,7 +109,7 @@ function GettingStarted() {
           />
         </li>
         <li>
-          Import the header (js/css) in to the application code&apos;s App.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/create-react-app</code> folder)<br />
+          Import the header (js/css) in to the application code&apos;s App.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/create-react-app</code> folder)<br />
           <PreCode
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
@@ -120,7 +121,7 @@ function GettingStarted() {
           />
         </li>
         <li>
-          Load header settings to show the header in the application code&apos;s App.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/create-react-app</code> folder)<br />
+          Load header settings to show the header in the application code&apos;s App.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/create-react-app</code> folder)<br />
           <PreCode
             codeRaw={`
                 function App() {
@@ -154,12 +155,12 @@ function GettingStarted() {
       <h4>Option 4: Vite Plain JS App</h4>
       <ol>
         <p>
-          This option pulls the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</Link> from npm and imports it in to a plain JS application created with <Link to="https://vitejs.dev/guide/">Vite</Link>.
+          This option pulls the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</ExternalLink> from npm and imports it in to a plain JS application created with <ExternalLink href="https://vitejs.dev/guide/">Vite</ExternalLink>.
           Here were the steps used to create the application and integrate the header:
         </p>
         <ol>
           <li>
-            Create a plain JS app with <Link to="https://vitejs.dev/guide">Vite</Link><br />
+            Create a plain JS app with <ExternalLink href="https://vitejs.dev/guide">Vite</ExternalLink><br />
             <PreCode
               codeRaw="npm init vite@latest"
               className="mt-spacing"
@@ -167,7 +168,7 @@ function GettingStarted() {
             />
           </li>
           <li>
-            Install the <Link to="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</Link><br />
+            Install the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</ExternalLink><br />
             <PreCode
               codeRaw="npm i @utahdts/utah-design-system-header"
               className="mt-spacing"
@@ -175,7 +176,7 @@ function GettingStarted() {
             />
           </li>
           <li>
-            Import the header (js/css) in to the application code&apos;s main.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/vite</code> folder)<br />
+            Import the header (js/css) in to the application code&apos;s main.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/vite</code> folder)<br />
             <PreCode
               codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
@@ -187,7 +188,7 @@ function GettingStarted() {
             />
           </li>
           <li>
-            Load header settings to show the header in the application code&apos;s main.js (see the <Link to="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</Link> <code>examples/utah-header/vite</code> folder)<br />
+            Load header settings to show the header in the application code&apos;s main.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/vite</code> folder)<br />
             <PreCode
               codeRaw={`
                 setUtahHeaderSettings({});

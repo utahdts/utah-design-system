@@ -25,7 +25,7 @@ function TableDocumentationPaginationTableExample() {
 
   return (
     <div className="documentation-content">
-      <h3 id="table__paginating-table-example">Table Example: Pagination</h3>
+      <h3 id="table__paginating-table-example">Pagination</h3>
       <TextInput
         id="table-pagination__items-per-page"
         label="Items Per Page"

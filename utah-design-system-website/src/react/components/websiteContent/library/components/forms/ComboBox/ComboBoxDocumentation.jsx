@@ -59,30 +59,16 @@ function ComboBoxDocumentation() {
           <strong>Placeholder text (optional):</strong> Placeholder text like &quot;Select One&quot; is typically displayed in the Combo Box
           field. After the user makes a selection, the placeholder text is replaced with the user&apos;s selection.
         </li>
-      </ul>
-
-      <h3 id="section-interaction">Interaction</h3>
-      <ul className="mb-spacing">
+        <li><strong>Selected Options:</strong> Selected options appear highlighted and are always shown in the dropdown part (that is, they are not removed as they are selected).</li>
         <li>
-          Selected options:
-          <ul>
-            <li>Selected options appear highlighted and are always shown in the dropdown part (that is, they are not removed as they are selected).</li>
-            <li>
-              <strong>Searching:</strong> By default, the user can perform a text search to identify options once the input has focus. For example,
-              typing &quot;Ca&quot; would filter your options to include &quot;Cat, Canary and Carrot&quot;, but not &quot;Cougar&quot;. Selecting Return or
-              clicking on the option will add it to the input.
-            </li>
-          </ul>
+          <strong>Searching:</strong> By default, the user can perform a text search to identify options once the input has focus. For example,
+          typing &quot;Ca&quot; would filter your options to include &quot;Cat, Canary and Carrot&quot;, but not &quot;Cougar&quot;. Selecting Return or
+          clicking on the option will add it to the input.
         </li>
         <li>
-          De-selecting options:
-          <ul>
-            <li>
-              Where necessary, the user can de-select the selected item by clicking or tapping on a clear icon (x). Once removed, show placeholder text, such
-              as &quot;Select&quot; or &quot;Search…&quot;. Alternatively, you might require that a value is always selected so de-selecting is achieved by
-              choosing a different option.
-            </li>
-          </ul>
+          <strong>De-selecting options:</strong> Where necessary, the user can de-select the selected item by clicking or tapping on a clear icon (x). Once removed, show placeholder text, such
+          as &quot;Select&quot; or &quot;Search…&quot;. Alternatively, you might require that a value is always selected so de-selecting is achieved by
+          choosing a different option.
         </li>
       </ul>
 
@@ -90,7 +76,7 @@ function ComboBoxDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Customize form controls to be accessible.</strong> If you customize this component, ensure that it continues to meet
-          the <a href="https://designsystem.digital.gov/components/form" target="_blank" rel="noreferrer">accessibility requirements that apply to all form controls</a>.
+          the <Link to={pageUrls.accessibility}>accessibility requirements that apply to all form controls</Link>.
         </li>
         <li>
           <strong>Always use a label.</strong> Make sure your select element has a label. Don&apos;t replace it with the default menu option. For example, removing
