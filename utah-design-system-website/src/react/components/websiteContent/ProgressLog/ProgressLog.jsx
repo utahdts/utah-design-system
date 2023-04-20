@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import {
+  ExternalLink,
   Table,
   TableBody,
   TableCell,
@@ -107,7 +108,7 @@ function ProgressLog() {
             <li>Add ability to close Mobile Main Menu</li>
             <li>TableFilterSelectOptions : auto provide these options based on the data if no options were given as children to TableFilterSelect</li>
             <li>Maintenance tasks: dependencies, branches, versions...</li>
-            <li><Link to="https://github.com/utahdts/utah-design-system/commits/dev" target="_blank">GitHub Commit Details</Link></li>
+            <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>
           </ul>
         </li>
       </ul>

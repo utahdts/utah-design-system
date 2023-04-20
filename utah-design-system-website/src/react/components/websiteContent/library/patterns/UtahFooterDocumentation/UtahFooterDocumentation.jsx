@@ -3,6 +3,7 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
+import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
@@ -82,7 +83,7 @@ function UtahFooterDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>The footer is a landmark role used for accessibility. It is recommended that you wrap the footer in a <code>&lt;footer&gt;</code> tag, or, if using a version prior to html5, use the aria <code>role=&quot;navigation&quot;</code> as a fallback.</li>
-        <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/contentinfo_role" target="_blank" rel="noreferrer">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/contentinfo_role</a></li>
+        <li><ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/contentinfo_role">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/contentinfo_role</ExternalLink></li>
         <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.verticalMenu}>Vertical Menus</Link> and <Link to={pageUrls.links}>Links</Link>.</li>
       </ul>
     </div>
