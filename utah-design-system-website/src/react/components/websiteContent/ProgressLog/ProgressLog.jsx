@@ -73,7 +73,7 @@ function ProgressLog() {
             <ProgressLogTableRow title="Utah.gov Header" toUrl={pageUrls.utahHeader} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogVersionRow version="0.2" />
             <ProgressLogTableRow title="Badges" toUrl={pageUrls.badges} isDefinitionChecked />
-            <ProgressLogTableRow title="Buttons" toUrl={pageUrls.buttons} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Buttons" toUrl={pageUrls.button} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Icon Button" toUrl={pageUrls.iconButton} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Icons" toUrl={pageUrls.icons} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Popups" toUrl={pageUrls.popups} isDefinitionChecked isCssChecked isComponentExampleChecked />

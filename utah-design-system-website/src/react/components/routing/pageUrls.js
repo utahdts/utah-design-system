@@ -4,7 +4,6 @@ const pageUrls = {
   badges: '/library/components/widgetsIndicators/badges',
   button: '/library/components/buttons/button',
   buttonGroup: '/library/components/buttons/buttonGroup',
-  buttons: '/library/components/buttons',
   checkbox: '/library/components/forms/checkbox',
   colorFoundation: '/foundation/color',
   colorGuidelines: '/guidelines/color',

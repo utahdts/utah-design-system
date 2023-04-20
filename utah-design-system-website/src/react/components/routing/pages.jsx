@@ -14,6 +14,7 @@ import ComboBoxDocumentation from '../websiteContent/library/components/forms/Co
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/dateInput/DateInputDocumentation';
+import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
@@ -296,7 +297,7 @@ const pages = {
   // === library documentation components === //
   // === basic atomic === //
   anchors: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.anchors,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Anchors',
@@ -304,7 +305,7 @@ const pages = {
   },
 
   horizontalRule: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.horizontalRule,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Horizontal Rule',
@@ -312,7 +313,7 @@ const pages = {
   },
 
   links: {
-    content: SegmentedButtonDocumentation,
+    content: LinksDocumentation,
     link: pageUrls.links,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Links',
@@ -320,7 +321,7 @@ const pages = {
   },
 
   tags: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.tags,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Tags',
@@ -328,7 +329,7 @@ const pages = {
   },
 
   type: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.type,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Type and Text',
@@ -345,7 +346,7 @@ const pages = {
   },
 
   buttonGroup: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.buttonGroup,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button Group',
@@ -519,30 +520,22 @@ const pages = {
 
   // will go away VVVVVVVV
   forms: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.forms,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Forms',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   form: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.form,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Form',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  buttons: {
-    content: SegmentedButtonDocumentation,
-    link: pageUrls.buttons,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Buttons',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   errorPage404: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.errorPage404,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: '404 Page',
