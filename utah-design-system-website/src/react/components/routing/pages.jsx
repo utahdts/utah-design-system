@@ -12,6 +12,7 @@ import IconButtonDocumentation from '../websiteContent/library/components/button
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
+import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
@@ -442,10 +443,10 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   multiSelect: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: MultiSelectDocumentation,
     link: pageUrls.multiSelect,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Multi Select',
+    pageTitle: 'Multi-select',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   radioButton: {
