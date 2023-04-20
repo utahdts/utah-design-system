@@ -26,7 +26,7 @@ function TableDocumentationFilteringTableExample() {
 
   return (
     <>
-      <h3 id="table__filtering-table-example" className="mt-spacing-l">Table Example: Filtering Data</h3>
+      <h3 id="table__filtering-table-example" className="mt-spacing-l">Filtering Data</h3>
       <p> This table allows filtering its data through the use of the inputs in the THead.</p>
 
       <TableWrapper>

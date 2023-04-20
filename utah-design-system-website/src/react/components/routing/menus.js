@@ -103,6 +103,12 @@ export const menuLibraryComponentsSecondary = {
   id: 'library-components',
   menuItems: [
     {
+      id: 'components__accordion',
+      title: 'Accordion',
+      link: pages.accordion.link,
+      parentLinks: [pages.library.link],
+    },
+    {
       id: 'components__basic-atomic',
       title: 'Basic Atomic',
       parentLinks: [pages.library.link],
@@ -125,6 +131,12 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.iconButton.link, title: pages.iconButton.pageTitle },
         { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
       ],
+    },
+    {
+      id: 'components__card',
+      title: 'Card',
+      link: pages.card.link,
+      parentLinks: [pages.library.link],
     },
     {
       id: 'components__dialogs',
@@ -153,6 +165,12 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
       ],
+    },
+    {
+      id: 'components__lists',
+      title: 'Lists',
+      link: pages.lists.link,
+      parentLinks: [pages.library.link],
     },
     {
       id: 'components__modals',

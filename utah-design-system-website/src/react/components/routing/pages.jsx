@@ -346,6 +346,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  accordion: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.accordion,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Accordion',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   // === buttons === //
   button: {
     content: ButtonDocumentation,
@@ -371,6 +379,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  card: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.card,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Card',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   dialog: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.dialog,
@@ -392,6 +408,14 @@ const pages = {
     link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  lists: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.lists,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Lists',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
