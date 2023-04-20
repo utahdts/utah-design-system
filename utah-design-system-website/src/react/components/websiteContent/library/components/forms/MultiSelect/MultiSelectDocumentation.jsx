@@ -61,7 +61,6 @@ function MultiSelectDocumentation() {
         <li>Use arrow keys (arrow left / arrow right) to highlight options that are already selected. </li>
         <li>Use the Delete or Backspace key to remove a highlighted option.</li>
         <li>Begin typing in the field to narrow the list of options.</li>
-        <li>Use the Spacebar to expand/collapse select popup.</li>
         <li>Use arrow keys (arrow up ↑/ arrow down ↓) to navigate between select options.</li>
         <li>Use Enter to select an option.</li>
         <li>Use Esc to collapse the popup.</li>
