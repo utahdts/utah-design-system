@@ -151,7 +151,6 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
-        { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
     },
     {
@@ -209,6 +208,7 @@ export const menuLibraryPatternsSecondary = {
       link: pages.utahHeader.link,
       parentLinks: [pages.library.link],
     },
+    { link: pages.validation.link, title: pages.validation.pageTitle, parentLinks: [pages.library.link] },
   ],
 };
 
