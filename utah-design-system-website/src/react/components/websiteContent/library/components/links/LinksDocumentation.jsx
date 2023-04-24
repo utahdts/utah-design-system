@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import PreCode from '../../../../preCode/PreCode';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
+import traxImage from '../../../../../../static/images/trax.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -26,12 +27,17 @@ function LinksDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Text Links"
-        renderedExample="Example coming soon"
+        renderedExample={(
+          <div>
+            <p>This is an example of what a <a href="#section-example">link</a> should appear like within a block of text.</p>
+            <p className="mb-auto">This is an example of what an <a href="https://google.com" target="_blank" rel="noreferrer">external link<span className="utds-new-tab-link-a11y"><span className="visually-hidden">opens in a new tab</span><span className="utds-icon-after-external-link" aria-hidden="true" /></span></a> or link that opens in a new tab should appear like within a block of text.</p>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Links must be easily identifiable from the rest of the text on the page.</li>
             <li>Links can navigate the user to an an alternate page on the site, external resources, or to content within the current page.</li>
-            <li>Links that navigate the user to an external resource should be clearly identified using the external link icon or an icon that has a similar meaning.</li>
+            <li>Links that navigate the user to an external resource should be clearly identified using the external link icon (<span className="utds-new-tab-link-a11y"><span className="visually-hidden">external link icon</span><span className="utds-icon-after-external-link" aria-hidden="true" /></span> ) or an icon that has a similar meaning. <a href="#external-link-example">See example below.</a></li>
             <li>When a user hovers over the link, there should be a light background that sets it apart from the background while still maintaining a <code>4.5:1</code> contrast ratio to the text.</li>
           </ul>
         )}
@@ -39,11 +45,13 @@ function LinksDocumentation() {
 
       <StaticExample
         title="Image Links"
-        renderedExample="Example coming soon"
+        renderedExample={(
+          <a href="#section-examples"><img src={traxImage} alt="Trax in downtown Salt Lake City" width="250" /></a>
+        )}
         quickTips={(
           <ul>
             <li>The image is wrapped in an <code>&lt;a&gt;</code> tag.</li>
-            <li>Alt text is necessary for users using screen readers.</li>
+            <li><code>Alt</code> text is necessary for users using screen readers.</li>
           </ul>
         )}
       />
@@ -95,7 +103,7 @@ function LinksDocumentation() {
         </li>
         <li>
           <strong>Clickable phone numbers and email addresses.</strong> Any contact information, like phone numbers and email addresses, should be coded to allow the user to click
-          the link immediately to begin an email or dial the number. This creates a great user experience for mobile and desktop users alike.
+          the link immediately to begin an email or dial the number. This creates a better user experience for mobile and desktop users alike.
           <br />
           EXAMPLE:
           <PreCode
@@ -130,6 +138,22 @@ function LinksDocumentation() {
         <li>
           The ARIA <code>role=&quot;link&quot;</code> can be used to identify an element as a hyperlink resource but is not needed if you are using the native <code>&lt;a&gt;</code> element
           by itself within text content. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
+        </li>
+        <li id="external-link-example">Links that open in a new tab should give screen reader users adequate warning of this action. For example, the following will read as <code>external link opens in a new tab</code>:
+          <PreCode
+            showBackgroundColor
+            allowScrollOverflow
+            className="mt-spacing"
+            codeRaw={`
+              <a href="https://google.com" target="_blank" rel="noreferrer">
+                external link
+                <span className="utds-new-tab-link-a11y">
+                  <span className="visually-hidden">opens in a new tab</span>
+                  <span className="utds-icon-after-external-link" aria-hidden="true" />
+                </span>
+              </a>
+            `}
+          />
         </li>
       </ul>
     </div>
