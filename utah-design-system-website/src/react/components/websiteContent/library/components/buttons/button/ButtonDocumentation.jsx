@@ -199,7 +199,7 @@ function ButtonDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>An <code>icon</code> can be use on the left or the right.</li>
+            <li>An <code>icon</code> can be used on the left or the right.</li>
             <li>It is is preferred that you only use a single <code>icon</code> per <code>button</code>.</li>
             <li>An <code>icon</code> should be simple and change color with the <code>button text</code>.</li>
           </ul>
