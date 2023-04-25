@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import PreCode from '../../../../preCode/PreCode';
+import LightBox from '../../../../lightbox/LightBox';
+import paginationScreenshot from '../../../../../../static/images/mockups/Pagination.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -20,11 +22,11 @@ function PaginationDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Pagination"
-        renderedExample="Example coming soon"
+        renderedExample={<LightBox image={paginationScreenshot} alt="Pagination" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
-              A pagination consists of a list of links to navigate through the pages. This list includes:
+              A pagination component consists of a list of links to navigate through the pages. This list includes:
               <ul>
                 <li>A <code>Previous</code> link.</li>
                 <li>A <code>Next</code> link.</li>
@@ -46,7 +48,7 @@ function PaginationDocumentation() {
       <ul className="mb-spacing">
         <li><strong>Small data set.</strong> Avoid using a pagination when the set of data is less than 4 pages long.</li>
         <li><strong>Context.</strong> If a large collection of content is sequenced in a meaningful way, use a <Link to={pageUrls.stepIndicator}>Step Indicator</Link> or a <Link to={pageUrls.sidePanelNavigation}>Side Panel Navigation</Link> instead.</li>
-        <li><strong>Replace user work flow.</strong> Showing large collections of data may sometimes be a sign of too generic of a tool design. Discovering powerful User Experiences and Work Flows that target smaller chunks of data may be a plausible replacement for a pagination. Also consider mobile data bandwidth limitations when loading large chunks of data.</li>
+        <li><strong>Replace user work flow.</strong> Pagination can be inherently frustrating for the user, since much of the data is hidden. Showing large collections of data may sometimes be a sign of too generic of interface design. Discovering powerful user experiences and workflows that target smaller chunks of data may be a possible replacement for a pagination. Also consider mobile data bandwidth limitations when loading large chunks of data.</li>
       </ul>
 
       <h3 id="section-usability">Usability guidance</h3>
@@ -83,13 +85,13 @@ function PaginationDocumentation() {
               <li>
                 <a href="#pagefirst" aria-label="first page">1</a>
               </li>
-              
+
               <li>
                 <a href="#pagefirst">
                   1
                   <span class="visuallyhidden">first page</span>
                 </a>
-              </li>          
+              </li>
             `}
           />
         </li>
