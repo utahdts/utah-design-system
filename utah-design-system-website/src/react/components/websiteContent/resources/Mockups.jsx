@@ -45,6 +45,7 @@ import heroSmall3 from '../../../../static/images/mockups/HeroSmall3.jpg';
 
 import menusDropdown from '../../../../static/images/mockups/MenusDropdown.jpg';
 import menusPopup from '../../../../static/images/mockups/MenusPopup.jpg';
+import accordion from '../../../../static/images/mockups/Accordion.jpg';
 
 import popupEditor from '../../../../static/images/mockups/Popup-Editor.jpg';
 import popupLarge from '../../../../static/images/mockups/Popup-Large.jpg';
@@ -334,6 +335,14 @@ function Mockups() {
         <LightBox image={banner1} alt="Banner 1" className="flex-4up-gap" />
         <LightBox image={banner2} alt="Banner 2" className="flex-4up-gap" />
         <LightBox image={banner3} alt="Banner 3" className="flex-4up-gap" />
+      </div>
+
+      <h2 id="section-banners">Accordions</h2>
+      <p>
+        Accordions show and hide information. Here is an example of one way an accordion could be displayed.
+      </p>
+      <div className="flex flex-wrap gap mb-spacing justify-center">
+        <LightBox image={accordion} alt="Accordion" className="flex-4up-gap" />
       </div>
 
       <h2 id="section-elevation">Elevation</h2>
