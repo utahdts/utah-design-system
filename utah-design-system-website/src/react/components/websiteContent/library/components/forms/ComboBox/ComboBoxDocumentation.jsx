@@ -26,7 +26,7 @@ function ComboBoxDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Date Input Examples"
-        renderedExample={<LightBox image={comboBoxScreenshot} alt="Date Input" className="flex-3up-gap" />}
+        renderedExample={<LightBox image={comboBoxScreenshot} alt="Combo Box" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>A combo box allows the user to select from a list of options.</li>
