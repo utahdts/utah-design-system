@@ -8,7 +8,7 @@ import {
   TableFilterDate,
   TableFilterNone,
   TableFilters,
-  TableFilterSelect,
+  TableFilterSelectAllOptions,
   TableFilterTextInput,
   TableHead,
   TableHeadCell,
@@ -50,10 +50,10 @@ function TableDocumentationFilteringTableExample() {
 
               {/*
                 Present a select input of the possible values from which to filter;
-                Providing TableFilterSelectOptions is optional;
-                If there are no TableFilterSelectOption children then it will load all the possible values from the data.
+                Loads all the possible values from the data for the give recordFieldPath and creates options for the
+                found values.
               */}
-              <TableFilterSelect recordFieldPath="politicalParty" />
+              <TableFilterSelectAllOptions recordFieldPath="politicalParty" />
 
               {/* Date range filtering popup */}
               <TableFilterDate recordFieldPath="inauguration" />

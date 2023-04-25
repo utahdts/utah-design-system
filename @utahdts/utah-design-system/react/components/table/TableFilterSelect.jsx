@@ -3,7 +3,7 @@ import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
 import { TableContext } from './TableWrapper';
-import TableFilterSelectAllOptions from './TableFilterSelectAllOptions';
+import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
 const propTypes = {
@@ -11,6 +11,7 @@ const propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  exactMatch: PropTypes.bool,
   innerRef: RefShape,
   id: PropTypes.string,
   onChange: PropTypes.func,
@@ -21,6 +22,7 @@ const defaultProps = {
   children: null,
   className: null,
   defaultValue: null,
+  exactMatch: false,
   innerRef: null,
   id: null,
   onChange: null,
@@ -31,6 +33,7 @@ function TableFilterSelect({
   children,
   className,
   defaultValue,
+  exactMatch,
   innerRef,
   id,
   onChange,
@@ -49,6 +52,9 @@ function TableFilterSelect({
     onChange,
     value,
   });
+
+  useTableFilterRegistration(recordFieldPath, exactMatch);
+
   return (
     <th className={joinClassNames('some-TableFilterSelect-classname', className)} id={id} ref={innerRef} {...rest}>
       <Select
@@ -59,17 +65,7 @@ function TableFilterSelect({
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
-        {
-          children || (
-            <TableFilterSelectAllOptions
-              className={className}
-              idBase={id}
-              recordFieldPath={recordFieldPath}
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              {...rest}
-            />
-          )
-        }
+        {children}
       </Select>
     </th>
   );

@@ -43,6 +43,7 @@ export { default as TableFilterCustom } from './react/components/table/TableFilt
 export { default as TableFilterDate } from './react/components/table/TableFilterDate';
 export { default as TableFilterNone } from './react/components/table/TableFilterNone';
 export { default as TableFilterSelect } from './react/components/table/TableFilterSelect';
+export { default as TableFilterSelectAllOptions } from './react/components/table/TableFilterSelectAllOptions';
 export { default as TableFilterSelectOption } from './react/components/table/TableFilterSelectOption';
 export { default as TableFilterTextInput } from './react/components/table/TableFilterTextInput';
 export { default as TableFilters } from './react/components/table/TableFilters';

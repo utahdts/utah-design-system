@@ -4,10 +4,12 @@ import joinClassNames from '../../util/joinClassNames';
 import TextInput from '../forms/TextInput';
 import { TableContext } from './TableWrapper';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
+import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 
 const propTypes = {
   className: PropTypes.string,
   defaultValue: PropTypes.string,
+  exactMatch: PropTypes.bool,
   innerRef: RefShape,
   id: PropTypes.string,
   onChange: PropTypes.func,
@@ -17,6 +19,7 @@ const propTypes = {
 const defaultProps = {
   className: null,
   defaultValue: null,
+  exactMatch: false,
   innerRef: null,
   id: null,
   onChange: null,
@@ -26,6 +29,7 @@ const defaultProps = {
 function TableFilterTextInput({
   className,
   defaultValue,
+  exactMatch,
   innerRef,
   id,
   onChange,
@@ -44,6 +48,9 @@ function TableFilterTextInput({
     onChange,
     value,
   });
+
+  useTableFilterRegistration(recordFieldPath, exactMatch);
+
   return (
     <th className={joinClassNames('some-TableFilterTextInput-className', className)} id={id} ref={innerRef}>
       <TextInput
