@@ -23,8 +23,7 @@ function UtahFooterDocumentation() {
       <p className="lead-in">
         The footer is a landmark at bottom of the website, below the main body of content. It provides a short summary of the
         site&apos;s main content, should a user arrive at the end of the page without finding what they are looking for. It contains
-        information regarding social media resources, agency contact and help information, services that are commonly requested, and
-        <strong>required</strong> legal information pertaining to State of Utah websites.
+        information regarding social media resources, agency contact and help information, services that are commonly requested, and <strong>required</strong> legal information pertaining to State of Utah websites.
       </p>
       <hr />
       <h2 id="section-examples" className="mb-spacing">Examples</h2>
@@ -49,12 +48,12 @@ function UtahFooterDocumentation() {
         )}
       />
       <StaticExample
-        title="Department/Division Information"
+        title="Agency/Division Information"
         renderedExample={<LightBox image={agencyFooter} alt="Agency/Division/Program Footer" />}
         quickTips={(
           <ul>
             <li>This section has at least 2 columns.</li>
-            <li>The first column is reserved for the agency or program logo and location and contact information</li>
+            <li>The first column is reserved for the agency or program logo, location, and contact information</li>
             <li>The remaining columns can be customized based on the site needs. Suggested columns would be links to common online services or pages located within the site.</li>
           </ul>
         )}
