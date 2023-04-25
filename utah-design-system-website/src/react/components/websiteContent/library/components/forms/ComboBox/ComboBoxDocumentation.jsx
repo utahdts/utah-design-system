@@ -4,7 +4,10 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import comboBoxScreenshot from '../../../../../../../static/images/screenshots/components/combo-box/combo-box.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -20,15 +23,30 @@ function ComboBoxDocumentation() {
       </p>
 
       <hr />
+      <h2 id="section-example">Example</h2>
+      <StaticExample
+        title="Date Input Examples"
+        renderedExample={<LightBox image={comboBoxScreenshot} alt="Combo Box" className="flex-3up-gap" />}
+        quickTips={(
+          <ul>
+            <li>A combo box allows the user to select from a list of options.</li>
+            <li>The user can search the list of options by typing in the field.</li>
+            <li>The list of available options is narrowed by the search.</li>
+          </ul>
+        )}
+      />
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
-      <h3>When to use</h3>
+      <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>More than 10 options</strong>. Use a combo box when there are more than 10 options in a drop-down list. With so many options, users may find it difficult to navigate with scrolling only.</li>
-      </ul>
-      <h3>When not to use</h3>
-      <ul className="mb-spacing">
+        <li><strong>Limiting the user to one option:</strong> When the user is limited to selecting one option from a predefined list of options.</li>
+        <li><strong>Search for option:</strong> Use a combo box when you wish to let your users search in the list of provided options.</li>
+        <li><strong>More than 10 options</strong>. Use a combo box when there are more than 10 options in a select list. With so many options, users may find it difficult to navigate with scrolling only.</li>
         <li><strong>Limited space</strong>. Use a combo box for presenting options when screen real estate is limited.</li>
+      </ul>
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
+      <ul className="mb-spacing">
+        <li><strong>Limited choices.</strong> When the number of options is small, you can continue to use a select or radio group.</li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
@@ -73,20 +91,6 @@ function ComboBoxDocumentation() {
       </ul>
 
       <h3 id="section-accessibility">Accessibility</h3>
-      <ul className="mb-spacing">
-        <li>
-          <strong>Customize form controls to be accessible.</strong> If you customize this component, ensure that it continues to meet
-          the <Link to={pageUrls.accessibility}>accessibility requirements that apply to all form controls</Link>.
-        </li>
-        <li>
-          <strong>Always use a label.</strong> Make sure your select element has a label. Don&apos;t replace it with the default menu option. For example, removing
-          the &quot;State&quot; label and just having the menu read &quot;Select a state&quot; by default.
-        </li>
-        <li>
-          <strong>Avoid auto-submission.</strong> Don&apos;t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Auto-submission
-          disrupts screen readers because they select each option as they read them.
-        </li>
-      </ul>
       <h4>Contrast</h4>
       <ul className="mb-spacing">
         <li>Text in the combo box input must maintain a <code>4.5:1</code> contrast ratio.</li>
@@ -116,38 +120,8 @@ function ComboBoxDocumentation() {
           Don&apos;t use JavaScript to automatically submit the form (or do anything else) when an option is selected.  Auto-submission disrupts
           screen readers because they select each option as they read them.
         </li>
-        <li>If you customize this component, ensure that it continues to meet the accessibility requirements.</li>
-      </ul>
-
-      <h4>General accessibility guidance for forms</h4>
-      <ul className="mb-spacing">
-        <li>
-          <strong>Customize accessibly.</strong> As you customize these templates, make sure they meet the accessibility guidelines in this introduction
-          and as described for each control.
-        </li>
-        <li>
-          <strong>Don&apos;t control element order with CSS.</strong> Display form controls in the same order in the HTML as they appear on
-          screen. Don&apos;t use CSS to rearrange the form controls. Screen readers narrate form elements in the order they appear in the HTML.
-        </li>
-        <li>
-          <strong>Align validation with inputs.</strong> Visually align validation messages with the input fields so people using screen magnifiers can
-          read them quickly.
-        </li>
-        <li>
-          <strong>Use proper markup.</strong> Group each set of thematically related controls in a fieldset element. Use the legend element to offer a
-          label within each one. The fieldset and legend elements make it easier for those who use screen readers to navigate the form.
-        </li>
-        <li>
-          <strong>Use legends.</strong> Use a single legend for fieldset (this is required). One common use of the fieldset and legend elements is a
-          question with radio-button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being
-          inside the legend tag.
-        </li>
-        <li>
-          <strong>Embed multiple fieldsets and legends for more complex forms.</strong>
-        </li>
-        <li>
-          <strong>Use simple vertical layouts.</strong> Keep your form blocks in a vertical pattern. This approach is ideal, from an accessibility
-          standpoint, because of limited vision that makes it hard to scan from right to left.
+        <li>If you customize this component, ensure that it continues to meet
+          the <Link to={pageUrls.accessibility}>accessibility requirements that apply to all form controls</Link>.
         </li>
       </ul>
     </div>

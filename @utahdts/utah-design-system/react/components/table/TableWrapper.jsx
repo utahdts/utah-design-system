@@ -79,7 +79,7 @@ function TableWrapper({
       defaultValue: null,
       // onChange to call for any filter change
       onChange: null,
-      // value - object of [recordFieldPath]:value pairs for filtering inputs
+      // value - object of [recordFieldPath]:{value, exactMatch, otherFilterSpecificSettings} for filtering inputs
       value: {},
     },
     // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order

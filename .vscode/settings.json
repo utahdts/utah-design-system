@@ -31,5 +31,9 @@
   "editor.unicodeHighlight.allowedCharacters": {
     "’": true
   },
-  "typescript.preferences.quoteStyle": "single"
+  "typescript.preferences.quoteStyle": "single",
+  "sonarlint.connectedMode.project": {
+    "connectionId": "utahdts",
+    "projectKey": "utahdts_utah-design-system"
+  }
 }

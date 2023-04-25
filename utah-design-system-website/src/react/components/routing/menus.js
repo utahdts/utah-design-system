@@ -183,6 +183,7 @@ export const menuLibraryComponentsSecondary = {
       title: 'Navigation',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
       ],
@@ -207,6 +208,7 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
