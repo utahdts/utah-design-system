@@ -140,7 +140,7 @@
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon
  *  @property {HTMLElement | string} icon - DOM or DOM string of icon to show
- *  @property {'left' | 'none' | 'right'} [mobileMenuLocation] - positioned right or left of the Utah ID button? not at all? default is right
+ *  @property {'left' | 'none' | 'right'} [mobileMenuLocation] - positioned right or left of the Utah ID button? not at all? default is none
  *  @property {boolean} showTitle - Should the title always be visible?
  *  @property {string} title - Title of the action item (required for accessibility)
  * }
@@ -209,7 +209,7 @@
  *  @property {string} size - size has to be one of the `Size` types
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
  *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
- *  @property {UtahIDSettings | boolean} utahId - settings for the utahId button; true = turned on, false = turned off, object = custom interactivity
+ *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
  * }
  *
  */
