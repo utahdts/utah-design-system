@@ -420,6 +420,330 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
+      {/* ----     Settings     --- */}
+      <h3 id="section-utahheader-settings" className="mb-spacing">Basic Settings</h3>
+      <h4 id="section-auth-props">Config Props</h4>
+      <TableWrapper>
+        <Table>
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell>Name / Type / Default</TableHeadCell>
+              <TableHeadCell>Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget</a><br /></span>
+                <span className="prop__types">DomLocationTarget</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  By default, the Utah Header is placed at the top of the page. This can be overridden by
+                  providing a DOM target in which the header will render.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.cssSelector</a><br /></span>
+                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Place the Utah Header in an element selected by a CSS class.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.element</a><br /></span>
+                <span className="prop__types">HTMLElement</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Place the Utah Header in a specific DOM element.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.elementFunction</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  This function must return a DOM element in to which the Utah Header will be placed.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo</a><br /></span>
+                <span className="prop__types">Element | string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Your site may have a logo and/or a title. This logo should be an SVG and can be provided as an element or
+                  the string contents of the SVG.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-mediaSizes">mediaSizes</a><br /></span>
+                <span className="prop__types">MediaSizes</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The header is responsive. You can custom configure the sizes at which the header is responsive so as
+                  to better match your site&apos;s behavior. There are three responsive break points:
+                  <ul>
+                    <li>mobile</li>
+                    <li>tableLandscape</li>
+                    <li>tablePortrait</li>
+                  </ul>
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-onSearch">onSearch</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                The Utah Header main menu bar can have a search icon in it.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-showTitle">showTitle</a><br /></span>
+                <span className="prop__types">boolean</span>
+              </TableCell>
+              <TableCell>
+                A title is always required for accessability reasons, but it is not required to be shown.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-size">size</a><br /></span>
+                <span className="prop__types">SMALL | MEDIUM | LARGE</span>
+              </TableCell>
+              <TableCell>
+                The header can be sized to better match your application.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-title">title</a><br /></span>
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                The Utah Header requires a title for accessability reasons. You can use the showTitle setting
+                to make it not visible.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-titleURL">titleURL</a><br /></span>
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                When the logo or title are triggered, the browser wil navigate to this URL.
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+
+      <h4 id="section-config-domLocationTarget">domLocationTarget</h4>
+      <div>
+        By default, the header appears at the top of your application. You can Use one of the following configurations
+        to place the header in another location. Be aware that the Utah Header should always be at the top of the
+        application. This is just a convenience function in case placing the header automatically at the top causes
+        your layout to misbehave.
+        <br /><br />
+        Example of cssSelector:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                domLocationTarget: {
+                  cssSelector: '#some-div .nested-div[title="target div"]',
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of element:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                domLocationTarget: {
+                  element: document.getElementById('header-container'),
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of elementFunction:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                domLocationTarget: {
+                  elementFunction: () => document.getElementById('header-container'),
+                }
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-logo">logo</h4>
+      <div>
+        Example of element logo:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: document.getElementById('my-logo'),
+              }
+            )
+          `}
+        />
+        <br />
+        Example of string logo:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: '<svg>...svg content...</svg>',
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-mediaSizes">mediaSizes</h4>
+      <div>
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                mediaSizes: {
+                  // !! THESE ARE NOT REAL VALUES !! //
+                  mobile: 500,
+                  tabletLandscape: 1000,
+                  tabletPortrait: 750,
+                },
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-onSearch">onSearch</h4>
+      <div>
+        The Utah Header main menu bar can have a search icon in it. When the search icon is pressed a modal search
+        dialog appears. When the user enters and submits a search phrase, that phrase will be passed
+        to this custom function to allow your site to respond to the search.
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                onSearch: (searchPhrase) => alert('That was an excellent search!'),
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-showTitle">showTitle</h4>
+      <div>
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                showTitle: false,
+                title: 'This title does not appear on the site, just in accessability',
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-size">size</h4>
+      <div>
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                size: 'SMALL',
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-title">title</h4>
+      <div>
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                title: 'My fantastic State of Utah site',
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-titleURL">titleURL</h4>
+      <div>
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                titleUrl: '/',
+              }
+            )
+          `}
+        />
+      </div>
+
       {/* ----     Utah ID     --- */}
       <h3 id="section-utahheader-utahid" className="mb-spacing">Utah ID</h3>
       <h4 id="section-auth-props">Config Props</h4>
@@ -736,26 +1060,26 @@ function UtahHeaderDocumentation() {
         <PreCode
           className="gray-block mt-spacing"
           codeRaw={`
-              setUtahHeaderSettings(
-                {
-                  ...other settings...,
-                  utahId: true
-                }
-              )
-            `}
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                utahId: true
+              }
+            )
+          `}
         />
         <br />
         Turn off Utah Header Utah ID integration:
         <PreCode
           className="gray-block mt-spacing"
           codeRaw={`
-              setUtahHeaderSettings(
-                {
-                  ...other settings...,
-                  utahId: false
-                }
-              )
-            `}
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                utahId: false
+              }
+            )
+          `}
         />
         <br />
         See <a href="#section-auth-currentuser">utahId.currentUser</a> for custom configuration.
@@ -774,36 +1098,36 @@ function UtahHeaderDocumentation() {
         <PreCode
           className="gray-block mt-spacing"
           codeRaw={`
-              setUtahHeaderSettings(
-                {
-                  ...other settings...,
-                  utahId: {
-                    currentUser: {
-                      authenticated: true,
-                      first: 'Philo'
-                    }
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                utahId: {
+                  currentUser: {
+                    authenticated: true,
+                    first: 'Philo'
                   }
                 }
-              )
-            `}
+              }
+            )
+          `}
         />
         This example shows an unauthenticated user. This is a case where your application may have a cached user who is not yet verified. The
         State of Utah Header will not trust this user information and will show the UtahID Sign In button.
         <PreCode
           className="gray-block mt-spacing"
           codeRaw={`
-              setUtahHeaderSettings(
-                {
-                  ...other settings...,
-                  utahId: {
-                    currentUser: {
-                      authenticated: false,
-                      first: 'Philo'
-                    }
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                utahId: {
+                  currentUser: {
+                    authenticated: false,
+                    first: 'Philo'
                   }
                 }
-              )
-            `}
+              }
+            )
+          `}
         />
         By setting the currentUser to null, this example shows how the application tells the State of Utah Header that the application is
         controlling the user authentication process and that there is not a currently logged in user. In contrast, setting currentUser to undefined
@@ -811,15 +1135,15 @@ function UtahHeaderDocumentation() {
         <PreCode
           className="gray-block mt-spacing"
           codeRaw={`
-              setUtahHeaderSettings(
-                {
-                  ...other settings...,
-                  utahId: {
-                    currentUser: null
-                  }
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                utahId: {
+                  currentUser: null
                 }
-              )
-            `}
+              }
+            )
+          `}
         />
       </div>
       Here is an example of supplying all the currentUser fields:
@@ -999,6 +1323,7 @@ function UtahHeaderDocumentation() {
     </div>
     // TODO: fix <a href="#???">custom menu item</a>
     // TODO: fix <a href="#???">Main Menu</a>
+    // TODO: style prop__section-title
   );
 }
 
