@@ -744,7 +744,286 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h3 id="section-mainmenu-settings" className="mb-spacing">Main Menu</h3>
+      <h3 id="section-utahheader-actionItems" className="mb-spacing">actionItems</h3>
+      <h4 id="section-auth-props">Config Props</h4>
+      <TableWrapper>
+        <Table>
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell>Name / Type / Default</TableHeadCell>
+              <TableHeadCell>Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems</a><br /></span>
+                <span className="prop__types">ActionItem[]</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The header has an area just to the left of the UtahID button for icons buttons. These can icons can
+                  be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
+                  When the action item is triggered it can have one of the following behaviors:
+                  <ul>
+                    <li>callback: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
+                    <li>popup menu: a popup menu will show with your custom menu items</li>
+                    <li>custom html: a popup dialog will appear with your custom content</li>
+                  </ul>
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionFunction</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The actionFunction specifies a callback function to call when an action item is triggered.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionPopupMenu</a><br /></span>
+                <span className="prop__types">PopupMenu</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A popup menu may be opened when the action item is triggered.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionDom</a><br /></span>
+                <span className="prop__types">function | string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Your custom content can be provided through a callback function that takes the trigger even and returns
+                  the custom content to render or a string representation of the html content to render.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].className</a><br /></span>
+                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A custom class can be added to the action item for your app to target with styling and/or functionality.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge</a><br /></span>
+                <span className="prop__types">Badge</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A badge is a little colored circle to the top right of the action item indicating an alert or notification.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.className</a><br /></span>
+                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A class to put on the badge of the action item.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.label</a><br /></span>
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The label for the screen reader to read describing the badge.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.value</a><br /></span>
+                <span className="prop__types">number</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A numeric value to show in the badge. String values tend to be too bulky or vague. See <Link to={pageUrls.badges}>Badges</Link> for more information.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].icon</a><br /></span>
+                <span className="prop__types">HTMLElement | string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  An icon HTML element or a string represent an icon image to render as the action item.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a><br /></span>
+                <span className="prop__types">left | none | right</span> <span className="prop__optional">(optional)</span>
+                <br />
+                <code>none</code>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The Utah Header is responsive. When viewing the Utah Header in narrow view ports, the action items
+                  are removed from the view. A hamburger menu icon is added to the main menu bar that will toggle open
+                  a dialog that shows the action items and main menu. To have your action items remain prominent on mobile
+                  sizes, you can specify a position relative to the UtahID button at which to show the action item. Showing
+                  action items this way on mobile should be used sparingly as it unbalances the Utah ID button and changes
+                  where users expect to find action items.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].showTitle</a><br /></span>
+                <span className="prop__types">boolean</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  To provide clarity, the action item&apos; title may be displayed next to the action item. Unclear action
+                  items may be a clue to use a different icon, so usage of this feature should be thoughtfully considered.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].title</a><br /></span>
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The title of the action item is required, even when not shown, for accessability.
+                </span>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+
+      <h4 id="section-config-actionItems">actionItems</h4>
+      <div>
+        actionItems give your users notifications and global app utility. Use the main menu for navigation items and
+        action items for notifications, alerts, and global considerations.
+        <PreCode
+          allowScrollOverflow
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                actionItems: [
+                  {
+                    actionPopupMenu: {
+                      menuItems: [
+                        {
+                          actionUrl: {
+                            url: 'https://google.com'
+                          },
+                          title: 'Item #1'
+                        },
+                        {
+                          actionUrl: {
+                            url: 'https://utah.gov',
+                            openInNewTab: true
+                          },
+                          title: 'Utah.Gov'
+                        },
+                        {
+                          title: 'Custom menu item',
+                          actionFunction: () => alert('I feel so (de)pressed')
+                        }
+                      ],
+                      title: 'Divisions Menu'
+                    },
+                    className: 'icon-waffle',
+                    showTitle: true,
+                    title: 'Divisions',
+                    icon: '<span class="utds-icon-before-waffle" aria-hidden="true" />'
+                  },
+                  {
+                    badge: {
+                      label: 'Unread Alerts',
+                      value: 2
+                    },
+                    showTitle: false,
+                    title: 'Alerts',
+                    actionFunction: () => alert('I feel so (de)pressed'),
+                    icon: '<span class="utds-icon-before-alert" aria-hidden="true" />'
+                  },
+                  {
+                    badge: {
+                      label: 'Help Items Available'
+                    },
+                    showTitle: false,
+                    title: 'Help',
+                    actionDom: '<div>Hello World! <button>Do not press me.</button></div>',
+                    icon: '<span class="utds-icon-before-help" aria-hidden="true" />'
+                  },
+                  {
+                    actionPopupMenu: {
+                      menuItems: [
+                        {
+                          actionUrl: {
+                            url: 'https://utah.gov'
+                          },
+                          title: 'Settings'
+                        },
+                        {
+                          actionUrl: {
+                            url: 'https://utah.gov',
+                            openInNewTab: true
+                          },
+                          title: 'Utah.Gov'
+                        },
+                        {
+                          title: 'Clickable menu item',
+                          actionFunction: () => alert('I feel so (de)pressed')
+                        }
+                      ],
+                      title: 'Settings Menu'
+                    },
+                    showTitle: false,
+                    title: 'Settings',
+                    icon: '<span class="utds-icon-before-gear" aria-hidden="true" />'
+                  }
+                ]
+              }
+            )
+        `}
+        />
+      </div>
+
+      <h3 id="section-mainmenu-settings" className="mb-spacing">mainMenu</h3>
       <h4 id="section-mainmenu-props">Config Props</h4>
       <TableWrapper>
         <Table>
