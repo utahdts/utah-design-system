@@ -6,10 +6,19 @@
 import {
   Button,
   events,
+  ExternalLink,
   formElementSizesEnum,
   ICON_BUTTON_APPEARANCE,
   IconButton,
-  Switch
+  Switch,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableHeadRow,
+  TableRow,
+  TableWrapper
 } from '@utahdts/utah-design-system';
 import {
   useCallback,
@@ -21,7 +30,6 @@ import { Link } from 'react-router-dom';
 import agencyBrand from '../../../../../../static/images/designSystemCircleGray.png';
 import menusDropdownScreenshot from '../../../../../../static/images/mockups/MenusDropdown.jpg';
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
-
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import LightBox from '../../../../lightbox/LightBox';
@@ -376,102 +384,621 @@ function UtahHeaderDocumentation() {
         <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
       </ul>
 
-      <h2 id="section-utahid-events" className="mb-spacing">UtahID Events</h2>
-      <h3 id="section-loaded">UtahID: Loaded</h3>
+      {/* ---- CODE EXAMPLES --- */}
+      <h2 id="section-utahheader-code-examples" className="mb-spacing">Code Examples</h2>
+      {/* ----     Header Events     --- */}
+      <h3 id="section-utahheader-events" className="mb-spacing">Utah Header Events</h3>
+      <h4 id="section-loaded">{events.HEADER_LOADED}</h4>
       <div>
-        The Utah Header must load before your javascript code can interact with it. Once the header is loaded it fires&nbsp;
-        a global document event <code>{events.utahHeaderLoaded}</code>. Your code can listen for this event to know when it is safe
-        to call utah header functions like <code>setUtahHeaderSettings()</code>.
+        The Utah Header javascript library must load before your javascript code can interact with it. After the Utah Header javascript library loads, it
+        will wait for your code to call <code>setUtahHeaderSettings()</code> before showing the Utah Header. Your code should listen for
+        the <code>{events.HEADER_LOADED}</code> global document event. The Utah Header will intermittently emit this event until your code calls <code>setUtahHeaderSettings()</code>.
         <PreCode
-          className="gray-block"
-          codeRaw={`addEventListener('${events.HEADER_LOADED}', () => setUtahHeaderSettings({title: 'My utah.gov Site'}))`}
-        />
-      </div>
-
-      <h3 id="section-unloaded">UtahID: Unloaded</h3>
-      <div>
-        When the Utah Header is removed, the <code>unloaded</code> event will fire. Your code can listen for this event.
-        <PreCode
-          className="gray-block"
-          codeRaw={`addEventListener('${events.HEADER_UNLOADED}', () => alert('Where did the header go?'))`}
-        />
-      </div>
-
-      <h3 id="section-auth-changed">UtahID: Auth Changed</h3>
-      <div>
-        The Utah ID Button in the top right of the header makes an ajax request to check the current user&apos;s logged in status with UtahID. &nbsp;
-        Your javascript code can provide a callback in order to get the current user&apos;s basic information. Seeing as this information is&nbsp;
-        javascript provided, it is not trustworthy. You will want to get tokens and/or codes from Utah Login that your server side code can verify.
-        <PreCode
-          className="gray-block"
+          className="gray-block mt-spacing"
           codeRaw={`
-            {
-              "utahId": {
-                "onAuthChanged": (
-                  (newUserData) => {
-                    if (newUserData?.userInfo?.first) {
-                      alert(\`Hello \${newUserData.userInfo.first}!\`);
-                    } else {
-                      alert('User is signed out');
+            addEventListener(
+              '${events.HEADER_LOADED}', 
+              () => setUtahHeaderSettings({title: 'My utah.gov Site'})
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-unloaded">{events.HEADER_UNLOADED}</h4>
+      <div>
+        To change the content of the header, your code need only call <code>setUtahHeaderSettings()</code> with new settings. It is not advisable to unload the header. But
+        there may be use cases that require the header be unmounted and reloaded. When the Utah Header is unloaded it will emit a <code>{events.HEADER_UNLOADED}</code> global
+        document event.
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            addEventListener(
+              '${events.HEADER_UNLOADED}', 
+              () => alert('Where did the header go?')
+            )
+          `}
+        />
+      </div>
+
+      {/* ----     Utah ID     --- */}
+      <h3 id="section-utahheader-utahid" className="mb-spacing">Utah ID</h3>
+      <h4 id="section-auth-props">Config Props</h4>
+      <TableWrapper>
+        <Table>
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell>Name / Type / Default</TableHeadCell>
+              <TableHeadCell>Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-auth-config">utahId</a><br /></span>
+                <span className="prop__types">UtahIdSettings | boolean</span> <span className="prop__optional">(optional)</span><br />
+                <span className="prop__default"><code>true</code></span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Controls the function of the Utah ID button in the Utah Header:
+                  <ul>
+                    <li>true - auto fetch mode</li>
+                    <li>false - turned off, no button</li>
+                    <li>UtahIdSettings - custom control of the UtahID button</li>
+                  </ul>
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell colSpan="100">
+                <span className="prop__section-title">utahId.currentUser</span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser</a><br /></span>
+                <span className="prop__types">UserInfo | null | undefined</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  <ul>
+                    <li>UserInfo - details about the current user</li>
+                    <li>null - app controls the user, but there is no user</li>
+                    <li>undefined - app does not control the user</li>
+                  </ul>
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.authenticated</a><br /></span>
+                <span className="prop__types">boolean</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  <ul>
+                    <li>true - the user is authenticated</li>
+                    <li>false - ignore any provided user information</li>
+                  </ul>
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.disabled</a><br /></span>
+                <span className="prop__types">boolean</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  <ul>
+                    <li>true - authority says the user is disabled</li>
+                    <li>false (default) - user is not disabled</li>
+                  </ul>
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.env</a><br /></span>
+                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The Utah Id &quot;Environment&quot; generally tells if the Utah Id authority is dev/prod/test/etc.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.first</a><br /></span>
+                <span className="prop__types">string | null</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The first name of the logged in user.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.last</a><br /></span>
+                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Last name of the logged in user.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.mail</a><br /></span>
+                <span className="prop__types">string[] | null</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Emails of the logged in user.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.middle</a><br /></span>
+                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Middle name of the logged in user.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.status</a><br /></span>
+                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Status of the logged in user.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.type</a><br /></span>
+                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Type of the logged in user.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.username</a><br /></span>
+                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Username of the logged in user.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell colSpan="100">
+                <span className="prop__section-title">utahId events</span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-event-onauthchanged">utahId.onAuthChanged</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Callback triggered when the logged in user changes status.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-event-onProfile">utahId.onProfile</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Callback triggered when the UtahID Profile menu item is triggered in the Utah ID menu for a logged in user. The default behavior of this menu item is to navigate the user to their UtahID Profile page.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-event-onSignIn">utahId.onSignIn</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Callback triggered when UtahID Sign In button is triggered.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-event-onSignOut">utahId.onSignOut</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Callback triggered when the UtahID button&apos;s Sign Out menu item is triggered.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell colSpan="100">
+                <span className="prop__section-title">utahId custom menu items</span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems</a><br /></span>
+                <span className="prop__types">MenuItem[]</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
+                  to a user&apos;s account. Use the <a href="#???">Main Menu</a> configuration for non-account related links.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionUrl</a><br /></span>
+                <span className="prop__types">MenuItemUrlAction</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A URL to which the menu item will navigate.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunction</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A callback function that will be called when the menu item is triggered.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunctionUrl</a><br /></span>
+                <span className="prop__types">MenuItemFunctionUrlAction</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  For Single Page Apps, navigation does not reload the page. The link should still show a url, but the functionality
+                  should not be of a link. The actionFunctionUrl option allows specifying the link but also provide a custom
+                  callback so as to trigger things like React Router.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionMenu</a><br /></span>
+                <span className="prop__types">MenuItem[]</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  This menu item may have nested children menu items.
+                </span>
+              </TableCell>
+            </TableRow>
+
+          </TableBody>
+        </Table>
+      </TableWrapper>
+
+      <h4 id="section-auth-config">utahId</h4>
+      <div>
+        By default, the State of Utah Header checks Utah ID for the current logged in user. Instead, your application can take control of this
+        process and provide the current user information to the Utah Header, in which case the State of Utah Header will not look up current
+        user information and will rely solely on your application for current user information.
+        <br />
+        <br />
+        Default functionality:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: true
+                }
+              )
+            `}
+        />
+        <br />
+        Turn off Utah Header Utah ID integration:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: false
+                }
+              )
+            `}
+        />
+        <br />
+        See <a href="#section-auth-currentuser">utahId.currentUser</a> for custom configuration.
+        <br />
+        <br />
+      </div>
+
+      <h4 id="section-auth-currentuser">utahId.currentUser</h4>
+      <div>
+        UtahId returns information about the current User. The following end points are useful for getting started connecting to UtahId:
+        <ul>
+          <li><strong>Discovery</strong>: <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration">https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration</ExternalLink></li>
+          <li><strong>UserInfo</strong>: <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/userinfo">https://login.dts.utah.gov:443/sso/oauth2/userinfo</ExternalLink></li>
+        </ul>
+        This example shows how an application can provide an authenticated user to the Utah Header:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: {
+                    currentUser: {
+                      authenticated: true,
+                      first: 'Philo'
                     }
                   }
-                ),
+                }
+              )
+            `}
+        />
+        This example shows an unauthenticated user. This is a case where your application may have a cached user who is not yet verified. The
+        State of Utah Header will not trust this user information and will show the UtahID Sign In button.
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: {
+                    currentUser: {
+                      authenticated: false,
+                      first: 'Philo'
+                    }
+                  }
+                }
+              )
+            `}
+        />
+        By setting the currentUser to null, this example shows how the application tells the State of Utah Header that the application is
+        controlling the user authentication process and that there is not a currently logged in user. In contrast, setting currentUser to undefined
+        will indicate to the State of Utah Header to perform its default behavior to fetch the current user information from Utah ID.
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: {
+                    currentUser: null
+                  }
+                }
+              )
+            `}
+        />
+      </div>
+      Here is an example of supplying all the currentUser fields:
+      <PreCode
+        className="gray-block mt-spacing"
+        codeRaw={`
+          setUtahHeaderSettings(
+            {
+              ...other settings...,
+              utahId: {
+                currentUser: {
+                  authenticated: true,
+                  disabled: false,
+                  env: 'a1',
+                  first: 'John',
+                  id: '8675309',
+                  last: 'Doe',
+                  mail: 'jdoe@someone.com',
+                  status: 'alive',
+                  type: 'Employee',
+                  username: 'johndoe',
+                }
               }
             }
+          )
+        `}
+      />
+
+      <h4 id="section-auth-event-onauthchanged">utahId.onAuthChanged</h4>
+      <div>
+        You can provide a callback to watch the current user&apos;s basic information as it changes. Seeing as this information is
+        provided through javascript running in the browser, it is not trustworthy. You will want to get tokens and/or codes from Utah Login to
+        pass in your requests to the server.
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                utahId: {
+                  currentUser: null,
+                  onAuthChanged: (
+                    (newUserData) => {
+                      // incomplete: other 'status' fields should be consulted
+                      if (newUserData?.userInfo?.first) {
+                        alert(\`Hello \${newUserData.userInfo.first}!\`);
+                      } else {
+                        alert('User is signed out');
+                      }
+                    }
+                  ),
+                }
+              }
+            )
+        `}
+        />
+      </div>
+
+      <h4 id="section-auth-event-onProfile">utahId.onProfile</h4>
+      <div>
+        This callback is called when the Utah ID button&apos;s UtahId Profile menu item is triggered for a logged in user.
+        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#???">custom menu item</a> to access
+        your application&apos;s settings/account page.
+        <PreCode
+          allowScrollOverflow
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                utahId: {
+                  currentUser: null,
+                  onProfile: (e) => window.location.href = 'https://id.utah.gov',
+                }
+              }
+            )
         `}
         />
 
-        <h2 id="section-provide-auth-user" className="mb-spacing">App Provided Authenticated User Information</h2>
+        <h4 id="section-auth-event-onSignIn">utahId.onSignIn</h4>
         <div>
-          By default, the State of Utah Header checks Utah ID for the current
-          logged in user. Your application can take control of this process and provide the current user information, in which case the
-          State of Utah Header will not look up current user information and will rely solely on your application for user information.
-          <br />
-          This example shows an authenticated user:
+          When there is no current logged in user, the Utah ID button shows a label of Utah ID Sign In. When triggered,
+          this onSignIn callback is called. The default behavior is to go to UtahID to login and come back to the site.
+          Note the use of <code>goto</code> in the login url. To get a JWT token or code, instead use Utah
+          ID&apos;s <code>authorize</code> endpoint with a <code>redirect_uri</code> url parameter (OpenID configuration and
+          connectivity is possible using the onSignIn and onSignOut callbacks but beyond the scope of this documentation).
           <PreCode
-            className="gray-block"
+            allowScrollOverflow
+            className="gray-block mt-spacing"
             codeRaw={`
-              {
-                "utahId": {
-                  "currentUser": {
-                    "authenticated": true,
-                    "first": "Philo"
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: {
+                    currentUser: null,
+                    onSignIn: (e) => window.location.href = \`https://id.utah.gov/login?goto=\${window.location}\`,
                   }
                 }
-              }
-          `}
+              )
+            `}
           />
-          This example shows an unauthenticated user. This is a case where your application may have a cached user who is not yet verified. The
-          State of Utah Header will not trust this user information and will show the UtahID Sign In button.
+        </div>
+
+        <h4 id="section-auth-event-onSignOut">utahId.onSignOut</h4>
+        <div>
+          When there is a current logged in user, the Utah ID button triggers a menu. The onSignOut callback is called
+          when the Sign Out menu item is triggered. The default functionality is to go to Utah ID&apos;s logout url and
+          return back to this site.
           <PreCode
-            className="gray-block"
+            allowScrollOverflow
+            className="gray-block mt-spacing"
             codeRaw={`
-              {
-                "utahId": {
-                  "currentUser": {
-                    "authenticated": false,
-                    "first": "Philo"
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: {
+                    currentUser: null,
+                    onSignIn: (e) => window.location.href = \`https://id.utah.gov/logout?goto=\${window.location}\`,
                   }
                 }
-              }
-          `}
+              )
+            `}
           />
-          By setting the currentUser to null, this example shows how the application tells the State of Utah Header that the application is
-          controlling the user authentication process and that there is not a currently logged in user. In contrast, setting currentUser to undefined
-          will indicate to the State of Utah Header that current user information should be fetched from Utah ID.
+        </div>
+
+        <h4 id="section-auth-menu-items">utahId.menuItems</h4>
+        <div>
+          You may provide custom menu items to include in the Utah ID menu for a signed in user. Make sure that these menu items are relevant
+          to a user&apos;s account. Use the <a href="#???">Main Menu</a> configuration for non-account related links.
           <PreCode
-            className="gray-block"
+            allowScrollOverflow
+            className="gray-block mt-spacing"
             codeRaw={`
-              {
-                "utahId": {
-                  "currentUser": null
+              setUtahHeaderSettings(
+                {
+                  ...other settings...,
+                  utahId: {
+                    menuItems: [
+                      // Example of "actionUrl"
+                      {
+                        actionUrl: {
+                          url: 'https://utah.gov',
+                          openInNewTab: true
+                        },
+                        title: 'utah.gov'
+                      },
+                      
+                      // Example of "actionFunction"
+                      {
+                        actionFunction: () => window.location = 'https://mycustomsite.gov',
+                        title: 'Custom menu item',
+                      },
+                      
+                      // Example of "actionFunctionUrl"
+                      {
+                        actionFunctionUrl: {
+                          actionFunction: () => window.location = 'https://mycustomsite.gov',
+                          // skipping handle event will prevent the event from
+                          // calling e.preventDefault() and e.stopPropagation()
+                          skipHandleEvent: false,
+                          // setting openInNewTab to true will put a target="_blank" in the 
+                          // <a> tag but your actionFunction will still determine what will
+                          // really happen.
+                          openInNewTab: false,
+                          url: 'https://visible-url.edu',
+                        },
+                        title: 'My Custom Site',
+                      },
+                    ]
+                  }
                 }
-              }
-          `}
+              )
+            `}
           />
         </div>
       </div>
     </div>
+    // TODO: fix <a href="#???">custom menu item</a>
+    // TODO: fix <a href="#???">Main Menu</a>
   );
 }
 
