@@ -744,6 +744,282 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
+      <h3 id="section-mainmenu-settings" className="mb-spacing">Main Menu</h3>
+      <h4 id="section-mainmenu-props">Config Props</h4>
+      <TableWrapper>
+        <Table>
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell>Name / Type / Default</TableHeadCell>
+              <TableHeadCell>Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-mainMenu">mainMenu</a><br /></span>
+                <span className="prop__types">MainMenu</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The Utah Header&apos;s Main Menu allows common site navigation across all State of Utah content.
+                  Use the Utah Header Main Menu configuration to create your site&quot;s navigation.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-mainMenu">mainMenu.menuItems</a><br /></span>
+                <span className="prop__types">MainMenuItem[]</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The menu items to show in the Main Menu.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionUrl</a><br /></span>
+                <span className="prop__types">MenuItemUrlAction</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A URL to which the menu item will navigate.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionFunction</a><br /></span>
+                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A callback function that will be called when the menu item is triggered.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionFunctionUrl</a><br /></span>
+                <span className="prop__types">MenuItemFunctionUrlAction</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  For Single Page Apps, navigation does not reload the page. The link should still show a url, but the functionality
+                  should not be of a link. The actionFunctionUrl option allows specifying the link but also provide a custom
+                  callback so as to trigger things like React Router.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionMenu</a><br /></span>
+                <span className="prop__types">MenuItem[]</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  This menu item may have nested children menu items.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].childrenMenuType</a><br /></span>
+                <span className="prop__types">flyout | inline | mega-menu</span> <span className="prop__optional">(optional)</span>
+                <br />
+                <code>flyout</code>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The menu items can open in different styles:
+                  <ul>
+                    <li>flyout: opens its own popup</li>
+                    <li>inline: has toggles for open close</li>
+                    <li>mega-menu: all the menu items are expanded</li>
+                  </ul>
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].className</a><br /></span>
+                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Can provide a css class to put on the menu item. Helpful for marking a menu item as selected other statuses.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].icon</a><br /></span>
+                <span className="prop__types">Element</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  An HTML Element to show as the icon next the menu item title.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].isDivider</a><br /></span>
+                <span className="prop__types">boolean</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Marks the menu item as a divider by adding aria attributes and a role to the menu item.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].isSelected</a><br /></span>
+                <span className="prop__types">boolean</span> <span className="prop__optional">(optional)</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  If true the a class of <code>menu-item--selected</code> is added to the menu item.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].title</a><br /></span>
+                <span className="prop__types">boolean</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The title to show on the menu item.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-mainMenu">mainMenu.title</a><br /></span>
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The title of the main menu. Used for accessability. Should be something descriptive, like
+                  &quot;Utah Design System Main Menu&quot;
+                </span>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+
+      <h4 id="section-mainMenu">mainMenu</h4>
+      <div>
+        The main menu is the main navigation for your application. A user should be able to easily get to the major
+        areas of your application through the main menu.
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                mainMenu: {
+                  menuItems: [
+                    {
+                      actionUrl: {
+                        url: '/'
+                      },
+                      icon: document.getElementById('home-menu-item-icon-id'),
+                      title: 'Home'
+                    },
+                    {
+                      title: 'Function',
+                      actionFunction: () => window.location = '/Function',
+                    },
+                    {
+                      actionFunctionUrl: {
+                        url: 'https://visible-url.edu',
+                        actionFunction: () => window.location = '/nowhere',
+                      },
+                      title: 'Function/Url'
+                    },
+                    {
+                      isDivider: true,
+                      title: '--divider--',
+                    }
+                    {
+                      actionMenu: [
+                        {
+                          childrenMenuType: 'mega-menu',
+                          isSelected: true,
+                          title: 'child2-1',
+                          actionMenu: [
+                            {
+                              title: 'child2-1-1',
+                              actionUrl: {
+                                url: '/children'
+                              }
+                            },
+                            {
+                              title: 'child2-1-2',
+                              actionUrl: {
+                                url: '/children'
+                              }
+                            },
+                            {
+                              title: 'child2-1-3',
+                              actionUrl: {
+                                url: '/children'
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          className: 'make-me-vibrant',
+                          title: 'child2-2',
+                          actionMenu: [
+                            {
+                              title: 'child2-2-1',
+                              actionUrl: {
+                                url: '/children'
+                              }
+                            },
+                            {
+                              title: 'child2-2-2',
+                              actionUrl: {
+                                url: '/children'
+                              }
+                            },
+                            {
+                              title: 'child2-2-3',
+                              actionUrl: {
+                                url: '/children'
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      title: 'Menu'
+                    }
+                  ],
+                  title: 'Utah Design System Main Menu'
+                },
+              }
+            )
+          `}
+        />
+      </div>
+
       {/* ----     Utah ID     --- */}
       <h3 id="section-utahheader-utahid" className="mb-spacing">Utah ID</h3>
       <h4 id="section-auth-props">Config Props</h4>
@@ -1083,8 +1359,6 @@ function UtahHeaderDocumentation() {
         />
         <br />
         See <a href="#section-auth-currentuser">utahId.currentUser</a> for custom configuration.
-        <br />
-        <br />
       </div>
 
       <h4 id="section-auth-currentuser">utahId.currentUser</h4>
