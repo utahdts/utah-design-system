@@ -73,6 +73,9 @@ elemental html: h1, h2, h3, ul, li, etc.
         overflow-x: scroll;
         box-sizing: border-box;
       }
+      &--padded {
+        padding: 0 var(--spacing);
+      }
     }
     .pre-block__overflow-content {
       width: max-content;
