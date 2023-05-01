@@ -1,93 +1,97 @@
-table {
-  border-collapse: collapse;
-  thead {
-    border-bottom: 1px solid var(--gray-color);
-    tr {
-      th {
-        text-align: center;
-        vertical-align: bottom;
-        font-weight: bold;
-        padding: var(--spacing-s);
-        &.text-left {
-          text-align: left;
-        }
-        &.text-right {
-          text-align: right;
-        }
-      }
-    }
-  }
-  tbody {
-    tr {
-      td {
-        vertical-align: top;
-        padding: var(--spacing-s);
-      }
-    }
-  }
-  &.table {
-    &--alt {
-      tbody {
-        tr:nth-child(2n) {
-          td {
-            background-color: #F5F5F5;
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  table {
+    border-collapse: collapse;
+    thead {
+      border-bottom: 1px solid var(--gray-color);
+      tr {
+        th {
+          text-align: center;
+          vertical-align: bottom;
+          font-weight: bold;
+          padding: var(--spacing-s);
+          &.text-left {
+            text-align: left;
+          }
+          &.text-right {
+            text-align: right;
           }
         }
       }
     }
-    &--lines-x {
-      tbody {
-        tr {
-          td {
-            border-bottom: 1px solid var(--gray-3-1-contrast)
+    tbody {
+      tr {
+        td {
+          vertical-align: top;
+          padding: var(--spacing-s);
+        }
+      }
+    }
+    &.table {
+      &--alt {
+        tbody {
+          tr:nth-child(2n) {
+            td {
+              background-color: #F5F5F5;
+            }
           }
         }
-        tr:last-child {
-          td {
-            border-bottom: 1px solid var(--gray-color)
+      }
+      &--lines-x {
+        tbody {
+          tr {
+            td {
+              border-bottom: 1px solid var(--gray-3-1-contrast)
+            }
+          }
+          tr:last-child {
+            td {
+              border-bottom: 1px solid var(--gray-color)
+            }
+          }
+        }
+      }
+      &--v-align-center {
+        tbody {
+          tr {
+            td {
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+      &--condensed {
+        thead {
+          tr {
+            th {
+              padding: var(--spacing-2xs);
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              padding: var(--spacing-2xs);
+            }
           }
         }
       }
     }
-    &--v-align-center {
-      tbody {
-        tr {
-          td {
-            vertical-align: middle;
-          }
+    .table-header {
+      position: relative;
+      &--sorted {
+        &::before {
+          content: '';
+          height: 7px;
+          width: 100%;
+          background: var(--primary-color);
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          border-radius: var(--radius-circle);
         }
-      }
-    }
-    &--condensed {
-      thead {
-        tr {
-          th {
-            padding: var(--spacing-2xs);
-          }
-        }
-      }
-      tbody {
-        tr {
-          td {
-            padding: var(--spacing-2xs);
-          }
-        }
-      }
-    }
-  }
-  .table-header {
-    position: relative;
-    &--sorted {
-      &::before {
-        content: '';
-        height: 7px;
-        width: 100%;
-        background: var(--primary-color);
-        display: block;
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        border-radius: var(--radius-circle);
       }
     }
   }

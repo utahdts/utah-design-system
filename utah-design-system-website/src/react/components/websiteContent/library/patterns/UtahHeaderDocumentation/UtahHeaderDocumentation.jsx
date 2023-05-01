@@ -27,7 +27,7 @@ import {
   useState
 } from 'react';
 import { Link } from 'react-router-dom';
-import agencyBrand from '../../../../../../static/images/designSystemCircleGray.png';
+import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
 import menusDropdownScreenshot from '../../../../../../static/images/mockups/MenusDropdown.jpg';
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
@@ -215,7 +215,7 @@ function UtahHeaderDocumentation() {
             <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
               <a className="utds-title-wrapper" href="#">
                 <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={agencyBrand} /></div>
-                <div className="utds-title-wrapper__title">Utah Design System</div>
+                <div className="utds-title-wrapper__title">Agency/Division Title </div>
               </a>
             </h1>
           </div>
@@ -268,10 +268,10 @@ function UtahHeaderDocumentation() {
           <ul>
             <li>Action items are not required, but can be utilized based on need.</li>
             <li>Action items are icon buttons that can be used in combination with badges.</li>
-            <li>The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation or frequently used services.</li>
-            <li>The Alert icon is represented by a bell icon. It will eventually be linked to the Citizen Portal.</li>
-            <li>The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
-            <li>The Settings icon is represented by a gear icon. It is a popup menu that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
+            <li><span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation or frequently used services.</li>
+            <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be linked to the Citizen Portal.</li>
+            <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
+            <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
             <li>The UtahID Login is a button that allows the user to login to their UtahID and Citizen Portal (eventually) accounts.</li>
             <li>Action items can have 2 different types of popups.
               <ul>
@@ -367,16 +367,16 @@ function UtahHeaderDocumentation() {
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
-      <h4 id="section-contrast">Contrast</h4>
+      <h4 id="section-contrast" className="mt-spacing">Contrast</h4>
       <ul>
         <li>Maintain a minimum <code>4.5:1 </code>contrast ratio for all interactions (e.g. hover, focus).</li>
       </ul>
-      <h4 id="section-keyboard-interactivity">Keyboard Interactivity</h4>
+      <h4 id="section-keyboard-interactivity" className="mt-spacing">Keyboard Interactivity</h4>
       <ul>
         <li>Users must be able to to navigate using the <code>tab</code> key.</li>
         <li>Users must be able to select the navigation item using the <code>Enter/Return</code> keys.</li>
       </ul>
-      <h4 id="section-screen-readers">Screen Readers</h4>
+      <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
       <ul>
         <li>The main menu is a landmark role used for accessibility. It is recommended that you wrap the main menu in a <code>&lt;nav&gt;</code> tag, or as a fallback use <code>role=&quot;navigation&quot;</code>.</li>
         <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.</li>
@@ -397,7 +397,7 @@ function UtahHeaderDocumentation() {
           className="gray-block mt-spacing"
           codeRaw={`
             addEventListener(
-              '${events.HEADER_LOADED}', 
+              '${events.HEADER_LOADED}',
               () => setUtahHeaderSettings({title: 'My utah.gov Site'})
             )
           `}
@@ -413,7 +413,7 @@ function UtahHeaderDocumentation() {
           className="gray-block mt-spacing"
           codeRaw={`
             addEventListener(
-              '${events.HEADER_UNLOADED}', 
+              '${events.HEADER_UNLOADED}',
               () => alert('Where did the header go?')
             )
           `}
@@ -424,11 +424,11 @@ function UtahHeaderDocumentation() {
       <h3 id="section-utahheader-settings" className="mb-spacing">Basic Settings</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
-        <Table>
+        <Table className="table--lines-x">
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell>Name / Type / Default</TableHeadCell>
-              <TableHeadCell>Description</TableHeadCell>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
@@ -563,7 +563,7 @@ function UtahHeaderDocumentation() {
         </Table>
       </TableWrapper>
 
-      <h4 id="section-config-domLocationTarget">domLocationTarget</h4>
+      <h4 id="section-config-domLocationTarget" className="mt-spacing">domLocationTarget</h4>
       <div>
         By default, the header appears at the top of your application. You can Use one of the following configurations
         to place the header in another location. Be aware that the Utah Header should always be at the top of the
@@ -747,7 +747,7 @@ function UtahHeaderDocumentation() {
       <h3 id="section-utahheader-actionItems" className="mb-spacing">actionItems</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
-        <Table>
+        <Table className="table--lines-x">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell>Name / Type / Default</TableHeadCell>
@@ -930,7 +930,7 @@ function UtahHeaderDocumentation() {
         </Table>
       </TableWrapper>
 
-      <h4 id="section-config-actionItems">actionItems</h4>
+      <h4 id="section-config-actionItems" className="mt-spacing">actionItems</h4>
       <div>
         actionItems give your users notifications and global app utility. Use the main menu for navigation items and
         action items for notifications, alerts, and global considerations.
@@ -1026,7 +1026,7 @@ function UtahHeaderDocumentation() {
       <h3 id="section-mainmenu-settings" className="mb-spacing">mainMenu</h3>
       <h4 id="section-mainmenu-props">Config Props</h4>
       <TableWrapper>
-        <Table>
+        <Table className="table--lines-x">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell>Name / Type / Default</TableHeadCell>
@@ -1202,7 +1202,7 @@ function UtahHeaderDocumentation() {
         </Table>
       </TableWrapper>
 
-      <h4 id="section-mainMenu">mainMenu</h4>
+      <h4 id="section-mainMenu" className="mt-spacing">mainMenu</h4>
       <div>
         The main menu is the main navigation for your application. A user should be able to easily get to the major
         areas of your application through the main menu.
@@ -1303,7 +1303,7 @@ function UtahHeaderDocumentation() {
       <h3 id="section-utahheader-utahid" className="mb-spacing">Utah ID</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
-        <Table>
+        <Table className="table--lines-x">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell>Name / Type / Default</TableHeadCell>
@@ -1326,12 +1326,6 @@ function UtahHeaderDocumentation() {
                     <li>UtahIdSettings - custom control of the UtahID button</li>
                   </ul>
                 </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell colSpan="100">
-                <span className="prop__section-title">utahId.currentUser</span>
               </TableCell>
             </TableRow>
 
@@ -1604,7 +1598,7 @@ function UtahHeaderDocumentation() {
         </Table>
       </TableWrapper>
 
-      <h4 id="section-auth-config">utahId</h4>
+      <h4 id="section-auth-config" className="mt-spacing">utahId</h4>
       <div>
         By default, the State of Utah Header checks Utah ID for the current logged in user. Instead, your application can take control of this
         process and provide the current user information to the Utah Header, in which case the State of Utah Header will not look up current
@@ -1640,7 +1634,7 @@ function UtahHeaderDocumentation() {
         See <a href="#section-auth-currentuser">utahId.currentUser</a> for custom configuration.
       </div>
 
-      <h4 id="section-auth-currentuser">utahId.currentUser</h4>
+      <h4 id="section-auth-currentuser" className="mt-spacing">utahId.currentUser</h4>
       <div>
         UtahId returns information about the current User. The following end points are useful for getting started connecting to UtahId:
         <ul>
@@ -1725,7 +1719,7 @@ function UtahHeaderDocumentation() {
         `}
       />
 
-      <h4 id="section-auth-event-onauthchanged">utahId.onAuthChanged</h4>
+      <h4 id="section-auth-event-onauthchanged" className="mt-spacing">utahId.onAuthChanged</h4>
       <div>
         You can provide a callback to watch the current user&apos;s basic information as it changes. Seeing as this information is
         provided through javascript running in the browser, it is not trustworthy. You will want to get tokens and/or codes from Utah Login to
@@ -1755,7 +1749,7 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h4 id="section-auth-event-onProfile">utahId.onProfile</h4>
+      <h4 id="section-auth-event-onProfile" className="mt-spacing">utahId.onProfile</h4>
       <div>
         This callback is called when the Utah ID button&apos;s UtahId Profile menu item is triggered for a logged in user.
         Overriding the functionality of this menu item should be rare. Provide a separate <a href="#???">custom menu item</a> to access
@@ -1776,7 +1770,7 @@ function UtahHeaderDocumentation() {
         `}
         />
 
-        <h4 id="section-auth-event-onSignIn">utahId.onSignIn</h4>
+        <h4 id="section-auth-event-onSignIn" className="mt-spacing">utahId.onSignIn</h4>
         <div>
           When there is no current logged in user, the Utah ID button shows a label of Utah ID Sign In. When triggered,
           this onSignIn callback is called. The default behavior is to go to UtahID to login and come back to the site.
@@ -1800,7 +1794,7 @@ function UtahHeaderDocumentation() {
           />
         </div>
 
-        <h4 id="section-auth-event-onSignOut">utahId.onSignOut</h4>
+        <h4 id="section-auth-event-onSignOut" className="mt-spacing">utahId.onSignOut</h4>
         <div>
           When there is a current logged in user, the Utah ID button triggers a menu. The onSignOut callback is called
           when the Sign Out menu item is triggered. The default functionality is to go to Utah ID&apos;s logout url and
@@ -1822,7 +1816,7 @@ function UtahHeaderDocumentation() {
           />
         </div>
 
-        <h4 id="section-auth-menu-items">utahId.menuItems</h4>
+        <h4 id="section-auth-menu-items" className="mt-spacing">utahId.menuItems</h4>
         <div>
           You may provide custom menu items to include in the Utah ID menu for a signed in user. Make sure that these menu items are relevant
           to a user&apos;s account. Use the <a href="#???">Main Menu</a> configuration for non-account related links.
@@ -1843,13 +1837,13 @@ function UtahHeaderDocumentation() {
                         },
                         title: 'utah.gov'
                       },
-                      
+
                       // Example of "actionFunction"
                       {
                         actionFunction: () => window.location = 'https://mycustomsite.gov',
                         title: 'Custom menu item',
                       },
-                      
+
                       // Example of "actionFunctionUrl"
                       {
                         actionFunctionUrl: {
@@ -1857,7 +1851,7 @@ function UtahHeaderDocumentation() {
                           // skipping handle event will prevent the event from
                           // calling e.preventDefault() and e.stopPropagation()
                           skipHandleEvent: false,
-                          // setting openInNewTab to true will put a target="_blank" in the 
+                          // setting openInNewTab to true will put a target="_blank" in the
                           // <a> tag but your actionFunction will still determine what will
                           // really happen.
                           openInNewTab: false,
