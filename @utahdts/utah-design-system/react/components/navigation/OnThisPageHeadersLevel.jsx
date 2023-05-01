@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import htmlDecode from '../../util/htmlDecode';
 
-const headerShape = PropTypes.shape({ node: PropTypes.shape({}), level: PropTypes.oneOf([2, 3]) });
+const headerShape = PropTypes.shape({ node: PropTypes.shape({}), level: PropTypes.oneOf([2, 3, 4]) });
 headerShape.children = PropTypes.arrayOf(headerShape);
 
 const propTypes = {
