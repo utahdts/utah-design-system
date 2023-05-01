@@ -43,6 +43,7 @@ function ComboBoxDocumentation() {
         <li><strong>Search for option:</strong> Use a combo box when you wish to let your users search in the list of provided options.</li>
         <li><strong>More than 10 options</strong>. Use a combo box when there are more than 10 options in a select list. With so many options, users may find it difficult to navigate with scrolling only.</li>
         <li><strong>Limited space</strong>. Use a combo box for presenting options when screen real estate is limited.</li>
+        <li><strong>Don&apos;t overuse.</strong> Too many combo box inputs can be overwhelming to the user.</li>
       </ul>
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
