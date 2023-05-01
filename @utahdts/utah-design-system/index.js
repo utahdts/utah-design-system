@@ -30,8 +30,8 @@ export { default as ExternalLink } from './react/components/navigation/ExternalL
 export { default as HorizontalMenu } from './react/components/navigation/HorizontalMenu';
 export { default as OnThisPage } from './react/components/navigation/OnThisPage';
 export { default as SidePanelNavigation } from './react/components/navigation/SidePanelNavigation';
-export { default as Pagination } from './react/components/pagination/Pagination';
-export { default as usePaginatedList } from './react/components/pagination/usePaginatedList';
+export { default as Pagination } from './react/components/navigation/pagination/Pagination';
+export { default as usePaginatedList } from './react/components/navigation/pagination/hooks/usePaginatedList';
 export { default as Popup } from './react/components/popups/Popup';
 export { default as Table } from './react/components/table/Table';
 export { default as TableBody } from './react/components/table/TableBody';
