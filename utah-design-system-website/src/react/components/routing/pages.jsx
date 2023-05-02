@@ -10,14 +10,20 @@ import ButtonDocumentation from '../websiteContent/library/components/buttons/bu
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
+import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
+import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
+import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
+import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
-import DateInputDocumentation from '../websiteContent/library/components/forms/dateInput/DateInputDocumentation';
+import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
+import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
+import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
@@ -218,6 +224,13 @@ const pages = {
     pageTitle: 'Patterns',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  utahFooter: {
+    content: UtahFooterDocumentation,
+    link: pageUrls.utahFooter,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Utah Footer',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   utahHeader: {
     content: UtahHeaderDocumentation,
     link: pageUrls.utahHeader,
@@ -295,7 +308,7 @@ const pages = {
   // === library documentation components === //
   // === basic atomic === //
   anchors: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.anchors,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Anchors',
@@ -303,7 +316,7 @@ const pages = {
   },
 
   horizontalRule: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.horizontalRule,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Horizontal Rule',
@@ -311,7 +324,7 @@ const pages = {
   },
 
   links: {
-    content: SegmentedButtonDocumentation,
+    content: LinksDocumentation,
     link: pageUrls.links,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Links',
@@ -319,7 +332,7 @@ const pages = {
   },
 
   tags: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.tags,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Tags',
@@ -327,10 +340,18 @@ const pages = {
   },
 
   type: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.type,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Type and Text',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  accordion: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.accordion,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Accordion',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -344,7 +365,7 @@ const pages = {
   },
 
   buttonGroup: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.buttonGroup,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button Group',
@@ -356,6 +377,14 @@ const pages = {
     link: pageUrls.confirmationButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Confirmation Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  card: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.card,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Card',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -383,6 +412,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  lists: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.lists,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Lists',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   modals: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.modals,
@@ -407,6 +444,13 @@ const pages = {
     pageTitle: 'Badges',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  stepIndicator: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.stepIndicator,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Step Indicators',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
 
   // === forms === //
   checkbox: {
@@ -417,7 +461,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   comboBox: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: ComboBoxDocumentation,
     link: pageUrls.comboBox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Combo Box',
@@ -431,10 +475,10 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   multiSelect: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: MultiSelectDocumentation,
     link: pageUrls.multiSelect,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Multi Select',
+    pageTitle: 'Multi-select',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   radioButton: {
@@ -442,6 +486,13 @@ const pages = {
     link: pageUrls.radioButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Radio Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  select: {
+    content: SelectDocumentation,
+    link: pageUrls.select,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Select',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   switch: {
@@ -474,6 +525,13 @@ const pages = {
   },
 
   // === Navigation === //
+  pagination: {
+    content: PaginationDocumentation,
+    link: pageUrls.pagination,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Pagination',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   sidePanelNavigation: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.sidePanelNavigation,
@@ -518,30 +576,22 @@ const pages = {
 
   // will go away VVVVVVVV
   forms: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.forms,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Forms',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   form: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.form,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Form',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  buttons: {
-    content: SegmentedButtonDocumentation,
-    link: pageUrls.buttons,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Buttons',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   errorPage404: {
-    content: SegmentedButtonDocumentation,
+    content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.errorPage404,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: '404 Page',

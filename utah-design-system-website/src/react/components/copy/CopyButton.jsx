@@ -35,7 +35,7 @@ function CopyButton({ copyRef, onCopy }) {
   return (
     <div className="copy-button">
       <IconButton
-        className="copy-button__button"
+        className="copy-button__button icon-button--borderless"
         icon={<span className="utds-icon-before-copy" aria-hidden="true" />}
         onClick={() => {
           if (navigator.clipboard && copyRef.current) {

@@ -45,8 +45,8 @@ function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
             <Tab id={sandboxCodeTypeEnum.REACT}>{sandboxCodeTypeEnum.REACT}</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId={sandboxCodeTypeEnum.HTML} className="px-spacing pb-spacing">
-              <PreCodeForRef targetRef={renderedRef} deps={[state.props]} />
+            <TabPanel tabId={sandboxCodeTypeEnum.HTML}>
+              <PreCodeForRef targetRef={renderedRef} deps={[state.props]} allowScrollOverflow addHorizontalPadding maxHeight="60vh" />
             </TabPanel>
             <TabPanel tabId={sandboxCodeTypeEnum.REACT} className="px-spacing pb-spacing">
               <pre>

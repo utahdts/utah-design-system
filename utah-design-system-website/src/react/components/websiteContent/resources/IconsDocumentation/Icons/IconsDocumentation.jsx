@@ -33,6 +33,7 @@ function IconsDocumentation() {
         The font file size is very small and should load quickly.
       </p>
       <hr />
+
       <h2 id="section-icon-resource-location">Icon Resource Location</h2>
       <p className="mb-spacing-xs">The Utah Design System Icons can be found on the State CDN:</p>
       <PreCode
@@ -52,6 +53,7 @@ function IconsDocumentation() {
         showBackgroundColor
       />
       <hr />
+
       <h2 id="section-example">Example</h2>
       <div className="icon-example__grid mb-spacing">
         {iconsDocumentationIcons.map((icon) => (

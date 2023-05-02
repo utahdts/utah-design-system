@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import htmlDecode from '../../util/htmlDecode';
 
-const headerShape = PropTypes.shape({ node: PropTypes.shape({}), level: PropTypes.oneOf([2, 3]) });
+const headerShape = PropTypes.shape({ node: PropTypes.shape({}), level: PropTypes.oneOf([2, 3, 4]) });
 headerShape.children = PropTypes.arrayOf(headerShape);
 
 const propTypes = {
@@ -17,7 +18,7 @@ function OnThisPageHeadersLevel({ headersLevel }) {
           if (header.node.id) {
             node = (
               <li key={`on-this-page-ul-${header.node.id}`}>
-                <a href={`#${header.node.id}`}>{header.node.innerHTML}</a>
+                <a href={`#${header.node.id}`}>{htmlDecode(header.node.innerHTML)}</a>
                 {header.children?.length ? <OnThisPageHeadersLevel headersLevel={header.children} /> : null}
               </li>
             );

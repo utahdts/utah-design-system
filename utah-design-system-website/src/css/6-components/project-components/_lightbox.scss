@@ -15,9 +15,9 @@
         border-color: var(--primary-color);
         color: var(--primary-color);
       }
-      margin: 2rem 0 0 0;
+      margin-top: 2rem;
       &--hiddenAlt {
-        margin: 0;
+        margin-top: 0;
       }
     }
     &__image {
@@ -29,7 +29,7 @@
       z-index: 1010;
 
       img {
-        position: relative;
+      position: relative;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);

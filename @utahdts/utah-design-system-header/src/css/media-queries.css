@@ -43,6 +43,14 @@
     left: 50%;
     transform: translateX(-50%) translateY(110%);
   }
+
+  .utah-design-system .utds-official-website-popup__content {
+    flex-wrap: wrap;
+    gap: var(--spacing-l);
+  }
+  .utah-design-system .utds-official-website-popup__col {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: media-size__mobile__PLACEHOLDER) {

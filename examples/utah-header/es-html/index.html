@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,30 +12,42 @@
     body {
       font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
     }
+
     header {
       padding: 0 2rem;
     }
+
   </style>
 
   <!-- Required Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
 
   <!-- Include the CSS and Javascript for the Utah Header -->
   <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
   <script type="module">
-    import { setUtahHeaderSettings } from 'https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.es.js';
-    setUtahHeaderSettings({title: 'My Utah.gov Site (ES)'});
+    import { setUtahHeaderSettings } from 'https://unpkg.com/@utahdts/utah-design-system-header^0/dist/utah-design-system-header.es.js';
+    setUtahHeaderSettings({
+      title: 'My Utah.gov Site (ES)',
+
+    });
   </script>
 </head>
+
 <body>
   <header>
+    <div id="utah-header-target"></div>
     <h1>ECMAScript modules (ES) - Using Unpkg CDN</h1>
     <p>
-      The above option uses a CDN to import the javascript in the <code>&lt;head&gt;</code>. The CSS is included as a standard stylesheet link.
-      The header is configured immediately after the import. You can learn more about configuring the header on the <a href="https://designsystem.utah.gov/library/patterns/utahHeader">Utah Header page</a>.
+      The above option uses a CDN to import the javascript in the <code>&lt;head&gt;</code>. The CSS is included as a
+      standard stylesheet link.
+      The header is configured immediately after the import. You can learn more about configuring the header on the <a
+        href="https://designsystem.utah.gov/library/patterns/utahHeader">Utah Header page</a>.
     </p>
   </header>
 </body>
+
 </html>

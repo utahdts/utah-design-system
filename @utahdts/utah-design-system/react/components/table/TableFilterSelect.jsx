@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
-import TableContext from './TableContext';
+import { TableContext } from './TableWrapper';
+import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
+  // if no children (TableFilterSelect) are provided then it will automagically use TableFilterSelectAllOptions
+  children: PropTypes.node,
   className: PropTypes.string,
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  exactMatch: PropTypes.bool,
   innerRef: RefShape,
   id: PropTypes.string,
   onChange: PropTypes.func,
@@ -16,8 +19,10 @@ const propTypes = {
   value: PropTypes.string,
 };
 const defaultProps = {
+  children: null,
   className: null,
   defaultValue: null,
+  exactMatch: false,
   innerRef: null,
   id: null,
   onChange: null,
@@ -28,6 +33,7 @@ function TableFilterSelect({
   children,
   className,
   defaultValue,
+  exactMatch,
   innerRef,
   id,
   onChange,
@@ -46,6 +52,9 @@ function TableFilterSelect({
     onChange,
     value,
   });
+
+  useTableFilterRegistration(recordFieldPath, exactMatch);
+
   return (
     <th className={joinClassNames('some-TableFilterSelect-classname', className)} id={id} ref={innerRef} {...rest}>
       <Select

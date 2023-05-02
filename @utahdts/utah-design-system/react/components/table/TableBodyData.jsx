@@ -1,13 +1,16 @@
-import identity from 'lodash/identity';
 import castArray from 'lodash/castArray';
+import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
+import useComponentGuid from '../../hooks/useComponentGuid';
+import chainSorters from '../../util/chainSorters';
 import valueAtPath from '../../util/state/valueAtPath';
 import TableBodyDataRowContext from './TableBodyDataRowContext';
-import TableContext from './TableContext';
-import chainSorters from '../../util/chainSorters';
-import toSafeString from '../../util/toSafeString';
+import { useTableContext } from './TableWrapper';
+import convertRecordsToFilterValue from './util/convertRecordsToFilterValue';
+import createTableFilterFunctions from './util/createTableFilterFunctions';
+import filterTableRecords from './util/filterTableRecords';
 
 const propTypes = {
   // the TableBodyDataRowTemplate and TableBodyDataCellTemplate elements making up the repeatable section
@@ -21,6 +24,7 @@ const defaultProps = {};
 
 function TableBodyData({ children, recordIdField, records }) {
   const [recordsForContexts, setRecordsForContexts] = useImmer(null);
+  const guid = useComponentGuid();
 
   const {
     state: {
@@ -30,7 +34,8 @@ function TableBodyData({ children, recordIdField, records }) {
       tableSortingFieldPath,
       tableSortingFieldPaths,
     },
-  } = useContext(TableContext);
+    setBodyDataForComponentGuid,
+  } = useTableContext();
 
   useEffect(
     () => {
@@ -44,30 +49,19 @@ function TableBodyData({ children, recordIdField, records }) {
         newRecordsForContext.sort(chainSorters(sorters, newRecordsForContext));
       }
 
-      // filter records by filter fields
-      newRecordsForContext = newRecordsForContext.filter((recordInfo) => (
-        Object.entries(filterValues.value || {})
-          // preformat filter values for optimization
-          .map(([filterKey, filterValue]) => [filterKey, filterValue.split(' ').map((s) => s.toLowerCase())])
-          .reduce(
-            (isMatch, [filterFieldPath, filterValue]) => (
-              isMatch
-              && (
-                // break apart the value by spaces to allow partial multi phrase filtering
-                filterValue.every((filterValuePiece) => (
-                  (toSafeString(valueAtPath({ object: recordInfo.record, path: filterFieldPath })))
-                    // lowercase so that uppercase isn't an issue
-                    ?.toLocaleLowerCase()
-                    ?.includes(filterValuePiece)
-                ))
-              )
-            ),
-            true
-          )
-      ));
+      const filterRules = createTableFilterFunctions(filterValues.value);
+
+      // convert record values to test to a "safeString" so that it can be compared with the filter rule
+      const recordsToFilter = convertRecordsToFilterValue(newRecordsForContext, filterValues.value);
+
+      // try the filter rules to see if each record should remain visible
+      newRecordsForContext = filterTableRecords(recordsToFilter, filterRules);
 
       // create forContexts once for the context provider so as to avoid recreating objects
       setRecordsForContexts(newRecordsForContext);
+
+      // register the current data with the TableContext for filtering and other table global data users
+      setBodyDataForComponentGuid(guid, records, newRecordsForContext);
     },
     [currentSortingOrderIsDefault, filterValues, records, tableSortingFieldPath, tableSortingFieldPaths]
   );

@@ -8,8 +8,7 @@ import {
   TableFilterDate,
   TableFilterNone,
   TableFilters,
-  TableFilterSelect,
-  TableFilterSelectOption,
+  TableFilterSelectAllOptions,
   TableFilterTextInput,
   TableHead,
   TableHeadCell,
@@ -27,7 +26,7 @@ function TableDocumentationFilteringTableExample() {
 
   return (
     <>
-      <h3 id="table__filtering-table-example" className="mt-spacing-l">Table Example: Filtering Data</h3>
+      <h3 id="table__filtering-table-example" className="mt-spacing-l">Filtering Data</h3>
       <p> This table allows filtering its data through the use of the inputs in the THead.</p>
 
       <TableWrapper>
@@ -51,19 +50,10 @@ function TableDocumentationFilteringTableExample() {
 
               {/*
                 Present a select input of the possible values from which to filter;
-                Providing TableFilterSelectOptions is optional;
-                If there are no TableFilterSelectOption children then it will load all the possible values from the data.
+                Loads all the possible values from the data for the give recordFieldPath and creates options for the
+                found values.
               */}
-              <TableFilterSelect recordFieldPath="politicalParty">
-                <TableFilterSelectOption label="" value="" />
-                <TableFilterSelectOption label="Democrat" value="Democrat" />
-                <TableFilterSelectOption label="Democratic-Republican" value="Democratic-Republican" />
-                <TableFilterSelectOption label="Federalist" value="Federalist" />
-                <TableFilterSelectOption label="National Union" value="National Union" />
-                <TableFilterSelectOption label="None" value="None" />
-                <TableFilterSelectOption label="Republican" value="Republican" />
-                <TableFilterSelectOption label="Whig" value="Whig" />
-              </TableFilterSelect>
+              <TableFilterSelectAllOptions recordFieldPath="politicalParty" />
 
               {/* Date range filtering popup */}
               <TableFilterDate recordFieldPath="inauguration" />

@@ -1,9 +1,13 @@
-.input-wrapper {
-  margin: 0 0 var(--spacing-s) 0;
-  .form.form--stacked & {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    align-items: flex-start;
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .input-wrapper {
+    margin: 0 0 var(--spacing-s) 0;
+    .form.form--stacked & {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      align-items: flex-start;
+    }
   }
 }

@@ -1,17 +1,20 @@
 @use "../../../2-tools/tools-index";
+@use "../../../1-settings/class-vars";
 
-select {
-  color: var(--gray-color);
-  min-height: var(--form-ele-medium);
-  border-radius: var(--radius-small);
-  box-sizing: border-box;
-  border: 1px solid var(--gray-color);
-  width: 100%;
-  padding: 0 var(--spacing-xs);
-  appearance: none;
-  background: white var(--icon-chevron-dark) no-repeat right 5px center;
-  background-size: 16px;
+#{class-vars.$base-class} {
+  select {
+    color: var(--gray-color);
+    min-height: var(--form-ele-medium);
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    border: 1px solid var(--gray-color);
+    width: 100%;
+    padding: 0 var(--spacing-xs);
+    appearance: none;
+    background: white var(--icon-chevron-dark) no-repeat right 5px center;
+    background-size: 16px;
 
-  @include tools-index.form-ele-hover-medium;
-  @include tools-index.form-ele-focus;
+    @include tools-index.form-ele-hover-medium;
+    @include tools-index.form-ele-focus;
+  }
 }

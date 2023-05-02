@@ -11,5 +11,6 @@ export default function findElementsByTagNameMatch(element) {
     ...((element && element.children) ? Array.from(element.children).map((child) => findElementsByTagNameMatch(child)) : []),
   ]
     .flat(Infinity)
-    .filter(identity);
+    .filter(identity)
+    .filter((elementMaybeHasId) => elementMaybeHasId.id);
 }

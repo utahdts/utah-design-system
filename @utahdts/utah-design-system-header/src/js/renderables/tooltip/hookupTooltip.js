@@ -1,25 +1,26 @@
+// @ts-check
 // @ts-ignore
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/order
 import ToolTipHTML from './html/Tooltip.html?raw';
 
 // eslint-disable-next-line import/order
 import { createPopper } from '@popperjs/core';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import popupPlacement from '../../enumerations/popupPlacement';
 import renderDOMSingle from '../../misc/renderDOMSingle';
+import popupPlacement from '../../enumerations/popupPlacement';
 
 let tooltipCloseTimeoutId = NaN;
 /**
  * @param {HTMLElement} element the element from which the tooltip will trigger
- * @param {string} title the title shown in the tooltip
+ * @param {Node} dom the dom to show in the tooltip
 */
-export default function hookupToolTip(element, title) {
+export default function hookupTooltip(element, dom) {
   const tooltip = renderDOMSingle(ToolTipHTML);
   const tooltipContent = tooltip.querySelector(getCssClassSelector(domConstants.TOOLTIP__CONTENT));
   if (!tooltipContent) {
     throw new Error('hookupToolTip: toolTipContent not found');
   }
-  tooltipContent.appendChild(document.createTextNode(title));
+  tooltipContent.appendChild(dom);
 
   element.appendChild(tooltip);
 
@@ -38,14 +39,14 @@ export default function hookupToolTip(element, title) {
   );
 
   if (element.onmouseenter || element.onmouseleave) {
-    throw new Error(`hookupToolTip: element already has an onmouseenter and/or onmouseleave event (${title})`);
+    throw new Error('hookupToolTip: element already has an onmouseenter and/or onmouseleave event');
   }
 
   let tooltipOpenTimeoutId = NaN;
   // eslint-disable-next-line no-param-reassign
   element.onmouseenter = () => {
     clearTimeout(tooltipOpenTimeoutId);
-    tooltipOpenTimeoutId = setTimeout(
+    tooltipOpenTimeoutId = window.setTimeout(
       () => {
         clearTimeout(tooltipCloseTimeoutId);
         tooltipCloseTimeoutId = -1;
@@ -69,7 +70,7 @@ export default function hookupToolTip(element, title) {
     tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__HIDDEN);
     tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__VISIBLE);
     clearTimeout(tooltipCloseTimeoutId);
-    tooltipCloseTimeoutId = setTimeout(
+    tooltipCloseTimeoutId = window.setTimeout(
       () => {
         tooltipCloseTimeoutId = NaN;
       },

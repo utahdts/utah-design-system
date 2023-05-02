@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import {
+  ExternalLink,
   Table,
   TableBody,
   TableCell,
@@ -63,6 +64,14 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
+            <ProgressLogVersionRow version="0.6" />
+            <ProgressLogTableRow title="Combo Box" toUrl={pageUrls.comboBox} isDefinitionChecked />
+            <ProgressLogTableRow title="Links" toUrl={pageUrls.links} isDefinitionChecked />
+            <ProgressLogTableRow title="Multi-select input" toUrl={pageUrls.multiSelect} isDefinitionChecked />
+            <ProgressLogTableRow title="Pagination" toUrl={pageUrls.pagination} isDefinitionChecked />
+            <ProgressLogTableRow title="Patterns: Footer" toUrl={pageUrls.utahFooter} isDefinitionChecked />
+            <ProgressLogTableRow title="Select input" toUrl={pageUrls.select} isDefinitionChecked />
+            <ProgressLogTableRow title="Table" toUrl={pageUrls.table} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogVersionRow version="0.4" />
             <ProgressLogTableRow title="Getting Started" toUrl={pageUrls.gettingStarted} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Text Input" toUrl={pageUrls.textInput} isDefinitionChecked />
@@ -73,12 +82,11 @@ function ProgressLog() {
             <ProgressLogTableRow title="Utah.gov Header" toUrl={pageUrls.utahHeader} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogVersionRow version="0.2" />
             <ProgressLogTableRow title="Badges" toUrl={pageUrls.badges} isDefinitionChecked />
-            <ProgressLogTableRow title="Buttons" toUrl={pageUrls.buttons} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Buttons" toUrl={pageUrls.button} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Icon Button" toUrl={pageUrls.iconButton} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Icons" toUrl={pageUrls.icons} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Popups" toUrl={pageUrls.popups} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Switch" toUrl={pageUrls.switch} isCssChecked isComponentExampleChecked />
-            <ProgressLogTableRow title="Table" toUrl={pageUrls.table} isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Vertical Menu" toUrl={pageUrls.verticalMenu} isDefinitionChecked />
           </TableBody>
         </Table>
@@ -86,30 +94,34 @@ function ProgressLog() {
 
       <h2 className="mt-spacing-l">Task Log</h2>
       <ul>
-        <li>Version 0.4
+        <li>
+          Version 0.6
           <ul>
-            <li>Create a Getting Started Page</li>
-            <li>Combo Box: Define</li>
-            <li>Links: Define</li>
-            <li>Pagination: Define</li>
-            <li>Patterns - Footer: Define</li>
-            <li>SelectInput: Define</li>
-            <li>Multi-Select Input: Define</li>
-            <li>Table: Define</li>
-            <li>TextInput: Fill out Doc Page Definitions</li>
-            <li>TextInput: Static Examples</li>
-            <li>Cleanup TextInput Examples</li>
-            <li>Remove title: Tooltips popup example</li>
-            <li>Add documentation code highlighting</li>
-            <li>Set up tasks for writing tests</li>
-            <li>Fix consistency in documentation for: Flyout or Fly-out.</li>
-            <li>Add mockup to Popups: Popup Menu and Popup Menu with Flyout Popups</li>
-            <li>Add ability to close Mobile Main Menu</li>
-            <li>TableFilterSelectOptions : auto provide these options based on the data if no options were given as children to TableFilterSelect</li>
-            <li>Maintenance tasks: dependencies, branches, versions...</li>
-            <li><Link to="https://github.com/utahdts/utah-design-system/commits/dev" target="_blank">GitHub Commit Details</Link></li>
+            <li>Added accordions to mockups</li>
+            <li>Added interactive &quot;Utah, an official website&quot; to Utah unbrand</li>
+            <li>Allow placing Utah Header in a specific DOM element</li>
+            <li>Cleaned up mono repo cross linkage</li>
+            <li>Cured leprosy (on documentation pages)</li>
+            <li>Define: Banner</li>
+            <li>Define: Form Validation</li>
+            <li>Define: Links</li>
+            <li>Define: List</li>
+            <li>Define: Loading indicator-spinner</li>
+            <li>Define: Modal</li>
+            <li>Define: Pagination</li>
+            <li>Define: Skeleton</li>
+            <li>Define: Switch</li>
+            <li>Define: Tags (taxonomy)</li>
+            <li>Define: Time Input</li>
+            <li>Table: ability for filters to exact match instead of just partial</li>
+            <li>Table: ability for table select filter to auto load options from data</li>
+            <li>Updated Utah Header Documentation w/ API details</li>
           </ul>
         </li>
+        <li>
+          Version 0.5 ¯\_(ツ)_/¯
+        </li>
+        <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>
       </ul>
     </>
   );

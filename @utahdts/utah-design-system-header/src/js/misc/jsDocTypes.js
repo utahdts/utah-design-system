@@ -108,7 +108,7 @@
  *  @property {() => boolean} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
  *  @property {function(Event): void} [onClick] custom onclick handler
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
- *  @property {boolean} [preventOnClickHandling] turns of click handling for popup invocation
+ *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
  * }
  *
@@ -140,22 +140,16 @@
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon
  *  @property {HTMLElement | string} icon - DOM or DOM string of icon to show
- *  @property {'left' | 'none' | 'right'} [mobileMenuLocation] - positioned right or left of the Utah ID button? not at all? default is right
+ *  @property {'left' | 'none' | 'right'} [mobileMenuLocation] - positioned right or left of the Utah ID button? not at all? default is none
  *  @property {boolean} showTitle - Should the title always be visible?
  *  @property {string} title - Title of the action item (required for accessibility)
  * }
  *
- * @typedef Settings {
- *  @property {ActionItem[]} [actionItems] - action items to show in the header
- *  @property {Element | string} [logo] - Must be an image or an SVG as a string
- *  @property {MainMenu} mainMenu - the main menu to show on a line below the citizen experience/unbrand line
- *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
- *  @property {(search: string) => void} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar
- *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
- *  @property {string} size - size has to be one of the `Size` types
- *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
- *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
- *  @property {UtahIDSettings | boolean} utahId - settings for the utahId button; true = turned on, false = turned off, object = custom interactivity
+ * // must use one and only one of the properties here
+ * @typedef DomLocationTarget {
+ *  @property {string} [cssSelector] - find a target DOM element by document.querySelector(cssSelector) (throws error if not found)
+ *  @property {HTMLElement} [element] - insert the header as a child of this given element
+ *  @property {function (): HTMLElement} [elementFunction] - insert the header in to whatever element is returned from this function
  * }
  *
  * @typedef GlobalEventType {
@@ -177,7 +171,7 @@
  *  @property {string | null | undefined} first - the name shown on the UtahId button when logged in
  *  @property {string | null | undefined} [id]
  *  @property {string | null | undefined} [last]
- *  @property {[string] | null | undefined} [mail]
+ *  @property {string[] | null | undefined} [mail]
  *  @property {string | null | undefined} [middle]
  *  @property {string | null | undefined} [status]
  *  @property {string | undefined} [type]
@@ -201,7 +195,21 @@
  *  @property {function(Event): void | undefined} [onProfile] - when the UtahId's menu item for the user's profile is triggered: (e) => { }
  *  @property {function(Event): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in: (e) => { }
  *  @property {function(Event): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
- *  @property {[MenuItem] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
+ *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
+ * }
+ *
+ * @typedef Settings {
+ *  @property {ActionItem[]} [actionItems] - action items to show in the header
+ *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the header be inserted? (defaults to the top of the body)
+ *  @property {Element | string} [logo] - Must be an image or an SVG as a string
+ *  @property {MainMenu} mainMenu - the main menu to show on a line below the citizen experience/unbrand line
+ *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
+ *  @property {(search: string) => void} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar
+ *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
+ *  @property {string} size - size has to be one of the `Size` types
+ *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
+ *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
+ *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
  * }
  *
  */

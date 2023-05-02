@@ -1,3 +1,5 @@
+@use '../../../../../@utahdts/utah-design-system/css/1-settings/color-swatches';
+
 table {
   th.css-classes {
     width: 45%;
@@ -10,5 +12,16 @@ table {
   }
   &--small-text {
     font-size: var(--font-size-s);
+  }
+}
+
+.prop {
+  &__types {
+    font-style: italic;
+    color: color-swatches.$celadon-green-03;
+  }
+  &__optional {
+    color: color-swatches.$celadon-green-04;
+    font-size: .9rem;
   }
 }

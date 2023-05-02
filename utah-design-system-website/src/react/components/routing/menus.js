@@ -103,6 +103,12 @@ export const menuLibraryComponentsSecondary = {
   id: 'library-components',
   menuItems: [
     {
+      id: 'components__accordion',
+      title: 'Accordion',
+      link: pages.accordion.link,
+      parentLinks: [pages.library.link],
+    },
+    {
       id: 'components__basic-atomic',
       title: 'Basic Atomic',
       parentLinks: [pages.library.link],
@@ -127,6 +133,12 @@ export const menuLibraryComponentsSecondary = {
       ],
     },
     {
+      id: 'components__card',
+      title: 'Card',
+      link: pages.card.link,
+      parentLinks: [pages.library.link],
+    },
+    {
       id: 'components__dialogs',
       link: pages.dialog.link,
       title: 'Dialog',
@@ -148,11 +160,17 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
+        { link: pages.select.link, title: pages.select.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
-        { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
+    },
+    {
+      id: 'components__lists',
+      title: 'Lists',
+      link: pages.lists.link,
+      parentLinks: [pages.library.link],
     },
     {
       id: 'components__modals',
@@ -165,6 +183,7 @@ export const menuLibraryComponentsSecondary = {
       title: 'Navigation',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
       ],
@@ -189,6 +208,7 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
@@ -200,15 +220,16 @@ export const menuLibraryPatternsSecondary = {
   id: 'library-patterns',
   menuItems: [
     {
+      title: 'Utah Footer',
+      link: pages.utahFooter.link,
+      parentLinks: [pages.library.link],
+    },
+    {
       title: 'Utah Header',
       link: pages.utahHeader.link,
       parentLinks: [pages.library.link],
     },
-    {
-      title: 'Buttons',
-      link: pages.anchors.link, // wrong!
-      parentLinks: [pages.library.link],
-    },
+    { link: pages.validation.link, title: pages.validation.pageTitle, parentLinks: [pages.library.link] },
   ],
 };
 

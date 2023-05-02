@@ -1,10 +1,14 @@
-.landing-page-template {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+@use "../../../1-settings/class-vars";
 
-  .content-width {
-    max-width: var(--content-width-narrow);
+#{class-vars.$base-class} {
+  .landing-page-template {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .content-width {
+      max-width: var(--content-width-narrow);
+    }
   }
 }

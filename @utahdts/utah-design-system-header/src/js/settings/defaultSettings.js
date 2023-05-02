@@ -131,6 +131,12 @@ export default {
       title: 'Settings',
     },
   ],
+  // Example of using domLocationTarget:
+  // domLocationTarget: {
+  //   cssSelector: '.put-header-here',
+  //   element: /** @type {HTMLElement} */(document.querySelector('.put-header-here')),
+  //   elementFunction: () => /** @type {HTMLElement} */(document.querySelector('.put-header-here')),
+  // },
   mediaSizes: {
     mobile: 640,
     tabletPortrait: 768,

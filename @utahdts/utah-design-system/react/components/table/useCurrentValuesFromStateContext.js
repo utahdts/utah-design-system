@@ -32,7 +32,7 @@ export default function useCurrentValuesFromStateContext({
   const { setState: setStateContext, state: stateContext } = useContext(context) || {};
   const [stateLocal, setStateLocal] = useImmer(defaultValue);
 
-  const fullContextStatePath = `filterValues.value.${contextStatePath}`;
+  const fullContextStatePath = `filterValues.value.${contextStatePath}.value`;
 
   // put default value in to current filter value on mount if there is one
   useEffect(
@@ -52,10 +52,12 @@ export default function useCurrentValuesFromStateContext({
       onChange
       // use onChange from context (controlled by <TableFilters />)
       || (stateContext?.filterValues?.onChange && ((e) => (
+        // this uses `contextStatePath` (non-filter field) while below it uses `fullContextStatePath` (filter field)
         stateContext?.filterValues?.onChange({ recordFieldPath: contextStatePath, value: defaultOnChange(e) })
       )))
       // set context filterValues directly (not controlled by <TableFilters />)
       || (setStateContext && ((e) => setStateContext((draftStateContext) => {
+        // this uses `fullContextStatePath` (filter field) while above it uses `contextStatePath` (non-filter field)
         setValueAtPath({ object: draftStateContext, path: fullContextStatePath, value: defaultOnChange(e) });
       })))
       // no context, so use local state

@@ -1,19 +1,23 @@
 @use "../../../2-tools/tools-index";
 
-input[type="text"],
-textarea {
-  color: var(--gray-color);
-  min-height: var(--form-ele-medium);
-  border-radius: var(--radius-small);
-  box-sizing: border-box;
-  border: 1px solid var(--gray-color);
-  width: 100%;
-  padding: 0 var(--spacing-xs);
+@use "../../../1-settings/class-vars";
 
-  @include tools-index.form-ele-hover-medium;
-  @include tools-index.form-ele-focus;
-}
+#{class-vars.$base-class} {
+  input[type="text"],
+  textarea {
+    color: var(--gray-color);
+    min-height: var(--form-ele-medium);
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    border: 1px solid var(--gray-color);
+    width: 100%;
+    padding: 0 var(--spacing-xs);
 
-textarea {
-  padding: var(--spacing-xs);
+    @include tools-index.form-ele-hover-medium;
+    @include tools-index.form-ele-focus;
+  }
+
+  textarea {
+    padding: var(--spacing-xs);
+  }
 }

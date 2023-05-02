@@ -14,7 +14,7 @@ import identity from 'lodash/identity';
  *   parentLinks: [pages.library.link],
  *   children: [
  *     { link: pages.button.link, title: pages.button.pageTitle, parentLinks: [pages.library.link, 'menuHeader::buttons'] },
- *     { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle, parentLinks: [pages.library.link, pages.buttons.link] },
+ *     { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle, parentLinks: [pages.library.link, pages.button.link] },
  *   ],
  * }
 
@@ -24,7 +24,7 @@ import identity from 'lodash/identity';
  *   parentLinks: [pages.library.link],
  *   children: [
  *     { link: pages.button.link, title: pages.button.pageTitle, parentLinks: [pages.library.link, 'menuHeader::buttons'] },
- *     { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle, parentLinks: [pages.library.link, pages.buttons.link] },
+ *     { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle, parentLinks: [pages.library.link, pages.button.link] },
  *   ],
  * }
  *

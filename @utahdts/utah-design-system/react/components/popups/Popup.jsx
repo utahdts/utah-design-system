@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
-import { popupPlacement } from '@utahdts/utah-design-system-header';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
+import popupPlacement from '../../enums/popupPlacement';
 import useClickOutside from '../../hooks/useClickOutside';
 import useGlobalKeyEvent from '../../hooks/useGlobalKeyEvent';
 import RefShape from '../../propTypesShapes/RefShape';
