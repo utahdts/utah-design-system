@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useRefAlways from '../useRefAlways';
 
 /**
  * A component can be Uncontrolled or Controlled. An uncontrolled component can have a default starting value.
@@ -14,9 +15,13 @@ import { useState } from 'react';
  */
 export default function useComponentState({ defaultValue, onChange, value }) {
   const [currentValue, setCurrentValue] = useState(value === undefined ? defaultValue : value);
-
-  return {
+  const result = {
     onChange: onChange || setCurrentValue,
     value: value === undefined ? currentValue : value,
   };
+
+  const valueRef = useRefAlways(result.value);
+  result.valueRef = valueRef;
+
+  return result;
 }

@@ -1,4 +1,4 @@
-import useStateEffect from '../../hooks/useStateEffect';
+import useStateEffect from '../../../../hooks/useStateEffect';
 
 /**
  * companion to <Pagination>, hook for slicing a list based on the current page number

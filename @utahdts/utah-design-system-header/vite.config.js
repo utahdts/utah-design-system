@@ -18,9 +18,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         formats: ['es', 'umd'],
         fileName: (format) => `utah-design-system-header.${format}.js`,
       },
-      rollupOptions: {
-        external: ['@utahdts/utah-design-system'],
-      },
       sourceMap: 'inline',
     },
     plugins: [

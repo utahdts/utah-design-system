@@ -1,7 +1,7 @@
 // @ts-check
 import { createPopper } from '@popperjs/core';
-import { popupPlacement } from '@utahdts/utah-design-system';
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
+import popupPlacement from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
 import isTouchDevice from './isTouchDevice';
 import showHideElement from './showHideElement';

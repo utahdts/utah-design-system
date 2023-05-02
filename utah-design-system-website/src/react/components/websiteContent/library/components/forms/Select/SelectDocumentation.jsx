@@ -37,7 +37,8 @@ function SelectDocumentation() {
       <h3>When to use</h3>
       <ul className="mb-spacing">
         <li><strong>Limiting the user to one option:</strong> When the user is limited to selecting one option from a predefined list of options.</li>
-        <li><strong>Use sparingly.</strong> Use the select component only when a user needs to choose from about 4 to 10 possible options, and you have limited space to display those options.</li>
+        <li><strong>Use sparingly.</strong> Use the select component only when a user needs to choose from about 4 to 10 possible options.</li>
+        <li><strong>Limited space.</strong>. Use a combo box for presenting options when screen real estate is limited.</li>
         <li><strong>Don&apos;t overuse.</strong> Too many select inputs can be overwhelming to the user.</li>
       </ul>
       <h3>When to use something else</h3>

@@ -1,60 +1,52 @@
-// label {
-//   margin-right: var(--spacing);
-// }
-input[type="radio"] {
-  appearance: none;
-  border-radius: var(--radius-circle);
-  border: 1px solid var(--gray-color);
-  width: var(--form-ele-small1x);
-  height: var(--form-ele-small1x);
-  position: relative;
-  top: var(--spacing-2xs);
-  margin-right: var(--spacing-xs);
-  &::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  input[type="radio"] {
+    appearance: none;
     border-radius: var(--radius-circle);
-    box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 0px;
-    transition: box-shadow var(--timing-xquick) ease-in-out;
-  }
-  &:hover::before {
-    box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 7px;
-  }
-  &:checked {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
-    &::after {
+    border: 1px solid var(--gray-color);
+    width: var(--form-ele-small1x);
+    height: var(--form-ele-small1x);
+    position: relative;
+    top: var(--spacing-2xs);
+    margin-right: var(--spacing-xs);
+    &::before {
       content: '';
       display: block;
-      width: 50%;
-      height: 50%;
+      width: 100%;
+      height: 100%;
       border-radius: var(--radius-circle);
-      background-color: white;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 0px;
+      transition: box-shadow var(--timing-xquick) ease-in-out;
+    }
+    &:hover::before {
+      box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 7px;
+    }
+    &:checked {
+      background-color: var(--secondary-color);
+      border: 1px solid var(--secondary-color);
+      &::after {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 50%;
+        border-radius: var(--radius-circle);
+        background-color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
-  // accent-color: var(--secondary-color);
+
+
+  .checkbox:hover ~ span:first-of-type {
+    box-shadow: rgb(240 241 242) 0px 0px 0px 7px;
+  }
+
+  span {
+    border-radius: 999px;
+    box-shadow: rgb(240 241 242) 0px 0px 0px 0px;
+  }
 }
-
-
-.checkbox:hover ~ span:first-of-type {
-  box-shadow: rgb(240 241 242) 0px 0px 0px 7px;
-}
-
-span {
-  border-radius: 999px;
-  box-shadow: rgb(240 241 242) 0px 0px 0px 0px;
-}
-
-// .input__input input {
-//   margin-top: 5px;
-// }
-// input[type="radio"] {
-//   margin-top: 7px;
-//   margin-right: 20px;
-// }

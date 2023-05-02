@@ -30,12 +30,16 @@
   <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
   <script type="module">
     import { setUtahHeaderSettings } from 'https://unpkg.com/@utahdts/utah-design-system-header^0/dist/utah-design-system-header.es.js';
-    setUtahHeaderSettings({ title: 'My Utah.gov Site (ES)' });
+    setUtahHeaderSettings({
+      title: 'My Utah.gov Site (ES)',
+
+    });
   </script>
 </head>
 
 <body>
   <header>
+    <div id="utah-header-target"></div>
     <h1>ECMAScript modules (ES) - Using Unpkg CDN</h1>
     <p>
       The above option uses a CDN to import the javascript in the <code>&lt;head&gt;</code>. The CSS is included as a
