@@ -16,30 +16,33 @@
     header {
       padding: 0 2rem;
     }
+    #utah-header-target {
+      min-height: 125.19px;
+    }
 
   </style>
 
   <!-- Required Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <!-- Include the CSS and Javascript for the Utah Header -->
-  <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header@^0/dist/style.css">
   <script type="module">
-    import { setUtahHeaderSettings } from 'https://unpkg.com/@utahdts/utah-design-system-header^0/dist/utah-design-system-header.es.js';
+    import { setUtahHeaderSettings } from 'https://unpkg.com/@utahdts/utah-design-system-header@^0/dist/utah-design-system-header.es.js';
     setUtahHeaderSettings({
       title: 'My Utah.gov Site (ES)',
-
+      domLocationTarget: {
+        cssSelector: '#utah-header-target',
+      }
     });
   </script>
 </head>
 
 <body>
+  <div id="utah-header-target"></div>
   <header>
-    <div id="utah-header-target"></div>
     <h1>ECMAScript modules (ES) - Using Unpkg CDN</h1>
     <p>
       The above option uses a CDN to import the javascript in the <code>&lt;head&gt;</code>. The CSS is included as a
