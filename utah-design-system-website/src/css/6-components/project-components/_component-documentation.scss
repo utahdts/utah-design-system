@@ -24,4 +24,8 @@ table {
     color: color-swatches.$celadon-green-04;
     font-size: .9rem;
   }
+  &__section-title {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-l);
+  }
 }
