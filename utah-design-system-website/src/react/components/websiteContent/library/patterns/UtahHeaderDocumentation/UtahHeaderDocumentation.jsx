@@ -1539,7 +1539,7 @@ function UtahHeaderDocumentation() {
               <TableCell>
                 <span className="prop__description">
                   Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-                  to a user&apos;s account. Use the <a href="#???">Main Menu</a> configuration for non-account related links.
+                  to a user&apos;s account. Use the <a href="#section-mainmenu-settings">Main Menu</a> configuration for non-account related links.
                 </span>
               </TableCell>
             </TableRow>
@@ -1752,7 +1752,7 @@ function UtahHeaderDocumentation() {
       <h4 id="section-auth-event-onProfile" className="mt-spacing">utahId.onProfile</h4>
       <div>
         This callback is called when the Utah ID button&apos;s UtahId Profile menu item is triggered for a logged in user.
-        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#???">custom menu item</a> to access
+        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#section-auth-menu-items">custom menu item</a> to access
         your application&apos;s settings/account page.
         <PreCode
           allowScrollOverflow
@@ -1819,7 +1819,7 @@ function UtahHeaderDocumentation() {
         <h4 id="section-auth-menu-items" className="mt-spacing">utahId.menuItems</h4>
         <div>
           You may provide custom menu items to include in the Utah ID menu for a signed in user. Make sure that these menu items are relevant
-          to a user&apos;s account. Use the <a href="#???">Main Menu</a> configuration for non-account related links.
+          to a user&apos;s account. Use the <a href="#section-mainmenu-settings">Main Menu</a> configuration for non-account related links.
           <PreCode
             allowScrollOverflow
             className="gray-block mt-spacing"
@@ -1868,9 +1868,6 @@ function UtahHeaderDocumentation() {
         </div>
       </div>
     </div>
-    // TODO: fix <a href="#???">custom menu item</a>
-    // TODO: fix <a href="#???">Main Menu</a>
-    // TODO: style prop__section-title
   );
 }
 

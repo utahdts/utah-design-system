@@ -11,10 +11,8 @@ import identity from 'lodash/identity';
  */
 function arrayMatchRecursive({ object, arrayField, isMatchFunc }) {
   return !!(
-    object
-      && object[arrayField]
-      && object[arrayField].filter(identity)
-        .some((arrayItem) => isMatchFunc(arrayItem) || arrayMatchRecursive(arrayItem))
+    object?.[arrayField]?.filter(identity)
+      ?.some((arrayItem) => isMatchFunc(arrayItem) || arrayMatchRecursive(arrayItem))
   );
 }
 

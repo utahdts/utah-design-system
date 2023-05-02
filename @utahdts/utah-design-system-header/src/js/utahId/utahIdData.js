@@ -57,7 +57,9 @@ export async function fetchUtahIdUserDataAsync() {
         .then(() => {
           // if the app hasn't called setUtahHeaderSettings() by now, too bad for them...
           waitingForLaunch = false;
-          fetchUtahIdUserDataAsync();
+          fetchUtahIdUserDataAsync()
+            // eslint-disable-next-line no-console
+            .catch((e) => console.error(e));
         })
     );
   } else {
