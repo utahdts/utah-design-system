@@ -18,10 +18,12 @@ import SwitchDocumentation from '../websiteContent/library/components/forms/Swit
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
+import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
+import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -421,7 +423,7 @@ const pages = {
   },
 
   modals: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: ModalsDocumentation,
     link: pageUrls.modals,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Modals',
@@ -444,11 +446,46 @@ const pages = {
     pageTitle: 'Badges',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  banners: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.banners,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Banners',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  progressBars: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.progressBars,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Progress Bars',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  skeletons: {
+    content: SkeletonsDocumentation,
+    link: pageUrls.skeletons,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Skeletons',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  spinners: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.spinners,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Spinners',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   stepIndicator: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.stepIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Step Indicators',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  textIndicators: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.textIndicators,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Text Indicators',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
