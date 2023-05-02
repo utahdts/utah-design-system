@@ -29,7 +29,7 @@
   ],
   "peerDependencies": {
     "react": "18.x",
-    "react-router-dom": "6.x"
+    "react-router-dom": "^6.11.0"
   },
   "scripts": {
     "build": "vite build",
@@ -65,7 +65,7 @@
     "prop-types": "15.8.1",
     "react": "18.x",
     "react-popper": "2.3.0",
-    "react-router-dom": "6.x",
+    "react-router-dom": "^6.11.0",
     "use-immer": "0.9.0",
     "uuid": "9.0.0"
   },
