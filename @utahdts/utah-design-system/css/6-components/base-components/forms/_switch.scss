@@ -1,184 +1,187 @@
 @use "../../../1-settings/color-swatches";
 @use "../../../2-tools/tools-index";
+@use "../../../1-settings/class-vars";
 
-input[type=checkbox].switch {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.switch {
-  &__label {
+#{class-vars.$base-class} {
+  input[type=checkbox].switch {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
     position: absolute;
-    right: 0;
-    transform: translateX(calc(100% + var(--spacing-2xs)));
-    color: var(--gray-color);
-    min-width: max-content;
+    width: 1px;
   }
-  &__wrapper {
-    min-width: 20px;
-    background: color-swatches.$neutral-gray-08;
-    color: white;
-    border-radius: var(--radius-circle);
-    min-height: var(--form-ele-small3x);
-    padding: var(--spacing-3xs);
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    &--on {
-      background: var(--form-ele-color);
-    }
 
-    @include tools-index.form-ele-hover-medium;
-    &:has(input:focus) {
-      @include tools-index.form-ele-focus-appearance;
-    }
-  }
-  &--small {
-    &.switch__wrapper {
-      min-height: var(--form-ele-small4x);
-    }
-
-    .switch__slider {
-      height: var(--form-ele-small4x);
-      width: var(--form-ele-small4x);
-    }
-
-    .switch__inner-label {
-      font-size: var(--font-size-xs);
-      height: var(--form-ele-small4x);
-      line-height: var(--form-ele-small4x);
-    }
-  }
-  &--large {
-    &.switch__wrapper {
-      min-height: var(--form-ele-small1x);
-    }
-
-    .switch__slider {
-      height: var(--form-ele-small1x);
-      width: var(--form-ele-small1x);
-    }
-  }
-  &__slider {
-    height: var(--form-ele-small3x);
-    width: var(--form-ele-small3x);
-    border-radius: var(--radius-circle);
-    background: white;
-    position: absolute;
-    left: 2px;
-    transition: all var(--timing-quick);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &--on {
-      left: 100%;
-      transform: translateX(calc(-100% - 2px));
-      background: white;
-    }
-    svg {
-      fill: var(--gray-color);
-      width: .65rem;
-      height: .65rem;
-    }
-  }
-  &__inner-label {
-    position: relative;
-    width: 100%;
-    height: var(--form-ele-small3x);
-    font-size: var(--font-size-s);
-    line-height: var(--font-size-s);
-    &-on, &-off {
-      // display: none;
-      // width: 25px;
-      width: calc(100% - var(--form-ele-2small1x));
+  .switch {
+    &__label {
       position: absolute;
-      right: 2px;
-      opacity: 0;
-      transition: opacity var(--timing-quick);
-      text-align: center;
-      display: inline-block;
-      &.show {
-        // display: block;
-        opacity: 1;
+      right: 0;
+      transform: translateX(calc(100% + var(--spacing-2xs)));
+      color: var(--gray-color);
+      min-width: max-content;
+    }
+    &__wrapper {
+      min-width: 20px;
+      background: color-swatches.$neutral-gray-08;
+      color: white;
+      border-radius: var(--radius-circle);
+      min-height: var(--form-ele-small3x);
+      padding: var(--spacing-3xs);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      &--on {
+        background: var(--form-ele-color);
+      }
+
+      @include tools-index.form-ele-hover-medium;
+      &:has(input:focus) {
+        @include tools-index.form-ele-focus-appearance;
       }
     }
-    &-on {
-      color: white;
-      right: unset;
+    &--small {
+      &.switch__wrapper {
+        min-height: var(--form-ele-small4x);
+      }
+
+      .switch__slider {
+        height: var(--form-ele-small4x);
+        width: var(--form-ele-small4x);
+      }
+
+      .switch__inner-label {
+        font-size: var(--font-size-xs);
+        height: var(--form-ele-small4x);
+        line-height: var(--form-ele-small4x);
+      }
+    }
+    &--large {
+      &.switch__wrapper {
+        min-height: var(--form-ele-small1x);
+      }
+
+      .switch__slider {
+        height: var(--form-ele-small1x);
+        width: var(--form-ele-small1x);
+      }
+    }
+    &__slider {
+      height: var(--form-ele-small3x);
+      width: var(--form-ele-small3x);
+      border-radius: var(--radius-circle);
+      background: white;
+      position: absolute;
       left: 2px;
+      transition: all var(--timing-quick);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &--on {
+        left: 100%;
+        transform: translateX(calc(-100% - 2px));
+        background: white;
+      }
+      svg {
+        fill: var(--gray-color);
+        width: .65rem;
+        height: .65rem;
+      }
+    }
+    &__inner-label {
+      position: relative;
+      width: 100%;
+      height: var(--form-ele-small3x);
+      font-size: var(--font-size-s);
+      line-height: var(--font-size-s);
+      &-on, &-off {
+        // display: none;
+        // width: 25px;
+        width: calc(100% - var(--form-ele-2small1x));
+        position: absolute;
+        right: 2px;
+        opacity: 0;
+        transition: opacity var(--timing-quick);
+        text-align: center;
+        display: inline-block;
+        &.show {
+          // display: block;
+          opacity: 1;
+        }
+      }
+      &-on {
+        color: white;
+        right: unset;
+        left: 2px;
+      }
+    }
+    &--disabled {
+      background: var(--form-ele-disabled-color);
+      cursor: not-allowed;
+      &.switch__wrapper--on {
+        background: var(--form-ele-color-light);
+      }
     }
   }
-  &--disabled {
-    background: var(--form-ele-disabled-color);
-    cursor: not-allowed;
-    &.switch__wrapper--on {
-      background: var(--form-ele-color-light);
+
+  .input-wrapper {
+    &--switch {
+      label {
+        // padding: var(--spacing-3xs) var(--spacing) var(--spacing-3xs) var(--spacing-xl);
+        padding: var(--spacing-3xs) var(--spacing-xs);
+      }
     }
   }
-}
 
-.input-wrapper {
-  &--switch {
-    label {
-      // padding: var(--spacing-3xs) var(--spacing) var(--spacing-3xs) var(--spacing-xl);
-      padding: var(--spacing-3xs) var(--spacing-xs);
-    }
+  .switch-old {
+    display: block;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    padding: 0;
+    position: relative;
+    min-height: 20px;
   }
-}
 
-.switch-old {
-  display: block;
-  box-sizing: border-box;
-  border: none;
-  background: none;
-  padding: 0;
-  position: relative;
-  min-height: 20px;
-}
+  .switch-old:focus,
+  .switch-old:hover {
+    outline: none;
+  }
 
-.switch-old:focus,
-.switch-old:hover {
-  outline: none;
-}
+  .switch-old:focus::before,
+  .switch-old:hover::before {
+    box-shadow: 0 0 0.5em color-swatches.$warm-gray-02;
+  }
 
-.switch-old:focus::before,
-.switch-old:hover::before {
-  box-shadow: 0 0 0.5em color-swatches.$warm-gray-02;
-}
+  .switch-old::before,
+  .switch-old::after {
+    content: "";
+    position: absolute;
+    height: 16px;
+    transition: all 0.25s ease;
+  }
 
-.switch-old::before,
-.switch-old::after {
-  content: "";
-  position: absolute;
-  height: 16px;
-  transition: all 0.25s ease;
-}
+  .switch-old::before {
+    left: 0;
+    top: 0.2em;
+    width: 32px;
+    border: 1px solid color-swatches.$warm-gray-08;
+    background: color-swatches.$warm-gray-08;
+    border-radius: 16px;
+    background-color: color-swatches.$aspen-green-08;
+    border-color: color-swatches.$aspen-green-08;
+  }
 
-.switch-old::before {
-  left: 0;
-  top: 0.2em;
-  width: 32px;
-  border: 1px solid color-swatches.$warm-gray-08;
-  background: color-swatches.$warm-gray-08;
-  border-radius: 16px;
-  background-color: color-swatches.$aspen-green-08;
-  border-color: color-swatches.$aspen-green-08;
-}
-
-.switch-old::after {
-  top: 4px;
-  background-color: #fff;
-  border-radius: 50%;
-  width: 14px;
-  height: 14px;
-  border: 1px solid color-swatches.$warm-gray-08;
-  left: 16px;
-  border-color: color-swatches.$aspen-green-08;
-  color: color-swatches.$aspen-green-08;
+  .switch-old::after {
+    top: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    border: 1px solid color-swatches.$warm-gray-08;
+    left: 16px;
+    border-color: color-swatches.$aspen-green-08;
+    color: color-swatches.$aspen-green-08;
+  }
 }
