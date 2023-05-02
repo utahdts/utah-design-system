@@ -204,7 +204,11 @@ export const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
         { link: pages.banners.link, title: pages.banners.pageTitle },
+        { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
+        { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
+        { link: pages.spinners.link, title: pages.spinners.pageTitle },
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
+        { link: pages.textIndicators.link, title: pages.textIndicators.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
