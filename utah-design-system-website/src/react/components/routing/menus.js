@@ -173,12 +173,6 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
     },
     {
-      id: 'components__modals',
-      link: pages.modals.link,
-      title: 'Modals',
-      parentLinks: [pages.library.link],
-    },
-    {
       id: 'components__navigation',
       title: 'Navigation',
       parentLinks: [pages.library.link],
@@ -193,6 +187,7 @@ export const menuLibraryComponentsSecondary = {
       title: 'Popups',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.modals.link, title: pages.modals.pageTitle },
         { link: pages.popups.link, title: pages.popups.pageTitle },
       ],
     },
@@ -208,6 +203,7 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.banners.link, title: pages.banners.pageTitle },
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],

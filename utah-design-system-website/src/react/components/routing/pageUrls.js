@@ -3,6 +3,7 @@ const pageUrls = {
   accordion: '/library/components/accordion/accordion',
   anchors: '/library/components/basic/anchor',
   badges: '/library/components/widgetsIndicators/badges',
+  banners: '/library/components/widgetsIndicators/banners',
   button: '/library/components/buttons/button',
   buttonGroup: '/library/components/buttons/buttonGroup',
   card: '/library/components/card/card',
