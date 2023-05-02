@@ -108,7 +108,7 @@ export default function mobileMenuInteractionHandler(
   // setup opening closing for things like utahid/hamburger
   // eslint-disable-next-line no-param-reassign
   interactiveElement.onclick = (e) => {
-    if (!(onClickHandler && onClickHandler(e))) {
+    if (!onClickHandler?.(e)) {
       const isAlreadyOpen = mobileMenu.classList.contains(domConstants.IS_OPEN);
       if (isAlreadyOpen) {
         if (shouldOnClickCloseMenu) {
@@ -134,7 +134,7 @@ export default function mobileMenuInteractionHandler(
     }
     // eslint-disable-next-line no-param-reassign
     actionItemWrapper.onclick = (e) => {
-      if (!(onClickHandler && onClickHandler(e))) {
+      if (!onClickHandler?.(e)) {
         showContentItem(mobileContentWrapper, mobileMenuContentItem);
         showActionItem(mobileMenuWrapper, actionItemWrapper);
       }
