@@ -27,14 +27,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       }),
     ],
     server: {
-      fs: {
-        allow: [
-          // search up for workspace root
-          searchForWorkspaceRoot(process.cwd()),
-          // your custom rules
-          '../library'
-        ]
-      },
       https: true,
       host: 'designsystem.local.utah.gov',
       port: 9180,
