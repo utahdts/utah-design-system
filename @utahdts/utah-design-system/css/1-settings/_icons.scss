@@ -224,4 +224,14 @@
   .utds-icon-after-lock::after {
     content: '\006b';
   }
+
+  .utds-icon-before-more-vertical::before,
+  .utds-icon-after-more-vertical::after {
+    content: '\006c';
+  }
+
+  .utds-icon-before-more-horizontal::before,
+  .utds-icon-after-more-horizontal::after {
+    content: '\006d';
+  }
 }
