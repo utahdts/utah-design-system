@@ -6,6 +6,10 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import tagsSelectingScreenShot from '../../../../../../../static/images/screenshots/components/basic/tags-selecting.jpg';
+import tagsWithIconsScreenShot from '../../../../../../../static/images/screenshots/components/basic/tags-with-icons.jpg';
+import tagsScreenShot from '../../../../../../../static/images/screenshots/components/basic/tags.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -16,7 +20,7 @@ function TagsDocumentation() {
       <h1 id="h1-top">Tags</h1>
       <p className="lead-in">
         A tag draws attention to new or categorized content elements. They visually label items with small amounts of information or
-        the item&apos;s status, usually with keywords that help organize and categorize the items.
+        the item&apos;s status. Tags are usually labeled with keywords that help organize and categorize the items.
       </p>
 
       <hr />
@@ -24,7 +28,7 @@ function TagsDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Informational tag"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={tagsScreenShot} alt="Informational Tags" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Tags can be purely informational and don&apos;t require additional interactivity.</li>
@@ -35,7 +39,7 @@ function TagsDocumentation() {
 
       <StaticExample
         title="Tags with icons"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={tagsWithIconsScreenShot} alt="Tags with Icons" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>An icon can be used on the left or the right.</li>
@@ -47,16 +51,15 @@ function TagsDocumentation() {
       />
 
       <StaticExample
-        title="Filtering"
-        renderedExample="Example coming soon!"
+        title="Filtering and Selecting"
+        renderedExample={<LightBox image={tagsSelectingScreenShot} alt="Tags for Selecting or Filtering" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Tags can be used to filter and organize similar options. Once a tag is selected, the filtering behavior is immediate.</li>
+            <li>Tags are used to identify and select multiple options from a list. See <Link to={pageUrls.multiSelect}>multi-select</Link>.</li>
           </ul>
         )}
       />
-
-      <span>Tags are used to identify and select multiple options from a list. See <Link to={pageUrls.multiSelect}>multi-select</Link>.</span>
 
       <h2 id="section-guidance" className="mb-spacing mt-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
@@ -105,7 +108,7 @@ function TagsDocumentation() {
           <strong>Don&apos;t overdo it.</strong> If everything on a page is called out as important, nothing commands unique attention.
         </li>
         <li>
-          <strong>Tags may be persistent or dismissible.</strong> Dismissible tags can be added or removed by users.
+          <strong>Tags may be persistent or dismissible.</strong> Dismissible tags can be added or removed by users by clicking an (x) icon.
         </li>
         <li>
           <strong>Link tags.</strong> Link tags let you provide a link to somewhere or to filter content by that tag.
@@ -114,7 +117,7 @@ function TagsDocumentation() {
             <li>When used as a filter tag, link tags instantly filter content on click.</li>
           </ul>
         </li>
-        <li><strong>Tags can be used to categorize items.</strong></li>
+        <li><strong>Tags can be used to show the category or other taxonomy of items.</strong></li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
