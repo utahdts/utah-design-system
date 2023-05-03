@@ -17,6 +17,7 @@ import SelectDocumentation from '../websiteContent/library/components/forms/Sele
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
+import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
@@ -415,7 +416,7 @@ const pages = {
   },
 
   lists: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: ListsDocumentation,
     link: pageUrls.lists,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Lists',
