@@ -166,6 +166,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
+        { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
         { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
     },
@@ -190,6 +191,7 @@ export const menuLibraryComponentsSecondary = {
       title: 'Popups',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.banners.link, title: pages.banners.pageTitle },
         { link: pages.modals.link, title: pages.modals.pageTitle },
         { link: pages.popups.link, title: pages.popups.pageTitle },
       ],
@@ -206,7 +208,6 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
-        { link: pages.banners.link, title: pages.banners.pageTitle },
         { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },

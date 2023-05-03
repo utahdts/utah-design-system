@@ -98,6 +98,7 @@ function Switch({
           name={id}
           onChange={currentOnChange}
           onKeyPress={currentOnFormKeyPress}
+          role="switch"
           type="checkbox"
           {...rest}
         />

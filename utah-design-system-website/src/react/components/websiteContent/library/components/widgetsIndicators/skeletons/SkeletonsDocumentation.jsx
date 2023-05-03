@@ -121,7 +121,7 @@ function SkeletonsDocumentation() {
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>To ensure good visibility under favorable conditions, such as adequate ambient light, a high-quality screen, and no visual impairments, the background color of the skeleton is chosen to have the lowest possible luminance required.</li>
-        <li>The boundaries of the shapes contained within the skeleton must maintain a minimum <code>3:1</code> contrast ratio against the background. </li>
+        <li>The boundaries of the shapes contained within the skeleton must maintain a minimum <code>3:1</code> contrast ratio against the background.</li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>

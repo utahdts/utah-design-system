@@ -105,7 +105,7 @@ function ModalsDocumentation() {
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
-        <li>A modal should include some aria attributes: the container should have <code>role=&quote;dialog&quote;</code>, <code>aria-modal=&quote;true&quote;</code> and <code>aria-labelledby</code> referring to the title.</li>
+        <li>A modal should include some aria attributes: the container should have <code>role=&quot;dialog&quot;</code>, <code>aria-modal=&quot;true&quot;</code> and <code>aria-labelledby</code> referring to the title.</li>
         <li>Make sure the overlay is visibly dark AND the user can not navigate outside the modal until it is closed. Navigating outside while the modal is displayed can cause major confusion for users, especially those using assistive technology.</li>
         <li>If the modal includes a <code>close</code> button, it should be placed at the end of the html code. That way the screen reader will appropriately read it after navigating through the modal’s content.</li>
         <li>For any element within the modal, please refer to their respective documentation.</li>
