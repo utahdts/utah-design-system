@@ -184,4 +184,14 @@ export default [
     title: 'lock',
     letter: 'k',
   },
+  {
+    cssClass: 'more-vertical',
+    title: 'more vertical',
+    letter: 'l',
+  },
+  {
+    cssClass: 'more-horizontal',
+    title: 'more horizontal',
+    letter: 'm',
+  },
 ];
