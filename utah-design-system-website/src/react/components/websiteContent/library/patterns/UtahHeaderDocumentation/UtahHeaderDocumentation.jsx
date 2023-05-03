@@ -807,8 +807,8 @@ function UtahHeaderDocumentation() {
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  Custom content can be provided through a callback function that takes the trigger event and returns
-                  the custom content to render or a string representation of the html content to render.
+                  Custom content can be provided through a callback function. You are provided the trigger event (click), and must return
+                  the custom content to render (DOM Element) or a string representation of the html content.
                 </span>
               </TableCell>
             </TableRow>
@@ -885,6 +885,8 @@ function UtahHeaderDocumentation() {
               </TableCell>
             </TableRow>
 
+            {/* -- Commenting out this entire section until we decide if we want to keep it
+
             <TableRow>
               <TableCell>
                 <span className="prop__name"><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></span><br />
@@ -903,6 +905,8 @@ function UtahHeaderDocumentation() {
                 </span>
               </TableCell>
             </TableRow>
+
+            */}
 
             <TableRow>
               <TableCell>
