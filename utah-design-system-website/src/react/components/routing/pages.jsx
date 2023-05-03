@@ -6,6 +6,7 @@ import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
@@ -339,7 +340,7 @@ const pages = {
   },
 
   tags: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: TagsDocumentation,
     link: pageUrls.tags,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Tags',
