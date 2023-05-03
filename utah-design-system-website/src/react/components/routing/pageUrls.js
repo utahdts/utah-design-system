@@ -65,6 +65,7 @@ const pageUrls = {
   textArea: '/library/components/forms/textArea',
   textIndicators: '/library/components/widgetsIndicators/textIndicators',
   textInput: '/library/components/forms/textInput',
+  timeInput: '/library/components/forms/timeInput',
   tooltips: '/library/components/tooltips',
   type: '/library/components/basic/type',
   typography: '/foundation/typography',

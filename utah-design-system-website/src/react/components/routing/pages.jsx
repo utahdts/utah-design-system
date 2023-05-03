@@ -16,6 +16,7 @@ import MultiSelectDocumentation from '../websiteContent/library/components/forms
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
+import TimeInputDocumentation from '../websiteContent/library/components/forms/TimeInput/TimeInputDocumentation';
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
@@ -569,6 +570,13 @@ const pages = {
     link: pageUrls.textInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Text Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  timeInput: {
+    content: TimeInputDocumentation,
+    link: pageUrls.timeInput,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Time Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   validation: {
