@@ -20,6 +20,7 @@ import ValidationDocumentation from '../websiteContent/library/components/forms/
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
+import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
@@ -450,7 +451,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   banners: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: BannersDocumentation,
     link: pageUrls.banners,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Banners',

@@ -77,8 +77,8 @@ function MultiSelectDocumentation() {
 
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>Use Tab to move between form elements. The select should display a visible focus state when users tab to them. </li>
-        <li>Use arrow keys (arrow left / arrow right) to highlight options that are already selected. </li>
+        <li>Use Tab to move between form elements. The select should display a visible focus state when users tab to them.</li>
+        <li>Use arrow keys (arrow left / arrow right) to highlight options that are already selected.</li>
         <li>Use the Delete or Backspace key to remove a highlighted option.</li>
         <li>Begin typing in the field to narrow the list of options.</li>
         <li>Use arrow keys (arrow up ↑/ arrow down ↓) to navigate between select options.</li>
@@ -91,7 +91,7 @@ function MultiSelectDocumentation() {
         <li>The <code>aria-multiselectable</code> attribute provides a way to inform assistive technology users that they may select more than one item from the current selectable items if they so choose.</li>
         <li>Always pair a <code>label</code> with a <code>select</code>. Include a <code>for</code> attribute on each <code>label</code> with a value matching the <code>id</code> attribute on the corresponding <code>select</code>. Don&apos;t replace the label with the default with placeholder or default selection.</li>
         <li>Don&apos;t use JavaScript to automatically submit the form (or do anything else) when an option is selected.  Auto-submission disrupts screen readers because they select each option as they read them.</li>
-        <li>If you customize this component, ensure that it continues to meet the accessibility requirements. </li>
+        <li>If you customize this component, ensure that it continues to meet the accessibility requirements.</li>
       </ul>
     </div>
   );

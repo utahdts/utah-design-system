@@ -85,7 +85,7 @@ function BadgesDocumentation() {
         <li><strong>Badge proximity</strong>: Keep the badge in close proximity to its parent element. When space permits, place the badge inside the parent element on the right side. (e.g. a navigation list item or regular button)</li>
         <li><strong>Maximum character count</strong>: Ensure that badge labels don&apos;t extend too far beyond the badge container. Typically don&apos;t use more than 4 characters.</li>
         <li><strong>Avoid changing the position</strong>: Badges have fixed positions. Generally, don&apos;t change the position of the badge arbitrarily or place the badge directly over the parent component.</li>
-        <li><strong>Hide badge when acknowledged</strong>: When a badge is used to indicate an unread notification, the badge gets hidden once it has been viewed or acknowledged by the user. </li>
+        <li><strong>Hide badge when acknowledged</strong>: When a badge is used to indicate an unread notification, the badge gets hidden once it has been viewed or acknowledged by the user.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>

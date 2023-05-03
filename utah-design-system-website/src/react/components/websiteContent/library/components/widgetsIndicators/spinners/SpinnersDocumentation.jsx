@@ -60,7 +60,7 @@ function SpinnersDocumentation() {
           <strong>Clicking a button.</strong> Use a loading spinner when dealing with small, inline actions or feedback,
           such as clicking a <Link to={pageUrls.button}>button</Link> that may take some time to process.
         </li>
-        <li><strong>Loading takes more than 300ms (.3 seconds):</strong> When an action takes more than <code>300ms</code> to complete. </li>
+        <li><strong>Loading takes more than 300ms (.3 seconds):</strong> When an action takes more than <code>300ms</code> to complete.</li>
         <li><strong>Loading content for an entire page.</strong></li>
         <li><strong>Loading content inside of a component.</strong></li>
         <li><strong>Loading content inside of a modal.</strong></li>
