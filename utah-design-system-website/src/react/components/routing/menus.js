@@ -155,15 +155,18 @@ export const menuLibraryComponentsSecondary = {
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.forms.link, title: pages.forms.pageTitle },
         { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
         { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
+        { link: pages.masks.link, title: pages.masks.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
         { link: pages.select.link, title: pages.select.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
+        { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
     },
     {
@@ -229,7 +232,6 @@ export const menuLibraryPatternsSecondary = {
       link: pages.utahHeader.link,
       parentLinks: [pages.library.link],
     },
-    { link: pages.validation.link, title: pages.validation.pageTitle, parentLinks: [pages.library.link] },
   ],
 };
 

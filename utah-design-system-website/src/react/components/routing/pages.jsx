@@ -16,6 +16,7 @@ import MultiSelectDocumentation from '../websiteContent/library/components/forms
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
+import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
@@ -492,6 +493,13 @@ const pages = {
   },
 
   // === forms === //
+  forms: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.forms,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Forms',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   checkbox: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.checkbox,
@@ -511,6 +519,13 @@ const pages = {
     link: pageUrls.dateInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Date Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  masks: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.masks,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Masks',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   multiSelect: {
@@ -556,7 +571,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   validation: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: ValidationDocumentation,
     link: pageUrls.validation,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Validation',
@@ -614,21 +629,6 @@ const pages = {
   },
 
   // will go away VVVVVVVV
-  forms: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.forms,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Forms',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  form: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.form,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Form',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   errorPage404: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.errorPage404,
