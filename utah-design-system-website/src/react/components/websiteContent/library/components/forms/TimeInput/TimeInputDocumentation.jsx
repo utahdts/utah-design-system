@@ -6,6 +6,9 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import timeInputDefault from '../../../../../../../static/images/screenshots/components/time-input/timeInputDefault.jpg';
+import timeInputSelect from '../../../../../../../static/images/screenshots/components/time-input/timeInputSelect.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -13,7 +16,7 @@ const defaultProps = {};
 function TimeInputDocumentation() {
   return (
     <div className="documentation-content">
-      <h1 id="h1-top">Time input</h1>
+      <h1 id="h1-top">Time Input</h1>
       <p className="lead-in">
         Time input is a component that allows users to key in a time, select from a <Link to={pageUrls.popups}>popup menu</Link>, or
         a <Link to={pageUrls.select}>select</Link> input.
@@ -21,8 +24,8 @@ function TimeInputDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <StaticExample
-        title="Default Time input"
-        renderedExample="Example coming soon!"
+        title="Default time input"
+        renderedExample={<LightBox image={timeInputDefault} alt="Time Input" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
@@ -52,8 +55,8 @@ function TimeInputDocumentation() {
 
       <StaticExample
         id="static-example__select-time-input"
-        title="Select Time input"
-        renderedExample="Example coming soon!"
+        title="Select time input"
+        renderedExample={<LightBox image={timeInputSelect} alt="Select Time Input" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>

@@ -51,7 +51,7 @@ function TagsDocumentation() {
       />
 
       <StaticExample
-        title="Filtering and Selecting"
+        title="Filtering and selecting"
         renderedExample={<LightBox image={tagsSelectingScreenShot} alt="Tags for Selecting or Filtering" className="flex-3up-gap" />}
         quickTips={(
           <ul>
