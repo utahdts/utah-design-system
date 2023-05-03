@@ -71,7 +71,7 @@ function ProgressLog() {
             <ProgressLogTableRow title="Pagination" toUrl={pageUrls.pagination} isDefinitionChecked />
             <ProgressLogTableRow title="Patterns: Footer" toUrl={pageUrls.utahFooter} isDefinitionChecked />
             <ProgressLogTableRow title="Select input" toUrl={pageUrls.select} isDefinitionChecked />
-            <ProgressLogTableRow title="Table" toUrl={pageUrls.table} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Table" toUrl={pageUrls.table} isDefinitionChecked isComponentExampleChecked />
             <ProgressLogVersionRow version="0.4" />
             <ProgressLogTableRow title="Getting Started" toUrl={pageUrls.gettingStarted} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Text Input" toUrl={pageUrls.textInput} isDefinitionChecked />

@@ -7,8 +7,8 @@ import identity from 'lodash/identity';
 // so it'd be a larger change.
 export default function findElementsByTagNameMatch(element) {
   return [
-    (element && element.tagName.match(/^h[23]$/i)) ? element : null,
-    ...((element && element.children) ? Array.from(element.children).map((child) => findElementsByTagNameMatch(child)) : []),
+    (element?.tagName?.match?.(/^h[23]$/i)) ? element : null,
+    ...((element?.children) ? Array.from(element.children).map((child) => findElementsByTagNameMatch(child)) : []),
   ]
     .flat(Infinity)
     .filter(identity)

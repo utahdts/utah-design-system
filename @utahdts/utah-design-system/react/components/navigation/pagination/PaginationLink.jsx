@@ -31,7 +31,7 @@ function PaginationLink({
         aria-current={(pageIndex === currentPageIndex) ? 'page' : undefined}
         className={joinClassNames(
           'pagination__link',
-          currentPageIndex === pageIndex && 'pagination__link--disabled',
+          currentPageIndex !== pageIndex && 'pagination__link--inactive',
           currentPageIndex === pageIndex && 'pagination__link--active'
         )}
         href={`#pagination-${pageIndex}`}

@@ -155,27 +155,25 @@ export const menuLibraryComponentsSecondary = {
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.forms.link, title: pages.forms.pageTitle },
         { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
         { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
+        { link: pages.masks.link, title: pages.masks.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
         { link: pages.select.link, title: pages.select.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
+        { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
+        { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
     },
     {
       id: 'components__lists',
       title: 'Lists',
       link: pages.lists.link,
-      parentLinks: [pages.library.link],
-    },
-    {
-      id: 'components__modals',
-      link: pages.modals.link,
-      title: 'Modals',
       parentLinks: [pages.library.link],
     },
     {
@@ -193,6 +191,8 @@ export const menuLibraryComponentsSecondary = {
       title: 'Popups',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.banners.link, title: pages.banners.pageTitle },
+        { link: pages.modals.link, title: pages.modals.pageTitle },
         { link: pages.popups.link, title: pages.popups.pageTitle },
       ],
     },
@@ -208,7 +208,11 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
+        { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
+        { link: pages.spinners.link, title: pages.spinners.pageTitle },
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
+        { link: pages.textIndicators.link, title: pages.textIndicators.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
@@ -229,7 +233,6 @@ export const menuLibraryPatternsSecondary = {
       link: pages.utahHeader.link,
       parentLinks: [pages.library.link],
     },
-    { link: pages.validation.link, title: pages.validation.pageTitle, parentLinks: [pages.library.link] },
   ],
 };
 

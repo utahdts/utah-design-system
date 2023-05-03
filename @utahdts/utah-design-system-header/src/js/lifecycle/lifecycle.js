@@ -131,7 +131,9 @@ export function loadHeader() {
 
     loadCssSettings();
 
-    fetchUtahIdUserDataAsync();
+    fetchUtahIdUserDataAsync()
+      // eslint-disable-next-line no-console
+      .catch((e) => console.error(e));
   }
 }
 

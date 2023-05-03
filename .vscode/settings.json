@@ -17,7 +17,9 @@
     "Renderable",
     "renderables",
     "sitewide",
+    "spacebar",
     "tinycolor",
+    "toggleable",
     "triggerable",
     "unbrand",
     "unclickable",
@@ -26,6 +28,8 @@
     "utahdts",
     "utds",
     "uuidv",
+    "viewports",
+    "WCAG",
     "xsmall"
   ],
   "editor.unicodeHighlight.allowedCharacters": {

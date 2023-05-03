@@ -4,7 +4,6 @@ import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import useComponentState from '../../../hooks/forms/useComponentState';
 import joinClassNames from '../../../util/joinClassNames';
 import IconButton from '../../buttons/IconButton';
-import Icons from '../../icons/Icons';
 import PaginationLink from './PaginationLink';
 import determinePaginationLinks from './util/determinePaginationLinks';
 
@@ -75,7 +74,8 @@ function Pagination({
       <ul>
         <IconButton
           appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-          icon={useMemo(Icons.IconArrowLeft, [])}
+          className="pagination__prev"
+          icon={<span className="utds-icon-before-arrow-left" aria-hidden="true" />}
           isDisabled={currentPageIndex === 0}
           onClick={useCallback(() => currentOnChange(currentPageIndexRef.current - 1), [currentOnChange])}
           title="Previous Page"
@@ -86,11 +86,11 @@ function Pagination({
             paginationLink.isEllipsis
               ? (
                 <span
-                  className="pagination-link__ellipsis"
+                  className="pagination__ellipsis"
                   // eslint-disable-next-line react/no-array-index-key
                   key={`pagination-link__ellipsis__${paginationLinkIndex}`}
                 >
-                  &hellip;
+                  <span className="utds-icon-before-more-horizontal" aria-hidden="true" />
                 </span>
               )
               : (
@@ -107,7 +107,8 @@ function Pagination({
 
         <IconButton
           appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-          icon={useMemo(Icons.IconArrowRight, [])}
+          className="pagination__next"
+          icon={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}
           isDisabled={currentPageIndex === numberOfPages - 1}
           onClick={useCallback(() => currentOnChange(currentPageIndexRef.current + 1), [currentOnChange])}
           title="Next Page"

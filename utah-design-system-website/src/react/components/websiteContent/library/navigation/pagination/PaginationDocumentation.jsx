@@ -3,17 +3,21 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
+import { Pagination } from '@utahdts/utah-design-system';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import paginationScreenshot from '../../../../../../static/images/mockups/Pagination.jpg';
+import LightBox from '../../../../lightbox/LightBox';
+import PreCode from '../../../../preCode/PreCode';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
-import PreCode from '../../../../preCode/PreCode';
-import LightBox from '../../../../lightbox/LightBox';
-import paginationScreenshot from '../../../../../../static/images/mockups/Pagination.jpg';
 
 const propTypes = {};
 const defaultProps = {};
 
 function PaginationDocumentation() {
+  const [demoPaginationIndex, setDemoPaginationIndex] = useState(0);
+
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Pagination</h1>
@@ -36,6 +40,15 @@ function PaginationDocumentation() {
             </li>
           </ul>
         )}
+      />
+
+      <Pagination
+        onChange={(page) => {
+          setDemoPaginationIndex(page);
+        }}
+        pageSize={10}
+        totalNumberItems={102}
+        value={demoPaginationIndex}
       />
 
       <h2 id="section-guidance" className="mb-spacing">Description and Guidance</h2>

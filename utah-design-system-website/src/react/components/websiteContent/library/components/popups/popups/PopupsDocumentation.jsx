@@ -323,11 +323,13 @@ function PopupsDocumentation() {
           Be sure the popup can be dismissed with the <code>Escape</code> key. Once dismissed, the user&apos;s focus should return to the element that spawned the
           popup.
         </li>
-        <li>Keyboard shortcuts include:</li>
-        <ul>
-          <li><code>Enter</code> key should open the popup</li>
-          <li><code>Esc</code> key should dismiss the popup</li>
-        </ul>
+        <li>
+          Keyboard shortcuts include:
+          <ul>
+            <li><code>Enter</code> key should open the popup</li>
+            <li><code>Esc</code> key should dismiss the popup</li>
+          </ul>
+        </li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">

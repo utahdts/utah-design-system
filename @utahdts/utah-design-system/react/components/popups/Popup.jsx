@@ -96,7 +96,8 @@ function Popup({
   useEffect(
     () => {
       if (update) {
-        update();
+        // eslint-disable-next-line no-console
+        update().catch((e) => console.error(e));
       }
     },
     [isVisible]

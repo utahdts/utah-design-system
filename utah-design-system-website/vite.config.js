@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react';
-import { defineConfig, searchForWorkspaceRoot } from 'vite';
+import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import mkcert from 'vite-plugin-mkcert';
 
