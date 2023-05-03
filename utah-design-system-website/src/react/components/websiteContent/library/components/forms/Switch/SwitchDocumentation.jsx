@@ -183,7 +183,7 @@ function SwitchDocumentation() {
           <strong>Switches have an immediate effect on the system.</strong>
         </li>
         <li>
-          <strong>A switch has two states:</strong> Switches only have 2 states: on/enabled or off/disabled.
+          <strong>A switch has two states:</strong> Switches only have 2 states: on/true or off/false.
         </li>
         <li>
           <strong>Form-label position:</strong> In a web form, the form-label is generally positioned to the right of the
