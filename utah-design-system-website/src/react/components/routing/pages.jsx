@@ -25,6 +25,7 @@ import TableDocumentation from '../websiteContent/library/components/table/Table
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
+import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
 import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -469,7 +470,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   spinners: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: SpinnersDocumentation,
     link: pageUrls.spinners,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Spinners',
