@@ -158,6 +158,13 @@ const pages = {
     pageTitle: 'UX Best Practices',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  validation: {
+    content: ValidationDocumentation,
+    link: pageUrls.validation,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form Validation',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
 
   // === foundation documentation components === //
   spacing: {
@@ -578,13 +585,6 @@ const pages = {
     link: pageUrls.timeInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Time Input',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  validation: {
-    content: ValidationDocumentation,
-    link: pageUrls.validation,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Validation',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

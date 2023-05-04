@@ -81,6 +81,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.validation.link,
+      title: pages.validation.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.notifications.link,
       title: pages.notifications.pageTitle,
       parentLinks: [pages.guidelines.link],
@@ -167,7 +172,6 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
         { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
-        { link: pages.validation.link, title: pages.validation.pageTitle },
       ],
     },
     {

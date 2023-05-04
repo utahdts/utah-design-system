@@ -72,7 +72,7 @@ const pageUrls = {
   utahFooter: '/library/patterns/utahFooter',
   utahHeader: '/library/patterns/utahHeader',
   uxBestPractices: '/guidelines/uxBestPractices',
-  validation: '/library/components/validation',
+  validation: '/guidelines/validation',
   verticalMenu: '/library/components/navigation/verticalMenu',
 };
 
