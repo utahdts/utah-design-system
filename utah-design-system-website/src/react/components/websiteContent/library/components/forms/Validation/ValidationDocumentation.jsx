@@ -7,9 +7,20 @@ import { Link } from 'react-router-dom';
 import PreCode from '../../../../../preCode/PreCode';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import validationScreenshot from '../../../../../../../static/images/screenshots/patterns/form-validation/formValidation.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
+
+function addBanner(role) {
+  const banner = document.createElement('span');
+  const bannerTarget = document.getElementById('banner-target');
+  banner.setAttribute('role', role);
+  banner.appendChild(document.createTextNode('Warning: there are errors on the form!'));
+  banner.style.display = 'inline-block';
+  bannerTarget.appendChild(banner);
+}
 
 function ValidationDocumentation() {
   return (
@@ -21,7 +32,10 @@ function ValidationDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
-      <StaticExample renderedExample="Example coming soon!" title="" />
+      <StaticExample
+        renderedExample={<LightBox image={validationScreenshot} alt="Form Validation" className="flex-3up-gap" />}
+        title=""
+      />
 
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
@@ -39,6 +53,11 @@ function ValidationDocumentation() {
         <li>
           <strong>HTML5.</strong> Avoid using default validation. Each browser handles validation differently. We want
           the experience to be consistent for all users within the State of Utah ecosystem.
+        </li>
+        <li>
+          <strong>Required.</strong> If an input is required, should include a red asterisk <code>*</code> in the label.
+          See <a href="#section-screen-readers">screen readers</a> for more information about accessibility requirements for
+          required fields.
         </li>
         <li>
           <strong>Hints.</strong> Give the user a description of the expected value beforehand, rather than communicating
@@ -63,14 +82,13 @@ function ValidationDocumentation() {
           <strong>Consistency.</strong> Use the same wording across all <Link to={pageUrls.forms}>forms</Link>.
         </li>
         <li>
-          <strong>Interaction.</strong> Generally, any error should be displayed after the user interacted with
-          the <Link to={pageUrls.forms}>form</Link>: either after losing focus or after submission.
+          <strong>Interaction.</strong> Generally, any error should be displayed after the user has interacted with
+          the <Link to={pageUrls.forms}>form</Link>; either after each form element loses focus or after the form is submitted.
         </li>
         <li>
-          <strong>Reasonable.</strong> If extra characters are added and do not make the answer ambiguous, simply ignore them
-          and clean the data before storage. Phone number example: 385-229-0540, 385 229 0540, 3852290540, (385) 229-0540.
-          The best user experience would be to clean the data on blur so that the user has a chance to correct it. Another option is to
-          use a <Link to={pageUrls.masks}>mask</Link>, but there are accessability and usability issues.
+          <strong>Reasonable.</strong> If extra characters are added to an input and do not make the answer ambiguous, simply ignore them
+          and clean the data before storage. For example a phone number could be entered in different ways: 385-229-0540, 385 229 0540, 3852290540, (385) 229-0540.
+          The best user experience would be to clean the data on blur so that the user has a chance to correct it.
         </li>
       </ul>
 
@@ -89,18 +107,39 @@ function ValidationDocumentation() {
 
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
-        <li>If an input is required, it should be shown on its label by including a red asterisk <code>*</code>.</li>
-        <li>Also include visually hidden text such as &quot;required&quot;, or &quot;mandatory&quot; for those using assistive technology.</li>
-        <li>For example: <code>&lt;label&gt;&lt;span class=&quot;visually-hidden&quot;&gt;required&lt;/span&gt; First name*&lt;/label&gt;</code>.</li>
-        <li>After submitting, an error summary should be populated in an <code>aria-live</code> region with details about the errors on the form.</li>
+        <li>Required form inputs should including a red asterisk <code>*</code> and additional text for assistive technologies:
+          <ul>
+            <li>Include visually hidden text such as &quot;required&quot;, or &quot;mandatory&quot; in the label.
+              <br />
+              For example:
+              <PreCode
+                showBackgroundColor
+                codeRaw={`
+                  <label for="last-name">
+                    Last Name
+                    <span class="required-star" aria-hidden="true">*</span>
+                    <span class="visually-hidden">required</span>
+                  </label>
+                  <input type="text" id="last-name".../>
+                `}
+              />
+            </li>
+            <li>It is recommended if you are following the pattern above that you do <strong>not</strong> include the <code>required</code> html attribute.</li>
+          </ul>
+        </li>
+
         <li>
-          Each error message should include <code>Error:</code> as a <code>visually-hidden</code> prefix.
+          Each error message should include &quot;Error:&quot; as a <code>visually-hidden</code> prefix.
           <br />For Example:
           <PreCode
             showBackgroundColor
             codeRaw={`
-              <label for="last-name">Last Name*</label>
               <label for="last-name">
+                Last Name
+                <span class="required-star" aria-hidden="true">*</span>
+                <span class="visually-hidden">required</span>
+              </label>
+              <label for="last-name" class="form-error-message">
                 <span class="visually-hidden">Error: </span>
                 Enter your last name
               </label>
@@ -111,17 +150,28 @@ function ValidationDocumentation() {
             showBackgroundColor
             codeRaw={`
               <label>
-                <div>Last Name*</div>
                 <div>
+                  Last Name
+                  <span class="required-star" aria-hidden="true">*</span>
+                  <span class="visually-hidden">required</span>
+                </div>
+                <div class="form-error-message">
                   <span class="visually-hidden">Error: </span>
                   Enter your last name
                 </div>
                 <input type="text".../>
-              </label>            
+              </label>
             `}
           />
         </li>
-        <li>The error summary container should include <code>role=&quot;alert&quot;</code></li>
+        <li>
+          The error summary container should include <code>role=&quot;alert&quot;</code> This will provide a screen reader with an
+          audible alert sound followed by the text contained in the banner. (Turn on your screen reader and click the button below to test this.)<br />
+          <button className="button" onClick={() => addBanner('alert')} type="button">Show Banner (Screen Reader Test)</button>
+          <div>
+            <code id="banner-target" />
+          </div>
+        </li>
         <li>Clicking on an error link in the summary should take the user to the corresponding form element.</li>
         <li>Invalid fields should use <code>aria-invalid=&quot;true&quot;</code>.</li>
       </ul>
