@@ -6,6 +6,11 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import bannerLandmarkScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannerLandmark.jpg';
+import bannersLargeScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersLarge.jpg';
+import bannersMediumScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersMedium.jpg';
+import bannersSmallScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersSmall.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -25,7 +30,7 @@ function BannersDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Small banners"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={bannersSmallScreenshot} alt="Small Banners" className="flex-4up-gap" />}
         quickTips={(
           <ul>
             <li>A small banner appears in response to a change in an application process or as a direct result of a user action.</li>
@@ -41,10 +46,10 @@ function BannersDocumentation() {
 
       <StaticExample
         title="Medium banners"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={bannersMediumScreenshot} alt="Medium Banners" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>Medium banners consist of a container, one line of content, and a close button.</li>
+            <li>Medium banners consist of a container, content, and a close button.</li>
             <li>An icon may be included to the left of the text to help convey the overall message.</li>
             <li>Medium banners should float above the content on the page.</li>
             <li>
@@ -60,16 +65,16 @@ function BannersDocumentation() {
 
       <StaticExample
         title="Large banners"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={bannersLargeScreenshot} alt="Large Banners" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>Large banners are comprised of a container and one line of content.</li>
+            <li>Large banners are comprised of a container and content.</li>
             <li>A close icon should be used on all banners except for things like form validation where the issue must be addressed before the user can continue.</li>
             <li>An icon may be included to the left of the text to help convey the overall message.</li>
             <li>Large banners should not float above the content, but should push the content down; The user should be able to dismiss the message at their discretion.</li>
             <li>
               Since these banners are a part of the content flow, <Link to={pageUrls.button}>buttons</Link> and <Link to={pageUrls.links}>links</Link> may be used in these banners
-              as they will be accessible to the user. However, large banners that appear spontaneously should not have interactive elements, since screen reader users will not be
+              as they will be accessible to the user. However, large banners that appear spontaneously should <strong>not</strong> have interactive elements, since screen reader users will not be
               able to navigate to the banner easily.
             </li>
             <li>A large banner usually displays critical, time-sensitive warnings or directions so that users see them whenever they visit the site.</li>
@@ -80,7 +85,7 @@ function BannersDocumentation() {
 
       <StaticExample
         title="Landmark banners"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={bannerLandmarkScreenshot} alt="Landmark Banner" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>A landmark banner is persistent across all sites and is visible on every page. These should only be used in association with landmark elements. E.g. <Link to={pageUrls.utahHeader}>Header</Link>, <Link to={pageUrls.utahHeader}>main menu</Link>, or <Link to={pageUrls.verticalMenu}>side menu</Link> etc.</li>
@@ -125,7 +130,8 @@ function BannersDocumentation() {
         </li>
         <li>
           <strong>Critical content or messaging.</strong> Use a <Link to={pageUrls.modals}>Modal</Link> to convey critical information,
-          and focus the user&apos;s full attention.
+          and focus the user&apos;s full attention. Modals allow the user to press a button, make a decision, or other actions that would
+          be inaccessible to assistive technologies in spontaneously created banners.
         </li>
       </ul>
 
@@ -193,9 +199,9 @@ function BannersDocumentation() {
         </li>
         <li>
           Floating banners (small and medium) should alert the user by using a persistent <code>aria-live</code> region
-          where the message can be conveyed to screen reader users. The <code>aria-live</code> region should be set to
-          <code>aria-live=&quot;polite&quot;</code> to not interrupt the user&apos;s current flow. Using any other <code>aria-live</code>
-          setting should be avoided as it can be extremely annoying and disruptive.
+          where the message can be conveyed to screen reader users. The <code>aria-live</code> region should be set
+          to <code>aria-live=&quot;polite&quot;</code> to not interrupt the user&apos;s current flow. Using any
+          other <code>aria-live</code> setting should be avoided as it can be extremely annoying and disruptive.
         </li>
       </ul>
     </div>

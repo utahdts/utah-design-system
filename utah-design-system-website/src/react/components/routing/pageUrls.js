@@ -36,7 +36,6 @@ const pageUrls = {
   library: '/library',
   links: '/library/components/basic/links',
   lists: '/library/components/lists/lists',
-  masks: '/library/components/forms/masks',
   mockups: '/resources/mockups',
   modals: '/library/modals',
   motionTiming: '/foundation/motionTiming',

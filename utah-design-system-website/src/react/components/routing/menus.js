@@ -164,7 +164,6 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
         { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
-        { link: pages.masks.link, title: pages.masks.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
         { link: pages.select.link, title: pages.select.pageTitle },

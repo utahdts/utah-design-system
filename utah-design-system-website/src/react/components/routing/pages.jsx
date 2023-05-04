@@ -531,13 +531,6 @@ const pages = {
     pageTitle: 'Date Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  masks: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.masks,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Masks',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
   multiSelect: {
     content: MultiSelectDocumentation,
     link: pageUrls.multiSelect,
