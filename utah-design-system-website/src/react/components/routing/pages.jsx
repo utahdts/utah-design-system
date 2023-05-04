@@ -494,13 +494,6 @@ const pages = {
     pageTitle: 'Step Indicators',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  textIndicators: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.textIndicators,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Text Indicators',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
 
   // === forms === //
   forms: {

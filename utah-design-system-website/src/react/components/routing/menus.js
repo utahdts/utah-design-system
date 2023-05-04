@@ -215,7 +215,6 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
-        { link: pages.textIndicators.link, title: pages.textIndicators.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },

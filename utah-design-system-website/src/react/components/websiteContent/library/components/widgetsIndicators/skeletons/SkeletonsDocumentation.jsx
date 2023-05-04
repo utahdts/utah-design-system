@@ -102,7 +102,7 @@ function SkeletonsDocumentation() {
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>Long-running processes.</strong> For tasks such as file conversions, uploads/downloads, exporting reports, or data importing, it&apos;s better to use <Link to={pageUrls.progressBars}>progress bars</Link> and/or <Link to={pageUrls.textIndicators}>text indicators</Link> that detail each stage of the process.</li>
+        <li><strong>Long-running processes.</strong> For tasks such as file conversions, uploads/downloads, exporting reports, or data importing, it&apos;s better to use <Link to={pageUrls.progressBars}>progress bars</Link> and/or text that detail each stage of the process.</li>
         <li><strong>Fast processes.</strong> For fast processes that take less than <code>300ms</code>, a loading indicator (skeleton or <Link to={pageUrls.spinners}>spinner</Link>) is not necessary.</li>
         <li><strong>Clicking a button.</strong> When dealing with small, inline actions or feedback, such as clicking a button that may take some time to process, it&apos;s preferable to use a loading <Link to={pageUrls.spinners}>spinner</Link> instead of a skeleton.</li>
         <li><strong>Content with flair.</strong> Consider using a choreographed or stylized entrance. Unlike a loading skeleton, these entrances don&apos;t depend on loading time. For example, reveal each section with a fade as the user scrolls down the page.</li>

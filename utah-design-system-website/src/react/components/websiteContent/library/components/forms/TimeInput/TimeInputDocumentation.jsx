@@ -133,7 +133,7 @@ function TimeInputDocumentation() {
           Keyboard shortcuts include:
           <ul>
             <li>
-              <code>Tab</code> key should move the user into the time <Link to={pageUrls.textIndicators}>input box</Link> and
+              <code>Tab</code> key should move the user into the time <Link to={pageUrls.textInput}>input box</Link> and
               the <Link to={pageUrls.iconButton}>icon button</Link> that houses the <Link to={pageUrls.popups}>popup menu</Link>.
             </li>
             <li>

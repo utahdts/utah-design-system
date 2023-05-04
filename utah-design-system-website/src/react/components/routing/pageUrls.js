@@ -62,7 +62,6 @@ const pageUrls = {
   tags: '/library/components/basic/tags',
   templates: '/library/templates',
   textArea: '/library/components/forms/textArea',
-  textIndicators: '/library/components/widgetsIndicators/textIndicators',
   textInput: '/library/components/forms/textInput',
   timeInput: '/library/components/forms/timeInput',
   tooltips: '/library/components/tooltips',
