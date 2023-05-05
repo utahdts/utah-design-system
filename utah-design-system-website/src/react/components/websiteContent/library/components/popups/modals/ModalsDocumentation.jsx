@@ -6,6 +6,10 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
+import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
+import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -26,7 +30,11 @@ function ModalsDocumentation() {
       <StaticExample
         title="Complex Modal"
         renderedExample={(
-          <span>Example coming soon!</span>
+          <>
+            <LightBox image={modal1} alt="Modals" className="flex-4up-gap" />
+            <LightBox image={modal2} alt="Large Modals" className="flex-4up-gap" />
+            <LightBox image={modal3} alt="Modal with Form" className="flex-4up-gap" />
+          </>
         )}
         quickTips={(
           <ul>
@@ -43,6 +51,7 @@ function ModalsDocumentation() {
             <li>
               Some examples may include:
               <ul>
+                <li>An important alert message.</li>
                 <li>Confirmation or acknowledgement.</li>
                 <li>Small form input.</li>
                 <li>A required action.</li>
@@ -69,6 +78,7 @@ function ModalsDocumentation() {
         </li>
         <li>
           <strong>Critical information.</strong> If some critical information must be communicated to the user. This type of modal does not require action buttons.
+          However, you should be able to dismiss it with the close button (x).
         </li>
       </ul>
 
@@ -98,10 +108,10 @@ function ModalsDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Once the user triggers the modal, hitting the <code>tab</code> key should put the focus on the first tabbable element within the modal.</li>
-        <li>Using the <code>tab</code> key, the user should be able to only navigate through elements within the modal.</li>
+        <li>Once the user triggers the modal, the modal will automatically receive focus, hitting the <code>tab</code> key should put the focus on the first tabbable element within the modal.</li>
+        <li>Using the <code>tab</code> key, the user should be able to only navigate through elements within the modal. When the user tabs to the last element of the modal the next <code>tab</code> key press should return them to the beginning of the modal again.</li>
         <li>If the modal includes a <code>close</code> button, pressing the <code>esc</code> key should close the modal. The <code>close</code> button should be the last focusable element.</li>
-        <li>When closing the modal, the focus should be put on the element that triggered it.</li>
+        <li>When closing the modal, the focus should be returned on the element that triggered it.</li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
