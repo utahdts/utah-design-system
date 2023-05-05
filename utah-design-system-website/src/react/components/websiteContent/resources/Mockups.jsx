@@ -81,6 +81,9 @@ import progressBarMobile from '../../../../static/images/mockups/ProgressBarMobi
 import progressBarMobileLoadingContentArea from '../../../../static/images/mockups/ProgressBarMobileLoadingContentArea.jpg';
 import spinner from '../../../../static/images/mockups/Spinner.jpg';
 import skeleton from '../../../../static/images/mockups/Skeleton.jpg';
+import skeleton2 from '../../../../static/images/mockups/skeletonFullPage.jpg';
+import skeleton3 from '../../../../static/images/mockups/skeletonLazyLoad.jpg';
+import skeleton4 from '../../../../static/images/mockups/skeletonTable.jpg';
 
 import horizontalRule from '../../../../static/images/mockups/HorizontalRule.jpg';
 import horizontalRuleNeutralColor from '../../../../static/images/mockups/HorizontalRuleNeutralColor.jpg';
@@ -418,6 +421,9 @@ function Mockups() {
       <div className="flex flex-wrap gap mb-spacing justify-center">
         <LightBox image={spinner} alt="Spinners" className="flex-4up-gap" />
         <LightBox image={skeleton} alt="Skeletons" className="flex-4up-gap" />
+        <LightBox image={skeleton2} alt="Skeleton Full Page" className="flex-4up-gap" />
+        <LightBox image={skeleton3} alt="Skeleton Lazy Load" className="flex-4up-gap" />
+        <LightBox image={skeleton4} alt="Skeleton Table" className="flex-4up-gap" />
       </div>
 
       <h2 id="section-hr">Horizontal Rules</h2>

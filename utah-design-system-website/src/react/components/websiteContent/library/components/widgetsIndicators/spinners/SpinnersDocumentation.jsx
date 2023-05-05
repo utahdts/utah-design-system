@@ -146,11 +146,6 @@ function SpinnersDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>While a spinner visually indicates that a process is happening, it should also be announced by assistive technology through the use of <code>aria-live</code>.</li>
-        <li>
-          DRAFT: As per the WCAG guidelines, it is recommended to permit users to disable superfluous animation, as certain users may become unfocused or
-          encounter adverse effects like vertigo or queasiness from animated material. This can be achieved by ensuring that any animation ceases after
-          five seconds, and non-essential motion such as loading spinners can be turned off by users.
-        </li>
         <li>Add <code>role=&quot;progressbar&quot;</code> to the spinner/loader.</li>
         <li>If not active, apply <code>aria-hidden=&quot;true&quot;</code>, otherwise use <code>aria-hidden=&quot;false&quot;</code>.</li>
         <li>Always include <code>aria-valuetext=&quot;***&quot;</code>, where *** is a textual presentation of the loader, i.e., &quot;Please wait, this data table is loading…&quot;.</li>
@@ -163,6 +158,14 @@ function SpinnersDocumentation() {
             <li>If loading a specific component (i.e., <Link to={pageUrls.table}>table</Link>), add the attribute to the container of that component.</li>
             <li>If loading content inside a <Link to={pageUrls.modals}>modal</Link>, add the attribute to the modal container.</li>
           </ul>
+        </li>
+      </ul>
+      <h4 id="section-screen-readers">Motion</h4>
+      <ul className="mb-spacing">
+        <li>
+          As per the WCAG guidelines, it is recommended to permit users to disable superfluous animation, as certain users may become unfocused or
+          encounter adverse effects like vertigo or queasiness from animated material. This can be achieved by ensuring that any animation ceases after
+          five seconds, and non-essential motion such as loading spinners can be turned off by users.
         </li>
       </ul>
     </div>
