@@ -108,19 +108,13 @@ export const menuLibraryComponentsSecondary = {
   id: 'library-components',
   menuItems: [
     {
-      id: 'components__accordion',
-      title: 'Accordion',
-      link: pages.accordion.link,
-      parentLinks: [pages.library.link],
-    },
-    {
       id: 'components__basic-atomic',
       title: 'Basic Atomic',
       parentLinks: [pages.library.link],
       children: [
-        { link: pages.anchors.link, title: pages.anchors.pageTitle },
         { link: pages.horizontalRule.link, title: pages.horizontalRule.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
+        { link: pages.lists.link, title: pages.lists.pageTitle },
         { link: pages.tags.link, title: pages.tags.pageTitle },
         { link: pages.type.link, title: pages.type.pageTitle },
       ],
@@ -138,22 +132,14 @@ export const menuLibraryComponentsSecondary = {
       ],
     },
     {
-      id: 'components__card',
-      title: 'Card',
-      link: pages.card.link,
+      id: 'components__containers',
+      title: 'Containers',
       parentLinks: [pages.library.link],
-    },
-    {
-      id: 'components__dialogs',
-      link: pages.dialog.link,
-      title: 'Dialog',
-      parentLinks: [pages.library.link],
-    },
-    {
-      id: 'components__elevations',
-      link: pages.elevation.link,
-      title: 'Elevation',
-      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.accordion.link, title: pages.accordion.pageTitle },
+        { link: pages.card.link, title: pages.card.pageTitle },
+        { link: pages.tabs.link, title: pages.tabs.pageTitle },
+      ],
     },
     {
       id: 'components__forms',
@@ -172,12 +158,6 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
         { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
       ],
-    },
-    {
-      id: 'components__lists',
-      title: 'Lists',
-      link: pages.lists.link,
-      parentLinks: [pages.library.link],
     },
     {
       id: 'components__navigation',

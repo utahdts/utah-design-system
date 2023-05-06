@@ -288,7 +288,7 @@ function PopupsDocumentation() {
       <h3 id="section-usability">Usability Guidance</h3>
       <h4>Style</h4>
       <ul className="mb-spacing">
-        <li><strong>Hover above the content.</strong> A popup should overlap in front of other UI elements. View more information about <Link to={pageUrls.elevation}>elevation</Link>.</li>
+        <li><strong>Hover above the content.</strong> A popup should overlap in front of other UI elements. View more information about <Link to={pageUrls.depthElevationShadows}>elevation</Link>.</li>
         <li>
           <strong>Popup positioning.</strong> Popups should always be positioned within the viewable areas of the screen and be <code>6-12px</code> away from the element that launched them.
           The popup should appear next to (left, right, top, bottom) the element that launched it.

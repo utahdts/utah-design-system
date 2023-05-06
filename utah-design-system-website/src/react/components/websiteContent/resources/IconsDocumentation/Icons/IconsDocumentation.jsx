@@ -67,7 +67,7 @@ function IconsDocumentation() {
             }}
           >
             <span className={`utds-icon-before-${icon.cssClass}`} aria-hidden="true" />
-            <span className="font-size-2xs">{`${icon.cssClass} (${icon.letter})`}</span>
+            <span className="font-size-2xs icon-example__label">{`${icon.cssClass} (${icon.letter})`}</span>
           </button>
         ))}
       </div>
