@@ -51,15 +51,15 @@ function PopupsDocumentation() {
   const [popupsState, setPopupsState] = useImmer({
     example1: false,
     example2: false,
-    editorExample: false,
+    editorExample: null,
   });
 
   useEffect(() => {
     // set the focus on the button or text input depending on visibility
-    if (popupsState.editorExample) {
-      document.getElementById('editor-example-textarea').focus();
-    } else {
+    if (popupsState.editorExample === false) {
       document.getElementById('button-for-editor-example').focus();
+    } else {
+      document.getElementById('editor-example-textarea').focus();
     }
   }, [popupsState.editorExample]);
 
