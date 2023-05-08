@@ -218,7 +218,7 @@ export const menuLibraryPatternsSecondary = {
     {
       title: 'Form Validation',
       link: pages.validation.link,
-      parentLinks: [pages.library.validation],
+      parentLinks: [pages.guidelines.link],
     },
   ],
 };
