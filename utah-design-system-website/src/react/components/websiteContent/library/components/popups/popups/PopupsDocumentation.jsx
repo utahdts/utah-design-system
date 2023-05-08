@@ -274,7 +274,7 @@ function PopupsDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Detailed content.</strong> If the content has detailed information that consists of more than a few sentences or more than
-          one input consider using a <Link to={pageUrls.dialog}>Dialog</Link> or <Link to={pageUrls.modals}>Modal</Link>.
+          one input consider using a <Link to={pageUrls.modals}>Modal</Link>.
         </li>
         <li>
           <strong>Users full attention required.</strong> Always use a <Link to={pageUrls.modals}>Modal</Link> if the user&apos;s full attention needs to be on a particular form
