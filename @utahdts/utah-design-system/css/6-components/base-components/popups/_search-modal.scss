@@ -36,7 +36,7 @@
       &:hover {
         background: white;
         & [class*=utds-icon-before-]::before {
-          color: var(--primary-color);
+          color: var(--gray-color);
         }
       }
     }
