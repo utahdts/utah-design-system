@@ -268,11 +268,14 @@ function UtahHeaderDocumentation() {
           <ul>
             <li>Action items are not required, but can be utilized based on need.</li>
             <li>Action items are icon buttons that can be used in combination with badges.</li>
-            <li><span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation or frequently used services.</li>
+            <li>
+              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation.
+              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an agency&#39;s divisions.
+            </li>
             <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be linked to the Citizen Portal.</li>
             <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
             <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
-            <li>The UtahID Login is a button that allows the user to login to their UtahID and Citizen Portal (eventually) accounts.</li>
+            <li>The UtahID Login is a button that allows the user to login to their UtahID account and Citizen Portal (in the future).</li>
             <li>Action items can have 2 different types of popups.
               <ul>
                 <li>Contains a menu</li>
