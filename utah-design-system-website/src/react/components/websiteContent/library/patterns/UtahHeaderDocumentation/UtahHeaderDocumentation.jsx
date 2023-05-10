@@ -484,12 +484,50 @@ function UtahHeaderDocumentation() {
             <TableRow>
               <TableCell>
                 <span className="prop__name"><a href="#section-config-logo">logo</a></span><br />
-                <span className="prop__types">Element | string</span>
+                <span className="prop__types">Logo</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  Your site may have a logo and/or a title. This logo should be an image such as an SVG or PNG and can be provided as an element or
-                  the string contents of the image.
+                  Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.element</a></span><br />
+                <span className="prop__types">HTMLElement | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply an HTMLElement, or a function that returns an HTMLElement, to be used as the logo image.
+                  The element will be moved to the header, so be careful to not supply an element that is used elsewhere.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.htmlString</a></span><br />
+                <span className="prop__types">string | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply a string, or a function that returns a string, that contains HTML content to be rendered
+                  as the logo.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.imageUrl</a></span><br />
+                <span className="prop__types">string | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply a url, or a function that returns a url, that specifies the source location to
+                  use for the logo image.
                 </span>
               </TableCell>
             </TableRow>
@@ -529,7 +567,7 @@ function UtahHeaderDocumentation() {
                 Default: <code>true</code>
               </TableCell>
               <TableCell>
-                A title is always required for accessability reasons, but it is not required to be shown if you supply a <code>logo</code>.
+                A title is always required for accessability reasons, but it is not required to be shown if you supply a logo.
               </TableCell>
             </TableRow>
 
@@ -631,7 +669,28 @@ function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                logo: document.getElementById('my-logo'),
+                logo: {
+                  element: document.getElementById('my-logo')
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of element logo as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  element: () => {
+                    const logo = document.createElement('img');
+                    logo.src = 'https://my-site.utah.gov/img/logo.png';
+                    return logo;
+                  }
+                }
               }
             )
           `}
@@ -644,7 +703,54 @@ function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                logo: '<svg>...svg content...</svg>',
+                logo: {
+                  htmlString: '<svg>...svg content...</svg>'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of string logo as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  htmlString: () => '<svg>...svg content...</svg>'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of providing the logo source:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  imageUrl: 'https://mysite.utah.gov/img/logo.png'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of providing the logo source as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  imageUrl: () => 'https://mysite.utah.gov/img/logo.png'
+                }
               }
             )
           `}
