@@ -204,9 +204,15 @@
  *  @property {string | function(): string} [imageUrl] url to an image
  * }
  *
+ * @typedef FooterSettings {
+ *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
+ *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
+ * }
+ *
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the header be inserted? (defaults to the top of the body)
+ *  @property {FooterSettings} [footer]
  *  @property {Logo} [logo] - the logo to show
  *  @property {MainMenu} mainMenu - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries

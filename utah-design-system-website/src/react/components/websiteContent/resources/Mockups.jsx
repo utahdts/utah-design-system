@@ -340,7 +340,7 @@ function Mockups() {
         <LightBox image={banner3} alt="Banner 3" className="flex-4up-gap" />
       </div>
 
-      <h2 id="section-banners">Accordions</h2>
+      <h2 id="section-accordions">Accordions</h2>
       <p>
         Accordions show and hide information. Here is an example of one way an accordion could be displayed.
       </p>

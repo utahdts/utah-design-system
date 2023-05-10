@@ -1138,6 +1138,35 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
+      <h3 id="section-utahheader-footer" className="mb-spacing">Footer</h3>
+      <h4 id="section-auth-props">Config Props</h4>
+      <TableWrapper>
+        <Table className="table--lines-x">
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><Link to={pageUrls.utahFooter}>footer</Link></span><br />
+                <span className="prop__types">FooterSettings</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The Utah footer is the required bar at the bottom of the page with information and links
+                  for the State of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
+                  for the footer.
+                </span>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+      <br />
+
       <h3 id="section-mainmenu-settings" className="mb-spacing">Main Menu</h3>
       <h4 id="section-mainmenu-props">Config Props</h4>
       <TableWrapper>

@@ -1,10 +1,12 @@
 // @ts-check
 import events from '../enumerations/events';
 import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
+import renderFooter from '../renderables/footer/renderFooter';
 import baseSettings from './baseSettings';
 import defaultSettings from './defaultSettings';
 
 /**
+ * @typedef {import('../misc/jsDocTypes').FooterSettings} FooterSettings
  * @typedef {import('../misc/jsDocTypes').Settings} Settings
  * @typedef {import('../misc/jsDocTypes').SettingsInput} SettingsInput
 */
@@ -13,7 +15,7 @@ import defaultSettings from './defaultSettings';
 let settings = { ...defaultSettings };
 
 /**
- * @returns {Settings} settings The current settings information
+ * @returns {Settings} the current settings information
  */
 export function getUtahHeaderSettings() {
   return settings;
@@ -57,13 +59,13 @@ const intervalId = setInterval(
 
 /**
  * @param {SettingsInput} newSettings
- * @returns Settings
+ * @returns {Settings}
  */
 export function setUtahHeaderSettings(newSettings) {
   // note that if newSettings has a key/value where the value is undefined it WILL override the value to undefined
   // but if newSettings is missing a key then the `undefined` value of the missing key will not override the default.
   // this is only a shallow copy, so merging nested settings does not happen.
-  settings = { ...baseSettings, ...newSettings };
+  settings = { ...baseSettings, ...getUtahHeaderSettings(), ...newSettings };
   validateSettings(settings);
 
   isSetUtahHeaderSettingsCalled = true;
@@ -75,4 +77,14 @@ export function setUtahHeaderSettings(newSettings) {
   }
 
   return settings;
+}
+
+/**
+ * @param {FooterSettings} [footerSettings]
+ * @returns {FooterSettings | undefined}
+ */
+export function setUtahFooterSettings(footerSettings) {
+  settings = { ...baseSettings, ...getUtahHeaderSettings(), footer: footerSettings };
+  renderFooter();
+  return footerSettings;
 }
