@@ -855,7 +855,7 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h3 id="section-utahheader-actionItems" className="mb-spacing">actionItems</h3>
+      <h3 id="section-utahheader-actionItems" className="mb-spacing">Action Items</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
         <Table className="table--lines-x">
@@ -1047,7 +1047,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-actionItems" className="mt-spacing">actionItems</h4>
       <div>
-        actionItems give your users notifications and global app utility. Use the main menu for navigation items and
+        <code>actionItems</code> give your users notifications and global app utility. Use the main menu for navigation items and
         action items for notifications, alerts, and global considerations.
         <PreCode
           allowScrollOverflow
@@ -1138,7 +1138,7 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h3 id="section-mainmenu-settings" className="mb-spacing">mainMenu</h3>
+      <h3 id="section-mainmenu-settings" className="mb-spacing">Main Menu</h3>
       <h4 id="section-mainmenu-props">Config Props</h4>
       <TableWrapper>
         <Table className="table--lines-x">
@@ -1319,7 +1319,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-mainMenu" className="mt-spacing">mainMenu</h4>
       <div>
-        The main menu is the main navigation for your application. A user should be able to easily get to the major
+        The <code>mainMenu</code> is the main navigation for your application. A user should be able to easily get to the major
         areas of your application through the main menu.
         <PreCode
           className="gray-block mt-spacing"
