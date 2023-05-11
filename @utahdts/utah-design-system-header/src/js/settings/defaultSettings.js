@@ -25,6 +25,9 @@ import sizes from '../enumerations/sizes';
  * @type {Settings} the current settings of the header
  */
 export default {
+  footer: {
+    showHorizontalRule: true,
+  },
   actionItems: [
     {
       actionPopupMenu: {
