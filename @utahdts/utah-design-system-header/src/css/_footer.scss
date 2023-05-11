@@ -1,0 +1,70 @@
+.utah-design-system.utds {
+  &-footer {
+    background: var(--gray-color);
+    padding: var(--spacing-xl);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.utds {
+  &-footer {
+    &__utah-logo-wrapper {
+      display: flex;
+      gap: var(--spacing);
+      align-items: center;
+      height: 35px;
+    }
+    .utah-logo-svg {
+      height: 100%;
+      svg {
+        fill: white;
+        height: 100%;
+        width: auto;
+        display: block;
+      }
+    }
+    &__vertical-divider {
+      border-left: 1px solid white;
+      height: 100%;
+    }
+    &__official-site {
+      font-size: var(--font-size-l);
+      font-weight: var(--font-weight-semi-bold);
+    }
+    &__copyright {
+      font-size: var(--font-size-s);
+    }
+    &__links {
+      ul {
+        list-style-type: none;
+        display: flex;
+        gap: var(--spacing-s);
+        li {
+          display: flex;
+          align-items: center;
+          a[href]:not(.button) {
+            color: white;
+            text-decoration: none;
+            &:hover {
+              color: white;
+              text-decoration: underline;
+              box-shadow: none;
+            }
+          }
+          &:not(:last-child) {
+            &::after {
+              content: "";
+              width: 1px;
+              height: 70%;
+              background: white;
+              display: block;
+              margin-left: var(--spacing-s);
+            }
+          }
+        }
+      }
+    }
+  }
+}
