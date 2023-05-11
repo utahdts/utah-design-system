@@ -17,6 +17,7 @@ export { default as TabGroupTitle } from './react/components/containers/tabs/Tab
 export { default as TabList } from './react/components/containers/tabs/TabList';
 export { default as TabPanel } from './react/components/containers/tabs/TabPanel';
 export { default as TabPanels } from './react/components/containers/tabs/TabPanels';
+export { default as FooterSocialMediaBar } from './react/components/footer/FooterSocialMediaBar';
 export { default as CheckBox } from './react/components/forms/CheckBox';
 export { default as Form } from './react/components/forms/Form';
 export { default as FormContext } from './react/components/forms/FormContext';

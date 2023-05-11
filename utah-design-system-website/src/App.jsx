@@ -1,4 +1,8 @@
-import { FormContextProvider, joinClassNames, useUtahHeaderContext } from '@utahdts/utah-design-system';
+import {
+  FormContextProvider,
+  joinClassNames,
+  useUtahHeaderContext
+} from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
@@ -6,6 +10,7 @@ import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
+import DesignSystemFooterSocialMedia from './react/components/header/DesignSystemFooterSocialMedia';
 import Routing from './react/components/routing/Routing';
 import { useCssContext } from './react/context/cssContext/CssContext';
 import CSS_CLASS_NAMES from './react/enums/cssClassNames';
@@ -46,6 +51,7 @@ function App() {
         <Routing />
       </div>
       <DemoAppStyle />
+      <DesignSystemFooterSocialMedia />
     </FormContextProvider>
   );
 }
