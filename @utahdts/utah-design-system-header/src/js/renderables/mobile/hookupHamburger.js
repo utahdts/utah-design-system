@@ -1,5 +1,7 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import checkForError from '../../misc/checkForError';
+import notNull from '../../misc/notNull';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderActionItemBadge from '../actionItems/renderActionItemBadge';
 import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
@@ -9,18 +11,18 @@ import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
  * @returns {{ hamburger: HTMLElement, hamburgerIcon: HTMLElement, mobileMenu: HTMLElement }}
  */
 function getHamburgerElements(callerContext) {
-  const mobileMenu = /** @type {HTMLElement} */ (document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU)));
-  if (!mobileMenu) {
-    throw new Error(`${callerContext}: mobileMenu not found`);
-  }
-  const hamburger = document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ID);
-  if (!hamburger) {
-    throw new Error(`${callerContext}: hamburger not found (🍔 🎶 I will gladly pay you Tuesday for a hamburger today 🎵 🍔)`);
-  }
-  const hamburgerIcon = /** @type {HTMLElement} */ (document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ICON_ID));
-  if (!hamburgerIcon) {
-    throw new Error(`${callerContext}: hamburgerIcon not found`);
-  }
+  const mobileMenu = /** @type {HTMLElement} */ (notNull(
+    document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU)),
+    `${callerContext}: mobileMenu not found`
+  ));
+  const hamburger = notNull(
+    document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ID),
+    `${callerContext}: hamburger not found (🍔 🎶 I will gladly pay you Tuesday for a hamburger today 🎵 🍔)`
+  );
+  const hamburgerIcon = /** @type {HTMLElement} */ (notNull(
+    document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ICON_ID),
+    `${callerContext}: hamburgerIcon not found`
+  ));
 
   return {
     hamburger,
@@ -68,16 +70,15 @@ export function hookupHamburger(mobileMainMenuContentItem) {
 
   hideMobileMenu();
 
-  const homeActionItem = document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__HOME_ID);
-  if (!homeActionItem) {
-    throw new Error('hookupHamburger: homeActionItem not found');
-  }
-  const homeActionItemWrapper = /** @type {HTMLElement} */ (
-    homeActionItem.closest(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER))
+  const homeActionItem = notNull(
+    document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__HOME_ID),
+    'hookupHamburger: homeActionItem not found'
   );
-  if (!homeActionItemWrapper) {
-    throw new Error('hookupHamburger: homeActionItemWrapper not found');
-  }
+
+  const homeActionItemWrapper = /** @type {HTMLElement} */ (notNull(
+    homeActionItem?.closest(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER)),
+    'hookupHamburger: homeActionItemWrapper not found'
+  ));
 
   mobileMenuInteractionHandler(
     hamburger,
@@ -85,4 +86,21 @@ export function hookupHamburger(mobileMainMenuContentItem) {
     homeActionItemWrapper,
     { ariaHasPopupType: 'menu', shouldOnClickCloseMenu: true }
   );
+
+  // when hamburger is in an "open" state (mobile menu is open) and the hamburger loses focus (tabbed off of)
+  // then move focus to the first action item in the mobile action item bar. UDS-234
+  checkForError(!!hamburger.onblur, 'hookupHamburger: hamburger already has an onblur event');
+  hamburger.onblur = () => {
+    const { mobileMenu } = getHamburgerElements('showMobileMenu');
+    if (mobileMenu.classList.contains(domConstants.IS_OPEN)) {
+      const actionBarClass = getCssClassSelector(domConstants.MOBILE_MENU__ACTION_BAR);
+      const actionItemWrapperClass = getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER);
+      const actionItemButtonClass = getCssClassSelector(domConstants.ICON_BUTTON);
+      const firstMobileActionItem = (
+        /** @type {HTMLElement | null} */
+        (document.querySelector(`${actionBarClass} ${actionItemWrapperClass}:first-child ${actionItemButtonClass}`))
+      );
+      firstMobileActionItem?.focus();
+    }
+  };
 }
