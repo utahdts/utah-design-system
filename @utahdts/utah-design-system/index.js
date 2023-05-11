@@ -29,7 +29,7 @@ export { default as Icons } from './react/components/icons/Icons';
 export { default as ExternalLink } from './react/components/navigation/ExternalLink';
 export { default as HorizontalMenu } from './react/components/navigation/HorizontalMenu';
 export { default as OnThisPage } from './react/components/navigation/OnThisPage';
-export { default as SidePanelNavigation } from './react/components/navigation/SidePanelNavigation';
+export { default as VerticalMenu } from './react/components/navigation/VerticalMenu';
 export { default as Pagination } from './react/components/navigation/pagination/Pagination';
 export { default as usePaginatedList } from './react/components/navigation/pagination/hooks/usePaginatedList';
 export { default as Popup } from './react/components/popups/Popup';

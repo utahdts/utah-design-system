@@ -30,7 +30,7 @@ import { DocumentationTemplate, LandingTemplate } from '@utahdts/utah-design-sys
 
 // uncompiled style
 import { OnThisPage } from '@utahdts/utah-design-systemOnThisPage';
-import { SidePanelNavigation } from '@utahdts/utah-design-system';
+import { VerticalMenu } from '@utahdts/utah-design-system';
 import { useCurrentMenuItem } from '@utahdts/utah-design-system';
 
 //import all scss
