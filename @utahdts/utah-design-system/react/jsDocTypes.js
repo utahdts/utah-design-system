@@ -22,6 +22,14 @@
  *  @property {Object.<string, any>} record
  *  @property {Object.<string, string>} filterFields
  * }
+ *
+ * @typedef Address {
+ *  @property {string} city
+ *  @property {string} state ie UT (usually not fully spelled out)
+ *  @property {string} streetAddress1
+ *  @property {string} [streetAddress2]
+ *  @property {string} zipCode
+ * }
  */
 
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)

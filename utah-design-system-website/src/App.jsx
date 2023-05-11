@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
+import DesignSystemFooterMainContent from './react/components/header/DesignSystemFooterMainContent';
 import DesignSystemFooterSocialMedia from './react/components/header/DesignSystemFooterSocialMedia';
 import Routing from './react/components/routing/Routing';
 import { useCssContext } from './react/context/cssContext/CssContext';
@@ -52,6 +53,7 @@ function App() {
       </div>
       <DemoAppStyle />
       <DesignSystemFooterSocialMedia />
+      <DesignSystemFooterMainContent />
     </FormContextProvider>
   );
 }
