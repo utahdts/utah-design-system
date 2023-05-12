@@ -1,7 +1,7 @@
 // @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved, import/order
-import govOps from '../../../static/images/utah-govops.png';
+import govOps from '../../../static/images/DTS-Color-Reversed.svg';
 
 import {
   FooterAgencyInformation,
@@ -24,14 +24,13 @@ function DesignSystemFooterMainContent() {
           address={{
             city: 'Taylorsville',
             state: 'UT',
-            streetAddress1: '4313 South 2700 West',
+            streetAddress1: '4315 South 2700 West',
             zipCode: '84129',
           }}
-          agencyTitle="Government Operations"
-          agencyTitleFirstLine="Department of"
-          email="GovOpsInfo@utah.gov"
-          logo={<img src={govOps} alt="Gov Ops" />}
-          phone="801-957-7171"
+          agencyTitleSecondLine="Utah Design System"
+          agencyTitleFirstLine="Department of Government Operations"
+          email="dts_ui@utah.gov"
+          logo={<img src={govOps} alt="Division of Technology Services" />}
         />
       </FooterAgencyInformationColumn>
 

@@ -27,6 +27,9 @@ import sizes from '../enumerations/sizes';
 export default {
   footer: {
     showHorizontalRule: true,
+    domLocationTarget: {
+      cssSelector: '#utah-footer-placeholder',
+    },
   },
   actionItems: [
     {

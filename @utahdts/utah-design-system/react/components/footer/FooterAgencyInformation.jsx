@@ -14,8 +14,10 @@ const defaultProps = {};
  */
 function FooterAgencyInformation({ children }) {
   return (
-    <div className="footer-agency-information utah-design-system">
-      {children}
+    <div className="utah-design-system">
+      <div className="footer-agency-information">
+        {children}
+      </div>
     </div>
   );
 }

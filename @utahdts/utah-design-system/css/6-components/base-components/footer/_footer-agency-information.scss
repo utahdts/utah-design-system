@@ -1,0 +1,43 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .footer-agency-information {
+    background: var(--gray-color);
+    color: white;
+    padding: var(--spacing-xl);
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+
+    &__column {
+      flex: 1 1;
+      min-width: 200px;
+    }
+    &__column:first-child {
+      flex: 1 1 25%;
+    }
+
+    a[href] {
+      color: white;
+    }
+
+    &__title {
+      &-image {
+        max-width: 300px;
+      }
+      font-size: var(--font-size-l);
+      font-weight: var(--font-weight-semi-bold);
+      margin-top: var(--spacing);
+
+    }
+    &__address {
+      margin-top: var(--spacing);
+    }
+    &__email {
+      margin-top: var(--spacing);
+    }
+    &__phone {
+      margin-top: var(--spacing);
+    }
+  }
+}

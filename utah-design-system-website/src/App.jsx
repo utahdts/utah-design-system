@@ -24,7 +24,7 @@ const defaultProps = {};
 function App() {
   const { cssState } = useCssContext();
   const [state, setState] = useImmer({});
-  const { setSettings } = useUtahHeaderContext();
+  const { setSettings = () => {} } = useUtahHeaderContext() || {};
 
   // add logo to settings
   useEffect(
@@ -52,8 +52,11 @@ function App() {
         <Routing />
       </div>
       <DemoAppStyle />
-      <DesignSystemFooterSocialMedia />
-      <DesignSystemFooterMainContent />
+      <footer aria-label="Utah Design System (main footer)">
+        <DesignSystemFooterSocialMedia />
+        <DesignSystemFooterMainContent />
+        <div id="utah-footer-placeholder" />
+      </footer>
     </FormContextProvider>
   );
 }

@@ -4,20 +4,26 @@ import React from 'react';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
+  title: PropTypes.string,
 };
-const defaultProps = {};
+const defaultProps = {
+  title: 'Follow us online',
+};
 
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
+ * @param {String|null} props.title
  * @returns {JSX.Element}
  */
-function FooterSocialMediaBar({ children }) {
+function FooterSocialMediaBar({ children, title }) {
   return (
-    <div className="footer-social-media-bar utah-design-system">
-      <div className="footer-social-media-bar__follow-us">Follow us online</div>
-      <div className="footer-social-media-bar__icon-bar">
-        {children}
+    <div className="utah-design-system">
+      <div className="footer-social-media-bar">
+        <div className="footer-social-media-bar__follow-us">{title}</div>
+        <div className="footer-social-media-bar__icon-bar">
+          {children}
+        </div>
       </div>
     </div>
   );

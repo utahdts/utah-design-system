@@ -15,18 +15,20 @@ const AddressShape = PropTypes.shape({
 
 const propTypes = {
   agencyTitleFirstLine: PropTypes.string.isRequired,
-  agencyTitle: PropTypes.string.isRequired,
+  agencyTitleSecondLine: PropTypes.string.isRequired,
   address: AddressShape.isRequired,
   email: PropTypes.string.isRequired,
   logo: PropTypes.node.isRequired,
-  phone: PropTypes.string.isRequired,
+  phone: PropTypes.string,
 };
-const defaultProps = {};
+const defaultProps = {
+  phone: null,
+};
 
 /**
  * @param {Object} props
  * @param {string} props.agencyTitleFirstLine ie Utah Department of (smaller font above main title)
- * @param {string} props.agencyTitle ie Government Operations (larger font below firstLine)
+ * @param {string} props.agencyTitleSecondLine ie Government Operations (larger font below firstLine)
  * @param {Address} props.address
  * @param {string} props.email
  * @param {React.ReactNode} props.logo
@@ -35,58 +37,55 @@ const defaultProps = {};
  */
 function FooterAgencyInformationInfo({
   agencyTitleFirstLine,
-  agencyTitle,
+  agencyTitleSecondLine,
   address,
   email,
   logo,
   phone,
 }) {
   return (
-    <div className="footer-agency-information utah-design-system">
-      <div className="footer-agency-information__title">
-        <div className="footer-agency-information-title__image">
+    <>
+      <div className="footer-agency-information__title-wrapper">
+        <div className="footer-agency-information__title-image">
           {logo}
         </div>
-        <div className="footer-agency-information-title">
-          <div className="footer-agency-information-title__fist-line">
+        <div className="footer-agency-information__title">
+          <div className="footer-agency-information__first-line">
             {agencyTitleFirstLine}
           </div>
-          <div className="footer-agency-information-title__title">
-            {agencyTitle}
+          <div className="footer-agency-information__second-line">
+            {agencyTitleSecondLine}
           </div>
         </div>
-      </div>
-
-      <div className="footer-agency-information__full-title">
-        {agencyTitleFirstLine} {agencyTitle}
       </div>
 
       <div className="footer-agency-information__address">
-        <span className="footer-agency-information-address__street-address-1">{address.streetAddress1}</span><br />
+        <span className="footer-agency-information__address-street-address-1">{address.streetAddress1}</span><br />
         {
           address.streetAddress2
             ? (
               <>
-                <span className="footer-agency-information-address__street-address-2">{address.streetAddress2}</span>
+                <span className="footer-agency-information__address-street-address-2">{address.streetAddress2}</span>
                 <br />
               </>
             )
             : undefined
         }
-        <span className="footer-agency-information-address__city-state-zip">
+        <span className="footer-agency-information__address-city-state-zip">
           {address.city}, {address.state} {address.zipCode}
         </span>
-        {agencyTitle}
       </div>
 
       <div className="footer-agency-information__email">
         <a href={`mailto:${email}`}>{email}</a>
       </div>
 
-      <div className="footer-agency-information__phone">
-        <a href={`tel:${phone}`}>{phone}</a>
-      </div>
-    </div>
+      {phone && (
+        <div className="footer-agency-information__phone">
+          <a href={`tel:${phone}`}>{phone}</a>
+        </div>
+      )}
+    </>
   );
 }
 
