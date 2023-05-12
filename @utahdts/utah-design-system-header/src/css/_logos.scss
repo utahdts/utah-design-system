@@ -51,7 +51,7 @@
 .utah-design-system {
   .utah-logo-wrapper {
     height: 100%;
-
+    margin-bottom: -4px;
     .popup {
       &__content {
         border-radius: var(--radius-small);
@@ -72,7 +72,6 @@
   button.utah-logo-svg {
     height: 100%;
     position: relative;
-    margin-bottom: -4px;
     border: none;
     border-radius: 0;
     padding: 0;
