@@ -6,17 +6,21 @@ import govOps from '../../../static/images/DTS-Color-Reversed.svg';
 import {
   FooterAgencyInformation,
   FooterAgencyInformationColumn,
-  FooterAgencyInformationInfo
+  FooterAgencyInformationInfo,
+  useUtahHeaderContext
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import pageUrls from '../routing/pageUrls';
 
 const propTypes = {};
 const defaultProps = {};
 
 function DesignSystemFooterMainContent() {
+  const { settings: utahHeaderSettings } = useUtahHeaderContext();
   return (
     <FooterAgencyInformation>
       <FooterAgencyInformationColumn>
@@ -35,38 +39,29 @@ function DesignSystemFooterMainContent() {
       </FooterAgencyInformationColumn>
 
       <FooterAgencyInformationColumn>
-        <div>Online Services</div>
-        <ul>
-          <li>Online service One</li>
-          <li>Online service Two</li>
-          <li>Online service Three</li>
-          <li>Online service Four</li>
-          <li>Online service Five</li>
-          <li>Online service Six</li>
-          <li>Online service Seven</li>
-          <li>Online service Eight</li>
+        <div className="footer-agency-information__column-title">Main Menu</div>
+        <ul className="footer-agency-information__menu">
+          {
+            // @ts-ignore
+            utahHeaderSettings.mainMenu.menuItems.map((menuItem) => (
+              <li key={`footer-main-menu_${menuItem.title}`}>
+                <Link to={menuItem.actionFunctionUrl?.url || menuItem.actionUrl?.url || '/'}>{menuItem.title}</Link>
+              </li>
+            ))
+          }
         </ul>
       </FooterAgencyInformationColumn>
 
       <FooterAgencyInformationColumn>
-        <div>Another Footer</div>
-        <ul>
-          <li>Lorem Ipsum One</li>
-          <li>Lorem Ipsum Two</li>
-          <li>Lorem Ipsum Three</li>
-          <li>Lorem Ipsum Four</li>
-        </ul>
-        <div>Footer List</div>
-        <ul>
-          <li>Online service One</li>
-          <li>Online service Two</li>
-          <li>Online service Three</li>
+        <div className="footer-agency-information__column-title">Helpful Links</div>
+        <ul className="footer-agency-information__menu">
+          <li><Link to={pageUrls.gettingStarted}>Getting Started</Link></li>
+          <li><Link to={pageUrls.mockups}>Design Mocks</Link></li>
+          <li><Link to={pageUrls.github}>GitHub</Link></li>
+          <li><Link to={pageUrls.help}>Help</Link></li>
         </ul>
       </FooterAgencyInformationColumn>
 
-      <FooterAgencyInformationColumn>
-        Lorem Ipsum text goes here that is not understandable to read because it is just lorem ipsum mumbo jumbo.
-      </FooterAgencyInformationColumn>
     </FooterAgencyInformation>
   );
 }

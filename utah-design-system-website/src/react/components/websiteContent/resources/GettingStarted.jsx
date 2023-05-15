@@ -22,7 +22,7 @@ function GettingStarted() {
           <br />You can automatically join with your utah.gov email address.
         </li>
         <li>Send us an email: <ExternalLink href="mailto:dts_ui@utah.gov">dts_ui@utah.gov</ExternalLink></li>
-        <li><ExternalLink href="https://github.com/utahdts/utah-design-system">Git Repository</ExternalLink></li>
+        <li><ExternalLink href="https://github.com/utahdts/utah-design-system">GitHub Repository</ExternalLink></li>
       </ul>
       <hr />
 
@@ -33,7 +33,7 @@ function GettingStarted() {
         You can use the javascript and css directly from a CDN, or you can use NPM to pull the code into a project as a dependency.
       </p>
       <p>
-        You can view these demonstrations in the <code>examples</code> folder of the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System Git Repository</ExternalLink>.
+        You can view these demonstrations in the <code>examples</code> folder of the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System GitHub Repository</ExternalLink>.
       </p>
 
       <h4>General Font Dependency</h4>
