@@ -1,4 +1,5 @@
 import packageJson from './package.json';
+import './css/index.scss';
 
 export {
   childrenMenuTypes,

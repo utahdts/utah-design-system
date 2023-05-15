@@ -5,20 +5,20 @@ jobs:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout 🐣
         uses: actions/checkout@v3
-      - name: Setup Node 🚧
+      - name: Setup Node 🐔
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18'
           registry-url: 'https://registry.npmjs.org'  
-      - name: NPM Install 🔧
+      - name: NPM Install 🪚
         run: |
           npm install
-      - name: NPM Build 🔧
+      - name: NPM Build 🔨
         run: |
-          npm run sassbuild
-      - name: NPM Publish 🔧
+          npm run buildLibrary
+      - name: NPM Publish 🏠
         run: |
           npm run publishLibrary
         env:

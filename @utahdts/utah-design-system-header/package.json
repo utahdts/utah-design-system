@@ -23,7 +23,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "publishHeader": "npm publish --access public",
-    "sass-build": "sass --no-source-map ./src/css/index.scss ./src/css/build/utah-design-system-header.css",
     "test-publish": "npm publish --dry-run",
     "test": "vitest",
     "testc": "vitest run --coverage",
