@@ -1,12 +1,10 @@
 import {
   FormContextProvider,
-  joinClassNames,
-  useUtahHeaderContext
+  joinClassNames
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
-import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import './css/index.scss';
 import DemoAppStyle from './react/components/demo/DemoAppStyle';
@@ -16,7 +14,6 @@ import Routing from './react/components/routing/Routing';
 import { useCssContext } from './react/context/cssContext/CssContext';
 import CSS_CLASS_NAMES from './react/enums/cssClassNames';
 import CSS_STATE_KEYS from './react/enums/cssStateKeys';
-import logoPng from './static/images/designSystemCircleGray.png';
 
 const propTypes = {};
 const defaultProps = {};
@@ -27,17 +24,6 @@ const defaultProps = {};
 function App() {
   const { cssState } = useCssContext();
   const [state, setState] = useImmer({});
-  const { setSettings = () => { } } = useUtahHeaderContext() || {};
-
-  // add logo to settings
-  useEffect(
-    () => {
-      setSettings((draftSettings) => {
-        draftSettings.logo = { imageUrl: logoPng };
-      });
-    },
-    []
-  );
 
   return (
     // Wrap entire app in a FormContextProvider so that input components don't have to be "controlled" nor inside a <Form>

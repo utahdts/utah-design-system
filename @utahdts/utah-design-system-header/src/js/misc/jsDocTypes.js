@@ -209,6 +209,7 @@
  *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
  * }
  *
+ * // !! Make sure to update SettingsShape in the library if this changes !!
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the header be inserted? (defaults to the top of the body)

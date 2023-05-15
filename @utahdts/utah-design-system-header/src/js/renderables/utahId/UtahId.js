@@ -115,8 +115,8 @@ export function renderUtahIdButton() {
 export function renderUtahIdMenu(shouldAddMenuTitle) {
   const settings = getUtahHeaderSettings();
 
-  const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onProfile);
-  const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignOut);
+  const onProfile = (settings.utahId !== false && settings.utahId !== true && settings.utahId?.onProfile);
+  const onSignOut = (settings.utahId !== false && settings.utahId !== true && settings.utahId?.onSignOut);
 
   const customUtahIdMenuItems = [...(settings.utahId !== true && settings.utahId !== false && settings.utahId?.menuItems) || []];
   if (customUtahIdMenuItems.length) {
@@ -173,7 +173,7 @@ export function renderUtahIdForDesktop() {
 
   // hook up menu to be a popup
   const settings = getUtahHeaderSettings();
-  const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
+  const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId?.onSignIn);
 
   popupFocusHandler(
     utahIdWrapper,

@@ -22,7 +22,7 @@ const defaultProps = {};
 function Routing() {
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef();
-  const { setSettings = () => {} } = useUtahHeaderContext() || {};
+  const { setSettings = () => { } } = useUtahHeaderContext() || {};
   const navigate = useNavigate();
 
   useEffect(

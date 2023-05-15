@@ -1,7 +1,6 @@
 import packageJson from './package.json';
 
 export {
-  baseSettings,
   childrenMenuTypes,
   events,
   renderDOMSingle,
@@ -17,10 +16,10 @@ export { default as TabGroupTitle } from './react/components/containers/tabs/Tab
 export { default as TabList } from './react/components/containers/tabs/TabList';
 export { default as TabPanel } from './react/components/containers/tabs/TabPanel';
 export { default as TabPanels } from './react/components/containers/tabs/TabPanels';
-export { default as FooterSocialMediaBar } from './react/components/footer/FooterSocialMediaBar';
 export { default as FooterAgencyInformation } from './react/components/footer/FooterAgencyInformation';
 export { default as FooterAgencyInformationColumn } from './react/components/footer/FooterAgencyInformationColumn';
 export { default as FooterAgencyInformationInfo } from './react/components/footer/FooterAgencyInformationInfo';
+export { default as FooterSocialMediaBar } from './react/components/footer/FooterSocialMediaBar';
 export { default as CheckBox } from './react/components/forms/CheckBox';
 export { default as Form } from './react/components/forms/Form';
 export { default as FormContext } from './react/components/forms/FormContext';
@@ -76,8 +75,27 @@ export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useMountingTracker } from './react/hooks/useMountingTracker';
 export { default as useRefAlways } from './react/hooks/useRefAlways';
 export { default as useRefLazy } from './react/hooks/useRefLazy';
-export { default as MenuItemShape } from './react/propTypesShapes/MenuItemsShape';
+export { default as useStateEffect } from './react/hooks/useStateEffect';
 export { default as RefShape } from './react/propTypesShapes/RefShape';
+export { default as ActionItemShape } from './react/propTypesShapes/header/ActionItemShape';
+export { default as BadgeShape } from './react/propTypesShapes/header/BadgeShape';
+export { default as DomLocationTargetShape } from './react/propTypesShapes/header/DomLocationTargetShape';
+export { default as EventActionShape } from './react/propTypesShapes/header/EventActionShape';
+export { default as FooterSettingsShape } from './react/propTypesShapes/header/FooterSettingsShape';
+export { default as HeaderMainMenuItemShape } from './react/propTypesShapes/header/HeaderMainMenuItemShape';
+export { default as HeaderMenuItemShape } from './react/propTypesShapes/header/HeaderMenuItemShape';
+export { default as HeaderMenuItemUrlActionShape } from './react/propTypesShapes/header/HeaderMenuItemUrlActionShape';
+export { default as LogoShape } from './react/propTypesShapes/header/LogoShape';
+export { default as MainMenuItemShape } from './react/propTypesShapes/header/MainMenuItemShape';
+export { default as MainMenuShape } from './react/propTypesShapes/header/MainMenuShape';
+export { default as MediaSizesShape } from './react/propTypesShapes/header/MediaSizesShape';
+export { default as MenuItemFunctionUrlActionShape } from './react/propTypesShapes/header/MenuItemFunctionUrlActionShape';
+export { default as MenuItemShape } from './react/propTypesShapes/header/MenuItemShape';
+export { default as MenuItemUrlActionShape } from './react/propTypesShapes/header/MenuItemUrlActionShape';
+export { default as PopupMenuShape } from './react/propTypesShapes/header/PopupMenuShape';
+export { default as SettingsShape } from './react/propTypesShapes/header/SettingsShape';
+export { default as UserInfoShape } from './react/propTypesShapes/header/UserInfoShape';
+export { default as UtahIdShape } from './react/propTypesShapes/header/UtahIdShape';
 export { default as chainSorters } from './react/util/chainSorters';
 export { default as handleEvent } from './react/util/handleEvent';
 export { default as handleKeyPress } from './react/util/handleKeyPress';

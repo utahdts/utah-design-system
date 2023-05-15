@@ -2,7 +2,6 @@
 import events from '../enumerations/events';
 import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
 import renderFooter from '../renderables/footer/renderFooter';
-import baseSettings from './baseSettings';
 import defaultSettings from './defaultSettings';
 
 /**
@@ -65,7 +64,7 @@ export function setUtahHeaderSettings(newSettings) {
   // note that if newSettings has a key/value where the value is undefined it WILL override the value to undefined
   // but if newSettings is missing a key then the `undefined` value of the missing key will not override the default.
   // this is only a shallow copy, so merging nested settings does not happen.
-  settings = { ...baseSettings, ...getUtahHeaderSettings(), ...newSettings };
+  settings = { ...defaultSettings, ...getUtahHeaderSettings(), ...newSettings };
   validateSettings(settings);
 
   isSetUtahHeaderSettingsCalled = true;
@@ -84,7 +83,7 @@ export function setUtahHeaderSettings(newSettings) {
  * @returns {FooterSettings | undefined}
  */
 export function setUtahFooterSettings(footerSettings) {
-  settings = { ...baseSettings, ...getUtahHeaderSettings(), footer: footerSettings };
+  settings = { ...defaultSettings, ...getUtahHeaderSettings(), footer: footerSettings };
   renderFooter();
   return footerSettings;
 }
