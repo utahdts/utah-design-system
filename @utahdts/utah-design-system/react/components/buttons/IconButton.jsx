@@ -55,11 +55,12 @@ const defaultProps = {
 
 /**
  * @typedef {import('../../propTypesShapes/RefShape').Ref} Ref
+ * @typedef {import('../../enums/buttonEnums').IconButtonAppearance} IconButtonAppearance
 */
 
 /**
  * @param {Object} props
- * @param {'solid' | 'outlined' | 'borderless' | undefined} [props.appearance]
+ * @param {IconButtonAppearance} [props.appearance]
  * @param {string | null | undefined} [props.className]
  * @param {'primary' | 'secondary' | 'accent' | 'none' | undefined} [props.color]
  * @param {import('react').ReactNode} props.icon
