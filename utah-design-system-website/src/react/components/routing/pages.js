@@ -158,6 +158,13 @@ const pages = {
     pageTitle: 'UX Best Practices',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  validation: {
+    content: ValidationDocumentation,
+    link: pageUrls.validation,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form Validation',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
 
   // === foundation documentation components === //
   spacing: {
@@ -315,13 +322,6 @@ const pages = {
 
   // === library documentation components === //
   // === basic atomic === //
-  anchors: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.anchors,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Anchors',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
 
   horizontalRule: {
     content: PLACEHOLDERDOCUMENTATION,
@@ -339,6 +339,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  lists: {
+    content: ListsDocumentation,
+    link: pageUrls.lists,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Lists',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   tags: {
     content: TagsDocumentation,
     link: pageUrls.tags,
@@ -352,14 +360,6 @@ const pages = {
     link: pageUrls.type,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Type and Text',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  accordion: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.accordion,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Accordion',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -388,43 +388,11 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  card: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.card,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Card',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  dialog: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.dialog,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Dialog',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  elevation: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.elevation,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Elevation',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   iconButton: {
     content: IconButtonDocumentation,
     link: pageUrls.iconButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Button',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  lists: {
-    content: ListsDocumentation,
-    link: pageUrls.lists,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Lists',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -441,6 +409,32 @@ const pages = {
     link: pageUrls.segmentedButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Segmented Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  // === containers === //
+
+  accordion: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.accordion,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Accordion',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  card: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.card,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Card',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  tabs: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.tabs,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Tabs',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -487,13 +481,6 @@ const pages = {
     pageTitle: 'Step Indicators',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  textIndicators: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.textIndicators,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Text Indicators',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
 
   // === forms === //
   forms: {
@@ -522,13 +509,6 @@ const pages = {
     link: pageUrls.dateInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Date Input',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  masks: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.masks,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Masks',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   multiSelect: {
@@ -578,13 +558,6 @@ const pages = {
     link: pageUrls.timeInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Time Input',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  validation: {
-    content: ValidationDocumentation,
-    link: pageUrls.validation,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Validation',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

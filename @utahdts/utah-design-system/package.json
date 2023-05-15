@@ -35,7 +35,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
-    "sass-build": "sass --no-source-map ./css/index.scss ./css/build/utah-design-system.css",
     "test:ci": "vitest run --coverage --mode development-local",
     "test-publish": "npm publish --dry-run",
     "test": "vitest",

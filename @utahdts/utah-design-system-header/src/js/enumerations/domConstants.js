@@ -16,6 +16,7 @@ export default {
   // Global Information
   UTAH_DESIGN_SYSTEM: 'utah-design-system',
   HEADER: 'utds-header',
+  FOOTER: 'utds-footer',
 
   // HTML elements
   ICON_BUTTON: 'icon-button',
@@ -46,6 +47,8 @@ export default {
   BADGE_WRAPPER__ACTION_ITEM: 'utds-badge__wrapper--action-item',
 
   CITIZEN_EXPERIENCE: 'utds-citizen-experience-wrapper',
+
+  FOOTER_HORIZONTAL_DIVIDER: 'utds-footer__horizontal-divider',
 
   LOGO: 'utds-logo-wrapper',
   LOGO_OFFICIAL_CLOSE_BUTTON: 'utds-official-website-popup__close-button',

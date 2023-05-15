@@ -14,7 +14,6 @@ Beta versions of the Library and Header can be released. The website runs on fir
 ATTOW, to publish the header & library, run the following commands copied from the [publish-header.yml](.github/workflows/publish-utah-header.yml) and [publish-library.yml](.github/workflows/publish-utah-library.yml) files:
 ```shell
   npm install
-  npm run sassbuild
   npm run publishHeader
   npm run publishLibrary
 ```

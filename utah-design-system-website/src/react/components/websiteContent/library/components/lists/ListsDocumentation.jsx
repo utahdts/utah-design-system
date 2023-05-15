@@ -3,10 +3,6 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
-import {
-  IconButton,
-  Icons
-} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
@@ -48,34 +44,19 @@ function ListsDocumentation() {
         renderedExample={(
           <ul style={{ listStyle: 'none' }}>
             <li style={{ display: 'flex' }}>
-              <IconButton
-                appearance="borderless"
-                icon={Icons.IconCheck()}
-                onClick={() => { }}
-                size="small1x"
-                title="Item A"
-              />
-              <span className="ml-spacing">Item A</span>
+              <span className="utds-icon-before-check" aria-hidden="true" />
+              <span className="visually-hidden">checkmark</span>
+              <span>Item A</span>
             </li>
             <li style={{ display: 'flex' }}>
-              <IconButton
-                appearance="borderless"
-                icon={Icons.IconCheck()}
-                onClick={() => { }}
-                size="small1x"
-                title="Item B"
-              />
-              <span className="ml-spacing">Item B</span>
+              <span className="utds-icon-before-check" aria-hidden="true" />
+              <span className="visually-hidden">checkmark</span>
+              <span>Item B</span>
             </li>
             <li style={{ display: 'flex' }}>
-              <IconButton
-                appearance="borderless"
-                icon={Icons.IconArrowRight()}
-                onClick={() => { }}
-                size="small1x"
-                title="Item C"
-              />
-              <span className="ml-spacing">Item C</span>
+              <span className="utds-icon-before-x-icon" aria-hidden="true" style={{ fontSize: '.8rem', marginRight: '.2em' }} />
+              <span className="visually-hidden">x icon</span>
+              <span>Item C</span>
             </li>
           </ul>
         )}
@@ -104,7 +85,7 @@ function ListsDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Text should have a contrast ratio of <code>4.5:1</code> with the background color to ensure legibility.</li>
+        <li>Text and icons should have a contrast ratio of <code>4.5:1</code> with the background color to ensure legibility.</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">

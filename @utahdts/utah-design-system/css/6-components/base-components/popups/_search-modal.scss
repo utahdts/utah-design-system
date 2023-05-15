@@ -10,7 +10,7 @@
       top: 25%;
       z-index: 1010;
     }
-    &__input {
+    &__input[type=text] {
       border-radius: var(--radius-circle);
       border: none;
       width: 50vw;
@@ -20,7 +20,7 @@
     &__button-wrapper {
       position: absolute;
       right: var(--spacing-s)
-    
+
     }
     &__close-button-wrapper {
       position: fixed;
@@ -29,7 +29,6 @@
       z-index: 1010;
     }
     &__close-button {
-      
       & [class*=utds-icon-before-]::before {
         font-size: 1rem;
         color: white;
@@ -37,7 +36,7 @@
       &:hover {
         background: white;
         & [class*=utds-icon-before-]::before {
-          color: var(--primary-color);
+          color: var(--gray-color);
         }
       }
     }

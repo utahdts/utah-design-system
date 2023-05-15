@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import isString from '../../../src/js/misc/isString';
+import dataOfAllDataTypes, { allDataTypes } from '../../util/dataOfAllDataTypes';
 
 describe('isString', () => {
   test('string', () => {
@@ -15,4 +16,16 @@ describe('isString', () => {
     expect(isString({})).toBe(false);
     expect(isString([])).toBe(false);
   });
+
+  test.each(dataOfAllDataTypes({ includes: [allDataTypes.STRING, allDataTypes.STRING_OBJECT] }))(
+    'isString: all string types',
+    (datum) => expect(isString(datum)).toBe(true)
+  );
+
+  test.each(dataOfAllDataTypes({
+    excludes: [allDataTypes.STRING, allDataTypes.STRING_OBJECT, allDataTypes.TRUTHY],
+  }))(
+    'isString: all non-string types: %#',
+    (datum) => expect(isString(datum)).toBe(false)
+  );
 });

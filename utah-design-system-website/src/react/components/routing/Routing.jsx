@@ -3,7 +3,7 @@ import {
   DocumentationTemplate,
   LandingTemplate,
   OnThisPage,
-  SidePanelNavigation,
+  VerticalMenu,
   useCurrentMenuItem,
   useUtahHeaderContext
 } from '@utahdts/utah-design-system';
@@ -22,7 +22,7 @@ const defaultProps = {};
 function Routing() {
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef();
-  const { setSettings } = useUtahHeaderContext();
+  const { setSettings = () => { } } = useUtahHeaderContext() || {};
   const navigate = useNavigate();
 
   useEffect(
@@ -88,7 +88,7 @@ function Routing() {
               <DocumentationTemplate
                 content={page.content}
                 contentRef={contentRef}
-                sidePanelLeftContent={<SidePanelNavigation currentMenuItem={currentMenuItem} menus={menuSecondary} />}
+                sidePanelLeftContent={<VerticalMenu currentMenuItem={currentMenuItem} menus={menuSecondary} />}
                 sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />
             );

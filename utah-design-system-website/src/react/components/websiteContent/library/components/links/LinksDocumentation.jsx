@@ -60,7 +60,7 @@ function LinksDocumentation() {
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Links to sections on a page.</strong> Link to content on the same page by using an <code>id</code> on the target element and a hash
+          <strong>Anchors; links to sections on a page.</strong> Link to content on the same page by using an <code>id</code> on the target element and a hash
           symbol with the <code>id</code> in the href of the <code>&lt;a&gt;</code> tag.
           <PreCode
             showBackgroundColor

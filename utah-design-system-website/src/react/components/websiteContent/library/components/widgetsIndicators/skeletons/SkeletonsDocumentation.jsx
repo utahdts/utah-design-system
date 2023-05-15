@@ -2,6 +2,11 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import skeletonShapes from '../../../../../../../static/images/mockups/Skeleton.jpg';
+import skeletonFullScreenshot from '../../../../../../../static/images/mockups/skeletonFullPage.jpg';
+import skeletonLazyScreenshot from '../../../../../../../static/images/mockups/skeletonLazyLoad.jpg';
+import skeletonTableScreenshot from '../../../../../../../static/images/mockups/skeletonTable.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -19,25 +24,34 @@ function SkeletonsDocumentation() {
       <hr />
 
       <h2 id="section-example">Example</h2>
-      <ul>
-        <li>
-          The skeleton component supports 3 shape variants:
-          <ul>
-            <li><code>Text</code>: represents a single line of text.</li>
-            <li><code>Circular</code> and <code>rectangular</code> shapes allow you to adjust the size of the shapes to mimic the content that is being loaded.</li>
-          </ul>
-        </li>
-      </ul>
 
       <StaticExample
-        title="Skeleton Variations"
+        title="Skeleton Shapes"
         renderedExample={(
-          <div>Example coming soon!</div>
+          <LightBox image={skeletonShapes} alt="Skeleton Shapes" className="flex-3up-gap" />
         )}
         quickTips={(
           <ul>
             <li>
-              <strong>Loading all at once.</strong> Skeleton container sizes and elements remain consistent across different users, even though the specific
+              The skeleton component uses basic shape variants:
+              <ul>
+                <li><code>Thin rectangles</code> represents a single line of text.</li>
+                <li><code>Circular</code> and <code>rectangular</code> shapes allow you to adjust the size of the shapes to mimic the content that is being loaded.</li>
+              </ul>
+            </li>
+          </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Skeleton Variations"
+        renderedExample={(
+          <LightBox image={skeletonFullScreenshot} alt="Skeleton" className="flex-3up-gap" />
+        )}
+        quickTips={(
+          <ul>
+            <li>
+              Skeleton container sizes and elements remain consistent across different users, even though the specific
               text and icons in each content area may differ. This consistency helps prepare users for the content that will eventually fill in. To ensure the
               best possible user experience, it&apos;s ideal for each content area to load at the same time.
             </li>
@@ -48,7 +62,7 @@ function SkeletonsDocumentation() {
       <StaticExample
         title="Within a container"
         renderedExample={(
-          <div>Example coming soon!</div>
+          <LightBox image={skeletonTableScreenshot} alt="Skeleton Table" className="flex-3up-gap" />
         )}
         quickTips={(
           <ul>
@@ -63,12 +77,12 @@ function SkeletonsDocumentation() {
       <StaticExample
         title="Progressive Loading"
         renderedExample={(
-          <div>Example coming soon!</div>
+          <LightBox image={skeletonLazyScreenshot} alt="Skeleton Progressive Load" className="flex-3up-gap" />
         )}
         quickTips={(
           <ul>
             <li>
-              <strong>Progressive Loading.</strong> Progressive loading occurs when individual elements become visible on a page as soon as they&apos;re loaded, rather than displaying all at once.
+              Progressive loading occurs when individual elements become visible on a page as soon as they&apos;re loaded, rather than displaying all at once.
             </li>
           </ul>
         )}
@@ -77,12 +91,12 @@ function SkeletonsDocumentation() {
       <StaticExample
         title="Lazy Loading"
         renderedExample={(
-          <div>Example coming soon!</div>
+          <LightBox image={skeletonLazyScreenshot} alt="Skeleton Lazy Load" className="flex-3up-gap" />
         )}
         quickTips={(
           <ul>
             <li>
-              <strong>Lazy Loading.</strong> The technique of &quot;Lazy Loading&quot; is frequently utilized to enhance performance by loading a batch of
+              The technique of &quot;Lazy Loading&quot; is frequently utilized to enhance performance by loading a batch of
               data upfront and then loading subsequent batches as required.
             </li>
           </ul>
@@ -102,7 +116,7 @@ function SkeletonsDocumentation() {
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>Long-running processes.</strong> For tasks such as file conversions, uploads/downloads, exporting reports, or data importing, it&apos;s better to use <Link to={pageUrls.progressBars}>progress bars</Link> and/or <Link to={pageUrls.textIndicators}>text indicators</Link> that detail each stage of the process.</li>
+        <li><strong>Long-running processes.</strong> For tasks such as file conversions, uploads/downloads, exporting reports, or data importing, it&apos;s better to use <Link to={pageUrls.progressBars}>progress bars</Link> and/or text that detail each stage of the process.</li>
         <li><strong>Fast processes.</strong> For fast processes that take less than <code>300ms</code>, a loading indicator (skeleton or <Link to={pageUrls.spinners}>spinner</Link>) is not necessary.</li>
         <li><strong>Clicking a button.</strong> When dealing with small, inline actions or feedback, such as clicking a button that may take some time to process, it&apos;s preferable to use a loading <Link to={pageUrls.spinners}>spinner</Link> instead of a skeleton.</li>
         <li><strong>Content with flair.</strong> Consider using a choreographed or stylized entrance. Unlike a loading skeleton, these entrances don&apos;t depend on loading time. For example, reveal each section with a fade as the user scrolls down the page.</li>
@@ -121,7 +135,7 @@ function SkeletonsDocumentation() {
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
         <li>To ensure good visibility under favorable conditions, such as adequate ambient light, a high-quality screen, and no visual impairments, the background color of the skeleton is chosen to have the lowest possible luminance required.</li>
-        <li>The boundaries of the shapes contained within the skeleton must maintain a minimum <code>3:1</code> contrast ratio against the background.</li>
+        <li>For skeletons that are critical to the user experience, the boundaries of the shapes contained within the skeleton must maintain a minimum <code>3:1</code> contrast ratio against the background.</li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>

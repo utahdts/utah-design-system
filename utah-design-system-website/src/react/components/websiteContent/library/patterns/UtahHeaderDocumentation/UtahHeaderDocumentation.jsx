@@ -268,11 +268,14 @@ function UtahHeaderDocumentation() {
           <ul>
             <li>Action items are not required, but can be utilized based on need.</li>
             <li>Action items are icon buttons that can be used in combination with badges.</li>
-            <li><span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation or frequently used services.</li>
+            <li>
+              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation.
+              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an agency&#39;s divisions.
+            </li>
             <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be linked to the Citizen Portal.</li>
             <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
             <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
-            <li>The UtahID Login is a button that allows the user to login to their UtahID and Citizen Portal (eventually) accounts.</li>
+            <li>The UtahID Login is a button that allows the user to login to their UtahID account and Citizen Portal (in the future).</li>
             <li>Action items can have 2 different types of popups.
               <ul>
                 <li>Contains a menu</li>
@@ -481,12 +484,50 @@ function UtahHeaderDocumentation() {
             <TableRow>
               <TableCell>
                 <span className="prop__name"><a href="#section-config-logo">logo</a></span><br />
-                <span className="prop__types">Element | string</span>
+                <span className="prop__types">Logo</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  Your site may have a logo and/or a title. This logo should be an image such as an SVG or PNG and can be provided as an element or
-                  the string contents of the image.
+                  Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.element</a></span><br />
+                <span className="prop__types">HTMLElement | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply an HTMLElement, or a function that returns an HTMLElement, to be used as the logo image.
+                  The element will be moved to the header, so be careful to not supply an element that is used elsewhere.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.htmlString</a></span><br />
+                <span className="prop__types">string | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply a string, or a function that returns a string, that contains HTML content to be rendered
+                  as the logo.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.imageUrl</a></span><br />
+                <span className="prop__types">string | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply a url, or a function that returns a url, that specifies the source location to
+                  use for the logo image.
                 </span>
               </TableCell>
             </TableRow>
@@ -526,7 +567,7 @@ function UtahHeaderDocumentation() {
                 Default: <code>true</code>
               </TableCell>
               <TableCell>
-                A title is always required for accessability reasons, but it is not required to be shown if you supply a <code>logo</code>.
+                A title is always required for accessability reasons, but it is not required to be shown if you supply a logo.
               </TableCell>
             </TableRow>
 
@@ -628,7 +669,28 @@ function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                logo: document.getElementById('my-logo'),
+                logo: {
+                  element: document.getElementById('my-logo')
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of element logo as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  element: () => {
+                    const logo = document.createElement('img');
+                    logo.src = 'https://my-site.utah.gov/img/logo.png';
+                    return logo;
+                  }
+                }
               }
             )
           `}
@@ -641,7 +703,54 @@ function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                logo: '<svg>...svg content...</svg>',
+                logo: {
+                  htmlString: '<svg>...svg content...</svg>'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of string logo as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  htmlString: () => '<svg>...svg content...</svg>'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of providing the logo source:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  imageUrl: 'https://mysite.utah.gov/img/logo.png'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of providing the logo source as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  imageUrl: () => 'https://mysite.utah.gov/img/logo.png'
+                }
               }
             )
           `}
@@ -746,7 +855,7 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h3 id="section-utahheader-actionItems" className="mb-spacing">actionItems</h3>
+      <h3 id="section-utahheader-actionItems" className="mb-spacing">Action Items</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
         <Table className="table--lines-x">
@@ -938,7 +1047,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-actionItems" className="mt-spacing">actionItems</h4>
       <div>
-        actionItems give your users notifications and global app utility. Use the main menu for navigation items and
+        <code>actionItems</code> give your users notifications and global app utility. Use the main menu for navigation items and
         action items for notifications, alerts, and global considerations.
         <PreCode
           allowScrollOverflow
@@ -1029,7 +1138,36 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h3 id="section-mainmenu-settings" className="mb-spacing">mainMenu</h3>
+      <h3 id="section-utahheader-footer" className="mb-spacing">Footer</h3>
+      <h4 id="section-auth-props">Config Props</h4>
+      <TableWrapper>
+        <Table className="table--lines-x">
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><Link to={pageUrls.utahFooter}>footer</Link></span><br />
+                <span className="prop__types">FooterSettings</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The Utah footer is the required bar at the bottom of the page with information and links
+                  for the State of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
+                  for the footer.
+                </span>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+      <br />
+
+      <h3 id="section-mainmenu-settings" className="mb-spacing">Main Menu</h3>
       <h4 id="section-mainmenu-props">Config Props</h4>
       <TableWrapper>
         <Table className="table--lines-x">
@@ -1210,7 +1348,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-mainMenu" className="mt-spacing">mainMenu</h4>
       <div>
-        The main menu is the main navigation for your application. A user should be able to easily get to the major
+        The <code>mainMenu</code> is the main navigation for your application. A user should be able to easily get to the major
         areas of your application through the main menu.
         <PreCode
           className="gray-block mt-spacing"

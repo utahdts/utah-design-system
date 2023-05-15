@@ -12,7 +12,7 @@ const defaultProps = {
   currentMenuItem: null,
 };
 
-function SidePanelNavigation({ currentMenuItem, menus }) {
+function VerticalMenu({ currentMenuItem, menus }) {
   return (
     menus.map((menu) => {
       const TitleTagName = menu.titleTagName || 'h2';
@@ -35,7 +35,7 @@ function SidePanelNavigation({ currentMenuItem, menus }) {
   );
 }
 
-SidePanelNavigation.propTypes = propTypes;
-SidePanelNavigation.defaultProps = defaultProps;
+VerticalMenu.propTypes = propTypes;
+VerticalMenu.defaultProps = defaultProps;
 
-export default SidePanelNavigation;
+export default VerticalMenu;

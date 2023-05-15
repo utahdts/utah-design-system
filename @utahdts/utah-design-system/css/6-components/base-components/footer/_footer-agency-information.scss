@@ -1,0 +1,59 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .footer-agency-information {
+    background: var(--gray-color);
+    color: white;
+    padding: var(--spacing-xl);
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+
+    &__column {
+      flex: 1 1;
+      min-width: 200px;
+    }
+    &__column:first-child {
+      flex: 1 1 25%;
+    }
+
+    a[href] {
+      color: white;
+    }
+
+    &__title {
+      &-image {
+        max-width: 300px;
+      }
+      font-size: var(--font-size-l);
+      font-weight: var(--font-weight-semi-bold);
+      margin-top: var(--spacing);
+
+    }
+    &__address {
+      margin-top: var(--spacing);
+    }
+    &__email {
+      margin-top: var(--spacing);
+    }
+    &__phone {
+      margin-top: var(--spacing);
+    }
+    &__column-title {
+      font-weight: var(--font-weight-bold);
+    }
+    &__menu {
+      list-style-type: none;
+      padding: 0;
+      font-size: var(--font-size-s);
+      a[href] {
+        text-decoration: none;
+        &:hover {
+          color: white;
+          box-shadow: none;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

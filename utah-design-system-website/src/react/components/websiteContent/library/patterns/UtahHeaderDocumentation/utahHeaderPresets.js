@@ -79,14 +79,14 @@ const utahHeaderPresets = [
       },
       {
         settingsSnippet: {
-          logo: LOGO_IMAGE,
+          logo: { htmlString: LOGO_IMAGE },
           showTitle: false,
         },
         title: 'Just Brand',
       },
       {
         settingsSnippet: {
-          logo: LOGO_IMAGE,
+          logo: { htmlString: LOGO_IMAGE },
           showTitle: true,
           title: 'State of Utah Preset Title',
         },

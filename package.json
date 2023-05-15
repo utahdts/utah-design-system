@@ -19,17 +19,13 @@
     "cleanPackageLock": "rimraf package-lock.json",
     "headerDev": "npm run watch -workspace=@utahdts/utah-design-system-header",
     "npmi": "npm i",
-    "sassBuildHeader": "npm run sass-build -workspace=@utahdts/utah-design-system-header",
-    "sassBuildLibrary": "npm run sass-build -workspace=@utahdts/utah-design-system",
     "watchLib": "npm run watch -workspace=@utahdts/utah-design-system",
     "websiteDev": "npm run dev -workspace=utah-design-system-website",
-    
     "// test tasks": "",
     "circular": "npx madge --circular .",
     "circularg": "npx madge --circular --image circular.svg .",
     "test": "npm run test -workspace=@utahdts/utah-design-system",
     "test:ci": "npm run test:ci -workspace=@utahdts/utah-design-system",
-    
     "// combo tasks": "",
     "build": "run-s buildHeader buildLibrary buildWebsite",
     "buildtest": "run-s build test:ci",
@@ -38,15 +34,14 @@
     "cleanbuild": "run-s cleani build",
     "cleani": "run-s clean npmi",
     "dev": "npm run websiteDev",
-    "proveconfig":"run-s proveTest proveBuild proveDev proveExamples",
+    "proveconfig": "run-s proveTest proveBuild proveDev proveExamples",
     "proveBuild": "run-s cleani build",
     "proveDev": "run-s reset",
     "proveExamples": "echo \"examples require manual testing!\";",
     "proveTest": "run-s cleani buildtest",
     "publishHeader": "npm run publishHeader -workspace=@utahdts/utah-design-system-header",
     "publishLibrary": "npm run publishLibrary -workspace=@utahdts/utah-design-system",
-    "reset": "run-s cleani websiteDev",
-    "sassbuild": "run-s sassBuildHeader buildHeader sassBuildLibrary buildLibrary"
+    "reset": "run-s cleani websiteDev"
   },
   "devDependencies": {
     "npm-run-all": "4.1.5",

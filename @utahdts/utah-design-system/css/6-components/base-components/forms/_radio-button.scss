@@ -45,8 +45,7 @@
     box-shadow: rgb(240 241 242) 0px 0px 0px 7px;
   }
 
-  span {
+  .checkbox ~ span:first-of-type {
     border-radius: 999px;
-    box-shadow: rgb(240 241 242) 0px 0px 0px 0px;
   }
 }
