@@ -42,7 +42,7 @@ function TableSortingRule({
           recordFieldPath,
         });
       }
-      return () => unregisterSortingRule && unregisterSortingRule(recordFieldPath);
+      return () => unregisterSortingRule?.(recordFieldPath);
     },
     [!registerSortingRule, !unregisterSortingRule]
   );

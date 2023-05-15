@@ -97,7 +97,7 @@ function TableDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>Tables on a mobile device can be scroll horizontally, or the information can be displayed in a stacked layout. </li>
+            <li>Tables on a mobile device can be scroll horizontally, or the information can be displayed in a stacked layout.</li>
           </ul>
         )}
       />

@@ -53,7 +53,8 @@ function CopyButton({ copyRef, onCopy }) {
             if (onCopy) {
               copiedText = onCopy(copiedText);
             }
-            navigator.clipboard.writeText(copiedText);
+            // eslint-disable-next-line no-console
+            navigator.clipboard.writeText(copiedText).catch((e) => console.error(e));
             setState((draftState) => {
               draftState.showFeedback = true;
             });

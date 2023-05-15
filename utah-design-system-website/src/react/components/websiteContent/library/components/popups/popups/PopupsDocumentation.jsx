@@ -51,15 +51,15 @@ function PopupsDocumentation() {
   const [popupsState, setPopupsState] = useImmer({
     example1: false,
     example2: false,
-    editorExample: false,
+    editorExample: null,
   });
 
   useEffect(() => {
     // set the focus on the button or text input depending on visibility
-    if (popupsState.editorExample) {
-      document.getElementById('editor-example-textarea').focus();
-    } else {
+    if (popupsState.editorExample === false) {
       document.getElementById('button-for-editor-example').focus();
+    } else {
+      document.getElementById('editor-example-textarea').focus();
     }
   }, [popupsState.editorExample]);
 
@@ -274,7 +274,7 @@ function PopupsDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Detailed content.</strong> If the content has detailed information that consists of more than a few sentences or more than
-          one input consider using a <Link to={pageUrls.dialog}>Dialog</Link> or <Link to={pageUrls.modals}>Modal</Link>.
+          one input consider using a <Link to={pageUrls.modals}>Modal</Link>.
         </li>
         <li>
           <strong>Users full attention required.</strong> Always use a <Link to={pageUrls.modals}>Modal</Link> if the user&apos;s full attention needs to be on a particular form
@@ -288,7 +288,7 @@ function PopupsDocumentation() {
       <h3 id="section-usability">Usability Guidance</h3>
       <h4>Style</h4>
       <ul className="mb-spacing">
-        <li><strong>Hover above the content.</strong> A popup should overlap in front of other UI elements. View more information about <Link to={pageUrls.elevation}>elevation</Link>.</li>
+        <li><strong>Hover above the content.</strong> A popup should overlap in front of other UI elements. View more information about <Link to={pageUrls.depthElevationShadows}>elevation</Link>.</li>
         <li>
           <strong>Popup positioning.</strong> Popups should always be positioned within the viewable areas of the screen and be <code>6-12px</code> away from the element that launched them.
           The popup should appear next to (left, right, top, bottom) the element that launched it.
@@ -323,11 +323,13 @@ function PopupsDocumentation() {
           Be sure the popup can be dismissed with the <code>Escape</code> key. Once dismissed, the user&apos;s focus should return to the element that spawned the
           popup.
         </li>
-        <li>Keyboard shortcuts include:</li>
-        <ul>
-          <li><code>Enter</code> key should open the popup</li>
-          <li><code>Esc</code> key should dismiss the popup</li>
-        </ul>
+        <li>
+          Keyboard shortcuts include:
+          <ul>
+            <li><code>Enter</code> key should open the popup</li>
+            <li><code>Esc</code> key should dismiss the popup</li>
+          </ul>
+        </li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">

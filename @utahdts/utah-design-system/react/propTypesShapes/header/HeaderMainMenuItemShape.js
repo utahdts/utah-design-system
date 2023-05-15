@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import MenuItemShape from './MenuItemShape';
+import MenuItemShape from '../MenuItemShape';
 import MenuItemUrlActionShape from './HeaderMenuItemUrlActionShape';
 
 // copied from jsDocTypes.js MainMenuItem

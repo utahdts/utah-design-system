@@ -1,28 +1,48 @@
+// @ts-check
+import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
+import SettingsShape from '../propTypesShapes/header/SettingsShape';
+
+/** @typedef {import('../../../../@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings */
+/** @typedef {import('../../../../@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').SettingsInput} SettingsInput */
 
 // The global context object that tracks the context's state and provides components like the <UtahHeaderContext.Provider/>
-const UtahHeaderContext = React.createContext();
+const UtahHeaderContext = React.createContext({
+  settings: getUtahHeaderSettings(),
+  setSettings: /** @type {import('use-immer').Updater<Settings>} */(() => { }),
+});
 
 // This hook provides the context's data; most everything should just use this hook and nothing else
 /**
- * @return {settings, setSettings}
+ * @return {{ settings: Settings, setSettings: import('use-immer').Updater<Settings> }}
  */
 export default function useUtahHeaderContext() {
   return useContext(UtahHeaderContext);
 }
 
-const propTypes = { children: PropTypes.node.isRequired };
-const defaultProps = {};
+const propTypes = {
+  children: PropTypes.node.isRequired,
+  defaultSettings: SettingsShape,
+};
+const defaultProps = {
+  defaultSettings: null,
+};
 
-// provider that wraps the app at the top level
-export function UtahHeaderContextProvider({ children }) {
-  const [settings, setSettings] = useImmer(() => getUtahHeaderSettings());
+/**
+ * provider that wraps the app at the top level
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {SettingsInput} props.defaultSettings
+ * @returns {JSX.Element}
+ */
+export function UtahHeaderContextProvider({ children, defaultSettings }) {
+  const [settings, setSettings] = useImmer(() => ({ ...getUtahHeaderSettings(), ...(defaultSettings ?? {}) }));
 
   useEffect(
     () => {
+      // these are the default settings for ANY app. Put your settings in your app (App.jsx for the Utah Design System Website)
       setUtahHeaderSettings(settings);
     },
     [settings]

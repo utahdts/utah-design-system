@@ -6,11 +6,11 @@
 import { Link } from 'react-router-dom';
 import PreCode from '../../../../../preCode/PreCode';
 import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import VerticalMenuExampleCodeReact from './VerticalMenuExampleCodeReact';
-import VerticalMenuExampleProps from './VerticalMenuExampleProps';
-import VerticalMenuExampleRender from './VerticalMenuExampleRender';
+import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';
+import verticalMenuRightSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuRightSidebar.jpg';
+import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -27,22 +27,15 @@ function VerticalMenuDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
-      <SandboxExample
-        RENDER_EXAMPLE={VerticalMenuExampleRender}
-        PROPS_EXAMPLE={VerticalMenuExampleProps}
-        CODE_EXAMPLE={VerticalMenuExampleCodeReact}
-      />
       <StaticExample
         title="Vertical Menu Located Within the Side Panel Navigation"
-        renderedExample={(
-          <p>Here is an example</p>
-        )}
+        renderedExample={<LightBox image={verticalMenuLeftSidebarScreenshot} alt="Vertical Menu Sidebar" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Displayed on the left hand side of the page.</li>
             <li>
-              Menu&apos;s in side panel navigation are generally considered Landmark menus and should be labelled as such. View more information under
-              <Link to={pageUrls.accessibility}>Accessibility</Link>.
+              Menu&apos;s in side panel navigation are generally considered Landmark menus and should be labelled as such.
+              View more information under <Link to={pageUrls.accessibility}>Accessibility</Link>.
             </li>
             <li>List items may have sub-menus that are indicated by a chevron located to the right of the text.</li>
             <li>
@@ -58,9 +51,7 @@ function VerticalMenuDocumentation() {
       />
       <StaticExample
         title="Vertical Menu Located Within the On-Page Navigation"
-        renderedExample={(
-          <p>Here is an example</p>
-        )}
+        renderedExample={<LightBox image={verticalMenuRightSidebarScreenshot} alt="Vertical Menu - On this page" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Items in this list link directly to content on the page.</li>
@@ -75,10 +66,8 @@ function VerticalMenuDocumentation() {
         )}
       />
       <StaticExample
-        title="Vertical Menu Located Within the Popup"
-        renderedExample={(
-          <p>Here is an example</p>
-        )}
+        title="Vertical Menu Located Within a Popup"
+        renderedExample={<LightBox image={popupMenusScreenshot} alt="Vertical Menu - On this page" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>The vertical menu is displayed as content in a popup.</li>
@@ -225,9 +214,9 @@ function VerticalMenuDocumentation() {
       <h5>Popup or Child Menus</h5>
       <PreCode
         className="gray-block"
-        codeRaw={`<button 
-  aria-haspopup="menu" 
-  aria-controls="some-unique-id" 
+        codeRaw={`<button
+  aria-haspopup="menu"
+  aria-controls="some-unique-id"
   aria-expanded="false"
 >
   Show Popup

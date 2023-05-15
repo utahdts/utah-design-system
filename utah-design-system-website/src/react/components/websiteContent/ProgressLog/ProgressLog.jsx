@@ -64,6 +64,18 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
+            <ProgressLogVersionRow version="0.7" />
+            <ProgressLogTableRow title="Utah Header" toUrl={pageUrls.utahHeader} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Utah Footer" toUrl={pageUrls.utahFooter} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Banner" toUrl={pageUrls.banners} isDefinitionChecked />
+            <ProgressLogTableRow title="Form Validation" toUrl={pageUrls.validation} isDefinitionChecked />
+            <ProgressLogTableRow title="Lists" toUrl={pageUrls.lists} isDefinitionChecked />
+            <ProgressLogTableRow title="Loading Indicator" toUrl={pageUrls.spinners} isDefinitionChecked />
+            <ProgressLogTableRow title="Modal" toUrl={pageUrls.modals} isDefinitionChecked />
+            <ProgressLogTableRow title="Skeleton" toUrl={pageUrls.skeletons} isDefinitionChecked />
+            <ProgressLogTableRow title="Switch" toUrl={pageUrls.switch} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Tags" toUrl={pageUrls.tags} isDefinitionChecked />
+            <ProgressLogTableRow title="Time Input" toUrl={pageUrls.timeInput} isDefinitionChecked />
             <ProgressLogVersionRow version="0.6" />
             <ProgressLogTableRow title="Combo Box" toUrl={pageUrls.comboBox} isDefinitionChecked />
             <ProgressLogTableRow title="Links" toUrl={pageUrls.links} isDefinitionChecked />
@@ -71,7 +83,7 @@ function ProgressLog() {
             <ProgressLogTableRow title="Pagination" toUrl={pageUrls.pagination} isDefinitionChecked />
             <ProgressLogTableRow title="Patterns: Footer" toUrl={pageUrls.utahFooter} isDefinitionChecked />
             <ProgressLogTableRow title="Select input" toUrl={pageUrls.select} isDefinitionChecked />
-            <ProgressLogTableRow title="Table" toUrl={pageUrls.table} isDefinitionChecked isCssChecked isComponentExampleChecked />
+            <ProgressLogTableRow title="Table" toUrl={pageUrls.table} isDefinitionChecked isComponentExampleChecked />
             <ProgressLogVersionRow version="0.4" />
             <ProgressLogTableRow title="Getting Started" toUrl={pageUrls.gettingStarted} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Text Input" toUrl={pageUrls.textInput} isDefinitionChecked />
@@ -86,7 +98,6 @@ function ProgressLog() {
             <ProgressLogTableRow title="Icon Button" toUrl={pageUrls.iconButton} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Icons" toUrl={pageUrls.icons} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Popups" toUrl={pageUrls.popups} isDefinitionChecked isCssChecked isComponentExampleChecked />
-            <ProgressLogTableRow title="Switch" toUrl={pageUrls.switch} isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Vertical Menu" toUrl={pageUrls.verticalMenu} isDefinitionChecked />
           </TableBody>
         </Table>
@@ -95,31 +106,31 @@ function ProgressLog() {
       <h2 className="mt-spacing-l">Task Log</h2>
       <ul>
         <li>
-          Version 0.6
+          Version 0.7
           <ul>
-            <li>Added accordions to mockups</li>
-            <li>Added interactive &quot;Utah, an official website&quot; to Utah unbrand</li>
-            <li>Allow placing Utah Header in a specific DOM element</li>
-            <li>Cleaned up mono repo cross linkage</li>
-            <li>Cured leprosy (on documentation pages)</li>
+            <li>Add: Allow Header to target a dom location (YAY Scott!)</li>
+            <li>Add: Footer React Component</li>
+            <li>Add: Footer renders w/ Utah Header</li>
+            <li>Add: Footer settings documentation</li>
+            <li>Add: Information about Waffle Icon Action Item</li>
+            <li>Add: Logo can be a function, HTML Element, or url</li>
+            <li>Add: Pagination React Component</li>
             <li>Define: Banner</li>
             <li>Define: Form Validation</li>
-            <li>Define: Links</li>
-            <li>Define: List</li>
-            <li>Define: Loading indicator-spinner</li>
+            <li>Define: Lists</li>
+            <li>Define: Loading Indicator</li>
             <li>Define: Modal</li>
-            <li>Define: Pagination</li>
             <li>Define: Skeleton</li>
             <li>Define: Switch</li>
-            <li>Define: Tags (taxonomy)</li>
+            <li>Define: Tags</li>
             <li>Define: Time Input</li>
-            <li>Table: ability for filters to exact match instead of just partial</li>
-            <li>Table: ability for table select filter to auto load options from data</li>
-            <li>Updated Utah Header Documentation w/ API details</li>
+            <li>Finalize: Document all the settings for the Utah Header</li>
+            <li>Fix: Scope css selectors</li>
+            <li>Fix: Search input styling and turn off autocomplete</li>
+            <li>Fix: Stop font swapping for icon font</li>
+            <li>Update: Header Mobile Main Menu tabbing</li>
+            <li>Update: Update vertical menu documentation</li>
           </ul>
-        </li>
-        <li>
-          Version 0.5 ¯\_(ツ)_/¯
         </li>
         <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>
       </ul>

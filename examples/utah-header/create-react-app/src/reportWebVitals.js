@@ -6,7 +6,9 @@ const reportWebVitals = onPerfEntry => {
       getFCP(onPerfEntry);
       getLCP(onPerfEntry);
       getTTFB(onPerfEntry);
-    });
+    })
+      // eslint-disable-next-line no-console
+      .catch((e) => console.error(e));
   }
 };
 

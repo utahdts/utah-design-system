@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Icons } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import packageJSON from '../../../../package.json';
 import pageUrls from '../routing/pageUrls';
 import ProgressLog from './ProgressLog/ProgressLog';
 
@@ -67,9 +66,6 @@ function HomeLanding() {
         <h2>Progress Log</h2>
         <p>The Utah Design System is currently under construction. You can check back to see our progress.</p>
         <ProgressLog />
-
-        <p className="home-version">Version: {packageJSON.version}</p>
-
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
@@ -16,12 +17,19 @@ import MultiSelectDocumentation from '../websiteContent/library/components/forms
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
+import TimeInputDocumentation from '../websiteContent/library/components/forms/TimeInput/TimeInputDocumentation';
+import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
+import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
+import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
+import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
+import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
+import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
 import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -148,6 +156,13 @@ const pages = {
     link: pageUrls.uxBestPractices,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'UX Best Practices',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  validation: {
+    content: ValidationDocumentation,
+    link: pageUrls.validation,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form Validation',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -307,13 +322,6 @@ const pages = {
 
   // === library documentation components === //
   // === basic atomic === //
-  anchors: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.anchors,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Anchors',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
 
   horizontalRule: {
     content: PLACEHOLDERDOCUMENTATION,
@@ -331,8 +339,16 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  lists: {
+    content: ListsDocumentation,
+    link: pageUrls.lists,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Lists',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   tags: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: TagsDocumentation,
     link: pageUrls.tags,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Tags',
@@ -344,14 +360,6 @@ const pages = {
     link: pageUrls.type,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Type and Text',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  accordion: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.accordion,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Accordion',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -380,30 +388,6 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  card: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.card,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Card',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  dialog: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.dialog,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Dialog',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  elevation: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.elevation,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Elevation',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   iconButton: {
     content: IconButtonDocumentation,
     link: pageUrls.iconButton,
@@ -412,16 +396,8 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  lists: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.lists,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Lists',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   modals: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: ModalsDocumentation,
     link: pageUrls.modals,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Modals',
@@ -436,12 +412,66 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  // === containers === //
+
+  accordion: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.accordion,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Accordion',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  card: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.card,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Card',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  tabs: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.tabs,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Tabs',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   // === widgets & indicators === //
   badges: {
     content: BadgesDocumentation,
     link: pageUrls.badges,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Badges',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  banners: {
+    content: BannersDocumentation,
+    link: pageUrls.banners,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Banners',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  progressBars: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.progressBars,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Progress Bars',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  skeletons: {
+    content: SkeletonsDocumentation,
+    link: pageUrls.skeletons,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Skeletons',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  spinners: {
+    content: SpinnersDocumentation,
+    link: pageUrls.spinners,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Spinners',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   stepIndicator: {
@@ -453,6 +483,13 @@ const pages = {
   },
 
   // === forms === //
+  forms: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.forms,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Forms',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   checkbox: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.checkbox,
@@ -516,11 +553,11 @@ const pages = {
     pageTitle: 'Text Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  validation: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.validation,
+  timeInput: {
+    content: TimeInputDocumentation,
+    link: pageUrls.timeInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Validation',
+    pageTitle: 'Time Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -575,21 +612,6 @@ const pages = {
   },
 
   // will go away VVVVVVVV
-  forms: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.forms,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Forms',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  form: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.form,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Form',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   errorPage404: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.errorPage404,

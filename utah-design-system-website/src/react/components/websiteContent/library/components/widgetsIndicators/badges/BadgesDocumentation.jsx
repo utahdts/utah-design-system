@@ -14,11 +14,9 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import BadgesExampleCodeReact from './BadgesExampleCodeReact';
-import BadgesExampleProps from './BadgesExampleProps';
-import BadgesExampleRender from './BadgesExampleRender';
+import badgesMockup from '../../../../../../../static/images/mockups/Badges.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -31,19 +29,16 @@ function BadgesDocumentation() {
       <p className="lead-in">Badges convey dynamic information, such as counts or status. A badge can include labels or numbers.</p>
       <hr />
       <h2 id="section-example">Example</h2>
-      <SandboxExample
-        CODE_EXAMPLE={BadgesExampleCodeReact}
-        PROPS_EXAMPLE={BadgesExampleProps}
-        RENDER_EXAMPLE={BadgesExampleRender}
-      />
       <StaticExample
-        title="Emphasized Badges (Solid)"
+        title="Badges (Large and Small)"
         renderedExample={(
-          <div>I am not a badge</div>
+          <LightBox image={badgesMockup} alt="Badges" className="flex-3up-gap" />
         )}
         quickTips={(
           <ul>
-            <li>All your badges are belong to us.</li>
+            <li>Large badges use a number to convey a status count.</li>
+            <li>Small badges simply note there has been a status change.</li>
+            <li>Badges are typically aligned to the upper right corner of the button or item they are a child of.</li>
           </ul>
         )}
       />
@@ -85,7 +80,7 @@ function BadgesDocumentation() {
         <li><strong>Badge proximity</strong>: Keep the badge in close proximity to its parent element. When space permits, place the badge inside the parent element on the right side. (e.g. a navigation list item or regular button)</li>
         <li><strong>Maximum character count</strong>: Ensure that badge labels don&apos;t extend too far beyond the badge container. Typically don&apos;t use more than 4 characters.</li>
         <li><strong>Avoid changing the position</strong>: Badges have fixed positions. Generally, don&apos;t change the position of the badge arbitrarily or place the badge directly over the parent component.</li>
-        <li><strong>Hide badge when acknowledged</strong>: When a badge is used to indicate an unread notification, the badge gets hidden once it has been viewed or acknowledged by the user. </li>
+        <li><strong>Hide badge when acknowledged</strong>: When a badge is used to indicate an unread notification, the badge gets hidden once it has been viewed or acknowledged by the user.</li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>

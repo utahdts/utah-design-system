@@ -1,5 +1,5 @@
 // @ts-check
-import { baseSettings } from '@utahdts/utah-design-system';
+import { defaultSettings, getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import {
   useCallback,
   useEffect,
@@ -8,13 +8,13 @@ import {
   useState
 } from 'react';
 import { useImmer } from 'use-immer';
-import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
+import baseSettings from '../../../../../../websiteUtahHeaderSettings';
 import localStorageKeys from '../../../../../enums/localStorageKeys';
 import parseHeaderSettings from './parseHeaderSettings';
 import stringifyHeaderSettings from './stringifyHeaderSettings';
 
 /**
- * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
+ * @typedef {import('../../../../../../../../@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
 */
 
 /**
@@ -51,7 +51,7 @@ export default function useInteractiveHeaderState() {
       // include baseSettings in case localStorage settings are missing something (bargain basement migrator)
       resultSettings = { ...baseSettings, ...parseHeaderSettings(settingsFromStorage) };
     } else {
-      resultSettings = baseSettings;
+      resultSettings = { ...getUtahHeaderSettings(), ...baseSettings };
     }
     return resultSettings;
   });
@@ -135,7 +135,13 @@ export default function useInteractiveHeaderState() {
       parseError,
 
       reset: () => {
-        setHeaderSettings(baseSettings);
+        // clear all settings
+        const blankSettings = { ...getUtahHeaderSettings() };
+        Object.keys(blankSettings).forEach((settingsKey) => {
+          blankSettings[settingsKey] = null;
+        });
+        // add back in defaults and app base settings
+        setHeaderSettings({ ...blankSettings, ...defaultSettings, ...baseSettings });
         setParseError(null);
       },
     }),

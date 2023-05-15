@@ -1,9 +1,10 @@
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import RefShape from '../../propTypesShapes/RefShape';
-import handleEvent from '../../util/handleEvent';
 import joinClassNames from '../../util/joinClassNames';
 
 const propTypes = {
@@ -54,22 +55,21 @@ const defaultProps = {
 
 /**
  * @typedef {import('../../propTypesShapes/RefShape').Ref} Ref
- * @typedef IconButtonProps {
- *   @property {'solid', 'outlined' | 'borderless' | undefined} [appearance]
- *   @property {string | null | undefined} [className]
- *   @property {'primary' | 'secondary' | 'accent' | 'none' | undefined} [color]
- *   @property {Element} icon
- *   @property {string | null | undefined} [id]
- *   @property {Ref | null | undefined} [innerRef]
- *   @property {boolean} [isDisabled]
- *   @property {(e: Event) => void | null | undefined} [onClick]
- *   @property {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [size]
- *   @property {string} title
- * }
- */
+ * @typedef {import('../../enums/buttonEnums').IconButtonAppearance} IconButtonAppearance
+*/
 
 /**
- * @param {IconButtonProps} props
+ * @param {Object} props
+ * @param {IconButtonAppearance} [props.appearance]
+ * @param {string | null | undefined} [props.className]
+ * @param {'primary' | 'secondary' | 'accent' | 'none' | undefined} [props.color]
+ * @param {import('react').ReactNode} props.icon
+ * @param {string | null | undefined} [props.id]
+ * @param {import('react').LegacyRef<HTMLButtonElement> | null | undefined} [props.innerRef]
+ * @param {boolean} [props.isDisabled]
+ * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
+ * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [props.size]
+ * @param {string} props.title
  * @returns {JSX.Element}
  */
 function IconButton({
@@ -97,9 +97,9 @@ function IconButton({
         (size && size !== formElementSizesEnum.MEDIUM) ? `icon-button--${size}` : null
       )}
       disabled={isDisabled}
-      id={id}
-      onClick={handleEvent(onClick)}
-      ref={innerRef}
+      id={id || undefined}
+      onClick={onClick}
+      ref={innerRef || undefined}
       type="button"
       {...rest}
     >

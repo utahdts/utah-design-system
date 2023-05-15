@@ -81,6 +81,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.validation.link,
+      title: pages.validation.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.notifications.link,
       title: pages.notifications.pageTitle,
       parentLinks: [pages.guidelines.link],
@@ -103,19 +108,13 @@ export const menuLibraryComponentsSecondary = {
   id: 'library-components',
   menuItems: [
     {
-      id: 'components__accordion',
-      title: 'Accordion',
-      link: pages.accordion.link,
-      parentLinks: [pages.library.link],
-    },
-    {
       id: 'components__basic-atomic',
       title: 'Basic Atomic',
       parentLinks: [pages.library.link],
       children: [
-        { link: pages.anchors.link, title: pages.anchors.pageTitle },
         { link: pages.horizontalRule.link, title: pages.horizontalRule.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
+        { link: pages.lists.link, title: pages.lists.pageTitle },
         { link: pages.tags.link, title: pages.tags.pageTitle },
         { link: pages.type.link, title: pages.type.pageTitle },
       ],
@@ -133,28 +132,21 @@ export const menuLibraryComponentsSecondary = {
       ],
     },
     {
-      id: 'components__card',
-      title: 'Card',
-      link: pages.card.link,
+      id: 'components__containers',
+      title: 'Containers',
       parentLinks: [pages.library.link],
-    },
-    {
-      id: 'components__dialogs',
-      link: pages.dialog.link,
-      title: 'Dialog',
-      parentLinks: [pages.library.link],
-    },
-    {
-      id: 'components__elevations',
-      link: pages.elevation.link,
-      title: 'Elevation',
-      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.accordion.link, title: pages.accordion.pageTitle },
+        { link: pages.card.link, title: pages.card.pageTitle },
+        { link: pages.tabs.link, title: pages.tabs.pageTitle },
+      ],
     },
     {
       id: 'components__forms',
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.forms.link, title: pages.forms.pageTitle },
         { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
         { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
@@ -164,19 +156,8 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
+        { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
       ],
-    },
-    {
-      id: 'components__lists',
-      title: 'Lists',
-      link: pages.lists.link,
-      parentLinks: [pages.library.link],
-    },
-    {
-      id: 'components__modals',
-      link: pages.modals.link,
-      title: 'Modals',
-      parentLinks: [pages.library.link],
     },
     {
       id: 'components__navigation',
@@ -193,6 +174,8 @@ export const menuLibraryComponentsSecondary = {
       title: 'Popups',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.banners.link, title: pages.banners.pageTitle },
+        { link: pages.modals.link, title: pages.modals.pageTitle },
         { link: pages.popups.link, title: pages.popups.pageTitle },
       ],
     },
@@ -208,6 +191,9 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
+        { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
+        { link: pages.spinners.link, title: pages.spinners.pageTitle },
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
@@ -220,16 +206,20 @@ export const menuLibraryPatternsSecondary = {
   id: 'library-patterns',
   menuItems: [
     {
+      title: 'Utah Header',
+      link: pages.utahHeader.link,
+      parentLinks: [pages.library.link],
+    },
+    {
       title: 'Utah Footer',
       link: pages.utahFooter.link,
       parentLinks: [pages.library.link],
     },
     {
-      title: 'Utah Header',
-      link: pages.utahHeader.link,
-      parentLinks: [pages.library.link],
+      title: 'Form Validation',
+      link: pages.validation.link,
+      parentLinks: [pages.guidelines.link],
     },
-    { link: pages.validation.link, title: pages.validation.pageTitle, parentLinks: [pages.library.link] },
   ],
 };
 

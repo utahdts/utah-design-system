@@ -6,7 +6,7 @@ import stringifyHeaderSettings, { FUNCTION_PLACEHOLDER } from '../../../../../..
 
 /**
  * @typedef {import('../../../../../../../../@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
-*/
+ */
 
 const MATCH_BASIC_FIELDS = [
   '"showTitle": true',
@@ -21,7 +21,7 @@ const MATCH_BASIC_FIELDS = [
 
 /**
  * @param {string[]} strings the strings to test to satisfy validity
- * @returns {function(string): boolean}
+ * @returns {function(string): boolean} true if all the strings match teh testStr
  */
 function doesMatchStrings(strings) {
   return (resultStr) => strings.every((testStr) => resultStr.includes(testStr));
@@ -66,7 +66,9 @@ describe('stringifyHeaderSettings', () => {
         tabletPortrait: 768,
         tabletLandscape: 1024,
       },
-      logo: 'just-a-string',
+      logo: {
+        htmlString: 'just-a-string',
+      },
       utahId: false,
     };
 
@@ -90,7 +92,9 @@ describe('stringifyHeaderSettings', () => {
         tabletPortrait: 768,
         tabletLandscape: 1024,
       },
-      logo: document.createElement('div'),
+      logo: {
+        element: document.createElement('div'),
+      },
       utahId: false,
     };
 

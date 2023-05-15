@@ -29,6 +29,9 @@
     border-top: 1px solid var(--gray-border);
     border-left: 1px solid var(--gray-border);
   }
+  &__label {
+    margin-top: var(--spacing-s);
+  }
 
   &__static {
     .pre-code-block {

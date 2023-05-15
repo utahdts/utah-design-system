@@ -7,8 +7,8 @@ import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
 import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import isString from '../../misc/isString';
 import renderDOMSingle from '../../misc/renderDOMSingle';
+import valueOrFunctionValue from '../../misc/valueOrFunctionValue';
 import { getUtahHeaderSettings } from '../../settings/settings';
 
 /**
@@ -36,10 +36,14 @@ export default function LogoTitle() {
   if (settingsLogo) {
     /** @type {HTMLCollection | Element} */
     let settingsLogoElement;
-    if (isString(settingsLogo)) {
-      settingsLogoElement = renderDOMSingle(/** @type {string} */(settingsLogo));
+    if (settingsLogo.htmlString) {
+      settingsLogoElement = renderDOMSingle(valueOrFunctionValue(settingsLogo.htmlString));
+    } else if (settingsLogo.element) {
+      settingsLogoElement = valueOrFunctionValue(settingsLogo.element);
+    } else if (settingsLogo.imageUrl) {
+      settingsLogoElement = renderDOMSingle(`<img src=${valueOrFunctionValue(settingsLogo.imageUrl)}  id="design-system-logo" />`);
     } else {
-      settingsLogoElement = /** @type {Element} */ (settingsLogo);
+      throw new Error('LogoTitle: logo set but has no settings');
     }
     settingsLogoElement.setAttribute('role', 'presentation');
     logoWrapper.appendChild(settingsLogoElement);

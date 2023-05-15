@@ -3,7 +3,17 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
-import { ExternalLink } from '@utahdts/utah-design-system';
+import {
+  ExternalLink,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableHeadRow,
+  TableRow,
+  TableWrapper,
+} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
@@ -12,6 +22,7 @@ import footerScreenshot from '../../../../../../static/images/mockups/Footer.jpg
 import socialBar from '../../../../../../static/images/screenshots/patterns/footer/socialBar.jpg';
 import agencyFooter from '../../../../../../static/images/screenshots/patterns/footer/agencyFooter.jpg';
 import requiredFooter from '../../../../../../static/images/screenshots/patterns/footer/requiredFooter.jpg';
+import PreCode from '../../../../preCode/PreCode';
 
 const propTypes = {};
 const defaultProps = {};
@@ -102,6 +113,215 @@ function UtahFooterDocumentation() {
         </li>
         <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.verticalMenu}>Vertical Menus</Link> and <Link to={pageUrls.links}>Links</Link>.</li>
       </ul>
+
+      <h2 id="section-utahheader-settings" className="mb-spacing"> Settings</h2>
+      <div>
+        Footer settings are in the Utah Header settings object. You can set them separately or send them with the Utah Header settings.
+        See these <a href="#section-config-footer_setting">code examples</a> show the ways of specifying settings for the footer.
+      </div>
+      <TableWrapper>
+        <Table className="table--lines-x">
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer</a></span><br />
+                <span className="prop__types">FooterSettings</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  This optional configuration has settings for where to place the footer and visual settings.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget</a></span><br />
+                <span className="prop__types">DomLocationTarget</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  By default, the Utah Footer is placed at the bottom of the page. This can be overridden by
+                  providing a DOM target in which the footer will render.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget.cssSelector</a></span><br />
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Place the Utah footer in an element selected by a CSS class.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget.element</a></span><br />
+                <span className="prop__types">HTMLElement</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Place the Utah footer in a specific DOM element.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget.elementFunction</a></span><br />
+                <span className="prop__types">function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  This function must return a DOM element in to which the Utah footer will be placed.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.showHorizontalRule</a></span><br />
+                <span className="prop__types">boolean</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  There are three main sections to the footer. See the <Link to={pageUrls.mockups}>mocks</Link> for a visual example. The top bar of the
+                  footer is for social media. The next big section is for custom links and content. These top two sections are optional.
+                  The bottom bar of State of Utah information and links is required. Set this <code>showHorizontalRule</code> setting to true
+                  in order to have a horizontal separator drawn between the bottom footer bar and the main content.
+                </span>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+
+      <h4 id="section-config-footer_setting" className="mt-spacing">Footer Settings</h4>
+      <div>
+        The footer settings are a part of the header settings. For convenience you may set the footer settings separately
+        from the header settings. Below are examples of the different ways that you can set footer settings.
+      </div>
+      <br /><br />
+      Example of using <code>setUtahHeaderSettings()</code>:
+      <PreCode
+        className="gray-block mt-spacing"
+        codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                footer: {
+                  domLocationTarget: {
+                    cssSelector: '#footer-target-div',
+                  },
+                  showHorizontalRule: false,
+                }
+              }
+            )
+          `}
+      />
+      <br />
+      Example of setting just footer via <code>setUtahHeaderSettings()</code>:
+      <PreCode
+        className="gray-block mt-spacing"
+        codeRaw={`
+            setUtahHeaderSettings(
+              {
+                /* 
+                 * notice the lack of other header settings. 
+                 * Those other settings will be kept, 
+                 * with the footer settings added or updated.
+                 */
+                footer: {
+                  domLocationTarget: {
+                    cssSelector: '#footer-target-div',
+                  },
+                  showHorizontalRule: false,
+                }
+              }
+            )
+          `}
+      />
+      <br />
+      Example of setting just footer settings via <code>setUtahFooterSettings()</code> (these footer settings will be merged with existing header settings):
+      <PreCode
+        className="gray-block mt-spacing"
+        codeRaw={`
+            setUtahFooterSettings(
+              {
+                domLocationTarget: {
+                  cssSelector: '#footer-target-div',
+                },
+                showHorizontalRule: false,
+              }
+            )
+          `}
+      />
+
+      <h4 id="section-config-footer_domLocationTarget" className="mt-spacing">domLocationTarget</h4>
+      <div>
+        By default, the footer appears at the bottom of your application. You can Use one of the following configurations
+        to place the footer in another location. Be aware that the Utah footer should always be at the bottom of the
+        page. This is just convenience settings in case placing the footer automatically at the bottom causes
+        your layout to misbehave.
+        <br /><br />
+        Example of cssSelector:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                footer: {
+                  domLocationTarget: {
+                    cssSelector: '#footer-target-div',
+                  }
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of element:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                footer: {
+                  domLocationTarget: {
+                    element: document.getElementById('footer-container'),
+                  }
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of elementFunction:
+        <PreCode
+          allowScrollOverflow
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                footer: {
+                  domLocationTarget: {
+                    elementFunction: () => document.getElementById('footer-container'),
+                  }
+                }
+              }
+            )
+          `}
+        />
+      </div>
     </div>
   );
 }

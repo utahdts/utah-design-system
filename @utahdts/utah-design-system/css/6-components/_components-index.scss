@@ -9,6 +9,8 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/containers/tab-group";
 @use "base-components/buttons/button";
 @use "base-components/buttons/icon-button";
+@use "base-components/footer/footer-agency-information";
+@use "base-components/footer/footer-social-media-bar";
 @use "base-components/forms/input-wrapper";
 @use "base-components/forms/text-input";
 @use "base-components/forms/checkbox";
@@ -18,6 +20,7 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/forms/switch";
 @use "base-components/navigation/main-menu";
 @use "base-components/navigation/menu-item";
+@use "base-components/navigation/pagination";
 @use "base-components/navigation/side-panel-navigation";
 @use "base-components/navigation/vertical-menu";
 @use "base-components/navigation/mega-menu";

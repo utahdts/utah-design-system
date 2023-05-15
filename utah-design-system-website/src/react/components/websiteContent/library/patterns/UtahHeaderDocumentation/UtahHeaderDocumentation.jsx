@@ -268,11 +268,14 @@ function UtahHeaderDocumentation() {
           <ul>
             <li>Action items are not required, but can be utilized based on need.</li>
             <li>Action items are icon buttons that can be used in combination with badges.</li>
-            <li><span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation or frequently used services.</li>
+            <li>
+              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation.
+              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an agency&#39;s divisions.
+            </li>
             <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be linked to the Citizen Portal.</li>
             <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
             <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
-            <li>The UtahID Login is a button that allows the user to login to their UtahID and Citizen Portal (eventually) accounts.</li>
+            <li>The UtahID Login is a button that allows the user to login to their UtahID account and Citizen Portal (in the future).</li>
             <li>Action items can have 2 different types of popups.
               <ul>
                 <li>Contains a menu</li>
@@ -434,8 +437,8 @@ function UtahHeaderDocumentation() {
           <TableBody>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget</a><br /></span>
-                <span className="prop__types">DomLocationTarget</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget</a></span><br />
+                <span className="prop__types">DomLocationTarget</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -446,8 +449,8 @@ function UtahHeaderDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.cssSelector</a><br /></span>
-                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.cssSelector</a></span><br />
+                <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -457,8 +460,8 @@ function UtahHeaderDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.element</a><br /></span>
-                <span className="prop__types">HTMLElement</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.element</a></span><br />
+                <span className="prop__types">HTMLElement</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -468,8 +471,8 @@ function UtahHeaderDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.elementFunction</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.elementFunction</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -480,30 +483,68 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-logo">logo</a><br /></span>
-                <span className="prop__types">Element | string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-logo">logo</a></span><br />
+                <span className="prop__types">Logo</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  Your site may have a logo and/or a title. This logo should be an SVG and can be provided as an element or
-                  the string contents of the SVG.
+                  Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
                 </span>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-mediaSizes">mediaSizes</a><br /></span>
+                <span className="prop__name"><a href="#section-config-logo">logo.element</a></span><br />
+                <span className="prop__types">HTMLElement | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply an HTMLElement, or a function that returns an HTMLElement, to be used as the logo image.
+                  The element will be moved to the header, so be careful to not supply an element that is used elsewhere.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.htmlString</a></span><br />
+                <span className="prop__types">string | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply a string, or a function that returns a string, that contains HTML content to be rendered
+                  as the logo.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-logo">logo.imageUrl</a></span><br />
+                <span className="prop__types">string | function</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  You can supply a url, or a function that returns a url, that specifies the source location to
+                  use for the logo image.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-mediaSizes">mediaSizes</a></span><br />
                 <span className="prop__types">MediaSizes</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  The header is responsive. You can custom configure the sizes at which the header is responsive so as
+                  The header is responsive. You can custom configure the sizes (px) at which the header is responsive so as
                   to better match your site&apos;s behavior. There are three responsive break points:
                   <ul>
-                    <li>mobile</li>
-                    <li>tableLandscape</li>
-                    <li>tablePortrait</li>
+                    <li><span className="prop__types">mobile</span> (smallest) (default - <code>640</code>)</li>
+                    <li><span className="prop__types">tabletPortrait</span> (medium) (default - <code>768</code>)</li>
+                    <li><span className="prop__types">tabletLandscape</span> (largest) (default - <code>1024</code>)</li>
                   </ul>
                 </span>
               </TableCell>
@@ -511,8 +552,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-onSearch">onSearch</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-onSearch">onSearch</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 The Utah Header main menu bar can have a search icon in it.
@@ -521,42 +562,45 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-showTitle">showTitle</a><br /></span>
-                <span className="prop__types">boolean</span>
+                <span className="prop__name"><a href="#section-config-showTitle">showTitle</a></span><br />
+                <span className="prop__types">boolean</span><br />
+                Default: <code>true</code>
               </TableCell>
               <TableCell>
-                A title is always required for accessability reasons, but it is not required to be shown.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-size">size</a><br /></span>
-                <span className="prop__types">SMALL | MEDIUM | LARGE</span>
-              </TableCell>
-              <TableCell>
-                The header can be sized to better match your application.
+                A title is always required for accessability reasons, but it is not required to be shown if you supply a logo.
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-title">title</a><br /></span>
-                <span className="prop__types">string</span>
+                <span className="prop__name"><a href="#section-config-size">size</a></span><br />
+                <span className="prop__types">SMALL | MEDIUM | LARGE</span><br />
+                Default: <code>MEDIUM</code>
+              </TableCell>
+              <TableCell>
+                The header can be sized to better match your application. The default and most preferred size is <code>MEDIUM</code>.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-title">title</a></span><br />
+                <span className="prop__types">string</span> <span className="prop__optional">(required)</span>
               </TableCell>
               <TableCell>
                 The Utah Header requires a title for accessability reasons. You can use the showTitle setting
-                to make it not visible.
+                to make it visible or not. You may hide the title only if you supply a <code>logo</code>.
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-titleURL">titleURL</a><br /></span>
-                <span className="prop__types">string</span>
+                <span className="prop__name"><a href="#section-config-titleURL">titleURL</a></span><br />
+                <span className="prop__types">string</span><br />
+                Default: <code>/</code>
               </TableCell>
               <TableCell>
-                When the logo or title are triggered, the browser wil navigate to this URL.
+                When the logo and/or title are clicked, the browser will navigate to this URL.
               </TableCell>
             </TableRow>
           </TableBody>
@@ -578,7 +622,7 @@ function UtahHeaderDocumentation() {
               {
                 ...other settings...,
                 domLocationTarget: {
-                  cssSelector: '#some-div .nested-div[title="target div"]',
+                  cssSelector: '#header-target-div',
                 }
               }
             )
@@ -625,7 +669,28 @@ function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                logo: document.getElementById('my-logo'),
+                logo: {
+                  element: document.getElementById('my-logo')
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of element logo as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  element: () => {
+                    const logo = document.createElement('img');
+                    logo.src = 'https://my-site.utah.gov/img/logo.png';
+                    return logo;
+                  }
+                }
               }
             )
           `}
@@ -638,7 +703,54 @@ function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                logo: '<svg>...svg content...</svg>',
+                logo: {
+                  htmlString: '<svg>...svg content...</svg>'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of string logo as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  htmlString: () => '<svg>...svg content...</svg>'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of providing the logo source:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  imageUrl: 'https://mysite.utah.gov/img/logo.png'
+                }
+              }
+            )
+          `}
+        />
+        <br />
+        Example of providing the logo source as a function:
+        <PreCode
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                logo: {
+                  imageUrl: () => 'https://mysite.utah.gov/img/logo.png'
+                }
               }
             )
           `}
@@ -654,10 +766,9 @@ function UtahHeaderDocumentation() {
               {
                 ...other settings...,
                 mediaSizes: {
-                  // !! THESE ARE NOT REAL VALUES !! //
                   mobile: 500,
-                  tabletLandscape: 1000,
                   tabletPortrait: 750,
+                  tabletLandscape: 1000,
                 },
               }
             )
@@ -692,7 +803,7 @@ function UtahHeaderDocumentation() {
               {
                 ...other settings...,
                 showTitle: false,
-                title: 'This title does not appear on the site, just in accessability',
+                title: 'This title is only for assistive technology',
               }
             )
           `}
@@ -744,21 +855,21 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h3 id="section-utahheader-actionItems" className="mb-spacing">actionItems</h3>
+      <h3 id="section-utahheader-actionItems" className="mb-spacing">Action Items</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
         <Table className="table--lines-x">
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell>Name / Type / Default</TableHeadCell>
-              <TableHeadCell>Description</TableHeadCell>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems</a><br /></span>
-                <span className="prop__types">ActionItem[]</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems</a></span><br />
+                <span className="prop__types">ActionItem[]</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -766,9 +877,9 @@ function UtahHeaderDocumentation() {
                   be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
                   When the action item is triggered it can have one of the following behaviors:
                   <ul>
-                    <li>callback: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
-                    <li>popup menu: a popup menu will show with your custom menu items</li>
-                    <li>custom html: a popup dialog will appear with your custom content</li>
+                    <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
+                    <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
+                    <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
                   </ul>
                 </span>
               </TableCell>
@@ -776,8 +887,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionFunction</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionFunction</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -788,8 +899,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionPopupMenu</a><br /></span>
-                <span className="prop__types">PopupMenu</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionPopupMenu</a></span><br />
+                <span className="prop__types">PopupMenu</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -800,33 +911,33 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionDom</a><br /></span>
-                <span className="prop__types">function | string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionDom</a></span><br />
+                <span className="prop__types">function | string</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  Your custom content can be provided through a callback function that takes the trigger even and returns
-                  the custom content to render or a string representation of the html content to render.
+                  Custom content can be provided through a callback function. You are provided the trigger event (click), and must return
+                  the custom content to render (DOM Element) or a string representation of the html content.
                 </span>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].className</a><br /></span>
-                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].className</a></span><br />
+                <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  A custom class can be added to the action item for your app to target with styling and/or functionality.
+                  A custom css class can be added to the action item for your app to target with styling and/or functionality.
                 </span>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge</a><br /></span>
-                <span className="prop__types">Badge</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge</a></span><br />
+                <span className="prop__types">Badge</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -837,8 +948,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.className</a><br /></span>
-                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.className</a></span><br />
+                <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -849,7 +960,7 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.label</a><br /></span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.label</a></span><br />
                 <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
@@ -861,8 +972,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.value</a><br /></span>
-                <span className="prop__types">number</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.value</a></span><br />
+                <span className="prop__types">number</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -873,8 +984,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].icon</a><br /></span>
-                <span className="prop__types">HTMLElement | string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].icon</a></span><br />
+                <span className="prop__types">HTMLElement | string</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -883,16 +994,18 @@ function UtahHeaderDocumentation() {
               </TableCell>
             </TableRow>
 
+            {/* -- Commenting out this entire section until we decide if we want to keep it
+
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a><br /></span>
-                <span className="prop__types">left | none | right</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></span><br />
+                <span className="prop__types">left | none | right</span>
                 <br />
-                <code>none</code>
+                Default: <code>none</code>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  The Utah Header is responsive. When viewing the Utah Header in narrow view ports, the action items
+                  The Utah Header is responsive. When viewing the Utah Header in narrow viewports, the action items
                   are removed from the view. A hamburger menu icon is added to the main menu bar that will toggle open
                   a dialog that shows the action items and main menu. To have your action items remain prominent on mobile
                   sizes, you can specify a position relative to the UtahID button at which to show the action item. Showing
@@ -902,9 +1015,11 @@ function UtahHeaderDocumentation() {
               </TableCell>
             </TableRow>
 
+            */}
+
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].showTitle</a><br /></span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].showTitle</a></span><br />
                 <span className="prop__types">boolean</span>
               </TableCell>
               <TableCell>
@@ -917,7 +1032,7 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].title</a><br /></span>
+                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].title</a></span><br />
                 <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
@@ -932,7 +1047,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-actionItems" className="mt-spacing">actionItems</h4>
       <div>
-        actionItems give your users notifications and global app utility. Use the main menu for navigation items and
+        <code>actionItems</code> give your users notifications and global app utility. Use the main menu for navigation items and
         action items for notifications, alerts, and global considerations.
         <PreCode
           allowScrollOverflow
@@ -1023,32 +1138,61 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h3 id="section-mainmenu-settings" className="mb-spacing">mainMenu</h3>
-      <h4 id="section-mainmenu-props">Config Props</h4>
+      <h3 id="section-utahheader-footer" className="mb-spacing">Footer</h3>
+      <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
         <Table className="table--lines-x">
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell>Name / Type / Default</TableHeadCell>
-              <TableHeadCell>Description</TableHeadCell>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-mainMenu">mainMenu</a><br /></span>
+                <span className="prop__name"><Link to={pageUrls.utahFooter}>footer</Link></span><br />
+                <span className="prop__types">FooterSettings</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The Utah footer is the required bar at the bottom of the page with information and links
+                  for the State of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
+                  for the footer.
+                </span>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+      <br />
+
+      <h3 id="section-mainmenu-settings" className="mb-spacing">Main Menu</h3>
+      <h4 id="section-mainmenu-props">Config Props</h4>
+      <TableWrapper>
+        <Table className="table--lines-x">
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-mainMenu">mainMenu</a></span><br />
                 <span className="prop__types">MainMenu</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
                   The Utah Header&apos;s Main Menu allows common site navigation across all State of Utah content.
-                  Use the Utah Header Main Menu configuration to create your site&quot;s navigation.
+                  Use the Utah Header Main Menu configuration to create your site&apos;s navigation.
                 </span>
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-mainMenu">mainMenu.menuItems</a><br /></span>
+                <span className="prop__name"><a href="#section-mainMenu">mainMenu.menuItems</a></span><br />
                 <span className="prop__types">MainMenuItem[]</span>
               </TableCell>
               <TableCell>
@@ -1059,8 +1203,8 @@ function UtahHeaderDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionUrl</a><br /></span>
-                <span className="prop__types">MenuItemUrlAction</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionUrl</a></span><br />
+                <span className="prop__types">MenuItemUrlAction</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1071,8 +1215,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionFunction</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionFunction</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1083,8 +1227,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionFunctionUrl</a><br /></span>
-                <span className="prop__types">MenuItemFunctionUrlAction</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionFunctionUrl</a></span><br />
+                <span className="prop__types">MenuItemFunctionUrlAction</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1097,8 +1241,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionMenu</a><br /></span>
-                <span className="prop__types">MenuItem[]</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionMenu</a></span><br />
+                <span className="prop__types">MenuItem[]</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1109,18 +1253,18 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].childrenMenuType</a><br /></span>
-                <span className="prop__types">flyout | inline | mega-menu</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].childrenMenuType</a></span><br />
+                <span className="prop__types">flyout | inline | mega-menu</span>
                 <br />
-                <code>flyout</code>
+                Default: <code>flyout</code>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  The menu items can open in different styles:
+                  Children menu items can open in different styles:
                   <ul>
                     <li>flyout: opens its own popup</li>
                     <li>inline: has toggles for open close</li>
-                    <li>mega-menu: all the menu items are expanded</li>
+                    <li>mega-menu: all the menu items are expanded into a single view</li>
                   </ul>
                 </span>
               </TableCell>
@@ -1128,20 +1272,20 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].className</a><br /></span>
-                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].className</a></span><br />
+                <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  Can provide a css class to put on the menu item. Helpful for marking a menu item as selected other statuses.
+                  Can provide a css class to put on the menu item. Helpful for marking a menu item as selected or other statuses.
                 </span>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].icon</a><br /></span>
-                <span className="prop__types">Element</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].icon</a></span><br />
+                <span className="prop__types">Element</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1152,8 +1296,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].isDivider</a><br /></span>
-                <span className="prop__types">boolean</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].isDivider</a></span><br />
+                <span className="prop__types">boolean</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1164,8 +1308,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].isSelected</a><br /></span>
-                <span className="prop__types">boolean</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].isSelected</a></span><br />
+                <span className="prop__types">boolean</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1176,7 +1320,7 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].title</a><br /></span>
+                <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].title</a></span><br />
                 <span className="prop__types">boolean</span>
               </TableCell>
               <TableCell>
@@ -1188,7 +1332,7 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-mainMenu">mainMenu.title</a><br /></span>
+                <span className="prop__name"><a href="#section-mainMenu">mainMenu.title</a></span><br />
                 <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
@@ -1204,7 +1348,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-mainMenu" className="mt-spacing">mainMenu</h4>
       <div>
-        The main menu is the main navigation for your application. A user should be able to easily get to the major
+        The <code>mainMenu</code> is the main navigation for your application. A user should be able to easily get to the major
         areas of your application through the main menu.
         <PreCode
           className="gray-block mt-spacing"
@@ -1306,16 +1450,16 @@ function UtahHeaderDocumentation() {
         <Table className="table--lines-x">
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell>Name / Type / Default</TableHeadCell>
-              <TableHeadCell>Description</TableHeadCell>
+              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
+              <TableHeadCell className="text-left">Description</TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-auth-config">utahId</a><br /></span>
-                <span className="prop__types">UtahIdSettings | boolean</span> <span className="prop__optional">(optional)</span><br />
-                <span className="prop__default"><code>true</code></span>
+                <span className="prop__name"><a href="#section-auth-config">utahId</a></span><br />
+                <span className="prop__types">UtahIdSettings | boolean</span><br />
+                Default: <code>true</code>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1331,7 +1475,7 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser</a><br /></span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser</a></span><br />
                 <span className="prop__types">UserInfo | null | undefined</span>
               </TableCell>
               <TableCell>
@@ -1347,7 +1491,7 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.authenticated</a><br /></span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.authenticated</a></span><br />
                 <span className="prop__types">boolean</span>
               </TableCell>
               <TableCell>
@@ -1362,8 +1506,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.disabled</a><br /></span>
-                <span className="prop__types">boolean</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.disabled</a></span><br />
+                <span className="prop__types">boolean</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1377,8 +1521,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.env</a><br /></span>
-                <span className="prop__types">string</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.env</a></span><br />
+                <span className="prop__types">string</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1389,7 +1533,7 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.first</a><br /></span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.first</a></span><br />
                 <span className="prop__types">string | null</span>
               </TableCell>
               <TableCell>
@@ -1401,8 +1545,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.last</a><br /></span>
-                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.last</a></span><br />
+                <span className="prop__types">string | null</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1413,8 +1557,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.mail</a><br /></span>
-                <span className="prop__types">string[] | null</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.mail</a></span><br />
+                <span className="prop__types">string[] | null</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1425,8 +1569,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.middle</a><br /></span>
-                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.middle</a></span><br />
+                <span className="prop__types">string | null</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1437,8 +1581,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.status</a><br /></span>
-                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.status</a></span><br />
+                <span className="prop__types">string | null</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1449,8 +1593,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.type</a><br /></span>
-                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.type</a></span><br />
+                <span className="prop__types">string | null</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1461,8 +1605,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.username</a><br /></span>
-                <span className="prop__types">string | null</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.username</a></span><br />
+                <span className="prop__types">string | null</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1473,14 +1617,14 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell colSpan="100">
-                <span className="prop__section-title">utahId events</span>
+                <span className="prop__section-title">UtahId Events</span>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onauthchanged">utahId.onAuthChanged</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-event-onauthchanged">utahId.onAuthChanged</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1491,8 +1635,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onProfile">utahId.onProfile</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-event-onProfile">utahId.onProfile</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1503,8 +1647,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onSignIn">utahId.onSignIn</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-event-onSignIn">utahId.onSignIn</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1515,8 +1659,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onSignOut">utahId.onSignOut</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-event-onSignOut">utahId.onSignOut</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1527,27 +1671,27 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell colSpan="100">
-                <span className="prop__section-title">utahId custom menu items</span>
+                <span className="prop__section-title">UtahId Custom Menu Items</span>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems</a><br /></span>
-                <span className="prop__types">MenuItem[]</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems</a></span><br />
+                <span className="prop__types">MenuItem[]</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
                   Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-                  to a user&apos;s account. Use the <a href="#???">Main Menu</a> configuration for non-account related links.
+                  to a user&apos;s account. Use an alternate navigation for non-account related links.
                 </span>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionUrl</a><br /></span>
-                <span className="prop__types">MenuItemUrlAction</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionUrl</a></span><br />
+                <span className="prop__types">MenuItemUrlAction</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1558,8 +1702,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunction</a><br /></span>
-                <span className="prop__types">function</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunction</a></span><br />
+                <span className="prop__types">function</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1570,8 +1714,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunctionUrl</a><br /></span>
-                <span className="prop__types">MenuItemFunctionUrlAction</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunctionUrl</a></span><br />
+                <span className="prop__types">MenuItemFunctionUrlAction</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1584,8 +1728,8 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionMenu</a><br /></span>
-                <span className="prop__types">MenuItem[]</span> <span className="prop__optional">(optional)</span>
+                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionMenu</a></span><br />
+                <span className="prop__types">MenuItem[]</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
@@ -1630,7 +1774,6 @@ function UtahHeaderDocumentation() {
             )
           `}
         />
-        <br />
         See <a href="#section-auth-currentuser">utahId.currentUser</a> for custom configuration.
       </div>
 
@@ -1752,7 +1895,7 @@ function UtahHeaderDocumentation() {
       <h4 id="section-auth-event-onProfile" className="mt-spacing">utahId.onProfile</h4>
       <div>
         This callback is called when the Utah ID button&apos;s UtahId Profile menu item is triggered for a logged in user.
-        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#???">custom menu item</a> to access
+        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#section-auth-menu-items">custom menu item</a> to access
         your application&apos;s settings/account page.
         <PreCode
           allowScrollOverflow
@@ -1819,7 +1962,7 @@ function UtahHeaderDocumentation() {
         <h4 id="section-auth-menu-items" className="mt-spacing">utahId.menuItems</h4>
         <div>
           You may provide custom menu items to include in the Utah ID menu for a signed in user. Make sure that these menu items are relevant
-          to a user&apos;s account. Use the <a href="#???">Main Menu</a> configuration for non-account related links.
+          to a user&apos;s account. Use the <a href="#section-mainmenu-settings">Main Menu</a> configuration for non-account related links.
           <PreCode
             allowScrollOverflow
             className="gray-block mt-spacing"
@@ -1868,9 +2011,6 @@ function UtahHeaderDocumentation() {
         </div>
       </div>
     </div>
-    // TODO: fix <a href="#???">custom menu item</a>
-    // TODO: fix <a href="#???">Main Menu</a>
-    // TODO: style prop__section-title
   );
 }
 

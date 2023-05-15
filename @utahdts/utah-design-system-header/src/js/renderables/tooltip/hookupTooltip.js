@@ -56,7 +56,9 @@ export default function hookupTooltip(element, dom) {
         if (!popup || popup.classList.contains(domConstants.POPUP__HIDDEN)) {
           tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__HIDDEN);
           tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__VISIBLE);
-          tooltipPopper.update();
+          tooltipPopper.update()
+            // eslint-disable-next-line no-console
+            .catch((e) => console.error(e));
         }
       },
       // tooltip was already opened on another item, so instantly open tooltip

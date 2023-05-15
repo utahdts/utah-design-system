@@ -2,3 +2,8 @@
 ############     _elements-index.scss      ############
 elemental html: h1, h2, h3, ul, li, etc.
 */
+@use "../../../../@utahdts/utah-design-system/css/1-settings/color-swatches";
+
+body {
+  background: color-swatches.$neutral-gray-04;
+}

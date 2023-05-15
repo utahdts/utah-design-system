@@ -198,10 +198,23 @@
  *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
  * }
  *
+ * @typedef Logo {
+ *  @property {HTMLElement | function(): HTMLElement} [element] an HTML Element to render
+ *  @property {string | function(): string} [htmlString] string containing html that will be rendered
+ *  @property {string | function(): string} [imageUrl] url to an image
+ * }
+ *
+ * @typedef FooterSettings {
+ *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
+ *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
+ * }
+ *
+ * // !! Make sure to update SettingsShape in the library if this changes !!
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the header be inserted? (defaults to the top of the body)
- *  @property {Element | string} [logo] - Must be an image or an SVG as a string
+ *  @property {FooterSettings} [footer]
+ *  @property {Logo} [logo] - the logo to show
  *  @property {MainMenu} mainMenu - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
  *  @property {(search: string) => void} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar

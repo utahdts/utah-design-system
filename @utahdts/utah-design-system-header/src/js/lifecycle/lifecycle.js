@@ -24,6 +24,7 @@ import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
+import renderFooter from '../renderables/footer/renderFooter';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -131,8 +132,12 @@ export function loadHeader() {
 
     loadCssSettings();
 
-    fetchUtahIdUserDataAsync();
+    fetchUtahIdUserDataAsync()
+      // eslint-disable-next-line no-console
+      .catch((e) => console.error(e));
   }
+
+  renderFooter();
 }
 
 /**
