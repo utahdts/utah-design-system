@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 // @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved, import/order
@@ -14,6 +15,7 @@ import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import packageJSON from '../../../../package.json';
 import pageUrls from '../routing/pageUrls';
 
 const propTypes = {};
@@ -62,6 +64,10 @@ function DesignSystemFooterMainContent() {
         </ul>
       </FooterAgencyInformationColumn>
 
+      <FooterAgencyInformationColumn>
+        <div className="footer-agency-information__column-title">Design System</div>
+        Version: {packageJSON.version}
+      </FooterAgencyInformationColumn>
     </FooterAgencyInformation>
   );
 }
