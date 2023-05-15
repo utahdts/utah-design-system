@@ -21,10 +21,13 @@ import logoPng from './static/images/designSystemCircleGray.png';
 const propTypes = {};
 const defaultProps = {};
 
+/**
+ * @returns {JSX.Element} the App!
+ */
 function App() {
   const { cssState } = useCssContext();
   const [state, setState] = useImmer({});
-  const { setSettings = () => {} } = useUtahHeaderContext() || {};
+  const { setSettings = () => { } } = useUtahHeaderContext() || {};
 
   // add logo to settings
   useEffect(
