@@ -1,7 +1,7 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "scripts": {
     "dev": "vite --mode development-local",
     "build": "vite build --mode production-website",
@@ -11,8 +11,8 @@
     "testc": "vitest run --coverage"
   },
   "dependencies": {
-    "@utahdts/utah-design-system": "0.7.0",
-    "@utahdts/utah-design-system-header": "0.7.0",
+    "@utahdts/utah-design-system": "0.8.0",
+    "@utahdts/utah-design-system-header": "0.8.0",
     "js-beautify": "1.14.7",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
