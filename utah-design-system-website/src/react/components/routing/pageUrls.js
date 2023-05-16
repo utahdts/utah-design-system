@@ -6,6 +6,7 @@ const pageUrls = {
   button: '/library/components/buttons/button',
   buttonGroup: '/library/components/buttons/buttonGroup',
   card: '/library/components/containers/card',
+  carousel: '/library/components/containers/carousel',
   checkbox: '/library/components/forms/checkbox',
   colorFoundation: '/foundation/color',
   colorGuidelines: '/guidelines/color',

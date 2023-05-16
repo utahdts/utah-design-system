@@ -34,7 +34,7 @@ function VerticalMenuDocumentation() {
           <ul>
             <li>Displayed on the left hand side of the page.</li>
             <li>
-              Menu&apos;s in side panel navigation are generally considered Landmark menus and should be labelled as such.
+              Menu&apos;s in <Link to={pageUrls.sidePanelNavigation}>side panel navigation</Link> are generally considered Landmark menus and should be labelled as such.
               View more information under <Link to={pageUrls.accessibility}>Accessibility</Link>.
             </li>
             <li>List items may have sub-menus that are indicated by a chevron located to the right of the text.</li>
@@ -104,7 +104,7 @@ function VerticalMenuDocumentation() {
           On mobile devices, this could potentially make it difficult for users to access the content.
         </li>
         <li>
-          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in a side panel navigation. A website that provides a single service may not require a full menu, but would do well with a button group,
+          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in a <Link to={pageUrls.sidePanelNavigation}>side panel navigation</Link>. A website that provides a single service may not require a full menu, but would do well with a button group,
           or a horizontal navigation bar (main menu). View more information on <Link to={pageUrls.buttonGroup}>Button Groups</Link> or <Link to={pageUrls.sidePanelNavigation}>Navigation</Link>.
         </li>
       </ul>
