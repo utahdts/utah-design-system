@@ -14,7 +14,7 @@ const defaultProps = {
 };
 
 function TabPanel({ children, className, tabId }) {
-  const { selectedTabId, tabGroupId } = useContext(TabGroupContext);
+  const { selectedTabId, tabGroupId } = /** @type {@typeof useContext<number>} */ (useContext)(TabGroupContext);
 
   return (
     <div
