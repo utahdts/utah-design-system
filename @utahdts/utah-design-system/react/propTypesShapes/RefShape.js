@@ -1,13 +1,6 @@
 // @ts-check
 import PropTypes from 'prop-types';
 
-/**
- * @typedef {{current: Element}} RefCurrent
- * @typedef {((args: any[]) => any) | {current: Element}} RefFunc
- * @typedef {RefCurrent | RefFunc} Ref
- */
-
-// https://stackoverflow.com/questions/48007326/what-is-the-correct-proptype-for-a-ref-in-react
 export default PropTypes.oneOfType([
   // Either a function
   PropTypes.func,

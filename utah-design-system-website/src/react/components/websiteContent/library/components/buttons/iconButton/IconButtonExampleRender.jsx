@@ -14,9 +14,8 @@ const defaultProps = {
 
 /**
  * @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps
- * @typedef {import('@utahdts/utah-design-system/react/propTypesShapes/RefShape').Ref} Ref
  *
- * @param {{state: {props: IconButtonExampleProps}, innerRef: Ref}} props
+ * @param {{state: {props: IconButtonExampleProps}, innerRef: React.Ref<HTMLButtonElement>}} props
  * @returns {React.ReactElement}
  */
 function IconButtonExampleRender({

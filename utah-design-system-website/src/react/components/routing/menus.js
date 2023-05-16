@@ -180,6 +180,14 @@ export const menuLibraryComponentsSecondary = {
       ],
     },
     {
+      id: 'components__sliders-carousels',
+      title: 'Sliders & Carousels',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.carousel.link, title: pages.carousel.pageTitle },
+      ],
+    },
+    {
       id: 'components__table',
       title: 'Table',
       link: pages.table.link,

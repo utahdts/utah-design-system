@@ -14,6 +14,7 @@ import SegmentedButtonDocumentation from '../websiteContent/library/components/b
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
+import RadioButtonDocumentation from '../websiteContent/library/components/forms/RadioButton/RadioButtonDocumentation';
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
@@ -21,6 +22,7 @@ import TimeInputDocumentation from '../websiteContent/library/components/forms/T
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
+import SidePanelDocumentation from '../websiteContent/library/components/navigation/sidePanel/SidePanelDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
@@ -453,6 +455,13 @@ const pages = {
     pageTitle: 'Banners',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  carousel: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.carousel,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Carousel',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   progressBars: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.progressBars,
@@ -519,7 +528,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   radioButton: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: RadioButtonDocumentation,
     link: pageUrls.radioButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Radio Button',
@@ -570,7 +579,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   sidePanelNavigation: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: SidePanelDocumentation,
     link: pageUrls.sidePanelNavigation,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Side Panel Navigation',
