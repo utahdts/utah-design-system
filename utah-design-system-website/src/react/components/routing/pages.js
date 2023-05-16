@@ -11,6 +11,7 @@ import ButtonDocumentation from '../websiteContent/library/components/buttons/bu
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
+import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
@@ -425,7 +426,7 @@ const pages = {
   },
 
   card: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: CardDocumentation,
     link: pageUrls.card,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Card',
