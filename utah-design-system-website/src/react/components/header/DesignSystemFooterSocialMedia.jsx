@@ -17,7 +17,6 @@ const defaultProps = {};
 function DesignSystemFooterSocialMedia() {
   return (
     <FooterSocialMediaBar title="Connect with us">
-      {/* TODO: We need decide how to handle these links better, they don't work as buttons */}
       <a
         href="mailto:dts_ui@utah.gov"
         className="icon-link"

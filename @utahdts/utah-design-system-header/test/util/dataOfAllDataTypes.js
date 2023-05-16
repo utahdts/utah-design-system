@@ -120,7 +120,7 @@ export const DATA_OF_ALL_DATATYPES = {
 export default function dataOfAllDataTypes({ includes, excludes } = {}) {
   return (
     Object.keys(DATA_OF_ALL_DATATYPES)
-      .filter((key) => (!includes || includes.includes(key)) && (!excludes || !excludes.includes(key)))
+      .filter((key) => (!includes || includes.includes(key)) && (!excludes?.includes(key)))
       .map((dataTypeKey) => Object.values(DATA_OF_ALL_DATATYPES[dataTypeKey]))
       .flat()
   );
