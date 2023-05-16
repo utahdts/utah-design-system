@@ -131,11 +131,13 @@ function UtahFooterDocumentation() {
             <TableRow>
               <TableCell>
                 <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer</a></span><br />
-                <span className="prop__types">FooterSettings</span>
+                <span className="prop__types">FooterSettings | null | undefined</span>
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  This optional configuration has settings for where to place the footer and visual settings.
+                  This optional configuration has settings for where to place the footer and visual settings. A value of <code>undefined</code> will show
+                  the default footer. A value of <code>null</code> will remove the footer so it is not displayed. It is encouraged to always show the footer though
+                  there may be cases, like maps, that need the full page.
                 </span>
               </TableCell>
             </TableRow>

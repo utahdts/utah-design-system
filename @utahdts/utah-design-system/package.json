@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -59,7 +59,7 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
-    "@utahdts/utah-design-system-header": "0.7.0",
+    "@utahdts/utah-design-system-header": "0.8.0",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
@@ -70,19 +70,19 @@
   },
   "devDependencies": {
     "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
+    "@types/react-dom": "18.2.4",
     "@vitejs/plugin-react": "4.0.0",
-    "@vitest/coverage-istanbul": "0.30.1",
-    "eslint": "8.39.0",
+    "@vitest/coverage-istanbul": "0.31.0",
+    "eslint": "8.40.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "sass": "1.62.1",
-    "vite": "4.3.4",
+    "vite": "4.3.7",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "0.30.1"
+    "vitest": "0.31.0"
   },
   "type": "module"
 }
