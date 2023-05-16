@@ -65,7 +65,7 @@ function DesignSystemFooterMainContent() {
       </FooterAgencyInformationColumn>
 
       <FooterAgencyInformationColumn>
-        <div className="footer-agency-information__column-title">Design System</div>
+        <div className="footer-agency-information__column-title">Utah Design System</div>
         Version: {packageJSON.version}
       </FooterAgencyInformationColumn>
     </FooterAgencyInformation>
