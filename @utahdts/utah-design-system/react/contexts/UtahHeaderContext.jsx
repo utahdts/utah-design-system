@@ -42,7 +42,7 @@ export function UtahHeaderContextProvider({ children, defaultSettings }) {
 
   useEffect(
     () => {
-      // these are the default settings for ANY app. Put your settings in your app (App.jsx for the Utah Design System Website)
+      // these are the default settings for ANY app. Put your settings in your app (websiteUtahHeaderSettings.js for the Utah Design System Website)
       setUtahHeaderSettings(settings);
     },
     [settings]
