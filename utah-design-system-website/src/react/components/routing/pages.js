@@ -12,6 +12,7 @@ import ConfirmationButtonDocumentation from '../websiteContent/library/component
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
+import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
@@ -434,10 +435,10 @@ const pages = {
   },
 
   tabs: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: TabGroupDocumentation,
     link: pageUrls.tabs,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Tabs',
+    pageTitle: 'Tab Group',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
