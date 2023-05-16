@@ -52,5 +52,23 @@
         }
       }
     }
+    &__address-bar {
+      width: 354px;
+      height: 36px;
+      background-image: url("data:image/octet-stream;base64,UklGRuwEAABXRUJQVlA4IOAEAADwHwCdASpiASQAPqVSoE2mJKKmIlM7gMAUiWcA1omAZ5L+quAAeU57Ff7gZUsyjoIfcspskX/Z+aXerL/OS/2fif0vWQD0UdKP1F+wXwFjgsOVljuLW2Op0of2k7mtFgbg3/ZZcJvAd5EOTtRboWBEovpUwny2vEEX+EfUT6okRZuysz+szm1Zv2ll1HayxbDJTJ4XGlN7RwCEqrvjv+1hN+vJthkN/mdgcKTEsCPkxiEk2zCiCBGrs55SMMUxwXTur8OgZc7obQQYXoyybcjhChraWE3edMoQ5mjM+/Q1F3/owGxv5b4VOkJ1lglMJKwnwNNufEWQGLMZsUIbJg0HDFgQID+S5UgA/v0qp3/7/xMv9uix8D7M2q4qllrrYRJW4+Vk2FzQ6OvjNoSlmzIQt5TdcoS6JfyX3gsgBifJQFSG+qhq0otwW3YeUh7lktuXpd0BTKfM3U16RJu5fV9fsatn3GYeSrhSg1SVppTe0SOs2c7KFePeEG3o8gr8FPUXqJfIMeVuAooTfNUEcJC7259ZEDa+3iQEPAfipB+1W5U3t5XSAbctMqRkel1o/taUsXofyFduUes9cMhnAqLFgEvd/MCAc83CzpDZ7Jq2Ni0H4fC/AboElmXodtQtrv+zU+SoxYfPAYjcJbRnVoZVcJHGausRlNrDBvt4t5l13u7q2iN9khHfdI9nctsPl6fRYtM6oYgXUEKfuxj1eu4OcKQcGyUc66y9tbPLhn3AcgfJv6LEjBbDyVzgBWl64YwDg4hkdzdlJboZex80NX16KK1VXBhOcCsbhA8nKiqqrZbP5tv/Q2+JEUFSlI5QOu0X5hzWWTILs8kGa5TY5k3czcXzGMHMr4zfZesbWQ2rCrVKYkxMI0CZLs65Rbwsm+c16z/6TS+yH238KjOmpEk0CNnqgvdyT2hCdbAOwVKwfq3eEJDr0ngw/0t7u+Pf0rFDWupO3vB+wDyM65UuHVEAgPp9bVz+xNUcbwf0uxOMq+dULRNhK0PZj4L1eGbBjCyJl5zymWoDMQOsIriRx0o5PJvRbeC/n6nPLlocVSEplNS5CmDLokXz/L3nkpeS/UqMG+hBJvg5F/525IlBbPoEcenMOuh5VAZ8EyC/WDB7czaqEYGY4SVnutQ8P7NNwCrfHri5fk5PxeychK1epwUQfemEyXyK1Uj0CrXdDYfMf8P2B/Bcys9Xjn5TgXP4t7+pf+FW5XSJx6yYbSwD9wIkP7IK33W4VdADHDxC9D54bU+mdS38QRAtCODMtn1Exb0Wr635Ozcf7jf/wY6GuxQvKeYDL//lHb/feMaDRjuCjZpJ9UUZ7Kt2bzfi23x/79mD8ZhwNJ79DacDCDe36QquHJWCAnjvbvLbxoKSiLfvX/jSCpyPShK/HIJX03NuZSz7TSaTi05lzMU4R92EO5UPdze/vZzl/ipHwOvPzPEgf8GnMehXJ7afMKkkTHbjW5xxQdOEEmfzEogfU47s4c77Tec2ysr7zPpGR4bDE1vk8Sm+sOGwx4Bx9tpsTHwOZPT95801DIX1LuwfMzJg8JxR2psK5JFUrh0RRb1d7O5bqqWx6KlNn8b3ic9WcVBAVDQeUomaP9bfwcqUWPeEQQ/8xOOw46XRz995M3kQFXQ00ZP+KXUOXLMigAAAAAAAAAA=");
+      background-size: contain;
+      margin-top: var(--spacing-xs);
+    }
+    &__official-image {
+      width: 150px;
+      font-family: SourceSansPro-Regular, "Source Sans Pro", Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      font-size: 14px;
+      display: block;
+      fill: white;
+    }
+    &__copyright {
+      font-size: var(--font-size-s);
+    }
   }
 }
