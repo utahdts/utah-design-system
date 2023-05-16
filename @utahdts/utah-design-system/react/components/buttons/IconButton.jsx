@@ -54,8 +54,8 @@ const defaultProps = {
 };
 
 /**
- * @typedef {import('../../propTypesShapes/RefShape').Ref} Ref
- * @typedef {import('../../enums/buttonEnums').IconButtonAppearance} IconButtonAppearance
+ * @typedef {import ('../../propTypesShapes/RefShape').Ref} Ref
+ * @typedef {import ('../../enums/buttonEnums').IconButtonAppearance} IconButtonAppearance
 */
 
 /**
@@ -65,7 +65,7 @@ const defaultProps = {
  * @param {'primary' | 'secondary' | 'accent' | 'none' | undefined} [props.color]
  * @param {import('react').ReactNode} props.icon
  * @param {string | null | undefined} [props.id]
- * @param {import('react').LegacyRef<HTMLButtonElement> | null | undefined} [props.innerRef]
+ * @param {Ref} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [props.size]
