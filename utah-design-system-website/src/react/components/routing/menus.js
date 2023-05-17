@@ -166,6 +166,7 @@ export const menuLibraryComponentsSecondary = {
       title: 'Navigation',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.breadcrumb.link, title: pages.breadcrumb.pageTitle },
         { link: pages.hamburger.link, title: pages.hamburger.pageTitle },
         { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
         { link: pages.pagination.link, title: pages.pagination.pageTitle },
@@ -203,6 +204,7 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.processList.link, title: pages.processList.pageTitle },
         { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },

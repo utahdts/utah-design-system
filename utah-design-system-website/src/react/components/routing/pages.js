@@ -36,6 +36,7 @@ import TooltipsDocumentation from '../websiteContent/library/components/tooltips
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
+import BreadcrumbDocumentation from '../websiteContent/library/navigation/Breadcrumb/BreadcrumbDocumentation';
 import HamburgerMenuDocumentation from '../websiteContent/library/navigation/HamburgerMenu/HamburgerMenuDocumentation';
 import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
@@ -483,6 +484,13 @@ const pages = {
     pageTitle: 'Carousel',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  processList: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.processList,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Process List',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   progressBars: {
     content: PLACEHOLDERDOCUMENTATION,
     link: pageUrls.progressBars,
@@ -592,6 +600,13 @@ const pages = {
   },
 
   // === Navigation === //
+  breadcrumb: {
+    content: BreadcrumbDocumentation,
+    link: pageUrls.breadcrumb,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Breadcrumb',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   hamburger: {
     content: HamburgerMenuDocumentation,
     link: pageUrls.hamburger,
