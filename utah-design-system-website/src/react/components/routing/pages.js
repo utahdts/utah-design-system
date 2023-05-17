@@ -36,6 +36,7 @@ import TooltipsDocumentation from '../websiteContent/library/components/tooltips
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
+import HamburgerMenuDocumentation from '../websiteContent/library/navigation/HamburgerMenu/HamburgerMenuDocumentation';
 import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -591,6 +592,20 @@ const pages = {
   },
 
   // === Navigation === //
+  hamburger: {
+    content: HamburgerMenuDocumentation,
+    link: pageUrls.hamburger,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Hamburger',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  mainMenu: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.mainMenu,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Main Menu',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   pagination: {
     content: PaginationDocumentation,
     link: pageUrls.pagination,
