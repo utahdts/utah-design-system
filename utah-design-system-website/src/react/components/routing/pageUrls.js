@@ -26,6 +26,7 @@ const pageUrls = {
   gettingStarted: '/resources/gettingStarted',
   github: '/resources/github',
   guidelines: '/guidelines',
+  headlines: '/library/components/basic/headlines',
   help: '/resources/help',
   home: '/',
   horizontalRule: '/library/components/basic/hr',

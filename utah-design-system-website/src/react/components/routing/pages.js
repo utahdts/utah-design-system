@@ -4,6 +4,7 @@ import Demo from '../demo/Demo';
 import HomeLanding from '../websiteContent/HomeLanding';
 import PLACEHOLDERDOCUMENTATION from '../websiteContent/PLACEHOLDERDOCUMENTATION';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
+import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
@@ -179,7 +180,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   typography: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: TypographyDocumentation,
     link: pageUrls.typography,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Typography',
@@ -326,6 +327,14 @@ const pages = {
 
   // === library documentation components === //
   // === basic atomic === //
+
+  headlines: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.headlines,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Headlines',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
 
   horizontalRule: {
     content: PLACEHOLDERDOCUMENTATION,
