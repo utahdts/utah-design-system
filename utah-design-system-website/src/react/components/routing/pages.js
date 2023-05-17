@@ -16,6 +16,7 @@ import IconButtonDocumentation from '../websiteContent/library/components/button
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
+import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import FileInputDocumentation from '../websiteContent/library/components/forms/FileInput/FileInputDocumentation';
@@ -539,7 +540,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   checkbox: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: CheckboxDocumentation,
     link: pageUrls.checkbox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Checkbox',
