@@ -14,6 +14,7 @@ import ButtonDocumentation from '../websiteContent/library/components/buttons/bu
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
+import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
@@ -434,7 +435,7 @@ const pages = {
   // === containers === //
 
   accordion: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: AccordionDocumentation,
     link: pageUrls.accordion,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Accordion',

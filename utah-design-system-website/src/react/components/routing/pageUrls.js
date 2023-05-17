@@ -36,7 +36,7 @@ const pageUrls = {
   fileInput: '/library/components/forms/fileInput',
   iconButton: '/library/components/buttons/iconButton',
   icons: '/resources/icons',
-  infoBox: '/library/components/containers/infoBox',
+  infoBox: '/library/components/forms/infoBox',
   layout: '/foundation/layout',
   library: '/library',
   links: '/library/components/basic/links',
