@@ -112,8 +112,8 @@ export const menuLibraryComponentsSecondary = {
       title: 'Basic Atomic',
       parentLinks: [pages.library.link],
       children: [
-        { link: pages.headlines.link, title: pages.headlines.pageTitle },
         { link: pages.dividers.link, title: pages.dividers.pageTitle },
+        { link: pages.headlines.link, title: pages.headlines.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
         { link: pages.tags.link, title: pages.tags.pageTitle },

@@ -7,6 +7,7 @@ import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headlines/HeadlinesDocumentation';
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
@@ -340,7 +341,7 @@ const pages = {
   },
 
   dividers: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: DividersDocumentation,
     link: pageUrls.dividers,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Dividers',
