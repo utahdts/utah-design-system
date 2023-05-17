@@ -20,6 +20,7 @@ const pageUrls = {
   demoPage: '/resources/demoPage',
   depthElevationShadows: '/foundation/depthElevationShadows',
   design: '/guidelines/design',
+  drawers: '/library/components/containers/drawers',
   errorPage404: '/errors/404',
   forms: '/library/components/forms',
   foundation: '/foundation',

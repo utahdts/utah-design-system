@@ -7,6 +7,7 @@ import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headlines/HeadlinesDocumentation';
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
@@ -329,7 +330,7 @@ const pages = {
   // === basic atomic === //
 
   headlines: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: HeadlineDocumentation,
     link: pageUrls.headlines,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Headlines',
@@ -440,6 +441,14 @@ const pages = {
     link: pageUrls.card,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Card',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  drawers: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.drawers,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Drawer',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
