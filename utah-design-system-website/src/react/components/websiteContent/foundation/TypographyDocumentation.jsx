@@ -33,11 +33,86 @@ function TypographyDocumentation() {
       <p>
         When utilizing a content management system, such as WordPress, you will be using the built in tools to make changes to font sizes, weights, and other
         settings. You may consider establishing a baseline in your theme so these changes can be made globally as you edit content. For example, setting
-        your <code>&lt;h2&gt;</code> Heading 2 to render at a certain font size in a global CSS file will allow you to make changes across the entire site,
+        your <code>&lt;h2&gt; (Heading 2)</code> to render at a certain font size in a global CSS file will allow you to make changes across the entire site,
         as opposed to making font size changes individually on every page.
       </p>
 
       <hr />
+
+      <h2 id="section-font-family" className="mb-spacing">Font Family</h2>
+      <p>
+        The Utah Design System recommends the follow font family pairings.
+        In the majority of cases these fonts are adequate for websites and applications within the State of Utah.
+        These fonts were carefully chosen for ease of reading and professional appearance.
+      </p>
+      <p className="mb-auto">
+        However, there may be times were other fonts are warranted.
+        Consider these points when choosing fonts as they may impact your site&apos;s professional appearance and the font&apos;s readability especially at lower contrast levels:
+      </p>
+      <ul>
+        <li>Fonts with extraordinarily thin strokes</li>
+        <li>Unusual features and characteristics that reduce the familiarity of their letter forms</li>
+        <li>Handwritten or script typefaces</li>
+        <li>Comic Sans ☹️</li>
+      </ul>
+
+      <h3 id="font-family-source-sans" className="mt-spacing">Source Sans Pro</h3>
+      <p>Font pairing: Source Sans Pro, Lora, Source Code Pro</p>
+      <div className="typography__font-family">
+        <div className="typography__font-demo">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+           <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+Pro">Source Sans Pro <br />(Sans Serif)</ExternalLink>
+          </div>
+        </div>
+        <div className="typography__font-demo typography__lora-font">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+           <ExternalLink href="https://fonts.google.com/specimen/Lora">Lora <br />(Serif)</ExternalLink>
+          </div>
+        </div>
+        <div className="typography__font-demo typography__source-code-pro">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+           <ExternalLink href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro <br />(Monospace)</ExternalLink>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="font-family-roboto" className="mt-spacing">Roboto</h3>
+      <p>Font pairing: Roboto, Merriweather, Roboto Mono</p>
+      <div className="typography__font-family mb-spacing">
+        <div className="typography__font-demo typography__roboto-font">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+           <ExternalLink href="https://fonts.google.com/specimen/Roboto">Source Sans Pro <br />(Sans Serif)</ExternalLink>
+          </div>
+        </div>
+        <div className="typography__font-demo typography__merriweather-font">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+           <ExternalLink href="https://fonts.google.com/specimen/Merriweather">Merriweather <br />(Serif)</ExternalLink>
+          </div>
+        </div>
+        <div className="typography__font-demo typography__roboto-mono-font">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+           <ExternalLink href="https://fonts.google.com/specimen/Roboto+Mono">Roboto Mono <br />(Monospace)</ExternalLink>
+          </div>
+        </div>
+      </div>
 
       <h2 id="section-font-size" className="mb-spacing">Font Size</h2>
       <ul className="mb-spacing">
@@ -47,51 +122,62 @@ function TypographyDocumentation() {
           be used sparingly for special purposes (like headings, captions, photo credits, footnotes, data tables, or specialized UI elements).
         </li>
         <li>
-          <strong>Font size</strong>. We recommend using the following css variables to size text:
-          <TableWrapper>
-            <Table>
+          <strong>Font size.</strong> We recommend using the following css variables or classes to size text:
+          <TableWrapper className="my-spacing">
+            <Table className="full-width table--condensed table--lines-x">
               <TableHead>
                 <TableHeadRow>
-                  <TableHeadCell>CSS Class</TableHeadCell>
-                  <TableHeadCell>REM Size</TableHeadCell>
-                  <TableHeadCell>Pixel Size</TableHeadCell>
+                  <TableHeadCell className="text-left">CSS Variable</TableHeadCell>
+                  <TableHeadCell className="text-left">CSS Utility Class</TableHeadCell>
+                  <TableHeadCell className="text-left">REM Size</TableHeadCell>
+                  <TableHeadCell className="text-left">Pixel Size</TableHeadCell>
                 </TableHeadRow>
               </TableHead>
               <TableBody>
-                <TableRow><TableCell>--font-size-2xs</TableCell><TableCell> .8125rem</TableCell><TableCell>13px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-xs</TableCell><TableCell> .875rem</TableCell><TableCell>14px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-s</TableCell><TableCell> .9375rem</TableCell><TableCell>15px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size </TableCell><TableCell>1rem</TableCell><TableCell>16px <strong>Base Font Size</strong></TableCell></TableRow>
-                <TableRow><TableCell>--font-size-m</TableCell><TableCell> 1.125rem</TableCell><TableCell>18px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-l</TableCell><TableCell> 1.25rem</TableCell><TableCell>20px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-xl</TableCell><TableCell> 1.5rem</TableCell><TableCell>24px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-2xl</TableCell><TableCell> 1.75rem</TableCell><TableCell>28px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-3xl</TableCell><TableCell> 2rem</TableCell><TableCell>32px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-4xl</TableCell><TableCell> 2.5rem</TableCell><TableCell>40px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-5xl</TableCell><TableCell> 3rem</TableCell><TableCell>48px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-6xl</TableCell><TableCell> 3.5rem</TableCell><TableCell>56px</TableCell></TableRow>
-                <TableRow><TableCell>--font-size-7xl</TableCell><TableCell> 4.5rem</TableCell><TableCell>72px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-2xs</TableCell><TableCell>.font-size-2xs</TableCell><TableCell> .8125rem</TableCell><TableCell>13px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-xs</TableCell><TableCell>.font-size-xs</TableCell><TableCell> .875rem</TableCell><TableCell>14px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-s</TableCell><TableCell>.font-size-s</TableCell><TableCell> .9375rem</TableCell><TableCell>15px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size</TableCell><TableCell>.font-size</TableCell><TableCell>1rem</TableCell><TableCell>16px <em className="ml-spacing">(Base Font Size)</em></TableCell></TableRow>
+                <TableRow><TableCell>--font-size-m</TableCell><TableCell>.font-size-m</TableCell><TableCell> 1.125rem</TableCell><TableCell>18px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-l</TableCell><TableCell>.font-size-l</TableCell><TableCell> 1.25rem</TableCell><TableCell>20px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-xl</TableCell><TableCell>.font-size-xl</TableCell><TableCell> 1.5rem</TableCell><TableCell>24px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-2xl</TableCell><TableCell>.font-size-2xl</TableCell><TableCell> 1.75rem</TableCell><TableCell>28px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-3xl</TableCell><TableCell>.font-size-3xl</TableCell><TableCell> 2rem</TableCell><TableCell>32px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-4xl</TableCell><TableCell>.font-size-4xl</TableCell><TableCell> 2.5rem</TableCell><TableCell>40px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-5xl</TableCell><TableCell>.font-size-5xl</TableCell><TableCell> 3rem</TableCell><TableCell>48px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-6xl</TableCell><TableCell>.font-size-6xl</TableCell><TableCell> 3.5rem</TableCell><TableCell>56px</TableCell></TableRow>
+                <TableRow><TableCell>--font-size-7xl</TableCell><TableCell>.font-size-7xl</TableCell><TableCell> 4.5rem</TableCell><TableCell>72px</TableCell></TableRow>
               </TableBody>
             </Table>
           </TableWrapper>
         </li>
+      </ul>
+
+      <h2 id="section-font-weight" className="mb-spacing">Font Weight</h2>
+      <ul>
         <li>
-          Font weight
-          <TableWrapper>
-            <Table>
+          <strong>Use font weight for emphasis.</strong> For most text, including body copy, use the base font weight of <code>normal</code>.
+          Other weights can be used sparingly for special purposes (like headings, to provide emphasis, or specialized UI elements).
+        </li>
+        <li>
+          <strong>Font weight</strong>. We recommend using the following css variables or classes to apply font weights:
+          <TableWrapper className="my-spacing">
+            <Table className="full-width table--condensed table--lines-x">
               <TableHead>
                 <TableHeadRow>
-                  <TableHeadCell>CSS Class</TableHeadCell>
-                  <TableHeadCell>Font Weight</TableHeadCell>
+                  <TableHeadCell className="text-left">CSS Variable</TableHeadCell>
+                  <TableHeadCell className="text-left">CSS Utility Class</TableHeadCell>
+                  <TableHeadCell className="text-left">Font Weight</TableHeadCell>
+                  <TableHeadCell className="text-left">Demo</TableHeadCell>
                 </TableHeadRow>
               </TableHead>
               <TableBody>
-                <TableRow><TableCell className="--font-weight-extra-light">--font-weight-extra-light</TableCell><TableCell>200</TableCell></TableRow>
-                <TableRow><TableCell className="--font-weight-light">--font-weight-light</TableCell><TableCell>300</TableCell></TableRow>
-                <TableRow><TableCell className="--font-weight-normal">--font-weight-normal</TableCell><TableCell>400 <strong>Base Font Weight</strong></TableCell></TableRow>
-                <TableRow><TableCell className="--font-weight-semi-bold">--font-weight-semi-bold</TableCell><TableCell>600</TableCell></TableRow>
-                <TableRow><TableCell className="--font-weight-bold">--font-weight-bold</TableCell><TableCell>700</TableCell></TableRow>
-                <TableRow><TableCell className="--font-weight-black">--font-weight-black</TableCell><TableCell>900</TableCell></TableRow>
+                <TableRow><TableCell>--font-weight-extra-light</TableCell><TableCell>.font-extra-light</TableCell><TableCell>200</TableCell><TableCell className="font-extra-light">Demo Font Weight</TableCell></TableRow>
+                <TableRow><TableCell>--font-weight-light</TableCell><TableCell>.font-light</TableCell><TableCell>300</TableCell><TableCell className="font-light">Demo Font Weight</TableCell></TableRow>
+                <TableRow><TableCell>--font-weight-normal</TableCell><TableCell>.font-normal</TableCell><TableCell>400 <em className="ml-spacing">(Base Font Weight)</em></TableCell><TableCell className="font-normal">Demo Font Weight</TableCell></TableRow>
+                <TableRow><TableCell>--font-weight-semi-bold</TableCell><TableCell>.font-semi-bold</TableCell><TableCell>600</TableCell><TableCell className="font-semi-bold">Demo Font Weight</TableCell></TableRow>
+                <TableRow><TableCell>--font-weight-bold</TableCell><TableCell>.font-bold</TableCell><TableCell>700</TableCell><TableCell className="font-bold">Demo Font Weight</TableCell></TableRow>
+                <TableRow><TableCell>--font-weight-black</TableCell><TableCell>.font-black</TableCell><TableCell>900</TableCell><TableCell className="font-black">Demo Font Weight</TableCell></TableRow>
               </TableBody>
             </Table>
           </TableWrapper>
@@ -134,7 +220,7 @@ function TypographyDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Line Height.</strong> Line height controls the vertical rhythm and density of a block of text. It is written as a unitless multiplier of
-          the text&aposs font size — for instance, a line height of <code>1.4</code> on <code>16px</code> text results in a line height of <code>22.4px</code>.
+          the text&apos;s font size — for instance, a line height of <code>1.4</code> on <code>16px</code> text results in a line height of <code>22.4px</code>.
         </li>
         <li>
           <strong>Recommend.</strong> The Utah Design System recommends a line height of <code>1.4</code>. However, different line heights may provide a
@@ -190,20 +276,15 @@ function TypographyDocumentation() {
         appropriate for UIs — but this norm is not a hard-and-fast rule. The conventions of the web are more forgiving of longer, sans serif texts and
         serif UIs are not out of the question for sites of a certain tone.
       </p>
-      <p>
-        <strong>Recommended font pairings:</strong><br />
-        Source Sans Pro (Sans Serif) + Lora (Serif)<br />
-        Robot (Sans Serif) + Merriweather (Serif)
-      </p>
       <ul className="mb-spacing">
-        <li>
+        <li className="typography__lora-font normal">
           <strong>Serif typefaces can be a good choice for long texts</strong> <i>(font used: Lora)</i>. Serif typefaces tend to be designed for
           readability. While they are most useful for true extended longform reading like novels, nonfiction, and essays, any site that requires
           long stretches of continuous reading, such as documentation manuals, could benefit from using a serif body
           typeface. <i>If in doubt, use the recommended sans serif font.</i>
         </li>
         <li>
-          <strong>Neutral typefaces can be a good choice for interfaces</strong> <i>(title font: Source Sans Pro)</i>. UIs are the practical expression of a site’s organization and functionality. A straightforward and neutral typeface can help the user focus on using the interface as a tool.
+          <strong>Neutral typefaces can be a good choice for interfaces</strong> <i>(font used: Source Sans Pro)</i>. UIs are the practical expression of a site’s organization and functionality. A straightforward and neutral typeface can help the user focus on using the interface as a tool.
         </li>
         <li>
           <strong>Avoid long sections of italic or bold text.</strong> Both italic and bold text can degrade readability. Both are best used for limited sections of contrast. Consider replacing long sections of bold or italic text with a callout box, a section header, or some other technique that avoids extended stretches of styled text.
@@ -212,16 +293,11 @@ function TypographyDocumentation() {
           <strong>Avoid long sections of uppercase text.</strong> Uppercase text has a serious negative effect on readability. Unless mandated by law, consider other type treatments for any uppercase text longer than just a few words.
         </li>
         <li>
-          <strong>Utah Design System Typeface Examples:</strong>
-          <ul>
-            <li>--normal-font-family: <code>&apos;Source Sans Pro&apos;</code>, &apos;Helvetica Neue&apos;, sans-serif;</li>
-            <li>--fixed-width-font-family: <code>&apos;Source Code Pro&apos;</code>, monospace;</li>
-            <li>Recommended serif font: <code>&apos;Source Serif&apos;</code></li>
-          </ul>
+          <a href="#section-font-family">See Font Family for more information.</a>
         </li>
       </ul>
 
-      <h2 id="section-bold" className="mb-spacing">Bold</h2>
+      <h3 id="section-bold">Bold</h3>
       <ul className="mb-spacing">
         <li>
           <strong>Grab attention.</strong> The purpose of using bold text is to highlight certain words or phrases, grab the reader&apos;s attention,
@@ -238,7 +314,7 @@ function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-italics" className="mb-spacing">Italics</h2>
+      <h3 id="section-italics">Italics</h3>
       <ul className="mb-spacing">
         <li>
           <strong>Stand out.</strong> Italicized text distinguishes itself from the surrounding type, making it stand out visually.
@@ -259,7 +335,7 @@ function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-underline" className="mb-spacing">Underline</h2>
+      <h3 id="section-underline">Underline</h3>
       <ul className="mb-spacing">
         <li>
           <strong>Use bold or italics first.</strong> When it comes to writing for the web, it is recommended to use the underline tag
@@ -272,7 +348,7 @@ function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-all-caps" className="mb-spacing">All Caps</h2>
+      <h3 id="section-all-caps">All Caps</h3>
       <ul className="mb-spacing">
         <li>
           <strong>Use sparingly.</strong> The use of all caps in text can impede readability and make it more difficult to scan for
@@ -310,24 +386,21 @@ function TypographyDocumentation() {
             of text in a light, extra-light, or thin font. Thin weights inherently make the text harder to see. Thin weights may be used at larger
             font sizes for headings.
           </p>
-          <PreCode
-            codeRaw={`
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum, 
-              magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
-              ultricies quis vel lacus. 
-            `}
-          />
-          <p>
-            It is also recommended that you don’t set entire paragraphs in a bold or heavy weight as this will also impact the readability of the text. On rare occasions you may have the need to dramatically emphasize text.
+          <p className="typography__light-font">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum,
+            magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
+            ultricies quis vel lacus.
           </p>
-          <PreCode
-            className="font-bold"
-            codeRaw={`
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum, 
-              magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
-              ultricies quis vel lacus. 
-            `}
-          />
+
+          <p>
+            It is also recommended that you don’t set entire paragraphs in a bold or heavy weight as this will also impact the readability of the text.
+            On rare occasions you may have the need to dramatically emphasize text.
+          </p>
+          <p className="typography__black-font">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum,
+            magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
+            ultricies quis vel lacus.
+          </p>
         </li>
         <li>
           Choose a typeface that emphasizes clarity and legibility.
@@ -350,7 +423,7 @@ function TypographyDocumentation() {
                   1 are distinct. 0 and O are distinct.
                   <ul>
                     <li>l, I, 1, 0, O (Source Sans Pro)</li>
-                    <li>l, I, 1, 0, O (Arial)</li>
+                    <li className="typography__arial-font">l, I, 1, 0, O (Arial)</li>
                   </ul>
                 </li>
                 <li>The typeface supports all of the characters and font styles that are needed.</li>
