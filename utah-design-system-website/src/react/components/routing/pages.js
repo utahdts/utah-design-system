@@ -18,6 +18,7 @@ import CardDocumentation from '../websiteContent/library/components/containers/C
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
+import FileInputDocumentation from '../websiteContent/library/components/forms/FileInput/FileInputDocumentation';
 import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
 import RadioButtonDocumentation from '../websiteContent/library/components/forms/RadioButton/RadioButtonDocumentation';
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
@@ -455,6 +456,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  infoBox: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.infoBox,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Info Box',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   tabs: {
     content: TabGroupDocumentation,
     link: pageUrls.tabs,
@@ -548,6 +557,13 @@ const pages = {
     link: pageUrls.dateInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Date Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  fileInput: {
+    content: FileInputDocumentation,
+    link: pageUrls.fileInput,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'File Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   multiSelect: {
