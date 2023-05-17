@@ -7,15 +7,20 @@ import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
+import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headlines/HeadlinesDocumentation';
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
+import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
+import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
+import FileInputDocumentation from '../websiteContent/library/components/forms/FileInput/FileInputDocumentation';
 import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
 import RadioButtonDocumentation from '../websiteContent/library/components/forms/RadioButton/RadioButtonDocumentation';
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
@@ -35,6 +40,8 @@ import TooltipsDocumentation from '../websiteContent/library/components/tooltips
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
+import BreadcrumbDocumentation from '../websiteContent/library/navigation/Breadcrumb/BreadcrumbDocumentation';
+import HamburgerMenuDocumentation from '../websiteContent/library/navigation/HamburgerMenu/HamburgerMenuDocumentation';
 import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -329,18 +336,18 @@ const pages = {
   // === basic atomic === //
 
   headlines: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: HeadlineDocumentation,
     link: pageUrls.headlines,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Headlines',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  horizontalRule: {
-    content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.horizontalRule,
+  dividers: {
+    content: DividersDocumentation,
+    link: pageUrls.dividers,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Horizontal Rule',
+    pageTitle: 'Dividers',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -428,7 +435,7 @@ const pages = {
   // === containers === //
 
   accordion: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: AccordionDocumentation,
     link: pageUrls.accordion,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Accordion',
@@ -440,6 +447,22 @@ const pages = {
     link: pageUrls.card,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Card',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  drawers: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.drawers,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Drawer',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  infoBox: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.infoBox,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Info Box',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -471,6 +494,13 @@ const pages = {
     link: pageUrls.carousel,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Carousel',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  processList: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.processList,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Process List',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   progressBars: {
@@ -511,7 +541,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   checkbox: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: CheckboxDocumentation,
     link: pageUrls.checkbox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Checkbox',
@@ -529,6 +559,13 @@ const pages = {
     link: pageUrls.dateInput,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Date Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  fileInput: {
+    content: FileInputDocumentation,
+    link: pageUrls.fileInput,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'File Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   multiSelect: {
@@ -582,6 +619,27 @@ const pages = {
   },
 
   // === Navigation === //
+  breadcrumb: {
+    content: BreadcrumbDocumentation,
+    link: pageUrls.breadcrumb,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Breadcrumb',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  hamburger: {
+    content: HamburgerMenuDocumentation,
+    link: pageUrls.hamburger,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Hamburger',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  mainMenu: {
+    content: PLACEHOLDERDOCUMENTATION,
+    link: pageUrls.mainMenu,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Main Menu',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   pagination: {
     content: PaginationDocumentation,
     link: pageUrls.pagination,
