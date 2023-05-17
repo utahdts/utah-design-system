@@ -113,7 +113,7 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.headlines.link, title: pages.headlines.pageTitle },
-        { link: pages.horizontalRule.link, title: pages.horizontalRule.pageTitle },
+        { link: pages.dividers.link, title: pages.dividers.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
         { link: pages.tags.link, title: pages.tags.pageTitle },

@@ -339,11 +339,11 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  horizontalRule: {
+  dividers: {
     content: PLACEHOLDERDOCUMENTATION,
-    link: pageUrls.horizontalRule,
+    link: pageUrls.dividers,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Horizontal Rule',
+    pageTitle: 'Dividers',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

@@ -32,7 +32,7 @@ const pageUrls = {
   headlines: '/library/components/basic/headlines',
   help: '/resources/help',
   home: '/',
-  horizontalRule: '/library/components/basic/hr',
+  dividers: '/library/components/basic/dividers',
   iconButton: '/library/components/buttons/iconButton',
   icons: '/resources/icons',
   layout: '/foundation/layout',
