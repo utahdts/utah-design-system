@@ -234,7 +234,7 @@ function Mockups() {
 
       <h2 id="section-navigation">Navigation and Breadcrumbs</h2>
       <p>
-        Side panel navigation and breadcrumbs mockups. This site uses the side panel navigation.
+        Side panel with navigation and breadcrumbs mockups. This site uses the side panel on both the left and right.
       </p>
       <div className="flex flex-wrap gap mb-spacing justify-center">
         <LightBox image={nav1} alt="Navigation 1" className="flex-4up-gap" />
