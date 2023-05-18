@@ -6,6 +6,11 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import LightBox from '../../../../../lightbox/LightBox';
+import basicCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/basicCards.jpg';
+import actionCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/actionCards.jpg';
+import verticalCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/verticalCards.jpg';
+import horizontalCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/horizontalCards.jpg';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -24,7 +29,7 @@ function CardDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Basic Cards"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={basicCardsScreenshot} alt="Basic Cards" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Cards are rectangles that house other smaller elements on a page and are recognized as a single unit of information.</li>
@@ -39,7 +44,7 @@ function CardDocumentation() {
 
       <StaticExample
         title="Action Cards"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={actionCardsScreenshot} alt="Action Cards" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
@@ -54,7 +59,7 @@ function CardDocumentation() {
 
       <StaticExample
         title="Vertical Cards"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={verticalCardsScreenshot} alt="Vertical Cards" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
@@ -70,7 +75,7 @@ function CardDocumentation() {
 
       <StaticExample
         title="Horizontal Cards"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={horizontalCardsScreenshot} alt="Horizontal Cards" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
@@ -169,7 +174,7 @@ function CardDocumentation() {
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">
         <li>Use unordered lists <code>&lt;ul&gt;</code> for a group of cards and list items <code>&lt;li&gt;</code> for each card. This enables screen readers to catalog the list of items within the card group.</li>
-        <li>Use appropriate HTML tags such as <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;button&gt;</code>, and <code>&lt;a&gt;</code> for the card content.</li>
+        <li>Use appropriate HTML tags such as <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;button&gt;</code>, and <code>&lt;a&gt;</code> for the card content.</li>
       </ul>
       <p>For accessibility guidelines on <Link to={pageUrls.button}>buttons</Link> and <Link to={pageUrls.links}>links</Link> please refer to the documentation.</p>
     </div>
