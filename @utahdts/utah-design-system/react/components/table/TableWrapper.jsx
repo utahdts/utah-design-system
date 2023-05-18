@@ -7,7 +7,7 @@ import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import valueAtPath from '../../util/state/valueAtPath';
 
-export const TableContext = React.createContext();
+export const TableContext = React.createContext({});
 
 export function useTableContext() {
   return useContext(TableContext);

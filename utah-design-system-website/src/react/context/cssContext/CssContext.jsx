@@ -7,7 +7,7 @@ import colors, { colorsIndexes } from '../../util/color/colors';
 import readableColor from '../../util/color/readableColor';
 
 // The global context object that tracks the context's state and provides components like the <CssContext.Provider/>
-const CssContext = React.createContext();
+const CssContext = React.createContext({});
 
 // This hook provides the context's data; most everything should just use this hook and nothing else
 /**
