@@ -13,30 +13,113 @@ const defaultProps = {};
 function HeadlineDocumentation() {
   return (
     <div className="documentation-content">
-      <h1 id="h1-top">Headlines</h1>
+      <h1 id="h1-top">Headings</h1>
       <p className="lead-in">
-        Headings provide an outline for the page, much like a table of contents or an outline for a book report. Headlines
-        can be formatted using heading tags (<code>H1</code> to <code>H6</code>), with <code>H1</code> being the largest font size.
+        Headings provide an outline for the page, much like a table of contents or an outline for a book report. Headings
+        can be formatted using heading tags (<code>&lt;h1&gt; Heading 1</code> to <code>&lt;h6&gt; Heading 6</code>), with <code>&lt;h1&gt;</code> being the largest font size.
       </p>
 
       <hr />
 
       <h2 id="section-example">Examples</h2>
       <StaticExample
-        title="Headlines"
-        renderedExample="Example coming soon!"
+        title="Headings"
+        renderedExample={(
+          <div>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+          </div>
+        )}
       />
       <p>
         <strong>Heading hierarchy.</strong> The top-level <code>&lt;h1&gt;</code> should describe the page as a whole and reflect the
-        page&apos;s <code>&lt;title&gt;</code>. A page should typically only have one <code>&lt;h1&gt;</code> element. However, this
-        recommendation isn&apos;t an absolute requirement.
+        page&apos;s <code>&lt;title&gt;</code>. It is preferred to limit a page to a single <code>&lt;h1&gt;</code> element. However, there
+        may be cases were multiple <code>&lt;h1&gt;</code> are required.
       </p>
       <p>
         Headings <code>&lt;h2&gt;</code> through <code>&lt;h6&gt;</code> represent increasing levels of &quot;indentation&quot; in
         the outline. It is strongly discouraged to skip heading levels while creating a page outline. For example, in most
         cases, it would not make sense to go from an <code>&lt;h2&gt;</code> to an <code>&lt;h4&gt;</code> heading level in the page
-        outline. (Create our own mock up for hierarchy)
+        outline.
       </p>
+      <ul style={{ listStyleType: 'none' }}>
+          <li>
+            <code>&lt;h1&gt;</code> Great Places to Visit in Utah
+            <ul style={{ listStyleType: 'none' }}>
+              <li>
+              <code>&lt;h2&gt;</code> Northern Utah
+                <ul style={{ listStyleType: 'none' }}>
+                  <li>
+                    <code>&lt;h3&gt;</code> National Parks, Monuments, Forests
+                    <ul>
+                      <li><code>&lt;h4&gt;</code> Dinosaur National Monument</li>
+                      <li><code>&lt;h4&gt;</code> Flaming Gorge National Recreation Area</li>
+                      <li><code>&lt;h4&gt;</code> Mirror Lake Highway, High Uintahs</li>
+                      <li><code>&lt;h4&gt;</code> Timpanogos Cave</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <code>&lt;h3&gt;</code> State Parks
+                    <ul>
+                      <li><code>&lt;h4&gt;</code> Antelope Island</li>
+                      <li><code>&lt;h4&gt;</code> Bear Lake</li>
+                      <li><code>&lt;h4&gt;</code> Jordanelle</li>
+                      <li><code>&lt;h4&gt;</code> Wasatch Mountain</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+              <code>&lt;h2&gt;</code> Central Utah
+                <ul style={{ listStyleType: 'none' }}>
+                  <li>
+                    <code>&lt;h3&gt;</code> State Parks
+                    <ul>
+                      <li><code>&lt;h4&gt;</code> Territorial State House</li>
+                      <li><code>&lt;h4&gt;</code> Yuba Lake</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+              <code>&lt;h2&gt;</code> Southern Utah
+                <ul style={{ listStyleType: 'none' }}>
+                  <li>
+                    <code>&lt;h3&gt;</code> National Parks, Monuments, Forests
+                    <ul>
+                      <li><code>&lt;h4&gt;</code> Arches National Park</li>
+                      <li><code>&lt;h4&gt;</code> Canyonlands National Park
+                        <ul style={{ listStyleType: 'none' }}>
+                          <li><code>&lt;h5&gt;</code> Island in the Sky</li>
+                          <li><code>&lt;h5&gt;</code> The Maze</li>
+                          <li><code>&lt;h5&gt;</code> Horseshoe Canyon</li>
+                          <li><code>&lt;h5&gt;</code> The Needles</li>
+                        </ul>
+                      </li>
+                      <li><code>&lt;h4&gt;</code> Capitol Reef National Park</li>
+                      <li><code>&lt;h4&gt;</code> Bryce Canyon National Park</li>
+                      <li><code>&lt;h4&gt;</code> Natural Bridges National Monument</li>
+                      <li><code>&lt;h4&gt;</code> Zion National Park</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <code>&lt;h3&gt;</code> State Parks
+                    <ul>
+                      <li><code>&lt;h4&gt;</code> Goblin Valley State Park</li>
+                      <li><code>&lt;h4&gt;</code> Dead Horse Point</li>
+                      <li><code>&lt;h4&gt;</code> Kodachrome Basin</li>
+                      <li><code>&lt;h4&gt;</code> Snow Canyon</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+      </ul>
 
       <h2 id="section-guidance" className="mb-spacing mt-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
@@ -77,7 +160,7 @@ function HeadlineDocumentation() {
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Highlighting important areas of content.</strong> Headlines are most effective for short, high-emphasis text. They are
+          <strong>Highlighting important areas of content.</strong> Headings are most effective for short, high-emphasis text. They are
           useful for highlighting important areas of content or primary passages of text.
         </li>
         <li>
