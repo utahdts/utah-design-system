@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
     "test": "vitest",
-    "testc": "vitest run --coverage"
+    "testc": "vitest run --coverage",
+    "testOnce": "vitest run"
   },
   "dependencies": {
     "@utahdts/utah-design-system": "0.8.0",
@@ -32,8 +33,8 @@
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
-		"eslint-plugin-react-refresh": "0.4.1",
-    "happy-dom": "9.18.3",
+    "eslint-plugin-react-refresh": "0.4.1",
+    "jsdom": "22.0.0",
     "sass": "1.62.1",
     "vite": "4.3.7",
     "vite-plugin-eslint": "1.8.1",
