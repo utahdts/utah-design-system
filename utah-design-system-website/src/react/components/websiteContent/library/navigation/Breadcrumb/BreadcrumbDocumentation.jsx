@@ -6,6 +6,10 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
+import LightBox from '../../../../lightbox/LightBox';
+import breadcrumbNormal from '../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbNormal.jpg';
+import breadcrumbCondensed from '../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbCondensed.jpg';
+import breadcrumbPopup from '../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbPopup.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -24,7 +28,7 @@ function BreadcrumbDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Default"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={breadcrumbNormal} alt="Breadcrumb Normal" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
@@ -52,7 +56,7 @@ function BreadcrumbDocumentation() {
 
       <StaticExample
         title="Condensed"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={breadcrumbCondensed} alt="Breadcrumb Condensed" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
@@ -72,7 +76,7 @@ function BreadcrumbDocumentation() {
 
       <StaticExample
         title="Condensed with popup menu"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={breadcrumbPopup} alt="Breadcrumb Popup" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>
@@ -158,8 +162,8 @@ function BreadcrumbDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Maintain a minimum <code>4.5:1</code> contrast ratio for all interactions (hover, focus) for all links.</li>
-        <li>Focused links should show a border that maintains a <code>3:1</code> contrast ratio.</li>
+        <li>Maintain a minimum <code>4.5:1</code> contrast ratio for all text links, and interactions (hover, focus).</li>
+        <li>Maintain a <code>3:1</code> contrast ratio for the focus indicator.</li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
@@ -177,10 +181,10 @@ function BreadcrumbDocumentation() {
         </li>
         <li>
           Each <code>li</code> element should be used for the individual breadcrumbs, and if the breadcrumb is a <Link to={pageUrls.links}>link</Link>,
-          please follow the accessibility guidelines for <Link to={pageUrls.links}>links</Link>.
+          follow the accessibility guidelines for <Link to={pageUrls.links}>links</Link>.
         </li>
         <li>
-          Breadcrumb separators should be hidden from screen readers, by using the aria <code>role=&quot;presentation&quot;</code> or a<code>ria-hidden=&quot;true&quot;</code>.
+          Breadcrumb separators should be hidden from screen readers, by using the aria <code>role=&quot;presentation&quot;</code> or <code>aria-hidden=&quot;true&quot;</code>.
         </li>
         <li>
           The last breadcrumb should be the current page the user is on and should have <code>aria-current=&quot;page&quot;</code> added,
