@@ -11,7 +11,7 @@ export default defineConfig({
         '**/main.jsx',
         '**/components/demo',
         '**/HomeLanding.jsx',
-        '**/PLACEHOLDERDOCUMENTATION.jsx',
+        '**/PlaceHolderDocumentation.jsx',
         '**/FoundationLanding.jsx',
         '**/GuidelinesLanding.jsx',
         '**/LibraryLanding.jsx',
