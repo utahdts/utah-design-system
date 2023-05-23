@@ -73,6 +73,7 @@ export { default as tableSortingRuleFieldType } from './react/enums/tableSorting
 export { default as useBanner } from './react/hooks/useBanner';
 export { default as useCurrentMenuItem } from './react/hooks/useCurrentMenuItem';
 export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
+export { default as useImmerRef } from './react/hooks/useImmerRef';
 export { default as useMountingTracker } from './react/hooks/useMountingTracker';
 export { default as useRefAlways } from './react/hooks/useRefAlways';
 export { default as useRefLazy } from './react/hooks/useRefLazy';

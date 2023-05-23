@@ -2,7 +2,7 @@
 import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useMemo } from 'react';
-import { useImmer } from 'use-immer';
+import useImmerRef from '../hooks/useImmerRef';
 import SettingsShape from '../propTypesShapes/header/SettingsShape';
 
 /** @typedef {import('../../../../@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings */
@@ -12,11 +12,12 @@ import SettingsShape from '../propTypesShapes/header/SettingsShape';
 const UtahHeaderContext = React.createContext({
   settings: getUtahHeaderSettings(),
   setSettings: /** @type {import('use-immer').Updater<Settings>} */(() => { }),
+  settingsRef: /** @type {import('react').RefObject<Settings>} */({ current: null }),
 });
 
 // This hook provides the context's data; most everything should just use this hook and nothing else
 /**
- * @return {{ settings: Settings, setSettings: import('use-immer').Updater<Settings> }}
+ * @return {{ settings: Settings, setSettings: import('use-immer').Updater<Settings>, settingsRef: import('react').RefObject<Settings> }}
  */
 export default function useUtahHeaderContext() {
   return useContext(UtahHeaderContext);
@@ -38,7 +39,7 @@ const defaultProps = {
  * @returns {JSX.Element}
  */
 export function UtahHeaderContextProvider({ children, defaultSettings }) {
-  const [settings, setSettings] = useImmer(() => ({ ...getUtahHeaderSettings(), ...(defaultSettings ?? {}) }));
+  const [settings, setSettings, settingsRef] = useImmerRef(() => ({ ...getUtahHeaderSettings(), ...(defaultSettings ?? {}) }));
 
   useEffect(
     () => {
@@ -48,7 +49,7 @@ export function UtahHeaderContextProvider({ children, defaultSettings }) {
     [settings]
   );
 
-  const providedSettings = useMemo(() => ({ settings, setSettings }), [settings]);
+  const providedSettings = useMemo(() => ({ settings, setSettings, settingsRef }), [settings]);
 
   return (
     // Vite HMR was sometimes getting an "unspreadable" value for this context!

@@ -1,16 +1,10 @@
-import ColorPopup from '../color/ColorPopup';
 import DemoContent from './DemoContent';
 
 const propTypes = {};
 const defaultProps = {};
 
 function Demo() {
-  return (
-    <>
-      <DemoContent />
-      <ColorPopup />
-    </>
-  );
+  return <DemoContent />;
 }
 
 Demo.propTypes = propTypes;
