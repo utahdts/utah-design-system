@@ -1,13 +1,13 @@
 const propTypes = {};
 const defaultProps = {};
 
-function PLACEHOLDERDOCUMENTATION() {
+function PlaceHolderDocumentation() {
   return (
     <div>🚧 work in progress 🚧</div>
   );
 }
 
-PLACEHOLDERDOCUMENTATION.propTypes = propTypes;
-PLACEHOLDERDOCUMENTATION.defaultProps = defaultProps;
+PlaceHolderDocumentation.propTypes = propTypes;
+PlaceHolderDocumentation.defaultProps = defaultProps;
 
-export default PLACEHOLDERDOCUMENTATION;
+export default PlaceHolderDocumentation;

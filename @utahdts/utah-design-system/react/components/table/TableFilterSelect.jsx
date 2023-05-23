@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
-import { TableContext } from './TableWrapper';
+import TableContext from './util/TableContext';
 import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 

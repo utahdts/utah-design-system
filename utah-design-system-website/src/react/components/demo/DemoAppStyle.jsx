@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import { useCssContext } from '../../context/cssContext/CssContext';
+import useCssContext from '../../context/cssContext/useCssContext';
 
 function DemoAppStyle() {
   const { cssState } = useCssContext();
@@ -9,10 +9,9 @@ function DemoAppStyle() {
         {
           __html: `
           .utah-design-system {
-            ${
-              Object.entries(cssState)
-                .map(([key, value]) => `${key}: ${value}`)
-                .join(';')
+            ${Object.entries(cssState)
+              .map(([key, value]) => `${key}: ${value}`)
+              .join(';')
             }
           }
         `,

@@ -1,3 +1,4 @@
 import React from 'react';
 
-export default React.createContext({});
+const TableBodyDataRowContext = React.createContext({});
+export default TableBodyDataRowContext;

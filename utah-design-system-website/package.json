@@ -9,6 +9,7 @@
     "publishLibrary": "npm publish --access public",
     "test": "vitest",
     "testc": "vitest run --coverage",
+    "watch": "vite watch",
     "testOnce": "vitest run"
   },
   "dependencies": {

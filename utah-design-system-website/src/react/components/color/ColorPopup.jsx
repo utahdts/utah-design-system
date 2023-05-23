@@ -6,7 +6,7 @@ import {
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
-import { useCssContext } from '../../context/cssContext/CssContext';
+import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';
 import colors from '../../util/color/colors';

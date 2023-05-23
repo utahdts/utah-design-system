@@ -18,9 +18,12 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "react-refresh"
   ],
   "rules": {
+    "indent": "warn",
+    "react-refresh/only-export-components": "error",
     "react/react-in-jsx-scope": "off",
     "linebreak-style": "off",
     "max-len": [

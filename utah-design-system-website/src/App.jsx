@@ -16,7 +16,7 @@ import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import DesignSystemFooterMainContent from './react/components/header/DesignSystemFooterMainContent';
 import DesignSystemFooterSocialMedia from './react/components/header/DesignSystemFooterSocialMedia';
 import Routing from './react/components/routing/Routing';
-import { useCssContext } from './react/context/cssContext/CssContext';
+import useCssContext from './react/context/cssContext/useCssContext';
 import CSS_CLASS_NAMES from './react/enums/cssClassNames';
 import CSS_STATE_KEYS from './react/enums/cssStateKeys';
 

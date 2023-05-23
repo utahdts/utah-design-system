@@ -1,6 +1,6 @@
 // @ts-check
 import { useEffect } from 'react';
-import { useTableContext } from '../TableWrapper';
+import useTableContext from './useTableContext';
 
 /**
  * @typedef {import('../../../jsDocTypes').TableFilterOptions} TableFilterOptions
