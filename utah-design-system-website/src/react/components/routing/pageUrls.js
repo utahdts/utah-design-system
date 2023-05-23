@@ -29,7 +29,7 @@ const pageUrls = {
   github: '/resources/github',
   guidelines: '/guidelines',
   hamburger: '/library/components/navigation/hamburger',
-  headlines: '/library/components/basic/headlines',
+  headings: '/library/components/basic/headings',
   help: '/resources/help',
   home: '/',
   dividers: '/library/components/basic/dividers',

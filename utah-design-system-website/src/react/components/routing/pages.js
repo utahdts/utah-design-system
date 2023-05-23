@@ -8,7 +8,7 @@ import TypographyDocumentation from '../websiteContent/foundation/TypographyDocu
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
-import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headlines/HeadlinesDocumentation';
+import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
@@ -335,11 +335,11 @@ const pages = {
   // === library documentation components === //
   // === basic atomic === //
 
-  headlines: {
+  headings: {
     content: HeadlineDocumentation,
-    link: pageUrls.headlines,
+    link: pageUrls.headings,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Headlines',
+    pageTitle: 'Headings',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
