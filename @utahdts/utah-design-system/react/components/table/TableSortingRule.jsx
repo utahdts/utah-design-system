@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext, useEffect } from 'react';
 import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
-import { TableContext } from './TableWrapper';
+import TableContext from './util/TableContext';
 
 const propTypes = {
   // should be a function that does sorting

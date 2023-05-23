@@ -1,3 +1,4 @@
+// @ts-check
 function flattenChildren(parent) {
   return [
     parent,
@@ -5,12 +6,15 @@ function flattenChildren(parent) {
   ];
 }
 
+/** @typedef {import ('../../jsDocTypes').MenuItem} MenuItem */
+
 /**
  * Given lists of menuItems, find the a menuItem that matches the current website path.
  *
- * @param menus menus in which to search (mainMenu, sidePanel, etc)
- * @param pathname string the current pathname on which to match a menuItem
- * @returns the matching menu item or `undefined` if not found
+ * @param {object} props
+ * @param {{menuItems: MenuItem[]}[]} props.menus menus in which to search (mainMenu, sidePanel, etc) (see menus.js)
+ * @param {string} props.pathname string the current pathname on which to match a menuItem
+ * @returns {MenuItem} the matching menu item or `undefined` if not found
  */
 function findMenuItemInMenusByPathname({ menus, pathname }) {
   return (

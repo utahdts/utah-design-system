@@ -60,7 +60,7 @@ function PaginationDocumentation() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Small data set.</strong> Avoid using a pagination when the set of data is less than 4 pages long.</li>
-        <li><strong>Context.</strong> If a large collection of content is sequenced in a meaningful way, use a <Link to={pageUrls.stepIndicator}>Step Indicator</Link> or a <Link to={pageUrls.sidePanelNavigation}>Side Panel Navigation</Link> instead.</li>
+        <li><strong>Context.</strong> If a large collection of content is sequenced in a meaningful way, use a <Link to={pageUrls.stepIndicator}>Step Indicator</Link> or a <Link to={pageUrls.sidePanelNavigation}>Side Panel</Link> instead.</li>
         <li><strong>Replace user work flow.</strong> Pagination can be inherently frustrating for the user, since much of the data is hidden. Showing large collections of data may sometimes be a sign of too generic of interface design. Discovering powerful user experiences and workflows that target smaller chunks of data may be a possible replacement for a pagination. Also consider mobile data bandwidth limitations when loading large chunks of data.</li>
       </ul>
 
@@ -75,7 +75,7 @@ function PaginationDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Maintain a minimum <code>4.5:1</code> contrast ratio for all interactions (hover, focus) for all links.</li>
+        <li>Maintain a minimum <code>4.5:1</code> contrast ratio for all text link interactions (hover, focus).</li>
         <li>Maintain a <code>3:1</code> contrast ratio for the current indicator.</li>
         <li>Maintain a <code>3:1</code> contrast ratio for the focus indicator.</li>
       </ul>

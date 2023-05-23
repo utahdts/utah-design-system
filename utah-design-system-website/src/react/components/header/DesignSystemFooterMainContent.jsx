@@ -44,8 +44,7 @@ function DesignSystemFooterMainContent() {
         <div className="footer-agency-information__column-title">Main Menu</div>
         <ul className="footer-agency-information__menu">
           {
-            // @ts-ignore
-            utahHeaderSettings.mainMenu.menuItems.map((menuItem) => (
+            utahHeaderSettings.mainMenu?.menuItems?.map((menuItem) => (
               <li key={`footer-main-menu_${menuItem.title}`}>
                 <Link to={menuItem.actionFunctionUrl?.url || menuItem.actionUrl?.url || '/'}>{menuItem.title}</Link>
               </li>

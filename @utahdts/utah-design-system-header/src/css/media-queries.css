@@ -8,6 +8,12 @@
 }
 
 @media screen and (max-width: media-size__tablet-portrait__PLACEHOLDER) {
+  .utds-header-desktop--hidden {
+    display: flex !important;
+  }
+  .utds-header-mobile--hidden {
+    display: none !important;
+  }
   .utds-header {
     height: 60px;
     padding: var(--spacing-xs) var(--spacing);
@@ -18,8 +24,13 @@
   .utds-citizen-experience-wrapper {
     display: none;
   }
+  .utds-citizen-experience-wrapper--mobile {
+    display: flex;
+  }
   .utah-design-system .main-menu__wrapper {
     padding: 0 var(--spacing);
+    /* The utah id button is this tall, but without it, the menu doesn't fill the space up to the mobile menu content popup */
+    min-height: 46px;
   }
   .utah-design-system .main-menu__nav {
     display: none;
@@ -30,7 +41,8 @@
   }
   .utah-design-system .icon-button.main-menu__hamburger,
   .utah-design-system .utds-header-mobile__vip-action-items--left,
-  .utah-design-system .utds-header-mobile__vip-action-items--right {
+  .utah-design-system .utds-header-mobile__vip-action-items--right,
+  .utah-design-system .main-menu__search-placeholder {
     display: flex;
   }
 

@@ -112,7 +112,8 @@ export const menuLibraryComponentsSecondary = {
       title: 'Basic Atomic',
       parentLinks: [pages.library.link],
       children: [
-        { link: pages.horizontalRule.link, title: pages.horizontalRule.pageTitle },
+        { link: pages.dividers.link, title: pages.dividers.pageTitle },
+        { link: pages.headlines.link, title: pages.headlines.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
         { link: pages.tags.link, title: pages.tags.pageTitle },
@@ -138,6 +139,7 @@ export const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.accordion.link, title: pages.accordion.pageTitle },
         { link: pages.card.link, title: pages.card.pageTitle },
+        { link: pages.drawers.link, title: pages.drawers.pageTitle },
         { link: pages.tabs.link, title: pages.tabs.pageTitle },
       ],
     },
@@ -150,6 +152,8 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
         { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
+        { link: pages.infoBox.link, title: pages.infoBox.pageTitle },
+        { link: pages.fileInput.link, title: pages.fileInput.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
         { link: pages.select.link, title: pages.select.pageTitle },
@@ -164,6 +168,9 @@ export const menuLibraryComponentsSecondary = {
       title: 'Navigation',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.breadcrumb.link, title: pages.breadcrumb.pageTitle },
+        { link: pages.hamburger.link, title: pages.hamburger.pageTitle },
+        { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
         { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
@@ -199,6 +206,7 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
+        { link: pages.processList.link, title: pages.processList.pageTitle },
         { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },

@@ -1,7 +1,7 @@
 @use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
 
 /*
-############     _color-pickr.scss      ############
+############     _color-picker.scss      ############
 */
 
 $color-picker-base-size: 130px;
@@ -51,4 +51,16 @@ $color-picker-base-size: 130px;
     @at-root #{class-vars.$accent-color-is-light}#{&}.accent-color-background {
       color: var(--gray-on-accent-color);
     }
+}
+
+.color-picker-popup {
+  &__backdrop {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
 }

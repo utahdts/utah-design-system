@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useContext, useEffect } from 'react';
-import { TableContext } from './TableWrapper';
+import TableContext from './util/TableContext';
 
 const propTypes = {
   children: PropTypes.node.isRequired,

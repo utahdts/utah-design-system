@@ -135,6 +135,27 @@ export function loadHeader() {
     fetchUtahIdUserDataAsync()
       // eslint-disable-next-line no-console
       .catch((e) => console.error(e));
+
+    // UDS-564
+    // there are four parts to deciding the state of the main menu bar: main menu, search, utahId, action items
+    // there are certain scenarios where the main menu bar is not shown
+    // the following removes the bar if any of these scenarios occur
+    const settings = getUtahHeaderSettings();
+    if (
+      (!settings.mainMenu && !settings.actionItems && settings.utahId === false && !settings.onSearch)
+      || (!settings.mainMenu && !settings.actionItems && settings.utahId === false && settings.onSearch)
+      || (!settings.mainMenu && settings.actionItems && settings.utahId === false && !settings.onSearch)
+    ) {
+      mobileMenuWrapper.classList.add(domConstants.MAIN_MENU__REMOVED);
+      mainMenuWrapper.remove();
+    }
+    if (
+      (!settings.mainMenu && !settings.actionItems && settings.utahId && !settings.onSearch)
+      || (!settings.mainMenu && settings.actionItems && settings.utahId && !settings.onSearch)
+      || (!settings.mainMenu && settings.actionItems && !settings.utahId && settings.onSearch)
+    ) {
+      mainMenuWrapper.classList.add(domConstants.DESKTOP__HIDDEN);
+    }
   }
 
   renderFooter();

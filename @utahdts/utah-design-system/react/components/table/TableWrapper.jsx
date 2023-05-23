@@ -1,17 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useImmer } from 'use-immer';
 import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
 import useRefAlways from '../../hooks/useRefAlways';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import valueAtPath from '../../util/state/valueAtPath';
-
-export const TableContext = React.createContext();
-
-export function useTableContext() {
-  return useContext(TableContext);
-}
+import TableContext from './util/TableContext';
 
 const propTypes = {
   children: PropTypes.node.isRequired,

@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { CssContextProvider } from './react/context/cssContext/CssContext';
+import CssContextProvider from './react/context/cssContext/CssContextProvider';
 import websiteUtahHeaderSettings from './websiteUtahHeaderSettings';
 
 const baseName = '';

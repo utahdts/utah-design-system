@@ -7,7 +7,7 @@ import useComponentGuid from '../../hooks/useComponentGuid';
 import chainSorters from '../../util/chainSorters';
 import valueAtPath from '../../util/state/valueAtPath';
 import TableBodyDataRowContext from './TableBodyDataRowContext';
-import { useTableContext } from './TableWrapper';
+import useTableContext from './hooks/useTableContext';
 import convertRecordsToFilterValue from './util/convertRecordsToFilterValue';
 import createTableFilterFunctions from './util/createTableFilterFunctions';
 import filterTableRecords from './util/filterTableRecords';

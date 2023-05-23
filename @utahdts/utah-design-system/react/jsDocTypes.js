@@ -30,6 +30,12 @@
  *  @property {string} [streetAddress2]
  *  @property {string} zipCode
  * }
+ *
+ * @typedef MenuItem {
+ *  @property {string} link
+ *  @property {string} pageTitle
+ *  @property {string[]} parentLinks
+ * }
  */
 
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)

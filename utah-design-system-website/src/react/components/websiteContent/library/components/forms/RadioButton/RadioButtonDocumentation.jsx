@@ -6,6 +6,8 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import radioButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/radioButtonScreenshot.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -21,7 +23,7 @@ function RadioButtonDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Radio Button Example"
-        renderedExample="Example Coming Soon!"
+        renderedExample={<LightBox image={radioButtonScreenshot} alt="Radio Buttons" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>The user can only select one item at a time from a list of options.</li>
@@ -67,11 +69,11 @@ function RadioButtonDocumentation() {
           indicator for the selected state.
         </li>
         <li>
-          <strong>Grouping related options.</strong> Grouping related options together and providing a label (&lt;legend&gt;) that describes the options will
+          <strong>Grouping related options.</strong> Grouping related options together and providing a label (<code>&lt;legend&gt;</code>) that describes the options will
           help the user understand the context and purpose of the options.
         </li>
         <li>
-          <strong>Browser differences and &quot;Shift + Tab&quot;.</strong> Behavior in some browsers differ in that if focus has moved out of the radio button group
+          <strong>Browser differences and &quot;Shift + Tab&quot;.</strong> Behavior in some browsers differ, in that if focus has moved out of the radio button group
           and then the user <code>shift + tabs</code> back in, the focus will default to the last radio button instead of the first.
         </li>
       </ul>
@@ -91,8 +93,8 @@ function RadioButtonDocumentation() {
 
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">
-        <li>Radio buttons should be grouped using a &let;fieldset&gt; element.</li>
-        <li>Use a &lt;legend%gt; element to describe the grouping.</li>
+        <li>Radio buttons should be grouped using a <code>&lt;fieldset&gt;</code> element.</li>
+        <li>Use a <code>&lt;legend&gt;</code> element to describe the grouping.</li>
         <li>For required elements or error messages please refer to the <Link to={pageUrls.validation}>Form Validation</Link> documentation.</li>
         <li>
           The following aria roles and attributes can be used, however, they are not needed when using semantic html elements. Remember: The first rule of

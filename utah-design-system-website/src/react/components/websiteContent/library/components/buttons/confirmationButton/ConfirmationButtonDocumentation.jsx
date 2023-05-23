@@ -6,6 +6,8 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -24,7 +26,14 @@ function ConfirmationButtonDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Confirmation Button Life Cycle"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={confirmationButtonScreenshot} alt="Confirmation Button" className="flex-3up-gap" />}
+        quickTips={(
+          <ol>
+            <li>The user hovers over and clicks the button.</li>
+            <li>The button&apos;s text changes to a confirmation message.</li>
+            <li>The user may continue with the action by clicking again, or click off the button to cancel.</li>
+          </ol>
+        )}
       />
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
@@ -58,7 +67,7 @@ function ConfirmationButtonDocumentation() {
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Confirmation buttons are for actions.</strong> Use a confirmation button to confirm the user&apos;s selected action.</li>
+        <li><strong>Confirmation buttons are for actions.</strong> Use a confirmation button to confirm the user&apos;s selected action. They should never be used for purely navigation purposes.</li>
         <li><strong>For everything else on buttons.</strong> Please refer to our documentation on <Link to={pageUrls.button}>buttons</Link> for guidance on sizing, types (primary, icon, etc.) and accessibility.</li>
       </ul>
 
@@ -75,23 +84,23 @@ function ConfirmationButtonDocumentation() {
         <li>
           The button should display a visible focus state when users tab to it. Pressing the <code>spacebar</code> or <code>return</code> key will activate
           the initial action of the button. When the confirmation text is shown in the button, the user can confirm their selection
-          by pressing the <code>spacebar</code> or <code>return</code> key again.
-        </li>
-        <li>
-          Ensure elements with ARIA <code>role=&quot;button&quot;</code> can be activated with both key commands (Pressing the <code>spacebar</code> or <code>return</code> key).
+          by pressing the <code>spacebar</code> or <code>return</code> key again. Alternately the user may cancel the action by hitting the <code>escape</code> key.
         </li>
         <li>
           Avoid using non-standard html markup for a button such as a <code>div</code> tag.
         </li>
         <li>
-          The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
+          When you much us aria, ensure elements with ARIA <code>role=&quot;button&quot;</code> can be activated with both key commands (Pressing the <code>spacebar</code> or <code>return</code> key).
+        </li>
+        <li>
+          Remember, the first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
         </li>
       </ul>
 
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">
         <li>When you have a confirmation button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG).</li>
-        <li>In order for a screen reader to detect the change from the initial state to the confirmation state you should use a<code>ria-live=&quot;polite&quot;</code> or <code>role=&quot;alert&quot;</code> on the button.</li>
+        <li>In order for a screen reader to detect the change from the initial state to the confirmation state you should use <code>aria-live=&quot;polite&quot;</code> region or <code>role=&quot;alert&quot;</code> on the button.</li>
       </ul>
     </div>
   );

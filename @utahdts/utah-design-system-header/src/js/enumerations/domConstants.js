@@ -39,6 +39,7 @@ export default {
   ACTION_ITEM__ICON_BUTTON: 'utds-header-action-item__icon-button',
   ACTION_ITEM__ICON_BUTTON_TITLE: 'utds-header-action-item__icon-button--has-title',
   ACTION_ITEM__TITLE: 'utds-header-action-item__title',
+  ACTION_ITEMS__WRAPPER: 'utds-action-items-wrapper',
 
   BADGE__LABEL: 'utds-badge__label',
   BADGE__VALUE: 'utds-badge__value',
@@ -47,6 +48,7 @@ export default {
   BADGE_WRAPPER__ACTION_ITEM: 'utds-badge__wrapper--action-item',
 
   CITIZEN_EXPERIENCE: 'utds-citizen-experience-wrapper',
+  CITIZEN_EXPERIENCE_MOBILE: 'utds-citizen-experience-wrapper--mobile',
 
   FOOTER_HORIZONTAL_DIVIDER: 'utds-footer__horizontal-divider',
 
@@ -63,6 +65,7 @@ export default {
   MAIN_MENU__MENU_TOP: 'main-menu__menu-top',
   MAIN_MENU__NAV: 'main-menu__nav',
   MAIN_MENU__OUTER: 'main-menu__outer',
+  MAIN_MENU__REMOVED: 'main-menu-is-removed',
   MAIN_MENU__SEARCH: 'main-menu__search',
   MAIN_MENU__TITLE: 'main-menu__title',
 
@@ -75,8 +78,10 @@ export default {
   MENU_ITEM__INLINE: 'menu-item--inline',
   MENU_ITEM__MEGA_MENU: 'menu-item--mega-menu',
 
-  MOBILE__VIP_ACTION_ITEMS__LEFT: 'utds-header-mobile__vip-action-items--left',
+  DESKTOP__HIDDEN: 'utds-header-desktop--hidden',
+  MOBILE__HIDDEN: 'utds-header-mobile--hidden',
   MOBILE__UTAH_ID: 'utds-header-mobile__utah-id-wrapper',
+  MOBILE__VIP_ACTION_ITEMS__LEFT: 'utds-header-mobile__vip-action-items--left',
   MOBILE__VIP_ACTION_ITEMS__RIGHT: 'utds-header-mobile__vip-action-items--right',
 
   ACTION_ITEM__SELECTED: 'utds-header-mobile-menu__action-item--selected',
@@ -85,6 +90,7 @@ export default {
   MOBILE_MENU__BACKDROP: 'utds-header-mobile-menu__backdrop',
   MOBILE_MENU__CONTENT: 'utds-header-mobile-menu__content',
   MOBILE_MENU__CONTENT_ITEM: 'utds-header-mobile-menu__content-item',
+  MOBILE_MENU__LAST_FOCUSABLE: 'utds-header-mobile-menu__hidden-last-focusable',
   MOBILE_MENU__WRAPPER: 'utds-header-mobile-menu__wrapper',
 
   MOBILE_MENU_ACTON_BAR__HOME_ID: 'utds-header-mobile-menu_action-bar__home',

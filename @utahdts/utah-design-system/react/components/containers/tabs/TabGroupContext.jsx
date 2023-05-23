@@ -1,3 +1,4 @@
 import React from 'react';
 
-export default React.createContext();
+const TabGroupContext = React.createContext({});
+export default TabGroupContext;
