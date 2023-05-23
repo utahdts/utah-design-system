@@ -93,7 +93,7 @@ function TypographyDocumentation() {
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-           <ExternalLink href="https://fonts.google.com/specimen/Roboto">Source Sans Pro <br />(Sans Serif)</ExternalLink>
+           <ExternalLink href="https://fonts.google.com/specimen/Roboto">Roboto <br />(Sans Serif)</ExternalLink>
           </div>
         </div>
         <div className="typography__font-demo typography__merriweather-font">

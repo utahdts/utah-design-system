@@ -3,7 +3,9 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
+import LightBox from '../../../../../lightbox/LightBox';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import verticalDividerMockup from '../../../../../../../static/images/mockups/VerticalDividers.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -19,7 +21,13 @@ function DividersDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Horizontal Dividers"
-        renderedExample="Example coming soon!"
+        renderedExample={(
+          <div className="flex flex-col">
+            <p className="mb-auto">Of the vast amount of certified International Dark Sky Parks and Communities that are part of a catalog of the finest dark skies in the world, the highest concentration are in Utah. Explore the statewide locations and make plans for experiencing natural wonders after the sun sets.</p>
+            <hr className="my-spacing-l" />
+            <p className="mb-spacing-xs">Given Natural Bridges remote location, it’s no wonder the park has some of the world’s least light-polluted night skies. The International Dark Sky Association named Natural Bridges the world’s first “International Dark Sky Park.” Accordingly, park rangers not only give interpretive discussions on astronomy but also changed out the park’s light fixtures to reduce their own light pollution.</p>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Horizontal Dividers are created by using the native <code>&lt;hr&gt;</code> HTML horizontal rule.</li>
@@ -28,7 +36,7 @@ function DividersDocumentation() {
       />
       <StaticExample
         title="Vertical Dividers"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={verticalDividerMockup} alt="Vertical Dividers" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Vertical Dividers can be created by using <code>border-left</code> or <code>border-right</code></li>
@@ -46,6 +54,11 @@ function DividersDocumentation() {
         <li>
           <strong>When grouping related elements.</strong> When incorporating dividers into a layout, it is best to use
           them sparingly and mainly for grouping together related elements, rather than isolating each item individually.
+        </li>
+        <li>
+          <strong>Design element and aesthetics.</strong> Horizontal and vertical dividers are versatile visual design elements that enhance organization, structure, and balance in compositions.
+          Horizontal dividers separate sections, improving readability and guiding the viewer&apos;s eye. Vertical dividers create symmetry, hierarchy, and alignment within grids or columns.
+          Skillful use of these elements enhances both aesthetics and clarity in your design.
         </li>
       </ul>
 
@@ -73,7 +86,7 @@ function DividersDocumentation() {
         </li>
         <li>
           <strong>Types of dividers.</strong> There are two main types of dividers: vertical and horizontal. Usually a divider
-          is <code>1-pixel</code> thick. You may use a thicker divider <code>2-4px</code> to provide more emphasis and stronger separation where
+          is <code>1px</code> thick. You may use a thicker divider <code>2px - 4px</code> to provide more emphasis and stronger separation where
           absolutely needed.
         </li>
         <li>

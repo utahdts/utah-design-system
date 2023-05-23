@@ -651,7 +651,7 @@ const pages = {
     content: SidePanelDocumentation,
     link: pageUrls.sidePanelNavigation,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Side Panel Navigation',
+    pageTitle: 'Side Panel',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   verticalMenu: {

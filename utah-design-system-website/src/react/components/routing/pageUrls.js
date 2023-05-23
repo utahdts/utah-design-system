@@ -59,7 +59,7 @@ const pageUrls = {
   segmentedButton: '/library/components/buttons/segmentedButton',
   select: '/Library/components/forms/select',
   shape: '/foundation/shape',
-  sidePanelNavigation: '/library/components/navigation/sidePanelNavigation',
+  sidePanelNavigation: '/library/components/navigation/sidePanel',
   skeletons: '/foundation/skeletons',
   spacing: '/foundation/spacing',
   spinners: '/library/components/widgetsIndicators/spinners',

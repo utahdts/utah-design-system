@@ -88,6 +88,8 @@ import skeleton4 from '../../../../static/images/mockups/skeletonTable.jpg';
 import horizontalRule from '../../../../static/images/mockups/HorizontalRule.jpg';
 import horizontalRuleNeutralColor from '../../../../static/images/mockups/HorizontalRuleNeutralColor.jpg';
 import horizontalRulePrimaryColor from '../../../../static/images/mockups/HorizontalRulePrimaryColor.jpg';
+import verticalDivider from '../../../../static/images/mockups/VerticalDividers.jpg';
+
 import badges from '../../../../static/images/mockups/Badges.jpg';
 import statusIndicator from '../../../../static/images/mockups/StatusIndicator.jpg';
 
@@ -232,7 +234,7 @@ function Mockups() {
 
       <h2 id="section-navigation">Navigation and Breadcrumbs</h2>
       <p>
-        Side panel navigation and breadcrumbs mockups. This site uses the side panel navigation.
+        Side panel with navigation and breadcrumbs mockups. This site uses the side panel on both the left and right.
       </p>
       <div className="flex flex-wrap gap mb-spacing justify-center">
         <LightBox image={nav1} alt="Navigation 1" className="flex-4up-gap" />
@@ -426,14 +428,15 @@ function Mockups() {
         <LightBox image={skeleton4} alt="Skeleton Table" className="flex-4up-gap" />
       </div>
 
-      <h2 id="section-hr">Horizontal Rules</h2>
+      <h2 id="section-dividers">Dividers</h2>
       <p>
-        Horizontal rules help divide or provide a visual break in the content.
+        Dividers help divide or provide a visual break in the content.
       </p>
       <div className="flex flex-wrap gap mb-spacing justify-center">
         <LightBox image={horizontalRule} alt="Horizontal Rule" className="flex-4up-gap" />
         <LightBox image={horizontalRuleNeutralColor} alt="Horizontal Rule Neutral Color" className="flex-4up-gap" />
         <LightBox image={horizontalRulePrimaryColor} alt="Horizontal Rule Primary Color" className="flex-4up-gap" />
+        <LightBox image={verticalDivider} alt="Vertical Dividers" className="flex-4up-gap" />
       </div>
 
       <h2 id="section-status-badges">Badges and Status Indicators</h2>

@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import PreCode from '../../../../../preCode/PreCode';
+import LightBox from '../../../../../lightbox/LightBox';
+import tabsHorizontalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsHorizontalScreenshot.jpg';
+import tabsOverflowScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsOverflowScreenshot.jpg';
+import tabsVerticalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsVerticalScreenshot.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -22,7 +26,13 @@ function TabGroupDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Tab Group"
-        renderedExample="Example coming soon!"
+        renderedExample={(
+          <>
+            <LightBox image={tabsHorizontalScreenshot} alt="Horizontal Tabs" className="flex-3up-gap" />
+            <LightBox image={tabsVerticalScreenshot} alt="Vertical Tabs" className="flex-3up-gap" />
+            <LightBox image={tabsOverflowScreenshot} alt="Tabs Overflow" className="flex-3up-gap" />
+          </>
+        )}
         quickTips={(
           <div>
             A tab group is composed of:
@@ -38,7 +48,7 @@ function TabGroupDocumentation() {
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Context.</strong> Use a tab group to organize large sets of information with a relation to each other in a more condensed format.</li>
+        <li><strong>Context.</strong> Use a tab group to organize large sets of related information in a more condensed format.</li>
       </ul>
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
@@ -63,7 +73,7 @@ function TabGroupDocumentation() {
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Clear labels.</strong> Tab labels should indicate to the user what is their content.
+          <strong>Clear labels.</strong> Tab labels should indicate to the user the content contains.
         </li>
         <li>
           <strong>Order tabs.</strong> The first tab should be the most useful to the user or show the most popular content.
@@ -86,7 +96,7 @@ function TabGroupDocumentation() {
       <ul className="mb-spacing">
         <li>Tabs labels must maintain a <code>4.5:1</code> contrast ratio against the background.</li>
         <li>Make sure the active tab indicator is distinguishable from other tabs and is <code>3:1</code> contrast ratio.</li>
-        <li>For content within panels, please refer to their respective documentation.</li>
+        <li>For content within panels, please refer to the respective component documentation.</li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
@@ -113,8 +123,8 @@ function TabGroupDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>The tab list should include <code>role=&quot;tablist&quot;</code>.</li>
-        <li>Each tab should be <code>&lt;button&gt;</code> elements and  include <code>role=&quot;tab&quot;</code>.</li>
-        <li>Each tab panel should include <code>role=&quot;tabpanel&quot;</code>.</li>
+        <li>Each tab should be a <code>&lt;button&gt;</code> element and  include <code>role=&quot;tab&quot;</code>.</li>
+        <li>Each tab panel content area should include <code>role=&quot;tabpanel&quot;</code>.</li>
         <li>If the tab group has a label, the tab list should include <code>aria-labelledby</code> referencing the label element. Otherwise, use <code>aria-label</code>.</li>
         <li>If the tab list is vertical, give the tab group <code>aria-orientation=&quot;vertical&quot;</code>.</li>
         <li>Each tab should include <code>aria-controls</code> referring to their respective tab panel.</li>
@@ -133,7 +143,7 @@ function TabGroupDocumentation() {
               Technology
             </h3>
             <div role="tablist" aria-labelledby="tablist-label">
-              <button 
+              <button
                 id="tab-1"
                 type="button"
                 role="tab"
@@ -142,7 +152,7 @@ function TabGroupDocumentation() {
               >
                 HTML
               </button>
-              <button 
+              <button
                 id="tab-2"
                 type="button"
                 role="tab"
@@ -153,14 +163,14 @@ function TabGroupDocumentation() {
                 React
               </button>
             </div>
-            <div 
+            <div
               id="tabpanel-1"
               role="tabpanel"
               aria-labelledby="tab-1"
             >
               <p>Here goes the content of the first panel.</p>
             </div>
-            <div 
+            <div
               id="tabpanel-2"
               role="tabpanel"
               aria-labelledby="tab-2"
