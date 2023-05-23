@@ -66,7 +66,7 @@ function ColorPopup({ onClose }) {
   return (
     <div className="color-picker-popup__backdrop">
       <div
-        className="popup"
+        className="color-picker-popup"
         role="button"
         style={{
           position: mousePositionRef.current ? 'absolute' : null,
@@ -75,15 +75,23 @@ function ColorPopup({ onClose }) {
         }}
         tabIndex="0"
       >
-        <div className="popup__title-bar" ref={draggableDivRef}>
+        <div className="color-picker-popup__title-bar" ref={draggableDivRef}>
           <button
             onClick={handleEvent(() => setIsOpen((oldIsOpen) => !oldIsOpen))}
-            className="icon-button icon-button--borderless mr-spacing"
+            className="icon-button icon-button--borderless"
             type="button"
           >
-            <span className={`material-symbols-outlined icon-button__icon ${isOpen ? '' : 'icon-button__icon--rotate180'}`}>expand_circle_down</span>
+            <div>
+              <span
+                className={`utds-icon-before-circle-chevron-down icon-button__icon ${isOpen ? '' : 'icon-button__icon--rotate180'}`}
+                aria-hidden="true"
+              />
+              <span className="visually-hidden">
+                collapse popup
+              </span>
+            </div>
           </button>
-          <div className="popup__title">Color Picker</div>
+          <div className="color-picker-popup__title">Color Picker</div>
           {
             onClose
               ? (
