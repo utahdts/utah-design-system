@@ -1,4 +1,6 @@
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
+import notNull from '../misc/notNull';
+import { getHamburgerElements } from '../renderables/mobile/hookupHamburger';
 import { showActionItem } from '../renderables/mobile/mobileMenuInteractionHandler';
 
 export default function hookupMobileActionItemKeyboarding() {
@@ -88,4 +90,17 @@ export default function hookupMobileActionItemKeyboarding() {
       };
     }
   );
+
+  // when focusing out of the mobile content it would tab to actual page content behind the mobile menu modal.
+  // instead, this is the last focusable element so that when it gets focus, focus can be sent back to the hamburger button.
+  const hiddenLastFocusableButton = notNull(
+    document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU__LAST_FOCUSABLE)),
+    'hookupMobileActionItemKeyboarding: hiddenLastFocusableButton not found'
+  );
+  const { hamburger } = getHamburgerElements('hookupMobileActionItemKeyboarding');
+  hiddenLastFocusableButton.addEventListener('focusin', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hamburger.focus();
+  });
 }

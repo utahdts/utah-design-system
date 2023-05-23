@@ -73,4 +73,11 @@ export default function renderMobileActionItems() {
         }
       }
     });
+
+  // no menu, no item. EOL.
+  const settings = getUtahHeaderSettings();
+  if (!settings.mainMenu) {
+    homeActionItem.remove();
+    homeActionItemWrapper.remove();
+  }
 }

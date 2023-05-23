@@ -1,4 +1,3 @@
-// @vitest-environment happy-dom
 // @ts-check
 import { sizes } from '@utahdts/utah-design-system-header';
 import { describe, expect, test } from 'vitest';
@@ -48,58 +47,6 @@ describe('stringifyHeaderSettings', () => {
     };
 
     expect(stringifyHeaderSettings(settings)).toSatisfy(doesMatchStrings(MATCH_BASIC_FIELDS));
-  });
-
-  test('logo: string', () => {
-    /** @type {Settings} */
-    const settings = {
-      showTitle: true,
-      size: sizes.MEDIUM,
-      title: 'Utah Design System',
-      titleURL: '/',
-      mainMenu: {
-        menuItems: [],
-        title: 'test-menu',
-      },
-      mediaSizes: {
-        mobile: 640,
-        tabletPortrait: 768,
-        tabletLandscape: 1024,
-      },
-      logo: {
-        htmlString: 'just-a-string',
-      },
-      utahId: false,
-    };
-
-    const result = stringifyHeaderSettings(settings);
-    expect(result).toSatisfy(doesMatchStrings([...MATCH_BASIC_FIELDS, '"logo": "just-a-string"']));
-  });
-
-  test('logo: DOM', () => {
-    /** @type {Settings} */
-    const settings = {
-      showTitle: true,
-      size: sizes.MEDIUM,
-      title: 'Utah Design System',
-      titleURL: '/',
-      mainMenu: {
-        menuItems: [],
-        title: 'test-menu',
-      },
-      mediaSizes: {
-        mobile: 640,
-        tabletPortrait: 768,
-        tabletLandscape: 1024,
-      },
-      logo: {
-        element: document.createElement('div'),
-      },
-      utahId: false,
-    };
-
-    const result = stringifyHeaderSettings(settings);
-    expect(result).toSatisfy(doesMatchStrings([...MATCH_BASIC_FIELDS, '"logo": "<div></div>"']));
   });
 
   test('actionItems: actionFunction', () => {

@@ -283,14 +283,14 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
 }
 
 /**
- * @param {MenuItem[]} menuItems
+ * @param {MenuItem[] | undefined} menuItems
  * @param {RenderPopupMenuOptions} options
  * @returns {HTMLElement}
  */
 export function renderMenu(menuItems, options) {
   const menuWrapper = renderDOMSingle(PopupMenuHtml);
 
-  menuItems.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem, options));
+  menuItems?.forEach((menuItem) => renderPopupMenuItem(menuWrapper, menuItem, options));
 
   return menuWrapper;
 }

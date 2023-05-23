@@ -5,7 +5,7 @@ import { renderMenu } from '../popupMenu/renderPopupMenu';
 
 export default function renderMobileMenuHomeMenu() {
   return renderMenu(
-    getUtahHeaderSettings().mainMenu.menuItems,
+    getUtahHeaderSettings().mainMenu?.menuItems,
     {
       childrenMenuType: childrenMenuTypes.INLINE,
       removePopupArrow: true,

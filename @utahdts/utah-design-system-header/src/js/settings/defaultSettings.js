@@ -25,13 +25,4 @@ export default {
   size: sizes.MEDIUM,
   title: 'My Utah.gov Site',
   titleURL: '/',
-  mainMenu: {
-    menuItems: [
-      {
-        actionUrl: { url: '/' },
-        title: 'Home',
-      },
-    ],
-    title: 'Main Menu',
-  },
 };

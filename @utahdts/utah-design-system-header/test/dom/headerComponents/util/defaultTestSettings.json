@@ -1,0 +1,11 @@
+{
+  "mediaSizes": {
+    "mobile": 640,
+    "tabletPortrait": 768,
+    "tabletLandscape": 1024
+  },
+  "showTitle": true,
+  "size": "MEDIUM",
+  "title": "My Utah.gov Site",
+  "titleURL": "/"
+}
