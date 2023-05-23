@@ -2,7 +2,7 @@ import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
 import HomeLanding from '../websiteContent/HomeLanding';
-import PLACEHOLDERDOCUMENTATION from '../websiteContent/PlaceHolderDocumentation';
+import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
@@ -129,42 +129,42 @@ const pages = {
 
   // === guidelines documentation components === //
   accessibility: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorGuidelines: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.colorGuidelines,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   design: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.design,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Design',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   notifications: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.notifications,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Notifications',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   principles: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.principles,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Principles',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   uxBestPractices: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.uxBestPractices,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'UX Best Practices',
@@ -180,7 +180,7 @@ const pages = {
 
   // === foundation documentation components === //
   spacing: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.spacing,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Spacing',
@@ -194,42 +194,42 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   depthElevationShadows: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.depthElevationShadows,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Depth / Elevation / Shadows',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   shape: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.shape,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Shape (rounded corners)',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   motionTiming: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.motionTiming,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Motion / Timing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorFoundation: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.colorFoundation,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   layout: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.layout,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Layout (Flex, Grid System)',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   opacity: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Opacity',
@@ -238,14 +238,14 @@ const pages = {
 
   // === library documentation components === //
   components: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.components,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Components',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   patterns: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.patterns,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Patterns',
@@ -267,7 +267,7 @@ const pages = {
   },
 
   templates: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.templates,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Templates',
@@ -276,14 +276,14 @@ const pages = {
 
   // === resources documentation components === //
   colorPicker: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.colorPicker,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Color Picker',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   contributeCommunity: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.contributeCommunity,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Contribute / Community',
@@ -304,14 +304,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   github: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.github,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'GitHub',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   help: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.help,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Help',
@@ -376,7 +376,7 @@ const pages = {
   },
 
   type: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.type,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Type and Text',
@@ -393,7 +393,7 @@ const pages = {
   },
 
   buttonGroup: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.buttonGroup,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Button Group',
@@ -451,7 +451,7 @@ const pages = {
   },
 
   drawers: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.drawers,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Drawer',
@@ -459,7 +459,7 @@ const pages = {
   },
 
   infoBox: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.infoBox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Info Box',
@@ -490,21 +490,21 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   carousel: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.carousel,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Carousel',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   processList: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.processList,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Process List',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   progressBars: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.progressBars,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Progress Bars',
@@ -525,7 +525,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   stepIndicator: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.stepIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Step Indicators',
@@ -534,7 +534,7 @@ const pages = {
 
   // === forms === //
   forms: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.forms,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Forms',
@@ -597,7 +597,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   textArea: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.textArea,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Text Area',
@@ -634,7 +634,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   mainMenu: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.mainMenu,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Main Menu',
@@ -691,7 +691,7 @@ const pages = {
 
   // will go away VVVVVVVV
   errorPage404: {
-    content: PLACEHOLDERDOCUMENTATION,
+    content: PlaceHolderDocumentation,
     link: pageUrls.errorPage404,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: '404 Page',
