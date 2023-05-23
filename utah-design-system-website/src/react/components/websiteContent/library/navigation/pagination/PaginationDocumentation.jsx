@@ -75,7 +75,7 @@ function PaginationDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Maintain a minimum <code>4.5:1</code> contrast ratio for all interactions (hover, focus) for all links.</li>
+        <li>Maintain a minimum <code>4.5:1</code> contrast ratio for all text link interactions (hover, focus).</li>
         <li>Maintain a <code>3:1</code> contrast ratio for the current indicator.</li>
         <li>Maintain a <code>3:1</code> contrast ratio for the focus indicator.</li>
       </ul>
