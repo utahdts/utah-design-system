@@ -116,8 +116,8 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.headings.link, title: pages.headings.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
+        { link: pages.paragraphs.link, title: pages.paragraphs.pageTitle },
         { link: pages.tags.link, title: pages.tags.pageTitle },
-        { link: pages.type.link, title: pages.type.pageTitle },
       ],
     },
     {

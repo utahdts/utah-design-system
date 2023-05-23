@@ -375,11 +375,11 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  type: {
+  paragraphs: {
     content: PlaceHolderDocumentation,
-    link: pageUrls.type,
+    link: pageUrls.paragraphs,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Type and Text',
+    pageTitle: 'Paragraphs and Text',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
