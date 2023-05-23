@@ -56,7 +56,7 @@ function AccordionDocumentation() {
         </li>
         <li>
           <strong>When expand/collapse functionality isn&apos;t needed.</strong> Avoid using an introductory element that includes
-          expand and collapse functionality for a set of content that doesn&apos;t require it.  Use a <Link to={pageUrls.headlines}>header</Link> instead.
+          expand and collapse functionality for a set of content that doesn&apos;t require it.  Use a <Link to={pageUrls.headings}>header</Link> instead.
         </li>
         <li>
           <strong>Don&apos;t hide important information.</strong> If information is deemed important and/or critical to a process, don&apos;t hide

@@ -435,7 +435,7 @@ function TypographyDocumentation() {
             </li>
             <li>
               Headings can effectively communicate hierarchy in your content. Their size, weight, and typeface can help distinguish them
-              from paragraph text. This makes headlines stand out, which aids in scanning the content. More on <Link to={pageUrls.headlines}>headings</Link>.
+              from paragraph text. This makes headings stand out, which aids in scanning the content. More on <Link to={pageUrls.headings}>headings</Link>.
             </li>
             <li>
               To make text easy to read, the Utah Design System uses a line height of <code>1.4</code> for body text.

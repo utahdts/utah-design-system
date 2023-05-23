@@ -8,6 +8,7 @@ component specific, BEM (Block, Element, Modifier)
 
 
 /* ---- Project Components ---- */
+@use "project-components/color-picker-popup";
 @use "project-components/color-picker";
 @use "project-components/color-pickers";
 @use "project-components/color-compare";
