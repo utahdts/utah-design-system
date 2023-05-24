@@ -22,19 +22,19 @@ function VerticalMenuDocumentation() {
       <p className="lead-in">
         A vertical menu is a collection of links that aid in the navigation of a website or a list of interactive items that are arranged vertically.
         Typically, the vertical menu is located on the left or right side of the webpage, but can also be displayed in a popup.<br /><br />
-        View more information about <Link to={pageUrls.sidePanelNavigation}>Side Panel Navigation</Link> or <Link to={pageUrls.popups}>Popups</Link>.
+        View more information about <Link to={pageUrls.sidePanelNavigation}>Side Panel</Link> or <Link to={pageUrls.popups}>Popups</Link>.
 
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
       <StaticExample
-        title="Vertical Menu Located Within the Side Panel Navigation"
+        title="Vertical Menu Located Within the Side Panel"
         renderedExample={<LightBox image={verticalMenuLeftSidebarScreenshot} alt="Vertical Menu Sidebar" className="flex-3up-gap" />}
         quickTips={(
           <ul>
             <li>Displayed on the left hand side of the page.</li>
             <li>
-              Menu&apos;s in side panel navigation are generally considered Landmark menus and should be labelled as such.
+              Menu&apos;s in <Link to={pageUrls.sidePanelNavigation}>side panels</Link> are generally considered Landmark menus and should be labelled as such.
               View more information under <Link to={pageUrls.accessibility}>Accessibility</Link>.
             </li>
             <li>List items may have sub-menus that are indicated by a chevron located to the right of the text.</li>
@@ -104,7 +104,7 @@ function VerticalMenuDocumentation() {
           On mobile devices, this could potentially make it difficult for users to access the content.
         </li>
         <li>
-          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in a side panel navigation. A website that provides a single service may not require a full menu, but would do well with a button group,
+          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in a <Link to={pageUrls.sidePanelNavigation}>side panel</Link>. A website that provides a single service may not require a full menu, but would do well with a button group,
           or a horizontal navigation bar (main menu). View more information on <Link to={pageUrls.buttonGroup}>Button Groups</Link> or <Link to={pageUrls.sidePanelNavigation}>Navigation</Link>.
         </li>
       </ul>

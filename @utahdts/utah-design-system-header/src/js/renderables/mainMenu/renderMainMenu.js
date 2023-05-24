@@ -12,6 +12,7 @@ import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import findRecursive from '../../misc/findRecursive';
+import notNull from '../../misc/notNull';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
@@ -33,7 +34,7 @@ export default function renderMainMenu() {
   /** @type {HTMLElement} */
   const mainMenuWrapper = renderDOMSingle(MainMenuWrapper);
 
-  const mainMenuNav = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MAIN_MENU__NAV));
+  let mainMenuNav = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MAIN_MENU__NAV));
   if (!mainMenuNav) {
     throw new Error('renderMainMenu(): mainMenu not created');
   }
@@ -46,135 +47,193 @@ export default function renderMainMenu() {
   const mainMenuId = 'main-menu__nav';
   mainMenuNav.setAttribute('aria-labelledby', mainMenuId);
   titleTag.setAttribute('id', mainMenuId);
-  titleTag.innerHTML = settings.mainMenu.title;
-
-  const mainMenuTop = mainMenuNav.querySelector(getCssClassSelector(domConstants.MAIN_MENU__MENU_TOP));
-  if (!mainMenuTop) {
-    throw new Error('renderMainMenu(): mainMenuTop not found');
+  if (settings.mainMenu) {
+    titleTag.innerHTML = settings.mainMenu.title;
+  } else {
+    mainMenuNav.remove();
+    mainMenuNav = null;
   }
 
-  // render top level menu items with popups for their children
-  settings.mainMenu.menuItems.forEach((menuItem) => {
-    const mainMenuItem = renderDOMSingle(MainMenuItem);
-    mainMenuTop.appendChild(mainMenuItem);
-
-    const mainMenuItemTitle = mainMenuItem.querySelector(getCssClassSelector(domConstants.MENU_ITEM__TITLE));
-    if (!mainMenuItemTitle) {
-      throw new Error(`renderMainMenu(): sub menu title not found for ${menuItem.title}`);
+  if (settings.mainMenu) {
+    const mainMenuTop = mainMenuNav?.querySelector(getCssClassSelector(domConstants.MAIN_MENU__MENU_TOP));
+    if (!mainMenuTop) {
+      throw new Error('renderMainMenu(): mainMenuTop not found');
     }
 
-    const mainMenuItemButtonTitle = /** @type {HTMLElement} */ (
-      mainMenuItemTitle.querySelector(getCssClassSelector(domConstants.MENU_ITEM__BUTTON_TITLE))
-    );
-    if (!mainMenuItemButtonTitle) {
-      throw new Error(`renderMainMenu(): button title not found for ${menuItem.title}`);
-    }
-    mainMenuItemButtonTitle.setAttribute('id', `${domConstants.MENU_ITEM__BUTTON_TITLE}__${menuItem.title}-${uuidv4()}`);
+    // render top level menu items with popups for their children
+    settings.mainMenu.menuItems.forEach((menuItem) => {
+      const mainMenuItem = renderDOMSingle(MainMenuItem);
+      mainMenuTop.appendChild(mainMenuItem);
 
-    const mainMenuItemLinkTitle = /** @type {HTMLElement} */ (
-      mainMenuItemTitle.querySelector(getCssClassSelector(domConstants.MENU_ITEM__LINK_TITLE))
-    );
-    if (!mainMenuItemLinkTitle) {
-      throw new Error(`renderMainMenu(): link title not found for ${menuItem.title}`);
-    }
-
-    // add selected to title if selected (or any children are selected)
-    if (menuItem.isSelected || (menuItem.actionMenu && findRecursive(menuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
-      mainMenuItemButtonTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
-      mainMenuItemLinkTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
-    }
-
-    if (menuItem.actionMenu) {
-      // render children menu items
-      mainMenuItemButtonTitle.innerHTML = menuItem.title;
-      mainMenuItemLinkTitle.remove();
-
-      /** @type {PopupMenu} */
-      const popupMenu = {
-        menuItems: menuItem.actionMenu,
-        title: menuItem.title,
-      };
-      const subMenuPopup = renderPopupMenu(
-        popupMenu,
-        mainMenuItemButtonTitle,
-        {
-          childrenMenuType: menuItem.childrenMenuType || childrenMenuTypes.FLYOUT,
-        }
+      const mainMenuItemTitle = notNull(
+        mainMenuItem.querySelector(getCssClassSelector(domConstants.MENU_ITEM__TITLE)),
+        `renderMainMenu(): sub menu title not found for ${menuItem.title}`
       );
-      mainMenuItem.appendChild(subMenuPopup);
-      popupFocusHandler(mainMenuItem, mainMenuItemButtonTitle, subMenuPopup, 'menu', { shouldFocusOnHover: true });
-      /** @type {string} */
-      let menuClass;
-      switch (menuItem.childrenMenuType) {
-        case childrenMenuTypes.INLINE:
-          menuClass = domConstants.MENU_ITEM__INLINE;
-          break;
-        case childrenMenuTypes.MEGA_MENU:
-          menuClass = domConstants.MENU_ITEM__MEGA_MENU;
-          break;
-        case childrenMenuTypes.FLYOUT:
-        default:
-          menuClass = domConstants.MENU_ITEM__FLY_OUT;
-          break;
+
+      const mainMenuItemButtonTitle = notNull(
+        /** @type {HTMLElement} */(
+          mainMenuItemTitle.querySelector(getCssClassSelector(domConstants.MENU_ITEM__BUTTON_TITLE))
+        ),
+        `renderMainMenu(): button title not found for ${menuItem.title}`
+      );
+      mainMenuItemButtonTitle.setAttribute('id', `${domConstants.MENU_ITEM__BUTTON_TITLE}__${menuItem.title}-${uuidv4()}`);
+
+      const mainMenuItemLinkTitle = notNull(
+        /** @type {HTMLElement} */(
+          mainMenuItemTitle.querySelector(getCssClassSelector(domConstants.MENU_ITEM__LINK_TITLE))
+        ),
+        `renderMainMenu(): link title not found for ${menuItem.title}`
+      );
+
+      // add selected to title if selected (or any children are selected)
+      if (menuItem.isSelected || (menuItem.actionMenu && findRecursive(menuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
+        mainMenuItemButtonTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
+        mainMenuItemLinkTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
       }
-      mainMenuItem.classList.add(menuClass);
-    } else if (menuItem.actionFunction) {
-      // custom function when triggered
-      mainMenuItemButtonTitle.innerHTML = menuItem.title;
-      mainMenuItemButtonTitle.onclick = menuItem.actionFunction;
-      mainMenuItemLinkTitle.remove();
-    } else if (menuItem.actionFunctionUrl) {
-      mainMenuItemLinkTitle.innerHTML = menuItem.title;
-      mainMenuItemLinkTitle.setAttribute('href', menuItem.actionFunctionUrl.url);
 
-      mainMenuItemLinkTitle.onclick = (e) => {
-        if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
-          e.stopPropagation();
-          e.preventDefault();
+      if (menuItem.actionMenu) {
+        // render children menu items
+        mainMenuItemButtonTitle.innerHTML = menuItem.title;
+        mainMenuItemLinkTitle.remove();
+
+        /** @type {PopupMenu} */
+        const popupMenu = {
+          menuItems: menuItem.actionMenu,
+          title: menuItem.title,
+        };
+        const subMenuPopup = renderPopupMenu(
+          popupMenu,
+          mainMenuItemButtonTitle,
+          {
+            childrenMenuType: menuItem.childrenMenuType || childrenMenuTypes.FLYOUT,
+          }
+        );
+        mainMenuItem.appendChild(subMenuPopup);
+        popupFocusHandler(mainMenuItem, mainMenuItemButtonTitle, subMenuPopup, 'menu', { shouldFocusOnHover: true });
+        /** @type {string} */
+        let menuClass;
+        switch (menuItem.childrenMenuType) {
+          case childrenMenuTypes.INLINE:
+            menuClass = domConstants.MENU_ITEM__INLINE;
+            break;
+          case childrenMenuTypes.MEGA_MENU:
+            menuClass = domConstants.MENU_ITEM__MEGA_MENU;
+            break;
+          case childrenMenuTypes.FLYOUT:
+          default:
+            menuClass = domConstants.MENU_ITEM__FLY_OUT;
+            break;
         }
-        menuItem.actionFunctionUrl?.actionFunction(e);
-      };
-      mainMenuItemButtonTitle.remove();
-    } else if (menuItem.actionUrl) {
-      // go to url when triggered
-      mainMenuItemLinkTitle.innerHTML = menuItem.title;
-      mainMenuItemLinkTitle.setAttribute('href', menuItem.actionUrl.url);
-      mainMenuItemButtonTitle.remove();
-    } else {
-      throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
-    }
+        mainMenuItem.classList.add(menuClass);
+      } else if (menuItem.actionFunction) {
+        // custom function when triggered
+        mainMenuItemButtonTitle.innerHTML = menuItem.title;
+        mainMenuItemButtonTitle.onclick = menuItem.actionFunction;
+        mainMenuItemLinkTitle.remove();
+      } else if (menuItem.actionFunctionUrl) {
+        mainMenuItemLinkTitle.innerHTML = menuItem.title;
+        mainMenuItemLinkTitle.setAttribute('href', menuItem.actionFunctionUrl.url);
 
-    if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {
-      mainMenuItemLinkTitle.setAttribute('target', '_blank');
-      mainMenuItemLinkTitle.appendChild(renderDOMSingle(NewTabAccessibility));
-    }
-  });
+        mainMenuItemLinkTitle.onclick = (e) => {
+          if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
+            e.stopPropagation();
+            e.preventDefault();
+          }
+          menuItem.actionFunctionUrl?.actionFunction(e);
+        };
+        mainMenuItemButtonTitle.remove();
+      } else if (menuItem.actionUrl) {
+        // go to url when triggered
+        mainMenuItemLinkTitle.innerHTML = menuItem.title;
+        mainMenuItemLinkTitle.setAttribute('href', menuItem.actionUrl.url);
+        mainMenuItemButtonTitle.remove();
+      } else {
+        throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
+      }
 
+      if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {
+        mainMenuItemLinkTitle.setAttribute('target', '_blank');
+        mainMenuItemLinkTitle.appendChild(renderDOMSingle(NewTabAccessibility));
+      }
+    });
+  }
+
+  // ===== UTAH ID ===== //
   let utahIdPopup = null;
   if (settings.utahId) {
     const { button: utahIdButton, menu } = renderUtahIdForMobile();
     utahIdPopup = menu;
-    const utahIdButtonWrapper = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MOBILE__UTAH_ID));
-    if (!utahIdButtonWrapper) {
-      throw new Error('renderMainMenu: utahIdButtonWrapper not found');
-    }
+    const utahIdButtonWrapper = notNull(
+      mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MOBILE__UTAH_ID)),
+      'renderMainMenu: utahIdButtonWrapper not found'
+    );
     utahIdButtonWrapper.appendChild(utahIdButton);
   }
 
-  // search icon
-  const searchIcon = mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MAIN_MENU__SEARCH));
-  if (!searchIcon || !(searchIcon instanceof HTMLElement)) {
-    throw new Error('renderMainMenu: searchIcon not found');
-  }
+  // ===== SEARCH ICON ===== //
+  const searchIcon = notNull(
+    /** @type {HTMLElement} */(
+      mainMenuWrapper.querySelector(getCssClassSelector(domConstants.MAIN_MENU__SEARCH))
+    ),
+    'renderMainMenu: searchIcon not found'
+  );
   if (settings.onSearch) {
     hookupTooltip(searchIcon, document.createTextNode('Search'));
     if (searchIcon.onclick) {
       throw new Error('searchIcon already has onclick');
     }
     searchIcon.onclick = () => showSearchModal();
-  } else {
-    // add a blank div to consume space
-    searchIcon.parentElement?.insertBefore(renderDOMSingle('<div class="main-menu__search-placeholder">'), searchIcon);
+
+    if (!settings.mainMenu) {
+      const citizenExperienceWrapper = notNull(
+        document.querySelector(getCssClassSelector(domConstants.CITIZEN_EXPERIENCE)),
+        'renderMainMenu: citizen experience wrapper not found'
+      );
+      // if actions AND search, but not utahId nor menu
+      // Desktop: the search is with the action icons
+      // mobile: the search is on main menu bar with hamburger
+      // so make a copy of the menu bar search so it can be mobile and citizen
+      const mobileSearchIcon = renderDOMSingle(searchIcon.outerHTML);
+      hookupTooltip(mobileSearchIcon, document.createTextNode('Search'));
+      mobileSearchIcon.onclick = () => showSearchModal();
+      searchIcon.classList.add(domConstants.DESKTOP__HIDDEN);
+
+      // search icon is the far right item in the citizen experience (no utahid button)
+      // there is no main menu, so move search in to top header by utahID button UDS-564
+      if (settings.utahId !== false) {
+        // place search icon just to left of utahId button
+        const utahIdWrapper = notNull(document.querySelector(getCssClassSelector(domConstants.UTAH_ID)), 'renderMainMenu: utahId wrapper not found');
+        citizenExperienceWrapper.insertBefore(mobileSearchIcon, utahIdWrapper);
+      } else {
+        citizenExperienceWrapper.appendChild(mobileSearchIcon);
+      }
+    }
+
+    // UDS-564 - move search top top right if no main menu
+    if (!settings.mainMenu && !settings.actionItems && settings.utahId === false) {
+      // create search clone
+      const searchIconMobile = renderDOMSingle(/** @type {HTMLElement} */(searchIcon).outerHTML);
+      // run same hookup stuff above
+      hookupTooltip(searchIconMobile, document.createTextNode('Search'));
+      if (searchIconMobile.onclick) {
+        throw new Error('searchIconMobile already has onclick');
+      }
+      searchIconMobile.onclick = () => showSearchModal();
+
+      // place in mobile citizen experience
+      const citizenExperienceMobile = notNull(
+        document.querySelector(getCssClassSelector(domConstants.CITIZEN_EXPERIENCE_MOBILE)),
+        'renderMainMenu: citizen-experience--mobile not found'
+      );
+      // move search to top right citizen experience because main menu is toast
+      citizenExperienceMobile.appendChild(searchIconMobile);
+    }
+  }
+  if (!settings.onSearch) {
+    if (settings.mainMenu || (!settings.mainMenu && settings.utahId)) {
+      // add a blank div to consume space (only if there is a main menu)
+      searchIcon.parentElement?.insertBefore(renderDOMSingle('<div class="main-menu__search-placeholder">'), searchIcon);
+    }
     searchIcon.remove();
   }
 

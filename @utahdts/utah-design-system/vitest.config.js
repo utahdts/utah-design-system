@@ -16,6 +16,7 @@ export default defineConfig(() => ({
       provider: 'istanbul',
       reporter: ['text', 'json', 'lcov'],
     },
+    environment: 'jsdom',
     globals: true,
   },
   plugins: [

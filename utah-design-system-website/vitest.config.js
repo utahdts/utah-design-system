@@ -11,7 +11,7 @@ export default defineConfig({
         '**/main.jsx',
         '**/components/demo',
         '**/HomeLanding.jsx',
-        '**/PLACEHOLDERDOCUMENTATION.jsx',
+        '**/PlaceHolderDocumentation.jsx',
         '**/FoundationLanding.jsx',
         '**/GuidelinesLanding.jsx',
         '**/LibraryLanding.jsx',
@@ -22,6 +22,7 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text', 'json', 'lcov'],
     },
+    environment: 'jsdom',
     globals: true,
   },
   plugins: [

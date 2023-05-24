@@ -1,8 +1,7 @@
-import { Accordion, version } from '@utahdts/utah-design-system';
-import websitePackageJson from '../../../../package.json';
+import { Accordion } from '@utahdts/utah-design-system';
 import dhhsBrand from '../../../static/images/DHHS-Logo.svg';
 import traxImageUrl from '../../../static/images/trax.jpg';
-import { useCssContext } from '../../context/cssContext/CssContext';
+import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import getBorderClass from '../../util/color/getBorderClass';
 import LinkIcon from '../navigation/LinkIcon';
@@ -489,121 +488,6 @@ function DemoContent() {
 
         </div>
       </div>
-
-      <div className="social-bar__wrapper secondary-color-background text-on-secondary-color contne">
-        <div className="social-bar content-width">
-          <div className="social-bar__title">Follow DHHS</div>
-          <ul className="social-bar__icons-list">
-            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
-            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
-            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
-            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
-            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
-            <li><a href="#facebook" className="social-bar__icon">&nbsp;</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="page-footer">
-        <div className="page-footer__line">
-          <div className="page-footer__info">
-            <div className="page-footer__title">Department of Health and Human Services</div>
-            <p>
-              <strong>Headquarters</strong>
-              <br />
-              Multi-Agency State Office Building
-              <br />
-              195 North 1950 West
-              <br />
-              Salt Lake City, Ut 84116
-              <br />
-            </p>
-          </div>
-          <div className="page-footer__menus">
-            <div className="page-footer__menu">
-              <div className="page-footer__title">
-                Online Services
-              </div>
-              <ul>
-                <li>
-                  <a href="#Online Service One">
-                    <span>Online Service One </span>
-                    <LinkIcon />
-                  </a>
-                </li>
-                <li><a href="#Online Service And More">Online Service And More</a></li>
-                <li><a href="#Online Service Another One">Online Service Another One</a></li>
-                <li><a href="#Online Service More">Online Service More</a></li>
-                <li><a href="#Online Service">Online Service</a></li>
-                <li><a href="#Online Service One At A Location">Online Service One At A Location</a></li>
-                <li><a href="#Online Service Please">Online Service Please</a></li>
-                <li><a href="#Online Serv">Online Serv</a></li>
-                <li><a href="#Online Service Thirteen">Online Service Thirteen</a></li>
-                <li><a href="#Online Service">Online Service</a></li>
-                <li><a href="#More Online Services">More Online Services</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="page-footer__menu">
-                <div className="page-footer__title">
-                  Another Footer
-                </div>
-                <ul>
-                  <li><a href="#Sed ut perspiciatis">Sed ut perspiciatis</a></li>
-                  <li><a href="#Unde omnis iste natus error sit">Unde omnis iste natus error sit</a></li>
-                  <li><a href="#Eaque ipsa quae ab ilio inventore veritalis">Eaque ipsa quae ab ilio inventore veritalis</a></li>
-                  <li><a href="#Aspernatur aut odit aut fugit">Aspernatur aut odit aut fugit</a></li>
-                </ul>
-              </div>
-
-              <div className="page-footer__menu">
-                <div className="page-footer__title">
-                  Footer List
-                </div>
-                <ul>
-                  <li><a href="#Online Service One">Online Service One</a></li>
-                  <li><a href="#Online Service And More">Online Service And More</a></li>
-                  <li><a href="#Online Service Another One">Online Service Another One</a></li>
-                  <li><a href="#Online service More">Online service More</a></li>
-                  <li><a href="#Online service">Online service</a></li>
-                  <li><a href="#Online Service One At A Location">Online Service One At A Location</a></li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="page-footer__info">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dororenque
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-            architecto beatae vitae dicta sut explicabo. Nemo enim ipsam voluptatem quia voluptas
-            sit aspenatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-            amet, consectetur, adipisci velit, sed
-          </div>
-        </div>
-
-        <div className="page-footer__line">
-          | An official website of the state of utah
-          <ul className="page-footer__site-links">
-            <li>UTAH.GOV</li>
-            <li>Utah.gov Home</li>
-            <li>Terms of Use</li>
-            <li>Privacy Policy</li>
-            <li>Accessibility</li>
-            <li>Translate</li>
-          </ul>
-        </div>
-        <div className="page-footer__version">
-          <span>Website Version </span>
-          <span>{websitePackageJson.version}</span>
-          <span> | </span>
-          <span>Library Version </span>
-          <span>{version}</span>
-        </div>
-      </div>
-
     </div>
   );
 }

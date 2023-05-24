@@ -213,9 +213,9 @@
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the header be inserted? (defaults to the top of the body)
- *  @property {FooterSettings} [footer]
+ *  @property {FooterSettings | null} [footer] - null means to not show the footer
  *  @property {Logo} [logo] - the logo to show
- *  @property {MainMenu} mainMenu - the main menu to show on a line below the citizen experience/unbrand line
+ *  @property {MainMenu} [mainMenu] - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
  *  @property {(search: string) => void} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)

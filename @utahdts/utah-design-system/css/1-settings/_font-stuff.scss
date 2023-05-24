@@ -7,7 +7,7 @@ Font size variables
 #{class-vars.$base-class} {
   --normal-font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
   --fixed-width-font-family: 'Source Code Pro', monospace;
-  
+
   --font-size-2xs: .8125rem; //13
   --font-size-xs:  .875rem;  //14
   --font-size-s:   .9375rem; //15
@@ -22,6 +22,8 @@ Font size variables
   --font-size-6xl: 3.5rem;   //56
   --font-size-7xl: 4.5rem;   //72
 
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
@@ -42,7 +44,8 @@ Font size variables
 .font-size-6xl { font-size: var(--font-size-6xl); }
 .font-size-7xl { font-size: var(--font-size-7xl); }
 
-
+.font-extra-light { font-weight: var(--font-weight-extra-light); }
+.font-light { font-weight: var(--font-weight-light); }
 .font-normal { font-weight: var(--font-weight-normal); }
 .font-semi-bold { font-weight: var(--font-weight-semi-bold); }
 .font-bold { font-weight: var(--font-weight-bold); }

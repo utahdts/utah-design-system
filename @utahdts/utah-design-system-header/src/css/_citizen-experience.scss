@@ -1,5 +1,10 @@
-.utds-citizen-experience-wrapper {
-  display: flex;
+.utds-citizen-experience-wrapper, .utds-citizen-experience-wrapper--mobile {
   justify-content: flex-end;
   flex: 1;
+}
+.utds-citizen-experience-wrapper {
+  display: flex;
+}
+.utds-citizen-experience-wrapper--mobile {
+  display: none;
 }

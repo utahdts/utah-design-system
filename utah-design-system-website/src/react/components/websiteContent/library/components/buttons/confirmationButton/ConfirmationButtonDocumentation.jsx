@@ -1,22 +1,13 @@
-import {
-  Tab,
-  TabGroup,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableHeadRow,
-  TableRow,
-  TableWrapper,
-  TabList,
-  TabPanel,
-  TabPanels,
-} from '@utahdts/utah-design-system';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import ConfirmationButtonExampleCodeReact from './ConfirmationButtonExampleCodeReact';
-import ConfirmationButtonExampleRender from './ConfirmationButtonExampleRender';
-import ConfirmationButtonExampleProps from './ConfirmationButtonExampleProps';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable max-len */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-one-expression-per-line */
+import { Link } from 'react-router-dom';
+import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -26,296 +17,91 @@ function ConfirmationButtonDocumentation() {
   return (
     <div className="documentation-content">
       <h1>Confirmation Button</h1>
-      <p className="lead-in">A <code>&lt;button&gt;</code> element is a clickable component that triggers an action.</p>
+      <p className="lead-in">
+        Confirmation buttons reduce uncertainty by asking users to confirm their intended action before proceeding.
+      </p>
+
       <hr />
-      <h2>Example</h2>
-      <SandboxExample
-        CODE_EXAMPLE={ConfirmationButtonExampleCodeReact}
-        PROPS_EXAMPLE={ConfirmationButtonExampleProps}
-        RENDER_EXAMPLE={ConfirmationButtonExampleRender}
+
+      <h2 id="section-example">Examples</h2>
+      <StaticExample
+        title="Confirmation Button Life Cycle"
+        renderedExample={<LightBox image={confirmationButtonScreenshot} alt="Confirmation Button" className="flex-3up-gap" />}
+        quickTips={(
+          <ol>
+            <li>The user hovers over and clicks the button.</li>
+            <li>The button&apos;s text changes to a confirmation message.</li>
+            <li>The user may continue with the action by clicking again, or click off the button to cancel.</li>
+          </ol>
+        )}
       />
-      <h2 className="mb-spacing">Guidance</h2>
+
+      <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
-        <li>Use a button to indicate an action.</li>
         <li>
-          Choose a button style that will give the desired emphasis to the action:
-          <ul>
-            <li>Important actions should be emphasized to stand out from other actions on the view or in the immediate area.</li>
-            <li>You can further emphasize buttons with size and color.</li>
-          </ul>
+          <strong>To prevent users from making mistakes.</strong> By prompting users to confirm their actions, uncertainty about the action they have taken, or are about
+          to take, can be reduced. Additionally, confirmation prompts can help prevent users from making mistakes.
+        </li>
+        <li>
+          <strong>Highlighting irreversible actions.</strong> If a user is about to perform an irreversible action, such as permanently deleting an item without the
+          option to restore it, it is important to prompt them in advance and confirm that they understand the consequences of their action.
+        </li>
+        <li>
+          <strong>When an action is used infrequently.</strong>  When it comes to infrequent actions that users may not remember how to perform, a confirmation
+          button may be a more secure option compared to a <Link to={pageUrls.banners}>banner</Link>, which could be overlooked or dismissed.
         </li>
       </ul>
 
-      <h2>Settings and Props</h2>
-      <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
-          <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel tabId="button-props-css">
-              <TableWrapper>
-                <Table className="table--lines-x">
-                  <TableHead>
-                    <TableHeadRow>
-                      <TableHeadCell className="text-left css-classes">CSS Classes</TableHeadCell>
-                      <TableHeadCell className="text-left ">Description</TableHeadCell>
-                    </TableHeadRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell><code>.button</code></TableCell>
-                      <TableCell>The base css class for a button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--small</code></TableCell>
-                      <TableCell>CSS class modifier for a small button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--large</code></TableCell>
-                      <TableCell>CSS class modifier for a large button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--large1x</code></TableCell>
-                      <TableCell>CSS class modifier for a extra large button.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--primary-color</code></TableCell>
-                      <TableCell>CSS class modifier for a button in the primary color.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--secondary-color</code></TableCell>
-                      <TableCell>CSS class modifier for a button in the secondary color.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--accent-color</code></TableCell>
-                      <TableCell>CSS class modifier for a button in the accent color.</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button--solid</code></TableCell>
-                      <TableCell>CSS class modifier for a button that has a solid color (instead of being outlined).</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button.contrast-border-light</code></TableCell>
-                      <TableCell>
-                        CSS class modifier to provide a light border around a dark button (used to help the button meet 3:1 contrast ratio on a dark
-                        background).
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code>.button.contrast-border-dark</code></TableCell>
-                      <TableCell>
-                        CSS class modifier to provide a dark border around a light button (used to help the button meet 3:1 contrast ratio on a light
-                        background).
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableWrapper>
-            </TabPanel>
+      <h3>When to use something else</h3>
+      <ul className="mb-spacing">
+        <li>
+          <strong>If the action isn&apos;t destructive or easily reversible.</strong> Confirmation buttons should be reserved for actions that carry significant consequences or cannot
+          be easily undone. If the action is easily reversible, use a standard <Link to={pageUrls.button}>button</Link> or a <Link to={pageUrls.banners}>banner</Link>.
+        </li>
+        <li>
+          <strong>Modal confirmation.</strong> Alternatively you may use a <Link to={pageUrls.modals}>modal</Link> dialog to confirm the user&apos;s action, especially
+          if the user requires more information about the action that is about to take place. For example: &quot;This will permanently delete this record, and cannot be undone!&quot;
+        </li>
+      </ul>
 
-            <TabPanel tabId="button-props-react">
-              <h3>React Button Properties</h3>
-              <div className="documentation-content--small-text">
-                <TableWrapper>
-                  <Table className="table--lines-x">
-                    <TableHead>
-                      <TableHeadRow>
-                        <TableHeadCell className="text-left">Property</TableHeadCell>
-                        <TableHeadCell className="text-left">Type</TableHeadCell>
-                        <TableHeadCell className="text-left">Default</TableHeadCell>
-                        <TableHeadCell className="text-left">Description</TableHeadCell>
-                      </TableHeadRow>
-                    </TableHead>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell><code className="primary-color">appearance</code></TableCell>
-                        <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>&apos;solid&apos;</code>
-                            <span> | </span>
-                            <code>&apos;outlined&apos;</code>
-                          </div>
-                        </TableCell>
-                        <TableCell>&apos;outlined&apos;</TableCell>
-                        <TableCell>
-                          Determines how the button will be formatted. Solid buttons have a solid fill color and denote emphasis
-                          to the user. Outlined buttons have an outline but no fill causing them to be less emphasized.
-                        </TableCell>
-                      </TableRow>
+      <h3 id="section-usability-guidance">Usability Guidance</h3>
+      <ul className="mb-spacing">
+        <li><strong>Confirmation buttons are for actions.</strong> Use a confirmation button to confirm the user&apos;s selected action. They should never be used for purely navigation purposes.</li>
+        <li><strong>For everything else on buttons.</strong> Please refer to our documentation on <Link to={pageUrls.button}>buttons</Link> for guidance on sizing, types (primary, icon, etc.) and accessibility.</li>
+      </ul>
 
-                      <TableRow>
-                        <TableCell><code className="primary-color">children</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
-                        <TableCell>(required)</TableCell>
-                        <TableCell>
-                          Most often, children is the title of button. But, you can have it be any element to be rendered inside the button.
-                        </TableCell>
-                      </TableRow>
+      <h3 id="section-accessibility">Accessibility</h3>
+      <h4>Contrast</h4>
+      <ul className="mb-spacing">
+        <li>The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
+        <li>The button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
+        <li>The button&apos;s focus state should be a <code>3:1</code> contrast ratio.</li>
+      </ul>
 
-                      <TableRow>
-                        <TableCell><code className="primary-color">className</code></TableCell>
-                        <TableCell><code>string</code></TableCell>
-                        <TableCell>null</TableCell>
-                        <TableCell>
-                          This css class will be added to the button.
-                        </TableCell>
-                      </TableRow>
+      <h4>Keyboard Interactivity</h4>
+      <ul className="mb-spacing">
+        <li>
+          The button should display a visible focus state when users tab to it. Pressing the <code>spacebar</code> or <code>return</code> key will activate
+          the initial action of the button. When the confirmation text is shown in the button, the user can confirm their selection
+          by pressing the <code>spacebar</code> or <code>return</code> key again. Alternately the user may cancel the action by hitting the <code>escape</code> key.
+        </li>
+        <li>
+          Avoid using non-standard html markup for a button such as a <code>div</code> tag.
+        </li>
+        <li>
+          When you much us aria, ensure elements with ARIA <code>role=&quot;button&quot;</code> can be activated with both key commands (Pressing the <code>spacebar</code> or <code>return</code> key).
+        </li>
+        <li>
+          Remember, the first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
+        </li>
+      </ul>
 
-                      <TableRow>
-                        <TableCell><code className="primary-color">color</code></TableCell>
-                        <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>&apos;primary&apos;</code>
-                            <span> | </span>
-                            <code>&apos;secondary&apos;</code>
-                            <span> | </span>
-                            <code>&apos;accent&apos;</code>
-                            <span> | </span>
-                            <code>&apos;none&apos;</code>
-                          </div>
-                        </TableCell>
-                        <TableCell>&apos;none&apos;</TableCell>
-                        <TableCell>
-                          Determines the color from the theme that will be used while rendering the button. Depending on the
-                          <span className="font-semi-bold"> appearance</span> of the button, this can effect the border and/or fill color of the button.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">innerRef</code></TableCell>
-                        <TableCell><code>MutableRefObject</code></TableCell>
-                        <TableCell>null</TableCell>
-                        <TableCell>
-                          This ref will be attached to the rendered &lt;button&gt; element allowing the parent component to interact
-                          directly with the actual <span className="font-semi-bold">button</span> DOM element.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">iconLeft</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
-                        <TableCell>null</TableCell>
-                        <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the left of the button title, but any <span className="font-semi-bold">node</span> is allowed.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">iconRight</code></TableCell>
-                        <TableCell><code>node</code></TableCell>
-                        <TableCell>null</TableCell>
-                        <TableCell>
-                          Intended to be an &lt;svg&gt; image to be placed to the right of the button title, but any <span className="font-semi-bold">node</span> is allowed.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">id</code></TableCell>
-                        <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>string</code>
-                            <span> | </span>
-                            <code>number</code>
-                          </div>
-                        </TableCell>
-                        <TableCell>null</TableCell>
-                        <TableCell>
-                          An id to put on the &lt;button&gt; element.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">isBusy</code></TableCell>
-                        <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>true</code>
-                            <span> | </span>
-                            <code>false</code>
-                          </div>
-                        </TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>
-                          When <span className="font-semi-bold">isBusy</span> is true, a spinner will be shown in the button.
-                          This is useful for showing the user that an action
-                          that triggered when the button was pressed is still running.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">isDisabled</code></TableCell>
-                        <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>true</code>
-                            <span> | </span>
-                            <code>false</code>
-                          </div>
-                        </TableCell>
-                        <TableCell>false</TableCell>
-                        <TableCell>
-                          When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
-                          and its appearance will change to be more subdued
-                          so that the user can tell the button is unusable.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">onClick</code></TableCell>
-                        <TableCell><code>function</code></TableCell>
-                        <TableCell>required</TableCell>
-                        <TableCell>
-                          The function to call when the button is pressed.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">size</code></TableCell>
-                        <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>formElementSizesEnum</code>
-                            <span> | </span>
-                            <code>&apos;small&apos;</code>
-                            <span> | </span>
-                            <code>&apos;medium&apos;</code>
-                            <span> | </span>
-                            <code>&apos;large&apos;</code>
-                            <span> | </span>
-                            <code>&apos;large1x&apos;</code>
-                          </div>
-                        </TableCell>
-                        <TableCell>&apos;medium&apos;</TableCell>
-                        <TableCell>
-                          Determines how much space the button will consume on the page.
-                        </TableCell>
-                      </TableRow>
-
-                      <TableRow>
-                        <TableCell><code className="primary-color">type</code></TableCell>
-                        <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>&apos;button&apos;</code>
-                            <span> | </span>
-                            <code>&apos;reset&apos;</code>
-                            <span> | </span>
-                            <code>&apos;submit&apos;</code>
-                          </div>
-                        </TableCell>
-                        <TableCell>&apos;button&apos;</TableCell>
-                        <TableCell>
-                          The HTML <span className="font-semi-bold">type</span> attribute value to put on the &lt;button&gt; element.
-                        </TableCell>
-                      </TableRow>
-
-                    </TableBody>
-                  </Table>
-                </TableWrapper>
-              </div>
-            </TabPanel>
-          </TabPanels>
-        </TabGroup>
-      </div>
+      <h4>Screen Readers</h4>
+      <ul className="mb-spacing">
+        <li>When you have a confirmation button that contains an icon that adds additional information, the icon should have non-empty alt text (or aria-label for SVG).</li>
+        <li>In order for a screen reader to detect the change from the initial state to the confirmation state you should use <code>aria-live=&quot;polite&quot;</code> region or <code>role=&quot;alert&quot;</code> on the button.</li>
+      </ul>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function parseHeaderSettings(settingsString) {
   }
 
   // !!!! Changes here need to also be made in stringifyHeaderSettings.js !!!! //
-  const customFields = ['actionDom', 'actionFunction', 'icon', 'logo', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut'];
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut'];
   const actionItems = objectsPathsWithKeys(resultSettings, customFields);
 
   actionItems.forEach((actionItem) => {
@@ -40,8 +40,7 @@ export default function parseHeaderSettings(settingsString) {
       } break;
 
       case 'actionDom':
-      case 'icon':
-      case 'logo': {
+      case 'icon': {
         // just leave it be, the code will call renderDOM on it
         // actionDom COULD be a function, but don't allow that for this example tool since functions are pain in this context
         break;

@@ -12,7 +12,8 @@
 .utah-design-system .utds-header-mobile__utah-id-wrapper,
 .utah-design-system .icon-button.main-menu__hamburger,
 .utah-design-system .utds-header-mobile__vip-action-items--left,
-.utah-design-system .utds-header-mobile__vip-action-items--right {
+.utah-design-system .utds-header-mobile__vip-action-items--right,
+.utah-design-system .main-menu__search-placeholder {
   display: none;
 }
 
@@ -29,6 +30,9 @@
     height: 100vh;
     z-index: 1000;
     background-color: transparent;
+    &.main-menu-is-removed {
+      top: auto;
+    }
   }
 
   &.is-open {

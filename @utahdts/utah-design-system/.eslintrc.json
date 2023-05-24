@@ -19,9 +19,11 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "react-refresh"
   ],
   "rules": {
+    "react-refresh/only-export-components": "error",
     "linebreak-style": "off",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",

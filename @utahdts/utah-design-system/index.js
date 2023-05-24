@@ -1,5 +1,5 @@
-import packageJson from './package.json';
 import './css/index.scss';
+import packageJson from './package.json';
 
 export {
   childrenMenuTypes,
@@ -64,7 +64,9 @@ export { default as TableWrapper } from './react/components/table/TableWrapper';
 export { default as DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
 export { default as LandingTemplate } from './react/components/templates/LandingTemplate';
 export { default as Spinner } from './react/components/widgetsIndicators/Spinner';
-export { UtahHeaderContextProvider, default as useUtahHeaderContext } from './react/contexts/UtahHeaderContext';
+export { default as UtahHeaderContext } from './react/contexts/UtahHeaderContext';
+export { default as UtahHeaderContextProvider } from './react/contexts/UtahHeaderContextProvider';
+export { default as useUtahHeaderContext } from './react/contexts/useUtahHeaderContext';
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
 export { default as componentColors } from './react/enums/componentColors';
 export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
@@ -73,6 +75,7 @@ export { default as tableSortingRuleFieldType } from './react/enums/tableSorting
 export { default as useBanner } from './react/hooks/useBanner';
 export { default as useCurrentMenuItem } from './react/hooks/useCurrentMenuItem';
 export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
+export { default as useImmerRef } from './react/hooks/useImmerRef';
 export { default as useMountingTracker } from './react/hooks/useMountingTracker';
 export { default as useRefAlways } from './react/hooks/useRefAlways';
 export { default as useRefLazy } from './react/hooks/useRefLazy';

@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -9,7 +9,11 @@
       "production": "./dist/utah-design-system-header.es.js",
       "import": "./dist/utah-design-system-header.es.js",
       "require": "./dist/utah-design-system-header.umd.js",
-      "default": ["./dist/utah-design-system-header.es.js", "./dist/utah-design-system-header.umd.js", "./src/index.js"]
+      "default": [
+        "./dist/utah-design-system-header.es.js",
+        "./dist/utah-design-system-header.umd.js",
+        "./src/index.js"
+      ]
     },
     "./css": "./dist/style.css",
     "./src/css/index.scss": "./src/css/index.scss"
@@ -26,6 +30,8 @@
     "test-publish": "npm publish --dry-run",
     "test": "vitest",
     "testc": "vitest run --coverage",
+    "testOnce": "vitest run",
+    "testui": "vitest --ui",
     "watch": "vite build --watch"
   },
   "repository": {
@@ -41,14 +47,17 @@
     "@popperjs/core": "2.11.7"
   },
   "devDependencies": {
-    "eslint": "8.39.0",
+    "@vitest/ui": "0.31.1",
+    "eslint": "8.40.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react-refresh": "0.4.1",
+    "jsdom": "22.0.0",
     "sass": "1.62.1",
-    "vite": "4.3.4",
+    "vite": "4.3.7",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "0.30.1"
+    "vitest": "0.31.0"
   },
   "type": "module"
 }

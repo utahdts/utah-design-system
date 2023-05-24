@@ -8,6 +8,7 @@ component specific, BEM (Block, Element, Modifier)
 
 
 /* ---- Project Components ---- */
+@use "project-components/color-picker-popup";
 @use "project-components/color-picker";
 @use "project-components/color-pickers";
 @use "project-components/color-compare";
@@ -22,3 +23,4 @@ component specific, BEM (Block, Element, Modifier)
 @use "project-components/documentation/home";
 @use "project-components/lightbox";
 @use "project-components/progress-log";
+@use "project-components/typography-documentation";

@@ -18,7 +18,7 @@ export default PropTypes.shape({
   domLocationTarget: DomLocationTargetShape,
   footer: FooterSettingsShape,
   logo: LogoShape,
-  mainMenu: MainMenuShape.isRequired,
+  mainMenu: MainMenuShape,
   mediaSizes: MediaSizesShape.isRequired,
   onSearch: PropTypes.func,
   showTitle: PropTypes.bool.isRequired,

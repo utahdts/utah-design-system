@@ -4,13 +4,14 @@ import checkForError from '../../misc/checkForError';
 import notNull from '../../misc/notNull';
 import { getUtahHeaderSettings } from '../../settings/settings';
 import renderActionItemBadge from '../actionItems/renderActionItemBadge';
+import { closeOfficialWebsite } from '../utahLogo/renderOfficialWebsite';
 import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
 
 /**
  * @param {string} callerContext what function called this? so the error message can be specific
  * @returns {{ hamburger: HTMLElement, hamburgerIcon: HTMLElement, mobileMenu: HTMLElement }}
  */
-function getHamburgerElements(callerContext) {
+export function getHamburgerElements(callerContext) {
   const mobileMenu = /** @type {HTMLElement} */ (notNull(
     document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU)),
     `${callerContext}: mobileMenu not found`
@@ -43,6 +44,11 @@ export function hideMobileMenu() {
 }
 
 export function showMobileMenu() {
+  // remove gap when main menu is missing by adding MAIN_MENU__REMOVED class to menu
+  const mainMenuWrapper = document.querySelector(getCssClassSelector(domConstants.MAIN_MENU));
+  if (mainMenuWrapper?.classList.contains(domConstants.MOBILE__HIDDEN)) {
+    document.querySelector(`${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)}${getCssClassSelector(domConstants.MOBILE_MENU)}`)?.classList.add(domConstants.MAIN_MENU__REMOVED);
+  }
   const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('showMobileMenu');
   // open MMAB
   hamburger.setAttribute('aria-expanded', 'true');
@@ -54,7 +60,6 @@ export function showMobileMenu() {
 }
 
 /**
- * @param {HTMLElement} mobileMainMenuContentItem the menu content in the mobile main menu
  */
 export function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
@@ -70,21 +75,44 @@ export function hookupHamburger(mobileMainMenuContentItem) {
 
   hideMobileMenu();
 
-  const homeActionItem = notNull(
-    document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__HOME_ID),
-    'hookupHamburger: homeActionItem not found'
-  );
+  function firstBarActionItem() {
+    const actionItem = notNull(
+      /** @type {HTMLElement} */(document.querySelectorAll(`.${domConstants.MOBILE_MENU__ACTION_BAR} .${domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER}`)[0]),
+      'hookupHamburger: no action items to select on mobile hamburger open'
+    );
+    const iconButton = actionItem.querySelector('button');
+    const contentWrapperId = iconButton?.getAttribute('aria-controls');
+    return { actionItem, actionItemWrapper: contentWrapperId ? document.getElementById(contentWrapperId) : null };
+  }
 
-  const homeActionItemWrapper = /** @type {HTMLElement} */ (notNull(
-    homeActionItem?.closest(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER)),
-    'hookupHamburger: homeActionItemWrapper not found'
-  ));
+  // hookup aria to home menu (can't in mobile menu interaction handler because it maybe removed later)
+  const actionItem = notNull(
+    /** @type {HTMLElement} */(document.querySelectorAll(`.${domConstants.MOBILE_MENU__ACTION_BAR} .${domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER}`)[0]),
+    'hookupHamburger: no action items to select on mobile hamburger open'
+  );
+  const actionItemButton = actionItem.querySelector?.('button');
+  const actionItemId = (actionItemButton || actionItem).getAttribute('id');
+  if (!actionItemId) {
+    throw new Error('mobileMenuInteractionHandler: actionItemId not found');
+  }
+  if (mobileMainMenuContentItem) {
+    const mobileMainMenuContentItemId = mobileMainMenuContentItem.getAttribute('id');
+    if (!mobileMainMenuContentItemId) {
+      throw new Error('mobileMenuInteractionHandler: mobileMainMenuContentItemId not found');
+    }
+    (actionItemButton || actionItem).setAttribute('aria-controls', mobileMainMenuContentItemId);
+    mobileMainMenuContentItem.setAttribute('aria-labelledby', actionItemId);
+  }
 
   mobileMenuInteractionHandler(
     hamburger,
-    mobileMainMenuContentItem,
-    homeActionItemWrapper,
-    { ariaHasPopupType: 'menu', shouldOnClickCloseMenu: true }
+    () => firstBarActionItem().actionItemWrapper,
+    () => firstBarActionItem().actionItem,
+    {
+      additionalOnClick: () => closeOfficialWebsite(),
+      ariaHasPopupType: 'menu',
+      shouldOnClickCloseMenu: true,
+    }
   );
 
   // when hamburger is in an "open" state (mobile menu is open) and the hamburger loses focus (tabbed off of)
@@ -103,4 +131,26 @@ export function hookupHamburger(mobileMainMenuContentItem) {
       firstMobileActionItem?.focus();
     }
   };
+
+  // if no bar, move hamburger to mobile citizen experience UDS-564
+  if (((settings.mainMenu || settings.actionItems) && !settings.onSearch && settings.utahId === false)) {
+    const citizenExperienceMobile = notNull(
+      document.querySelector(getCssClassSelector(domConstants.CITIZEN_EXPERIENCE_MOBILE)),
+      'hookupHamburger: citizen experience mobile not found'
+    );
+    citizenExperienceMobile.appendChild(hamburger);
+    const mainMenu = notNull(
+      document.querySelector(getCssClassSelector(domConstants.MAIN_MENU)),
+      'hookupHamburger: main menu not found'
+    );
+    mainMenu.classList.add(domConstants.MOBILE__HIDDEN);
+  }
+
+  if (settings.onSearch && !settings.mainMenu) {
+    const mainMenu = notNull(
+      document.querySelector(getCssClassSelector(domConstants.MAIN_MENU)),
+      'renderMainMenu: main menu not found'
+    );
+    mainMenu.classList.add(domConstants.DESKTOP__HIDDEN);
+  }
 }

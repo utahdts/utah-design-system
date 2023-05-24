@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useContext, useEffect } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import { TableContext } from './TableWrapper';
+import TableContext from './util/TableContext';
 
 const propTypes = {
   children: PropTypes.node.isRequired,

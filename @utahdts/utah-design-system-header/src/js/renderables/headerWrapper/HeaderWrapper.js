@@ -1,6 +1,9 @@
 // @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
+import CitizenExperienceWrapperMobile from '../citizenExperience/html/CitizenExperienceWrapperMobile.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
 import headerLogoWrapper from './html/HeaderLogoWrapper.html?raw';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -37,6 +40,7 @@ export default function HeaderWrapper() {
   logoWrapper.appendChild(LogoTitle());
 
   header.appendChild(CitizenExperience());
+  header.appendChild(renderDOMSingle(CitizenExperienceWrapperMobile));
 
   return header;
 }

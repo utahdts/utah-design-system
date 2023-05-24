@@ -7,7 +7,8 @@ import chainSorters from '../../util/chainSorters';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
 import SelectOption from '../forms/SelectOption';
-import { TableContext, useTableContext } from './TableWrapper';
+import useTableContext from './hooks/useTableContext';
+import TableContext from './util/TableContext';
 import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
