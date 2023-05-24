@@ -4,8 +4,8 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../routing/pageUrls';
-import StaticExample from '../../../../staticExamples/StaticExample';
+import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};

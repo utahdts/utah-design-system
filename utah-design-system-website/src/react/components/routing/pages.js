@@ -40,9 +40,9 @@ import TooltipsDocumentation from '../websiteContent/library/components/tooltips
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
-import BreadcrumbDocumentation from '../websiteContent/library/navigation/Breadcrumb/BreadcrumbDocumentation';
-import HamburgerMenuDocumentation from '../websiteContent/library/navigation/HamburgerMenu/HamburgerMenuDocumentation';
-import PaginationDocumentation from '../websiteContent/library/navigation/pagination/PaginationDocumentation';
+import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
+import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
+import PaginationDocumentation from '../websiteContent/library/components/navigation/pagination/PaginationDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';

@@ -4,12 +4,12 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../routing/pageUrls';
-import StaticExample from '../../../../staticExamples/StaticExample';
-import LightBox from '../../../../lightbox/LightBox';
-import breadcrumbNormal from '../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbNormal.jpg';
-import breadcrumbCondensed from '../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbCondensed.jpg';
-import breadcrumbPopup from '../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbPopup.jpg';
+import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import LightBox from '../../../../../lightbox/LightBox';
+import breadcrumbNormal from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbNormal.jpg';
+import breadcrumbCondensed from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbCondensed.jpg';
+import breadcrumbPopup from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbPopup.jpg';
 
 const propTypes = {};
 const defaultProps = {};
