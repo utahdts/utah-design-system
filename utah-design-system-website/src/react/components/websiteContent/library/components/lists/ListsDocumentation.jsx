@@ -97,7 +97,14 @@ function ListsDocumentation() {
           Always use appropriate semantic HTML elements (<code>&lt;ol&gt;</code>,<code> &lt;ul&gt;</code> and <code>&lt;li&gt;</code>)
           as this provides important contextual information for screen readers.
         </li>
-        <li>If you choose to use <code>role=&quot;list&quot;</code> make sure you follow correct aria-rules. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+        <li>Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
+          If you choose to use ARIA make sure you follow correct ARIA rules and use the following for lists:
+          <ul>
+            <li><code>role=&quot;list&quot;</code> for the list.</li>
+            <li><code>role=&quot;listitem&quot;</code> for each item in the list.</li>
+            <li>Note: The ARIA list / listitem roles don&apos;t distinguish between ordered and unordered lists.</li>
+          </ul>
+        </li>
       </ul>
     </div>
   );
