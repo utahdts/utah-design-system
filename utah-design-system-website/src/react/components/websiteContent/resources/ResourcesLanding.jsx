@@ -1,12 +1,15 @@
+// @ts-check
+import React from 'react';
+import useRedirect from '../../../hooks/useRedirect';
+import pageUrls from '../../routing/pageUrls';
+import PlaceHolderDocumentation from '../PlaceHolderDocumentation';
+
 const propTypes = {};
 const defaultProps = {};
 
 function ResourcesLanding() {
-  return (
-    <div>
-      Resources Landing Page
-    </div>
-  );
+  useRedirect({ pageUrl: pageUrls.gettingStarted, isImmediate: true });
+  return <PlaceHolderDocumentation />;
 }
 
 ResourcesLanding.propTypes = propTypes;

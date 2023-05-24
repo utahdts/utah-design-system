@@ -1,12 +1,15 @@
+// @ts-check
+import React from 'react';
+import useRedirect from '../../../hooks/useRedirect';
+import pageUrls from '../../routing/pageUrls';
+import PlaceHolderDocumentation from '../PlaceHolderDocumentation';
+
 const propTypes = {};
 const defaultProps = {};
 
 function FoundationLanding() {
-  return (
-    <div>
-      Foundation Landing Page
-    </div>
-  );
+  useRedirect({ pageUrl: pageUrls.typography, isImmediate: true });
+  return <PlaceHolderDocumentation />;
 }
 
 FoundationLanding.propTypes = propTypes;

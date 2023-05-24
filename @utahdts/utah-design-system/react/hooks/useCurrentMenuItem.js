@@ -10,7 +10,7 @@ import useStateEffect from './useStateEffect';
  * @param menus all the known menus
  * @returns the first menu item from all the menus that matches the current url
  */
-function useCurrentMenuItem(menus) {
+export default function useCurrentMenuItem(menus) {
   const { pathname } = useLocation();
   const pathnameRef = useRefAlways(pathname);
 
@@ -25,5 +25,3 @@ function useCurrentMenuItem(menus) {
 
   return currentMenuItem;
 }
-
-export default useCurrentMenuItem;
