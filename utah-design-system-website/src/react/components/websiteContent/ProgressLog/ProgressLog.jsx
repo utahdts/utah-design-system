@@ -64,6 +64,19 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
+            <ProgressLogVersionRow version="0.8" />
+            <ProgressLogTableRow title="Accordion" toUrl={pageUrls.accordion} isDefinitionChecked />
+            <ProgressLogTableRow title="Breadcrumb" toUrl={pageUrls.breadcrumb} isDefinitionChecked />
+            <ProgressLogTableRow title="Card" toUrl={pageUrls.card} isDefinitionChecked />
+            <ProgressLogTableRow title="Checkbox" toUrl={pageUrls.checkbox} isDefinitionChecked />
+            <ProgressLogTableRow title="Confirmation Button" toUrl={pageUrls.confirmationButton} isDefinitionChecked />
+            <ProgressLogTableRow title="File Input" toUrl={pageUrls.fileInput} isDefinitionChecked />
+            <ProgressLogTableRow title="Hamburger Menu" toUrl={pageUrls.mainMenu} isDefinitionChecked />
+            <ProgressLogTableRow title="Headings" toUrl={pageUrls.headings} isDefinitionChecked />
+            <ProgressLogTableRow title="Radio Button" toUrl={pageUrls.radioButton} isDefinitionChecked />
+            <ProgressLogTableRow title="Side Panel" toUrl={pageUrls.sidePanelNavigation} isDefinitionChecked />
+            <ProgressLogTableRow title="Tab Group" toUrl={pageUrls.tabs} isDefinitionChecked />
+            <ProgressLogTableRow title="Text Formatting" toUrl={pageUrls.typography} isDefinitionChecked />
             <ProgressLogVersionRow version="0.7" />
             <ProgressLogTableRow title="Utah Header" toUrl={pageUrls.utahHeader} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Utah Footer" toUrl={pageUrls.utahFooter} isDefinitionChecked isCssChecked isComponentExampleChecked />
@@ -106,30 +119,26 @@ function ProgressLog() {
       <h2 className="mt-spacing-l">Task Log</h2>
       <ul>
         <li>
-          Version 0.7
+          Version 0.8
           <ul>
-            <li>Add: Allow Header to target a dom location (YAY Scott!)</li>
-            <li>Add: Footer React Component</li>
-            <li>Add: Footer renders w/ Utah Header</li>
-            <li>Add: Footer settings documentation</li>
-            <li>Add: Information about Waffle Icon Action Item</li>
-            <li>Add: Logo can be a function, HTML Element, or url</li>
-            <li>Add: Pagination React Component</li>
-            <li>Define: Banner</li>
-            <li>Define: Form Validation</li>
-            <li>Define: Lists</li>
-            <li>Define: Loading Indicator</li>
-            <li>Define: Modal</li>
-            <li>Define: Skeleton</li>
-            <li>Define: Switch</li>
-            <li>Define: Tags</li>
-            <li>Define: Time Input</li>
-            <li>Finalize: Document all the settings for the Utah Header</li>
-            <li>Fix: Scope css selectors</li>
-            <li>Fix: Search input styling and turn off autocomplete</li>
-            <li>Fix: Stop font swapping for icon font</li>
-            <li>Update: Header Mobile Main Menu tabbing</li>
-            <li>Update: Update vertical menu documentation</li>
+            <li>Add: Color Picker is now a gear icon in header!</li>
+            <li>Define: Accordion</li>
+            <li>Define: Breadcrumb</li>
+            <li>Define: Card</li>
+            <li>Define: Checkbox</li>
+            <li>Define: Confirmation Button</li>
+            <li>Define: File Input</li>
+            <li>Define: Hamburger Menu</li>
+            <li>Define: Headings</li>
+            <li>Define: Radio Button</li>
+            <li>Define: Side / Panel</li>
+            <li>Define: Tab Group</li>
+            <li>Define: Text Formatting</li>
+            <li>Update: Make Main menu in Header optional</li>
+            <li>Update: Official Site lock icon verbiage</li>
+            <li>Update: Place mobile header components in responsive locations</li>
+            <li>Update: Placeholder page is now more informative</li>
+            <li>Update: Remove placeholder pages from menu</li>
           </ul>
         </li>
         <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>
