@@ -1,12 +1,15 @@
+// @ts-check
+import React from 'react';
+import useRedirect from '../../../hooks/useRedirect';
+import pageUrls from '../../routing/pageUrls';
+import PlaceHolderDocumentation from '../PlaceHolderDocumentation';
+
 const propTypes = {};
 const defaultProps = {};
 
 function GuidelinesLanding() {
-  return (
-    <div>
-      Guidelines and Standards Landing Page
-    </div>
-  );
+  useRedirect({ pageUrl: pageUrls.validation, isImmediate: true });
+  return <PlaceHolderDocumentation />;
 }
 
 GuidelinesLanding.propTypes = propTypes;
