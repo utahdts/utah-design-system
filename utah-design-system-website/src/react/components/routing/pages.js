@@ -18,6 +18,7 @@ import AccordionDocumentation from '../websiteContent/library/components/contain
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import CodeBlockDocumentation from '../websiteContent/library/components/containers/CodeBlock/CodeBlockDocumentation';
 import DrawerDocumentation from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
+import InfoBoxDocumentation from '../websiteContent/library/components/containers/InfoBox/InfoBoxDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
@@ -449,7 +450,7 @@ const pages = {
   },
 
   infoBox: {
-    content: PlaceHolderDocumentation,
+    content: InfoBoxDocumentation,
     link: pageUrls.infoBox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Info Box',
@@ -671,6 +672,14 @@ const pages = {
   },
 
   // === tooltips === //
+  callout: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.callout,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Call Out',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   tooltips: {
     content: TooltipsDocumentation,
     link: pageUrls.tooltips,

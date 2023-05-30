@@ -6,6 +6,7 @@ const pageUrls = {
   breadcrumb: '/library/components/navigation/breadcrumb',
   button: '/library/components/buttons/button',
   buttonGroup: '/library/components/buttons/buttonGroup',
+  callout: '/library/components/popups/callout',
   card: '/library/components/containers/card',
   carousel: '/library/components/containers/carousel',
   checkbox: '/library/components/forms/checkbox',

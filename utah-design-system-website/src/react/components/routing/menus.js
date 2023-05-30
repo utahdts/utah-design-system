@@ -179,8 +179,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
         { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
-        // UDS-108
-        // { link: pages.infoBox.link, title: pages.infoBox.pageTitle },
+        { link: pages.infoBox.link, title: pages.infoBox.pageTitle },
         { link: pages.fileInput.link, title: pages.fileInput.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
@@ -213,6 +212,8 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.banners.link, title: pages.banners.pageTitle },
+        // UDS-76
+        // { link: pages.callout.link, title: pages.callout.pageTitle },
         { link: pages.modals.link, title: pages.modals.pageTitle },
         { link: pages.popups.link, title: pages.popups.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
