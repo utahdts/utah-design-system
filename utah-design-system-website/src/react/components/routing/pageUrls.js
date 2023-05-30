@@ -18,6 +18,7 @@ const pageUrls = {
   confirmationButton: '/library/components/buttons/confirmationButton',
   containers: '/library/components/containers',
   contributeCommunity: '/resources/contributeCommunity',
+  counter: '/library/components/widgetsIndicators/counter',
   dateInput: '/library/components/forms/dateInput',
   demoPage: '/resources/demoPage',
   depthElevationShadows: '/foundation/depthElevationShadows',

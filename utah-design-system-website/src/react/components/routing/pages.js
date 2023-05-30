@@ -45,6 +45,7 @@ import PopupsDocumentation from '../websiteContent/library/components/popups/pop
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
+import ProcessListDocumentation from '../websiteContent/library/components/widgetsIndicators/processList/ProcessListDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
 import StepIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
@@ -487,8 +488,15 @@ const pages = {
     pageTitle: 'Carousel',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  processList: {
+  counter: {
     content: PlaceHolderDocumentation,
+    link: pageUrls.counter,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Counter',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  processList: {
+    content: ProcessListDocumentation,
     link: pageUrls.processList,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Process List',

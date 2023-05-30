@@ -239,8 +239,11 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
-        // UDS-211
-        // { link: pages.processList.link, title: pages.processList.pageTitle },
+
+        // UDS-94
+        // { link: pages.counter.link, title: pages.counter.pageTitle },
+
+        { link: pages.processList.link, title: pages.processList.pageTitle },
 
         // UDS-107 103
         // { link: pages.progressBars.link, title: pages.progressBars.pageTitle },

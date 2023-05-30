@@ -98,7 +98,7 @@ function CodeBlockDocumentation() {
           to note that the inclusion of copy functionality is optional and can be omitted if it is not required for your specific use case.
         </li>
         <li>
-          <strong>Copy confirmation tool-tip.</strong> The <Link to={pageUrls.iconButton}>copy button</Link> should be accompanied by a
+          <strong>Copy confirmation tooltip.</strong> The <Link to={pageUrls.iconButton}>copy button</Link> should be accompanied by a
           concise <Link to={pageUrls.tooltips}>tooltip</Link> that describes the action when the user clicks it. Once the <Link to={pageUrls.button}> button</Link> is
           clicked, display a message such as &quot;Copied to clipboard&quot;.
         </li>
