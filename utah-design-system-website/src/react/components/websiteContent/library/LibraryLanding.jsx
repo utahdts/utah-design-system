@@ -1,19 +1,15 @@
-import { NavLink } from 'react-router-dom';
+// @ts-check
+import React from 'react';
+import useRedirect from '../../../hooks/useRedirect';
 import pageUrls from '../../routing/pageUrls';
+import PlaceHolderDocumentation from '../PlaceHolderDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
 
 function LibraryLanding() {
-  return (
-    <div>
-      Library Landing page
-      <NavLink to={pageUrls.segmentedButton}>
-        Segmented Button
-      </NavLink>
-
-    </div>
-  );
+  useRedirect({ pageUrl: pageUrls.dividers, isImmediate: true });
+  return <PlaceHolderDocumentation />;
 }
 
 LibraryLanding.propTypes = propTypes;

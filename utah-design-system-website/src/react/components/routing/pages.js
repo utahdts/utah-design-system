@@ -237,20 +237,6 @@ const pages = {
   },
 
   // === library documentation components === //
-  components: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.components,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Components',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  patterns: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.patterns,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Patterns',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
   utahFooter: {
     content: UtahFooterDocumentation,
     link: pageUrls.utahFooter,
@@ -263,14 +249,6 @@ const pages = {
     link: pageUrls.utahHeader,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Utah Header',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  templates: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.templates,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Templates',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -689,7 +667,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  // will go away VVVVVVVV
+  // templates
   errorPage404: {
     content: PlaceHolderDocumentation,
     link: pageUrls.errorPage404,

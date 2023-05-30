@@ -43,7 +43,7 @@ function Routing() {
               url: mainMenuItem.link,
             },
             isSelected: (
-              currentMenuItem.link === mainMenuItem.link
+              currentMenuItem?.link === mainMenuItem.link
               || currentMenuItem?.parentLinks?.includes(mainMenuItem.link)
             ),
             title: mainMenuItem.title,
@@ -72,7 +72,7 @@ function Routing() {
                 menuSecondary = [
                   allMenus.menuLibraryComponentsSecondary,
                   allMenus.menuLibraryPatternsSecondary,
-                  allMenus.menuLibraryTemplatesSecondary,
+                  // allMenus.menuLibraryTemplatesSecondary,
                 ];
                 break;
               case menusEnum.SECONDARY_MENU_GUIDELINES:
