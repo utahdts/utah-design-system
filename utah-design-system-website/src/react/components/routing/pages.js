@@ -5,6 +5,7 @@ import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
+import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
@@ -135,7 +136,7 @@ const pages = {
 
   // === guidelines documentation components === //
   accessibility: {
-    content: PlaceHolderDocumentation,
+    content: AccessibilityDocumentation,
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility',
@@ -225,6 +226,13 @@ const pages = {
     link: pageUrls.colorFoundation,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Color',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  images: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.images,
+    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    pageTitle: 'Images',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   layout: {

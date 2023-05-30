@@ -58,6 +58,13 @@ export const menuFoundationSecondary = {
     //   parentLinks: [pages.foundation.link],
     // },
 
+    // UDS-867
+    // {
+    //   link: pages.images.link,
+    //   title: pages.images.pageTitle,
+    //   parentLinks: [pages.foundation.link],
+    // },
+
     // UDS-466
     // {
     //   link: pages.layout.link,
@@ -78,12 +85,11 @@ export const menuGuidelinesSecondary = {
   header: 'Guidelines and Standards',
   id: 'guidelines',
   menuItems: [
-    // UDS-834 UDS-835
-    // {
-    //   link: pages.accessibility.link,
-    //   title: pages.accessibility.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
+    {
+      link: pages.accessibility.link,
+      title: pages.accessibility.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
 
     // UDS-455
     // {
