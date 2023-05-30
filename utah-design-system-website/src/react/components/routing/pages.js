@@ -16,6 +16,7 @@ import IconButtonDocumentation from '../websiteContent/library/components/button
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
+import CodeBlockDocumentation from '../websiteContent/library/components/containers/CodeBlock/CodeBlockDocumentation';
 import DrawerDocumentation from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
@@ -428,6 +429,14 @@ const pages = {
     link: pageUrls.card,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Card',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  codeBlock: {
+    content: CodeBlockDocumentation,
+    link: pageUrls.codeBlock,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Code Block',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

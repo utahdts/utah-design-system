@@ -9,6 +9,7 @@ const pageUrls = {
   card: '/library/components/containers/card',
   carousel: '/library/components/containers/carousel',
   checkbox: '/library/components/forms/checkbox',
+  codeBlock: '/library/components/containers/codeBlock',
   colorFoundation: '/foundation/color',
   colorGuidelines: '/guidelines/color',
   colorPicker: '/resources/colorPicker',

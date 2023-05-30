@@ -165,6 +165,7 @@ export const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.accordion.link, title: pages.accordion.pageTitle },
         { link: pages.card.link, title: pages.card.pageTitle },
+        { link: pages.codeBlock.link, title: pages.codeBlock.pageTitle },
         { link: pages.drawers.link, title: pages.drawers.pageTitle },
         { link: pages.tabs.link, title: pages.tabs.pageTitle },
       ],
