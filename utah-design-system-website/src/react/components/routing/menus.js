@@ -216,15 +216,14 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.popups.link, title: pages.popups.pageTitle },
       ],
     },
-    // UDS-67
-    // {
-    //   id: 'components__sliders-carousels',
-    //   title: 'Sliders & Carousels',
-    //   parentLinks: [pages.library.link],
-    //   children: [
-    //     { link: pages.carousel.link, title: pages.carousel.pageTitle },
-    //   ],
-    // },
+    {
+      id: 'components__sliders-carousels',
+      title: 'Sliders & Carousels',
+      parentLinks: [pages.library.link],
+      children: [
+        { link: pages.carousel.link, title: pages.carousel.pageTitle },
+      ],
+    },
     {
       id: 'components__table',
       title: 'Table',
