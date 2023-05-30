@@ -45,6 +45,7 @@ import TooltipsDocumentation from '../websiteContent/library/components/tooltips
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
+import StepIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
@@ -505,7 +506,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   stepIndicator: {
-    content: PlaceHolderDocumentation,
+    content: StepIndicatorDocumentation,
     link: pageUrls.stepIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Step Indicators',

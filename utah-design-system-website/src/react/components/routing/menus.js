@@ -243,9 +243,7 @@ export const menuLibraryComponentsSecondary = {
         // { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },
-
-        // UDS-124
-        // { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
+        { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
