@@ -132,22 +132,21 @@ export const menuLibraryComponentsSecondary = {
   id: 'library-components',
   menuItems: [
     {
-      id: 'components__basic-atomic',
-      title: 'Basic Atomic',
+      id: 'components__text-layout',
+      title: 'Text & Layout',
       parentLinks: [pages.library.link],
       children: [
+        { link: pages.codeBlock.link, title: pages.codeBlock.pageTitle },
         { link: pages.dividers.link, title: pages.dividers.pageTitle },
         { link: pages.headings.link, title: pages.headings.pageTitle },
-        { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
         // UDS-838 UDS-839
         // { link: pages.paragraphs.link, title: pages.paragraphs.pageTitle },
-        { link: pages.tags.link, title: pages.tags.pageTitle },
       ],
     },
     {
-      id: 'components__buttons',
-      title: 'Buttons',
+      id: 'components__buttons-tags',
+      title: 'Buttons & Tags',
       parentLinks: [pages.library.link],
       children: [
         { link: pages.button.link, title: pages.button.pageTitle },
@@ -156,6 +155,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.confirmationButton.link, title: pages.confirmationButton.pageTitle },
         { link: pages.iconButton.link, title: pages.iconButton.pageTitle },
         { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
+        { link: pages.tags.link, title: pages.tags.pageTitle },
       ],
     },
     {
@@ -165,7 +165,6 @@ export const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.accordion.link, title: pages.accordion.pageTitle },
         { link: pages.card.link, title: pages.card.pageTitle },
-        { link: pages.codeBlock.link, title: pages.codeBlock.pageTitle },
         { link: pages.drawers.link, title: pages.drawers.pageTitle },
         { link: pages.tabs.link, title: pages.tabs.pageTitle },
       ],
@@ -194,14 +193,15 @@ export const menuLibraryComponentsSecondary = {
       ],
     },
     {
-      id: 'components__navigation',
-      title: 'Navigation',
+      id: 'components__navigation-links',
+      title: 'Navigation & Links',
       parentLinks: [pages.library.link],
       children: [
         { link: pages.breadcrumb.link, title: pages.breadcrumb.pageTitle },
         { link: pages.hamburger.link, title: pages.hamburger.pageTitle },
         // UDS-827
         // { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
+        { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
@@ -215,6 +215,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.banners.link, title: pages.banners.pageTitle },
         { link: pages.modals.link, title: pages.modals.pageTitle },
         { link: pages.popups.link, title: pages.popups.pageTitle },
+        { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
     {
@@ -245,7 +246,6 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
-        { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
     },
   ],
