@@ -15,7 +15,7 @@ export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
  */
 export default function stringifyHeaderSettings(settingsObject) {
   // !!!! Changes here need to also be made in parseHeaderSettings.js !!!! //
-  const customFields = ['actionDom', 'actionFunction', 'icon', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut', 'actionDom'];
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut', 'actionDom', 'onSearch'];
   const actionItems = objectsPathsWithKeys(settingsObject, customFields);
 
   const copySettings = copyObjectWithoutFields(settingsObject, customFields);
@@ -27,9 +27,11 @@ export default function stringifyHeaderSettings(settingsObject) {
       case 'onProfile':
       case 'onSignIn':
       case 'onSignOut':
-        // convert functions to strings
-        valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = FUNCTION_PLACEHOLDER;
-        break;
+      case 'onSearch': {
+        // convert functions to strings (onSearch can be false)
+        const isFalseValue = valueAtPath({ object: settingsObject, path: actionItem.path })[actionItem.searchKey] === false;
+        valueAtPath({ object: copySettings, path: actionItem.path })[actionItem.searchKey] = isFalseValue ? false : FUNCTION_PLACEHOLDER;
+      } break;
 
       // ignore that actionDom can be a function (the example page just always shows strings since functions are such a bugger to work in the editor)
       case 'actionDom':

@@ -15,6 +15,7 @@ import HomeLanding from '../websiteContent/HomeLanding';
 import allMenus, { menuMain } from './menus';
 import pages from './pages';
 import RoutePage from './RoutePage';
+import Page404 from '../websiteContent/Page404';
 
 const propTypes = {};
 const defaultProps = {};
@@ -114,6 +115,7 @@ function Routing() {
         );
       })}
       <Route path="/" element={<HomeLanding />} />
+      <Route path="*" element={<Page404 />} />
     </Routes>
   );
 }

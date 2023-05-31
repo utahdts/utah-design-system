@@ -39,7 +39,7 @@ function PlaceHolderDocumentation() {
         a great place to report issues.
       </p>
       <p>
-        The <Link to={pageUrls.home}>Home</Link> page show our latest progress.
+        The <Link to={pageUrls.home}>Home</Link> page shows our latest progress.
       </p>
     </>
   );
