@@ -1,7 +1,6 @@
 // @ts-check
 import events from '../enumerations/events';
 import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
-import renderFooter from '../renderables/footer/renderFooter';
 import defaultSettings from './defaultSettings';
 
 /**
@@ -83,7 +82,5 @@ export function setUtahHeaderSettings(newSettings) {
  * @returns {FooterSettings | undefined}
  */
 export function setUtahFooterSettings(footerSettings) {
-  settings = { ...defaultSettings, ...getUtahHeaderSettings(), footer: footerSettings };
-  renderFooter();
-  return footerSettings;
+  return setUtahHeaderSettings({ ...defaultSettings, ...getUtahHeaderSettings(), footer: footerSettings });
 }
