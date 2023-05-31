@@ -30,4 +30,5 @@ export default {
   size: sizes.MEDIUM,
   title: 'Utah Design System',
   titleURL: '/',
+  utahId: true,
 };
