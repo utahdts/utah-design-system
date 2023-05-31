@@ -717,27 +717,11 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  actionBar: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.actionBar,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Action Bar',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   iconBar: {
     content: PlaceHolderDocumentation,
     link: pageUrls.iconBar,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Bar',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
-  toolbar: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.toolbar,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Toolbar',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

@@ -1,7 +1,6 @@
 const pageUrls = {
   accessibility: '/guidelines/accessibility',
   accordion: '/library/components/accordion/accordion',
-  actionBar: '/library/components/actionBar',
   badges: '/library/components/widgetsIndicators/badges',
   banners: '/library/components/widgetsIndicators/banners',
   breadcrumb: '/library/components/navigation/breadcrumb',
@@ -79,7 +78,6 @@ const pageUrls = {
   textArea: '/library/components/forms/textArea',
   textInput: '/library/components/forms/textInput',
   timeInput: '/library/components/forms/timeInput',
-  toolbar: '/library/components/toolbar',
   tooltips: '/library/components/tooltips',
   typography: '/foundation/typography',
   utahFooter: '/library/patterns/utahFooter',

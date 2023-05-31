@@ -196,8 +196,6 @@ function Mockups() {
       <MockupNavButton
         pageLinks={[
           { url: pageUrls.segmentedButton, title: 'Segmented Button' },
-          { url: pageUrls.actionBar, title: 'Action Bar' },
-          { url: pageUrls.toolbar, title: 'Toolbar' },
           { url: pageUrls.iconBar, title: 'Icon Bar' },
           { url: pageUrls.tags, title: 'Tag' },
         ]}
