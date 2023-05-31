@@ -23,7 +23,7 @@ export default function parseHeaderSettings(settingsString) {
   }
 
   // !!!! Changes here need to also be made in stringifyHeaderSettings.js !!!! //
-  const customFields = ['actionDom', 'actionFunction', 'icon', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut'];
+  const customFields = ['actionDom', 'actionFunction', 'icon', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut', 'onSearch'];
   const actionItems = objectsPathsWithKeys(resultSettings, customFields);
 
   actionItems.forEach((actionItem) => {
@@ -32,11 +32,13 @@ export default function parseHeaderSettings(settingsString) {
       case 'onAuthChanged':
       case 'onProfile':
       case 'onSignIn':
+      case 'onSearch':
       case 'onSignOut': {
         // convert function strings to actual MOCKED functions with contents as an alert
         const functionObject = valueAtPath({ object: resultSettings, path: actionItem.path });
+        const valueIsFalse = functionObject[actionItem.searchKey] === false;
         // eslint-disable-next-line no-alert
-        functionObject[actionItem.searchKey] = (() => alert('Utah Header - placeholder function invoked'));
+        functionObject[actionItem.searchKey] = valueIsFalse ? false : (() => alert('Utah Header - placeholder function invoked'));
       } break;
 
       case 'actionDom':

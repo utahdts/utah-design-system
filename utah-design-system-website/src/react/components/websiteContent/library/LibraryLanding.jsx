@@ -8,7 +8,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function LibraryLanding() {
-  useRedirect({ pageUrl: pageUrls.dividers, isImmediate: true });
+  useRedirect({ pageUrl: pageUrls.codeBlock, isImmediate: true });
   return <PlaceHolderDocumentation />;
 }
 

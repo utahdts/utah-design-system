@@ -18,9 +18,11 @@ export default PropTypes.shape({
   domLocationTarget: DomLocationTargetShape,
   footer: FooterSettingsShape,
   logo: LogoShape,
-  mainMenu: MainMenuShape,
+  // mainMenu can be 'false' for the interactive presets
+  mainMenu: PropTypes.oneOfType([MainMenuShape, PropTypes.bool]),
   mediaSizes: MediaSizesShape.isRequired,
-  onSearch: PropTypes.func,
+  // onSearch can be 'false' for the interactive presets
+  onSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   showTitle: PropTypes.bool.isRequired,
   size: PropTypes.oneOf(Object.values(sizes)),
   title: PropTypes.string.isRequired,

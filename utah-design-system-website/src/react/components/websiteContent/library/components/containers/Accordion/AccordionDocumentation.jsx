@@ -171,10 +171,8 @@ function AccordionDocumentation() {
           the container&apos;s <code>id</code>. Each container also has an <code>aria-labelledby=&quot;id&quot;</code> that references its controlling
           button&apos;s <code>id</code>.
         </li>
-        <li>
-          <li>Accordions use javascript to set the hidden values (aria-hidden=&quot;true&quot;, etc.) of their content container. Each content
-            container will have its <code>hidden</code> attribute set by the component, depending on its corresponding <Link to={pageUrls.button}>button&apos;s</Link> <code>aria-expanded</code> attribute.
-          </li>
+        <li>Accordions use javascript to set the hidden values (aria-hidden=&quot;true&quot;, etc.) of their content container. Each content
+          container will have its <code>hidden</code> attribute set by the component, depending on its corresponding <Link to={pageUrls.button}>button&apos;s</Link> <code>aria-expanded</code> attribute.
         </li>
       </ul>
     </div>

@@ -212,6 +212,13 @@ const utahHeaderPresets = [
   // --- Main Menu --- //
   {
     options: [
+      // -- none -- //
+      {
+        settingsSnippet: {
+          mainMenu: false,
+        },
+        title: 'None',
+      },
       // -- actionUrl -- //
       {
         settingsSnippet: {
@@ -313,6 +320,26 @@ const utahHeaderPresets = [
     ],
     title: 'Main Menu',
   },
+  // --- onSearch --- //
+  {
+    options: [
+      // -- off -- //
+      {
+        settingsSnippet: {
+          onSearch: false,
+        },
+        title: 'Off',
+      },
+      // -- on -- //
+      {
+        settingsSnippet: {
+          onSearch: FUNCTION_PLACEHOLDER,
+        },
+        title: 'On',
+      },
+    ],
+    title: 'Search',
+  },
 ];
 
 // add combo action item presets that use same settings as the already entered presets
@@ -327,7 +354,11 @@ mainMenusPreset.options.push({
   title: 'All',
   settingsSnippet: {
     mainMenu: {
-      menuItems: mainMenusPreset.options.map((option) => option.settingsSnippet.mainMenu.menuItems[0]),
+      menuItems: (
+        mainMenusPreset.options
+          .filter((option) => option.settingsSnippet.mainMenu)
+          .map((option) => option.settingsSnippet.mainMenu.menuItems[0])
+      ),
       title: 'Utah Design System Main Menu',
     },
   },

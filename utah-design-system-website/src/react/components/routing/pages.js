@@ -5,6 +5,7 @@ import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
+import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
@@ -16,6 +17,9 @@ import IconButtonDocumentation from '../websiteContent/library/components/button
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
+import CodeBlockDocumentation from '../websiteContent/library/components/containers/CodeBlock/CodeBlockDocumentation';
+import DrawerDocumentation from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
+import InfoBoxDocumentation from '../websiteContent/library/components/containers/InfoBox/InfoBoxDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
@@ -30,19 +34,22 @@ import TimeInputDocumentation from '../websiteContent/library/components/forms/T
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
+import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
+import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
+import PaginationDocumentation from '../websiteContent/library/components/navigation/pagination/PaginationDocumentation';
 import SidePanelDocumentation from '../websiteContent/library/components/navigation/sidePanel/SidePanelDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
+import CarouselDocumentation from '../websiteContent/library/components/popups/carousel/CarouselDocumentation';
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
+import ProcessListDocumentation from '../websiteContent/library/components/widgetsIndicators/processList/ProcessListDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
-import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
-import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
-import PaginationDocumentation from '../websiteContent/library/components/navigation/pagination/PaginationDocumentation';
+import StepIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
@@ -81,7 +88,7 @@ import pageUrls from './pageUrls';
  *      <button onClick={gotoUrl}>go to url</button>
  *
  * Rules of thumb:
- *  - Use react-router's <NavLink> as much as possible instead of history.push()
+ *  - Use react-router's <NavLink> (external) and <Link> (internal) as much as possible instead of history.push()
  *    This allows opening in a new tab and other common browser features
  *    that don't work when solely `history.push()` is used
  */
@@ -129,7 +136,7 @@ const pages = {
 
   // === guidelines documentation components === //
   accessibility: {
-    content: PlaceHolderDocumentation,
+    content: AccessibilityDocumentation,
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility',
@@ -219,6 +226,13 @@ const pages = {
     link: pageUrls.colorFoundation,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Color',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  images: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.images,
+    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    pageTitle: 'Images',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   layout: {
@@ -428,8 +442,16 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  codeBlock: {
+    content: CodeBlockDocumentation,
+    link: pageUrls.codeBlock,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Code Block',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   drawers: {
-    content: PlaceHolderDocumentation,
+    content: DrawerDocumentation,
     link: pageUrls.drawers,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Drawer',
@@ -437,7 +459,7 @@ const pages = {
   },
 
   infoBox: {
-    content: PlaceHolderDocumentation,
+    content: InfoBoxDocumentation,
     link: pageUrls.infoBox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Info Box',
@@ -468,14 +490,28 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   carousel: {
-    content: PlaceHolderDocumentation,
+    content: CarouselDocumentation,
     link: pageUrls.carousel,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Carousel',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  processList: {
+  counter: {
     content: PlaceHolderDocumentation,
+    link: pageUrls.counter,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Counter',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  maps: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.maps,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Maps',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  processList: {
+    content: ProcessListDocumentation,
     link: pageUrls.processList,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Process List',
@@ -502,8 +538,22 @@ const pages = {
     pageTitle: 'Spinners',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
-  stepIndicator: {
+  statusIndicator: {
     content: PlaceHolderDocumentation,
+    link: pageUrls.statusIndicator,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Status Indicators',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  skipLink: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.skipLink,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Skip Link',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  stepIndicator: {
+    content: StepIndicatorDocumentation,
     link: pageUrls.stepIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Step Indicators',
@@ -659,6 +709,22 @@ const pages = {
   },
 
   // === tooltips === //
+  callout: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.callout,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Call Out',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  iconBar: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.iconBar,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Icon Bar',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   tooltips: {
     content: TooltipsDocumentation,
     link: pageUrls.tooltips,

@@ -107,7 +107,7 @@ function PopupsDocumentation() {
             <Popup
               ariaLabelledBy="button-for-example1"
               id="id-for-example1"
-              isVisible={popupsState.example1}
+              isVisible={!!popupsState.example1}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example1 = isVisible; })}
               placement={popupPlacement.BOTTOM}
               referenceElement={buttonRef}
@@ -135,7 +135,7 @@ function PopupsDocumentation() {
               ariaLabelledBy="button-for-example-2"
               hasCloseButton
               id="id-for-example2"
-              isVisible={popupsState.example2}
+              isVisible={!!popupsState.example2}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.example2 = isVisible; })}
               placement={popupPlacement.TOP}
               referenceElement={button2Ref}
@@ -209,7 +209,7 @@ function PopupsDocumentation() {
               className="popup__wrapper--close-button-absolute"
               hasCloseButton
               id="id-for-editorExample"
-              isVisible={popupsState.editorExample}
+              isVisible={!!popupsState.editorExample}
               onVisibleChange={(_e, isVisible) => setPopupsState((draftState) => { draftState.editorExample = isVisible; })}
               placement={popupPlacement.TOP}
               referenceElement={buttonEditorRef}

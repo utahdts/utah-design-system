@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import valueAtPath from '../../../../react/util/state/valueAtPath';
 
 describe('valueAtPath:', () => {
+  it('empty path', () => {
+    expect(valueAtPath({ object: { iHavePath: 'yes' }, path: '' })).toStrictEqual({ iHavePath: 'yes' });
+  });
+
   it('no path', () => {
     expect(valueAtPath({ object: {}, path: 'a' })).toBe(undefined);
   });
