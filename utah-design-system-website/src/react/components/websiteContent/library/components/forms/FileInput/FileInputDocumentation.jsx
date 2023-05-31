@@ -6,6 +6,9 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import LightBox from '../../../../../lightbox/LightBox';
+import fileInputMulti from '../../../../../../../static/images/screenshots/components/form-elements/fileInputMulti.jpg';
+import fileInputSingle from '../../../../../../../static/images/screenshots/components/form-elements/fileInputSingle.jpg';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -19,13 +22,13 @@ function FileInputDocumentation() {
       <hr />
       <h2 id="example">Example</h2>
       <StaticExample
-        title="File Upload"
-        renderedExample="Example coming soon!"
+        title="File Input Single"
+        renderedExample={<LightBox image={fileInputSingle} alt="File Input Single" className="flex-3up-gap" />}
       />
 
       <StaticExample
-        title="File Uploaded"
-        renderedExample="Example coming soon!"
+        title="File Input Multi-select"
+        renderedExample={<LightBox image={fileInputMulti} alt="File Input Multi-select" className="flex-3up-gap" />}
       />
 
       <h2 className="mb-spacing" id="section-description-guidance">Description and Guidance</h2>
@@ -61,19 +64,20 @@ function FileInputDocumentation() {
           no bigger than 10Mb.&quot; Please see the <Link to={pageUrls.infoBox}>info box</Link> documentation for more information.
         </li>
         <li>
-          <strong>Interactive.</strong> In addition to the focus state, make sure the input is set up to reflect when the file is hitting
-          the boundary of the input box.
+          <strong>Interactive.</strong> In addition to the focus state, make sure the draggable area is set up to reflect when the file is hitting
+          the boundary via a change of the background color or some other method.
         </li>
         <li>
           <strong>Upload summary.</strong> After the user has selected one or more files, make sure to update the component to include
           the total number of files and list their names.
         </li>
         <li>
-          <strong>Compatibility issues.</strong> Some older browsers do not support the drag and drop feature. Make sure you are allowing
-          those users to click on the input to select a file.
+          <strong>Compatibility and useability.</strong> Some older browsers do not support the drag and drop feature.
+          Additionally, those with motor skill challenges may not be able to drag and drop a file.
+          Make sure you are allowing those users to click on the input to select a file.
         </li>
         <li>
-          <strong>Reasonable.</strong> Keep in mind that some users might not have reliable connectivity and might have difficulties
+          <strong>Reasonable file requirements.</strong> Keep in mind that some users might not have reliable connectivity and might have difficulties
           uploading large files.
         </li>
 
@@ -84,6 +88,7 @@ function FileInputDocumentation() {
       <ul className="mb-spacing">
         <li>Label text must maintain a <code>4.5:1</code> contrast ratio.</li>
         <li>The drag and drop box boundary should maintain a <code>3:1</code> contrast ratio against the background.</li>
+        <li>Follow accessibility guidelines for <Link to={pageUrls.button}>buttons</Link>.</li>
       </ul>
 
       <h4>Keyboard Interactivity</h4>
@@ -91,6 +96,8 @@ function FileInputDocumentation() {
         <li>The file input should behave like a <Link to={pageUrls.button}>button</Link> to a user. Hitting
           the <code>spacebar</code> or <code>enter</code> key should prompt the user to select a file.
         </li>
+        <li>The file input should receive focus when the user presses the <code>tab</code> key.</li>
+        <li>Do not only accept files via drag and drop. You must provide a focusable element (button or file input) that the user can trigger using only the keyboard.</li>
       </ul>
 
       <h4>Screen Readers</h4>
@@ -99,6 +106,10 @@ function FileInputDocumentation() {
           The <code>&lt;input&gt;</code> element should include an <code>aria-label</code> attribute that reflects its current state.<br />
           For example: &quot;No file selected.&quot;, &quot;You have selected one file:
           my_file.pdf.&quot; or &quot;You have selected three files: document_A.pdf, document_B.pdf and document_C.doc.&quot;
+        </li>
+        <li>
+          If you choose to style the file input by hiding it, you must provide adequate feedback
+          to the user on a button element that clearly describes what action they are about to take.
         </li>
       </ul>
     </div>
