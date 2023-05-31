@@ -503,6 +503,13 @@ const pages = {
     pageTitle: 'Counter',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  maps: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.maps,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Maps',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   processList: {
     content: ProcessListDocumentation,
     link: pageUrls.processList,
@@ -529,6 +536,20 @@ const pages = {
     link: pageUrls.spinners,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Spinners',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  statusIndicator: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.statusIndicator,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Status Indicators',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  skipLink: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.skipLink,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Skip Link',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   stepIndicator: {
@@ -693,6 +714,30 @@ const pages = {
     link: pageUrls.callout,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Call Out',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  actionBar: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.actionBar,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Action Bar',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  iconBar: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.iconBar,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Icon Bar',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  toolbar: {
+    content: PlaceHolderDocumentation,
+    link: pageUrls.toolbar,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Toolbar',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
