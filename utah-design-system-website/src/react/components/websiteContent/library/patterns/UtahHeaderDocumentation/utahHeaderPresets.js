@@ -212,6 +212,13 @@ const utahHeaderPresets = [
   // --- Main Menu --- //
   {
     options: [
+      // -- none -- //
+      {
+        settingsSnippet: {
+          mainMenu: false,
+        },
+        title: 'None',
+      },
       // -- actionUrl -- //
       {
         settingsSnippet: {
@@ -327,7 +334,11 @@ mainMenusPreset.options.push({
   title: 'All',
   settingsSnippet: {
     mainMenu: {
-      menuItems: mainMenusPreset.options.map((option) => option.settingsSnippet.mainMenu.menuItems[0]),
+      menuItems: (
+        mainMenusPreset.options
+          .filter((option) => option.settingsSnippet.mainMenu)
+          .map((option) => option.settingsSnippet.mainMenu.menuItems[0])
+      ),
       title: 'Utah Design System Main Menu',
     },
   },
