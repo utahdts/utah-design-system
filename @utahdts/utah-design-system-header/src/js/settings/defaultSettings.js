@@ -16,6 +16,8 @@ import sizes from '../enumerations/sizes';
  * @type {Settings} the current settings of the header
  */
 export default {
+  onSearch: false,
+  mainMenu: false,
   mediaSizes: {
     mobile: 640,
     tabletPortrait: 768,

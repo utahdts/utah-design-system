@@ -217,7 +217,7 @@
  *  @property {Logo} [logo] - the logo to show
  *  @property {MainMenu | false} [mainMenu] - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
- *  @property {(search: string) => void} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar
+ *  @property {((search: string) => void) | false} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
  *  @property {string} size - size has to be one of the `Size` types
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility

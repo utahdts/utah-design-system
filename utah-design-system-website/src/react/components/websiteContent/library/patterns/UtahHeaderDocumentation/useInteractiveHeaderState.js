@@ -51,7 +51,13 @@ export default function useInteractiveHeaderState() {
       // include baseSettings in case localStorage settings are missing something (bargain basement migrator)
       resultSettings = { ...baseSettings, ...parseHeaderSettings(settingsFromStorage) };
     } else {
-      resultSettings = { ...getUtahHeaderSettings(), ...baseSettings };
+      resultSettings = {
+        ...getUtahHeaderSettings(),
+        ...baseSettings,
+        actionItems: [],
+        mainMenu: false,
+        onSearch: false,
+      };
     }
     return resultSettings;
   });

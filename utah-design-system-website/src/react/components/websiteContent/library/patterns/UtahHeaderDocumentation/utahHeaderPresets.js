@@ -320,6 +320,26 @@ const utahHeaderPresets = [
     ],
     title: 'Main Menu',
   },
+  // --- onSearch --- //
+  {
+    options: [
+      // -- off -- //
+      {
+        settingsSnippet: {
+          onSearch: false,
+        },
+        title: 'Off',
+      },
+      // -- on -- //
+      {
+        settingsSnippet: {
+          onSearch: FUNCTION_PLACEHOLDER,
+        },
+        title: 'On',
+      },
+    ],
+    title: 'Search',
+  },
 ];
 
 // add combo action item presets that use same settings as the already entered presets
