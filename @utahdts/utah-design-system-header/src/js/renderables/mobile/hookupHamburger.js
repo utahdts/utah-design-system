@@ -6,62 +6,13 @@ import { getUtahHeaderSettings } from '../../settings/settings';
 import renderActionItemBadge from '../actionItems/renderActionItemBadge';
 import { closeOfficialWebsite } from '../utahLogo/renderOfficialWebsite';
 import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
+import getHamburgerElements from './util/getHamburgerElements';
+import { hideMobileMenu } from './util/showHideHamburgerElements';
 
 /**
- * @param {string} callerContext what function called this? so the error message can be specific
- * @returns {{ hamburger: HTMLElement, hamburgerIcon: HTMLElement, mobileMenu: HTMLElement }}
+ * @param {HTMLElement} mobileMainMenuContentItem
  */
-export function getHamburgerElements(callerContext) {
-  const mobileMenu = /** @type {HTMLElement} */ (notNull(
-    document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU)),
-    `${callerContext}: mobileMenu not found`
-  ));
-  const hamburger = notNull(
-    document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ID),
-    `${callerContext}: hamburger not found (🍔 🎶 I will gladly pay you Tuesday for a hamburger today 🎵 🍔)`
-  );
-  const hamburgerIcon = /** @type {HTMLElement} */ (notNull(
-    document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ICON_ID),
-    `${callerContext}: hamburgerIcon not found`
-  ));
-
-  return {
-    hamburger,
-    hamburgerIcon,
-    mobileMenu,
-  };
-}
-
-export function hideMobileMenu() {
-  const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('hideMobileMenu');
-  // close MMAB
-  hamburger.setAttribute('aria-expanded', 'false');
-  mobileMenu.classList.remove(domConstants.IS_OPEN);
-
-  // change from an 'X'
-  hamburgerIcon.classList.add('utds-icon-before-hamburger');
-  hamburgerIcon.classList.remove('utds-icon-before-x-icon');
-}
-
-export function showMobileMenu() {
-  // remove gap when main menu is missing by adding MAIN_MENU__REMOVED class to menu
-  const mainMenuWrapper = document.querySelector(getCssClassSelector(domConstants.MAIN_MENU));
-  if (mainMenuWrapper?.classList.contains(domConstants.MOBILE__HIDDEN)) {
-    document.querySelector(`${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)}${getCssClassSelector(domConstants.MOBILE_MENU)}`)?.classList.add(domConstants.MAIN_MENU__REMOVED);
-  }
-  const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('showMobileMenu');
-  // open MMAB
-  hamburger.setAttribute('aria-expanded', 'true');
-  mobileMenu.classList.add(domConstants.IS_OPEN);
-
-  // change to an 'X'
-  hamburgerIcon.classList.remove('utds-icon-before-hamburger');
-  hamburgerIcon.classList.add('utds-icon-before-x-icon');
-}
-
-/**
- */
-export function hookupHamburger(mobileMainMenuContentItem) {
+export default function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
 
   const settings = getUtahHeaderSettings();

@@ -12,19 +12,20 @@ import checkForError from '../misc/checkForError';
 import notNull from '../misc/notNull';
 import renderDOMSingle from '../misc/renderDOMSingle';
 import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
+import renderFooter from '../renderables/footer/renderFooter';
 import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
 import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
 import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
 import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
-import { hideMobileMenu, hookupHamburger } from '../renderables/mobile/hookupHamburger';
+import hookupHamburger from '../renderables/mobile/hookupHamburger';
 import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderables/mobile/hookupUtahIdInMobileMenu';
 import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
+import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
 import renderOfficialWebsite from '../renderables/utahLogo/renderOfficialWebsite';
 import { getUtahHeaderSettings } from '../settings/settings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
-import renderFooter from '../renderables/footer/renderFooter';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
