@@ -22,7 +22,7 @@ import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderabl
 import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
 import renderOfficialWebsite from '../renderables/utahLogo/renderOfficialWebsite';
-import { getUtahHeaderSettings } from '../settings/settings';
+import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
