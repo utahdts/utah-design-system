@@ -3,9 +3,9 @@
 import { useRef } from 'react';
 import { useImmer } from 'use-immer';
 import PreCodeForRef from '../../../../preCode/PreCodeForRef';
+import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import iconsDocumentationIcons from './iconsDocumentationIcons';
-import PreCode from '../../../../preCode/PreCode';
 
 const propTypes = {};
 const defaultProps = {};
@@ -36,7 +36,7 @@ function IconsDocumentation() {
 
       <h2 id="section-icon-resource-location">Icon Resource Location</h2>
       <p className="mb-spacing-xs">The Utah Design System Icons can be found on the State CDN:</p>
-      <PreCode
+      <PreCodeForCodeString
         codeRaw={`
 @font-face {
   font-family: 'utah design system';

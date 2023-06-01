@@ -4,10 +4,10 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import PreCode from '../../../../preCode/PreCode';
+import traxImage from '../../../../../../static/images/trax.jpg';
+import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
-import traxImage from '../../../../../../static/images/trax.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -62,7 +62,7 @@ function LinksDocumentation() {
         <li>
           <strong>Anchors; links to sections on a page.</strong> Link to content on the same page by using an <code>id</code> on the target element and a hash
           symbol with the <code>id</code> in the href of the <code>&lt;a&gt;</code> tag.
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             codeRaw={`
               <a href="#section5">Section 5</a>
@@ -106,7 +106,7 @@ function LinksDocumentation() {
           the link immediately to begin an email or dial the number. This creates a better user experience for mobile and desktop users alike.
           <br />
           EXAMPLE:
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             codeRaw={`
               <a href="tel:3852290540">385-229-0540</a>
@@ -141,7 +141,7 @@ function LinksDocumentation() {
           by itself within text content. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
         </li>
         <li id="external-link-example">Links that open in a new tab should give screen reader users adequate warning of this action. For example, the following will read as <code>external link opens in a new tab</code>:
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             allowScrollOverflow
             className="mt-spacing"

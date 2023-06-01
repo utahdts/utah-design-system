@@ -6,7 +6,7 @@
 import { Link } from 'react-router-dom';
 import tooltipsScreenshot from '../../../../../../static/images/mockups/Tooltips.jpg';
 import LightBox from '../../../../lightbox/LightBox';
-import PreCode from '../../../../preCode/PreCode';
+import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
 
@@ -119,14 +119,14 @@ function TooltipsDocumentation() {
       </ul>
 
       <p>Tooltip is used for the <code>aria-labelledby</code>:</p>
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block"
         codeRaw={`<Button aria-labelledby="myTooltip">Blergh</Button>
 <Tooltip id="myTooltip">My text</Tooltip>`}
       />
 
       <p>Hidden Tooltip because the accessible text is already there:</p>
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block"
         codeRaw={`<Button class="icon-button" data-tooltip="Something"><span className="visually-hidden">Description</span></Button>
 <Tooltip id="myTooltip" aria-hidden>Description</Tooltip>`}

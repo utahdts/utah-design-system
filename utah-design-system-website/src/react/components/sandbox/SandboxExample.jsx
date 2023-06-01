@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import { useImmer } from 'use-immer';
 import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
+import PreCode from '../preCode/PreCode';
 import PreCodeForRef from '../preCode/PreCodeForRef';
 
 const propTypes = {
@@ -49,11 +50,9 @@ function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
               <PreCodeForRef targetRef={renderedRef} deps={[state.props]} allowScrollOverflow addHorizontalPadding maxHeight="60vh" />
             </TabPanel>
             <TabPanel tabId={sandboxCodeTypeEnum.REACT} className="px-spacing pb-spacing">
-              <pre>
-                <code>
-                  <CODE_EXAMPLE state={state} />
-                </code>
-              </pre>
+              <PreCode>
+                <CODE_EXAMPLE state={state} />
+              </PreCode>
             </TabPanel>
           </TabPanels>
         </TabGroup>

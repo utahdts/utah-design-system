@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import PreCode from '../../../../../preCode/PreCode';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 
@@ -151,7 +151,7 @@ function AccordionDocumentation() {
         <li>
           Code header areas in the accordion as <Link to={pageUrls.button}>buttons</Link>. Using a <code>&lt;button type=&quot;button&quot;&gt;</code> assures
           accordions are usable with both screen readers and keyboards.
-          <PreCode
+          <PreCodeForCodeString
             codeRaw={(`
               <button type=”button” onClick=”...”>
                 <h2>Accordion Title</h2>
