@@ -1,43 +1,44 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useImmer } from 'use-immer';
 import { joinClassNames } from '@utahdts/utah-design-system';
-import formatPreCode from './formatPreCode';
+import PropTypes from 'prop-types';
+import { useRef } from 'react';
+import CopyButton from '../copy/CopyButton';
 
-const propTypes = {
+export const PreCodeProps = {
   addHorizontalPadding: PropTypes.bool,
   allowScrollOverflow: PropTypes.bool,
   className: PropTypes.string,
-  // the raw unformatted DOM code string (probably from an innerHTML?)
-  codeRaw: PropTypes.string.isRequired,
   maxHeight: PropTypes.string,
+  propsForPre: PropTypes.object,
   showBackgroundColor: PropTypes.bool,
 };
-const defaultProps = {
+export const PreCodeDefaultProps = {
   addHorizontalPadding: false,
   allowScrollOverflow: false,
   className: '',
   maxHeight: null,
+  propsForPre: {},
   showBackgroundColor: false,
 };
 
+const propTypes = {
+  ...PreCodeProps,
+  children: PropTypes.node.isRequired,
+};
+const defaultProps = {
+  ...PreCodeDefaultProps,
+};
+
+// The PreCode component takes children containing some sort of "code" and wraps it in a "pre" tag.
 function PreCode({
   addHorizontalPadding,
   allowScrollOverflow,
+  children,
   className,
-  codeRaw,
   maxHeight,
+  propsForPre,
   showBackgroundColor,
-  ...rest
 }) {
-  const [formattedCode, setFormattedCode] = useImmer(codeRaw || '');
-
-  useEffect(
-    () => {
-      setFormattedCode(formatPreCode(codeRaw));
-    },
-    [codeRaw]
-  );
+  const childrenRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
   return (
     <pre
@@ -50,11 +51,15 @@ function PreCode({
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={allowScrollOverflow ? '0' : undefined}
       style={maxHeight && { maxHeight: `${maxHeight}` }}
-      {...rest}
+      {...propsForPre}
     >
-      <div className={joinClassNames(allowScrollOverflow && 'pre-block__overflow-content')}>
-        {formattedCode}
+      <div
+        className={joinClassNames(allowScrollOverflow && 'pre-block__overflow-content')}
+        ref={childrenRef}
+      >
+        {children}
       </div>
+      <CopyButton copyRef={childrenRef} />
     </pre>
   );
 }

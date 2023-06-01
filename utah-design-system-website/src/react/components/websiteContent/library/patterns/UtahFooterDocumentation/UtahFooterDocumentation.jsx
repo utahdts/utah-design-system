@@ -15,14 +15,14 @@ import {
   TableWrapper,
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../routing/pageUrls';
-import StaticExample from '../../../../staticExamples/StaticExample';
-import LightBox from '../../../../lightbox/LightBox';
 import footerScreenshot from '../../../../../../static/images/mockups/Footer.jpg';
-import socialBar from '../../../../../../static/images/screenshots/patterns/footer/socialBar.jpg';
 import agencyFooter from '../../../../../../static/images/screenshots/patterns/footer/agencyFooter.jpg';
 import requiredFooter from '../../../../../../static/images/screenshots/patterns/footer/requiredFooter.jpg';
-import PreCode from '../../../../preCode/PreCode';
+import socialBar from '../../../../../../static/images/screenshots/patterns/footer/socialBar.jpg';
+import LightBox from '../../../../lightbox/LightBox';
+import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
+import pageUrls from '../../../../routing/pageUrls';
+import StaticExample from '../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};
@@ -211,7 +211,7 @@ function UtahFooterDocumentation() {
       </div>
       <br /><br />
       Example of using <code>setUtahHeaderSettings()</code>:
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block mt-spacing"
         codeRaw={`
             setUtahHeaderSettings(
@@ -229,7 +229,7 @@ function UtahFooterDocumentation() {
       />
       <br />
       Example of setting just footer via <code>setUtahHeaderSettings()</code>:
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block mt-spacing"
         codeRaw={`
             setUtahHeaderSettings(
@@ -251,7 +251,7 @@ function UtahFooterDocumentation() {
       />
       <br />
       Example of setting just footer settings via <code>setUtahFooterSettings()</code> (these footer settings will be merged with existing header settings):
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block mt-spacing"
         codeRaw={`
             setUtahFooterSettings(
@@ -273,7 +273,7 @@ function UtahFooterDocumentation() {
         your layout to misbehave.
         <br /><br />
         Example of cssSelector:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -290,7 +290,7 @@ function UtahFooterDocumentation() {
         />
         <br />
         Example of element:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -307,7 +307,7 @@ function UtahFooterDocumentation() {
         />
         <br />
         Example of elementFunction:
-        <PreCode
+        <PreCodeForCodeString
           allowScrollOverflow
           className="gray-block mt-spacing"
           codeRaw={`

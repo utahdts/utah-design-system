@@ -1,7 +1,7 @@
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import notNull from '../misc/notNull';
-import { getHamburgerElements } from '../renderables/mobile/hookupHamburger';
 import { showActionItem } from '../renderables/mobile/mobileMenuInteractionHandler';
+import getHamburgerElements from '../renderables/mobile/util/getHamburgerElements';
 
 export default function hookupMobileActionItemKeyboarding() {
   // fetch all the icon buttons from the mobile menu action items, should be in order

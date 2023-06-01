@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import paginationScreenshot from '../../../../../../../static/images/mockups/Pagination.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
-import PreCode from '../../../../../preCode/PreCode';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 
@@ -92,7 +92,7 @@ function PaginationDocumentation() {
         <li>Links should be an <code>&lt;a&gt;</code> element as part of an unordered list (<code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>).</li>
         <li>The current link should have <code>aria-current=&quot;page&quot;</code> attribute set.</li>
         <li>First and last page should be voiced by either including an aria-label or a visually hidden span in each link. For example
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             codeRaw={`
               <li>

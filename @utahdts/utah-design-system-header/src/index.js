@@ -11,4 +11,5 @@ export { default as sizes } from './js/enumerations/sizes';
 export { loadHeader, removeHeader } from './js/lifecycle/lifecycle';
 export { default as renderDOMSingle } from './js/misc/renderDOMSingle';
 export { default as defaultSettings } from './js/settings/defaultSettings';
-export { getUtahHeaderSettings, setUtahHeaderSettings } from './js/settings/settings';
+export { default as getUtahHeaderSettings } from './js/settings/getUtahHeaderSettings';
+export { setUtahHeaderSettings } from './js/settings/settings';

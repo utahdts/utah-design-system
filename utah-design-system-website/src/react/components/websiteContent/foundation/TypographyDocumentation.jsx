@@ -15,7 +15,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import PreCode from '../../preCode/PreCode';
+import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
 
 const propTypes = {};
@@ -64,7 +64,7 @@ function TypographyDocumentation() {
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-           <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+Pro">Source Sans Pro <br />(Sans Serif)</ExternalLink>
+            <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+Pro">Source Sans Pro <br />(Sans Serif)</ExternalLink>
           </div>
         </div>
         <div className="typography__font-demo typography__lora-font">
@@ -72,7 +72,7 @@ function TypographyDocumentation() {
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-           <ExternalLink href="https://fonts.google.com/specimen/Lora">Lora <br />(Serif)</ExternalLink>
+            <ExternalLink href="https://fonts.google.com/specimen/Lora">Lora <br />(Serif)</ExternalLink>
           </div>
         </div>
         <div className="typography__font-demo typography__source-code-pro">
@@ -80,7 +80,7 @@ function TypographyDocumentation() {
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-           <ExternalLink href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro <br />(Monospace)</ExternalLink>
+            <ExternalLink href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro <br />(Monospace)</ExternalLink>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ function TypographyDocumentation() {
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-           <ExternalLink href="https://fonts.google.com/specimen/Roboto">Roboto <br />(Sans Serif)</ExternalLink>
+            <ExternalLink href="https://fonts.google.com/specimen/Roboto">Roboto <br />(Sans Serif)</ExternalLink>
           </div>
         </div>
         <div className="typography__font-demo typography__merriweather-font">
@@ -101,7 +101,7 @@ function TypographyDocumentation() {
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-           <ExternalLink href="https://fonts.google.com/specimen/Merriweather">Merriweather <br />(Serif)</ExternalLink>
+            <ExternalLink href="https://fonts.google.com/specimen/Merriweather">Merriweather <br />(Serif)</ExternalLink>
           </div>
         </div>
         <div className="typography__font-demo typography__roboto-mono-font">
@@ -109,7 +109,7 @@ function TypographyDocumentation() {
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-           <ExternalLink href="https://fonts.google.com/specimen/Roboto+Mono">Roboto Mono <br />(Monospace)</ExternalLink>
+            <ExternalLink href="https://fonts.google.com/specimen/Roboto+Mono">Roboto Mono <br />(Monospace)</ExternalLink>
           </div>
         </div>
       </div>
@@ -203,7 +203,7 @@ function TypographyDocumentation() {
         <li>
           Examples
 
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             codeRaw={`
               <div class="text-left">Apples are delicious</div>

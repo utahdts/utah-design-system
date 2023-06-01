@@ -30,16 +30,16 @@ import {
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
-import PreCode from '../../../../../preCode/PreCode';
+import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
+import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
+import LightBox from '../../../../../lightbox/LightBox';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import PopupsExampleCodeReact from './PopupsExampleCodeReact';
 import PopupsExampleProps from './PopupsExampleProps';
 import PopupsExampleRender from './PopupsExampleRender';
-import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
-import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
-import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -345,10 +345,10 @@ function PopupsDocumentation() {
       <h4 className="mb-spacing">Aria Examples</h4>
 
       <h5>Popup Dialog</h5>
-      <PreCode className="gray-block" codeRaw={PopupExampleAriaDialog} />
+      <PreCodeForCodeString className="gray-block" codeRaw={PopupExampleAriaDialog} />
 
       <h5>Popup Menu</h5>
-      <PreCode className="gray-block" codeRaw={PopupExampleAriaMenu} />
+      <PreCodeForCodeString className="gray-block" codeRaw={PopupExampleAriaMenu} />
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">

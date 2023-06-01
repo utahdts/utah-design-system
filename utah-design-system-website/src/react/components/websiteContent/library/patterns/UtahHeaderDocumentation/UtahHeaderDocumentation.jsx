@@ -33,7 +33,6 @@ import searchModalScreenshot from '../../../../../../static/images/screenshots/p
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
 import CopyButton from '../../../../copy/CopyButton';
 import LightBox from '../../../../lightbox/LightBox';
-import PreCode from '../../../../preCode/PreCode';
 import pageUrls from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
@@ -45,6 +44,7 @@ import utahHeaderPresets from './utahHeaderPresets';
 import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
+import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 
 const propTypes = {};
 const defaultProps = {};
@@ -396,7 +396,7 @@ function UtahHeaderDocumentation() {
         The Utah Header javascript library must load before your javascript code can interact with it. After the Utah Header javascript library loads, it
         will wait for your code to call <code>setUtahHeaderSettings()</code> before showing the Utah Header. Your code should listen for
         the <code>{events.HEADER_LOADED}</code> global document event. The Utah Header will intermittently emit this event until your code calls <code>setUtahHeaderSettings()</code>.
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             addEventListener(
@@ -412,7 +412,7 @@ function UtahHeaderDocumentation() {
         To change the content of the header, your code need only call <code>setUtahHeaderSettings()</code> with new settings. It is not advisable to unload the header. But
         there may be use cases that require the header be unmounted and reloaded. When the Utah Header is unloaded it will emit a <code>{events.HEADER_UNLOADED}</code> global
         document event.
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             addEventListener(
@@ -615,7 +615,7 @@ function UtahHeaderDocumentation() {
         your layout to misbehave.
         <br /><br />
         Example of cssSelector:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -630,7 +630,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Example of element:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -645,7 +645,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Example of elementFunction:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -663,7 +663,7 @@ function UtahHeaderDocumentation() {
       <h4 id="section-config-logo">logo</h4>
       <div>
         Example of element logo:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -678,7 +678,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Example of element logo as a function:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -697,7 +697,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Example of string logo:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -712,7 +712,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Example of string logo as a function:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -727,7 +727,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Example of providing the logo source:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -742,7 +742,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Example of providing the logo source as a function:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -759,7 +759,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-mediaSizes">mediaSizes</h4>
       <div>
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -781,7 +781,7 @@ function UtahHeaderDocumentation() {
         The Utah Header main menu bar can have a search icon in it. When the search icon is pressed a modal search
         dialog appears. When the user enters and submits a search phrase, that phrase will be passed
         to this custom function to allow your site to respond to the search.
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -796,7 +796,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-showTitle">showTitle</h4>
       <div>
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -812,7 +812,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-size">size</h4>
       <div>
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -827,7 +827,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-title">title</h4>
       <div>
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -842,7 +842,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-titleURL">titleURL</h4>
       <div>
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1049,7 +1049,7 @@ function UtahHeaderDocumentation() {
       <div>
         <code>actionItems</code> give your users notifications and global app utility. Use the main menu for navigation items and
         action items for notifications, alerts, and global considerations.
-        <PreCode
+        <PreCodeForCodeString
           allowScrollOverflow
           className="gray-block mt-spacing"
           codeRaw={`
@@ -1350,7 +1350,7 @@ function UtahHeaderDocumentation() {
       <div>
         The <code>mainMenu</code> is the main navigation for your application. A user should be able to easily get to the major
         areas of your application through the main menu.
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1750,7 +1750,7 @@ function UtahHeaderDocumentation() {
         <br />
         <br />
         Default functionality:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1763,7 +1763,7 @@ function UtahHeaderDocumentation() {
         />
         <br />
         Turn off Utah Header Utah ID integration:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1785,7 +1785,7 @@ function UtahHeaderDocumentation() {
           <li><strong>UserInfo</strong>: <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/userinfo">https://login.dts.utah.gov:443/sso/oauth2/userinfo</ExternalLink></li>
         </ul>
         This example shows how an application can provide an authenticated user to the Utah Header:
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1803,7 +1803,7 @@ function UtahHeaderDocumentation() {
         />
         This example shows an unauthenticated user. This is a case where your application may have a cached user who is not yet verified. The
         State of Utah Header will not trust this user information and will show the UtahID Sign In button.
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1822,7 +1822,7 @@ function UtahHeaderDocumentation() {
         By setting the currentUser to null, this example shows how the application tells the State of Utah Header that the application is
         controlling the user authentication process and that there is not a currently logged in user. In contrast, setting currentUser to undefined
         will indicate to the State of Utah Header to perform its default behavior to fetch the current user information from Utah ID.
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1837,7 +1837,7 @@ function UtahHeaderDocumentation() {
         />
       </div>
       Here is an example of supplying all the currentUser fields:
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block mt-spacing"
         codeRaw={`
           setUtahHeaderSettings(
@@ -1867,7 +1867,7 @@ function UtahHeaderDocumentation() {
         You can provide a callback to watch the current user&apos;s basic information as it changes. Seeing as this information is
         provided through javascript running in the browser, it is not trustworthy. You will want to get tokens and/or codes from Utah Login to
         pass in your requests to the server.
-        <PreCode
+        <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
             setUtahHeaderSettings(
@@ -1897,7 +1897,7 @@ function UtahHeaderDocumentation() {
         This callback is called when the Utah ID button&apos;s UtahId Profile menu item is triggered for a logged in user.
         Overriding the functionality of this menu item should be rare. Provide a separate <a href="#section-auth-menu-items">custom menu item</a> to access
         your application&apos;s settings/account page.
-        <PreCode
+        <PreCodeForCodeString
           allowScrollOverflow
           className="gray-block mt-spacing"
           codeRaw={`
@@ -1920,7 +1920,7 @@ function UtahHeaderDocumentation() {
           Note the use of <code>goto</code> in the login url. To get a JWT token or code, instead use Utah
           ID&apos;s <code>authorize</code> endpoint with a <code>redirect_uri</code> url parameter (OpenID configuration and
           connectivity is possible using the onSignIn and onSignOut callbacks but beyond the scope of this documentation).
-          <PreCode
+          <PreCodeForCodeString
             allowScrollOverflow
             className="gray-block mt-spacing"
             codeRaw={`
@@ -1942,7 +1942,7 @@ function UtahHeaderDocumentation() {
           When there is a current logged in user, the Utah ID button triggers a menu. The onSignOut callback is called
           when the Sign Out menu item is triggered. The default functionality is to go to Utah ID&apos;s logout url and
           return back to this site.
-          <PreCode
+          <PreCodeForCodeString
             allowScrollOverflow
             className="gray-block mt-spacing"
             codeRaw={`
@@ -1963,7 +1963,7 @@ function UtahHeaderDocumentation() {
         <div>
           You may provide custom menu items to include in the Utah ID menu for a signed in user. Make sure that these menu items are relevant
           to a user&apos;s account. Use the <a href="#section-mainmenu-settings">Main Menu</a> configuration for non-account related links.
-          <PreCode
+          <PreCodeForCodeString
             allowScrollOverflow
             className="gray-block mt-spacing"
             codeRaw={`

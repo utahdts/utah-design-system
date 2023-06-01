@@ -6,7 +6,7 @@ import footerHTML from './html/Footer.html?raw';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import checkForError from '../../misc/checkForError';
 import renderDOMSingle from '../../misc/renderDOMSingle';
-import { getUtahHeaderSettings } from '../../settings/settings';
+import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 
 /** @typedef {import ('../../misc/jsDocTypes').Settings} Settings */
 

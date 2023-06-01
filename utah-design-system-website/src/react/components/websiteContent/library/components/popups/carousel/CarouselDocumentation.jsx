@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import PreCode from '../../../../../preCode/PreCode';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 
 const propTypes = {};
@@ -131,7 +131,7 @@ function CarouselDocumentation() {
         </li>
         <li>
           Consider using the following CSS to prevent animation for those with motion accessibility issues.
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             codeRaw={`
               @media (prefers-reduced-motion: reduce) {

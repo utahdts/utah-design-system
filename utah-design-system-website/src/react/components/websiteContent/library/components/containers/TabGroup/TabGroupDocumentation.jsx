@@ -4,13 +4,13 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import PreCode from '../../../../../preCode/PreCode';
-import LightBox from '../../../../../lightbox/LightBox';
 import tabsHorizontalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsHorizontalScreenshot.jpg';
 import tabsOverflowScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsOverflowScreenshot.jpg';
 import tabsVerticalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsVerticalScreenshot.jpg';
+import LightBox from '../../../../../lightbox/LightBox';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};
@@ -134,7 +134,7 @@ function TabGroupDocumentation() {
       </ul>
 
       <h2 id="section-code-example">Code Example</h2>
-      <PreCode
+      <PreCodeForCodeString
         allowScrollOverflow
         showBackgroundColor
         codeRaw={`
