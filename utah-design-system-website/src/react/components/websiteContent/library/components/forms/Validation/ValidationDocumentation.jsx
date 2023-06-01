@@ -4,11 +4,11 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import PreCode from '../../../../../preCode/PreCode';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import validationScreenshot from '../../../../../../../static/images/screenshots/patterns/form-validation/formValidation.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};
@@ -112,7 +112,7 @@ function ValidationDocumentation() {
             <li>Include visually hidden text such as &quot;required&quot;, or &quot;mandatory&quot; in the label.
               <br />
               For example:
-              <PreCode
+              <PreCodeForCodeString
                 showBackgroundColor
                 codeRaw={`
                   <label for="last-name">
@@ -131,7 +131,7 @@ function ValidationDocumentation() {
         <li>
           Each error message should include &quot;Error:&quot; as a <code>visually-hidden</code> prefix.
           <br />For Example:
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             codeRaw={`
               <label for="last-name">
@@ -146,7 +146,7 @@ function ValidationDocumentation() {
               <input type="text" id="last-name".../>
             `}
           />
-          <PreCode
+          <PreCodeForCodeString
             showBackgroundColor
             codeRaw={`
               <label>

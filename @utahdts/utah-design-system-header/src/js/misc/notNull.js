@@ -5,7 +5,7 @@
  * @template T
  * @param {T} value
  * @param {string} errorMessage
- * @return {Exclude<T, null | undefined>}
+ * @returns {NonNullable<T>}
  */
 export default function notNull(value, errorMessage) {
   if (value === null || value === undefined) {

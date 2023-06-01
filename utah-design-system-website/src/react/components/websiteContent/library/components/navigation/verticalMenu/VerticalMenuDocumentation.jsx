@@ -4,13 +4,13 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
-import PreCode from '../../../../../preCode/PreCode';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
 import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';
 import verticalMenuRightSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuRightSidebar.jpg';
-import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -201,7 +201,7 @@ function VerticalMenuDocumentation() {
       </ul>
       <h4>ARIA Examples</h4>
       <h5>Landmark Menus</h5>
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block"
         codeRaw={`<div role="navigation">
   <ul>
@@ -212,7 +212,7 @@ function VerticalMenuDocumentation() {
 </div`}
       />
       <h5>Popup or Child Menus</h5>
-      <PreCode
+      <PreCodeForCodeString
         className="gray-block"
         codeRaw={`<button
   aria-haspopup="menu"

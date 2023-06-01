@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import formInputs01 from '../../../../../../../static/images/mockups/FormInputs01.jpg';
 import textInputSearchPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-search.png';
 import LightBox from '../../../../../lightbox/LightBox';
-import PreCode from '../../../../../preCode/PreCode';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 
@@ -82,7 +82,7 @@ function TextInputDocumentation() {
             <li>
               <strong>Preferred Method</strong>: Associate the label with the input box by adding <code>for=&quot;example&quot;</code> to the label and an <code>id=&quot;example&quot;</code> to the input.
               <br />
-              <PreCode
+              <PreCodeForCodeString
                 className="gray-block"
                 codeRaw={`<div>
   <label for="input1">My Label</label>
@@ -94,7 +94,7 @@ function TextInputDocumentation() {
             <li>
               <strong>Secondary Method</strong>: Inputs can be nested inside the label element to create an implicit association between the two elements. The attributes <code>for</code> and <code>id</code> can still be used but are no longer needed.
               <br />
-              <PreCode
+              <PreCodeForCodeString
                 className="gray-block"
                 codeRaw={`<label>
   <span>My Label<span>
@@ -128,7 +128,7 @@ function TextInputDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Text Input</strong>
-          <PreCode
+          <PreCodeForCodeString
             className="gray-block"
             codeRaw={`<div>
   <label for="input1">Some Input<label>
@@ -139,7 +139,7 @@ function TextInputDocumentation() {
         </li>
         <li>
           <strong>Search Input</strong>
-          <PreCode
+          <PreCodeForCodeString
             className="gray-block"
             codeRaw={`<form role="search" aria-label="Sitewide">
   <label for="search1">Some Search Input<label>

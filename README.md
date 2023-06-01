@@ -1,129 +1,57 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=utahdts_utah-design-system&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=utahdts_utah-design-system)
-
 # utah-design-system
+The Design System is guidelines and examples for website development. The goal is for the
+citizens of the State of Utah to have a common experience among State of Utah online resources
+so that they feel safe, engaged, and empowered.
+
+The State of Utah Design System's first goal knowledge and developer tooling. Knowledge is provided via 
+the [Utah Design System Site](https://designsystem.utah.gov) and direct conversations with the 
+Digital Experience Team (DXP). We love to talk. Please [Contact Us](https://designsystem.utah.gov/resources/gettingStarted) with anything.
+
+You can also follow along and submit pull requests at our [GitHub](https://github.com/utahdts/utah-design-system).
+
+We provide the developer assets that we used in constructing the State of Utah Design System website
+which may increase the easiness of incorporating the State of Utah Design System and make developer
+adoption simpler. Please [Contact Us](https://designsystem.utah.gov/resources/gettingStarted) with any
+tooling you have created or found useful so we can share it. See below for more details on available assets.
 
 # Agency
 - DTS
 
 # Stakeholders
 - Product Owner: Joseph Sharp
-- Digital Experience Team
+- Digital Experience (DXP) Team
 
 # Utah Design System Usage
 ## Technologies
+- JavaScript/CSS/HTML
 - NPM
-- vite
-- JavaScript/React
+- Vite
+- React - *to display the State of Utah Design System*
 
-## Getting started w/ Site development
-- Visit the [Design System Site](https://utahdts.github.io/utah-design-system/) to learn the Design System and apply those concepts to your website
-- Download desired assets from this repository's dist/ folder and incorporate them in to your website as needed
-- css assets and javascript are also available via the DTS CDN
-- javascript code libraries are also available via npm
+## Getting started w/ Site development using the State of Utah Design System
+- Visit the [Utah Design System Site](https://designsystem.utah.gov) to learn the Design System and
+- Apply State of Utah Design System concepts to your website
+- *Javascript code libraries are available via npm*
+  - [Design System Header](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
+  - [Design System (CSS and/or React)](https://www.npmjs.com/package/@utahdts/utah-design-system)
+  - Please [Contact Us](https://designsystem.utah.gov/resources/gettingStarted) for other assets
+  - Pull Requests, issues, and discussions on [GitHub](https://github.com/utahdts/utah-design-system)
+
 ## Getting started w/ Design System Development
-  > We love input and conversation; Please file issues, contact us, and/or submit pull requests.
-1. Download the source code (dev branch has current work while main has current production)
-1. Install npm on your machine
-1. run `npm install` from the website folder to install dependencies
-1. run `npm run dev` from the website folder to start watching for changes, building, and serving
+  > We love input and conversation; Please file issues, contact us, and/or submit pull requests. [GitHub](https://github.com/utahdts/utah-design-system)
+1. Install `npm` and `git` on your machine
+1. Checkout the [source code](https://github.com/utahdts/utah-design-system) (`dev` branch has "In Progress" work; `main` has latest production code)
+1. run `npm install` from the root folder to install dependencies
+1. run `npm run dev` from the root folder to start watching for changes, building, and serving
 
 ## Versioning
 This project uses [SemVer](http://semver.org/) for versioning.
 
 ## Deployment
-Merges to the prod/dev branches will kick off a GitHub action that deploys code to GitHub Pages.
+Merges to the `main` or `dev` branches trigger GitHub actions that build, test, and deploy.
 
 ## Authors
-DTS & the Digital Experience Team
+DTS & the Digital Experience Team (DXP) [Contact Us](https://designsystem.utah.gov/resources/gettingStarted)
 
 ## License
 Apache License Version 2.0
-
-## Repository Map
-* .github/
-    * CODEOWNERS
-      > tells which users have special rights
-    * workflows/
-      > These run deploys and other actions relevant to the code base
-* LICENSE
-* README.md
-* .gitignore
-* .editorconfig
-* .eslintrc.json
-* dist/
-  > You may use these assets in your project
-  * assets/
-    * css
-    * js
-    * react
-    * static
-  * index.html
-* [library/](library/README.md)
-  * src/
-    > these are the compiled parts separate from the website that the website also uses
-    * css/
-      > css files that make up the design system (ITCSS)
-    * react/
-      * components/
-        * buttons/
-          * SegmentedButton.jsx
-          * ...
-        * templates
-          * DocumentationTemplate
-          * LandingTemplate
-      * contexts/
-      * hooks/
-      * propTypesShapes/
-        > PropTypes.shape definitions for common propType objects
-      * ...
-    * boilerplate/
-      > starter project that grabs all the pieces for a new website
-    * static/
-        * icons/
-* [utah-header](utah-header/README.md)
-  > This is the utah header code and css
-    * src/
-      * css/
-      * js/
-* [website/](website/README.md)
-  > This is the collection of rules and design system specifications
-    * src/
-      * css/
-      * react/
-        * components/
-          * websiteContent/
-            * HomeLanding
-            * foundation/
-              * FoundationLanding
-              * ... foundation documentation
-            * library/
-              * LibraryLanding
-              * components/
-                * buttons/
-                  * ButtonDocumentation
-                  * SegmentedButtonDocumentation
-              * patterns/
-                * ... some patterns
-              * templates/
-                * ... some templates
-            * resources/
-              * ResourcesLanding
-              * ...
-
-        * context/
-        * enums/
-        * hooks/
-        * util/
-          * color/
-      * static/
-
-  * index.html???
-  * package.json
-  * vite.config.js
-
-### Site Map
-
-- Home
-- [Library](https://utahdts.github.io/utah-design-system/library/)
-- [Header](https://utahdts.github.io/utah-design-system/utah-header/)
-- [Documentation and Examples](website/README.md)

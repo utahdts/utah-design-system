@@ -12,7 +12,7 @@ import utahIdUrls from '../../enumerations/utahIdUrls';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
-import { getUtahHeaderSettings } from '../../settings/settings';
+import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import renderMenuWithTitle from '../menu/renderMenuWithTitle';
 import renderPopup from '../popup/renderPopup';
 import { renderMenu } from '../popupMenu/renderPopupMenu';

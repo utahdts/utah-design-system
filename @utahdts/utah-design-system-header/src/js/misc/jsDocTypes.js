@@ -1,5 +1,7 @@
 // @ts-check
 
+// Types of Events: https://www.w3schools.com/jsref/obj_events.asp
+
 /**
  *
  * JsDoc types for the utah header. Types help lower the mental load of object properties as well as
@@ -7,7 +9,7 @@
  *
  * @typedef {Element} ChildNode
  *
- * @typedef {(function(Event): void)} EventAction
+ * @typedef {(function(MouseEvent | TouchEvent | KeyboardEvent): void)} EventAction
  *
  * @interface Partial - typescript has "Partial" built-in while JSDoc does not know about "type utilities"
  *
@@ -106,7 +108,7 @@
  *
  * @typedef PopupFocusHandlerOptions {
  *  @property {() => boolean} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
- *  @property {function(Event): void} [onClick] custom onclick handler
+ *  @property {function(UIEvent): void} [onClick] custom onclick handler
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
  *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
@@ -192,9 +194,9 @@
  * @typedef UtahIDSettings {
  *  @property {UserInfo | undefined | null} currentUser - null: app controls the user, undefined: header will fetch current user
  *  @property {function(UtahIdData): void | undefined} [onAuthChanged] - auth user changes, eg (newUserData) => { ... do something ... }
- *  @property {function(Event): void | undefined} [onProfile] - when the UtahId's menu item for the user's profile is triggered: (e) => { }
- *  @property {function(Event): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in: (e) => { }
- *  @property {function(Event): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
+ *  @property {function(UIEvent): void | undefined} [onProfile] - when the UtahId's menu item for the user's profile is triggered: (e) => { }
+ *  @property {function(UIEvent): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in: (e) => { }
+ *  @property {function(UIEvent): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
  *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
  * }
  *

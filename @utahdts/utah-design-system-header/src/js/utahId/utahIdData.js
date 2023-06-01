@@ -1,7 +1,7 @@
 import utahIdUrls from '../enumerations/utahIdUrls';
 import setTimeoutPromise from '../misc/setTimeoutPromise';
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
-import { getUtahHeaderSettings } from '../settings/settings';
+import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';
 /**
 * @typedef {import('../misc/jsDocTypes').UtahIdData} UtahIdData
  */

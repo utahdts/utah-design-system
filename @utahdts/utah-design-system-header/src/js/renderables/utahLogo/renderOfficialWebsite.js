@@ -6,7 +6,7 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import notNull from '../../misc/notNull';
-import { hideMobileMenu } from '../mobile/hookupHamburger';
+import { hideMobileMenu } from '../mobile/util/showHideHamburgerElements';
 
 export function closeOfficialWebsite() {
   const officialWebsiteWrapper = notNull(

@@ -3,7 +3,7 @@
 import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PreCode from '../../preCode/PreCode';
+import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
 
 const propTypes = {};
@@ -38,7 +38,7 @@ function GettingStarted() {
 
       <h4>General Font Dependency</h4>
       <p>The Utah Header depends on the awesome font <code>Source Sans Pro</code>. You should load this font in order for the &quot;Utah, an official website&quot;, menus, and other elements to render correctly.</p>
-      <PreCode
+      <PreCodeForCodeString
         codeRaw={`
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,7 @@ function GettingStarted() {
         The header is configured when the <code>utahHeaderLoaded</code> event fires.
         You can learn more about configuring the header on the <Link to={pageUrls.utahHeader}>Utah Header page</Link>.
       </p>
-      <PreCode
+      <PreCodeForCodeString
         codeRaw={`
           <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
           <script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script>
@@ -74,7 +74,7 @@ function GettingStarted() {
         The header is configured when you call <code>setUtahHeaderSettings</code> after importing the Utah Header code.
         You can learn more about configuring the header on the <Link to={pageUrls.utahHeader}>Utah Header page</Link>.
       </p>
-      <PreCode
+      <PreCodeForCodeString
         codeRaw={`
           <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
           <script type="module">
@@ -94,7 +94,7 @@ function GettingStarted() {
       <ol>
         <li>
           Create a react app with <ExternalLink href="https://create-react-app.dev/docs/getting-started">Create React App</ExternalLink><br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw="npx create-react-app cra-utah-header-example"
             className="mt-spacing"
             showBackgroundColor
@@ -102,7 +102,7 @@ function GettingStarted() {
         </li>
         <li>
           Install the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</ExternalLink><br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw="npm i @utahdts/utah-design-system-header"
             className="mt-spacing"
             showBackgroundColor
@@ -110,7 +110,7 @@ function GettingStarted() {
         </li>
         <li>
           Import the header (js/css) in to the application code&apos;s App.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/create-react-app</code> folder)<br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
                 import {setUtahHeaderSettings} from '@utahdts/utah-design-system-header';
@@ -122,7 +122,7 @@ function GettingStarted() {
         </li>
         <li>
           Load header settings to show the header in the application code&apos;s App.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/create-react-app</code> folder)<br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw={`
                 function App() {
                   useEffect(
@@ -145,7 +145,7 @@ function GettingStarted() {
         </li>
         <li>
           Run the application to see the header<br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw="npm start"
             className="mt-spacing"
             showBackgroundColor
@@ -160,7 +160,7 @@ function GettingStarted() {
       <ol>
         <li>
           Create a plain JS app with <ExternalLink href="https://vitejs.dev/guide">Vite</ExternalLink><br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw="npm init vite@latest"
             className="mt-spacing"
             showBackgroundColor
@@ -168,7 +168,7 @@ function GettingStarted() {
         </li>
         <li>
           Install the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</ExternalLink><br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw="npm i @utahdts/utah-design-system-header"
             className="mt-spacing"
             showBackgroundColor
@@ -176,7 +176,7 @@ function GettingStarted() {
         </li>
         <li>
           Import the header (js/css) in to the application code&apos;s main.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/vite</code> folder)<br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
                 import {setUtahHeaderSettings} from '@utahdts/utah-design-system-header';
@@ -188,7 +188,7 @@ function GettingStarted() {
         </li>
         <li>
           Load header settings to show the header in the application code&apos;s main.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/vite</code> folder)<br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw={`
                 setUtahHeaderSettings({});
               `}
@@ -198,7 +198,7 @@ function GettingStarted() {
         </li>
         <li>
           Run the application to see the header<br />
-          <PreCode
+          <PreCodeForCodeString
             codeRaw="npm run dev"
             className="mt-spacing"
             showBackgroundColor

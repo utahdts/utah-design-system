@@ -9,7 +9,7 @@ import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import valueOrFunctionValue from '../../misc/valueOrFunctionValue';
-import { getUtahHeaderSettings } from '../../settings/settings';
+import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 
 /**
  * @returns {Element}

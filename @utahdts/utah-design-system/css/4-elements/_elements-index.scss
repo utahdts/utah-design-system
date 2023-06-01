@@ -57,6 +57,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     }
   }
   pre {
+    position: relative;
     font-family: var(--fixed-width-font-family);
     font-size: .95rem;
     white-space: pre-wrap;

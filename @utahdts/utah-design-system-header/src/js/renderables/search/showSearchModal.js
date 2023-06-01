@@ -5,7 +5,7 @@ import SearchModalHtml from './html/SearchModal.html?raw';
 
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import renderDOMSingle from '../../misc/renderDOMSingle';
-import { getUtahHeaderSettings } from '../../settings/settings';
+import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import { globalKeyModifiers, globalKeyStatus } from '../../lifecycle/globalEvents';
 
 function closeSearchModal() {
@@ -57,7 +57,10 @@ export default function showSearchModal() {
     e.preventDefault();
     e.stopPropagation();
     closeSearchModal();
-    getUtahHeaderSettings().onSearch?.(searchInput.value);
+    const { onSearch } = getUtahHeaderSettings();
+    if (onSearch) {
+      onSearch?.(searchInput.value);
+    }
   };
 
   // close button will close it

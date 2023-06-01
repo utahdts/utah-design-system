@@ -27,4 +27,5 @@ export default {
   size: sizes.MEDIUM,
   title: 'My Utah.gov Site',
   titleURL: '/',
+  utahId: false,
 };

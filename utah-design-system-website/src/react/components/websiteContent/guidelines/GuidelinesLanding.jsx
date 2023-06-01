@@ -8,7 +8,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function GuidelinesLanding() {
-  useRedirect({ pageUrl: pageUrls.validation, isImmediate: true });
+  useRedirect({ pageUrl: pageUrls.accessibility, isImmediate: true });
   return <PlaceHolderDocumentation />;
 }
 

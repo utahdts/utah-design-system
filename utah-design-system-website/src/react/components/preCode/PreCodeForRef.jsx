@@ -2,36 +2,25 @@ import { RefShape } from '@utahdts/utah-design-system';
 import { html } from 'js-beautify';
 import PropTypes from 'prop-types';
 import { useLayoutEffect, useState } from 'react';
-import PreCode from './PreCode';
+import { PreCodeDefaultProps, PreCodeProps } from './PreCode';
+import PreCodeForCodeString from './PreCodeForCodeString';
 
 const propTypes = {
-  addHorizontalPadding: PropTypes.bool,
-  allowScrollOverflow: PropTypes.bool,
-  className: PropTypes.string,
+  ...PreCodeProps,
   // what dependencies determine when the targetRef has changed content
   // eslint-disable-next-line react/forbid-prop-types
   deps: PropTypes.array.isRequired,
-  maxHeight: PropTypes.string,
-  showBackgroundColor: PropTypes.bool,
   // target DOM element from which to pull the DOM string
   targetRef: RefShape.isRequired,
 };
 const defaultProps = {
-  addHorizontalPadding: false,
-  allowScrollOverflow: false,
-  className: '',
-  maxHeight: null,
-  showBackgroundColor: false,
+  ...PreCodeDefaultProps,
 };
 
 function PreCodeForRef({
-  addHorizontalPadding,
-  allowScrollOverflow,
-  className,
   deps,
-  maxHeight,
-  showBackgroundColor,
   targetRef,
+  ...preCodeProps
 }) {
   const [innerHtml, setInnerHtml] = useState('');
 
@@ -66,16 +55,8 @@ function PreCodeForRef({
     deps
   );
 
-  return (
-    <PreCode
-      addHorizontalPadding={addHorizontalPadding}
-      allowScrollOverflow={allowScrollOverflow}
-      className={className}
-      codeRaw={innerHtml}
-      maxHeight={maxHeight}
-      showBackgroundColor={showBackgroundColor}
-    />
-  );
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <PreCodeForCodeString codeRaw={innerHtml} {...preCodeProps} />;
 }
 
 PreCodeForRef.propTypes = propTypes;

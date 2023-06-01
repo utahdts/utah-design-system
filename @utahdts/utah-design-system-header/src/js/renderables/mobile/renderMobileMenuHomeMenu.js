@@ -1,11 +1,12 @@
 // @ts-check
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
-import { getUtahHeaderSettings } from '../../settings/settings';
+import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
 
 export default function renderMobileMenuHomeMenu() {
+  const settings = getUtahHeaderSettings();
   return renderMenu(
-    getUtahHeaderSettings().mainMenu?.menuItems,
+    (settings.mainMenu && settings.mainMenu?.menuItems) || undefined,
     {
       childrenMenuType: childrenMenuTypes.INLINE,
       removePopupArrow: true,

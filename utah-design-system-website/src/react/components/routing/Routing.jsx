@@ -12,10 +12,11 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import HomeLanding from '../websiteContent/HomeLanding';
-import allMenus, { menuMain } from './menus';
-import pages from './pages';
-import RoutePage from './RoutePage';
 import Page404 from '../websiteContent/Page404';
+import RoutePage from './RoutePage';
+import allMenus from './menus';
+import pages from './pages';
+import constructMainMenu from './util/constructMainMenu';
 
 const propTypes = {};
 const defaultProps = {};
@@ -29,27 +30,7 @@ function Routing() {
   useEffect(
     () => {
       setSettings((draftSettings) => {
-        draftSettings.mainMenu = {
-          title: menuMain.header,
-          menuItems: menuMain.menuItems.map((mainMenuItem) => ({
-            actionFunctionUrl: {
-              actionFunction: (e) => {
-                if (!e.metaKey) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigate(mainMenuItem.link);
-                }
-              },
-              skipHandleEvent: true,
-              url: mainMenuItem.link,
-            },
-            isSelected: (
-              currentMenuItem?.link === mainMenuItem.link
-              || currentMenuItem?.parentLinks?.includes(mainMenuItem.link)
-            ),
-            title: mainMenuItem.title,
-          })),
-        };
+        draftSettings.mainMenu = constructMainMenu(currentMenuItem, navigate);
       });
     },
     [currentMenuItem]

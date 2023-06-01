@@ -15,7 +15,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import PreCode from '../../preCode/PreCode';
+import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
 
 const propTypes = {};
@@ -74,7 +74,7 @@ function AccessibilityDocumentation() {
               All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding
               the <code>alt</code> property to the image. For non-semantic <Link to={pageUrls.images}>images</Link> or <Link to={pageUrls.icons}>icons</Link> you
               can also achieve this by applying an <code>aria-label</code> to the element.
-              <PreCode
+              <PreCodeForCodeString
                 showBackgroundColor
                 codeRaw={`
                   <img src="/my-great-image.png" alt="Momo the curious cat" />

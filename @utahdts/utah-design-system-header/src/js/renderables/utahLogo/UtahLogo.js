@@ -13,7 +13,7 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
 import sizes from '../../enumerations/sizes';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
-import { getUtahHeaderSettings } from '../../settings/settings';
+import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import hookupTooltip from '../tooltip/hookupTooltip';
 
 /**

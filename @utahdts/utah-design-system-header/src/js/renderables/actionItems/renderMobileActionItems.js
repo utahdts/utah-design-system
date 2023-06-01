@@ -1,6 +1,6 @@
 // @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import { getUtahHeaderSettings } from '../../settings/settings';
+import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import addMobileMenuContentItem from '../mobile/addMobileMenuContentItem';
 import mobileMenuInteractionHandler from '../mobile/mobileMenuInteractionHandler';
 import renderMobileActionItem from './renderMobileActionItem';
