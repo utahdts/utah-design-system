@@ -82,12 +82,15 @@ function TooltipsDocumentation() {
                 <li>Links</li>
                 <li>Icon Buttons</li>
               </ul>
-            </li>Non-interactive elements (be mindful of keyboard accessibility):
-            <ul>
-              <li>Icons</li>
-              <li>Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)</li>
-              <li>Truncated text</li>
-            </ul>
+            </li>
+            <li>
+              Non-interactive elements (be mindful of keyboard accessibility):
+              <ul>
+                <li>Icons</li>
+                <li>Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)</li>
+                <li>Truncated text</li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li>Only show one tooltip at a time.</li>
