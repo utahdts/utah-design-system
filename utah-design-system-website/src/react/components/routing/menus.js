@@ -1,6 +1,10 @@
+// @ts-check
 import { calculateMenuItemsParents } from '@utahdts/utah-design-system';
 import pages from './pages';
 
+/** @typedef {import ('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
+
+/** @type {WebsiteMainMenu} */
 export const menuMain = {
   // the header/title for the main menu
   header: 'Main Menu',
@@ -14,6 +18,7 @@ export const menuMain = {
   ],
 };
 
+/** @type {WebsiteMainMenu} */
 export const menuFoundationSecondary = {
   header: 'Foundation',
   id: 'foundation',
@@ -81,6 +86,7 @@ export const menuFoundationSecondary = {
   ],
 };
 
+/** @type {WebsiteMainMenu} */
 export const menuGuidelinesSecondary = {
   header: 'Guidelines and Standards',
   id: 'guidelines',
@@ -133,6 +139,7 @@ export const menuGuidelinesSecondary = {
   ],
 };
 
+/** @type {WebsiteMainMenu} */
 export const menuLibraryComponentsSecondary = {
   header: 'Components',
   id: 'library-components',
@@ -261,6 +268,7 @@ export const menuLibraryComponentsSecondary = {
   ],
 };
 
+/** @type {WebsiteMainMenu} */
 export const menuLibraryPatternsSecondary = {
   header: 'Patterns',
   id: 'library-patterns',
@@ -284,6 +292,7 @@ export const menuLibraryPatternsSecondary = {
 };
 
 // UDS-435
+// /** @type {WebsiteMainMenu} */
 // export const menuLibraryTemplatesSecondary = {
 //   header: 'Templates',
 //   id: 'library-templates',
@@ -296,6 +305,7 @@ export const menuLibraryPatternsSecondary = {
 //   ],
 // };
 
+/** @type {WebsiteMainMenu} */
 export const menuResourcesSecondary = {
   header: 'Resources',
   id: 'resources',
