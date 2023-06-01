@@ -22,7 +22,7 @@
     "react-dom": "18.2.0",
     "react-router-dom": "^6.11.0",
     "tinycolor2": "^1.4.2",
-    "use-immer": "0.9.1"
+    "use-immer": "0.9.0"
   },
   "devDependencies": {
     "@types/react": "18.2.7",
