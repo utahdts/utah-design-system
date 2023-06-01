@@ -1,3 +1,5 @@
+@use "../../../../../../@utahdts/utah-design-system/css/1-settings/media-size-vars";
+
 .home-banner {
   width: 100%;
   background: url('../static/images/laptop-background.webp') no-repeat 100% center;
@@ -18,4 +20,15 @@
 .home-version {
   font-size: var(--font-size-2xs);
   text-align: center;
+}
+
+@media screen and (max-width: #{media-size-vars.$media-size-mobile}) {
+  .home-banner {
+    &__title {
+      font-size: var(--font-size-5xl);
+      width: auto;
+      margin: var(--spacing-xl);
+      line-height: 1.1;
+    }
+  }
 }

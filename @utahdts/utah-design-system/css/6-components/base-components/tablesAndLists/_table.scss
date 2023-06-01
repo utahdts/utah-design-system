@@ -1,6 +1,9 @@
 @use "../../../1-settings/class-vars";
 
 #{class-vars.$base-class} {
+  .table-wrapper {
+    overflow-x: scroll;
+  }
   table {
     border-collapse: collapse;
     thead {
