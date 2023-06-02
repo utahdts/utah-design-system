@@ -1,5 +1,6 @@
 @use "../../../../../@utahdts/utah-design-system/css/1-settings/color-swatches";
 @use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/media-size-vars";
 
 #{class-vars.$base-class} {
   .sandbox-example {
@@ -21,11 +22,13 @@
       padding: var(--spacing);
       border-radius: var(--radius-medium);
       flex: 2 1 70%;
+      min-width: 0;
     }
     &__props-inputs {
       background-color: color-swatches.$neutral-gray-16;
       padding: var(--spacing);
       border-radius: var(--radius-medium);
+      min-width: 0;
     }
     &__bottom {
       margin: var(--spacing) 0 0 0;
@@ -33,6 +36,16 @@
       border-radius: var(--radius-medium);
       code {
         background-color: transparent;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: #{media-size-vars.$media-size-tablet-portrait}) {
+  #{class-vars.$base-class} {
+    .sandbox-example {
+      &__top {
+        flex-wrap: wrap-reverse;
       }
     }
   }

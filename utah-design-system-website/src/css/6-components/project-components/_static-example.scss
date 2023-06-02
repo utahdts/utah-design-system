@@ -6,6 +6,7 @@
   }
   &__component-wrapper {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: var(--spacing);
@@ -13,6 +14,7 @@
     padding: var(--spacing);
     border-radius: var(--radius-medium);
     margin: 0 0 var(--spacing) 0;
+    min-width: 0;
 
     pre {
       margin: 0;
