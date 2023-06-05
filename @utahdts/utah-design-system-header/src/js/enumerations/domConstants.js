@@ -70,8 +70,10 @@ export default {
   MAIN_MENU__TITLE: 'main-menu__title',
 
   MENU_ITEM: 'menu-item',
+  MENU_ITEM__ARROW: 'menu-item__menu-arrow',
   MENU_ITEM__BUTTON_TITLE: 'menu-item__button-title',
   MENU_ITEM__LINK_TITLE: 'menu-item__link-title',
+  MENU_ITEM__LINK_TITLE_SPAN: 'menu-item__link-title-span',
   MENU_ITEM__SELECTED: 'menu-item--selected',
   MENU_ITEM__TITLE: 'menu-item__title',
   MENU_ITEM__FLY_OUT: 'menu-item--fly_out',
