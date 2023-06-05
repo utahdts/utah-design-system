@@ -84,17 +84,27 @@ export default function renderMainMenu() {
         ),
         `renderMainMenu(): link title not found for ${menuItem.title}`
       );
+      mainMenuItemLinkTitle.setAttribute('id', `${domConstants.MENU_ITEM__LINK_TITLE}__${menuItem.title}-${uuidv4()}`);
+
+      let menuItemTitleElement;
+      if (menuItem.actionFunctionUrl || menuItem.actionUrl) {
+        menuItemTitleElement = mainMenuItemLinkTitle;
+        mainMenuItemButtonTitle.remove();
+      } else if (menuItem.actionMenu || menuItem.actionFunction) {
+        menuItemTitleElement = mainMenuItemButtonTitle;
+        mainMenuItemLinkTitle.remove();
+      } else {
+        throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
+      }
 
       // add selected to title if selected (or any children are selected)
       if (menuItem.isSelected || (menuItem.actionMenu && findRecursive(menuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
-        mainMenuItemButtonTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
-        mainMenuItemLinkTitle.classList.add(domConstants.MENU_ITEM__SELECTED);
+        menuItemTitleElement.classList.add(domConstants.MENU_ITEM__SELECTED);
       }
 
       if (menuItem.actionMenu) {
         // render children menu items
-        mainMenuItemButtonTitle.innerHTML = menuItem.title;
-        mainMenuItemLinkTitle.remove();
+        menuItemTitleElement.innerHTML = menuItem.title;
 
         /** @type {PopupMenu} */
         const popupMenu = {
@@ -103,13 +113,13 @@ export default function renderMainMenu() {
         };
         const subMenuPopup = renderPopupMenu(
           popupMenu,
-          mainMenuItemButtonTitle,
+          menuItemTitleElement,
           {
             childrenMenuType: menuItem.childrenMenuType || childrenMenuTypes.FLYOUT,
           }
         );
         mainMenuItem.appendChild(subMenuPopup);
-        popupFocusHandler(mainMenuItem, mainMenuItemButtonTitle, subMenuPopup, 'menu', { shouldFocusOnHover: true });
+        popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true });
         /** @type {string} */
         let menuClass;
         switch (menuItem.childrenMenuType) {
@@ -125,35 +135,32 @@ export default function renderMainMenu() {
             break;
         }
         mainMenuItem.classList.add(menuClass);
-      } else if (menuItem.actionFunction) {
-        // custom function when triggered
-        mainMenuItemButtonTitle.innerHTML = menuItem.title;
-        mainMenuItemButtonTitle.onclick = menuItem.actionFunction;
-        mainMenuItemLinkTitle.remove();
-      } else if (menuItem.actionFunctionUrl) {
-        mainMenuItemLinkTitle.innerHTML = menuItem.title;
-        mainMenuItemLinkTitle.setAttribute('href', menuItem.actionFunctionUrl.url);
+      }
 
-        mainMenuItemLinkTitle.onclick = (e) => {
+      if (menuItem.actionFunction) {
+        // custom function when triggered
+        menuItemTitleElement.innerHTML = menuItem.title;
+        menuItemTitleElement.onclick = menuItem.actionFunction;
+      } else if (menuItem.actionFunctionUrl) {
+        menuItemTitleElement.innerHTML = menuItem.title;
+        menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
+
+        menuItemTitleElement.onclick = (e) => {
           if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
             e.stopPropagation();
             e.preventDefault();
           }
           menuItem.actionFunctionUrl?.actionFunction(e);
         };
-        mainMenuItemButtonTitle.remove();
       } else if (menuItem.actionUrl) {
         // go to url when triggered
-        mainMenuItemLinkTitle.innerHTML = menuItem.title;
-        mainMenuItemLinkTitle.setAttribute('href', menuItem.actionUrl.url);
-        mainMenuItemButtonTitle.remove();
-      } else {
-        throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
+        menuItemTitleElement.innerHTML = menuItem.title;
+        menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
       }
 
       if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {
-        mainMenuItemLinkTitle.setAttribute('target', '_blank');
-        mainMenuItemLinkTitle.appendChild(renderDOMSingle(NewTabAccessibility));
+        menuItemTitleElement.setAttribute('target', '_blank');
+        menuItemTitleElement.appendChild(renderDOMSingle(NewTabAccessibility));
       }
     });
   }
