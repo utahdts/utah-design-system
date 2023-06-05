@@ -122,8 +122,25 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     throw new Error('renderPopupMenuItem: titleSpanLink not found');
   }
 
+  const actionMenu = popupMenuItem.actionMenu && [...popupMenuItem.actionMenu];
+  // add "(page)" menu item if menu item is an actionMenu && a link
+  if (actionMenu && (
+    popupMenuItem.actionFunction
+    || popupMenuItem.actionUrl
+    || popupMenuItem.actionFunctionUrl
+  )) {
+    actionMenu.unshift({
+      actionFunction: popupMenuItem.actionFunction,
+      actionFunctionUrl: popupMenuItem.actionFunctionUrl,
+      actionUrl: popupMenuItem.actionUrl,
+      className: popupMenuItem.className,
+      icon: popupMenuItem.icon,
+      title: `${popupMenuItem.title} (page)`,
+    });
+  }
+
   // three types of action: parent, custom function, link
-  if (popupMenuItem.actionMenu) {
+  if (actionMenu) {
     /** @type {HTMLElement | undefined} */
     let chevron;
     switch (options.childrenMenuType) {
@@ -134,7 +151,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
         menuButton.setAttribute('id', uuidv4());
         const subMenuItemsPopup = renderPopupMenu(
           {
-            menuItems: popupMenuItem.actionMenu,
+            menuItems: actionMenu,
             title: popupMenuItem.title,
           },
           menuButton,
@@ -162,7 +179,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
 
       case childrenMenuTypes.INLINE: {
         const subMenu = renderMenu(
-          popupMenuItem.actionMenu,
+          actionMenu,
           options
         );
         const subMenuId = uuidv4();
@@ -200,7 +217,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
 
       case childrenMenuTypes.MEGA_MENU: {
         const subMenu = renderMenu(
-          popupMenuItem.actionMenu,
+          actionMenu,
           options
         );
         const subMenuId = uuidv4();
@@ -214,7 +231,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
       }
 
       default:
-        throw new Error(`renderPopupMenuItem: childrenMenuType unknown '${popupMenuItem.actionMenu}'`);
+        throw new Error(`renderPopupMenuItem: childrenMenuType unknown '${options.childrenMenuType}'`);
     }
     menuDivider.remove();
   } else if (popupMenuItem.actionFunction) {

@@ -5,6 +5,7 @@ import popupPlacement from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
 import isTouchDevice from './isTouchDevice';
 import showHideElement from './showHideElement';
+import checkForError from './checkForError';
 
 /*
    ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
@@ -134,14 +135,24 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
     | |) | | (_) | | .` | |/    | |       | |   | (_) | | |_| | | (__  | __ |
     |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
   */
-  if (!options?.preventOnClickHandling) {
+  if (options?.preventOnClickHandling) {
+    // eslint-disable-next-line no-param-reassign
+    checkForError(!!wrapper.onclick, 'popupFocusHandler: wrapper already has an onclick');
+    // eslint-disable-next-line no-param-reassign
+    wrapper.onclick = (e) => {
+      // for menus that are both a link and have children menus, when doing a popup, prevent clicking
+      // from doing anything so that the popup menu doesn't go away on the click. The link for the
+      // menu will be a separate menu item.
+      e.preventDefault();
+      e.stopPropagation();
+    };
+  } else {
     wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
 
     wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
   }
 
   if (options?.shouldFocusOnHover) {
-    // @ts-ignore
     wrapper.addEventListener('mouseenter', () => performPopup(TIMEOUT_MS_LONG));
     wrapper.addEventListener('mouseleave', () => hidePopup(TIMEOUT_MS_LONG));
   }
