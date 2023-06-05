@@ -1,4 +1,5 @@
 @use "../../../1-settings/class-vars";
+@use "../../../1-settings/media-size-vars";
 
 #{class-vars.$base-class} {
   .landing-page-template {
@@ -9,7 +10,19 @@
     padding-bottom: var(--spacing-xl);
 
     .content-width {
-      max-width: var(--content-width-narrow);
+      max-width: calc(var(--content-width-narrow) + (2 * var(--spacing-2xl)));
+      padding: 0 var(--spacing-2xl);
+      box-sizing: border-box;    }
+  }
+
+}
+
+@media screen and (max-width: #{media-size-vars.$media-size-mobile}) {
+  #{class-vars.$base-class} {
+    .landing-page-template {
+      .content-width {
+        padding: 0 var(--spacing-l);
+      }
     }
   }
 }

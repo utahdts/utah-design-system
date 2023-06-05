@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",

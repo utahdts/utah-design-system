@@ -1,9 +1,5 @@
 // @ts-check
-import packageJson from '../package.json';
 import './css/index.scss';
-
-// eslint-disable-next-line no-console
-console.log(`Utah Header v${packageJson.version}`);
 
 export { default as childrenMenuTypes } from './js/enumerations/childrenMenuTypes';
 export { default as events } from './js/enumerations/events';

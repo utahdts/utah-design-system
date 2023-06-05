@@ -99,8 +99,16 @@ export default function constructMainMenu(currentMenuItem, navigate) {
   // add children to each top level menu
   mainMenusByLink[pageUrls.foundation].actionMenu = constructMenuItems(menuFoundationSecondary.menuItems, navigate);
   mainMenusByLink[pageUrls.guidelines].actionMenu = constructMenuItems(menuGuidelinesSecondary.menuItems, navigate);
-  mainMenusByLink[pageUrls.library].actionMenu = constructMenuItems(menuLibraryComponentsSecondary.menuItems, navigate);
-  mainMenusByLink[pageUrls.resources].actionMenu = constructMenuItems(menuLibraryPatternsSecondary.menuItems, navigate);
+  mainMenusByLink[pageUrls.library].actionMenu = [
+    {
+      actionMenu: constructMenuItems(menuLibraryComponentsSecondary.menuItems, navigate),
+      title: 'Components',
+    },
+    {
+      actionMenu: constructMenuItems(menuLibraryPatternsSecondary.menuItems, navigate),
+      title: 'Patterns',
+    },
+  ];
   mainMenusByLink[pageUrls.resources].actionMenu = constructMenuItems(menuResourcesSecondary.menuItems, navigate);
 
   return mainMenu;
