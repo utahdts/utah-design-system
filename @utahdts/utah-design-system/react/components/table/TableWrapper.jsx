@@ -168,7 +168,7 @@ function TableWrapper({
   );
   return (
     <TableContext.Provider value={contextValue}>
-      <div className={joinClassNames('some-table-wrapper-className', className)} id={id} ref={innerRef} {...rest}>
+      <div className={joinClassNames('table-wrapper', className)} id={id} ref={innerRef} {...rest}>
         {children}
       </div>
     </TableContext.Provider>

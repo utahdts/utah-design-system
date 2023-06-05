@@ -17,15 +17,18 @@ elemental html: h1, h2, h3, ul, li, etc.
   h1 {
     font-size: var(--font-size-4xl);
     margin: 0;
+    line-height: 1.1;
   }
   h2 {
     font-size: var(--font-size-3xl);
     margin: 0;
+    line-height: 1.2;
   }
   h3 {
     font-size: var(--font-size-2xl );
     font-weight: var(--font-weight-semi-bold);
     margin: 0;
+    line-height: 1.3;
   }
   h4 {
     font-size: var(--font-size-l);

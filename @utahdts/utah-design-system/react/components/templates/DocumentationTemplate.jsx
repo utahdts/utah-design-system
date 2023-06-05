@@ -21,11 +21,13 @@ function DocumentationTemplate({
         <div className="documentation-template__side-panel-left">
           {sidePanelLeftContent}
         </div>
-        <main className="documentation-template__content" ref={contentRef}>
-          <Content />
-        </main>
-        <div className="documentation-template__side-panel-right">
-          {sidePanelRightContent}
+        <div className="documentation-template__right-group">
+          <main className="documentation-template__content" ref={contentRef}>
+            <Content />
+          </main>
+          <div className="documentation-template__side-panel-right">
+            {sidePanelRightContent}
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 @use "../../../1-settings/class-vars";
+@use "../../../1-settings/media-size-vars";
 
 #{class-vars.$base-class}.utds {
   &-footer {
@@ -86,7 +87,7 @@
     }
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: #{media-size-vars.$media-size-tablet-portrait}) {
   #{class-vars.$base-class}.utds {
     &-footer {
       flex-wrap: wrap;
