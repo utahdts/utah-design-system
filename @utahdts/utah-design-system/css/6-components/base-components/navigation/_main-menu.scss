@@ -52,9 +52,12 @@
           min-height: auto;
           line-height: 1.7;
 
-          .icon-chevron-down {
-            font-size: 1rem;
-            margin-right: -2px;
+          .menu-item__menu-arrow {
+            font-size: .65rem;
+            margin-left: var(--spacing-2xs);
+            &[class*=utds-icon-before-]::before {
+              margin-right: 0;
+            }
           }
 
           &:hover {
