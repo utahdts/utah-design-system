@@ -4,9 +4,10 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { Accordion } from '@utahdts/utah-design-system';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import coralPinkSandDunes from '../../../../../../../static/images/screenshots/examples/CoralPinkSandDunes.jpg';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -23,20 +24,30 @@ function AccordionDocumentation() {
       <hr />
 
       <h2 id="section-example">Examples</h2>
-      <StaticExample
-        title="Closed"
-        renderedExample="Example coming soon!"
-      />
-      <StaticExample
-        title="Open"
-        renderedExample="Example coming soon!"
-      />
-      <StaticExample
-        title="Frequently Asked Questions"
-        renderedExample="Example coming soon!"
-      />
+      <h3>Closed</h3>
+      <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4}>
+        This is some content.
+      </Accordion>
 
-      <h2 className="mb-spacing" id="guidance">Guidance</h2>
+      <h3 className="mt-spacing">Open</h3>
+      <Accordion headerContent={<span>An Open Accordion</span>} headerClassName="button--primary-color button--solid" isOpen headingLevel={4}>
+        <img src={coralPinkSandDunes} alt="Recreation vehicle at the sand dunes" style={{ float: 'right', marginLeft: 'var(--spacing)' }} />
+        <p>
+          The geology of the sand dunes is an intriguing subject. The sand comes from Navajo sandstone from the geologic period call Middle Jurassic.
+          The same iron oxides and minerals that give us spectacular red rock country are responsible for this landscape of coral pink sand.
+        </p>
+        <p>
+          Sand dunes are created by three factors: Sand, high winds, and a unique influence upon the wind.
+          The notch between the Moquith and Moccasin mountains causes this unique influence.
+          The wind is funneled through the notch, thereby increasing wind velocity to a point where it can carry sand grains from the eroding Navajo sandstone.
+        </p>
+        <p className="mb-auto">
+          This phenomenon is known as the Venturi effect. Once the wind passes through the notch and into the open valley, the wind velocity decreases,
+          causing the sand to be deposited. These dunes are estimated at 10,000 to 15,000 years old.
+        </p>
+      </Accordion>
+
+      <h2 className="my-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
         <li><strong>Limited content.</strong> If users will only need a few specific pieces of content to be displayed at one time within a page.</li>
@@ -56,7 +67,7 @@ function AccordionDocumentation() {
         </li>
         <li>
           <strong>When expand/collapse functionality isn&apos;t needed.</strong> Avoid using an introductory element that includes
-          expand and collapse functionality for a set of content that doesn&apos;t require it.  Use a <Link to={pageUrls.headings}>header</Link> instead.
+          expand and collapse functionality for a set of content that doesn&apos;t require it.  Use a <Link to={pageUrls.headings}>heading</Link> instead.
         </li>
         <li>
           <strong>Don&apos;t hide important information.</strong> If information is deemed important and/or critical to a process, don&apos;t hide
@@ -152,6 +163,7 @@ function AccordionDocumentation() {
           Code header areas in the accordion as <Link to={pageUrls.button}>buttons</Link>. Using a <code>&lt;button type=&quot;button&quot;&gt;</code> assures
           accordions are usable with both screen readers and keyboards.
           <PreCodeForCodeString
+            showBackgroundColor
             codeRaw={(`
               <button type=”button” onClick=”...”>
                 <h2>Accordion Title</h2>
