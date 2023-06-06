@@ -18,9 +18,10 @@ import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
 import LightBox from '../../lightbox/LightBox';
+import StaticExample from '../../staticExamples/StaticExample';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
-import StaticExample from '../../staticExamples/StaticExample';
+import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -69,16 +70,33 @@ function AccessibilityDocumentation() {
 
       <h4 id="section-limited-vision-general-guidelines">General vision guidelines</h4>
       <ul className="mb-spacing">
-        <li><strong>General text.</strong> Text size should be a minimum of <code>16px</code> (<code>1rem</code>) and its contrast ratio should be a minimum <code>4.5:1</code>.</li>
+        <li>
+          <strong>General text.</strong> The majority of text should be a minimum of <code>16px</code> (<code>1rem</code>).
+          All normal size text must maintain a minimum contrast ratio of <code>4.5:1</code>.
+        </li>
         <li>
           <strong>Images and Icons.</strong>
           <ul>
-            <li>Requires a contrast ratio of <code>4.5:1</code> if it contributes to the content. </li>
+            <li>Icons and other graphical objects that contribute meaningful content or interaction require a contrast ratio of <code>4.5:1</code></li>
             <li>Graphical objects that do not provide meaning nor interaction have no contrast requirements.</li>
             <li>
-              All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding
-              the <code>alt</code> property to the image. For non-semantic <Link to={pageUrls.images}>images</Link> or <Link to={pageUrls.icons}>icons</Link> you
-              can also achieve this by applying an <code>aria-label</code> to the element.
+              <p>
+                All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding
+                the <code>alt</code> property to the image. For non-semantic <Link to={pageUrls.images}>images</Link> or <Link to={pageUrls.icons}>icons</Link> you
+                can also achieve this by applying an <code>aria-label</code> or <code>title</code> to the element.
+                Using the <code>title</code> attribute has the drawback of the browser generating a tooltip when the user hovers over the element.
+              </p>
+              <p>
+                Avoid using redundant alt text such as &quot;an image of a boat at Jordanelle State Park&quot;. A screen reader will announce the presence of an image
+                for the user. Instead use something like &quot;a boat at Jordanelle State Park&quot; to correctly describe the image.
+                Below are a good and bad example you can test with your screen reader.
+                <div className="flex gap justify-center mt-spacing">
+                  {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                  <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
+                  <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
+                </div>
+              </p>
+              <div>Code examples:</div>
               <PreCodeForCodeString
                 showBackgroundColor
                 codeRaw={`
@@ -89,10 +107,16 @@ function AccessibilityDocumentation() {
               <PreCodeForCodeString
                 showBackgroundColor
                 codeRaw={`
-                  <div class="my-background-image" aria-label="Delicate Arch" />
+                  <div class="my-background-image" role="image" aria-label="Delicate Arch"></div>
                 `}
               />
-              <p className="mb-auto">See more detailed information on <Link to={pageUrls.images}>images</Link>.</p>
+              <PreCodeForCodeString
+                showBackgroundColor
+                codeRaw={`
+                  <span class="utds-icon-before-help" role="img" title="help"></span>
+                `}
+              />
+              <p className="mb-auto">See more detailed information on <Link to={pageUrls.images}>images</Link> and <Link to={pageUrls.icons}>icons</Link>.</p>
             </li>
           </ul>
         </li>
