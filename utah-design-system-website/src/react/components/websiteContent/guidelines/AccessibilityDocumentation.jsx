@@ -331,6 +331,33 @@ function AccessibilityDocumentation() {
         </li>
       </ul>
 
+      <h4 id="section-motion" className="mt-spacing">Motion</h4>
+      <ul className="mb-spacing">
+        <li>
+          Automatic sliding or zooming can cause issues with those who experience motion sensitivity. Allow the user to stop the animation to avoid these issues.
+        </li>
+        <li>
+          Content that moves or auto-updates can be a barrier to anyone who has trouble reading stationary text quickly as well as anyone who has
+          trouble tracking moving objects. It can also cause problems for screen readers.
+        </li>
+        <li>
+          Moving content can also be a severe distraction for some people. Certain groups, particularly those with attention deficit disorders, find
+          blinking content distracting, making it difficult for them to concentrate on other parts of the Web page. Allow five seconds between automatic motion, sliding, or repeated animation.
+          This is long enough to get a user&apos;s attention, but not so long that a user cannot wait out the distraction if necessary to use the page.
+        </li>
+        <li>
+          Consider using the following CSS to prevent animation for those with motion accessibility issues.
+          <PreCodeForCodeString
+            showBackgroundColor
+            codeRaw={`
+              @media (prefers-reduced-motion: reduce) {
+                /* CSS to disable motion goes here */
+              }
+            `}
+          />
+        </li>
+      </ul>
+
       <h2 id="section-forms" className="mt-spacing">Form Accessibility</h2>
       <ul>
         <li>
