@@ -90,12 +90,12 @@ function AccessibilityDocumentation() {
                 Avoid using redundant alt text such as &quot;an image of a boat at Jordanelle State Park&quot;. A screen reader will announce the presence of an image
                 for the user. Instead use something like &quot;a boat at Jordanelle State Park&quot; to correctly describe the image.
                 Below are a good and bad example you can test with your screen reader.
-                <div className="flex gap justify-center mt-spacing">
-                  {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                  <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
-                  <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
-                </div>
               </p>
+              <div className="flex gap justify-center mt-spacing">
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
+                <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
+              </div>
               <div>Code examples:</div>
               <PreCodeForCodeString
                 showBackgroundColor
@@ -368,9 +368,9 @@ function AccessibilityDocumentation() {
             and allows for efficient scanning and completion of form fields, reducing potential confusion and errors.
           </p>
           <p>
-          The following images depict different forms with the arrows indicating different tab orders. Horizontally arranged forms can create an undesirable user experience.
-          Depending on the user, they are going to expect the cursor to land in a particular place. If it doesn’t go where they expect, it increases
-          the cognitive load trying to figure out where the cursor will actually land.
+            The following images depict different forms with the arrows indicating different tab orders. Horizontally arranged forms can create an undesirable user experience.
+            Depending on the user, they are going to expect the cursor to land in a particular place. If it doesn’t go where they expect, it increases
+            the cognitive load trying to figure out where the cursor will actually land.
           </p>
           <StaticExample
             renderedExample={(
