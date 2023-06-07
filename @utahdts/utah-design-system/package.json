@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "exports": {
     ".": {
       "development-local": "./index.js",
