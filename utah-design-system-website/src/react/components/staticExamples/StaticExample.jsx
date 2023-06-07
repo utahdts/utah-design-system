@@ -6,12 +6,13 @@ const propTypes = {
   id: PropTypes.string,
   quickTips: PropTypes.node,
   renderedExample: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 const defaultProps = {
   className: null,
   id: null,
   quickTips: null,
+  title: null,
 };
 
 function StaticExample({
@@ -23,7 +24,11 @@ function StaticExample({
 }) {
   return (
     <div className={joinClassNames('static-example', className)} id={id}>
-      <h3 id={stringToId(title)} className="static-example__title">{title}</h3>
+      {
+        title
+          ? <h3 id={stringToId(title)} className="static-example__title">{title}</h3>
+          : null
+      }
       <div className="static-example__component-wrapper">
         {renderedExample}
       </div>

@@ -2,25 +2,41 @@
 
 #{class-vars.$base-class} {
   .accordion {
+    width: 100%;
+
     &__header,
     &__header.button {
-      border-radius: 0;
-      font-size: var(--font-size-2xl);
+      border-radius: var(--radius-small);
+      font-size: var(--font-size-xl);
       font-weight: var(--font-weight-bold);
-      padding: var(--spacing);
+      padding: var(--spacing-s) var(--spacing);
       border: none;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       width: 100%;
       box-sizing: border-box;
+
+      [class*=utds-icon-before-]::before {
+        margin-right: 0;
+        font-size: 1.5rem;
+      }
     }
+    &__header {
+      &--open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
     &__content {
         background: var(--gray-light-color);
         padding: 0;
         box-sizing: border-box;
         height: 0;
         overflow: hidden;
+        border-bottom-left-radius: var(--radius-small);
+        border-bottom-right-radius: var(--radius-small);
 
         &--open {
           height: auto;
