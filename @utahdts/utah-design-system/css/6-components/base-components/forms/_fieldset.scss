@@ -1,0 +1,8 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+}

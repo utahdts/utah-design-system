@@ -96,6 +96,10 @@ export default function renderMainMenu() {
       } else {
         throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
       }
+      const menuItemTitleSpanElement = notNull(
+        menuItemTitleElement.querySelector(getCssClassSelector(domConstants.MENU_ITEM__LINK_TITLE_SPAN)),
+        `renderMainMenu(): main menu item title span not found for: ${menuItem.title}`
+      );
 
       // add selected to title if selected (or any children are selected)
       if (menuItem.isSelected || (menuItem.actionMenu && findRecursive(menuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
@@ -104,7 +108,7 @@ export default function renderMainMenu() {
 
       if (menuItem.actionMenu) {
         // render children menu items
-        menuItemTitleElement.innerHTML = menuItem.title;
+        menuItemTitleSpanElement.innerHTML = menuItem.title;
 
         /** @type {PopupMenu} */
         const popupMenu = {
@@ -135,14 +139,20 @@ export default function renderMainMenu() {
             break;
         }
         mainMenuItem.classList.add(menuClass);
+      } else {
+        const mainMenuItemArrow = notNull(
+          menuItemTitleElement.querySelector(getCssClassSelector(domConstants.MENU_ITEM__ARROW)),
+          `renderMainMenu(): menu arrow not found for ${menuItem.title}`
+        );
+        mainMenuItemArrow.remove();
       }
 
       if (menuItem.actionFunction) {
         // custom function when triggered
-        menuItemTitleElement.innerHTML = menuItem.title;
+        menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.onclick = menuItem.actionFunction;
       } else if (menuItem.actionFunctionUrl) {
-        menuItemTitleElement.innerHTML = menuItem.title;
+        menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
 
         menuItemTitleElement.onclick = (e) => {
@@ -154,7 +164,7 @@ export default function renderMainMenu() {
         };
       } else if (menuItem.actionUrl) {
         // go to url when triggered
-        menuItemTitleElement.innerHTML = menuItem.title;
+        menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
       }
 

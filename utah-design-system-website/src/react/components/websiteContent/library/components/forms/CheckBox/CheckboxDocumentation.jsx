@@ -20,7 +20,31 @@ function CheckboxDocumentation() {
       <h2 id="example">Example</h2>
       <StaticExample
         title="Checkbox"
-        renderedExample="Example coming soon!"
+        renderedExample={(
+          <fieldset>
+            <legend className="mb-spacing-xs">Awesome Ice Cream in Utah</legend>
+            <div className="input-wrapper input-wrapper--checkbox">
+              <label htmlFor="aggie-creamery">Aggie Creamery</label>
+              <input type="checkbox" id="aggie-creamery" />
+            </div>
+            <div className="input-wrapper input-wrapper--checkbox">
+              <label htmlFor="byu-creamery">BYU Creamery</label>
+              <input type="checkbox" id="byu-creamery" />
+            </div>
+            <div className="input-wrapper input-wrapper--checkbox">
+              <label htmlFor="farrs">Farr’s Ice Cream</label>
+              <input type="checkbox" id="farrs" />
+            </div>
+            <div className="input-wrapper input-wrapper--checkbox">
+              <label htmlFor="leatherbys">Leatherby’s</label>
+              <input type="checkbox" id="leatherbys" />
+            </div>
+            <div className="input-wrapper input-wrapper--checkbox">
+              <label htmlFor="penguin-brothers">Penguin Brothers</label>
+              <input type="checkbox" id="penguin-brothers" />
+            </div>
+          </fieldset>
+        )}
         quickTips={(
           <ul>
             <li>The user can select multiple items from a list of options.</li>
@@ -69,7 +93,7 @@ function CheckboxDocumentation() {
           <strong>Selectable labels.</strong> A user should be able to click on the label to select or unselect a checkbox.
         </li>
         <li>
-          <strong>Grouping related options.</strong> Grouping related options together and providing a label (<code>&lt;legend&gt;</code>)
+          <strong>Grouping related options.</strong> Grouping related options together with a <code>&lt;fieldset&gt;</code> and providing a label (<code>&lt;legend&gt;</code>)
           that describes what the options are for, will help the user understand the context and purpose of the options.
         </li>
       </ul>
