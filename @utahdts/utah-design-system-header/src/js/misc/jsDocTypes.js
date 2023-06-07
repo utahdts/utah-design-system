@@ -180,6 +180,8 @@
  *  @property {string | null | undefined} [username]
  * }
  *
+ * @typedef {'Automatic' | 'None' | 'Provided'} UtahIdFetchStyle
+ *
  * @typedef UtahIdData {
  *  @property {boolean | null} isDefinitive - true when the user's state is known, false while the ajax request is inflight
  *  @property {string | null} lastError - true when the user's state is known, false while the ajax request is inflight
