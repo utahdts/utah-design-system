@@ -22,7 +22,7 @@ function Page404() {
             and let us know your experience!
           </p>
           <p>
-            To return to reality you may navigate the menu above or visit the <Link to={pageUrls.home}>home</Link> page.
+            To return to reality you may navigate using the above menu or visit the <Link to={pageUrls.home}>home</Link> page.
           </p>
           <p className="mb-auto">
             <Link to={pageUrls.home} className="button button--primary-color button--solid" style={{ display: 'inline-flex' }}>
