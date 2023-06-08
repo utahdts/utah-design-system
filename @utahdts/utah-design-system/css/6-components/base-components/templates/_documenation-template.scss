@@ -61,6 +61,15 @@
   }
 }
 
+@media screen and (max-width: 1300px) {
+  #{class-vars.$base-class} {
+    .documentation-template {
+      &__content {
+        max-width: calc(100vw - (6 * var(--spacing-xl)) - (var(--documentation-left-width)) - (var(--documentation-right-width)));
+      }
+    }
+  }
+}
 @media screen and (max-width: #{media-size-vars.$media-size-desktop-small}) {
   #{class-vars.$base-class} {
     .documentation-template {

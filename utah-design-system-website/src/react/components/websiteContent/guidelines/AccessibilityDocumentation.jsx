@@ -93,8 +93,8 @@ function AccessibilityDocumentation() {
               </p>
               <div className="flex gap justify-center mb-spacing">
                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
-                <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap" style={{ minWidth: '0' }} />
+                <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
+                <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
               </div>
               <div>Code examples:</div>
               <PreCodeForCodeString
