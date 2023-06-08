@@ -23,13 +23,11 @@ export const menuFoundationSecondary = {
   header: 'Foundation',
   id: 'foundation',
   menuItems: [
-    // UDS-452
-    // {
-    //   link: pages.spacing.link,
-    //   title: pages.spacing.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
-
+    {
+      link: pages.spacing.link,
+      title: pages.spacing.pageTitle,
+      parentLinks: [pages.foundation.link],
+    },
     {
       link: pages.typography.link,
       title: pages.typography.pageTitle,

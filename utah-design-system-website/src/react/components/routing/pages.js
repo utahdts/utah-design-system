@@ -4,6 +4,7 @@ import Demo from '../demo/Demo';
 import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
+import SpacingDocumentation from '../websiteContent/foundation/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
 import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
@@ -188,7 +189,7 @@ const pages = {
 
   // === foundation documentation components === //
   spacing: {
-    content: PlaceHolderDocumentation,
+    content: SpacingDocumentation,
     link: pageUrls.spacing,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Spacing',
