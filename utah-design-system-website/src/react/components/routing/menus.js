@@ -39,17 +39,15 @@ export const menuFoundationSecondary = {
       parentLinks: [pages.foundation.link],
     },
     {
+      link: pages.shape.link,
+      title: pages.shape.pageTitle,
+      parentLinks: [pages.foundation.link],
+    },
+    {
       link: pages.typography.link,
       title: pages.typography.pageTitle,
       parentLinks: [pages.foundation.link],
     },
-
-    // UDS-453
-    // {
-    //   link: pages.shape.link,
-    //   title: pages.shape.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
 
     // UDS-450
     // {

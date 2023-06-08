@@ -6,6 +6,7 @@ import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation
 import DepthElevationShadowsDocumentation from '../websiteContent/foundation/DepthElevationShadowsDocumentation';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import LayoutDocumentation from '../websiteContent/foundation/LayoutDocumentation';
+import ShapesDocumentation from '../websiteContent/foundation/ShapesDocumentation';
 import SpacingDocumentation from '../websiteContent/foundation/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
@@ -212,7 +213,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   shape: {
-    content: PlaceHolderDocumentation,
+    content: ShapesDocumentation,
     link: pageUrls.shape,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Shape (rounded corners)',
