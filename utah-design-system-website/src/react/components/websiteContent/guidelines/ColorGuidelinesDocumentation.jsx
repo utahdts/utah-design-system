@@ -74,7 +74,7 @@ function ColorGuidelinesDocumentation() {
             </li>
             <li>
               <code>10%</code> (optional) of the site should be the accent color. This should meet contrast requirements for both the primary and secondary colors and is
-              typically used for smaller components like Call to Action <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.links}>links</Link>, or focus states.(??)
+              typically used for smaller components like Call to Action <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.links}>links</Link>, or focus states.
             </li>
           </ul>
           Simplify color usage by prioritizing functional requirements, such as status states or directions. Afterwards, employ color as a progressive enhancement
