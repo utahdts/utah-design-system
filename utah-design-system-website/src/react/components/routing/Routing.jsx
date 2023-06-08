@@ -47,9 +47,6 @@ function Routing() {
               case menusEnum.MAIN_MENU:
                 menuSecondary = [allMenus.menuMain];
                 break;
-              case menusEnum.SECONDARY_MENU_FOUNDATION:
-                menuSecondary = [allMenus.menuFoundationSecondary];
-                break;
               case menusEnum.SECONDARY_MENU_LIBRARY:
                 menuSecondary = [
                   allMenus.menuLibraryComponentsSecondary,

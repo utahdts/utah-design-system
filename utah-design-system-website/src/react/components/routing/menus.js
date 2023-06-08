@@ -12,69 +12,8 @@ export const menuMain = {
   menuItems: [
     { link: pages.home.link, title: pages.home.pageTitle },
     { link: pages.guidelines.link, title: pages.guidelines.pageTitle },
-    { link: pages.foundation.link, title: pages.foundation.pageTitle },
     { link: pages.library.link, title: pages.library.pageTitle },
     { link: pages.resources.link, title: pages.resources.pageTitle },
-  ],
-};
-
-/** @type {WebsiteMainMenu} */
-export const menuFoundationSecondary = {
-  header: 'Foundation',
-  id: 'foundation',
-  menuItems: [
-    {
-      link: pages.depthElevationShadows.link,
-      title: pages.depthElevationShadows.pageTitle,
-      parentLinks: [pages.foundation.link],
-    },
-    {
-      link: pages.layout.link,
-      title: pages.layout.pageTitle,
-      parentLinks: [pages.foundation.link],
-    },
-    {
-      link: pages.spacing.link,
-      title: pages.spacing.pageTitle,
-      parentLinks: [pages.foundation.link],
-    },
-    {
-      link: pages.shape.link,
-      title: pages.shape.pageTitle,
-      parentLinks: [pages.foundation.link],
-    },
-    {
-      link: pages.typography.link,
-      title: pages.typography.pageTitle,
-      parentLinks: [pages.foundation.link],
-    },
-
-    // UDS-450
-    // {
-    //   link: pages.motionTiming.link,
-    //   title: pages.motionTiming.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
-
-    // UDS-467
-    // {
-    //   link: pages.colorFoundation.link,
-    //   title: pages.colorFoundation.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
-
-    // UDS-867
-    // {
-    //   link: pages.images.link,
-    //   title: pages.images.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
-    // UDS-463
-    // {
-    //   link: pages.opacity.link,
-    //   title: pages.opacity.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
   ],
 };
 
@@ -100,9 +39,36 @@ export const menuGuidelinesSecondary = {
     //   title: pages.design.pageTitle,
     //   parentLinks: [pages.guidelines.link],
     // },
+
     {
+      link: pages.depthElevationShadows.link,
+      title: pages.depthElevationShadows.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      // "form validation"
       link: pages.validation.link,
       title: pages.validation.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.layout.link,
+      title: pages.layout.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.shape.link,
+      title: pages.shape.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.spacing.link,
+      title: pages.spacing.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.typography.link,
+      title: pages.typography.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
 
@@ -126,6 +92,34 @@ export const menuGuidelinesSecondary = {
     //   title: pages.uxBestPractices.pageTitle,
     //   parentLinks: [pages.guidelines.link],
     // },
+
+    // UDS-450
+    // {
+    //   link: pages.motionTiming.link,
+    //   title: pages.motionTiming.pageTitle,
+    //   parentLinks: [pages.guidelines.link],
+    // },
+
+    // UDS-467
+    // {
+    //   link: pages.colorFoundation.link,
+    //   title: pages.colorFoundation.pageTitle,
+    //   parentLinks: [pages.guidelines.link],
+    // },
+
+    // UDS-867
+    // {
+    //   link: pages.images.link,
+    //   title: pages.images.pageTitle,
+    //   parentLinks: [pages.guidelines.link],
+    // },
+    // UDS-463
+    // {
+    //   link: pages.opacity.link,
+    //   title: pages.opacity.pageTitle,
+    //   parentLinks: [pages.guidelines.link],
+    // },
+
   ],
 };
 
@@ -360,7 +354,6 @@ export const menuResourcesSecondary = {
 export default Object.fromEntries(
   Object.entries({
     menuMain,
-    menuFoundationSecondary,
     menuGuidelinesSecondary,
     menuLibraryComponentsSecondary,
     menuLibraryPatternsSecondary,

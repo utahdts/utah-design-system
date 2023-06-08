@@ -14,7 +14,7 @@ const defaultProps = {};
 function ShapesDocumentation() {
   return (
     <div className="documentation-content">
-      <h1 id="h1-top">Shapes - Rounded Corners</h1>
+      <h1 id="h1-top">Shape - Rounded Corners</h1>
       <p className="lead-in">
         Rounded corners are primarily used for aesthetic purposes in the Utah Design System UI, aiming to create a contemporary
         appearance. Elements featuring rounded corners tend to convey a sense of refinement, compared to plain rectangular shapes

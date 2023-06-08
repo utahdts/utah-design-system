@@ -3,15 +3,14 @@ import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
 import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
-import DepthElevationShadowsDocumentation from '../websiteContent/foundation/DepthElevationShadowsDocumentation';
-import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
-import LayoutDocumentation from '../websiteContent/foundation/LayoutDocumentation';
-import ShapesDocumentation from '../websiteContent/foundation/ShapesDocumentation';
-import SpacingDocumentation from '../websiteContent/foundation/SpacingDocumentation';
-import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
 import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
+import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
+import LayoutDocumentation from '../websiteContent/guidelines/LayoutDocumentation';
+import ShapesDocumentation from '../websiteContent/guidelines/ShapesDocumentation';
+import SpacingDocumentation from '../websiteContent/guidelines/SpacingDocumentation';
+import TypographyDocumentation from '../websiteContent/guidelines/TypographyDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
@@ -115,14 +114,6 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  foundation: {
-    content: FoundationLanding,
-    link: pageUrls.foundation,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
-    pageTitle: 'Foundation',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-
   library: {
     content: LibraryLanding,
     link: pageUrls.library,
@@ -190,67 +181,67 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  // === foundation documentation components === //
+  // === guidelines documentation components === //
   spacing: {
     content: SpacingDocumentation,
     link: pageUrls.spacing,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Spacing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   typography: {
     content: TypographyDocumentation,
     link: pageUrls.typography,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Typography',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   depthElevationShadows: {
     content: DepthElevationShadowsDocumentation,
     link: pageUrls.depthElevationShadows,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Depth / Elevation / Shadows',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   shape: {
     content: ShapesDocumentation,
     link: pageUrls.shape,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Shape (rounded corners)',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   motionTiming: {
     content: PlaceHolderDocumentation,
     link: pageUrls.motionTiming,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Motion / Timing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorFoundation: {
     content: PlaceHolderDocumentation,
     link: pageUrls.colorFoundation,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   images: {
     content: PlaceHolderDocumentation,
     link: pageUrls.images,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Images',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   layout: {
     content: LayoutDocumentation,
     link: pageUrls.layout,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Layout (Flex, Grid System)',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   opacity: {
     content: PlaceHolderDocumentation,
     link: pageUrls.opacity,
-    menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Opacity',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
