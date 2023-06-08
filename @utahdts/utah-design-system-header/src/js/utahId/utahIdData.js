@@ -1,10 +1,41 @@
+// @ts-check
 import utahIdUrls from '../enumerations/utahIdUrls';
-import setTimeoutPromise from '../misc/setTimeoutPromise';
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
 import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';
 /**
-* @typedef {import('../misc/jsDocTypes').UtahIdData} UtahIdData
+ * @typedef {import('../misc/jsDocTypes').UtahIdData} UtahIdData
+ * @typedef {import('../misc/jsDocTypes').UtahIdFetchStyle} UtahIdFetchStyle
+ * @typedef {import('../misc/jsDocTypes').UtahIDSettings} UtahIDSettings
+ * @typedef {import('../misc/jsDocTypes').UserInfo} UserInfo
  */
+
+/** @enum {UtahIdFetchStyle} */
+const UtahIdFetchStyle = {
+  AUTOMATIC: /** @type {UtahIdFetchStyle} */ ('Automatic'),
+  NONE: /** @type {UtahIdFetchStyle} */ ('None'),
+  PROVIDED: /** @type {UtahIdFetchStyle} */ ('Provided'),
+};
+let lastFetchStyle = UtahIdFetchStyle.NONE;
+/**
+ * @param {UtahIDSettings | boolean | undefined} utahIdData
+ * @returns {UtahIdFetchStyle}
+ */
+function determineFetchStyle(utahIdData) {
+  /** @type {UtahIdFetchStyle} */
+  let fetchStyle;
+  if (utahIdData === true) {
+    fetchStyle = UtahIdFetchStyle.AUTOMATIC;
+  } else if (utahIdData === false) {
+    fetchStyle = UtahIdFetchStyle.NONE;
+  } else if (utahIdData === undefined || utahIdData.currentUser === undefined) {
+    fetchStyle = UtahIdFetchStyle.AUTOMATIC;
+  } else if (utahIdData.currentUser === null || utahIdData.currentUser) {
+    fetchStyle = UtahIdFetchStyle.PROVIDED;
+  } else {
+    throw new Error(`determineFetchStyle: Unknown utah id fetch style: '${utahIdData.currentUser}'`);
+  }
+  return fetchStyle;
+}
 
 /**
  * @type {UtahIdData}
@@ -28,7 +59,10 @@ function maybeTriggerAuthEvent(newUtahIdData) {
     authChangedEventHandler(newUtahIdData);
 
     // give settings callback a crack at the auth change
-    getUtahHeaderSettings()?.utahId?.onAuthChanged?.(newUtahIdData);
+    const utahId = getUtahHeaderSettings()?.utahId;
+    if (typeof utahId === 'object') {
+      utahId.onAuthChanged?.(newUtahIdData);
+    }
   }
 }
 
@@ -40,74 +74,86 @@ function maybeTriggerAuthEvent(newUtahIdData) {
 // this way the header knows the user is controlled by the app and to not go fetch the user.
 let waitingForLaunch = true;
 const WAIT_FOR_LAUNCH_MS = 500;
+
+/** @type {number} */
+let fetchUserTimeoutId = NaN;
+
 /**
- * @returns Promise<UtahIdData>
+ * @returns {Promise<UtahIdData>}
  */
 export async function fetchUtahIdUserDataAsync() {
-  /** @type Promise<UtahIdData> */
-  let result = null;
+  /** @type {Promise<UtahIdData>} */
+  let result = Promise.resolve(utahIdData);
+  const settings = getUtahHeaderSettings();
+  const fetchStyle = determineFetchStyle(settings.utahId);
 
   if (utahIdData.isDefinitive === false) {
     // working on it... come back later...
     result = Promise.resolve(utahIdData);
   } else if (waitingForLaunch) {
-    result = (
-      setTimeoutPromise(WAIT_FOR_LAUNCH_MS)
-        .promise
-        .then(() => {
+    clearTimeout(fetchUserTimeoutId);
+    result = new Promise((resolve) => {
+      fetchUserTimeoutId = window.setTimeout(
+        () => {
           // if the app hasn't called setUtahHeaderSettings() by now, too bad for them...
           waitingForLaunch = false;
           fetchUtahIdUserDataAsync()
+            .then((data) => resolve(data))
             // eslint-disable-next-line no-console
             .catch((e) => console.error(e));
-        })
-    );
-  } else {
-    const settings = getUtahHeaderSettings();
+        },
+        WAIT_FOR_LAUNCH_MS
+      );
+    });
+  } else if (settings.utahId === false) {
     // if utahId is set and currentUser is undefined then the header has control of the user
     // otherwise, if utahId is false then it is turned off
     // otherwise, if utahId is an object and currentUser is not undefined, then the application will control the current user
-    if (settings.utahId === false) {
-      // utahId is turned off (probably shouldn't even have gotten here?)
-      result = Promise.resolve({
-        isDefinitive: true,
-        lastError: 'Utah ID is off',
-        userInfo: null,
-      });
-    } else if (settings.utahId === true || settings.utahId?.currentUser === undefined) {
-      // 👆 catches true && null cases, both of which allow a refetch 👆
+    // utahId is turned off (probably shouldn't even have gotten here?)
+    result = Promise.resolve({
+      isDefinitive: true,
+      lastError: 'Utah ID is off',
+      userInfo: null,
+    });
+  } else if (settings.utahId === true || settings.utahId?.currentUser === undefined) {
+    // 👆 catches true && null cases, both of which allow a refetch 👆
 
-      // header is on OR utahId settings has an `undefined` user: Header controls the user!
+    // header is "on" OR utahId settings has an `undefined` user: Header controls the user!
+    if (fetchStyle !== lastFetchStyle || utahIdData.isDefinitive === null) {
       utahIdData.isDefinitive = false;
       result = fetch(utahIdUrls.USER_INFO, { credentials: 'include' })
         .then((resp) => resp.json())
         .then((authResult) => {
           if (authResult.status === 200) {
             utahIdData.lastError = null;
-            utahIdData.userInfo = /** @type UserInfo */ (authResult.data);
+            utahIdData.userInfo = /** @type {UserInfo} */ (authResult.data);
           } else {
             throw new Error(authResult.err);
           }
+          return utahIdData;
         })
         .catch((error) => {
           utahIdData.lastError = error;
           utahIdData.userInfo = null;
+          return utahIdData;
         })
         .finally(() => {
           utahIdData.isDefinitive = true;
           maybeTriggerAuthEvent(utahIdData);
+          return utahIdData;
         });
-    } else {
-      // utahId settings have currentUser as null or a user, either way the application will be controlling the user, not the header
-      const resultData = {
-        isDefinitive: true,
-        lastError: null,
-        userInfo: settings.utahId?.currentUser,
-      };
-      result = Promise.resolve(resultData);
-      maybeTriggerAuthEvent(resultData);
     }
+  } else {
+    // utahId settings have currentUser as null or a user, either way the application will be controlling the user, not the header
+    const resultData = {
+      isDefinitive: true,
+      lastError: null,
+      userInfo: settings.utahId?.currentUser,
+    };
+    result = Promise.resolve(resultData);
+    maybeTriggerAuthEvent(resultData);
   }
+  lastFetchStyle = fetchStyle;
   return result;
 }
 

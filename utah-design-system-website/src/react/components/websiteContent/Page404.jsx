@@ -7,20 +7,31 @@ const defaultProps = {};
 
 function Page404() {
   return (
-    <div className="documentation-template__content">
-      <h1>
-        404: Page Not Found
-      </h1>
-      <br />
-      <p>You have reached a url for which there is not a page.</p>
-      <p>
-        We would love to know how you got here. Please contact us using one of the
-        methods listed on the <Link to={pageUrls.gettingStarted}>Getting Started</Link> page
-        and let us know your experience!
-      </p>
-      <p>
-        You may go to the <Link to={pageUrls.home}>Home</Link> page to return to reality.
-      </p>
+    <div className="landing-page-template page-not-found">
+      <div className="top-banner" />
+      <div className="content-width page-not-found__content">
+        <div>
+          <h1 className="mt-spacing">
+            Page Not Found
+          </h1>
+          <br />
+          <p>You have reached a web address url for which there is no page.</p>
+          <p>
+            If you encountered this error while navigating this site, we would love to know how you got here. Please contact us using one of the
+            methods listed on the <Link to={pageUrls.gettingStarted}>Getting Started</Link> page
+            and let us know your experience!
+          </p>
+          <p>
+            To return to reality you may navigate using the above menu or visit the <Link to={pageUrls.home}>home</Link> page.
+          </p>
+          <p className="mb-auto">
+            <Link to={pageUrls.home} className="button button--primary-color button--solid" style={{ display: 'inline-flex' }}>
+              <span className="button--icon button--icon-left"><span className="utds-icon-before-arrow-left" aria-hidden="true" style={{ fontSize: '.9rem' }} /></span>
+              Home Page
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
