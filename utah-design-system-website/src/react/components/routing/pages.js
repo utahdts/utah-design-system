@@ -450,7 +450,7 @@ const pages = {
     content: DrawerDocumentation,
     link: pageUrls.drawers,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Drawer',
+    pageTitle: 'Drawers',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
