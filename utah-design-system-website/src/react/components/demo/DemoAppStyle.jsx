@@ -7,14 +7,11 @@ function DemoAppStyle() {
     <style
       dangerouslySetInnerHTML={
         {
-          __html: `
-          .utah-design-system {
-            ${Object.entries(cssState)
+          __html: `.utah-design-system {${(
+            Object.entries(cssState)
               .map(([key, value]) => `${key}: ${value}`)
               .join(';')
-            }
-          }
-        `,
+          )}}`,
         }
       }
     />

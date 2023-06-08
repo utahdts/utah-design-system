@@ -35,7 +35,6 @@ function TableCell({
       ref={innerRef}
       onClick={onClick}
       onDoubleClick={onDoubleClick}
-      onKeyPress={() => console.log('what should keypress on td do?')}
       role="gridcell"
       {...rest}
     >
