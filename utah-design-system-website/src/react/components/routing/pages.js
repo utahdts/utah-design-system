@@ -5,6 +5,7 @@ import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import DepthElevationShadowsDocumentation from '../websiteContent/foundation/DepthElevationShadowsDocumentation';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
+import LayoutDocumentation from '../websiteContent/foundation/LayoutDocumentation';
 import SpacingDocumentation from '../websiteContent/foundation/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
@@ -239,7 +240,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   layout: {
-    content: PlaceHolderDocumentation,
+    content: LayoutDocumentation,
     link: pageUrls.layout,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Layout (Flex, Grid System)',

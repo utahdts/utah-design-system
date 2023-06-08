@@ -29,6 +29,11 @@ export const menuFoundationSecondary = {
       parentLinks: [pages.foundation.link],
     },
     {
+      link: pages.layout.link,
+      title: pages.layout.pageTitle,
+      parentLinks: [pages.foundation.link],
+    },
+    {
       link: pages.spacing.link,
       title: pages.spacing.pageTitle,
       parentLinks: [pages.foundation.link],
@@ -66,14 +71,6 @@ export const menuFoundationSecondary = {
     //   title: pages.images.pageTitle,
     //   parentLinks: [pages.foundation.link],
     // },
-
-    // UDS-466
-    // {
-    //   link: pages.layout.link,
-    //   title: pages.layout.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
-
     // UDS-463
     // {
     //   link: pages.opacity.link,
