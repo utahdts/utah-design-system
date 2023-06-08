@@ -24,6 +24,11 @@ export const menuFoundationSecondary = {
   id: 'foundation',
   menuItems: [
     {
+      link: pages.depthElevationShadows.link,
+      title: pages.depthElevationShadows.pageTitle,
+      parentLinks: [pages.foundation.link],
+    },
+    {
       link: pages.spacing.link,
       title: pages.spacing.pageTitle,
       parentLinks: [pages.foundation.link],
@@ -33,12 +38,6 @@ export const menuFoundationSecondary = {
       title: pages.typography.pageTitle,
       parentLinks: [pages.foundation.link],
     },
-    // UDS-454
-    // {
-    //   link: pages.depthElevationShadows.link,
-    //   title: pages.depthElevationShadows.pageTitle,
-    //   parentLinks: [pages.foundation.link],
-    // },
 
     // UDS-453
     // {

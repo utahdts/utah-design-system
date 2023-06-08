@@ -3,6 +3,7 @@ import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
 import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
+import DepthElevationShadowsDocumentation from '../websiteContent/foundation/DepthElevationShadowsDocumentation';
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import SpacingDocumentation from '../websiteContent/foundation/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
@@ -203,7 +204,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   depthElevationShadows: {
-    content: PlaceHolderDocumentation,
+    content: DepthElevationShadowsDocumentation,
     link: pageUrls.depthElevationShadows,
     menuSecondary: menusEnum.SECONDARY_MENU_FOUNDATION,
     pageTitle: 'Depth / Elevation / Shadows',
