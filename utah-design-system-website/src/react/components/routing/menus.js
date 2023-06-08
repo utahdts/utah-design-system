@@ -96,13 +96,11 @@ export const menuGuidelinesSecondary = {
       title: pages.accessibility.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
-
-    // UDS-455
-    // {
-    //   link: pages.colorGuidelines.link,
-    //   title: pages.colorGuidelines.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
+    {
+      link: pages.colorGuidelines.link,
+      title: pages.colorGuidelines.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
 
     // UDS-458
     // {

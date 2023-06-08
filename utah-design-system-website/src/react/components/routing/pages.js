@@ -6,6 +6,7 @@ import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation
 import FoundationLanding from '../websiteContent/foundation/FoundationLanding';
 import TypographyDocumentation from '../websiteContent/foundation/TypographyDocumentation';
 import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
+import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
@@ -143,7 +144,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorGuidelines: {
-    content: PlaceHolderDocumentation,
+    content: ColorGuidelinesDocumentation,
     link: pageUrls.colorGuidelines,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Color',
