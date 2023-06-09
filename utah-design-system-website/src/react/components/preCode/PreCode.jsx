@@ -41,26 +41,29 @@ function PreCode({
   const childrenRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
   return (
-    <pre
-      className={joinClassNames(
-        className,
-        showBackgroundColor && 'gray-block',
-        allowScrollOverflow && 'pre-block--overflow',
-        addHorizontalPadding && 'pre-block--padded'
-      )}
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-      tabIndex={allowScrollOverflow ? '0' : undefined}
-      style={maxHeight && { maxHeight: `${maxHeight}` }}
-      {...propsForPre}
-    >
-      <div
-        className={joinClassNames(allowScrollOverflow && 'pre-block__overflow-content')}
-        ref={childrenRef}
+    <div className="pre-code__wrapper">
+      <pre
+        className={joinClassNames(
+          className,
+          showBackgroundColor && 'gray-block',
+          allowScrollOverflow && 'pre-code--overflow',
+          addHorizontalPadding && 'pre-code--padded'
+        )}
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        tabIndex={allowScrollOverflow ? '0' : undefined}
+        style={maxHeight && { maxHeight: `${maxHeight}` }}
+        {...propsForPre}
       >
-        {children}
-      </div>
+        <div
+          className={joinClassNames(allowScrollOverflow && 'pre-code__overflow-content')}
+          ref={childrenRef}
+        >
+          {children}
+        </div>
+      </pre>
+
       <CopyButton copyRef={childrenRef} />
-    </pre>
+    </div>
   );
 }
 
