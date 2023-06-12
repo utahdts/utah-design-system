@@ -64,19 +64,30 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
-            <ProgressLogVersionRow version="0.8" />
+            <ProgressLogVersionRow version="0.9" />
             <ProgressLogTableRow title="Accordion" toUrl={pageUrls.accordion} isDefinitionChecked />
+            <ProgressLogTableRow title="Carousel" toUrl={pageUrls.carousel} isDefinitionChecked />
+            <ProgressLogTableRow title="Checkbox" toUrl={pageUrls.checkbox} isDefinitionChecked />
+            <ProgressLogTableRow title="Code Block" toUrl={pageUrls.codeBlock} isDefinitionChecked />
+            <ProgressLogTableRow title="Drawer" toUrl={pageUrls.drawers} isDefinitionChecked />
+            <ProgressLogTableRow title="File Input" toUrl={pageUrls.fileInput} isDefinitionChecked />
+            <ProgressLogTableRow title="Guidelines: Accessibility" toUrl={pageUrls.accessibility} isDefinitionChecked />
+            <ProgressLogTableRow title="Info Box" toUrl={pageUrls.infoBox} isDefinitionChecked />
+            <ProgressLogTableRow title="Process List" toUrl={pageUrls.processList} isDefinitionChecked />
+            <ProgressLogTableRow title="Segmented Button" toUrl={pageUrls.segmentedButton} isDefinitionChecked />
+            <ProgressLogTableRow title="Step Indicator" toUrl={pageUrls.stepIndicator} isDefinitionChecked />
+
+            <ProgressLogVersionRow version="0.8" />
             <ProgressLogTableRow title="Breadcrumb" toUrl={pageUrls.breadcrumb} isDefinitionChecked />
             <ProgressLogTableRow title="Card" toUrl={pageUrls.card} isDefinitionChecked />
-            <ProgressLogTableRow title="Checkbox" toUrl={pageUrls.checkbox} isDefinitionChecked />
             <ProgressLogTableRow title="Confirmation Button" toUrl={pageUrls.confirmationButton} isDefinitionChecked />
-            <ProgressLogTableRow title="File Input" toUrl={pageUrls.fileInput} isDefinitionChecked />
             <ProgressLogTableRow title="Hamburger Menu" toUrl={pageUrls.mainMenu} isDefinitionChecked />
             <ProgressLogTableRow title="Headings" toUrl={pageUrls.headings} isDefinitionChecked />
             <ProgressLogTableRow title="Radio Button" toUrl={pageUrls.radioButton} isDefinitionChecked />
             <ProgressLogTableRow title="Side Panel" toUrl={pageUrls.sidePanelNavigation} isDefinitionChecked />
             <ProgressLogTableRow title="Tab Group" toUrl={pageUrls.tabs} isDefinitionChecked />
             <ProgressLogTableRow title="Text Formatting" toUrl={pageUrls.typography} isDefinitionChecked />
+
             <ProgressLogVersionRow version="0.7" />
             <ProgressLogTableRow title="Utah Header" toUrl={pageUrls.utahHeader} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Utah Footer" toUrl={pageUrls.utahFooter} isDefinitionChecked isCssChecked isComponentExampleChecked />
@@ -89,6 +100,7 @@ function ProgressLog() {
             <ProgressLogTableRow title="Switch" toUrl={pageUrls.switch} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Tags" toUrl={pageUrls.tags} isDefinitionChecked />
             <ProgressLogTableRow title="Time Input" toUrl={pageUrls.timeInput} isDefinitionChecked />
+
             <ProgressLogVersionRow version="0.6" />
             <ProgressLogTableRow title="Combo Box" toUrl={pageUrls.comboBox} isDefinitionChecked />
             <ProgressLogTableRow title="Links" toUrl={pageUrls.links} isDefinitionChecked />
@@ -97,14 +109,17 @@ function ProgressLog() {
             <ProgressLogTableRow title="Patterns: Footer" toUrl={pageUrls.utahFooter} isDefinitionChecked />
             <ProgressLogTableRow title="Select input" toUrl={pageUrls.select} isDefinitionChecked />
             <ProgressLogTableRow title="Table" toUrl={pageUrls.table} isDefinitionChecked isComponentExampleChecked />
+
             <ProgressLogVersionRow version="0.4" />
             <ProgressLogTableRow title="Getting Started" toUrl={pageUrls.gettingStarted} isDefinitionChecked isCssChecked isComponentExampleChecked />
             <ProgressLogTableRow title="Text Input" toUrl={pageUrls.textInput} isDefinitionChecked />
+
             <ProgressLogVersionRow version="0.3" />
             <ProgressLogTableRow title="Date Input" toUrl={pageUrls.dateInput} isDefinitionChecked />
             <ProgressLogTableRow title="Main Menu" toUrl={`${pageUrls.utahHeader}#main-menu`} isDefinitionChecked />
             <ProgressLogTableRow title="Tooltips" toUrl={pageUrls.tooltips} isDefinitionChecked />
             <ProgressLogTableRow title="Utah.gov Header" toUrl={pageUrls.utahHeader} isDefinitionChecked isCssChecked isComponentExampleChecked />
+
             <ProgressLogVersionRow version="0.2" />
             <ProgressLogTableRow title="Badges" toUrl={pageUrls.badges} isDefinitionChecked />
             <ProgressLogTableRow title="Buttons" toUrl={pageUrls.button} isDefinitionChecked isCssChecked isComponentExampleChecked />
@@ -119,26 +134,35 @@ function ProgressLog() {
       <h2 className="mt-spacing-l">Task Log</h2>
       <ul>
         <li>
-          Version 0.8
+          Version 0.9
           <ul>
-            <li>Add: Color Picker is now a gear icon in header!</li>
-            <li>Define: Accordion</li>
-            <li>Define: Breadcrumb</li>
-            <li>Define: Card</li>
-            <li>Define: Checkbox</li>
-            <li>Define: Confirmation Button</li>
-            <li>Define: File Input</li>
-            <li>Define: Hamburger Menu</li>
-            <li>Define: Headings</li>
-            <li>Define: Radio Button</li>
-            <li>Define: Side / Panel</li>
-            <li>Define: Tab Group</li>
-            <li>Define: Text Formatting</li>
-            <li>Update: Make Main menu in Header optional</li>
-            <li>Update: Official Site lock icon verbiage</li>
-            <li>Update: Place mobile header components in responsive locations</li>
-            <li>Update: Placeholder page is now more informative</li>
-            <li>Update: Remove placeholder pages from menu</li>
+            <li>Add: <Link to={pageUrls.errorPage404}>404 page</Link></li>
+            <li>Add: All code examples now have a &quot;copy&quot; icon button</li>
+            <li>Add: Clickable menu items w/ children</li>
+            <li>Add: Copious quantities of links to the <Link to={pageUrls.mockups}>Mocks</Link></li>
+            <li>Add: Footer boundaries for agencies in the <Link to={pageUrls.utahFooter}>Utah Footer</Link></li>
+            <li>Add: Main menu no longer required in <Link to={pageUrls.utahHeader}>UtahHeader</Link></li>
+            <li>Add: Mobile hamburger menu has <code>aria-label</code> tag</li>
+            <li>Add: onSearch & no-menu presets to <Link to={pageUrls.utahHeader}>UtahHeader playground</Link></li>
+            <li>Define: <Link to={pageUrls.accessibility}>Guidelines & Standards: Accessibility</Link></li>
+            <li>Define: <Link to={pageUrls.accordion}>Accordion</Link></li>
+            <li>Define: <Link to={pageUrls.carousel}>Carousel</Link></li>
+            <li>Define: <Link to={pageUrls.checkbox}>Checkbox</Link></li>
+            <li>Define: <Link to={pageUrls.codeBlock}>Code Block</Link></li>
+            <li>Define: <Link to={pageUrls.drawers}>Drawers</Link></li>
+            <li>Define: <Link to={pageUrls.fileInput}>File Input</Link></li>
+            <li>Define: <Link to={pageUrls.infoBox}>Info Box</Link></li>
+            <li>Define: <Link to={pageUrls.processList}>Process List</Link></li>
+            <li>Define: <Link to={pageUrls.segmentedButton}>Segmented Button</Link></li>
+            <li>Define: <Link to={pageUrls.stepIndicator}>Step Indicator</Link></li>
+            <li>Remove: Placeholder pages missing from menus</li>
+            <li>Remove: Utah Header version console.log</li>
+            <li>Update: <Link to={pageUrls.utahHeader}>UtahId button</Link> no longer blinks on each page render</li>
+            <li>Update: Design System content area is now more responsive!</li>
+            <li>Update: Links in the Design System now scroll to the top</li>
+            <li>Update: Make page urls consistent with menu location</li>
+            <li>Update: Move menus around</li>
+            <li>Update: Readme.md has is less misleading</li>
           </ul>
         </li>
         <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>
