@@ -7,7 +7,7 @@ export function hideMobileMenu() {
   // close MMAB
   hamburger.setAttribute('aria-expanded', 'false');
   mobileMenu.classList.remove(domConstants.IS_OPEN);
-  hamburger.setAttribute('aria-label', 'Open the menu');
+  hamburger.setAttribute('aria-label', 'Open the mobile menu');
 
   // change from an 'X'
   hamburgerIcon.classList.add('utds-icon-before-hamburger');
@@ -24,7 +24,7 @@ export function showMobileMenu() {
   // open MMAB
   hamburger.setAttribute('aria-expanded', 'true');
   mobileMenu.classList.add(domConstants.IS_OPEN);
-  hamburger.setAttribute('aria-label', 'Close the menu');
+  hamburger.setAttribute('aria-label', 'Close the mobile menu');
 
   // change to an 'X'
   hamburgerIcon.classList.remove('utds-icon-before-hamburger');

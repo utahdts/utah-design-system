@@ -82,7 +82,7 @@ function IconsDocumentation() {
                 <span className="visually-hidden">{state?.currentIcon?.title}</span>
               </div>
             </div>
-            <div>
+            <div className="flex-1">
               <PreCodeForRef
                 allowScrollOverflow
                 deps={[state.currentIcon]}
@@ -109,7 +109,7 @@ function IconsDocumentation() {
                 <span className={`utds-icon-before-${state?.currentIcon?.cssClass}`} role="img" title={state?.currentIcon?.title} />
               </div>
             </div>
-            <div>
+            <div className="flex-1">
               <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef2} />
             </div>
           </>
@@ -138,7 +138,7 @@ function IconsDocumentation() {
                 <span className={`utds-icon-after-${state?.currentIcon?.cssClass}`} aria-hidden="true" />
               </div>
             </div>
-            <div>
+            <div className="flex-1">
               <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef3} />
               <PreCodeForRef deps={[state.currentIcon]} targetRef={iconDOMRef4} />
             </div>
@@ -196,13 +196,24 @@ function IconsDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>Icons that provide semantic meaning must have some kind of descriptive text. (See accessible icon strategies above.)</li>
-        <li>Accessible inline SVG icon strategy:
-          <pre className="gray-block mt-auto">
-            &lt;svg viewBox=&quot;0 0 20 20&quot; role=&quot;img&quot;&gt;<br />
-            &nbsp;&nbsp;&lt;title&gt;Description of Action&lt;/title&gt;<br />
-            &nbsp;&nbsp;&lt;g&gt;...&lt;/g&gt;<br />
-            &lt;/svg&gt;<br />
-          </pre>
+        <li>Accessible inline SVG icon strategies:
+          <PreCodeForCodeString
+            codeRaw={`
+              <svg viewBox="0 0 20 20" role="img">
+                <title>Description of Action</title>
+                <g>...</g>
+              </svg>
+            `}
+            showBackgroundColor
+          />
+          <PreCodeForCodeString
+            codeRaw={`
+              <svg viewBox="0 0 20 20" role="img" aria-label="description of icon>
+                <g>...</g>
+              </svg>
+            `}
+            showBackgroundColor
+          />
         </li>
         <li>Icons that are purely decorative should be hidden with <code>aria-hidden=&quot;true&quot;</code> attribute.</li>
       </ul>

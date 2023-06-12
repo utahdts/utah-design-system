@@ -1,6 +1,5 @@
 // @ts-check
 import {
-  menuFoundationSecondary,
   menuGuidelinesSecondary,
   menuLibraryComponentsSecondary,
   menuLibraryPatternsSecondary,
@@ -97,7 +96,6 @@ export default function constructMainMenu(currentMenuItem, navigate) {
   );
 
   // add children to each top level menu
-  mainMenusByLink[pageUrls.foundation].actionMenu = constructMenuItems(menuFoundationSecondary.menuItems, navigate);
   mainMenusByLink[pageUrls.guidelines].actionMenu = constructMenuItems(menuGuidelinesSecondary.menuItems, navigate);
   mainMenusByLink[pageUrls.library].actionMenu = [
     {
