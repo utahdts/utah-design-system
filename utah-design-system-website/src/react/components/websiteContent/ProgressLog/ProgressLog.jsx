@@ -66,16 +66,9 @@ function ProgressLog() {
           <TableBody>
             <ProgressLogVersionRow version="0.9" />
             <ProgressLogTableRow title="Accordion" toUrl={pageUrls.accordion} isDefinitionChecked />
-            <ProgressLogTableRow title="Carousel" toUrl={pageUrls.carousel} isDefinitionChecked />
             <ProgressLogTableRow title="Checkbox" toUrl={pageUrls.checkbox} isDefinitionChecked />
-            <ProgressLogTableRow title="Code Block" toUrl={pageUrls.codeBlock} isDefinitionChecked />
-            <ProgressLogTableRow title="Drawer" toUrl={pageUrls.drawers} isDefinitionChecked />
             <ProgressLogTableRow title="File Input" toUrl={pageUrls.fileInput} isDefinitionChecked />
             <ProgressLogTableRow title="Guidelines: Accessibility" toUrl={pageUrls.accessibility} isDefinitionChecked />
-            <ProgressLogTableRow title="Info Box" toUrl={pageUrls.infoBox} isDefinitionChecked />
-            <ProgressLogTableRow title="Process List" toUrl={pageUrls.processList} isDefinitionChecked />
-            <ProgressLogTableRow title="Segmented Button" toUrl={pageUrls.segmentedButton} isDefinitionChecked />
-            <ProgressLogTableRow title="Step Indicator" toUrl={pageUrls.stepIndicator} isDefinitionChecked />
 
             <ProgressLogVersionRow version="0.8" />
             <ProgressLogTableRow title="Breadcrumb" toUrl={pageUrls.breadcrumb} isDefinitionChecked />
@@ -146,15 +139,8 @@ function ProgressLog() {
             <li>Add: onSearch & no-menu presets to <Link to={pageUrls.utahHeader}>UtahHeader playground</Link></li>
             <li>Define: <Link to={pageUrls.accessibility}>Guidelines & Standards: Accessibility</Link></li>
             <li>Define: <Link to={pageUrls.accordion}>Accordion</Link></li>
-            <li>Define: <Link to={pageUrls.carousel}>Carousel</Link></li>
             <li>Define: <Link to={pageUrls.checkbox}>Checkbox</Link></li>
-            <li>Define: <Link to={pageUrls.codeBlock}>Code Block</Link></li>
-            <li>Define: <Link to={pageUrls.drawers}>Drawers</Link></li>
             <li>Define: <Link to={pageUrls.fileInput}>File Input</Link></li>
-            <li>Define: <Link to={pageUrls.infoBox}>Info Box</Link></li>
-            <li>Define: <Link to={pageUrls.processList}>Process List</Link></li>
-            <li>Define: <Link to={pageUrls.segmentedButton}>Segmented Button</Link></li>
-            <li>Define: <Link to={pageUrls.stepIndicator}>Step Indicator</Link></li>
             <li>Remove: Placeholder pages missing from menus</li>
             <li>Remove: Utah Header version console.log</li>
             <li>Update: <Link to={pageUrls.utahHeader}>UtahId button</Link> no longer blinks on each page render</li>
