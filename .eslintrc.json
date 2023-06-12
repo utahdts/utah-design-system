@@ -9,7 +9,10 @@
   ],
   "ignorePatterns": [
     "vite.config.js",
-    "dist/**"
+    "dist/**",
+    "**/dist/**",
+    "/node_modules/**",
+    "**/node_modules/**"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -23,6 +26,8 @@
     "react-refresh"
   ],
   "rules": {
+    "react/jsx-one-expression-per-line": "off",
+    "indent": "warn",
     "react-refresh/only-export-components": "error",
     "linebreak-style": "off",
     "import/prefer-default-export": "off",
@@ -44,7 +49,7 @@
       {
         "arrays": "always-multiline",
         "objects": "always-multiline",
-        "imports": "always-multiline",
+        "imports": "only-multiline",
         "exports": "always-multiline",
         "functions": "never"
       }
@@ -64,6 +69,7 @@
         "explicitSpread": "enforce"
       }
     ],
+    "import/no-cycle": "off",
     "no-param-reassign": [
       "error",
       {
@@ -71,6 +77,22 @@
         "ignorePropertyModificationsForRegex": [
           "^draft"
         ]
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "enforceInMethodNames": false,
+        "enforceInClassFields": false
+      }
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true,
+        "allowNamedExports": false
       }
     ]
   }
