@@ -195,8 +195,7 @@ export const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.breadcrumb.link, title: pages.breadcrumb.pageTitle },
         { link: pages.hamburger.link, title: pages.hamburger.pageTitle },
-        // UDS-827
-        // { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
+        { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
