@@ -133,8 +133,11 @@ function GettingStarted() {
                     []
                   );
 
+                  // The CSS for the Utah Design System is scoped to the 
+                  // 'utah-design-system' class and is optional if you
+                  // prefer cooking your own.
                   return (
-                    <div className="App">
+                    <div className="App utah-design-system">
                     ...
                     </div>
                   );
