@@ -266,13 +266,6 @@ const pages = {
   },
 
   // === resources documentation components === //
-  colorPicker: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.colorPicker,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Color Picker',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
   contributeCommunity: {
     content: PlaceHolderDocumentation,
     link: pageUrls.contributeCommunity,

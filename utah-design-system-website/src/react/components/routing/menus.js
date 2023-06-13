@@ -316,13 +316,6 @@ export const menuResourcesSecondary = {
       parentLinks: [pages.resources.link],
     },
 
-    // UDS-460
-    // {
-    //   link: pages.colorPicker.link,
-    //   title: pages.colorPicker.pageTitle,
-    //   parentLinks: [pages.resources.link],
-    // },
-
     {
       link: pages.icons.link,
       title: pages.icons.pageTitle,
