@@ -18,7 +18,7 @@ function ShapesDocumentation() {
       <p className="lead-in">
         Rounded corners are primarily used for aesthetic purposes in the Utah Design System UI, aiming to create a contemporary
         appearance. Elements featuring rounded corners tend to convey a sense of refinement, compared to plain rectangular shapes
-        with sharp corners.
+        with sharp corners. In addition, rounded corners also denote interactive elements as well.
       </p>
       <p>
         The degree of rounding in corners is determined by the <code>border-radius</code> (css), which can be specified using <code>pixels</code>. When
@@ -27,7 +27,7 @@ function ShapesDocumentation() {
 
       <hr />
 
-      <h2 id="section-areas-to-consider" className="mb-spacing">The Default Corner Radius is 6px</h2>
+      <h2 id="section-areas-to-consider" className="mb-spacing">The Default Corner Radius is 6-9px</h2>
       <p>
         This is the standard corner radius for a wide range of UI components, including the following elements:
       </p>
@@ -91,9 +91,10 @@ function ShapesDocumentation() {
 
       <h3 id="section-changing-corner-radius" className="mb-spacing">Changing the Corner Radius can Adversely Affect its Content</h3>
       <p>
-        Altering the shape family can have an impact on the content displayed within a component. For instance, if a <Link to={pageUrls.card}>card</Link> has
-        large rounded corners, it may encroach upon the content area making it more difficult to read or possibly clipping the content. To prevent
-        unintended consequences, carefully consider the size of the corner radius when laying your content.
+        Modifying the shape style can have an impact on the content contained within a component.
+      </p>
+      <p>
+        For instance, if a card has large rounded corners, it may encroach upon the content area making it more difficult to read or possibly clipping the content. To prevent unintended consequences, carefully consider the size of the corner radius when laying out your content.
       </p>
     </div>
   );
