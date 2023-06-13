@@ -287,6 +287,9 @@ function UtahHeaderDocumentation() {
 
       <p>View more information on <Link to={pageUrls.popups}>Popup Menus</Link>, <Link to={pageUrls.iconButton}>Icon Buttons</Link> and <Link to={pageUrls.badges}>Badges</Link>.</p>
 
+      <h3 id="section-main-menu">Main Menu</h3>
+      <p>Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.</p>
+
       <StaticExample
         title="Search"
         renderedExample={(
@@ -1650,7 +1653,7 @@ function UtahHeaderDocumentation() {
         <h4 id="section-auth-menu-items" className="mt-spacing">utahId.menuItems</h4>
         <div>
           You may provide custom menu items to include in the Utah ID menu for a signed in user. Make sure that these menu items are relevant
-          to a user&apos;s account. Use the <a href="#section-mainmenu-settings">Main Menu</a> configuration for non-account related links.
+          to a user&apos;s account. Use the <Link to={pageUrls.mainMenu}>Main Menu</Link> configuration for non-account related links.
           <PreCodeForCodeString
             allowScrollOverflow
             className="gray-block mt-spacing"
