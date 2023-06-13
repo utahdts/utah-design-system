@@ -8,6 +8,7 @@ import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuid
 import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LayoutDocumentation from '../websiteContent/guidelines/LayoutDocumentation';
+import OpacityDocumentation from '../websiteContent/guidelines/OpacityDocumentation';
 import ShapesDocumentation from '../websiteContent/guidelines/ShapesDocumentation';
 import SpacingDocumentation from '../websiteContent/guidelines/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/guidelines/TypographyDocumentation';
@@ -240,7 +241,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   opacity: {
-    content: PlaceHolderDocumentation,
+    content: OpacityDocumentation,
     link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Opacity',

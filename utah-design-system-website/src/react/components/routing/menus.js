@@ -57,6 +57,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.opacity.link,
+      title: pages.opacity.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.shape.link,
       title: pages.shape.pageTitle,
       parentLinks: [pages.guidelines.link],
@@ -113,13 +118,6 @@ export const menuGuidelinesSecondary = {
     //   title: pages.images.pageTitle,
     //   parentLinks: [pages.guidelines.link],
     // },
-    // UDS-463
-    // {
-    //   link: pages.opacity.link,
-    //   title: pages.opacity.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
-
   ],
 };
 
