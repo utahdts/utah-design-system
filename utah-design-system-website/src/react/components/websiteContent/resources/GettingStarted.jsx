@@ -124,6 +124,7 @@ function GettingStarted() {
           Load header settings to show the header in the application code&apos;s App.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/create-react-app</code> folder)<br />
           <PreCodeForCodeString
             codeRaw={`
+                import { useEffect } from 'React';
                 function App() {
                   useEffect(
                     () => {
