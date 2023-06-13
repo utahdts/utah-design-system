@@ -15,6 +15,7 @@ import TypographyDocumentation from '../websiteContent/guidelines/TypographyDocu
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
+import ParagraphDocumentation from '../websiteContent/library/components/basicAtomic/Paragraph/ParagraphDocumentation';
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
@@ -366,10 +367,10 @@ const pages = {
   },
 
   paragraphs: {
-    content: PlaceHolderDocumentation,
+    content: ParagraphDocumentation,
     link: pageUrls.paragraphs,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Paragraphs and Text',
+    pageTitle: 'Basic and Semantic Text',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

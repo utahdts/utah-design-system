@@ -131,12 +131,12 @@ export const menuLibraryComponentsSecondary = {
       title: 'Text & Layout',
       parentLinks: [pages.library.link],
       children: [
+        // Basic and Semantic Text
+        { link: pages.paragraphs.link, title: pages.paragraphs.pageTitle },
         { link: pages.codeBlock.link, title: pages.codeBlock.pageTitle },
         { link: pages.dividers.link, title: pages.dividers.pageTitle },
         { link: pages.headings.link, title: pages.headings.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
-        // UDS-838 UDS-839
-        // { link: pages.paragraphs.link, title: pages.paragraphs.pageTitle },
       ],
     },
     {
