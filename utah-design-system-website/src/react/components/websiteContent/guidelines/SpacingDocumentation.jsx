@@ -56,11 +56,11 @@ function SpacingDocumentation() {
 
       <h3>Opinionated Defaults</h3>
       <p>
-        By default, paragraphs have a <code>line-height</code> of <code>1.4</code> and a <code>bottom margin</code> of <code>24px</code> (<code>-spacing-l</code>).
+        By default, paragraphs have a <code>line-height</code> of <code>1.4</code> and a <code>bottom margin</code> of <code>24px</code> (<code>spacing&#8209;l</code>).
         Headlines have a margin of <code>zero</code>, so they can remain close to the content/paragraph that they are representing.
       </p>
       <p>
-        By default list items <code>&lt;li&gt;</code> are spaced further apart using a bottom margin of <code>spacing-2xl (40px)</code> with a line height of <code>1.7</code>.
+        By default list items <code>&lt;li&gt;</code> are spaced further apart using a bottom margin of <code>spacing&#8209;2xl (40px)</code> with a line height of <code>1.7</code>.
       </p>
       <p>These defaults can be overridden to meet your site&apos;s particular needs.</p>
 
@@ -277,12 +277,12 @@ function SpacingDocumentation() {
 
       <StaticExample
         renderedExample={<LightBox image={spacingScreenshot5} alt="Spacing Example" className="flex-2up-gap" />}
-        quickTips={(<>Example of <code>Example of --spacing</code></>)}
+        quickTips={(<>Example of <code>--spacing</code></>)}
       />
 
       <StaticExample
         renderedExample={<LightBox image={spacingScreenshot7} alt="Spacing Example" className="flex-2up-gap" />}
-        quickTips={(<>Example of <code>Example of --spacing-s and --spacing-l</code></>)}
+        quickTips={(<>Example of <code>--spacing-s</code> and <code>--spacing-l</code></>)}
       />
 
       <StaticExample
