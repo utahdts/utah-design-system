@@ -1,0 +1,55 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .spacing-documentation {
+    .spacing-example-box {
+      width: var(--spacing-3xs);
+      height: var(--spacing-3xs);
+      background: var(--primary-color);
+      &.spacing-2xs {
+        width: var(--spacing-2xs);
+        height: var(--spacing-2xs);
+      }
+      &.spacing-xs {
+        width: var(--spacing-xs);
+        height: var(--spacing-xs);
+      }
+      &.spacing-s {
+        width: var(--spacing-s);
+        height: var(--spacing-s);
+      }
+      &.spacing {
+        width: var(--spacing);
+        height: var(--spacing);
+      }
+      &.spacing-l {
+        width: var(--spacing-l);
+        height: var(--spacing-l);
+      }
+      &.spacing-xl {
+        width: var(--spacing-xl);
+        height: var(--spacing-xl);
+      }
+      &.spacing-2xl {
+        width: var(--spacing-2xl);
+        height: var(--spacing-2xl);
+      }
+      &.spacing-3xl {
+        width: var(--spacing-3xl);
+        height: var(--spacing-3xl);
+      }
+      &.spacing-4xl {
+        width: var(--spacing-4xl);
+        height: var(--spacing-4xl);
+      }
+      &.spacing-5xl {
+        width: var(--spacing-5xl);
+        height: var(--spacing-5xl);
+      }
+      &.spacing-6xl {
+        width: var(--spacing-6xl);
+        height: var(--spacing-6xl);
+      }
+    }
+  }
+}

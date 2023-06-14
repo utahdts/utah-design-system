@@ -1,5 +1,4 @@
 import { Accordion } from '@utahdts/utah-design-system';
-import dhhsBrand from '../../../static/images/DHHS-Logo.svg';
 import traxImageUrl from '../../../static/images/trax.jpg';
 import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
@@ -14,7 +13,6 @@ function DemoContent() {
       <div className="hero">
         <div className="hero__image" />
         <svg className="hero__slant-color" viewBox="0 0 4000 400"><g><path d="M0,0H4000V400H268L0,0Z" /></g></svg>
-        <div className="hero__branding"><img src={dhhsBrand} alt="Health and Human Services Logo" /></div>
         <div className="hero__title-wrapper text-on-primary-color">
           <div className="hero__title">Department of Health &amp; Human Services</div>
           <div className="hero__title-h-divider" />
@@ -22,9 +20,7 @@ function DemoContent() {
         </div>
       </div>
 
-      <div className="secondary-color-bar mb-spacing-l" />
-
-      <div className="grid-wrapper px-spacing-ls">
+      <div className="grid-wrapper px-spacing-ls mt-spacing-l">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
           <div className="card primary-color-background text-on-primary-color">
             <div className="material-symbols-outlined card__icon">settings_suggest</div>
