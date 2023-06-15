@@ -44,6 +44,7 @@ import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-syste
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
+import MainMenuSettingsAndCode from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
 
 const propTypes = {};
 const defaultProps = {};
@@ -355,7 +356,7 @@ function UtahHeaderDocumentation() {
       </ul>
 
       {/* ---- CODE EXAMPLES --- */}
-      <h2 id="section-utahheader-code-examples" className="mb-spacing">Code Examples</h2>
+      <h2 id="section-utahheader-code-examples" className="my-spacing">Code Examples</h2>
       {/* ----     Header Events     --- */}
       <h3 id="section-utahheader-events" className="mb-spacing">Utah Header Events</h3>
       <h4 id="section-loaded">{events.HEADER_LOADED}</h4>
@@ -390,8 +391,10 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
+      {/* ---- CODE EXAMPLES --- */}
+      <h2 id="section-utahheader-config-settings" className="my-spacing">Configuration Settings</h2>
       {/* ----     Settings     --- */}
-      <h3 id="section-utahheader-settings" className="mb-spacing">Basic Settings</h3>
+      <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <TableWrapper>
         <Table className="table--lines-x">
@@ -1104,6 +1107,8 @@ function UtahHeaderDocumentation() {
         `}
         />
       </div>
+
+      <MainMenuSettingsAndCode />
 
       <h3 id="section-utahheader-footer" className="mb-spacing">Footer</h3>
       <h4 id="section-auth-props">Config Props</h4>
