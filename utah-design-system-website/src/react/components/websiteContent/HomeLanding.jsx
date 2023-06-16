@@ -174,7 +174,7 @@ function HomeLanding() {
 
         </div>
 
-        <h2 className="text-center mt-spacing-l">H.B. 284</h2>
+        <h2 className="text-center mt-spacing-l">Why a Design System?</h2>
         <p>
           The Utah State Legislature and Governor have expressed interest in standardizing the look and feel
           of websites in the State in order to improve the user experience of residents who wish to use State of Utah online resources.
