@@ -84,6 +84,10 @@
         width: .8rem;
         fill: currentColor;
       }
+      [class*='utds-icon-after-']::after,
+      [class*='utds-icon-before-']::before {
+        font-size: .9em;
+      }
     }
     &--icon-left {
       margin-right: var(--spacing-xs)

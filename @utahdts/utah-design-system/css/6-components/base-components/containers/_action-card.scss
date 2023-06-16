@@ -1,0 +1,73 @@
+@use "../../../1-settings/class-vars";
+
+/*
+############     _action-card.scss      ############
+*/
+#{class-vars.$base-class} {
+  .action-card {
+    border: 2px solid var(--gray-color);
+    border-radius: var(--radius-small);
+    padding: var(--spacing);
+    text-decoration: none;
+    color: var(--gray-color);
+    transition: all 200ms ease-in-out;
+    &:hover {
+      box-shadow: none;
+      background: var(--gray-color);
+      color: white;
+    }
+    &--primary-color {
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      &:hover {
+        background: var(--primary-color);
+      }
+    }
+    &--secondary-color {
+      border: 2px solid var(--secondary-color);
+      color: var(--secondary-color);
+      &:hover {
+        background: var(--secondary-color);
+      }
+    }
+    &--accent-color {
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      &:hover {
+        background: var(--accent-color);
+      }
+    }
+    &--solid {
+      background: var(--gray-color);
+      color: white;
+      &.action-card--primary-color {
+        background: var(--primary-color);
+        &:hover {
+          color: var(--primary-color);
+          background: white;
+        }
+      }
+      &.action-card--secondary-color {
+        background: var(--secondary-color);
+        &:hover {
+          color: var(--secondary-color);
+          background: white;
+        }
+      }
+      &.action-card--accent-color {
+        background: var(--accent-color);
+        &:hover {
+          color: var(--accent-color);
+          background: white;
+        }
+      }
+    }
+
+    //TODO: Primary color is light
+
+    &__title {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

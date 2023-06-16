@@ -81,6 +81,7 @@ variables and settings
 
     /* content layout sizes */
   --content-width-narrow: 808px;
+  --content-width-medium: 1016px;
   --content-width: 1224px;
   --content-width-wide: 1432px;
   --documentation-width: 700px;
@@ -91,9 +92,13 @@ variables and settings
 
   /* elevation box shadows */
   --drop-shadow-color: rgba(0, 0, 0, 0.3);
+  --drop-shadow-color-top: rgba(0, 0, 0, 0.15);
   --elevation-small: 0 3px 6px var(--drop-shadow-color);
   --elevation-medium: 0 6px 12px var(--drop-shadow-color);
   --elevation-large: 0 12px 16px var(--drop-shadow-color);
+  --elevation-small-borderless: 0 3px 6px var(--drop-shadow-color), 0 -3px 3px var(--drop-shadow-color-top);
+  --elevation-medium-borderless: 0 6px 12px var(--drop-shadow-color), 0 -3px 6px var(--drop-shadow-color-top);
+  --elevation-large-borderless: 0 12px 16px var(--drop-shadow-color),  0 -3px 12px var(--drop-shadow-color-top);
 
 }
 
