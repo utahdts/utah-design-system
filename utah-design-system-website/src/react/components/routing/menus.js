@@ -57,6 +57,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.opacity.link,
+      title: pages.opacity.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.shape.link,
       title: pages.shape.pageTitle,
       parentLinks: [pages.guidelines.link],
@@ -113,13 +118,6 @@ export const menuGuidelinesSecondary = {
     //   title: pages.images.pageTitle,
     //   parentLinks: [pages.guidelines.link],
     // },
-    // UDS-463
-    // {
-    //   link: pages.opacity.link,
-    //   title: pages.opacity.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
-
   ],
 };
 
@@ -133,12 +131,12 @@ export const menuLibraryComponentsSecondary = {
       title: 'Text & Layout',
       parentLinks: [pages.library.link],
       children: [
+        // Basic and Semantic Text
+        { link: pages.paragraphs.link, title: pages.paragraphs.pageTitle },
         { link: pages.codeBlock.link, title: pages.codeBlock.pageTitle },
         { link: pages.dividers.link, title: pages.dividers.pageTitle },
         { link: pages.headings.link, title: pages.headings.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
-        // UDS-838 UDS-839
-        // { link: pages.paragraphs.link, title: pages.paragraphs.pageTitle },
       ],
     },
     {
@@ -195,8 +193,7 @@ export const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.breadcrumb.link, title: pages.breadcrumb.pageTitle },
         { link: pages.hamburger.link, title: pages.hamburger.pageTitle },
-        // UDS-827
-        // { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
+        { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
@@ -318,13 +315,6 @@ export const menuResourcesSecondary = {
       title: pages.demo.pageTitle,
       parentLinks: [pages.resources.link],
     },
-
-    // UDS-460
-    // {
-    //   link: pages.colorPicker.link,
-    //   title: pages.colorPicker.pageTitle,
-    //   parentLinks: [pages.resources.link],
-    // },
 
     {
       link: pages.icons.link,

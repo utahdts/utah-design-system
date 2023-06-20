@@ -32,7 +32,7 @@ function determineFetchStyle(utahIdData) {
   } else if (utahIdData.currentUser === null || utahIdData.currentUser) {
     fetchStyle = UtahIdFetchStyle.PROVIDED;
   } else {
-    throw new Error(`determineFetchStyle: Unknown utah id fetch style: '${utahIdData.currentUser}'`);
+    throw new Error('determineFetchStyle: Unknown utah id fetch style');
   }
   return fetchStyle;
 }

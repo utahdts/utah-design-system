@@ -16,7 +16,6 @@ const pageUrls = {
   codeBlock: /** @type {PageUrl} */ ('/library/components/textLayout/codeBlock'),
   colorFoundation: /** @type {PageUrl} */ ('/guidelinesStandards/color'),
   colorGuidelines: /** @type {PageUrl} */ ('/guidelinesStandards/color'),
-  colorPicker: /** @type {PageUrl} */ ('/resources/colorPicker'),
   comboBox: /** @type {PageUrl} */ ('/library/components/forms/comboBox'),
   confirmationButton: /** @type {PageUrl} */ ('/library/components/buttonsTags/confirmationButton'),
   containers: /** @type {PageUrl} */ ('/library/components/containers'),
