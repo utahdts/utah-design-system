@@ -171,7 +171,12 @@ function Mockups() {
         <LightBox image={formInputs06} alt="Form Inputs 6" className="flex-4up-gap" />
         <LightBox image={formInputs07} alt="Form Inputs 7" className="flex-4up-gap" />
       </div>
-      <MockupNavButton pageLinks={[{ url: pageUrls.validation, title: 'Form Validation' }, { url: pageUrls.accessibility, title: 'General Form Accessibility Guidance' }]} />
+      <MockupNavButton
+        pageLinks={[
+          { url: pageUrls.validation, title: 'Form Validation' },
+          { url: pageUrls.accessibility, title: 'General Form Accessibility Guidance' },
+        ]}
+      />
 
       <h2 id="section-buttons">Buttons and Icon Buttons</h2>
       <p>
@@ -333,7 +338,7 @@ function Mockups() {
       <div className="flex flex-wrap gap mb-spacing justify-center">
         <LightBox image={elevation} alt="Elevation" className="flex-4up-gap" />
       </div>
-      <MockupNavButton pageLinks={[{ url: pageUrls.elevation, title: 'Elevation' }]} />
+      <MockupNavButton pageLinks={[{ url: pageUrls.depthElevationShadows, title: 'Elevation' }]} />
 
       <h2 id="section-tables">Tables</h2>
       <p>
