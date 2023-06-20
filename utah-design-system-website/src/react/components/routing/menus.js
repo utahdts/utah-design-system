@@ -317,6 +317,12 @@ export const menuResourcesSecondary = {
     },
 
     {
+      link: pages.showcase.link,
+      title: pages.showcase.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+
+    {
       link: pages.icons.link,
       title: pages.icons.pageTitle,
       parentLinks: [pages.resources.link],
