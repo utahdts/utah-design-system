@@ -182,8 +182,8 @@ function HomeLanding() {
         <div className="content-width">
           <h2 className="text-center mt-spacing-l">Why a Design System?</h2>
           <p>
-            In 2019 the Utah State Legislature passed <ExternalLink href="https://le.utah.gov/~2019/bills/static/HB0284.html">H.B. 284</ExternalLink>
-            for Utah State Code <ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S104.html">§63A-16-104</ExternalLink> to require that DTS and Executive
+            In 2019 the Utah State Legislature passed <ExternalLink href="https://le.utah.gov/~2019/bills/static/HB0284.html">H.B. 284</ExternalLink> for
+            Utah State Code <ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S104.html">§63A-16-104</ExternalLink> to require that DTS and Executive
             Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
             design standards and navigation standards”.
           </p>
