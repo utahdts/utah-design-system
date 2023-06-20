@@ -85,20 +85,71 @@
       }
     }
   }
+  &__gray-section {
+    background: var(--gray-light-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-}
-.home-version {
-  font-size: var(--font-size-2xs);
-  text-align: center;
+  &__color-card-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: var(--spacing-l);
+  }
+  &__color-card {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing);
+    p {
+      margin: 0;
+    }
+    &--secondary {
+      background: var(--secondary-color);
+    }
+  }
+  &__contact-section {
+    padding: var(--spacing-6xl) 0;
+    text-align: center;
+    .icon-chat-bubbles {
+      fill: var(--primary-color);
+      width: 80px;
+    }
+  }
 }
 
 @media screen and (max-width: #{media-size-vars.$media-size-mobile}) {
   .home-banner {
+    background-position: 0 0;
     &__title {
       font-size: var(--font-size-5xl);
       width: min-content;
       margin: var(--spacing-xl);
       line-height: 1.1;
+    }
+  }
+  .home-page {
+    &__benefits-section {
+      padding: 0 var(--spacing-l);
+    }
+    &__card-grid {
+      gap: var(--spacing);
+    }
+    &__card-wide {
+      grid-column: auto / span 10;
+    }
+    &__card-narrow {
+      grid-column: auto / span 10;
+    }
+
+    &__action-cards {
+      .action-card {
+        grid-column-start: span 4;
+        &--center {
+          grid-column-start: 1;
+          grid-column-end: 5;
+        }
+      }
     }
   }
 }

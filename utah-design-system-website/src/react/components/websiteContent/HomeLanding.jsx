@@ -2,8 +2,10 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import pageUrls from '../routing/pageUrls';
-import ProgressLog from './ProgressLog/ProgressLog';
+// import ProgressLog from './ProgressLog/ProgressLog';
 import IconsWebsite from './IconsWebsite';
+import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
+import LightBox from '../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -103,8 +105,8 @@ function HomeLanding() {
         </div>
       </div>
       <div className="content-width">
-        <h2 className="text-center mb-spacing-l">How do I get started?</h2>
-        <div className="home-page__action-cards">
+        <h2 className="text-center mb-spacing-l">How Do I Get Started?</h2>
+        <div className="home-page__action-cards mb-spacing-xl">
 
           <Link
             to={pageUrls.gettingStarted}
@@ -164,7 +166,7 @@ function HomeLanding() {
             className="action-card action-card--primary-color action-card--solid action-card--center"
           >
             <div className="action-card__title">
-              <h3>Design System Examples</h3>
+              <h3>Design System Showcase</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
             </div>
             <div className="action-card__body">
@@ -173,23 +175,99 @@ function HomeLanding() {
           </Link>
 
         </div>
-
-        <h2 className="text-center mt-spacing-l">Why a Design System?</h2>
-        <p>
-          The Utah State Legislature and Governor have expressed interest in standardizing the look and feel
-          of websites in the State in order to improve the user experience of residents who wish to use State of Utah online resources.
-        </p>
-
-        <p>
-          In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require that DTS and Executive
-          Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
-          design standards and navigation standards”.
-        </p>
-
-        <h2>Progress Log</h2>
-        <p>The Utah Design System is currently under construction. You can check back to see our progress.</p>
-        <ProgressLog />
       </div>
+
+      <div className="home-page__gray-section">
+        <div className="content-width">
+          <h2 className="text-center mt-spacing-l">Why a Design System?</h2>
+          <p>
+            The Utah State Legislature and Governor have expressed interest in standardizing the look and feel
+            of websites in the State in order to improve the user experience of residents who wish to use State of Utah online resources.
+          </p>
+
+          <p>
+            In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require that DTS and Executive
+            Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
+            design standards and navigation standards”.
+          </p>
+
+          {/* <h2>Progress Log</h2>
+          <p>The Utah Design System is currently under construction. You can check back to see our progress.</p>
+          <ProgressLog /> */}
+        </div>
+      </div>
+
+      <div className="content-width mt-spacing-l">
+        <h2 className="text-center">Library Components</h2>
+        <p>
+          Components serve as the foundational building blocks of the Utah Design System. Each component fulfills a distinct interaction or UI requirement
+          and is meticulously designed to seamlessly integrate with one another, forming cohesive patterns and intuitive user experiences.
+        </p>
+      </div>
+
+      <div className="content-width mt-spacing-l">
+        <h2 className="text-center">Valuable Resources</h2>
+        <p>
+          Does the thought of choosing what colors to use, how much spacing should be applied to elements and what fonts you should use for
+          body copy and headlines cause you stress at the beginning of a project?  No idea where to turn to ensure that your content,
+          components and layouts are fully accessible?  Well, the Utah Design System can alleviate that stress without a copay.
+        </p>
+      </div>
+
+      <div className="home-page__color-card-grid content-width">
+        <div className="home-page__color-card home-page__card-wide">
+          <h3 className="home-page__color-card-title">Color</h3>
+          <p>
+            How many design systems provide a color picker to assist you in selecting the primary and secondary colors of your site?
+            How many show you in real-time what your components will look like once you’ve selected these colors? Do they tell you if
+            your color selections are accessible? With a resounding yes, the Utah Design System does all of this. Starting to feel better?
+          </p>
+        </div>
+
+        <div className="home-page__color-card home-page__card-narrow home-page__color-card--secondary">
+          <h3 className="home-page__color-card-title">Spacing</h3>
+          <p>
+            To simplify and ensure consistency in implementing spacing, the Utah Design System provides predefined classes and variables.
+            These classes and variables can be readily used, making the process of managing spacing more convenient and uniform.
+          </p>
+        </div>
+
+        <div className="home-page__color-card home-page__card-narrow home-page__color-card--secondary">
+          <h3 className="home-page__color-card-title">Typography</h3>
+          <p>
+            With a focus on comfort and readability, six different fonts and thirteen different sizing options can be used to bring your content and headlines to life.
+            To make things even easier, our typographers have even taken the time to pair the various fonts with one another, should you want to go with the
+            &quot;What would you recommend?&quot; option.
+          </p>
+        </div>
+
+        <div className="home-page__color-card home-page__card-wide">
+          <h3 className="home-page__color-card-title">Accessibility</h3>
+          <p>
+            All web interfaces at the State of Utah should be designed with accessibility in mind.
+            Let&apos;s be honest, many times the best accessibility is not always clear, approachable, or easy. Every component in the Utah Design System has
+            been designed with an &quot;accessibility first&quot; approach. The goal is to make accessability more accessible by providing clear guidance on
+            every component. Thoughtful consideration has been give to each component to achieve the best possible user experience for everyone.
+          </p>
+        </div>
+      </div>
+
+      <div className="content-width mt-spacing-l">
+        <h2 className="text-center">Anatomy of a Layout</h2>
+        <LightBox image={layoutScreenshot} alt="Layout example" className="flex-2up-gap" />
+      </div>
+
+      <div className="home-page__gray-section home-page__contact-section mt-spacing-xl">
+        <div className="content-width">
+          <IconsWebsite.IconChatBubbles />
+          <h2 className="text-center mt-spacing-l">Don&apos;t be Shy!</h2>
+          <p>
+            Have a question? <a href="mailto:dts_ui@utah.gov">Contact us</a>. Got a suggestion? <a href="mailto:dts_ui@utah.gov">Contact us</a>.<br />
+            We like hearing from you, and this space is for all of us, help us make it better!
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 }

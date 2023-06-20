@@ -7,7 +7,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-bottom: var(--spacing-xl);
 
     .content-width {
       max-width: calc(var(--content-width-narrow) + (2 * var(--spacing-2xl)));

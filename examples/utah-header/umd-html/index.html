@@ -33,20 +33,64 @@
     // Wait for the utah header to be ready
     document.addEventListener('utahHeaderLoaded', () => {
       // Set up the utah header
-      window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({ title: 'My utah.gov Site' });
+      window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({
+        domLocationTarget: {
+          cssSelector: '#header-target'
+        },
+        "mainMenu": {
+          "menuItems": [
+            {
+              "actionUrl": {
+                "url": "/"
+              },
+              "title": "Home"
+            }
+          ],
+          "title": "Utah Design System Main Menu"
+        },
+        "mediaSizes": {
+          "mobile": 640,
+          "tabletPortrait": 768,
+          "tabletLandscape": 1024
+        },
+        "showTitle": true,
+        "size": "MEDIUM",
+        "title": "Utah Design System",
+        "titleURL": "/",
+        "utahId": true,
+        "footer": null,
+        "logo": {
+          "imageUrl": "https://designsystem.utah.gov/assets/designSystemCircleGray-a5a6c10d.png"
+        },
+        "actionItems": null,
+        "onSearch": false
+      });
     });
+  </script>
+  <script>
+    setTimeout(() => {
+      window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({
+        footer: {
+          domLocationTarget: {
+            cssSelector: '#footer-target'
+          }
+        }
+      });
+    }, 2000)
   </script>
 </head>
 
 <body>
-  <header>
+  <div id="header-target"></div>
+  <main>
     <h1>Universal Module Definition (UMD) - Using Unpkg CDN</h1>
     <p>
       The above option uses a CDN to include both the javascript and css in the <code>&lt;head&gt;</code>.
       The header is configured when the utahHeaderLoaded event fires. You can learn more about configuring the header on
       the <a href="https://designsystem.utah.gov/library/patterns/utahHeader">Utah Header page</a>.
     </p>
-  </header>
+  </main>
+  <div id="footer-target"></div>
 </body>
 
 </html>
