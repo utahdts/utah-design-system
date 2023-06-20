@@ -1,0 +1,17 @@
+.showcase {
+  display: flex;
+  gap: var(--spacing);
+  flex-wrap: wrap;
+  margin: var(--spacing-xl) 0;
+}
+
+.showcase-example {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--spacing);
+  background: var(--gray-light-color);
+  border-radius: var(--radius-medium);
+  box-sizing: border-box;
+  flex: 1 1 calc(50% - var(--spacing));
+}

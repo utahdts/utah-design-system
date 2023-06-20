@@ -20,7 +20,7 @@ function HomeLanding() {
         <h1 className="my-spacing-l text-center">Designed for Utah</h1>
 
         <p className="lead-in">
-          The Utah Design System consists of reusable UI components, valuable resources, and guiding principles that empower teams to craft consistent, accessible, secure, and scalable user experiences.
+          The Utah Design System consists of reusable user interface components, valuable resources, and guiding principles that empower teams to craft consistent, accessible, secure, and scalable user experiences for websites and applications.
         </p>
         <div className="flex justify-center mb-spacing-l">
           <Link
@@ -162,7 +162,7 @@ function HomeLanding() {
 
           {/* TODO: Make a page for a list of example sites */}
           <Link
-            to={pageUrls.mockups}
+            to={pageUrls.showcase}
             className="action-card action-card--primary-color action-card--solid action-card--center"
           >
             <div className="action-card__title">
@@ -180,11 +180,6 @@ function HomeLanding() {
       <div className="home-page__gray-section">
         <div className="content-width">
           <h2 className="text-center mt-spacing-l">Why a Design System?</h2>
-          <p>
-            The Utah State Legislature and Governor have expressed interest in standardizing the look and feel
-            of websites in the State in order to improve the user experience of residents who wish to use State of Utah online resources.
-          </p>
-
           <p>
             In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require that DTS and Executive
             Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common

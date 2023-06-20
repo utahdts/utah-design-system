@@ -65,6 +65,7 @@ const pageUrls = {
   segmentedButton: /** @type {PageUrl} */ ('/library/components/buttonsTags/segmentedButton'),
   select: /** @type {PageUrl} */ ('/library/components/forms/select'),
   shape: /** @type {PageUrl} */ ('/guidelinesStandards/shapeRoundedCorners'),
+  showcase: /** @type {PageUrl} */ ('/resources/showcase'),
   sidePanelNavigation: /** @type {PageUrl} */ ('/library/components/navigationLinks/sidePanel'),
   skeletons: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/skeletons'),
   skipLink: /** @type {PageUrl} */ ('/library/components/basic/skipLink'),

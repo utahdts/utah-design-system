@@ -224,7 +224,7 @@ function UtahHeaderDocumentation() {
           <ul>
             <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
             <li>The title is always required even if it is not visible, so screen readers can identify the site.</li>
-            <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain a <code>4.5:1</code> contrast ration against the background.</li>
+            <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain a <code>4.5:1</code> contrast ratio against the background.</li>
           </ul>
         )}
       />

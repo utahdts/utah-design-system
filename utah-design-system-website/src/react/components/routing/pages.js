@@ -63,6 +63,7 @@ import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
+import Showcase from '../websiteContent/resources/Showcase/Showcase';
 import pageUrls from './pageUrls';
 
 /**
@@ -313,6 +314,13 @@ const pages = {
     link: pageUrls.mockups,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Mockups',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  showcase: {
+    content: Showcase,
+    link: pageUrls.showcase,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Showcase',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
