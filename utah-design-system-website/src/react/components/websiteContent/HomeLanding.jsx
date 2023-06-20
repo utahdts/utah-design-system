@@ -178,7 +178,7 @@ function HomeLanding() {
         </div>
       </div>
 
-      <div className="home-page__gray-section">
+      <div className="home-page__gray-section py-spacing">
         <div className="content-width">
           <h2 className="text-center mt-spacing-l">Why a Design System?</h2>
           <p>
