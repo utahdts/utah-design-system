@@ -8,7 +8,7 @@ The Utah Header is part of the Utah Design System. It provides a common initial 
 
 ## Documentation
 
-Please see the [documentation site](https://utahdts.github.io/utah-design-system/) for all information related to the Utah Design System.
+Please see the [documentation site](https://designsystem.utah.gov/) for all information related to the Utah Design System.
 
 ## Install
 

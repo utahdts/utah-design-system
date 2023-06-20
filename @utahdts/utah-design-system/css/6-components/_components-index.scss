@@ -6,6 +6,7 @@ component specific, BEM (Block, Element, Modifier)
 
 /* ---- Base Components ---- */
 @use "base-components/containers/accordion";
+@use "base-components/containers/action-card";
 @use "base-components/containers/tab-group";
 @use "base-components/buttons/button";
 @use "base-components/buttons/icon-button";

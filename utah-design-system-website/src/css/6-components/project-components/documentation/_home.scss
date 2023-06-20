@@ -2,33 +2,154 @@
 
 .home-banner {
   width: 100%;
-  background: url('../static/images/laptop-background.webp') no-repeat 100% center;
+  background: url('../static/images/delicate-arch-tom-gainor-unsplash.webp') no-repeat 100% center;
   background-size: cover;
+  display: flex;
+  justify-content: flex-end;
 
   &__title {
     color: white;
+	  background: rgba(0,0,0,0.7);
+	  backdrop-filter: blur(30px) brightness(1);
+	  -webkit-backdrop-filter: blur(16px) brightness(1.5);
     font-size: var(--font-size-6xl);
     font-weight: bold;
-    width: 250px;
+    width: 230px;
     border-radius: var(--radius-large);
     margin: var(--spacing-3xl);
     padding: var(--spacing-l);
     line-height: 1.2;
+    text-align: right;
   }
 
 }
-.home-version {
-  font-size: var(--font-size-2xs);
-  text-align: center;
+.home-page {
+  &__benefits-section {
+    background: url('../static/images/laptop-background-blur.webp') no-repeat 100% center;
+    background-size: cover;
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: var(--spacing-3xl) 0 var(--spacing-5xl);
+    padding: 0 var(--spacing-2xl);
+    box-sizing: border-box;
+  }
+  &__card-grid {
+    max-width: var(--content-width-medium);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: var(--spacing-l);
+    margin: calc(var(--spacing-2xl) * -1) 0;
+  }
+  &__card {
+    background: white;
+    padding: var(--spacing);
+    border-radius: var(--radius-small);
+    box-shadow: var(--elevation-medium-borderless);
+
+    &-title {
+      display: flex;
+      align-items: center;
+      .icon-svg {
+        margin-right: var(--spacing-s);
+        height: var(--font-size-2xl);
+        fill: var(--secondary-color);
+      }
+      .icon-collaboration {
+        height: var(--font-size-xl);
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+  &__card-wide {
+    grid-column: auto / span 6;
+  }
+  &__card-narrow {
+    grid-column: auto / span 4;
+  }
+
+  &__action-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing);
+
+    .action-card {
+      grid-column-start: span 2;
+      &--center {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+    }
+  }
+  &__gray-section {
+    background: var(--gray-light-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__color-card-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: var(--spacing-l);
+  }
+  &__color-card {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing);
+    p {
+      margin: 0;
+    }
+    &--secondary {
+      background: var(--secondary-color);
+    }
+  }
+  &__contact-section {
+    padding: var(--spacing-6xl) 0;
+    text-align: center;
+    .icon-chat-bubbles {
+      fill: var(--primary-color);
+      width: 80px;
+    }
+  }
 }
 
 @media screen and (max-width: #{media-size-vars.$media-size-mobile}) {
   .home-banner {
+    background-position: 0 0;
     &__title {
       font-size: var(--font-size-5xl);
       width: min-content;
       margin: var(--spacing-xl);
       line-height: 1.1;
+    }
+  }
+  .home-page {
+    &__benefits-section {
+      padding: 0 var(--spacing-l);
+    }
+    &__card-grid {
+      gap: var(--spacing);
+    }
+    &__card-wide {
+      grid-column: auto / span 10;
+    }
+    &__card-narrow {
+      grid-column: auto / span 10;
+    }
+
+    &__action-cards {
+      .action-card {
+        grid-column-start: span 4;
+        &--center {
+          grid-column-start: 1;
+          grid-column-end: 5;
+        }
+      }
     }
   }
 }

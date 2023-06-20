@@ -14,13 +14,22 @@ import {
 } from '@utahdts/utah-design-system';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import StaticExample from '../../staticExamples/StaticExample';
+import LightBox from '../../lightbox/LightBox';
+import spacingScreenshot1 from '../../../../static/images/screenshots/spacing/spacing-2xl.webp';
+import spacingScreenshot2 from '../../../../static/images/screenshots/spacing/spacing-3xs-2xs.webp';
+import spacingScreenshot3 from '../../../../static/images/screenshots/spacing/spacing-6xl.webp';
+import spacingScreenshot4 from '../../../../static/images/screenshots/spacing/spacing-default-l-5xl.webp';
+import spacingScreenshot5 from '../../../../static/images/screenshots/spacing/spacing-default.webp';
+import spacingScreenshot6 from '../../../../static/images/screenshots/spacing/spacing-l-2xl-3xl-4xl.webp';
+import spacingScreenshot7 from '../../../../static/images/screenshots/spacing/spacing-s-l.webp';
+import spacingScreenshot8 from '../../../../static/images/screenshots/spacing/spacing-xl.webp';
 
 const propTypes = {};
 const defaultProps = {};
 
 function SpacingDocumentation() {
   return (
-    <div className="documentation-content">
+    <div className="documentation-content spacing-documentation">
       <h1 id="h1-top mb-spacing">Spacing</h1>
       <p className="lead-in">
         Spacing refers to the empty space that exists between various elements and components. Web developers often use margin and padding
@@ -31,29 +40,123 @@ function SpacingDocumentation() {
       <p>
         Consistent and thoughtful use of spacing (whitespace) can greatly improve users&apos; ability to identify, track, and read elements
         in a web interface. When spacing is too narrow, it can create a claustrophobic interface that causes users to feel overwhelmed and
-        frustrated. Consider using ample spacing to allow the user&apos;s eye to rest as they traverse the site. Much like a symphony with
-        slow and faster parts, whitespace can create a counterpoint to other busy areas of the web layout. In other words, give your web design
-        room to breathe and create a balance between whitespace and the surrounding elements!
+        frustrated. Consider using ample spacing to allow the user&apos;s eye to rest as they traverse the site.
+      </p>
+      <p>
+        Much like a symphony with slow and faster parts, whitespace can create a counterpoint to other busy areas of the web layout.
+        In other words, give your web design room to breathe and create a balance between whitespace and the surrounding elements!
       </p>
 
       <hr />
 
-      <h2 id="section-headlines-paragraphs" className="mb-spacing">Headlines and Paragraphs</h2>
+      <h2 id="section-headlines-paragraphs">Text Element Spacing</h2>
       <p>
-        The spacing between items should be intentional. It plays a crucial role in establishing relationships and hierarchy within the design.
-      </p>
-      <p>
-        By default, paragraphs have a <code>line-height</code> of <code>1.4em</code> and a <code>bottom margin</code> of <code>24px</code> (<code>-spacing-l</code>).
-        Headlines have a margin of <code>zero</code>, so they can remain close to the content/paragraph that they are representing.
+        The spacing between text elements should be intentional. It plays a crucial role in establishing relationships and hierarchy within the design.
       </p>
 
-      <h2 id="section-css-variables" className="mb-spacing">Spacing CSS Variables</h2>
+      <h3>Opinionated Defaults</h3>
       <p>
-        The following CSS variables are included in the Utah Design System and can be applied to any <code>margin</code> or <code>padding</code> property:
+        By default, paragraphs have a <code>line-height</code> of <code>1.4</code> and a <code>bottom margin</code> of <code>24px</code> (<code>spacing&#8209;l</code>).
+        Headlines have a margin of <code>zero</code>, so they can remain close to the content/paragraph that they are representing.
+      </p>
+      <p>
+        By default list items <code>&lt;li&gt;</code> are spaced further apart using a bottom margin of <code>spacing&#8209;2xl (40px)</code> with a line height of <code>1.7</code>.
+      </p>
+      <p>These defaults can be overridden to meet your site&apos;s particular needs.</p>
+
+      <h2 id="section-sizes-table">Spacing Sizes</h2>
+      <TableWrapper>
+        <Table className="table full-width table--lines-x table--v-align-center">
+          <TableHead>
+            <TableHeadRow>
+              <TableCell>CSS Name</TableCell>
+              <TableCell>Size</TableCell>
+              <TableCell>Space</TableCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>spacing-3xs</TableCell>
+              <TableCell>2px</TableCell>
+              <TableCell><div className="spacing-example-box"> </div></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-2xs</TableCell>
+              <TableCell>4px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-2xs" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-xs</TableCell>
+              <TableCell>8px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-xs" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-s</TableCell>
+              <TableCell>12px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-s" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing</TableCell>
+              <TableCell>16px</TableCell>
+              <TableCell><div className="spacing-example-box spacing" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-l</TableCell>
+              <TableCell>24px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-l" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-xl</TableCell>
+              <TableCell>32px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-xl" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-2xl</TableCell>
+              <TableCell>40px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-2xl" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-3xl</TableCell>
+              <TableCell>48px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-3xl" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-4xl</TableCell>
+              <TableCell>64px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-4xl" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-5xl</TableCell>
+              <TableCell>80px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-5xl" /></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>spacing-6xl</TableCell>
+              <TableCell>96px</TableCell>
+              <TableCell><div className="spacing-example-box spacing-6xl" /></TableCell>
+            </TableRow>
+
+          </TableBody>
+        </Table>
+      </TableWrapper>
+
+      <h2 id="section-css-variables" className="my-spacing">Spacing CSS Variables</h2>
+      <p>
+        The following CSS variables are included in the Utah Design System and can be applied to any <code>margin</code>, <code>padding</code>, or size property:
       </p>
 
       <PreCodeForCodeString
-        addHorizontalPadding
         showBackgroundColor
         codeRaw={`
         .utah-design-system {
@@ -68,67 +171,13 @@ function SpacingDocumentation() {
           --spacing-3xl: 48px;
           --spacing-4xl: 64px;
           --spacing-5xl: 80px;
-          --spacing-6xl: 96px;        
+          --spacing-6xl: 96px;
         }
         `}
       />
 
-      <h2 id="section-css-utility-classes" className="mb-spacing">Spacing CSS Utility Classes</h2>
-      <p>
-        The following classes are included in the Utah Design System and can be applied directly to html elements:
-      </p>
+      <h3>How to apply spacing css variables:</h3>
       <PreCodeForCodeString
-        addHorizontalPadding
-        showBackgroundColor
-        codeRaw="Information coming soon!"
-      />
-
-      <hr />
-
-      <h2 id="section-examples" className="mb-spacing">Examples</h2>
-      <StaticExample
-        renderedExample="Example coming soon!"
-        quickTips={(
-          <>
-            In this example, the <code>--spacing-3xs</code> class is used to apply spacing to the top and bottom of the code
-            element. The <code>--spacing-2xs</code> class applies spacing to the left and right.
-          </>
-        )}
-      />
-
-      <StaticExample
-        renderedExample="Example coming soon!"
-        quickTips={(<>Example of <code>Example of --spacing-s and --spacing-l</code></>)}
-      />
-
-      <StaticExample
-        renderedExample="Example coming soon!"
-        quickTips={(<>Example of <code>--spacing-xl</code></>)}
-      />
-
-      <StaticExample
-        renderedExample="Example coming soon!"
-        quickTips={(<>Example of <code>--spacing-2xl</code></>)}
-      />
-
-      <StaticExample
-        renderedExample="Example coming soon!"
-        quickTips={(<>Example of <code>--spacing-l</code>, <code>--spacing-2xl</code>, <code>--spacing-3xl</code>, and <code>--spacing-4xl</code></>)}
-      />
-
-      <StaticExample
-        renderedExample="Example coming soon!"
-        quickTips={(<>Example of <code>--spacing</code> (<i>default</i>), <code>--spacing-xl</code> and <code>--spacing-5xl</code></>)}
-      />
-
-      <StaticExample
-        renderedExample="Example coming soon!"
-        quickTips={(<>Example of <code>--spacing-6xl</code></>)}
-      />
-
-      <p>How to apply spacing css variables:</p>
-      <PreCodeForCodeString
-        addHorizontalPadding
         showBackgroundColor
         codeRaw={`
           .utah-design-system ul, .utah-design-system ol {
@@ -139,84 +188,127 @@ function SpacingDocumentation() {
           .utah-design-system p {
             margin: 0 0 var(--spacing-l);
           }
-          .utah-design-system .important {
-            padding: var(--spacing-l);
+          .utah-design-system .padded {
+            padding: var(--spacing-s);
           }
         `}
       />
 
-      <TableWrapper>
-        <Table>
-          <TableHead>
-            <TableHeadRow>
-              <TableCell>Token Name</TableCell>
-              <TableCell>Size (px)</TableCell>
-              <TableCell>Size (number)</TableCell>
-              <TableCell>Space</TableCell>
-            </TableHeadRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell><code>zero</code></TableCell>
-              <TableCell><code>0px</code></TableCell>
-              <TableCell><code>0</code></TableCell>
-              <TableCell><span className="colored-spacing"> </span></TableCell>
-            </TableRow>
+      <h2 id="section-css-utility-classes" className="mb-spacing">Spacing CSS Utility Classes</h2>
+      <p>
+        The following css utility classes are included in the Utah Design System and can be applied directly to html elements.
+        It may be necessary to add additional utility classes to meet your needs.
+      </p>
+      <PreCodeForCodeString
+        showBackgroundColor
+        allowScrollOverflow
+        maxHeight="300px"
+        codeRaw={`
+          .m-spacing { margin: var(--spacing); }
+          .mt-spacing { margin-top: var(--spacing); }
+          .mr-spacing { margin-right: var(--spacing); }
+          .mb-spacing { margin-bottom: var(--spacing); }
+          .ml-spacing { margin-left: var(--spacing); }
+          .mx-spacing { margin-left: var(--spacing); margin-right: var(--spacing); }
+          .my-spacing { margin-top: var(--spacing); margin-bottom: var(--spacing); }
 
-            <TableRow>
-              <TableCell><code>xxxs</code></TableCell>
-              <TableCell><code>&apos;4px&apos;</code></TableCell>
-              <TableCell><code>4</code></TableCell>
-              <TableCell><span className="colored-spacing pr-spacing-3xs"> </span></TableCell>
-            </TableRow>
+          .m-spacing-l { margin: var(--spacing-l); }
+          .mt-spacing-l { margin-top: var(--spacing-l); }
+          .mr-spacing-l { margin-right: var(--spacing-l); }
+          .mb-spacing-l { margin-bottom: var(--spacing-l); }
+          .ml-spacing-l { margin-left: var(--spacing-l); }
+          .mx-spacing-l { margin-left: var(--spacing-l); margin-right: var(--spacing-l); }
+          .my-spacing-l { margin-top: var(--spacing-l); margin-bottom: var(--spacing-l); }
 
-            <TableRow>
-              <TableCell><code>xxs</code></TableCell>
-              <TableCell><code>&apos;8px&apos;</code></TableCell>
-              <TableCell><code>8</code></TableCell>
-              <TableCell><span className="colored-spacing pr-spacing-2xs"> </span></TableCell>
-            </TableRow>
+          .m-spacing-s { margin: var(--spacing-s); }
+          .mt-spacing-s { margin-top: var(--spacing-s); }
+          .mr-spacing-s { margin-right: var(--spacing-s); }
+          .mb-spacing-s { margin-bottom: var(--spacing-s); }
+          .ml-spacing-s { margin-left: var(--spacing-s); }
+          .mx-spacing-s { margin-left: var(--spacing-s); margin-right: var(--spacing-s); }
+          .my-spacing-s { margin-top: var(--spacing-s); margin-bottom: var(--spacing-s); }
 
-            <TableRow>
-              <TableCell><code>xs</code></TableCell>
-              <TableCell><code>&apos;12px&apos;</code></TableCell>
-              <TableCell><code>12</code></TableCell>
-              <TableCell><span className="colored-spacing pr-spacing-xs"> </span></TableCell>
-            </TableRow>
+          .m-spacing-xs { margin: var(--spacing-xs); }
+          .mt-spacing-xs { margin-top: var(--spacing-xs); }
+          .mr-spacing-xs { margin-right: var(--spacing-xs); }
+          .mb-spacing-xs { margin-bottom: var(--spacing-xs); }
+          .ml-spacing-xs { margin-left: var(--spacing-xs); }
+          .mx-spacing-xs { margin-left: var(--spacing-xs); margin-right: var(--spacing-xs); }
+          .my-spacing-xs { margin-top: var(--spacing-xs); margin-bottom: var(--spacing-xs); }
 
-            <TableRow>
-              <TableCell><code>s</code> <span className="base-value">BASE VALUE</span></TableCell>
-              <TableCell><code>&apos;16px&apos;</code></TableCell>
-              <TableCell><code>16</code></TableCell>
-              <TableCell><span className="colored-spacing pr-spacing-s"> </span></TableCell>
-            </TableRow>
+          .p-spacing { padding: var(--spacing); }
+          .pt-spacing { padding-top: var(--spacing); }
+          .pr-spacing { padding-right: var(--spacing); }
+          .pb-spacing { padding-bottom: var(--spacing); }
+          .pl-spacing { padding-left: var(--spacing); }
+          .px-spacing { padding-left: var(--spacing); padding-right: var(--spacing); }
+          .py-spacing { padding-top: var(--spacing); padding-bottom: var(--spacing); }
 
-            <TableRow>
-              <TableCell><code>m</code></TableCell>
-              <TableCell><code>&apos;24px&apos;</code></TableCell>
-              <TableCell><code>24</code></TableCell>
-              <TableCell><span className="colored-spacing pr-spacing"> </span></TableCell>
-            </TableRow>
+          .p-spacing-l { padding: var(--spacing-l); }
+          .pt-spacing-l { padding-top: var(--spacing-l); }
+          .pr-spacing-l { padding-right: var(--spacing-l); }
+          .pb-spacing-l { padding-bottom: var(--spacing-l); }
+          .pl-spacing-l { padding-left: var(--spacing-l); }
+          .px-spacing-l { padding-left: var(--spacing-l); padding-right: var(--spacing-l); }
+          .py-spacing-l { padding-top: var(--spacing-l); padding-bottom: var(--spacing-l); }
 
-            <TableRow>
-              <TableCell><code>l</code></TableCell>
-              <TableCell><code>&apos;32px&apos;</code></TableCell>
-              <TableCell><code>32</code></TableCell>
-              <TableCell><span className="colored-spacing pr-spacing-l"> </span></TableCell>
-            </TableRow>
+          .m-auto { margin: auto }
+          .mt-auto { margin-top: auto }
+          .mr-auto { margin-right: auto }
+          .mb-auto { margin-bottom: auto }
+          .ml-auto { margin-left: auto }
+          .mx-auto { margin-left: auto; margin-right: auto }
+          .my-auto { margin-top: auto; margin-bottom: auto }
+        `}
+      />
 
-            <TableRow>
-              <TableCell><code>xl</code></TableCell>
-              <TableCell><code>&apos;40px&apos;</code></TableCell>
-              <TableCell><code>40</code></TableCell>
-              <TableCell><span className="colored-spacing pr-spacing-xl"> </span></TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableWrapper>
+      <hr />
 
-      <h2 id="section-lists" className="mb-spacing">Unordered and Ordered Lists</h2>
-      <p>The <code>line-height</code> of unordered and ordered lists is <code>1.7em</code> by default.</p>
+      <h2 id="section-examples" className="mb-spacing">Examples</h2>
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot2} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(
+          <>
+            In this example, the <code>--spacing-3xs</code> class is used to apply spacing to the top and bottom of the code
+            element. The <code>--spacing-2xs</code> class applies spacing to the left and right.
+          </>
+        )}
+      />
+
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot5} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(<>Example of <code>--spacing</code></>)}
+      />
+
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot7} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(<>Example of <code>--spacing-s</code> and <code>--spacing-l</code></>)}
+      />
+
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot8} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(<>Example of <code>--spacing-xl</code></>)}
+      />
+
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot1} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(<>Example of <code>--spacing-2xl</code></>)}
+      />
+
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot6} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(<>Example of <code>--spacing-l</code>, <code>--spacing-2xl</code>, <code>--spacing-3xl</code>, and <code>--spacing-4xl</code></>)}
+      />
+
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot4} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(<>Example of <code>--spacing</code> (<i>default</i>), <code>--spacing-xl</code> and <code>--spacing-5xl</code></>)}
+      />
+
+      <StaticExample
+        renderedExample={<LightBox image={spacingScreenshot3} alt="Spacing Example" className="flex-2up-gap" />}
+        quickTips={(<>Example of <code>--spacing-6xl</code></>)}
+      />
 
     </div>
   );

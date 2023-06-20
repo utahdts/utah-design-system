@@ -3,7 +3,8 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { ExternalLink } from '@utahdts/utah-design-system';
 import pageUrls from '../../routing/pageUrls';
 
 const propTypes = {};
@@ -20,9 +21,10 @@ function ColorGuidelinesDocumentation() {
         one person can be overwhelming or alarming to another.
       </p>
       <p className="mb-auto">
-        The Utah Design System provides a base palette of colors that have already been tested for accessibility and spans the color spectrum
-        of the individual agencies. A <Link to={pageUrls.colorPicker}>color picker</Link> is provided that allows you to choose primary, secondary
-        and accent colors. It also ensures that your text meets accessibility requirements.
+        The Utah Design System provides a base palette of colors that has already been tested for accessibility and spans a wide color spectrum.
+        The base text color (#474747) ensures that your main body text meets accessibility requirements.
+        A color picker is provided at the top of every page under the gear icon <span className="utds-icon-before-gear" aria-hidden="true" />
+        that allows you to choose primary, secondary, and accent colors. It allows you to preview these colors on this site, as well as with components, patterns, and the <NavLink to={pageUrls.demoPage}>demo page</NavLink>.
       </p>
 
       <h2 id="section-areas-to-consider" className="mt-spacing mb-spacing">Areas to Consider</h2>
@@ -30,7 +32,7 @@ function ColorGuidelinesDocumentation() {
       <p>
         Ensure your color choices meet accessibility guidelines, particularly for users with color blindness or visual impairments. Use tools
         like color contrast checkers to verify that your text and background colors have enough contrast. See more
-        detailed <Link to={pageUrls.typography}>information on contrast</Link>.
+        detailed information on <Link to={pageUrls.accessibility}>contrast</Link>. Check your custom colors with a <ExternalLink href="https://webaim.org/resources/contrastchecker/">color contrast checker</ExternalLink>.
       </p>
 
       <h3 id="section-brand-identity">Brand Identity</h3>
@@ -49,16 +51,16 @@ function ColorGuidelinesDocumentation() {
       <h2 id="section-direction-guidance" className="mb-spacing">Direction & Guidance</h2>
       <ul>
         <li>
-          <strong>Begin with black and white.</strong> Starting with the basic colors of black and white helps in structuring a site&apos;s components. Thus
+          <strong>Begin with black and white.</strong> Using the fundamental colors of black and white provides a solid foundation for organizing a website&#39;s elements.. Thus
           allowing the developer/designer to focus on the visual hierarchy and not rely on color to convey a particular meaning.
         </li>
         <li>
           <strong>Avoid using only color to convey meaning.</strong> Do not rely on color alone to relay a specific intent. Instead, include another signal via
-          a <Link to={pageUrls.tooltips}>tooltip</Link> to announce the intended functionality. Understand that simply using color may inadvertently exclude certain
-          users, both subtly and overtly.
+          a <Link to={pageUrls.tooltips}>tooltip</Link>, text, or <Link to={pageUrls.icons}>icon</Link> to convey the intended functionality. Understand that simply using color may inadvertently exclude certain
+          users, both subtly and overtly. See the <Link to={pageUrls.accessibility}>general accessibility guidelines</Link>.
         </li>
         <li>
-          <strong>Utilize mood boards.</strong> Mood boards can assist in defining the overall ambience and feel of the site. Collect images from other sources
+          <strong>Utilize mood boards.</strong> Mood boards can assist in defining the overall ambience and feel of the site. Collect images
           that evoke the desired tone to find the common underlying colors.
         </li>
         <li>
@@ -82,7 +84,7 @@ function ColorGuidelinesDocumentation() {
         </li>
         <li>
           <strong>Use color to guide user attention.</strong> Strategic use of color can help direct users&apos; attention to important elements or calls to
-          action. Consider using the accent color or use a bright contrasting color for focus states, <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.links}>links</Link>,
+          action. Consider using a bright contrasting color for <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.links}>links</Link>,
           or important information to make them stand out.
         </li>
         <li>

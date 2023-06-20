@@ -1,8 +1,12 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import { Icons } from '@utahdts/utah-design-system';
+/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
+import { ExternalLink } from '@utahdts/utah-design-system';
 import pageUrls from '../routing/pageUrls';
-import ProgressLog from './ProgressLog/ProgressLog';
+// import ProgressLog from './ProgressLog/ProgressLog';
+import IconsWebsite from './IconsWebsite';
+import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
+import LightBox from '../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -11,62 +15,260 @@ function HomeLanding() {
   return (
     <div className="landing-page-template">
       <div className="home-banner">
-        <div className="home-banner__title background-frosted-dark">Utah<br />Design<br />System</div>
+        <div className="home-banner__title">Utah<br />Design<br />System</div>
       </div>
       <div className="content-width">
-        <h1 className="my-spacing-l">Welcome to the State of Utah Design System</h1>
+        <h1 className="my-spacing-l text-center">Designed for Utah</h1>
 
         <p className="lead-in">
-          A design system is a collection of reusable UI components, elements, patterns and
-          templates—guided by a complete set of clear standards and design principles based on
-          industry best practices. It will allow teams across the State of Utah to create a consistent
-          experience across a range of products and services.
+          The Utah Design System consists of reusable user interface components, valuable resources, and guiding principles that empower teams to craft consistent, accessible, secure, and scalable user experiences for websites and applications.
         </p>
-        <p>
-          The State of Utah Design System will act as a single source of truth for the entire Executive Branch by using a common design language
-          to guide the development of web assets that will positively impact the residents of Utah.
-        </p>
-
-        <h2>Why a design system?</h2>
-        <p>
-          The Utah State Legislature and Governor have expressed interest in standardizing the look and feel
-          of websites in the State in order to improve the user experience of residents who wish to use State of Utah online resources.
-        </p>
-
-        <p>
-          In 2019 the Utah State Legislature passed H.B. 284 for Utah State Code 63A-16-104 to require that DTS and Executive
-          Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
-          design standards and navigation standards”.
-        </p>
-
-        <div className="flex flex-col items-center mb-spacing">
+        <div className="flex justify-center mb-spacing-l">
           <Link
             to={pageUrls.gettingStarted}
-            className="button button--primary-color"
+            className="button button--primary-color button--solid button--large"
           >
-            Getting Started
-            <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
-          </Link>
-          <Link
-            to={pageUrls.mockups}
-            className="button button--primary-color mt-spacing-s"
-          >
-            View Mockups
-            <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
-          </Link>
-          <Link
-            to={pageUrls.demoPage}
-            className="button button--primary-color mt-spacing-s"
-          >
-            View Demo Page
-            <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
+            Start Using the Design System
+            <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
           </Link>
         </div>
 
-        <h2>Progress Log</h2>
-        <p>The Utah Design System is currently under construction. You can check back to see our progress.</p>
-        <ProgressLog />
+        <h2 className="text-center mb-spacing-l">Benefits of a Design System</h2>
+
       </div>
+      <div className="home-page__benefits-section">
+        <div className="home-page__card-grid">
+          <div className="home-page__card home-page__card-wide">
+            <div className="home-page__card-title">
+              <IconsWebsite.IconShieldCheck />
+              <h3>Trust and Perception</h3>
+            </div>
+            <p>
+              Consistency and user experience significantly influence the perceived quality of the services offered by State Agencies.
+              Utilizing a design system yields long-term benefits by fostering efficiency, maintaining high standards, and positively shaping
+              public perception. Agencies will enhance their credibility and establish a trustworthy digital presence.
+              Consistent visual branding and user experience instills confidence in citizens, reinforcing the integrity and professionalism of public institutions.
+            </p>
+          </div>
+          <div className="home-page__card home-page__card-narrow">
+            <div className="home-page__card-title">
+              <IconsWebsite.IconA11y />
+              <h3>Accessibility</h3>
+            </div>
+            <p>
+              One of the top goals at the State of Utah, is to make websites and applications, across our many agencies accessible for all people,
+              including those with varying impairments.  Each component in the Utah Design System library includes an accessibility section where
+              detailed information can be found about contrast, keyboard interaction, and screen readers.
+            </p>
+          </div>
+          <div className="home-page__card home-page__card-narrow">
+            <div className="home-page__card-title">
+              <IconsWebsite.IconCollaboration />
+              <h3>Collaboration</h3>
+            </div>
+            <p>
+              We value collaboration and encourage teams to provide feedback and contribute to the ongoing improvement of the design system.
+              This collaborative approach fosters a creative community where ideas are shared, evaluated, and refined.
+            </p>
+          </div>
+          <div className="home-page__card home-page__card-wide">
+            <div className="home-page__card-title">
+              <IconsWebsite.IconStarHollow />
+              <h3>Best Practices and Standards</h3>
+            </div>
+            <p>
+              The design system establishes standards and best practices that have been vetted and are common-place among industry professionals.
+              By adhering to these standards, designers and developers ensure consistency in design and functionality, resulting in a cohesive and
+              intuitive user experience.
+            </p>
+          </div>
+          <div className="home-page__card home-page__card-wide">
+            <div className="home-page__card-title">
+              <IconsWebsite.IconBadgeStar />
+              <h3>Efficiency and Scalability</h3>
+            </div>
+            <p>
+              Instead of worrying about the color and shape of a button, designers and developers can now spend more time on the details of their
+              project, whether that be developing efficient user journeys, business logic, or determining what combination of components will best
+              meet their customer&apos;s needs.
+            </p>
+          </div>
+          <div className="home-page__card home-page__card-narrow">
+            <div className="home-page__card-title">
+              <IconsWebsite.IconHeartTag />
+              <h3>Consistency</h3>
+            </div>
+            <p>
+              By employing consistent patterns across all your products, users will experience a seamless and familiar interface, making their
+              interactions more effortless. In addition, consistency influences the perceived quality of your site or application.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="content-width">
+        <h2 className="text-center mb-spacing-l">How Do I Get Started?</h2>
+        <div className="home-page__action-cards mb-spacing-xl">
+
+          <Link
+            to={pageUrls.gettingStarted}
+            className="action-card action-card--primary-color action-card--solid"
+          >
+            <div className="action-card__title">
+              <h3>Getting Started</h3>
+              <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+            </div>
+            <div className="action-card__body">
+              Learn how to implement the Design System.
+            </div>
+          </Link>
+
+          <Link
+            to={pageUrls.utahHeader}
+            className="action-card action-card--primary-color action-card--solid"
+          >
+            <div className="action-card__title">
+              <h3>Utah Header and Footer</h3>
+              <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+            </div>
+            <div className="action-card__body">
+              Start using the official header and footer.
+            </div>
+          </Link>
+
+          <Link
+            to={pageUrls.demoPage}
+            className="action-card action-card--primary-color action-card--solid"
+          >
+            <div className="action-card__title">
+              <h3>View Demo Page</h3>
+              <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+            </div>
+            <div className="action-card__body">
+              View a page created with working components.
+            </div>
+          </Link>
+
+          <Link
+            to={pageUrls.mockups}
+            className="action-card action-card--primary-color action-card--solid"
+          >
+            <div className="action-card__title">
+              <h3>View Mockups</h3>
+              <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+            </div>
+            <div className="action-card__body">
+              Mockups of all the Utah Design System components.
+            </div>
+          </Link>
+
+          {/* TODO: Make a page for a list of example sites */}
+          <Link
+            to={pageUrls.showcase}
+            className="action-card action-card--primary-color action-card--solid action-card--center"
+          >
+            <div className="action-card__title">
+              <h3>Design System Showcase</h3>
+              <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+            </div>
+            <div className="action-card__body">
+              Look at sites that are already using the design system.
+            </div>
+          </Link>
+
+        </div>
+      </div>
+
+      <div className="home-page__gray-section">
+        <div className="content-width">
+          <h2 className="text-center mt-spacing-l">Why a Design System?</h2>
+          <p>
+            In 2019 the Utah State Legislature passed <ExternalLink href="https://le.utah.gov/~2019/bills/static/HB0284.html">H.B. 284</ExternalLink>
+            for Utah State Code <ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S104.html">§63A-16-104</ExternalLink> to require that DTS and Executive
+            Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
+            design standards and navigation standards”.
+          </p>
+          <p>
+            State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
+            (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
+          </p>
+
+          {/* <h2>Progress Log</h2>
+          <p>The Utah Design System is currently under construction. You can check back to see our progress.</p>
+          <ProgressLog /> */}
+        </div>
+      </div>
+
+      <div className="content-width mt-spacing-l">
+        <h2 className="text-center">Library Components</h2>
+        <p>
+          Components serve as the foundational building blocks of the Utah Design System. Each component fulfills a distinct interaction or UI requirement
+          and is meticulously designed to seamlessly integrate with one another, forming cohesive patterns and intuitive user experiences.
+        </p>
+      </div>
+
+      <div className="content-width mt-spacing-l">
+        <h2 className="text-center">Valuable Resources</h2>
+        <p>
+          Does the thought of choosing what colors to use, how much spacing should be applied to elements and what fonts you should use for
+          body copy and headlines cause you stress at the beginning of a project?  No idea where to turn to ensure that your content,
+          components and layouts are fully accessible?  Well, the Utah Design System can alleviate that stress without a copay.
+        </p>
+      </div>
+
+      <div className="home-page__color-card-grid content-width">
+        <div className="home-page__color-card home-page__card-wide">
+          <h3 className="home-page__color-card-title">Color</h3>
+          <p>
+            How many design systems provide a color picker to assist you in selecting the primary and secondary colors of your site?
+            How many show you in real-time what your components will look like once you’ve selected these colors? Do they tell you if
+            your color selections are accessible? With a resounding yes, the Utah Design System does all of this. Starting to feel better?
+          </p>
+        </div>
+
+        <div className="home-page__color-card home-page__card-narrow home-page__color-card--secondary">
+          <h3 className="home-page__color-card-title">Spacing</h3>
+          <p>
+            To simplify and ensure consistency in implementing spacing, the Utah Design System provides predefined classes and variables.
+            These classes and variables can be readily used, making the process of managing spacing more convenient and uniform.
+          </p>
+        </div>
+
+        <div className="home-page__color-card home-page__card-narrow home-page__color-card--secondary">
+          <h3 className="home-page__color-card-title">Typography</h3>
+          <p>
+            With a focus on comfort and readability, six different fonts and thirteen different sizing options can be used to bring your content and headlines to life.
+            To make things even easier, our typographers have even taken the time to pair the various fonts with one another, should you want to go with the
+            &quot;What would you recommend?&quot; option.
+          </p>
+        </div>
+
+        <div className="home-page__color-card home-page__card-wide">
+          <h3 className="home-page__color-card-title">Accessibility</h3>
+          <p>
+            All web interfaces at the State of Utah should be designed with accessibility in mind.
+            Let&apos;s be honest, many times the best accessibility is not always clear, approachable, or easy. Every component in the Utah Design System has
+            been designed with an &quot;accessibility first&quot; approach. The goal is to make accessability more accessible by providing clear guidance on
+            every component. Thoughtful consideration has been give to each component to achieve the best possible user experience for everyone.
+          </p>
+        </div>
+      </div>
+
+      <div className="content-width mt-spacing-l">
+        <h2 className="text-center">Anatomy of a Layout</h2>
+        <LightBox image={layoutScreenshot} alt="Layout example" className="flex-2up-gap" />
+      </div>
+
+      <div className="home-page__gray-section home-page__contact-section mt-spacing-xl">
+        <div className="content-width">
+          <IconsWebsite.IconChatBubbles />
+          <h2 className="text-center mt-spacing-l">Don&apos;t be Shy!</h2>
+          <p>
+            Have a question? <a href="mailto:dts_ui@utah.gov">Contact us</a>. Got a suggestion? <a href="mailto:dts_ui@utah.gov">Contact us</a>.<br />
+            We like hearing from you, and this space is for all of us, help us make it better!
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 }

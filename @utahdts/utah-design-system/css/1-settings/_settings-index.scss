@@ -13,19 +13,19 @@ variables and settings
 #{class-vars.$base-class} {
   /* color */
   /* ######## Pick these colors to match your desired style ######## */
-  --primary-color: purple;
-  --primary-color-dark: rgb(50, 0, 50);
-  --primary-color-light: rgb(219, 159, 219);
+  --primary-color: #{color-swatches.$red-rock-05};
+  --primary-color-dark: #{color-swatches.$red-rock-01};;
+  --primary-color-light: #{color-swatches.$red-rock-17};;
   --gray-on-primary-color: #474747;
 
-  --secondary-color: rgb(0, 255, 136);
-  --secondary-color-dark: rgb(0, 66, 35);
-  --secondary-color-light: rgb(183, 250, 218);
+  --secondary-color: #{color-swatches.$celadon-blue-05};
+  --secondary-color-dark: #{color-swatches.$celadon-blue-00};
+  --secondary-color-light: #{color-swatches.$celadon-blue-17};
   --gray-on-secondary-color: #474747;
 
-  --accent-color: gold;
-  --accent-color-dark: rgb(114, 97, 0);
-  --accent-color-light: rgb(245, 238, 196);
+  --accent-color: #{color-swatches.$electric-yellow-05};
+  --accent-color-dark: #{color-swatches.$electric-yellow-00};
+  --accent-color-light: #{color-swatches.$electric-yellow-17};
   --gray-on-accent-color: #474747;
 
   --form-ele-color: #{color-swatches.$azul-05};
@@ -81,6 +81,7 @@ variables and settings
 
     /* content layout sizes */
   --content-width-narrow: 808px;
+  --content-width-medium: 1016px;
   --content-width: 1224px;
   --content-width-wide: 1432px;
   --documentation-width: 700px;
@@ -91,9 +92,13 @@ variables and settings
 
   /* elevation box shadows */
   --drop-shadow-color: rgba(0, 0, 0, 0.3);
+  --drop-shadow-color-top: rgba(0, 0, 0, 0.15);
   --elevation-small: 0 3px 6px var(--drop-shadow-color);
   --elevation-medium: 0 6px 12px var(--drop-shadow-color);
   --elevation-large: 0 12px 16px var(--drop-shadow-color);
+  --elevation-small-borderless: 0 3px 6px var(--drop-shadow-color), 0 -3px 3px var(--drop-shadow-color-top);
+  --elevation-medium-borderless: 0 6px 12px var(--drop-shadow-color), 0 -3px 6px var(--drop-shadow-color-top);
+  --elevation-large-borderless: 0 12px 16px var(--drop-shadow-color),  0 -3px 12px var(--drop-shadow-color-top);
 
 }
 

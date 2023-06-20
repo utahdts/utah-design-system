@@ -8,12 +8,14 @@ import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuid
 import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import LayoutDocumentation from '../websiteContent/guidelines/LayoutDocumentation';
+import OpacityDocumentation from '../websiteContent/guidelines/OpacityDocumentation';
 import ShapesDocumentation from '../websiteContent/guidelines/ShapesDocumentation';
 import SpacingDocumentation from '../websiteContent/guidelines/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/guidelines/TypographyDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
+import ParagraphDocumentation from '../websiteContent/library/components/basicAtomic/Paragraph/ParagraphDocumentation';
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
@@ -40,6 +42,7 @@ import LinksDocumentation from '../websiteContent/library/components/links/Links
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
 import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
+import MainMenuDocumentation from '../websiteContent/library/components/navigation/MainMenu/MainMenuDocumentation';
 import PaginationDocumentation from '../websiteContent/library/components/navigation/pagination/PaginationDocumentation';
 import SidePanelDocumentation from '../websiteContent/library/components/navigation/sidePanel/SidePanelDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
@@ -60,6 +63,7 @@ import GettingStarted from '../websiteContent/resources/GettingStarted';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
+import Showcase from '../websiteContent/resources/Showcase/Showcase';
 import pageUrls from './pageUrls';
 
 /**
@@ -239,7 +243,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   opacity: {
-    content: PlaceHolderDocumentation,
+    content: OpacityDocumentation,
     link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Opacity',
@@ -263,13 +267,6 @@ const pages = {
   },
 
   // === resources documentation components === //
-  colorPicker: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.colorPicker,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Color Picker',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
   contributeCommunity: {
     content: PlaceHolderDocumentation,
     link: pageUrls.contributeCommunity,
@@ -319,6 +316,13 @@ const pages = {
     pageTitle: 'Mockups',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  showcase: {
+    content: Showcase,
+    link: pageUrls.showcase,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Showcase',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
 
   // === library documentation components === //
   // === basic atomic === //
@@ -364,10 +368,10 @@ const pages = {
   },
 
   paragraphs: {
-    content: PlaceHolderDocumentation,
+    content: ParagraphDocumentation,
     link: pageUrls.paragraphs,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Paragraphs and Text',
+    pageTitle: 'Basic and Semantic Text',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -658,7 +662,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   mainMenu: {
-    content: PlaceHolderDocumentation,
+    content: MainMenuDocumentation,
     link: pageUrls.mainMenu,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Main Menu',
