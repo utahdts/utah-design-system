@@ -60,6 +60,7 @@ const pageUrls = {
   principles: /** @type {PageUrl} */ ('/guidelinesStandards/principles'),
   processList: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/processList'),
   progressBars: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/progressBars'),
+  progressLog: /** @type {PageUrl} */ ('/library/resources/progressLog'),
   radioButton: /** @type {PageUrl} */ ('/library/components/forms/radioButton'),
   resources: /** @type {PageUrl} */ ('/resources'),
   segmentedButton: /** @type {PageUrl} */ ('/library/components/buttonsTags/segmentedButton'),
