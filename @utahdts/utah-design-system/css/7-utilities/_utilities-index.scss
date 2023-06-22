@@ -88,6 +88,9 @@ utility classes, atomic css
 .flex-3up-gap {
   flex: 0 1 calc(33% - var(--spacing));
 }
+.flex-2up-gap {
+  flex: 0 1 calc(50% - var(--spacing));
+}
 
 
 /* ----- Positioning ---- */

@@ -91,6 +91,9 @@
     display: flex;
     justify-content: center;
   }
+  &--accordion-small button.accordion__header * {
+    font-size: 1.1rem;
+  }
 
   &__color-card-grid {
     display: grid;
@@ -109,7 +112,7 @@
     }
   }
   &__contact-section {
-    padding: var(--spacing-6xl) 0;
+    padding: var(--spacing-5xl) 0;
     text-align: center;
     .icon-chat-bubbles {
       fill: var(--primary-color);

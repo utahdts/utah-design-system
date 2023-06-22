@@ -11,6 +11,7 @@
     text-decoration: none;
     color: var(--gray-color);
     transition: all 200ms ease-in-out;
+    box-sizing: border-box;
     &:hover {
       box-shadow: none;
       background: var(--gray-color);

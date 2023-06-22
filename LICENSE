@@ -1,201 +1,199 @@
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE
+Between
+Tyler Technologies
+And
+State of Utah,
+Utah Department of Government Operations Division of Technology Services
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+This Memorandum provides the terms by which the State of Utah Department of Government Operations
+Division of Technology Services (hereafter referred to as “Licensor” or “State”) transfers to Tyler
+Technologies and, by extension, any person or entity working on an official Utah State Website
+(hereafter referred to as “Licensee”) certain software known as the State of Utah Design System.
+This Memorandum also governs the Licensee’s right to use the software.
 
-   1. Definitions.
+THEREFORE, intending to be legally bound, the Licensor and Licensee (hereinafter referred to as the
+“Parties”) hereby agree as follows:
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+1. Entire Agreement / Consideration. This Memorandum, with its attachments, constitutes the entire
+agreement between the parties regarding the subject matter hereof and supersedes any other written
+or oral understanding of the parties. This Memorandum may not be modified except by written
+instrument executed by all parties. The Parties acknowledge and agree that this Memorandum shall not
+fail for want of consideration.
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+2. Ownership Authority. Legal Authority regarding software ownership and proprietary software may be
+found in Title 17 U.S.C. - Copyrights.
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity. For the purposes of this definition,
-      "control" means (i) the power, direct or indirect, to cause the
-      direction or management of such entity, whether by contract or
-      otherwise, or (ii) ownership of fifty percent (50%) or more of the
-      outstanding shares, or (iii) beneficial ownership of such entity.
+3. Software Identified. The software subject to this agreement is the State of Utah Design System;
+specifically, all releases present and future. Licensor will provide a copy of the Software source
+code and source framework as well as related technical and user documents required to operate the
+Software. Software may also use certain commercial software; transfer of any or all of the
+Licensor’s code will not include commercial software and the Licensee must make its own decision of
+what software to buy and incorporate when adopting all or any part of the Software. Licensor will
+provide documentation indicating which commercial products were used in Software but were not
+transferred by Licensor.
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+4. Costs and Services. Since the Licensor has developed software entirely for its own use and the
+right to use the software by the Licensee is strictly “as is,” Licensor will not be held liable for
+any incidental or consequential damages under any circumstances. Costs associated with development,
+copying or transferring Software code to the Licensee will not be recovered from the Licensee.
+Licensor will provide no additional services such as installation, training, or maintenance.
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+License Grant. Subject to the terms of this Agreement and Attachment A, Conditions Upon
+Distribution, the Licensor hereby grants to Licensee a non-exclusive, transferable, perpetual,
+irrevocable, worldwide, royalty-free license to deal with the Software without restriction,
+including without limitation the rights to install, implement, use, configure, display, enhance,
+reproduce, modify, merge, publish, distribute, and sublicense, and create derivative works of the
+Software, to meet the governmental needs and requirements of Licensee.
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form, including but
-      not limited to compiled object code, generated documentation,
-      and conversions to other media types.
+5. Liability and Immunity. The Licensee acknowledges it relies on its own judgment and expertise in
+selecting, accepting, and using Software. Licensor does not warrant Software’s fitness for any
+particular purpose, nor does Licensor make any other express or implied warranty with respect to
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License, as indicated by a
-      copyright notice that is included in or attached to the work
-      (an example is provided in the Appendix below).
+Software. Licensee hereby waives any and all claims it may have against Licensor now or in the
+future arising from Software.
 
-      "Derivative Works" shall mean any work, whether in Source or Object
-      form, that is based on (or derived from) the Work and for which the
-      editorial revisions, annotations, elaborations, or other modifications
-      represent, as a whole, an original work of authorship. For the purposes
-      of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
-      the Work and Derivative Works thereof.
+IN NO EVENT SHALL THE STATE OF UTAH BE LIABLE FOR ANY DAMAGES TO INCLUDE BUT NOT LIMITED TO LOST
+PROFITS, LOST SAVINGS OR INCIDENTAL, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES, ARISING OUT OF THE
+USE OR INABILITY TO USE THE PRODUCT EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE SOURCE
+CODING IS TRANSFERRED “AS IS,” AND THE STATE OF UTAH DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS OR
+IMPLIED, INCLUDING THE WARRANTIES OF MERCHANTABILITY AND FITNESS FOR PARTICULAR PURPOSE.
+Notwithstanding the foregoing or any other provision of this Memorandum, the Licensor certifies and
+warrants that it has rights adequate to make the license grant memorialized herein.
 
-      "Contribution" shall mean any work of authorship, including
-      the original version of the Work and any modifications or additions
-      to that Work or Derivative Works thereof, that is intentionally
-      submitted to Licensor for inclusion in the Work by the copyright owner
-      or by an individual or Legal Entity authorized to submit on behalf of
-      the copyright owner. For the purposes of this definition, "submitted"
-      means any form of electronic, verbal, or written communication sent
-      to the Licensor or its representatives, including but not limited to
-      communication on electronic mailing lists, source code control systems,
-      and issue tracking systems that are managed by, or on behalf of, the
-      Licensor for the purpose of discussing and improving the Work, but
-      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."
+Each Party is solely responsible for fiscal or other sanctions occasioned as a result of its own
+violation or alleged violation of requirements applicable to the performance of the Memorandum. Each
+Party is liable for its action in accordance with this Memorandum and federal and state law, as
+applicable, including law of sovereign and governmental immunity. No term or terms of this
+Memorandum may be construed as an express or implied waiver of sovereign or governmental immunity.
+Each Party to this Memorandum fully retains all immunities and defenses provided by law with respect
+to any action based on or occurring as a result of this Memorandum.
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received by Licensor and
-      subsequently incorporated within the Work.
+Licensee shall hold harmless and fully indemnify DTS and the State of Utah, and their officers and
+employees, for any issues, claims, losses, damages, and costs relating to the implementation and use
+of the code by Licensee and its transferees. It is understood that the application was built for the
+State of Utah’s specific needs and neither DTS nor the State of Utah will have any obligation to
+Licensee to modify, update, or implement the code.
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      copyright license to reproduce, prepare Derivative Works of,
-      publicly display, publicly perform, sublicense, and distribute the
-      Work and such Derivative Works in Source or Object form.
+6. Records. The Parties acknowledge their respective obligations under their jurisdictions’ freedom
+of information statutes. When either Party receives a request or demand for information related to
+this Memorandum, the receiving Party shall inform the other Party of the request via the contacts
+established under this Memorandum. Notwithstanding this provision, the instant Memorandum document
+is a public document and the Parties need not make notification to one another as to a request for
+it.
 
-   3. Grant of Patent License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      (except as stated in this section) patent license to make, have made,
-      use, offer to sell, sell, import, and otherwise transfer the Work,
-      where such license applies only to those patent claims licensable
-      by such Contributor that are necessarily infringed by their
-      Contribution(s) alone or by combination of their Contribution(s)
-      with the Work to which such Contribution(s) was submitted. If You
-      institute patent litigation against any entity (including a
-      cross-claim or counterclaim in a lawsuit) alleging that the Work
-      or a Contribution incorporated within the Work constitutes direct
-      or contributory patent infringement, then any patent licenses
-      granted to You under this License for that Work shall terminate
-      as of the date such litigation is filed.
+The State of Utah is a governmental entity subject to the Government Records Access and Management
+Act, Utah Code §§ 63G-2-101 et seq. (“GRAMA”). Accordingly, certain records within possession or
+control, including without limitation, this Memorandum, may be subject to public disclosure; and
+both parties’ confidentiality obligations shall be subject in all respects to compliance with GRAMA.
+Pursuant to section 63G-2-309 of GRAMA, any confidential information provided to either party should
+be protected from disclosure, must be accompanied by a written claim of confidentiality and a
+concise statement of reasons supporting such a claim.
 
-   4. Redistribution. You may reproduce and distribute copies of the
-      Work or Derivative Works thereof in any medium, with or without
-      modifications, and in Source or Object form, provided that You
-      meet the following conditions:
+7. Counterparts. This Memorandum may be executed in two or more counterparts, each of which shall be
+deemed an original, and all of which together shall constitute one and the same instrument.
 
-      (a) You must give any other recipients of the Work or
-          Derivative Works a copy of this License; and
+8. Titles and Captions. All section or subsection titles or captions herein are for convenience
+only. Such titles and captions shall not be deemed part of the Agreement and shall in no way define,
+limit, augments, extend, or describe the scope, content or intent of any part or parts hereof.
 
-      (b) You must cause any modified files to carry prominent notices
-          stating that You changed the files; and
+9. Compliance with Laws. In performance of the Agreement, both parties shall comply with all
+applicable federal, state, and local laws, codes, regulations, rules and orders.
 
-      (c) You must retain, in the Source form of any Derivative Works
-          that You distribute, all copyright, patent, trademark, and
-          attribution notices from the Source form of the Work,
-          excluding those notices that do not pertain to any part of
-          the Derivative Works; and
+10. Relationship of Parties. In assuming and performing the obligations of this Agreement, each
+Party is acting as independent parties and neither shall be considered or represent itself as a
+joint venturer, partner, agent or employee of the other. Neither party shall use the name or any
+trademark of the other party in any advertising, sales promotion or other publicity matter without
+the prior written approval of the other party.
 
-      (d) If the Work includes a "NOTICE" text file as part of its
-          distribution, then any Derivative Works that You distribute must
-          include a readable copy of the attribution notices contained
-          within such NOTICE file, excluding those notices that do not
-          pertain to any part of the Derivative Works, in at least one
-          of the following places: within a NOTICE text file distributed
-          as part of the Derivative Works; within the Source form or
-          documentation, if provided along with the Derivative Works; or,
-          within a display generated by the Derivative Works, if and
-          wherever such third-party notices normally appear. The contents
-          of the NOTICE file are for informational purposes only and
-          do not modify the License. You may add Your own attribution
-          notices within Derivative Works that You distribute, alongside
-          or as an addendum to the NOTICE text from the Work, provided
-          that such additional attribution notices cannot be construed
-          as modifying the License.
+11. Uncontrollable Forces. No party shall be considered to be in default of this Agreement if delays
+in or failure of performance shall be due to uncontrollable forces the effect of which, by the
+exercise of reasonable diligence, the nonperforming party could not avoid. The term “uncontrollable
+forces” shall mean any event that results in the prevention or delay of performance by a party of
+its obligations under this Agreement and which is beyond the control of the nonperforming party. It
+includes, but is not limited to, fire, flood, earthquakes, storms, lightning, epidemic, war, riot,
+civil disturbance, sabotage, inability to procure permits, licenses, or authorizations from any
+state, local, or federal agency or person for any of the supplies, materials, accesses, or services
+required to be provided by either party under this Agreement, strikes, work slowdowns or other labor
+disturbances, and judicial restraint.
 
-      You may add Your own copyright statement to Your modifications and
-      may provide additional or different license terms and conditions
-      for use, reproduction, or distribution of Your modifications, or
-      for any such Derivative Works as a whole, provided Your use,
-      reproduction, and distribution of the Work otherwise complies with
-      the conditions stated in this License.
+12. Nonwaiver. A waiver by any party of any breach of this Memorandum shall not be binding upon the
+waiving party unless such waiver is in writing. In the event of a written waiver, such a waiver
+shall not affect the waiving party’s rights with respect to any other or further breach.
 
-   5. Submission of Contributions. Unless You explicitly state otherwise,
-      any Contribution intentionally submitted for inclusion in the Work
-      by You to the Licensor shall be under the terms and conditions of
-      this License, without any additional terms or conditions.
-      Notwithstanding the above, nothing herein shall supersede or modify
-      the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+13. Dispute Resolution. The Parties shall attempt in good faith to resolve any dispute arising out
+of or relating to this Memorandum promptly by negotiations between representatives who have
+authority to settle the controversy. The Parties intend that all disputes arising under this
+Memorandum be resolved expeditiously.
 
-   6. Trademarks. This License does not grant permission to use the trade
-      names, trademarks, service marks, or product names of the Licensor,
-      except as required for reasonable and customary use in describing the
-      origin of the Work and reproducing the content of the NOTICE file.
+Notwithstanding the foregoing, a Party may be relieved of its obligation to participate in the
+dispute resolution process if such Party (i) believes that the other Party’s acts or omissions
+create an immediate threat to the confidentiality, privacy or security of data or will cause
+irreparable harm to the Party or any third party, and (ii) pursues immediate relief against such
+other Party in a court of competent jurisdiction.
 
-   7. Disclaimer of Warranty. Unless required by applicable law or
-      agreed to in writing, Licensor provides the Work (and each
-      Contributor provides its Contributions) on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-      implied, including, without limitation, any warranties or conditions
-      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
-      PARTICULAR PURPOSE. You are solely responsible for determining the
-      appropriateness of using or redistributing the Work and assume any
-      risks associated with Your exercise of permissions under this License.
+-------------------------------------------------------------------------------------------------------
 
-   8. Limitation of Liability. In no event and under no legal theory,
-      whether in tort (including negligence), contract, or otherwise,
-      unless required by applicable law (such as deliberate and grossly
-      negligent acts) or agreed to in writing, shall any Contributor be
-      liable to You for damages, including any direct, indirect, special,
-      incidental, or consequential damages of any character arising as a
-      result of this License or out of the use or inability to use the
-      Work (including but not limited to damages for loss of goodwill,
-      work stoppage, computer failure or malfunction, or any and all
-      other commercial damages or losses), even if such Contributor
-      has been advised of the possibility of such damages.
+The Parties having read and understood the terms of the Memorandum, and do by their respective
+signatures agree to its terms.
 
-   9. Accepting Warranty or Additional Liability. While redistributing
-      the Work or Derivative Works thereof, You may choose to offer,
-      and charge a fee for, acceptance of support, warranty, indemnity,
-      or other liability obligations and/or rights consistent with this
-      License. However, in accepting such obligations, You may act only
-      on Your own behalf and on Your sole responsibility, not on behalf
-      of any other Contributor, and only if You agree to indemnify,
-      defend, and hold each Contributor harmless for any liability
-      incurred by, or claims asserted against, such Contributor by reason
-      of your accepting any such warranty or additional liability.
+The following persons are authorized to bind the irrespective agencies and to approve the terms of this
+Memorandum.
 
-   END OF TERMS AND CONDITIONS
+Tyler Technologies
+06/20/2023
+Tina Mize, Group General Counsel
 
-   APPENDIX: How to apply the Apache License to your work.
+Utah Department of Government Operations Division of Technology Services
+06/21/2023
+Dan Frei, Finance Director
 
-      To apply the Apache License to your work, attach the following
-      boilerplate notice, with the fields enclosed by brackets "[]"
-      replaced with your own identifying information. (Don't include
-      the brackets!)  The text should be enclosed in the appropriate
-      comment syntax for the file format. We also recommend that a
-      file or class name and description of purpose be included on the
-      same "printed page" as the copyright notice for easier
-      identification within third-party archives.
+-------------------------------------------------------------------------------------------------------
 
-   Copyright [yyyy] [name of copyright owner]
+Attachment A Conditions Upon Redistribution
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+1. Permission is hereby granted, free of charge, to any person or organization obtaining a copy of
+this software and associated documentation files (the “Software”), to deal with the Software without
+restriction, including without limitation the rights to use, copy modify, merge, publish,
+distribute, and sublicense copies of the Software to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-       http://www.apache.org/licenses/LICENSE-2.0
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+  ● Redistributions of source code must retain the following copyright notice, this list of conditions
+    and the following disclaimer.
+  ● Redistributions in binary form must reproduce the following copyright notice, this list of
+    conditions and the following disclaimer in the documentation and/or other materials provided
+    with the distribution:
+  ● Neither the name of the State of Utah nor the names of its contributors may be used to endorse or
+    promote products derived from this software without specific prior written permission.
+  ● No additional services, such as installation, training, or maintenance will be provided by the
+    State of Utah unless otherwise agreed to in writing.
+  ● Redistribution is limited to government entities and non-profits.
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+2. Copyright notice to be included in redistributions:
+Copyright © 2023 – Utah Department of Government Operations Division of Technology Services software
+known as State of Utah Design System. All rights reserved.
+
+3. Disclaimer to be included in redistributions:
+THIS SOFTWARE IS FREE OF CHARGE AND IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE STATE OF
+UTAH OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+EXPORT LAWS: THIS LICENSE ADDS NO RESTRICTIONS TO THE EXPORT LAWS OF YOUR JURISDICTION. It is
+Licensee's responsibility to comply with any export regulations applicable in Licensee's
+jurisdiction. Under CURRENT (9/1/2015) U.S. export regulations this software is eligible for export
+from the U.S. and can be downloaded by or otherwise exported or re-exported worldwide EXCEPT to U.S.
+embargoed destinations which include Cuba, Iraq, Libya, North Korea, Iran, Syria, Sudan, Afghanistan
+and any other country to which the U.S. has embargoed goods and services.
+
+4. A critical component of the Utah Design System that will help build trust with visitors is the
+“Utah: An official website” or “Utah: An official state website” identification text and graphical
+element that will appear in the header and footer of all official State of Utah sites. A site
+displaying this mark must be an official website for the State of Utah. No portion of this mark may
+be used on non-official websites, communications, or applications.

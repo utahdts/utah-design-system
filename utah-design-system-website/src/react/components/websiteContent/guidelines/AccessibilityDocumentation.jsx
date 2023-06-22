@@ -77,11 +77,11 @@ function AccessibilityDocumentation() {
         <li>
           <strong>Images and Icons.</strong>
           <ul>
-            <li>Icons and other graphical objects that contribute meaningful content or interaction require a contrast ratio of <code>4.5:1</code></li>
-            <li>Graphical objects that do not provide meaning nor interaction have no contrast requirements.</li>
+            <li><strong>Contrast ratio.</strong> Icons and other graphical objects that contribute meaningful content or interaction require a contrast ratio of <code>4.5:1</code></li>
+            <li><strong>Contrast ratio.</strong> Graphical objects that do not provide meaning nor interaction have no contrast requirements.</li>
             <li>
               <p>
-                All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding
+                <strong>Alternative text.</strong> All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding
                 the <code>alt</code> property to the image. For non-semantic <Link to={pageUrls.images}>images</Link> or <Link to={pageUrls.icons}>icons</Link> you
                 can also achieve this by applying an <code>aria-label</code> or <code>title</code> to the element.
                 Using the <code>title</code> attribute has the drawback of the browser generating a tooltip when the user hovers over the element.
@@ -121,8 +121,9 @@ function AccessibilityDocumentation() {
           </ul>
         </li>
         <li>
-          <strong>Component containers.</strong> The borders or boundaries of these elements require a contrast ratio of <code>3:1</code>. They aid in the site layout
-          and/or functionality but do not contribute to the information presented.
+          <strong>Component containers.</strong> The borders or boundaries of interactive elements require a contrast ratio of <code>3:1</code>.
+          When a component aids in the layout and/or functionality the contrast ratio must be met so,
+          that users may identify these components and interact with them as required.
         </li>
         <li>
           <strong>Color representation.</strong> Avoid using colors to represent important information, such as red to
@@ -130,8 +131,8 @@ function AccessibilityDocumentation() {
           such as <Link to={pageUrls.typography}>text</Link> or <Link to={pageUrls.icons}>icons</Link> to convey the correct meaning.
         </li>
         <li>
-          <strong>Assistive technology.</strong> Many components in the Utah Design System require additional ARIA attributes and testing to ensure
-          they are usable by those using assistive technology, such as screen readers and braille reader devices. Accessible Rich Internet Applications(ARIA) involves
+          <strong>Assistive technology.</strong> Many components in the Utah Design System require additional <abbr>ARIA</abbr> (Accessible Rich Internet Applications)
+          attributes and testing to ensure they are usable by those using assistive technology, such as screen readers and braille reader devices. ARIA involves
           a range of <code>roles</code> and <code>attributes</code> designed to enhance web content and web applications, with a specific focus on improving accessibility
           for individuals with disabilities.
         </li>
@@ -140,15 +141,26 @@ function AccessibilityDocumentation() {
       <h4 id="section-limited-vision-contrast">Contrast requirement</h4>
       <p>
         State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
-        (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
+        (
+        <em>
+          <ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink>
+          &nbsp;/&nbsp;<ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>.
+          Access to Information Technology for Users with Disabilities.
+        </em>
+        )
       </p>
       <p>
-        The WCAG 2.1 consists of three levels of guidance: A, AA, and AAA. <strong>State agencies are required to meet WCAG 2.1 Level AA guidelines and are encouraged to strive to meet Level AAA guidelines whenever feasible</strong>.
+        The WCAG 2.1 consists of three levels of guidance: A, AA, and AAA.
+        <strong>
+          State agencies are required to meet WCAG 2.1 Level AA guidelines
+          and are encouraged to strive to meet Level AAA guidelines whenever feasible
+        </strong>.
       </p>
       <p>
         All State of Utah agency websites must provide adequate contrast between text and its background (or an object and its background)
         so that it can be read or identified by people with moderately low vision (who do not use contrast-enhancing assistive technology).
         Contrast values are measured with the foreground color and the background color in a ratio such as: <code>3:1</code>, <code>4.5:1</code>, <code>7:1</code>.
+        Contrast requirements vary with the size of the text or object. Larger text/objects require less contrast, whereas smaller text/objects require more contrast.
       </p>
       <p>
         The Utah Design System provides a color and contrast tool. The tool can be accessed by clicking the gear icon in the Utah Header at the top.

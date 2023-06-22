@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -38,7 +38,7 @@
     "type": "git",
     "url": "git+https://github.com/utahdts/utah-design-system.git"
   },
-  "license": "Apache-2.0",
+  "license": "STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE",
   "bugs": {
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
