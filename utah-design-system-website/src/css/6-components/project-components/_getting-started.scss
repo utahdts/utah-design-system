@@ -1,0 +1,15 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/media-size-vars";
+
+.getting-started {
+  &__top-buttons {
+    display: flex;
+    gap: var(--spacing);
+    margin-bottom: var(--spacing-l);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    a {
+      flex: 1;
+      min-width: 200x;
+    }
+  }
+}

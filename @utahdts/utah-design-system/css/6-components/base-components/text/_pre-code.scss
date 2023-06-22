@@ -18,7 +18,7 @@
     margin: 0 0 var(--spacing) 0;
     &.gray-block {
       background: var(--gray-light-color);
-      padding: var(--spacing-s) var(--spacing-xl) var(--spacing-s) var(--spacing);
+      padding: var(--spacing-s) var(--spacing-3xl) var(--spacing-s) var(--spacing);
       border-radius: var(--radius-medium);
     }
     &.pre-code {
@@ -33,6 +33,16 @@
     }
     .pre-code__overflow-content {
       width: max-content;
+    }
+  }
+  .pre-code {
+    &__wrapper {
+      .copy-button .icon-button--borderless {
+        background: var(--gray-light-color);
+        &:hover {
+          background: white;
+        }
+      }
     }
   }
 }

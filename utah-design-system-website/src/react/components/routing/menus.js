@@ -328,6 +328,12 @@ export const menuResourcesSecondary = {
       parentLinks: [pages.resources.link],
     },
 
+    {
+      link: pages.progressLog.link,
+      title: pages.progressLog.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+
     // UDS-462
     // {
     //   link: pages.contributeCommunity.link,
