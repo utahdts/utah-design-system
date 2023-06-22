@@ -192,19 +192,19 @@ function HomeLanding() {
             headerClassName="button button--secondary-color button--solid"
             className="mb-spacing-l home-page--accordion-small"
           >
-            [The Division of Techonlogy Services shall:]<br />
+            [The Division of Technology Services shall:]<br />
             (10) coordinate with executive branch agencies to provide basic website standards for agencies that address common design standards and navigation standards, including:
             <ol type="a">
-              <li>(a) accessibility for individuals with disabilities in accordance with:
+              <li>accessibility for individuals with disabilities in accordance with:
                 <ol type="i">
-                  <li>(i) the standards of 29 U.S.C. Sec. 794d; and</li>
-                  <li>(ii) Section 63A-16-209;</li>
+                  <li>the standards of 29 U.S.C. Sec. 794d; and</li>
+                  <li>Section 63A-16-209;</li>
                 </ol>
               </li>
-              <li>(b) consistency with standardized government security standards;</li>
-              <li>(c) designing around user needs with data-driven analysis influencing management and development decisions, using qualitative and quantitative data to determine user goals, needs, and behaviors, and continual testing of the website, web-based form, web-based application, or digital service to ensure that user needs are addressed;</li>
-              <li>(d) providing users of the website, web-based form, web-based application, or digital service with the option for a more customized digital experience that allows users to complete digital transactions in an efficient and accurate manner; and</li>
-              <li>(e) full functionality and usability on common mobile devices;</li>
+              <li>consistency with standardized government security standards;</li>
+              <li>designing around user needs with data-driven analysis influencing management and development decisions, using qualitative and quantitative data to determine user goals, needs, and behaviors, and continual testing of the website, web-based form, web-based application, or digital service to ensure that user needs are addressed;</li>
+              <li>providing users of the website, web-based form, web-based application, or digital service with the option for a more customized digital experience that allows users to complete digital transactions in an efficient and accurate manner; and</li>
+              <li>full functionality and usability on common mobile devices;</li>
             </ol>
           </Accordion>
           <p>
