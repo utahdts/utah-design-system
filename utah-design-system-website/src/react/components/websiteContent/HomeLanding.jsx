@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { ExternalLink } from '@utahdts/utah-design-system';
+import { Accordion, ExternalLink } from '@utahdts/utah-design-system';
 import pageUrls from '../routing/pageUrls';
 // import ProgressLog from './ProgressLog/ProgressLog';
 import IconsWebsite from './IconsWebsite';
@@ -23,7 +23,7 @@ function HomeLanding() {
         <p className="lead-in">
           The Utah Design System consists of reusable user interface components, valuable resources, and guiding principles that empower teams to craft consistent, accessible, secure, and scalable user experiences for websites and applications.
         </p>
-        <div className="flex justify-center mb-spacing-l">
+        <div className="flex justify-center mb-spacing-xl">
           <Link
             to={pageUrls.gettingStarted}
             className="button button--primary-color button--solid button--large"
@@ -186,6 +186,27 @@ function HomeLanding() {
             Branch Agencies coordinate on the creation of a set of “basic website standards for agencies that address common
             design standards and navigation standards”.
           </p>
+          <Accordion
+            headerContent="View details of Utah Code: §63A-16-104 - (10)"
+            headingLevel={3}
+            headerClassName="button button--secondary-color button--solid"
+            className="mb-spacing-l home-page--accordion-small"
+          >
+            [The Division of Techonlogy Services shall:]<br />
+            (10) coordinate with executive branch agencies to provide basic website standards for agencies that address common design standards and navigation standards, including:
+            <ol type="a">
+              <li>(a) accessibility for individuals with disabilities in accordance with:
+                <ol type="i">
+                  <li>(i) the standards of 29 U.S.C. Sec. 794d; and</li>
+                  <li>(ii) Section 63A-16-209;</li>
+                </ol>
+              </li>
+              <li>(b) consistency with standardized government security standards;</li>
+              <li>(c) designing around user needs with data-driven analysis influencing management and development decisions, using qualitative and quantitative data to determine user goals, needs, and behaviors, and continual testing of the website, web-based form, web-based application, or digital service to ensure that user needs are addressed;</li>
+              <li>(d) providing users of the website, web-based form, web-based application, or digital service with the option for a more customized digital experience that allows users to complete digital transactions in an efficient and accurate manner; and</li>
+              <li>(e) full functionality and usability on common mobile devices;</li>
+            </ol>
+          </Accordion>
           <p>
             State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
             (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
