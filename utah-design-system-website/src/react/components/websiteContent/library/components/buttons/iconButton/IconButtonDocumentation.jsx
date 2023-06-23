@@ -392,35 +392,57 @@ function IconButtonDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Icon buttons must maintain a <code>3:1</code> contrast ratio or better: The button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.</li>
-        <li>Icon button text must maintain a <code>4.5:1</code> contrast ratio or better.</li>
+        <li>
+          Icon button boundary (the outside edge of the button) must maintain a <code>3:1</code> contrast ratio or better.
+          Exception: when an icon button is borderless it does not have follow this rule.
+        </li>
+        <li>Icon button text and icon must maintain a <code>4.5:1</code> contrast ratio or better.</li>
         <li>The icon button&apos;s focus state should have a <code>3:1</code> contrast ratio.</li>
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>When the icon button receives focus, the tooltip should be visible (except when the icon button displays a popup).</li>
-        <li>Buttons natively receive keyboard focus so there&apos;s no need to add a tabindex attribute.</li>
-        <li>The icon button should display a visible focus state when users tab to it.</li>
-        <li>
-          Avoid using non-standard html markup for an icon button such as a div tag.
+        <li>The icon button must receive focus when the user presses the <code>tab</code> key.
           <ul>
-            <li>The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+            <li>Buttons natively receive keyboard focus so there&apos;s no need to add a tabindex attribute.</li>
           </ul>
         </li>
+        <li>When the icon button receives focus, the tooltip should be visible (except when the icon button displays a popup).</li>
+        <li>The icon button should display a visible focus state when users tab to it.</li>
+        <li>You should be able to press the button by using the <code>enter</code> or <code>space</code> key.</li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
+        <li>
+          Avoid using non-standard html markup for an icon button such as a div tag.
+          <ul>
+            <li>Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+            <li>When you must use ARIA use the following:
+              <ul>
+                <li>Use the <code>role=&quot;button&quot;</code> attribute.</li>
+                <li>Use <code>tabindex=&quot;0&quot;</code>.</li>
+                <li>Provide a focus state that matches the rest of focusable components.</li>
+                <li>Provide event handlers for <code>click</code> and <code>keydown</code> events.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li>
           Icon buttons should have an <code>aria-label</code> or <code>visually hidden</code> text to describe the action for people using assistive technologies, such as screen readers:
           <ul>
             <li>Generally don&apos;t use more than 2 to 3 words.</li>
             <li>Use verbs first; use only verbs where possible e.g. Save.</li>
-            <li>Avoid unnecessary words and articles, such as <code>the</code> or <code>a</code>.</li>
+            <li>Avoid unnecessary words and articles, such as &quot;the&quot; or &quot;a&quot;.</li>
             <li>Use sentence case.</li>
+            <li>Avoid using the words &quot;image&quot; or &quot;icon&quot; in the description label. Additionally, if the icon is a magnifying lens used to promote a search, use the word &quot;Search&quot; instead of magnifying lens.</li>
           </ul>
         </li>
-        <li>Avoid using the words image or icon in the description label. For example, if the icon is a magnifying lens used to promote a search, use the word Search instead of magnifying lens.</li>
+        <li>
+          Toggle button: Use the <code>aria-pressed</code> attribute to define the button as a toggle button. The value describes the state of the button.
+          The values include <code>aria-pressed=&quot;false&quot;</code> when a button is not currently pressed, <code>aria-pressed=&quot;true&quot;</code> to indicate a button is currently pressed.
+        </li>
       </ul>
+
+      <button type="button" aria-pressed="true">Press Me</button>
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
