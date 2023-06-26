@@ -3,10 +3,10 @@
 import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import xdScreenshot from '../../../../static/images/screenshots/utah-design-system-mockups-xd.webp';
+import LightBox from '../../lightbox/LightBox';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
-import LightBox from '../../lightbox/LightBox';
-import xdScreenshot from '../../../../static/images/screenshots/utah-design-system-mockups-xd.webp';
 
 const propTypes = {};
 const defaultProps = {};
@@ -263,7 +263,14 @@ function GettingStarted() {
       <LightBox alt="Utah Design System Mockups" image={xdScreenshot} />
       <div className="flex justify-center mt-spacing"><a href="https://dts.utah.gov/wp-content/uploads/UtahDesignSystem.xd_.zip" className="button button--primary-color button--solid">Download Adobe XD Document</a></div>
       <p className="text-center"><em>75 MB</em></p>
-      <p><em>Additional mockup options will be provided in a future phase of the design system.</em></p>
+      <Link
+        to={pageUrls.mockups}
+        className="button button--primary-color button--solid button--large"
+      >
+        View mock details
+        <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+      </Link>
+
     </div>
   );
 }
