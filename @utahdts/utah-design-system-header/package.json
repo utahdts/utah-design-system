@@ -47,11 +47,11 @@
     "@popperjs/core": "2.11.8"
   },
   "devDependencies": {
-    "@vitest/ui": "0.32.0",
+    "@vitest/ui": "0.32.2",
     "jsdom": "22.1.0",
-    "sass": "1.63.3",
+    "sass": "1.63.6",
     "vite": "4.3.9",
-    "vitest": "0.32.0"
+    "vitest": "0.32.2"
   },
   "type": "module"
 }

@@ -48,7 +48,7 @@
     "reset": "run-s cleani websiteDev"
   },
   "devDependencies": {
-    "eslint": "8.42.0",
+    "eslint": "8.43.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
@@ -58,6 +58,6 @@
     "npm-run-all": "4.1.5",
     "rimraf": "5.0.1",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "0.32.0"
+    "vitest": "0.32.2"
   }
 }
