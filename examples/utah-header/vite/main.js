@@ -1,6 +1,6 @@
 import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import '@utahdts/utah-design-system-header/css';
-import { setupCounter } from './counter.js';
+import { setupCounter } from './counter';
 import javascriptLogo from './javascript.svg';
 import './style.css';
 import viteLogo from '/vite.svg';

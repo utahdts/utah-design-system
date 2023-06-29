@@ -34,6 +34,10 @@
     .pre-code__overflow-content {
       width: max-content;
     }
+    &.size-small {
+      max-height: 200px;
+      overflow: scroll;
+    }
   }
   .pre-code {
     &__wrapper {
