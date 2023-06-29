@@ -8,6 +8,7 @@ import AccessibilityDocumentation from '../websiteContent/guidelines/Accessibili
 import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
+import ImagesDocumentation from '../websiteContent/guidelines/ImagesDocumentation';
 import LayoutDocumentation from '../websiteContent/guidelines/LayoutDocumentation';
 import OpacityDocumentation from '../websiteContent/guidelines/OpacityDocumentation';
 import ShapesDocumentation from '../websiteContent/guidelines/ShapesDocumentation';
@@ -230,7 +231,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   images: {
-    content: PlaceHolderDocumentation,
+    content: ImagesDocumentation,
     link: pageUrls.images,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Images',

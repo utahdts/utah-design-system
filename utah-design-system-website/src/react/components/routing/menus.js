@@ -52,6 +52,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.images.link,
+      title: pages.images.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.layout.link,
       title: pages.layout.pageTitle,
       parentLinks: [pages.guidelines.link],
@@ -112,12 +117,6 @@ export const menuGuidelinesSecondary = {
     //   parentLinks: [pages.guidelines.link],
     // },
 
-    // UDS-867
-    // {
-    //   link: pages.images.link,
-    //   title: pages.images.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
   ],
 };
 
