@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
 import { Accordion, ExternalLink } from '@utahdts/utah-design-system';
-import pageUrls from '../routing/pageUrls';
-// import ProgressLog from './ProgressLog/ProgressLog';
-import IconsWebsite from './IconsWebsite';
+import { Link } from 'react-router-dom';
 import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
 import LightBox from '../lightbox/LightBox';
+import pageUrls from '../routing/pageUrls';
+import IconsWebsite from './IconsWebsite';
 
 const propTypes = {};
 const defaultProps = {};

@@ -6,6 +6,12 @@
     &__wrapper {
       position: relative;
       width: 100%;
+      .copy-button .icon-button--borderless {
+        background: var(--gray-light-color);
+        &:hover {
+          background: white;
+        }
+      }
     }
   }
 
@@ -33,16 +39,6 @@
     }
     .pre-code__overflow-content {
       width: max-content;
-    }
-  }
-  .pre-code {
-    &__wrapper {
-      .copy-button .icon-button--borderless {
-        background: var(--gray-light-color);
-        &:hover {
-          background: white;
-        }
-      }
     }
   }
 }
