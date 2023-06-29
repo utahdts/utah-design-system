@@ -3,11 +3,17 @@
 variables and settings
 */
 
+@forward  "class-vars";
 @use "class-vars";
+@forward  "spacing";
 @use "spacing";
+@forward  "grid";
 @use "grid";
+@forward  "font-stuff";
 @use "font-stuff";
+@forward "color-swatches";
 @use "color-swatches";
+@forward "icons";
 @use "icons";
 
 #{class-vars.$base-class} {

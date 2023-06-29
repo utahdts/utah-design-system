@@ -22,6 +22,7 @@ BEM standard: Block, Element, Modifier
 // @include meta.load-css("./3-generic/normalize.css");
 
 // variables and settings
+@forward "1-settings/settings-index";
 @include meta.load-css("1-settings/settings-index");
 
 // mixins, functions

@@ -43,4 +43,4 @@ This project uses [SemVer](http://semver.org/) for versioning.
 DTS & the Digital Experience Team
 
 # License
-Apache License Version 2.0
+STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE

@@ -15,7 +15,7 @@ Please see the [documentation site](https://designsystem.utah.gov/) for all info
 ## Install
 
 [![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system)
-[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://github.com/utahdts/utah-design-system/raw/dev/LICENSE)
 [![issues](https://img.shields.io/github/issues-raw/utahdts/utah-design-system?style=for-the-badge)](https://github.com/utahdts/utah-design-system/issues)
 
 ```bash
