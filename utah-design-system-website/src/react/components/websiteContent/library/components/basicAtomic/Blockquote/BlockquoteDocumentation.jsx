@@ -5,6 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import LightBox from '../../../../../lightbox/LightBox';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import blockquoteScreenshotA from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
 import blockquoteScreenshotB from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
 import blockquoteScreenshotC from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote3.png';
@@ -108,6 +109,20 @@ function BlockquoteDocumentation() {
           </ul>
         </li>
       </ul>
+
+      <PreCodeForCodeString
+        showBackgroundColor
+        codeRaw={(`
+              <figure>
+                <blockquote cite="https://visitutah.com/Places-To-Go">
+                    <p>These natural landscape are designated as national parks, national monuments, national forests, state parks and millions of acres of open spaces with no official designation save for "Utah".</p>
+                </blockquote>
+                <figcaption>- Utah Office of Tourism, 
+                    <cite> Visit Utah</cite>
+                </figcaption>
+              </figure>
+            `)}
+      />
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
