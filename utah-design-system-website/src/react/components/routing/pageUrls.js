@@ -6,6 +6,7 @@ const pageUrls = {
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
   banners: /** @type {PageUrl} */ ('/library/components/popups/banners'),
+  blockquote: /** @type {PageUrl} */ ('/library/components/textLayout/blockquote'),
   breadcrumb: /** @type {PageUrl} */ ('/library/components/navigationLinks/breadcrumb'),
   button: /** @type {PageUrl} */ ('/library/components/buttonsTags/button'),
   buttonGroup: /** @type {PageUrl} */ ('/library/components/buttons/buttonGroup'),

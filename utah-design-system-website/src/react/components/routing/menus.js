@@ -132,6 +132,7 @@ export const menuLibraryComponentsSecondary = {
       children: [
         // Basic and Semantic Text
         { link: pages.paragraphs.link, title: pages.paragraphs.pageTitle },
+        { link: pages.blockquote.link, title: pages.blockquote.pageTitle },
         { link: pages.codeBlock.link, title: pages.codeBlock.pageTitle },
         { link: pages.dividers.link, title: pages.dividers.pageTitle },
         { link: pages.headings.link, title: pages.headings.pageTitle },

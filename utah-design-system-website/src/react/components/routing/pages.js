@@ -15,6 +15,7 @@ import ShapesDocumentation from '../websiteContent/guidelines/ShapesDocumentatio
 import SpacingDocumentation from '../websiteContent/guidelines/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/guidelines/TypographyDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import BlockquoteDocumentation from '../websiteContent/library/components/basicAtomic/Blockquote/BlockquoteDocumentation';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
 import ParagraphDocumentation from '../websiteContent/library/components/basicAtomic/Paragraph/ParagraphDocumentation';
@@ -349,6 +350,14 @@ const pages = {
     link: pageUrls.dividers,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Dividers',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  blockquote: {
+    content: BlockquoteDocumentation,
+    link: pageUrls.blockquote,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Block Quote',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
