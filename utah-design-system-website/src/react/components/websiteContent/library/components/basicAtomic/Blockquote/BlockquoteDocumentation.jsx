@@ -139,7 +139,7 @@ function BlockquoteDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>
-          Use native <code>&lt;hr&gt;</code> elements for horizontal separators. Remember: The first rule of ARIA: Before you use ARIA,
+          Remember: The first rule of ARIA: Before you use ARIA,
           use native HTML elements or attributes first!
         </li>
         <li>
