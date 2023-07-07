@@ -42,6 +42,7 @@ import TextInputDocumentation from '../websiteContent/library/components/forms/T
 import TimeInputDocumentation from '../websiteContent/library/components/forms/TimeInput/TimeInputDocumentation';
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
+import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
 import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
@@ -367,6 +368,14 @@ const pages = {
     link: pageUrls.links,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Links',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  skiplink: {
+    content: SkipLinkDocumentation,
+    link: pageUrls.skipLink,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Skip Link',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 

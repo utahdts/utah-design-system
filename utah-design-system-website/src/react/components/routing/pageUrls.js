@@ -70,7 +70,7 @@ const pageUrls = {
   showcase: /** @type {PageUrl} */ ('/resources/showcase'),
   sidePanelNavigation: /** @type {PageUrl} */ ('/library/components/navigationLinks/sidePanel'),
   skeletons: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/skeletons'),
-  skipLink: /** @type {PageUrl} */ ('/library/components/basic/skipLink'),
+  skipLink: /** @type {PageUrl} */ ('/library/components/navigationLinks/skipLink'),
   spacing: /** @type {PageUrl} */ ('/guidelinesStandards/spacing'),
   spinners: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/spinners'),
   stepIndicator: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/stepIndicators'),
