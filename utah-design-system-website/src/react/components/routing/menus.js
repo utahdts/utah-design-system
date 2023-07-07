@@ -151,6 +151,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.iconButton.link, title: pages.iconButton.pageTitle },
         { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
         { link: pages.tags.link, title: pages.tags.pageTitle },
+        { link: pages.iconBar.link, title: pages.iconBar.pageTitle },
       ],
     },
     {

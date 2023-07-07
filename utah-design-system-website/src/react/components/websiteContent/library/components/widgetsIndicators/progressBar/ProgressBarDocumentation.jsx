@@ -141,7 +141,7 @@ function ProgressBarDocumentation() {
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Progress bars are not interactive</li>
+        <li>Progress bars are not interactive.</li>
       </ul>
 
       <h4 id="section-screen-readers">Screen readers</h4>

@@ -23,6 +23,7 @@ import TagsDocumentation from '../websiteContent/library/components/basicAtomic/
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
+import IconBarDocumentation from '../websiteContent/library/components/buttons/iconBar/IconBarDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
@@ -746,7 +747,7 @@ const pages = {
   },
 
   iconBar: {
-    content: PlaceHolderDocumentation,
+    content: IconBarDocumentation,
     link: pageUrls.iconBar,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Bar',
