@@ -57,6 +57,7 @@ import TableDocumentation from '../websiteContent/library/components/table/Table
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import ProcessListDocumentation from '../websiteContent/library/components/widgetsIndicators/processList/ProcessListDocumentation';
+import ProgressBarDocumentation from '../websiteContent/library/components/widgetsIndicators/progressBar/ProgressBarDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
 import StepIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
@@ -536,10 +537,10 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   progressBars: {
-    content: PlaceHolderDocumentation,
+    content: ProgressBarDocumentation,
     link: pageUrls.progressBars,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Progress Bars',
+    pageTitle: 'Progress Bar',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   skeletons: {

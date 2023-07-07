@@ -239,8 +239,7 @@ export const menuLibraryComponentsSecondary = {
 
         { link: pages.processList.link, title: pages.processList.pageTitle },
 
-        // UDS-107 103
-        // { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
+        { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
