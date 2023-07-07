@@ -127,16 +127,18 @@ function ButtonDocumentation() {
           </>
         )}
         quickTips={(
-          <ul>
-            <li>Used to deemphasize a button. This is the default look of a button.</li>
-            <li>When used in proximity to other buttons:
-              <ul>
-                <li>Should appear on the left of an emphasized button.</li>
-              </ul>
-            </li>
-            <li>Solid outline. Text matches the button color.</li>
-            <li>* - This is the default appearance of a button.</li>
-          </ul>
+          <>
+            <ul>
+              <li>Used to de-emphasize a button. This is the default look of a button.</li>
+              <li>When used in proximity to other buttons:
+                <ul>
+                  <li>Should appear on the left of an emphasized button.</li>
+                </ul>
+              </li>
+              <li>Solid outline. Text matches the button color.</li>
+            </ul>
+            <p className="mt-spacing">* This is the default appearance of a button.</p>
+          </>
         )}
       />
 
