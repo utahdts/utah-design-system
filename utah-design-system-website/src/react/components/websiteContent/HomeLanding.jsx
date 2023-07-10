@@ -55,7 +55,7 @@ function HomeLanding() {
               <h3>Accessibility</h3>
             </div>
             <p>
-              One of the top goals at the State of Utah, is to make websites and applications, across our many agencies accessible for all people,
+              One of the top goals at the State of Utah is to make websites and applications across our many agencies accessible for all people,
               including those with varying impairments.  Each component in the Utah Design System library includes an accessibility section where
               detailed information can be found about contrast, keyboard interaction, and screen readers.
             </p>

@@ -37,5 +37,27 @@
       min-height: auto;
       padding: 0;
     }
+    .newly-selected {
+      animation: tilt-shaking 0.35s 5;
+    }
+    .selected {
+      animation: tilt-shaking 0.35s Infinite;
+    }
+    button .utds-icon-before-check{
+      &.is-dark {
+        color: white;
+      }
+      &.is-light {
+        color: black;
+      }
+    }
   }
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
