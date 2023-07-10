@@ -84,6 +84,15 @@ $color-picker-base-size: 130px;
       &--small {
         width: calc(#{$color-picker-base-size} / 2);
         height: calc(#{$color-picker-base-size} / 2);
+        font-size: .9rem;
+        line-height: 18px;
+        .color-picker__contrast {
+          border: none;
+          margin-top: 0;
+        }
+        .fixed-width-font {
+          font-size: .8rem;
+        }
       }
       &--light {
         color: var(--gray-color);

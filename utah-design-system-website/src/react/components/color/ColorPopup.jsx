@@ -123,13 +123,13 @@ function ColorPopup({ onClose }) {
                       onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR; })}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
                       onChange={(newColor) => setColor(newColor)}
-                      showTextColor
+                      isLarge
                       title="Primary"
                       value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]}
                     />
                     <div className="color-pickers__light-dark">
                       <ColorPicker
-                        className="primary-color-dark-background color-picker--small"
+                        className="primary-color-dark-background"
                         id="primary-dark-color"
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK}
                         label="Primary: Dark"
@@ -139,7 +139,7 @@ function ColorPopup({ onClose }) {
                         value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
                       />
                       <ColorPicker
-                        className="primary-color-light-background color-picker--small"
+                        className="primary-color-light-background"
                         id="primary-light-color"
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT}
                         label="Primary: Light"
@@ -168,13 +168,13 @@ function ColorPopup({ onClose }) {
                         setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR; })
                       )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]}
-                      showTextColor
+                      isLarge
                       title="Secondary"
                       value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]}
                     />
                     <div className="color-pickers__light-dark">
                       <ColorPicker
-                        className="secondary-color-dark-background color-picker--small"
+                        className="secondary-color-dark-background"
                         id="secondary-dark-color"
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK}
                         label="Secondary: Dark"
@@ -187,7 +187,7 @@ function ColorPopup({ onClose }) {
                       />
 
                       <ColorPicker
-                        className="secondary-color-light-background color-picker--small"
+                        className="secondary-color-light-background"
                         id="secondary-light-color"
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT}
                         label="Secondary: Light"
@@ -216,13 +216,13 @@ function ColorPopup({ onClose }) {
                         setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR; })
                       )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
-                      showTextColor
+                      isLarge
                       title="Accent"
                       value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]}
                     />
                     <div className="color-pickers__light-dark">
                       <ColorPicker
-                        className="accent-color-dark-background color-picker--small"
+                        className="accent-color-dark-background"
                         id="accent-dark-color"
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK}
                         label="Accent: Dark"
@@ -235,7 +235,7 @@ function ColorPopup({ onClose }) {
                       />
 
                       <ColorPicker
-                        className="accent-color-light-background color-picker--small"
+                        className="accent-color-light-background"
                         id="accent-light-color"
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT}
                         label="Accent: Light"

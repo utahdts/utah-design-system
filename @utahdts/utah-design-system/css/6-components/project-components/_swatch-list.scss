@@ -37,11 +37,8 @@
       min-height: auto;
       padding: 0;
     }
-    .newly-selected {
-      animation: tilt-shaking 0.35s 5;
-    }
-    .selected {
-      animation: tilt-shaking 0.35s Infinite;
+    .selected button {
+      border-radius: 32px !important;
     }
     button .utds-icon-before-check{
       &.is-dark {
@@ -52,12 +49,4 @@
       }
     }
   }
-}
-
-@keyframes tilt-shaking {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(0eg); }
-  75% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
 }

@@ -6,7 +6,6 @@ import { useImmer } from 'use-immer';
 import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_CLASS_NAMES from '../../enums/cssClassNames';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import isLightColor from '../../util/color/isLightColor';
 
 const propTypes = {
   colorFamily: PropTypes.exact({
@@ -93,12 +92,14 @@ function SwatchList({ colorFamily, onColorSelected }) {
         {
           colorFamily.swatches.map((swatch) => {
             const selectedColor = selectedColors.find((testColor) => testColor.value === swatch);
+            const isSelectedGroup = !!selectedColor;
+            const isSelected = selectedColor?.key === cssState.selectedColorPicker;
             return (
               <li
                 key={`color-family__swatch-${swatch}`}
                 className={joinClassNames(
-                  selectedColor ? `selected-group selected${selectedColor.key}` : null,
-                  (selectedColor?.key === cssState.selectedColorPicker) ? 'selected' : null,
+                  isSelectedGroup ? `selected-group selected${selectedColor.key}` : null,
+                  isSelected ? 'selected' : null,
                   (selectedColor && changedColorKeys.includes(selectedColor.key)) ? 'newly-selected' : null
                 )}
               >
@@ -112,19 +113,6 @@ function SwatchList({ colorFamily, onColorSelected }) {
                     Pick
                     {swatch}
                   </span>
-                  {
-                    selectedColor
-                      ? (
-                        <span
-                          className={joinClassNames(
-                            'utds-icon-before-check',
-                            isLightColor(swatch) ? 'is-light' : 'is-dark'
-                          )}
-                          aria-hidden="true"
-                        />
-                      )
-                      : null
-                  }
                 </button>
               </li>
             );

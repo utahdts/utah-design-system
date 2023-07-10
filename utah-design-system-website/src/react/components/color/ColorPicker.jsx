@@ -16,14 +16,14 @@ const propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
-  showTextColor: PropTypes.bool,
+  isLarge: PropTypes.bool,
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
 };
 const defaultProps = {
   colorGray: null,
+  isLarge: false,
   isSelected: false,
-  showTextColor: false,
 };
 
 function ColorPicker({
@@ -35,7 +35,7 @@ function ColorPicker({
   label,
   onChange,
   onClick,
-  showTextColor,
+  isLarge,
   title,
 }) {
   const isLight = isLightColor(value);
@@ -49,7 +49,13 @@ function ColorPicker({
 
   return (
     <div
-      className={joinClassNames(['color-picker', isSelected && 'selected', isLight && 'color-picker--light', className])}
+      className={joinClassNames(
+        'color-picker',
+        isSelected && 'selected',
+        isLight && 'color-picker--light',
+        className,
+        isLarge ? null : 'color-picker--small'
+      )}
       onClick={onClick}
       onKeyUp={handleKeyPress('Enter', onClick)}
       role="button"
@@ -70,25 +76,26 @@ function ColorPicker({
           value={value}
         />
       </div>
-      <hr />
-      <div className={`color-picker__contrast fixed-width-font ${className}`}>
-        <span className="color-picker__ratio">{contrastDecimal}:1</span>
-        <span style={{ background: colorGray, color: !isLight ? '#474747' : 'white' }}>
-          {
-            contrastDecimal >= 7
-              ? (
-                <span className="color-picker__rating">AAA</span>
-              )
-              : (
-                <span className="color-picker__rating">AA</span>
-              )
-          }
-        </span>
-      </div>
+
       {
-        showTextColor
+        isLarge
           ? (
             <>
+              <hr />
+              <div className={`color-picker__contrast fixed-width-font ${className}`}>
+                <span className="color-picker__ratio">{contrastDecimal}:1</span>
+                <span style={{ background: colorGray, color: !isLight ? '#474747' : 'white' }}>
+                  {
+                    contrastDecimal >= 7
+                      ? (
+                        <span className="color-picker__rating">AAA</span>
+                      )
+                      : (
+                        <span className="color-picker__rating">AA</span>
+                      )
+                  }
+                </span>
+              </div>
               <div className="color-picker__foreground">
                 <div
                   className="color-picker__foreground-box"
@@ -99,7 +106,11 @@ function ColorPicker({
               <div className="fixed-width-font">{colorGray}</div>
             </>
           )
-          : null
+          : (
+            <div className={`color-picker__contrast fixed-width-font ${className}`}>
+              <span className="color-picker__ratio">{contrastDecimal}:1</span>
+            </div>
+          )
       }
     </div>
   );
