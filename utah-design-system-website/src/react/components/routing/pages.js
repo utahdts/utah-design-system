@@ -31,6 +31,7 @@ import CodeBlockDocumentation from '../websiteContent/library/components/contain
 import DrawerDocumentation from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
 import InfoBoxDocumentation from '../websiteContent/library/components/containers/InfoBox/InfoBoxDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
+import CharacterCountDocumentation from '../websiteContent/library/components/forms/CharacterCount/CharacterCountDocumentation';
 import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
@@ -602,6 +603,13 @@ const pages = {
     link: pageUrls.checkbox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Checkbox',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  characterCount: {
+    content: CharacterCountDocumentation,
+    link: pageUrls.characterCount,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Character Count',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   comboBox: {

@@ -13,6 +13,7 @@ const pageUrls = {
   callout: /** @type {PageUrl} */ ('/library/components/popups/callout'),
   card: /** @type {PageUrl} */ ('/library/components/containers/card'),
   carousel: /** @type {PageUrl} */ ('/library/components/slidersCarousels/carousel'),
+  characterCount: /** @type {PageUrl} */ ('/library/components/forms/characterCount'),
   checkbox: /** @type {PageUrl} */ ('/library/components/forms/checkbox'),
   codeBlock: /** @type {PageUrl} */ ('/library/components/textLayout/codeBlock'),
   colorFoundation: /** @type {PageUrl} */ ('/guidelinesStandards/color'),

@@ -183,6 +183,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.switch.link, title: pages.switch.pageTitle },
         // UDS-382
         // { link: pages.textArea.link, title: pages.textArea.pageTitle },
+        { link: pages.characterCount.link, title: pages.characterCount.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
         { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
       ],
