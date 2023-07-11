@@ -198,6 +198,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.skiplink.link, title: pages.skiplink.pageTitle },
+        { link: pages.backTopTop.link, title: pages.backTopTop.pageTitle },
         { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },

@@ -4,6 +4,7 @@
 const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibility'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
+  backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
   banners: /** @type {PageUrl} */ ('/library/components/popups/banners'),
   blockquote: /** @type {PageUrl} */ ('/library/components/textLayout/blockquote'),
