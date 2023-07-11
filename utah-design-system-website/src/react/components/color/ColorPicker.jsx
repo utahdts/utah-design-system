@@ -39,6 +39,7 @@ function ColorPicker({
   title,
 }) {
   const isLight = isLightColor(value);
+  const textColor = isLight ? (colorGray || '#474747') : '#ffffff';
 
   const contrastDecimal = useMemo(
     () => (
@@ -59,11 +60,11 @@ function ColorPicker({
       onClick={onClick}
       onKeyUp={handleKeyPress('Enter', onClick)}
       role="button"
-      style={{ color: colorGray }}
+      style={{ color: textColor }}
       tabIndex="0"
     >
-      <span>{title}</span>
       <div className="color-picker__hex-color">
+        <span>{title}</span>
         <TextInput
           className="color-picker__hex-color-input fixed-width-font"
           id={id}
@@ -77,41 +78,30 @@ function ColorPicker({
         />
       </div>
 
-      {
-        isLarge
-          ? (
-            <>
-              <hr />
-              <div className={`color-picker__contrast fixed-width-font ${className}`}>
-                <span className="color-picker__ratio">{contrastDecimal}:1</span>
-                <span style={{ background: colorGray, color: !isLight ? '#474747' : 'white' }}>
-                  {
-                    contrastDecimal >= 7
-                      ? (
-                        <span className="color-picker__rating">AAA</span>
-                      )
-                      : (
-                        <span className="color-picker__rating">AA</span>
-                      )
-                  }
-                </span>
-              </div>
-              <div className="color-picker__foreground">
-                <div
-                  className="color-picker__foreground-box"
-                  style={{ background: colorGray }}
-                />
-                <div>Text</div>
-              </div>
-              <div className="fixed-width-font">{colorGray}</div>
-            </>
-          )
-          : (
-            <div className={`color-picker__contrast fixed-width-font ${className}`}>
-              <span className="color-picker__ratio">{contrastDecimal}:1</span>
-            </div>
-          )
-      }
+      <hr />
+      <div className={`color-picker__contrast fixed-width-font ${className}`}>
+        <span className="color-picker__ratio">{contrastDecimal}:1</span>
+        <span style={{ background: textColor, color: !isLight ? '#474747' : 'white' }}>
+          {
+            contrastDecimal >= 7
+              ? (
+                <span className="color-picker__rating" style={{ color: value }}>AAA</span>
+              )
+              : (
+                <span className="color-picker__rating" style={{ color: value }}>AA</span>
+              )
+          }
+        </span>
+      </div>
+      <div className="color-picker__foreground">
+        <div
+          className="color-picker__foreground-box"
+          style={{ background: textColor }}
+        />
+        <div>Text</div>
+        <div className="fixed-width-font">{textColor}</div>
+      </div>
+
     </div>
   );
 }

@@ -7,19 +7,26 @@
 $color-picker-base-size: 130px;
 #{class-vars.$base-class} {
   .color-picker {
-      height: $color-picker-base-size;
-      width: $color-picker-base-size;
+      // height: $color-picker-base-size;
+      // width: $color-picker-base-size;
+      height: 90px;
+      width: 165px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      // border: 2px solid white;
       color: white;
       cursor: pointer;
       box-sizing: border-box;
       position: relative;
-      
+      border: 1px solid var(--gray-color);
+      box-sizing: border-box;
+
+      &:not(:last-of-type) {
+        border-bottom: none;
+      }
+
       .fixed-width-font {
         font-family: var(--fixed-width-font-family);
         font-size: var(--font-size-s);
@@ -35,6 +42,9 @@ $color-picker-base-size: 130px;
         z-index: 1;
       }
 
+      &__hex-color {
+        display: flex;
+      }
       &__contrast {
         border: 1px solid currentColor;
         margin-top: -17px;
@@ -52,12 +62,12 @@ $color-picker-base-size: 130px;
         justify-content: center;
         align-items: center;
         text-align: left;
+        gap: var(--spacing-2xs);
         margin-top: 5px;
       }
       &__foreground-box {
         width: 1.1rem;
         height: 1.1rem;
-        margin-right: var(--spacing-2xs);
       }
 
       hr {
@@ -78,22 +88,22 @@ $color-picker-base-size: 130px;
         outline: none;
         padding: 0;
         text-align: center;
-        width: 100%;
+        width: 80px;
       }
 
-      &--small {
-        width: calc(#{$color-picker-base-size} / 2);
-        height: calc(#{$color-picker-base-size} / 2);
-        font-size: .9rem;
-        line-height: 18px;
-        .color-picker__contrast {
-          border: none;
-          margin-top: 0;
-        }
-        .fixed-width-font {
-          font-size: .8rem;
-        }
-      }
+      // &--small {
+      //   // width: calc(#{$color-picker-base-size} / 2);
+      //   // height: calc(#{$color-picker-base-size} / 2);
+      //   font-size: .9rem;
+      //   line-height: 18px;
+      //   .color-picker__contrast {
+      //     border: none;
+      //     margin-top: 0;
+      //   }
+      //   .fixed-width-font {
+      //     font-size: .8rem;
+      //   }
+      // }
       &--light {
         color: var(--gray-color);
       }

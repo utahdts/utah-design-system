@@ -121,7 +121,7 @@ function ColorPopup({ onClose }) {
                       isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
                       label="Primary: Prime"
                       onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR; })}
-                      colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
+                      // colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
                       onChange={(newColor) => setColor(newColor)}
                       isLarge
                       title="Primary"
