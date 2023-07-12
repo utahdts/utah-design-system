@@ -183,6 +183,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.switch.link, title: pages.switch.pageTitle },
         // UDS-382
         // { link: pages.textArea.link, title: pages.textArea.pageTitle },
+        { link: pages.characterCount.link, title: pages.characterCount.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
         { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
       ],
@@ -197,6 +198,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.skiplink.link, title: pages.skiplink.pageTitle },
+        { link: pages.backTopTop.link, title: pages.backTopTop.pageTitle },
         { link: pages.pagination.link, title: pages.pagination.pageTitle },
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },

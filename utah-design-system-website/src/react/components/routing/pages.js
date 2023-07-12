@@ -31,6 +31,7 @@ import CodeBlockDocumentation from '../websiteContent/library/components/contain
 import DrawerDocumentation from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
 import InfoBoxDocumentation from '../websiteContent/library/components/containers/InfoBox/InfoBoxDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
+import CharacterCountDocumentation from '../websiteContent/library/components/forms/CharacterCount/CharacterCountDocumentation';
 import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
@@ -44,6 +45,7 @@ import TimeInputDocumentation from '../websiteContent/library/components/forms/T
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
 import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
+import BackToTopDocumentation from '../websiteContent/library/components/navigation/backToTop/BackToTopDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
 import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
@@ -380,6 +382,14 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  backTopTop: {
+    content: BackToTopDocumentation,
+    link: pageUrls.backTopTop,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Back to Top',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   lists: {
     content: ListsDocumentation,
     link: pageUrls.lists,
@@ -602,6 +612,13 @@ const pages = {
     link: pageUrls.checkbox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Checkbox',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  characterCount: {
+    content: CharacterCountDocumentation,
+    link: pageUrls.characterCount,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Character Count',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   comboBox: {
