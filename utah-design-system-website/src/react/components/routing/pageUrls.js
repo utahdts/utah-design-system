@@ -51,6 +51,7 @@ const pageUrls = {
   lists: /** @type {PageUrl} */ ('/library/components/textLayout/lists'),
   mainMenu: /** @type {PageUrl} */ ('/library/components/navigationLinks/mainMenu'),
   maps: /** @type {PageUrl} */ ('/library/components/maps'),
+  megaMenu: /** @type {PageUrl} */ ('/library/components/navigationLinks/megaMenu'),
   mockups: /** @type {PageUrl} */ ('/resources/mockups'),
   modals: /** @type {PageUrl} */ ('/library/components/popups/modals'),
   motionTiming: /** @type {PageUrl} */ ('/guidelinesStandards/motionTiming'),

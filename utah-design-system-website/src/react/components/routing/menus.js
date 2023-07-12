@@ -196,6 +196,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.breadcrumb.link, title: pages.breadcrumb.pageTitle },
         { link: pages.hamburger.link, title: pages.hamburger.pageTitle },
         { link: pages.mainMenu.link, title: pages.mainMenu.pageTitle },
+        { link: pages.megaMenu.link, title: pages.megaMenu.pageTitle },
         { link: pages.links.link, title: pages.links.pageTitle },
         { link: pages.skiplink.link, title: pages.skiplink.pageTitle },
         { link: pages.backTopTop.link, title: pages.backTopTop.pageTitle },
