@@ -21,7 +21,7 @@
         {
           "source": "**/*",
           "headers": [         
-            { "key":"Content-Security-Policy", "value":"script-src '*'" },
+            { "key":"Content-Security-Policy", "value":"default-src *" },
             {"key": "X-Frame-Options", "value": "ALLOW-FROM *"},
             {"key": "X-Content-Type-Options", "value": "nosniff"},
             {"key": "Referrer-Policy", "value": "no-referrer-when-downgrade"},
@@ -53,7 +53,7 @@
         {
           "source": "**/*",
           "headers": [         
-            { "key":"Content-Security-Policy", "value":"script-src '*'" },
+            { "key":"Content-Security-Policy", "value":"default-src *" },
             {"key": "X-Frame-Options", "value": "ALLOW-FROM *"},
             {"key": "X-Content-Type-Options", "value": "nosniff"},
             {"key": "Referrer-Policy", "value": "no-referrer-when-downgrade"},
