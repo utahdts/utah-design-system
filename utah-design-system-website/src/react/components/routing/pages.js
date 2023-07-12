@@ -64,6 +64,7 @@ import ProcessListDocumentation from '../websiteContent/library/components/widge
 import ProgressBarDocumentation from '../websiteContent/library/components/widgetsIndicators/progressBar/ProgressBarDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
+import StatusIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/statusIndicator/StatusIndicatorDocumentation';
 import StepIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -578,7 +579,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   statusIndicator: {
-    content: PlaceHolderDocumentation,
+    content: StatusIndicatorDocumentation,
     link: pageUrls.statusIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Status Indicators',
