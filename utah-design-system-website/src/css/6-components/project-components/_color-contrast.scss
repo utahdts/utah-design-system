@@ -1,0 +1,50 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+/*
+############     _color-contrast.scss      ############
+*/
+.color-contrasts__wrapper {
+  display: flex;
+  flex-direction: row;
+  .color-contrasts__column {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-xs);
+
+    .color-contrasts__contrast {
+      display: flex;
+      flex-direction: column;
+      .color-contrast__color-titles {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .color-contrast__text-contrast {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-xs);
+        .color-contrast__text-container, .color-contrast__contrast-container {
+          display: flex;
+          flex-direction: row;
+
+          .color-contrast__filled, .color-contrast__outline, .color-contrast__contrast, .color-contrast__rating {
+            border: 1px solid black;
+            width: 35px;
+            padding: var(--spacing-xs);
+            text-align: center;
+            font-size: var(--font-size-2xs);
+            svg {
+              width: 25px;
+            }
+          }
+          .color-contrast__rating {
+            background-color: black;
+            color: white;
+            stroke: white;
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}

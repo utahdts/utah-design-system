@@ -1,19 +1,29 @@
 import {
   ICON_BUTTON_APPEARANCE,
   IconButton,
+  Icons,
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
   handleEvent,
   rectContainsPoint,
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useCallback, useRef } from 'react';
+import tinyColor from 'tinycolor2';
 import { useImmer } from 'use-immer';
+import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
 import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';
 import colors from '../../util/color/colors';
-import ColorCompare from './ColorCompare';
+import pageUrls from '../routing/pageUrls';
+import ColorContrasts from './ColorContrasts';
 import ColorPicker from './ColorPicker';
 import SwatchList from './SwatchList';
+import { colorsToUrlParams } from './colorPickerUrlParams';
 
 const propTypes = {
   onClose: PropTypes.func,
@@ -95,6 +105,37 @@ function ColorPopup({ onClose }) {
             </div>
           </button>
           <div className="color-picker-popup__title">Color Picker</div>
+          <div className="color-picker-popup__buttons">
+            <IconButton
+              icon={Icons.IconArrowLeft()}
+              title="Reset Color Picker"
+              onClick={() => (
+                setCssState((draftCssState) => (
+                  Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
+                ))
+              )}
+            />
+            <IconButton
+              icon={Icons.IconArrowRight()}
+              title="Randomize Color Picker"
+              onClick={() => (
+                setCssState((draftCssState) => (
+                  Object.keys(cssContextDefaultColors).forEach((key) => { draftCssState[key] = `#${tinyColor.random().toHex()}`; })
+                ))
+              )}
+            />
+            <IconButton
+              icon={Icons.IconEnvelope()}
+              title="Copy Color Picker Link"
+              onClick={() => {
+                const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
+                navigator.clipboard.writeText(returnUrl)
+                  // TODO: need a toast popup or banner or something to show messages
+                  .then(() => console.log('Colors copied to clipboard ready to share!', returnUrl))
+                  .catch((e) => console.error(e));
+              }}
+            />
+          </div>
           {
             onClose
               ? (
@@ -151,10 +192,6 @@ function ColorPopup({ onClose }) {
                         value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]}
                       />
                     </div>
-                    <div className="color-pickers__compare-colors">
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} />
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} />
-                    </div>
                   </div>
 
                   <div className="color-pickers__group">
@@ -198,10 +235,6 @@ function ColorPopup({ onClose }) {
                         title="Light"
                         value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]}
                       />
-                    </div>
-                    <div className="color-pickers__compare-colors">
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} />
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} />
                     </div>
                   </div>
 
@@ -247,24 +280,32 @@ function ColorPopup({ onClose }) {
                         value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]}
                       />
                     </div>
-
-                    <div className="color-pickers__compare-colors">
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} />
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} />
-                    </div>
                   </div>
 
                 </div>
-                <div className="color-pickers__swatches">
-                  {
-                    Object.values(colors).map((color) => (
-                      <SwatchList
-                        colorFamily={color}
-                        key={`swatch-list-color-${color.title}`}
-                        onColorSelected={(swatch) => setColor(swatch)}
-                      />
-                    ))
-                  }
+                <div className="color-pickers__compare-colors color-pickers__swatches">
+                  <TabGroup defaultValue="tab-group__swatches">
+                    <TabList>
+                      <Tab id="tab-group__swatches">Swatches</Tab>
+                      <Tab id="tab-group__color-contrasts">Contrasts</Tab>
+                    </TabList>
+                    <TabPanels>
+                      <TabPanel tabId="tab-group__swatches">
+                        {
+                          Object.values(colors).map((color) => (
+                            <SwatchList
+                              colorFamily={color}
+                              key={`swatch-list-color-${color.title}`}
+                              onColorSelected={(swatch) => setColor(swatch)}
+                            />
+                          ))
+                        }
+                      </TabPanel>
+                      <TabPanel tabId="tab-group__color-contrasts">
+                        <ColorContrasts colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]} />
+                      </TabPanel>
+                    </TabPanels>
+                  </TabGroup>
                 </div>
               </div>
             )

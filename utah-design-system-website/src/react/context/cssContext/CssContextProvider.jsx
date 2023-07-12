@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useMemo } from 'react';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
+import { colorsFromUrlParams } from '../../components/color/colorPickerUrlParams';
 import CSS_STATE_KEYS from '../../enums/cssStateKeys';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import colors, { colorsIndexes } from '../../util/color/colors';
+import localStorageKeys from '../../enums/localStorageKeys';
 import readableColor from '../../util/color/readableColor';
 import CssContext from './CssContext';
+import cssContextDefaultColors from './cssContextDefaultColors';
 
 const fallbackGrayColors = [
   // '#ffffff',
@@ -48,45 +50,48 @@ const propTypes = { children: PropTypes.node.isRequired };
 const defaultProps = {};
 
 function CssContextProvider({ children }) {
-  const [cssState, setCssState] = useImmer({
-    // default --primary-color for website
-    [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.CELTIC.swatches[colorsIndexes.primeIndex],
-    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.CELTIC.swatches[0],
-    [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.CELTIC.swatches[17],
-    [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+  const [cssState, setCssState] = useImmer(() => {
+    const colorsInStorageString = localStorage.getItem(localStorageKeys.COLOR_PICKER_COLORS);
+    const colorsInStorage = colorsInStorageString ? JSON.parse(colorsInStorageString) : cssContextDefaultColors;
+    console.log('🚀 ~ file: CssContextProvider.jsx:56 ~ const[cssState,setCssState]=useImmer ~ colorsInStorage:', colorsInStorage);
 
-    [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.CELEDON_BLUE.swatches[colorsIndexes.primeIndex],
-    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]: colors.CELEDON_BLUE.swatches[1],
-    [CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]: colors.CELEDON_BLUE.swatches[17],
-    [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+    const colorsInUrl = colorsFromUrlParams(window.location.search);
+    console.log('🚀 ~ file: CssContextProvider.jsx:59 ~ const[cssState,setCssState]=useImmer ~ colorsInUrl:', colorsInUrl);
 
-    [CSS_VARIABLES_KEYS.ACCENT_COLOR]: colors.ELECTRIC_YELLOW.swatches[colorsIndexes.primeIndex],
-    [CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]: colors.ELECTRIC_YELLOW.swatches[1],
-    [CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]: colors.ELECTRIC_YELLOW.swatches[17],
-    [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+    const defaultState = {
+      selectedColorPicker: CSS_VARIABLES_KEYS.PRIMARY_COLOR,
+    };
 
-    [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: false,
-    [CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT]: false,
-    [CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT]: true,
+    Object.entries(colorsInStorage)
+      .filter(([, colorValue]) => !!colorValue)
+      .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
-    selectedColorPicker: CSS_VARIABLES_KEYS.PRIMARY_COLOR,
+    Object.entries(colorsInUrl)
+      .filter(([, colorValue]) => !!colorValue)
+      .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
+
+    return defaultState;
   });
-  const [cssStateValue, setCssStateValue] = useImmer({ cssState, setCssState });
 
-  useEffect(
+  const cssStateValue = useMemo(
     () => {
-      setCssStateValue({
+      const newColors = {
+        [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], '#ffffff'),
+        [CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], '#ffffff'),
+        [CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], '#ffffff'),
+        [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
+        ...cssState,
+      };
+      localStorage.setItem(localStorageKeys.COLOR_PICKER_COLORS, JSON.stringify(newColors));
+      return {
         cssState: {
           ...cssState,
-          [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], '#ffffff'),
-          [CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], '#ffffff'),
-          [CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], '#ffffff'),
-          [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-          [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-          [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
+          ...newColors,
         },
         setCssState,
-      });
+      };
     },
     [cssState, setCssState]
   );
