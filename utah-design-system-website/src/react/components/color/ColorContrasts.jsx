@@ -1,16 +1,17 @@
 // @ ts-check
-import { Button } from '@utahdts/utah-design-system';
+import { Button, joinClassNames } from '@utahdts/utah-design-system';
 import { useMemo } from 'react';
 import { useImmer } from 'use-immer';
 import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import isLightColor from '../../util/color/isLightColor';
 import ColorContrastBox from './ColorContrastBox';
 
 const propTypes = {};
 const defaultProps = {};
 
 /**
- * @typedef {{ hexColor: string, title: string }} ColorInfo
+ * @typedef {{ hexColor: string, isLight: boolean, title: string }} ColorInfo
  */
 
 const USER_COLORS = [
@@ -27,17 +28,17 @@ const USER_COLORS = [
 
 /** @type {ColorInfo[]} */
 const GRAY_COLORS = [
-  { hexColor: '#ffffff', title: 'White' },
-  { hexColor: '#474747', title: '#474747' },
+  { hexColor: '#ffffff', isLight: true, title: 'White' },
+  { hexColor: '#474747', isLight: false, title: '#474747' },
   // '#3f3f3f',
   // '#373737',
-  { hexColor: '#2f2f2f', title: '#2f2f2f' },
+  { hexColor: '#2f2f2f', isLight: false, title: '#2f2f2f' },
   // '#272727',
   // '#1f1f1f',
-  { hexColor: '#171717', title: '#171717' },
+  { hexColor: '#171717', isLight: false, title: '#171717' },
   // '#0f0f0f',
   // '#070707',
-  { hexColor: '#000000', title: 'Black' },
+  { hexColor: '#000000', isLight: false, title: 'Black' },
 ];
 
 /**
@@ -75,7 +76,11 @@ function ColorContrasts() {
         /** @type {ColorInfo | null} */
         let colorInfo = null;
         if (matchingUserColor) {
-          colorInfo = { hexColor: /** @type {string} */ (cssState[matchingUserColor.cssVariableKey]), title: matchingUserColor.title };
+          colorInfo = {
+            hexColor: /** @type {string} */ (cssState[matchingUserColor.cssVariableKey]),
+            isLight: isLightColor(cssState[matchingUserColor.cssVariableKey]),
+            title: matchingUserColor.title,
+          };
         } else {
           const matchingGrayColor = GRAY_COLORS.find((grayColor) => grayColor.title === selectedColorTitle);
           colorInfo = matchingGrayColor || null;
@@ -87,15 +92,28 @@ function ColorContrasts() {
       });
       // add black if missing 1st color
       if (colorInfos.length < 1) {
-        colorInfos.push(GRAY_COLORS[0]);
+        colorInfos.push({ ...GRAY_COLORS[0], title: 'Choose a color' });
       }
       // add white if missing 2nd color
       if (colorInfos.length < 2) {
-        colorInfos.push(GRAY_COLORS[GRAY_COLORS.length - 1]);
+        colorInfos.push({ ...GRAY_COLORS[GRAY_COLORS.length - 1], title: 'Choose a color' });
       }
       return colorInfos;
     },
     [cssState, selectedColorTitles]
+  );
+
+  const userColorsIsLight = useMemo(
+    () => (
+      USER_COLORS.reduce(
+        (draftUseColorsMap, useColor) => {
+          draftUseColorsMap[useColor.cssVariableKey] = isLightColor(cssState[useColor.cssVariableKey]);
+          return draftUseColorsMap;
+        },
+        {}
+      )
+    ),
+    [cssState]
   );
 
   return (
@@ -105,28 +123,39 @@ function ColorContrasts() {
       </div>
       <div className="color-contrasts__color-swatches">
         {
-          USER_COLORS.map(({ cssVariableKey, title }) => (
-            <Button
-              className="color-contrasts__color-swatch"
-              key={`one-of-nine__${cssVariableKey}`}
-              onClick={setSelectedColorTitleCurry({ title, hexColor: cssState[cssVariableKey] })}
-              style={{ backgroundColor: cssState[cssVariableKey] }}
-            >
-              {selectedColorTitles.includes(title) ? 'X' : ''}
-            </Button>
-          ))
+          USER_COLORS.map(({ cssVariableKey, title }) => {
+            const isLight = userColorsIsLight[cssVariableKey];
+            return (
+              <Button
+                className={joinClassNames('color-contrasts__color-swatch', isLight && 'color-is-light')}
+                key={`one-of-nine__${cssVariableKey}`}
+                onClick={setSelectedColorTitleCurry({ hexColor: cssState[cssVariableKey], isLight, title })}
+                style={{ backgroundColor: cssState[cssVariableKey] }}
+              >
+                {
+                  selectedColorTitles.includes(title)
+                    ? <span className="utds-icon-before-check" aria-hidden="true" />
+                    : ''
+                }
+              </Button>
+            );
+          })
         }
       </div>
       <div className="color-contrasts__color-swatches">
         {
-          GRAY_COLORS.map(({ hexColor, title }) => (
+          GRAY_COLORS.map(({ hexColor, isLight, title }) => (
             <Button
-              className="color-contrasts__color-swatch"
+              className={joinClassNames('color-contrasts__color-swatch', isLight && 'color-is-light')}
               key={`gray-color__${hexColor}`}
-              onClick={setSelectedColorTitleCurry({ title, hexColor })}
+              onClick={setSelectedColorTitleCurry({ hexColor, isLight, title })}
               style={{ backgroundColor: hexColor }}
             >
-              {selectedColorTitles.includes(title) ? 'X' : ''}
+              {
+                selectedColorTitles.includes(title)
+                  ? <span className="utds-icon-before-check" aria-hidden="true" />
+                  : ''
+              }
             </Button>
           ))
         }
@@ -134,9 +163,13 @@ function ColorContrasts() {
       <div className="color-contrasts__contrast">
         <ColorContrastBox
           color1={selectedColorInfos[0].hexColor}
+          color1IsLight={selectedColorInfos[0].isLight}
           color1Title={selectedColorInfos[0].title}
+          color1ShowHex={selectedColorInfos[0].title !== 'Choose a color'}
           color2={selectedColorInfos[1].hexColor}
+          color2IsLight={selectedColorInfos[1].isLight}
           color2Title={selectedColorInfos[1].title}
+          color2ShowHex={selectedColorInfos[0].title !== 'Choose a color'}
         />
       </div>
     </div>

@@ -3,19 +3,74 @@
 /*
 ############     _color-contrast.scss      ############
 */
-.color-contrasts__wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--spacing-xs);
-
-  .color-contrasts__instructions {
+.color-contrasts {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-xs);
+  }
+  
+  &__instructions {
     text-align: center;
   }
 
-  .color-contrasts__color-swatches {
+  &__color-swatches {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: var(--spacing-xs);
+  }
+  &__color-swatch.button {
+    width: 50px;
+    height: 50px;
+    padding: 0%;
+    border-radius: var(--radius-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [class*='utds-icon-before-']:before {
+      margin-right: 0;
+    }
+    color: white;
+    &.color-is-light {
+      color: var(--gray-color);
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.color-contrast-box {
+  border: 1px solid var(--gray-color);
+  position: relative;
+  height: 200px;
+  margin-top: var(--spacing);
+  hr {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-color: var(--gray-color);
+    margin: 0;
+  }
+  &__foreground, &__background {
+    color: white;
+    padding: var(--spacing);
+    height: 50%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing);
+  }
+  &__contrast {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%, -50%);
+  }
+  .color-is-light {
+    color: var(--gray-color);
   }
 }
