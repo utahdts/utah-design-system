@@ -53,20 +53,19 @@ function CssContextProvider({ children }) {
   const [cssState, setCssState] = useImmer(() => {
     const colorsInStorageString = localStorage.getItem(localStorageKeys.COLOR_PICKER_COLORS);
     const colorsInStorage = colorsInStorageString ? JSON.parse(colorsInStorageString) : cssContextDefaultColors;
-    console.log('🚀 ~ file: CssContextProvider.jsx:56 ~ const[cssState,setCssState]=useImmer ~ colorsInStorage:', colorsInStorage);
-
     const colorsInUrl = colorsFromUrlParams(window.location.search);
-    console.log('🚀 ~ file: CssContextProvider.jsx:59 ~ const[cssState,setCssState]=useImmer ~ colorsInUrl:', colorsInUrl);
 
     const defaultState = {
       selectedColorPicker: CSS_VARIABLES_KEYS.PRIMARY_COLOR,
     };
 
-    Object.entries(colorsInStorage)
+    // storage trumps defaults
+    Object.entries(colorsInStorage || {})
       .filter(([, colorValue]) => !!colorValue)
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
-    Object.entries(colorsInUrl)
+    // url trumps storage & default
+    Object.entries(colorsInUrl || {})
       .filter(([, colorValue]) => !!colorValue)
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
