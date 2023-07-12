@@ -50,6 +50,7 @@ import ListsDocumentation from '../websiteContent/library/components/lists/Lists
 import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
 import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
 import MainMenuDocumentation from '../websiteContent/library/components/navigation/MainMenu/MainMenuDocumentation';
+import MegaMenuDocumentation from '../websiteContent/library/components/navigation/megaMenu/MegaMenuDocumentation';
 import PaginationDocumentation from '../websiteContent/library/components/navigation/pagination/PaginationDocumentation';
 import SidePanelDocumentation from '../websiteContent/library/components/navigation/sidePanel/SidePanelDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
@@ -64,6 +65,7 @@ import ProcessListDocumentation from '../websiteContent/library/components/widge
 import ProgressBarDocumentation from '../websiteContent/library/components/widgetsIndicators/progressBar/ProgressBarDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
+import StatusIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/statusIndicator/StatusIndicatorDocumentation';
 import StepIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -578,7 +580,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   statusIndicator: {
-    content: PlaceHolderDocumentation,
+    content: StatusIndicatorDocumentation,
     link: pageUrls.statusIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Status Indicators',
@@ -712,6 +714,13 @@ const pages = {
     link: pageUrls.mainMenu,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Main Menu',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  megaMenu: {
+    content: MegaMenuDocumentation,
+    link: pageUrls.megaMenu,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Mega Menu',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   pagination: {
