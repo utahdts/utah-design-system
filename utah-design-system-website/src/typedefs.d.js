@@ -16,6 +16,7 @@
  *  @property {string} title
  *  @property {PageUrl[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {boolean} [isSelected]
  * }
  */
 
@@ -25,6 +26,7 @@
  *  @property {string} header
  *  @property {string} id
  *  @property {WebsiteMainMenuItem[]} menuItems
+ *  @property {boolean} [isSelected]
  * }
  */
 

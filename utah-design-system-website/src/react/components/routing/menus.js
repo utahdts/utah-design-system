@@ -1,5 +1,5 @@
 // @ts-check
-import { calculateMenuItemsParents } from '@utahdts/utah-design-system';
+import calculateMenuItemsParents from '../../util/menuItems/calculateMenuItemsParents';
 import pages from './pages';
 
 /** @typedef {import ('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */

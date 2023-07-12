@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import calculateMenuItemsParents from '../../../../react/util/menuItems/calculateMenuItemsParents';
+import calculateMenuItemsParents from '../../../src/react/util/menuItems/calculateMenuItemsParents';
 
 const links = {
   foundation: '/foundation',

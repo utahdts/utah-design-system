@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import { ExternalLink, useCurrentMenuItem } from '@utahdts/utah-design-system';
+import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useAppContext from '../../context/AppContext/useAppContext';
+import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
 import pageUrls from '../routing/pageUrls';
 
 const propTypes = {};
