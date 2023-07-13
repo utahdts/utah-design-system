@@ -9,7 +9,7 @@
     flex-direction: column;
     row-gap: var(--spacing-xs);
   }
-  
+
   &__instructions {
     text-align: center;
   }
@@ -41,18 +41,26 @@
   }
 }
 .color-contrast-box {
-  border: 1px solid var(--gray-color);
   position: relative;
   height: 200px;
   margin-top: var(--spacing);
-  hr {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    border-color: var(--gray-color);
-    margin: 0;
+
+  .fixed-width-font {
+    font-family: var(--fixed-width-font-family);
+    font-size: var(--font-size-s);
   }
+
+  &__border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 150;
+    border: 1px solid var(--gray-color);
+    box-sizing: border-box;
+  }
+
   &__foreground, &__background {
     color: white;
     padding: var(--spacing);
@@ -64,11 +72,34 @@
     align-items: center;
     gap: var(--spacing);
   }
+
+  hr {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-color: var(--gray-color);
+    margin: 0;
+    z-index: 50;
+    box-shadow: 0 0 0 1px white;
+  }
   &__contrast {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid var(--gray-color);
+    display: flex;
+    z-index: 100;
+    box-shadow: 0 0 0 2px white;
+  }
+  &__ratio, &__rating {
+    padding: var(--spacing-2xs) var(--spacing);
+  }
+  &__rating {
+    background: var(--gray-color);
+    color: white;
   }
   .color-is-light {
     color: var(--gray-color);

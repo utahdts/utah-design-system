@@ -38,7 +38,7 @@ function ColorContrastBox({
       let rating;
       if (contrast >= 7) {
         rating = RATINGS.AAA;
-      } else if (contrast >= 4) {
+      } else if (contrast >= 4.5) {
         rating = RATINGS.AA;
       } else {
         rating = RATINGS.BAD;
@@ -50,21 +50,20 @@ function ColorContrastBox({
 
   return (
     <div className="color-contrast-box">
+      <div className="color-contrast-box__border" />
       <div
         className={joinClassNames('color-contrast-box__background', color1IsLight && 'color-is-light')}
         style={{ backgroundColor: color1 }}
       >
-        <div className="color-contrast-box__hex-color">
-          <span>{color1Title}</span>
-          {color1ShowHex ? <span className="fixed-width-font">{color1}</span> : null}
-        </div>
+        <span>{color1Title}</span>
+        {color1ShowHex ? <span className="fixed-width-font">{color1}</span> : null}
       </div>
 
-      <div className="color-contrast-box__contrast">
+      <div className="color-contrast-box__contrast-wrapper">
         <hr />
         <div className="color-contrast-box__contrast fixed-width-font">
           <span className="color-contrast-box__ratio">{contrastInfo.contrast}:1</span>
-          <span style={{ background: '#474747', color: color2 }}>
+          <span className="color-contrast-box__rating">
             {contrastInfo.rating === RATINGS.BAD ? Icons.IconChevron() : contrastInfo.rating}
           </span>
         </div>
