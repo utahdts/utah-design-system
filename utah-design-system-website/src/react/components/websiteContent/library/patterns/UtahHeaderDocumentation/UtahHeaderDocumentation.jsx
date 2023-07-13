@@ -579,7 +579,7 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-config-domLocationTarget" className="mt-spacing">domLocationTarget</h4>
       <div>
-        By default, the header appears at the top of your application. You can Use one of the following configurations
+        By default, the header appears at the top of your application. You can use one of the following configurations
         to place the header in another location. Be aware that the Utah Header should always be at the top of the
         application. This is just a convenience function in case placing the header automatically at the top causes
         your layout to misbehave.
