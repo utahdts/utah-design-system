@@ -22,7 +22,7 @@
           "source": "**/*",
           "headers": [         
             {"key":"Content-Security-Policy", "value":"default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"},
-            {"key": "X-Frame-Options", "value": "ALLOW-FROM *"},
+            {"key": "X-Frame-Options", "value": "ALLOW-FROM SAMEORIGIN"},
             {"key": "X-Content-Type-Options", "value": "nosniff"},
             {"key": "Referrer-Policy", "value": "no-referrer-when-downgrade"},
             {"key": "Permissions-Policy", "value": ""},
@@ -54,7 +54,7 @@
           "source": "**/*",
           "headers": [         
             {"key":"Content-Security-Policy", "value":"default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"},
-            {"key": "X-Frame-Options", "value": "ALLOW-FROM *"},
+            {"key": "X-Frame-Options", "value": "ALLOW-FROM SAMEORIGIN"},
             {"key": "X-Content-Type-Options", "value": "nosniff"},
             {"key": "Referrer-Policy", "value": "no-referrer-when-downgrade"},
             {"key": "Permissions-Policy", "value": ""},
