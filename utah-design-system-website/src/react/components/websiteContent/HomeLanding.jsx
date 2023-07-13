@@ -210,6 +210,7 @@ function HomeLanding() {
             State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
             (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
           </p>
+          <p>The Utah Design System has been approved as the official web standard by the Architecture Review Board (ARB).</p>
         </div>
       </div>
 

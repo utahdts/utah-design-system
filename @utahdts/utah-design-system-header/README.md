@@ -14,15 +14,15 @@ Please see the [documentation site](https://designsystem.utah.gov/) for all info
 
 [![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system-header.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
 [![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
-
+[![ARB Approved](https://img.shields.io/badge/Utah_ARB_Approved-126DC4?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
 ```bash
 npm i @utahdts/utah-design-system-header
 ```
 
 ## API Functions
-These functions allow configuring and interacting with the Utah Header. It is suggested to only interact with the header using these functions so as to be more "future proof" as changes to the Utah Header codebase will only account for these functions and not for custom coding.
+These functions allow configuring and interacting with the Utah Header. It is suggested to only interact with the header using these functions to be more "future-proof" as changes to the Utah Header codebase will only account for these functions and not for custom coding.
 * `loadHeader`: This function creates the Utah Header DOM elements. It is called automatically when the Utah Header javascript library is loaded on to a web page.
-* `removeHeader`: This function removes the Utah Header from the DOM. This may be useful for pages that should not have the header on them. The application then may call *loadHeader()* to readd the header.
+* `removeHeader`: This function removes the Utah Header from the DOM. This may be useful for pages that should not have the header on them. The application then may call *loadHeader()* to read the header.
 
 ## Events
 The header emits events at the document level. Applications can listen for these events to be able to time interactions with the header.
