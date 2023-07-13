@@ -77,7 +77,7 @@ const pageUrls = {
   spacing: /** @type {PageUrl} */ ('/guidelinesStandards/spacing'),
   spinners: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/spinners'),
   stepIndicator: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/stepIndicators'),
-  statusIndicator: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/statusIndicator'),
+  statusIndicator: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/statusIndicators'),
   switch: /** @type {PageUrl} */ ('/library/components/forms/switch'),
   table: /** @type {PageUrl} */ ('/library/components/table'),
   tabs: /** @type {PageUrl} */ ('/library/components/containers/tabGroup'),
