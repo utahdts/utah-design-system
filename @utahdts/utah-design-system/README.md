@@ -19,7 +19,7 @@ Please see the [documentation site](https://designsystem.utah.gov/) for all info
 [![issues](https://img.shields.io/github/issues-raw/utahdts/utah-design-system?style=for-the-badge)](https://github.com/utahdts/utah-design-system/issues)
 
 ```bash
-$ npm i @utahdts/utah-design-system
+npm i @utahdts/utah-design-system
 ```
 
 ### Using the React components

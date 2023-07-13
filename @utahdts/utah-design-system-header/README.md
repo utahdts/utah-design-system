@@ -16,7 +16,7 @@ Please see the [documentation site](https://designsystem.utah.gov/) for all info
 [![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```bash
-$ npm i @utahdts/utah-design-system-header
+npm i @utahdts/utah-design-system-header
 ```
 
 ## API Functions
