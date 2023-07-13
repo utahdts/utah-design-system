@@ -11,6 +11,7 @@
     background-color: white;
     box-sizing: border-box;
     appearance: none;
+    flex-shrink: 0;
 
     &::after {
       content: '';
