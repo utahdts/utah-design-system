@@ -6,13 +6,12 @@ import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import isLightColor from '../../util/color/isLightColor';
 import ColorContrastBox from './ColorContrastBox';
+import ContrastValues from './ContrastValues';
+
+/** @typedef {import('../../../typedefs.d').ColorInfo} ColorInfo */
 
 const propTypes = {};
 const defaultProps = {};
-
-/**
- * @typedef {{ hexColor: string, isLight: boolean, title: string }} ColorInfo
- */
 
 const USER_COLORS = [
   { cssVariableKey: CSS_VARIABLES_KEYS.PRIMARY_COLOR, title: 'Primary' },
@@ -170,6 +169,10 @@ function ColorContrasts() {
           color2IsLight={selectedColorInfos[1].isLight}
           color2Title={selectedColorInfos[1].title}
           color2ShowHex={selectedColorInfos[0].title !== 'Choose a color'}
+        />
+        <ContrastValues
+          color1={selectedColorInfos[0]}
+          color2={selectedColorInfos[1]}
         />
       </div>
     </div>
