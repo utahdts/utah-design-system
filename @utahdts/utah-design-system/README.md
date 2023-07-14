@@ -1,16 +1,17 @@
 # utah-design-system
 
-A collection of styles and react components designed to make it quick and simple for developers to create web experiences using the Utah Design System.
+A collection of styles and components designed to make it quick and simple for developers to create web experiences using the Utah Design System.  
+Goes hand in hand with the [Design System Header](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header) and [Design System Footer](https://designsystem.utah.gov/library/patterns/utahFooter).
 
 ## What's included
 
 - Compiled CSS
 - SASS CSS
-- React components
+- Components
 
 ## Documentation
 
-Please see the [documentation site](https://designsystem.utah.gov/) for all information related to the Utah Design System.
+Please see the [documentation website](https://designsystem.utah.gov/) and the [Getting Started](https://designsystem.utah.gov/resources/gettingStarted) page for all information related to the Utah Design System.
 
 ## Install
 
@@ -23,7 +24,7 @@ Please see the [documentation site](https://designsystem.utah.gov/) for all info
 npm i @utahdts/utah-design-system
 ```
 
-### Using the React components
+### Example Using React Components
 
 ```JavaScript
 // compiled
@@ -42,25 +43,30 @@ import '@utahdts/utah-design-system/css/index.scss';
 In most cases you can simply import the Sass file as illustrated below:
 
 ```scss
-@import "~@utahdts/utah-design-system/css/6-components/base-components/buttons/button.scss";
+@import "~@utahdts/utah-design-system/css/index.scss";
 ```
 
 ## Pre-processed bundled resource
 
-At a limited scale, some files have been pre-processed to CSS so that it can be delivered via CDN and used in environments where this rendered resource is required.
+At a limited scale, some files have been pre-processed and can be delivered via a CDN (Content Delivery Network).
 
 ```
 unpkg.com/:package@:version/:file
 unpkg.com/@utahdts/utah-design-system@0.0.2/css/build/utah-design-system.css
 ```
 
-| resource                |  CDN URL                                                                                 |
+| Resource                |  CDN URL                                                                                 |
 |-------------------------|-----------------------------------------------------------------------------------------|
 | index.scss<br>(All CSS) | https://unpkg.com/@utahdts/utah-design-system@:version/css/build/utah-design-system.css |
 
+## Contribution
+The Utah Design System website is built using React, however we want to expand it to other technologies such as Angular, Vue.js, etc.  
+If you want to contribute or have any feedback, we'd love to hear from you ! Please [contact us](https://designsystem.utah.gov/resources/gettingStarted).
+
 ### Site Map
 
-- [Home](https://utahdts.github.io/utah-design-system/)
+- [Home](https://github.com/utahdts/utah-design-system)
 - Library
-- [Header](https://utahdts.github.io/utah-design-system/utah-header/)
-- [Documentation and Examples](../website/README.md)
+- [Design System Header](https://github.com/utahdts/utah-design-system/tree/dev/%40utahdts/utah-design-system-header)
+- [Examples](https://github.com/utahdts/utah-design-system/tree/dev/examples) 
+- [Design System Website](https://designsystem.utah.gov/)
