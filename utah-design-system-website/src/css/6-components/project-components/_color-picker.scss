@@ -4,11 +4,8 @@
 ############     _color-picker.scss      ############
 */
 
-$color-picker-base-size: 130px;
 #{class-vars.$base-class} {
   .color-picker {
-      // height: $color-picker-base-size;
-      // width: $color-picker-base-size;
       height: 90px;
       width: 165px;
       display: flex;
@@ -22,6 +19,7 @@ $color-picker-base-size: 130px;
       position: relative;
       border: 1px solid var(--gray-color);
       box-sizing: border-box;
+      transition: all var(--timing-quick) ease;
 
       &:not(:last-of-type) {
         border-bottom: none;
@@ -38,7 +36,9 @@ $color-picker-base-size: 130px;
         //   inset 0px -2px 8px rgba($color: white, $alpha: 0.7),
         //   0px 2px 8px rgba($color: black, $alpha: .6),
         //   0px 0px 8px 4px rgba($color: $electric-blue-04, $alpha: 1);
-        box-shadow: 0 4px 10px rgba($color: black, $alpha: 0.6);
+        box-shadow: 0 4px 10px 4px rgba($color: black, $alpha: 0.7);
+        outline: 4px solid var(--form-ele-color);
+        outline-offset: 4px;
         z-index: 1;
       }
 
@@ -89,6 +89,10 @@ $color-picker-base-size: 130px;
         padding: 0;
         text-align: center;
         width: 80px;
+        border-radius: 0;
+        &:hover {
+          border: 1px solid white
+        }
       }
 
       // &--small {

@@ -2,11 +2,13 @@
 import { Button, joinClassNames } from '@utahdts/utah-design-system';
 import { useMemo } from 'react';
 import { useImmer } from 'use-immer';
+import { NavLink } from 'react-router-dom';
 import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import isLightColor from '../../util/color/isLightColor';
 import ColorContrastBox from './ColorContrastBox';
 import ContrastValues from './ContrastValues';
+import pageUrls from '../routing/pageUrls';
 
 /** @typedef {import('../../../typedefs.d').ColorInfo} ColorInfo */
 
@@ -28,15 +30,11 @@ const USER_COLORS = [
 /** @type {ColorInfo[]} */
 const GRAY_COLORS = [
   { hexColor: '#ffffff', isLight: true, title: 'White' },
+  { hexColor: '#d7d7d7', isLight: true, title: '#d7d7d7' },
+  { hexColor: '#a7a7a7', isLight: true, title: '#a7a7a7' },
+  { hexColor: '#777777', isLight: false, title: '#777777' },
   { hexColor: '#474747', isLight: false, title: '#474747' },
-  // '#3f3f3f',
-  // '#373737',
-  { hexColor: '#2f2f2f', isLight: false, title: '#2f2f2f' },
-  // '#272727',
-  // '#1f1f1f',
-  { hexColor: '#171717', isLight: false, title: '#171717' },
-  // '#0f0f0f',
-  // '#070707',
+  { hexColor: '#272727', isLight: false, title: '#272727' },
   { hexColor: '#000000', isLight: false, title: 'Black' },
 ];
 
@@ -116,17 +114,17 @@ function ColorContrasts() {
   );
 
   return (
-    <div className="color-contrasts__wrapper">
-      <div className="color-contrasts__instructions">
+    <div className="color-contrast__wrapper">
+      <div className="color-contrast__instructions">
         Pick two colors to show their contrast
       </div>
-      <div className="color-contrasts__color-swatches">
+      <div className="color-contrast__color-swatches">
         {
           USER_COLORS.map(({ cssVariableKey, title }) => {
             const isLight = userColorsIsLight[cssVariableKey];
             return (
               <Button
-                className={joinClassNames('color-contrasts__color-swatch', isLight && 'color-is-light')}
+                className={joinClassNames('color-contrast__color-swatch', isLight && 'color-is-light')}
                 key={`one-of-nine__${cssVariableKey}`}
                 onClick={setSelectedColorTitleCurry({ hexColor: cssState[cssVariableKey], isLight, title })}
                 style={{ backgroundColor: cssState[cssVariableKey] }}
@@ -141,11 +139,11 @@ function ColorContrasts() {
           })
         }
       </div>
-      <div className="color-contrasts__color-swatches">
+      <div className="color-contrast__color-swatches">
         {
           GRAY_COLORS.map(({ hexColor, isLight, title }) => (
             <Button
-              className={joinClassNames('color-contrasts__color-swatch', isLight && 'color-is-light')}
+              className={joinClassNames('color-contrast__color-swatch', isLight && 'color-is-light')}
               key={`gray-color__${hexColor}`}
               onClick={setSelectedColorTitleCurry({ hexColor, isLight, title })}
               style={{ backgroundColor: hexColor }}
@@ -159,7 +157,7 @@ function ColorContrasts() {
           ))
         }
       </div>
-      <div className="color-contrasts__contrast">
+      <div className="color-contrast__compare-wrapper">
         <ColorContrastBox
           color1={selectedColorInfos[0].hexColor}
           color1IsLight={selectedColorInfos[0].isLight}
@@ -174,6 +172,12 @@ function ColorContrasts() {
           color1={selectedColorInfos[0]}
           color2={selectedColorInfos[1]}
         />
+      </div>
+      <div className="color-contrast__info-link">
+        <span className="utds-icon-before-help" aria-hidden="true" />
+        <NavLink to={pageUrls.accessibility}>
+          Information about color contrast accessability
+        </NavLink>
       </div>
     </div>
   );

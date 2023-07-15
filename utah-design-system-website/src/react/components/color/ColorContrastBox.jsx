@@ -1,7 +1,7 @@
-import { Icons, joinClassNames } from '@utahdts/utah-design-system';
+import { joinClassNames } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
-import tinycolor from 'tinycolor2';
+// import { useMemo } from 'react';
+// import tinycolor from 'tinycolor2';
 
 const propTypes = {
   color1: PropTypes.string.isRequired,
@@ -16,11 +16,11 @@ const propTypes = {
 };
 const defaultProps = {};
 
-const RATINGS = {
-  AA: 'AA',
-  AAA: 'AAA',
-  BAD: 'X',
-};
+// const RATINGS = {
+//   AA: 'AA',
+//   AAA: 'AAA',
+//   BAD: 'X',
+// };
 
 function ColorContrastBox({
   color1,
@@ -32,21 +32,21 @@ function ColorContrastBox({
   color2ShowHex,
   color2Title,
 }) {
-  const contrastInfo = useMemo(
-    () => {
-      const contrast = Number(tinycolor.readability(color1, color2).toFixed(2));
-      let rating;
-      if (contrast >= 7) {
-        rating = RATINGS.AAA;
-      } else if (contrast >= 4.5) {
-        rating = RATINGS.AA;
-      } else {
-        rating = RATINGS.BAD;
-      }
-      return { contrast, rating };
-    },
-    [color1, color2]
-  );
+  // const contrastInfo = useMemo(
+  //   () => {
+  //     const contrast = Number(tinycolor.readability(color1, color2).toFixed(2));
+  //     let rating;
+  //     if (contrast >= 7) {
+  //       rating = RATINGS.AAA;
+  //     } else if (contrast >= 4.5) {
+  //       rating = RATINGS.AA;
+  //     } else {
+  //       rating = RATINGS.BAD;
+  //     }
+  //     return { contrast, rating };
+  //   },
+  //   [color1, color2]
+  // );
 
   return (
     <div className="color-contrast-box">
@@ -59,15 +59,15 @@ function ColorContrastBox({
         {color1ShowHex ? <span className="fixed-width-font">{color1}</span> : null}
       </div>
 
-      <div className="color-contrast-box__contrast-wrapper">
-        <hr />
+      <hr />
+      {/* <div className="color-contrast-box__contrast-wrapper">
         <div className="color-contrast-box__contrast fixed-width-font">
           <span className="color-contrast-box__ratio">{contrastInfo.contrast}:1</span>
           <span className="color-contrast-box__rating">
             {contrastInfo.rating === RATINGS.BAD ? Icons.IconChevron() : contrastInfo.rating}
           </span>
         </div>
-      </div>
+      </div> */}
 
       <div className={joinClassNames('color-contrast-box__foreground', color2IsLight && 'color-is-light')} style={{ backgroundColor: color2 }}>
         <span>{color2Title}</span>
