@@ -5,16 +5,17 @@
     justify-content: space-between;
     gap: var(--spacing);
     background: white;
-    padding: var(--spacing);
+    padding: 0 var(--spacing) var(--spacing) var(--spacing);
   }
   &__group {
     display: flex;
     flex-direction: column;
   }
-  &__light-dark {
-    display: flex;
-  }
   &__swatches {
-    padding: var(--spacing);
+    padding: 0 var(--spacing) var(--spacing) var(--spacing);
+
+    .tab-group__tab-button {
+      font-size: var(--font-size-m);
+    }
   }
 }

@@ -1,0 +1,147 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+/*
+############     _color-contrast.scss      ############
+*/
+.color-contrast {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-xs);
+  }
+
+  &__instructions {
+    text-align: center;
+  }
+
+  &__color-swatches {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-xs);
+  }
+  &__color-swatch.button {
+    width: 50px;
+    height: 50px;
+    padding: 0%;
+    border-radius: var(--radius-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [class*='utds-icon-before-']:before {
+      margin-right: 0;
+    }
+    color: white;
+    &.color-is-light {
+      color: var(--gray-color);
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__compare-wrapper {
+    display: flex;
+  }
+  &__info-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.color-contrast-box {
+  position: relative;
+  height: 200px;
+  margin-top: var(--spacing);
+  flex: 1;
+  border: 1px solid var(--gray-color);
+
+  .fixed-width-font {
+    font-family: var(--fixed-width-font-family);
+    font-size: var(--font-size-s);
+  }
+
+  &__foreground, &__background {
+    color: white;
+    padding: var(--spacing);
+    height: 50%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing);
+  }
+
+  hr {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-color: var(--gray-color);
+    margin: 0;
+    z-index: 50;
+  }
+  &__contrast {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid var(--gray-color);
+    display: flex;
+    z-index: 100;
+    box-shadow: 0 0 0 2px white;
+  }
+  &__ratio, &__rating {
+    padding: var(--spacing-2xs) var(--spacing);
+  }
+  &__rating {
+    background: var(--gray-color);
+    color: white;
+  }
+  .color-is-light {
+    color: var(--gray-color);
+  }
+}
+
+.color-contrast-values {
+  &__wrapper {
+    margin-top: var(--spacing);
+    display: flex;
+    flex-direction: column;
+  }
+  &__contrast-value-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+
+    &:last-child {
+      border-bottom: 1px solid;
+    }
+  }
+  &__contrast-value-title {
+    padding: var(--spacing-2xs) var(--spacing-xs);
+  }
+  &__contrast-value-rating {
+    display: flex;
+    flex: 1;
+    border-top: 1px solid var(--gray-medium-light-color);
+    background: var(--gray-light-color);
+    font-weight: bold;
+    &-ratio, &-wcag {
+      padding: var(--spacing-2xs) var(--spacing-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+    &-wcag {
+      background: var(--gray-medium-light-color);
+      svg {
+        width: 24px;
+      }
+    }
+  }
+}

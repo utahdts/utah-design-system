@@ -31,7 +31,7 @@ function AccessibilityDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Accessibility Overview</h1>
       <p className="lead-in">
-        One of the top goals at the State of Utah, is to make websites and applications, across our many different agencies, accessible for
+        One of the top goals at the State of Utah is to make websites and applications, across our many different agencies accessible for
         all people including those with varying impairments. By prioritizing accessibility, we demonstrate our commitment to those we serve
         by fostering a sense of inclusivity, and ultimately enhance the user experience for everyone.
       </p>

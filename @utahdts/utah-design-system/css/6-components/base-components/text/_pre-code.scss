@@ -6,6 +6,12 @@
     &__wrapper {
       position: relative;
       width: 100%;
+      .copy-button .icon-button--borderless {
+        background: var(--gray-light-color);
+        &:hover {
+          background: white;
+        }
+      }
     }
   }
 
@@ -37,16 +43,6 @@
     &.size-small {
       max-height: 200px;
       overflow: scroll;
-    }
-  }
-  .pre-code {
-    &__wrapper {
-      .copy-button .icon-button--borderless {
-        background: var(--gray-light-color);
-        &:hover {
-          background: white;
-        }
-      }
     }
   }
 }

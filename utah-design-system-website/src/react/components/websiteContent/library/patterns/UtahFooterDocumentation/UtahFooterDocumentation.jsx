@@ -182,7 +182,10 @@ function UtahFooterDocumentation() {
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  This function must return a DOM element in to which the Utah footer will be placed.
+                  This function must return a DOM element in to which the Utah footer will be placed. Be aware that the footer code does javascript
+                  pointer comparison between the old and new value of <code>elementFunction</code> to determine if the value has changed. Make sure
+                  to pass the same function as used previously or else the footer will be detect a change and will redraw itself. Having functions
+                  recreated may be an issue with frameworks that create, by default, new functions on every render.
                 </span>
               </TableCell>
             </TableRow>
@@ -267,9 +270,9 @@ function UtahFooterDocumentation() {
 
       <h4 id="section-config-footer_domLocationTarget" className="mt-spacing">domLocationTarget</h4>
       <div>
-        By default, the footer appears at the bottom of your application. You can Use one of the following configurations
+        By default, the footer appears at the bottom of your application. You can use one of the following configurations
         to place the footer in another location. Be aware that the Utah footer should always be at the bottom of the
-        page. This is just convenience settings in case placing the footer automatically at the bottom causes
+        page. These are just convenience settings, in case placing the footer automatically at the bottom causes
         your layout to misbehave.
         <br /><br />
         Example of cssSelector:

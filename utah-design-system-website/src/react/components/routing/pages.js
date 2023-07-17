@@ -8,12 +8,14 @@ import AccessibilityDocumentation from '../websiteContent/guidelines/Accessibili
 import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
+import ImagesDocumentation from '../websiteContent/guidelines/ImagesDocumentation';
 import LayoutDocumentation from '../websiteContent/guidelines/LayoutDocumentation';
 import OpacityDocumentation from '../websiteContent/guidelines/OpacityDocumentation';
 import ShapesDocumentation from '../websiteContent/guidelines/ShapesDocumentation';
 import SpacingDocumentation from '../websiteContent/guidelines/SpacingDocumentation';
 import TypographyDocumentation from '../websiteContent/guidelines/TypographyDocumentation';
 import LibraryLanding from '../websiteContent/library/LibraryLanding';
+import BlockquoteDocumentation from '../websiteContent/library/components/basicAtomic/Blockquote/BlockquoteDocumentation';
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
 import ParagraphDocumentation from '../websiteContent/library/components/basicAtomic/Paragraph/ParagraphDocumentation';
@@ -21,6 +23,7 @@ import TagsDocumentation from '../websiteContent/library/components/basicAtomic/
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
+import IconBarDocumentation from '../websiteContent/library/components/buttons/iconBar/IconBarDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
@@ -28,6 +31,7 @@ import CodeBlockDocumentation from '../websiteContent/library/components/contain
 import DrawerDocumentation from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
 import InfoBoxDocumentation from '../websiteContent/library/components/containers/InfoBox/InfoBoxDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
+import CharacterCountDocumentation from '../websiteContent/library/components/forms/CharacterCount/CharacterCountDocumentation';
 import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
@@ -40,10 +44,13 @@ import TextInputDocumentation from '../websiteContent/library/components/forms/T
 import TimeInputDocumentation from '../websiteContent/library/components/forms/TimeInput/TimeInputDocumentation';
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
+import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
+import BackToTopDocumentation from '../websiteContent/library/components/navigation/backToTop/BackToTopDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
 import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
 import MainMenuDocumentation from '../websiteContent/library/components/navigation/MainMenu/MainMenuDocumentation';
+import MegaMenuDocumentation from '../websiteContent/library/components/navigation/megaMenu/MegaMenuDocumentation';
 import PaginationDocumentation from '../websiteContent/library/components/navigation/pagination/PaginationDocumentation';
 import SidePanelDocumentation from '../websiteContent/library/components/navigation/sidePanel/SidePanelDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
@@ -55,8 +62,10 @@ import TableDocumentation from '../websiteContent/library/components/table/Table
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import ProcessListDocumentation from '../websiteContent/library/components/widgetsIndicators/processList/ProcessListDocumentation';
+import ProgressBarDocumentation from '../websiteContent/library/components/widgetsIndicators/progressBar/ProgressBarDocumentation';
 import SkeletonsDocumentation from '../websiteContent/library/components/widgetsIndicators/skeletons/SkeletonsDocumentation';
 import SpinnersDocumentation from '../websiteContent/library/components/widgetsIndicators/spinners/SpinnersDocumentation';
+import StatusIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/statusIndicator/StatusIndicatorDocumentation';
 import StepIndicatorDocumentation from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
@@ -230,7 +239,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   images: {
-    content: PlaceHolderDocumentation,
+    content: ImagesDocumentation,
     link: pageUrls.images,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Images',
@@ -351,11 +360,35 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
+  blockquote: {
+    content: BlockquoteDocumentation,
+    link: pageUrls.blockquote,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Block Quote',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
   links: {
     content: LinksDocumentation,
     link: pageUrls.links,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Links',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  skiplink: {
+    content: SkipLinkDocumentation,
+    link: pageUrls.skipLink,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Skip Link',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+
+  backTopTop: {
+    content: BackToTopDocumentation,
+    link: pageUrls.backTopTop,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Back to Top',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
@@ -526,10 +559,10 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   progressBars: {
-    content: PlaceHolderDocumentation,
+    content: ProgressBarDocumentation,
     link: pageUrls.progressBars,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Progress Bars',
+    pageTitle: 'Progress Bar',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   skeletons: {
@@ -547,7 +580,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   statusIndicator: {
-    content: PlaceHolderDocumentation,
+    content: StatusIndicatorDocumentation,
     link: pageUrls.statusIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Status Indicators',
@@ -581,6 +614,13 @@ const pages = {
     link: pageUrls.checkbox,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Checkbox',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  characterCount: {
+    content: CharacterCountDocumentation,
+    link: pageUrls.characterCount,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Character Count',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   comboBox: {
@@ -676,6 +716,13 @@ const pages = {
     pageTitle: 'Main Menu',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
+  megaMenu: {
+    content: MegaMenuDocumentation,
+    link: pageUrls.megaMenu,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Mega Menu',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
   pagination: {
     content: PaginationDocumentation,
     link: pageUrls.pagination,
@@ -726,7 +773,7 @@ const pages = {
   },
 
   iconBar: {
-    content: PlaceHolderDocumentation,
+    content: IconBarDocumentation,
     link: pageUrls.iconBar,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Icon Bar',

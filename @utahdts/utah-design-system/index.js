@@ -73,7 +73,6 @@ export { default as formElementSizesEnum } from './react/enums/formElementSizesE
 export { default as popupPlacement } from './react/enums/popupPlacement';
 export { default as tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { default as useBanner } from './react/hooks/useBanner';
-export { default as useCurrentMenuItem } from './react/hooks/useCurrentMenuItem';
 export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useImmerRef } from './react/hooks/useImmerRef';
 export { default as useMountingTracker } from './react/hooks/useMountingTracker';
@@ -104,7 +103,6 @@ export { default as chainSorters } from './react/util/chainSorters';
 export { default as handleEvent } from './react/util/handleEvent';
 export { default as handleKeyPress } from './react/util/handleKeyPress';
 export { default as joinClassNames } from './react/util/joinClassNames';
-export { default as calculateMenuItemsParents } from './react/util/menuItems/calculateMenuItemsParents';
 export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { default as setValueAtPath } from './react/util/state/setValueAtPath';
 export { default as valueAtPath } from './react/util/state/valueAtPath';

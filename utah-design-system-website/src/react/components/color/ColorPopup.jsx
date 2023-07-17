@@ -1,18 +1,29 @@
 import {
   ICON_BUTTON_APPEARANCE,
   IconButton,
+  Icons,
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
   handleEvent,
   rectContainsPoint,
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import { useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
+// import tinyColor from 'tinycolor2';
+import { useImmer } from 'use-immer';
+import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
 import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import useMousePositionTracker from '../../hooks/useMousePositionTracker';
 import colors from '../../util/color/colors';
-import ColorCompare from './ColorCompare';
+import pageUrls from '../routing/pageUrls';
+import ColorContrasts from './ColorContrasts';
 import ColorPicker from './ColorPicker';
 import SwatchList from './SwatchList';
+import { colorsToUrlParams } from './colorPickerUrlParams';
 
 const propTypes = {
   onClose: PropTypes.func,
@@ -27,10 +38,9 @@ const defaultProps = {
  * @returns {JSX.Element}
  */
 function ColorPopup({ onClose }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useImmer(true);
   const { cssState, setCssState } = useCssContext();
-  const [selectedCircle, setSelectedCircle] = useState(CSS_VARIABLES_KEYS.PRIMARY_COLOR);
-  const [mousePositionOffset, setMousePositionOffset] = useState({ x: 0, y: 0 });
+  const [mousePositionOffset, setMousePositionOffset] = useImmer({ x: 0, y: 0 });
   const draggableDivRef = useRef(null);
 
   const { mousePosition } = useMousePositionTracker({
@@ -54,14 +64,17 @@ function ColorPopup({ onClose }) {
   const mousePositionRef = useRef(mousePosition);
   mousePositionRef.current = mousePosition || mousePositionRef.current;
 
-  function setColor(swatch) {
-    setCssState((oldCssVariables) => (
-      {
-        ...oldCssVariables,
-        [selectedCircle]: swatch,
-      }
-    ));
-  }
+  const setColor = useCallback(
+    (swatch) => (
+      setCssState((oldCssVariables) => (
+        {
+          ...oldCssVariables,
+          [cssState.selectedColorPicker]: swatch,
+        }
+      ))
+    ),
+    [cssState.selectedColorPicker]
+  );
 
   return (
     <div className="color-picker-popup__backdrop">
@@ -91,7 +104,45 @@ function ColorPopup({ onClose }) {
               </span>
             </div>
           </button>
+          <IconButton
+            icon={Icons.IconReset()}
+            className="icon-button--borderless"
+            title="Reset Color Picker"
+            onClick={() => (
+              setCssState((draftCssState) => (
+                Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
+              ))
+            )}
+          />
           <div className="color-picker-popup__title">Color Picker</div>
+          <IconButton
+            icon={Icons.IconShare()}
+            title="Copy Color Picker Link"
+            className="icon-button--borderless"
+            onClick={() => {
+              const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
+              navigator.clipboard.writeText(returnUrl)
+                // TODO: need a toast popup or banner or something to show messages
+                .then(() => console.log('Colors copied to clipboard ready to share!', returnUrl))
+                .catch((e) => console.error(e));
+            }}
+          />
+          {/*
+          // for testing, can randomly get a new set of colors easily (maybe an easter egg?)
+          <div className="color-picker-popup__buttons">
+
+            <IconButton
+              icon={Icons.IconArrowRight()}
+              title="Randomize Color Picker"
+              onClick={() => (
+                setCssState((draftCssState) => (
+                  Object.keys(cssContextDefaultColors).forEach((key) => { draftCssState[key] = `#${tinyColor.random().toHex()}`; })
+                ))
+              )}
+            />
+
+          </div>
+          */}
           {
             onClose
               ? (
@@ -114,126 +165,154 @@ function ColorPopup({ onClose }) {
                   <div className="color-pickers__group">
                     <ColorPicker
                       className="primary-color-background"
-                      isSelected={selectedCircle === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
-                      onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.PRIMARY_COLOR)}
-                      color={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]}
+                      id="primary-prime-color"
+                      isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
+                      label="Primary: Prime"
+                      onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR; })}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
-                    >
-                      Primary
-                      <br />
-                      60
-                    </ColorPicker>
+                      onChange={(newColor) => setColor(newColor)}
+                      isLarge
+                      title="Primary"
+                      value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]}
+                    />
                     <div className="color-pickers__light-dark">
                       <ColorPicker
-                        className="primary-color-dark-background color-picker--small"
-                        isSelected={selectedCircle === CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK}
-                        onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK)}
-                        color={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
-                      >
-                        Dark
-                      </ColorPicker>
+                        className="primary-color-dark-background"
+                        id="primary-dark-color"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK}
+                        label="Primary: Dark"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK; })}
+                        title="Dark"
+                        value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
+                      />
                       <ColorPicker
-                        className="primary-color-light-background color-picker--small"
-                        isSelected={selectedCircle === CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT}
-                        onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT)}
-                        color={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]}
-                      >
-                        Light
-                      </ColorPicker>
-                    </div>
-                    <div className="color-pickers__compare-colors">
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} />
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} />
+                        className="primary-color-light-background"
+                        id="primary-light-color"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT}
+                        label="Primary: Light"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => (
+                          setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT; })
+                        )}
+                        title="Light"
+                        value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]}
+                      />
                     </div>
                   </div>
 
                   <div className="color-pickers__group">
                     <ColorPicker
                       className="secondary-color-background"
-                      isSelected={selectedCircle === CSS_VARIABLES_KEYS.SECONDARY_COLOR}
-                      onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.SECONDARY_COLOR)}
-                      color={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]}
+                      id="secondary-prime-color"
+                      isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.SECONDARY_COLOR}
+                      label="Secondary: Prime"
+                      onChange={(newColor) => setColor(newColor)}
+                      onClick={() => (
+                        setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR; })
+                      )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]}
-                    >
-                      Secondary
-                      <br />
-                      30
-                    </ColorPicker>
+                      isLarge
+                      title="Secondary"
+                      value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]}
+                    />
                     <div className="color-pickers__light-dark">
                       <ColorPicker
-                        className="secondary-color-dark-background color-picker--small"
-                        isSelected={selectedCircle === CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK}
-                        onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK)}
-                        color={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]}
-                      >
-                        Dark
-                      </ColorPicker>
+                        className="secondary-color-dark-background"
+                        id="secondary-dark-color"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK}
+                        label="Secondary: Dark"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => (
+                          setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK; })
+                        )}
+                        title="Dark"
+                        value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]}
+                      />
 
                       <ColorPicker
-                        className="secondary-color-light-background color-picker--small"
-                        isSelected={selectedCircle === CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT}
-                        onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT)}
-                        color={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]}
-                      >
-                        Light
-                      </ColorPicker>
-                    </div>
-                    <div className="color-pickers__compare-colors">
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} />
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} />
+                        className="secondary-color-light-background"
+                        id="secondary-light-color"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT}
+                        label="Secondary: Light"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => (
+                          setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT; })
+                        )}
+                        title="Light"
+                        value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]}
+                      />
                     </div>
                   </div>
 
                   <div className="color-pickers__group">
                     <ColorPicker
                       className="accent-color-background"
-                      isSelected={selectedCircle === CSS_VARIABLES_KEYS.ACCENT_COLOR}
-                      onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.ACCENT_COLOR)}
-                      color={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]}
+                      id="accent-prime-color"
+                      isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.ACCENT_COLOR}
+                      label="Accent: Prime"
+                      onChange={(newColor) => setColor(newColor)}
+                      onClick={() => (
+                        setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR; })
+                      )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
-                    >
-                      Accent
-                      <br />
-                      10
-                    </ColorPicker>
+                      isLarge
+                      title="Accent"
+                      value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]}
+                    />
                     <div className="color-pickers__light-dark">
                       <ColorPicker
-                        className="accent-color-dark-background color-picker--small"
-                        isSelected={selectedCircle === CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK}
-                        onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK)}
-                        color={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]}
-                      >
-                        Dark
-                      </ColorPicker>
+                        className="accent-color-dark-background"
+                        id="accent-dark-color"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK}
+                        label="Accent: Dark"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => (
+                          setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK; })
+                        )}
+                        title="Dark"
+                        value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]}
+                      />
 
                       <ColorPicker
-                        className="accent-color-light-background color-picker--small"
-                        isSelected={selectedCircle === CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT}
-                        onClick={() => setSelectedCircle(CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT)}
-                        color={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]}
-                      >
-                        Light
-                      </ColorPicker>
-                    </div>
-
-                    <div className="color-pickers__compare-colors">
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]} />
-                      <ColorCompare color1={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]} color2={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]} />
+                        className="accent-color-light-background"
+                        id="accent-light-color"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT}
+                        label="Accent: Light"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => (
+                          setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT; })
+                        )}
+                        title="Light"
+                        value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]}
+                      />
                     </div>
                   </div>
 
                 </div>
-                <div className="color-pickers__swatches">
-                  {
-                    Object.values(colors).map((color) => (
-                      <SwatchList
-                        colorFamily={color}
-                        key={`swatch-list-color-${color.title}`}
-                        onColorSelected={(swatch) => setColor(swatch)}
-                        selectedColor={null}
-                      />
-                    ))
-                  }
+                <div className="color-pickers__compare-colors color-pickers__swatches">
+                  <TabGroup defaultValue="tab-group__swatches">
+                    <TabList>
+                      <Tab id="tab-group__swatches">Swatches</Tab>
+                      <Tab id="tab-group__color-contrast">Contrasts</Tab>
+                    </TabList>
+                    <TabPanels>
+                      <TabPanel tabId="tab-group__swatches">
+                        {
+                          Object.values(colors).map((color) => (
+                            <SwatchList
+                              colorFamily={color}
+                              key={`swatch-list-color-${color.title}`}
+                              onColorSelected={(swatch) => setColor(swatch)}
+                            />
+                          ))
+                        }
+                      </TabPanel>
+                      <TabPanel tabId="tab-group__color-contrast">
+                        <ColorContrasts colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]} />
+                      </TabPanel>
+                    </TabPanels>
+                  </TabGroup>
                 </div>
               </div>
             )

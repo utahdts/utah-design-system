@@ -17,9 +17,10 @@ Please see the [documentation site](https://designsystem.utah.gov/) for all info
 [![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system)
 [![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://github.com/utahdts/utah-design-system/raw/dev/LICENSE)
 [![issues](https://img.shields.io/github/issues-raw/utahdts/utah-design-system?style=for-the-badge)](https://github.com/utahdts/utah-design-system/issues)
+[![ARB Approved](https://img.shields.io/badge/Utah_ARB_Approved-126DC4?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
 
 ```bash
-$ npm i @utahdts/utah-design-system
+npm i @utahdts/utah-design-system
 ```
 
 ### Using the React components
@@ -31,7 +32,6 @@ import { DocumentationTemplate, LandingTemplate } from '@utahdts/utah-design-sys
 // uncompiled style
 import { OnThisPage } from '@utahdts/utah-design-systemOnThisPage';
 import { VerticalMenu } from '@utahdts/utah-design-system';
-import { useCurrentMenuItem } from '@utahdts/utah-design-system';
 
 //import all scss
 import '@utahdts/utah-design-system/css/index.scss';

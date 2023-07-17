@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "0.10.3",
+  "version": "1.0.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -38,7 +38,7 @@
     "type": "git",
     "url": "git+https://github.com/utahdts/utah-design-system.git"
   },
-  "license": "STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE",
+  "license": "State of Utah - TOT",
   "bugs": {
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
@@ -47,11 +47,11 @@
     "@popperjs/core": "2.11.8"
   },
   "devDependencies": {
-    "@vitest/ui": "0.32.0",
+    "@vitest/ui": "0.32.2",
     "jsdom": "22.1.0",
-    "sass": "1.63.3",
+    "sass": "1.63.6",
     "vite": "4.3.9",
-    "vitest": "0.32.0"
+    "vitest": "0.32.2"
   },
   "type": "module"
 }

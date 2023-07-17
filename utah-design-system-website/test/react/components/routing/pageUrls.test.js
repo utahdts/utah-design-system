@@ -85,7 +85,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
 }
 
 describe('pageUrls - match menu path', () => {
-  const mainMenu = constructMainMenu(null, () => { });
+  const mainMenu = constructMainMenu(undefined, () => { });
   const menuPaths = deconstructMainMenuPaths(mainMenu.menuItems);
 
   /*
