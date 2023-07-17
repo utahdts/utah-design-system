@@ -92,13 +92,22 @@ function CssContextProvider({ children }) {
   const cssStateValue = useMemo(
     () => {
       const newColors = {
+        ...cssState,
         [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], '#ffffff'),
         [CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], '#ffffff'),
         [CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], '#ffffff'),
-        [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-        [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-        [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-        ...cssState,
+        [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR],
+          colorList: fallbackGrayColors,
+        }),
       };
       localStorage.setItem(localStorageKeys.COLOR_PICKER_COLORS, JSON.stringify(newColors));
       return {
