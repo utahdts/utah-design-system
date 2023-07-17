@@ -127,7 +127,9 @@ function ColorPopup({ onClose }) {
                 .catch((e) => console.error(e));
             }}
           />
-          {/* <div className="color-picker-popup__buttons">
+          {/*
+          // for testing, can randomly get a new set of colors easily (maybe an easter egg?)
+          <div className="color-picker-popup__buttons">
 
             <IconButton
               icon={Icons.IconArrowRight()}
@@ -139,7 +141,8 @@ function ColorPopup({ onClose }) {
               )}
             />
 
-          </div> */}
+          </div>
+          */}
           {
             onClose
               ? (
