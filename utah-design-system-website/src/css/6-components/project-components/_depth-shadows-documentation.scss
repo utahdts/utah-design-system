@@ -1,0 +1,30 @@
+.depth-example {
+  padding: var(--spacing);
+  background: white;
+  border-radius: var(--radius-small);
+  text-align: center;
+  flex: 1 1 40%;
+  flex-wrap: wrap;
+
+  &__small {
+    box-shadow: var(--elevation-small);
+  }
+  &__small-borderless {
+    box-shadow: var(--elevation-small-borderless);
+  }
+  &__medium {
+    box-shadow: var(--elevation-medium);
+  }
+  &__medium-borderless {
+    box-shadow: var(--elevation-medium-borderless);
+  }
+  &__large {
+    box-shadow: var(--elevation-large);
+  }
+  &__large-borderless {
+    box-shadow: var(--elevation-large-borderless);
+  }
+  &--border {
+    border: 1px solid
+  }
+}

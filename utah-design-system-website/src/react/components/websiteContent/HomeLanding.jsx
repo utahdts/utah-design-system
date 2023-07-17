@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
 import { Accordion, ExternalLink } from '@utahdts/utah-design-system';
-import pageUrls from '../routing/pageUrls';
-// import ProgressLog from './ProgressLog/ProgressLog';
-import IconsWebsite from './IconsWebsite';
+import { Link } from 'react-router-dom';
 import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
 import LightBox from '../lightbox/LightBox';
+import pageUrls from '../routing/pageUrls';
+import IconsWebsite from './IconsWebsite';
 
 const propTypes = {};
 const defaultProps = {};
@@ -56,7 +55,7 @@ function HomeLanding() {
               <h3>Accessibility</h3>
             </div>
             <p>
-              One of the top goals at the State of Utah, is to make websites and applications, across our many agencies accessible for all people,
+              One of the top goals at the State of Utah is to make websites and applications across our many agencies accessible for all people,
               including those with varying impairments.  Each component in the Utah Design System library includes an accessibility section where
               detailed information can be found about contrast, keyboard interaction, and screen readers.
             </p>
@@ -211,6 +210,7 @@ function HomeLanding() {
             State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
             (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
           </p>
+          <p>The Utah Design System has been approved as the official web standard by the Architecture Review Board (ARB).</p>
         </div>
       </div>
 

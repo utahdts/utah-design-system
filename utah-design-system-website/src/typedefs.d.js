@@ -8,6 +8,14 @@
  * WebsiteMainMenuKey
  * @typedef { 'menuMain' | 'menuGuidelinesSecondary' | 'menuLibraryComponentsSecondary' | 'menuLibraryPatternsSecondary' | 'menuResourcesSecondary' } WebsiteMainMenuKey
  */
+/**
+ * ColorRating
+ * @typedef {'AA' | 'AAA' | 'X'} ColorRating
+ */
+
+/**
+ * @typedef {{ hexColor: string, isLight: boolean, title: string }} ColorInfo
+ */
 
 /**
  * @typedef WebsiteMainMenuItem {
@@ -16,6 +24,7 @@
  *  @property {string} title
  *  @property {PageUrl[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {boolean} [isSelected]
  * }
  */
 
@@ -25,6 +34,7 @@
  *  @property {string} header
  *  @property {string} id
  *  @property {WebsiteMainMenuItem[]} menuItems
+ *  @property {boolean} [isSelected]
  * }
  */
 

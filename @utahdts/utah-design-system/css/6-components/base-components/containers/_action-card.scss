@@ -10,12 +10,15 @@
     padding: var(--spacing);
     text-decoration: none;
     color: var(--gray-color);
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out, outline-offset 0ms ease;
     box-sizing: border-box;
     &:hover {
       box-shadow: none;
       background: var(--gray-color);
       color: white;
+    }
+    &:focus-visible {
+      outline-offset: var(--spacing-2xs);
     }
     &--primary-color {
       border: 2px solid var(--primary-color);

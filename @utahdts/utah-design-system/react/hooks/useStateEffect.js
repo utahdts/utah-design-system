@@ -28,6 +28,7 @@ Example new code:
 // @param onUnmountFn : (optional) this function is returned in the useEffect allowing unmount state events
 // @param dependencyList : passed as second parameter to useEffect as the list of items to watch for changes
 // @return [state, setState] : the state variables
+/** @deprecated use useMemo and useCallback instead */
 export default ({ calculateValueFn, onUnmountFn, dependencyList }) => {
   const [state, setState] = useState(() => calculateValueFn(null));
 

@@ -64,6 +64,12 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
+            <ProgressLogVersionRow version="0.10" />
+            <ProgressLogTableRow title="Guidelines: Color" toUrl={pageUrls.colorGuidelines} isDefinitionChecked />
+            <ProgressLogTableRow title="Layout" toUrl={pageUrls.layout} isDefinitionChecked />
+            <ProgressLogTableRow title="Segmented Button" toUrl={pageUrls.segmentedButton} isDefinitionChecked />
+            <ProgressLogTableRow title="Spacing" toUrl={pageUrls.spacing} isDefinitionChecked />
+
             <ProgressLogVersionRow version="0.9" />
             <ProgressLogTableRow title="Accordion" toUrl={pageUrls.accordion} isDefinitionChecked />
             <ProgressLogTableRow title="Checkbox" toUrl={pageUrls.checkbox} isDefinitionChecked />
@@ -127,28 +133,21 @@ function ProgressLog() {
       <h2 className="mt-spacing-l">Task Log</h2>
       <ul>
         <li>
-          Version 0.9
+          Version 0.10
           <ul>
-            <li>Add: <Link to={pageUrls.errorPage404}>404 page</Link></li>
-            <li>Add: All code examples now have a &quot;copy&quot; icon button</li>
-            <li>Add: Clickable menu items w/ children</li>
-            <li>Add: Copious quantities of links to the <Link to={pageUrls.mockups}>Mocks</Link></li>
-            <li>Add: Footer boundaries for agencies in the <Link to={pageUrls.utahFooter}>Utah Footer</Link></li>
-            <li>Add: Main menu no longer required in <Link to={pageUrls.utahHeader}>UtahHeader</Link></li>
-            <li>Add: Mobile hamburger menu has <code>aria-label</code> tag</li>
-            <li>Add: onSearch & no-menu presets to <Link to={pageUrls.utahHeader}>UtahHeader playground</Link></li>
-            <li>Define: <Link to={pageUrls.accessibility}>Guidelines & Standards: Accessibility</Link></li>
-            <li>Define: <Link to={pageUrls.accordion}>Accordion</Link></li>
-            <li>Define: <Link to={pageUrls.checkbox}>Checkbox</Link></li>
-            <li>Define: <Link to={pageUrls.fileInput}>File Input</Link></li>
-            <li>Remove: Placeholder pages missing from menus</li>
-            <li>Remove: Utah Header version console.log</li>
-            <li>Update: <Link to={pageUrls.utahHeader}>UtahId button</Link> no longer blinks on each page render</li>
-            <li>Update: Design System content area is now more responsive!</li>
-            <li>Update: Links in the Design System now scroll to the top</li>
-            <li>Update: Make page urls consistent with menu location</li>
-            <li>Update: Move menus around</li>
-            <li>Update: Readme.md has is less misleading</li>
+            <li>Add: <Link to={pageUrls.showcase}>Showcase</Link> page</li>
+            <li>Add: Design System release via Transfer of Technology</li>
+            <li>Add: License - Memorandum Of Agreement To Transfer Software</li>
+            <li>Define: <Link to={pageUrls.colorGuidelines}>Color</Link></li>
+            <li>Define: <Link to={pageUrls.layout}>Layout</Link></li>
+            <li>Define: <Link to={pageUrls.segmentedButton}>Segmented Button</Link></li>
+            <li>Define: <Link to={pageUrls.spacing}>Spacing</Link></li>
+            <li>Update: <Link to={pageUrls.gettingStarted}>Getting Started</Link> - add more details</li>
+            <li>Update: Design System <Link to={pageUrls.gettingStarted}>XD document</Link></li>
+            <li>Update: Home page content</li>
+            <li>Update: Move header menu documentation to its own page</li>
+            <li>Update: Move progress log to its own page</li>
+            <li>Update: Standardize page urls</li>
           </ul>
         </li>
         <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>

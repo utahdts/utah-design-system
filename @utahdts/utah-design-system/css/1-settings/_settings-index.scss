@@ -20,8 +20,8 @@ variables and settings
   /* color */
   /* ######## Pick these colors to match your desired style ######## */
   --primary-color: #{color-swatches.$red-rock-05};
-  --primary-color-dark: #{color-swatches.$red-rock-01};;
-  --primary-color-light: #{color-swatches.$red-rock-17};;
+  --primary-color-dark: #{color-swatches.$red-rock-01};
+  --primary-color-light: #{color-swatches.$red-rock-17};
   --gray-on-primary-color: #474747;
 
   --secondary-color: #{color-swatches.$celadon-blue-05};
@@ -106,51 +106,52 @@ variables and settings
   --elevation-medium-borderless: 0 6px 12px var(--drop-shadow-color), 0 -3px 6px var(--drop-shadow-color-top);
   --elevation-large-borderless: 0 12px 16px var(--drop-shadow-color),  0 -3px 12px var(--drop-shadow-color-top);
 
+
+  /* color utility classes */
+  .primary-color-background { background-color: var(--primary-color); }
+  .primary-color-dark-background { background-color: var(--primary-color-dark); }
+  .primary-color-light-background { background-color: var(--primary-color-light); }
+  .gray-on-primary-background { background-color: var(--gray-on-primary-color); }
+
+  .primary-color { color: var(--primary-color); }
+  .primary-color-border { border-color: var(--primary-color); }
+
+  .secondary-color-background { background-color: var(--secondary-color); }
+  .secondary-color-dark-background { background-color: var(--secondary-color-dark); }
+  .secondary-color-light-background { background-color: var(--secondary-color-light); }
+  .gray-on-secondary-background { background-color: var(--gray-on-secondary-color); }
+
+  .secondary-color { color: var(--secondary-color) }
+  .secondary-color-border { border-color: var(--secondary-color) }
+
+  .accent-color-background { background-color: var(--accent-color); }
+  .accent-color-dark-background { background-color: var(--accent-color-dark); }
+  .accent-color-light-background { background-color: var(--accent-color-light); }
+  .gray-on-accent-background { background-color: var(--gray-on-accent-color); }
+
+  .accent-color { color: var(--accent-color) }
+  .accent-color-border { border-color: var(--accent-color) }
+
+  .gray-color-background { background-color: var(--gray-color); }
+  .gray-color-light-background { background-color: var(--gray-light-color) }
+
+  .white-color { color: white; }
+
+  .background-frosted-dark {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(16px) brightness(1.5);
+    -webkit-backdrop-filter: blur(16px) brightness(1.5);
+  }
+
+  .background-frosted-light {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .backdrop-dark {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px) brightness(60%);
+  }
 }
 
- /* color utility classes */
-.primary-color-background { background-color: var(--primary-color); }
-.primary-color-dark-background { background-color: var(--primary-color-dark); }
-.primary-color-light-background { background-color: var(--primary-color-light); }
-.gray-on-primary-background { background-color: var(--gray-on-primary-color); }
-
-.primary-color { color: var(--primary-color); }
-.primary-color-border { border-color: var(--primary-color); }
-
-.secondary-color-background { background-color: var(--secondary-color); }
-.secondary-color-dark-background { background-color: var(--secondary-color-dark); }
-.secondary-color-light-background { background-color: var(--secondary-color-light); }
-.gray-on-secondary-background { background-color: var(--gray-on-secondary-color); }
-
-.secondary-color { color: var(--secondary-color) }
-.secondary-color-border { border-color: var(--secondary-color) }
-
-.accent-color-background { background-color: var(--accent-color); }
-.accent-color-dark-background { background-color: var(--accent-color-dark); }
-.accent-color-light-background { background-color: var(--accent-color-light); }
-.gray-on-accent-background { background-color: var(--gray-on-accent-color); }
-
-.accent-color { color: var(--accent-color) }
-.accent-color-border { border-color: var(--accent-color) }
-
-.gray-color-background { background-color: var(--gray-color); }
-.gray-color-light-background { background-color: var(--gray-light-color) }
-
-.white-color { color: white; }
-
-.background-frosted-dark {
-	background: rgba(0,0,0,0.6);
-	backdrop-filter: blur(16px) brightness(1.5);
-	-webkit-backdrop-filter: blur(16px) brightness(1.5);
-}
-
-.background-frosted-light {
-	background: rgba(255,255,255,0.1);
-	backdrop-filter: blur(16px);
-	-webkit-backdrop-filter: blur(16px);
-}
-
-.backdrop-dark {
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px) brightness(60%);
-}

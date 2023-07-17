@@ -8,13 +8,23 @@ import checkForError from '../../misc/checkForError';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 
+/** @typedef {import ('../../misc/jsDocTypes').DomLocationTarget} DomLocationTarget */
 /** @typedef {import ('../../misc/jsDocTypes').Settings} Settings */
 
 /**
  * track last known settings for future comparison to see if something changed
- * @type {Settings | null}
+ * make sure that shallow copying doesn't allow changing things outside of this function that
+ * then change this "previous" data making it seem like a change did not occur.
+ * @type {{domLocationTarget: DomLocationTarget, showHorizontalRule: boolean | undefined}}
  */
-let previousSettings = null;
+const previousFooterSettings = {
+  domLocationTarget: {
+    cssSelector: undefined,
+    element: undefined,
+    elementFunction: undefined,
+  },
+  showHorizontalRule: false,
+};
 
 /**
  * @returns {Element | null}
@@ -28,8 +38,10 @@ export default function renderFooter() {
     previousFooter?.remove();
   } else {
     const settingsChanged = (
-      previousSettings?.footer?.domLocationTarget !== settings?.footer?.domLocationTarget
-      || previousSettings?.footer?.showHorizontalRule !== settings?.footer?.showHorizontalRule
+      previousFooterSettings.domLocationTarget.cssSelector !== settings?.footer?.domLocationTarget?.cssSelector
+      || previousFooterSettings.domLocationTarget.element !== settings?.footer?.domLocationTarget?.element
+      || previousFooterSettings.domLocationTarget.elementFunction !== settings?.footer?.domLocationTarget?.elementFunction
+      || previousFooterSettings.showHorizontalRule !== settings?.footer?.showHorizontalRule
     );
 
     if (settingsChanged || !previousFooter) {
@@ -76,7 +88,11 @@ export default function renderFooter() {
       }
 
       // make a copy for future comparison
-      previousSettings = JSON.parse(JSON.stringify(settings));
+      // this is not a shallow copy of the settings, so that external changes don't update internal values
+      previousFooterSettings.domLocationTarget.cssSelector = settings?.footer?.domLocationTarget?.cssSelector;
+      previousFooterSettings.domLocationTarget.element = settings?.footer?.domLocationTarget?.element;
+      previousFooterSettings.domLocationTarget.elementFunction = settings?.footer?.domLocationTarget?.elementFunction;
+      previousFooterSettings.showHorizontalRule = settings?.footer?.showHorizontalRule;
     }
   }
 

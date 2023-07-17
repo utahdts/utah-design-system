@@ -32,7 +32,7 @@ import identity from 'lodash/identity';
  * @param object.menuItems [MenuItemShape] the menuItems for which to add parents
  * @returns the menuItems now with parentLinks information
  */
-function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
+export default function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
   return (menuItems || []).map((menuItem) => {
     const menuItemLink = menuItem.link || `menuHeader::${menuItem.title}`;
     return {
@@ -50,5 +50,3 @@ function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
     };
   });
 }
-
-export default calculateMenuItemsParents;

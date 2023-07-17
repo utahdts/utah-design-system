@@ -62,6 +62,24 @@ function constructMenuItems(websiteMainMenuItems, navigate) {
 }
 
 /**
+ * @param {(MainMenuItem)[]} parentMenus
+ * @param {MainMenuItem} draftMenuItem
+ * @param {WebsiteMainMenuItem | WebsiteMainMenu | undefined} currentMenuItem
+ */
+function assignSelectedFromHierarchy(parentMenus, draftMenuItem, currentMenuItem) {
+  // @ts-ignore
+  draftMenuItem.isSelected = draftMenuItem.isSelected || currentMenuItem?.link === draftMenuItem.actionFunctionUrl?.url;
+  if (draftMenuItem.isSelected) {
+    parentMenus.forEach((draftParentMenu) => { draftParentMenu.isSelected = true; });
+  }
+  if (draftMenuItem.actionMenu) {
+    const newParents = [...parentMenus, draftMenuItem];
+    draftMenuItem.actionMenu?.forEach((actionMenuItem) => assignSelectedFromHierarchy(newParents, actionMenuItem, currentMenuItem));
+  }
+}
+
+/**
+ * @param {WebsiteMainMenuItem | WebsiteMainMenu | undefined} currentMenuItem
  * @param {import('react-router-dom').NavigateFunction} navigate
  * @returns {MainMenu}
  */
@@ -78,7 +96,11 @@ export default function constructMainMenu(currentMenuItem, navigate) {
         url: mainMenuItem.link || pageUrls.home,
       },
       isSelected: (
+        // @ts-ignore
         currentMenuItem?.link === mainMenuItem.link
+        // @ts-ignore
+        || currentMenuItem?.link === mainMenuItem?.actionFunctionUrl?.url
+        // @ts-ignore
         || currentMenuItem?.parentLinks?.includes(mainMenuItem.link)
       ),
       title: mainMenuItem.title,
@@ -109,5 +131,8 @@ export default function constructMainMenu(currentMenuItem, navigate) {
   ];
   mainMenusByLink[pageUrls.resources].actionMenu = constructMenuItems(menuResourcesSecondary.menuItems, navigate);
 
+  // recursive step through children; if child selected then select all its parents too
+  Object.values(mainMenusByLink)
+    .forEach((menu) => assignSelectedFromHierarchy([menu], menu, currentMenuItem));
   return mainMenu;
 }
