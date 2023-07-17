@@ -3,8 +3,8 @@ The Design System is guidelines and examples for website development. The goal i
 citizens of the State of Utah to have a common experience among State of Utah online resources
 so that they feel safe, engaged, and empowered.
 
-The State of Utah Design System's first goal knowledge and developer tooling. Knowledge is provided via 
-the [Utah Design System Site](https://designsystem.utah.gov) and direct conversations with the 
+The State of Utah Design System's first goal knowledge and developer tooling. Knowledge is provided via
+the [Utah Design System Site](https://designsystem.utah.gov) and direct conversations with the
 Digital Experience Team (DXP). We love to talk. Please [Contact Us](https://designsystem.utah.gov/resources/gettingStarted) with anything.
 
 You can also follow along and submit pull requests at our [GitHub](https://github.com/utahdts/utah-design-system).
@@ -54,4 +54,4 @@ Merges to the `main` or `dev` branches trigger GitHub actions that build, test, 
 DTS & the Digital Experience Team (DXP) [Contact Us](https://designsystem.utah.gov/resources/gettingStarted)
 
 ## License
-Apache License Version 2.0
+STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE

@@ -6,6 +6,13 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import LightBox from '../../../../../lightbox/LightBox';
+import segmentedButtonBorderless from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonBorderless.webp';
+import segmentedButtonBorderless2 from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonBorderless2.webp';
+import segmentedButtonIconOnly from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonIconOnly.webp';
+import segmentedButtonIconText from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonIconText.webp';
+import segmentedButtonOutlined from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonOutlined.webp';
+import segmentedButtonSizes from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonSizes.webp';
 
 const propTypes = {};
 const defaultProps = {};
@@ -21,41 +28,70 @@ function SegmentedButtonDocumentation() {
       <hr />
       <h2 id="section-example">Examples</h2>
       <StaticExample
-        title="Outline"
-        renderedExample="Example coming soon!"
+        title="Outlined buttons"
+        renderedExample={<LightBox image={segmentedButtonOutlined} alt="Outlined Segmented Button" className="flex-2up-gap" />}
+        quickTips={(
+          <ul>
+            <li>This is the default style of a segmented button.</li>
+            <li>Other styles such as solid and using different colors are available similar to the <Link to={pageUrls.button}>button</Link>.</li>
+          </ul>
+        )}
       />
 
       <StaticExample
         title="Segmented buttons with icons"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={segmentedButtonIconText} alt="Icon and Text" className="flex-2up-gap" />}
+        quickTips={(
+          <ul>
+            <li>A segmented button may contain text only, icons and text, or icons only.</li>
+          </ul>
+        )}
       />
 
       <StaticExample
-        title="Icons only"
-        renderedExample="Example coming soon!"
-        quickTips="The icon-only variation provides a way to display a very compact set of options."
+        title="Icon only"
+        renderedExample={<LightBox image={segmentedButtonIconOnly} alt="Icon Only" className="flex-2up-gap" />}
+        quickTips={(
+          <ul>
+            <li>The icon-only variation provides a way to display a very compact set of options.</li>
+          </ul>
+        )}
       />
 
       <StaticExample
         title="Borderless"
-        renderedExample="Example coming soon!"
-        quickTips="The borderless segmented button is a variation of the icon-only version and is primarily used in toolbars where a compact, clean interface is required."
+        renderedExample={(
+          <>
+            <LightBox image={segmentedButtonBorderless} alt="Borderless" className="flex-2up-gap" />
+            <LightBox image={segmentedButtonBorderless2} alt="Borderless Option 2" className="flex-2up-gap" />
+          </>
+        )}
+        quickTips={(
+          <ul>
+            <li>The borderless segmented button is a variation of the icon-only version and is primarily used in toolbars where a compact, clean interface is required.</li>
+            <li>
+              The selected segment is more accessible if it meets a minimum contrast ratio of <code>3:1</code>,
+              however, this doesn&apos;t appear to be an industry standard at this time.
+            </li>
+          </ul>
+        )}
       />
 
       <StaticExample
         title="Sizes"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={segmentedButtonSizes} alt="Segmented Button Sizes" className="flex-2up-gap" />}
         quickTips={(
-          <>
-            <p>Segmented buttons accept a size prop which supports the following values:</p>
-            <ul>
-              <li>Extra Small</li>
-              <li>Small</li>
-              <li>Default</li>
-              <li>Large</li>
-              <li>Extra Large</li>
-            </ul>
-          </>
+          <ul>
+            <li>Segmented buttons accept a size prop which supports the following values:
+              <ul>
+                <li>Extra Small</li>
+                <li>Small</li>
+                <li>Default</li>
+                <li>Large</li>
+                <li>Extra Large</li>
+              </ul>
+            </li>
+          </ul>
         )}
       />
 
@@ -80,8 +116,8 @@ function SegmentedButtonDocumentation() {
           <strong>Tabs.</strong> Use <Link to={pageUrls.tabs}>tabs</Link> as a way to navigate through a set of related content.
         </li>
         <li>
-          <strong>Hyperlinks.</strong> Never use segmented buttons to link to other content. Instead, use <Link to={pageUrls.links}>hyperlinks</Link>. For more
-          information on <Link to={pageUrls.button}>buttons</Link>, please refer to their respective documentation.
+          <strong>Hyperlinks and distinct actions.</strong> Never use segmented buttons to link to other content. Instead, use <Link to={pageUrls.links}>hyperlinks</Link>.
+          Segmented buttons should not be used for separate distinct actions. Use separate <Link to={pageUrls.button}>buttons</Link> instead.
         </li>
         <li>
           <strong>Checkboxes.</strong> Use <Link to={pageUrls.checkbox}>checkboxes</Link> when the user is able to select multiple values from a predefined
@@ -128,7 +164,7 @@ function SegmentedButtonDocumentation() {
           distinctly divided and encompasses label text, an <Link to={pageUrls.icons}>icon</Link>, or a combination of both.
         </li>
         <li>
-          <strong>Icon-only segments.</strong> <Link to={pageUrls.icons}>Icons</Link> may be used as labels by themselves or alongside text.
+          <strong>Icon-only segments.</strong> <Link to={pageUrls.icons}>Icons</Link> may be used. Tooltips should be provided for each segment.
         </li>
         <li>
           <strong>Labels should be short and succinct.</strong> If a label is too long to fit within its segment, consider using
@@ -151,9 +187,10 @@ function SegmentedButtonDocumentation() {
         </li>
         <li>
           The boundary of the segmented button must maintain a <code>3:1</code> contrast ratio against the background, unless it is borderless.
+          For borderless buttons, the selected segment is more accessible if it meets a minimum contrast ratio of 3:1, however, this doesn&apos;t appear to be an industry standard at this time.
         </li>
         <li>
-          The text and icon indicator must maintain a <code>4.5:1</code> contrast ratio.
+          The text and icon of the button segment must maintain a <code>4.5:1</code> contrast ratio.
         </li>
         <li>
           When using custom colors be sure the minimum contrast requirements are met.
@@ -166,18 +203,22 @@ function SegmentedButtonDocumentation() {
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
         <li>Use <code>Tab</code> to navigate through segments and <code>Space/Enter</code> to select/unselect.</li>
-        <li>Focus will start on the first button segment.</li>
-        <li>For keyboard navigation, <code>Tab</code> focuses on each individual button segment.</li>
+        <li>Focus will start on the first button segment, then proceed left to right through the segments.</li>
       </ul>
 
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">
         <li>
-          Make sure to use a <code>&lt;button&gt;</code> element with the attribute <code>role=&quot;button&quot;</code>. Semantic HTML is always best.
-          Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first! However if you need to use aria, follow the button guidelines.
+          Use native <code>&lt;button&gt;</code> elements when constructing a segmented button.
+          Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
+          However if you need to use aria, follow the <Link to={pageUrls.button}>button</Link> and <Link to={pageUrls.iconButton}>icon button</Link> guidelines.
         </li>
         <li>
-          For documentation on using the icon-only button, please refer to <Link to={`${pageUrls.iconButton}#section-screen-readers`}>icon-buttons: Screen Readers</Link>.
+          For documentation on using the icon-only button, please refer to <Link to={`${pageUrls.iconButton}#section-screen-readers`}>Icon Button: Screen Readers</Link>.
+        </li>
+        <li>
+          Selected segment: Use the <code>aria-pressed</code> attribute to define each button in the segmented array as a toggle button. The value describes the state of the button segment.
+          The values include <code>aria-pressed=&quot;false&quot;</code> when a segment is not currently pressed, <code>aria-pressed=&quot;true&quot;</code> to indicate a segment is currently pressed.
         </li>
       </ul>
     </div>
