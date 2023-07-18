@@ -12,7 +12,6 @@ import {
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useCallback, useRef } from 'react';
-// import tinyColor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
 import useCssContext from '../../context/cssContext/useCssContext';
