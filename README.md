@@ -29,8 +29,7 @@ tooling you have created or found useful so we can share it. See below for more 
 - React - *to display the State of Utah Design System*
 
 ## Getting started w/ Site development using the State of Utah Design System
-- Visit the [Utah Design System Site](https://designsystem.utah.gov) to learn the Design System and
-- Apply State of Utah Design System concepts to your website
+- Visit the [Utah Design System Site](https://designsystem.utah.gov) to learn the Design System and apply State of Utah Design System concepts to your website
 - *Javascript code libraries are available via npm*
   - [Design System Header](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
   - [Design System (CSS and/or React)](https://www.npmjs.com/package/@utahdts/utah-design-system)
