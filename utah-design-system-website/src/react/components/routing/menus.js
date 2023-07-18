@@ -260,6 +260,18 @@ export const menuLibraryPatternsSecondary = {
   id: 'library-patterns',
   menuItems: [
     {
+      title: 'Form Validation',
+      link: pages.validation.link,
+      parentLinks: [pages.guidelines.link],
+    },
+  ],
+};
+
+export const menuLibrarySecondary = {
+  header: 'Library',
+  id: 'library-menu',
+  menuItems: [
+    {
       title: 'Utah Header',
       link: pages.utahHeader.link,
       parentLinks: [pages.library.link],
@@ -268,11 +280,6 @@ export const menuLibraryPatternsSecondary = {
       title: 'Utah Footer',
       link: pages.utahFooter.link,
       parentLinks: [pages.library.link],
-    },
-    {
-      title: 'Form Validation',
-      link: pages.validation.link,
-      parentLinks: [pages.guidelines.link],
     },
   ],
 };
@@ -364,6 +371,7 @@ export default Object.fromEntries(
     menuGuidelinesSecondary,
     menuLibraryComponentsSecondary,
     menuLibraryPatternsSecondary,
+    menuLibrarySecondary,
     // menuLibraryTemplatesSecondary,
     menuResourcesSecondary,
   })
