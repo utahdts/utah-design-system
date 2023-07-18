@@ -64,6 +64,9 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
+            <ProgressLogVersionRow version="1.0" />
+            <ProgressLogTableRow title="Foundation: Depth, Elevation, Shadows" toUrl={pageUrls.depthElevationShadows} isDefinitionChecked />
+
             <ProgressLogVersionRow version="0.10" />
             <ProgressLogTableRow title="Guidelines: Color" toUrl={pageUrls.colorGuidelines} isDefinitionChecked />
             <ProgressLogTableRow title="Layout" toUrl={pageUrls.layout} isDefinitionChecked />
@@ -133,21 +136,16 @@ function ProgressLog() {
       <h2 className="mt-spacing-l">Task Log</h2>
       <ul>
         <li>
-          Version 0.10
+          Version 1.0
           <ul>
-            <li>Add: <Link to={pageUrls.showcase}>Showcase</Link> page</li>
-            <li>Add: Design System release via Transfer of Technology</li>
-            <li>Add: License - Memorandum Of Agreement To Transfer Software</li>
-            <li>Define: <Link to={pageUrls.colorGuidelines}>Color</Link></li>
-            <li>Define: <Link to={pageUrls.layout}>Layout</Link></li>
-            <li>Define: <Link to={pageUrls.segmentedButton}>Segmented Button</Link></li>
-            <li>Define: <Link to={pageUrls.spacing}>Spacing</Link></li>
-            <li>Update: <Link to={pageUrls.gettingStarted}>Getting Started</Link> - add more details</li>
-            <li>Update: Design System <Link to={pageUrls.gettingStarted}>XD document</Link></li>
-            <li>Update: Home page content</li>
-            <li>Update: Move header menu documentation to its own page</li>
-            <li>Update: Move progress log to its own page</li>
-            <li>Update: Standardize page urls</li>
+            <li>Add: ARB approved badge!</li>
+            <li>Add: export setUtahFooterSettings</li>
+            <li>Fix: Checkbox label sizing (<ExternalLink to="https://github.com/utahdts/utah-design-system/issues/90">issue #90</ExternalLink>)</li>
+            <li>Fix: domTargetLocation cloning error</li>
+            <li>Update: Color picker - contrast, share, reset, etc</li>
+            <li>Update: License is now Transfer Of Technology</li>
+            <li>Update: Security headers for website</li>
+            <li>Update: Select menu items in path to current page</li>
           </ul>
         </li>
         <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>
