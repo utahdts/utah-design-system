@@ -68,4 +68,4 @@ Merges to the `main` or `dev` branches trigger GitHub actions that build, test, 
 DTS & the Digital Experience Team (DXP) - [Contact Us](https://designsystem.utah.gov/resources/gettingStarted)
 
 ## License
-Apache License Version 2.0
+STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE

@@ -10,13 +10,27 @@
           "destination": "/index.html"
         }
       ],
-      "headers": [ {
-        "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
-        "headers": [ {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        } ]
-      } ]
+      "headers": [ 
+        {
+          "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+          "headers": [ {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          } ]
+        },
+        {
+          "source": "**/*",
+          "headers": [         
+            {"key":"Content-Security-Policy", "value":"default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"},
+            {"key": "X-Frame-Options", "value": "ALLOW-FROM SAMEORIGIN"},
+            {"key": "X-Content-Type-Options", "value": "nosniff"},
+            {"key": "Referrer-Policy", "value": "no-referrer-when-downgrade"},
+            {"key": "Permissions-Policy", "value": ""},
+            {"key": "X-UA-Compatible", "value": "ie=edge"},
+            {"key": "X-XSS-Protection", "value": "1; mode=block"}       
+          ]
+        }
+       ]
     },
     {
       "site": "utah-design-system",
@@ -28,13 +42,27 @@
           "destination": "/index.html"
         }
       ],
-      "headers": [ {
-        "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
-        "headers": [ {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        } ]
-      } ]
+      "headers": [ 
+        {
+          "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+          "headers": [ {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          } ]
+        },
+        {
+          "source": "**/*",
+          "headers": [         
+            {"key":"Content-Security-Policy", "value":"default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"},
+            {"key": "X-Frame-Options", "value": "ALLOW-FROM SAMEORIGIN"},
+            {"key": "X-Content-Type-Options", "value": "nosniff"},
+            {"key": "Referrer-Policy", "value": "no-referrer-when-downgrade"},
+            {"key": "Permissions-Policy", "value": ""},
+            {"key": "X-UA-Compatible", "value": "ie=edge"},
+            {"key": "X-XSS-Protection", "value": "1; mode=block"}       
+          ]
+        } 
+      ]
     }
   ]
 }

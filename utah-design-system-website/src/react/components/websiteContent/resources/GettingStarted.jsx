@@ -3,10 +3,10 @@
 import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import xdScreenshot from '../../../../static/images/screenshots/utah-design-system-mockups-xd.webp';
+import LightBox from '../../lightbox/LightBox';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
-import LightBox from '../../lightbox/LightBox';
-import xdScreenshot from '../../../../static/images/screenshots/utah-design-system-mockups-xd.webp';
 
 const propTypes = {};
 const defaultProps = {};
@@ -58,7 +58,7 @@ function GettingStarted() {
 
       <h2 id="h2-getting-started-developers">Getting Started for Developers</h2>
 
-      <h3 id="h3-utah-header" className="mt-spacing">Utah Header</h3>
+      <h3 id="h3-utah-header" className="mt-spacing">Utah Header Importing</h3>
       <p>There are multiple ways to integrate the Utah Header within your website or application.
         You can use the javascript and css directly from a CDN, or you can use NPM to pull the code into a project as a dependency.
       </p>
@@ -83,7 +83,21 @@ function GettingStarted() {
         showBackgroundColor
       />
 
-      <h4>Option 1: Universal Module Definition (UMD)</h4>
+      <h4>Ways to incorporate in to your application</h4>
+      <p>
+        There is no limit to the technology stacks that can incorporate the Utah Header. We want to <ExternalLink href="mailto:dts_ui@utah.gov">hear from you</ExternalLink> about your stack, your
+        successes, and pain points. Please send us your experiences and/or code and stack. We would love to be add it here!
+      </p>
+
+      <p className="mb-spacing-xs">We have currently documented the following options:</p>
+      <ul>
+        <li><a href="#option__universal-module-definition">Universal Module Definition (UMD)</a></li>
+        <li><a href="#option__es-module">ES Module</a></li>
+        <li><a href="#option__create-react-app">Create React App</a></li>
+        <li><a href="#option__vite-plain-js-app">Vite Plain JS App</a></li>
+      </ul>
+
+      <h4 id="option__universal-module-definition" className="mt-spacing">Option 1: Universal Module Definition (UMD)</h4>
       <p>This option uses a CDN to include both the javascript and css in the <code>&lt;head&gt;</code>.
         The header is configured when the <code>utahHeaderLoaded</code> event fires.
         You can learn more about configuring the header on the <Link to={pageUrls.utahHeader}>Utah Header page</Link>.
@@ -104,7 +118,7 @@ function GettingStarted() {
         showBackgroundColor
       />
 
-      <h4>Option 2: ES Module</h4>
+      <h4 id="option__es-module">Option 2: ES Module</h4>
       <p>This option uses a CDN to import the utah header from a CDN ES Module.
         The header is configured when you call <code>setUtahHeaderSettings</code> after importing the Utah Header code.
         You can learn more about configuring the header on the <Link to={pageUrls.utahHeader}>Utah Header page</Link>.
@@ -121,7 +135,7 @@ function GettingStarted() {
         showBackgroundColor
       />
 
-      <h4>Option 3: Create React App</h4>
+      <h4 id="option__create-react-app">Option 3: Create React App</h4>
       <p>
         This option pulls the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</ExternalLink> from npm and imports it in to an application created with <ExternalLink href="https://create-react-app.dev/">Create React App</ExternalLink>.
         Here were the steps used to create the application and integrate the header:
@@ -144,7 +158,7 @@ function GettingStarted() {
           />
         </li>
         <li>
-          Import the header (js/css) in to the application code&apos;s App.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/create-react-app</code> folder)<br />
+          Import the header (js/css) in to the application code&apos;s App.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/examples/utah-header/create-react-app">examples/utah-header/create-react-app</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
@@ -156,7 +170,7 @@ function GettingStarted() {
           />
         </li>
         <li>
-          Load header settings to show the header in the application code&apos;s App.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/create-react-app</code> folder)<br />
+          Load header settings to show the header in the application code&apos;s App.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/examples/utah-header/create-react-app">examples/utah-header/create-react-app</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 import { useEffect } from 'React';
@@ -191,7 +205,10 @@ function GettingStarted() {
           />
         </li>
       </ol>
-      <h4>Option 4: Vite Plain JS App</h4>
+      <p>
+        You can see the example code base in <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app">/examples/utah-header/create-react-app</ExternalLink>.
+      </p>
+      <h4 id="option__vite-plain-js-app">Option 4: Vite Plain JS App</h4>
       <p>
         This option pulls the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</ExternalLink> from npm and imports it in to a plain JS application created with <ExternalLink href="https://vitejs.dev/guide/">Vite</ExternalLink>.
         Here were the steps used to create the application and integrate the header:
@@ -214,7 +231,7 @@ function GettingStarted() {
           />
         </li>
         <li>
-          Import the header (js/css) in to the application code&apos;s main.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/vite</code> folder)<br />
+          Import the header (js/css) in to the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system">examples/utah-header/vite</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
@@ -226,7 +243,7 @@ function GettingStarted() {
           />
         </li>
         <li>
-          Load header settings to show the header in the application code&apos;s main.js (see the <ExternalLink href="https://github.com/utahdts/utah-design-system">Utah Design System&apos;s GitHub repository&apos;s</ExternalLink> <code>examples/utah-header/vite</code> folder)<br />
+          Load header settings to show the header in the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system">examples/utah-header/vite</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 setUtahHeaderSettings({});
@@ -245,8 +262,85 @@ function GettingStarted() {
         </li>
       </ol>
       <p>
-        You can see the example code base in the Utah Design System&apos;s <code>/examples/utah-header/vite</code> folder.
+        You can see the example code base in <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite">/examples/utah-header/vite</ExternalLink>.
       </p>
+
+      <h3 id="h3-design system" className="mt-spacing">Design System Importing</h3>
+      <p>
+        There are provided javascript and css libraries for the Design System that can help springboard an application&apos;s
+        usage of the Design System concepts. These libraries are not required. Here are some examples of getting started with
+        these libraries.
+      </p>
+      <h4 id="option__vite-plain-js-app">Use Design System CSS Variables</h4>
+      <p className="mb-spacing-xs">
+        The Design System library provides CSS variables that can be used in your CSS. These include variables for:
+      </p>
+      <ul className="mb-spacing">
+        <li>Spacing <code>--spacing</code></li>
+        <li>Primary Color <code>--primary-color</code></li>
+        <li>Secondary Color <code>--secondary-color</code></li>
+        <li>Accent Color <code>--accent-color</code></li>
+        <li>Color <code>--gray-color</code> <code>--danger-color</code></li>
+        <li>Timing <code>--timing-medium</code></li>
+        <li>
+          And more! See <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss">utah-design-system/@utahdts/utah-design-system/css/1-settings/_settings-index.scss</ExternalLink> for all the variables.
+        </li>
+      </ul>
+      <h3 id="import-css">Import Design System via CSS</h3>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={`
+          # In your home html file, import the design system css
+          <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system@0.0.2/css/build/utah-design-system.css">
+
+          # In your css, use the css variables
+          h1 {
+            margin-bottom: --spacing;
+          }
+          .button {
+            color: --primary-color;
+          }
+
+          # In your html, use your classes (make sure to scope to utah-design-system)
+          <body class="utah-design-system">
+            <h1>State of Utah Site</h1>
+            <a class="button">Submit My Response</a>
+          </body>
+        `}
+      />
+
+      <p className="mb-spacing-xs">
+        The Design System library provides SASS SCSS variables that can be used in your SCSS. These include variables for:
+      </p>
+      <ul className="mb-spacing">
+        <li>Color <code>$purple_00</code></li>
+        <li>Base Class <code>$base-class</code></li>
+        <li>Light/Dark colors <code>$color-is-light</code></li>
+        <li>
+          And more! See <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/%40utahdts/utah-design-system/css">utah-design-system/@utahdts/utah-design-system/css</ExternalLink> for all the scss files.
+        </li>
+      </ul>
+      <h3 id="import-sass">Import Design System via SASS</h3>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={`
+          # In your main scss file, import the design system scss
+          @use "@utahdts/utah-design-system/css/index.scss" as ds-settings;
+
+          # In your scss, use the scss variables
+          h1 {
+            background-color: #{ds-settings.$electric-yellow-05} !important;
+          }
+
+          # Your html will now be styled with the scss variables (make sure to scope to utah-design-system)
+          <div class="utah-design-system">
+            <h1>State of Utah Site</h1>
+          </div>
+        `}
+      />
+
       <h2 id="h2-getting-started-designers">Getting Started for Designers</h2>
       <p>
         The importance of using The Utah Design System to create mockups for clients cannot be overstated. A design system provides a centralized and comprehensive
@@ -263,7 +357,14 @@ function GettingStarted() {
       <LightBox alt="Utah Design System Mockups" image={xdScreenshot} />
       <div className="flex justify-center mt-spacing"><a href="https://dts.utah.gov/wp-content/uploads/UtahDesignSystem.xd_.zip" className="button button--primary-color button--solid">Download Adobe XD Document</a></div>
       <p className="text-center"><em>75 MB</em></p>
-      <p><em>Additional mockup options will be provided in a future phase of the design system.</em></p>
+      <Link
+        to={pageUrls.mockups}
+        className="button button--primary-color button--solid button--large"
+      >
+        View mock details
+        <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+      </Link>
+
     </div>
   );
 }

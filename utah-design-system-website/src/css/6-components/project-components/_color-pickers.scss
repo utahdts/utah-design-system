@@ -12,6 +12,10 @@
     flex-direction: column;
   }
   &__swatches {
-    padding: var(--spacing);
+    padding: 0 var(--spacing) var(--spacing) var(--spacing);
+
+    .tab-group__tab-button {
+      font-size: var(--font-size-m);
+    }
   }
 }

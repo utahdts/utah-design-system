@@ -40,6 +40,7 @@ function ColorPicker({
 }) {
   const isLight = isLightColor(value);
   const textColor = isLight ? (colorGray || '#474747') : '#ffffff';
+  const tinyColorValue = tinycolor(value).toHexString();
 
   const contrastDecimal = useMemo(
     () => (
@@ -60,7 +61,7 @@ function ColorPicker({
       onClick={onClick}
       onKeyUp={handleKeyPress('Enter', onClick)}
       role="button"
-      style={{ color: textColor }}
+      style={{ color: textColor, background: tinyColorValue }}
       tabIndex="0"
     >
       <div className="color-picker__hex-color">
@@ -79,16 +80,16 @@ function ColorPicker({
       </div>
 
       <hr />
-      <div className={`color-picker__contrast fixed-width-font ${className}`}>
+      <div className="color-picker__contrast fixed-width-font" style={{ background: tinyColorValue }}>
         <span className="color-picker__ratio">{contrastDecimal}:1</span>
-        <span style={{ background: textColor, color: !isLight ? '#474747' : 'white' }}>
+        <span style={{ background: textColor, color: tinyColorValue }}>
           {
             contrastDecimal >= 7
               ? (
-                <span className="color-picker__rating" style={{ color: value }}>AAA</span>
+                <span className="color-picker__rating">AAA</span>
               )
               : (
-                <span className="color-picker__rating" style={{ color: value }}>AA</span>
+                <span className="color-picker__rating">AA</span>
               )
           }
         </span>

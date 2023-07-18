@@ -12,7 +12,6 @@ import {
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useCallback, useRef } from 'react';
-import tinyColor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
 import useCssContext from '../../context/cssContext/useCssContext';
@@ -104,17 +103,33 @@ function ColorPopup({ onClose }) {
               </span>
             </div>
           </button>
+          <IconButton
+            icon={Icons.IconReset()}
+            className="icon-button--borderless"
+            title="Reset Color Picker"
+            onClick={() => (
+              setCssState((draftCssState) => (
+                Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
+              ))
+            )}
+          />
           <div className="color-picker-popup__title">Color Picker</div>
+          <IconButton
+            icon={Icons.IconShare()}
+            title="Copy Color Picker Link"
+            className="icon-button--borderless"
+            onClick={() => {
+              const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
+              navigator.clipboard.writeText(returnUrl)
+                // TODO: need a toast popup or banner or something to show messages
+                .then(() => console.log('Colors copied to clipboard ready to share!', returnUrl))
+                .catch((e) => console.error(e));
+            }}
+          />
+          {/*
+          // for testing, can randomly get a new set of colors easily (maybe an easter egg?)
           <div className="color-picker-popup__buttons">
-            <IconButton
-              icon={Icons.IconArrowLeft()}
-              title="Reset Color Picker"
-              onClick={() => (
-                setCssState((draftCssState) => (
-                  Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
-                ))
-              )}
-            />
+
             <IconButton
               icon={Icons.IconArrowRight()}
               title="Randomize Color Picker"
@@ -124,18 +139,9 @@ function ColorPopup({ onClose }) {
                 ))
               )}
             />
-            <IconButton
-              icon={Icons.IconEnvelope()}
-              title="Copy Color Picker Link"
-              onClick={() => {
-                const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
-                navigator.clipboard.writeText(returnUrl)
-                  // TODO: need a toast popup or banner or something to show messages
-                  .then(() => console.log('Colors copied to clipboard ready to share!', returnUrl))
-                  .catch((e) => console.error(e));
-              }}
-            />
+
           </div>
+          */}
           {
             onClose
               ? (
@@ -162,7 +168,7 @@ function ColorPopup({ onClose }) {
                       isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
                       label="Primary: Prime"
                       onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR; })}
-                      // colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
+                      colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
                       onChange={(newColor) => setColor(newColor)}
                       isLarge
                       title="Primary"
@@ -287,7 +293,7 @@ function ColorPopup({ onClose }) {
                   <TabGroup defaultValue="tab-group__swatches">
                     <TabList>
                       <Tab id="tab-group__swatches">Swatches</Tab>
-                      <Tab id="tab-group__color-contrasts">Contrasts</Tab>
+                      <Tab id="tab-group__color-contrast">Contrasts</Tab>
                     </TabList>
                     <TabPanels>
                       <TabPanel tabId="tab-group__swatches">
@@ -301,7 +307,7 @@ function ColorPopup({ onClose }) {
                           ))
                         }
                       </TabPanel>
-                      <TabPanel tabId="tab-group__color-contrasts">
+                      <TabPanel tabId="tab-group__color-contrast">
                         <ColorContrasts colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]} />
                       </TabPanel>
                     </TabPanels>

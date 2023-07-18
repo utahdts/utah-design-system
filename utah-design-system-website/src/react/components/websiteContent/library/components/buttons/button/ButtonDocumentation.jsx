@@ -445,17 +445,31 @@ function ButtonDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>The button should display a visible focus state when users tab to them.</li>
-        <li>
-          Avoid using non-standard html markup for a button such as a div tag.
+        <li>The button must receive focus when the user presses the <code>tab</code> key.
           <ul>
-            <li>The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+            <li>Buttons natively receive keyboard focus so there&apos;s no need to add a tabindex attribute.</li>
           </ul>
         </li>
+        <li>You should be able to press the button by using the <code>enter</code> or <code>space</code> key.</li>
+
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
-        <li>A Button that contains an icon that adds additional information, the icon should have non-empty alt text (or <code>aria-label</code> for SVG).</li>
+        <li>
+          Avoid using non-standard html markup for a button such as a div tag.
+          <ul>
+            <li>Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
+            <li>When you must use ARIA use the following:
+              <ul>
+                <li>Use the <code>role=&quot;button&quot;</code> attribute.</li>
+                <li>Use <code>tabindex=&quot;0&quot;</code>.</li>
+                <li>Provide a focus state that matches the rest of focusable components.</li>
+                <li>Provide event handlers for <code>click</code> and <code>keydown</code> events.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>A Button that contains an icon that adds additional information, the icon should have non-empty <code>alt</code> text or <code>aria-label</code>.</li>
       </ul>
 
       <h2 id="section-settings-props">Settings and Props</h2>

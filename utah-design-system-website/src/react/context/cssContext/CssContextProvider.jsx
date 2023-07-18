@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import { colorsFromUrlParams } from '../../components/color/colorPickerUrlParams';
@@ -50,10 +51,26 @@ const propTypes = { children: PropTypes.node.isRequired };
 const defaultProps = {};
 
 function CssContextProvider({ children }) {
+  const colorsInUrl = colorsFromUrlParams(window.location.search);
+
+  const [currentQueryParameters, setSearchParams] = useSearchParams();
+  useEffect(
+    () => {
+      // remove colors from url; leaving them there causes the colors to be "sticky"
+      // ie colors change to the url colors, user resets colors back to default, colors
+      // switch back to the colors in the url because they are still there causing the
+      // user to have lost their color selection.
+      if (currentQueryParameters.get('colors')) {
+        const { colors, ...paramsMinusColors } = currentQueryParameters;
+        setSearchParams(paramsMinusColors);
+      }
+    },
+    [currentQueryParameters, setSearchParams]
+  );
+
   const [cssState, setCssState] = useImmer(() => {
     const colorsInStorageString = localStorage.getItem(localStorageKeys.COLOR_PICKER_COLORS);
     const colorsInStorage = colorsInStorageString ? JSON.parse(colorsInStorageString) : cssContextDefaultColors;
-    const colorsInUrl = colorsFromUrlParams(window.location.search);
 
     const defaultState = {
       selectedColorPicker: CSS_VARIABLES_KEYS.PRIMARY_COLOR,
@@ -75,13 +92,22 @@ function CssContextProvider({ children }) {
   const cssStateValue = useMemo(
     () => {
       const newColors = {
+        ...cssState,
         [CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], '#ffffff'),
         [CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], '#ffffff'),
         [CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT]: !tinycolor.isReadable(cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], '#ffffff'),
-        [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-        [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-        [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: readableColor({ color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR], colorList: fallbackGrayColors, targetLevel: 'AA' }),
-        ...cssState,
+        [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR],
+          colorList: fallbackGrayColors,
+        }),
       };
       localStorage.setItem(localStorageKeys.COLOR_PICKER_COLORS, JSON.stringify(newColors));
       return {

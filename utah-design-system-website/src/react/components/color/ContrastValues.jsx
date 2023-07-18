@@ -56,7 +56,7 @@ function ContrastValues({
   );
 
   return (
-    <div className="color-contrast-values-wrapper">
+    <div className="color-contrast-values__wrapper">
       <ContrastValueBox
         contrastRating={contrastInfo.ratingHigh}
         contrastValue={contrastInfo.contrast}

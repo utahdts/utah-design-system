@@ -28,6 +28,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.accessibilityTesting.link,
+      title: pages.accessibilityTesting.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.colorGuidelines.link,
       title: pages.colorGuidelines.pageTitle,
       parentLinks: [pages.guidelines.link],

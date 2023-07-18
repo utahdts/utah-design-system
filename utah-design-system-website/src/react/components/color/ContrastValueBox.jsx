@@ -19,12 +19,19 @@ function ContrastValueBox({
       <div className="color-contrast-values__contrast-value-title">
         {title}
       </div>
-      <div className="color-contrast-values__contrast-value-value-rating">
-        <div className="color-contrast-values__contrast-value-value">
+      <div className="color-contrast-values__contrast-value-rating">
+        <div className="color-contrast-values__contrast-value-rating-ratio">
           {contrastValue}:1
         </div>
-        <div className="color-contrast-values__contrast-value-value">
-          {contrastRating === COLOR_RATINGS.BAD ? Icons.IconChevron() : contrastRating}
+        <div className="color-contrast-values__contrast-value-rating-wcag">
+          {contrastRating === COLOR_RATINGS.BAD
+            ? (
+              <>
+                <Icons.IconDangerous />
+                FAIL
+              </>
+            )
+            : contrastRating}
         </div>
       </div>
     </div>

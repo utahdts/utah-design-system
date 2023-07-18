@@ -51,7 +51,7 @@ function ColorContrast({
   );
 
   return (
-    <div className="color-contrasts__contrast">
+    <div className="color-contrast__contrast">
       {/* <div className="color-contrast__color-titles">
         <div className="color-contrast__color-title">{color1Title}</div>
         <div className="color-contrast__color-title">&nbsp;|&nbsp;</div>
