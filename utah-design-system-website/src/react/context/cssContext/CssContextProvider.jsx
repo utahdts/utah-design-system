@@ -8,6 +8,7 @@ import CSS_STATE_KEYS from '../../enums/cssStateKeys';
 import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
 import localStorageKeys from '../../enums/localStorageKeys';
 import readableColor from '../../util/color/readableColor';
+import useAppContext from '../AppContext/useAppContext';
 import CssContext from './CssContext';
 import cssContextDefaultColors from './cssContextDefaultColors';
 
@@ -52,6 +53,7 @@ const defaultProps = {};
 
 function CssContextProvider({ children }) {
   const colorsInUrl = colorsFromUrlParams(window.location.search);
+  const { setAppState } = useAppContext();
 
   const [currentQueryParameters, setSearchParams] = useSearchParams();
   useEffect(
@@ -63,6 +65,7 @@ function CssContextProvider({ children }) {
       if (currentQueryParameters.get('colors')) {
         const { colors, ...paramsMinusColors } = currentQueryParameters;
         setSearchParams(paramsMinusColors);
+        setAppState((draftAppState) => { draftAppState.isColorPickerShown = true; });
       }
     },
     [currentQueryParameters, setSearchParams]
