@@ -3,7 +3,7 @@
 #{class-vars.$base-class} {
   .on-this-page {
     font-size: var(--font-size-xs);
-    height: calc(100vh - var(--spacing-2xl));
+    min-height: 100%;
     overflow-y: scroll;
     overflow-x: clip;
     &__header {
