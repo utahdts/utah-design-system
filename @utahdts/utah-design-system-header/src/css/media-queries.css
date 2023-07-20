@@ -63,6 +63,13 @@
   .utah-design-system .utds-official-website-popup__col {
     width: 100%;
   }
+
+  .color-example {
+    flex-direction: column;
+  }
+  .color-example > div:not(:last-child) {
+    margin-bottom: var(--spacing-l);
+  }
 }
 
 @media screen and (max-width: media-size__mobile__PLACEHOLDER) {
