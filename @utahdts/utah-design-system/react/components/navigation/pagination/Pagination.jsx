@@ -8,7 +8,7 @@ import PaginationLink from './PaginationLink';
 import determinePaginationLinks from './util/determinePaginationLinks';
 
 const propTypes = {
-  // ariaLabel is used by accessability to describe the purpose of the pagination
+  // ariaLabel is used by accessibility to describe the purpose of the pagination
   ariaLabel: PropTypes.string,
   // can add your own className to the pagination
   className: PropTypes.string,

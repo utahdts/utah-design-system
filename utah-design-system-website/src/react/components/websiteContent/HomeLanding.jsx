@@ -263,7 +263,7 @@ function HomeLanding() {
           <p>
             All web interfaces at the State of Utah should be designed with accessibility in mind.
             Let&apos;s be honest, many times the best accessibility is not always clear, approachable, or easy. Every component in the Utah Design System has
-            been designed with an &quot;accessibility first&quot; approach. The goal is to make accessability more accessible by providing clear guidance on
+            been designed with an &quot;accessibility first&quot; approach. The goal is to make accessibility more accessible by providing clear guidance on
             every component. Thoughtful consideration has been give to each component to achieve the best possible user experience for everyone.
           </p>
         </div>
