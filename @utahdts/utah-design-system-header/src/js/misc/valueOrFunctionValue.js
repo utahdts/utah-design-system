@@ -6,6 +6,7 @@
 export default function valueOrFunctionValue(valueOrFunction) {
   return (
     (typeof valueOrFunction === 'function')
+      // @ts-ignore
       ? valueOrFunction()
       : valueOrFunction
   );
