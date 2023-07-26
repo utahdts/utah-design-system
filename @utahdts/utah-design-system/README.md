@@ -1,72 +1,80 @@
-# utah-design-system
+# Utah Design System Library
 
-A collection of styles and components designed to make it quick and simple for developers to create web experiences using the Utah Design System.  
-Goes hand in hand with the [Design System Header](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header) and [Design System Footer](https://designsystem.utah.gov/library/patterns/utahFooter).
+[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system)
+[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://github.com/utahdts/utah-design-system/raw/dev/LICENSE)
+[![ARB Approved](https://img.shields.io/badge/Utah_ARB_Approved-126DC4?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
+
+The library is a collection of css styles and components designed to make it quick and simple for developers to create web experiences using the Utah Design System.
+Goes hand in hand with the [Design System Header](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header) and Footer.
 
 ## What's included
 
 - Compiled CSS
 - SASS CSS
-- Components
+- React Components <br>
+  (The React components are not a primary resource. Utilize the guidelines and css resources to create your own components for other libraries.)<br>
+  (Other libraries will be added as they are created.)
+
+## Getting Started
+
+- Visit the [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted) page to begin using the Utah Header and Design System.
 
 ## Documentation
 
-Please see the [documentation website](https://designsystem.utah.gov/) and the [Getting Started](https://designsystem.utah.gov/resources/gettingStarted) page for all information related to the Utah Design System.
+
+- [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
+- [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+
 
 ## Install
-
-[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system)
-[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://github.com/utahdts/utah-design-system/raw/dev/LICENSE)
-[![issues](https://img.shields.io/github/issues-raw/utahdts/utah-design-system?style=for-the-badge)](https://github.com/utahdts/utah-design-system/issues)
-[![ARB Approved](https://img.shields.io/badge/Utah_ARB_Approved-126DC4?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
 
 ```bash
 npm i @utahdts/utah-design-system
 ```
 
-### Example Using React Components
+### Example Using SCSS source in a javascript import
 
 ```JavaScript
-// compiled
-import { DocumentationTemplate, LandingTemplate } from '@utahdts/utah-design-system';
-
-// uncompiled style
-import { OnThisPage } from '@utahdts/utah-design-systemOnThisPage';
-import { VerticalMenu } from '@utahdts/utah-design-system';
-
 //import all scss
 import '@utahdts/utah-design-system/css/index.scss';
 ```
 
-### Using the files in Sass
+### Using the SCSS source in a Sass file
 
 In most cases you can simply import the Sass file as illustrated below:
 
 ```scss
-@import "~@utahdts/utah-design-system/css/index.scss";
+@use "~@utahdts/utah-design-system/css/index.scss";
 ```
 
 ## Pre-processed bundled resource
 
-At a limited scale, some files have been pre-processed and can be delivered via a CDN (Content Delivery Network).
+The CSS files have been pre-processed and can be delivered via the `unpkg CDN` (Content Delivery Network).
 
+Unpkg syntax:
 ```
-unpkg.com/:package@:version/:file
-unpkg.com/@utahdts/utah-design-system@0.0.2/css/build/utah-design-system.css
+https://unpkg.com/:package@:version/:file
 ```
 
-| Resource                |  CDN URL                                                                                 |
-|-------------------------|-----------------------------------------------------------------------------------------|
-| index.scss<br>(All CSS) | https://unpkg.com/@utahdts/utah-design-system@:version/css/build/utah-design-system.css |
+Example using version:
+```
+https://unpkg.com/@utahdts/utah-design-system@1.0.1/dist/style.css
+```
+
+Example using latest:
+```
+https://unpkg.com/@utahdts/utah-design-system@latest/dist/style.css
+```
 
 ## Contribution
-The Utah Design System website is built using React, however we want to expand it to other technologies such as Angular, Vue.js, etc.  
-If you want to contribute or have any feedback, we'd love to hear from you ! Please [contact us](https://designsystem.utah.gov/resources/gettingStarted).
+The Utah Design System website is built using React, however we want to expand it to other technologies such as Angular, Vue.js, etc.
+If you want to contribute or have any feedback, we'd love to hear from you! Please [contact us](https://designsystem.utah.gov/resources/gettingStarted).
 
-### Site Map
+### Design System GitHub
 
-- [Home](https://github.com/utahdts/utah-design-system)
-- Library
-- [Design System Header](https://github.com/utahdts/utah-design-system/tree/dev/%40utahdts/utah-design-system-header)
-- [Examples](https://github.com/utahdts/utah-design-system/tree/dev/examples) 
-- [Design System Website](https://designsystem.utah.gov/)
+- [Utah Design System](https://github.com/utahdts/utah-design-system/tree/main/)
+
+### License
+
+[STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE](https://github.com/utahdts/utah-design-system/tree/main/LICENSE)

@@ -1,4 +1,8 @@
 # Utah Header
+[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system-header.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
+[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![ARB Approved](https://img.shields.io/badge/Utah_ARB_Approved-126DC4?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
+
 The Utah Design System Header is part of the Utah Design System. It provides a common experience for users of State of Utah websites.  Goes hand in hand with the [Design System Footer](https://designsystem.utah.gov/library/patterns/utahFooter).
 
 ## What's included
@@ -13,9 +17,7 @@ Please see the [documentation page](https://designsystem.utah.gov/library/patter
 
 ## Install
 
-[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system-header.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
-[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
-[![ARB Approved](https://img.shields.io/badge/Utah_ARB_Approved-126DC4?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
+
 ```bash
 npm i @utahdts/utah-design-system-header
 ```
@@ -25,7 +27,7 @@ We have several examples on how to implement the Design System Header:
 - [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/umd-html)
 - [ES Module](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/es-html)
 - [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
-- [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)  
+- [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)
 
 For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/patterns/utahHeader) on the Utah Design System.
 
