@@ -23,19 +23,19 @@ function DemoContent() {
       <div className="grid-wrapper px-spacing-ls mt-spacing-l">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
           <div className="card primary-color-background text-on-primary-color">
-            <div className="material-symbols-outlined card__icon">settings_suggest</div>
+            <span className="utds-icon-before-gear card__icon" aria-hidden="true" />
             <div className="card__title mb-spacing text-center">A to Z</div>
             <div className="card__text mb-spacing-l">Find what you need here</div>
             <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
           </div>
           <div className="card primary-color-background text-on-primary-color">
-            <div className="material-symbols-outlined card__icon">volunteer_activism</div>
+            <span className="utds-icon-before-account card__icon" aria-hidden="true" />
             <div className="card__title mb-spacing">Providers</div>
             <div className="card__text mb-spacing-l mx-spacing text-center">Apply for a license, get a contract, or look up a policy</div>
             <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
           </div>
           <div className="card primary-color-background text-on-primary-color">
-            <div className="material-symbols-outlined card__icon">campaign</div>
+            <span className="utds-icon-before-verified card__icon" aria-hidden="true" />
             <div className="card__title mb-spacing">Services</div>
             <div className="card__text mb-spacing-l text-center">Programs and services we provide</div>
             <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
@@ -53,25 +53,25 @@ function DemoContent() {
               <li>
                 <a href="#dmv">
                   <span>Division of Motor Vehicles (DMV) </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#permits">
                   <span>Temporary Permits </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#dmv">
                   <span>Renew Your Motor Vehicle Registration </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#dmv">
                   <span>Vehicle inspections </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
             </ul>
@@ -85,25 +85,25 @@ function DemoContent() {
               <li>
                 <a href="#dmv">
                   <span>Division of Motor Vehicles (DMV) </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#permits">
                   <span>Temporary Permits </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#dmv">
                   <span>Utah State Library </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#dmv">
                   <span>Services for the Deaf and Hard of Hearing </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
             </ul>
@@ -117,25 +117,25 @@ function DemoContent() {
               <li>
                 <a href="#dmv">
                   <span>Office of Vital Records </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#permits">
                   <span>Epidemiology </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#dmv">
                   <span>Coronavirus </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
               <li>
                 <a href="#dmv">
                   <span>Mental Health Resources </span>
-                  <LinkIcon />
+                  <LinkIcon className="ml-spacing-xs" />
                 </a>
               </li>
             </ul>

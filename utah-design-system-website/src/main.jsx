@@ -13,13 +13,13 @@ const baseName = '';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename={baseName}>
-      <CssContextProvider>
-        <UtahHeaderContextProvider defaultSettings={{ ...defaultSettings, ...websiteUtahHeaderSettings }}>
-          <AppContextProvider>
+      <AppContextProvider>
+        <CssContextProvider>
+          <UtahHeaderContextProvider defaultSettings={{ ...defaultSettings, ...websiteUtahHeaderSettings }}>
             <App />
-          </AppContextProvider>
-        </UtahHeaderContextProvider>
-      </CssContextProvider>
+          </UtahHeaderContextProvider>
+        </CssContextProvider>
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

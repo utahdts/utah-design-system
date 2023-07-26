@@ -9,7 +9,7 @@
 
 @media screen and (max-width: media-size__tablet-portrait__PLACEHOLDER) {
   .utds-header-desktop--hidden {
-    display: flex !important;
+    display: block !important;
   }
   .utds-header-mobile--hidden {
     display: none !important;
@@ -62,6 +62,13 @@
   }
   .utah-design-system .utds-official-website-popup__col {
     width: 100%;
+  }
+
+  .color-example {
+    flex-direction: column;
+  }
+  .color-example > div:not(:last-child) {
+    margin-bottom: var(--spacing-l);
   }
 }
 
