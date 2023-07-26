@@ -2,7 +2,7 @@
 import calculateMenuItemsParents from '../../util/menuItems/calculateMenuItemsParents';
 import pages from './pages';
 
-/** @typedef {import ('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
 
 /** @type {WebsiteMainMenu} */
 export const menuMain = {

@@ -3,8 +3,8 @@ import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import findMenuItemInMenusByPathname from '../util/menuItems/findMenuItemInMenusByPathname';
 
-/** @typedef {import ('../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
-/** @typedef {import ('../../typedefs.d.js').WebsiteMainMenuItem} WebsiteMainMenuItem */
+/** @typedef {import('../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('../../typedefs.d.js').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
  * Compares lists of menuItems against the current url location to determine which menu
