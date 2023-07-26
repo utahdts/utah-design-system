@@ -4,6 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import {
+  Button,
   ExternalLink,
   Table,
   TableBody,
@@ -19,6 +20,13 @@ import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
 import LightBox from '../../lightbox/LightBox';
 import StaticExample from '../../staticExamples/StaticExample';
+import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
+import badAltAudio from '../../../../static/audio/BadAlt.mp3';
+import goodTextOverImg from '../../../../static/images/screenshots/examples/GoodTextOverImage.png';
+import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
+import goodColorRepImg from '../../../../static/images/screenshots/examples/GoodColorRepresentation.png';
+import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
+import captionsImg from '../../../../static/images/screenshots/examples/Captions.png';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
 import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
@@ -29,6 +37,8 @@ const propTypes = {};
 const defaultProps = {};
 
 function AccessibilityDocumentation() {
+  const goodAltAudioVtt = new URL('../../../../static/audio/vtt/GoodAlt.vtt', import.meta.url).href;
+  const badAltAudioVtt = new URL('../../../../static/audio/vtt/BadAlt.vtt', import.meta.url).href;
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Accessibility Overview</h1>
@@ -93,10 +103,38 @@ function AccessibilityDocumentation() {
                 for the user. Instead use something like &quot;a boat at Jordanelle State Park&quot; to correctly describe the image.
                 Below are a good and bad example you can test with your screen reader.
               </p>
-              <div className="flex gap justify-center mb-spacing">
-                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
-                <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
+              <div className="flex gap justify-center mb-spacing flex-wrap">
+                <div className="flex flex-col">
+                  {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                  <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap m-auto" style={{ width: '50%', minWidth: '0' }} />
+                  <figure className="m-auto">
+                    <figcaption>Poor alternative text: </figcaption>
+                    <audio controls>
+                      <source src={badAltAudio} type="audio/mpeg" />
+                      <track
+                        default
+                        kind="captions"
+                        srcLang="en"
+                        src={badAltAudioVtt}
+                      />
+                    </audio>
+                  </figure>
+                </div>
+                <div className="flex flex-col">
+                  <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap m-auto" style={{ width: '50%', minWidth: '0' }} />
+                  <figure className="m-auto">
+                    <figcaption>Best alternative text: </figcaption>
+                    <audio controls>
+                      <source src={goodAltAudio} type="audio/mpeg" />
+                      <track
+                        default
+                        kind="captions"
+                        srcLang="en"
+                        src={goodAltAudioVtt}
+                      />
+                    </audio>
+                  </figure>
+                </div>
               </div>
               <div>Code examples:</div>
               <PreCodeForCodeString
@@ -131,6 +169,15 @@ function AccessibilityDocumentation() {
           <strong>Color representation.</strong> Avoid using colors to represent important information, such as red to
           mean &quot;danger&quot; or &quot;warning&quot;. Individuals that are challenged by red-green or other forms of color blindness will need additional indicators
           such as <Link to={pageUrls.typography}>text</Link> or <Link to={pageUrls.icons}>icons</Link> to convey the correct meaning.
+          <StaticExample
+            renderedExample={(
+              <>
+                <LightBox image={goodColorRepImg} alt="Best use of color and icon" className="flex-2up-gap" />
+                <LightBox image={badColorRepImg} alt="Avoid relying on color alone" className="flex-2up-gap" />
+              </>
+            )}
+            className="mb-auto mt-spacing-s"
+          />
         </li>
         <li>
           <strong>Assistive technology.</strong> Many components in the Utah Design System require additional <abbr>ARIA</abbr> (Accessible Rich Internet Applications)
@@ -145,16 +192,13 @@ function AccessibilityDocumentation() {
           support different devices and orientations. By adapting to various zoom levels, flexible layouts enable users to maintain a comfortable viewing experience,
           regardless of their visual abilities or device preferences.
           <StaticExample
-            title="Example of good zooming"
-            renderedExample={
-              <img src={accessibilityZoomGood} alt="Example of good browser zooming" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
-            }
-          />
-          <StaticExample
-            title="Example of improper zooming"
-            renderedExample={
-              <img src={accessibilityZoomBad} alt="Example of bad browser zooming" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
-            }
+            renderedExample={(
+            <>
+              <LightBox image={accessibilityZoomGood} alt="Example of good browser zooming" className="flex-2up-gap" />
+              <LightBox image={accessibilityZoomBad} alt="Example of bad browser zooming" className="flex-2up-gap" />
+            </>
+            )}
+            className="mb-auto mt-spacing-s"
           />
         </li>
       </ul>
@@ -216,7 +260,7 @@ function AccessibilityDocumentation() {
       <h4 id="section-limited-vision-contrast">AA and AAA contrast guidelines (requirements)</h4>
 
       <TableWrapper>
-        <Table className="table table--lines-x table--alt">
+        <Table className="table table--lines-x table--alt mb-spacing-l">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell className="text-left">Content</TableHeadCell>
@@ -280,6 +324,65 @@ function AccessibilityDocumentation() {
         </Table>
       </TableWrapper>
 
+      <h4 id="section-contrast-examples-text">Contrast examples (text)</h4>
+      <div className="typography__font-family  mb-spacing-l">
+        <div className="typography__font-demo">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Best</strong>
+              <code>8.22:1</code>
+            </span>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <div className="typography__avoid-contrast">
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Avoid</strong>
+              <code>1.87:1</code>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <h4 id="section-contrast-examples-text-img">Contrast examples (text over image)</h4>
+      <StaticExample
+        renderedExample={(
+          <>
+            <LightBox image={goodTextOverImg} alt="Good contrast for text over an image" className="flex-2up-gap" />
+            <LightBox image={badTextOverImg} alt="Bad contrast for text over an image" className="flex-2up-gap" />
+          </>
+        )}
+        className="mb-auto"
+      />
+
+      <h4 id="section-contrast-examples-boundaries">Contrast examples (boundaries)</h4>
+      <div className="typography__font-family  mb-spacing-l">
+        <div className="typography__font-demo">
+          <Button className="m-auto" onClick={(e) => e.preventDefault()}>Button</Button>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Best</strong>
+              <code>8.22:1</code>
+            </span>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <Button className="typography__avoid-contrast--button m-auto" onClick={(e) => e.preventDefault()}>Button</Button>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Avoid</strong>
+              <code>1.66:1</code>
+            </span>
+          </div>
+        </div>
+      </div>
+
       <h3 id="section-motor-functionality" className="mt-spacing">Motor Functionality</h3>
       <p>
         Not all users have the ability to use a mouse or they have limited or involuntary motor control. Think of people with tremors,
@@ -330,6 +433,10 @@ function AccessibilityDocumentation() {
           recommended to use a media player that also allows the user to change the size and color of the captions. These can also be
           known as &quot;sub-titles&quot; and is available with most media players. To view more information on captions see
           the <ExternalLink href="https://www.w3.org/WAI/media/av/captions/">w3.org page on Captions/Subtitles</ExternalLink>.
+          <StaticExample
+            renderedExample={<LightBox image={captionsImg} alt="Video providing captions" />}
+            className="mb-auto mt-spacing-s"
+          />
         </li>
         <li>
           <strong>Transcripts.</strong> Transcripts refers to a written version of the spoken content in an audio or video file. Not only
@@ -428,6 +535,20 @@ function AccessibilityDocumentation() {
           <strong>Provide visible focus indicators.</strong> Native html elements have default focus behavior that activates when the user clicks or tabs into it. If
           you customize a form element, the focus boundary requires a <code>3:1</code> contrast ratio to its background. Test to make sure that there is a visible focus state
           on each element, to guide the user through the form.
+          <StaticExample
+            renderedExample={(
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/DKfsAFhknAU"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            )}
+            className="mb-auto mt-spacing-s"
+          />
         </li>
         <li>
           <strong>Tie a label to each form element.</strong> Use the form element <code>&lt;label&gt;</code> or <code>&lt;legend&gt;</code> depending on the form element

@@ -1,3 +1,4 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/color-swatches";
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
@@ -52,5 +53,13 @@
   }
   &__arial-font {
     font-family: Arial, Helvetica, sans-serif;
+  }
+  &__avoid-contrast {
+    color: color-swatches.$neutral-gray-13;
+
+    &--button {
+      background-color: var(--gray-light-color) !important;
+      border-color: color-swatches.$neutral-gray-13 !important;
+    }
   }
 }
