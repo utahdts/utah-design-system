@@ -3,6 +3,7 @@
 /** @enum {PageUrl} */
 const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibility'),
+  accessibilityTesting: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityTesting'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
   backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
@@ -87,8 +88,8 @@ const pageUrls = {
   timeInput: /** @type {PageUrl} */ ('/library/components/forms/timeInput'),
   tooltips: /** @type {PageUrl} */ ('/library/components/popups/tooltips'),
   typography: /** @type {PageUrl} */ ('/guidelinesStandards/typography'),
-  utahFooter: /** @type {PageUrl} */ ('/library/patterns/utahFooter'),
-  utahHeader: /** @type {PageUrl} */ ('/library/patterns/utahHeader'),
+  utahFooter: /** @type {PageUrl} */ ('/library/utahFooter'),
+  utahHeader: /** @type {PageUrl} */ ('/library/utahHeader'),
   uxBestPractices: /** @type {PageUrl} */ ('/guidelinesStandards/uxBestPractices'),
   validation: /** @type {PageUrl} */ ('/guidelinesStandards/formValidation'),
   verticalMenu: /** @type {PageUrl} */ ('/library/components/navigationLinks/verticalMenu'),

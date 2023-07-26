@@ -1,73 +1,56 @@
 # Utah Header
-The Utah Header is part of the Utah Design System. It provides a common initial entry point experience for users of State of Utah websites. Please submit pull requests or start conversations with the Design System team for anything you would like to see incorporated in to the header.
+[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system-header.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
+[![GitHub](https://img.shields.io/badge/GitHub-Utah_Design_System-ad360d?style=for-the-badge)](https://github.com/utahdts/utah-design-system)
+[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://github.com/utahdts/utah-design-system/raw/main/LICENSE)
+[![ARB Approved](https://img.shields.io/badge/Utah_ARB-Approved-2e7114?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
+
+
+The Utah Header is part of the Utah Design System. It provides a common experience for users of State of Utah websites and applications. This code also renders the [Utah Footer](https://designsystem.utah.gov/library/patterns/utahFooter).
 
 ## What's included
 
 - Compiled CSS
-- SASS CSS
+- SASS + CSS
+- Javascript
+
+## Getting Started
+
+- Visit the [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted) page to begin using the Utah Header and Design System.
 
 ## Documentation
 
-Please see the [documentation site](https://designsystem.utah.gov/) for all information related to the Utah Design System.
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
+- [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
+
+## NPM
+
+The Utah Header and Design System Library are published to NPM here:
+- [![Utah Header](https://img.shields.io/badge/NPM-Utah_Header-blue)](https://www.npmjs.com/package/%40utahdts/utah-design-system-header)
 
 ## Install
 
-[![See it on NPM!](https://img.shields.io/npm/v/@utahdts/utah-design-system-header.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
-[![License](https://img.shields.io/npm/l/@utahdts/utah-design-system.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
-[![ARB Approved](https://img.shields.io/badge/Utah_ARB_Approved-126DC4?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
+
 ```bash
 npm i @utahdts/utah-design-system-header
 ```
 
-## API Functions
-These functions allow configuring and interacting with the Utah Header. It is suggested to only interact with the header using these functions to be more "future-proof" as changes to the Utah Header codebase will only account for these functions and not for custom coding.
-* `loadHeader`: This function creates the Utah Header DOM elements. It is called automatically when the Utah Header javascript library is loaded on to a web page.
-* `removeHeader`: This function removes the Utah Header from the DOM. This may be useful for pages that should not have the header on them. The application then may call *loadHeader()* to read the header.
+## Examples
+We have several examples on how to implement the Design System Header:
+- [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/umd-html)
+- [ES Module](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/es-html)
+- [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
+- [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)
 
-## Events
-The header emits events at the document level. Applications can listen for these events to be able to time interactions with the header.
-* `utahHeaderLoaded`: fired when the header is done with its initial loading phase and is ready to accept configuration. This event is fired by the *loadHeader()* function
-* `utahHeaderUnloaded`: fired when the header is unloaded when the *removeHeader()* function is called
+For more information on the Utah Header, please visit the [header documentation page](https://designsystem.utah.gov/library/patterns/utahHeader) on the Utah Design System.
 
-### Using the components
+## Contribution
+If you want to contribute or have any feedback, we'd love to hear from you ! Please [contact us](https://designsystem.utah.gov/resources/gettingStarted).
 
-```JavaScript
-// compiled
-import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
+## Utah Design System Monorepo
 
-//import all scss
-import '@utahdts/utah-design-system-header/src/css/index.scss';
-```
-
-### Using the files in Sass
-
-In most cases you can simply import the Sass file as illustrated below:
-
-```scss
-@import "~@utahdts/utah-design-system-header/src/css/_utah-header-wrapper.scss";
-```
-
-## Pre-processed bundled resource
-
-At a limited scale, some files have been pre-processed to CSS so that it can be delivered via CDN and used in environments where this rendered resource is required.
-
-```
-unpkg.com/:package@:version/:file
-unpkg.com/@utahdts/utah-design-system-header@0.4.1/dist/style.css
-
-Get latest
-unpkg.com/@utahdts/utah-design-system-header/dist/style.css
-```
-
-| resource                | CDN URL                                                                      |
-|-------------------------|------------------------------------------------------------------------------|
-| index.scss<br>(All CSS) | https://unpkg.com/@utahdts/utah-design-system-header@:version/dist/style.css |
-
-
-
-### Site Map
-
-- [Home](https://utahdts.github.io/utah-design-system/)
-- [Library](https://utahdts.github.io/utah-design-system/library/)
-- Header
-- [Documentation and Examples](../website/README.md)
+This repo consists of the following:
+- [![Utah Header (SCSS / Javascript)](https://img.shields.io/badge/GitHub-Utah_Header-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system-header) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Library (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Library-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system) ![README](https://img.shields.io/badge/README-gray)
+- [![Examples](https://img.shields.io/badge/GitHub-Examples-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/examples) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Website (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Website-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website) ![README](https://img.shields.io/badge/README-gray)

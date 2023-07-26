@@ -1,8 +1,6 @@
-// @ts-check
 import {
   FormContextProvider,
   joinClassNames,
-  useImmerRef,
   useUtahHeaderContext
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
@@ -16,6 +14,7 @@ import DemoAppStyle from './react/components/demo/DemoAppStyle';
 import DesignSystemFooterMainContent from './react/components/header/DesignSystemFooterMainContent';
 import DesignSystemFooterSocialMedia from './react/components/header/DesignSystemFooterSocialMedia';
 import Routing from './react/components/routing/Routing';
+import useAppContext from './react/context/AppContext/useAppContext';
 import useCssContext from './react/context/cssContext/useCssContext';
 import CSS_CLASS_NAMES from './react/enums/cssClassNames';
 import CSS_STATE_KEYS from './react/enums/cssStateKeys';
@@ -27,10 +26,10 @@ const defaultProps = {};
  * @returns {JSX.Element} the App!
  */
 function App() {
+  const { appState: { isColorPickerShown }, setAppState } = useAppContext();
   const { cssState } = useCssContext();
   const [state, setState] = useImmer({});
   const { settings: utahHeaderSettings, setSettings: setUtahHeaderSettings } = useUtahHeaderContext();
-  const [showColorPicker, setShowColorPicker, showColorPickerRef] = useImmerRef(false);
   const isActionItemsAddedRef = useRef(false);
 
   // add color picker gear action item header icon
@@ -42,7 +41,11 @@ function App() {
         setUtahHeaderSettings((draftSettings) => {
           draftSettings.actionItems = draftSettings.actionItems || [];
           draftSettings.actionItems.push(({
-            actionFunction: () => setShowColorPicker(!showColorPickerRef.current),
+            actionFunction: () => {
+              setAppState((draftAppState) => {
+                draftAppState.isColorPickerShown = !draftAppState.isColorPickerShown;
+              });
+            },
             icon: '<span class="utds-icon-before-gear" aria-hidden="true" />',
             showTitle: false,
             title: 'Color Picker',
@@ -70,8 +73,8 @@ function App() {
       </div>
       <DemoAppStyle />
       {
-        showColorPicker
-          ? <div className="utah-design-system"><ColorPopup onClose={() => setShowColorPicker(false)} /></div>
+        isColorPickerShown
+          ? <div className="utah-design-system"><ColorPopup onClose={() => setAppState((draftAppState) => { draftAppState.isColorPickerShown = false; })} /></div>
           : null
       }
       <footer aria-label="Utah Design System (main footer)">

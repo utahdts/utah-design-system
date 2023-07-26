@@ -28,17 +28,15 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.accessibilityTesting.link,
+      title: pages.accessibilityTesting.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.colorGuidelines.link,
       title: pages.colorGuidelines.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
-
-    // UDS-458
-    // {
-    //   link: pages.design.link,
-    //   title: pages.design.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
 
     {
       link: pages.depthElevationShadows.link,
@@ -81,42 +79,6 @@ export const menuGuidelinesSecondary = {
       title: pages.typography.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
-
-    // UDS-836 UDS-837
-    // {
-    //   link: pages.notifications.link,
-    //   title: pages.notifications.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
-
-    // UDS-449
-    // {
-    //   link: pages.principles.link,
-    //   title: pages.principles.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
-
-    // UDS-459
-    // {
-    //   link: pages.uxBestPractices.link,
-    //   title: pages.uxBestPractices.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
-
-    // UDS-450
-    // {
-    //   link: pages.motionTiming.link,
-    //   title: pages.motionTiming.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
-
-    // UDS-467
-    // {
-    //   link: pages.colorFoundation.link,
-    //   title: pages.colorFoundation.pageTitle,
-    //   parentLinks: [pages.guidelines.link],
-    // },
-
   ],
 };
 
@@ -145,8 +107,6 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.button.link, title: pages.button.pageTitle },
-        // UDS-83 UDS-81
-        // { link: pages.buttonGroup.link, title: pages.buttonGroup.pageTitle },
         { link: pages.confirmationButton.link, title: pages.confirmationButton.pageTitle },
         { link: pages.iconButton.link, title: pages.iconButton.pageTitle },
         { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle },
@@ -170,8 +130,6 @@ export const menuLibraryComponentsSecondary = {
       title: 'Forms',
       parentLinks: [pages.library.link],
       children: [
-        // UDS-562
-        // { link: pages.forms.link, title: pages.forms.pageTitle },
         { link: pages.checkbox.link, title: pages.checkbox.pageTitle },
         { link: pages.comboBox.link, title: pages.comboBox.pageTitle },
         { link: pages.dateInput.link, title: pages.dateInput.pageTitle },
@@ -181,8 +139,6 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
         { link: pages.select.link, title: pages.select.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
-        // UDS-382
-        // { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.characterCount.link, title: pages.characterCount.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
         { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
@@ -211,8 +167,6 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.banners.link, title: pages.banners.pageTitle },
-        // UDS-76
-        // { link: pages.callout.link, title: pages.callout.pageTitle },
         { link: pages.modals.link, title: pages.modals.pageTitle },
         { link: pages.popups.link, title: pages.popups.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
@@ -238,12 +192,7 @@ export const menuLibraryComponentsSecondary = {
       parentLinks: [pages.library.link],
       children: [
         { link: pages.badges.link, title: pages.badges.pageTitle },
-
-        // UDS-94
-        // { link: pages.counter.link, title: pages.counter.pageTitle },
-
         { link: pages.processList.link, title: pages.processList.pageTitle },
-
         { link: pages.progressBars.link, title: pages.progressBars.pageTitle },
         { link: pages.skeletons.link, title: pages.skeletons.pageTitle },
         { link: pages.spinners.link, title: pages.spinners.pageTitle },
@@ -260,6 +209,18 @@ export const menuLibraryPatternsSecondary = {
   id: 'library-patterns',
   menuItems: [
     {
+      title: 'Form Validation',
+      link: pages.validation.link,
+      parentLinks: [pages.guidelines.link],
+    },
+  ],
+};
+
+export const menuLibrarySecondary = {
+  header: 'Library',
+  id: 'library-menu',
+  menuItems: [
+    {
       title: 'Utah Header',
       link: pages.utahHeader.link,
       parentLinks: [pages.library.link],
@@ -269,27 +230,8 @@ export const menuLibraryPatternsSecondary = {
       link: pages.utahFooter.link,
       parentLinks: [pages.library.link],
     },
-    {
-      title: 'Form Validation',
-      link: pages.validation.link,
-      parentLinks: [pages.guidelines.link],
-    },
   ],
 };
-
-// UDS-435
-// /** @type {WebsiteMainMenu} */
-// export const menuLibraryTemplatesSecondary = {
-//   header: 'Templates',
-//   id: 'library-templates',
-//   menuItems: [
-//     {
-//       title: '404 Page',
-//       link: pages.errorPage404.link, // wrong!
-//       parentLinks: [pages.library.link],
-//     },
-//   ],
-// };
 
 /** @type {WebsiteMainMenu} */
 export const menuResourcesSecondary = {
@@ -301,13 +243,6 @@ export const menuResourcesSecondary = {
       title: pages.gettingStarted.pageTitle,
       parentLinks: [pages.resources.link],
     },
-
-    // UDS-465
-    // {
-    //   link: pages.github.link,
-    //   title: pages.github.pageTitle,
-    //   parentLinks: [pages.resources.link],
-    // },
 
     {
       link: pages.mockups.link,
@@ -338,20 +273,6 @@ export const menuResourcesSecondary = {
       title: pages.progressLog.pageTitle,
       parentLinks: [pages.resources.link],
     },
-
-    // UDS-462
-    // {
-    //   link: pages.contributeCommunity.link,
-    //   title: pages.contributeCommunity.pageTitle,
-    //   parentLinks: [pages.resources.link],
-    // },
-
-    // UDS-461
-    // {
-    //   link: pages.help.link,
-    //   title: pages.help.pageTitle,
-    //   parentLinks: [pages.resources.link],
-    // },
   ],
 };
 
@@ -364,7 +285,7 @@ export default Object.fromEntries(
     menuGuidelinesSecondary,
     menuLibraryComponentsSecondary,
     menuLibraryPatternsSecondary,
-    // menuLibraryTemplatesSecondary,
+    menuLibrarySecondary,
     menuResourcesSecondary,
   })
     .map(([menuKey, menu]) => [menuKey, {

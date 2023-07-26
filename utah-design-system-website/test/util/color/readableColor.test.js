@@ -58,8 +58,8 @@ function colorContrasts(color, colorList) {
  * @returns {{foundColor: ColorContrast, previousColor: ColorContrast}}
  */
 function calcTest(testColor) {
-  const contrastsRaw = colorContrasts(testColor, grayColors);
-  const contrasts = contrastsRaw.sort((a, b) => a.contrast - b.contrast);
+  const contrasts = colorContrasts(testColor, grayColors);
+  contrasts.sort((a, b) => a.contrast - b.contrast);
   const foundColor = readableColor({ color: testColor, colorList: grayColors });
   const foundColorContrast = tinycolor.readability(testColor, foundColor);
   const contrastIndex = contrasts.findIndex((contrast) => contrast.color === foundColor);

@@ -1,57 +1,56 @@
-# utah-design-system
-The Design System is guidelines and examples for website development. The goal is for the
-citizens of the State of Utah to have a common experience among State of Utah online resources
-so that they feel safe, engaged, and empowered.
+# Utah Design System
+The Utah Design System consists of reusable user interface components, valuable resources, and guiding principles that empower teams to craft consistent, accessible, secure, and scalable user experiences for websites and applications.
 
-The State of Utah Design System's first goal knowledge and developer tooling. Knowledge is provided via
-the [Utah Design System Site](https://designsystem.utah.gov) and direct conversations with the
-Digital Experience Team (DXP). We love to talk. Please [Contact Us](https://designsystem.utah.gov/resources/gettingStarted) with anything.
+The first goal of the Utah Design System is to provide teams with the principals and standards required for State of Utah websites and applications.
+These standards are provided via the [Utah Design System Site](https://designsystem.utah.gov). You may also directly connect with the
+Digital Experience Team (DXP). We would love to hear your input or answer any questions you might have.
+Please [contact us](https://designsystem.utah.gov/resources/gettingStarted) with anything.
 
-You can also follow along and submit pull requests at our [GitHub](https://github.com/utahdts/utah-design-system).
+The second goal is to provide a complete set of CSS and code examples for web components, patterns, and templates.
 
-We provide the developer assets that we used in constructing the State of Utah Design System website
-which may increase the easiness of incorporating the State of Utah Design System and make developer
-adoption simpler. Please [Contact Us](https://designsystem.utah.gov/resources/gettingStarted) with any
-tooling you have created or found useful so we can share it. See below for more details on available assets.
+Additionally, we provide the developer assets (React) that we used in constructing the Utah Design System website,
+which may increase the ease of incorporating the State of Utah Design System and make developer
+adoption simpler. Please [contact us](https://designsystem.utah.gov/resources/gettingStarted) with any
+tooling you have created or found useful, so we can share it.
 
-# Agency
-- DTS
+You can follow along and submit pull requests at our [GitHub](https://github.com/utahdts/utah-design-system) repository.
 
-# Stakeholders
+## Getting Started
+
+- Visit the [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted) page to begin using the Utah Header and Design System.
+
+## NPM
+
+The Utah Header and Design System Library are published to NPM here:
+- [![Utah Header](https://img.shields.io/badge/NPM-Utah_Header-blue)](https://www.npmjs.com/package/%40utahdts/utah-design-system-header)
+- [![Utah Design System Library](https://img.shields.io/badge/NPM-Utah_Design_System_Library-blue)](https://www.npmjs.com/package/%40utahdts/utah-design-system)
+
+## Utah Design System Monorepo
+
+This repo consists of the following:
+- [![Utah Header (SCSS / Javascript)](https://img.shields.io/badge/GitHub-Utah_Header-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system-header) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Library (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Library-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system) ![README](https://img.shields.io/badge/README-gray)
+- [![Examples](https://img.shields.io/badge/GitHub-Examples-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/examples) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Website (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Website-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website) ![README](https://img.shields.io/badge/README-gray)
+
+## Project Information
+### Versioning
+
+This project uses [SemVer](http://semver.org/) for versioning.
+
+### Deployment
+
+Merges to the `main` or `dev` branches trigger GitHub actions that build, test, and deploy.
+
+### Stakeholders and Authors
+
 - Product Owner: Joseph Sharp
 - Digital Experience (DXP) Team
 
-# Utah Design System Usage
-## Technologies
-- JavaScript/CSS/HTML
-- NPM
-- Vite
-- React - *to display the State of Utah Design System*
+### Agency
 
-## Getting started w/ Site development using the State of Utah Design System
-- Visit the [Utah Design System Site](https://designsystem.utah.gov) to learn the Design System and
-- Apply State of Utah Design System concepts to your website
-- *Javascript code libraries are available via npm*
-  - [Design System Header](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
-  - [Design System (CSS and/or React)](https://www.npmjs.com/package/@utahdts/utah-design-system)
-  - Please [Contact Us](https://designsystem.utah.gov/resources/gettingStarted) for other assets
-  - Pull Requests, issues, and discussions on [GitHub](https://github.com/utahdts/utah-design-system)
+Department of Government Operations - Division of Technology Services - [dts.utah.gov](https://dts.utah.gov/)
 
-## Getting started w/ Design System Development
-  > We love input and conversation; Please file issues, contact us, and/or submit pull requests. [GitHub](https://github.com/utahdts/utah-design-system)
-1. Install `npm` and `git` on your machine
-1. Checkout the [source code](https://github.com/utahdts/utah-design-system) (`dev` branch has "In Progress" work; `main` has latest production code)
-1. run `npm install` from the root folder to install dependencies
-1. run `npm run dev` from the root folder to start watching for changes, building, and serving
+### License
 
-## Versioning
-This project uses [SemVer](http://semver.org/) for versioning.
-
-## Deployment
-Merges to the `main` or `dev` branches trigger GitHub actions that build, test, and deploy.
-
-## Authors
-DTS & the Digital Experience Team (DXP) [Contact Us](https://designsystem.utah.gov/resources/gettingStarted)
-
-## License
-STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE
+[STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE](https://github.com/utahdts/utah-design-system/tree/main/LICENSE)

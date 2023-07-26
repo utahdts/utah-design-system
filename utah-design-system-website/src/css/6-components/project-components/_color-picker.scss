@@ -18,7 +18,6 @@
       box-sizing: border-box;
       position: relative;
       border: 1px solid var(--gray-color);
-      box-sizing: border-box;
       transition: all var(--timing-quick) ease;
 
       &:not(:last-of-type) {
