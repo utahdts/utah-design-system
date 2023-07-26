@@ -47,10 +47,9 @@
     "directory": "library"
   },
   "keywords": [
-    "design",
-    "system",
+    "design system",
+    "dts",
     "utah",
-    "react",
     "components"
   ],
   "author": "DTS Digital Experience <dtsui@utah.gov>",
