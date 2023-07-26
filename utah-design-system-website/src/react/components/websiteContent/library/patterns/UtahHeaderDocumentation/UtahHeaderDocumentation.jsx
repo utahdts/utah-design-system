@@ -539,7 +539,7 @@ function UtahHeaderDocumentation() {
                 Default: <code>true</code>
               </TableCell>
               <TableCell>
-                A title is always required for accessability reasons, but it is not required to be shown if you supply a logo.
+                A title is always required for accessibility reasons, but it is not required to be shown if you supply a logo.
               </TableCell>
             </TableRow>
 
@@ -560,7 +560,7 @@ function UtahHeaderDocumentation() {
                 <span className="prop__types">string</span> <span className="prop__optional">(required)</span>
               </TableCell>
               <TableCell>
-                The Utah Header requires a title for accessability reasons. You can use the showTitle setting
+                The Utah Header requires a title for accessibility reasons. You can use the showTitle setting
                 to make it visible or not. You may hide the title only if you supply a <code>logo</code>.
               </TableCell>
             </TableRow>
@@ -1009,7 +1009,7 @@ function UtahHeaderDocumentation() {
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  The title of the action item is required, even when not shown, for accessability.
+                  The title of the action item is required, even when not shown, for accessibility.
                 </span>
               </TableCell>
             </TableRow>
