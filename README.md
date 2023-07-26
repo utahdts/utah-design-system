@@ -28,11 +28,10 @@ The Utah Header and Design System Library are published to NPM here:
 ## Utah Design System Monorepo
 
 This repo consists of the following:
-- [![Utah Header (SCSS / Javascript)](https://img.shields.io/badge/GitHub-Utah_Header_%28SCSS_%2F_Javascript%29-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system-header) ![README](https://img.shields.io/badge/README-gray)
-- [Utah Header (SCSS / Javascript)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system-header)
-- [Design System Library (SCSS / React)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system)
-- [Examples](https://github.com/utahdts/utah-design-system/tree/main/examples)
-- [Design System Website (SCSS / React)](https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website)
+- [![Utah Header (SCSS / Javascript)](https://img.shields.io/badge/GitHub-Utah_Header-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system-header) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Library (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Library-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system) ![README](https://img.shields.io/badge/README-gray)
+- [![Examples](https://img.shields.io/badge/GitHub-Examples-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/examples) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Website (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Website-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website) ![README](https://img.shields.io/badge/README-gray)
 
 ## Project Information
 ### Versioning

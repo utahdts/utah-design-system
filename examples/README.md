@@ -3,10 +3,12 @@ Here are a few examples on how to use the Utah Design System and its components.
 
 ## Documentation
 
-Please see the [documentation website](https://designsystem.utah.gov/) and the [Getting Started](https://designsystem.utah.gov/resources/gettingStarted) page for all information related to the Utah Design System.
+- [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
 ## Utah Header
-We have several examples on how to implement the Design System Header:
+We have a few examples on how to implement the Design System Header:
 - [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/umd-html)
 - [ES Module](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/es-html)
 - [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
@@ -14,12 +16,10 @@ We have several examples on how to implement the Design System Header:
 
 For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/patterns/utahHeader) on the Utah Design System.
 
+## Utah Design System Monorepo
 
-### Site Map
-
-- [Home](https://github.com/utahdts/utah-design-system)
-- [Library](https://github.com/utahdts/utah-design-system)
-- [Design System Header](https://github.com/utahdts/utah-design-system/tree/dev/%40utahdts/utah-design-system-header)
-- Examples
-- [Design System Website](https://designsystem.utah.gov/)
-
+This repo consists of the following:
+- [![Utah Header (SCSS / Javascript)](https://img.shields.io/badge/GitHub-Utah_Header-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system-header) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Library (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Library-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system) ![README](https://img.shields.io/badge/README-gray)
+- [![Examples](https://img.shields.io/badge/GitHub-Examples-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/examples) ![README](https://img.shields.io/badge/README-gray)
+- [![Design System Website (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Website-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website) ![README](https://img.shields.io/badge/README-gray)
