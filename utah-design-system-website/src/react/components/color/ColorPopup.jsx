@@ -12,7 +12,6 @@ import {
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useCallback, useRef } from 'react';
-// import tinyColor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
 import useCssContext from '../../context/cssContext/useCssContext';
@@ -127,20 +126,18 @@ function ColorPopup({ onClose }) {
                 .catch((e) => console.error(e));
             }}
           />
+          {/* for testing, can randomly get a new set of colors easily (maybe an easter egg?) */}
           {/*
-          // for testing, can randomly get a new set of colors easily (maybe an easter egg?)
           <div className="color-picker-popup__buttons">
-
             <IconButton
               icon={Icons.IconArrowRight()}
               title="Randomize Color Picker"
               onClick={() => (
                 setCssState((draftCssState) => (
-                  Object.keys(cssContextDefaultColors).forEach((key) => { draftCssState[key] = `#${tinyColor.random().toHex()}`; })
+                  Object.keys(cssContextDefaultColors).forEach((key) => { draftCssState[key] = `#${tinycolor.random().toHex()}`; })
                 ))
               )}
             />
-
           </div>
           */}
           {

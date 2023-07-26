@@ -176,7 +176,7 @@ function ColorContrasts() {
       <div className="color-contrast__info-link">
         <span className="utds-icon-before-help" aria-hidden="true" />
         <NavLink to={pageUrls.accessibility}>
-          Information about color contrast accessability
+          Information about color contrast accessibility
         </NavLink>
       </div>
     </div>

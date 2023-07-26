@@ -22,6 +22,8 @@ import StaticExample from '../../staticExamples/StaticExample';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
 import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
+import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
+import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
 
 const propTypes = {};
 const defaultProps = {};
@@ -135,6 +137,25 @@ function AccessibilityDocumentation() {
           attributes and testing to ensure they are usable by those using assistive technology, such as screen readers and braille reader devices. ARIA involves
           a range of <code>roles</code> and <code>attributes</code> designed to enhance web content and web applications, with a specific focus on improving accessibility
           for individuals with disabilities.
+        </li>
+        <li>
+          <strong>Browser Zooming.</strong> Flexible layouts preserve the integrity of the site layout when utilizing the browser&apos;s zoom feature. Flexible layout models
+          such as Flexbox, CSS Grid, relative widths (<code>%</code>, and <code>vw</code>), and media queries dynamically adjust the content and design of web pages based on
+          the zoom level preserving the visual hierarchy, ensuring optimal readability, and optimizing image and media sizes. These layouts also prevent content clipping, and
+          support different devices and orientations. By adapting to various zoom levels, flexible layouts enable users to maintain a comfortable viewing experience,
+          regardless of their visual abilities or device preferences.
+          <StaticExample
+            title="Example of good zooming"
+            renderedExample={
+              <img src={accessibilityZoomGood} alt="Example of good browser zooming" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
+            }
+          />
+          <StaticExample
+            title="Example of improper zooming"
+            renderedExample={
+              <img src={accessibilityZoomBad} alt="Example of bad browser zooming" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
+            }
+          />
         </li>
       </ul>
 
@@ -458,6 +479,71 @@ function AccessibilityDocumentation() {
           specified in the <code>HTML</code>. Also, do not alter the <code>tabindex</code> of the form element to control the tab order.
         </li>
       </ul>
+
+      <h2 id="section-pdfs" className="mt-spacing">PDF Accessibility</h2>
+      <p>
+        When PDFs are embedded or displayed on a web page for viewing, it is crucial to recognize that they should adhere to the same accessibility guidelines
+        as the rest of the website&apos;s content. However, in order to be considered accessible, PDFs should be broken into 3 different layers: visual, content,
+        and tags. Tags are fundamental in order to &quot;present&quot; the site to those using screen readers, but they have no visual presentation.
+      </p>
+      <p>
+        When creating a PDF consider first formatting the document in an application and then convert the file into an accessible PDF. Below is a table,
+        from <ExternalLink href="https://webaim.org/techniques/acrobat/converting#source">WebAIM&apos;s site</ExternalLink>, of applications that can convert into
+        PDFs and a comparison of the &quot;Tags Structure Quality&quot;.
+      </p>
+      <TableWrapper>
+        <Table>
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell>Source Application</TableHeadCell>
+              <TableHeadCell>Good tags structure</TableHeadCell>
+              <TableHeadCell>No/poor tags structure</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>Adobe Illustrator</TableCell>
+              <TableCell />
+              <TableCell className="text-center">√</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Adobe InDesign</TableCell>
+              <TableCell className="text-center">√</TableCell>
+              <TableCell />
+            </TableRow>
+            <TableRow>
+              <TableCell>Canva</TableCell>
+              <TableCell />
+              <TableCell className="text-center">√</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Google Docs</TableCell>
+              <TableCell />
+              <TableCell className="text-center">√</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Google Slides</TableCell>
+              <TableCell />
+              <TableCell className="text-center">√</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Microsoft PowerPoint</TableCell>
+              <TableCell className="text-center">√</TableCell>
+              <TableCell />
+            </TableRow>
+            <TableRow>
+              <TableCell>Microsoft Word</TableCell>
+              <TableCell className="text-center">√</TableCell>
+              <TableCell />
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+      <p>
+        For more in depth information regarding reviewing, repairing, or adding forms to a PDF, consider reading
+        the <ExternalLink href="https://webaim.org/techniques/acrobat/">PDF Accessibility</ExternalLink> documentation provided
+        by <ExternalLink href="https://webaim.org/">WebAIM</ExternalLink>.
+      </p>
     </div>
   );
 }

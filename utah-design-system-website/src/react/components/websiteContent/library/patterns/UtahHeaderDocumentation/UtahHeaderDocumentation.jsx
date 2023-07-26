@@ -96,7 +96,7 @@ function UtahHeaderDocumentation() {
       </p>
       <hr />
       <div className="header-config__title">
-        <h2 id="section-example">Example</h2>
+        <h2 id="section-example">Configuration</h2>
         <Switch
           id="header-config-on-off"
           label="Turn On/Off Custom Header"
@@ -181,6 +181,8 @@ function UtahHeaderDocumentation() {
           </div>
         </div>
       </div>
+
+      <p>Go to the <a href="#section-utahheader-code-examples">Code Examples</a>.</p>
 
       <StaticExample
         title="Utah, an official website"
@@ -315,46 +317,6 @@ function UtahHeaderDocumentation() {
       />
       <p>View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>, <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</p>
 
-      <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
-      <h3 id="section-when-to-use">When to use</h3>
-      <ul className="mb-spacing">
-        <li><strong>Utah Header</strong>
-          <ul>
-            <li><strong>Always Use</strong>. The header is required on all sites.</li>
-            <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3 id="section-when-to-use-something-else">When to use something else</h3>
-      <ul className="mb-spacing">
-        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
-        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content consider using the search as a way for visitors to easily find information.</li>
-      </ul>
-
-      <h3 id="section-usability-guidance">Usability Guidance</h3>
-      <ul className="mb-spacing">
-        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the citizens experience on all public state websites and applications.</li>
-        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
-      </ul>
-
-      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
-      <h4 id="section-contrast" className="mt-spacing">Contrast</h4>
-      <ul>
-        <li>Maintain a minimum <code>4.5:1 </code>contrast ratio for all interactions (e.g. hover, focus).</li>
-      </ul>
-      <h4 id="section-keyboard-interactivity" className="mt-spacing">Keyboard Interactivity</h4>
-      <ul>
-        <li>Users must be able to to navigate using the <code>tab</code> key.</li>
-        <li>Users must be able to select the navigation item using the <code>Enter/Return</code> keys.</li>
-      </ul>
-      <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
-      <ul>
-        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.</li>
-        <li>For the search form refer to accessability guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
-        <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
-      </ul>
-
       {/* ---- CODE EXAMPLES --- */}
       <h2 id="section-utahheader-code-examples" className="my-spacing">Code Examples</h2>
       {/* ----     Header Events     --- */}
@@ -391,7 +353,47 @@ function UtahHeaderDocumentation() {
         />
       </div>
 
-      {/* ---- CODE EXAMPLES --- */}
+      <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
+      <h3 id="section-when-to-use">When to use</h3>
+      <ul className="mb-spacing">
+        <li><strong>Utah Header</strong>
+          <ul>
+            <li><strong>Always Use</strong>. The header is required on all sites.</li>
+            <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
+      <ul className="mb-spacing">
+        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
+        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content consider using the search as a way for visitors to easily find information.</li>
+      </ul>
+
+      <h3 id="section-usability-guidance">Usability Guidance</h3>
+      <ul className="mb-spacing">
+        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the citizens experience on all public state websites and applications.</li>
+        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
+      </ul>
+
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
+      <h4 id="section-contrast" className="mt-spacing">Contrast</h4>
+      <ul>
+        <li>Maintain a minimum <code>4.5:1 </code>contrast ratio for all interactions (e.g. hover, focus).</li>
+      </ul>
+      <h4 id="section-keyboard-interactivity" className="mt-spacing">Keyboard Interactivity</h4>
+      <ul>
+        <li>Users must be able to to navigate using the <code>tab</code> key.</li>
+        <li>Users must be able to select the navigation item using the <code>Enter/Return</code> keys.</li>
+      </ul>
+      <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
+      <ul>
+        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.</li>
+        <li>For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
+        <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
+      </ul>
+
+      {/* ---- CONFIG SETTINGS --- */}
       <h2 id="section-utahheader-config-settings" className="my-spacing">Configuration Settings</h2>
       {/* ----     Settings     --- */}
       <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
@@ -537,7 +539,7 @@ function UtahHeaderDocumentation() {
                 Default: <code>true</code>
               </TableCell>
               <TableCell>
-                A title is always required for accessability reasons, but it is not required to be shown if you supply a logo.
+                A title is always required for accessibility reasons, but it is not required to be shown if you supply a logo.
               </TableCell>
             </TableRow>
 
@@ -558,7 +560,7 @@ function UtahHeaderDocumentation() {
                 <span className="prop__types">string</span> <span className="prop__optional">(required)</span>
               </TableCell>
               <TableCell>
-                The Utah Header requires a title for accessability reasons. You can use the showTitle setting
+                The Utah Header requires a title for accessibility reasons. You can use the showTitle setting
                 to make it visible or not. You may hide the title only if you supply a <code>logo</code>.
               </TableCell>
             </TableRow>
@@ -1007,7 +1009,7 @@ function UtahHeaderDocumentation() {
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  The title of the action item is required, even when not shown, for accessability.
+                  The title of the action item is required, even when not shown, for accessibility.
                 </span>
               </TableCell>
             </TableRow>

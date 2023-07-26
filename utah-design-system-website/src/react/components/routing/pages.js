@@ -5,6 +5,7 @@ import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import ProgressLogPage from '../websiteContent/ProgressLog/ProgressLogPage';
 import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
+import AccessibilityTestingDocumentation from '../websiteContent/guidelines/AccessibilityTestingDocumentation';
 import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
@@ -22,8 +23,8 @@ import ParagraphDocumentation from '../websiteContent/library/components/basicAt
 import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
-import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import IconBarDocumentation from '../websiteContent/library/components/buttons/iconBar/IconBarDocumentation';
+import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
 import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
@@ -44,15 +45,15 @@ import TextInputDocumentation from '../websiteContent/library/components/forms/T
 import TimeInputDocumentation from '../websiteContent/library/components/forms/TimeInput/TimeInputDocumentation';
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
 import LinksDocumentation from '../websiteContent/library/components/links/LinksDocumentation';
-import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
-import BackToTopDocumentation from '../websiteContent/library/components/navigation/backToTop/BackToTopDocumentation';
 import ListsDocumentation from '../websiteContent/library/components/lists/ListsDocumentation';
 import BreadcrumbDocumentation from '../websiteContent/library/components/navigation/Breadcrumb/BreadcrumbDocumentation';
 import HamburgerMenuDocumentation from '../websiteContent/library/components/navigation/HamburgerMenu/HamburgerMenuDocumentation';
 import MainMenuDocumentation from '../websiteContent/library/components/navigation/MainMenu/MainMenuDocumentation';
+import BackToTopDocumentation from '../websiteContent/library/components/navigation/backToTop/BackToTopDocumentation';
 import MegaMenuDocumentation from '../websiteContent/library/components/navigation/megaMenu/MegaMenuDocumentation';
 import PaginationDocumentation from '../websiteContent/library/components/navigation/pagination/PaginationDocumentation';
 import SidePanelDocumentation from '../websiteContent/library/components/navigation/sidePanel/SidePanelDocumentation';
+import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
 import CarouselDocumentation from '../websiteContent/library/components/popups/carousel/CarouselDocumentation';
@@ -150,6 +151,13 @@ const pages = {
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  accessibilityTesting: {
+    content: AccessibilityTestingDocumentation,
+    link: pageUrls.accessibilityTesting,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Accessibility Testing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorGuidelines: {

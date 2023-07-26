@@ -3,6 +3,7 @@ import {
   menuGuidelinesSecondary,
   menuLibraryComponentsSecondary,
   menuLibraryPatternsSecondary,
+  menuLibrarySecondary,
   menuMain,
   menuResourcesSecondary,
 } from '../menus';
@@ -119,7 +120,8 @@ export default function constructMainMenu(currentMenuItem, navigate) {
 
   // add children to each top level menu
   mainMenusByLink[pageUrls.guidelines].actionMenu = constructMenuItems(menuGuidelinesSecondary.menuItems, navigate);
-  mainMenusByLink[pageUrls.library].actionMenu = [
+  const librarySubMenuInitial = constructMenuItems(menuLibrarySecondary.menuItems, navigate);
+  mainMenusByLink[pageUrls.library].actionMenu = librarySubMenuInitial.concat([
     {
       actionMenu: constructMenuItems(menuLibraryComponentsSecondary.menuItems, navigate),
       title: 'Components',
@@ -128,7 +130,7 @@ export default function constructMainMenu(currentMenuItem, navigate) {
       actionMenu: constructMenuItems(menuLibraryPatternsSecondary.menuItems, navigate),
       title: 'Patterns',
     },
-  ];
+  ]);
   mainMenusByLink[pageUrls.resources].actionMenu = constructMenuItems(menuResourcesSecondary.menuItems, navigate);
 
   // recursive step through children; if child selected then select all its parents too

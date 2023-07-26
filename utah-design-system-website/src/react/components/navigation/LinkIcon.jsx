@@ -11,7 +11,7 @@ const defaultProps = {
 
 function LinkIcon({ className }) {
   return (
-    <span className={joinClassNames(['material-symbols-outlined link-icon', className])}>chevron_right</span>
+    <span className={joinClassNames(['utds-icon-before-chevron-right', className])} aria-hidden="true" />
   );
 }
 

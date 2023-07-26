@@ -191,7 +191,7 @@ function MainMenuSettingsAndCode() {
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  The title of the main menu. Used for accessability. Should be something descriptive, like
+                  The title of the main menu. Used for accessibility. Should be something descriptive, like
                   &quot;Utah Design System Main Menu&quot;
                 </span>
               </TableCell>
