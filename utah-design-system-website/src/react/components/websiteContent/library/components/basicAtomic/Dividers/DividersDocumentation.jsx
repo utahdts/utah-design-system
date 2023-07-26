@@ -3,9 +3,7 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
-import LightBox from '../../../../../lightbox/LightBox';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import verticalDividerMockup from '../../../../../../../static/images/mockups/VerticalDividers.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -36,7 +34,12 @@ function DividersDocumentation() {
       />
       <StaticExample
         title="Vertical Dividers"
-        renderedExample={<LightBox image={verticalDividerMockup} alt="Vertical Dividers" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex">
+            <p className="flex-1 border-right pr-spacing">Of the vast amount of certified International Dark Sky Parks and Communities that are part of a catalog of the finest dark skies in the world, the highest concentration are in Utah. Explore the statewide locations and make plans for experiencing natural wonders after the sun sets.</p>
+            <p className="flex-1 pl-spacing">Given Natural Bridges remote location, it’s no wonder the park has some of the world’s least light-polluted night skies. The International Dark Sky Association named Natural Bridges the world’s first “International Dark Sky Park.” Accordingly, park rangers not only give interpretive discussions on astronomy but also changed out the park’s light fixtures to reduce their own light pollution.</p>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Vertical Dividers can be created by using <code>border-left</code> or <code>border-right</code></li>

@@ -3,3 +3,19 @@
 utility classes, atomic css
 */
 
+/* ----- Borders ---- */
+.border-top {
+  border-top: 1px solid var(--gray-border);
+}
+
+.border-right {
+  border-right: 1px solid var(--gray-border);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.border-left {
+  border-left: 1px solid var(--gray-border);
+}
