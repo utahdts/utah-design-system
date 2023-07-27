@@ -3,7 +3,7 @@ The Utah Header is fully typed. This small example typescript application import
 
 ## Documentation
 
-- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/utahHeader)
 - [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
 - [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
@@ -16,9 +16,9 @@ import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 ```
 
 ```typescript
-/* 
-  You can play with this code to see that the setUtahHeaderSettings() function 
-  call is typed: You can trigger auto complete in the settings object parameter as 
+/*
+  You can play with this code to see that the setUtahHeaderSettings() function
+  call is typed: You can trigger auto complete in the settings object parameter as
   well as hover to see type information.
 */
 useEffect(

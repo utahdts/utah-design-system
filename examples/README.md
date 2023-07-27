@@ -6,7 +6,7 @@ If you are using something not listed here, please let us know how you integrate
 ## Documentation
 
 - [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
-- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/utahHeader)
 - [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
 ## Utah Header
@@ -15,7 +15,7 @@ If you are using something not listed here, please let us know how you integrate
 - [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
 - [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)
 
-For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/patterns/utahHeader).
+For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/utahHeader).
 
 
 ## Design System Styling
