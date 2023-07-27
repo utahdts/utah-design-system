@@ -54,7 +54,7 @@
       top: 0;
       border-left: 1px solid var(--gray-border);
       padding: var(--documentation-padding);
-      width: calc(var(--documentation-right-width) + (2 * var(--documentation-padding)));
+      width: calc(var(--documentation-right-width) + (2 * var(--spacing-xl)));
       min-width: var(--documentation-right-width);
       box-sizing: border-box;
       max-height: 100vh;
