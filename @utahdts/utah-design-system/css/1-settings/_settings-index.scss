@@ -15,6 +15,8 @@ variables and settings
 @use "color-swatches";
 @forward "icons";
 @use "icons";
+@forward "media-size-vars";
+@use "media-size-vars";
 
 #{class-vars.$base-class} {
   /* color */
