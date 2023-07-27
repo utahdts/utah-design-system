@@ -5,39 +5,80 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UMD CDN Header Example</title>
+  <title>ES Module CDN Header Example</title>
 
   <!-- Some basic styling for this example. Not Required. -->
   <style>
-    body {
-      font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
-    }
 
-    header {
-      padding: 0 2rem;
-    }
-
-    #utah-header-target {
-      min-height: 125.19px;
-    }
   </style>
 
   <!-- Required Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <!-- Include the CSS and Javascript for the Utah Header -->
   <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
+
+  <!-- Override the default design system css -->
+  <style>
+    body {
+      font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 2rem;
+    }
+
+    /* Set the height of the header placeholder so that it will not bounce when populated. */
+    #utah-header-target {
+      min-height: 125.19px;
+    }
+    /* Override the default design system colors */
+    .utah-design-system {
+      --primary-color: #3c7b24;
+      --primary-color-dark: #2e4326;
+      --primary-color-light: #e1eadd;
+
+      --secondary-color: #0e80a7;
+      --secondary-color-dark: #205162;
+      --secondary-color-light: #edf5f8;
+
+      --accent-color: #ffb100;
+      --accent-color-dark: #745a1e;
+      --accent-color-light: #fff9ec;
+    }
+  </style>
+
+  <!-- Load the ES Module of the Utah Header with some placeholder settings -->
   <script type="module">
     import { setUtahHeaderSettings } from 'https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.es.js';
     setUtahHeaderSettings({
       title: 'My Utah.gov Site (ES)',
+      showTitle: true,
+      titleURL: "/",
       domLocationTarget: {
         cssSelector: '#utah-header-target',
-      }
+      },
+      mainMenu: {
+        menuItems: [
+          {
+            actionUrl: {
+              url: "/"
+            },
+            title: "Home"
+          }
+        ],
+        title: "Utah Design System Main Menu"
+      },
+      utahId: true,
+      actionItems: null,
+      onSearch: true
     });
   </script>
 </head>
@@ -46,11 +87,16 @@
   <div id="utah-header-target"></div>
   <header>
     <h1>ECMAScript modules (ES) - Using Unpkg CDN</h1>
+    <ul>
+      <li>The above example uses the unpkg CDN to import the javascript in the <code>&lt;head&gt;</code>.</li>
+      <li>The CSS is included as a standard stylesheet link.</li>
+      <li>The design system colors are overridden.</li>
+      <li>The header is configured immediately after the import.</li>
+      <li>The header is loaded into a target <code>&lt;div&gt;</code>.</li>
+    </ul>
     <p>
-      The above option uses a CDN to import the javascript in the <code>&lt;head&gt;</code>. The CSS is included as a
-      standard stylesheet link.
-      The header is configured immediately after the import. You can learn more about configuring the header on the <a
-        href="https://designsystem.utah.gov/library/patterns/utahHeader">Utah Header page</a>.
+      You can learn more about configuring the header on the <a
+      href="https://designsystem.utah.gov/library/utahHeader">Utah Header page</a>.
     </p>
   </header>
 </body>
