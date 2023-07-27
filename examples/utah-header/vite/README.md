@@ -1,46 +1,39 @@
-# vite-utah-header-example
-Simple app created with `vite` that installs and uses the Utah Header dependency.
+# Example of Using the Utah Header in a Plain Javascript Vite App
+This simple javascript app, created with Vite, installs and uses the Utah Header dependency.
 
-This app was created by:
-1. creating a vite app with [Vite](https://vitejs.dev/guide/):
-> npm init vite@latest
-2. install [utah header dependency](https://www.npmjs.com/package/@utahdts/utah-design-system-header)
-> npm i @utahdts/utah-design-system-header
-3. import the header (js/css) in to the application code [main.js](./main.js)
-> import '@utahdts/utah-design-system-header/css';
->
-> import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
-4. load header settings to show the header in [App.js](./src/App.js)
-> setUtahHeaderSettings({});
-5. run app to see the header
-> npm run dev
+## Documentation
 
-You'll notice that the header is on the same line as the content! The default config for a vanilla vite setup is to put `display: flex` on the body tag. Unset that style and the header will be at the top. See the following style added to the main.js:
-> &lt;style>body { display: block }&lt;/style>
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
+- [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
-# Agency
-- DTS
+## What to Look For
+You can see the header being imported in the `main.js` file:
 
-# Stakeholders
-- Product Owner: Joseph Sharp
-- Digital Experience Team
+```javascript
+// import the css to style the header
+import '@utahdts/utah-design-system-header/css';
+// import the ability to set the header's configuration
+import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 
-# Utah Design System Header Usage
-## Technologies
-- NPM
-- vite
-- JavaScript
+// Set the header's configuration
+setUtahHeaderSettings({});
 
-## Trying this demo app
-- in this folder, run `npm i`
-- run `npm start`
-The application should launch and have the Utah Header displayed at the top.
+```
 
-# Versioning
-This project uses [SemVer](http://semver.org/) for versioning.
 
-# Authors
-DTS & the Digital Experience Team
+## Try-out This Example
 
-# License
-STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE
+```bash
+cd examples/utah-header/vite
+npm i
+npm run dev
+```
+
+## How This App Was Created
+```bash
+npm init vite@latest
+npm i @utahdts/utah-design-system-header
+# Manual Step: Import the header and set its settings in `main.js`
+npm run dev
+```

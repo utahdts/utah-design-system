@@ -1,30 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+# Example of Using the Utah Header in Plain Javascript
+This simple html file uses the Utah Header UMD script.
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UMD CDN Header Example</title>
+## Documentation
 
-  <!-- Some basic styling for this example. Not Required. -->
-  <style>
-    body {
-      font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
-    }
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
+- [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
-    header {
-      padding: 0 2rem;
-    }
-  </style>
+## What to Look For
+You can see the header being used in the `index.html` file:
 
-  <!-- Required Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
-    rel="stylesheet">
-
+```javascript
   <!-- Include the CSS and Javascript for the Utah Header -->
   <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
   <script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script>
@@ -77,19 +63,18 @@
       });
     }, 2000)
   </script>
-</head>
+```
 
-<body>
-  <div id="header-target"></div>
-  <main>
-    <h1>Universal Module Definition (UMD) - Using Unpkg CDN</h1>
-    <p>
-      The above option uses a CDN to include both the javascript and css in the <code>&lt;head&gt;</code>.
-      The header is configured when the utahHeaderLoaded event fires. You can learn more about configuring the header on
-      the <a href="https://designsystem.utah.gov">Utah Design System website</a>.
-    </p>
-  </main>
-  <div id="footer-target"></div>
-</body>
 
-</html>
+## Try-out This Example
+
+```bash
+cd examples/utah-header/umd-html
+open index.html
+```
+
+## How This App Was Created
+```bash
+# Manual Step: create index.html with code to load header
+open index.html
+```

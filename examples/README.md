@@ -1,5 +1,7 @@
 # Utah Design System Examples
-Here are a few examples on how to use the Utah Design System and its components.
+Here are examples on how to use the Utah Design System and its components. They are not comprehensive but should give some ideas on how to incorporate the Design System in to your applications.
+
+If you are using something not listed here, please let us know how you integrated the Design System. We love pull requests, emails, chats, discussions or however else you would like to communicate.
 
 ## Documentation
 
@@ -8,13 +10,22 @@ Here are a few examples on how to use the Utah Design System and its components.
 - [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
 ## Utah Header
-We have a few examples on how to implement the Design System Header:
 - [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/umd-html)
 - [ES Module](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/es-html)
 - [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
 - [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)
 
-For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/patterns/utahHeader) on the Utah Design System.
+For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/patterns/utahHeader).
+
+
+## Design System Styling
+- [Vite React](https://github.com/utahdts/utah-design-system/tree/dev/examples/design-system/vite-react)
+
+For more information on the Design System, please visit the [documentation website](https://designsystem.utah.gov).
+
+## Typed Libraries
+- [Utah Header - Vite React Typescript](https://github.com/utahdts/utah-design-system/tree/dev/examples/typed/typed-utah-header)
+
 
 ## Utah Design System Monorepo
 

@@ -46,6 +46,6 @@ npm run dev
 ```bash
 npm create vite@latest
 npm i @utahdts/utah-design-system-header
-# Updated src/App.tsx to import typed Utah Header
+# Manual Step: Update src/App.tsx to import typed Utah Header
 npm run dev
 ```
