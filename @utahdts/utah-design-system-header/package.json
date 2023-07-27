@@ -9,6 +9,7 @@
       "production": "./dist/utah-design-system-header.es.js",
       "import": "./dist/utah-design-system-header.es.js",
       "require": "./dist/utah-design-system-header.umd.js",
+      "types": "./dist/src/index.d.ts",
       "default": [
         "./dist/utah-design-system-header.es.js",
         "./dist/utah-design-system-header.umd.js",

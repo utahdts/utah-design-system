@@ -41,6 +41,7 @@ We have several examples on how to implement the Design System Header:
 - [ES Module](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/es-html)
 - [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
 - [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)
+- [Vite Typed React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/typed/typed-utah-header)
 
 For more information on the Utah Header, please visit the [header documentation page](https://designsystem.utah.gov/library/patterns/utahHeader) on the Utah Design System.
 
