@@ -16,13 +16,11 @@ const propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
-  isLarge: PropTypes.bool,
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
 };
 const defaultProps = {
   colorGray: null,
-  isLarge: false,
   isSelected: false,
 };
 
@@ -35,7 +33,6 @@ function ColorPicker({
   label,
   onChange,
   onClick,
-  isLarge,
   title,
 }) {
   const isLight = isLightColor(value);
@@ -55,8 +52,7 @@ function ColorPicker({
         'color-picker',
         isSelected && 'selected',
         isLight && 'color-picker--light',
-        className,
-        isLarge ? null : 'color-picker--small'
+        className
       )}
       onClick={onClick}
       onKeyUp={handleKeyPress('Enter', onClick)}
@@ -76,6 +72,7 @@ function ColorPicker({
             [onChange]
           )}
           value={value}
+          style={{ borderColor: textColor }}
         />
       </div>
 

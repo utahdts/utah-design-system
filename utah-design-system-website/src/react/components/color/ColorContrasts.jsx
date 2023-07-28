@@ -9,6 +9,7 @@ import isLightColor from '../../util/color/isLightColor';
 import ColorContrastBox from './ColorContrastBox';
 import ContrastValues from './ContrastValues';
 import pageUrls from '../routing/pageUrls';
+import ColorExample from './ColorExample';
 
 /** @typedef {import('../../../typedefs.d').ColorInfo} ColorInfo */
 
@@ -172,10 +173,14 @@ function ColorContrasts() {
           color1={selectedColorInfos[0]}
           color2={selectedColorInfos[1]}
         />
+        <ColorExample
+          color1={selectedColorInfos[0]}
+          color2={selectedColorInfos[1]}
+        />
       </div>
       <div className="color-contrast__info-link">
         <span className="utds-icon-before-help" aria-hidden="true" />
-        <NavLink to={pageUrls.accessibility}>
+        <NavLink to={`${pageUrls.accessibility}#section-limited-vision-contrast`}>
           Information about color contrast accessibility
         </NavLink>
       </div>

@@ -8,6 +8,7 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.4);
+    box-shadow: var(--elevation-large-borderless);
     z-index: 1000;
     pointer-events: all;
     width: fit-content;
@@ -17,10 +18,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 var(--spacing-xs);
+      height: var(--spacing-2xl);
+      margin-top: var(--spacing-2xs);
     }
 
     &__title {
-      padding: var(--spacing);
+      padding: 0 var(--spacing);
     }
 
     &__backdrop {
