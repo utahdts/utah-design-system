@@ -15,6 +15,12 @@ const defaultProps = {};
 function ColorGuidelinesDocumentation() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
 
+  function toggleColorPickerPopup(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setAppState((draftAppState) => { draftAppState.isColorPickerShown = !isColorPickerShown; });
+  }
+
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Color Guidelines Overview</h1>
@@ -27,7 +33,7 @@ function ColorGuidelinesDocumentation() {
       <p className="mb-auto">
         The Utah Design System provides a base palette of colors that has already been tested for accessibility and spans a wide color spectrum.
         The base text color (#474747) ensures that your main body text meets accessibility requirements.
-        A color picker is provided at the top of every page under the gear icon <a href="#" onClick={() => setAppState((draftAppState) => { draftAppState.isColorPickerShown = !isColorPickerShown; })}><span className="utds-icon-before-gear" aria-hidden="true" /><span className="visually-hidden">open color tool</span></a>
+        A color picker is provided at the top of every page under the gear icon <a href="#" onClick={toggleColorPickerPopup}><span className="utds-icon-before-gear" aria-hidden="true" /><span className="visually-hidden">open color tool</span></a>
         that allows you to choose primary, secondary, and accent colors. It allows you to preview these colors on this site, as well as with components, patterns, and the <NavLink to={pageUrls.demoPage}>demo page</NavLink>.
       </p>
 
@@ -37,8 +43,8 @@ function ColorGuidelinesDocumentation() {
         Ensure your color choices meet accessibility guidelines, particularly for users with color blindness or visual impairments. Use tools
         like color contrast checkers to verify that your text and background colors have enough contrast. See more
         detailed information on <Link to={`${pageUrls.accessibility}#section-limited-vision-contrast`}>contrast</Link>.
-        Check your custom colors with the <a href="#" onClick={() => setAppState((draftAppState) => { draftAppState.isColorPickerShown = !isColorPickerShown; })}>Utah Design System color tool</a>.
-        Or use <ExternalLink href="https://webaim.org/resources/contrastchecker/">WebAIM&apos;s contrast tool here</ExternalLink>.
+        Check your custom colors with the <a href="#" onClick={toggleColorPickerPopup}>Utah Design System color tool</a>.
+        Or use <ExternalLink href="https://webaim.org/resources/contrastchecker/">WebAIM&apos;s contrast tool</ExternalLink>.
       </p>
 
       <h3 id="section-brand-identity">Brand Identity</h3>

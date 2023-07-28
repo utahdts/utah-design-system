@@ -25,7 +25,7 @@ function ColorPickerInstructions() {
             <strong>The contrast color</strong> is indicated here as a solid box with the hex color value.
           </li>
           <li type="disc">
-            Use the <strong>&quot;Contrasts&quot; tab</strong> to compare any colors you have picked (as well as a set of neutral colors)
+            Use the <strong>&quot;Contrast&quot; tab</strong> to compare any colors you have picked (as well as a set of neutral colors)
             to see their contrast values and WCAG rating (AA, AAA, or not passing).
           </li>
           <li type="disc">

@@ -6,6 +6,7 @@
 import {
   Button,
   ExternalLink,
+  Icons,
   Table,
   TableBody,
   TableCell,
@@ -32,6 +33,7 @@ import formFlowVertical from '../../../../static/images/screenshots/components/f
 import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
 import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
 import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
+import useAppContext from '../../../context/AppContext/useAppContext';
 
 const propTypes = {};
 const defaultProps = {};
@@ -39,6 +41,14 @@ const defaultProps = {};
 function AccessibilityDocumentation() {
   const goodAltAudioVtt = new URL('../../../../static/audio/vtt/GoodAlt.vtt', import.meta.url).href;
   const badAltAudioVtt = new URL('../../../../static/audio/vtt/BadAlt.vtt', import.meta.url).href;
+
+  const { appState: { isColorPickerShown }, setAppState } = useAppContext();
+
+  function toggleColorPickerPopup(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setAppState((draftAppState) => { draftAppState.isColorPickerShown = !isColorPickerShown; });
+  }
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Accessibility Overview</h1>
@@ -228,7 +238,7 @@ function AccessibilityDocumentation() {
         Contrast requirements vary with the size of the text or object. Larger text/objects require less contrast, whereas smaller text/objects require more contrast.
       </p>
       <p>
-        The Utah Design System provides a color and contrast tool. The tool can be accessed by clicking the gear icon in the Utah Header at the top.
+        The Utah Design System provides a <a href="#" onClick={toggleColorPickerPopup}>color and contrast tool</a>. The tool can be accessed by clicking the gear icon in the Utah Header at the top.
       </p>
 
       <h4 id="section-limited-vision-aaa-guidelines" className="mb-spacing">AA and AAA contrast guidelines (definitions)</h4>
@@ -613,10 +623,10 @@ function AccessibilityDocumentation() {
         PDFs and a comparison of the &quot;Tags Structure Quality&quot;.
       </p>
       <TableWrapper>
-        <Table>
+        <Table className="table table--lines-x table--alt table--full-width mb-spacing-l">
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell>Source Application</TableHeadCell>
+              <TableHeadCell className="text-left">Source Application</TableHeadCell>
               <TableHeadCell>Good tags structure</TableHeadCell>
               <TableHeadCell>No/poor tags structure</TableHeadCell>
             </TableHeadRow>
@@ -624,38 +634,80 @@ function AccessibilityDocumentation() {
           <TableBody>
             <TableRow>
               <TableCell>Adobe Illustrator</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+              <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                {/* <span className="visually-hidden">Sad Face</span> */}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Adobe InDesign</TableCell>
-              <TableCell className="text-center">√</TableCell>
-              <TableCell />
+              <TableCell className="text-center">
+                <div>
+                  <span
+                    className="utds-icon-before-check"
+                    aria-hidden="true"
+                  />
+                  <span className="visually-hidden">
+                    has good tags structure
+                  </span>
+                </div>
+              </TableCell>
+             <TableCell>&nbsp;</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Canva</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+             <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <span className="visually-hidden">Sad Face</span>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Google Docs</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+             <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <span className="visually-hidden">Sad Face</span>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Google Slides</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+             <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+              <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <span className="visually-hidden">Sad Face</span>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Microsoft PowerPoint</TableCell>
-              <TableCell className="text-center">√</TableCell>
-              <TableCell />
+              <TableCell className="text-center">
+                <div>
+                  <span
+                    className="utds-icon-before-check"
+                    aria-hidden="true"
+                  />
+                  <span className="visually-hidden">
+                    has good tags structure
+                  </span>
+                </div>
+              </TableCell>
+             <TableCell>&nbsp;</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Microsoft Word</TableCell>
-              <TableCell className="text-center">√</TableCell>
-              <TableCell />
+              <TableCell className="text-center">
+                <div>
+                  <span
+                    className="utds-icon-before-check"
+                    aria-hidden="true"
+                  />
+                  <span className="visually-hidden">
+                    has good tags structure
+                  </span>
+                </div>
+              </TableCell>
+             <TableCell>&nbsp;</TableCell>
             </TableRow>
           </TableBody>
         </Table>

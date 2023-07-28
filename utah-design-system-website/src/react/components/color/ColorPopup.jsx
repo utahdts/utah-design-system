@@ -292,7 +292,7 @@ function ColorPopup({ onClose }) {
                   <TabGroup defaultValue="tab-group__swatches">
                     <TabList>
                       <Tab id="tab-group__swatches">Swatches</Tab>
-                      <Tab id="tab-group__color-contrast">Contrasts</Tab>
+                      <Tab id="tab-group__color-contrast">Contrast</Tab>
                       <Tab id="tab-group__instructions">Instructions</Tab>
                     </TabList>
                     <TabPanels>
