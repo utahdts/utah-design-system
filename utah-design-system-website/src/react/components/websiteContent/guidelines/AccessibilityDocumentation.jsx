@@ -26,7 +26,7 @@ import goodTextOverImg from '../../../../static/images/screenshots/examples/Good
 import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
 import goodColorRepImg from '../../../../static/images/screenshots/examples/GoodColorRepresentation.png';
 import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
-import captionsImg from '../../../../static/images/screenshots/examples/Captions.png';
+import captionsImg from '../../../../static/images/screenshots/examples/Captions.jpg';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
 import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
