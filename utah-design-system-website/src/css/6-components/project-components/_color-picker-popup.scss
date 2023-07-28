@@ -17,9 +17,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 var(--spacing-xs);
+      padding: var(--spacing-2xs) var(--spacing-xs) 0;
       height: var(--spacing-2xl);
-      margin-top: var(--spacing-2xs);
     }
 
     &__title {
