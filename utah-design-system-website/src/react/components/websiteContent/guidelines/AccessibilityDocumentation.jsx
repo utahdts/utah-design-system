@@ -80,7 +80,25 @@ function AccessibilityDocumentation() {
         <li>Screen readers</li>
         <li>Motion (where applicable)</li>
       </ul>
-      <p>Please follow the general guidelines below and the guidance given for each library component.</p>
+      <p>
+        Please follow the general guidelines below. Additional specific accessibility guidance is provided for each library component in the design system.
+        For further information, consider reading documentation provided by <ExternalLink href="https://webaim.org/">WebAIM</ExternalLink>.
+      </p>
+
+      <hr />
+      <h2 id="section-accessibility-checklist" className="text-center mt-spacing">Accessibility Checklist</h2>
+      <p className="text-center">
+        We have compiled a checklist and resources for accessibility testing here:
+        <div className="flex justify-center mt-spacing mb-spacing-xl">
+          <Link
+            to={pageUrls.accessibilityChecklist}
+            className="button button--primary-color button--solid"
+          >
+            Accessibility Checklist
+            <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+          </Link>
+        </div>
+      </p>
       <hr />
 
       <h2 id="section-areas-to-consider" className="mb-spacing">Areas to Consider</h2>
@@ -93,8 +111,56 @@ function AccessibilityDocumentation() {
       <h4 id="section-limited-vision-general-guidelines">General vision guidelines</h4>
       <ul className="mb-spacing">
         <li>
+          <strong>Landmark role elements.</strong> In HTML, a landmark role refers to the use of specific HTML elements to define and label certain regions or sections of a webpage.
+          These roles serve an important purpose in making web pages more accessible to users, especially those who rely on assistive technologies like screen readers.
+          Developers should utilize the following landmark role elements on their website as well as other <ExternalLink href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantic_elements">semantic html elements</ExternalLink>.
+          <ul>
+            <li>
+              <strong><code>&lt;header&gt; / role=&quot;banner&quot;</code>:</strong> Defines the introductory content of a page,
+              typically containing the Utah Header, logo, search, and main navigation elements.
+              <ul>
+                <li>
+                  Use only one <code>&lt;header&gt;</code> element per page as a direct descendant of the <code>&lt;body&gt;</code>.
+                  (The HTML header element is not considered a banner landmark when it is descendant of an &lt;article&gt;, &lt;aside&gt;, &lt;main&gt;, &lt;nav&gt;, or &lt;section&gt; element.)
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong><code>&lt;nav&gt; / role=&quot;navigation&quot;</code>:</strong> Identifies the section of a page that contains navigation links.
+              <ul>
+                <li>
+                  Use only one or two <code>&lt;nav&gt;</code> elements per page (main menu and side menu). Too many <code>&lt;nav&gt;</code> elements
+                  will cause confusion for those using assistive technology.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong><code>&lt;main&gt; / role=&quot;main&quot;</code>:</strong> Indicates the main content of the page, excluding headers, footers, and sidebars.
+              <ul>
+                <li>
+                  Use only one <code>&lt;main&gt;</code> element per page.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong><code>&lt;footer&gt; / role=&quot;contentinfo&quot;</code>:</strong> Defines the footer section of a page, typically
+              containing copyright information, contact details, or related links. It should also contain the Utah Footer.
+              <ul>
+                <li>
+                  Use only one <code>&lt;footer&gt;</code> element per page as a direct descendant of the <code>&lt;body&gt;</code>.
+                  (The HTML footer element is not considered a contentinfo landmark when it is descendant of an &lt;article&gt;, &lt;aside&gt;, &lt;main&gt;, &lt;nav&gt;, or &lt;section&gt; element.)
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
           <strong>General text.</strong> The majority of text should be a minimum of <code>16px</code> (<code>1rem</code>).
           All normal size text must maintain a minimum contrast ratio of <code>4.5:1</code>.
+        </li>
+        <li>
+          <strong>Headings.</strong> Headings (h1, h2, h3, h4, h5, h6) are sequential and distinct when compared to the body text.
+          (Don’t skip heading levels or go out of order.)
         </li>
         <li>
           <strong>Images and Icons.</strong>
@@ -416,7 +482,30 @@ function AccessibilityDocumentation() {
         <li>
           <strong>Interactive content.</strong>  When possible, ensure that the user:
           <ul>
-            <li>Can activate or dismiss content using the keyboard.</li>
+            <li>Can activate or dismiss content using the keyboard.
+            <ul>
+              <li>
+                <strong>Tab.</strong> Navigate to links and form controls. Is the tab order sequential and/or logical? Is the focus indicator visible
+                and does it meet contrast requirements?
+              </li>
+              <li>
+                <strong>Shift + Tab.</strong> Navigate backwards. Will the user get stuck in any interactive component like a popup or a multi-select?
+              </li>
+              <li>
+                <strong>Spacebar.</strong> Activate checkboxes and buttons.
+              </li>
+              <li>
+                <strong>Enter.</strong> Activate links and buttons.
+              </li>
+              <li>
+                <strong>Arrow keys.</strong> Enables the user to navigate through vertical menus, radio buttons, checkboxes, select/drop-down menus,
+                sliders, tab panels, auto-complete, etc.
+              </li>
+              <li>
+                <strong>Escape.</strong> Does this dismiss all interactive elements, including browser dialogs or menus, and take the user back to the main content?
+              </li>
+            </ul>
+            </li>
             <li>Will be able to easily click the object (has a large clickable area).</li>
             <li>Has enough time to complete necessary tasks.</li>
             <li>Can correct any errors that may have been made.</li>
@@ -468,7 +557,7 @@ function AccessibilityDocumentation() {
           <strong>Organized content.</strong> Create coherent <Link to={pageUrls.headings}>heading</Link> structures to organize information.
         </li>
         <li>
-          <strong>Readable content.</strong> Consider the wording and the line length. Could a 9th grader read and understand it? If not, consider reworking the content.
+          <strong>Readable content.</strong> Consider the wording and the line length. Could a 8th grader read and understand it? If not, consider reworking the content.
         </li>
         <li>
           <strong>Predictable functionality.</strong> Not all new features are welcome. Consider

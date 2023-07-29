@@ -5,7 +5,7 @@ import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import ProgressLogPage from '../websiteContent/ProgressLog/ProgressLogPage';
 import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
-import AccessibilityTestingDocumentation from '../websiteContent/guidelines/AccessibilityTestingDocumentation';
+import AccessibilityChecklistDocumentation from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
@@ -154,10 +154,10 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   accessibilityTesting: {
-    content: AccessibilityTestingDocumentation,
-    link: pageUrls.accessibilityTesting,
+    content: AccessibilityChecklistDocumentation,
+    link: pageUrls.accessibilityChecklist,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Accessibility Testing',
+    pageTitle: 'Accessibility Checklist & Testing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   colorGuidelines: {

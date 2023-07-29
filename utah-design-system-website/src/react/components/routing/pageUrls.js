@@ -3,7 +3,7 @@
 /** @enum {PageUrl} */
 const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibility'),
-  accessibilityTesting: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityTesting'),
+  accessibilityChecklist: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityChecklist'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
   backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
