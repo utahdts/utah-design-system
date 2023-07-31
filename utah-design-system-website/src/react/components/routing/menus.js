@@ -243,6 +243,16 @@ export const menuResourcesSecondary = {
       title: pages.gettingStarted.pageTitle,
       parentLinks: [pages.resources.link],
     },
+    {
+      link: pages.gettingStartedDesigner.link,
+      title: pages.gettingStartedDesigner.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+    {
+      link: pages.gettingStartedDeveloper.link,
+      title: pages.gettingStartedDeveloper.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
 
     {
       link: pages.mockups.link,

@@ -33,6 +33,8 @@ const pageUrls = {
   errorPage404: /** @type {PageUrl} */ ('/errors/404'),
   forms: /** @type {PageUrl} */ ('/library/components/forms'),
   gettingStarted: /** @type {PageUrl} */ ('/resources/gettingStarted'),
+  gettingStartedDesigner: /** @type {PageUrl} */ ('/resources/gettingStarted/designer'),
+  gettingStartedDeveloper: /** @type {PageUrl} */ ('/resources/gettingStarted/developer'),
   github: /** @type {PageUrl} */ ('/resources/github'),
   guidelines: /** @type {PageUrl} */ ('/guidelinesStandards'),
   hamburger: /** @type {PageUrl} */ ('/library/components/navigationLinks/hamburger'),

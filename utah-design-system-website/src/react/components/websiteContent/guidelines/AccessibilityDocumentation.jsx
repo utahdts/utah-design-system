@@ -87,7 +87,7 @@ function AccessibilityDocumentation() {
 
       <hr />
       <h2 id="section-accessibility-checklist" className="text-center mt-spacing">Accessibility Checklist</h2>
-      <p className="text-center">
+      <div className="text-center">
         We have compiled a checklist and resources for accessibility testing here:
         <div className="flex justify-center mt-spacing mb-spacing-xl">
           <Link
@@ -98,7 +98,7 @@ function AccessibilityDocumentation() {
             <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
           </Link>
         </div>
-      </p>
+      </div>
       <hr />
 
       <h2 id="section-areas-to-consider" className="mb-spacing">Areas to Consider</h2>
@@ -269,10 +269,10 @@ function AccessibilityDocumentation() {
           regardless of their visual abilities or device preferences.
           <StaticExample
             renderedExample={(
-            <>
-              <LightBox image={accessibilityZoomGood} alt="Example of good browser zooming" className="flex-2up-gap" />
-              <LightBox image={accessibilityZoomBad} alt="Example of bad browser zooming" className="flex-2up-gap" />
-            </>
+              <>
+                <LightBox image={accessibilityZoomGood} alt="Example of good browser zooming" className="flex-2up-gap" />
+                <LightBox image={accessibilityZoomBad} alt="Example of bad browser zooming" className="flex-2up-gap" />
+              </>
             )}
             className="mb-auto mt-spacing-s"
           />
@@ -483,28 +483,28 @@ function AccessibilityDocumentation() {
           <strong>Interactive content.</strong>  When possible, ensure that the user:
           <ul>
             <li>Can activate or dismiss content using the keyboard.
-            <ul>
-              <li>
-                <strong>Tab.</strong> Navigate to links and form controls. Is the tab order sequential and/or logical? Is the focus indicator visible
-                and does it meet contrast requirements?
-              </li>
-              <li>
-                <strong>Shift + Tab.</strong> Navigate backwards. Will the user get stuck in any interactive component like a popup or a multi-select?
-              </li>
-              <li>
-                <strong>Spacebar.</strong> Activate checkboxes and buttons.
-              </li>
-              <li>
-                <strong>Enter.</strong> Activate links and buttons.
-              </li>
-              <li>
-                <strong>Arrow keys.</strong> Enables the user to navigate through vertical menus, radio buttons, checkboxes, select/drop-down menus,
-                sliders, tab panels, auto-complete, etc.
-              </li>
-              <li>
-                <strong>Escape.</strong> Does this dismiss all interactive elements, including browser dialogs or menus, and take the user back to the main content?
-              </li>
-            </ul>
+              <ul>
+                <li>
+                  <strong>Tab.</strong> Navigate to links and form controls. Is the tab order sequential and/or logical? Is the focus indicator visible
+                  and does it meet contrast requirements?
+                </li>
+                <li>
+                  <strong>Shift + Tab.</strong> Navigate backwards. Will the user get stuck in any interactive component like a popup or a multi-select?
+                </li>
+                <li>
+                  <strong>Spacebar.</strong> Activate checkboxes and buttons.
+                </li>
+                <li>
+                  <strong>Enter.</strong> Activate links and buttons.
+                </li>
+                <li>
+                  <strong>Arrow keys.</strong> Enables the user to navigate through vertical menus, radio buttons, checkboxes, select/drop-down menus,
+                  sliders, tab panels, auto-complete, etc.
+                </li>
+                <li>
+                  <strong>Escape.</strong> Does this dismiss all interactive elements, including browser dialogs or menus, and take the user back to the main content?
+                </li>
+              </ul>
             </li>
             <li>Will be able to easily click the object (has a large clickable area).</li>
             <li>Has enough time to complete necessary tasks.</li>
@@ -742,11 +742,11 @@ function AccessibilityDocumentation() {
                   </span>
                 </div>
               </TableCell>
-             <TableCell>&nbsp;</TableCell>
+              <TableCell>&nbsp;</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Canva</TableCell>
-             <TableCell>&nbsp;</TableCell>
+              <TableCell>&nbsp;</TableCell>
               <TableCell className="text-center">
                 <Icons.IconSadFace className="icon-24" altText="sad face" />
                 <span className="visually-hidden">Sad Face</span>
@@ -754,7 +754,7 @@ function AccessibilityDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>Google Docs</TableCell>
-             <TableCell>&nbsp;</TableCell>
+              <TableCell>&nbsp;</TableCell>
               <TableCell className="text-center">
                 <Icons.IconSadFace className="icon-24" altText="sad face" />
                 <span className="visually-hidden">Sad Face</span>
@@ -762,9 +762,9 @@ function AccessibilityDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>Google Slides</TableCell>
-             <TableCell>&nbsp;</TableCell>
+              <TableCell>&nbsp;</TableCell>
               <TableCell className="text-center">
-              <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
                 <span className="visually-hidden">Sad Face</span>
               </TableCell>
             </TableRow>
@@ -781,7 +781,7 @@ function AccessibilityDocumentation() {
                   </span>
                 </div>
               </TableCell>
-             <TableCell>&nbsp;</TableCell>
+              <TableCell>&nbsp;</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Microsoft Word</TableCell>
@@ -796,7 +796,7 @@ function AccessibilityDocumentation() {
                   </span>
                 </div>
               </TableCell>
-             <TableCell>&nbsp;</TableCell>
+              <TableCell>&nbsp;</TableCell>
             </TableRow>
           </TableBody>
         </Table>

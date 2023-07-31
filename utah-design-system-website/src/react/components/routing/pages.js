@@ -76,6 +76,8 @@ import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import Showcase from '../websiteContent/resources/Showcase/Showcase';
 import pageUrls from './pageUrls';
+import GettingStartedDesigner from '../websiteContent/resources/GettingStartedDesigner';
+import GettingStartedDeveloper from '../websiteContent/resources/GettingStartedDeveloper';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -304,6 +306,20 @@ const pages = {
     link: pageUrls.gettingStarted,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  gettingStartedDesigner: {
+    content: GettingStartedDesigner,
+    link: pageUrls.gettingStartedDesigner,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Getting Started - Designer',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  gettingStartedDeveloper: {
+    content: GettingStartedDeveloper,
+    link: pageUrls.gettingStartedDeveloper,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Getting Started - Developer',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   github: {
