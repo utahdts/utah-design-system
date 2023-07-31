@@ -13,6 +13,10 @@
       font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
     }
 
+    main {
+      padding: 2rem;
+    }
+
     header {
       padding: 0 2rem;
     }
@@ -66,6 +70,10 @@
       });
     });
   </script>
+
+  <!--
+    This example illustrates that you can load additional settings (footer) later and it will not clobber the existing settings.
+  -->
   <script>
     setTimeout(() => {
       window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({
@@ -89,7 +97,7 @@
       the <a href="https://designsystem.utah.gov">Utah Design System website</a>.
     </p>
   </main>
-  <div id="footer-target"></div>
+  <footer id="footer-target" aria-label="page"></footer>
 </body>
 
 </html>

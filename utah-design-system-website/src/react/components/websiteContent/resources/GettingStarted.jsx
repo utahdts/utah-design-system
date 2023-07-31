@@ -45,7 +45,7 @@ function GettingStarted() {
       </div>
 
       <hr />
-      <p id="h2-other-resources" className="mb-auto">Other resources to get help with getting started:</p>
+      <p id="h2-other-resources" className="mb-auto"><strong>Other resources to get help with getting started:</strong></p>
       <ul>
         <li>
           <ExternalLink href="https://utahdesignsystem.slack.com">Please join our Design System Slack Channel!</ExternalLink>
@@ -265,11 +265,10 @@ function GettingStarted() {
         You can see the example code base in <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite">/examples/utah-header/vite</ExternalLink>.
       </p>
 
-      <h3 id="import-design-system" className="mt-spacing">Design System Importing</h3>
+      <h3 id="import-design-system" className="mt-spacing">Importing the Utah Design System</h3>
       <p>
-        There are provided javascript and css libraries for the Design System that can help springboard an application&apos;s
-        usage of the Design System concepts. These libraries are not required. Here are some examples of getting started with
-        these libraries.
+        Javascript and css libraries are provided for the Design System that can help springboard an application&apos;s
+        usage of the Design System concepts. Here are some examples of getting started with these libraries.
       </p>
       <h4 id="css-variables">Use Design System CSS Variables</h4>
       <p className="mb-spacing-xs">
@@ -283,7 +282,7 @@ function GettingStarted() {
         <li>Color <code>--gray-color</code> <code>--danger-color</code></li>
         <li>Timing <code>--timing-medium</code></li>
         <li>
-          And more! See <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss">utah-design-system/@utahdts/utah-design-system/css/1-settings/_settings-index.scss</ExternalLink> for all the variables.
+          And more! See <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss">utah-design-system/@utahdts/utah-design-system/css/1-settings/_settings-index.scss</ExternalLink> for all the variables.
         </li>
       </ul>
       <h4 id="css-scoping">CSS Scoping</h4>
