@@ -6,7 +6,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { ExternalLink } from '@utahdts/utah-design-system';
 import pageUrls from '../../routing/pageUrls';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import useAppContext from '../../../context/AppContext/useAppContext';
 
 const propTypes = {};
@@ -201,51 +200,15 @@ function ColorGuidelinesDocumentation() {
         It is anticipated that the colors of the design system will be overridden to match the color palette of your Agency brand or
         to meet your specific website or application requirements.
       </p>
-      <p>
-        The color palette of the design system is stored in the specified CSS variables above and the example below.
-        It important to understand the following before attempting to override the css variables:
-      </p>
-      <ol>
-        <li>
-          The variables and css are scoped under the base css class <code>.utah-design-system</code>
-          <ol type="a">
-            <li>You must contain all Utah Design System html elements and css within this base css class for this to function correctly.</li>
-            <li>To override the the variables you must also include this base class.</li>
-          </ol>
-        </li>
-        <li>Load the Utah Design System CSS before your overrides. This is true for both the compiled CSS or if you are overriding the SCSS.</li>
-      </ol>
-
-      <div className="mt-spacing">CSS override code example:</div>
-      <PreCodeForCodeString
-        showBackgroundColor
-        codeRaw={`
-          <!-- Include the CSS and Javascript for the Utah Header -->
-          <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
-
-          <!-- Override the default design system css -->
-          <style>
-            /* Override the default design system colors */
-            .utah-design-system {
-              --primary-color: #3c7b24;
-              --primary-color-dark: #2e4326;
-              --primary-color-light: #e1eadd;
-
-              --secondary-color: #0e80a7;
-              --secondary-color-dark: #205162;
-              --secondary-color-light: #edf5f8;
-
-              --accent-color: #ffb100;
-              --accent-color-dark: #745a1e;
-              --accent-color-light: #fff9ec;
-            }
-          </style>
-        `}
-        className="mt-spacing"
-      />
-      <p>
-        The above example can be found in the examples folder under the <a href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html">es-html example</a>.
-      </p>
+      <div className="flex justify-center mb-spacing-xl">
+        <Link
+          to={`${pageUrls.gettingStartedDeveloper}#h3-css-color-overrides`}
+          className="button button--primary-color button--solid"
+        >
+          How to Override CSS Variables
+          <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+        </Link>
+      </div>
 
     </div>
   );

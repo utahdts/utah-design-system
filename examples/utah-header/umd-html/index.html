@@ -7,30 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UMD CDN Header Example</title>
 
-  <!-- Some basic styling for this example. Not Required. -->
+
+
+  <!-- Required Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Include the CSS and Javascript for the Utah Header -->
+  <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
+
+  <!-- Some basic styling for this example. -->
   <style>
     body {
       font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
     }
 
     main {
-      padding: 2rem;
+      padding: 0 2rem 2rem;
     }
 
-    header {
-      padding: 0 2rem;
+    /* Override the default design system colors */
+    .utah-design-system {
+      --primary-color: #0e80a7;
+      --primary-color-dark: #205162;
+      --primary-color-light: #edf5f8;
+
+      --secondary-color: #3c7b24;
+      --secondary-color-dark: #2e4326;
+      --secondary-color-light: #e1eadd;
+
+      --accent-color: #ffb100;
+      --accent-color-dark: #745a1e;
+      --accent-color-light: #fff9ec;
     }
   </style>
 
-  <!-- Required Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
-    rel="stylesheet">
-
-  <!-- Include the CSS and Javascript for the Utah Header -->
-  <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
   <script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script>
   <script>
     // Wait for the utah header to be ready
@@ -58,12 +70,12 @@
         },
         "showTitle": true,
         "size": "MEDIUM",
-        "title": "Utah Design System",
+        "title": "My Utah.gov Site (UMD)",
         "titleURL": "/",
         "utahId": true,
         "footer": null,
         "logo": {
-          "imageUrl": "https://designsystem.utah.gov/assets/designSystemCircleGray-a5a6c10d.png"
+          "imageUrl": "designSystemCircleGray.png"
         },
         "actionItems": null,
         "onSearch": false
@@ -91,11 +103,17 @@
   <div id="header-target"></div>
   <main>
     <h1>Universal Module Definition (UMD) - Using Unpkg CDN</h1>
-    <p>
-      The above option uses a CDN to include both the javascript and css in the <code>&lt;head&gt;</code>.
-      The header is configured when the utahHeaderLoaded event fires. You can learn more about configuring the header on
-      the <a href="https://designsystem.utah.gov">Utah Design System website</a>.
-    </p>
+    <ul>
+      <li>This example uses the unpkg CDN to pull in the javascript in with a <code>&lt;script&gt;</code> tag in the <code>&lt;head&gt;</code>.</li>
+      <li>The Utah Header functions are available on the window object: <code>window[&quot;@utahdts/utah-design-system-header&quot;]</code></li>
+      <li>The CSS is included as a standard stylesheet link.</li>
+      <li>The design system colors are overridden.</li>
+      <li>The header is configured in the event <code>utahHeaderLoaded</code> due the asynchronous nature of this example.</li>
+      <li>The header is loaded into a target <code>&lt;div&gt;</code>.</li>
+      <li>The footer is loaded into a <code>&lt;footer&gt;</code> landmark.</li>
+      <li>The footer is loaded after a delay of 2 seconds to illustrate that you can load additional settings (footer) later and it will not clobber the existing settings.</li>
+      <li>Find more information on the <a href="https://designsystem.utah.gov">Utah Design System Website</a>.</li>
+    </ul>
   </main>
   <footer id="footer-target" aria-label="page"></footer>
 </body>

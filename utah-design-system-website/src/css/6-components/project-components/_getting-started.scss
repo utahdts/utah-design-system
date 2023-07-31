@@ -13,3 +13,34 @@
     }
   }
 }
+
+.getting-started {
+  &__toc {
+    display: flex;
+    gap: var(--spacing-l);
+
+    &-card {
+      background: white;
+      padding: var(--spacing);
+      border-radius: var(--radius-small);
+      box-shadow: var(--elevation-medium-borderless);
+      background: var(--primary-color-light);
+      text-align: center;
+      flex: 1;
+
+      a {
+        display: block;
+        margin-bottom: var(--spacing-2xs);
+      }
+    }
+    &-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semi-bold);
+    }
+    &-subtitle {
+      font-size: var(--font-size-l);
+    }
+
+
+  }
+}

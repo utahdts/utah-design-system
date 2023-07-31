@@ -78,7 +78,12 @@
       },
       utahId: true,
       actionItems: null,
-      onSearch: true
+      onSearch: true,
+      footer: {
+        domLocationTarget: {
+          cssSelector: '#footer-target'
+        }
+      }
     });
   </script>
 </head>
@@ -88,17 +93,21 @@
   <main>
     <h1>ECMAScript modules (ES) - Using Unpkg CDN</h1>
     <ul>
-      <li>The above example uses the unpkg CDN to import the javascript in the <code>&lt;head&gt;</code>.</li>
+      <li>This example uses the unpkg CDN to import the javascript in the <code>&lt;head&gt;</code>.</li>
       <li>The CSS is included as a standard stylesheet link.</li>
       <li>The design system colors are overridden.</li>
       <li>The header is configured immediately after the import.</li>
       <li>The header is loaded into a target <code>&lt;div&gt;</code>.</li>
+      <li>Find more information on the <a href="https://designsystem.utah.gov">Utah Design System Website</a>.</li>
     </ul>
     <p>
       You can learn more about configuring the header on the <a
       href="https://designsystem.utah.gov/library/utahHeader">Utah Header page</a>.
     </p>
   </main>
+  <footer id="footer-target" aria-label="page">
+    <div>More footer info.</div>
+  </footer>
 </body>
 
 </html>

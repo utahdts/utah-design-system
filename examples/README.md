@@ -10,21 +10,21 @@ If you are using something not listed here, please let us know how you integrate
 - [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
 ## Utah Header
-- [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/umd-html)
-- [ES Module](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/es-html)
-- [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
-- [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)
+- [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html)
+- [ES Module](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html)
+- [Create React App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/create-react-app)
+- [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite)
 
 For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/utahHeader).
 
 
 ## Design System Styling
-- [Vite React](https://github.com/utahdts/utah-design-system/tree/dev/examples/design-system/vite-react)
+- [Vite React](https://github.com/utahdts/utah-design-system/tree/main/examples/design-system/vite-react)
 
 For more information on the Design System, please visit the [documentation website](https://designsystem.utah.gov).
 
 ## Typed Libraries
-- [Utah Header - Vite React Typescript](https://github.com/utahdts/utah-design-system/tree/dev/examples/typed/typed-utah-header)
+- [Utah Header - Vite React Typescript](https://github.com/utahdts/utah-design-system/tree/main/examples/typed/typed-utah-header)
 
 
 ## Utah Design System Monorepo
