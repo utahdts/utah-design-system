@@ -52,6 +52,22 @@ ProgressLogTableRow.defaultProps = {
 function ProgressLog() {
   return (
     <>
+      <h2 id="h2-release-notes">Release Notes</h2>
+      <p>
+        If you&apos;re looking for the latest release notes for the Utah Design System, you can find them at the link below.
+        These release notes provide valuable information about new features, improvements, and bug fixes introduced in the latest version.
+      </p>
+      <div className="my-spacing-xl flex justify-center">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/releases"
+          className="button button--primary-color button--small"
+        >
+          View GitHub Releases and Notes
+        </ExternalLink>
+      </div>
+      <hr />
+
+      <h2 id="h2-feature-progress">Feature Progress</h2>
       <TableWrapper>
         <Table className="progress-log__table table table--lines-x">
           <TableHead>
@@ -132,15 +148,6 @@ function ProgressLog() {
           </TableBody>
         </Table>
       </TableWrapper>
-
-      <div className="mt-spacing-xl">
-        <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/releases"
-          className="button button--primary-color button--small"
-        >
-          View GitHub Releases
-        </ExternalLink>
-      </div>
     </>
   );
 }
