@@ -8,8 +8,8 @@ import checkForError from '../../misc/checkForError';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 
-/** @typedef {import ('../../misc/jsDocTypes').DomLocationTarget} DomLocationTarget */
-/** @typedef {import ('../../misc/jsDocTypes').Settings} Settings */
+/** @typedef {import('../../misc/jsDocTypes').DomLocationTarget} DomLocationTarget */
+/** @typedef {import('../../misc/jsDocTypes').Settings} Settings */
 
 /**
  * track last known settings for future comparison to see if something changed

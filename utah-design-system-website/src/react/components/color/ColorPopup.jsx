@@ -23,6 +23,7 @@ import ColorContrasts from './ColorContrasts';
 import ColorPicker from './ColorPicker';
 import SwatchList from './SwatchList';
 import { colorsToUrlParams } from './colorPickerUrlParams';
+import ColorPickerInstructions from './ColorPickerInstructions';
 
 const propTypes = {
   onClose: PropTypes.func,
@@ -291,7 +292,8 @@ function ColorPopup({ onClose }) {
                   <TabGroup defaultValue="tab-group__swatches">
                     <TabList>
                       <Tab id="tab-group__swatches">Swatches</Tab>
-                      <Tab id="tab-group__color-contrast">Contrasts</Tab>
+                      <Tab id="tab-group__color-contrast">Contrast</Tab>
+                      <Tab id="tab-group__instructions">Instructions</Tab>
                     </TabList>
                     <TabPanels>
                       <TabPanel tabId="tab-group__swatches">
@@ -307,6 +309,9 @@ function ColorPopup({ onClose }) {
                       </TabPanel>
                       <TabPanel tabId="tab-group__color-contrast">
                         <ColorContrasts colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]} />
+                      </TabPanel>
+                      <TabPanel tabId="tab-group__instructions">
+                        <ColorPickerInstructions />
                       </TabPanel>
                     </TabPanels>
                   </TabGroup>

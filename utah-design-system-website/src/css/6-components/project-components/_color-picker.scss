@@ -43,6 +43,7 @@
 
       &__hex-color {
         display: flex;
+        gap: var(--spacing-2xs);
       }
       &__contrast {
         border: 1px solid currentColor;
@@ -87,7 +88,7 @@
         outline: none;
         padding: 0;
         text-align: center;
-        width: 80px;
+        width: 75px;
         border-radius: 0;
         &:hover {
           border: 1px solid white

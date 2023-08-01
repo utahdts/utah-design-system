@@ -1,6 +1,6 @@
 // @ts-check
-/** @typedef {import ('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
-/** @typedef {import ('../../../typedefs.d.js').WebsiteMainMenuItem} WebsiteMainMenuItem */
+/** @typedef {import('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('../../../typedefs.d.js').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} parent

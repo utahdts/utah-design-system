@@ -17,6 +17,9 @@ jobs:
       - name: NPM Install 🪚
         run: |
           npm install
+      - name: Build Types 🪚
+        run: |
+          npm run buildTypes
       - name: NPM header Build 🔨
         run: |
           npm run buildHeader

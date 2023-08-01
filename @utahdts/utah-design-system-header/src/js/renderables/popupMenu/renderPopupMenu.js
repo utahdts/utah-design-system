@@ -289,6 +289,8 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   }
 
   if (popupMenuItem.isSelected) {
+    // toggle open the selected menu item so that the mobile menu shows the expanded path to this menu item
+    toggleChildMenuExpansion(menuItemWrapper);
     menuItemWrapper.classList.add(domConstants.MENU_ITEM__SELECTED);
   } else {
     menuItemWrapper.classList.remove(domConstants.MENU_ITEM__SELECTED);

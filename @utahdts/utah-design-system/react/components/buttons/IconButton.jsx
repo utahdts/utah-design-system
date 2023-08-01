@@ -54,7 +54,7 @@ const defaultProps = {
 };
 
 /**
- * @typedef {import ('../../enums/buttonEnums').IconButtonAppearance} IconButtonAppearance
+ * @typedef {import('../../enums/buttonEnums').IconButtonAppearance} IconButtonAppearance
 */
 
 /**

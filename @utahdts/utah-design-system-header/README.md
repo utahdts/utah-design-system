@@ -19,7 +19,7 @@ The Utah Header is part of the Utah Design System. It provides a common experien
 
 ## Documentation
 
-- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options_Documentation-blue)](https://designsystem.utah.gov/library/utahHeader)
 - [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
 - [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 
@@ -37,12 +37,13 @@ npm i @utahdts/utah-design-system-header
 
 ## Examples
 We have several examples on how to implement the Design System Header:
-- [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/umd-html)
-- [ES Module](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/es-html)
-- [Create React App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/create-react-app)
-- [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/dev/examples/utah-header/vite)
+- [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html)
+- [ES Module](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html)
+- [Create React App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/create-react-app)
+- [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite)
+- [Vite Typed React App](https://github.com/utahdts/utah-design-system/tree/main/examples/typed/typed-utah-header)
 
-For more information on the Utah Header, please visit the [header documentation page](https://designsystem.utah.gov/library/patterns/utahHeader) on the Utah Design System.
+For more information on the Utah Header, please visit the [header documentation page](https://designsystem.utah.gov/library/utahHeader) on the Utah Design System.
 
 ## Contribution
 If you want to contribute or have any feedback, we'd love to hear from you ! Please [contact us](https://designsystem.utah.gov/resources/gettingStarted).

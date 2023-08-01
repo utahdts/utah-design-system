@@ -5,7 +5,7 @@ Font size variables
 @use "../1-settings/class-vars";
 
 #{class-vars.$base-class} {
-  --normal-font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  --normal-font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
   --fixed-width-font-family: 'Source Code Pro', monospace;
 
   --font-size-2xs: .8125rem; //13
