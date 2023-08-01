@@ -14,7 +14,7 @@ const defaultProps = {};
 function CheckboxDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>CheckBox</h1>
+      <h1 id="h1-top">CheckBox</h1>
       <p className="lead-in">Checkboxes allow users to select one or more options from a list. They can have two values: selected or unselected.</p>
       <hr />
       <h2 id="example">Example</h2>

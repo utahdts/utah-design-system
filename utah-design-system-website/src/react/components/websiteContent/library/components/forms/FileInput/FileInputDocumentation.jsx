@@ -17,7 +17,7 @@ const defaultProps = {};
 function FileInputDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>File Input</h1>
+      <h1 id="h1-top">File Input</h1>
       <p className="lead-in">A file input allows a user to upload and/or attach one or more files.</p>
       <hr />
       <h2 id="example">Example</h2>
