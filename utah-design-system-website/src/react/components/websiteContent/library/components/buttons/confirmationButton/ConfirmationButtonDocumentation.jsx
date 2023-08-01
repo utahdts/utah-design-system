@@ -16,7 +16,7 @@ const defaultProps = {};
 function ConfirmationButtonDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Confirmation Button</h1>
+      <h1 id="h1-top">Confirmation Button</h1>
       <p className="lead-in">
         Confirmation buttons reduce uncertainty by asking users to confirm their intended action before proceeding.
       </p>

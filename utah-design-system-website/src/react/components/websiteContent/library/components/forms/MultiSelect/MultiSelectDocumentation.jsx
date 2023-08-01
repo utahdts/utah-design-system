@@ -16,7 +16,7 @@ const defaultProps = {};
 function MultiSelectDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Multi-select</h1>
+      <h1 id="h1-top">Multi-select</h1>
       <p className="lead-in">
         A multi-select allows you to search on and choose multiple options from an option menu. A <Link to={pageUrls.comboBox}>combo box</Link> lets you search options and select a single item, while a <Link to={pageUrls.select}>select</Link> lets you choose a single option.
       </p>
