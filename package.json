@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -11,6 +11,7 @@
     "buildHeader": "npm run build -workspace=@utahdts/utah-design-system-header",
     "buildLibrary": "npm run build -workspace=@utahdts/utah-design-system",
     "buildWebsite": "npm run build -workspace utah-design-system-website",
+    "buildTypesHeader": "npm run buildTypes -workspace=@utahdts/utah-design-system-header",
     "cleanCoverage": "rimraf ./@utahdts/utah-design-system/coverage",
     "cleanDist": "rimraf ./utah-design-system-website/dist & rimraf ./@utahdts/utah-design-system/dist & rimraf ./@utahdts/utah-design-system-header/dist",
     "cleanExampleCreateReactApp": "rimraf ./examples/utah-header/create-react-app/node_modules & rimraf ./examples/utah-header/create-react-app/package-lock.json",
