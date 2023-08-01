@@ -5,6 +5,7 @@
 import govOps from '../../../static/images/DTS-Color-Reversed.svg';
 
 import {
+  ExternalLink,
   FooterAgencyInformation,
   FooterAgencyInformationColumn,
   FooterAgencyInformationInfo,
@@ -44,7 +45,7 @@ function DesignSystemFooterMainContent() {
         <div className="footer-agency-information__column-title">Main Menu</div>
         <ul className="footer-agency-information__menu">
           {
-            utahHeaderSettings.mainMenu?.menuItems?.map((menuItem) => (
+            utahHeaderSettings.mainMenu && utahHeaderSettings.mainMenu?.menuItems?.map((menuItem) => (
               <li key={`footer-main-menu_${menuItem.title}`}>
                 <Link to={menuItem.actionFunctionUrl?.url || menuItem.actionUrl?.url || '/'}>{menuItem.title}</Link>
               </li>
@@ -65,7 +66,14 @@ function DesignSystemFooterMainContent() {
 
       <FooterAgencyInformationColumn>
         <div className="footer-agency-information__column-title">Utah Design System</div>
-        Version: {packageJSON.version}
+        <ul className="footer-agency-information__menu">
+          <li>Version: {packageJSON.version}</li>
+          <li>
+            <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">
+              Release Notes
+            </ExternalLink>
+          </li>
+        </ul>
       </FooterAgencyInformationColumn>
     </FooterAgencyInformation>
   );
