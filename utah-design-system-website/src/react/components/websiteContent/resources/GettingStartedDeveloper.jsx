@@ -92,12 +92,12 @@ function GettingStartedDeveloper() {
       </div>
 
       {/* <h3 id="font-dependency">General Font Dependency</h3>
-      <p>The Utah Header depends on the awesome font <code>Source Sans Pro</code>. You should load this font in order for the &quot;Utah, an official website&quot;, menus, and other elements to render correctly.</p>
+      <p>The Utah Header depends on the awesome font <code>Source Sans 3</code>. You should load this font in order for the &quot;Utah, an official website&quot;, menus, and other elements to render correctly.</p>
       <PreCodeForCodeString
         codeRaw={`
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
         `}
         allowScrollOverflow
         showBackgroundColor
