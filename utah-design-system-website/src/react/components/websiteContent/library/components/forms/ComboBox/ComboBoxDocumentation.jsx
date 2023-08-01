@@ -16,7 +16,7 @@ const defaultProps = {};
 function ComboBoxDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Combo Box</h1>
+      <h1 id="h1-top">Combo Box</h1>
       <p className="lead-in">
         A combo box helps users select a single item from a large list of options using an active search feature.
         A multi-select allows users to search on and select multiple items, while a single-select lets users choose a single item.

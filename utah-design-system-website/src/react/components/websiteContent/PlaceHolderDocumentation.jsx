@@ -21,7 +21,7 @@ function PlaceHolderDocumentation() {
 
   return (
     <>
-      <h1>
+      <h1 id="h1-top">
         {
           currentMenuItem?.header
           || currentPage?.pageTitle

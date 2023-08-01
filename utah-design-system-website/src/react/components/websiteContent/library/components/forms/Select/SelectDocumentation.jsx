@@ -16,7 +16,7 @@ const defaultProps = {};
 function SelectDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Select</h1>
+      <h1 id="h1-top">Select</h1>
       <p className="lead-in">
         A select input allows a user to choose options from an option menu. The Select input and <Link to={pageUrls.comboBox}>Combo Box</Link> are limited to a single option, while a <Link to={pageUrls.multiSelect}>Multi-select</Link> lets users choose multiple options.
       </p>

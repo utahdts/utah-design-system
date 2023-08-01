@@ -19,6 +19,12 @@ function OnThisPage({ contentRef }) {
           ? (
             <>
               <h2 className="on-this-page__header">On this page</h2>
+              <ul className="on-this-page__list">
+                <li>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <a href="#">Back to top</a>
+                </li>
+              </ul>
               <OnThisPageHeadersLevel headersLevel={headersTree} />
             </>
           )

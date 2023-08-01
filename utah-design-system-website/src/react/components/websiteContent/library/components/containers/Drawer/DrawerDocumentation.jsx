@@ -13,7 +13,7 @@ const defaultProps = {};
 function DrawerDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Drawer</h1>
+      <h1 id="h1-top">Drawer</h1>
       <p className="lead-in">
         A drawer is a side panel that overlays the interface.
       </p>
