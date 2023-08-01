@@ -133,23 +133,14 @@ function ProgressLog() {
         </Table>
       </TableWrapper>
 
-      <h2 className="mt-spacing-l">Task Log</h2>
-      <ul>
-        <li>
-          Version 1.0
-          <ul>
-            <li>Add: ARB approved badge!</li>
-            <li>Add: export setUtahFooterSettings</li>
-            <li>Fix: Checkbox label sizing (<ExternalLink to="https://github.com/utahdts/utah-design-system/issues/90">issue #90</ExternalLink>)</li>
-            <li>Fix: domTargetLocation cloning error</li>
-            <li>Update: Color picker - contrast, share, reset, etc</li>
-            <li>Update: License is now Transfer Of Technology</li>
-            <li>Update: Security headers for website</li>
-            <li>Update: Select menu items in path to current page</li>
-          </ul>
-        </li>
-        <li><ExternalLink href="https://github.com/utahdts/utah-design-system/commits/dev">GitHub Commit Details</ExternalLink></li>
-      </ul>
+      <div className="mt-spacing-xl">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/releases"
+          className="button button--primary-color button--small"
+        >
+          View GitHub Releases
+        </ExternalLink>
+      </div>
     </>
   );
 }
