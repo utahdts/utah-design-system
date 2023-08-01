@@ -4,7 +4,9 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import {
+  Button,
   ExternalLink,
+  Icons,
   Table,
   TableBody,
   TableCell,
@@ -19,16 +21,34 @@ import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
 import LightBox from '../../lightbox/LightBox';
 import StaticExample from '../../staticExamples/StaticExample';
+import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
+import badAltAudio from '../../../../static/audio/BadAlt.mp3';
+import goodTextOverImg from '../../../../static/images/screenshots/examples/GoodTextOverImage.png';
+import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
+import goodColorRepImg from '../../../../static/images/screenshots/examples/GoodColorRepresentation.png';
+import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
+import captionsImg from '../../../../static/images/screenshots/examples/Captions.jpg';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
 import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
 import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
 import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
+import useAppContext from '../../../context/AppContext/useAppContext';
 
 const propTypes = {};
 const defaultProps = {};
 
 function AccessibilityDocumentation() {
+  const goodAltAudioVtt = new URL('../../../../static/audio/vtt/GoodAlt.vtt', import.meta.url).href;
+  const badAltAudioVtt = new URL('../../../../static/audio/vtt/BadAlt.vtt', import.meta.url).href;
+
+  const { appState: { isColorPickerShown }, setAppState } = useAppContext();
+
+  function toggleColorPickerPopup(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setAppState((draftAppState) => { draftAppState.isColorPickerShown = !isColorPickerShown; });
+  }
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Accessibility Overview</h1>
@@ -60,7 +80,25 @@ function AccessibilityDocumentation() {
         <li>Screen readers</li>
         <li>Motion (where applicable)</li>
       </ul>
-      <p>Please follow the general guidelines below and the guidance given for each library component.</p>
+      <p>
+        Please follow the general guidelines below. Additional specific accessibility guidance is provided for each library component in the design system.
+        For further information, consider reading documentation provided by <ExternalLink href="https://webaim.org/">WebAIM</ExternalLink>.
+      </p>
+
+      <hr />
+      <h2 id="section-accessibility-checklist" className="text-center mt-spacing">Accessibility Checklist</h2>
+      <div className="text-center">
+        We have compiled a checklist and resources for accessibility testing here:
+        <div className="flex justify-center mt-spacing mb-spacing-xl">
+          <Link
+            to={pageUrls.accessibilityChecklist}
+            className="button button--primary-color button--solid"
+          >
+            Accessibility Checklist
+            <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+          </Link>
+        </div>
+      </div>
       <hr />
 
       <h2 id="section-areas-to-consider" className="mb-spacing">Areas to Consider</h2>
@@ -73,8 +111,56 @@ function AccessibilityDocumentation() {
       <h4 id="section-limited-vision-general-guidelines">General vision guidelines</h4>
       <ul className="mb-spacing">
         <li>
+          <strong>Landmark role elements.</strong> In HTML, a landmark role refers to the use of specific HTML elements to define and label certain regions or sections of a webpage.
+          These roles serve an important purpose in making web pages more accessible to users, especially those who rely on assistive technologies like screen readers.
+          Developers should utilize the following landmark role elements on their website as well as other <ExternalLink href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantic_elements">semantic html elements</ExternalLink>.
+          <ul>
+            <li>
+              <strong><code>&lt;header&gt; / role=&quot;banner&quot;</code>:</strong> Defines the introductory content of a page,
+              typically containing the Utah Header, logo, search, and main navigation elements.
+              <ul>
+                <li>
+                  Use only one <code>&lt;header&gt;</code> element per page as a direct descendant of the <code>&lt;body&gt;</code>.
+                  (The HTML header element is not considered a banner landmark when it is descendant of an &lt;article&gt;, &lt;aside&gt;, &lt;main&gt;, &lt;nav&gt;, or &lt;section&gt; element.)
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong><code>&lt;nav&gt; / role=&quot;navigation&quot;</code>:</strong> Identifies the section of a page that contains navigation links.
+              <ul>
+                <li>
+                  Use only one or two <code>&lt;nav&gt;</code> elements per page (main menu and side menu). Too many <code>&lt;nav&gt;</code> elements
+                  will cause confusion for those using assistive technology.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong><code>&lt;main&gt; / role=&quot;main&quot;</code>:</strong> Indicates the main content of the page, excluding headers, footers, and sidebars.
+              <ul>
+                <li>
+                  Use only one <code>&lt;main&gt;</code> element per page.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong><code>&lt;footer&gt; / role=&quot;contentinfo&quot;</code>:</strong> Defines the footer section of a page, typically
+              containing copyright information, contact details, or related links. It should also contain the Utah Footer.
+              <ul>
+                <li>
+                  Use only one <code>&lt;footer&gt;</code> element per page as a direct descendant of the <code>&lt;body&gt;</code>.
+                  (The HTML footer element is not considered a contentinfo landmark when it is descendant of an &lt;article&gt;, &lt;aside&gt;, &lt;main&gt;, &lt;nav&gt;, or &lt;section&gt; element.)
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
           <strong>General text.</strong> The majority of text should be a minimum of <code>16px</code> (<code>1rem</code>).
           All normal size text must maintain a minimum contrast ratio of <code>4.5:1</code>.
+        </li>
+        <li>
+          <strong>Headings.</strong> Headings (h1, h2, h3, h4, h5, h6) are sequential and distinct when compared to the body text.
+          (Don’t skip heading levels or go out of order.)
         </li>
         <li>
           <strong>Images and Icons.</strong>
@@ -93,10 +179,38 @@ function AccessibilityDocumentation() {
                 for the user. Instead use something like &quot;a boat at Jordanelle State Park&quot; to correctly describe the image.
                 Below are a good and bad example you can test with your screen reader.
               </p>
-              <div className="flex gap justify-center mb-spacing">
-                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
-                <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
+              <div className="flex gap justify-center mb-spacing flex-wrap">
+                <div className="flex flex-col">
+                  {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                  <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap m-auto" style={{ width: '50%', minWidth: '0' }} />
+                  <figure className="m-auto">
+                    <figcaption>Poor alternative text: </figcaption>
+                    <audio controls>
+                      <source src={badAltAudio} type="audio/mpeg" />
+                      <track
+                        default
+                        kind="captions"
+                        srcLang="en"
+                        src={badAltAudioVtt}
+                      />
+                    </audio>
+                  </figure>
+                </div>
+                <div className="flex flex-col">
+                  <img src={boatImage} alt="a boat at Jordanelle State Park" className="flex-3up-gap m-auto" style={{ width: '50%', minWidth: '0' }} />
+                  <figure className="m-auto">
+                    <figcaption>Best alternative text: </figcaption>
+                    <audio controls>
+                      <source src={goodAltAudio} type="audio/mpeg" />
+                      <track
+                        default
+                        kind="captions"
+                        srcLang="en"
+                        src={goodAltAudioVtt}
+                      />
+                    </audio>
+                  </figure>
+                </div>
               </div>
               <div>Code examples:</div>
               <PreCodeForCodeString
@@ -131,6 +245,15 @@ function AccessibilityDocumentation() {
           <strong>Color representation.</strong> Avoid using colors to represent important information, such as red to
           mean &quot;danger&quot; or &quot;warning&quot;. Individuals that are challenged by red-green or other forms of color blindness will need additional indicators
           such as <Link to={pageUrls.typography}>text</Link> or <Link to={pageUrls.icons}>icons</Link> to convey the correct meaning.
+          <StaticExample
+            renderedExample={(
+              <>
+                <LightBox image={goodColorRepImg} alt="Best use of color and icon" className="flex-2up-gap" />
+                <LightBox image={badColorRepImg} alt="Avoid relying on color alone" className="flex-2up-gap" />
+              </>
+            )}
+            className="mb-auto mt-spacing-s"
+          />
         </li>
         <li>
           <strong>Assistive technology.</strong> Many components in the Utah Design System require additional <abbr>ARIA</abbr> (Accessible Rich Internet Applications)
@@ -145,16 +268,13 @@ function AccessibilityDocumentation() {
           support different devices and orientations. By adapting to various zoom levels, flexible layouts enable users to maintain a comfortable viewing experience,
           regardless of their visual abilities or device preferences.
           <StaticExample
-            title="Example of good zooming"
-            renderedExample={
-              <img src={accessibilityZoomGood} alt="Example of good browser zooming" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
-            }
-          />
-          <StaticExample
-            title="Example of improper zooming"
-            renderedExample={
-              <img src={accessibilityZoomBad} alt="Example of bad browser zooming" className="flex-3up-gap" style={{ width: '33%', minWidth: '0' }} />
-            }
+            renderedExample={(
+              <>
+                <LightBox image={accessibilityZoomGood} alt="Example of good browser zooming" className="flex-2up-gap" />
+                <LightBox image={accessibilityZoomBad} alt="Example of bad browser zooming" className="flex-2up-gap" />
+              </>
+            )}
+            className="mb-auto mt-spacing-s"
           />
         </li>
       </ul>
@@ -184,7 +304,7 @@ function AccessibilityDocumentation() {
         Contrast requirements vary with the size of the text or object. Larger text/objects require less contrast, whereas smaller text/objects require more contrast.
       </p>
       <p>
-        The Utah Design System provides a color and contrast tool. The tool can be accessed by clicking the gear icon in the Utah Header at the top.
+        The Utah Design System provides a <a href="#" onClick={toggleColorPickerPopup}>color and contrast tool</a>. The tool can be accessed by clicking the gear icon in the Utah Header at the top.
       </p>
 
       <h4 id="section-limited-vision-aaa-guidelines" className="mb-spacing">AA and AAA contrast guidelines (definitions)</h4>
@@ -216,7 +336,7 @@ function AccessibilityDocumentation() {
       <h4 id="section-limited-vision-contrast">AA and AAA contrast guidelines (requirements)</h4>
 
       <TableWrapper>
-        <Table className="table table--lines-x table--alt">
+        <Table className="table table--lines-x table--alt mb-spacing-l">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell className="text-left">Content</TableHeadCell>
@@ -280,6 +400,65 @@ function AccessibilityDocumentation() {
         </Table>
       </TableWrapper>
 
+      <h4 id="section-contrast-examples-text">Contrast examples (text)</h4>
+      <div className="typography__font-family  mb-spacing-l">
+        <div className="typography__font-demo">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Best</strong>
+              <code>8.22:1</code>
+            </span>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <div className="typography__avoid-contrast">
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Avoid</strong>
+              <code>1.87:1</code>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <h4 id="section-contrast-examples-text-img">Contrast examples (text over image)</h4>
+      <StaticExample
+        renderedExample={(
+          <>
+            <LightBox image={goodTextOverImg} alt="Good contrast for text over an image" className="flex-2up-gap" />
+            <LightBox image={badTextOverImg} alt="Bad contrast for text over an image" className="flex-2up-gap" />
+          </>
+        )}
+        className="mb-auto"
+      />
+
+      <h4 id="section-contrast-examples-boundaries">Contrast examples (boundaries)</h4>
+      <div className="typography__font-family  mb-spacing-l">
+        <div className="typography__font-demo">
+          <Button className="m-auto" onClick={(e) => e.preventDefault()}>Button</Button>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Best</strong>
+              <code>8.22:1</code>
+            </span>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <Button className="typography__avoid-contrast--button m-auto" onClick={(e) => e.preventDefault()}>Button</Button>
+          <div className="typography__font-name">
+            <span>
+              <strong className="mr-spacing-s">Avoid</strong>
+              <code>1.66:1</code>
+            </span>
+          </div>
+        </div>
+      </div>
+
       <h3 id="section-motor-functionality" className="mt-spacing">Motor Functionality</h3>
       <p>
         Not all users have the ability to use a mouse or they have limited or involuntary motor control. Think of people with tremors,
@@ -303,7 +482,30 @@ function AccessibilityDocumentation() {
         <li>
           <strong>Interactive content.</strong>  When possible, ensure that the user:
           <ul>
-            <li>Can activate or dismiss content using the keyboard.</li>
+            <li>Can activate or dismiss content using the keyboard.
+              <ul>
+                <li>
+                  <strong>Tab.</strong> Navigate to links and form controls. Is the tab order sequential and/or logical? Is the focus indicator visible
+                  and does it meet contrast requirements?
+                </li>
+                <li>
+                  <strong>Shift + Tab.</strong> Navigate backwards. Will the user get stuck in any interactive component like a popup or a multi-select?
+                </li>
+                <li>
+                  <strong>Spacebar.</strong> Activate checkboxes and buttons.
+                </li>
+                <li>
+                  <strong>Enter.</strong> Activate links and buttons.
+                </li>
+                <li>
+                  <strong>Arrow keys.</strong> Enables the user to navigate through vertical menus, radio buttons, checkboxes, select/drop-down menus,
+                  sliders, tab panels, auto-complete, etc.
+                </li>
+                <li>
+                  <strong>Escape.</strong> Does this dismiss all interactive elements, including browser dialogs or menus, and take the user back to the main content?
+                </li>
+              </ul>
+            </li>
             <li>Will be able to easily click the object (has a large clickable area).</li>
             <li>Has enough time to complete necessary tasks.</li>
             <li>Can correct any errors that may have been made.</li>
@@ -330,6 +532,10 @@ function AccessibilityDocumentation() {
           recommended to use a media player that also allows the user to change the size and color of the captions. These can also be
           known as &quot;sub-titles&quot; and is available with most media players. To view more information on captions see
           the <ExternalLink href="https://www.w3.org/WAI/media/av/captions/">w3.org page on Captions/Subtitles</ExternalLink>.
+          <StaticExample
+            renderedExample={<LightBox image={captionsImg} alt="Video providing captions" />}
+            className="mb-auto mt-spacing-s"
+          />
         </li>
         <li>
           <strong>Transcripts.</strong> Transcripts refers to a written version of the spoken content in an audio or video file. Not only
@@ -351,7 +557,7 @@ function AccessibilityDocumentation() {
           <strong>Organized content.</strong> Create coherent <Link to={pageUrls.headings}>heading</Link> structures to organize information.
         </li>
         <li>
-          <strong>Readable content.</strong> Consider the wording and the line length. Could a 9th grader read and understand it? If not, consider reworking the content.
+          <strong>Readable content.</strong> Consider the wording and the line length. Could a 8th grader read and understand it? If not, consider reworking the content.
         </li>
         <li>
           <strong>Predictable functionality.</strong> Not all new features are welcome. Consider
@@ -428,6 +634,20 @@ function AccessibilityDocumentation() {
           <strong>Provide visible focus indicators.</strong> Native html elements have default focus behavior that activates when the user clicks or tabs into it. If
           you customize a form element, the focus boundary requires a <code>3:1</code> contrast ratio to its background. Test to make sure that there is a visible focus state
           on each element, to guide the user through the form.
+          <StaticExample
+            renderedExample={(
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/DKfsAFhknAU"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            )}
+            className="mb-auto mt-spacing-s"
+          />
         </li>
         <li>
           <strong>Tie a label to each form element.</strong> Use the form element <code>&lt;label&gt;</code> or <code>&lt;legend&gt;</code> depending on the form element
@@ -492,10 +712,10 @@ function AccessibilityDocumentation() {
         PDFs and a comparison of the &quot;Tags Structure Quality&quot;.
       </p>
       <TableWrapper>
-        <Table>
+        <Table className="table table--lines-x table--alt table--full-width mb-spacing-l">
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell>Source Application</TableHeadCell>
+              <TableHeadCell className="text-left">Source Application</TableHeadCell>
               <TableHeadCell>Good tags structure</TableHeadCell>
               <TableHeadCell>No/poor tags structure</TableHeadCell>
             </TableHeadRow>
@@ -503,38 +723,80 @@ function AccessibilityDocumentation() {
           <TableBody>
             <TableRow>
               <TableCell>Adobe Illustrator</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+              <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                {/* <span className="visually-hidden">Sad Face</span> */}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Adobe InDesign</TableCell>
-              <TableCell className="text-center">√</TableCell>
-              <TableCell />
+              <TableCell className="text-center">
+                <div>
+                  <span
+                    className="utds-icon-before-check"
+                    aria-hidden="true"
+                  />
+                  <span className="visually-hidden">
+                    has good tags structure
+                  </span>
+                </div>
+              </TableCell>
+              <TableCell>&nbsp;</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Canva</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+              <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <span className="visually-hidden">Sad Face</span>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Google Docs</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+              <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <span className="visually-hidden">Sad Face</span>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Google Slides</TableCell>
-              <TableCell />
-              <TableCell className="text-center">√</TableCell>
+              <TableCell>&nbsp;</TableCell>
+              <TableCell className="text-center">
+                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <span className="visually-hidden">Sad Face</span>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Microsoft PowerPoint</TableCell>
-              <TableCell className="text-center">√</TableCell>
-              <TableCell />
+              <TableCell className="text-center">
+                <div>
+                  <span
+                    className="utds-icon-before-check"
+                    aria-hidden="true"
+                  />
+                  <span className="visually-hidden">
+                    has good tags structure
+                  </span>
+                </div>
+              </TableCell>
+              <TableCell>&nbsp;</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Microsoft Word</TableCell>
-              <TableCell className="text-center">√</TableCell>
-              <TableCell />
+              <TableCell className="text-center">
+                <div>
+                  <span
+                    className="utds-icon-before-check"
+                    aria-hidden="true"
+                  />
+                  <span className="visually-hidden">
+                    has good tags structure
+                  </span>
+                </div>
+              </TableCell>
+              <TableCell>&nbsp;</TableCell>
             </TableRow>
           </TableBody>
         </Table>

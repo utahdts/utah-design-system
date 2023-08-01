@@ -1,11 +1,16 @@
 .color-pickers {
+  &__wrapper {
+    max-height: calc(100vh - 200px);
+    overflow: scroll;
+    padding-top: var(--spacing-s);
+  }
   &__selectors {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: var(--spacing);
     background: white;
-    padding: 0 var(--spacing) var(--spacing) var(--spacing);
+    padding: 0 var(--spacing) var(--spacing-2xs) var(--spacing);
   }
   &__group {
     display: flex;

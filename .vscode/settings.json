@@ -51,5 +51,6 @@
   "sonarlint.connectedMode.project": {
     "connectionId": "utahdts",
     "projectKey": "utahdts_utah-design-system"
-  }
+  },
+  "testing.automaticallyOpenPeekView": "never"
 }

@@ -13,6 +13,7 @@ import renderActionItem from './renderActionItem';
  */
 export default function ActionItems() {
   const { actionItems } = getUtahHeaderSettings();
+  /** @type {HTMLElement | null} */
   let actionItemsWrapper = null;
 
   if (actionItems?.length) {
@@ -21,7 +22,7 @@ export default function ActionItems() {
     getUtahHeaderSettings()
       .actionItems
       ?.map((actionItemToRender) => renderActionItem(actionItemToRender))
-      ?.forEach((renderedActionItem) => actionItemsWrapper.appendChild(renderedActionItem));
+      ?.forEach((renderedActionItem) => actionItemsWrapper?.appendChild(renderedActionItem));
   }
 
   return actionItemsWrapper;

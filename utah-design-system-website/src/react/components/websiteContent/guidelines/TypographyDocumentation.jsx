@@ -56,15 +56,15 @@ function TypographyDocumentation() {
         <li>Comic Sans ☹️</li>
       </ul>
 
-      <h3 id="font-family-source-sans" className="mt-spacing">Source Sans Pro</h3>
-      <p>Font pairing: Source Sans Pro, Lora, Source Code Pro</p>
+      <h3 id="font-family-source-sans" className="mt-spacing">Source Sans 3</h3>
+      <p>Font pairing: Source Sans 3, Lora, Source Code Pro</p>
       <div className="typography__font-family">
         <div className="typography__font-demo">
           <div>
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
           <div className="typography__font-name">
-            <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+Pro">Source Sans Pro <br />(Sans Serif)</ExternalLink>
+            <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+3">Source Sans 3 <br />(Sans Serif)</ExternalLink>
           </div>
         </div>
         <div className="typography__font-demo typography__lora-font">
@@ -284,7 +284,7 @@ function TypographyDocumentation() {
           typeface. <i>If in doubt, use the recommended sans serif font.</i>
         </li>
         <li>
-          <strong>Neutral typefaces can be a good choice for interfaces</strong> <i>(font used: Source Sans Pro)</i>. UIs are the practical expression of a site’s organization and functionality. A straightforward and neutral typeface can help the user focus on using the interface as a tool.
+          <strong>Neutral typefaces can be a good choice for interfaces</strong> <i>(font used: Source Sans 3)</i>. UIs are the practical expression of a site’s organization and functionality. A straightforward and neutral typeface can help the user focus on using the interface as a tool.
         </li>
         <li>
           <strong>Avoid long sections of italic or bold text.</strong> Both italic and bold text can degrade readability. Both are best used for limited sections of contrast. Consider replacing long sections of bold or italic text with a callout box, a section header, or some other technique that avoids extended stretches of styled text.
@@ -422,7 +422,7 @@ function TypographyDocumentation() {
                   Individual letterforms are distinct in shape and can&apos;t be confused with other characters. For example: I, l, and
                   1 are distinct. 0 and O are distinct.
                   <ul>
-                    <li>l, I, 1, 0, O (Source Sans Pro)</li>
+                    <li>l, I, 1, 0, O (Source Sans 3)</li>
                     <li className="typography__arial-font">l, I, 1, 0, O (Arial)</li>
                   </ul>
                 </li>

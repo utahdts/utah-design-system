@@ -2,7 +2,7 @@
 import { expect } from 'vitest';
 import { loadHeader, setUtahHeaderSettings } from '../../../src';
 
-/** @typedef {import ('../../../src/js/misc/jsDocTypes').Settings} Settings */
+/** @typedef {import('../../../src/js/misc/jsDocTypes').Settings} Settings */
 
 /**
  * @param {Settings} settings

@@ -62,7 +62,7 @@ export function hookupUtahIdInMobileMenu(mobileMenuWrapper, utahIdPopup) {
         let result = false;
         if (!currentUtahIdData?.isDefinitive || !currentUtahIdData?.userInfo?.authenticated) {
           result = true;
-          const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId.onSignIn);
+          const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId?.onSignIn);
           if (onSignIn) {
             onSignIn(e);
           } else {

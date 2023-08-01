@@ -24,7 +24,7 @@ Goes hand in hand with the [Design System Header](https://github.com/utahdts/uta
 
 - [![Design System Website](https://img.shields.io/badge/Design%20System%20Website-blue)](https://designsystem.utah.gov)
 - [![Getting Started](https://img.shields.io/badge/Getting%20Started-blue)](https://designsystem.utah.gov/resources/gettingStarted)
-- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options-blue)](https://designsystem.utah.gov/library/patterns/utahHeader)
+- [![Utah Header Options](https://img.shields.io/badge/Utah_Header_Options-blue)](https://designsystem.utah.gov/library/utahHeader)
 
 ## NPM
 
@@ -68,7 +68,7 @@ https://unpkg.com/@utahdts/utah-design-system@1.0.1/dist/style.css
 
 Example using latest:
 ```
-https://unpkg.com/@utahdts/utah-design-system@latest/dist/style.css
+https://unpkg.com/@utahdts/utah-design-system/dist/style.css
 ```
 
 ## Contributing

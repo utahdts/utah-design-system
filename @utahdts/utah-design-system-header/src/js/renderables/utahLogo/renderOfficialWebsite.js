@@ -3,9 +3,9 @@
 import UtahOfficialWebsitePopupContentHtml from './html/UtahOfficialWebsitePopupContent.html?raw';
 
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import notNull from '../../misc/notNull';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
-import notNull from '../../misc/notNull';
 import { hideMobileMenu } from '../mobile/util/showHideHamburgerElements';
 
 export function closeOfficialWebsite() {
@@ -31,8 +31,8 @@ export function closeOfficialWebsite() {
   officialWebsiteWrapper.setAttribute('aria-hidden', 'true');
   // shift tabbing from mobile menu item content's first action item button would tab in to this
   // hidden "official website" content. setting the tabindex to -1 makes this not happen
-  closeButton.setAttribute('tabIndex', -1);
-  officialWebsiteWrapper.setAttribute('tabIndex', -1);
+  closeButton.setAttribute('tabIndex', '-1');
+  officialWebsiteWrapper.setAttribute('tabIndex', '-1');
 
   // hide all tooltips when button is clicked because the popup opens
   const toolTips = document.querySelectorAll(getCssClassSelector(domConstants.TOOLTIP__WRAPPER));
@@ -65,6 +65,7 @@ export function openOfficialWebsite() {
   officialWebsiteWrapper.removeAttribute('tabIndex');
   logoButton.setAttribute('aria-expanded', 'true');
   officialWebsiteWrapper.setAttribute('aria-hidden', 'false');
+  // @ts-ignore
   officialWebsiteWrapper.focus();
 
   // hide all tooltips when button is clicked because the popup opens
@@ -78,14 +79,13 @@ export function openOfficialWebsite() {
 }
 
 /**
- * @param {HTMLElement} logoWrapper
  * @returns {Element}
  */
 export default function renderOfficialWebsite() {
   const officialWebsiteWrapper = renderDOMSingle(UtahOfficialWebsitePopupContentHtml);
 
   const logoWrapper = document.querySelector(getCssClassSelector(domConstants.LOGO));
-  const logoButton = /** @type {HTMLElement} */(logoWrapper.querySelector(getCssClassSelector(domConstants.LOGO_SVG)));
+  const logoButton = /** @type {HTMLElement} */(logoWrapper?.querySelector(getCssClassSelector(domConstants.LOGO_SVG)));
   if (!logoButton) {
     throw new Error('renderOfficialWebsite: logoButton not found');
   }
@@ -114,6 +114,7 @@ export default function renderOfficialWebsite() {
     });
   };
 
+  // @ts-ignore
   closeButton.onclick = () => {
     officialWebsiteWrapper.classList.toggle(domConstants.VISUALLY_HIDDEN);
     logoButton.focus();

@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -9,6 +9,7 @@
       "production": "./dist/utah-design-system-header.es.js",
       "import": "./dist/utah-design-system-header.es.js",
       "require": "./dist/utah-design-system-header.umd.js",
+      "types": "./dist/src/index.d.ts",
       "default": [
         "./dist/utah-design-system-header.es.js",
         "./dist/utah-design-system-header.umd.js",
@@ -19,12 +20,20 @@
     "./src/css/index.scss": "./src/css/index.scss"
   },
   "main": "./src/index.js",
+  "types": "./dist/src/index.d.ts",
   "files": [
     "src/css",
     "dist"
   ],
   "scripts": {
     "build": "vite build",
+    "buildTypes": "npx tsc",
+    "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
+    "cleani": "run-s clean npmi",
+    "cleanDist": "rimraf ./dist",
+    "cleanNodeModules": "rimraf ./node_modules",
+    "cleanPackageLock": "rimraf package-lock.json",
+    "npmi": "npm i",
     "preview": "vite preview",
     "publishHeader": "npm publish --access public",
     "test-publish": "npm publish --dry-run",
@@ -57,6 +66,8 @@
     "@vitest/ui": "0.33.0",
     "jsdom": "22.1.0",
     "sass": "1.63.6",
+    "tslib": "2.6.1",
+    "typescript": "5.1.6",
     "vite": "4.4.4",
     "vitest": "0.33.0"
   },

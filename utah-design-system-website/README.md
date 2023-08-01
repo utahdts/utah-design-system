@@ -16,7 +16,7 @@ The Utah Design System Website provides examples and documentation on how to use
 
 - [Home](https://github.com/utahdts/utah-design-system)
 - [Library](https://github.com/utahdts/utah-design-system)
-- [Design System Header](https://github.com/utahdts/utah-design-system/tree/dev/%40utahdts/utah-design-system-header)
-- [Examples](https://github.com/utahdts/utah-design-system/tree/dev/examples)
+- [Design System Header](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system-header)
+- [Examples](https://github.com/utahdts/utah-design-system/tree/main/examples)
 - [Design System Website](https://designsystem.utah.gov/)
 

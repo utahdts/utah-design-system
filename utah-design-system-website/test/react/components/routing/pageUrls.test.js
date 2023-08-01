@@ -4,8 +4,8 @@ import { describe, expect, test } from 'vitest';
 import pageUrls from '../../../../src/react/components/routing/pageUrls';
 import constructMainMenu from '../../../../src/react/components/routing/util/constructMainMenu';
 
-/** @typedef {import ('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').MenuItem} MenuItem */
-/** @typedef {import ('../../../../src/typedefs.d.js').PageUrl} PageUrl */
+/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').MenuItem} MenuItem */
+/** @typedef {import('../../../../src/typedefs.d.js').PageUrl} PageUrl */
 
 /**
  * @param {string[] | undefined} existingPaths

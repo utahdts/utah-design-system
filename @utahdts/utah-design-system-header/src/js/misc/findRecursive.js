@@ -26,7 +26,9 @@ export default function findRecursive(object, recursiveFields, isMatchFunc) {
         // object didn't match so try its children
         result = (
           !!recursiveFields
+            // @ts-ignore
             ?.filter((field) => object[field])
+            // @ts-ignore
             ?.some((field) => findRecursive(object[field], recursiveFields, isMatchFunc))
         );
       }
