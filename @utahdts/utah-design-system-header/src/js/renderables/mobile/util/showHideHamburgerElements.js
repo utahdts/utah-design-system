@@ -5,13 +5,13 @@ import getHamburgerElements from './getHamburgerElements';
 export function hideMobileMenu() {
   const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('hideMobileMenu');
   // close MMAB
-  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger?.setAttribute('aria-expanded', 'false');
   mobileMenu.classList.remove(domConstants.IS_OPEN);
-  hamburger.setAttribute('aria-label', 'Open the mobile menu');
+  hamburger?.setAttribute('aria-label', 'Open the mobile menu');
 
   // change from an 'X'
-  hamburgerIcon.classList.add('utds-icon-before-hamburger');
-  hamburgerIcon.classList.remove('utds-icon-before-x-icon');
+  hamburgerIcon?.classList.add('utds-icon-before-hamburger');
+  hamburgerIcon?.classList.remove('utds-icon-before-x-icon');
 }
 
 export function showMobileMenu() {
@@ -22,11 +22,11 @@ export function showMobileMenu() {
   }
   const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('showMobileMenu');
   // open MMAB
-  hamburger.setAttribute('aria-expanded', 'true');
+  hamburger?.setAttribute('aria-expanded', 'true');
   mobileMenu.classList.add(domConstants.IS_OPEN);
-  hamburger.setAttribute('aria-label', 'Close the mobile menu');
+  hamburger?.setAttribute('aria-label', 'Close the mobile menu');
 
   // change to an 'X'
-  hamburgerIcon.classList.remove('utds-icon-before-hamburger');
-  hamburgerIcon.classList.add('utds-icon-before-x-icon');
+  hamburgerIcon?.classList.remove('utds-icon-before-hamburger');
+  hamburgerIcon?.classList.add('utds-icon-before-x-icon');
 }

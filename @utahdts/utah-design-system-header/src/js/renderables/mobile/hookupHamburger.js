@@ -14,13 +14,14 @@ import { hideMobileMenu } from './util/showHideHamburgerElements';
  */
 export default function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
+  const hamburgerNotNull = /** @param {string} context */ (context) => notNull(hamburger, `hookupHamburger: hamburger required but is null: ${context}`);
 
   const settings = getUtahHeaderSettings();
   const actionItemHasBadge = settings.actionItems?.some((actionItem) => !!actionItem.badge);
   if (actionItemHasBadge) {
     const badge = renderActionItemBadge({ label: 'Home Badge' });
     if (badge) {
-      hamburger.appendChild(badge);
+      hamburgerNotNull('home badge').appendChild(badge);
     }
   }
 
@@ -55,33 +56,37 @@ export default function hookupHamburger(mobileMainMenuContentItem) {
     mobileMainMenuContentItem.setAttribute('aria-labelledby', actionItemId);
   }
 
-  mobileMenuInteractionHandler(
-    hamburger,
-    () => firstBarActionItem().actionItemWrapper,
-    () => firstBarActionItem().actionItem,
-    {
-      additionalOnClick: () => closeOfficialWebsite(),
-      ariaHasPopupType: 'menu',
-      shouldOnClickCloseMenu: true,
-    }
-  );
+  if (hamburger) {
+    mobileMenuInteractionHandler(
+      hamburger,
+      () => firstBarActionItem().actionItemWrapper,
+      () => firstBarActionItem().actionItem,
+      {
+        additionalOnClick: () => closeOfficialWebsite(),
+        ariaHasPopupType: 'menu',
+        shouldOnClickCloseMenu: true,
+      }
+    );
+  }
 
   // when hamburger is in an "open" state (mobile menu is open) and the hamburger loses focus (tabbed off of)
   // then move focus to the first action item in the mobile action item bar. UDS-234
-  checkForError(!!hamburger.onblur, 'hookupHamburger: hamburger already has an onblur event');
-  hamburger.onblur = () => {
-    const { mobileMenu } = getHamburgerElements('showMobileMenu');
-    if (mobileMenu.classList.contains(domConstants.IS_OPEN)) {
-      const actionBarClass = getCssClassSelector(domConstants.MOBILE_MENU__ACTION_BAR);
-      const actionItemWrapperClass = getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER);
-      const actionItemButtonClass = getCssClassSelector(domConstants.ICON_BUTTON);
-      const firstMobileActionItem = (
-        /** @type {HTMLElement | null} */
-        (document.querySelector(`${actionBarClass} ${actionItemWrapperClass}:first-child ${actionItemButtonClass}`))
-      );
-      firstMobileActionItem?.focus();
-    }
-  };
+  if (hamburger) {
+    checkForError(!!hamburger.onblur, 'hookupHamburger: hamburger already has an onblur event');
+    hamburger.onblur = () => {
+      const { mobileMenu } = getHamburgerElements('showMobileMenu');
+      if (mobileMenu.classList.contains(domConstants.IS_OPEN)) {
+        const actionBarClass = getCssClassSelector(domConstants.MOBILE_MENU__ACTION_BAR);
+        const actionItemWrapperClass = getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER);
+        const actionItemButtonClass = getCssClassSelector(domConstants.ICON_BUTTON);
+        const firstMobileActionItem = (
+          /** @type {HTMLElement | null} */
+          (document.querySelector(`${actionBarClass} ${actionItemWrapperClass}:first-child ${actionItemButtonClass}`))
+        );
+        firstMobileActionItem?.focus();
+      }
+    };
+  }
 
   // if no bar, move hamburger to mobile citizen experience UDS-564
   if (((settings.mainMenu || settings.actionItems) && !settings.onSearch && settings.utahId === false)) {
@@ -89,7 +94,7 @@ export default function hookupHamburger(mobileMainMenuContentItem) {
       document.querySelector(getCssClassSelector(domConstants.CITIZEN_EXPERIENCE_MOBILE)),
       'hookupHamburger: citizen experience mobile not found'
     );
-    citizenExperienceMobile.appendChild(hamburger);
+    citizenExperienceMobile.appendChild(hamburgerNotNull('adding to citizen experience'));
     const mainMenu = notNull(
       document.querySelector(getCssClassSelector(domConstants.MAIN_MENU)),
       'hookupHamburger: main menu not found'

@@ -109,6 +109,6 @@ export default function hookupMobileActionItemKeyboarding() {
   hiddenLastFocusableButton.addEventListener('focusin', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    hamburger.focus();
+    hamburger?.focus();
   });
 }
