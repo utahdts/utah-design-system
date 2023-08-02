@@ -1,3 +1,4 @@
+// @ts-check
 import PropTypes from 'prop-types';
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -17,7 +18,7 @@ function RoutePage({ children, page }) {
       if (location.hash) {
         // if there's a hash, scroll to it
         const element = document.getElementById(location.hash.substring(1));
-        element.scrollIntoView(true, { behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: 'smooth' });
       } else {
         // UDS-565 browser was landing users in the middle of the page because of browser scroll position remembering
         // instead, just always go to the top. remembering scrolling position gets complicated really fast
