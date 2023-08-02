@@ -2,6 +2,7 @@
   "name": "utah-design-system-website",
   "private": true,
   "version": "1.2.0",
+  "type": "module",
   "scripts": {
     "dev": "vite --mode development-local",
     "build": "vite build --mode production-website",
