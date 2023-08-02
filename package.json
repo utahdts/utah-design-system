@@ -7,6 +7,7 @@
     "utah-design-system-website"
   ],
   "type": "module",
+  "type": "module",
   "scripts": {
     "// ====== pure tasks ====== //": "",
     "buildHeader": "npm run build -workspace=@utahdts/utah-design-system-header",
@@ -20,6 +21,8 @@
     "cleanNodeModules": "rimraf ./utah-design-system-website/node_modules & rimraf ./@utahdts/utah-design-system/node_modules & rimraf ./@utahdts/utah-design-system-header/node_modules & rimraf node_modules",
     "cleanPackageLock": "rimraf package-lock.json",
     "eslint": "npx eslint --ignore-pattern \"/examples\" .",
+    "generateSitemap": "node --experimental-modules --es-module-specifier-resolution=node utah-design-system-website/scripts/generateSitemap.js  -workspace=utah-design-system-website",
+    "submitSitemap": "node --experimental-modules --es-module-specifier-resolution=node utah-design-system-website/scripts/submitSitemap.js  -workspace=utah-design-system-website",
     "generateSitemap": "node --experimental-modules --es-module-specifier-resolution=node utah-design-system-website/scripts/generateSitemap.js  -workspace=utah-design-system-website",
     "submitSitemap": "node --experimental-modules --es-module-specifier-resolution=node utah-design-system-website/scripts/submitSitemap.js  -workspace=utah-design-system-website",
     "headerDev": "npm run watch -workspace=@utahdts/utah-design-system-header",
@@ -51,12 +54,17 @@
     "publishLibrary": "npm run publishLibrary -workspace=@utahdts/utah-design-system",
     "reset": "run-s cleani websiteDev",
     "sitemap": "run-s generateSitemap submitSitemap"
+    "reset": "run-s cleani websiteDev",
+    "sitemap": "run-s generateSitemap submitSitemap"
   },
   "devDependencies": {
     "eslint": "8.46.0",
+    "eslint": "8.46.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.28.0",
+    "eslint-plugin-import": "2.28.0",
     "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "7.33.1",
     "eslint-plugin-react": "7.33.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.3",
