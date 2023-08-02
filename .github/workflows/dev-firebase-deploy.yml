@@ -23,7 +23,12 @@ jobs:
         run: |
           npm install
           
-      - name: Build 🔧
+      # generate (but not submit (submit is PROD only)) a sitemap.txt
+      - name: Create sitemap 🗾🔭🤠🚣‍♀️💰🏴‍☠️💀
+        run: |
+          npm run generateSitemap 
+
+      - name: Build 👎🌑🏚️🛠️🏠🌕👍
         run: |
           npm run build 
           

@@ -17,7 +17,7 @@ const defaultProps = {};
 function TextInputDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Text Input</h1>
+      <h1 id="h1-top">Text Input</h1>
       <p className="lead-in">
         Text input allows the user to enter any combination of letters, numbers or symbols in a single-line input box.
         For multi-line input please view more information on <Link to={pageUrls.textArea}>Areas</Link>.

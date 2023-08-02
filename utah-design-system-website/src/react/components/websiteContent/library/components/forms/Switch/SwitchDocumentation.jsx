@@ -36,7 +36,7 @@ const defaultProps = {};
 function SwitchDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Switch</h1>
+      <h1 id="h1-top">Switch</h1>
       <p className="lead-in">
         Switches toggle the state of a single setting on or off. A switch must always be accompanied by a label, and
         follows the same keyboard workflow as a <Link to={pageUrls.checkbox}>checkbox</Link>.

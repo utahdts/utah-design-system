@@ -13,7 +13,7 @@ jobs:
       id-token: 'write'
     
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout 🛎️🧳🎫🤑
         uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -23,7 +23,11 @@ jobs:
         run: |
           npm install
 
-      - name: Build 🔧
+      - name: Submit sitemap 🗾🔭🤠🚣‍♀️💰🏴‍☠️💀
+        run: |
+          npm run sitemap 
+
+      - name: Build 👎🌑🏚️🛠️🏠🌕👍
         run: |
           npm run build 
 

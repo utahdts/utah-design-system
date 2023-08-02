@@ -16,7 +16,7 @@ const defaultProps = {};
 function RadioButtonDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Radio Button</h1>
+      <h1 id="h1-top">Radio Button</h1>
       <p className="lead-in">Radio buttons should be used when the user must choose only one item from a list of options.</p>
 
       <hr />

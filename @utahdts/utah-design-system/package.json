@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -59,7 +59,7 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.1.1",
+    "@utahdts/utah-design-system-header": "1.2.0",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
@@ -69,14 +69,14 @@
     "uuid": "9.0.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.15",
+    "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
-    "@vitejs/plugin-react": "4.0.3",
-    "@vitest/coverage-istanbul": "0.33.0",
+    "@vitejs/plugin-react": "4.0.4",
+    "@vitest/coverage-istanbul": "0.34.1",
     "jsdom": "22.1.0",
-    "sass": "1.63.6",
-    "vite": "4.4.4",
-    "vitest": "0.33.0"
+    "sass": "1.64.2",
+    "vite": "4.4.8",
+    "vitest": "0.34.1"
   },
   "type": "module"
 }

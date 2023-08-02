@@ -12,7 +12,7 @@ const defaultProps = {};
 function InfoBoxDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Info Box</h1>
+      <h1 id="h1-top">Info Box</h1>
       <p className="lead-in">
         An info box is a way to communicate additional information about form inputs to users.
       </p>

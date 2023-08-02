@@ -16,7 +16,7 @@ const defaultProps = {};
 function AccordionDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Accordion</h1>
+      <h1 id="h1-top">Accordion</h1>
       <p className="lead-in">
         An accordion is a collection of headings that can be expanded or collapsed to show or hide extra content upon selection.
       </p>

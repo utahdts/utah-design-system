@@ -400,7 +400,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
-  skiplink: {
+  skipLink: {
     content: SkipLinkDocumentation,
     link: pageUrls.skipLink,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
@@ -608,13 +608,6 @@ const pages = {
     link: pageUrls.statusIndicator,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Status Indicators',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  },
-  skipLink: {
-    content: PlaceHolderDocumentation,
-    link: pageUrls.skipLink,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Skip Link',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   stepIndicator: {

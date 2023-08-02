@@ -13,7 +13,7 @@ const defaultProps = {};
 function CodeBlockDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Code Block</h1>
+      <h1 id="h1-top">Code Block</h1>
       <p className="lead-in">
         A code block emphasizes and preserves the formatting of an entire block of code.
       </p>

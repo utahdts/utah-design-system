@@ -20,7 +20,7 @@ const defaultProps = {};
 function DateInputDocumentation() {
   return (
     <div className="documentation-content">
-      <h1>Date Input</h1>
+      <h1 id="h1-top">Date Input</h1>
       <p className="lead-in">The Date Input is a specialized input field that can present a date picker popup to the user.</p>
       <hr />
       <h2 id="example">Example</h2>
