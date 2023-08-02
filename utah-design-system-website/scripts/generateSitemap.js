@@ -38,9 +38,15 @@ const urls = (
 // place sitemap file at root of site
 const content = urls.join(EOL);
 
+// create public folder if it is missing
+const dir = 'utah-design-system-website/public';
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
+}
+
 // write file to root of site
 fs.writeFile(
-  'utah-design-system-website/src/static/sitemap.txt',
+  'utah-design-system-website/public/sitemap.txt',
   content,
   (err) => {
     if (err) {
