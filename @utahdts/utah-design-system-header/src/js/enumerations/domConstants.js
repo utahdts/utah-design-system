@@ -75,6 +75,7 @@ export default {
   MENU_ITEM__LINK_TITLE: 'menu-item__link-title',
   MENU_ITEM__LINK_TITLE_SPAN: 'menu-item__link-title-span',
   MENU_ITEM__SELECTED: 'menu-item--selected',
+  MENU_ITEM__SELECTED_PARENT: 'menu-item--selected_parent',
   MENU_ITEM__TITLE: 'menu-item__title',
   MENU_ITEM__FLY_OUT: 'menu-item--fly_out',
   MENU_ITEM__INLINE: 'menu-item--inline',

@@ -1,11 +1,11 @@
 import { useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import Icons from '../icons/Icons';
+import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import useStateEffect from '../../hooks/useStateEffect';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
-import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
+import Icons from '../icons/Icons';
 
 const propTypes = {
   currentMenuItem: MenuItemShape,
@@ -61,7 +61,10 @@ function MenuItem({ currentMenuItem, menuItem }) {
             )
             : (
               <NavLink
-                className={(navData) => joinClassNames((currentMenuItem?.parentLinks?.includes(menuItem.link) || navData.isActive) && 'menu-item--selected')}
+                className={(navData) => joinClassNames(
+                  (currentMenuItem?.parentLinks?.includes(menuItem.link) || navData.isActive)
+                  && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
+                )}
                 end
                 to={menuItem.link}
                 ref={navLinkRef}

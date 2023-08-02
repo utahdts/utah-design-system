@@ -47,6 +47,9 @@ scss mixins and functions
 }
 
 @mixin selected-vertical-menu-item {
+  &.menu-item--selected_parent {
+    font-weight: bold;
+  }
   &.menu-item--selected {
     font-weight: bold;
     border-top-left-radius: 0;
