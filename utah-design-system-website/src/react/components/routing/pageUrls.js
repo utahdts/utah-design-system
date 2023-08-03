@@ -37,7 +37,7 @@ const pageUrls = {
   errorPage404: /** @type {PageUrl} */ ('/errors/404'),
   fileInput: /** @type {PageUrl} */ ('/library/components/forms/fileInput'),
   forms: /** @type {PageUrl} */ ('/library/components/forms'),
-  gettingStarted: /** @type {PageUrl} */ ('/resources/gettingStarted'),
+  gettingStarted: /** @type {PageUrl} */ ('/gettingStarted'),
   gettingStartedDesigner: /** @type {PageUrl} */ ('/resources/gettingStartedDesigner'),
   gettingStartedDeveloper: /** @type {PageUrl} */ ('/resources/gettingStartedDeveloper'),
   github: /** @type {PageUrl} */ ('/resources/github'),

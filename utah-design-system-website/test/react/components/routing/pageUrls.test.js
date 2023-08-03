@@ -89,16 +89,30 @@ describe('pageUrls - match menu path', () => {
   const menuPaths = deconstructMainMenuPaths(mainMenu.menuItems);
 
   /*
+   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
+   *
+   *
    * When a test fails this check it means that the pageUrls object's path for the page
    * does not match the path to the page in menus.js
+   *
+   *
+   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
+   *
+   *
    * This first builds the main menu like how the website builds the main menu.
    * It then uses the built main menu's menu titles and children to reconstruct menu paths
-   * It translates the menu paths to rip out non-url safe characters
-   * and camelCases the titles
-   * It then compares that transformed menu title path with the path in pageUrls to make sure they match
+   * It translates the menu paths to rip out non-url safe characters and camelCases the titles
+   * It then compares the transformed menu title path with the path in pageUrls to make sure they match
+   *
+   *
+   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
+   *
    *
    * Feel free to not match the menu path with the pageUrl path, just update this test code
-   * to account for the change. eg /home gets changed to just /
+   * to account for the change. eg '/home' gets changed to just '/', but be ready to explain yourself.
+   *
+   *
+   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
   */
   test.each(
     /** @type {[[string, string, string[] | undefined]]} */(
@@ -109,7 +123,7 @@ describe('pageUrls - match menu path', () => {
     )
   )(
     'pageUrls - match menu path: %s, %s, %s',
-    (pageUrlKey, pageUrlPath, menuPathsForPageUrl) => {
+    (_pageUrlKey, pageUrlPath, menuPathsForPageUrl) => {
       expect(menuPathsForPageUrl?.includes(pageUrlPath)).toBeTruthy();
     }
   );

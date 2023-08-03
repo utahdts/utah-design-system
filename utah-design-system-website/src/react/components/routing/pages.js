@@ -310,6 +310,9 @@ const pages = {
   },
   gettingStarted: {
     content: GettingStarted,
+    legacyLinks: [
+      '/resources/gettingStarted',
+    ],
     link: pageUrls.gettingStarted,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started',
