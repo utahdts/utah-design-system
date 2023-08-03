@@ -6,6 +6,8 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import LightBox from '../../../../../lightbox/LightBox';
+import stepIndicatorScreenshot from '../../../../../../../static/images/mockups/StepIndicator.jpg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -21,41 +23,20 @@ function StepIndicatorDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Step Indicator"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={stepIndicatorScreenshot} alt="Step Indicator" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>
-              The Utah Design System uses a gated progress indicator, where the completion of earlier steps is a prerequisite for progressing to later steps. The user
-              is required to navigate through the steps in sequential order, typically by utilizing adjacent <Link to={pageUrls.button}>buttons</Link> within the
-              designated workflow. However, once a user has completed a step, they have the ability to select previous steps to review the information that was either
-              entered or submitted. However, steps cannot be skipped.
-            </li>
-            <li>
-              Orientation: Horizontal
-            </li>
-            <li>
-              Steps within the stepper can be linked, allowing them to receive keyboard focus, or unlinked, causing them to not receive focus.
-            </li>
-            <li>
-              A step may indicate a <Link to={pageUrls.validation}>validation error</Link> in a warning.
-            </li>
-            <li>
-              Anatomy:
-              <ul>
-                <li>Progress track: This line links the steps together in a gated progress stepper.</li>
-                <li>Current step: This shows the step that the user is on.</li>
-                <li>Upcoming step: This shows the step(s) beyond the current step, closer to completion.</li>
-                <li>Completed step: This shows the step(s) the user has already completed, closer to the beginning.</li>
-                <li>Disabled: A grayed-out label indicates a step that users cannot visit.</li>
-                <li>Step label: This describes the purpose of the step.</li>
-                <li>Step indicator: The circle or <Link to={pageUrls.icons}>dot icon</Link> that indicates the step.</li>
-              </ul>
-            </li>
+            <li>Progress track: This line links the steps together in a gated step indicator.</li>
+            <li>Current step: This shows the step that the user is on.</li>
+            <li>Upcoming step: This shows the step(s) beyond the current step, closer to completion.</li>
+            <li>Completed step: This shows the step(s) the user has already completed, closer to the beginning.</li>
+            <li>Disabled: A grayed-out label indicates a step that users cannot visit.</li>
+            <li>Step label: This describes the purpose of the step.</li>
+            <li>Step indicator: The circle that indicates the step.</li>
             <li>
               Responsive behavior:
               <ul>
                 <li>On small screens, consider hiding step labels and showing only step indicators.</li>
-                <li>Typically limit the number of steps to less than 6 steps to avoid information overload.</li>
               </ul>
             </li>
           </ul>
@@ -76,7 +57,7 @@ function StepIndicatorDocumentation() {
           manageable steps to prevent the user from feeling overwhelmed.
         </li>
         <li>
-          <strong>Display completed tasks.</strong> Use progress indicators to show completed tasks. This will help the user know where
+          <strong>Display completed tasks.</strong> Use step indicators to show completed tasks. This will help the user know where
           they are in relation to where they have been, and what sections are to follow.
         </li>
         <li>
@@ -178,7 +159,7 @@ function StepIndicatorDocumentation() {
       <ul className="mb-spacing">
         <li>
           When a user is allowed to navigate by the step indicators, use the <code>tab</code> key to navigate to each enabled step.
-          Use <code>space</code> and <code>enter</code> to select the step.
+          Use <code>space</code> or <code>enter</code> to select the step.
         </li>
       </ul>
 
