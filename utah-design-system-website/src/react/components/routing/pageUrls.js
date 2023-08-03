@@ -1,9 +1,12 @@
 // @ts-check
+
 /** @typedef {import('../../../typedefs.d.js').PageUrl} PageUrl */
+
+// !!!!! IF YOU CHANGE THESE, make sure you update the related legacyLinks in pages.js !!!!! //
 /** @enum {PageUrl} */
 const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibility'),
-  accessibilityChecklist: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityChecklist'),
+  accessibilityChecklist: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityChecklistTesting'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
   backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
@@ -35,8 +38,8 @@ const pageUrls = {
   fileInput: /** @type {PageUrl} */ ('/library/components/forms/fileInput'),
   forms: /** @type {PageUrl} */ ('/library/components/forms'),
   gettingStarted: /** @type {PageUrl} */ ('/resources/gettingStarted'),
-  gettingStartedDesigner: /** @type {PageUrl} */ ('/resources/gettingStarted/designer'),
-  gettingStartedDeveloper: /** @type {PageUrl} */ ('/resources/gettingStarted/developer'),
+  gettingStartedDesigner: /** @type {PageUrl} */ ('/resources/gettingStartedDesigner'),
+  gettingStartedDeveloper: /** @type {PageUrl} */ ('/resources/gettingStartedDeveloper'),
   github: /** @type {PageUrl} */ ('/resources/github'),
   guidelines: /** @type {PageUrl} */ ('/guidelinesStandards'),
   hamburger: /** @type {PageUrl} */ ('/library/components/navigationLinks/hamburger'),

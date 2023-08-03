@@ -12,8 +12,17 @@
  * ColorRating
  * @typedef {'AA' | 'AAA' | 'X'} ColorRating
  */
+/**
+ * LayoutTemplate
+ * @typedef {'documentation-template' | 'landing-template'} LayoutTemplate
+ */
+/**
+ * NamedMenus
+ * @typedef {'main-menu' | 'secondary-menu-guidelines' | 'secondary-menu-library' | 'secondary-menu-resources'} NamedMenus
+ */
 
 /**
+ * ColorInfo
  * @typedef {{ hexColor: string, isLight: boolean, title: string }} ColorInfo
  */
 
@@ -40,6 +49,17 @@
 
 /**
  * @typedef {{[key in WebsiteMainMenuKey]: WebsiteMainMenu}} WebsiteAllMenus
+ */
+
+/**
+ * @typedef Page {
+ *  @property {() => JSX.Element} content
+ *  @property {string[]} [legacyLinks] old links for this component that now redirect to link
+ *  @property {string} link !! when this changes, put the old value in legacyLinks !!
+ *  @property {NamedMenus} [menuSecondary]
+ *  @property {string} pageTitle
+ *  @property {LayoutTemplate} template
+ * }
  */
 
 export default false;

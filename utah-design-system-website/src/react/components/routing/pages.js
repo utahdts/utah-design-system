@@ -1,3 +1,4 @@
+// @ts-check
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
@@ -114,6 +115,9 @@ import GettingStartedDeveloper from '../websiteContent/resources/GettingStartedD
  *    that don't work when solely `history.push()` is used
  */
 
+/** @typedef {import('../../../typedefs.d').Page} Page */
+
+/** @type {Object.<string, Page>} */
 const pages = {
   // === Main top menu pages === //
   home: {
@@ -157,6 +161,9 @@ const pages = {
   },
   accessibilityTesting: {
     content: AccessibilityChecklistDocumentation,
+    legacyLinks: [
+      '/guidelinesStandards/accessibilityChecklist',
+    ],
     link: pageUrls.accessibilityChecklist,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility Checklist & Testing',
@@ -310,6 +317,9 @@ const pages = {
   },
   gettingStartedDesigner: {
     content: GettingStartedDesigner,
+    legacyLinks: [
+      '/resources/gettingStarted/designer',
+    ],
     link: pageUrls.gettingStartedDesigner,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started - Designer',
@@ -317,6 +327,9 @@ const pages = {
   },
   gettingStartedDeveloper: {
     content: GettingStartedDeveloper,
+    legacyLinks: [
+      '/resources/gettingStarted/developer',
+    ],
     link: pageUrls.gettingStartedDeveloper,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started - Developer',

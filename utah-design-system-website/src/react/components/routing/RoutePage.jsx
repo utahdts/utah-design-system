@@ -1,8 +1,10 @@
 // @ts-check
 import PropTypes from 'prop-types';
-import { useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import PageShape from '../../propTypesShapes/PageShape';
+
+/** @typedef {import('../../../typedefs.d').Page} Page */
 
 const propTypes = {
   children: PropTypes.element.isRequired,
@@ -10,6 +12,12 @@ const propTypes = {
 };
 const defaultProps = {};
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {Page} props.page
+ * @returns {JSX.Element}
+ */
 function RoutePage({ children, page }) {
   const location = useLocation();
 
@@ -30,7 +38,8 @@ function RoutePage({ children, page }) {
     },
     [location.hash, location.pathname]
   );
-  return children;
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
 }
 
 RoutePage.propTypes = propTypes;

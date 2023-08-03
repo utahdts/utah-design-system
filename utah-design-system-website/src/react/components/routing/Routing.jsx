@@ -7,7 +7,12 @@ import {
   useUtahHeaderContext
 } from '@utahdts/utah-design-system';
 import { useEffect, useRef } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+} from 'react-router-dom';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
@@ -85,13 +90,21 @@ function Routing() {
             );
         }
 
-        return (
+        return [
+          (page.legacyLinks || [])
+            .map((legacyLink) => (
+              <Route
+                key={`design-system-routing__page__${legacyLink}-${page.pageTitle}`}
+                path={legacyLink}
+                element={<Navigate replace to={page.link} />}
+              />
+            )),
           <Route
             key={`design-system-routing__page__${page.link}-${page.pageTitle}`}
             path={page.link}
             element={<RoutePage page={page}>{element}</RoutePage>}
-          />
-        );
+          />,
+        ];
       })}
       <Route path="/" element={<HomeLanding />} />
       <Route path="*" element={<Page404 />} />
