@@ -5,6 +5,9 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import LightBox from '../../../../../lightbox/LightBox';
+import drawerScreenshot from '../../../../../../../static/images/mockups/Drawer.jpg';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -20,11 +23,25 @@ function DrawerDocumentation() {
 
       <hr />
 
+      <h2 id="section-example">Example</h2>
+      <StaticExample
+        title="Drawer"
+        renderedExample={<LightBox image={drawerScreenshot} alt="Open Drawer Example" className="flex-3up-gap" />}
+        quickTips={(
+          <ul>
+            <li>Typically located on the edge of the screen.</li>
+            <li>Has a title to give the user some context.</li>
+            <li>Has a close button.</li>
+            <li>In this example, a dark overlay is used.</li>
+          </ul>
+        )}
+      />
+
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Additional actions.</strong>Drawers can be used to place secondary actions such as filters or settings for a page. Typically, those drawers overlay the content below the header.</li>
-        <li><strong>Global functionality.</strong>A drawer can be used to allow the user to access some site-wide settings and/or features. Typically, those drawers overlay the entire page.</li>
+        <li><strong>Additional actions.</strong> Drawers can be used to place secondary actions such as filters or settings for a page. Typically, those drawers overlay the content below the header.</li>
+        <li><strong>Global functionality.</strong> A drawer can be used to allow the user to access some site-wide settings and/or features. Typically, those drawers overlay the entire page.</li>
       </ul>
 
       <h3>When to use something else</h3>
@@ -66,8 +83,7 @@ function DrawerDocumentation() {
       <ul className="mb-spacing">
         <li>A drawer should include some aria attributes: the container should have <code>aria-labelledby</code> referring to its title.</li>
         <li>If the drawer includes a close button, it should be placed at the end of the <code>html</code> code. That way the screen reader will appropriately read it after navigating through the drawer&apos;s content.</li>
-        <li>If the close button is only represented by an <Link to={pageUrls.iconButton}>icon</Link>, make sure it is accessible to screen readers by the use of the <code>aria-label</code> attribute.</li>
-        <li>For example: &quot;Close drawer.&quot;</li>
+        <li>If the close button is only represented by an <Link to={pageUrls.iconButton}>icon</Link>, make sure it is accessible to screen readers by the use of the <code>aria-label</code> attribute. For example: &quot;Close drawer.&quot;</li>
         <li>For all elements, please refer to their respective documentation.</li>
       </ul>
     </div>
