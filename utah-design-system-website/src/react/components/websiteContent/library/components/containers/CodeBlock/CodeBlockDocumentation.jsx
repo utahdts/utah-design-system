@@ -6,6 +6,7 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 
 const propTypes = {};
 const defaultProps = {};
@@ -22,46 +23,37 @@ function CodeBlockDocumentation() {
 
       <h2 id="section-example">Examples</h2>
       <p>
-        To accommodate diverse line length requirements, code blocks come in three distinct variations: inline, single line, and multi-line. These variants
+        To accommodate diverse line length requirements, code blocks come in two distinct variations: inline, and multi-line. These variants
         are designed to provide flexibility in different usage scenarios.
       </p>
 
       <StaticExample
         title="Inline"
-        renderedExample="Example coming soon!"
-        quickTips="A block of text used inline with sentences or paragraphs"
+        renderedExample={<span>Use the <code>&lt;code&gt;</code> tag for inline text.</span>}
+        quickTips={<ul><li>Text including some inline code snippet.</li></ul>}
       />
 
-      <StaticExample
-        title="Single-line"
-        renderedExample="Example coming soon!"
-        quickTips="A single line of code"
-      />
-
-      <StaticExample
-        title="Multi-line"
-        renderedExample="Example coming soon!"
-        quickTips="Multiple lines of code with the ability to show more text by scrolling vertically and horizontally"
-      />
-
-      <StaticExample
-        title="Anatomy"
-        renderedExample="Example coming soon!"
-        quickTips={(
-          <ol>
-            <li><strong>Code text.</strong> Lines or a block of code.</li>
-            <li><strong>Copy button</strong> (optional). An <Link to={pageUrls.iconButton}>icon button</Link> to copy the code to the clipboard.</li>
-            <li><strong>Show more</strong> (optional). An <Link to={pageUrls.links}>link</Link> to expand the code block to show additional content.</li>
-          </ol>
-        )}
-      />
+      <div className="static-example">
+        <h3 id="multi-line">Multi-line</h3>
+        <PreCodeForCodeString
+          className="gray-block mt-spacing"
+          codeRaw={`
+            <div>
+              // My code goes here
+            </div>
+            `}
+        />
+        <ul>
+          <li>Block including multiple lines of code.</li>
+          <li>Optionally, a copy button can be added.</li>
+        </ul>
+      </div>
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Effortless copying of text strings.</strong> Utilize a code block when you want to facilitate the effortless copying of text strings
-          by the user or when emphasizing specific keywords for their reference.
+          <strong>Effortless copying of text strings.</strong> Utilize a code block when you want to facilitate the copying of text           by the user or when emphasizing specific keywords for their reference.
         </li>
         <li>
           <strong>Quickly implementing code.</strong> Commonly employed in code documentation, code blocks provide users with a quick and convenient
@@ -72,7 +64,7 @@ function CodeBlockDocumentation() {
       <h3>When to use something else</h3>
       <ul className="mb-spacing">
         <li>
-          Designed to be &quot;Read Only&quot;. If you want the user to modify the input value, it&apos;s not recommended to use a code block since
+          <strong>Designed to be &quot;Read Only&quot;.</strong> If you want the user to modify the input value, it&apos;s not recommended to use a code block since
           they are designed to be read-only. Use a <Link to={pageUrls.textArea}>textarea</Link> when a user needs to edit the text.
         </li>
       </ul>
@@ -116,8 +108,8 @@ function CodeBlockDocumentation() {
 
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>Single-line and multi-line code blocks can be copied with <code>Space</code> or <code>Enter</code> when focused on the <Link to={pageUrls.iconButton}>copy code button</Link>.</li>
-        <li><code>Tab</code> to give focus to the single-line and multi-line code block and then use arrow keys for scrolling.</li>
+        <li>Code blocks can be copied with <code>Space</code> or <code>Enter</code> when focused on the <Link to={pageUrls.iconButton}>copy code button</Link>.</li>
+        <li><code>Tab</code> to give focus to the code block and then use arrow keys for scrolling.</li>
         <li>Include a <Link to={pageUrls.tooltips}>tooltip</Link> when the user hovers over or focuses on any buttons within the code block (i.e. &quot;Copy to clipboard&quot;).</li>
       </ul>
 
