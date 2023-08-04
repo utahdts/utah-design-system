@@ -5,6 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};
@@ -18,6 +19,19 @@ function InfoBoxDocumentation() {
       </p>
 
       <hr />
+
+      <h2 id="section-example">Examples</h2>
+      <StaticExample
+        title="Info Box"
+        renderedExample={<div className="info-box"><div className="info-box__content">Here is some useful information.</div></div>}
+        quickTips={(
+          <ul>
+            <li>Concise text giving information.</li>
+            <li>Has a &quot;chiclet&quot;, a thin line on the left of the box.</li>
+            <li>Non-interactive.</li>
+          </ul>
+        )}
+      />
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>

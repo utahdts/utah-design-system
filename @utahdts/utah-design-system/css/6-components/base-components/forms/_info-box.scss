@@ -8,6 +8,7 @@
     background: white;
     position: relative;
     border-radius: var(--radius-small);
+    padding-left: var(--spacing-xs);
 
     &::before {
       content: '';
@@ -17,6 +18,8 @@
       border-top-left-radius: var(--radius-small);
       border-bottom-left-radius: var(--radius-small);
       background-color: var(--secondary-color);
+      position: absolute;
+      left: 0;
     }
     &__content {
       display: flex;
