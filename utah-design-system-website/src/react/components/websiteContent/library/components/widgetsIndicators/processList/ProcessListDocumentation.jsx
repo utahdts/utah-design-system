@@ -3,6 +3,8 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import LightBox from '../../../../../lightbox/LightBox';
+import processListScreenshot from '../../../../../../../static/images/screenshots/components/progress-list/ProcessList.png';
 
 const propTypes = {};
 const defaultProps = {};
@@ -18,19 +20,21 @@ function ProcessListDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Process List"
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={processListScreenshot} alt="Process List with three steps" className="flex-3up-gap" />}
         quickTips={(
           <>
             <p>A process list is a numbered list that includes the following:</p>
             <ul>
-              <li>A number for each item in the list, enclosed in a circle</li>
-              <li>Lines connecting all the circled numbers</li>
-              <li>A title for each step</li>
-              <li>Detail for each step (Optional)</li>
-              <li>Text can be included in the detail space</li>
-              <li><Link to={pageUrls.links}>Hyperlinks</Link> can be included in the detail space</li>
-              <li>Bullet points (<Link to={pageUrls.lists}>Unordered lists</Link>) can be used in the detail space.</li>
-              <li>Form elements and <Link to={pageUrls.button}>buttons</Link> can be included in the details space.</li>
+              <li>A number for each item in the list, enclosed in a circle.</li>
+              <li>Lines connecting all the circled numbers.</li>
+              <li>A title for each step.</li>
+              <li>Detail for each step (optional) can include:</li>
+              <ul>
+                <li>Text.</li>
+                <li><Link to={pageUrls.links}>Hyperlinks</Link>.</li>
+                <li><Link to={pageUrls.lists}>Lists</Link>.</li>
+                <li>Form elements and <Link to={pageUrls.button}>buttons</Link>.</li>
+              </ul>
             </ul>
           </>
         )}
@@ -51,16 +55,16 @@ function ProcessListDocumentation() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Multi-page forms or wizards.</strong> Utilize the <Link to={pageUrls.stepIndicator}>step indicator</Link> component to guide users through a
+          <strong>Multi-page forms or wizards.</strong> Utilize a <Link to={pageUrls.stepIndicator}>step indicator</Link> to guide users through a
           form or process that spans across multiple pages. This component assists users in keeping track of their progress and provides a visual
           representation of the steps involved, facilitating a seamless user experience.
         </li>
         <li>
-          <strong>When showing current status or progress.</strong> Use the <Link to={pageUrls.stepIndicator}>step indicator</Link>  component to show the user
+          <strong>When showing current status or progress.</strong> Use a <Link to={pageUrls.stepIndicator}>step indicator</Link>  to show the user
           the current step in a multi-step process.
         </li>
         <li>
-          <strong>In-page navigation.</strong> Use the <Link to={pageUrls.sidePanelNavigation}>side navigation</Link> component to display the &quot;sub-navigation&quot;
+          <strong>In-page navigation.</strong> Use a <Link to={pageUrls.sidePanelNavigation}>side navigation</Link> to display the &quot;sub-navigation&quot;
           within a section or page of the website.
         </li>
         <li>
@@ -68,7 +72,7 @@ function ProcessListDocumentation() {
           display text that doesn&apos;t have a clear, logical order to it.
         </li>
         <li>
-          <strong>Breaking down complex content to improve readability.</strong> Utilize the <Link to={pageUrls.lists}>ordered and unordered list</Link> components to
+          <strong>Breaking down complex content to improve readability.</strong> Use <Link to={pageUrls.lists}>ordered and unordered lists</Link> to
           divide sentences and paragraphs into concise and structured lists. These lists are integrated into the general content of the page and do not require the same
           typographical hierarchy or visual prominence as process lists.
         </li>
@@ -85,7 +89,7 @@ function ProcessListDocumentation() {
           steps. This range ensures that the list remains manageable and easily understandable for users.
         </li>
         <li>
-          <strong>Use a heading to describe the purpose of the process.</strong> To provide clarity regarding the process described by the process list,
+          <strong>Use a heading to describe the purpose of the process.</strong> To provide clarity regarding the process described,
           the use of a <Link to={pageUrls.headings}>heading</Link> is recommended. While optional, you may include a concise paragraph block between the heading and
           the process list as well.
         </li>
@@ -97,10 +101,6 @@ function ProcessListDocumentation() {
           <strong>Add other types of content as needed.</strong> The body of each list item can be used to display additional rich text content
           including <code>HTML</code>, images, and other components like <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.forms}>form elements</Link>,
           images, <Link to={pageUrls.lists}>simple lists</Link>, <Link to={pageUrls.links}>links</Link>, and <Link to={pageUrls.table}>tables</Link>.
-        </li>
-        <li>
-          <strong>Emphasizing step progression.</strong> The counter pattern (step numbers in a circle) attracts more attention to the indicator bar, but more
-          strongly communicates step-by-step progression. Use <Link to={pageUrls.counter}>counters</Link> when you want to reinforce step progression.
         </li>
       </ul>
 
@@ -116,7 +116,7 @@ function ProcessListDocumentation() {
       <ul className="mb-spacing">
         <li>
           Lists are not keyboard operable, unless the list items themselves are operable. In such a situation, the list items will retain the
-          component&apos;s default keyboard interaction. For example, in a list of <Link to={pageUrls.links}>links</Link>, each link will be in
+          element&apos;s default keyboard interaction. For example, in a list of <Link to={pageUrls.links}>links</Link>, each link will be in
           the tab order and can be activated by <code>Enter</code>.
         </li>
         <li>
