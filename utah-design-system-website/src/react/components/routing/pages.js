@@ -57,7 +57,7 @@ import SidePanelDocumentation from '../websiteContent/library/components/navigat
 import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
-import CarouselDocumentation from '../websiteContent/library/components/popups/carousel/CarouselDocumentation';
+import CarouselDocumentation from '../websiteContent/library/components/sliders/carousel/CarouselDocumentation';
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
