@@ -76,16 +76,18 @@ function CarouselDocumentation() {
         </li>
         <li>
           <strong>Slide content.</strong> Avoid using complex elements like <Link to={pageUrls.table}>tables</Link>, <Link to={pageUrls.accordion}>accordions</Link>, or animated elements such as videos.
+          If images are used as background, try to keep their resolution and/or ratio the same for each slide for consistency.
         </li>
         <li>
-          <strong>Background images and text.</strong> Remember, text on background images is very difficult to read for those with low vision. Ensure sufficient contrast between the foreground and the background of text.
+          <strong>Background images and text.</strong> Remember, text on background images is very difficult to read for those with low vision.
+          Ensure sufficient contrast between the foreground and the background of text.
         </li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>The controls should have a <code>3:1</code> contrast ratio against the background.</li>
+        <li>The control boundaries should have a <code>3:1</code> contrast ratio against the background.</li>
         <li>The control icons or text should have a <code>4.5:1</code> contrast ratio against the background.</li>
         <li>Make sure the controls are visible against any image used.</li>
         <li>Text content within each slide must have a <code>4.5:1</code> contrast ratio.</li>
