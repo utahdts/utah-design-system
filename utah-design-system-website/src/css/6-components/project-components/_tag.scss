@@ -1,0 +1,10 @@
+.tag {
+  padding: var(--spacing-2xs) var(--spacing-xs);
+  border-radius: var(--radius-small);
+  background-color: var(--gray-light-color);
+
+  &--primary-color {
+    background-color: var(--primary-color);
+    color: white;
+  }
+}

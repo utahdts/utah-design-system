@@ -4,6 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { Button } from '@utahdts/utah-design-system';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import pageUrls from '../../routing/pageUrls';
 import StaticExample from '../../staticExamples/StaticExample';
@@ -37,14 +38,29 @@ function ShapesDocumentation() {
         <li><Link to={pageUrls.popups}>Popups</Link></li>
       </ul>
 
-      <h3 id="section-full-corner-radius" className="mb-spacing">Full Corner Radius</h3>
+      <h3 id="section-full-corner-radius" className="mb-spacing mt-spacing">Full Corner Radius</h3>
       <p>
         Used for small elements that are <code>24px</code> or less in height; e.g. Labels (<Link to={pageUrls.tags}>Tags</Link>) and <Link to={pageUrls.button}>buttons</Link>.
         Makes the elements appear &quot;pill-like&quot;.
       </p>
 
       <StaticExample
-        renderedExample="Example coming soon!"
+        renderedExample={(
+          <div className="flex justify-around items-center full-width">
+            <div className="flex flex-col items-center">
+              <div className="tag tag--primary-color mb-spacing-s">Tag</div>
+              <code>6px</code>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="home-banner__title mb-spacing-s">Utah<br />Design<br />System</div>
+              <code>12px</code>
+            </div>
+            <div className="flex flex-col items-center">
+              <Button onClick={() => console.log('click')} className="button--primary-color button--solid mb-spacing-s">Button</Button>
+              <code>999px</code>
+            </div>
+          </div>
+        )}
         quickTips={(
           <>
             <PreCodeForCodeString
@@ -73,7 +89,38 @@ function ShapesDocumentation() {
         value (i.e. <code>border-radius</code>) and asymmetrical corners will have at least 2 corners that share the same value.
       </p>
       <StaticExample
-        renderedExample="Example coming soon!"
+        renderedExample={(
+          <div className="flex justify-around items-center full-width">
+            <div className="flex flex-col items-center">
+              <div className="menu-side-panel">
+                <strong>Guidelines and Standards</strong>
+                <ul>
+                  <li className="menu-item">
+                    <span className="menu-item__title">
+                      <a className="menu-item--selected" href="#section-symmetry">Shape (rounded corners)</a>
+                    </span>
+                    <span className="menu-chiclet" />
+                  </li>
+                </ul>
+              </div>
+              <code className="mt-spacing-s">Asymmetrical</code>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="menu-side-panel">
+                <strong>Guidelines and Standards</strong>
+                <ul>
+                  <li className="menu-item">
+                    <span className="menu-item__title">
+                      <a className="shape-examples-link" href="#section-symmetry">Shape (rounded corners)</a>
+                    </span>
+                    <span className="menu-chiclet" />
+                  </li>
+                </ul>
+              </div>
+              <code className="mt-spacing-s">Symmetrical</code>
+            </div>
+          </div>
+        )}
       />
 
       <h3 id="section-choosing-corner-style" className="mb-spacing">Choosing an Overall Corner Style</h3>
