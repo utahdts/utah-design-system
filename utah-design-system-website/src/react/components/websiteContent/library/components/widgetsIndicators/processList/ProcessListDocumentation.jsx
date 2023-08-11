@@ -23,7 +23,7 @@ function ProcessListDocumentation() {
         renderedExample={<LightBox image={processListScreenshot} alt="Process List with three steps" className="flex-3up-gap" />}
         quickTips={(
           <>
-            <p>A process list is a numbered list that includes the following:</p>
+            <p className="mb-auto">A process list is a numbered list that includes the following:</p>
             <ul>
               <li>A number for each item in the list, enclosed in a circle.</li>
               <li>Lines connecting all the circled numbers.</li>
@@ -118,10 +118,6 @@ function ProcessListDocumentation() {
           Lists are not keyboard operable, unless the list items themselves are operable. In such a situation, the list items will retain the
           element&apos;s default keyboard interaction. For example, in a list of <Link to={pageUrls.links}>links</Link>, each link will be in
           the tab order and can be activated by <code>Enter</code>.
-        </li>
-        <li>
-          Include a <Link to={pageUrls.tooltips}>tooltip</Link> when the user hovers over or focuses on any <Link to={pageUrls.button}>buttons</Link> within
-          the details section of the process list.
         </li>
       </ul>
 
