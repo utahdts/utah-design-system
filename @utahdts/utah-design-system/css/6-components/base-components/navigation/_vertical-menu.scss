@@ -48,7 +48,7 @@
     }
     &__link-text {
       flex: 1 0 auto;
-      max-width: 100%;
+      max-width: calc(100% - 12px);
     }
     &__divider {
       display: block;
