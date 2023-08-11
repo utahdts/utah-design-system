@@ -11,8 +11,8 @@ function OpacityDocumentation() {
   const renderExamples = () => {
     const values = [...Array(11).keys()];
     return values.map((v) => (
-      <div className="flex flex-col items-center">
-        <div className={`color-example_item square color-example_item--primary-color color-example_item--opacity-${v}`} />
+      <div className="flex flex-col items-center" key={`opacity-${v}`}>
+        <div className={`color-example_item color-example_item--small square color-example_item--primary-color color-example_item--opacity-${v}`} />
         {v * 10}%
       </div>
     ));
@@ -27,7 +27,7 @@ function OpacityDocumentation() {
       <hr />
 
       <h2 id="section-example" className="mb-spacing">Example</h2>
-      <div className="flex flex-1 justify-around mb-spacing-xl">
+      <div className="flex flex-1 flex-wrap justify-center mb-spacing-xl">
         {renderExamples()}
       </div>
 
