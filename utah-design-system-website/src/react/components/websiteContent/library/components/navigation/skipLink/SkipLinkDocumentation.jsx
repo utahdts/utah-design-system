@@ -19,7 +19,7 @@ function SkipLinkDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Skip Link</h1>
       <p className="lead-in">
-        A skip link is a hidden button that enables people using assistive technology to bypass repetitive elements and jump directly to the main content.
+        A skip link is a hidden link that enables people using assistive technology to bypass repetitive elements and jump directly to the main content.
       </p>
 
       <hr />
@@ -78,14 +78,14 @@ function SkipLinkDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>Please see contrast requirements for <Link to={pageUrls.button}>Buttons</Link>.</li>
+        <li>Please see contrast requirements for <Link to={pageUrls.button}>Buttons</Link> and <Link to={pageUrls.links}>Links</Link>.</li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
         <li>The <code>Tab</code> button should show the skip link element and give it focus.</li>
         <li><code>Shift + Tab</code>  should return the user to the previous element.</li>
-        <li>The <code>Spacebar</code> or <code>Return</code> should take the user to the main content on the page.</li>
+        <li>Users must be able to select the link item using the <code>Enter/Return</code> key.</li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
