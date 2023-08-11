@@ -76,15 +76,15 @@ function CodeBlockDocumentation() {
           preference. By default, the Utah Design System doesn&apos;t include numbers.
         </li>
         <li>
-          <strong>Align code snippet container to grid.</strong> To maintain visual consistency with other form components on a page, code snippet containers
-          should be vertically aligned with the grid layout. However, when employing an inline code snippet, the snippet itself will be embedded within the body of text.
+          <strong>Align code snippet container.</strong> To maintain visual consistency with other elements on a page, code snippet containers
+          should be aligned with the content layout. However, when employing an inline code snippet, the snippet itself will be embedded within the body of text.
         </li>
         <li>
           <strong>Use correct code syntax.</strong> Ensure that the code adheres to the correct syntax to prevent any potential issues if the user copies
           it to their clipboard. This ensures that the code remains intact and functional.
         </li>
         <li>
-          <strong>Copy functionality</strong> (optional). By default, a code block features a <Link to={pageUrls.iconButton}>copy button</Link> that enables
+          <strong>Copy functionality</strong> (optional). A code block may feature a <Link to={pageUrls.iconButton}>copy button</Link> that enables
           users to easily copy the provided code to their clipboard. The <Link to={pageUrls.iconButton}>copy icon</Link> should be accompanied by a
           confirmation <Link to={pageUrls.tooltips}>tooltip</Link> that indicates the successful action of copying an item to the clipboard. However, it is important
           to note that the inclusion of copy functionality is optional and can be omitted if it is not required for your specific use case.
@@ -117,7 +117,10 @@ function CodeBlockDocumentation() {
       <ul className="mb-spacing">
         <li>If the code block has a title associated with it, refer to it by using <code>aria-labelledby</code>; otherwise, use <code>aria-label</code>.</li>
         <li>Follow the guidance for the <Link to={pageUrls.iconButton}>icon button</Link> for the copy code feature.</li>
-        <li>Semantic HTML is always best. Use the <code>&lt;code&gt;</code> tag.</li>
+        <li>
+          Semantic HTML is always best. Use the <code>&lt;code&gt;</code> tag. Remember: The first rule of ARIA: Before you use ARIA,
+          use native HTML elements or attributes first!
+        </li>
       </ul>
     </div>
   );
