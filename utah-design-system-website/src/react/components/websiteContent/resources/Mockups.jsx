@@ -92,8 +92,8 @@ import verticalDivider from '../../../../static/images/mockups/VerticalDividers.
 import badges from '../../../../static/images/mockups/Badges.jpg';
 import statusIndicator from '../../../../static/images/mockups/StatusIndicator.jpg';
 
-import blockquote1 from '../../../../static/images/mockups/Blockquote1.jpg';
-import blockquote2 from '../../../../static/images/mockups/Blockquote2.jpg';
+import blockquote1 from '../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
+import blockquote2 from '../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
 import callOuts from '../../../../static/images/mockups/CallOuts.jpg';
 import headlines from '../../../../static/images/mockups/Headlines.jpg';
 import leadInText from '../../../../static/images/mockups/LeadInText.jpg';

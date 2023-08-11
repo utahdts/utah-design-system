@@ -58,7 +58,7 @@ function BlockquoteDocumentation() {
           <strong>Highlighting content.</strong> Utilize a block quote to highlight content that exhibits a strong and pertinent connection to the surrounding text, aiding users in visual scanning of the page.
         </li>
         <li>
-          <strong>Marketing a product.</strong> Use to encourage visitors to try a new product/service or emphasizing a success story.
+          <strong>Marketing a product or service.</strong> Use to encourage visitors to try a new product/service or emphasizing a success story.
         </li>
         <li>
           <strong>Attracting attention.</strong> Attracting the user’s attention to article text.
@@ -112,7 +112,7 @@ function BlockquoteDocumentation() {
                 <blockquote cite="https://visitutah.com/Places-To-Go">
                     <p>These natural landscape are designated as national parks, national monuments, national forests, state parks and millions of acres of open spaces with no official designation save for "Utah".</p>
                 </blockquote>
-                <figcaption>- Utah Office of Tourism, 
+                <figcaption>- Utah Office of Tourism,
                     <cite> Visit Utah</cite>
                 </figcaption>
               </figure>
