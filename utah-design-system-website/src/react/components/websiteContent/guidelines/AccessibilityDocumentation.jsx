@@ -241,7 +241,8 @@ function AccessibilityDocumentation() {
                   <span class="utds-icon-before-help" role="img" title="help"></span>
                 `}
               />
-              <p className="mb-auto">See more detailed information on <Link to={pageUrls.images}>images</Link> and <Link to={pageUrls.icons}>icons</Link>.</p>
+              <p><Link to={`${pageUrls.images}#section-writing-alt-text`}>View more information about writing alternative text.</Link></p>
+              <p>See more detailed information on <Link to={pageUrls.images}>images</Link> and <Link to={pageUrls.icons}>icons</Link>.</p>
             </li>
           </ul>
         </li>
