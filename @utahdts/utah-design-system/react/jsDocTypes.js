@@ -2,6 +2,8 @@
 
 /**
  *
+ * @typedef {(function(MouseEvent | TouchEvent | KeyboardEvent): void)} EventAction
+ *
  * @typedef {(value: string) => boolean} TableFilterFunction
  *
  * For TableFilterX components, these are the options they can store in the Table context

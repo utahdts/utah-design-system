@@ -1,5 +1,11 @@
 // @ts-check
 /* eslint-disable max-len */
+
+/**
+ * @template UpdaterT
+ * @typedef {import('use-immer/').Updater<UpdaterT>} Updater
+ */
+
 /**
  * PageUrl - it is an enum, but listing ALL the individual pageUrls and keeping it up to date is impossible
  * @typedef {string} PageUrl
@@ -59,6 +65,22 @@
  *  @property {NamedMenus} [menuSecondary]
  *  @property {string} pageTitle
  *  @property {LayoutTemplate} template
+ * }
+ */
+
+/**
+ * @typedef AppState {
+ *  @property {boolean} isColorPickerShown
+ * }
+ */
+
+/**
+ * @typedef AppContextValue {
+ *  @property {Object.<string, WebsiteMainMenu>} allMenus
+ *  @property {Object.<string, Page>} pages
+ *  @property {Object.<string, PageUrl>} pageUrls
+ *  @property {AppState} appState
+ *  @property {Updater<AppState>} setAppState
  * }
  */
 
