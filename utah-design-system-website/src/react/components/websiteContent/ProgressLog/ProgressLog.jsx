@@ -80,6 +80,26 @@ function ProgressLog() {
 
           </TableHead>
           <TableBody>
+            <ProgressLogVersionRow version="1.2.1" />
+            <ProgressLogTableRow title="Back to Top" toUrl={pageUrls.backTopTop} isDefinitionChecked />
+            <ProgressLogTableRow title="Block Quote" toUrl={pageUrls.blockquote} isDefinitionChecked />
+            <ProgressLogTableRow title="Carousel" toUrl={pageUrls.carousel} isDefinitionChecked />
+            <ProgressLogTableRow title="Character Counter" toUrl={pageUrls.characterCount} isDefinitionChecked />
+            <ProgressLogTableRow title="Code Block" toUrl={pageUrls.codeBlock} isDefinitionChecked />
+            <ProgressLogTableRow title="Drawer" toUrl={pageUrls.drawers} isDefinitionChecked />
+            <ProgressLogTableRow title="Foundation: Opacity" toUrl={pageUrls.opacity} isDefinitionChecked />
+            <ProgressLogTableRow title="Foundation: Shape" toUrl={pageUrls.shape} isDefinitionChecked />
+            <ProgressLogTableRow title="Icon/Action/Tool Bar" toUrl={pageUrls.iconBar} isDefinitionChecked />
+            <ProgressLogTableRow title="Images" toUrl={pageUrls.images} isDefinitionChecked />
+            <ProgressLogTableRow title="Info Box" toUrl={pageUrls.infoBox} isDefinitionChecked />
+            <ProgressLogTableRow title="Library: Basic and Semantic Text" toUrl={pageUrls.paragraphs} isDefinitionChecked />
+            <ProgressLogTableRow title="Mega Menu" toUrl={pageUrls.megaMenu} isDefinitionChecked />
+            <ProgressLogTableRow title="Process List" toUrl={pageUrls.processList} isDefinitionChecked />
+            <ProgressLogTableRow title="Progress Bar" toUrl={pageUrls.progressBars} isDefinitionChecked />
+            <ProgressLogTableRow title="Skip Link" toUrl={pageUrls.skipLink} isDefinitionChecked />
+            <ProgressLogTableRow title="Status Indicator" toUrl={pageUrls.statusIndicator} isDefinitionChecked />
+            <ProgressLogTableRow title="Step Indicator" toUrl={pageUrls.stepIndicator} isDefinitionChecked />
+
             <ProgressLogVersionRow version="1.0" />
             <ProgressLogTableRow title="Foundation: Depth, Elevation, Shadows" toUrl={pageUrls.depthElevationShadows} isDefinitionChecked />
 
