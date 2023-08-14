@@ -44,6 +44,7 @@ N/A
 
 ### Fixed
 - Keep Mobile "How do I know" popup on the page
+- Menu item wrapping and crowding chevron
 - Menu selected item path UI
 - Remove error when expanding Official Website
 - Scroll in to view for missing hash links
