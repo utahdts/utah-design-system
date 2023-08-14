@@ -44,6 +44,8 @@ $dsc: rgb(0,0,0);
       border: 1px solid var(--gray-3-1-contrast);
       box-sizing: border-box;
       min-width: 200px;
+      max-width: 420px;
+      width: max-content;
       padding: var(--spacing-s);
       transition: transform 100ms ease-in-out;
       box-shadow: var(--elevation-small);
