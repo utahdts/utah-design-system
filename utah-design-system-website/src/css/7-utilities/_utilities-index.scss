@@ -19,3 +19,7 @@ utility classes, atomic css
 .border-left {
   border-left: 1px solid var(--gray-border);
 }
+
+.square {
+  border-radius: 0;
+}

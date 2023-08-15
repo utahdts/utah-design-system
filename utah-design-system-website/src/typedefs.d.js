@@ -1,5 +1,11 @@
 // @ts-check
 /* eslint-disable max-len */
+
+/**
+ * @template UpdaterT
+ * @typedef {import('use-immer/').Updater<UpdaterT>} Updater
+ */
+
 /**
  * PageUrl - it is an enum, but listing ALL the individual pageUrls and keeping it up to date is impossible
  * @typedef {string} PageUrl
@@ -12,8 +18,17 @@
  * ColorRating
  * @typedef {'AA' | 'AAA' | 'X'} ColorRating
  */
+/**
+ * LayoutTemplate
+ * @typedef {'documentation-template' | 'landing-template'} LayoutTemplate
+ */
+/**
+ * NamedMenus
+ * @typedef {'main-menu' | 'secondary-menu-guidelines' | 'secondary-menu-library' | 'secondary-menu-resources'} NamedMenus
+ */
 
 /**
+ * ColorInfo
  * @typedef {{ hexColor: string, isLight: boolean, title: string }} ColorInfo
  */
 
@@ -40,6 +55,33 @@
 
 /**
  * @typedef {{[key in WebsiteMainMenuKey]: WebsiteMainMenu}} WebsiteAllMenus
+ */
+
+/**
+ * @typedef Page {
+ *  @property {() => JSX.Element} content
+ *  @property {string[]} [legacyLinks] old links for this component that now redirect to link
+ *  @property {string} link !! when this changes, put the old value in legacyLinks !!
+ *  @property {NamedMenus} [menuSecondary]
+ *  @property {string} pageTitle
+ *  @property {LayoutTemplate} template
+ * }
+ */
+
+/**
+ * @typedef AppState {
+ *  @property {boolean} isColorPickerShown
+ * }
+ */
+
+/**
+ * @typedef AppContextValue {
+ *  @property {Object.<string, WebsiteMainMenu>} allMenus
+ *  @property {Object.<string, Page>} pages
+ *  @property {Object.<string, PageUrl>} pageUrls
+ *  @property {AppState} appState
+ *  @property {Updater<AppState>} setAppState
+ * }
  */
 
 export default false;

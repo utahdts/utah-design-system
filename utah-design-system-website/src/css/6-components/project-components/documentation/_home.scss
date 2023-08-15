@@ -110,6 +110,9 @@
     &--secondary {
       background: var(--secondary-color);
     }
+    a[href]:not(.button,.action-card) {
+      color: white;
+    }
   }
   &__contact-section {
     padding: var(--spacing-5xl) 0;

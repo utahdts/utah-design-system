@@ -1,11 +1,13 @@
 import {
   TextInput,
   handleKeyPress,
-  joinClassNames
+  joinClassNames,
+  useGlobalKeyEvent
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import tinycolor from 'tinycolor2';
+import useAppContext from '../../context/AppContext/useAppContext';
 import isLightColor from '../../util/color/isLightColor';
 
 const propTypes = {
@@ -38,6 +40,9 @@ function ColorPicker({
   const isLight = isLightColor(value);
   const textColor = isLight ? (colorGray || '#474747') : '#ffffff';
   const tinyColorValue = tinycolor(value).toHexString();
+
+  const { setAppState } = useAppContext();
+  useGlobalKeyEvent({ whichKeyCode: 'Escape', onKeyUp: () => setAppState((draftAppState) => { draftAppState.isColorPickerShown = false; }) });
 
   const contrastDecimal = useMemo(
     () => (

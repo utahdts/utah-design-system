@@ -1,3 +1,4 @@
+// @ts-check
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
 import Demo from '../demo/Demo';
@@ -56,7 +57,7 @@ import SidePanelDocumentation from '../websiteContent/library/components/navigat
 import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
-import CarouselDocumentation from '../websiteContent/library/components/popups/carousel/CarouselDocumentation';
+import CarouselDocumentation from '../websiteContent/library/components/sliders/carousel/CarouselDocumentation';
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
@@ -114,6 +115,9 @@ import GettingStartedDeveloper from '../websiteContent/resources/GettingStartedD
  *    that don't work when solely `history.push()` is used
  */
 
+/** @typedef {import('../../../typedefs.d').Page} Page */
+
+/** @type {Object.<string, Page>} */
 const pages = {
   // === Main top menu pages === //
   home: {
@@ -157,6 +161,9 @@ const pages = {
   },
   accessibilityTesting: {
     content: AccessibilityChecklistDocumentation,
+    legacyLinks: [
+      '/guidelinesStandards/accessibilityChecklist',
+    ],
     link: pageUrls.accessibilityChecklist,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility Checklist & Testing',
@@ -303,6 +310,9 @@ const pages = {
   },
   gettingStarted: {
     content: GettingStarted,
+    legacyLinks: [
+      '/resources/gettingStarted',
+    ],
     link: pageUrls.gettingStarted,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started',
@@ -310,6 +320,9 @@ const pages = {
   },
   gettingStartedDesigner: {
     content: GettingStartedDesigner,
+    legacyLinks: [
+      '/resources/gettingStarted/designer',
+    ],
     link: pageUrls.gettingStartedDesigner,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started - Designer',
@@ -317,6 +330,9 @@ const pages = {
   },
   gettingStartedDeveloper: {
     content: GettingStartedDeveloper,
+    legacyLinks: [
+      '/resources/gettingStarted/developer',
+    ],
     link: pageUrls.gettingStartedDeveloper,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started - Developer',

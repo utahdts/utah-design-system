@@ -18,7 +18,7 @@ function BackToTopDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Back to Top</h1>
       <p className="lead-in">
-        The back-to-top button lets a user go back to the top of a page without having to scroll. This additional element of navigation is helpful to users with mobility issues. It also provides more comfort on both desktop and mobile devices.
+        The back-to-top button/link lets a user go back to the top of a page without having to scroll. This additional element of navigation is helpful to users with mobility issues. It also provides more comfort on both desktop and mobile devices.
       </p>
 
       <hr />
@@ -34,6 +34,12 @@ function BackToTopDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Long pages.</strong> Use this component on any page with a significant amount of content.
+        </li>
+        <li>
+          <strong>Button.</strong> Use a <code>&lt;button&gt;</code> when you wish to use javascript to scroll back to the top.
+        </li>
+        <li>
+          <strong>Link.</strong> Use a <code>&lt;a href=&quot;#&quot;&gt;</code> when you wish to allow the browser to scroll back to the top.
         </li>
       </ul>
 
@@ -73,11 +79,19 @@ function BackToTopDocumentation() {
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
-        <li>Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first! If you must use a non-native tag, the button should include <code>role=&quot;button&quot;</code>.
+        <li>Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
+          <ul>
+            <li>
+              If you must use a non-native tag, the button should include <code>role=&quot;button&quot;</code>.
+            </li>
+            <li>
+              For a link use <code>role=&quot;link&quot;</code>
+            </li>
+          </ul>
         </li>
         <li>The icon should include <code>aria-hidden=&quot;true&quot;</code>.</li>
         <li>When the button is off-screen, make sure it includes <code>aria-hidden=&quot;true&quot;</code> and <code>tabindex=&quot;-1&quot;</code>. That way a user cannot interact with it by mistake.</li>
-        <li>For more information, please see the <Link to={pageUrls.button}>button</Link> and/or <Link to={pageUrls.iconButton}>icon button</Link> documentation.</li>
+        <li>For more information, please see the <Link to={pageUrls.links}>links</Link>, <Link to={pageUrls.button}>button</Link> and/or <Link to={pageUrls.iconButton}>icon button</Link> documentation.</li>
       </ul>
     </div>
   );

@@ -63,6 +63,11 @@
   .utah-design-system .utds-official-website-popup__col {
     width: 100%;
   }
+  .utah-design-system .utds-official-website-popup__address-bar {
+    width: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
   .color-example {
     flex-direction: column;

@@ -111,7 +111,7 @@ function AccessibilityDocumentation() {
       <h4 id="section-limited-vision-general-guidelines">General vision guidelines</h4>
       <ul className="mb-spacing">
         <li>
-          <strong>Landmark role elements.</strong> In HTML, a landmark role refers to the use of specific HTML elements to define and label certain regions or sections of a webpage.
+          <strong id="section-landmark-roles">Landmark role elements.</strong> In HTML, a landmark role refers to the use of specific HTML elements to define and label certain regions or sections of a webpage.
           These roles serve an important purpose in making web pages more accessible to users, especially those who rely on assistive technologies like screen readers.
           Developers should utilize the following landmark role elements on their website as well as other <ExternalLink href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantic_elements">semantic html elements</ExternalLink>.
           <ul>
@@ -151,6 +151,15 @@ function AccessibilityDocumentation() {
                   (The HTML footer element is not considered a contentinfo landmark when it is descendant of an &lt;article&gt;, &lt;aside&gt;, &lt;main&gt;, &lt;nav&gt;, or &lt;section&gt; element.)
                 </li>
               </ul>
+            </li>
+            <li>
+              <strong><code>&lt;aside&gt; / role=&quot;complimentary&quot;</code>:</strong> The &quot;aside&quot; HTML element is used to mark content that is tangentially related to the main
+              content of a page, often presented in a separate box or section, such as sidebars, pull quotes, or additional information.
+            </li>
+            <li>
+              <strong><code>&lt;section&gt; / role=&quot;region&quot;</code>:</strong> The &quot;section&quot; HTML element is utilized to define a thematic grouping of content within a webpage, helping to structure
+              and organize the page&#39;s content into distinct sections with their own headings and
+              sub-content. <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">More information about the section element can be found here.</ExternalLink>
             </li>
           </ul>
         </li>
@@ -232,7 +241,8 @@ function AccessibilityDocumentation() {
                   <span class="utds-icon-before-help" role="img" title="help"></span>
                 `}
               />
-              <p className="mb-auto">See more detailed information on <Link to={pageUrls.images}>images</Link> and <Link to={pageUrls.icons}>icons</Link>.</p>
+              <p><Link to={`${pageUrls.images}#section-writing-alt-text`}>View more information about writing alternative text.</Link></p>
+              <p>See more detailed information on <Link to={pageUrls.images}>images</Link> and <Link to={pageUrls.icons}>icons</Link>.</p>
             </li>
           </ul>
         </li>

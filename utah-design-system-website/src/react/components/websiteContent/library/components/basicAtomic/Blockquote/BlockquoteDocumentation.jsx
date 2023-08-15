@@ -8,7 +8,6 @@ import LightBox from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import blockquoteScreenshotA from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
 import blockquoteScreenshotB from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
-import blockquoteScreenshotC from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote3.png';
 
 const propTypes = {};
 const defaultProps = {};
@@ -23,24 +22,20 @@ function BlockquoteDocumentation() {
 
       <h2 id="section-example">Examples</h2>
       <StaticExample
-        title="Figure A"
-        renderedExample={<LightBox image={blockquoteScreenshotA} alt="Quotation with external link" className="flex-3up-gap" />}
-      />
-      <StaticExample
-        title="Figure B"
-        renderedExample={<LightBox image={blockquoteScreenshotB} alt="Quotation with external link" className="flex-3up-gap" />}
+        title="Quotes using a chiclet"
+        renderedExample={<LightBox image={blockquoteScreenshotA} alt="Quotes using a chiclet" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>The two block quotes <code>&lt;blockquote&gt;</code> examples above include a citation and external link.</li>
+            <li>These block quotes use a chiclet (vertical line to the left of the quote) as a way to highlight their content.</li>
           </ul>
         )}
       />
       <StaticExample
-        title="Figure C"
-        renderedExample={<LightBox image={blockquoteScreenshotC} alt="Quotation highlighting content" className="flex-3up-gap" />}
+        title="Quotes using quotation marks"
+        renderedExample={<LightBox image={blockquoteScreenshotB} alt="Quotes using quotation marks" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>This block quote is highlighting a key message, but does not include a citation.</li>
+            <li>These block quotes use quotation marks.</li>
           </ul>
         )}
       />
@@ -52,10 +47,10 @@ function BlockquoteDocumentation() {
           <strong>Two ways.</strong> Block quotes can be used in on of two ways:
           <ul>
             <li>
-              <strong>Highlighting a key message.</strong> A short snippet extracted from the main content to highlight and emphasize its key message.  Sometimes referred to as a “Pull Quote”, because you are “pulling” copy from the main content.  This does not include a citation or source.
+              <strong>Highlighting a key message.</strong> A short snippet extracted from the main content to highlight and emphasize a key message.  Sometimes this is referred to as a “Pull Quote”, because you are “pulling” copy from the main content.  This does not include a citation or source.
             </li>
             <li>
-              <strong>Quoting and citing an outside source.</strong> To separate a large section of text.  Quoted from an outside source that is relevant to the source material at hand.
+              <strong>Quoting and citing an outside source.</strong> To separate a large section of text, quote from an outside source that is relevant to the source material at hand.
             </li>
           </ul>
         </li>
@@ -63,7 +58,7 @@ function BlockquoteDocumentation() {
           <strong>Highlighting content.</strong> Utilize a block quote to highlight content that exhibits a strong and pertinent connection to the surrounding text, aiding users in visual scanning of the page.
         </li>
         <li>
-          <strong>Marketing a product.</strong> Encouraging a customer to try a new product/service or emphasizing a success story.
+          <strong>Marketing a product or service.</strong> Use to encourage visitors to try a new product/service or emphasizing a success story.
         </li>
         <li>
           <strong>Attracting attention.</strong> Attracting the user’s attention to article text.
@@ -89,7 +84,7 @@ function BlockquoteDocumentation() {
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
         <li>
-          <li>Put the block quote in a <code>&lt;blockquote&gt;</code> tag.</li>
+          Put the block quote in a <code>&lt;blockquote&gt;</code> tag.
         </li>
         <li>
           When to include quotation marks to the copy between the <code>&lt;blockquote&gt;</code> tags:
@@ -101,7 +96,7 @@ function BlockquoteDocumentation() {
               <strong>Using a chiclet:</strong> If you are using a chiclet, you will want to add the quotation marks to the copy inside the block quote tags. (e.g.<code>&lt;blockquote&gt;”Welcome to Utah!”&lt;blockquote&gt;</code>).
             </li>
             <li>Position the quote near the surrounding text.</li>
-            <li>Keep text brief - aim for a maximum of 280 characters.</li>
+            <li>Keep text brief.</li>
             <li>It is recommended to use an em-dash (—) before the citation/attribution.</li>
             <li>Use <code>&lt;cite&gt;</code> tags when attributing the quote source.</li>
             <li>Consider if the blockquote adds value to the page.</li>
@@ -117,7 +112,7 @@ function BlockquoteDocumentation() {
                 <blockquote cite="https://visitutah.com/Places-To-Go">
                     <p>These natural landscape are designated as national parks, national monuments, national forests, state parks and millions of acres of open spaces with no official designation save for "Utah".</p>
                 </blockquote>
-                <figcaption>- Utah Office of Tourism, 
+                <figcaption>- Utah Office of Tourism,
                     <cite> Visit Utah</cite>
                 </figcaption>
               </figure>

@@ -282,18 +282,19 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     }
   }
 
+  const selectedClassName = popupMenuItem.actionMenu?.length ? domConstants.MENU_ITEM__SELECTED_PARENT : domConstants.MENU_ITEM__SELECTED;
   // add selected to title if selected (or any children are selected)
   if (popupMenuItem.isSelected || (popupMenuItem.actionMenu && findRecursive(popupMenuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
-    menuButton.classList.add(domConstants.MENU_ITEM__SELECTED);
-    menuAHref.classList.add(domConstants.MENU_ITEM__SELECTED);
+    menuButton.classList.add(selectedClassName);
+    menuAHref.classList.add(selectedClassName);
   }
 
   if (popupMenuItem.isSelected) {
     // toggle open the selected menu item so that the mobile menu shows the expanded path to this menu item
     toggleChildMenuExpansion(menuItemWrapper);
-    menuItemWrapper.classList.add(domConstants.MENU_ITEM__SELECTED);
+    menuItemWrapper.classList.add(selectedClassName);
   } else {
-    menuItemWrapper.classList.remove(domConstants.MENU_ITEM__SELECTED);
+    menuItemWrapper.classList.remove(selectedClassName);
   }
 
   menuUl.appendChild(menuItemWrapper);

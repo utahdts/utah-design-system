@@ -8,6 +8,15 @@ const propTypes = {};
 const defaultProps = {};
 
 function OpacityDocumentation() {
+  const renderExamples = () => {
+    const values = [...Array(11).keys()];
+    return values.map((v) => (
+      <div className="flex flex-col items-center" key={`opacity-${v}`}>
+        <div className={`color-example_item color-example_item--small square color-example_item--primary-color color-example_item--opacity-${v}`} />
+        {v * 10}%
+      </div>
+    ));
+  };
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Opacity</h1>
@@ -16,6 +25,11 @@ function OpacityDocumentation() {
       </p>
 
       <hr />
+
+      <h2 id="section-example" className="mb-spacing">Example</h2>
+      <div className="flex flex-1 flex-wrap justify-center mb-spacing-xl">
+        {renderExamples()}
+      </div>
 
       <h2 id="section-areas-to-consider" className="mb-spacing mt-spacing">Areas to Consider</h2>
       <h3 id="section-stacking-context">Stacking Context</h3>

@@ -24,6 +24,12 @@ function GettingStartedDeveloper() {
         successes, and pain points. Please send us your experiences and/or code and stack. We would love to add it here!
       </p>
 
+      <div className="home-page__color-card home-page__card-wide mb-spacing-l">
+        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Note</h3>
+        <p>The Utah Header library is fully developed and ready to be implemented in your project.</p>
+        <p>Learn more about it on the <Link to={pageUrls.utahHeader}>Utah Header Documentation Page</Link>.</p>
+      </div>
+
       <div className="flex getting-started__toc">
         <div className="getting-started__toc-card">
           <div className="getting-started__toc-title mb-spacing">Using only the Utah Header</div>
