@@ -15,6 +15,7 @@
     "buildTypesHeader": "npm run buildTypes -workspace=@utahdts/utah-design-system-header",
     "cleanSitemap": "rimraf ./utah-design-system-website/public/sitemap.txt",
     "cleanCoverage": "rimraf ./@utahdts/utah-design-system/coverage",
+    "cleanSitemap": "rimraf ./utah-design-system-website/public/sitemap.txt",
     "cleanDist": "rimraf ./utah-design-system-website/dist & rimraf ./@utahdts/utah-design-system/dist & rimraf ./@utahdts/utah-design-system-header/dist",
     "cleanExampleUtahHeaderCreateReactApp": "rimraf ./examples/utah-header/create-react-app/node_modules & rimraf ./examples/utah-header/create-react-app/package-lock.json",
     "cleanExampleDesignSystemViteReact": "rimraf ./examples/design-system/vite-react/node_modules & rimraf ./examples/design-system/vite-react/package-lock.json",
