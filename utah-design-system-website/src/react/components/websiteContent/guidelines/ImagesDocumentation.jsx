@@ -7,6 +7,10 @@ import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../routing/pageUrls';
 import StaticExample from '../../staticExamples/StaticExample';
+import LightBox from '../../lightbox/LightBox';
+import imageCropped from '../../../../static/images/screenshots/examples/images-crop-example.webp';
+import imagePixelated from '../../../../static/images/screenshots/examples/images-pixelated-example.webp';
+import imageTextOverlay from '../../../../static/images/screenshots/examples/images-text-overlay-example.webp';
 
 const propTypes = {};
 const defaultProps = {};
@@ -22,16 +26,20 @@ function ImagesDocumentation() {
 
       <h2 id="section-incorporating-multiple-mediums" className="mb-spacing">Incorporating multiple mediums</h2>
       <p>
-        Illustration, photography, and icons can co-exist in creating visual interest, communicating intent, and building
+        Illustration, photography, and icons can co-exist by creating visual interest, communicating intent, and building
         familiarity with your services, products, and processes.
       </p>
 
       <h3 id="section-illustrations">Illustrations</h3>
-      <p className="mb-spacing-xs">Use illustrations to show a simplified image of something complex. For example:</p>
-      <ul className="mb-spacing">
-        <li>to demonstrate a physical interaction, like scanning a passport</li>
-        <li>to help users find something on a document, like a reference number</li>
-        <li>to illustrate the steps of a complicated registration process</li>
+      <ul>
+        <li>
+          <strong>Simplified images.</strong> Use illustrations to show a simplified image of something complex. For example:
+          <ul className="mb-spacing">
+            <li>to demonstrate a physical interaction, like scanning a passport</li>
+            <li>to help users find something on a document, like a reference number</li>
+            <li>to illustrate the steps of a complicated registration process</li>
+          </ul>
+        </li>
       </ul>
 
       <h3 id="section-photography">Photography</h3>
@@ -53,12 +61,12 @@ function ImagesDocumentation() {
       </ul>
 
       <StaticExample
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={imageCropped} alt="cropped images example" className="flex-2up-gap" />}
         quickTips="Identify a clear focal point of your image when considering various aspect ratios."
       />
 
       <StaticExample
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={imagePixelated} alt="pixelated images example" className="flex-2up-gap" />}
         quickTips="Avoid images with pixelation."
       />
 
@@ -102,16 +110,13 @@ function ImagesDocumentation() {
           that need to read text using screen readers. Prioritize the use of written content.
         </li>
         <li>
-          <strong>Pixelated images.</strong> If you don&apos;t have access to high-resolution images, consider using a graphic or
+          <strong>Pixelated images.</strong> If you don&apos;t have access to high-resolution images, consider
           utilizing services that provide quality images.
         </li>
       </ul>
 
       <h2 id="section-usability-guidance">Usability Guidance</h2>
       <ul className="mb-spacing">
-        <li>
-          Avoid using images for purely decorative purposes. Images should only be utilized when there is a legitimate user need.
-        </li>
         <li>
           Ensure that all information conveyed through images is comprehensible to individuals with visual impairments. Consider
           the needs of partially-sighted users and ensure compatibility with assistive technologies that facilitate accessibility.
@@ -127,7 +132,7 @@ function ImagesDocumentation() {
           provide comprehensive instructions for users to successfully complete the process.
         </li>
         <li>
-          When adding an image, determine if it requires a description using alternative (alt) text.
+          All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding the <code>alt</code> property to the image.
         </li>
         <li>
           Make use of photography when it is essential to provide an authentic representation of something. For example, displaying
@@ -141,21 +146,21 @@ function ImagesDocumentation() {
         appearance. However, if not done correctly, it can result in illegible content that is difficult to read.
       </p>
       <StaticExample
-        renderedExample="Example coming soon!"
+        renderedExample={<LightBox image={imageTextOverlay} alt="image text overlay example" className="flex-2up-gap" />}
         quickTips="Examples of this technique being applied correctly"
       />
       <p>
-        In certain situations, the image that we intend to use may have lighter areas. It can be frustrating to overlay text
-        and realize that certain letters disappear within a cloud or against a white surface. The most effective remedy is to
-        apply a fill to the image, using a black or dark gray color, and then adjust the opacity until achieving a suitable
-        balance between readability and preserving the original image&apos;s &quot;feel&quot;.
+        In certain situations, images may have lighter areas, which can be frustrating to overlay text. Certain letters disappear when
+        crossing these lighter areas. An effective remedy is to apply a dark fill to the image, or a box surrounding the text. Adjust
+        the opacity until achieving a suitable balance between readability and preserving the original image&#39;s &quot;feel&quot;. Remember to achieve
+        a minimum <code>3:1</code> contrast ratio for large text and <code>4.5:1</code> contrast ratio for normal size text.
       </p>
 
       <h2 id="section-writing-alt-text">Writing Alt text</h2>
       <p>
         Alternative text, or alt text, is read out by screen readers and displayed if an image does not load or if images have
         been switched off. It provides a concise description summarizing the contents, events, and textual elements depicted in
-        an image. Most alt text should look like this:
+        an image.
       </p>
       <p>
         <strong>Example:</strong> Kids attending a swim meet, competing in the 50 Free.
@@ -164,7 +169,7 @@ function ImagesDocumentation() {
       <p className="mb-spacing-xs">When writing alt text, follow these guidelines:</p>
       <ul>
         <li>
-          The UDS recommends alt text be at least 20 characters long.
+          The Utah Design System recommends alt text be at least 20 characters long.
         </li>
         <li>
           Alt text should be no more than 2 sentences. Be concise.
@@ -180,7 +185,8 @@ function ImagesDocumentation() {
           described elsewhere on the page, keep the alt text minimal.
         </li>
         <li>
-          Do not start alt text with phrases like &quot;Photo of&quot; or &quot;Illustration of&quot;. These are unnecessary.
+          Do not start alt text with phrases like &quot;Image of&quot;, &quot;Photo of&quot;, or &quot;Illustration of&quot;.
+          A screen reader will announce the presence of an image for the user.
         </li>
         <li>
           Avoid adding the name of the photographer or person who created the image.
@@ -202,7 +208,7 @@ function ImagesDocumentation() {
       </ul>
 
       <h3 id="section-when-to-use" className="mt-spacing">When to use Alt text</h3>
-      <p>Only add alt text when you need to describe visual details you cannot practically include in the written content.</p>
+      <p>Add alt text when you need to describe visual details you cannot practically include in the written content.</p>
       <p className="mb-spacing-xs">
         There are some cases when an empty <code>alt=&quot;&quot;</code> attribute or <code>role=&quot;presentation&quot;</code> is
         more appropriate. When using either of these tags, screen readers will not read them. Use cases where images do not require

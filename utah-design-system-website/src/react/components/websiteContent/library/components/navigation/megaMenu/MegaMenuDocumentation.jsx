@@ -18,7 +18,7 @@ function MegaMenuDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Mega Menu</h1>
       <p className="lead-in">
-        A mega menu is an alternative way to display the main navigation for the entire site. It can be used instead of a traditional Main Menu. See <Link to={pageUrls.mainMenu}>Main Menu</Link> for more information.
+        A mega menu is an alternative way to display the main navigation for children menu items on a site. It can be used as a way to group children and grandchildren menu items into a single panel. See <Link to={pageUrls.mainMenu}>Main Menu</Link> for more information.
       </p>
 
       <hr />
@@ -47,10 +47,10 @@ function MegaMenuDocumentation() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Not enough links.</strong> Avoid using a mega menu if the menu has a modest amount of links, consider a normal dropdown instead.
+          <strong>Not enough links.</strong> Avoid using a mega menu if the menu has a modest amount of links, consider a normal Popup menu or Flyout menu instead.
         </li>
         <li>
-          <strong>Hierarchy</strong> If your menu is several levels deep, consider using a dropdown or restructuring the site instead.
+          <strong>Hierarchy</strong> If your menu is several levels deep, consider using a Popup menu, Flyout menu, or restructuring the site instead.
         </li>
       </ul>
 

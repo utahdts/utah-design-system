@@ -63,6 +63,7 @@
       transition: transform var(--timing-quick) ease;
       &::before {
         margin-right: 0;
+        margin-left: var(--spacing-xs);
       }
       &.is-open {
         transform: rotate(90deg);

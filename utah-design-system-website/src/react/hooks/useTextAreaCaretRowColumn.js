@@ -1,4 +1,5 @@
 // @ts-check
+import { useRefAlways } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 import useInterval from './useInterval';
 
@@ -12,6 +13,7 @@ export default function useTextAreaCaretRowColumn(textAreaRef) {
   const [rowColumn, setRowColumn] = useState(
     /** @type {{ column: number, position: number, row: number }} */({ column: NaN, position: NaN, row: NaN })
   );
+  const rowColumnRef = useRefAlways(rowColumn);
 
   useInterval(
     () => {
@@ -20,11 +22,19 @@ export default function useTextAreaCaretRowColumn(textAreaRef) {
       const textBeforeCursor = textAreaRef.current?.textContent?.substring(0, cursorPosition) || '';
       const lastNewLineIndex = textBeforeCursor.lastIndexOf('\n');
 
-      setRowColumn({
-        column: (textBeforeCursor.substring(lastNewLineIndex + 1) || '').length + 1,
-        position: cursorPosition,
-        row: (textBeforeCursor.match(/\r?\n/gm) || []).length + 1,
-      });
+      const newColumn = (textBeforeCursor.substring(lastNewLineIndex + 1) || '').length + 1;
+      const newRow = (textBeforeCursor.match(/\r?\n/gm) || []).length + 1;
+      if (
+        rowColumnRef.current.column !== newColumn
+        || rowColumnRef.current.position !== cursorPosition
+        || rowColumnRef.current.row !== newRow
+      ) {
+        setRowColumn({
+          column: newColumn,
+          position: cursorPosition,
+          row: newRow,
+        });
+      }
     },
     500
   );

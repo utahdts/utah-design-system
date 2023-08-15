@@ -5,6 +5,9 @@ export default PropTypes.exact({
   // the React component that renders the content for this page
   content: PropTypes.func.isRequired,
 
+  // old links to this same page
+  legacyLinks: PropTypes.arrayOf(PropTypes.string),
+
   // the url `link` for this page. This correlates with menu item `links` so opted for `link` instead of `path`
   link: PropTypes.string.isRequired,
 

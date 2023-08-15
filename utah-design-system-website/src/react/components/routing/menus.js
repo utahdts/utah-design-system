@@ -14,6 +14,7 @@ export const menuMain = {
     { link: pages.guidelines.link, title: pages.guidelines.pageTitle },
     { link: pages.library.link, title: pages.library.pageTitle },
     { link: pages.resources.link, title: pages.resources.pageTitle },
+    { link: pages.gettingStarted.link, title: pages.gettingStarted.pageTitle },
   ],
 };
 
@@ -238,11 +239,6 @@ export const menuResourcesSecondary = {
   header: 'Resources',
   id: 'resources',
   menuItems: [
-    {
-      link: pages.gettingStarted.link,
-      title: pages.gettingStarted.pageTitle,
-      parentLinks: [pages.resources.link],
-    },
     {
       link: pages.gettingStartedDesigner.link,
       title: pages.gettingStartedDesigner.pageTitle,

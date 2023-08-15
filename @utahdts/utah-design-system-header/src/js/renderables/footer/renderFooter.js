@@ -2,9 +2,13 @@
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import footerHTML from './html/Footer.html?raw';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import newTabAccessibilityHTML from '../_html/NewTabAccessibility.html?raw';
 
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import checkForError from '../../misc/checkForError';
+import notNull from '../../misc/notNull';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 
@@ -86,6 +90,13 @@ export default function renderFooter() {
         checkForError(!footerHr, 'renderFooter: cannot remove horizontal rule; not found');
         footerHr?.remove();
       }
+
+      // make links external links
+      const footerLinks = notNull(document.querySelector(getCssClassSelector(domConstants.FOOTER_LINKS)), 'renderFooter: footer links not found');
+      const lis = footerLinks.querySelectorAll('li');
+      lis.forEach((li) => {
+        li.appendChild(renderDOMSingle(newTabAccessibilityHTML));
+      });
 
       // make a copy for future comparison
       // this is not a shallow copy of the settings, so that external changes don't update internal values

@@ -50,7 +50,7 @@ function IconBarDocumentation() {
           <strong>Icon bar.</strong> Use an icon bar to group icon buttons where space is limited or text buttons would be distracting.
         </li>
         <li>
-          <strong>Utah header.</strong> The Utah Design System offers a place to include an action bar in the Utah header: from a list of links to alert notifications. To see more, please refer to the <Link to={pageUrls.utahHeader}>documentation</Link>.
+          <strong>Utah header.</strong> The Utah Design System offers a place to include an action bar in the Utah header: from a list of links to alert notifications. To see more, please refer to the <Link to={pageUrls.utahHeader}>Utah Header documentation</Link>.
         </li>
       </ul>
 
@@ -95,7 +95,9 @@ function IconBarDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>
-          Make sure to use native <code>&lt;button&gt;</code> elements.
+          Make sure to use native <code>&lt;button&gt;</code> elements when constructing an Icon Bar, Action Bar, or Toolbar.
+          Remember: The first rule of ARIA: Before you use ARIA,
+          use native HTML elements or attributes first!
         </li>
         <li>Provide additional text visible to screen readers when an icon button has a selected state. For example: &ldquo;Center Align Selected&rdquo;.</li>
       </ul>

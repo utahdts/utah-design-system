@@ -26,6 +26,9 @@
     main {
       padding: 0 2rem 2rem;
     }
+    aside {
+      padding: 1rem 2rem;
+    }
 
     /* Override the default design system colors */
     .utah-design-system {
@@ -101,6 +104,7 @@
 
 <body>
   <div id="header-target"></div>
+  <aside aria-label="side menu">Aside - Sidebar</aside>
   <main>
     <h1>Universal Module Definition (UMD) - Using Unpkg CDN</h1>
     <ul>
@@ -112,8 +116,10 @@
       <li>The header is loaded into a target <code>&lt;div&gt;</code>.</li>
       <li>The footer is loaded into a <code>&lt;footer&gt;</code> landmark.</li>
       <li>The footer is loaded after a delay of 2 seconds to illustrate that you can load additional settings (footer) later and it will not clobber the existing settings.</li>
+      <li>Further landmark roles have been added to this page to test with screen readers. (e.g. &lt;section&gt; and &lt;aside&gt;)</li>
       <li>Find more information on the <a href="https://designsystem.utah.gov">Utah Design System Website</a>.</li>
     </ul>
+    <section aria-label="section 1">This is a section</section>
   </main>
   <footer id="footer-target" aria-label="page"></footer>
 </body>

@@ -23,6 +23,9 @@
       &.menu-item--selected {
         color: var(--primary-color);
       }
+      &.menu-item--selected_parent {
+        font-weight: bold;
+      }
     }
     &__chevron {
       transform: rotate(-90deg);

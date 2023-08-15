@@ -9,7 +9,6 @@ import LightBox from '../../../../../lightbox/LightBox';
 import progressBarScreenshotA from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBar1.png';
 import progressBarScreenshotDeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarDeterminate.png';
 import progressBarScreenshotIndeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarIndeterminate.png';
-import progressBarScreenshotAnatomy from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarAnatomy.png';
 import progressBarScreenshotStates from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarStates.png';
 
 const propTypes = {};
@@ -55,19 +54,6 @@ function ProgressBarDocumentation() {
       />
 
       <StaticExample
-        title="Anatomy"
-        renderedExample={<LightBox image={progressBarScreenshotAnatomy} alt="Parts of a progress bar" className="flex-3up-gap" />}
-        quickTips={(
-          <ul>
-            <li><strong>Progress label</strong>: This describes the process that is in action.</li>
-            <li><strong>Progress track</strong>: This track shows the path the progress bar will take.</li>
-            <li><strong>Progress bar fill</strong>: This shows the completed progress visually as a colored bar.</li>
-            <li><strong>Progress value</strong>: This shows the completed progress as text, usually a percentage. Sometimes a fraction or ratio may be shown.</li>
-          </ul>
-        )}
-      />
-
-      <StaticExample
         title="States"
         renderedExample={<LightBox image={progressBarScreenshotStates} alt="Active, Success and Error" className="flex-3up-gap" />}
         quickTips={(
@@ -82,7 +68,7 @@ function ProgressBarDocumentation() {
       <h3 id="section-when-to-use">When to use</h3>
       <ul>
         <li>
-          <strong>Downloading and uploading.</strong> Utilize indeterminate progress bars specifically for system processes, such as downloading, uploading, or processing tasks.
+          <strong>Downloading and uploading.</strong> Utilize indeterminate progress bars specifically for system processes, such as downloading, uploading, or processing tasks where the duration of the task is unknown.
         </li>
         <li>
           <strong>Tracking progress during lengthy processes.</strong> Incorporate a progress bar when you need to provide feedback to users during lengthy processes that involve continuous values. This visual indicator serves to keep users informed about the ongoing progress and helps them gauge the completion status of the task at hand.
@@ -150,7 +136,7 @@ function ProgressBarDocumentation() {
           Only hide the label when it is absolutely clear to the user which process the progress bar represents. Note that you are still required to pass an appropriate label which will be read by screen readers.
         </li>
         <li>
-          Use <code>&lt;progress&gt;</code>Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first! If you must create a custom component use the following:
+          Use the <code>&lt;progress&gt;</code> element to construct a progress bar. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first! If you must create a custom component use the following:
           <ul>
             <li>For a determinate progress bar, it outputs an ARIA <code>role=&ldquo;progressbar&rdquo;</code> and uses <code>aria-valuemin</code>, <code>aria-valuemax</code>, and <code>aria-valuenow</code> to indicate the loaded percentage or progress completion to screen reader users.
             </li>

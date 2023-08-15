@@ -1,7 +1,10 @@
+// @ts-check
 import PropTypes from 'prop-types';
-import { useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import PageShape from '../../propTypesShapes/PageShape';
+
+/** @typedef {import('../../../typedefs.d').Page} Page */
 
 const propTypes = {
   children: PropTypes.element.isRequired,
@@ -9,6 +12,12 @@ const propTypes = {
 };
 const defaultProps = {};
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {Page} props.page
+ * @returns {JSX.Element}
+ */
 function RoutePage({ children, page }) {
   const location = useLocation();
 
@@ -17,7 +26,7 @@ function RoutePage({ children, page }) {
       if (location.hash) {
         // if there's a hash, scroll to it
         const element = document.getElementById(location.hash.substring(1));
-        element.scrollIntoView(true, { behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: 'smooth' });
       } else {
         // UDS-565 browser was landing users in the middle of the page because of browser scroll position remembering
         // instead, just always go to the top. remembering scrolling position gets complicated really fast
@@ -29,7 +38,8 @@ function RoutePage({ children, page }) {
     },
     [location.hash, location.pathname]
   );
-  return children;
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
 }
 
 RoutePage.propTypes = propTypes;

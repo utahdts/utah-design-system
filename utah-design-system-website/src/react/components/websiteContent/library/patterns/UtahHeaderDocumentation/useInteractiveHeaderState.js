@@ -48,8 +48,7 @@ export default function useInteractiveHeaderState() {
     /** @type {Settings} */
     let resultSettings;
     if (settingsFromStorage) {
-      // include baseSettings in case localStorage settings are missing something (bargain basement migrator)
-      resultSettings = { ...baseSettings, ...parseHeaderSettings(settingsFromStorage) };
+      resultSettings = parseHeaderSettings(settingsFromStorage);
     } else {
       resultSettings = {
         ...getUtahHeaderSettings(),
@@ -111,6 +110,7 @@ export default function useInteractiveHeaderState() {
 
   /** @type {InteractiveHeaderState} */
   return useMemo(
+    // @ts-ignore
     () => ({
       headerString: stringifyHeaderSettings(headerSettings),
       setHeaderString: (newHeaderString) => {
@@ -147,7 +147,7 @@ export default function useInteractiveHeaderState() {
           blankSettings[settingsKey] = null;
         });
         // add back in defaults and app base settings
-        setHeaderSettings({ ...blankSettings, ...defaultSettings, ...baseSettings });
+        setHeaderSettings({ ...blankSettings, ...defaultSettings });
         setParseError(null);
       },
     }),

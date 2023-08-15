@@ -16,12 +16,12 @@ function ParagraphDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Basic and Semantic Text</h1>
-      <p className="lead-in">
+      <p className="lead-in mb-auto">
         In HTML the terms &quot;basic text&quot; and &quot;semantic text&quot; refer to different approaches in structuring
         and presenting textual content on a website. The term &quot;text&quot; in each of these phrases refers to the text
         within a semantic html element.
       </p>
-      <ul>
+      <ul className="mb-spacing">
         <li>Basic text focuses on visual presentation.</li>
         <li>Semantic text provides additional context and structure to your content.</li>
         <li>Semantic landmarks provide screen reader users the ability to jump to sections of a web page.</li>
@@ -33,18 +33,18 @@ function ParagraphDocumentation() {
 
       <hr />
 
-      <h2 id="section-basic-elements" className="mb-spacing mt-spacing">Basic Elements</h2>
+      <h2 id="section-basic-elements" className="mb-spacing mt-spacing">Basic Text</h2>
       <p>
         Basic text refers to the content that is presented on a website with simple structural HTML elements. It typically consists
         of paragraphs, headings, and basic formatting like bold or italic text. Basic text is primarily focused on the visual presentation
         of the content, with minimal consideration for its meaning or structure. The most common elements that provide no semantic meaning
-        are <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, and <code>&lt;em&gt;</code> tags, etc.
+        are <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, and <code>&lt;em&gt;</code> tags, etc.
       </p>
       <p>See <Link to={pageUrls.typography}>typography</Link>.</p>
       <p>
         There are some exceptions for this, such as elements like <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>, <code>&lt;li&gt;</code>,
         and <code>&lt;p&gt;</code> tags, etc. These not only tend to add visual structure but also adds semantic information to screen
-        readers as well as search engine optimization. However, they are necessary to the basic structure of a website.
+        readers as well as search engine optimization. Additionally, they are necessary to the basic structure of a website.
       </p>
       <p>
         See <Link to={pageUrls.headings}>headings</Link>, <Link to={pageUrls.lists}>lists</Link>, and <Link to={pageUrls.links}>links</Link>.
@@ -65,6 +65,7 @@ function ParagraphDocumentation() {
         information to assistive technologies and help improve accessibility and navigation. However, the overuse of these particular
         elements can create confusion and a bad experience for those using assistive technologies. Here are some commonly used landmark elements in
         HTML: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>.
+        Find further information about <Link to={`${pageUrls.accessibility}#section-landmark-roles`}>landmark role elements here</Link>.
       </p>
       <p>See <Link to={pageUrls.utahHeader}>Utah Header</Link>, <Link to={pageUrls.utahFooter}>Utah Footer</Link>, <Link to={pageUrls.mainMenu}>Main Menu</Link>, <Link to={pageUrls.verticalMenu}>Vertical Menu</Link>.</p>
 
@@ -168,8 +169,8 @@ function ParagraphDocumentation() {
                   <h1>Recipe: Lemon Blueberry Muffins</h1>
                   <p>Prepare a delightful batch of lemon blueberry muffins in just 30 minutes! Follow this easy recipe for a delicious treat that everyone will love.</p>
                 </section>
-                
-                <section> 
+
+                <section>
                   <h2>Ingredients</h2>
                   <ul>
                     <li>2 cups all-purpose flour</li>
@@ -182,7 +183,7 @@ function ParagraphDocumentation() {
                     <li>1 cup milk</li>
                   </ul>
                 </section>
-                  
+
                 <section>
                   <h2>Instructions</h2>
                   <ol>
@@ -193,7 +194,7 @@ function ParagraphDocumentation() {
                     <li>Remove from the oven, let them cool for a few minutes, and enjoy!</li>
                   </ol>
                 </section>
-                
+
                 <section>
                     <p>Published on <time dateTime="2023-06-06">June 6, 2023</time> by <cite>Foodie Delights</cite>.</p>
                 </section>
