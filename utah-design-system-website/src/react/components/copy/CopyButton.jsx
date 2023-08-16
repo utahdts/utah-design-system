@@ -63,7 +63,7 @@ function CopyButton({ copyRef, onCopy }) {
             console.error('Clipboard is not available');
           }
         }}
-        title="Copy Code"
+        title="Copy code"
       />
       <div
         className={`copy-button__feedback hcenter ${state.showFeedback && 'copy-button__feedback--visible'}`}

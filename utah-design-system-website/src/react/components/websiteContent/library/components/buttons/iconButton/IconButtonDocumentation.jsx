@@ -53,7 +53,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the gear icon button')}
-              title="Settings"
+              title="Gear icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
@@ -61,7 +61,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the alert icon button')}
-              title="Settings"
+              title="Alert icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
@@ -69,14 +69,14 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the right arrow icon button')}
-              title="Settings"
+              title="Right arrow icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               icon={(<span className="utds-icon-before-x-icon" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the x icon button')}
-              title="Settings"
+              title="X icon button"
             />
           </>
         )}
@@ -104,7 +104,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the search icon button')}
-              title="Settings"
+              title="Search icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
@@ -112,7 +112,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the bookmark icon button')}
-              title="Settings"
+              title="Bookmark icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
@@ -120,14 +120,14 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-check" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the check icon button')}
-              title="Settings"
+              title="Check icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               icon={(<span className="utds-icon-before-star" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the star icon button')}
-              title="Settings"
+              title="Star icon button"
             />
           </>
         )}
@@ -155,7 +155,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the bookmark icon button')}
-              title="Settings"
+              title="Bookmark icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
@@ -163,7 +163,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-info" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the info icon button')}
-              title="Settings"
+              title="Info icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
@@ -171,14 +171,14 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the help icon button')}
-              title="Settings"
+              title="Help icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the copy icon button')}
-              title="Settings"
+              title="Copy icon button"
             />
           </>
         )}
@@ -202,7 +202,7 @@ function IconButtonDocumentation() {
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the Small1X icon button')}
               size={formElementSizesEnum.SMALL1X}
-              title="Settings"
+              title="Gear icon x-small button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
@@ -211,7 +211,7 @@ function IconButtonDocumentation() {
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the small icon button')}
               size={formElementSizesEnum.SMALL}
-              title="Settings"
+              title="Gear icon small button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
@@ -219,7 +219,7 @@ function IconButtonDocumentation() {
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the medium icon button')}
               size={formElementSizesEnum.MEDIUM}
-              title="Settings"
+              title="Gear icon medium button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
@@ -228,7 +228,7 @@ function IconButtonDocumentation() {
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the large icon button')}
               size={formElementSizesEnum.LARGE}
-              title="Settings"
+              title="Gear icon large button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
@@ -237,7 +237,7 @@ function IconButtonDocumentation() {
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the Large1X icon button')}
               size={formElementSizesEnum.LARGE1X}
-              title="Settings"
+              title="Gear icon x-large button"
             />
           </>
         )}
@@ -258,7 +258,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the enabled gear icon button')}
-              title="Settings"
+              title="Gear icon primary color enabled solid button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
@@ -267,14 +267,14 @@ function IconButtonDocumentation() {
               isDisabled
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the disabled gear icon button')}
-              title="Settings"
+              title="Gear icon primary color disabled solid button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the enabled copy icon button')}
-              title="Settings"
+              title="Gear icon default color enabled outlined button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
@@ -282,7 +282,7 @@ function IconButtonDocumentation() {
               isDisabled
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the disabled copy icon button')}
-              title="Settings"
+              title="Gear icon default color disabled outlined button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
@@ -290,7 +290,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the enabled right arrow icon button')}
-              title="Settings"
+              title="Gear icon secondary color enabled borderless button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
@@ -299,7 +299,7 @@ function IconButtonDocumentation() {
               isDisabled
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the disabled right arrow icon button')}
-              title="Settings"
+              title="Gear icon secondary color disabled borderless button"
             />
           </>
         )}
@@ -334,7 +334,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the pressed gear icon button')}
-              title="Settings"
+              title="Gear icon primary color pressed button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
@@ -342,7 +342,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the pressed copy icon button')}
-              title="Settings"
+              title="Gear icon default color pressed button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
@@ -351,7 +351,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the pressed right arrow icon button')}
-              title="Settings"
+              title="Gear icon secondary color pressed button"
             />
           </>
         )}

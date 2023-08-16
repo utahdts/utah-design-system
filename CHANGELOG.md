@@ -7,10 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## Changed
-- Utah Header wrapper was changed from a `<div>` to a `<header>` element.
+## Added
+- ToolTip Component
 
-# [1.2.1] - 2023-08-15
+## Changed
+- Change Utah Header wrapper from a `<div>` to a `<header>` element.
+- Have Icon Button show a ToolTip 
+
+## Deprecated
+
+## Removed
+
+## Fixed
+
+## Security
+
+
+# [1.2.1] - 2024-08-15
 
 ## Added
 - Back to Top documentation

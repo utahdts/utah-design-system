@@ -1,11 +1,12 @@
 // @ts-check
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
+import ToolTip from '../ToolTip/ToolTip';
 
 const propTypes = {
   // the appearance of the button
@@ -64,7 +65,7 @@ const defaultProps = {
  * @param {'primary' | 'secondary' | 'accent' | 'none' | undefined} [props.color]
  * @param {import('react').ReactNode} props.icon
  * @param {string | null | undefined} [props.id]
- * @param {React.Ref<HTMLButtonElement>} [props.innerRef]
+ * @param {React.MutableRefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [props.size]
@@ -77,34 +78,42 @@ function IconButton({
   color,
   icon,
   id,
-  innerRef,
+  innerRef: draftInnerRef,
   isDisabled,
   onClick,
   size,
   title,
   ...rest
 }) {
+  const [referenceElement, setReferenceElement] = /** @type {typeof useState<HTMLButtonElement | null>} */ (useState)(null);
+  if (draftInnerRef && referenceElement) {
+    draftInnerRef.current = referenceElement;
+  }
+
   return (
-    <button
-      className={joinClassNames(
-        'button icon-button',
-        className,
-        `${(appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? 'icon-button--' : 'button--'}${appearance}`,
-        // default color is none
-        (color && color !== 'none') ? `button--${color}-color` : null,
-        // default size is medium
-        (size && size !== formElementSizesEnum.MEDIUM) ? `icon-button--${size}` : null
-      )}
-      disabled={isDisabled}
-      id={id || undefined}
-      onClick={onClick}
-      ref={innerRef || undefined}
-      type="button"
-      {...rest}
-    >
-      {icon}
-      <span className="visually-hidden">{title}</span>
-    </button>
+    <>
+      <button
+        className={joinClassNames(
+          'button icon-button',
+          className,
+          `${(appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? 'icon-button--' : 'button--'}${appearance}`,
+          // default color is none
+          (color && color !== 'none') ? `button--${color}-color` : null,
+          // default size is medium
+          (size && size !== formElementSizesEnum.MEDIUM) ? `icon-button--${size}` : null
+        )}
+        disabled={isDisabled}
+        id={id || undefined}
+        onClick={onClick}
+        ref={setReferenceElement}
+        type="button"
+        {...rest}
+      >
+        {icon}
+        <span className="visually-hidden">{title}</span>
+      </button>
+      <ToolTip referenceElement={referenceElement}>{title}</ToolTip>
+    </>
   );
 }
 
