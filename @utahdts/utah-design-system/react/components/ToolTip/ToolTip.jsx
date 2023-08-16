@@ -78,6 +78,11 @@ function ToolTip({
   );
   const updateRef = useRefAlways(update);
 
+  // When the children update recalculate the popper position
+  useEffect(() => {
+    updateRef.current?.();
+  }, [children]);
+
   useEffect(
     () => {
       // parent is not controlling visibility, so hookup visibility to the `referenceElement`
