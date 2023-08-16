@@ -93,17 +93,30 @@ function ToolTip({
         if (draftReferenceElement.onmouseleave) {
           throw new Error('ToolTip: onMouseLeave previously set');
         }
+        if (draftReferenceElement.onfocus) {
+          throw new Error('ToolTip: onfocus previously set');
+        }
+        if (draftReferenceElement.onblur) {
+          throw new Error('ToolTip: onblur previously set');
+        }
         draftReferenceElement.onmouseenter = () => {
           setIsPopperVisibleInternal(true);
           updateRef.current?.();
         };
+        draftReferenceElement.onfocus = () => {
+          setIsPopperVisibleInternal(true);
+          updateRef.current?.();
+        };
         draftReferenceElement.onmouseleave = () => setIsPopperVisibleInternal(false);
+        draftReferenceElement.onblur = () => setIsPopperVisibleInternal(false);
       }
       return (
         () => {
           if (draftReferenceElement) {
             draftReferenceElement.onmouseenter = null;
             draftReferenceElement.onmouseleave = null;
+            draftReferenceElement.onfocus = null;
+            draftReferenceElement.onblur = null;
           }
         }
       );
