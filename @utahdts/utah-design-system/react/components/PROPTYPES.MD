@@ -6,7 +6,15 @@ To make this happen, the prop types need both a standard set of naming and conve
 
 When adding a new prop, make sure it fits these guidelines and doesn't already exist in the common set of props.
 
-## Common Properties & Guidelines
+## Guidelines
+* `Boolean props`
+props that are true/false should generally start with the word `is`. ie:
+  - `isDisabled`
+  - `isPopperVisible`
+
+  There may be some props like `showChildContent` that would be awkward if they started with is `isShowChildContent` so those props should start with a verb.
+
+## Common Properties
 * `className` (string)
 Every rendering component should have a className property that allows the parent component to pass in a className to be applied to this child item. The supplied className should go on the html tag that is the central focus of the component. The component should be single focused so that there is some rendered piece of the component that is the reason the component was written. For instance, for a Switch, the input that displays the switch value would receive the className. Other items can have classNames, but will need their own prop.
 

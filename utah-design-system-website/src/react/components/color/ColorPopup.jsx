@@ -107,7 +107,7 @@ function ColorPopup({ onClose }) {
           <IconButton
             icon={Icons.IconReset()}
             className="icon-button--borderless"
-            title="Reset Color Picker"
+            title="Reset color picker"
             onClick={() => (
               setCssState((draftCssState) => (
                 Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
@@ -117,7 +117,7 @@ function ColorPopup({ onClose }) {
           <div className="color-picker-popup__title">Color Picker</div>
           <IconButton
             icon={Icons.IconShare()}
-            title="Copy Color Picker Link"
+            title="Copy color picker link"
             className="icon-button--borderless"
             onClick={() => {
               const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
@@ -132,7 +132,7 @@ function ColorPopup({ onClose }) {
           <div className="color-picker-popup__buttons">
             <IconButton
               icon={Icons.IconArrowRight()}
-              title="Randomize Color Picker"
+              title="Randomize color picker"
               onClick={() => (
                 setCssState((draftCssState) => (
                   Object.keys(cssContextDefaultColors).forEach((key) => { draftCssState[key] = `#${tinycolor.random().toHex()}`; })

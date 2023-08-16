@@ -240,28 +240,28 @@ function UtahHeaderDocumentation() {
               icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the waffle icon button')}
-              title="Settings"
+              title="Waffle icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the alert icon button')}
-              title="Settings"
+              title="Alert icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the help icon button')}
-              title="Settings"
+              title="Help icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the gear icon button')}
-              title="Settings"
+              title="Gear icon button"
             />
           </>
 
