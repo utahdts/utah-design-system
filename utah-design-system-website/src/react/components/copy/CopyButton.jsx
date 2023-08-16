@@ -16,14 +16,19 @@ const defaultProps = {
 function CopyButton({ copyRef, onCopy }) {
   const [state, setState] = useImmer({
     showFeedback: false,
+    copyButtonTitle: 'Copy code',
   });
 
   useEffect(() => {
     let delay;
     if (state.showFeedback) {
+      setState((draftState) => {
+        draftState.copyButtonTitle = 'Copied';
+      });
       delay = setTimeout(() => {
         setState((draftState) => {
           draftState.showFeedback = false;
+          draftState.copyButtonTitle = 'Copy code';
         });
       }, 1500);
     }
@@ -63,23 +68,9 @@ function CopyButton({ copyRef, onCopy }) {
             console.error('Clipboard is not available');
           }
         }}
-        title="Copy code"
+        title={state.copyButtonTitle}
       />
-      <div
-        className={`copy-button__feedback hcenter ${state.showFeedback && 'copy-button__feedback--visible'}`}
-        aria-live="polite"
-      >
-        {
-          state.showFeedback
-            ? (
-              <span>
-                Copied
-                <span className="visually-hidden">to clipboard</span>
-              </span>
-            )
-            : <span aria-hidden="true">Copied</span>
-        }
-      </div>
+      {/* TODO: Notify the screen reader the text was copied to the clipboard */}
     </div>
   );
 }
