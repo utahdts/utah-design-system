@@ -6,7 +6,11 @@ import joinClassNames from '../../util/joinClassNames';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 
 const propTypes = {
+
+  // ** UPDATE DOC PAGE PROPERTIES ** //
+
   className: PropTypes.string,
+  defaultValue: PropTypes.bool,
   errorMessage: PropTypes.string,
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
   id: PropTypes.string.isRequired,
@@ -24,9 +28,13 @@ const propTypes = {
   sliderChildren: PropTypes.node,
   value: PropTypes.bool,
   width: PropTypes.number,
+
+  // ** UPDATE DOC PAGE PROPERTIES ** //
+
 };
 const defaultProps = {
   className: null,
+  defaultValue: null,
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
@@ -41,8 +49,30 @@ const defaultProps = {
   width: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.className]
+ * @param {boolean} [props.defaultValue]
+ * @param {string} [props.errorMessage]
+ * @param {string} props.id
+ * @param {React.Ref<HTMLDivElement>} [props.innerRef]
+ * @param {boolean} [props.isDisabled]
+ * @param {string} props.label
+ * @param {string} [props.labelClassName]
+ * @param {string} [props.labelOn]
+ * @param {string} [props.labelOff]
+ * @param {(e: Event, id: string, newValue: boolean) => void} [props.onChange]
+ * @param {(e: Event) => void} [props.onSubmit]
+ * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
+ * @param {React.ReactNode} [props.sliderChildren]
+ * @param {boolean} [props.value]
+ * @param {number} [props.width]
+ * @param {...any} rest
+ * @returns {JSX.Element}
+ */
 function Switch({
   className,
+  defaultValue,
   errorMessage,
   id,
   innerRef,
@@ -65,6 +95,7 @@ function Switch({
     currentOnFormKeyPress,
     currentValue,
   } = useCurrentValuesFromForm({
+    defaultValue,
     errorMessage,
     id,
     onChange,

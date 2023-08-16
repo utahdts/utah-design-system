@@ -10,6 +10,7 @@ import onKeyPress from '../../util/onKeyPress';
  *  • controlled by component (<Form> may or may not have onChange and state, but Component itself specifies overriding value and onChange)
  *
  * @param {string} object.errorMessage errorMessage from the component that overrides the one from the form context
+ * @param {string|bool|number|any} object.defaultValue starting value of the component if not controlled
  * @param {string|number} object.id id of the component that is also the path to the data for the component in the form context
  * @param {func} object.onChange when component changes, call this function, overrides the one from the form context
  * @param {func} object.onSubmit when enter key pressed ,or some other submitting event, call this function, overrides the one from the form context
@@ -17,6 +18,7 @@ import onKeyPress from '../../util/onKeyPress';
  * @returns the same passed in parameters but checking if the component overrides the form's context values
  */
 export default function useCurrentValuesFromForm({
+  defaultValue,
   errorMessage,
   id,
   onChange,
@@ -39,7 +41,7 @@ export default function useCurrentValuesFromForm({
     currentErrorMessage: errorMessage ?? validationErrors?.[id],
     currentOnChange: onChange ?? (contextOnChange && ((e, newValue) => contextOnChange({ e, id, newValue }))),
     currentOnSubmit,
-    currentValue: (value ?? (state && valueAtPath({ object: state, path: id }))) || '',
+    currentValue: (value ?? (state && valueAtPath({ object: state, path: id }))) ?? defaultValue ?? '',
     currentOnFormKeyPress: onKeyPress({ targetKey: 'Enter', func: (e) => currentOnSubmit?.(e) }),
   };
 }
