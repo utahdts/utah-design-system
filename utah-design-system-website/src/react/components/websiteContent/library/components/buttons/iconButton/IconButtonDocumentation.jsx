@@ -362,6 +362,26 @@ function IconButtonDocumentation() {
         )}
       />
 
+      <StaticExample
+        title="Icon Button with visible title"
+        renderedExample={(
+          <IconButton
+            appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+            icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
+            // eslint-disable-next-line no-alert
+            onClick={() => alert('Triggered the waffle icon button')}
+            title="Divisions"
+            isTitleVisible
+          />
+        )}
+        quickTips={(
+          <ul>
+            <li>On rare occasions you may need to provide a visible title.</li>
+            <li>Use this very limitedly.</li>
+          </ul>
+        )}
+      />
+
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
@@ -444,7 +464,7 @@ function IconButtonDocumentation() {
 
       <button type="button" aria-pressed="true">Press Me</button>
 
-      <h2 id="section-settings-props">Settings and Props</h2>
+      <h2 id="section-settings-props" className="mt-spacing">Settings and Props</h2>
       <div className="documentation-content--small-text">
         <TabGroup defaultValue="segmented-button-props-css">
           <TabList>
@@ -470,6 +490,10 @@ function IconButtonDocumentation() {
                     <TableRow>
                       <TableCell><code>.icon-button--borderless</code></TableCell>
                       <TableCell>Render an icon button without a visible button boundary.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code>.icon-button--visible-title</code></TableCell>
+                      <TableCell>Render an icon button with a visible title.</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -586,6 +610,21 @@ function IconButtonDocumentation() {
                         When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
                         and its appearance will change to be more subdued
                         so that the user can tell the button is unusable.
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow>
+                      <TableCell><code className="primary-color">isTitleVisible</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>true</code>
+                          <span> | </span>
+                          <code>false</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><code>false</code></TableCell>
+                      <TableCell>
+                        Will toggle the visibility of the title of the icon button.
                       </TableCell>
                     </TableRow>
 
