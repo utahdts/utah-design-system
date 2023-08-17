@@ -102,6 +102,7 @@ export { default as usePaginatedList } from './react/components/navigation/pagin
 export { default as useRefAlways } from './react/hooks/useRefAlways';
 export { default as useRefLazy } from './react/hooks/useRefLazy';
 export { default as UserInfoShape } from './react/propTypesShapes/header/UserInfoShape';
+export { default as usePopupDelay } from './react/hooks/usePopupDelay';
 export { default as useStateEffect } from './react/hooks/useStateEffect';
 export { default as useUtahHeaderContext } from './react/contexts/useUtahHeaderContext';
 export { default as UtahHeaderContext } from './react/contexts/UtahHeaderContext';

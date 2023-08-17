@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { usePopper } from 'react-popper';
 import popupPlacement from '../../enums/popupPlacement';
+import usePopupDelay from '../../hooks/usePopupDelay';
+import useRefAlways from '../../hooks/useRefAlways';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import useRefAlways from '../../hooks/useRefAlways';
 
 const propTypes = {
   // The content of the tool tip
@@ -78,6 +79,8 @@ function ToolTip({
   );
   const updateRef = useRefAlways(update);
 
+  const { startNoPopupTimer, startPopupTimer } = usePopupDelay();
+
   // When the children update recalculate the popper position
   useEffect(() => {
     updateRef.current?.();
@@ -99,15 +102,21 @@ function ToolTip({
         if (draftReferenceElement.onblur) {
           throw new Error('ToolTip: onblur previously set');
         }
-        draftReferenceElement.onmouseenter = () => {
-          setIsPopperVisibleInternal(true);
-          updateRef.current?.();
-        };
+        draftReferenceElement.onmouseenter = () => (
+          startPopupTimer(() => {
+            setIsPopperVisibleInternal(true);
+            updateRef.current?.();
+          })
+        );
+        // onfocus and onblur don't wait on the popupTimer to popup
         draftReferenceElement.onfocus = () => {
           setIsPopperVisibleInternal(true);
           updateRef.current?.();
         };
-        draftReferenceElement.onmouseleave = () => setIsPopperVisibleInternal(false);
+        draftReferenceElement.onmouseleave = () => {
+          startNoPopupTimer();
+          setIsPopperVisibleInternal(false);
+        };
         draftReferenceElement.onblur = () => setIsPopperVisibleInternal(false);
       }
       return (
