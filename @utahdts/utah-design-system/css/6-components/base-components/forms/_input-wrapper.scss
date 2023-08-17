@@ -9,5 +9,8 @@
       gap: 3px;
       align-items: flex-start;
     }
+    &--switch {
+      margin: var(--spacing) 0 var(--spacing-2xs) 0;
+    }
   }
 }
