@@ -1,8 +1,11 @@
-import { formElementSizesEnum } from '@utahdts/utah-design-system';
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
 import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../sandbox/SandboxIndent';
+
+/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 
 const propTypes = {
   state: PropTypes.shape({
@@ -11,51 +14,77 @@ const propTypes = {
 };
 const defaultProps = {};
 
-function TooltipExampleCode({
+/**
+ * @param {Object} props
+ * @param {Object} props.state
+ * @param {TooltipsExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+function TooltipsExampleCodeReact({
   state: {
     props: {
-      appearance,
-      isBusy,
-      className,
-      color,
-      iconLeft,
-      iconRight,
-      isDisabled,
-      id,
-      size,
-      style,
-      title,
-      type,
+      isPopperVisible,
+      offsetDistance,
+      offsetSkidding,
+      popupText,
     },
   },
 }) {
+  const offsetDistanceUse = Number(offsetDistance) || 0;
+  const offsetSkiddingUse = Number(offsetSkidding) || 0;
+  const offsetProp = (
+    (offsetDistanceUse !== 0 || offsetSkiddingUse !== 5)
+      ? `offset={[${offsetDistanceUse}, ${offsetSkiddingUse}]}`
+      : null
+  );
+
   return (
     <>
+      const referenceElement = useRef();
+      <br />
+      ...
+      <br />
+      &lt;button
+      <br />
+      &nbsp;&nbsp;className=&quot;button icon-button button--outlined&quot;
+      <br />
+      &nbsp;&nbsp;onClick=&#123;() =&gt; &#123; &#125;&#125;
+      <br />
+      &nbsp;&nbsp;ref=&#123;referenceElement&#125;
+      <br />
+      &nbsp;&nbsp;type=&quot;button&quot;
+      <br />
+      &gt;
+      <br />
+      &nbsp;&nbsp;&lt;span className=&quot;utds-icon-before-gear&quot; aria-hidden=&quot;true&quot; /&gt;
+      <br />
+      &nbsp;&nbsp;&lt;span className=&quot;visually-hidden&quot;&gt;Gear Icon with Tooltip&lt;/span&gt;
+      <br />
+      &lt;/button&gt;
+      <br />
+
       &lt;Tooltip
       <br />
-      <ExampleCodeReactProp displayProp={appearance ? `appearance="${appearance}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={color ? `color="${color}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isBusy ? 'busy={true}' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isDisabled ? 'disabled={true}' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={style ? `style="${style}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(type && type !== 'badge') ? `type="${type}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'onClick={() => { /* ... do something ... */ }'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isPopperVisible ? 'isPopperVisible' : null} indentLevel={1} />
+      {
+        offsetProp
+          ? <ExampleCodeReactProp displayProp={offsetProp} indentLevel={1} />
+          : null
+      }
+      <SandboxIndent indentLevel={1} />
+      referenceElement=&#123;referenceElement&#125;
+      <br />
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      {title}
+      {popupText}
       <br />
       &lt;/Tooltip&gt;
     </>
   );
 }
 
-TooltipExampleCode.propTypes = propTypes;
-TooltipExampleCode.defaultProps = defaultProps;
+TooltipsExampleCodeReact.propTypes = propTypes;
+TooltipsExampleCodeReact.defaultProps = defaultProps;
 
-export default TooltipExampleCode;
+export default TooltipsExampleCodeReact;

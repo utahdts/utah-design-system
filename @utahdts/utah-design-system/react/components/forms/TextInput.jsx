@@ -1,10 +1,13 @@
+// @ts-check
 import PropTypes from 'prop-types';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm';
 import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import ErrorMessage from './ErrorMessage';
+
+/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
 const propTypes = {
   className: PropTypes.string,
@@ -34,6 +37,21 @@ const defaultProps = {
   wrapperClassName: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.className]
+ * @param {string} [props.errorMessage]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {string} props.id
+ * @param {boolean} [props.isDisabled]
+ * @param {string} props.label
+ * @param {string} [props.labelClassName]
+ * @param {EventAction} [props.onChange]
+ * @param {() => void} [props.onSubmit]
+ * @param {string} [props.value]
+ * @param {string} [props.wrapperClassName]
+ * @returns {JSX.Element}
+ */
 function TextInput({
   className,
   errorMessage,
@@ -63,7 +81,7 @@ function TextInput({
   const ref = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
   const innerRefUse = innerRef || ref;
 
-  const onChangeSetCursorPosition = useRememberCursorPosition(innerRefUse, value);
+  const onChangeSetCursorPosition = useRememberCursorPosition(innerRefUse, value || '');
 
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)}>
@@ -77,8 +95,10 @@ function TextInput({
         name={id}
         onChange={(e) => {
           onChangeSetCursorPosition(e);
+          // @ts-ignore
           currentOnChange(e);
         }}
+        // @ts-ignore
         onKeyPress={currentOnFormKeyPress}
         ref={innerRefUse}
         type="text"
