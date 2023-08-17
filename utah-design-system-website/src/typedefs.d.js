@@ -84,4 +84,13 @@
  * }
  */
 
+/**
+ * @typedef TooltipsExamplePropsShape {
+ *   @property {boolean} isPopperVisible
+ *   @property {string} offsetDistance
+ *   @property {string} offsetSkidding
+ *   @property {string} popupText
+ * }
+ */
+
 export default false;
