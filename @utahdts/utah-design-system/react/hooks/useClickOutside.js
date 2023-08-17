@@ -1,10 +1,12 @@
 // @ts-check
 import { useEffect } from 'react';
 
+/** @typedef {import('../jsDocTypes').EventAction} EventAction */
+
 // Improved version of https://usehooks.com/useOnClickOutside/
 /**
- * @param {import('../propTypesShapes/RefShape').RefCurrent} ref
- * @param {(e: Event) => void} handler
+ * @param {React.RefObject} ref
+ * @param {EventAction} handler
  * @param {boolean} isDisabled
  */
 function useClickOutside(ref, handler, isDisabled = false) {

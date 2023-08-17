@@ -6,7 +6,7 @@ import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import ToolTip from '../ToolTip/ToolTip';
+import Tooltip from '../Tooltip/Tooltip';
 
 const propTypes = {
   // the appearance of the button
@@ -32,6 +32,7 @@ const propTypes = {
   innerRef: RefShape,
   // button isDisabled state
   isDisabled: PropTypes.bool,
+  isTitleVisible: PropTypes.bool,
   // what to do when the button is clicked
   onClick: PropTypes.func.isRequired,
   size: PropTypes.oneOf([
@@ -49,6 +50,7 @@ const defaultProps = {
   className: null,
   color: componentColors.NONE,
   id: null,
+  isTitleVisible: false,
   innerRef: null,
   isDisabled: false,
   size: formElementSizesEnum.MEDIUM,
@@ -67,6 +69,7 @@ const defaultProps = {
  * @param {string | null | undefined} [props.id]
  * @param {React.MutableRefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isTitleVisible]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [props.size]
  * @param {string} props.title
@@ -80,6 +83,7 @@ function IconButton({
   id,
   innerRef: draftInnerRef,
   isDisabled,
+  isTitleVisible,
   onClick,
   size,
   title,
@@ -99,6 +103,7 @@ function IconButton({
           `${(appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? 'icon-button--' : 'button--'}${appearance}`,
           // default color is none
           (color && color !== 'none') ? `button--${color}-color` : null,
+          (isTitleVisible ? 'icon-button--visible-title' : null),
           // default size is medium
           (size && size !== formElementSizesEnum.MEDIUM) ? `icon-button--${size}` : null
         )}
@@ -110,9 +115,9 @@ function IconButton({
         {...rest}
       >
         {icon}
-        <span className="visually-hidden">{title}</span>
+        <span className={isTitleVisible ? undefined : 'visually-hidden'}>{title}</span>
       </button>
-      <ToolTip referenceElement={referenceElement}>{title}</ToolTip>
+      <Tooltip referenceElement={referenceElement}>{title}</Tooltip>
     </>
   );
 }

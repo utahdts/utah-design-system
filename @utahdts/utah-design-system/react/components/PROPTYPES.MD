@@ -54,13 +54,17 @@ Components should be created controlled or uncontrolled.
 This spreads to the rendered input or controlling element with the value, not the wrapper.
 
 ## Uncommon props from other components
-You can check here if something already does something your component is wanting to do.
+You can check here to see if some other component already does something your component is wanting to do.
 ### Switch
 * `labelOff`: PropTypes.node
 * `labelOn`: PropTypes.node
 * `sliderChildren`: PropTypes.node
 * `width`: PropTypes.number
+### Tooltip
+* isTitleVisible: PropTypes.boolean
 
+
+## Label/Value form html tag style
 ```html
 <!-- preferred (required in design system components) -->
 <div className="input-wrapper">

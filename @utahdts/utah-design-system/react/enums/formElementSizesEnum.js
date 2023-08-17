@@ -1,9 +1,12 @@
+// @ts-check
+/** @typedef {import('../jsDocTypes').FormElementSizes} FormElementSizes */
+/** @enum {FormElementSizes} */
 export default {
-  SMALL3X: 'small3x',
-  SMALL2X: 'small2x',
-  SMALL1X: 'small1x',
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-  LARGE1X: 'large1x',
+  SMALL3X: /** @type {FormElementSizes} */ ('small3x'),
+  SMALL2X: /** @type {FormElementSizes} */ ('small2x'),
+  SMALL1X: /** @type {FormElementSizes} */ ('small1x'),
+  SMALL: /** @type {FormElementSizes} */ ('small'),
+  MEDIUM: /** @type {FormElementSizes} */ ('medium'),
+  LARGE: /** @type {FormElementSizes} */ ('large'),
+  LARGE1X: /** @type {FormElementSizes} */ ('large1x'),
 };

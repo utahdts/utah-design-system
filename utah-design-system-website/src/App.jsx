@@ -1,3 +1,4 @@
+// @ts-check
 import {
   FormContextProvider,
   joinClassNames,
@@ -19,6 +20,8 @@ import useCssContext from './react/context/cssContext/useCssContext';
 import CSS_CLASS_NAMES from './react/enums/cssClassNames';
 import CSS_STATE_KEYS from './react/enums/cssStateKeys';
 
+/** @typedef {import('../../@utahdts/utah-design-system/react/jsDocTypes').FormContextState} FormContextState */
+
 const propTypes = {};
 const defaultProps = {};
 
@@ -28,7 +31,7 @@ const defaultProps = {};
 function App() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
   const { cssState } = useCssContext();
-  const [state, setState] = useImmer({});
+  const [state, setState] = /** @type {typeof useImmer<FormContextState>} */ (useImmer)({});
   const { settings: utahHeaderSettings, setSettings: setUtahHeaderSettings } = useUtahHeaderContext();
   const isActionItemsAddedRef = useRef(false);
 

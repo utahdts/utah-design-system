@@ -62,7 +62,7 @@ const defaultProps = {
  * @param {string} [props.labelOn]
  * @param {string} [props.labelOff]
  * @param {(e: Event, id: string, newValue: boolean) => void} [props.onChange]
- * @param {(e: Event) => void} [props.onSubmit]
+ * @param {EventAction} [props.onSubmit]
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
  * @param {React.ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]

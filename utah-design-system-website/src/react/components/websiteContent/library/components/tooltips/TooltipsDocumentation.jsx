@@ -3,12 +3,20 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
-import { Link } from 'react-router-dom';
+// @ts-ignore
+// eslint-disable-next-line import/order
 import tooltipsScreenshot from '../../../../../../static/images/mockups/Tooltips.jpg';
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 import LightBox from '../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../routing/pageUrls';
+import SandboxExample from '../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../staticExamples/StaticExample';
+import TooltipsExampleCodeReact from './TooltipsExampleCodeReact';
+import TooltipsExampleProps from './TooltipsExampleProps';
+import TooltipsExampleRender from './TooltipsExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
@@ -20,6 +28,11 @@ function TooltipsDocumentation() {
       <p className="lead-in">Tooltips are floating labels to describe or add additional information when users hover over or focus on an interactive element.  Use sparingly.</p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={TooltipsExampleRender}
+        PROPS_EXAMPLE={TooltipsExampleProps}
+        CODE_EXAMPLE={TooltipsExampleCodeReact}
+      />
       <StaticExample
         title="Tooltip Examples"
         renderedExample={<LightBox hideAlt image={tooltipsScreenshot} alt="Tooltips" className="flex-3up-gap" />}

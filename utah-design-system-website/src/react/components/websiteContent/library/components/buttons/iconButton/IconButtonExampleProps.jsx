@@ -30,7 +30,7 @@ function IconButtonExampleProps({ setState, state }) {
         draftState.props.iconCssClass = 'help';
         draftState.props.isDisabled = false;
         draftState.props.size = 'medium';
-        draftState.props.title = 'ToolTip Title';
+        draftState.props.title = 'Tooltip Title';
       });
     },
     []

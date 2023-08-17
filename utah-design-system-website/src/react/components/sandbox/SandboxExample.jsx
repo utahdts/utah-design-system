@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Tab,
   TabGroup,
@@ -7,7 +8,7 @@ import {
   TabPanels,
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { useImmer } from 'use-immer';
 import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
 import PreCode from '../preCode/PreCode';
@@ -21,11 +22,28 @@ const propTypes = {
 };
 const defaultProps = {};
 
+/**
+ * @template UpdaterPropsT
+ * @typedef {import('use-immer').Updater<{props: UpdaterPropsT}>} UpdaterProps
+*/
+/**
+ * @template FCT
+ * @typedef {React.FC<{state: Object, setState?: UpdaterProps<FCT>, innerRef?: React.RefObject<any>}>} ReactFCStater
+ */
+
+/**
+ * @template SandboxExamplePropsT
+ * @param {Object} props
+ * @param {ReactFCStater<SandboxExamplePropsT>} props.CODE_EXAMPLE
+ * @param {ReactFCStater<SandboxExamplePropsT>} props.PROPS_EXAMPLE
+ * @param {ReactFCStater<SandboxExamplePropsT>} props.RENDER_EXAMPLE
+ * @returns {JSX.Element}
+ */
 function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
   const [state, setState] = useImmer({
-    props: {},
+    props: /** @type {SandboxExamplePropsT} */ ({}),
   });
-  const renderedRef = useRef(null);
+  const renderedRef = /** @type {typeof useRef<any>} */ (useRef)(null);
 
   return (
     <div className="sandbox-example">

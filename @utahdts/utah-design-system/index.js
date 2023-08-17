@@ -93,6 +93,7 @@ export { default as TabList } from './react/components/containers/tabs/TabList';
 export { default as TabPanel } from './react/components/containers/tabs/TabPanel';
 export { default as TabPanels } from './react/components/containers/tabs/TabPanels';
 export { default as TextInput } from './react/components/forms/TextInput';
+export { default as Tooltip } from './react/components/Tooltip/Tooltip';
 export { default as useBanner } from './react/hooks/useBanner';
 export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useImmerRef } from './react/hooks/useImmerRef';
@@ -101,6 +102,7 @@ export { default as usePaginatedList } from './react/components/navigation/pagin
 export { default as useRefAlways } from './react/hooks/useRefAlways';
 export { default as useRefLazy } from './react/hooks/useRefLazy';
 export { default as UserInfoShape } from './react/propTypesShapes/header/UserInfoShape';
+export { default as usePopupDelay } from './react/hooks/usePopupDelay';
 export { default as useStateEffect } from './react/hooks/useStateEffect';
 export { default as useUtahHeaderContext } from './react/contexts/useUtahHeaderContext';
 export { default as UtahHeaderContext } from './react/contexts/UtahHeaderContext';

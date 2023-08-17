@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { usePopper } from 'react-popper';
 import popupPlacement from '../../enums/popupPlacement';
+import usePopupDelay from '../../hooks/usePopupDelay';
+import useRefAlways from '../../hooks/useRefAlways';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import useRefAlways from '../../hooks/useRefAlways';
 
 const propTypes = {
   // The content of the tool tip
@@ -48,7 +49,7 @@ const defaultProps = {
  * @param {HTMLElement | null} props.referenceElement
  * @returns {JSX.Element}
  */
-function ToolTip({
+function Tooltip({
   children,
   className,
   innerRef: draftInnerRef = null,
@@ -78,6 +79,13 @@ function ToolTip({
   );
   const updateRef = useRefAlways(update);
 
+  const { startNoPopupTimer, startPopupTimer } = usePopupDelay();
+
+  // When the children update recalculate the popper position
+  useEffect(() => {
+    updateRef.current?.();
+  }, [children]);
+
   useEffect(
     () => {
       // parent is not controlling visibility, so hookup visibility to the `referenceElement`
@@ -88,17 +96,36 @@ function ToolTip({
         if (draftReferenceElement.onmouseleave) {
           throw new Error('ToolTip: onMouseLeave previously set');
         }
-        draftReferenceElement.onmouseenter = () => {
+        if (draftReferenceElement.onfocus) {
+          throw new Error('ToolTip: onfocus previously set');
+        }
+        if (draftReferenceElement.onblur) {
+          throw new Error('ToolTip: onblur previously set');
+        }
+        draftReferenceElement.onmouseenter = () => (
+          startPopupTimer(() => {
+            setIsPopperVisibleInternal(true);
+            updateRef.current?.();
+          })
+        );
+        // onfocus and onblur don't wait on the popupTimer to popup
+        draftReferenceElement.onfocus = () => {
           setIsPopperVisibleInternal(true);
           updateRef.current?.();
         };
-        draftReferenceElement.onmouseleave = () => setIsPopperVisibleInternal(false);
+        draftReferenceElement.onmouseleave = () => {
+          startNoPopupTimer();
+          setIsPopperVisibleInternal(false);
+        };
+        draftReferenceElement.onblur = () => setIsPopperVisibleInternal(false);
       }
       return (
         () => {
           if (draftReferenceElement) {
             draftReferenceElement.onmouseenter = null;
             draftReferenceElement.onmouseleave = null;
+            draftReferenceElement.onfocus = null;
+            draftReferenceElement.onblur = null;
           }
         }
       );
@@ -131,7 +158,7 @@ function ToolTip({
   );
 }
 
-ToolTip.propTypes = propTypes;
-ToolTip.defaultProps = defaultProps;
+Tooltip.propTypes = propTypes;
+Tooltip.defaultProps = defaultProps;
 
-export default ToolTip;
+export default Tooltip;
