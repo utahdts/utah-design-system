@@ -368,10 +368,10 @@ function IconButtonDocumentation() {
           <IconButton
             appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
             icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
+            isTitleVisible
             // eslint-disable-next-line no-alert
             onClick={() => alert('Triggered the waffle icon button')}
             title="Divisions"
-            isTitleVisible
           />
         )}
         quickTips={(
