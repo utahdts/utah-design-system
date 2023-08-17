@@ -93,7 +93,7 @@ export { default as TabList } from './react/components/containers/tabs/TabList';
 export { default as TabPanel } from './react/components/containers/tabs/TabPanel';
 export { default as TabPanels } from './react/components/containers/tabs/TabPanels';
 export { default as TextInput } from './react/components/forms/TextInput';
-export { default as ToolTip } from './react/components/ToolTip/ToolTip';
+export { default as Tooltip } from './react/components/Tooltip/Tooltip';
 export { default as useBanner } from './react/hooks/useBanner';
 export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useImmerRef } from './react/hooks/useImmerRef';

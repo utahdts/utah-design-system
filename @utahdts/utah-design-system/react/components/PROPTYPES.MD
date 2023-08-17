@@ -60,7 +60,7 @@ You can check here to see if some other component already does something your co
 * `labelOn`: PropTypes.node
 * `sliderChildren`: PropTypes.node
 * `width`: PropTypes.number
-### ToolTip
+### Tooltip
 * isTitleVisible: PropTypes.boolean
 
 
