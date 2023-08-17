@@ -49,7 +49,7 @@ const defaultProps = {
  * @param {HTMLElement | null} props.referenceElement
  * @returns {JSX.Element}
  */
-function ToolTip({
+function Tooltip({
   children,
   className,
   innerRef: draftInnerRef = null,
@@ -158,7 +158,7 @@ function ToolTip({
   );
 }
 
-ToolTip.propTypes = propTypes;
-ToolTip.defaultProps = defaultProps;
+Tooltip.propTypes = propTypes;
+Tooltip.defaultProps = defaultProps;
 
-export default ToolTip;
+export default Tooltip;

@@ -6,7 +6,7 @@ import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import ToolTip from '../ToolTip/ToolTip';
+import Tooltip from '../Tooltip/Tooltip';
 
 const propTypes = {
   // the appearance of the button
@@ -117,7 +117,7 @@ function IconButton({
         {icon}
         <span className={isTitleVisible ? undefined : 'visually-hidden'}>{title}</span>
       </button>
-      <ToolTip referenceElement={referenceElement}>{title}</ToolTip>
+      <Tooltip referenceElement={referenceElement}>{title}</Tooltip>
     </>
   );
 }
