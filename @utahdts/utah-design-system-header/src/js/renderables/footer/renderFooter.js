@@ -93,9 +93,9 @@ export default function renderFooter() {
 
       // make links external links
       const footerLinks = notNull(document.querySelector(getCssClassSelector(domConstants.FOOTER_LINKS)), 'renderFooter: footer links not found');
-      const lis = footerLinks.querySelectorAll('li');
-      lis.forEach((li) => {
-        li.appendChild(renderDOMSingle(newTabAccessibilityHTML));
+      const lis = footerLinks.querySelectorAll('a');
+      lis.forEach((link) => {
+        link.appendChild(renderDOMSingle(newTabAccessibilityHTML));
       });
 
       // make a copy for future comparison
