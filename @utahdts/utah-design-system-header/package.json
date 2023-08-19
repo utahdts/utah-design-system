@@ -20,7 +20,7 @@
     "./src/css/index.scss": "./src/css/index.scss"
   },
   "main": "./src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "src/css",
     "dist"
