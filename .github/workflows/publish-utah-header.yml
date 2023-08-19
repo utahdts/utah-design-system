@@ -17,12 +17,12 @@ jobs:
       - name: NPM Install 🪚
         run: |
           npm install
+          - name: NPM header Build 🔨
+          run: |
+          npm run buildHeader
       - name: Build Types 🪚
         run: |
           npm run buildTypesHeader
-      - name: NPM header Build 🔨
-        run: |
-          npm run buildHeader
       - name: NPM Publish 🏠
         run: |
           npm run publishHeader
