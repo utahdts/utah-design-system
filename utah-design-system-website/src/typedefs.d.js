@@ -3,8 +3,10 @@
 
 /**
  * @template UpdaterT
- * @typedef {import('use-immer/').Updater<UpdaterT>} Updater
+ * @typedef {import('use-immer').Updater<UpdaterT>} Updater
  */
+
+/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
 
 /**
  * PageUrl - it is an enum, but listing ALL the individual pageUrls and keeping it up to date is impossible
@@ -89,6 +91,7 @@
  *   @property {boolean} isPopperVisible
  *   @property {string} offsetDistance
  *   @property {string} offsetSkidding
+ *   @property {PopupPlacement} placement
  *   @property {string} popupText
  * }
  */

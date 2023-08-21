@@ -30,6 +30,7 @@ function TooltipsExampleRender({
       isPopperVisible,
       offsetDistance,
       offsetSkidding,
+      placement,
       popupText,
     },
   },
@@ -50,6 +51,7 @@ function TooltipsExampleRender({
       <Tooltip
         isPopperVisible={isPopperVisible || undefined}
         offset={[Number(offsetDistance) || 0, Number(offsetSkidding) || 0]}
+        placement={placement}
         referenceElement={referenceElement.current}
       >
         {popupText || ''}
