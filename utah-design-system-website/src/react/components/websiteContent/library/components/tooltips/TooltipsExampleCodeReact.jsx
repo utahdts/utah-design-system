@@ -1,4 +1,5 @@
 // @ts-check
+import { popupPlacement } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React from 'react';
 import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
@@ -26,6 +27,7 @@ function TooltipsExampleCodeReact({
       isPopperVisible,
       offsetDistance,
       offsetSkidding,
+      placement,
       popupText,
     },
   },
@@ -69,6 +71,11 @@ function TooltipsExampleCodeReact({
       {
         offsetProp
           ? <ExampleCodeReactProp displayProp={offsetProp} indentLevel={1} />
+          : null
+      }
+      {
+        (placement && placement !== popupPlacement.BOTTOM)
+          ? <ExampleCodeReactProp displayProp={`placement="${placement}"`} indentLevel={1} />
           : null
       }
       <SandboxIndent indentLevel={1} />
