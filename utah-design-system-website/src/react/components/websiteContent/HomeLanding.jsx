@@ -12,7 +12,7 @@ const defaultProps = {};
 
 function HomeLanding() {
   return (
-    <MainContent className="landing-page-template" id="mainContent">
+    <MainContent className="landing-page-template">
       <div className="home-banner">
         <div className="home-banner__title">Utah<br />Design<br />System</div>
       </div>

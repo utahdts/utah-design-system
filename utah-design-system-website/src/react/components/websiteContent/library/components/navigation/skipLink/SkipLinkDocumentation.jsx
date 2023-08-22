@@ -33,6 +33,16 @@ function SkipLinkDocumentation() {
             <li>The skip link appears when it receives focus.</li>
             <li>The skip link is the first focusable element on the page.</li>
             <li>When the user activates the link it takes them to the main content.</li>
+            <li>
+              <a
+                href="#"
+                onClick={() => {
+                  document.querySelector('.skip-link__link').focus();
+                }}
+              >
+              Click here for a demo of the skip link.
+              </a>
+            </li>
           </ul>
         )}
       />
@@ -42,6 +52,9 @@ function SkipLinkDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>Always.</strong> This helps users with disabilities or those using assistive technologies to avoid having to listen to or navigate through the same content repeatedly on each page. Assistive technology users are trained to look for skip links.
+        </li>
+        <li>
+          <strong>Utah Header.</strong> The skip link is built into the <Link to={pageUrls.utahHeader}>Utah Header</Link>. Use the setting <code>skipLinkUrl</code> to specify the target for the skip link.
         </li>
       </ul>
 
