@@ -65,7 +65,6 @@ function TooltipsExampleProps({ setState, state }) {
 
       <TextInput id="props.offsetDistance" label="Distance" className="input--height-small1x" />
       <TextInput id="props.offsetSkidding" label="Skidding" className="input--height-small1x" />
-      <TextInput id="props.offsetSkidding" label="Skidding" className="input--height-small1x" />
       <ExternalLink href="https://popper.js.org/docs/v2/modifiers/offset/">Distance/Skidding Docs</ExternalLink>
     </Form>
   );
