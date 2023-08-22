@@ -134,6 +134,9 @@ export default {
   SIZE__LARGE: 'large',
   SIZE__MEDIUM: 'medium',
 
+  SKIP_LINK_LINK: 'skip-link__link',
+  SKIP_LINK_WRAPPER: 'skip-link__wrapper',
+
   TITLE: 'utds-title-wrapper',
   TITLE__LOGO: 'utds-title-wrapper__logo',
   TITLE__TITLE: 'utds-title-wrapper__title',

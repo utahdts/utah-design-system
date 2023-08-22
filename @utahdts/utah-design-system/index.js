@@ -40,6 +40,7 @@ export { default as joinClassNames } from './react/util/joinClassNames';
 export { default as LandingTemplate } from './react/components/templates/LandingTemplate';
 export { default as LinkCallback } from './react/components/navigation/LinkCallback';
 export { default as LogoShape } from './react/propTypesShapes/header/LogoShape';
+export { default as MainContent } from './react/components/templates/MainContent';
 export { default as MainMenuItemShape } from './react/propTypesShapes/header/MainMenuItemShape';
 export { default as MainMenuShape } from './react/propTypesShapes/header/MainMenuShape';
 export { default as MediaSizesShape } from './react/propTypesShapes/header/MediaSizesShape';
