@@ -1,6 +1,11 @@
 // @ts-check
 
 /**
+ * @template ImmerHookT
+ * @typedef {import('use-immer').ImmerHook<ImmerHookT>} ImmerHook
+ */
+
+/**
  * ButtonAppearance
  * @typedef {'solid' | 'outline'} ButtonAppearance
  */
@@ -23,6 +28,11 @@
 /**
  * FormElementSizes
  * @typedef { 'small3x' | 'small2x' | 'small1x' | 'small' | 'medium' | 'large' | 'large1x' } FormElementSizes
+ */
+
+/**
+ * AriaLiveType
+ * @typedef {'assertive' | 'polite'} AriaLiveType
  */
 
 /**
@@ -81,6 +91,19 @@
  *  @property {() => void} onSubmit
  *  @property {Object.<string, string[]> | null} validationErrors
  *  @property {FormContextState} state
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextAria {
+ *  @property {string[]} assertiveMessages
+ *  @property {string[]} politeMessages
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextValue {
+ *  @property {UtahDesignSystemContextAria} ariaLive
  * }
  */
 
