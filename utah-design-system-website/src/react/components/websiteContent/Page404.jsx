@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { MainContent } from '@utahdts/utah-design-system';
 import pageUrls from '../routing/pageUrls';
 
 const propTypes = {};
@@ -7,7 +8,7 @@ const defaultProps = {};
 
 function Page404() {
   return (
-    <div className="landing-page-template page-not-found">
+    <MainContent className="landing-page-template page-not-found" id="mainContent">
       <div className="top-banner" />
       <div className="content-width page-not-found__content">
         <div>
@@ -32,7 +33,7 @@ function Page404() {
           </p>
         </div>
       </div>
-    </div>
+    </MainContent>
   );
 }
 
