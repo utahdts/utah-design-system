@@ -12,7 +12,7 @@ export default function useRedirect({ pageUrl, isImmediate }) {
   const navigate = useNavigate();
 
   const doNavigate = useCallback(
-    () => navigate(pageUrl),
+    () => navigate(pageUrl, { replace: true }),
     [pageUrl]
   );
 
