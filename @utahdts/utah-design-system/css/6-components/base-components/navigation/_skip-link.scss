@@ -1,0 +1,36 @@
+@use "../../../1-settings/class-vars";
+/*
+############     _skip-link.scss      ############
+*/
+#{class-vars.$base-class} {
+  &.skip-link {
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 4000;
+      overflow: hidden;
+      width: 100%;
+      background: transparent;
+      pointer-events: none;
+    }
+  }
+  .skip-link {
+    &__tab {
+      background-color: var(--gray-light-color);
+      border-radius: var(--radius-medium);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      transition: all var(--timing-quick) ease-in-out;
+      transform: translateY(-150%);
+      &:focus-within {
+        transform: translateY(0%);
+      }
+    }
+    &__link {
+      pointer-events: all;
+      margin: var(--spacing) var(--spacing-l);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-import { Accordion, ExternalLink } from '@utahdts/utah-design-system';
+import { Accordion, ExternalLink, MainContent } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
 import LightBox from '../lightbox/LightBox';
@@ -12,7 +12,7 @@ const defaultProps = {};
 
 function HomeLanding() {
   return (
-    <div className="landing-page-template">
+    <MainContent className="landing-page-template" id="mainContent">
       <div className="home-banner">
         <div className="home-banner__title">Utah<br />Design<br />System</div>
       </div>
@@ -285,7 +285,7 @@ function HomeLanding() {
         </div>
       </div>
 
-    </div>
+    </MainContent>
   );
 }
 
