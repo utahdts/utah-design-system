@@ -46,7 +46,7 @@ function TooltipsExampleRender({
         type="button"
       >
         <span className="utds-icon-before-gear" aria-hidden="true" />
-        <span className="visually-hidden">Gear Icon with Tooltip</span>
+        <span className="visually-hidden">{popupText}</span>
       </button>
       <Tooltip
         isPopperVisible={isPopperVisible || undefined}

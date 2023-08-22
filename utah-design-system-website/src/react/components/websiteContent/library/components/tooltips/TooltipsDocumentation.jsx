@@ -5,11 +5,10 @@
 /* eslint-disable react/jsx-indent */
 // @ts-ignore
 // eslint-disable-next-line import/order
-import tooltipsScreenshot from '../../../../../../static/images/mockups/Tooltips.jpg';
 
+import { ICON_BUTTON_APPEARANCE, IconButton } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LightBox from '../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../routing/pageUrls';
 import SandboxExample from '../../../../sandbox/SandboxExample';
@@ -34,11 +33,40 @@ function TooltipsDocumentation() {
         CODE_EXAMPLE={TooltipsExampleCodeReact}
       />
       <StaticExample
-        title="Tooltip Examples"
-        renderedExample={<LightBox hideAlt image={tooltipsScreenshot} alt="Tooltips" className="flex-3up-gap" />}
+        title="Tooltip Example"
+        renderedExample={(
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the gear icon button')}
+              title="Gear icon button"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-plus" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the plus icon button')}
+              title="Plus icon button"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the bookmark icon button')}
+              title="Bookmark icon button"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the help icon button')}
+              title="Help icon button"
+            />
+          </>
+        )}
         quickTips={(
           <ul>
             <li>Tooltips typically appear below their parent, unless there isn&apos;t space.</li>
+            <li>The tooltip will have a short delay when you hover.</li>
+            <li>If the hover delay has elapsed, all tooltips instantly pop until hover is lost for a period of time.</li>
           </ul>
         )}
       />
