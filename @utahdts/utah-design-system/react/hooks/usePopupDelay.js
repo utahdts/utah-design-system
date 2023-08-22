@@ -1,6 +1,6 @@
 // @ts-check
-const NO_POP_UP_TIMEOUT_MS = 250;
-const POP_UP_TIMEOUT_MS = 250;
+const NO_POP_UP_TIMEOUT_MS = 350;
+const POP_UP_TIMEOUT_MS = 350;
 
 class PopupDelay {
   // timer ids
