@@ -44,6 +44,7 @@ const propTypes = {
   ]),
   // A title is used for accessibility purposes to describe the button for screen readers
   title: PropTypes.string.isRequired,
+  tooltipText: PropTypes.string,
 };
 const defaultProps = {
   appearance: ICON_BUTTON_APPEARANCE.OUTLINED,
@@ -54,6 +55,7 @@ const defaultProps = {
   innerRef: null,
   isDisabled: false,
   size: formElementSizesEnum.MEDIUM,
+  tooltipText: null,
 };
 
 /**
@@ -73,6 +75,7 @@ const defaultProps = {
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [props.size]
  * @param {string} props.title
+ * @param {string | null} [props.tooltipText]
  * @returns {JSX.Element}
  */
 function IconButton({
@@ -87,6 +90,7 @@ function IconButton({
   onClick,
   size,
   title,
+  tooltipText,
   ...rest
 }) {
   const [referenceElement, setReferenceElement] = /** @type {typeof useState<HTMLButtonElement | null>} */ (useState)(null);
@@ -117,7 +121,7 @@ function IconButton({
         {icon}
         <span className={isTitleVisible ? undefined : 'visually-hidden'}>{title}</span>
       </button>
-      <Tooltip referenceElement={referenceElement}>{title}</Tooltip>
+      <Tooltip referenceElement={referenceElement}>{tooltipText ?? title}</Tooltip>
     </>
   );
 }
