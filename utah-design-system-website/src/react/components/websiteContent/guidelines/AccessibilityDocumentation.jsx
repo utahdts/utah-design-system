@@ -172,6 +172,11 @@ function AccessibilityDocumentation() {
           (Don’t skip heading levels or go out of order.)
         </li>
         <li>
+          <strong>Skip Link.</strong> Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.
+          This will allow visitor to skip past repetitive sections of your site such as the header and menus.
+          The skip link is built into the <Link to={pageUrls.utahHeader}>Utah Header</Link>.
+        </li>
+        <li>
           <strong>Images and Icons.</strong>
           <ul>
             <li><strong>Contrast ratio.</strong> Icons and other graphical objects that contribute meaningful content or interaction require a contrast ratio of <code>4.5:1</code></li>
