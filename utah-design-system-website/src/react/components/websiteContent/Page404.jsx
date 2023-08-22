@@ -8,7 +8,7 @@ const defaultProps = {};
 
 function Page404() {
   return (
-    <MainContent className="landing-page-template page-not-found" id="mainContent">
+    <MainContent className="landing-page-template page-not-found">
       <div className="top-banner" />
       <div className="content-width page-not-found__content">
         <div>

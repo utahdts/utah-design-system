@@ -31,5 +31,5 @@ export default {
   title: 'Utah Design System',
   titleURL: '/',
   utahId: true,
-  skipLinkUrl: '#mainContent',
+  skipLinkUrl: '#main-content',
 };

@@ -25,6 +25,8 @@ export default function SkipLink() {
     skipLinkLink.setAttribute('href', skipLinkUrl);
   } else {
     skipLink = null;
+    // eslint-disable-next-line no-console
+    console.warn('Utah Design System: It is best practice to provide a skip link url (skipLinkUrl). See: https://designsystem.utah.gov/library/components/navigationLinks/skipLink');
   }
 
   return skipLink;
