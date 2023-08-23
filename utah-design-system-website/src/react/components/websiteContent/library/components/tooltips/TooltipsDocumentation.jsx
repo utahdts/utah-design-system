@@ -143,7 +143,7 @@ function TooltipsDocumentation() {
         <li>By default, a Tooltip drops down from the trigger point, by slide fading towards the bottom of the screen away from the trigger point.</li>
       </ul>
 
-      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <p>Preferred Method</p>
       <ul className="mb-spacing">
         <li>Information contained in the tooltip should always be visible to the screen reader via visually hidden text, an <code>aria-label</code>, <code>aria-labelledby</code>, or <code>aria-describedby</code>.</li>
