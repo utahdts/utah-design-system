@@ -42,8 +42,8 @@ triggered when the value changes
 * `onSubmit`: ((e) => {})
 triggered when the enter key is pressed on the input
 
-* `size`: (formElementSizesEnum - may be limited in possibilities)
-Many controls will not support all sizes
+* `required`: (boolean)
+For input fields, `required` shows a '*' by the label. The Design System does not do form validation. There are plenty of libraries available to do validation. Pass your validation error message to the component to be displayed.
 
 * `value` (component specific type)
 Components should be created controlled or uncontrolled. 
@@ -55,14 +55,30 @@ This spreads to the rendered input or controlling element with the value, not th
 
 ## Uncommon props from other components
 You can check here to see if some other component already does something your component is wanting to do.
+
+### Switch, Button, etc.
+* `size`: (formElementSizesEnum - may be limited in possibilities) 
+Refers to the height and text size (like buttons)
+Many controls will not support all sizes
+Switches, buttons have size; Text Input does not
+
 ### Switch
 * `labelOff`: PropTypes.node
 * `labelOn`: PropTypes.node
 * `sliderChildren`: PropTypes.node
-* `width`: PropTypes.number
+* `width`: PropTypes.number - use css for most "width" component props
 ### Tooltip
 * isTitleVisible: PropTypes.boolean
 
+### TextInput
+* `placeholder`: PropTypes.string (only makes sense on text inputs?)
+
+## Events
+### Keyboard Events
+* Prefer onKeyUp over onKeyDown
+  * used for cancel/enter key detection
+  * maybe can cancel a key down before key up happens?
+  * checking for modifiers should happen on keyUp since keyDown might catch an input before a modifier input (press 'a' and then press 'shift')
 
 ## Label/Value form html tag style
 ```html
