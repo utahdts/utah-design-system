@@ -17,6 +17,7 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   innerRef: RefShape,
   isDisabled: PropTypes.bool,
+  isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelClassName: PropTypes.string,
   // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
@@ -24,7 +25,6 @@ const propTypes = {
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
-  required: PropTypes.bool,
   value: PropTypes.string,
   wrapperClassName: PropTypes.string,
 };
@@ -34,11 +34,11 @@ const defaultProps = {
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
+  isRequired: false,
   labelClassName: null,
   onChange: null,
   onSubmit: null,
   placeholder: null,
-  required: false,
   value: null,
   wrapperClassName: null,
 };
@@ -56,7 +56,7 @@ const defaultProps = {
  * @param {EventAction} [props.onChange]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
- * @param {boolean} [props.required]
+ * @param {boolean} [props.isRequired]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
@@ -73,7 +73,7 @@ function TextInput({
   onChange,
   onSubmit,
   placeholder,
-  required,
+  isRequired,
   value,
   wrapperClassName,
   ...rest
@@ -101,11 +101,11 @@ function TextInput({
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id} className={labelClassName}>
         {label}
-        {required ? <span className="required-star" aria-hidden>*</span> : null}
+        {isRequired ? <span className="required-star" aria-hidden>*</span> : null}
       </label>
       <input
         aria-describedby={currentErrorMessage ? `${id}-error` : null}
-        className={className}
+        className={className || undefined}
         disabled={isDisabled}
         id={id}
         name={id}
@@ -116,9 +116,9 @@ function TextInput({
         }}
         // @ts-ignore
         onKeyUp={currentOnFormKeyPress}
-        placeholder={placeholder}
+        placeholder={placeholder || undefined}
         ref={innerRefUse}
-        required={required}
+        required={isRequired}
         type="text"
         value={currentValue}
         {...rest}

@@ -29,6 +29,16 @@ const defaultProps = {
 
 let nextFormId = 0;
 
+/**
+ * @param {Object} props
+ * @param {any} props.children
+ * @param {any} [props.className]
+ * @param {any} [props.onChange]
+ * @param {any} [props.onSubmit]
+ * @param {any} [props.setState]
+ * @param {any} [props.state]
+ * @returns {JSX.Element}
+ */
 function Form({
   children,
   className,
