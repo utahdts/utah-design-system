@@ -151,6 +151,6 @@ export default function useInteractiveHeaderState() {
         setParseError(null);
       },
     }),
-    [headerIsOn, headerSettings, parseError]
+    [headerIsOn, headerSettings, parseError, setHeaderIsOnSafely, setHeaderSettings]
   );
 }

@@ -1,10 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
+/** @param {string} title */
 export default function useMountingTracker(title) {
+  const originalTitleRef = useRef(title);
+
   // eslint-disable-next-line no-console
-  console.log(`${title}: rendering`);
+  console.log(`${title}: rendering...`);
   useEffect(
     () => {
+      if (originalTitleRef.current !== title) {
+        throw new Error(`useMountingTracker: title changed! '${originalTitleRef.current}' => '${title}'`);
+      }
       // eslint-disable-next-line no-console
       console.log(`+ ${title}: mounted`);
       return () => {
@@ -12,6 +18,6 @@ export default function useMountingTracker(title) {
         console.log(`- ${title}: unmounted`);
       };
     },
-    []
+    [title]
   );
 }
