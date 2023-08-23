@@ -18,6 +18,7 @@ export default function useCurrentMenuItem(menus) {
 
   return useMemo(
     () => findMenuItemInMenusByPathname({ menus, pathname }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [...menus, pathname]
   );
 }

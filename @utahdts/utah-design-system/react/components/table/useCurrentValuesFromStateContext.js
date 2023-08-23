@@ -43,7 +43,8 @@ export default function useCurrentValuesFromStateContext({
         });
       }
     },
-    [defaultValue, !setStateContext]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [defaultValue, fullContextStatePath, setStateContext, !setStateContext]
   );
 
   return {
