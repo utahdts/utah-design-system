@@ -73,6 +73,7 @@ const pageUrls = {
   progressLog: /** @type {PageUrl} */ ('/resources/progressLog'),
   radioButton: /** @type {PageUrl} */ ('/library/components/forms/radioButton'),
   resources: /** @type {PageUrl} */ ('/resources'),
+  search: /** @type {PageUrl} */ ('/search'),
   segmentedButton: /** @type {PageUrl} */ ('/library/components/buttonsTags/segmentedButton'),
   select: /** @type {PageUrl} */ ('/library/components/forms/select'),
   shape: /** @type {PageUrl} */ ('/guidelinesStandards/shapeRoundedCorners'),

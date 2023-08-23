@@ -53,6 +53,9 @@ function App() {
             showTitle: false,
             title: 'Color Picker',
           }));
+          draftSettings.onSearch = (e) => {
+            window.location.href = `/search?q=${encodeURI(e)}`;
+          };
         });
       }
     },
