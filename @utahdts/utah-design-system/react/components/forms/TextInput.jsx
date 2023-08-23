@@ -11,10 +11,11 @@ import ErrorMessage from './ErrorMessage';
 
 const propTypes = {
   className: PropTypes.string,
+  defaultValue: PropTypes.string,
   errorMessage: PropTypes.string,
-  innerRef: RefShape,
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
   id: PropTypes.string.isRequired,
+  innerRef: RefShape,
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelClassName: PropTypes.string,
@@ -22,17 +23,22 @@ const propTypes = {
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
   value: PropTypes.string,
   wrapperClassName: PropTypes.string,
 };
 const defaultProps = {
   className: null,
+  defaultValue: null,
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
   labelClassName: null,
   onChange: null,
   onSubmit: null,
+  placeholder: null,
+  required: false,
   value: null,
   wrapperClassName: null,
 };
@@ -40,6 +46,7 @@ const defaultProps = {
 /**
  * @param {Object} props
  * @param {string} [props.className]
+ * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {React.RefObject} [props.innerRef]
  * @param {string} props.id
@@ -48,12 +55,15 @@ const defaultProps = {
  * @param {string} [props.labelClassName]
  * @param {EventAction} [props.onChange]
  * @param {() => void} [props.onSubmit]
+ * @param {string} [props.placeholder]
+ * @param {boolean} [props.required]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
 function TextInput({
   className,
+  defaultValue,
   errorMessage,
   innerRef,
   id,
@@ -62,6 +72,8 @@ function TextInput({
   labelClassName,
   onChange,
   onSubmit,
+  placeholder,
+  required,
   value,
   wrapperClassName,
   ...rest
@@ -72,6 +84,7 @@ function TextInput({
     currentOnFormKeyPress,
     currentValue,
   } = useCurrentValuesFromForm({
+    defaultValue,
     errorMessage,
     id,
     onChange,
@@ -86,7 +99,10 @@ function TextInput({
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id} className={labelClassName}>{label}</label>
+      <label htmlFor={id} className={labelClassName}>
+        {label}
+        {required ? <span className="required-star" aria-hidden>*</span> : null}
+      </label>
       <input
         aria-describedby={currentErrorMessage ? `${id}-error` : null}
         className={className}
@@ -99,8 +115,10 @@ function TextInput({
           currentOnChange(e);
         }}
         // @ts-ignore
-        onKeyPress={currentOnFormKeyPress}
+        onKeyUp={currentOnFormKeyPress}
+        placeholder={placeholder}
         ref={innerRefUse}
+        required={required}
         type="text"
         value={currentValue}
         {...rest}

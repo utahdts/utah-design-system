@@ -15,6 +15,11 @@
 
     @include tools-index.form-ele-hover-medium;
     @include tools-index.form-ele-focus;
+
+    &:disabled {
+      background-color: var(--disabled-gray);
+      cursor: not-allowed;
+    }
   }
 
   textarea {

@@ -13,4 +13,12 @@
       margin: var(--spacing) 0 var(--spacing-2xs) 0;
     }
   }
+  .required-star {
+    color: var(--danger-color);
+    margin-left: var(--spacing-3xs);
+    vertical-align: sub;
+    display: inline-block;
+    font-size: var(--font-size-l);
+    line-height: 0.5;
+  }
 }
