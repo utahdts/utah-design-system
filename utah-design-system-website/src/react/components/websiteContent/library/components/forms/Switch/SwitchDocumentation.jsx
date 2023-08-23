@@ -26,7 +26,7 @@ import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import SwitchExampleCodeReact from './SwitchExampleCodeReact';
-import SwitchPrimaryExampleProps from './SwitchExampleProps';
+import SwitchExampleProps from './SwitchExampleProps';
 import SwitchExampleRender from './SwitchExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -45,7 +45,7 @@ function SwitchDocumentation() {
       <h2 id="example">Example</h2>
       <SandboxExample
         CODE_EXAMPLE={SwitchExampleCodeReact}
-        PROPS_EXAMPLE={SwitchPrimaryExampleProps}
+        PROPS_EXAMPLE={SwitchExampleProps}
         RENDER_EXAMPLE={SwitchExampleRender}
       />
       <StaticExample

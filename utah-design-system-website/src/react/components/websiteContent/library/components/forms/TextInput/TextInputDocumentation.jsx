@@ -9,7 +9,11 @@ import textInputSearchPng from '../../../../../../../static/images/screenshots/c
 import LightBox from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import TextInputExampleCodeReact from './TextInputExampleCodeReact';
+import TextInputExampleProps from './TextInputExampleProps';
+import TextInputExampleRender from './TextInputExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
@@ -24,6 +28,11 @@ function TextInputDocumentation() {
       </p>
       <hr />
       <h2 id="example">Example</h2>
+      <SandboxExample
+        CODE_EXAMPLE={TextInputExampleCodeReact}
+        PROPS_EXAMPLE={TextInputExampleProps}
+        RENDER_EXAMPLE={TextInputExampleRender}
+      />
       <StaticExample
         title="Text Input"
         renderedExample={(

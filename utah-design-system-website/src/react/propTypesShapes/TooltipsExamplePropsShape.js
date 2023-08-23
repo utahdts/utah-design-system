@@ -1,6 +1,8 @@
 import { popupPlacement } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 
+// uses TooltipsExamplePropsShape
+
 export default PropTypes.exact({
   isPopperVisible: PropTypes.bool,
 
