@@ -32,19 +32,21 @@ function TextInputExampleRender({
   innerRef,
 }) {
   return (
-    <TextInput
-      className={className}
-      id={id || 'text-input-example-render-id'}
-      innerRef={innerRef}
-      isDisabled={isDisabled}
-      onChange={(e) => setState((draftState) => {
-        draftState.props.value = e.target.value;
-      })}
-      label={label || 'Text Input Label'}
-      placeholder={placeholder}
-      isRequired={isRequired}
-      value={value}
-    />
+    <div style={{ width: '80%' }}>
+      <TextInput
+        className={className}
+        id={id || 'text-input-example-render-id'}
+        innerRef={innerRef}
+        isDisabled={isDisabled}
+        onChange={(e) => setState((draftState) => {
+          draftState.props.value = e.target.value;
+        })}
+        label={label || 'Text Input Label'}
+        placeholder={placeholder}
+        isRequired={isRequired}
+        value={value}
+      />
+    </div>
   );
 }
 
