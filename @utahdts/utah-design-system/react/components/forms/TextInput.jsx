@@ -91,13 +91,12 @@ function TextInput({
     onSubmit,
     value,
   });
-  const ref = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
-  const innerRefUse = innerRef || ref;
+  const inputRef = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
 
-  const onChangeSetCursorPosition = useRememberCursorPosition(innerRefUse, value || '');
+  const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
   return (
-    <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)}>
+    <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)} ref={innerRef}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id} className={labelClassName}>
         {label}
@@ -117,7 +116,7 @@ function TextInput({
         // @ts-ignore
         onKeyUp={currentOnFormKeyPress}
         placeholder={placeholder || undefined}
-        ref={innerRefUse}
+        ref={inputRef}
         required={isRequired}
         type="text"
         value={currentValue}
