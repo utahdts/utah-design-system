@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { joinClassNames } from '@utahdts/utah-design-system';
 
 const propTypes = {};
 const defaultProps = {};
@@ -27,14 +28,20 @@ function Search() {
   }, []);
 
   return (
-    <div className="landing-page-template">
+    <div className="landing-page-template search-page">
       <div className="content-width mb-spacing-l">
         <h1 className="mt-spacing">
           Search Results
         </h1>
-        <form method="get" id="searchform" action="/search">
-          <label htmlFor="searchInput">Type and Press “enter” to Search.</label>
-          <input type="text" id="searchInput" name="q" value={query} onChange={(e) => setQuery(e.target.value)} />
+        <label htmlFor="searchInput">Type and Press “enter” to Search.</label>
+        <form method="get" action="/search" className="search-modal__form hcenter" role="search" aria-label="Sitewide">
+          <span className="utds-icon-before-search search-modal__icon-search vcenter" aria-hidden="true" />
+          <input type="text" id="searchInput" name="q" className="search-modal__input" value={query} onChange={(e) => setQuery(e.target.value)} />
+          <div className={joinClassNames('search-modal__button-wrapper vcenter', !query.length && 'visually-hidden')}>
+            <button type="submit" className="search-modal__button button button--solid button--primary-color">Search Now</button>
+          </div>
+          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+          <div aria-hidden tabIndex="0" className="search-modal__hidden-last-focusable visually-hidden">end of search form</div>
         </form>
         <div className="gcse-searchresults-only" />
       </div>

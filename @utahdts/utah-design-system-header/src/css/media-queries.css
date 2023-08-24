@@ -75,6 +75,15 @@
   .color-example > div:not(:last-child) {
     margin-bottom: var(--spacing-l);
   }
+
+  .search-page {
+    .search-modal__form {
+      margin-bottom: var(--spacing-4xl);
+    }
+    .search-modal__input[type=text] {
+      padding: var(--spacing) var(--spacing) var(--spacing) var(--spacing-3xl);
+    }
+  }
 }
 
 @media screen and (max-width: media-size__mobile__PLACEHOLDER) {
