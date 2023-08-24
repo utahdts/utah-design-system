@@ -15,6 +15,7 @@ function TextInputExampleCodeReact({
   state: {
     props: {
       className,
+      errorMessage,
       id,
       isDisabled,
       isRequired,
@@ -29,6 +30,7 @@ function TextInputExampleCodeReact({
       &lt;TextInput
       <br />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isRequired ? 'isRequired' : null} indentLevel={1} />

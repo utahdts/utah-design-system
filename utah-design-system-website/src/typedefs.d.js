@@ -99,6 +99,7 @@
 /**
  * @typedef TextInputExamplePropsShape {
  * @property {string} className
+ * @property {string} errorMessage
  * @property {string} id
  * @property {boolean} isDisabled
  * @property {boolean} isRequired
