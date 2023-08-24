@@ -32,6 +32,7 @@ function TextInputExampleProps({ setState, state }) {
     () => {
       setState((draftState) => {
         draftState.props.className = '';
+        draftState.props.errorMessage = '';
         draftState.props.id = '';
         draftState.props.isDisabled = false;
         draftState.props.label = '';
@@ -40,7 +41,7 @@ function TextInputExampleProps({ setState, state }) {
         draftState.props.value = '';
       });
     },
-    []
+    [setState]
   );
 
   return (
@@ -50,6 +51,7 @@ function TextInputExampleProps({ setState, state }) {
       className="form--stacked"
     >
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
+      <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
       <Switch id="props.isDisabled" label="Disabled" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />

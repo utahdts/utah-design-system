@@ -21,6 +21,7 @@ function TextInputExampleRender({
   state: {
     props: {
       className,
+      errorMessage,
       id,
       isDisabled,
       label,
@@ -35,6 +36,7 @@ function TextInputExampleRender({
     <div style={{ width: '80%' }}>
       <TextInput
         className={className}
+        errorMessage={errorMessage}
         id={id || 'text-input-example-render-id'}
         innerRef={innerRef}
         isDisabled={isDisabled}
