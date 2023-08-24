@@ -12,6 +12,10 @@
     &--switch {
       margin: var(--spacing) 0 var(--spacing-2xs) 0;
     }
+
+    &__error-message {
+      color: var(--danger-color);
+    }
   }
   .required-star {
     color: var(--danger-color);

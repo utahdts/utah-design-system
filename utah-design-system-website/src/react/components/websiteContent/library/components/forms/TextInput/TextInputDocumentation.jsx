@@ -37,16 +37,22 @@ function TextInputDocumentation() {
         title="Text Input"
         renderedExample={(
           <div className="flex flex-col" style={{ width: '65%' }}>
-            <TextInput id="text-input-documentation__plain-text-input" label="Plain Text Input" />
-            <TextInput id="text-input-documentation__disabled-text-input" isDisabled label="Disabled Text Input" value="This input is disabled" />
-            <TextInput id="text-input-documentation__required-text-input" isRequired label="Text Input" />
+            <TextInput id="text-input-documentation__plain-text-input" label="Example 1" />
+            <TextInput id="text-input-documentation__disabled-text-input" isDisabled label="Example 2" value="This input is disabled" />
+            <TextInput id="text-input-documentation__required-text-input" isRequired label="Example 3 Label" />
+            <TextInput
+              id="text-input-documentation__error-text-input"
+              isRequired
+              label="Example 4 Label"
+              errorMessage="This field is required"
+            />
           </div>
         )}
         quickTips={(
           <ul>
             <li>Text Input is comprised of a label and an input box. Generally, the label should be above the input box.</li>
             <li>Don&apos;t use placeholders as the label. However, they can be used to indicate how to format the user&apos;s text response (e.g. <code>xxx-xxx-xxxx</code>, or <code>xxx@xxxx.com</code>)</li>
-            <li>Use visual indicators when a user hovers over an input box versus when the input box has focus to enhance the user experience.</li>
+            <li>Use a visual indicator when a user hovers over an input box versus when the input box has focus to enhance the user experience.</li>
             <li>It is recommended that a text input has real time validation to alert the user to incorrect input.</li>
           </ul>
         )}
