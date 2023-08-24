@@ -6,6 +6,7 @@ import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import ErrorMessage from './ErrorMessage';
+import RequiredStar from './RequiredStar';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
@@ -100,10 +101,12 @@ function TextInput({
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id} className={labelClassName}>
         {label}
-        {isRequired ? <span className="required-star" aria-hidden>*</span> : null}
+        {isRequired ? <RequiredStar /> : null}
       </label>
+      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
       <input
         aria-describedby={currentErrorMessage ? `${id}-error` : null}
+        aria-invalid={!!currentErrorMessage}
         className={className || undefined}
         disabled={isDisabled}
         id={id}
@@ -122,7 +125,6 @@ function TextInput({
         value={currentValue}
         {...rest}
       />
-      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
     </div>
   );
 }

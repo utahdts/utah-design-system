@@ -20,6 +20,10 @@
       background-color: var(--disabled-gray);
       cursor: not-allowed;
     }
+
+    &[aria-invalid="true"] {
+      border: 2px solid var(--danger-color)
+    }
   }
 
   textarea {
