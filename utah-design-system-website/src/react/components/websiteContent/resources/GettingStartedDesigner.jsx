@@ -40,7 +40,9 @@ function GettingStartedDesigner() {
         The <Link to={pageUrls.accessibility}>Accessibility</Link> page condenses this massive topic down to the most important parts of why accessibility is important and whose needs we are trying to address.
         The <Link to={pageUrls.accessibilityChecklist}>Accessibility Checklist & Testing</Link> page is a list of items for developers and designers that should be checked. For an alternate view of this list specific to designers, checkout the “Web Accessibility FOR Designers - Infographic below:
       </p>
-      <a href="http://webaim.org/resources/designers/" target="_blank" rel="noreferrer"><img src="http://webaim.org/resources/designers/media/designers.svg" alt="Web Accessibility for Designers infographic with link to text version at WebAIM.org" /></a>
+      <div className="flex justify-center my-spacing-xl">
+        <a href="http://webaim.org/resources/designers/" target="_blank" rel="noreferrer"><img src="http://webaim.org/resources/designers/media/designers.svg" alt="Web Accessibility for Designers infographic with link to text version at WebAIM.org" /></a>
+      </div>
 
       <h2 id="section-color" className="mb-spacing mt-spacing">Color</h2>
       <div>
@@ -51,18 +53,18 @@ function GettingStartedDesigner() {
       <h2 id="section-mockups" className="mb-spacing mt-spacing">Mockups</h2>
       <p>
         The Utah Design System mockups provide a set of predefined elements and styles that can be easily reused, enabling designers to focus on the creative aspects of their work rather than the repetitive tasks.
-        Follow this link for a quick look at the <a href={pageUrls.mockups}>Component Mockups</a>
+        Follow this link to view the <a href={pageUrls.mockups}>Component Mockups</a>.
       </p>
       <LightBox alt="Utah Design System Mockups" image={xdScreenshot} />
       <div className="flex justify-center mt-spacing"><a href="https://dts.utah.gov/wp-content/uploads/UtahDesignSystem.xd_.zip" className="button button--primary-color button--solid">Download Adobe XD Document</a></div>
       <p className="text-center"><em>75 MB</em></p>
-      <Link
+      {/* <Link
         to={pageUrls.mockups}
         className="button button--primary-color button--solid button--large"
       >
         View mock details
         <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
-      </Link>
+      </Link> */}
       <h2 id="section-showcases" className="mb-spacing mt-spacing">Showcases</h2>
       <p>Looking for some inspiration or want to check out other state sites using the design system? Checkout our <Link to={pageUrls.showcase}>Design System Showcases</Link>.</p>
 
