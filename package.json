@@ -69,6 +69,9 @@
     "vitest": "0.34.1"
   },
   "dependencies": {
-    "lodash": "4.17.21"
+    "@popperjs/core": "2.11.8",
+    "immer": "10.0.2",
+    "lodash": "4.17.21",
+    "use-immer": "0.9.0"
   }
 }
