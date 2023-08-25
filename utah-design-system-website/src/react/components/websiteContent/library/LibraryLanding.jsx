@@ -4,11 +4,11 @@ import React from 'react';
 // @ts-ignore
 import libraryOverview from '../../../../static/images/layout-overview.jpg';
 // @ts-ignore
-import atomicComponents from '../../../../static/images/atomic-components.svg';
+import atomicComponents from '../../../../static/images/atomicPattern.svg';
 // @ts-ignore
-import atomicPatterns from '../../../../static/images/atomic-pattern.svg';
+import atomicPatterns from '../../../../static/images/atomicPatterns.svg';
 // @ts-ignore
-import atomicTemplate from '../../../../static/images/atomic-template.svg';
+import atomicTemplate from '../../../../static/images/atomicTemplate.svg';
 
 const propTypes = {};
 const defaultProps = {};
