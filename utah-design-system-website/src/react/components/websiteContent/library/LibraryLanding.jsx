@@ -1,14 +1,15 @@
 // @ts-check
 import React from 'react';
+import LightBox from '../../lightbox/LightBox';
 // images
 // @ts-ignore
 import libraryOverview from '../../../../static/images/layout-overview.jpg';
 // @ts-ignore
-import atomicComponents from '../../../../static/images/atomicPattern.svg';
+import atomicTemplate from '../../../../static/images/atomicTemplate.svg';
 // @ts-ignore
 import atomicPatterns from '../../../../static/images/atomicPatterns.svg';
 // @ts-ignore
-import atomicTemplate from '../../../../static/images/atomicTemplate.svg';
+import atomicComponents from '../../../../static/images/atomicComponents.svg';
 
 const propTypes = {};
 const defaultProps = {};
@@ -24,12 +25,10 @@ function LibraryLanding() {
         that is made up using the collection of components. This library is an accumulation of reusable
         UI components, patterns, and templates that are purposeful and already reviewed for accessibility.
       </p>
-      <img
-        src={libraryOverview}
-        alt="Guidelines/Standards plus components create a layout"
-        style={{ width: 500 }} // temp style - delete me!
-        className="flex flex-1 flex-wrap justify-center mb-spacing-xl"
-      />
+      <div className="content-width  my-spacing-xl">
+        <LightBox image={libraryOverview} alt="Layout example" className="flex-2up-gap" />
+      </div>
+
       <h2 id="section-areas-to-consider">Areas to Consider</h2>
       <h3 id="section-component" className="mb-spacing">Components</h3>
       <ul>
@@ -51,12 +50,13 @@ function LibraryLanding() {
           clarify usage recommendations as well as speed up implementation.
         </li>
       </ul>
-      <img
-        src={atomicComponents}
-        alt="Simple components can combine to make complex components"
-        style={{ width: 200 }} // temp style - delete me!
-        className="mb-spacing-xl"
-      />
+      <div className="flex justify-center my-spacing-xl">
+        <img
+          src={atomicComponents}
+          alt="Simple components can combine to make complex components"
+          style={{ height: 275 }}
+        />
+      </div>
       <h3 id="section-patterns" className="mb-spacing">Patterns</h3>
       <ul>
         <li>
@@ -73,12 +73,13 @@ function LibraryLanding() {
           or customizations have been done, it is necessary to re-test individual components.
         </li>
       </ul>
-      <img
-        src={atomicPatterns}
-        alt="Components, both simple and complex, are combined to make patterns"
-        style={{ height: 300 }} // temp style - delete me!
-        className="mb-spacing-xl"
-      />
+      <div className="flex justify-center my-spacing-xl">
+        <img
+          src={atomicPatterns}
+          alt="Components, both simple and complex, are combined to make patterns"
+          style={{ height: 275 }}
+        />
+      </div>
       <h3 id="section-templates" className="mb-spacing">Templates</h3>
       <ul>
         <li>
@@ -95,12 +96,13 @@ function LibraryLanding() {
           have been done,  it is necessary to re-test individual templates.
         </li>
       </ul>
-      <img
-        src={atomicTemplate}
-        alt="Components and patterns are combined to make a template"
-        style={{ height: 500 }} // temp style - delete me!
-        className="mb-spacing-xl"
-      />
+      <div className="flex justify-center my-spacing-xl">
+        <img
+          src={atomicTemplate}
+          alt="Components and patterns are combined to make a template"
+          style={{ height: 275 }}
+        />
+      </div>
       <h2 id="section-direction-guidance">Direction and Guidance</h2>
       <h3 id="section-page-structure" className="mb-spacing">Page Structure</h3>
       <p>
