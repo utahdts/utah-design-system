@@ -4,8 +4,11 @@
 import {
   ExternalLink,
   Form,
+  Select,
+  SelectOption,
   Switch,
-  TextInput
+  TextInput,
+  popupPlacement
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
@@ -34,6 +37,7 @@ function TooltipsExampleProps({ setState, state }) {
         draftState.props.isPopperVisible = false;
         draftState.props.offsetDistance = '0';
         draftState.props.offsetSkidding = '5';
+        draftState.props.placement = popupPlacement.BOTTOM;
         draftState.props.popupText = 'Now you see me';
       });
     },
@@ -49,6 +53,15 @@ function TooltipsExampleProps({ setState, state }) {
       <TextInput id="props.popupText" label="Text (children)" className="input--height-small1x" />
 
       <Switch id="props.isPopperVisible" label="Visible" width={20} />
+
+      <Select id="props.placement" label="Placement" className="input--height-small1x">
+        {
+          Object.values(popupPlacement)
+            .map((placement) => (
+              <SelectOption key={`tooltip-placement-${placement}`} label={placement} value={placement} />
+            ))
+        }
+      </Select>
 
       <TextInput id="props.offsetDistance" label="Distance" className="input--height-small1x" />
       <TextInput id="props.offsetSkidding" label="Skidding" className="input--height-small1x" />

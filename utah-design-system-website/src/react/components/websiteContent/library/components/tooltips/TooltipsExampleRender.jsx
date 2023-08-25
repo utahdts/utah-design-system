@@ -30,6 +30,7 @@ function TooltipsExampleRender({
       isPopperVisible,
       offsetDistance,
       offsetSkidding,
+      placement,
       popupText,
     },
   },
@@ -45,11 +46,12 @@ function TooltipsExampleRender({
         type="button"
       >
         <span className="utds-icon-before-gear" aria-hidden="true" />
-        <span className="visually-hidden">Gear Icon with Tooltip</span>
+        <span className="visually-hidden">{popupText}</span>
       </button>
       <Tooltip
         isPopperVisible={isPopperVisible || undefined}
         offset={[Number(offsetDistance) || 0, Number(offsetSkidding) || 0]}
+        placement={placement}
         referenceElement={referenceElement.current}
       >
         {popupText || ''}

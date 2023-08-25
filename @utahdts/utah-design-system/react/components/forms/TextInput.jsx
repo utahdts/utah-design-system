@@ -6,33 +6,40 @@ import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import ErrorMessage from './ErrorMessage';
+import RequiredStar from './RequiredStar';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
 const propTypes = {
   className: PropTypes.string,
+  defaultValue: PropTypes.string,
   errorMessage: PropTypes.string,
-  innerRef: RefShape,
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
   id: PropTypes.string.isRequired,
+  innerRef: RefShape,
   isDisabled: PropTypes.bool,
+  isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelClassName: PropTypes.string,
   // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
+  placeholder: PropTypes.string,
   value: PropTypes.string,
   wrapperClassName: PropTypes.string,
 };
 const defaultProps = {
   className: null,
+  defaultValue: null,
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
+  isRequired: false,
   labelClassName: null,
   onChange: null,
   onSubmit: null,
+  placeholder: null,
   value: null,
   wrapperClassName: null,
 };
@@ -40,6 +47,7 @@ const defaultProps = {
 /**
  * @param {Object} props
  * @param {string} [props.className]
+ * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {React.RefObject} [props.innerRef]
  * @param {string} props.id
@@ -48,12 +56,15 @@ const defaultProps = {
  * @param {string} [props.labelClassName]
  * @param {EventAction} [props.onChange]
  * @param {() => void} [props.onSubmit]
+ * @param {string} [props.placeholder]
+ * @param {boolean} [props.isRequired]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
 function TextInput({
   className,
+  defaultValue,
   errorMessage,
   innerRef,
   id,
@@ -62,6 +73,8 @@ function TextInput({
   labelClassName,
   onChange,
   onSubmit,
+  placeholder,
+  isRequired,
   value,
   wrapperClassName,
   ...rest
@@ -72,24 +85,29 @@ function TextInput({
     currentOnFormKeyPress,
     currentValue,
   } = useCurrentValuesFromForm({
+    defaultValue,
     errorMessage,
     id,
     onChange,
     onSubmit,
     value,
   });
-  const ref = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
-  const innerRefUse = innerRef || ref;
+  const inputRef = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
 
-  const onChangeSetCursorPosition = useRememberCursorPosition(innerRefUse, value || '');
+  const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
   return (
-    <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)}>
+    <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)} ref={innerRef}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id} className={labelClassName}>{label}</label>
+      <label htmlFor={id} className={labelClassName}>
+        {label}
+        {isRequired ? <RequiredStar /> : null}
+      </label>
+      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
       <input
         aria-describedby={currentErrorMessage ? `${id}-error` : null}
-        className={className}
+        aria-invalid={!!currentErrorMessage}
+        className={className || undefined}
         disabled={isDisabled}
         id={id}
         name={id}
@@ -99,13 +117,14 @@ function TextInput({
           currentOnChange(e);
         }}
         // @ts-ignore
-        onKeyPress={currentOnFormKeyPress}
-        ref={innerRefUse}
+        onKeyUp={currentOnFormKeyPress}
+        placeholder={placeholder || undefined}
+        ref={inputRef}
+        required={isRequired}
         type="text"
         value={currentValue}
         {...rest}
       />
-      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
     </div>
   );
 }

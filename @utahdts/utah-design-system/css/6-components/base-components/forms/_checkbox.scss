@@ -63,9 +63,10 @@
       align-items: center;
       position: relative;
       z-index: 1;
-    }
-    label {
-      padding: 0 0 0 var(--spacing-2xs);
+
+      label {
+        padding: 0 0 0 var(--spacing-2xs);
+      }
     }
   }
 }

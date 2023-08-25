@@ -1,4 +1,4 @@
-import { IconButton, RefShape } from '@utahdts/utah-design-system';
+import { IconButton, RefShape, useAriaMessaging } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
@@ -13,22 +13,28 @@ const defaultProps = {
   onCopy: null,
 };
 
+const COPY_CODE = 'Copy code';
+const COPIED = 'Copied';
+
 function CopyButton({ copyRef, onCopy }) {
+  const { addPoliteMessage } = useAriaMessaging();
+
   const [state, setState] = useImmer({
     showFeedback: false,
-    copyButtonTitle: 'Copy code',
+    copyButtonTitle: COPY_CODE,
+    copyButtonTooltip: COPY_CODE,
   });
 
   useEffect(() => {
     let delay;
     if (state.showFeedback) {
       setState((draftState) => {
-        draftState.copyButtonTitle = 'Copied';
+        draftState.copyButtonTitle = COPIED;
       });
       delay = setTimeout(() => {
         setState((draftState) => {
           draftState.showFeedback = false;
-          draftState.copyButtonTitle = 'Copy code';
+          draftState.copyButtonTitle = COPY_CODE;
         });
       }, 1500);
     }
@@ -63,14 +69,16 @@ function CopyButton({ copyRef, onCopy }) {
             setState((draftState) => {
               draftState.showFeedback = true;
             });
+            addPoliteMessage('Copied to clipboard');
           } else {
+            addPoliteMessage('Clipboard not available');
             // eslint-disable-next-line no-console
             console.error('Clipboard is not available');
           }
         }}
-        title={state.copyButtonTitle}
+        title={COPY_CODE}
+        tooltipText={state.copyButtonTitle}
       />
-      {/* TODO: Notify the screen reader the text was copied to the clipboard */}
     </div>
   );
 }

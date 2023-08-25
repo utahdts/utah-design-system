@@ -33,9 +33,6 @@ export default function useTableFilterRegistration(recordFieldPath, exactMatch) 
         }
       );
     },
-    [
-      recordFieldPath,
-      exactMatch,
-    ]
+    [exactMatch, recordFieldPath, setState]
   );
 }

@@ -1,4 +1,7 @@
+import { popupPlacement } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
+
+// uses TooltipsExamplePropsShape
 
 export default PropTypes.exact({
   isPopperVisible: PropTypes.bool,
@@ -6,6 +9,8 @@ export default PropTypes.exact({
   // https://popper.js.org/docs/v2/modifiers/offset/
   offsetDistance: PropTypes.string,
   offsetSkidding: PropTypes.string,
+
+  placement: PropTypes.oneOf(Object.values(popupPlacement)),
 
   popupText: PropTypes.string,
 });

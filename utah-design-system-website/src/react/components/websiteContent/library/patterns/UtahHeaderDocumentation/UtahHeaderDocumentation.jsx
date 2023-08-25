@@ -556,6 +556,16 @@ function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
+                <span className="prop__name"><a href="#section-config-size">skipLinkUrl</a></span><br />
+                <span className="prop__types">string</span><br />
+              </TableCell>
+              <TableCell>
+                Specifies where the Skip Link should go. It is generally best practice to include a skip link on every page. <Link to={pageUrls.skipLink}>Learn more about the Skip Link here.</Link>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
                 <span className="prop__name"><a href="#section-config-title">title</a></span><br />
                 <span className="prop__types">string</span> <span className="prop__optional">(required)</span>
               </TableCell>

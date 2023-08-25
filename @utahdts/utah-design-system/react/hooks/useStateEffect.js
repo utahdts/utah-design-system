@@ -37,6 +37,7 @@ export default ({ calculateValueFn, onUnmountFn, dependencyList }) => {
       setState((previousState) => calculateValueFn(previousState));
       return onUnmountFn;
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     dependencyList
   );
 

@@ -26,6 +26,7 @@ import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
+import SkipLink from '../renderables/skipLink/SkipLink';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -93,6 +94,13 @@ export function loadHeader() {
 
     const officialWebsite = renderOfficialWebsite();
     header.after(officialWebsite);
+
+    // Load the skip link
+    const skipLink = SkipLink();
+    const skipLinkTarget = document.body;
+    if (skipLink && skipLinkTarget) {
+      skipLinkTarget.insertBefore(skipLink, skipLinkTarget.firstChild);
+    }
 
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
@@ -166,6 +174,7 @@ export function loadHeader() {
  * @param {boolean} shouldTriggerUnloadEvent if removing to readd, then the event shouldn't fire
  */
 export function removeHeader(shouldTriggerUnloadEvent) {
+  document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.SKIP_LINK_WRAPPER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU__OUTER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MOBILE_MENU]))?.remove();

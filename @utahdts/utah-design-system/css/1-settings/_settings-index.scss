@@ -3,13 +3,13 @@
 variables and settings
 */
 
-@forward  "class-vars";
+@forward "class-vars";
 @use "class-vars";
-@forward  "spacing";
+@forward "spacing";
 @use "spacing";
-@forward  "grid";
+@forward "grid";
 @use "grid";
-@forward  "font-stuff";
+@forward "font-stuff";
 @use "font-stuff";
 @forward "color-swatches";
 @use "color-swatches";
@@ -48,9 +48,10 @@ variables and settings
   --gray-medium-light-color: #{color-swatches.$neutral-gray-15};
   --gray-light-color: #{color-swatches.$neutral-gray-17};
   --gray-dark-color: #{color-swatches.$neutral-gray-02};
+  --disabled-gray: rgba(0, 0, 0, 0.05);
 
-  --hover-gray-color: rgba(0,0,0,0.07);
-  --hover-gray-color-opaque: rgba(233,233,233);
+  --hover-gray-color: rgba(0, 0, 0, 0.07);
+  --hover-gray-color-opaque: rgba(233, 233, 233);
 
   --code-color: #{color-swatches.$neutral-gray-16};
   --gray-border: #{color-swatches.$neutral-gray-15};
@@ -74,20 +75,20 @@ variables and settings
   --radius-circle: 999px;
 
   /* form element sizes */
-  --form-ele-small4x: .75rem;    //small switch
+  --form-ele-small4x: 0.75rem; //small switch
   --form-ele-small3x: 1rem;
   --form-ele-small2x: 1.25rem;
-  --form-ele-small1x: 1.5rem;    //small1x button
-  --form-ele-small: 1.875rem;    //small button
-  --form-ele-medium: 2.25rem;    //medium button
-  --form-ele-large: 2.5rem;      //large button
-  --form-ele-large1x: 3.125rem;  //large1x button
+  --form-ele-small1x: 1.5rem; //small1x button
+  --form-ele-small: 1.875rem; //small button
+  --form-ele-medium: 2.25rem; //medium button
+  --form-ele-large: 2.5rem; //large button
+  --form-ele-large1x: 3.125rem; //large1x button
 
   --form-checkbox-small: 0.875rem;
   --form-checkbox-medium: 1.125rem;
   --form-checkbox-large: 1.375rem;
 
-    /* content layout sizes */
+  /* content layout sizes */
   --content-width-narrow: 808px;
   --content-width-medium: 1016px;
   --content-width: 1224px;
@@ -106,54 +107,94 @@ variables and settings
   --elevation-large: 0 12px 16px var(--drop-shadow-color);
   --elevation-small-borderless: 0 3px 6px var(--drop-shadow-color), 0 -3px 3px var(--drop-shadow-color-top);
   --elevation-medium-borderless: 0 6px 12px var(--drop-shadow-color), 0 -3px 6px var(--drop-shadow-color-top);
-  --elevation-large-borderless: 0 12px 16px var(--drop-shadow-color),  0 -3px 12px var(--drop-shadow-color-top);
-
+  --elevation-large-borderless: 0 12px 16px var(--drop-shadow-color), 0 -3px 12px var(--drop-shadow-color-top);
 
   /* color utility classes */
-  .primary-color-background { background-color: var(--primary-color); }
-  .primary-color-dark-background { background-color: var(--primary-color-dark); }
-  .primary-color-light-background { background-color: var(--primary-color-light); }
-  .gray-on-primary-background { background-color: var(--gray-on-primary-color); }
+  .primary-color-background {
+    background-color: var(--primary-color);
+  }
+  .primary-color-dark-background {
+    background-color: var(--primary-color-dark);
+  }
+  .primary-color-light-background {
+    background-color: var(--primary-color-light);
+  }
+  .gray-on-primary-background {
+    background-color: var(--gray-on-primary-color);
+  }
 
-  .primary-color { color: var(--primary-color); }
-  .primary-color-border { border-color: var(--primary-color); }
+  .primary-color {
+    color: var(--primary-color);
+  }
+  .primary-color-border {
+    border-color: var(--primary-color);
+  }
 
-  .secondary-color-background { background-color: var(--secondary-color); }
-  .secondary-color-dark-background { background-color: var(--secondary-color-dark); }
-  .secondary-color-light-background { background-color: var(--secondary-color-light); }
-  .gray-on-secondary-background { background-color: var(--gray-on-secondary-color); }
+  .secondary-color-background {
+    background-color: var(--secondary-color);
+  }
+  .secondary-color-dark-background {
+    background-color: var(--secondary-color-dark);
+  }
+  .secondary-color-light-background {
+    background-color: var(--secondary-color-light);
+  }
+  .gray-on-secondary-background {
+    background-color: var(--gray-on-secondary-color);
+  }
 
-  .secondary-color { color: var(--secondary-color) }
-  .secondary-color-border { border-color: var(--secondary-color) }
+  .secondary-color {
+    color: var(--secondary-color);
+  }
+  .secondary-color-border {
+    border-color: var(--secondary-color);
+  }
 
-  .accent-color-background { background-color: var(--accent-color); }
-  .accent-color-dark-background { background-color: var(--accent-color-dark); }
-  .accent-color-light-background { background-color: var(--accent-color-light); }
-  .gray-on-accent-background { background-color: var(--gray-on-accent-color); }
+  .accent-color-background {
+    background-color: var(--accent-color);
+  }
+  .accent-color-dark-background {
+    background-color: var(--accent-color-dark);
+  }
+  .accent-color-light-background {
+    background-color: var(--accent-color-light);
+  }
+  .gray-on-accent-background {
+    background-color: var(--gray-on-accent-color);
+  }
 
-  .accent-color { color: var(--accent-color) }
-  .accent-color-border { border-color: var(--accent-color) }
+  .accent-color {
+    color: var(--accent-color);
+  }
+  .accent-color-border {
+    border-color: var(--accent-color);
+  }
 
-  .gray-color-background { background-color: var(--gray-color); }
-  .gray-color-light-background { background-color: var(--gray-light-color) }
+  .gray-color-background {
+    background-color: var(--gray-color);
+  }
+  .gray-color-light-background {
+    background-color: var(--gray-light-color);
+  }
 
-  .white-color { color: white; }
+  .white-color {
+    color: white;
+  }
 
   .background-frosted-dark {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(16px) brightness(1.5);
     -webkit-backdrop-filter: blur(16px) brightness(1.5);
   }
 
   .background-frosted-light {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
 
   .backdrop-dark {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(6px) brightness(60%);
   }
 }
-

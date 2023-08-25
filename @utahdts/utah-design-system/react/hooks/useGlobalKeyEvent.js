@@ -31,18 +31,22 @@ export default ({ whichKeyCode, onKeyDown, onKeyUp }) => {
           }
         }
       };
+      // @ts-ignore
       document.addEventListener('keydown', keydownFuncRef.current);
+      // @ts-ignore
       document.addEventListener('keyup', keydownFuncRef.current);
 
       return () => {
         if (keydownFuncRef.current) {
+          // @ts-ignore
           document.removeEventListener('keydown', keydownFuncRef.current);
+          // @ts-ignore
           document.removeEventListener('keyup', keydownFuncRef.current);
         }
         keydownFuncRef.current = null;
       };
     },
-    []
+    [onKeyDown, onKeyUp, whichKeyCode]
   );
 
   return keyPressed;

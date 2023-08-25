@@ -8,6 +8,8 @@ import useRefAlways from '../../hooks/useRefAlways';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 
+/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
+
 const propTypes = {
   // The content of the tool tip
   children: PropTypes.node.isRequired,
@@ -24,6 +26,9 @@ const propTypes = {
   // default offset is [0, 5] (see popper documentation for details)
   offset: PropTypes.arrayOf(PropTypes.number),
 
+  // where to put the tooltip in reference to the referenceElement
+  placement: PropTypes.oneOf(Object.values(popupPlacement)),
+
   // the referenceElement from which the tool tip will toggle (required, but first render will most likely be null because it's from a ref)
   referenceElement: PropTypes.instanceOf(Element),
 };
@@ -33,6 +38,7 @@ const defaultProps = {
   innerRef: null,
   isPopperVisible: null,
   offset: [0, 5],
+  placement: popupPlacement.BOTTOM,
   referenceElement: null,
 };
 
@@ -46,6 +52,7 @@ const defaultProps = {
  * @param {React.MutableRefObject | null} [props.innerRef]
  * @param {boolean | null} props.isPopperVisible
  * @param {[number, number]} [props.offset]
+ * @param {PopupPlacement} [props.placement]
  * @param {HTMLElement | null} props.referenceElement
  * @returns {JSX.Element}
  */
@@ -55,6 +62,7 @@ function Tooltip({
   innerRef: draftInnerRef = null,
   isPopperVisible = null,
   offset = [0, 5],
+  placement = popupPlacement.BOTTOM,
   referenceElement: draftReferenceElement,
 }) {
   const [isPopperVisibleInternal, setIsPopperVisibleInternal] = useState(false);
@@ -64,7 +72,7 @@ function Tooltip({
     draftReferenceElement,
     popperElement,
     {
-      placement: popupPlacement.BOTTOM,
+      placement,
       modifiers: [
         {
           name: 'offset',

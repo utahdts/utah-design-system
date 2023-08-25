@@ -37,8 +37,8 @@ function BadgesExampleCode({
       <ExampleCodeReactProp displayProp={color ? `color="${color}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isBusy ? 'busy={true}' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isDisabled ? 'disabled={true}' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isBusy ? 'busy' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isDisabled ? 'disabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={style ? `style="${style}"` : null} indentLevel={1} />

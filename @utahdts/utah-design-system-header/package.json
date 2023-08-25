@@ -7,7 +7,10 @@
       "development-local": "./src/index.js",
       "development": "./dist/utah-design-system-header.es.js",
       "production": "./dist/utah-design-system-header.es.js",
-      "import": "./dist/utah-design-system-header.es.js",
+      "import": {
+        "default": "./dist/utah-design-system-header.es.js",
+        "types": "./dist/index.d.ts"
+      },
       "require": "./dist/utah-design-system-header.umd.js",
       "types": "./dist/src/index.d.ts",
       "default": [
@@ -27,7 +30,11 @@
   ],
   "scripts": {
     "build": "vite build",
-    "buildTypes": "npx tsc",
+    "buildTypesTsc": "npx tsc",
+    "buildTypesCleanUpDeclare": "sed -i '' 's/^declare module.*$//' dist/index.d.ts",
+    "buildTypesCleanUpClose": "sed -i '' 's/^}$//' dist/index.d.ts",
+    "buildTypesCleanUp": "run-s buildTypesCleanUpDeclare buildTypesCleanUpClose",
+    "buildTypes": "run-s buildTypesTsc buildTypesCleanUp",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
     "cleani": "run-s clean npmi",
     "cleanDist": "rimraf ./dist",
