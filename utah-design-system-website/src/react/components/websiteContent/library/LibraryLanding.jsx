@@ -105,27 +105,27 @@ function LibraryLanding() {
       <h3 id="section-page-structure" className="mb-spacing">Page Structure</h3>
       <p>
         The library is solely focused on the components and how components are combined.
-        Within every component page, you’ll find the following documentation:
-        <ul>
-          <li>
-            <strong>Interactive sandbox.</strong> Available for many of the complex components to help visualize the look and functionality.
-            (The color picker will also have an impact here)
-          </li>
-          <li>
-            <strong>Starter code.</strong> A code block, that is connected to the sandbox, which allows you to copy and paste the code
-            into a project. Technical guidance for implementation is also provided.
-          </li>
-          <li>
-            <strong>Static examples.</strong> To show the basic look and feel.
-          </li>
-          <li>
-            <strong>Usability guidance.</strong> To help define the purpose of when and when not to use the component.
-          </li>
-          <li>
-            <strong>Accessibility considerations.</strong> Tips for you as you implement the component into your site.
-          </li>
-        </ul>
+        Within every component page, you&apos;ll find the following documentation:
       </p>
+      <ul>
+        <li>
+          <strong>Interactive sandbox.</strong> Available for many of the complex components to help visualize the look and functionality.
+          (The color picker will also have an impact here)
+        </li>
+        <li>
+          <strong>Starter code.</strong> A code block, that is connected to the sandbox, which allows you to copy and paste the code
+          into a project. Technical guidance for implementation is also provided.
+        </li>
+        <li>
+          <strong>Static examples.</strong> To show the basic look and feel.
+        </li>
+        <li>
+          <strong>Usability guidance.</strong> To help define the purpose of when and when not to use the component.
+        </li>
+        <li>
+          <strong>Accessibility considerations.</strong> Tips for you as you implement the component into your site.
+        </li>
+      </ul>
     </div>
   );
 }
