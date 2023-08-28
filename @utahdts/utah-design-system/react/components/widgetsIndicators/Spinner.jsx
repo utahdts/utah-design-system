@@ -57,7 +57,6 @@ function Spinner({
       ref={innerRef}
       role="progressbar"
       aria-label={Number.isNaN(value) ? 'Loading...' : `Loading ${(value * 100)}% complete`}
-      size="50"
       {...rest}
     >
       <div className="spinner__animation">
