@@ -68,8 +68,11 @@ function constructMenuItems(websiteMainMenuItems, navigate) {
  * @param {WebsiteMainMenuItem | WebsiteMainMenu | undefined} currentMenuItem
  */
 function assignSelectedFromHierarchy(parentMenus, draftMenuItem, currentMenuItem) {
-  // @ts-ignore
-  draftMenuItem.isSelected = draftMenuItem.isSelected || currentMenuItem?.link === draftMenuItem.actionFunctionUrl?.url;
+  draftMenuItem.isSelected = (
+    draftMenuItem.isSelected
+    // @ts-ignore
+    || (currentMenuItem?.link && currentMenuItem?.link === draftMenuItem.actionFunctionUrl?.url)
+  );
   if (draftMenuItem.isSelected) {
     parentMenus.forEach((draftParentMenu) => { draftParentMenu.isSelected = true; });
   }
@@ -98,11 +101,11 @@ export default function constructMainMenu(currentMenuItem, navigate) {
       },
       isSelected: (
         // @ts-ignore
-        currentMenuItem?.link === mainMenuItem.link
+        (mainMenuItem.link && (currentMenuItem?.link === mainMenuItem.link))
         // @ts-ignore
-        || currentMenuItem?.link === mainMenuItem?.actionFunctionUrl?.url
+        || (mainMenuItem?.actionFunctionUrl?.url && (currentMenuItem?.link === mainMenuItem?.actionFunctionUrl?.url))
         // @ts-ignore
-        || currentMenuItem?.parentLinks?.includes(mainMenuItem.link)
+        || (mainMenuItem.link && currentMenuItem?.parentLinks?.includes(mainMenuItem.link))
       ),
       title: mainMenuItem.title,
     })),

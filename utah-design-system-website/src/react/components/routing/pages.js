@@ -826,7 +826,7 @@ const pages = {
   errorPage404: {
     content: PlaceHolderDocumentation,
     link: pageUrls.errorPage404,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    menuSecondary: undefined,
     pageTitle: '404 Page',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
