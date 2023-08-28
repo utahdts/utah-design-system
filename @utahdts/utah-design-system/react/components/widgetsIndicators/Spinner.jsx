@@ -38,6 +38,7 @@ function Spinner({
   size,
   strokeWidth,
   value,
+  ...rest
 }) {
   return (
     <div
@@ -52,8 +53,9 @@ function Spinner({
       id={id}
       ref={innerRef}
       role="progressbar"
-      aria-label={Number.isNaN(value) ? 'Loading...' : `Loading ${(value * 100).toFixed(2)}% complete`}
+      aria-label={Number.isNaN(value) ? 'Loading...' : `Loading ${(value * 100)}% complete`}
       size="50"
+      {...rest}
     >
       <div className="spinner__animation">
         <svg width={size} height={size} viewBox="-10.00 -10.00 120.00 120.00" role="presentation">
