@@ -87,6 +87,17 @@
  */
 
 /**
+ * @typedef SpinnersExamplePropsShape {
+ *  @property {string} [className]
+ *  @property {string} [id]
+ *  @property {string} [label]
+ *  @property {string} [size]
+ *  @property {string} [strokeWidth]
+ *  @property {string} [value]
+ * }
+ */
+
+/**
  * @typedef TooltipsExamplePropsShape {
  *   @property {boolean} isPopperVisible
  *   @property {string} offsetDistance

@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Have Icon Button show a Tooltip
 - Show title on icon button
 - Allow Spinner to be determinate/indeterminate
+- Provide sandbox for Spinner Documentation
 
 ## Deprecated
 

@@ -40,11 +40,14 @@ function Spinner({
   value,
   ...rest
 }) {
+  const strokeWidthUse = Number.isNaN(strokeWidth) ? 10 : strokeWidth;
+  const strokeWidthPlus1Use = Number.isNaN(strokeWidth) ? 10 : (strokeWidth + 1);
+  const widthUse = Number.isNaN(size) ? undefined : size;
   return (
     <div
       aria-valuemax="100"
       aria-valuemin="0"
-      aria-valuenow={value * 100}
+      aria-valuenow={(Number.isNaN(value) ? 0.25 : value) * 100}
       className={joinClassNames(
         className,
         'spinner',
@@ -58,9 +61,14 @@ function Spinner({
       {...rest}
     >
       <div className="spinner__animation">
-        <svg width={size} height={size} viewBox="-10.00 -10.00 120.00 120.00" role="presentation">
+        <svg
+          height={widthUse}
+          role="presentation"
+          viewBox="-10.00 -10.00 120.00 120.00"
+          width={widthUse}
+        >
           <path
-            strokeWidth={strokeWidth}
+            strokeWidth={strokeWidthUse}
             className="spinner__track"
             d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
           />
@@ -72,7 +80,7 @@ function Spinner({
             strokeDashoffset={360 * (1 - (Number.isNaN(value) ? 0.25 : value))}
             // add just a little stroke width to prevent the background gray path from bleeding along the edges
             // which was causing a "jagged" look to the blue path
-            strokeWidth={strokeWidth + 1}
+            strokeWidth={strokeWidthPlus1Use}
           />
         </svg>
       </div>
