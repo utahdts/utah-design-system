@@ -11,7 +11,11 @@ import {
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SpinnersExampleCodeReact from './SpinnersExampleCodeReact';
+import SpinnersExampleProps from './SpinnersExampleProps';
+import SpinnersExampleRender from './SpinnersExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
@@ -26,6 +30,11 @@ function SpinnersDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        CODE_EXAMPLE={SpinnersExampleCodeReact}
+        PROPS_EXAMPLE={SpinnersExampleProps}
+        RENDER_EXAMPLE={SpinnersExampleRender}
+      />
       <StaticExample
         title="Indeterminate"
         renderedExample={<Spinner size={60} />}
