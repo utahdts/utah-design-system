@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change Utah Header wrapper from a `<div>` to a `<header>` element.
 - Have Icon Button show a Tooltip
 - Show title on icon button
+- Allow Spinner to be determinate/indeterminate
 
 ## Deprecated
 

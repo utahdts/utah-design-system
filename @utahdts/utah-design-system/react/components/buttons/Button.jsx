@@ -138,9 +138,16 @@ function Button({
           : null
       }
       {
-        // How to check if no children? How to center Spinner if empty?
+        // TODO: How to check if no children? How to center Spinner if empty?
         isBusy
-          ? <Spinner value={0.25} size={size === formElementSizesEnum.LARGE1X ? 24 : 22} strokeWidth={size === formElementSizesEnum.LARGE1X ? 14 : 12} className="ml-spacing-xs" /> : null
+          ? (
+            <Spinner
+              className="ml-spacing-xs"
+              size={size === formElementSizesEnum.LARGE1X ? 24 : 22}
+              strokeWidth={size === formElementSizesEnum.LARGE1X ? 14 : 12}
+            />
+          )
+          : null
       }
     </button>
   );

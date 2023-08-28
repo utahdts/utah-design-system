@@ -12,9 +12,6 @@ import {
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import spinnerDeterminateScreenshot from '../../../../../../../static/images/screenshots/components/spinners/spinnerDeterminate.jpg';
-import spinnerLabelsInsideScreenshot from '../../../../../../../static/images/screenshots/components/spinners/spinnerLabelsInside.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -31,7 +28,7 @@ function SpinnersDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Indeterminate"
-        renderedExample={<Spinner size={60} value={0.25} />}
+        renderedExample={<Spinner size={60} />}
         quickTips={(
           <ul>
             <li>Indeterminate indicators visualize an unspecified wait time.</li>
@@ -43,8 +40,10 @@ function SpinnersDocumentation() {
         title="Determinate"
         renderedExample={(
           <>
-            <LightBox image={spinnerDeterminateScreenshot} alt="Determinate Spinner" className="flex-4up-gap" />
-            <LightBox image={spinnerLabelsInsideScreenshot} alt="Spinner with Label" className="flex-4up-gap" />
+            <Spinner size={100} strokeWidth={7} value="0.25">25%</Spinner>
+            <Spinner size={100} strokeWidth={7} value="0.5">50%</Spinner>
+            <Spinner size={100} strokeWidth={7} value="0.75">75%</Spinner>
+            <Spinner size={100} strokeWidth={7} value="1">100%</Spinner>
           </>
         )}
         quickTips={(

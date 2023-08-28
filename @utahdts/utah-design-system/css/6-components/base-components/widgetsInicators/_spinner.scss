@@ -8,14 +8,17 @@
     justify-content: center;
     overflow: visible;
     vertical-align: middle;
+    position: relative;
     svg {
       display: block;
       path {
         fill: none;
       }
     }
-    &__animation {
-      animation: spinner-animation 0.5s linear infinite;
+    &--indeterminate {
+      .spinner__animation {
+        animation: spinner-animation 0.5s linear infinite;
+      }
     }
     &__track {
       stroke: color-swatches.$neutral-gray-12;
@@ -25,6 +28,12 @@
       stroke-linecap: round;
       transform-origin: center;
       transition: stroke-dashoffset 0.2s cubic-bezier(0.4, 1, 0.75, 0.9);
+    }
+    &__children {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -39,5 +48,10 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .spinner {
+      &__animation {
+        animation: spinner-animation 2s linear 4;
+      }
+    }
   }
 }
