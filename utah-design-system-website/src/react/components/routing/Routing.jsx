@@ -38,7 +38,7 @@ function Routing() {
         draftSettings.mainMenu = constructMainMenu(currentMenuItem, navigate);
       });
     },
-    [currentMenuItem]
+    [currentMenuItem, navigate, setSettings]
   );
 
   return (
@@ -67,13 +67,15 @@ function Routing() {
                 menuSecondary = [allMenus.menuResourcesSecondary];
                 break;
               default:
-                throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.title}'; menuSecondary='${page.menuSecondary}'`);
+                if (page.menuSecondary) {
+                  throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.title}'; menuSecondary='${page.menuSecondary}'`);
+                }
             }
             element = (
               <DocumentationTemplate
                 content={page.content}
                 contentRef={contentRef}
-                sidePanelLeftContent={<VerticalMenu currentMenuItem={currentMenuItem} menus={menuSecondary} />}
+                sidePanelLeftContent={menuSecondary && <VerticalMenu currentMenuItem={currentMenuItem} menus={menuSecondary} />}
                 sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />
             );

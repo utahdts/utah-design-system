@@ -6,9 +6,11 @@ const propTypes = {
   content: PropTypes.func.isRequired,
   contentRef: RefShape.isRequired,
   sidePanelRightContent: PropTypes.element.isRequired,
-  sidePanelLeftContent: PropTypes.element.isRequired,
+  sidePanelLeftContent: PropTypes.element,
 };
-const defaultProps = {};
+const defaultProps = {
+  sidePanelLeftContent: null,
+};
 
 function DocumentationTemplate({
   content: Content,
