@@ -15,6 +15,8 @@ props that are true/false should generally start with the word `is`. ie:
   There may be some props like `showChildContent` that would be awkward if they started with is `isShowChildContent` so those props should start with a verb.
 
 ## Common Properties
+* `children`
+
 * `className` (string)
 Every rendering component should have a className property that allows the parent component to pass in a className to be applied to this child item. The supplied className should go on the html tag that is the central focus of the component. The component should be single focused so that there is some rendered piece of the component that is the reason the component was written. For instance, for a Switch, the input that displays the switch value would receive the className. Other items can have classNames, but will need their own prop.
 
@@ -49,9 +51,12 @@ For input fields, `required` shows a '*' by the label. The Design System does no
 Components should be created controlled or uncontrolled. 
 
 * `wrapperClassName`: (string)
+Used for components that have multiple children, eg: input wrapper or label/input
 
 * `...rest` spreading (object)
 This spreads to the rendered input or controlling element with the value, not the wrapper.
+Spreading is for things that have predefined properties that the component will not specifically define. Like aria and other props for form components. Some things
+like a Spinner won't have a rest spread property.
 
 ## Uncommon props from other components
 You can check here to see if some other component already does something your component is wanting to do.
