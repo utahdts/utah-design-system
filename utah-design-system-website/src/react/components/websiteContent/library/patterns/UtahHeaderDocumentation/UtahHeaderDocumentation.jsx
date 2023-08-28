@@ -395,6 +395,11 @@ function UtahHeaderDocumentation() {
 
       {/* ---- CONFIG SETTINGS --- */}
       <h2 id="section-utahheader-config-settings" className="my-spacing">Configuration Settings</h2>
+      <p>
+        Below you will find the configuration settings for the Utah Header.
+      </p>
+      <p>You can also find all the <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js">configuration settings in the JSDoc file</ExternalLink>.</p>
+
       {/* ----     Settings     --- */}
       <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
       <h4 id="section-auth-props">Config Props</h4>
@@ -1391,57 +1396,7 @@ function UtahHeaderDocumentation() {
               <TableCell>
                 <span className="prop__description">
                   Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-                  to a user&apos;s account. Use an alternate navigation for non-account related links.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionUrl</a></span><br />
-                <span className="prop__types">MenuItemUrlAction</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A URL to which the menu item will navigate.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunction</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A callback function that will be called when the menu item is triggered.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunctionUrl</a></span><br />
-                <span className="prop__types">MenuItemFunctionUrlAction</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  For Single Page Apps, navigation does not reload the page. The link should still show a url, but the functionality
-                  should not be of a link. The actionFunctionUrl option allows specifying the link but also provide a custom
-                  callback so as to trigger things like React Router.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionMenu</a></span><br />
-                <span className="prop__types">MenuItem[]</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  This menu item may have nested children menu items.
+                  to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for MenuItem</a>.
                 </span>
               </TableCell>
             </TableRow>
