@@ -36,7 +36,7 @@ This repo consists of the following:
 ## Project Information
 ### Versioning
 
-This project uses [SemVer](http://semver.org/) for versioning.
+This project uses [SemVer](https://semver.org/) for versioning.
 
 ### Deployment
 
