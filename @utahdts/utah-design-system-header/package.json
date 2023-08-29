@@ -31,8 +31,8 @@
   "scripts": {
     "build": "vite build",
     "buildTypesTsc": "npx tsc",
-    "buildTypesCleanUpDeclare": "sed -i '' 's/^declare module.*$//' dist/index.d.ts",
-    "buildTypesCleanUpClose": "sed -i '' 's/^}$//' dist/index.d.ts",
+    "buildTypesCleanUpDeclare": "replace '^declare module.*$' '' dist/index.d.ts",
+    "buildTypesCleanUpClose": "replace '^}$' '' dist/index.d.ts",
     "buildTypesCleanUp": "run-s buildTypesCleanUpDeclare buildTypesCleanUpClose",
     "buildTypes": "run-s buildTypesTsc buildTypesCleanUp",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
@@ -48,7 +48,7 @@
     "testc": "vitest run --coverage",
     "testOnce": "vitest run",
     "testui": "vitest --ui",
-		"tsc": "tsc --watch",
+    "tsc": "tsc --watch",
     "watch": "vite build --watch"
   },
   "repository": {
@@ -73,6 +73,7 @@
   "devDependencies": {
     "@vitest/ui": "0.34.1",
     "jsdom": "22.1.0",
+    "replace": "1.2.2",
     "sass": "1.65.1",
     "tslib": "2.6.1",
     "typescript": "5.1.6",
