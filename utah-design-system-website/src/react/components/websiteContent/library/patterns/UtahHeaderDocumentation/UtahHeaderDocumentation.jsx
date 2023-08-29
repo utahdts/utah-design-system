@@ -103,7 +103,7 @@ function UtahHeaderDocumentation() {
           labelClassName="visually-hidden"
           labelOn="Header Config On"
           labelOff="Header Config Off"
-          onChange={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn))}
+          onChange={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn), [setHeaderIsOn])}
           size={formElementSizesEnum.LARGE}
           value={headerIsOn}
           width={140}
@@ -121,7 +121,7 @@ function UtahHeaderDocumentation() {
               />
               <CopyButton
                 copyRef={interactiveTextAreaRef}
-                onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy))}
+                onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy), [])}
               />
               <div className="sandbox-example__code-info">
                 <span>Pos {position}, </span>
@@ -173,7 +173,7 @@ function UtahHeaderDocumentation() {
                 color="primary"
                 id="apply-interactive-utah-header"
                 isDisabled={!isDirty}
-                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value))}
+                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value), [setHeaderString])}
               >
                 Apply
               </Button>
