@@ -26,7 +26,7 @@ import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import SwitchExampleCodeReact from './SwitchExampleCodeReact';
-import SwitchPrimaryExampleProps from './SwitchExampleProps';
+import SwitchExampleProps from './SwitchExampleProps';
 import SwitchExampleRender from './SwitchExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -45,13 +45,13 @@ function SwitchDocumentation() {
       <h2 id="example">Example</h2>
       <SandboxExample
         CODE_EXAMPLE={SwitchExampleCodeReact}
-        PROPS_EXAMPLE={SwitchPrimaryExampleProps}
+        PROPS_EXAMPLE={SwitchExampleProps}
         RENDER_EXAMPLE={SwitchExampleRender}
       />
       <StaticExample
         title="Label"
         renderedExample={(
-          <div className="flex-col">
+          <div className="flex-col pt-spacing">
             <Switch
               label="Label"
               id="switch-label"
@@ -76,8 +76,9 @@ function SwitchDocumentation() {
       <StaticExample
         title="Sizes"
         renderedExample={(
-          <div className="flex-col">
+          <div className="flex-col pt-spacing">
             <Switch
+              errorMessage="You must comply!"
               label="Small"
               id="switch-small"
               size={formElementSizesEnum.SMALL}
@@ -93,6 +94,7 @@ function SwitchDocumentation() {
               id="switch-large"
               size={formElementSizesEnum.LARGE}
               width={30}
+              defaultValue
             />
           </div>
         )}
@@ -106,11 +108,13 @@ function SwitchDocumentation() {
       <StaticExample
         title="With Icon"
         renderedExample={(
-          <Switch
-            label="With Icon"
-            id="switch-icon"
-            sliderChildren={Icons.IconCheck()}
-          />
+          <div className="flex-col pt-spacing">
+            <Switch
+              label="With Icon"
+              id="switch-icon"
+              sliderChildren={Icons.IconCheck()}
+            />
+          </div>
         )}
         quickTips={(
           <ul>
@@ -121,7 +125,7 @@ function SwitchDocumentation() {
       <StaticExample
         title="Disabled"
         renderedExample={(
-          <div className="flex-col">
+          <div className="flex-col pt-spacing">
             <Switch
               label="On"
               id="switch-disabled-on"
@@ -253,7 +257,7 @@ function SwitchDocumentation() {
           <TabPanels>
             <TabPanel tabId="switch-props-css">
               <TableWrapper>
-                <Table className="table--lines-x">
+                <Table className="table--lines-x table--full-width">
                   <TableHead>
                     <TableHeadRow>
                       <TableHeadCell className="text-left css-classes">CSS Classes</TableHeadCell>
@@ -299,6 +303,16 @@ function SwitchDocumentation() {
                         <TableCell>This css class will be added to the switch.</TableCell>
                       </TableRow>
                       <TableRow>
+                        <TableCell><code className="primary-color">defaultValue</code></TableCell>
+                        <TableCell>
+                          <div className="props-code-wrapper">
+                            <code>boolean</code>
+                          </div>
+                        </TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>Use the <span className="font-semi-bold">defaultValue</span> for an uncontrolled component.</TableCell>
+                      </TableRow>
+                      <TableRow>
                         <TableCell><code className="primary-color">errorMessage</code></TableCell>
                         <TableCell>
                           <div className="props-code-wrapper">
@@ -329,7 +343,7 @@ function SwitchDocumentation() {
                         </TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
-                          This ref will be attached to the rendered &lt;div&gt; element allowing the parent component to interact
+                          This ref will be attached to the rendered <code>&lt;div&gt;</code> element allowing the parent component to interact
                           directly with the actual <span className="font-semi-bold">switch</span> DOM element.
                         </TableCell>
                       </TableRow>
@@ -357,6 +371,16 @@ function SwitchDocumentation() {
                         </TableCell>
                         <TableCell>(required)</TableCell>
                         <TableCell>Label to be displayed next to the switch.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell><code className="primary-color">labelClassName</code></TableCell>
+                        <TableCell>
+                          <div className="props-code-wrapper">
+                            <code>string</code>
+                          </div>
+                        </TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>The css class to add to the <code>label</code> element.</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell><code className="primary-color">labelOff</code></TableCell>
@@ -445,6 +469,16 @@ function SwitchDocumentation() {
                         </TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>Width of the switch in <code>px</code>.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell><code className="primary-color">...rest</code></TableCell>
+                        <TableCell>
+                          <div className="props-code-wrapper">
+                            <code>...any</code>
+                          </div>
+                        </TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>Additional props you wish to pass to the <code>input</code>.</TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>

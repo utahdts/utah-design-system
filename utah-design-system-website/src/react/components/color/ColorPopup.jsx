@@ -1,17 +1,17 @@
 import {
+  handleEvent,
   ICON_BUTTON_APPEARANCE,
   IconButton,
   Icons,
+  rectContainsPoint,
   Tab,
   TabGroup,
   TabList,
   TabPanel,
   TabPanels,
-  handleEvent,
-  rectContainsPoint,
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
 import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
 import useCssContext from '../../context/cssContext/useCssContext';
@@ -42,6 +42,7 @@ function ColorPopup({ onClose }) {
   const { cssState, setCssState } = useCssContext();
   const [mousePositionOffset, setMousePositionOffset] = useImmer({ x: 0, y: 0 });
   const draggableDivRef = useRef(null);
+  const [copiedUrlTitle, setCopiedUrlTitle] = useState('Share colors');
 
   const { mousePosition } = useMousePositionTracker({
     shouldBeginDrag: (e) => {
@@ -107,7 +108,7 @@ function ColorPopup({ onClose }) {
           <IconButton
             icon={Icons.IconReset()}
             className="icon-button--borderless"
-            title="Reset Color Picker"
+            title="Reset color picker"
             onClick={() => (
               setCssState((draftCssState) => (
                 Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
@@ -117,13 +118,18 @@ function ColorPopup({ onClose }) {
           <div className="color-picker-popup__title">Color Picker</div>
           <IconButton
             icon={Icons.IconShare()}
-            title="Copy Color Picker Link"
+            title={copiedUrlTitle}
             className="icon-button--borderless"
             onClick={() => {
               const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
               navigator.clipboard.writeText(returnUrl)
-                // TODO: need a toast popup or banner or something to show messages
-                .then(() => console.log('Colors copied to clipboard ready to share!', returnUrl))
+                .then(() => {
+                  console.log('Colors copied to clipboard ready to share!', returnUrl);
+                  setCopiedUrlTitle('Share URL copied to to clipboard');
+                  setTimeout(() => {
+                    setCopiedUrlTitle('Share URL');
+                  }, 1500);
+                })
                 .catch((e) => console.error(e));
             }}
           />
@@ -132,7 +138,7 @@ function ColorPopup({ onClose }) {
           <div className="color-picker-popup__buttons">
             <IconButton
               icon={Icons.IconArrowRight()}
-              title="Randomize Color Picker"
+              title="Randomize color picker"
               onClick={() => (
                 setCssState((draftCssState) => (
                   Object.keys(cssContextDefaultColors).forEach((key) => { draftCssState[key] = `#${tinycolor.random().toHex()}`; })

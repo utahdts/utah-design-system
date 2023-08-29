@@ -1,5 +1,6 @@
 import {
   Button,
+  ExternalLink,
   Table,
   TableBody,
   TableBodyData,
@@ -20,8 +21,15 @@ const defaultProps = {};
 
 function TableDocumentationSortingTableExample() {
   return (
-    <div className="static-example">
+    <div className="static-example mt-spacing-xl">
       <h3 id="table__sorting-table-example" className="static-example__title">Sorting Data</h3>
+      <div className="text-center mb-spacing-xs">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSortingTableExample.jsx"
+        >
+          See code on GitHub
+        </ExternalLink>
+      </div>
       <TableWrapper>
         <Table className="table table--lines-x table--alt table--v-align-center table--condensed">
           <TableHead>

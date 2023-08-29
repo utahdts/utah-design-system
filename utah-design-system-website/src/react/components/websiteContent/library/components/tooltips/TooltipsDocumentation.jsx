@@ -3,12 +3,19 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
+// @ts-ignore
+// eslint-disable-next-line import/order
+
+import { ICON_BUTTON_APPEARANCE, IconButton } from '@utahdts/utah-design-system';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import tooltipsScreenshot from '../../../../../../static/images/mockups/Tooltips.jpg';
-import LightBox from '../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../routing/pageUrls';
+import SandboxExample from '../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../staticExamples/StaticExample';
+import TooltipsExampleCodeReact from './TooltipsExampleCodeReact';
+import TooltipsExampleProps from './TooltipsExampleProps';
+import TooltipsExampleRender from './TooltipsExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
@@ -20,12 +27,46 @@ function TooltipsDocumentation() {
       <p className="lead-in">Tooltips are floating labels to describe or add additional information when users hover over or focus on an interactive element.  Use sparingly.</p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={TooltipsExampleRender}
+        PROPS_EXAMPLE={TooltipsExampleProps}
+        CODE_EXAMPLE={TooltipsExampleCodeReact}
+      />
       <StaticExample
-        title="Tooltip Examples"
-        renderedExample={<LightBox hideAlt image={tooltipsScreenshot} alt="Tooltips" className="flex-3up-gap" />}
+        title="Tooltip Example"
+        renderedExample={(
+          <>
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the gear icon button')}
+              title="Gear icon button"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-plus" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the plus icon button')}
+              title="Plus icon button"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the bookmark icon button')}
+              title="Bookmark icon button"
+            />
+            <IconButton
+              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+              icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
+              onClick={() => console.log('Triggered the help icon button')}
+              title="Help icon button"
+            />
+          </>
+        )}
         quickTips={(
           <ul>
             <li>Tooltips typically appear below their parent, unless there isn&apos;t space.</li>
+            <li>The tooltip will have a short delay when you hover.</li>
+            <li>If the hover delay has elapsed, all tooltips instantly pop until hover is lost for a period of time.</li>
           </ul>
         )}
       />
@@ -102,7 +143,7 @@ function TooltipsDocumentation() {
         <li>By default, a Tooltip drops down from the trigger point, by slide fading towards the bottom of the screen away from the trigger point.</li>
       </ul>
 
-      <h3 id="section-accessibility" className="mb-spacing">Accessability</h3>
+      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <p>Preferred Method</p>
       <ul className="mb-spacing">
         <li>Information contained in the tooltip should always be visible to the screen reader via visually hidden text, an <code>aria-label</code>, <code>aria-labelledby</code>, or <code>aria-describedby</code>.</li>

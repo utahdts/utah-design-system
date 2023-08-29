@@ -2,8 +2,8 @@
 import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import PropTypes from 'prop-types';
 import React, { useEffect, useMemo } from 'react';
-import useImmerRef from '../hooks/useImmerRef';
-import SettingsShape from '../propTypesShapes/header/SettingsShape';
+import useImmerRef from '../../hooks/useImmerRef';
+import SettingsShape from '../../propTypesShapes/header/SettingsShape';
 import UtahHeaderContext from './UtahHeaderContext';
 
 /** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').SettingsInput} SettingsInput */

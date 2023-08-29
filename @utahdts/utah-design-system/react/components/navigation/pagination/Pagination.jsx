@@ -78,7 +78,7 @@ function Pagination({
           icon={<span className="utds-icon-before-arrow-left" aria-hidden="true" />}
           isDisabled={currentPageIndex === 0}
           onClick={useCallback(() => currentOnChange(currentPageIndexRef.current - 1), [currentOnChange])}
-          title="Previous Page"
+          title="Previous page"
         />
 
         {
@@ -111,7 +111,7 @@ function Pagination({
           icon={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}
           isDisabled={currentPageIndex === numberOfPages - 1}
           onClick={useCallback(() => currentOnChange(currentPageIndexRef.current + 1), [currentOnChange])}
-          title="Next Page"
+          title="Next page"
         />
       </ul>
     </WrapInElement>

@@ -12,8 +12,8 @@ export default function useRedirect({ pageUrl, isImmediate }) {
   const navigate = useNavigate();
 
   const doNavigate = useCallback(
-    () => navigate(pageUrl),
-    [pageUrl]
+    () => navigate(pageUrl, { replace: true }),
+    [navigate, pageUrl]
   );
 
   useEffect(

@@ -6,7 +6,7 @@
   .tooltip {
     &__wrapper {
       position: absolute;
-      z-index: 110;
+      z-index: 2000;
       background: none transparent;
       // initial position so that the tooltip doesn't go off the screen
       left: 0;
@@ -24,7 +24,7 @@
         opacity: 0;
         pointer-events: none;
         .tooltip__content {
-          transform: scale(.7);
+          transform: scale(0.7);
         }
       }
     }
@@ -41,7 +41,8 @@
     &__arrow {
       visibility: hidden;
 
-      &, &::before {
+      &,
+      &::before {
         position: absolute;
         width: 6px;
         height: 6px;
@@ -51,13 +52,12 @@
 
       &::before {
         visibility: visible;
-        content: '';
+        content: "";
         transform: rotate(45deg);
       }
     }
 
-
-    &__wrapper[data-popper-placement^='top'] {
+    &__wrapper[data-popper-placement^="top"] {
       .tooltip__content {
         transform-origin: bottom;
       }
@@ -66,7 +66,7 @@
       }
     }
 
-    &__wrapper[data-popper-placement^='bottom'] {
+    &__wrapper[data-popper-placement^="bottom"] {
       .tooltip__content {
         transform-origin: top;
       }
@@ -75,7 +75,7 @@
       }
     }
 
-    &__wrapper[data-popper-placement^='left'] {
+    &__wrapper[data-popper-placement^="left"] {
       .tooltip__content {
         transform-origin: right;
       }
@@ -84,7 +84,7 @@
       }
     }
 
-    &__wrapper[data-popper-placement^='right'] {
+    &__wrapper[data-popper-placement^="right"] {
       .tooltip__content {
         transform-origin: left;
       }

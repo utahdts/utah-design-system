@@ -62,7 +62,7 @@ import checkForError from './checkForError';
 export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options) {
   let delayPopupTimeoutId = NaN;
   let delayHideTimeoutId = NaN;
-  const TIMEOUT_MS_LONG = 300;
+  const TIMEOUT_MS_LONG = 350;
   const TIMEOUT_MS_MEDIUM = 150;
   const TIMEOUT_MS_SHORT = 50;
 

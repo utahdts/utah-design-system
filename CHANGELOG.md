@@ -7,9 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.1] - 2023-08-14
+## Added
+- Accessibility: Global Announcer context and components
+- Tooltip: Component
+- Utah Header: Utah Footer copyrightYear setting
+- Utah Header: Skip Link
+- Website: Library landing page
+- Website: Search the Design System website with the search tool
 
-### Added
+## Changed
+- Color Picker: Add tooltip for "copy" icon notification
+- Components: Add form input `required` styling
+- Components: Add form input errorMessage styling
+- Icon Button: Show title on Icon Button
+- Icon Button: Show Tooltip on Icon Button
+- Spinner: Allow Spinner to be determinate/indeterminate
+- Spinner: Provide sandbox for Spinner documentation
+- Switch: Update props with boilerplate defaults
+- TextInput: Add error messages and style them
+- TextInput: hook `innerRef` to wrapper instead of input
+- TextInput: Provide sandbox for TextInput documentation
+- TextInput: Provide static examples of TextInputs
+- Table Documentation: Add github source code links for table examples
+- Utah Header: Change Utah Header wrapper from a `<div>` to a `<header>` element.
+- Website: Added more content for Getting Started - Designers
+
+## Deprecated
+N/A
+
+## Removed
+N/A
+
+## Fixed
+- Accessibility: Always announce Copy Button interactions instead of just once
+- Utah Header: "Correctly" provide types in library
+- Utah Header: Add missing documentation for various settings for the Utah Header
+- Website: Allow going `back` in after a landing page redirect
+- Website: Select no menus on 404 & search pages
+
+## Security
+N/A
+
+
+# [1.2.1] - 2024-08-15
+
+## Added
 - Back to Top documentation
 - Basic and Semantic Text documentation
 - Block Quote documentation
@@ -30,24 +72,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Status Indicator documentation
 - Step Indicator documentation
 
-### Changed
+## Changed
 - Change footer social links to links
 - Emphasize the already existing Utah Header library
 - Move Getting Started to the main menu
 - Close color picker on "escape"
 
-### Deprecated
+## Deprecated
 N/A
 
-### Removed
+## Removed
 N/A
 
-### Fixed
+## Fixed
 - Keep Mobile "How do I know" popup on the page
 - Menu item wrapping and crowding chevron
 - Menu selected item path UI
 - Remove error when expanding Official Website
 - Scroll in to view for missing hash links
 
-### Security
+## Security
 N/A

@@ -38,7 +38,11 @@ export const menuGuidelinesSecondary = {
       title: pages.colorGuidelines.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
-
+    {
+      link: pages.dataVisualizations.link,
+      title: pages.dataVisualizations.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
     {
       link: pages.depthElevationShadows.link,
       title: pages.depthElevationShadows.pageTitle,

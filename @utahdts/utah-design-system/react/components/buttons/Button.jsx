@@ -1,4 +1,6 @@
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import { BUTTON_APPEARANCE, BUTTON_TYPES } from '../../enums/buttonEnums';
 import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
@@ -6,6 +8,12 @@ import RefShape from '../../propTypesShapes/RefShape';
 import handleEvent from '../../util/handleEvent';
 import joinClassNames from '../../util/joinClassNames';
 import Spinner from '../widgetsIndicators/Spinner';
+
+/** @typedef {import('../../jsDocTypes').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('../../jsDocTypes').ButtonTypes} ButtonTypes */
+/** @typedef {import('../../jsDocTypes').ComponentColors} ComponentColors */
+/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('../../jsDocTypes').FormElementSizes} FormElementSizes */
 
 const propTypes = {
   // the appearance of the button
@@ -65,6 +73,23 @@ const defaultProps = {
   type: BUTTON_TYPES.BUTTON,
 };
 
+/**
+ * @param {Object} props
+ * @param {ButtonAppearance} [props.appearance]
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {ComponentColors} [props.color]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {boolean} [props.isBusy]
+ * @param {React.ReactNode} [props.iconLeft]
+ * @param {React.ReactNode} [props.iconRight]
+ * @param {boolean} [props.isDisabled]
+ * @param {string} [props.id]
+ * @param {EventAction} [props.onClick]
+ * @param {FormElementSizes} [props.size]
+ * @param {ButtonTypes} [props.type]
+ * @returns {JSX.Element}
+ */
 function Button({
   appearance,
   children,
@@ -94,7 +119,8 @@ function Button({
       )}
       disabled={isDisabled || isBusy}
       id={id}
-      onClick={handleEvent((e) => onClick(e))}
+      // @ts-ignore
+      onClick={handleEvent((e) => onClick?.(e))}
       ref={innerRef}
       // eslint-disable-next-line react/button-has-type
       type={type}
@@ -112,9 +138,16 @@ function Button({
           : null
       }
       {
-        // How to check if no children? How to center Spinner if empty?
+        // TODO: How to check if no children? How to center Spinner if empty?
         isBusy
-          ? <Spinner value={0.25} size={size === formElementSizesEnum.LARGE1X ? 24 : 22} strokeWidth={size === formElementSizesEnum.LARGE1X ? 14 : 12} className="ml-spacing-xs" /> : null
+          ? (
+            <Spinner
+              className="ml-spacing-xs"
+              size={size === formElementSizesEnum.LARGE1X ? 24 : 22}
+              strokeWidth={size === formElementSizesEnum.LARGE1X ? 14 : 12}
+            />
+          )
+          : null
       }
     </button>
   );

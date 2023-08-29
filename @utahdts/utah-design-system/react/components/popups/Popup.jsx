@@ -136,7 +136,7 @@ function Popup({
                 className="popup__close-button"
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 onClick={(e) => onVisibleChange(e, false)}
-                title="Close Popup"
+                title="Close popup"
                 size={formElementSizesEnum.SMALL}
               />
             )

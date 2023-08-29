@@ -1,9 +1,14 @@
+// @ts-check
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import setValueAtPath from '../../util/state/setValueAtPath';
 import FormContext from './FormContext';
+
+/** @typedef {import('../../jsDocTypes').FormContextState} FormContextState */
+/** @typedef {import('../../jsDocTypes').FormContextValue} FormContextValue */
+/** @typedef {import('use-immer').Updater<FormContextState>} FormContextStateUpdater */
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -28,6 +33,16 @@ const defaultProps = {
   state: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {FormContextState} props.formState
+ * @param {({e, id, newValue}: {e: Event, id: string, newValue: any, value: any}) => void} props.onChange
+ * @param {(params: {validationErrors: Object.<string, string[]> | null, state: FormContextState}) => void} props.onSubmit
+ * @param {FormContextStateUpdater} props.setState
+ * @param {FormContextState} props.state
+ * @returns {JSX.Element}
+ */
 function FormContextProvider({
   children,
   formState,
@@ -37,6 +52,7 @@ function FormContextProvider({
   state,
 }) {
   // use memo so that context's state object pointer doesn't change every render
+  /** @type {FormContextValue} */
   const contextValue = useMemo(
     () => ({
       formId: formState?.formId,
@@ -52,7 +68,12 @@ function FormContextProvider({
           );
         }
         if (onChange) {
-          currentValue = onChange({ e, id, value: currentValue });
+          currentValue = onChange({
+            e,
+            id,
+            newValue: currentValue,
+            value: currentValue,
+          });
         }
         if (setState) {
           setState((draftState) => {

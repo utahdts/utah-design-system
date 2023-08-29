@@ -3,13 +3,17 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
+import { TextInput } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import formInputs01 from '../../../../../../../static/images/mockups/FormInputs01.jpg';
 import textInputSearchPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-search.png';
 import LightBox from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import TextInputExampleCodeReact from './TextInputExampleCodeReact';
+import TextInputExampleProps from './TextInputExampleProps';
+import TextInputExampleRender from './TextInputExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
@@ -24,14 +28,31 @@ function TextInputDocumentation() {
       </p>
       <hr />
       <h2 id="example">Example</h2>
+      <SandboxExample
+        CODE_EXAMPLE={TextInputExampleCodeReact}
+        PROPS_EXAMPLE={TextInputExampleProps}
+        RENDER_EXAMPLE={TextInputExampleRender}
+      />
       <StaticExample
         title="Text Input"
-        renderedExample={<LightBox image={formInputs01} alt="Form Inputs" className="flex-4up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col" style={{ width: '65%' }}>
+            <TextInput id="text-input-documentation__plain-text-input" label="Example 1" />
+            <TextInput id="text-input-documentation__disabled-text-input" isDisabled label="Example 2" value="This input is disabled" />
+            <TextInput id="text-input-documentation__required-text-input" isRequired label="Example 3 Label" />
+            <TextInput
+              id="text-input-documentation__error-text-input"
+              isRequired
+              label="Example 4 Label"
+              errorMessage="This field is required"
+            />
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Text Input is comprised of a label and an input box. Generally, the label should be above the input box.</li>
             <li>Don&apos;t use placeholders as the label. However, they can be used to indicate how to format the user&apos;s text response (e.g. <code>xxx-xxx-xxxx</code>, or <code>xxx@xxxx.com</code>)</li>
-            <li>Use visual indicators when a user hovers over an input box versus when the input box has focus to enhance the user experience.</li>
+            <li>Use a visual indicator when a user hovers over an input box versus when the input box has focus to enhance the user experience.</li>
             <li>It is recommended that a text input has real time validation to alert the user to incorrect input.</li>
           </ul>
         )}
@@ -73,8 +94,9 @@ function TextInputDocumentation() {
         <li><strong>Do not use placeholders as a replacement for labels</strong>. When a user moves into the input box any placeholder text will disappear and the user will no longer be able to see the purpose of the input box. In addition, most browsers do not provide a high enough contrast ratio when rendering placeholder text.</li>
         <li><strong>Input box height between 32px and 40px</strong>. By sticking to the specified range, your text fields will be mobile friendly and at the same time provide a consistent user experience.</li>
         <li><strong>Ensure enough space between other form elements</strong>. There should be enough spacing between the text input and other elements on the page to prevent accidental clicks or taps.</li>
-        <li><strong>The name of the text area should correspond to the data point</strong>. A name attribute to set the name of the associated data point submitted to the server when the form is submitted.</li>
+        <li><strong>The name of the text input should correspond to the data point</strong>. A name attribute to set the name of the associated data point submitted to the server when the form is submitted.</li>
         <li><strong>Clear concise labels</strong>. Use clear and concise labels to describe the purpose of the input box.</li>
+        <li><strong>Required fields</strong>. A Text input should use the <code>required</code> attribute to specify if the form element is required. Additionally a visual star <code>*</code> indicator should be present for sighted users.</li>
         <li><strong>Real time validation</strong>. Generally real time validation is preferred as it creates an easy experience for the user when filling out forms. Once the user clicks or tabs out of the input box, then it is appropriate to validate the user&apos;s response. Provide error messages that are clear and specific to the error.</li>
         <li id="associate-the-label-with-the-input">
           <strong>Associate the label with the input</strong>.
@@ -123,6 +145,7 @@ function TextInputDocumentation() {
         <li>Use the Search role if the input will be used for searching and use this role sparingly. Too many search inputs can create noise in screen readers.</li>
         <li>If there is more than one search role in a document, provide an <code>aria-label</code> for each landmark. (e.g. <code>Sitewide</code>, <code>On this page</code>) There is no need to repeat the word <code>search</code> in the label.</li>
         <li>Inputs should have an associated label. (<a href="#associate-the-label-with-the-input">see above</a>).</li>
+        <li>Required inputs should use the <code>required</code> attribute.</li>
       </ul>
       <h4>Examples</h4>
       <ul className="mb-spacing">

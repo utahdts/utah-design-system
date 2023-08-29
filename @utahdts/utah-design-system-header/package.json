@@ -1,13 +1,16 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
       "development-local": "./src/index.js",
       "development": "./dist/utah-design-system-header.es.js",
       "production": "./dist/utah-design-system-header.es.js",
-      "import": "./dist/utah-design-system-header.es.js",
+      "import": {
+        "default": "./dist/utah-design-system-header.es.js",
+        "types": "./dist/index.d.ts"
+      },
       "require": "./dist/utah-design-system-header.umd.js",
       "types": "./dist/src/index.d.ts",
       "default": [
@@ -20,14 +23,18 @@
     "./src/css/index.scss": "./src/css/index.scss"
   },
   "main": "./src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "src/css",
     "dist"
   ],
   "scripts": {
     "build": "vite build",
-    "buildTypes": "npx tsc",
+    "buildTypesTsc": "npx tsc",
+    "buildTypesCleanUpDeclare": "sed -i '' 's/^declare module.*$//' dist/index.d.ts",
+    "buildTypesCleanUpClose": "sed -i '' 's/^}$//' dist/index.d.ts",
+    "buildTypesCleanUp": "run-s buildTypesCleanUpDeclare buildTypesCleanUpClose",
+    "buildTypes": "run-s buildTypesTsc buildTypesCleanUp",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
     "cleani": "run-s clean npmi",
     "cleanDist": "rimraf ./dist",
@@ -41,6 +48,7 @@
     "testc": "vitest run --coverage",
     "testOnce": "vitest run",
     "testui": "vitest --ui",
+		"tsc": "tsc --watch",
     "watch": "vite build --watch"
   },
   "repository": {
@@ -65,10 +73,10 @@
   "devDependencies": {
     "@vitest/ui": "0.34.1",
     "jsdom": "22.1.0",
-    "sass": "1.64.2",
+    "sass": "1.65.1",
     "tslib": "2.6.1",
     "typescript": "5.1.6",
-    "vite": "4.4.8",
+    "vite": "4.4.9",
     "vitest": "0.34.1"
   },
   "type": "module"

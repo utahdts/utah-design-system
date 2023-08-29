@@ -1,7 +1,7 @@
 // @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved, import/order
-import ToolTipHTML from './html/Tooltip.html?raw';
+import TooltipHTML from './html/Tooltip.html?raw';
 
 // eslint-disable-next-line import/order
 import { createPopper } from '@popperjs/core';
@@ -15,10 +15,10 @@ let tooltipCloseTimeoutId = NaN;
  * @param {Node} dom the dom to show in the tooltip
 */
 export default function hookupTooltip(element, dom) {
-  const tooltip = renderDOMSingle(ToolTipHTML);
+  const tooltip = renderDOMSingle(TooltipHTML);
   const tooltipContent = tooltip.querySelector(getCssClassSelector(domConstants.TOOLTIP__CONTENT));
   if (!tooltipContent) {
-    throw new Error('hookupToolTip: toolTipContent not found');
+    throw new Error('hookupTooltip: tooltipContent not found');
   }
   tooltipContent.appendChild(dom);
 
@@ -39,7 +39,7 @@ export default function hookupTooltip(element, dom) {
   );
 
   if (element.onmouseenter || element.onmouseleave) {
-    throw new Error('hookupToolTip: element already has an onmouseenter and/or onmouseleave event');
+    throw new Error('hookupTooltip: element already has an onmouseenter and/or onmouseleave event');
   }
 
   let tooltipOpenTimeoutId = NaN;

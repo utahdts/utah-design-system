@@ -5,6 +5,13 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
+import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.jpg';
+import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.jpg';
+import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.jpg';
+import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.jpg';
+import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
+import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.jpg';
+import LightBox from '../../../../lightbox/LightBox';
 import pageUrls from '../../../../routing/pageUrls';
 import SandboxExample from '../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../staticExamples/StaticExample';
@@ -16,13 +23,6 @@ import TableDocumentationFooterExample from './exampleTables/TableDocumentationF
 import TableDocumentationPaginationTableExample from './exampleTables/TableDocumentationPaginationTableExample';
 import TableDocumentationSimpleTableExample from './exampleTables/TableDocumentationSimpleTableExample';
 import TableDocumentationSortingTableExample from './exampleTables/TableDocumentationSortingTableExample';
-import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.jpg';
-import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.jpg';
-import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.jpg';
-import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.jpg';
-import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.jpg';
-import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
-import LightBox from '../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -45,6 +45,13 @@ function TableDocumentation() {
         PROPS_EXAMPLE={TableExampleProps}
         RENDER_EXAMPLE={TableExampleRender}
       />
+      <div className="text-center mb-spacing-xs">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables"
+        >
+          See example Table code on GitHub
+        </ExternalLink>
+      </div>
 
       <h2 id="section-static-examples">Static Examples</h2>
       <StaticExample
@@ -158,12 +165,11 @@ function TableDocumentation() {
       </ul>
 
       <h2 id="section-full-examples">Full Examples</h2>
-      {/* Sandbox Example Here */}
       <TableDocumentationSimpleTableExample />
-      <TableDocumentationSortingTableExample />
       <TableDocumentationFilteringTableExample />
       <TableDocumentationFooterExample />
       <TableDocumentationPaginationTableExample />
+      <TableDocumentationSortingTableExample />
     </div>
   );
 }

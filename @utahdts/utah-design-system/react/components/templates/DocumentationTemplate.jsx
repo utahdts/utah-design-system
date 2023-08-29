@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
+import MainContent from './MainContent';
 
 const propTypes = {
   content: PropTypes.func.isRequired,
   contentRef: RefShape.isRequired,
   sidePanelRightContent: PropTypes.element.isRequired,
-  sidePanelLeftContent: PropTypes.element.isRequired,
+  sidePanelLeftContent: PropTypes.element,
 };
-const defaultProps = {};
+const defaultProps = {
+  sidePanelLeftContent: null,
+};
 
 function DocumentationTemplate({
   content: Content,
@@ -22,9 +25,9 @@ function DocumentationTemplate({
           {sidePanelLeftContent}
         </div>
         <div className="documentation-template__right-group">
-          <main className="documentation-template__content" ref={contentRef}>
+          <MainContent className="documentation-template__content" innerRef={contentRef}>
             <Content />
-          </main>
+          </MainContent>
           <div className="documentation-template__side-panel-right">
             {sidePanelRightContent}
           </div>

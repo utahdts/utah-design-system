@@ -13,6 +13,7 @@ function SwitchExampleCodeReact({
   state: {
     props: {
       className,
+      errorMessage,
       icon,
       id,
       isDisabled,
@@ -30,8 +31,9 @@ function SwitchExampleCodeReact({
       &lt;Switch
       <br />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isDisabled ? 'disabled={true}' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isDisabled ? 'disabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={labelOff ? `labelOff="${labelOff}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={labelOn ? `labelOn="${labelOn}"` : null} indentLevel={1} />

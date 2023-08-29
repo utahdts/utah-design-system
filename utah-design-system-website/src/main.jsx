@@ -1,4 +1,4 @@
-import { UtahHeaderContextProvider } from '@utahdts/utah-design-system';
+import { UtahDesignSystemContextProvider, UtahHeaderContextProvider } from '@utahdts/utah-design-system';
 import { defaultSettings } from '@utahdts/utah-design-system-header';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -13,13 +13,15 @@ const baseName = '';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename={baseName}>
-      <AppContextProvider>
-        <CssContextProvider>
-          <UtahHeaderContextProvider defaultSettings={{ ...defaultSettings, ...websiteUtahHeaderSettings }}>
-            <App />
-          </UtahHeaderContextProvider>
-        </CssContextProvider>
-      </AppContextProvider>
+      <UtahDesignSystemContextProvider>
+        <AppContextProvider>
+          <CssContextProvider>
+            <UtahHeaderContextProvider defaultSettings={{ ...defaultSettings, ...websiteUtahHeaderSettings }}>
+              <App />
+            </UtahHeaderContextProvider>
+          </CssContextProvider>
+        </AppContextProvider>
+      </UtahDesignSystemContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

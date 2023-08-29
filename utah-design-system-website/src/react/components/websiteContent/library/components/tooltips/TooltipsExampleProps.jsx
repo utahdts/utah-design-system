@@ -1,14 +1,17 @@
-/* eslint-disable no-param-reassign */
+/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
+/** @typedef {import('use-immer').Updater<TooltipsExamplePropsShape>} UpdaterTooltipsExampleProps */
+
 import {
+  ExternalLink,
   Form,
-  formElementSizesEnum,
   Select,
   SelectOption,
   Switch,
-  TextInput
+  TextInput,
+  popupPlacement
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
 
 const propTypes = {
@@ -19,13 +22,23 @@ const propTypes = {
 };
 const defaultProps = {};
 
+/**
+ * @param {Object} props
+ * @param {any} props.setState
+ * @param {Object} props.state
+ * @param {TooltipsExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
 function TooltipsExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
       setState((draftState) => {
-        // eslint-disable-next-line no-alert
-        draftState.props.onClick = () => alert('I am so ashamed');
+        draftState.props.isPopperVisible = false;
+        draftState.props.offsetDistance = '0';
+        draftState.props.offsetSkidding = '5';
+        draftState.props.placement = popupPlacement.BOTTOM;
+        draftState.props.popupText = 'Now you see me';
       });
     },
     []
@@ -33,58 +46,26 @@ function TooltipsExampleProps({ setState, state }) {
 
   return (
     <Form
-      // onSubmit(({ state, validationErrors }) => ... do whatever ...)
       state={state}
       setState={setState}
       className="form--stacked"
     >
-      <Select id="props.appearance" label="Appearance" className="input--height-small1x">
-        <SelectOption label="Outlined" value="outlined" />
-        <SelectOption label="Solid" value="solid" />
-      </Select>
-      <Switch id="props.isBusy" label="Busy" />
+      <TextInput id="props.popupText" label="Text (children)" className="input--height-small1x" />
 
-      <TextInput id="props.className" label="Class" className="input--height-small1x" />
+      <Switch id="props.isPopperVisible" label="Visible" width={20} />
 
-      <Select id="props.color" label="Color" className="input--height-small1x">
-        <SelectOption label="Primary" value="primary" />
-        <SelectOption label="Secondary" value="secondary" />
-        <SelectOption label="Accent" value="accent" />
-        <SelectOption label="None" value="none" />
+      <Select id="props.placement" label="Placement" className="input--height-small1x">
+        {
+          Object.values(popupPlacement)
+            .map((placement) => (
+              <SelectOption key={`tooltip-placement-${placement}`} label={placement} value={placement} />
+            ))
+        }
       </Select>
 
-      <Switch id="props.isDisabled" label="Disabled" width={20} />
-
-      <Select id="props.iconLeft" label="Icon Left" className="input--height-small1x">
-        <SelectOption label="Chevron" value="IconChevron" />
-        <SelectOption label="Arrow" value="IconArrowLeft" />
-        <SelectOption label="None" value="none" />
-      </Select>
-
-      <Select id="props.iconRight" label="Icon Right" className="input--height-small1x">
-        <SelectOption label="Chevron" value="IconChevron" />
-        <SelectOption label="Arrow" value="IconArrowRight" />
-        <SelectOption label="None" value="none" />
-      </Select>
-
-      <TextInput id="props.id" label="ID" className="input--height-small1x" />
-
-      <Select id="props.size" label="Size" className="input--height-small1x">
-        <SelectOption label="Small 1X" value={formElementSizesEnum.SMALL1X} />
-        <SelectOption label="Small" value={formElementSizesEnum.SMALL} />
-        <SelectOption label="Medium" value={formElementSizesEnum.MEDIUM} />
-        <SelectOption label="Large" value={formElementSizesEnum.LARGE} />
-        <SelectOption label="Large 1X" value={formElementSizesEnum.LARGE1X} />
-      </Select>
-
-      <TextInput id="props.title" label="Title (children)" className="input--height-small1x" />
-
-      <Select id="props.type" label="Type" className="input--height-small1x">
-        <SelectOption label="Button" value="button" />
-        <SelectOption label="Reset" value="reset" />
-        <SelectOption label="Submit" value="submit" />
-      </Select>
-
+      <TextInput id="props.offsetDistance" label="Distance" className="input--height-small1x" />
+      <TextInput id="props.offsetSkidding" label="Skidding" className="input--height-small1x" />
+      <ExternalLink href="https://popper.js.org/docs/v2/modifiers/offset/">Distance/Skidding Docs</ExternalLink>
     </Form>
   );
 }

@@ -88,7 +88,7 @@ function UtahHeaderDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Utah Header</h1>
       <p className="lead-in">
-        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. The purpose of its components is to promote a consistent look, feel, and user experience throughout all state websites and applications.
+        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. It also provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
       </p>
       <p className="lead-in">
         The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and Title</strong>
@@ -103,7 +103,7 @@ function UtahHeaderDocumentation() {
           labelClassName="visually-hidden"
           labelOn="Header Config On"
           labelOff="Header Config Off"
-          onChange={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn))}
+          onChange={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn), [setHeaderIsOn])}
           size={formElementSizesEnum.LARGE}
           value={headerIsOn}
           width={140}
@@ -121,7 +121,7 @@ function UtahHeaderDocumentation() {
               />
               <CopyButton
                 copyRef={interactiveTextAreaRef}
-                onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy))}
+                onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy), [])}
               />
               <div className="sandbox-example__code-info">
                 <span>Pos {position}, </span>
@@ -173,7 +173,7 @@ function UtahHeaderDocumentation() {
                 color="primary"
                 id="apply-interactive-utah-header"
                 isDisabled={!isDirty}
-                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value))}
+                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value), [setHeaderString])}
               >
                 Apply
               </Button>
@@ -240,28 +240,28 @@ function UtahHeaderDocumentation() {
               icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the waffle icon button')}
-              title="Settings"
+              title="Waffle icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the alert icon button')}
-              title="Settings"
+              title="Alert icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the help icon button')}
-              title="Settings"
+              title="Help icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the gear icon button')}
-              title="Settings"
+              title="Gear icon button"
             />
           </>
 
@@ -395,6 +395,11 @@ function UtahHeaderDocumentation() {
 
       {/* ---- CONFIG SETTINGS --- */}
       <h2 id="section-utahheader-config-settings" className="my-spacing">Configuration Settings</h2>
+      <p>
+        Below you will find the configuration settings for the Utah Header.
+      </p>
+      <p>You can also find all the <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js">configuration settings in the JSDoc file</ExternalLink>.</p>
+
       {/* ----     Settings     --- */}
       <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
       <h4 id="section-auth-props">Config Props</h4>
@@ -551,6 +556,16 @@ function UtahHeaderDocumentation() {
               </TableCell>
               <TableCell>
                 The header can be sized to better match your application. The default and most preferred size is <code>MEDIUM</code>.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-size">skipLinkUrl</a></span><br />
+                <span className="prop__types">string</span><br />
+              </TableCell>
+              <TableCell>
+                Specifies where the Skip Link should go. It is generally best practice to include a skip link on every page. <Link to={pageUrls.skipLink}>Learn more about the Skip Link here.</Link>
               </TableCell>
             </TableRow>
 
@@ -1381,57 +1396,7 @@ function UtahHeaderDocumentation() {
               <TableCell>
                 <span className="prop__description">
                   Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-                  to a user&apos;s account. Use an alternate navigation for non-account related links.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionUrl</a></span><br />
-                <span className="prop__types">MenuItemUrlAction</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A URL to which the menu item will navigate.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunction</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A callback function that will be called when the menu item is triggered.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionFunctionUrl</a></span><br />
-                <span className="prop__types">MenuItemFunctionUrlAction</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  For Single Page Apps, navigation does not reload the page. The link should still show a url, but the functionality
-                  should not be of a link. The actionFunctionUrl option allows specifying the link but also provide a custom
-                  callback so as to trigger things like React Router.
-                </span>
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems[].actionMenu</a></span><br />
-                <span className="prop__types">MenuItem[]</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  This menu item may have nested children menu items.
+                  to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for MenuItem</a>.
                 </span>
               </TableCell>
             </TableRow>

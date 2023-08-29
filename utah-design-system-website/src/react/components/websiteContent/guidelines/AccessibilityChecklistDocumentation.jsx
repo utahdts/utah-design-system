@@ -8,7 +8,7 @@ import {
   LinkCallback,
 } from '@utahdts/utah-design-system';
 import { useCallback } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAppContext from '../../../context/AppContext/useAppContext';
 import pageUrls from '../../routing/pageUrls';
 
@@ -55,6 +55,7 @@ function AccessibilityTestingDocumentation() {
             <li>Text is in plain language that is understandable at an 8th grade level.</li>
             <li>Hyperlinks do not include generic text such as &quot;click here&quot; or &quot;view more&quot;.</li>
             <li>Hyperlinks that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.</li>
+            <li>Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.</li>
           </ul>
         </li>
         <li>

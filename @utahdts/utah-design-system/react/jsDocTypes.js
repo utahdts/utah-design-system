@@ -1,8 +1,49 @@
 // @ts-check
 
 /**
- *
- * @typedef {(function(MouseEvent | TouchEvent | KeyboardEvent): void)} EventAction
+ * @template ImmerHookT
+ * @typedef {import('use-immer').ImmerHook<ImmerHookT>} ImmerHook
+ */
+
+/**
+ * ButtonAppearance
+ * @typedef {'solid' | 'outline'} ButtonAppearance
+ */
+
+/**
+ * ButtonTypes
+ * @typedef {'button' | 'reset' | 'submit'} ButtonTypes
+ */
+
+/**
+ * IconButtonAppearance
+ * @typedef {'solid' | 'outlined' | 'borderless'} IconButtonAppearance
+ */
+
+/**
+ * ComponentColors
+ * @typedef { 'primary' | 'secondary' | 'accent' | 'none' } ComponentColors
+ */
+
+/**
+ * FormElementSizes
+ * @typedef { 'small3x' | 'small2x' | 'small1x' | 'small' | 'medium' | 'large' | 'large1x' } FormElementSizes
+ */
+
+/**
+ * AriaLiveType
+ * @typedef {'assertive' | 'polite'} AriaLiveType
+ */
+
+/**
+ * @typedef PoorMansTarget {
+ *  @property {boolean} checked
+ *  @property {string} key
+ *  @property {string} type
+ *  @property {any} value
+ * }
+ * @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event
+ * @typedef {((e: Event) => void)} EventAction
  *
  * @typedef {(value: string) => boolean} TableFilterFunction
  *
@@ -37,6 +78,32 @@
  *  @property {string} link
  *  @property {string} pageTitle
  *  @property {string[]} parentLinks
+ * }
+ */
+
+/** @typedef {Object.<string, any>} FormContextState {} */
+
+/**
+ * @typedef FormContextValue {
+ *  @property {Object.<string, any>} dirtyIds
+ *  @property {string} formId
+ *  @property {({e, id, newValue}: {e: Event, id: string, newValue: any}) => void} onChange
+ *  @property {() => void} onSubmit
+ *  @property {Object.<string, string[]> | null} validationErrors
+ *  @property {FormContextState} state
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextAria {
+ *  @property {string[]} assertiveMessages
+ *  @property {string[]} politeMessages
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextValue {
+ *  @property {UtahDesignSystemContextAria} ariaLive
  * }
  */
 

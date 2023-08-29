@@ -1,11 +1,12 @@
 // @ts-check
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
+import Tooltip from '../Tooltip/Tooltip';
 
 const propTypes = {
   // the appearance of the button
@@ -31,6 +32,7 @@ const propTypes = {
   innerRef: RefShape,
   // button isDisabled state
   isDisabled: PropTypes.bool,
+  isTitleVisible: PropTypes.bool,
   // what to do when the button is clicked
   onClick: PropTypes.func.isRequired,
   size: PropTypes.oneOf([
@@ -42,15 +44,18 @@ const propTypes = {
   ]),
   // A title is used for accessibility purposes to describe the button for screen readers
   title: PropTypes.string.isRequired,
+  tooltipText: PropTypes.string,
 };
 const defaultProps = {
   appearance: ICON_BUTTON_APPEARANCE.OUTLINED,
   className: null,
   color: componentColors.NONE,
   id: null,
+  isTitleVisible: false,
   innerRef: null,
   isDisabled: false,
   size: formElementSizesEnum.MEDIUM,
+  tooltipText: null,
 };
 
 /**
@@ -64,11 +69,13 @@ const defaultProps = {
  * @param {'primary' | 'secondary' | 'accent' | 'none' | undefined} [props.color]
  * @param {import('react').ReactNode} props.icon
  * @param {string | null | undefined} [props.id]
- * @param {React.Ref<HTMLButtonElement>} [props.innerRef]
+ * @param {React.MutableRefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isTitleVisible]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [props.size]
  * @param {string} props.title
+ * @param {string | null} [props.tooltipText]
  * @returns {JSX.Element}
  */
 function IconButton({
@@ -77,34 +84,45 @@ function IconButton({
   color,
   icon,
   id,
-  innerRef,
+  innerRef: draftInnerRef,
   isDisabled,
+  isTitleVisible,
   onClick,
   size,
   title,
+  tooltipText,
   ...rest
 }) {
+  const [referenceElement, setReferenceElement] = /** @type {typeof useState<HTMLButtonElement | null>} */ (useState)(null);
+  if (draftInnerRef && referenceElement) {
+    draftInnerRef.current = referenceElement;
+  }
+
   return (
-    <button
-      className={joinClassNames(
-        'button icon-button',
-        className,
-        `${(appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? 'icon-button--' : 'button--'}${appearance}`,
-        // default color is none
-        (color && color !== 'none') ? `button--${color}-color` : null,
-        // default size is medium
-        (size && size !== formElementSizesEnum.MEDIUM) ? `icon-button--${size}` : null
-      )}
-      disabled={isDisabled}
-      id={id || undefined}
-      onClick={onClick}
-      ref={innerRef || undefined}
-      type="button"
-      {...rest}
-    >
-      {icon}
-      <span className="visually-hidden">{title}</span>
-    </button>
+    <>
+      <button
+        className={joinClassNames(
+          'button icon-button',
+          className,
+          `${(appearance === ICON_BUTTON_APPEARANCE.BORDERLESS) ? 'icon-button--' : 'button--'}${appearance}`,
+          // default color is none
+          (color && color !== 'none') ? `button--${color}-color` : null,
+          (isTitleVisible ? 'icon-button--visible-title' : null),
+          // default size is medium
+          (size && size !== formElementSizesEnum.MEDIUM) ? `icon-button--${size}` : null
+        )}
+        disabled={isDisabled}
+        id={id || undefined}
+        onClick={onClick}
+        ref={setReferenceElement}
+        type="button"
+        {...rest}
+      >
+        {icon}
+        <span className={isTitleVisible ? undefined : 'visually-hidden'}>{title}</span>
+      </button>
+      <Tooltip referenceElement={referenceElement}>{tooltipText ?? title}</Tooltip>
+    </>
   );
 }
 

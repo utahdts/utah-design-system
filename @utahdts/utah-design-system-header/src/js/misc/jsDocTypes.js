@@ -209,6 +209,7 @@
  * }
  *
  * @typedef FooterSettings {
+ *  @property {string | null | undefined} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
  *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
  * }
@@ -224,6 +225,7 @@
  *  @property {((search: string) => void) | false} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
  *  @property {string} size - size has to be one of the `Size` types
+ *  @property {string} [skipLinkUrl] - the URL that the skip link will go to
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
  *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
  *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom

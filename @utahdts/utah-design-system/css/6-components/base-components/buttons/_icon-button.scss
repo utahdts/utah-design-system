@@ -129,5 +129,11 @@
       }
     }
 
+    // Does the icon button have a title?
+    &--visible-title {
+      padding: 0 var(--spacing-s);
+      gap: var(--spacing-xs);
+    }
+
   }
 }

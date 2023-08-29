@@ -1,4 +1,5 @@
 // @ts-check
+// @ts-ignore
 import { sizes } from '@utahdts/utah-design-system-header';
 // @ts-ignore
 import logoPng from './static/images/designSystemCircleGray.png';
@@ -31,4 +32,5 @@ export default {
   title: 'Utah Design System',
   titleURL: '/',
   utahId: true,
+  skipLinkUrl: '#main-content',
 };
