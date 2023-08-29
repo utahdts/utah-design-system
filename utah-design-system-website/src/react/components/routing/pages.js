@@ -80,6 +80,7 @@ import pageUrls from './pageUrls';
 import GettingStartedDesigner from '../websiteContent/resources/GettingStartedDesigner';
 import GettingStartedDeveloper from '../websiteContent/resources/GettingStartedDeveloper';
 import Search from '../websiteContent/Search';
+import DataVisualizationsDocumentation from '../websiteContent/guidelines/DataVisualizationsDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -275,6 +276,13 @@ const pages = {
     link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Opacity',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  },
+  dataVisualizations: {
+    content: DataVisualizationsDocumentation,
+    link: pageUrls.dataVisualizations,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Data Visualizations',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
 
