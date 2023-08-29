@@ -143,6 +143,17 @@ function UtahFooterDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>
+                <span className="prop__name"><a href="#section-config-footer_copyright">footer.copyright</a></span><br />
+                <span className="prop__types">string | null | undefined</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  The Utah Footer always shows the copyright symbol <code>©</code>. Your site can choose to show a year next to the copyright symbol.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
                 <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget</a></span><br />
                 <span className="prop__types">DomLocationTarget</span>
               </TableCell>

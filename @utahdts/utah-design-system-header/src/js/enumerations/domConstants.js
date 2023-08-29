@@ -50,6 +50,7 @@ export default {
   CITIZEN_EXPERIENCE: 'utds-citizen-experience-wrapper',
   CITIZEN_EXPERIENCE_MOBILE: 'utds-citizen-experience-wrapper--mobile',
 
+  FOOTER_COPYRIGHT_YEAR: 'utds-footer__copyright-year',
   FOOTER_HORIZONTAL_DIVIDER: 'utds-footer__horizontal-divider',
   FOOTER_LINKS: 'utds-footer__links',
 
