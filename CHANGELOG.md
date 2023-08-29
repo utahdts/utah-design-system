@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Added
 - Tooltip Component
 - Website: Search the Design System website with the search tool
+- Website: Library landing page
 
 ## Changed
 - Icon Button: Have Icon Button show a Tooltip
