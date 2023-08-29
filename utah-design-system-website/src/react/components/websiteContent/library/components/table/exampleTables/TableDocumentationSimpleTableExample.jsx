@@ -1,4 +1,5 @@
 import {
+  ExternalLink,
   Table,
   TableBody, TableCell, TableHead,
   TableHeadCell,
@@ -12,12 +13,19 @@ const defaultProps = {};
 
 function TableDocumentationSimpleTableExample() {
   return (
-    <div className="static-example">
+    <div className="static-example mt-spacing-xl">
       <h3 id="table__simple-table-example" className="static-example__title">Simple Static Data</h3>
-      <p>
+      <p className="mb-spacing-xs">
         This table is static data using Design System components in a manual layout.
         This is the simplest as it does not have dynamic data, filtering, sorting, nor any other features.
       </p>
+      <div className="text-center mb-spacing-xs">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSimpleTableExample.jsx"
+        >
+          See code on GitHub
+        </ExternalLink>
+      </div>
       <TableWrapper>
         <Table id="simple-table" className="table table--lines-x table--v-align-center">
           <TableHead>

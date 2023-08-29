@@ -1,5 +1,5 @@
 import {
-  Button, Table,
+  Button, ExternalLink, Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
@@ -27,7 +27,14 @@ function TableDocumentationFilteringTableExample() {
   return (
     <>
       <h3 id="table__filtering-table-example" className="mt-spacing-l">Filtering Data</h3>
-      <p> This table allows filtering its data through the use of the inputs in the THead.</p>
+      <p className="mb-spacing-xs"> This table allows filtering its data through the use of the inputs in the THead.</p>
+      <div className="text-center mb-spacing-xs">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx"
+        >
+          See code on GitHub
+        </ExternalLink>
+      </div>
 
       <TableWrapper>
         <Table className="my-uber-special-snowflake-table">

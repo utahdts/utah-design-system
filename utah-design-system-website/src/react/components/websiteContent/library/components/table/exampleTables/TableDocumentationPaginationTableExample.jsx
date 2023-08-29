@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import {
+  ExternalLink,
   Pagination,
   Table,
   TableBody,
@@ -12,6 +12,7 @@ import {
   TextInput,
   usePaginatedList,
 } from '@utahdts/utah-design-system';
+import { useState } from 'react';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};
@@ -24,7 +25,7 @@ function TableDocumentationPaginationTableExample() {
   const paginatedData = usePaginatedList({ list: examplePresidentsData, pageIndex: currentPageIndex, itemsPerPage });
 
   return (
-    <div className="documentation-content">
+    <div className="documentation-content mt-spacing-xl">
       <h3 id="table__paginating-table-example">Pagination</h3>
       <TextInput
         id="table-pagination__items-per-page"
@@ -32,6 +33,13 @@ function TableDocumentationPaginationTableExample() {
         onChange={(e) => setItemsPerPage(Number(e.target.value) || DEFAULT_ITEMS_PER_PAGE)}
         value={`${itemsPerPage}`}
       />
+      <div className="text-center mb-spacing-xs">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationPaginationTableExample.jsx"
+        >
+          See code on GitHub
+        </ExternalLink>
+      </div>
       <TableWrapper>
         <Table>
           <TableHead>
