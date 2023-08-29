@@ -78,7 +78,7 @@ function SwitchDocumentation() {
         renderedExample={(
           <div className="flex-col pt-spacing">
             <Switch
-              errorMessage="this is a big error!"
+              errorMessage="You must comply!"
               label="Small"
               id="switch-small"
               size={formElementSizesEnum.SMALL}
