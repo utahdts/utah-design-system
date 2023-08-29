@@ -8,30 +8,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## Added
-- Tooltip Component
-- Website: Search the Design System website with the search tool
+- Accessibility: Global Announcer context and components
+- Tooltip: Component
+- Utah Header: Skip Link
 - Website: Library landing page
+- Website: Search the Design System website with the search tool
 
 ## Changed
-- Icon Button: Have Icon Button show a Tooltip
-- Icon Button: Show title on icon button
+- Color Picker: Add tooltip for "copy" icon notification
+- Components: Add form input `required` styling
+- Components: Add form input errorMessage styling
+- Icon Button: Show title on Icon Button
+- Icon Button: Show Tooltip on Icon Button
 - Spinner: Allow Spinner to be determinate/indeterminate
 - Spinner: Provide sandbox for Spinner documentation
 - Switch: Update props with boilerplate defaults
 - TextInput: Add error messages and style them
+- TextInput: hook `innerRef` to wrapper instead of input
 - TextInput: Provide sandbox for TextInput documentation
 - TextInput: Provide static examples of TextInputs
 - Utah Header: Change Utah Header wrapper from a `<div>` to a `<header>` element.
+- Website: Added more content for Getting Started - Designers
 
 ## Deprecated
+N/A
 
 ## Removed
+N/A
 
 ## Fixed
-- Website: Select no menus on 404 & search pages
+- Accessibility: Always announce Copy Button interactions instead of just once
+- Utah Header: "Correctly" provide types in library
 - Utah Header: Add missing documentation for various settings for the Utah Header
+- Website: Allow going `back` in after a landing page redirect
+- Website: Select no menus on 404 & search pages
 
 ## Security
+N/A
 
 
 # [1.2.1] - 2024-08-15
