@@ -138,7 +138,6 @@ function Button({
           : null
       }
       {
-        // TODO: How to check if no children? How to center Spinner if empty?
         isBusy
           ? (
             <Spinner

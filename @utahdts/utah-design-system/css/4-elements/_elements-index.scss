@@ -25,7 +25,7 @@ elemental html: h1, h2, h3, ul, li, etc.
     line-height: 1.2;
   }
   h3 {
-    font-size: var(--font-size-2xl );
+    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-semi-bold);
     margin: 0;
     line-height: 1.3;
@@ -50,7 +50,7 @@ elemental html: h1, h2, h3, ul, li, etc.
 
   code {
     font-family: var(--fixed-width-font-family);
-    font-size: .95rem;
+    font-size: 0.95rem;
     background: var(--code-color);
     padding: var(--spacing-3xs) var(--spacing-2xs);
     border-radius: var(--radius-small1x);
@@ -61,7 +61,8 @@ elemental html: h1, h2, h3, ul, li, etc.
   }
   // pre --- see _pre-code.scss
 
-  ul, ol {
+  ul,
+  ol {
     padding: 0 0 0 var(--spacing-2xl);
     margin: 0;
     line-height: 1.7;
@@ -77,19 +78,20 @@ elemental html: h1, h2, h3, ul, li, etc.
   a[href]:not(.button, .action-card) {
     color: var(--primary-color);
     &:hover {
-      box-shadow: -3px -1px 0 0px var(--hover-gray-color-opaque),
-                  3px -1px 0 0px var(--hover-gray-color-opaque),
-                  3px 1px 0 0px var(--hover-gray-color-opaque),
-                  -3px 1px 0 0px var(--hover-gray-color-opaque),
-                  inset 0 0 0 1000px var(--hover-gray-color-opaque);
+      box-shadow:
+        -3px -1px 0 0px var(--hover-gray-color-opaque),
+        3px -1px 0 0px var(--hover-gray-color-opaque),
+        3px 1px 0 0px var(--hover-gray-color-opaque),
+        -3px 1px 0 0px var(--hover-gray-color-opaque),
+        inset 0 0 0 1000px var(--hover-gray-color-opaque);
       color: var(--primary-color-dark);
     }
   }
 
   .external-link::after {
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18.1143 18.1138'%3E%3Cg%3E%3Cpath d='m15.0996,18.1138H1c-.5527,0-1-.4478-1-1V3.0142c0-.5522.4473-1,1-1h7.043v2H2v12.0996h12.0996v-6.043h2v7.043c0,.5522-.4473,1-1,1Z' style='fill: var(--primary-color);'/%3E%3Crect x='6.5977' y='4.5318' width='11.9697' height='1.9998' transform='translate(-.2262 10.5174) rotate(-45)' style='fill: currentColor;'/%3E%3Cpolygon points='18.1143 8.0425 16.1143 8.0425 16.1143 2 10.0713 2 10.0713 0 18.1143 0 18.1143 8.0425' style='fill: currentColor;'/%3E%3C/g%3E%3C/svg%3E%0A");
-    height: .7rem;
-    width: .7rem;
+    content: url("data:image/svg+xml,%3Csvg viewBox='0 0 18.1143 18.1138'%3E%3Cg%3E%3Cpath d='m15.0996,18.1138H1c-.5527,0-1-.4478-1-1V3.0142c0-.5522.4473-1,1-1h7.043v2H2v12.0996h12.0996v-6.043h2v7.043c0,.5522-.4473,1-1,1Z' style='fill: var(--primary-color);'/%3E%3Crect x='6.5977' y='4.5318' width='11.9697' height='1.9998' transform='translate(-.2262 10.5174) rotate(-45)' style='fill: currentColor;'/%3E%3Cpolygon points='18.1143 8.0425 16.1143 8.0425 16.1143 2 10.0713 2 10.0713 0 18.1143 0 18.1143 8.0425' style='fill: currentColor;'/%3E%3C/g%3E%3C/svg%3E%0A");
+    height: 0.7rem;
+    width: 0.7rem;
     background-position: top left;
 
     display: inline-block;

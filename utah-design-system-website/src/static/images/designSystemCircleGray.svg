@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="design-system-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 222.561 222.561">
+<svg id="design-system-logo" viewBox="0 0 222.561 222.561">
   <g>
     <g>
       <path shape-rendering="geometricPrecision" d="m122.9819,66.3027c-1.167-5.165-2.75-11.6631-3.916-17.1621h-.333c-1.167,5.499-2.583,11.9971-3.749,17.1621l-.8663,3.75h9.7305l-.8661-3.75Z" class="ds-logo-gray" />
