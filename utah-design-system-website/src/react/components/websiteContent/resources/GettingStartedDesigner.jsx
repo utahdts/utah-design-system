@@ -41,7 +41,7 @@ function GettingStartedDesigner() {
         The <Link to={pageUrls.accessibilityChecklist}>Accessibility Checklist & Testing</Link> page is a list of items for developers and designers that should be checked. For an alternate view of this list specific to designers, checkout the “Web Accessibility FOR Designers - Infographic below:
       </p>
       <div className="flex justify-center my-spacing-xl">
-        <a href="http://webaim.org/resources/designers/" target="_blank" rel="noreferrer"><img src="http://webaim.org/resources/designers/media/designers.svg" alt="Web Accessibility for Designers infographic with link to text version at WebAIM.org" /></a>
+        <a href="https://webaim.org/resources/designers/" target="_blank" rel="noreferrer"><img src="https://webaim.org/resources/designers/media/designers.svg" alt="Web Accessibility for Designers infographic with link to text version at WebAIM.org" /></a>
       </div>
 
       <h2 id="section-color" className="mb-spacing mt-spacing">Color</h2>
