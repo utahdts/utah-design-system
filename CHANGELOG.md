@@ -9,20 +9,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Added
 - Tooltip Component
+- Website: Search the Design System website with the search tool
 
 ## Changed
-- Change Utah Header wrapper from a `<div>` to a `<header>` element.
-- Have Icon Button show a Tooltip
-- Show title on icon button
-- Allow Spinner to be determinate/indeterminate
-- Provide sandbox for Spinner Documentation
+- Icon Button: Have Icon Button show a Tooltip
+- Icon Button: Show title on icon button
+- Spinner: Allow Spinner to be determinate/indeterminate
+- Spinner: Provide sandbox for Spinner documentation
+- Switch: Update props with boilerplate defaults
+- TextInput: Add error messages and style them
+- TextInput: Provide sandbox for TextInput documentation
+- TextInput: Provide static examples of TextInputs
+- Utah Header: Change Utah Header wrapper from a `<div>` to a `<header>` element.
 
 ## Deprecated
 
 ## Removed
 
 ## Fixed
-- Select no menus on 404 & search pages
+- Website: Select no menus on 404 & search pages
+- Utah Header: Add missing documentation for various settings for the Utah Header
 
 ## Security
 
