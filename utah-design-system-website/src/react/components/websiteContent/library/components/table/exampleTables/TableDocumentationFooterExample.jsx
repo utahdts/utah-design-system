@@ -15,6 +15,7 @@ import {
   tableSortingRuleFieldType,
   TableWrapper,
   useRefLazy,
+  ExternalLink,
 } from '@utahdts/utah-design-system';
 import exampleGovernorsData from './exampleGovernorsData';
 
@@ -30,8 +31,15 @@ function TableDocumentationFooterExample() {
   })));
   return (
     <>
-      <h3 id="table__footer-table-example">Footer</h3>
-      <p>This table has a footer!</p>
+      <h3 id="table__footer-table-example mt-spacing-xl">Footer</h3>
+      <p>
+        This table has a footer!&nbsp;
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFooterExample.jsx"
+        >
+          See code on GitHub
+        </ExternalLink>
+      </p>
       <TableWrapper>
         <Table id="footer-table">
           <TableSortingRules defaultValue="from">

@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TextInput: hook `innerRef` to wrapper instead of input
 - TextInput: Provide sandbox for TextInput documentation
 - TextInput: Provide static examples of TextInputs
+- Table Documentation: Add github source code links for table examples
 - Utah Header: Change Utah Header wrapper from a `<div>` to a `<header>` element.
 - Website: Added more content for Getting Started - Designers
 
