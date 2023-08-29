@@ -28,6 +28,7 @@ const pageUrls = {
   containers: /** @type {PageUrl} */ ('/library/components/containers'),
   contributeCommunity: /** @type {PageUrl} */ ('/resources/contributeCommunity'),
   counter: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/counter'),
+  dataVisualizations: /** @type {PageUrl} */ ('/guidelinesStandards/dataVisualizations'),
   dateInput: /** @type {PageUrl} */ ('/library/components/forms/dateInput'),
   demoPage: /** @type {PageUrl} */ ('/resources/demoPage'),
   depthElevationShadows: /** @type {PageUrl} */ ('/guidelinesStandards/depthElevationShadows'),
