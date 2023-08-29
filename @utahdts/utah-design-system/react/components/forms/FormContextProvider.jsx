@@ -37,7 +37,7 @@ const defaultProps = {
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {FormContextState} props.formState
- * @param {({e, id, newValue}: {e: Event, id: string, newValue: any}) => void} props.onChange
+ * @param {({e, id, newValue}: {e: Event, id: string, newValue: any, value: any}) => void} props.onChange
  * @param {(params: {validationErrors: Object.<string, string[]> | null, state: FormContextState}) => void} props.onSubmit
  * @param {FormContextStateUpdater} props.setState
  * @param {FormContextState} props.state
@@ -68,7 +68,12 @@ function FormContextProvider({
           );
         }
         if (onChange) {
-          currentValue = onChange({ e, id, newValue: currentValue });
+          currentValue = onChange({
+            e,
+            id,
+            newValue: currentValue,
+            value: currentValue,
+          });
         }
         if (setState) {
           setState((draftState) => {

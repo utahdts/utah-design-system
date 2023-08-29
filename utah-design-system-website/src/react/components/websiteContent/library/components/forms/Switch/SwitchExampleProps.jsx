@@ -27,6 +27,7 @@ function SwitchExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
+        draftState.props.errorMessage = '';
         draftState.props.icon = DEFAULT_ICON;
         draftState.props.label = 'Switch Label';
         draftState.props.labelOff = 'Label Off';
@@ -36,7 +37,7 @@ function SwitchExampleProps({ setState, state }) {
         draftState.props.width = DEFAULT_SWITCH_WIDTH;
       });
     },
-    []
+    [setState]
   );
 
   return (
@@ -58,6 +59,8 @@ function SwitchExampleProps({ setState, state }) {
           <TextInput id="props.id" label="ID" className="input--height-small1x" />
 
           <Switch id="props.isDisabled" label="Disabled" />
+
+          <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
 
           <TextInput id="props.label" label="Label" className="input--height-small1x" />
 

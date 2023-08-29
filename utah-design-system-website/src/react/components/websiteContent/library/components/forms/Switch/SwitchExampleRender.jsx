@@ -19,6 +19,7 @@ function SwitchExampleRender({
   state: {
     props: {
       className,
+      errorMessage,
       icon,
       id,
       isDisabled,
@@ -35,6 +36,7 @@ function SwitchExampleRender({
   return (
     <Switch
       className={className}
+      errorMessage={errorMessage}
       id={id || 'switch-example-render-id'}
       isDisabled={isDisabled}
       label={label || 'Switch Label'}
