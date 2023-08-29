@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Added
 - Accessibility: Global Announcer context and components
 - Tooltip: Component
+- Utah Header: Utah Footer copyrightYear setting
 - Utah Header: Skip Link
 - Website: Library landing page
 - Website: Search the Design System website with the search tool

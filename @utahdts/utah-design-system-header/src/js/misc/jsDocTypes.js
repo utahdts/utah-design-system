@@ -209,6 +209,7 @@
  * }
  *
  * @typedef FooterSettings {
+ *  @property {string | null | undefined} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
  *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
  * }

@@ -11,17 +11,27 @@ import checkForError from '../../misc/checkForError';
 import notNull from '../../misc/notNull';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
+import renderFooterCopyrightYear from './renderFooterCopyrightYear';
 
 /** @typedef {import('../../misc/jsDocTypes').DomLocationTarget} DomLocationTarget */
 /** @typedef {import('../../misc/jsDocTypes').Settings} Settings */
 
 /**
+ * @typedef PreviousFooterSettings {
+ *  @property {string | null | undefined} copyrightYear
+ *  @property {DomLocationTarget} domLocationTarget
+ *  @property {boolean | undefined} showHorizontalRule
+ * }
+ */
+
+/**
  * track last known settings for future comparison to see if something changed
  * make sure that shallow copying doesn't allow changing things outside of this function that
  * then change this "previous" data making it seem like a change did not occur.
- * @type {{domLocationTarget: DomLocationTarget, showHorizontalRule: boolean | undefined}}
+ * @type {PreviousFooterSettings}
  */
 const previousFooterSettings = {
+  copyrightYear: undefined,
   domLocationTarget: {
     cssSelector: undefined,
     element: undefined,
@@ -46,6 +56,7 @@ export default function renderFooter() {
       || previousFooterSettings.domLocationTarget.element !== settings?.footer?.domLocationTarget?.element
       || previousFooterSettings.domLocationTarget.elementFunction !== settings?.footer?.domLocationTarget?.elementFunction
       || previousFooterSettings.showHorizontalRule !== settings?.footer?.showHorizontalRule
+      || previousFooterSettings.copyrightYear !== settings?.footer?.copyrightYear
     );
 
     if (settingsChanged || !previousFooter) {
@@ -98,8 +109,11 @@ export default function renderFooter() {
         link.appendChild(renderDOMSingle(newTabAccessibilityHTML));
       });
 
+      renderFooterCopyrightYear(footer, settings?.footer?.copyrightYear);
+
       // make a copy for future comparison
       // this is not a shallow copy of the settings, so that external changes don't update internal values
+      previousFooterSettings.copyrightYear = settings?.footer?.copyrightYear;
       previousFooterSettings.domLocationTarget.cssSelector = settings?.footer?.domLocationTarget?.cssSelector;
       previousFooterSettings.domLocationTarget.element = settings?.footer?.domLocationTarget?.element;
       previousFooterSettings.domLocationTarget.elementFunction = settings?.footer?.domLocationTarget?.elementFunction;
