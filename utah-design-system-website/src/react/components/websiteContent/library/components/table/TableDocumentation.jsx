@@ -5,12 +5,12 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.jpg';
-import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.jpg';
-import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.jpg';
-import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.jpg';
+import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
+import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.png';
+import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.png';
+import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
 import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
-import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.jpg';
+import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.png';
 import LightBox from '../../../../lightbox/LightBox';
 import pageUrls from '../../../../routing/pageUrls';
 import SandboxExample from '../../../../sandbox/SandboxExample';
