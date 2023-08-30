@@ -143,7 +143,7 @@ function UtahFooterDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_copyright">footer.copyright</a></span><br />
+                <span className="prop__name"><a href="#section-config-footer_copyright">footer.copyrightYear</a></span><br />
                 <span className="prop__types">string | null | undefined</span>
               </TableCell>
               <TableCell>
@@ -248,9 +248,9 @@ function UtahFooterDocumentation() {
         codeRaw={`
             setUtahHeaderSettings(
               {
-                /* 
-                 * notice the lack of other header settings. 
-                 * Those other settings will be kept, 
+                /*
+                 * notice the lack of other header settings.
+                 * Those other settings will be kept,
                  * with the footer settings added or updated.
                  */
                 footer: {
@@ -332,6 +332,27 @@ function UtahFooterDocumentation() {
                   domLocationTarget: {
                     elementFunction: () => document.getElementById('footer-container'),
                   }
+                }
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-footer_copyright" className="mt-spacing">copyrightYear</h4>
+      <div>
+        A copyright symbol is always present in the footer.
+        You may choose to put the year after the copyright symbol with this setting.
+        <br /><br />
+        Example of cssSelector:
+        <PreCodeForCodeString
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                footer: {
+                  copyrightYear: '2023'
                 }
               }
             )
