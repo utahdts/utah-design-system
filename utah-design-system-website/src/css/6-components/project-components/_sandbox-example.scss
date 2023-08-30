@@ -29,6 +29,7 @@
       padding: var(--spacing);
       border-radius: var(--radius-medium);
       min-width: 0;
+      max-width: 250px;
     }
     &__bottom {
       margin: var(--spacing) 0 0 0;
@@ -41,11 +42,25 @@
   }
 }
 
+@media screen and (max-width: #{media-size-vars.$media-size-desktop-small}) {
+  #{class-vars.$base-class} {
+    .sandbox-example {
+      &__props-inputs {
+        max-width: 200px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: #{media-size-vars.$media-size-tablet-portrait}) {
   #{class-vars.$base-class} {
     .sandbox-example {
       &__top {
         flex-wrap: wrap-reverse;
+      }
+      &__props-inputs {
+        width: 100%;
+        max-width: unset;
       }
     }
   }
