@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Security
 
-# [1.3.0] 08/29/2024
+# [1.4.0] 08/29/2024
 
 ## Added
 - Accessibility: Global Announcer context and components
@@ -57,6 +57,25 @@ N/A
 - Utah Header: Add missing documentation for various settings for the Utah Header
 - Website: Allow going `back` in after a landing page redirect
 - Website: Select no menus on 404 & search pages
+
+## Security
+N/A
+
+# [1.3.0] 08/17/2024
+
+## Added
+N/A
+
+## Changed
+N/A
+## Deprecated
+N/A
+
+## Removed
+N/A
+
+## Fixed
+- Utah Header: types deploy
 
 ## Security
 N/A

@@ -96,7 +96,7 @@ Switches, buttons have size; Text Input does not
 <!-- hard to style -->
 <div className="input-wrapper">
   <label>
-  	<input />
+    <input />
   </label>
 </div>
 ```
