@@ -36,7 +36,7 @@
         tbody {
           tr:nth-child(2n) {
             td {
-              background-color: #F5F5F5;
+              background-color: #f5f5f5;
             }
           }
         }
@@ -45,12 +45,12 @@
         tbody {
           tr {
             td {
-              border-bottom: 1px solid var(--gray-3-1-contrast)
+              border-bottom: 1px solid var(--gray-3-1-contrast);
             }
           }
           tr:last-child {
             td {
-              border-bottom: 1px solid var(--gray-color)
+              border-bottom: 1px solid var(--gray-color);
             }
           }
         }
@@ -83,12 +83,21 @@
       &--full-width {
         width: 100%;
       }
+      &--td-center {
+        tbody {
+          tr {
+            td {
+              text-align: center;
+            }
+          }
+        }
+      }
     }
     .table-header {
       position: relative;
       &--sorted {
         &::before {
-          content: '';
+          content: "";
           height: 7px;
           width: 100%;
           background: var(--primary-color);

@@ -1,5 +1,4 @@
 import {
-  ExternalLink,
   Pagination,
   Table,
   TableBody,
@@ -10,9 +9,10 @@ import {
   TableHeadRow,
   TableWrapper,
   TextInput,
-  usePaginatedList,
+  usePaginatedList
 } from '@utahdts/utah-design-system';
 import { useState } from 'react';
+import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};
@@ -26,30 +26,26 @@ function TableDocumentationPaginationTableExample() {
 
   return (
     <div className="documentation-content mt-spacing-xl">
-      <h3 id="table__paginating-table-example">Pagination</h3>
+      <HeadingWithLink
+        headingTag="h3"
+        headingTitle="Pagination"
+        id="table__paginating-table-example"
+        linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationPaginationTableExample.jsx"
+      />
       <TextInput
         id="table-pagination__items-per-page"
         label="Items Per Page"
         onChange={(e) => setItemsPerPage(Number(e.target.value) || DEFAULT_ITEMS_PER_PAGE)}
         value={`${itemsPerPage}`}
       />
-      <div className="text-center mb-spacing-xs">
-        <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationPaginationTableExample.jsx"
-        >
-          See code on GitHub
-        </ExternalLink>
-      </div>
       <TableWrapper>
-        <Table>
+        <Table className="table table--full-width table--alt table--lines-x">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell>Name</TableHeadCell>
               <TableHeadCell>Nth President</TableHeadCell>
               <TableHeadCell>Party</TableHeadCell>
               <TableHeadCell>Inauguration</TableHeadCell>
-              <TableHeadCell>Fun Facts</TableHeadCell>
-              <TableHeadCell>Birth Place</TableHeadCell>
             </TableHeadRow>
           </TableHead>
 
@@ -60,10 +56,6 @@ function TableDocumentationPaginationTableExample() {
                 <TableBodyDataCellTemplate recordFieldPath="nthPresident" />
                 <TableBodyDataCellTemplate recordFieldPath="politicalParty" />
                 <TableBodyDataCellTemplate recordFieldPath="inauguration" />
-                <TableBodyDataCellTemplate recordFieldPath="funFacts" />
-                <TableBodyDataCellTemplate recordFieldPath="birthPlace">
-                  {({ record }) => [record.birthplace.county, record.birthplace.state].join(', ')}
-                </TableBodyDataCellTemplate>
               </TableBodyDataRowTemplate>
             </TableBodyData>
           </TableBody>
@@ -71,12 +63,15 @@ function TableDocumentationPaginationTableExample() {
       </TableWrapper>
 
       {/* Pagination goes OUTSIDE the table; Pagination can be used for anything anywhere. */}
-      <Pagination
-        onChange={setCurrentPageIndex}
-        pageSize={itemsPerPage}
-        totalNumberItems={examplePresidentsData.length}
-        value={currentPageIndex}
-      />
+      <div className="flex justify-center">
+        <Pagination
+          className="mt-spacing"
+          onChange={setCurrentPageIndex}
+          pageSize={itemsPerPage}
+          totalNumberItems={examplePresidentsData.length}
+          value={currentPageIndex}
+        />
+      </div>
     </div>
   );
 }

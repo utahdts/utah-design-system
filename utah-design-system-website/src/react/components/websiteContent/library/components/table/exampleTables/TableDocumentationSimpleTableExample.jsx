@@ -1,12 +1,12 @@
 import {
-  ExternalLink,
   Table,
   TableBody, TableCell, TableHead,
   TableHeadCell,
   TableHeadRow,
   TableRow,
-  TableWrapper,
+  TableWrapper
 } from '@utahdts/utah-design-system';
+import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 
 const propTypes = {};
 const defaultProps = {};
@@ -14,20 +14,18 @@ const defaultProps = {};
 function TableDocumentationSimpleTableExample() {
   return (
     <div className="static-example mt-spacing-xl">
-      <h3 id="table__simple-table-example" className="static-example__title">Simple Static Data</h3>
+      <HeadingWithLink
+        headingTag="h3"
+        headingTitle="Simple Static Data"
+        id="table__simple-static-table-example"
+        linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSimpleTableExample.jsx"
+      />
       <p className="mb-spacing-xs">
         This table is static data using Design System components in a manual layout.
         This is the simplest as it does not have dynamic data, filtering, sorting, nor any other features.
       </p>
-      <div className="text-center mb-spacing-xs">
-        <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSimpleTableExample.jsx"
-        >
-          See code on GitHub
-        </ExternalLink>
-      </div>
       <TableWrapper>
-        <Table id="simple-table" className="table table--lines-x table--v-align-center">
+        <Table id="simple-table" className="table table--lines-x table--v-align-center table--full-width table--td-center">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell>TSP</TableHeadCell>
