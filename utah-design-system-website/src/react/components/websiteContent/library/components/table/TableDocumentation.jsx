@@ -47,7 +47,7 @@ function TableDocumentation() {
       />
       <div className="text-center mb-spacing-xs">
         <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables"
+          href="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables"
         >
           See example Table code on GitHub
         </ExternalLink>
