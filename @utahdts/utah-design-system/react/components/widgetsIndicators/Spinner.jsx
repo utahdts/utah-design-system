@@ -47,7 +47,7 @@ function Spinner({
     <div
       aria-valuemax="100"
       aria-valuemin="0"
-      aria-valuenow={(Number.isNaN(value) ? 0.25 : value) * 100}
+      aria-valuenow={(Number.isNaN(value) ? undefined : value * 100)}
       className={joinClassNames(
         className,
         'spinner',
