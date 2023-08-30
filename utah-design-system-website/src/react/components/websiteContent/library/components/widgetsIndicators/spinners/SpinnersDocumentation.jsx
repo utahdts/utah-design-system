@@ -7,7 +7,12 @@ import {
   BUTTON_APPEARANCE,
   Button,
   Spinner,
-  componentColors
+  componentColors,
+  TabGroup,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
@@ -16,6 +21,8 @@ import StaticExample from '../../../../../staticExamples/StaticExample';
 import SpinnersExampleCodeReact from './SpinnersExampleCodeReact';
 import SpinnersExampleProps from './SpinnersExampleProps';
 import SpinnersExampleRender from './SpinnersExampleRender';
+import SpinnerCssClassesDocumentation from './SpinnerCssClassesDocumentation';
+import SpinnerPropsDocumentation from './SpinnerPropsDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -176,6 +183,24 @@ function SpinnersDocumentation() {
           five seconds, and non-essential motion such as loading spinners can be turned off by users.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <SpinnerCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <SpinnerPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
