@@ -1,5 +1,6 @@
 import {
-  Button, ExternalLink, Table,
+  Button,
+  Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
@@ -16,6 +17,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { useState } from 'react';
+import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};
@@ -26,22 +28,20 @@ function TableDocumentationFilteringTableExample() {
 
   return (
     <>
-      <h3 id="table__filtering-table-example" className="mt-spacing-l">Filtering Data</h3>
+      <HeadingWithLink
+        headingTag="h3"
+        headingTitle="Filtering Data"
+        id="table__filtering-table-example"
+        linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx"
+      />
       <p className="mb-spacing-xs"> This table allows filtering its data through the use of the inputs in the THead.</p>
-      <div className="text-center mb-spacing-xs">
-        <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx"
-        >
-          See code on GitHub
-        </ExternalLink>
-      </div>
 
       <TableWrapper>
         <Table className="my-uber-special-snowflake-table">
           <TableHead>
             <TableHeadRow>
               <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
-              <TableHeadCell recordFieldPath="nthPresident">Nth President</TableHeadCell>
+              <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
               <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
               <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
               <TableHeadCell recordFieldPath="funFacts">Fun Facts</TableHeadCell>
@@ -103,12 +103,11 @@ function TableDocumentationFilteringTableExample() {
                 <TableBodyDataCellTemplate recordFieldPath="nthPresident" />
                 <TableBodyDataCellTemplate recordFieldPath="politicalParty" />
                 <TableBodyDataCellTemplate recordFieldPath="inauguration" />
-                <TableBodyDataCellTemplate recordFieldPath="funFacts" />
+                <TableBodyDataCellTemplate recordFieldPath="funFacts">
+                  {({ record }) => `${record.funFacts.substring(0, 20)}...`}
+                </TableBodyDataCellTemplate>
                 <TableBodyDataCellTemplate recordFieldPath="birthPlace">
                   {({ record }) => [record.birthplace.county, record.birthplace.state].join(', ')}
-                </TableBodyDataCellTemplate>
-                <TableBodyDataCellTemplate>
-                  <Button onClick={() => { }}>Do Something...</Button>
                 </TableBodyDataCellTemplate>
               </TableBodyDataRowTemplate>
             </TableBodyData>

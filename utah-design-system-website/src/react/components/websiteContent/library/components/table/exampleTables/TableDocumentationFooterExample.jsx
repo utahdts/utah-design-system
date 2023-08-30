@@ -12,11 +12,11 @@ import {
   TableHeadRow,
   TableSortingRule,
   TableSortingRules,
-  tableSortingRuleFieldType,
   TableWrapper,
-  useRefLazy,
-  ExternalLink,
+  tableSortingRuleFieldType,
+  useRefLazy
 } from '@utahdts/utah-design-system';
+import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import exampleGovernorsData from './exampleGovernorsData';
 
 const propTypes = {};
@@ -31,14 +31,14 @@ function TableDocumentationFooterExample() {
   })));
   return (
     <>
-      <h3 id="table__footer-table-example mt-spacing-xl">Footer</h3>
+      <HeadingWithLink
+        headingTag="h3"
+        headingTitle="Footer"
+        id="table__footer-table-example"
+        linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFooterExample.jsx"
+      />
       <p>
         This table has a footer!&nbsp;
-        <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFooterExample.jsx"
-        >
-          See code on GitHub
-        </ExternalLink>
       </p>
       <TableWrapper>
         <Table id="footer-table">

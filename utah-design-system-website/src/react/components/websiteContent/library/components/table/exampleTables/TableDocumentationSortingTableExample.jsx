@@ -1,6 +1,5 @@
 import {
   Button,
-  ExternalLink,
   Table,
   TableBody,
   TableBodyData,
@@ -14,6 +13,7 @@ import {
   TableSortingRules,
   TableWrapper
 } from '@utahdts/utah-design-system';
+import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import examplePresidentsData from './examplePresidentsData';
 
 const propTypes = {};
@@ -22,14 +22,12 @@ const defaultProps = {};
 function TableDocumentationSortingTableExample() {
   return (
     <div className="static-example mt-spacing-xl">
-      <h3 id="table__sorting-table-example" className="static-example__title">Sorting Data</h3>
-      <div className="text-center mb-spacing-xs">
-        <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/tree/dev/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSortingTableExample.jsx"
-        >
-          See code on GitHub
-        </ExternalLink>
-      </div>
+      <HeadingWithLink
+        headingTag="h3"
+        headingTitle="Sorting Data"
+        id="table__sorting-table-example"
+        linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSortingTableExample.jsx"
+      />
       <TableWrapper>
         <Table className="table table--lines-x table--alt table--v-align-center table--condensed">
           <TableHead>
