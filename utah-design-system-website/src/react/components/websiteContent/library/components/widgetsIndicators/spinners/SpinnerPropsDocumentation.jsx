@@ -77,6 +77,7 @@ function SpinnerPropsDocumentation() {
               <TableCell>10</TableCell>
               <TableCell>
                 The width of the stroke of the spinner, in pixel. This will set the <code>strokeWidth</code> attribute of the &lt;path&gt; elements.
+                Note: the width of the line will scale with the <code>size</code> of the spinner.
               </TableCell>
             </TableRow>
 
