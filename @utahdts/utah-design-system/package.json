@@ -69,14 +69,14 @@
     "uuid": "9.0.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.20",
+    "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react": "4.0.4",
-    "@vitest/coverage-istanbul": "0.34.1",
+    "@vitest/coverage-istanbul": "0.34.3",
     "jsdom": "22.1.0",
-    "sass": "1.65.1",
+    "sass": "1.66.1",
     "vite": "4.4.9",
-    "vitest": "0.34.1"
+    "vitest": "0.34.3"
   },
   "type": "module"
 }
