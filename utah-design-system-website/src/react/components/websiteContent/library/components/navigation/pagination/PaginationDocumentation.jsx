@@ -1,13 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Pagination } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import paginationScreenshot from '../../../../../../../static/images/mockups/Pagination.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import stateSymbols from '../../../../../../consts/stateSymbols';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
@@ -18,6 +13,8 @@ import PaginationExampleRender from './PaginationExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
+
+const STATIC_EXAMPLE_PAGE_SIZE = 4;
 
 function PaginationDocumentation() {
   const [demoPaginationIndex, setDemoPaginationIndex] = useState(0);
@@ -35,7 +32,28 @@ function PaginationDocumentation() {
       />
       <StaticExample
         title="Pagination"
-        renderedExample={<LightBox image={paginationScreenshot} alt="Pagination" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col items-center">
+            <h4 className="mb-spacing-xs">Symbols of the State of Utah</h4>
+            <ul style={{ height: '115px', width: '90%' }}>
+              {
+                stateSymbols
+                  .slice(demoPaginationIndex * STATIC_EXAMPLE_PAGE_SIZE, demoPaginationIndex * STATIC_EXAMPLE_PAGE_SIZE + STATIC_EXAMPLE_PAGE_SIZE)
+                  .map((stateSymbol) => (
+                    <li key={stateSymbol.symbol}>{stateSymbol.category}: {stateSymbol.symbol} ({stateSymbol.year})</li>
+                  ))
+              }
+            </ul>
+            <div className="flex items-center flex-col">
+              <Pagination
+                onChange={(newPageNumber) => setDemoPaginationIndex(newPageNumber)}
+                pageSize={STATIC_EXAMPLE_PAGE_SIZE}
+                totalNumberItems={stateSymbols.length}
+                value={demoPaginationIndex}
+              />
+            </div>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>
@@ -49,15 +67,6 @@ function PaginationDocumentation() {
             </li>
           </ul>
         )}
-      />
-
-      <Pagination
-        onChange={(page) => {
-          setDemoPaginationIndex(page);
-        }}
-        pageSize={10}
-        totalNumberItems={102}
-        value={demoPaginationIndex}
       />
 
       <h2 id="section-guidance" className="mb-spacing">Description and Guidance</h2>

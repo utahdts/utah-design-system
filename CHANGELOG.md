@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # [--2024Q1S5--]
 ## Added
 - Pagination: Sandbox example
+- Pagination: Static examples
 - State Symbol: mushroom
 - TableHeadCell: `scope` attribute for accessibility
 - TextInput: property for showing clearing icon

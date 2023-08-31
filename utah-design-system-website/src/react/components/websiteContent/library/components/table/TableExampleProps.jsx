@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
@@ -22,7 +21,7 @@ function TableExampleProps({ setState, state }) {
         draftState.props.isSorting = false;
       });
     },
-    []
+    [setState]
   );
 
   return (
