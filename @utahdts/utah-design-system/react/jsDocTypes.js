@@ -42,30 +42,47 @@
  *  @property {string} type
  *  @property {any} value
  * }
- * @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event
- * @typedef {((e: Event) => void)} EventAction
- *
- * @typedef {(value: string) => boolean} TableFilterFunction
- *
+ */
+
+/** @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event */
+
+/** @typedef {((e: Event) => void)} EventAction */
+
+/** @typedef {(value: string) => boolean} TableFilterFunction */
+
+/**
  * For TableFilterX components, these are the options they can store in the Table context
  * to describe how they function.
  * @typedef TableFilterOptions {
  *  @property {boolean} exactMatch - The entered filter value is match exactly with the record data (cased to lower)
  * }
- *
+ */
+
+/**
  * The filter's current value in the TableContext
  * @typedef TableFilterValue {
  *  @property {boolean} exactMatch
  *  @property {string} value
  * }
- *
- * @typedef {Object.<string, any>} TableRecord
- *
+ */
+
+/** @typedef {Object.<string, any>} TableRecord */
+
+/**
  * @typedef TableRecordForFiltering {
  *  @property {Object.<string, any>} record
  *  @property {Object.<string, string>} filterFields
  * }
- *
+ */
+
+/**
+ * @typedef TablePagination {
+ *  @property {number} currentPageIndex what page to start on
+ *  @property {number} itemsPerPage how many items per page
+ * }
+ */
+
+/**
  * @typedef Address {
  *  @property {string} city
  *  @property {string} state ie UT (usually not fully spelled out)
@@ -73,7 +90,9 @@
  *  @property {string} [streetAddress2]
  *  @property {string} zipCode
  * }
- *
+ */
+
+/**
  * @typedef MenuItem {
  *  @property {string} link
  *  @property {string} pageTitle

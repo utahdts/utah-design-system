@@ -1,9 +1,11 @@
+// @ts-check
 import castArray from 'lodash/castArray';
 import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import useComponentGuid from '../../hooks/useComponentGuid';
+import TablePaginationShape from '../../propTypesShapes/TablePaginationShape';
 import chainSorters from '../../util/chainSorters';
 import valueAtPath from '../../util/state/valueAtPath';
 import TableBodyDataRowContext from './TableBodyDataRowContext';
@@ -12,18 +14,37 @@ import convertRecordsToFilterValue from './util/convertRecordsToFilterValue';
 import createTableFilterFunctions from './util/createTableFilterFunctions';
 import filterTableRecords from './util/filterTableRecords';
 
+/** @typedef {import('../../jsDocTypes').TablePagination} TablePagination */
+
 const propTypes = {
   // the TableBodyDataRowTemplate and TableBodyDataCellTemplate elements making up the repeatable section
   children: PropTypes.node.isRequired,
+  pagination: TablePaginationShape,
   // field on the record that provides the unique id of the record; uses pathing ie 'contact.address.zipCode'
   recordIdField: PropTypes.string.isRequired,
   // the data records to repeat in the children templates
   records: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
-const defaultProps = {};
+const defaultProps = {
+  pagination: null,
+};
 
-function TableBodyData({ children, recordIdField, records }) {
-  const [recordsForContexts, setRecordsForContexts] = useImmer(null);
+/**
+ * @template RecordT
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {TablePagination} [props.pagination]
+ * @param {string} props.recordIdField
+ * @param {(RecordT & Object)[]} props.records
+ * @returns {JSX.Element[] | null}
+ */
+function TableBodyData({
+  children,
+  pagination,
+  recordIdField,
+  records,
+}) {
+  const [recordsForContexts, setRecordsForContexts] = useImmer(/** @type {(RecordT & Object)[] | null} */(null));
   const guid = useComponentGuid();
 
   const {
@@ -46,6 +67,7 @@ function TableBodyData({ children, recordIdField, records }) {
         const sorters = castArray(tableSortingFieldPaths || tableSortingFieldPath)
           .map((sortingValue) => sortingRules[sortingValue]?.sorter)
           .filter(identity);
+        // @ts-ignore
         newRecordsForContext.sort(chainSorters(sorters, newRecordsForContext));
       }
 
@@ -55,15 +77,22 @@ function TableBodyData({ children, recordIdField, records }) {
       const recordsToFilter = convertRecordsToFilterValue(newRecordsForContext, filterValues.value);
 
       // try the filter rules to see if each record should remain visible
+      // @ts-ignore
       newRecordsForContext = filterTableRecords(recordsToFilter, filterRules);
 
+      let paginatedRecords = newRecordsForContext;
+      if (pagination) {
+        const startIndex = pagination.currentPageIndex * pagination.itemsPerPage;
+        paginatedRecords = newRecordsForContext.slice(startIndex, startIndex + pagination.itemsPerPage);
+      }
+
       // create forContexts once for the context provider so as to avoid recreating objects
-      setRecordsForContexts(newRecordsForContext);
+      setRecordsForContexts(paginatedRecords);
 
       // register the current data with the TableContext for filtering and other table global data users
-      setBodyDataForComponentGuid(guid, records, newRecordsForContext);
+      setBodyDataForComponentGuid(guid, records, paginatedRecords);
     },
-    [currentSortingOrderIsDefault, filterValues, records, tableSortingFieldPath, tableSortingFieldPaths]
+    [currentSortingOrderIsDefault, filterValues, pagination, records, tableSortingFieldPath, tableSortingFieldPaths]
   );
 
   return (
