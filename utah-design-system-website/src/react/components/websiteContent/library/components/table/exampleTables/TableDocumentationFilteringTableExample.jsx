@@ -39,15 +39,6 @@ function TableDocumentationFilteringTableExample() {
       <TableWrapper>
         <Table className="my-uber-special-snowflake-table">
           <TableHead>
-            <TableHeadRow>
-              <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
-              <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
-              <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
-              <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
-              <TableHeadCell recordFieldPath="funFacts">Fun Facts</TableHeadCell>
-              <TableHeadCell recordFieldPath="birthplace" tableSortingFieldPaths={['birthplace.state', 'birthplace.county']}>Birth Place</TableHeadCell>
-              <TableHeadCell />
-            </TableHeadRow>
             <TableFilters>
               {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
               <TableFilterTextInput recordFieldPath="name" />
@@ -94,6 +85,15 @@ function TableDocumentationFilteringTableExample() {
                 }
               </TableFilterCustom>
             </TableFilters>
+            <TableHeadRow>
+              <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
+              <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
+              <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
+              <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
+              <TableHeadCell recordFieldPath="funFacts">Fun Facts</TableHeadCell>
+              <TableHeadCell recordFieldPath="birthplace" tableSortingFieldPaths={['birthplace.state', 'birthplace.county']}>Birth Place</TableHeadCell>
+              <TableHeadCell />
+            </TableHeadRow>
           </TableHead>
 
           <TableBody>
