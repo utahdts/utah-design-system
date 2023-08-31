@@ -57,10 +57,13 @@ export default function useCurrentValuesFromStateContext({
       if (onChange) {
         onChange(newValue);
       } else {
-        setStateLocal(defaultOnChange(newValue));
+        setStateContext((draftStateContext) => {
+          // this uses `fullContextStatePath` (filter field) while above it uses `contextStatePath` (non-filter field)
+          setValueAtPath({ object: draftStateContext, path: fullContextStatePath, value: newValue });
+        });
       }
     },
-    [defaultOnChange, onChange, setStateLocal]
+    [fullContextStatePath, onChange, setStateContext]
   );
 
   return useMemo(
