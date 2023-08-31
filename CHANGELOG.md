@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Fixed
 - Implement pagination in Table sandbox
+- Open main menu items in new tabs with meta key
 
 ## Security
 
