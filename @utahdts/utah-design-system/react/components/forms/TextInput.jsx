@@ -139,9 +139,9 @@ function TextInput({
         {...rest}
       />
       {
-        (value && (isClearable || onClear))
+        (isClearable || onClear)
           // @ts-ignore
-          ? <IconButton icon="X" onClick={(e) => currentOnClear(e)} title="clear" />
+          ? <IconButton className={value ? '' : 'visually-hidden'} icon="X" onClick={(e) => currentOnClear(e)} title="clear" />
           : null
       }
     </div>
