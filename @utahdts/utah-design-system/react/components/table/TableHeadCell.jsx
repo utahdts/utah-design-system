@@ -12,6 +12,14 @@ const propTypes = {
   innerRef: RefShape,
   id: PropTypes.string,
   onClick: PropTypes.func,
+  /*
+    from MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope
+    row: The header relates to all cells of the row it belongs to.
+    col: The header relates to all cells of the column it belongs to.
+    rowgroup: The header belongs to a rowgroup and relates to all of its cells.
+    colgroup: The header belongs to a colgroup and relates to all of its cells.
+  */
+  scope: PropTypes.oneOf(['row', 'col', 'rowgroup', 'colgroup']),
   tableSortingFieldPaths: PropTypes.arrayOf(PropTypes.string),
 };
 const defaultProps = {
@@ -21,6 +29,7 @@ const defaultProps = {
   innerRef: null,
   id: null,
   onClick: null,
+  scope: null,
   tableSortingFieldPaths: null,
 };
 
@@ -31,6 +40,7 @@ function TableHeadCell({
   innerRef,
   id,
   onClick,
+  scope,
   tableSortingFieldPaths,
   ...rest
 }) {
@@ -73,6 +83,7 @@ function TableHeadCell({
         }
       }}
       ref={innerRef}
+      scope={scope}
       {...rest}
     >
       {children}
