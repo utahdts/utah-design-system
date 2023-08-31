@@ -112,6 +112,7 @@
  * @property {string} className
  * @property {string} errorMessage
  * @property {string} id
+ * @property {boolean} isClearable
  * @property {boolean} isDisabled
  * @property {boolean} isRequired
  * @property {string} label
