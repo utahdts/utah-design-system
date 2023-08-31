@@ -72,6 +72,21 @@ function TextInputPropsDocumentation() {
             </TableRow>
 
             <TableRow>
+              <TableCell><code className="primary-color">isClearable</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
+              <TableCell><code>false</code></TableCell>
+              <TableCell>
+                This props will add an icon button allowing the user to clear the input.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
               <TableCell><code className="primary-color">isDisabled</code></TableCell>
               <TableCell>
                 <div className="props-code-wrapper">
@@ -124,7 +139,16 @@ function TextInputPropsDocumentation() {
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This function is called when the input&apos;s value changes. Will return an <code>event</code> object.
+                Function to call when the input&apos;s value changes. Will return an <code>event</code> object.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">onClear</code></TableCell>
+              <TableCell><code>function</code></TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                Function to call when the user clears the input.
               </TableCell>
             </TableRow>
 
@@ -133,7 +157,7 @@ function TextInputPropsDocumentation() {
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Function to call when the user presses enter.
+                Function to call when the user hits enter while the input has focus.
               </TableCell>
             </TableRow>
 
