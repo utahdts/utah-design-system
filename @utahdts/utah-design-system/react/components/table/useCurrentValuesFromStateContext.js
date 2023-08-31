@@ -1,4 +1,9 @@
-import { useContext, useEffect } from 'react';
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+} from 'react';
 import { useImmer } from 'use-immer';
 import setValueAtPath from '../../util/state/setValueAtPath';
 import valueAtPath from '../../util/state/valueAtPath';
@@ -47,30 +52,56 @@ export default function useCurrentValuesFromStateContext({
     [defaultValue, fullContextStatePath, setStateContext, !setStateContext]
   );
 
-  return {
-    currentOnChange: (
-      // use passed in onChange
-      onChange
-      // use onChange from context (controlled by <TableFilters />)
-      || (stateContext?.filterValues?.onChange && ((e) => (
-        // this uses `contextStatePath` (non-filter field) while below it uses `fullContextStatePath` (filter field)
-        stateContext?.filterValues?.onChange({ recordFieldPath: contextStatePath, value: defaultOnChange(e) })
-      )))
-      // set context filterValues directly (not controlled by <TableFilters />)
-      || (setStateContext && ((e) => setStateContext((draftStateContext) => {
-        // this uses `fullContextStatePath` (filter field) while above it uses `contextStatePath` (non-filter field)
-        setValueAtPath({ object: draftStateContext, path: fullContextStatePath, value: defaultOnChange(e) });
-      })))
-      // no context, so use local state
-      || ((newValue) => setStateLocal(defaultOnChange(newValue)))
-    ),
-    currentValue: (
-      // passed in value (controlled)
-      value
-      // context's value (context controlled)
-      ?? valueAtPath({ object: stateContext, path: fullContextStatePath })
-      // pull from local state (which defaults to defaultValue)
-      ?? stateLocal
-    ),
-  };
+  const setValue = useCallback(
+    (newValue) => {
+      if (onChange) {
+        onChange(newValue);
+      } else {
+        setStateLocal(defaultOnChange(newValue));
+      }
+    },
+    [defaultOnChange, onChange, setStateLocal]
+  );
+
+  return useMemo(
+    () => ({
+      currentOnChange: (
+        // use passed in onChange
+        onChange
+        // use onChange from context (controlled by <TableFilters />)
+        || (stateContext?.filterValues?.onChange && ((e) => (
+          // this uses `contextStatePath` (non-filter field) while below it uses `fullContextStatePath` (filter field)
+          stateContext?.filterValues?.onChange({ recordFieldPath: contextStatePath, value: defaultOnChange(e) })
+        )))
+        // set context filterValues directly (not controlled by <TableFilters />)
+        || (setStateContext && ((e) => setStateContext((draftStateContext) => {
+          // this uses `fullContextStatePath` (filter field) while above it uses `contextStatePath` (non-filter field)
+          setValueAtPath({ object: draftStateContext, path: fullContextStatePath, value: defaultOnChange(e) });
+        })))
+        // no context, so use local state
+        || ((newValue) => setStateLocal(defaultOnChange(newValue)))
+      ),
+      currentValue: (
+        // passed in value (controlled)
+        value
+        // context's value (context controlled)
+        ?? valueAtPath({ object: stateContext, path: fullContextStatePath })
+        // pull from local state (which defaults to defaultValue)
+        ?? stateLocal
+      ),
+      setValue,
+    }),
+    [
+      contextStatePath,
+      defaultOnChange,
+      fullContextStatePath,
+      onChange,
+      setStateContext,
+      setStateLocal,
+      setValue,
+      stateContext,
+      stateLocal,
+      value,
+    ]
+  );
 }

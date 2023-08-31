@@ -40,6 +40,7 @@ function TableFilterTextInput({
   const {
     currentOnChange,
     currentValue,
+    setValue,
   } = useCurrentValuesFromStateContext({
     context: TableContext,
     contextStatePath: recordFieldPath,
@@ -57,6 +58,7 @@ function TableFilterTextInput({
         id={`table-filter-text-input-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}
         onChange={currentOnChange}
+        onClear={() => setValue('')}
         value={currentValue}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}

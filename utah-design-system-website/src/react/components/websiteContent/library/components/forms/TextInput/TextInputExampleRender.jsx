@@ -23,6 +23,7 @@ function TextInputExampleRender({
       className,
       errorMessage,
       id,
+      isClearable,
       isDisabled,
       label,
       placeholder,
@@ -39,10 +40,20 @@ function TextInputExampleRender({
         errorMessage={errorMessage}
         id={id || 'text-input-example-render-id'}
         innerRef={innerRef}
+        isClearable={isClearable}
         isDisabled={isDisabled}
         onChange={(e) => setState((draftState) => {
           draftState.props.value = e.target.value;
         })}
+        onClear={
+          isClearable
+            ? (
+              () => setState((draftState) => {
+                draftState.props.value = '';
+              })
+            )
+            : undefined
+        }
         label={label || 'Text Input Label'}
         placeholder={placeholder}
         isRequired={isRequired}

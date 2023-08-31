@@ -9,6 +9,7 @@ import valueAtPath from '../../util/state/valueAtPath';
  * @typedef UseCurrentValuesFromFormResult {
  *  @property {string | undefined} currentErrorMessage
  *  @property {EventAction} currentOnChange
+ *  @property {EventAction} currentOnClear
  *  @property {() => void} currentOnSubmit
  *  @property {any} currentValue
  *  @property {EventAction} currentOnFormKeyPress
@@ -26,6 +27,7 @@ import valueAtPath from '../../util/state/valueAtPath';
  * @param {string|boolean|number|any} [object.defaultValue] starting value of the component if not controlled
  * @param {string} object.id id of the component that is also the path to the data for the component in the form context
  * @param {EventAction} [object.onChange] when component changes, call this (e) => void, overrides the one from the form context
+ * @param {EventAction} [object.onClear] when component "clears", call this (e) => void, overrides the one from the form context
  * @param {() => void} [object.onSubmit] call on enter key pressed, or other (e) => void event; overrides the one from the form context
  * @param {string|boolean|number|any} object.value current value of the component, overrides the one from the form context
  * @returns {UseCurrentValuesFromFormResult} the same passed in parameters but checking if the component overrides the form's context values
@@ -35,6 +37,7 @@ export default function useCurrentValuesFromForm({
   errorMessage,
   id,
   onChange,
+  onClear,
   onSubmit,
   value,
 }) {
@@ -53,6 +56,7 @@ export default function useCurrentValuesFromForm({
   return {
     currentErrorMessage: errorMessage ?? validationErrors?.[id]?.[0],
     currentOnChange: onChange ?? (contextOnChange && ((e, newValue) => contextOnChange({ e, id, newValue }))),
+    currentOnClear: onClear ?? (contextOnChange && ((e) => contextOnChange({ e, id, newValue: '' }))),
     currentOnSubmit,
     currentValue: (value ?? (state && valueAtPath({ object: state, path: id }))) ?? defaultValue ?? '',
     currentOnFormKeyPress: onKeyPress({ targetKey: 'Enter', func: () => currentOnSubmit?.() }),

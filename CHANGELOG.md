@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Added
 - State Symbol: mushroom
 - TableHeadCell: `scope` attribute for accessibility
+- TextInput: property for showing clearing icon
 
 ## Changed
 

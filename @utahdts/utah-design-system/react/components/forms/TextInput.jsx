@@ -5,6 +5,7 @@ import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm
 import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
+import IconButton from '../buttons/IconButton';
 import ErrorMessage from './ErrorMessage';
 import RequiredStar from './RequiredStar';
 
@@ -17,12 +18,16 @@ const propTypes = {
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
   id: PropTypes.string.isRequired,
   innerRef: RefShape,
+  // should the clearable "X" icon be shown; is auto set to true if onClear is passed in
+  isClearable: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelClassName: PropTypes.string,
   // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
+  // e => ... do something when the field should be cleared (if inside a <Form> context, don't have to provide this and can just set isClearable)
+  onClear: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
@@ -34,10 +39,12 @@ const defaultProps = {
   defaultValue: null,
   errorMessage: null,
   innerRef: null,
+  isClearable: false,
   isDisabled: false,
   isRequired: false,
   labelClassName: null,
   onChange: null,
+  onClear: null,
   onSubmit: null,
   placeholder: null,
   value: null,
@@ -51,13 +58,15 @@ const defaultProps = {
  * @param {string} [props.errorMessage]
  * @param {React.RefObject} [props.innerRef]
  * @param {string} props.id
+ * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {EventAction} [props.onChange]
+ * @param {EventAction} [props.onClear]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
- * @param {boolean} [props.isRequired]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
@@ -68,13 +77,15 @@ function TextInput({
   errorMessage,
   innerRef,
   id,
+  isClearable,
   isDisabled,
+  isRequired,
   label,
   labelClassName,
   onChange,
+  onClear,
   onSubmit,
   placeholder,
-  isRequired,
   value,
   wrapperClassName,
   ...rest
@@ -82,6 +93,7 @@ function TextInput({
   const {
     currentErrorMessage,
     currentOnChange,
+    currentOnClear,
     currentOnFormKeyPress,
     currentValue,
   } = useCurrentValuesFromForm({
@@ -89,6 +101,7 @@ function TextInput({
     errorMessage,
     id,
     onChange,
+    onClear,
     onSubmit,
     value,
   });
@@ -125,6 +138,12 @@ function TextInput({
         value={currentValue}
         {...rest}
       />
+      {
+        (value && (isClearable || onClear))
+          // @ts-ignore
+          ? <IconButton icon="X" onClick={(e) => currentOnClear(e)} title="clear" />
+          : null
+      }
     </div>
   );
 }
