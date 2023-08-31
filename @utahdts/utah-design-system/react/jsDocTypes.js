@@ -36,6 +36,11 @@
  */
 
 /**
+ * WrapInElement
+ * @typedef {'div' | 'nav'} WrapInElement
+ */
+
+/**
  * @typedef PoorMansTarget {
  *  @property {boolean} checked
  *  @property {string} key

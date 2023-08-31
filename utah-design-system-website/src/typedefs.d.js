@@ -6,6 +6,8 @@
  * @typedef {import('use-immer').Updater<UpdaterT>} Updater
  */
 
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
+
 /** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
 
 /**
@@ -83,6 +85,17 @@
  *  @property {Object.<string, PageUrl>} pageUrls
  *  @property {AppState} appState
  *  @property {Updater<AppState>} setAppState
+ * }
+ */
+
+/**
+ * @typedef PaginationExamplePropsShape {
+ *  @property {string} className
+ *  @property {string} id
+ *  @property {string} pageSize
+ *  @property {string} totalNumberItems
+ *  @property {string} value
+ *  @property {WrapInElement | null} wrapInElement
  * }
  */
 
