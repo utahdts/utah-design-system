@@ -3,7 +3,9 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
-import { TextInput } from '@utahdts/utah-design-system';
+import {
+  Tab, TabGroup, TabList, TabPanel, TabPanels, TextInput
+} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import textInputSearchPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-search.png';
 import LightBox from '../../../../../lightbox/LightBox';
@@ -14,6 +16,8 @@ import StaticExample from '../../../../../staticExamples/StaticExample';
 import TextInputExampleCodeReact from './TextInputExampleCodeReact';
 import TextInputExampleProps from './TextInputExampleProps';
 import TextInputExampleRender from './TextInputExampleRender';
+import TextInputCssClassesDocumentation from './TextInputCssClassesDocumentation';
+import TextInputPropsDocumentation from './TextInputPropsDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -172,6 +176,24 @@ function TextInputDocumentation() {
           />
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-react">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <TextInputCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <TextInputPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
