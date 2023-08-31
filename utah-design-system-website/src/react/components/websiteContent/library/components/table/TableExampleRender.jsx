@@ -64,6 +64,7 @@ const stateSymbols = [
   { category: 'Stone', symbol: 'Honeycomb Calcite', year: 2021 },
   { category: 'Snack', symbol: 'Jell-O', year: 2001 },
   { category: 'Predatory Bird', symbol: 'Golden Eagle', year: 2022 },
+  { category: 'Mushroom', symbol: 'Porcini', year: 2023 },
 ];
 
 const ITEMS_PER_PAGE = 5;
