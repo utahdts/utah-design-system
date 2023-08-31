@@ -84,7 +84,7 @@ function TableDocumentationFilteringTableExample() {
                         setFilterValues((draftState) => {
                           // filter values must be a string
                           // the field (ie birthplace.state) can be a dot path in to the record
-                          draftState['birthplace.state'] = draftState['birthplace.state'] ? '' : 'Virginia';
+                          draftState['birthplace.state'] = draftState['birthplace.state'] ? '' : { value: 'Virginia' };
                         });
                       }}
                     >
