@@ -133,11 +133,6 @@ function Button({
       }
       {children}
       {
-        iconRight
-          ? <span className="button--icon button--icon-right">{iconRight}</span>
-          : null
-      }
-      {
         isBusy
           ? (
             <Spinner
@@ -146,6 +141,11 @@ function Button({
               strokeWidth={size === formElementSizesEnum.LARGE1X ? 14 : 12}
             />
           )
+          : null
+      }
+      {
+        iconRight
+          ? <span className="button--icon button--icon-right">{iconRight}</span>
           : null
       }
     </button>
