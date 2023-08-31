@@ -25,7 +25,9 @@ import pageUrls from '../pageUrls';
 function actionFunctionForUrl(url, navigate) {
   return (
     (e) => {
-      if (!e.metaKey) {
+      if (e.metaKey) {
+        window.open(url, '_blank');
+      } else {
         e.preventDefault();
         e.stopPropagation();
         // mainMenuItem.link will be there... if not, not my problem
