@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import {
+  Pagination,
   RefShape,
   Table,
   TableBody,
@@ -17,6 +18,7 @@ import {
   TableWrapper,
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
+import { useImmer } from 'use-immer';
 import TableExamplePropsShape from '../../../../../propTypesShapes/TableExamplePropsShape';
 
 const propTypes = {
@@ -64,65 +66,86 @@ const stateSymbols = [
   { category: 'Predatory Bird', symbol: 'Golden Eagle', year: 2022 },
 ];
 
+const ITEMS_PER_PAGE = 5;
+
 function TableExampleRender({
   state: {
     props: {
       className,
       id,
       isFiltering,
-      // isPaginating,
+      isPaginating,
       isSorting,
     },
   },
   innerRef,
 }) {
+  const [currentPageIndex, setCurrentPageIndex] = useImmer(0);
+
   return (
-    <TableWrapper
-      className={className}
-      id={id}
-      innerRef={innerRef}
-    >
-      <Table id="example-interactive-table" className="table table--lines-x table--v-align-center">
-        <TableHead>
-          {
-            isSorting
-              ? (
-                <TableSortingRules defaultValue="category">
-                  <TableSortingRule recordFieldPath="category" />
-                  <TableSortingRule recordFieldPath="symbol" />
-                  <TableSortingRule recordFieldPath="year" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
-                </TableSortingRules>
-              )
-              : null
-          }
-          {
-            isFiltering
-              ? (
-                <TableFilters>
-                  <TableFilterTextInput recordFieldPath="category" />
-                  <TableFilterTextInput recordFieldPath="symbol" />
-                  <TableFilterTextInput recordFieldPath="year" />
-                </TableFilters>
-              )
-              : null
-          }
-          <TableHeadRow>
-            <TableHeadCell recordFieldPath="category">Category</TableHeadCell>
-            <TableHeadCell recordFieldPath="symbol">Symbol</TableHeadCell>
-            <TableHeadCell recordFieldPath="year">As Of Year</TableHeadCell>
-          </TableHeadRow>
-        </TableHead>
-        <TableBody>
-          <TableBodyData records={stateSymbols} recordIdField="category">
-            <TableBodyDataRowTemplate>
-              <TableBodyDataCellTemplate recordFieldPath="category" />
-              <TableBodyDataCellTemplate recordFieldPath="symbol" />
-              <TableBodyDataCellTemplate recordFieldPath="year" />
-            </TableBodyDataRowTemplate>
-          </TableBodyData>
-        </TableBody>
-      </Table>
-    </TableWrapper>
+    <>
+      <TableWrapper
+        className={className}
+        id={id}
+        innerRef={innerRef}
+      >
+        <Table id="example-interactive-table" className="table table--lines-x table--v-align-center">
+          <TableHead>
+            {
+              isSorting
+                ? (
+                  <TableSortingRules defaultValue="category">
+                    <TableSortingRule recordFieldPath="category" />
+                    <TableSortingRule recordFieldPath="symbol" />
+                    <TableSortingRule recordFieldPath="year" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
+                  </TableSortingRules>
+                )
+                : null
+            }
+            {
+              isFiltering
+                ? (
+                  <TableFilters>
+                    <TableFilterTextInput recordFieldPath="category" />
+                    <TableFilterTextInput recordFieldPath="symbol" />
+                    <TableFilterTextInput recordFieldPath="year" />
+                  </TableFilters>
+                )
+                : null
+            }
+            <TableHeadRow>
+              <TableHeadCell recordFieldPath="category">Category</TableHeadCell>
+              <TableHeadCell recordFieldPath="symbol">Symbol</TableHeadCell>
+              <TableHeadCell recordFieldPath="year">As Of Year</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableBodyData pagination={isPaginating ? { currentPageIndex, itemsPerPage: ITEMS_PER_PAGE } : undefined} records={stateSymbols} recordIdField="category">
+              <TableBodyDataRowTemplate>
+                <TableBodyDataCellTemplate recordFieldPath="category" />
+                <TableBodyDataCellTemplate recordFieldPath="symbol" />
+                <TableBodyDataCellTemplate recordFieldPath="year" />
+              </TableBodyDataRowTemplate>
+            </TableBodyData>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+      {
+        isPaginating
+          ? (
+            <div className="flex justify-center">
+              <Pagination
+                className="mt-spacing"
+                onChange={setCurrentPageIndex}
+                pageSize={ITEMS_PER_PAGE}
+                totalNumberItems={stateSymbols.length}
+                value={currentPageIndex}
+              />
+            </div>
+          )
+          : null
+      }
+    </>
   );
 }
 
