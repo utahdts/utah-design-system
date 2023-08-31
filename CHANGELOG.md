@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TextInput: property for showing clearing icon
 
 ## Changed
+- Move button's spinner to be to the left of its right icon
 
 ## Deprecated
 
