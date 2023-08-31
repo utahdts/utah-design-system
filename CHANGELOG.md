@@ -18,6 +18,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Security
 
+# [--2024Q1S5--]
+## Added
+- TableHeadCell: `scope` attribute for accessibility
+
+## Changed
+
+## Deprecated
+
+## Removed
+
+## Fixed
+
+## Security
+
 # [1.4.0] 08/29/2024
 
 ## Added
