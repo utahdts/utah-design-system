@@ -10,7 +10,11 @@ import paginationScreenshot from '../../../../../../../static/images/mockups/Pag
 import LightBox from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import PaginationExampleCodeReact from './PaginationExampleCodeReact';
+import PaginationExampleProps from './PaginationExampleProps';
+import PaginationExampleRender from './PaginationExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
@@ -24,6 +28,11 @@ function PaginationDocumentation() {
       <p className="lead-in">A pagination allows users to navigate through paginated content.</p>
       <hr />
       <h2 id="section-example">Examples</h2>
+      <SandboxExample
+        CODE_EXAMPLE={PaginationExampleCodeReact}
+        PROPS_EXAMPLE={PaginationExampleProps}
+        RENDER_EXAMPLE={PaginationExampleRender}
+      />
       <StaticExample
         title="Pagination"
         renderedExample={<LightBox image={paginationScreenshot} alt="Pagination" className="flex-3up-gap" />}

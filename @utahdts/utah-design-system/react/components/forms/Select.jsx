@@ -3,6 +3,8 @@ import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm
 import RefShape from '../../propTypesShapes/RefShape';
 import ErrorMessage from './ErrorMessage';
 
+/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+
 const propTypes = {
   // children are the options
   children: PropTypes.node,
@@ -30,6 +32,20 @@ const defaultProps = {
   value: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {string} [props.errorMessage]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {string} props.id
+ * @param {boolean} [props.isDisabled]
+ * @param {string} props.label
+ * @param {EventAction} props.onChange
+ * @param {EventAction} [props.onSubmit]
+ * @param {string | value} props.value
+ * @returns {JSX.Element}
+ */
 function Select({
   children,
   className,

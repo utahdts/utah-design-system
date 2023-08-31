@@ -15,6 +15,14 @@ const defaultProps = {
   isDisabled: false,
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.className]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {boolean} [props.isDisabled]
+ * @param {string} props.label
+ * @param {string | number} props.value
+ */
 function SelectOption({
   className,
   innerRef,

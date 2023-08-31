@@ -1,10 +1,15 @@
 export default function determinePaginationLinks({ currentPageIndex, numberOfPages }) {
   const numberOfPagesAtLeastOne = Math.max(numberOfPages, 1);
+  let currentPageIndexUse = currentPageIndex || 0;
   if (currentPageIndex < 0 || currentPageIndex >= numberOfPagesAtLeastOne) {
-    throw new Error(`determinePaginationLinks: currentPageIndex out of range ${currentPageIndex}:${numberOfPages}`);
+    // eslint-disable-next-line no-console
+    console.warn(`determinePaginationLinks: currentPageIndex out of range ${currentPageIndex}:${numberOfPages}`);
+    currentPageIndexUse = 0;
   }
   if (!Number(currentPageIndex) && currentPageIndex !== 0) {
-    throw new Error(`determinePaginationLinks: bad currentPageIndex number ${currentPageIndex}:${numberOfPages}`);
+    // eslint-disable-next-line no-console
+    console.warn(`determinePaginationLinks: bad currentPageIndex number ${currentPageIndex}:${numberOfPages}`);
+    currentPageIndexUse = 0;
   }
 
   let slotsConsumed = 0;
@@ -17,14 +22,14 @@ export default function determinePaginationLinks({ currentPageIndex, numberOfPag
   slotsConsumed += numberOfPagesAtLeastOne === 1 ? 1 : 2;
 
   // if not last/first page, then mark current as a keeper
-  if (currentPageIndex !== 0 && currentPageIndex !== numberOfPagesAtLeastOne - 1) {
-    pageIndexKeepers[currentPageIndex] = true;
+  if (currentPageIndexUse !== 0 && currentPageIndexUse !== numberOfPagesAtLeastOne - 1) {
+    pageIndexKeepers[currentPageIndexUse] = true;
     slotsConsumed += 1;
   }
 
   const totalSlots = Math.min(7, numberOfPagesAtLeastOne);
-  let currentPageLeft = currentPageIndex - 1;
-  let currentPageRight = currentPageIndex + 1;
+  let currentPageLeft = currentPageIndexUse - 1;
+  let currentPageRight = currentPageIndexUse + 1;
 
   // eslint-disable-next-line no-constant-condition
   while (true) {
