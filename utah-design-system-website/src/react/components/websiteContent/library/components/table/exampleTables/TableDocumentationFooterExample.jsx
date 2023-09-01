@@ -14,7 +14,7 @@ import {
   TableSortingRules,
   TableWrapper,
   tableSortingRuleFieldType,
-  useRefLazy
+  useRefLazy, Accordion
 } from '@utahdts/utah-design-system';
 import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import exampleGovernorsData from './exampleGovernorsData';
@@ -30,75 +30,77 @@ function TableDocumentationFooterExample() {
     to: gov.to || null,
   })));
   return (
-    <>
+    <div className="static-example mt-spacing-xl">
       <HeadingWithLink
         headingTag="h3"
         headingTitle="Footer"
         id="table__footer-table-example"
         linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFooterExample.jsx"
       />
-      <p>
+      <p className="mb-spacing-xs">
         This table has a footer!&nbsp;
       </p>
-      <TableWrapper>
-        <Table id="footer-table">
-          <TableSortingRules defaultValue="from">
-            <TableSortingRule
-              recordFieldPath="name"
-              customSort={({ fieldValueA, fieldValueB }) => {
-                // sort by lastName
-                function getLastName(fullName) {
-                  return (fullName || '').split(' ').pop();
-                }
-                return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
-              }}
-            />
-            <TableSortingRule recordFieldPath="from" fieldType={tableSortingRuleFieldType.NUMBER} />
-            <TableSortingRule recordFieldPath="to" fieldType={tableSortingRuleFieldType.NUMBER} />
-            <TableSortingRule recordFieldPath="duration" fieldType={tableSortingRuleFieldType.NUMBER} />
-          </TableSortingRules>
+      <Accordion headerContent={<span>Table Preview</span>} headerClassName="button--primary-color button--solid" headingLevel={4}>
+        <TableWrapper>
+          <Table id="footer-table">
+            <TableSortingRules defaultValue="from">
+              <TableSortingRule
+                recordFieldPath="name"
+                customSort={({ fieldValueA, fieldValueB }) => {
+                  // sort by lastName
+                  function getLastName(fullName) {
+                    return (fullName || '').split(' ').pop();
+                  }
+                  return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
+                }}
+              />
+              <TableSortingRule recordFieldPath="from" fieldType={tableSortingRuleFieldType.NUMBER} />
+              <TableSortingRule recordFieldPath="to" fieldType={tableSortingRuleFieldType.NUMBER} />
+              <TableSortingRule recordFieldPath="duration" fieldType={tableSortingRuleFieldType.NUMBER} />
+            </TableSortingRules>
 
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
-              <TableHeadCell recordFieldPath="from">From</TableHeadCell>
-              <TableHeadCell recordFieldPath="to">To</TableHeadCell>
-              <TableHeadCell recordFieldPath="duration">Duration</TableHeadCell>
-            </TableHeadRow>
-          </TableHead>
+            <TableHead>
+              <TableHeadRow>
+                <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
+                <TableHeadCell recordFieldPath="from">From</TableHeadCell>
+                <TableHeadCell recordFieldPath="to">To</TableHeadCell>
+                <TableHeadCell recordFieldPath="duration">Duration</TableHeadCell>
+              </TableHeadRow>
+            </TableHead>
 
-          <TableBody>
-            <TableBodyData records={dataRef.current} recordIdField="id">
-              <TableBodyDataRowTemplate>
-                <TableBodyDataCellTemplate recordFieldPath="name" />
-                <TableBodyDataCellTemplate recordFieldPath="from" />
-                <TableBodyDataCellTemplate recordFieldPath="to" />
-                <TableBodyDataCellTemplate recordFieldPath="duration" />
-              </TableBodyDataRowTemplate>
-            </TableBodyData>
-          </TableBody>
+            <TableBody>
+              <TableBodyData records={dataRef.current} recordIdField="id">
+                <TableBodyDataRowTemplate>
+                  <TableBodyDataCellTemplate recordFieldPath="name" />
+                  <TableBodyDataCellTemplate recordFieldPath="from" />
+                  <TableBodyDataCellTemplate recordFieldPath="to" />
+                  <TableBodyDataCellTemplate recordFieldPath="duration" />
+                </TableBodyDataRowTemplate>
+              </TableBodyData>
+            </TableBody>
 
-          <TableFoot>
-            <TableFootRow>
-              <TableFootCell colSpan={3}>
-                Average Duration
-              </TableFootCell>
-              <TableFootCell>
-                {
-                  (
-                    dataRef.current.filter((gov) => gov.to)
-                      .reduce((totalDuration, gov) => totalDuration + gov.duration, 0)
-                    / dataRef.current.length
-                  )
-                    .toFixed(2)
-                }
-              </TableFootCell>
-            </TableFootRow>
-          </TableFoot>
+            <TableFoot>
+              <TableFootRow>
+                <TableFootCell colSpan={3}>
+                  Average Duration
+                </TableFootCell>
+                <TableFootCell>
+                  {
+                    (
+                      dataRef.current.filter((gov) => gov.to)
+                        .reduce((totalDuration, gov) => totalDuration + gov.duration, 0)
+                      / dataRef.current.length
+                    )
+                      .toFixed(2)
+                  }
+                </TableFootCell>
+              </TableFootRow>
+            </TableFoot>
 
-        </Table>
-      </TableWrapper>
-    </>
+          </Table>
+        </TableWrapper>
+      </Accordion>
+    </div>
   );
 }
 
