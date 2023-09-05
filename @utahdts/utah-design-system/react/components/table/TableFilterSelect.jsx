@@ -56,7 +56,7 @@ function TableFilterSelect({
   useTableFilterRegistration(recordFieldPath, exactMatch);
 
   return (
-    <th className={joinClassNames('some-TableFilterSelect-classname', className)} id={id} ref={innerRef} {...rest}>
+    <th className={joinClassNames('table-header__cell table-header__cell--filter-select', className)} id={id} ref={innerRef} {...rest}>
       <Select
         id={`table-filter-select-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}

@@ -22,7 +22,7 @@ function TableFoot({
   ...rest
 }) {
   return (
-    <tfoot className={joinClassNames('some-TableFoot-classname', className)} id={id} ref={innerRef} {...rest}>
+    <tfoot className={joinClassNames('table-foot', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tfoot>
   );

@@ -50,19 +50,20 @@ function TableHeadCell({
   return (
     <th
       className={joinClassNames(
-        'table-header',
+        'table-header__cell',
         className,
         (sortingRules[recordFieldPath] || tableSortingFieldPaths) && 'table-header--sortable',
         (recordFieldPath !== null && tableSortingFieldPath === recordFieldPath) && 'table-header--sorted',
+        // TODO: Test this and remove sort-default-order if not needed
         (recordFieldPath !== null && tableSortingFieldPath === recordFieldPath) && (
           currentSortingOrderIsDefault
-            ? 'table-header--sort-default-order'
-            : 'table-header--sort-opposite-order'
+            ? 'table-header__cell--sort-default-order'
+            : 'table-header__cell--sort-opposite-order'
         ),
         (recordFieldPath !== null && tableSortingFieldPath === recordFieldPath) && (
           (sortingRule?.defaultIsAscending && currentSortingOrderIsDefault)
-            ? 'another-bad-classname-saying-that-this-column-is-sorting-by-ascending'
-            : 'another-bad-classname-saying-that-this-column-is-sorting-by-descending'
+            ? 'table-header__cell--sort-ascending'
+            : 'table-header__cell--sort-descending'
         )
       )}
       id={id}

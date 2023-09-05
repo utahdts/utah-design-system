@@ -23,7 +23,7 @@ function TableBody({
   ...rest
 }) {
   return (
-    <tbody className={joinClassNames('some-TableBody-classname', className)} id={id} ref={innerRef} {...rest}>
+    <tbody className={joinClassNames('table-body', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tbody>
   );

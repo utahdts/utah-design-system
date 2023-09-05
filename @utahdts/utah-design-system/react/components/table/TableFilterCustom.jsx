@@ -25,7 +25,7 @@ function TableFilterCustom({
 }) {
   const { setState: setStateContext, state: stateContext } = useContext(TableContext);
   return (
-    <th className={joinClassNames('some-TableFilterCustom-classname', className)} id={id} ref={innerRef} {...rest}>
+    <th className={joinClassNames('table-header__cell', className)} id={id} ref={innerRef} {...rest}>
       {children({
         // current filter values (key => value)
         filterValues: stateContext.filterValues.value,

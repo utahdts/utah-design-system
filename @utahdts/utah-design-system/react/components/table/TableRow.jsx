@@ -31,7 +31,7 @@ function TableRow({
 }) {
   return (
     <tr
-      className={joinClassNames('some-TableRow-classname', className)}
+      className={joinClassNames('table__row', className)}
       id={id}
       ref={innerRef}
       onClick={onClick}

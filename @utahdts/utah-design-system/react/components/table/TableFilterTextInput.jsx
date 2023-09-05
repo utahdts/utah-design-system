@@ -53,7 +53,7 @@ function TableFilterTextInput({
   useTableFilterRegistration(recordFieldPath, exactMatch);
 
   return (
-    <th className={joinClassNames('some-TableFilterTextInput-className', className)} id={id} ref={innerRef}>
+    <th className={joinClassNames('table-header__cell table-header__cell--filter-text-input', className)} id={id} ref={innerRef}>
       <TextInput
         id={`table-filter-text-input-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}

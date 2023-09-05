@@ -37,7 +37,7 @@ function TableBodyDataRowTemplate({
   return (
     <tr
       className={joinClassNames(
-        'some-TableBodyDataRowTemplate-classname',
+        'table__row',
         isFunction(className) ? className(rowContextData) : className
       )}
       onClick={onClick && ((e) => onClick({ e, ...rowContextData }))}

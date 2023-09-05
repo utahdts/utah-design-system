@@ -22,7 +22,7 @@ function TableFootRow({
   ...rest
 }) {
   return (
-    <tr className={joinClassNames('some-TableFootRow-classname', className)} id={id} ref={innerRef} {...rest}>
+    <tr className={joinClassNames('table-foot__row', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tr>
   );
