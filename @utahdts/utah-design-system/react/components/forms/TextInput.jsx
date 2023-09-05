@@ -8,6 +8,7 @@ import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
 import ErrorMessage from './ErrorMessage';
 import RequiredStar from './RequiredStar';
+import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
@@ -109,6 +110,10 @@ function TextInput({
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
+  const { addAssertiveMessage } = useAriaMessaging();
+
+  const showClearIcon = !!((isClearable || onClear) && currentValue);
+
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)} ref={innerRef}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
@@ -117,33 +122,47 @@ function TextInput({
         {isRequired ? <RequiredStar /> : null}
       </label>
       <ErrorMessage errorMessage={currentErrorMessage} id={id} />
-      <input
-        aria-describedby={currentErrorMessage ? `${id}-error` : null}
-        aria-invalid={!!currentErrorMessage}
-        className={className || undefined}
-        disabled={isDisabled}
-        id={id}
-        name={id}
-        onChange={(e) => {
-          onChangeSetCursorPosition(e);
+      <div className="text-input__inner-wrapper">
+        <input
+          aria-describedby={currentErrorMessage ? `${id}-error` : null}
+          aria-invalid={!!currentErrorMessage}
+          className={joinClassNames(className, showClearIcon ? 'text-input--clear-icon-visible' : null)}
+          disabled={isDisabled}
+          id={id}
+          name={id}
+          onChange={(e) => {
+            onChangeSetCursorPosition(e);
+            // @ts-ignore
+            currentOnChange(e);
+          }}
           // @ts-ignore
-          currentOnChange(e);
-        }}
-        // @ts-ignore
-        onKeyUp={currentOnFormKeyPress}
-        placeholder={placeholder || undefined}
-        ref={inputRef}
-        required={isRequired}
-        type="text"
-        value={currentValue}
-        {...rest}
-      />
-      {
-        (isClearable || onClear)
-          // @ts-ignore
-          ? <IconButton className={value ? '' : 'visually-hidden'} icon="X" onClick={(e) => currentOnClear(e)} title="clear" />
-          : null
-      }
+          onKeyUp={currentOnFormKeyPress}
+          placeholder={placeholder || undefined}
+          ref={inputRef}
+          required={isRequired}
+          type="text"
+          value={currentValue}
+          {...rest}
+        />
+        {
+          (showClearIcon)
+            // @ts-ignore
+            ? (
+              <IconButton
+                className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}
+                icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                onClick={(e) => {
+                  // @ts-ignore
+                  currentOnClear(e);
+                  addAssertiveMessage(`${label} input was cleared`);
+                  inputRef.current?.focus();
+                }}
+                title="clear input"
+              />
+            )
+            : null
+        }
+      </div>
     </div>
   );
 }

@@ -24,6 +24,28 @@
     &[aria-invalid="true"] {
       border: 2px solid var(--danger-color)
     }
+
+    &.text-input {
+      &--clear-icon-visible {
+        padding: 0 var(--spacing-xl) 0 var(--spacing-xs);
+      }
+    }
+  }
+  .text-input {
+    &__inner-wrapper {
+      position: relative;
+    }
+    &__clear-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: var(--spacing-xs);
+      font-weight: var(--font-weight-normal);
+      transition: transform;
+      [class*=utds-icon-before-]::before {
+        font-size: .7rem;
+      }
+    }
   }
 
   textarea {
