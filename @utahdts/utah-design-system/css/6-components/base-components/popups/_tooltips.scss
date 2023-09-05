@@ -36,6 +36,7 @@
       padding: var(--spacing-3xs) var(--spacing-s);
       transition: transform 100ms ease-in-out;
       box-shadow: var(--elevation-small);
+      font-weight: var(--font-weight-normal);
     }
 
     &__arrow {
@@ -53,7 +54,8 @@
       &::before {
         visibility: visible;
         content: "";
-        transform: rotate(45deg);
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
       }
     }
 
