@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import PropTypes from 'prop-types';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
@@ -30,12 +32,11 @@ function TableCell({
 }) {
   return (
     <td
-      className={joinClassNames('some-TableCell-classname', className)}
+      className={joinClassNames('table__cell', className)}
       id={id}
       ref={innerRef}
       onClick={onClick}
       onDoubleClick={onDoubleClick}
-      role="gridcell"
       {...rest}
     >
       {children}

@@ -1,7 +1,7 @@
 @use "../../../1-settings/class-vars";
 
 #{class-vars.$base-class} {
-  .table-wrapper {
+  .table__wrapper {
     overflow-x: scroll;
   }
   table {

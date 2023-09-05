@@ -23,7 +23,7 @@ function TableFootCell({
   ...rest
 }) {
   return (
-    <td className={joinClassNames('some-TableFootCell-classname', className)} id={id} ref={innerRef} {...rest}>
+    <td className={joinClassNames('table-foot__cell', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </td>
   );

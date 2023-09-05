@@ -22,7 +22,7 @@ function Table({
   ...rest
 }) {
   return (
-    <table className={joinClassNames('some-table-classname', className)} id={id} ref={innerRef} role="grid" {...rest}>
+    <table className={joinClassNames('table', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </table>
   );

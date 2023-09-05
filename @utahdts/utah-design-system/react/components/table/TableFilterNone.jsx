@@ -23,7 +23,7 @@ function TableFilterNone({
   ...rest
 }) {
   return (
-    <th className={joinClassNames('some-TableFilterNone-classname', className)} id={id} ref={innerRef} {...rest}>
+    <th className={joinClassNames('table-header__cell table-header__cell--filter-none', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </th>
   );

@@ -77,7 +77,7 @@ function TableFilters({
   );
 
   return (
-    <tr className={joinClassNames('some-TableFilters-classname', className)} id={id} ref={innerRef} {...rest}>
+    <tr className={joinClassNames('table-header__row table-header__row--filters', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tr>
   );

@@ -22,7 +22,7 @@ function TableHeadRow({
   ...rest
 }) {
   return (
-    <tr className={joinClassNames('some-TableHeadRow-classname', className)} id={id} ref={innerRef} {...rest}>
+    <tr className={joinClassNames('table-head__row', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tr>
   );

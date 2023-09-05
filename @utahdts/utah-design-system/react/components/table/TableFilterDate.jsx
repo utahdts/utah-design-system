@@ -45,7 +45,7 @@ function TableFilterDate({
     value,
   });
   return (
-    <th className={joinClassNames('some-TableFilterDate-className', className)} id={id} ref={innerRef}>
+    <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id} ref={innerRef}>
       <TextInput
         id={`table-filter-date-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}
