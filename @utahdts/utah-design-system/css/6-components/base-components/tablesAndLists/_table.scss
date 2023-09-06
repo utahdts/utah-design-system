@@ -119,12 +119,11 @@
           content: "";
           display: block;
           position: absolute;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5.557' viewBox='0 0 9 5.557'%3E%3Cpath id='Chevron' d='M7.057,8.59,10.5,12.025,13.943,8.59,15,9.648l-4.5,4.5L6,9.648Z' transform='translate(15 15) rotate(180)' fill='%23fff'/%3E%3C/svg%3E%0A");
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9.7'%3e%3cpath d='m8 9.7-8-8L1.7 0 8 6.3 14.3 0 16 1.7l-8 8Z' fill='white'/%3e%3c/svg%3e");
           background-color: var(--primary-color);
           background-repeat: no-repeat;
           background-size: 9px;
-          background-position-x: center;
-          background-position-y: 4px;
+          background-position: center;
           border-radius: var(--radius-circle);
           bottom: -8px;
           left: calc(50% - (15px / 2));
