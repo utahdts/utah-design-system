@@ -44,6 +44,7 @@ function TableDocumentation() {
         CODE_EXAMPLE={TableExampleCodeReact}
         PROPS_EXAMPLE={TableExampleProps}
         RENDER_EXAMPLE={TableExampleRender}
+        exampleFlexStart
       />
       <div className="text-center mb-spacing-xs">
         <ExternalLink
@@ -156,7 +157,9 @@ function TableDocumentation() {
       <h4 id="section-contrast">Screen Readers</h4>
       <ul className="mb-spacing">
         <li><strong>Add an aria-live region to the page when enabling row sorting.</strong> An <code>aria-live</code> region immediately following the <code>&lt;table&gt;</code> element will automatically announces when the sort state changes for visitors using screen readers.</li>
+        <li><strong>Use buttons for sorting.</strong> Use a button to allow the user to sort a column. This allows the button to receive focus and be pressed natively.</li>
         <li><strong>Aria-label attributes to sortable column headers.</strong> The <code>aria-label</code> attribute should be added to to the sortable column headers and their toggle sort buttons. These labels should updated to reflect each column&apos;s current sort state (ascending, descending, or unsorted) whenever sort changes.</li>
+        <li><strong>Aria-sort attribute.</strong> Use <code>aria-sort=&quot;ascending&quot;</code> and <code>aria-sort=&quot;descending&quot;</code> to convey the sort direction.</li>
         <li><strong>Scope header rows.</strong> Each header cell should have <code>scope=&quot;col&quot;</code> or <code>scope=&quot;row&quot;</code>.</li>
         <li><strong>Complex tables have more than two levels of headers.</strong> Each header should have a unique <code>id</code> and each data cell should have a <code>headers</code> attribute with each related header cell&apos;s <code>id</code> listed.</li>
         <li><strong>Add title and attribution in a caption.</strong> When adding a title, attribution, or a last-updated date to a table, include it in the <code>&lt;caption&gt;</code> tag inside of the <code>&lt;table&gt;</code> element.</li>

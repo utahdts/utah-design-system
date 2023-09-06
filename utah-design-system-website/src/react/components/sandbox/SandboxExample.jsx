@@ -6,6 +6,7 @@ import {
   TabList,
   TabPanel,
   TabPanels,
+  joinClassNames,
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
@@ -19,8 +20,11 @@ const propTypes = {
   CODE_EXAMPLE: PropTypes.func.isRequired,
   PROPS_EXAMPLE: PropTypes.func.isRequired,
   RENDER_EXAMPLE: PropTypes.func.isRequired,
+  exampleFlexStart: PropTypes.bool,
 };
-const defaultProps = {};
+const defaultProps = {
+  exampleFlexStart: false,
+};
 
 /**
  * @template UpdaterPropsT
@@ -37,9 +41,16 @@ const defaultProps = {};
  * @param {ReactFCStater<SandboxExamplePropsT>} props.CODE_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.PROPS_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.RENDER_EXAMPLE
+ * @param {boolean} props.exampleFlexStart
+ *
  * @returns {JSX.Element}
  */
-function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
+function SandboxExample({
+  CODE_EXAMPLE,
+  PROPS_EXAMPLE,
+  RENDER_EXAMPLE,
+  exampleFlexStart,
+}) {
   const [state, setState] = useImmer({
     props: /** @type {SandboxExamplePropsT} */ ({}),
   });
@@ -48,7 +59,7 @@ function SandboxExample({ CODE_EXAMPLE, PROPS_EXAMPLE, RENDER_EXAMPLE }) {
   return (
     <div className="sandbox-example">
       <div className="sandbox-example__top">
-        <div className="sandbox-example__component">
+        <div className={joinClassNames('sandbox-example__component', exampleFlexStart ? 'sandbox-example__component--flex-start' : null)}>
           <RENDER_EXAMPLE state={state} setState={setState} innerRef={renderedRef} />
         </div>
         <div className="sandbox-example__props-inputs">

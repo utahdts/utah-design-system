@@ -29,7 +29,12 @@ function TableDocumentationSortingTableExample() {
         id="table__sorting-table-example"
         linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSortingTableExample.jsx"
       />
-      <Accordion headerContent={<span>Table Preview</span>} headerClassName="button--primary-color button--solid" headingLevel={4}>
+      <Accordion
+        contentClassName="accordion__content--bordered"
+        headerContent={<span>Table Preview</span>}
+        headerClassName="button--primary-color button--solid"
+        headingLevel={4}
+      >
         <TableWrapper>
           <Table className="table table--lines-x table--alt table--v-align-center table--condensed">
             <TableHead>

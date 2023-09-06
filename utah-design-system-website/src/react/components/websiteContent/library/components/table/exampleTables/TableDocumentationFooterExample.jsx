@@ -40,9 +40,14 @@ function TableDocumentationFooterExample() {
       <p className="mb-spacing-xs">
         This table has a footer!&nbsp;
       </p>
-      <Accordion headerContent={<span>Table Preview</span>} headerClassName="button--primary-color button--solid" headingLevel={4}>
+      <Accordion
+        contentClassName="accordion__content--bordered"
+        headerContent={<span>Table Preview</span>}
+        headerClassName="button--primary-color button--solid"
+        headingLevel={4}
+      >
         <TableWrapper>
-          <Table id="footer-table">
+          <Table id="footer-table" className="table--alts table--full-width">
             <TableSortingRules defaultValue="from">
               <TableSortingRule
                 recordFieldPath="name"

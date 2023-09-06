@@ -25,7 +25,13 @@ function TableDocumentationSimpleTableExample() {
         This table is static data using Design System components in a manual layout.
         This is the simplest as it does not have dynamic data, filtering, sorting, nor any other features.
       </p>
-      <Accordion headerContent={<span>Table Preview</span>} headerClassName="button--primary-color button--solid" headingLevel={4} isOpen>
+      <Accordion
+        contentClassName="accordion__content--bordered"
+        headerContent={<span>Table Preview</span>}
+        headerClassName="button--primary-color button--solid"
+        headingLevel={4}
+        isOpen
+      >
         <TableWrapper>
           <Table id="simple-table" className="table table--lines-x table--v-align-center table--full-width table--td-center">
             <TableHead>

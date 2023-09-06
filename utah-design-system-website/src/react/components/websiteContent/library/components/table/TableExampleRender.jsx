@@ -1,4 +1,5 @@
 import {
+  joinClassNames,
   Pagination,
   RefShape,
   Table,
@@ -50,11 +51,11 @@ function TableExampleRender({
   return (
     <>
       <TableWrapper
-        className={className}
         id={id}
         innerRef={innerRef}
+        style={{ width: '100%' }}
       >
-        <Table id="example-interactive-table" className="table table--lines-x table--v-align-center">
+        <Table id="example-interactive-table" className={joinClassNames('table table--lines-x table--v-align-center table--full-width', className)}>
           <TableHead>
             {
               isSorting
