@@ -47,7 +47,7 @@ function TableDocumentationFooterExample() {
         headingLevel={4}
       >
         <TableWrapper>
-          <Table id="footer-table" className="table--alts table--full-width">
+          <Table id="footer-table" className="table--alt table--full-width">
             <TableSortingRules defaultValue="from">
               <TableSortingRule
                 recordFieldPath="name"

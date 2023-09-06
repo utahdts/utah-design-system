@@ -121,6 +121,8 @@
     }
     .table-header {
       position: relative;
+
+      /* Table Sorting */
       &__cell {
         position: relative;
         &--sort-descending {
@@ -155,6 +157,45 @@
           left: calc(50% - (15px / 2));
           height: 15px;
           width: 15px;
+        }
+      }
+
+      /* Table Filters */
+      &__row {
+        &--filters {
+          th {
+            background-color: var(--gray-light-color);
+          }
+          th:first-child {
+            border-top-left-radius: var(--radius-medium);
+            border-bottom-left-radius: var(--radius-medium);
+            padding: var(--spacing-s) var(--spacing-2xs) var(--spacing-s) var(--spacing-s);
+          }
+          th:last-child {
+            border-top-right-radius: var(--radius-medium);
+            border-bottom-right-radius: var(--radius-medium);
+            padding: var(--spacing-s) var(--spacing-s) var(--spacing-s) var(--spacing-2xs);
+          }
+          th {
+            padding: var(--spacing-s) var(--spacing-2xs);
+          }
+          .input-wrapper {
+            margin: 0;
+            label {
+              /* visually hidden */
+              border: 0;
+              clip: rect(0 0 0 0);
+              height: 1px;
+              margin: -1px;
+              overflow: hidden;
+              padding: 0;
+              position: absolute;
+              width: 1px;
+            }
+            input[type=text] {
+              border-radius: var(--radius-circle);
+            }
+          }
         }
       }
     }
