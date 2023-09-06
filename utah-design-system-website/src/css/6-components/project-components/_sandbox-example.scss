@@ -23,6 +23,9 @@
       border-radius: var(--radius-medium);
       flex: 2 1 70%;
       min-width: 0;
+      &--flex-start {
+        justify-content: flex-start;
+      }
     }
     &__props-inputs {
       background-color: color-swatches.$neutral-gray-16;

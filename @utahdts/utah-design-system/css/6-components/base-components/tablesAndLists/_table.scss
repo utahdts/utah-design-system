@@ -10,12 +10,12 @@
       border-bottom: 1px solid var(--gray-color);
       tr {
         th {
-          text-align: center;
+          text-align: left;
           vertical-align: bottom;
           font-weight: bold;
           padding: var(--spacing-s);
-          &.text-left {
-            text-align: left;
+          &.text-center {
+            text-align: center;
           }
           &.text-right {
             text-align: right;
@@ -30,6 +30,20 @@
           padding: var(--spacing-s);
         }
       }
+      tr:last-child {
+        td {
+          border-bottom: 1px solid var(--gray-color);
+        }
+      }
+    }
+    tfoot {
+      tr {
+        td {
+          vertical-align: top;
+          padding: var(--spacing-s);
+          font-weight: bold;
+        }
+      }
     }
     &.table {
       &--alt {
@@ -37,6 +51,11 @@
           tr:nth-child(2n) {
             td {
               background-color: #f5f5f5;
+            }
+          }
+          tr:nth-child(2n-1) {
+            td {
+              background-color: white;
             }
           }
         }
@@ -84,6 +103,13 @@
         width: 100%;
       }
       &--td-center {
+        thead {
+          tr {
+            th {
+              text-align: center;
+            }
+          }
+        }
         tbody {
           tr {
             td {

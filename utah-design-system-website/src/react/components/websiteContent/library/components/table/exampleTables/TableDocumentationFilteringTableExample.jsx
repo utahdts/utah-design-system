@@ -36,7 +36,12 @@ function TableDocumentationFilteringTableExample() {
         linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx"
       />
       <p className="mb-spacing-xs"> This table allows filtering its data through the use of the inputs in the <code>&lt;thead&gt;</code> element.</p>
-      <Accordion headerContent={<span>Table Preview</span>} headerClassName="button--primary-color button--solid" headingLevel={4}>
+      <Accordion
+        contentClassName="accordion__content--bordered"
+        headerContent={<span>Table Preview</span>}
+        headerClassName="button--primary-color button--solid"
+        headingLevel={4}
+      >
         <TableWrapper>
           <Table className="my-uber-special-snowflake-table">
             <TableHead>

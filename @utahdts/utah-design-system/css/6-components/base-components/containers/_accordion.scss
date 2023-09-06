@@ -41,6 +41,12 @@
         &--open {
           height: auto;
           padding: var(--spacing);
+
+          &.accordion__content--bordered {
+            background: transparent;
+            border: 1px solid var(--gray-3-1-contrast);
+            border-top: 0;
+          }
         }
     }
   }
