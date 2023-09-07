@@ -29,6 +29,26 @@ function TableDocumentationSortingTableExample() {
         id="table__sorting-table-example"
         linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationSortingTableExample.jsx"
       />
+      <p className="mb-spacing-xs">
+        This table includes sorting and display data in a compact way.
+      </p>
+      <p className="mb-spacing-xs">
+        The table is styled using a combination of classes:
+        <ul>
+          <li>
+            <code>.table--lines-x</code> to add vertical lines between rows,
+          </li>
+          <li>
+            <code>.table--alt</code> to add color to alternating rows.
+          </li>
+          <li>
+            <code>.table--v-align-center</code> to align row data vertically,
+          </li>
+          <li>
+            <code>.table--condensed</code> to shorten rows.
+          </li>
+        </ul>
+      </p>
       <Accordion
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}

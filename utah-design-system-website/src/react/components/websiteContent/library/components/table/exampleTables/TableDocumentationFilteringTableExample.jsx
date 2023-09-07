@@ -35,7 +35,8 @@ function TableDocumentationFilteringTableExample() {
         id="table__filtering-table-example"
         linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx"
       />
-      <p className="mb-spacing-xs"> This table allows filtering its data through the use of the inputs in the <code>&lt;thead&gt;</code> element.</p>
+      <p className="mb-spacing-xs">This table allows filtering its data through the use of the inputs in the <code>&lt;thead&gt;</code> element.</p>
+      <p className="mb-spacing-xs">This example does not include any additional styling. This demonstrates what a table component looks like out-of-the-box.</p>
       <Accordion
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
@@ -43,7 +44,7 @@ function TableDocumentationFilteringTableExample() {
         headingLevel={4}
       >
         <TableWrapper>
-          <Table className="my-uber-special-snowflake-table">
+          <Table>
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}

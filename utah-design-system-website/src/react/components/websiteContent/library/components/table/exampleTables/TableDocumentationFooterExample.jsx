@@ -38,7 +38,18 @@ function TableDocumentationFooterExample() {
         linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFooterExample.jsx"
       />
       <p className="mb-spacing-xs">
-        This table has a footer!&nbsp;
+        This table includes a footer.
+      </p>
+      <p className="mb-spacing-xs">
+        The table is styled using a combination of classes:
+        <ul>
+          <li>
+            <code>.table--lines-x</code> to add vertical lines between rows,
+          </li>
+          <li>
+            <code>.table--alt</code> to add color to alternating rows.
+          </li>
+        </ul>
       </p>
       <Accordion
         contentClassName="accordion__content--bordered"
@@ -47,7 +58,7 @@ function TableDocumentationFooterExample() {
         headingLevel={4}
       >
         <TableWrapper>
-          <Table id="footer-table" className="table--alt table--full-width">
+          <Table id="footer-table" className="table--alt table--lines-x table--full-width">
             <TableSortingRules defaultValue="from">
               <TableSortingRule
                 recordFieldPath="name"
