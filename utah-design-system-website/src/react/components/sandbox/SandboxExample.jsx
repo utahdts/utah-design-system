@@ -20,10 +20,14 @@ const propTypes = {
   CODE_EXAMPLE: PropTypes.func.isRequired,
   PROPS_EXAMPLE: PropTypes.func.isRequired,
   RENDER_EXAMPLE: PropTypes.func.isRequired,
-  exampleFlexStart: PropTypes.bool,
+  className: PropTypes.string,
+  componentClassName: PropTypes.string,
+  propsInputsClassName: PropTypes.string,
 };
 const defaultProps = {
-  exampleFlexStart: false,
+  className: null,
+  componentClassName: null,
+  propsInputsClassName: null,
 };
 
 /**
@@ -41,7 +45,9 @@ const defaultProps = {
  * @param {ReactFCStater<SandboxExamplePropsT>} props.CODE_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.PROPS_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.RENDER_EXAMPLE
- * @param {boolean} props.exampleFlexStart
+ * @param {string} props.className
+ * @param {string} props.componentClassName
+ * @param {string} props.propsInputsClassName
  *
  * @returns {JSX.Element}
  */
@@ -49,7 +55,9 @@ function SandboxExample({
   CODE_EXAMPLE,
   PROPS_EXAMPLE,
   RENDER_EXAMPLE,
-  exampleFlexStart,
+  className,
+  componentClassName,
+  propsInputsClassName,
 }) {
   const [state, setState] = useImmer({
     props: /** @type {SandboxExamplePropsT} */ ({}),
@@ -57,12 +65,12 @@ function SandboxExample({
   const renderedRef = /** @type {typeof useRef<any>} */ (useRef)(null);
 
   return (
-    <div className="sandbox-example">
+    <div className={joinClassNames('sandbox-example', className)}>
       <div className="sandbox-example__top">
-        <div className={joinClassNames('sandbox-example__component', exampleFlexStart ? 'sandbox-example__component--flex-start' : null)}>
+        <div className={joinClassNames('sandbox-example__component', componentClassName)}>
           <RENDER_EXAMPLE state={state} setState={setState} innerRef={renderedRef} />
         </div>
-        <div className="sandbox-example__props-inputs">
+        <div className={joinClassNames('sandbox-example__props-inputs', propsInputsClassName)}>
           <PROPS_EXAMPLE state={state} setState={setState} />
 
         </div>

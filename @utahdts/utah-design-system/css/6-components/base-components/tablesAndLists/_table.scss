@@ -130,12 +130,15 @@
           background: none;
           border-radius: var(--radius-circle);
           justify-content: flex-start;
-          padding: 0 var(--spacing-s);
+          padding: var(--spacing) var(--spacing-s);
           width: 100%;
           font-weight: bold;
           &:hover {
             background: var(--gray-light-color);
             color: var(--primary-color);
+          }
+          &:focus-visible {
+            outline-offset: -2PX;
           }
         }
       }

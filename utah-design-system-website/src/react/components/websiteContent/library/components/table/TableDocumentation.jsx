@@ -44,7 +44,7 @@ function TableDocumentation() {
         CODE_EXAMPLE={TableExampleCodeReact}
         PROPS_EXAMPLE={TableExampleProps}
         RENDER_EXAMPLE={TableExampleRender}
-        exampleFlexStart
+        componentClassName="sandbox-example__component--flex-start sandbox-example__component--outline"
       />
       <div className="text-center mb-spacing-xs">
         <ExternalLink

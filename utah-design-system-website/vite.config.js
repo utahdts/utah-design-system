@@ -34,6 +34,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     },
     preview: {
       port: 8080,
-    }
+    },
+    logLevel: 'silent'
   };
 });
