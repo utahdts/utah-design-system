@@ -128,10 +128,11 @@
         button {
           border: none;
           background: none;
-          border-radius: 0;
+          border-radius: var(--radius-circle);
           justify-content: flex-start;
           padding: 0 var(--spacing-s);
           width: 100%;
+          font-weight: bold;
           &:hover {
             background: var(--gray-light-color);
             color: var(--primary-color);
@@ -174,6 +175,9 @@
           height: 15px;
           width: 15px;
           z-index: 2;
+        }
+        button {
+          color: var(--primary-color);
         }
       }
 
