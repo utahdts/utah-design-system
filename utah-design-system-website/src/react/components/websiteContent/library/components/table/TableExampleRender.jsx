@@ -80,9 +80,13 @@ function TableExampleRender({
                 : null
             }
             <TableHeadRow>
-              <TableHeadCell recordFieldPath="category">Category</TableHeadCell>
-              <TableHeadCell recordFieldPath="symbol">Symbol</TableHeadCell>
-              <TableHeadCell recordFieldPath="year">As Of Year</TableHeadCell>
+              {/*
+                NOTE: inline styles are not encouraged. They are used here because this is light weight example, but
+                please use className or a styling library instead of inline styles.
+               */}
+              <TableHeadCell recordFieldPath="category" style={{ width: '40%' }}>Category</TableHeadCell>
+              <TableHeadCell recordFieldPath="symbol" style={{ width: '40%' }}>Symbol</TableHeadCell>
+              <TableHeadCell recordFieldPath="year" style={{ width: '20%' }}>Year</TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
