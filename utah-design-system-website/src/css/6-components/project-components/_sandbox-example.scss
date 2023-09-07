@@ -26,6 +26,10 @@
       &--flex-start {
         justify-content: flex-start;
       }
+      &--outline {
+        border: 1px solid var(--gray-medium-light-color);
+        background: white;
+      }
     }
     &__props-inputs {
       background-color: color-swatches.$neutral-gray-16;
