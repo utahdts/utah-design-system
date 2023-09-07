@@ -212,6 +212,10 @@
             input[type="text"] {
               border-radius: var(--radius-circle);
             }
+            select {
+              border-radius: var(--radius-circle);
+              padding: 0 var(--spacing-l) 0 var(--spacing-xs);
+            }
           }
         }
       }
