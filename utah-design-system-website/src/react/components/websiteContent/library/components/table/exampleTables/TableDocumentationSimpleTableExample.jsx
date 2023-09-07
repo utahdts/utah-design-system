@@ -27,18 +27,18 @@ function TableDocumentationSimpleTableExample() {
       </p>
       <p className="mb-spacing-xs">
         The table is styled using a combination of classes:
-        <ul>
-          <li>
-            <code>.table--lines-x</code> to add vertical lines between rows,
-          </li>
-          <li>
-            <code>.table--td-center</code> to center its content,
-          </li>
-          <li>
-            <code>.table--v-align-center</code> to align row data vertically.
-          </li>
-        </ul>
       </p>
+      <ul className="mb-spacing">
+        <li>
+          <code>.table--lines-x</code> to add vertical lines between rows,
+        </li>
+        <li>
+          <code>.table--td-center</code> to center its content,
+        </li>
+        <li>
+          <code>.table--v-align-center</code> to align row data vertically.
+        </li>
+      </ul>
       <Accordion
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}

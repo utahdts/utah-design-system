@@ -40,15 +40,15 @@ function TableDocumentationPaginationTableExample() {
       </p>
       <p className="mb-spacing-xs">
         The table is styled using a combination of classes:
-        <ul>
-          <li>
-            <code>.table--lines-x</code> to add vertical lines between rows,
-          </li>
-          <li>
-            <code>.table--alt</code> to add color to alternating rows.
-          </li>
-        </ul>
       </p>
+      <ul className="mb-spacing">
+        <li>
+          <code>.table--lines-x</code> to add vertical lines between rows,
+        </li>
+        <li>
+          <code>.table--alt</code> to add color to alternating rows.
+        </li>
+      </ul>
       <Accordion
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
