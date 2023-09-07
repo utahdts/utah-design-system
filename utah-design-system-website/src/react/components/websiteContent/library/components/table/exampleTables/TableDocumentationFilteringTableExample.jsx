@@ -98,7 +98,7 @@ function TableDocumentationFilteringTableExample() {
                 <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
                 <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
                 <TableHeadCell recordFieldPath="funFacts">Fun Facts</TableHeadCell>
-                <TableHeadCell recordFieldPath="birthplace" tableSortingFieldPaths={['birthplace.state', 'birthplace.county']}>Birth Place</TableHeadCell>
+                <TableHeadCell recordFieldPath="birthplace">Birth Place</TableHeadCell>
               </TableHeadRow>
             </TableHead>
 
