@@ -39,7 +39,7 @@ function TableDocumentationSortingTableExample() {
             <code>.table--lines-x</code> to add vertical lines between rows,
           </li>
           <li>
-            <code>.table--alt</code> to add color to alternating rows.
+            <code>.table--alt</code> to add color to alternating rows,
           </li>
           <li>
             <code>.table--v-align-center</code> to align row data vertically,
