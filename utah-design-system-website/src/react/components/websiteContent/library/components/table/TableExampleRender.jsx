@@ -61,9 +61,9 @@ function TableExampleRender({
               isSorting
                 ? (
                   <TableSortingRules defaultValue="category">
-                    <TableSortingRule recordFieldPath="category" />
-                    <TableSortingRule recordFieldPath="symbol" />
-                    <TableSortingRule recordFieldPath="year" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
+                    <TableSortingRule a11yLabel="Category" recordFieldPath="category" />
+                    <TableSortingRule a11yLabel="Symbol" recordFieldPath="symbol" />
+                    <TableSortingRule a11yLabel="Year" recordFieldPath="year" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
                   </TableSortingRules>
                 )
                 : null

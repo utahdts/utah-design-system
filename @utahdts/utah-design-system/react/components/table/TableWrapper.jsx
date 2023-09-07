@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
+import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
 import useRefAlways from '../../hooks/useRefAlways';
 import RefShape from '../../propTypesShapes/RefShape';
@@ -104,6 +105,39 @@ function TableWrapper({
     tableSortingFieldPaths: null,
   });
   const stateRef = useRefAlways(state);
+  const tableSortingFieldPathOldRef = useRef(state.tableSortingFieldPath);
+  const tableSortingFieldPathsOldRef = useRef(state.tableSortingFieldPaths);
+  const isAscendingOldRef = useRef(state.currentSortingOrderIsDefault);
+  const { addPoliteMessage } = useAriaMessaging();
+
+  useEffect(
+    () => {
+      if (
+        // do not send notification when first loading the table when the currentPath is null
+        tableSortingFieldPathOldRef.current
+        && state.tableSortingFieldPath
+        // subsequent changes to sorting probably should have been triggered by the user and therefore needs announced
+        && (
+          tableSortingFieldPathOldRef.current !== state.tableSortingFieldPath
+          || tableSortingFieldPathsOldRef.current !== state.tableSortingFieldPaths
+          || state.currentSortingOrderIsDefault !== isAscendingOldRef.current
+        )
+      ) {
+        const sortingFields = state.tableSortingFieldPaths || [state.tableSortingFieldPath];
+        const sortingRules = sortingFields.map((sortingField) => state.sortingRules[sortingField]);
+        const sortingRulesMessages = sortingRules.map((sortingRule) => {
+          const isAscending = (!!sortingRule?.defaultIsAscending === !!state.currentSortingOrderIsDefault);
+          return `${sortingRule.a11yLabel} ${isAscending ? 'ascending' : 'descending'}`;
+        });
+        addPoliteMessage(`Sorting changed to ${sortingRulesMessages.join(', ')}`);
+        state.tableSortingOnChange?.({ recordFieldPath: state.tableSortingFieldPath });
+      }
+      isAscendingOldRef.current = state.currentSortingOrderIsDefault;
+      tableSortingFieldPathOldRef.current = state.tableSortingFieldPath;
+      tableSortingFieldPathsOldRef.current = state.tableSortingFieldPaths;
+    },
+    [addPoliteMessage, state]
+  );
 
   const contextValue = useMemo(
     () => ({

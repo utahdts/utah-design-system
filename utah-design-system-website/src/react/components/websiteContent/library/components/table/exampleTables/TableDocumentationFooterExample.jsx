@@ -61,6 +61,7 @@ function TableDocumentationFooterExample() {
           <Table id="footer-table" className="table--alt table--lines-x table--full-width">
             <TableSortingRules defaultValue="from">
               <TableSortingRule
+                a11yLabel="Name"
                 recordFieldPath="name"
                 customSort={({ fieldValueA, fieldValueB }) => {
                   // sort by lastName
@@ -70,9 +71,9 @@ function TableDocumentationFooterExample() {
                   return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
                 }}
               />
-              <TableSortingRule recordFieldPath="from" fieldType={tableSortingRuleFieldType.NUMBER} />
-              <TableSortingRule recordFieldPath="to" fieldType={tableSortingRuleFieldType.NUMBER} />
-              <TableSortingRule recordFieldPath="duration" fieldType={tableSortingRuleFieldType.NUMBER} />
+              <TableSortingRule a11yLabel="From" recordFieldPath="from" fieldType={tableSortingRuleFieldType.NUMBER} />
+              <TableSortingRule a11yLabel="To" recordFieldPath="to" fieldType={tableSortingRuleFieldType.NUMBER} />
+              <TableSortingRule a11yLabel="Duration" recordFieldPath="duration" fieldType={tableSortingRuleFieldType.NUMBER} />
             </TableSortingRules>
 
             <TableHead>

@@ -1,3 +1,4 @@
+import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import { useCallback, useContext } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
@@ -46,8 +47,8 @@ function TableHeadCell({
   ...rest
 }) {
   const { setState, state: { currentSortingOrderIsDefault, sortingRules, tableSortingFieldPath } } = useContext(TableContext);
-  const sortingRule = sortingRules && recordFieldPath && sortingRules[recordFieldPath];
-  const isSortable = sortingRules[recordFieldPath] || tableSortingFieldPaths;
+  const mySortingRules = sortingRules && (tableSortingFieldPaths || [recordFieldPath]).map((sortingRule) => sortingRules[sortingRule]);
+  const isSortable = !!(sortingRules[recordFieldPath] || tableSortingFieldPaths?.length);
 
   const onClickCallback = useCallback(
     (e) => {
@@ -70,7 +71,7 @@ function TableHeadCell({
     [isSortable, onClick, recordFieldPath, setState, tableSortingFieldPath, tableSortingFieldPaths]
   );
 
-  const isAscending = (!!sortingRule?.defaultIsAscending === !!currentSortingOrderIsDefault);
+  const isAscending = (!!mySortingRules?.[0]?.defaultIsAscending === !!currentSortingOrderIsDefault);
   const isCurrentSortingField = recordFieldPath !== null && tableSortingFieldPath === recordFieldPath;
 
   return (
@@ -96,7 +97,28 @@ function TableHeadCell({
               onClick={onClickCallback}
               type="button"
             >
-              {children}
+              {
+                isCurrentSortingField
+                  ? (
+                    <span
+                      className="visually-hidden"
+                    >
+                      Currently sorted by {
+                        mySortingRules?.filter(identity)
+                          ?.map((sortingRule) => {
+                            const isRuleAscending = (!!sortingRule?.defaultIsAscending === !!currentSortingOrderIsDefault);
+                            return `${sortingRule?.a11yLabel || ''} ${isRuleAscending ? 'ascending' : 'descending'}`;
+                          }).join(', ')
+                      }
+                    </span>
+                  )
+                  : (
+                    <span className="visually-hidden">Sort by {mySortingRules?.map((sortingRule) => sortingRule?.a11yLabel || '').join(', ')}</span>
+                  )
+              }
+              <span aria-hidden="true">
+                {children}
+              </span>
             </button>
           )
           : children

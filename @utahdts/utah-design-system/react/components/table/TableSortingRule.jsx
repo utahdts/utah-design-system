@@ -4,6 +4,8 @@ import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
 import TableContext from './util/TableContext';
 
 const propTypes = {
+  // the A11y notification to be read when this sort rule is applied
+  a11yLabel: PropTypes.string.isRequired,
   // should be a function that does sorting
   // ({ fieldValueA, fieldValueB, recordA, recordB, records }) => (a < b ? -1 : a > b ? 1 : 0)
   customSort: PropTypes.func,
@@ -24,6 +26,7 @@ const defaultProps = {
 };
 
 function TableSortingRule({
+  a11yLabel,
   customSort,
   defaultIsAscending,
   fieldType,
@@ -36,6 +39,7 @@ function TableSortingRule({
     () => {
       if (registerSortingRule) {
         registerSortingRule({
+          a11yLabel,
           customSort,
           defaultIsAscending,
           fieldType,
