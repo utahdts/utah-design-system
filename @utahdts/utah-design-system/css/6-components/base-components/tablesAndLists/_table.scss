@@ -123,9 +123,24 @@
       position: relative;
 
       /* Table Sorting */
+      &--sortable {
+        padding: 0;
+        button {
+          border: none;
+          background: none;
+          border-radius: 0;
+          justify-content: flex-start;
+          padding: 0 var(--spacing-s);
+          width: 100%;
+          &:hover {
+            background: var(--gray-light-color);
+            color: var(--primary-color);
+          }
+        }
+      }
       &__cell {
         position: relative;
-        &--sort-descending {
+        &--sort-ascending {
           &::after {
             transform: rotate(180deg);
           }
@@ -142,6 +157,7 @@
           left: 0;
           bottom: -4px;
           border-radius: var(--radius-circle);
+          z-index: 1;
         }
         &::after {
           content: "";
@@ -157,6 +173,7 @@
           left: calc(50% - (15px / 2));
           height: 15px;
           width: 15px;
+          z-index: 2;
         }
       }
 
@@ -192,7 +209,7 @@
               position: absolute;
               width: 1px;
             }
-            input[type=text] {
+            input[type="text"] {
               border-radius: var(--radius-circle);
             }
           }
