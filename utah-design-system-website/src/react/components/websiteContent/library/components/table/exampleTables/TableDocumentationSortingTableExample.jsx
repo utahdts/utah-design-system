@@ -65,6 +65,7 @@ function TableDocumentationSortingTableExample() {
                   and then the rest of the TableSortingRules are applied in order.
                 */}
                 <TableSortingRule
+                  a11yLabel="Name"
                   recordFieldPath="name"
                   // sort by lastName
                   customSort={({ fieldValueA, fieldValueB }) => {
@@ -74,12 +75,12 @@ function TableDocumentationSortingTableExample() {
                     return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
                   }}
                 />
-                <TableSortingRule recordFieldPath="nthPresident" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
-                <TableSortingRule recordFieldPath="politicalParty" />
-                <TableSortingRule recordFieldPath="inauguration" />
-                <TableSortingRule recordFieldPath="inaugurationDate" fieldType={tableSortingRuleFieldType.DATE} />
-                <TableSortingRule recordFieldPath="birthplace.state" />
-                <TableSortingRule recordFieldPath="birthplace.county" />
+                <TableSortingRule a11yLabel="Nth President" recordFieldPath="nthPresident" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
+                <TableSortingRule a11yLabel="Political Party" recordFieldPath="politicalParty" />
+                <TableSortingRule a11yLabel="Inauguration" recordFieldPath="inauguration" />
+                <TableSortingRule a11yLabel="Inauguration Date" recordFieldPath="inaugurationDate" fieldType={tableSortingRuleFieldType.DATE} />
+                <TableSortingRule a11yLabel="Birthplace State" recordFieldPath="birthplace.state" defaultIsAscending={false} />
+                <TableSortingRule a11yLabel="Birthplace County" recordFieldPath="birthplace.county" />
               </TableSortingRules>
 
               <TableHeadRow>
