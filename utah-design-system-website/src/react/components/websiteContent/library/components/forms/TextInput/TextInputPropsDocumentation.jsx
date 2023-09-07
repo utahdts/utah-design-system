@@ -82,7 +82,8 @@ function TextInputPropsDocumentation() {
               </TableCell>
               <TableCell><code>false</code></TableCell>
               <TableCell>
-                This props will add an icon button allowing the user to clear the input.
+                This props will add an icon button allowing the user to clear the input.<br />
+                The button appears after the user enters a value.
               </TableCell>
             </TableRow>
 
