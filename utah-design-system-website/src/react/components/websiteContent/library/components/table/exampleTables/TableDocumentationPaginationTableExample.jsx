@@ -13,8 +13,10 @@ import {
   usePaginatedList
 } from '@utahdts/utah-design-system';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import examplePresidentsData from './examplePresidentsData';
+import pageUrls from '../../../../../routing/pageUrls';
 
 const propTypes = {};
 const defaultProps = {};
@@ -33,6 +35,20 @@ function TableDocumentationPaginationTableExample() {
         id="table__paginating-table-example"
         linkUrl="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationPaginationTableExample.jsx"
       />
+      <p className="mb-spacing-xs">
+        This table uses a <Link to={pageUrls.pagination}>pagination</Link> component to help spread out the data through several pages.
+      </p>
+      <p className="mb-spacing-xs">
+        The table is styled using a combination of classes:
+        <ul>
+          <li>
+            <code>.table--lines-x</code> to add vertical lines between rows,
+          </li>
+          <li>
+            <code>.table--alt</code> to add color to alternating rows.
+          </li>
+        </ul>
+      </p>
       <Accordion
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
