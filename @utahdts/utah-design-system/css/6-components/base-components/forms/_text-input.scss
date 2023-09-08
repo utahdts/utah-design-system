@@ -45,6 +45,9 @@
       [class*=utds-icon-before-]::before {
         font-size: .7rem;
       }
+      &[disabled]:active {
+        transform: translateY(-50%);
+      }
     }
   }
 

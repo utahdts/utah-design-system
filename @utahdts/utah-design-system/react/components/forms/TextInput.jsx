@@ -168,6 +168,7 @@ function TextInput({
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 onClick={clearInput}
                 title="clear input"
+                disabled={isDisabled}
               />
             )
             : null
