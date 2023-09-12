@@ -21,15 +21,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # [--2024Q1S5--]
 ## Added
 - **[Breaking]** TableSortingRule: a11yLabel attribute is now required
+- Data Visualization Documentation
 - Pagination: Sandbox example
 - Pagination: Static examples
+- Spinner Documentation: css/props detail
 - State Symbol: mushroom
-- TableHeadCell: `scope` attribute for accessibility
-- TextInput: property for showing clearing icon
+- Table Documentation: Links to GitHub files for example code
+- Table Sorting: A11y announce, label, and button
 - Table: Accessibility for Sorting
+- TableHeadCell: `scope` attribute for accessibility
+- TableInputFilter: Cancelling `x` icon button
+- TextInput Documentation: css/props detail
+- TextInput: property for showing clearing icon
 
 ## Changed
 - Move button's spinner to be to the left of its right icon
+- Update Table's CSS to match the mocks
 
 ## Deprecated
 
