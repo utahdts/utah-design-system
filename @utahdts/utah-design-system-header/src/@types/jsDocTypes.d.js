@@ -1,23 +1,55 @@
-// @ts-check
+/** @module @utahdts/utah-design-system-header */
 
 // Types of Events: https://www.w3schools.com/jsref/obj_events.asp
 
+/** @typedef {Element} ChildNode */
+
+/** @typedef {(function(MouseEvent | TouchEvent | KeyboardEvent): void)} EventAction */
+
+/** @interface Partial - typescript has "Partial" built-in while JSDoc does not know about "type utilities" */
+
 /**
- *
- * JsDoc types for the utah header. Types help lower the mental load of object properties as well as
- * helps find "bugs" from invalid typings scenarios.
- *
- * @typedef {Element} ChildNode
- *
- * @typedef {(function(MouseEvent | TouchEvent | KeyboardEvent): void)} EventAction
- *
- * @interface Partial - typescript has "Partial" built-in while JSDoc does not know about "type utilities"
- *
- * @typedef {'SMALL' | 'MEDIUM' | 'LARGE'} Size
- * Should be Synced with the enumerations/sizes object
- *
+ * AriaHasPopupType
  * @typedef {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} AriaHasPopupType
- *
+ */
+
+/**
+ * ChildrenMenuType
+ * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuType
+ */
+
+/**
+ * Environments
+ * @typedef {'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest'} Environments
+ */
+
+/**
+ * Events
+ * @typedef {'utahHeaderLoaded' | 'utahHeaderUnloaded'} Events
+ */
+
+/**
+ * these match the popper's position options
+ * PopupPlacement
+ * @typedef {'auto' | 'auto-start' | 'auto-end' |
+ *   'bottom' | 'bottom-start' | 'bottom-end' |
+ *    'left' | 'left-start' | 'left-end' |
+ *    'right' | 'right-start' | 'right-end' |
+ *    'top' | 'top-start' | 'top-end'
+ * } PopupPlacement
+ */
+
+/**
+ * Size
+ * @typedef {'SMALL' | 'MEDIUM' | 'LARGE'} Size
+ */
+
+/**
+ * UtahIdFetchStyle
+ * @typedef {'Automatic' | 'None' | 'Provided'} UtahIdFetchStyle
+ */
+
+/**
  * @typedef MainMenuItem {
  *  // this started as a copy of MenuItem but can diverge to be its own thing
  *  // wordpress has the concept of a menu item that is a link AND has children, but when it goes mobile the link is no longer available
@@ -33,7 +65,7 @@
  *  @property {EventAction} [actionFunction] - onClick function
  *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  *  @property {MenuItem[]} [actionMenu] - children menus
-*
+ *
  *  @property {ChildrenMenuType} [childrenMenuType] - default is "flyout"
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
@@ -41,22 +73,24 @@
  *  @property {boolean} [isSelected] - is this menu item currently a selected thing (on its page?)
  *  @property {string} title - title for the menu item
  * }
- *
- * @typedef {'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest'} Environments
- *
- * @typedef {'utahHeaderLoaded' | 'utahHeaderUnloaded'} Events
- *
+ */
+
+/**
  * @typedef MainMenu {
  *  @property {MainMenuItem[]} menuItems
  *  @property {string} title
  * }
- *
+ */
+
+/**
  * For menu items that are links to other locations
  * @typedef MenuItemUrlAction {
  *  @property {string} url - the url to which to go when interacted with
  *  @property {boolean} [openInNewTab] - true to have the link open in a new window defaults to `false` if not provided
  * }
- *
+ */
+
+/**
  * @typedef MenuItemFunctionUrlAction {
  *  // actually going to call this function to do what you want
  *  @property {EventAction} actionFunction - onClick custom function to call when triggered
@@ -66,7 +100,9 @@
  *  @property {boolean} [openInNewTab] - true to have the link say it will open in a new window; defaults to `false`
  *  @property {string} url - the url to show when hovered
  * }
- *
+ */
+
+/**
  * A menu item in the menu, can have children
  * @typedef MenuItem {
  *  // should be only one of the following three action types
@@ -85,27 +121,25 @@
  *  @property {boolean} [isSelected] - is this menu item currently a selected thing (on its page?)
  *  @property {string} title - title for the menu item
  * }
- *
+ */
+
+/**
  * @typedef PopupMenu {
  *  @property {string} [className] - className to put on the popupMenu
  *  @property {MenuItem[]} menuItems - the menu items to show in the menu
  *  @property {string} title - the title of the menu
  * }
- *
+ */
+
+/**
  * @typedef MediaSizes {
  *   @property {number} mobile - mobile sized render area
  *   @property {number} tabletLandscape - table landscape sized render area
  *   @property {number} tabletPortrait - table portrait sized render area
  * }
- *
- * these match the popper's position options
- * @typedef {'auto' | 'auto-start' | 'auto-end' |
- *   'bottom' | 'bottom-start' | 'bottom-end' |
- *    'left' | 'left-start' | 'left-end' |
- *    'right' | 'right-start' | 'right-end' |
- *    'top' | 'top-start' | 'top-end'
- * } PopupPlacement
- *
+ */
+
+/**
  * @typedef PopupFocusHandlerOptions {
  *  @property {() => boolean} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
  *  @property {function(UIEvent): void} [onClick] custom onclick handler
@@ -113,12 +147,15 @@
  *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
  * }
- *
+ */
+
+/**
  * @typedef RenderPopupOptions {
  *  @property {boolean} [removePopupArrow] allows removing the popup border arrow for flyouts
  * }
- *
- * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuType
+ */
+
+/**
  * @typedef RenderPopupMenuOptions {
  *   @property {ChildrenMenuType} childrenMenuType
  *   - flyout: children in new popup
@@ -126,13 +163,17 @@
  *   - mega-menu: always expanded children
  *   @property {boolean} [removePopupArrow] allows removing the popup border arrow for flyouts
  * }
- *
+ */
+
+/**
  * @typedef Badge {
  *  @property {string} [className] - a class to add to the badge for custom formatting like color
  *  @property {string} label - the label for the screen reader to read describing the badge
  *  @property {number} [value] - the value to show in the badge
  * }
- *
+ */
+
+/**
  * @typedef ActionItem {
  *  // should be only one of the following three action types
  *  @property {EventAction} [actionFunction] - func: onClick callback
@@ -146,26 +187,34 @@
  *  @property {boolean} showTitle - Should the title always be visible?
  *  @property {string} title - Title of the action item (required for accessibility)
  * }
- *
+ */
+
+/**
  * // must use one and only one of the properties here
  * @typedef DomLocationTarget {
  *  @property {string} [cssSelector] - find a target DOM element by document.querySelector(cssSelector) (throws error if not found)
  *  @property {HTMLElement} [element] - insert the header as a child of this given element
  *  @property {function (): HTMLElement} [elementFunction] - insert the header in to whatever element is returned from this function
  * }
- *
+ */
+
+/**
  * @typedef GlobalEventType {
  *  @property {(e: MouseEvent) => void} globalOnClick the current event handler for global on click events
  *  @property {(e: KeyboardEvent) => void} globalOnKeydown tracks when keys are pressed down
  *  @property {(e: KeyboardEvent) => void} globalOnKeyup the current event handler for global on key press events
  * }
- *
+ */
+
+/**
  * Partial is a `typescript` utility that takes a type and makes all its properties optional. This works in vs-code IDEs but may
  * be problematic in other IDEs that don't support typescript "out of the box".
- // eslint-disable-next-line jsdoc/no-undefined-types
  * @typedef {Partial<Settings>} SettingsInput
- *
+ */
+
+/**
  * // User fields from the UtahId authority
+ * @memberof @utahdts/utah-design-system-header
  * @typedef UserInfo {
  *  @property {boolean} authenticated - the current information is ratified with the authority
  *  @property {boolean | null | undefined} [disabled]
@@ -179,15 +228,17 @@
  *  @property {string | undefined} [type]
  *  @property {string | null | undefined} [username]
  * }
- *
- * @typedef {'Automatic' | 'None' | 'Provided'} UtahIdFetchStyle
- *
+ */
+
+/**
  * @typedef UtahIdData {
  *  @property {boolean | null} isDefinitive - true when the user's state is known, false while the ajax request is inflight
  *  @property {string | null} lastError - true when the user's state is known, false while the ajax request is inflight
  *  @property {UserInfo | null} userInfo - the current logged in user info or null if not found
  * }
- *
+ */
+
+/**
  * // only fill in what you want to change, the rest will be defaults
  * // The UtahID header will auto fetch the user from UtahID if it is not told that your application will be controlling the signed in user
  * // This may cause the header to jump as data comes from UtahID and your application gets data from its data source.
@@ -201,19 +252,25 @@
  *  @property {function(UIEvent): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
  *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
  * }
- *
+ */
+
+/**
  * @typedef Logo {
  *  @property {HTMLElement | function(): HTMLElement} [element] an HTML Element to render
  *  @property {string | function(): string} [htmlString] string containing html that will be rendered
  *  @property {string | function(): string} [imageUrl] url to an image
  * }
- *
+ */
+
+/**
  * @typedef FooterSettings {
  *  @property {string | null | undefined} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
  *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
  * }
- *
+ */
+
+/**
  * // !! Make sure to update SettingsShape in the library if this changes !!
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
@@ -230,8 +287,7 @@
  *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
  *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
  * }
- *
  */
 
-// without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
+/** @exports @utahdts/utah-design-system-header */
 export default false;

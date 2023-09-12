@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @typedef {import('../misc/jsDocTypes').Environments} Environments */
+/** @typedef {import('src/@types/jsDocTypes.d').Environments} Environments */
 
 /**
  * An enum for possible environments you can target for UtahID login.

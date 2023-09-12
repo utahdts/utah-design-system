@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @typedef {import('../misc/jsDocTypes').Size} Size */
+/** @typedef {import('src/@types/jsDocTypes.d').Size} Size */
 
 /**
  * @enum { Size }

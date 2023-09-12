@@ -14,8 +14,8 @@ import { renderMenu } from '../popupMenu/renderPopupMenu';
 import renderActionItemBadge from './renderActionItemBadge';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').ActionItem} ActionItem
- * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
+ * @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem
+ * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
  */
 
 /**

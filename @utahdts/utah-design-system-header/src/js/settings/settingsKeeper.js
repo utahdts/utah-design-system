@@ -2,9 +2,9 @@
 import defaultSettings from './defaultSettings';
 
 /**
- * @typedef {import('../misc/jsDocTypes').FooterSettings} FooterSettings
- * @typedef {import('../misc/jsDocTypes').Settings} Settings
- * @typedef {import('../misc/jsDocTypes').SettingsInput} SettingsInput
+ * @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings
+ * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
+ * @typedef {import('src/@types/jsDocTypes.d').SettingsInput} SettingsInput
 */
 
 /**

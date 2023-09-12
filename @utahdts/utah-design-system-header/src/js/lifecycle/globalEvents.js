@@ -2,7 +2,7 @@ import domConstants, { getCssClassSelector } from '../enumerations/domConstants'
 import showHideElement from '../misc/showHideElement';
 
 /**
- * @typedef {import('../misc/jsDocTypes').GlobalEventType} GlobalEventType
+ * @typedef {import('src/@types/jsDocTypes.d').GlobalEventType} GlobalEventType
 */
 
 /** @type {GlobalEventType | null} */
