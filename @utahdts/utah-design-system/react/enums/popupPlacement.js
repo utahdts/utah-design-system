@@ -4,7 +4,7 @@
 // this file also is in the header!
 // see the header twin file for an explanation
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
+/** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
 /** @enum {PopupPlacement} */
 export default {

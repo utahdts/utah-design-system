@@ -14,8 +14,43 @@
 */
 declare module "@utahdts/utah-design-system-header" {
   export type ChildrenMenuType = ('flyout' | 'inline' | 'mega-menu');
+  export const childrenMenuType = {
+    FLYOUT: 'flyout',
+    INLINE: 'inline',
+    MEGA_MENU: 'mega-menu',
+  };
+
   export type Events = 'utahHeaderLoaded' | 'utahHeaderUnloaded';
+  export const events = {
+    HEADER_LOADED: 'utahHeaderLoaded',
+    HEADER_UNLOADED: 'utahHeaderUnloaded',
+  };
+
+  export type PopupPlacement = 'auto' | 'auto-start' | 'auto-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' | 'top' | 'top-start' | 'top-end';
+  export const popupPlacement = {
+    AUTO: 'auto',
+    AUTO_START: 'auto-start',
+    AUTO_END: 'auto-end',
+    BOTTOM: 'bottom',
+    BOTTOM_START: 'bottom-start',
+    BOTTOM_END: 'bottom-end',
+    LEFT: 'left',
+    LEFT_START: 'left-start',
+    LEFT_END: 'left-end',
+    RIGHT: 'right',
+    RIGHT_START: 'right-start',
+    RIGHT_END: 'right-end',
+    TOP: 'top',
+    TOP_START: 'top-start',
+    TOP_END: 'top-end',
+  };
+
   export type Sizes = 'SMALL' | 'MEDIUM' | 'LARGE';
+  export const size = {
+    SMALL: 'SMALL',
+    MEDIUM: 'MEDIUM',
+    LARGE: 'LARGE',
+  };
 
   export function renderDOMSingle(str: string | HTMLElement): HTMLElement;
   export const defaultSettings: Settings;

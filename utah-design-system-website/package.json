@@ -36,6 +36,6 @@
     "vite": "4.4.9",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-mkcert": "1.16.0",
-    "vitest": "0.34.3"
+    "vitest": "0.34.4"
   }
 }

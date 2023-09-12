@@ -48,6 +48,7 @@ function TableSortingRule({
       }
       return () => unregisterSortingRule?.(recordFieldPath);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [!registerSortingRule, !unregisterSortingRule]
   );
 

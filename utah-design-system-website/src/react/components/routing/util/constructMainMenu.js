@@ -9,10 +9,10 @@ import {
 } from '../menus';
 import pageUrls from '../pageUrls';
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').EventAction} EventAction */
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').MainMenu} MainMenu */
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').MainMenuItem} MainMenuItem */
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').MenuItem} MenuItem */
+/** @typedef {import('@utahdts/utah-design-system-header').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system-header').MainMenu} MainMenu */
+/** @typedef {import('@utahdts/utah-design-system-header').MainMenuItem} MainMenuItem */
+/** @typedef {import('@utahdts/utah-design-system-header').MenuItem} MenuItem */
 /** @typedef {import('../../../../typedefs.d').PageUrl} PageUrl */
 /** @typedef {import('../../../../typedefs.d').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('../../../../typedefs.d').WebsiteMainMenuItem} WebsiteMainMenuItem */

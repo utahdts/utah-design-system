@@ -100,7 +100,7 @@ function Popup({
         update().catch((e) => console.error(e));
       }
     },
-    [isVisible]
+    [isVisible, update]
   );
 
   useGlobalKeyEvent({
@@ -108,7 +108,7 @@ function Popup({
     onKeyUp: (e) => onVisibleChange(e, false),
   });
 
-  const onVisibleChangeCallback = useCallback((e) => onVisibleChange(e, false));
+  const onVisibleChangeCallback = useCallback((e) => onVisibleChange(e, false), [onVisibleChange]);
   useClickOutside(popperRef, onVisibleChangeCallback, !isVisible);
 
   return (
