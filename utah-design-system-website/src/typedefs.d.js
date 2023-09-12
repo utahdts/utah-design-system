@@ -8,7 +8,7 @@
 
 /** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
+/** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
 /**
  * PageUrl - it is an enum, but listing ALL the individual pageUrls and keeping it up to date is impossible

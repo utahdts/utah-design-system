@@ -14,7 +14,7 @@ import {
 } from './util/defaultValues';
 import * as headerComponentsExist from './util/doHeaderComponentsExist';
 
-/** @typedef {import('../../../src/js/misc/jsDocTypes').Settings} Settings */
+/** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 /*
  *  There are four main dynamically positioned parts to the Utah Header:

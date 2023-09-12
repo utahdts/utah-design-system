@@ -6,7 +6,7 @@ import useImmerRef from '../../hooks/useImmerRef';
 import SettingsShape from '../../propTypesShapes/header/SettingsShape';
 import UtahHeaderContext from './UtahHeaderContext';
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').SettingsInput} SettingsInput */
+/** @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput */
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -34,7 +34,7 @@ function UtahHeaderContextProvider({ children, defaultSettings }) {
     [settings]
   );
 
-  const providedSettings = useMemo(() => ({ settings, setSettings, settingsRef }), [settings]);
+  const providedSettings = useMemo(() => ({ settings, setSettings, settingsRef }), [setSettings, settings, settingsRef]);
 
   return (
     // Vite HMR was sometimes getting an "unspreadable" value for this context!

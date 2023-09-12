@@ -49,7 +49,7 @@ function TabGroup({
         }
       },
     }),
-    [tabGroupState, value]
+    [onChange, setTabGroupState, tabGroupState, value]
   );
   return (
     <TabGroupContext.Provider value={contextValue}>

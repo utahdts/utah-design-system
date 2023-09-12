@@ -2,7 +2,7 @@
 import { getUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import React from 'react';
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings */
+/** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 // The global context object that tracks the context's state and provides components like the <UtahHeaderContext.Provider/>
 const UtahHeaderContext = React.createContext({

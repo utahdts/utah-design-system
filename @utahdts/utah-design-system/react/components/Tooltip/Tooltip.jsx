@@ -8,7 +8,7 @@ import useRefAlways from '../../hooks/useRefAlways';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
+/** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
 const propTypes = {
   // The content of the tool tip
@@ -92,7 +92,7 @@ function Tooltip({
   // When the children update recalculate the popper position
   useEffect(() => {
     updateRef.current?.();
-  }, [children]);
+  }, [children, updateRef]);
 
   useEffect(
     () => {
@@ -138,7 +138,7 @@ function Tooltip({
         }
       );
     },
-    [draftReferenceElement]
+    [draftReferenceElement, isPopperVisible, startNoPopupTimer, startPopupTimer, updateRef]
   );
 
   return (
