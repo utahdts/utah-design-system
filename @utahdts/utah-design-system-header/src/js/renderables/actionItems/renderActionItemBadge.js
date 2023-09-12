@@ -6,7 +6,7 @@ import renderDOMSingle from '../../misc/renderDOMSingle';
 import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').Badge} Badge
+ * @typedef {import('src/@types/jsDocTypes.d').Badge} Badge
  */
 
 /**

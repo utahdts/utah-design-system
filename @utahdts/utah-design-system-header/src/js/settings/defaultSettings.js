@@ -2,7 +2,7 @@
 import sizes from '../enumerations/sizes';
 
 /**
- * @typedef {import('../misc/jsDocTypes').Settings} Settings
+ * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
 */
 
 /**

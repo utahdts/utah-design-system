@@ -23,7 +23,7 @@ import hookupTooltip from '../tooltip/hookupTooltip';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').PopupMenu} PopupMenu
+ * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
  */
 
 /**

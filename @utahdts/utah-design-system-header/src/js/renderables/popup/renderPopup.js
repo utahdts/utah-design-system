@@ -8,7 +8,7 @@ import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').RenderPopupOptions} RenderPopupOptions
+ * @typedef {import('src/@types/jsDocTypes.d').RenderPopupOptions} RenderPopupOptions
  */
 
 /**

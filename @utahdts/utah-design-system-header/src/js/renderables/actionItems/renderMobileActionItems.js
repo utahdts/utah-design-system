@@ -6,8 +6,8 @@ import mobileMenuInteractionHandler from '../mobile/mobileMenuInteractionHandler
 import renderMobileActionItem from './renderMobileActionItem';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').ActionItem} ActionItem
- * @typedef {import('../../misc/jsDocTypes').AriaHasPopupType} AriaHasPopupType
+ * @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem
+ * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
 */
 
 export default function renderMobileActionItems() {

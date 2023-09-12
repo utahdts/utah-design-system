@@ -13,8 +13,8 @@ import renderDOMSingle from '../../misc/renderDOMSingle';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import renderFooterCopyrightYear from './renderFooterCopyrightYear';
 
-/** @typedef {import('../../misc/jsDocTypes').DomLocationTarget} DomLocationTarget */
-/** @typedef {import('../../misc/jsDocTypes').Settings} Settings */
+/** @typedef {import('src/@types/jsDocTypes.d').DomLocationTarget} DomLocationTarget */
+/** @typedef {import('src/@types/jsDocTypes.d').Settings} Settings */
 
 /**
  * @typedef PreviousFooterSettings {

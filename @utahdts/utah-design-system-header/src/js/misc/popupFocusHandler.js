@@ -43,8 +43,8 @@ import checkForError from './checkForError';
 */
 
 /**
- * @typedef {import('../misc/jsDocTypes').AriaHasPopupType} AriaHasPopupType
- * @typedef {import('../misc/jsDocTypes').PopupFocusHandlerOptions} PopupFocusHandlerOptions
+ * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
+ * @typedef {import('src/@types/jsDocTypes.d').PopupFocusHandlerOptions} PopupFocusHandlerOptions
  */
 
 /**

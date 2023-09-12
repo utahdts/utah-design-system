@@ -10,7 +10,7 @@
 // dependency be "internal". It would be hoped to have the library as a dependency and have it tree shaken
 // so it would only grab the pieces it uses. But that's more config for another time.
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').PopupPlacement} PopupPlacement */
+/** @typedef {import('src/@types/jsDocTypes.d').PopupPlacement} PopupPlacement */
 
 /** @enum {PopupPlacement} */
 export default {

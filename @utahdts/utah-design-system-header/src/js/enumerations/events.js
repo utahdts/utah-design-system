@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @typedef {import('../misc/jsDocTypes').Events} Events */
+/** @typedef {import('src/@types/jsDocTypes.d').Events} Events */
 
 /**
  * @enum {Events}

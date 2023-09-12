@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @typedef {import('../misc/jsDocTypes').ChildrenMenuType} ChildrenMenuType */
+/** @typedef {import('src/@types/jsDocTypes.d').ChildrenMenuType} ChildrenMenuType */
 
 /**
  * menu types for the header

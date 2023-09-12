@@ -4,7 +4,7 @@ import valueOrFunctionValue from '../../misc/valueOrFunctionValue';
 import { hideMobileMenu, showMobileMenu } from './util/showHideHamburgerElements';
 
 /**
- * @typedef {import('../../misc/jsDocTypes').AriaHasPopupType} AriaHasPopupType
+ * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
 */
 
 /**
