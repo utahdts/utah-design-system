@@ -81,6 +81,7 @@ import GettingStartedDesigner from '../websiteContent/resources/GettingStartedDe
 import GettingStartedDeveloper from '../websiteContent/resources/GettingStartedDeveloper';
 import Search from '../websiteContent/Search';
 import DataVisualizationsDocumentation from '../websiteContent/guidelines/DataVisualizationsDocumentation';
+import TextAreaDocumentation from '../websiteContent/library/components/forms/TextArea/TextAreaDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
@@ -715,7 +716,7 @@ const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   },
   textArea: {
-    content: PlaceHolderDocumentation,
+    content: TextAreaDocumentation,
     link: pageUrls.textArea,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Text Area',
