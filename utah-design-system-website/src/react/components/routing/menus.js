@@ -209,6 +209,9 @@ export const menuLibraryComponentsSecondary = {
   ],
 };
 
+// sort forms sub-menu alphabetically
+menuLibraryComponentsSecondary.menuItems.find((item) => (item.id === 'components__forms'))?.children.sort((a, b) => a.title.localeCompare(b.title));
+
 /** @type {WebsiteMainMenu} */
 export const menuLibraryPatternsSecondary = {
   header: 'Patterns',
