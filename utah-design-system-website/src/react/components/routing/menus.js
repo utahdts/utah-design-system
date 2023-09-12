@@ -146,6 +146,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.characterCount.link, title: pages.characterCount.pageTitle },
         { link: pages.textInput.link, title: pages.textInput.pageTitle },
+        { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
       ],
     },
@@ -207,6 +208,9 @@ export const menuLibraryComponentsSecondary = {
     },
   ],
 };
+
+// sort forms sub-menu alphabetically
+menuLibraryComponentsSecondary.menuItems.find((item) => (item.id === 'components__forms'))?.children.sort((a, b) => a.title.localeCompare(b.title));
 
 /** @type {WebsiteMainMenu} */
 export const menuLibraryPatternsSecondary = {
