@@ -133,6 +133,11 @@ function Button({
       }
       {children}
       {
+        iconRight
+          ? <span className="button--icon button--icon-right">{iconRight}</span>
+          : null
+      }
+      {
         isBusy
           ? (
             <Spinner
