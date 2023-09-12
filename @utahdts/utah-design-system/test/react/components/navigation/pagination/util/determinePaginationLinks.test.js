@@ -1,9 +1,22 @@
-import { describe, expect, test } from 'vitest';
+import {
+  describe,
+  expect,
+  test,
+  vi,
+} from 'vitest';
 import determinePaginationLinks from '../../../../../../react/components/navigation/pagination/util/determinePaginationLinks';
 
 describe('determinePaginationLinks: scenarios', () => {
+  // eslint-disable-next-line no-console
+  const consoleWarn = console.warn;
+  // eslint-disable-next-line no-console
+  console.warn = vi.fn();
+
   test.each([
     // tests: [#Pages, pageIndex, pageIndexesResult]
+    // even if zero pages and current page 1, still reports 1
+    [-1, 1, [0]],
+    [0, 1, [0]],
 
     // even if zero pages, still reports one page
     [0, 0, [0]],
@@ -89,41 +102,6 @@ describe('determinePaginationLinks: scenarios', () => {
       ));
     }
   );
-
-  test('determinePaginationLinks: faults', () => {
-    expect(() => determinePaginationLinks({ currentPageIndex: 1, numberOfPages: 0 }))
-      .toThrow('determinePaginationLinks: currentPageIndex out of range 1:0');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: -1, numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: currentPageIndex out of range -1:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: 100, numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: currentPageIndex out of range 100:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: NaN, numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: bad currentPageIndex number NaN:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: '0', numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: bad currentPageIndex number 0:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: 'test', numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: bad currentPageIndex number test:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: null, numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: bad currentPageIndex number null:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: undefined, numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: bad currentPageIndex number undefined:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: Infinity, numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: currentPageIndex out of range Infinity:100');
-
-    expect(() => determinePaginationLinks({ currentPageIndex: -Infinity, numberOfPages: 100 }))
-      .toThrow('determinePaginationLinks: currentPageIndex out of range -Infinity:100');
-  });
-
-  test('determinePaginationLinks: stupid whatifs', () => {
-    expect(() => determinePaginationLinks({ currentPageIndex: 0, numberOfPages: Infinity }))
-      .toThrow('Invalid array length');
-  });
+  // eslint-disable-next-line no-console
+  console.warn = consoleWarn;
 });
