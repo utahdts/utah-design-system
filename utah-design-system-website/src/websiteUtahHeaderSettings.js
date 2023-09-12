@@ -5,7 +5,7 @@ import { sizes } from '@utahdts/utah-design-system-header';
 import logoPng from './static/images/designSystemCircleGray.png';
 
 /**
- * @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').SettingsInput} SettingsInput
+ * @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput
 */
 
 /**

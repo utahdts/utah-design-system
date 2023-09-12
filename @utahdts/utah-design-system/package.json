@@ -66,17 +66,17 @@
     "react-popper": "2.3.0",
     "react-router-dom": "^6.14.2",
     "use-immer": "0.9.0",
-    "uuid": "9.0.0"
+    "uuid": "9.0.1"
   },
   "devDependencies": {
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react": "4.0.4",
-    "@vitest/coverage-istanbul": "0.34.3",
+    "@vitest/coverage-istanbul": "0.34.4",
     "jsdom": "22.1.0",
     "sass": "1.66.1",
     "vite": "4.4.9",
-    "vitest": "0.34.3"
+    "vitest": "0.34.4"
   },
   "type": "module"
 }

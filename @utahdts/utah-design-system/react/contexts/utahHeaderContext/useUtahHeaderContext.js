@@ -2,8 +2,8 @@
 import { useContext } from 'react';
 import UtahHeaderContext from './UtahHeaderContext';
 
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings */
-/** @typedef {import('@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').SettingsInput} SettingsInput */
+/** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
+/** @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput */
 
 // This hook provides the context's data; most everything should just use this hook and nothing else
 /**

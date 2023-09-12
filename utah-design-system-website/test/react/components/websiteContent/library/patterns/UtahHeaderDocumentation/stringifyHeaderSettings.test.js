@@ -4,7 +4,7 @@ import { describe, expect, test } from 'vitest';
 import stringifyHeaderSettings, { FUNCTION_PLACEHOLDER } from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';
 
 /**
- * @typedef {import('../../../../../../../../@utahdts/utah-design-system-header/src/js/misc/jsDocTypes').Settings} Settings
+ * @typedef {import('@utahdts/utah-design-system-header').Settings} Settings
  */
 
 const MATCH_BASIC_FIELDS = [
