@@ -18,7 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Security
 
-# [--2024Q1S5--]
+# [1.5.0] 09/12/2023
+
 ## Added
 - **[Breaking]** TableSortingRule: a11yLabel attribute is now required
 - Data Visualization Documentation
@@ -48,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Security
 
-# [1.4.0] 08/29/2024
+# [1.4.0] 08/29/2023
 
 ## Added
 - Accessibility: Global Announcer context and components
@@ -91,7 +92,7 @@ N/A
 ## Security
 N/A
 
-# [1.3.0] 08/17/2024
+# [1.3.0] 08/17/2023
 
 ## Added
 N/A
@@ -111,7 +112,7 @@ N/A
 N/A
 
 
-# [1.2.1] - 2024-08-15
+# [1.2.1] - 08/15/2023
 
 ## Added
 - Back to Top documentation
