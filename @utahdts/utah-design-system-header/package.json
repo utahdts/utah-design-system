@@ -30,11 +30,7 @@
   ],
   "scripts": {
     "build": "vite build",
-    "buildTypesTsc": "cp ./src/@types/jsDocTypes.d.js ./dist/index.d.ts",
-    "buildTypesCleanUpDeclare": "replace '^declare module.*$' '' dist/index.d.ts",
-    "buildTypesCleanUpClose": "replace '^}$' '' dist/index.d.ts",
-    "buildTypesCleanUp": "run-s buildTypesCleanUpDeclare buildTypesCleanUpClose",
-    "buildTypes": "run-s buildTypesTsc buildTypesCleanUp",
+    "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
     "cleani": "run-s clean npmi",
     "cleanDist": "rimraf ./dist",
