@@ -1,4 +1,6 @@
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 
@@ -30,6 +32,17 @@ const defaultProps = {
   value: NaN,
 };
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode | null} [props.children]
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.id]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {number} [props.size]
+ * @param {number} [props.strokeWidth]
+ * @param {number} [props.value]
+ * @returns {JSX.Element}
+ */
 function Spinner({
   children,
   className,
@@ -41,22 +54,22 @@ function Spinner({
   ...rest
 }) {
   const strokeWidthUse = Number.isNaN(strokeWidth) ? 10 : strokeWidth;
-  const strokeWidthPlus1Use = Number.isNaN(strokeWidth) ? 10 : (strokeWidth + 1);
+  const strokeWidthPlus1Use = Number.isNaN(strokeWidth) ? 10 : ((strokeWidth ?? 0) + 1);
   const widthUse = Number.isNaN(size) ? undefined : size;
   return (
     <div
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow={(Number.isNaN(value) ? undefined : value * 100)}
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={(Number.isNaN(value) ? undefined : (value ?? 0) * 100)}
       className={joinClassNames(
         className,
         'spinner',
         Number.isNaN(value) ? 'spinner--indeterminate' : 'spinner--determinate'
       )}
-      id={id}
+      id={id ?? undefined}
       ref={innerRef}
       role="progressbar"
-      aria-label={Number.isNaN(value) ? 'Loading...' : `Loading ${(value * 100)}% complete`}
+      aria-label={Number.isNaN(value) ? 'Loading...' : `Loading ${((value ?? 0) * 100)}% complete`}
       {...rest}
     >
       <div className="spinner__animation">
@@ -76,7 +89,7 @@ function Spinner({
             d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
             pathLength="360"
             strokeDasharray="360 360"
-            strokeDashoffset={360 * (1 - (Number.isNaN(value) ? 0.25 : value))}
+            strokeDashoffset={360 * (1 - (Number.isNaN(value) ? 0.25 : (value ?? 0)))}
             // add just a little stroke width to prevent the background gray path from bleeding along the edges
             // which was causing a "jagged" look to the blue path
             strokeWidth={strokeWidthPlus1Use}
