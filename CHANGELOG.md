@@ -18,6 +18,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Security
 
+# [1.5.1] 09/13/2023
+
+## Added
+
+## Changed
+
+## Deprecated
+
+## Removed
+
+## Fixed
+- Fix svg images merge issue
+
+## Security
 # [1.5.0] 09/12/2023
 
 ## Added
