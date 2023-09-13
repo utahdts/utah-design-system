@@ -7,8 +7,6 @@ import {
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextInput
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import textInputSearchPng from '../../../../../../../static/images/screenshots/components/textInput/textInput-search.png';
-import LightBox from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
@@ -18,6 +16,7 @@ import TextInputExampleProps from './TextInputExampleProps';
 import TextInputExampleRender from './TextInputExampleRender';
 import TextInputCssClassesDocumentation from './TextInputCssClassesDocumentation';
 import TextInputPropsDocumentation from './TextInputPropsDocumentation';
+import TextInputSearchExample from './TextInputSearchExample';
 
 const propTypes = {};
 const defaultProps = {};
@@ -65,7 +64,7 @@ function TextInputDocumentation() {
 
       <StaticExample
         title="Search Input"
-        renderedExample={<LightBox image={textInputSearchPng} alt="Example Text Input Search" className="flex-4up-gap" />}
+        renderedExample={<TextInputSearchExample />}
         quickTips={(
           <ul>
             <li>The search input box should have a placeholder. The label is still visible to screen readers. (Use the css class <code>visually-hidden</code> to hide the label on the screen.)</li>
