@@ -198,7 +198,7 @@ function TableWrapper({
       setState,
       state,
     }),
-    [setState, state, stateRef]
+    [state]
   );
   return (
     <TableContext.Provider value={contextValue}>
