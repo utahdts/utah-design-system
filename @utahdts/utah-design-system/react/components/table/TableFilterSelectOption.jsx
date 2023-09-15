@@ -1,4 +1,6 @@
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import SelectOption from '../forms/SelectOption';
 
@@ -16,19 +18,25 @@ const defaultProps = {
   id: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {string | null} [props.className]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {string} props.label
+ * @param {string | number} props.value
+ * @returns {JSX.Element}
+ */
 function TableFilterSelectOption({
-  className,
-  innerRef,
-  id,
+  className = null,
+  innerRef = null,
   label,
   value,
   ...rest
 }) {
   return (
     <SelectOption
-      className={className}
-      innerRef={innerRef}
-      id={id}
+      className={className ?? undefined}
+      innerRef={innerRef ?? undefined}
       label={label}
       value={value}
       // eslint-disable-next-line react/jsx-props-no-spreading

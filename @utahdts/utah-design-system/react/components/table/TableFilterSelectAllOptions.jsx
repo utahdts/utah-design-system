@@ -1,14 +1,14 @@
+// @ts-check
 import identity from 'lodash/identity';
 import uniq from 'lodash/uniq';
 import PropTypes from 'prop-types';
-import useStateEffect from '../../hooks/useStateEffect';
+import React, { useMemo } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import chainSorters from '../../util/chainSorters';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
 import SelectOption from '../forms/SelectOption';
 import useTableContext from './hooks/useTableContext';
-import TableContext from './util/TableContext';
 import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
@@ -32,22 +32,33 @@ const defaultProps = {
   value: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {string | null} [props.className]
+ * @param {string | number | null} [props.defaultValue]
+ * @param {boolean | null} [props.exactMatch]
+ * @param {string | null} [props.id]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {(() => {}) | null} [props.onChange]
+ * @param {string} props.recordFieldPath
+ * @param {string | null} [props.value]
+ * @returns {JSX.Element}
+ */
 function TableFilterSelectAllOptions({
-  className,
-  defaultValue,
-  exactMatch,
-  id,
-  innerRef,
-  onChange,
+  className = null,
+  defaultValue = null,
+  exactMatch = null,
+  id = null,
+  innerRef = null,
+  onChange = null,
   recordFieldPath,
-  value,
+  value = null,
   ...rest
 }) {
   const {
     currentOnChange,
     currentValue,
   } = useCurrentValuesFromStateContext({
-    context: TableContext,
     contextStatePath: recordFieldPath,
     defaultOnChange: (e) => e.target.value,
     defaultValue,
@@ -55,8 +66,8 @@ function TableFilterSelectAllOptions({
     value,
   });
   const { allData } = useTableContext();
-  const [dataOptions] = useStateEffect({
-    calculateValueFn: () => (
+  const dataOptions = useMemo(
+    () => (
       // get all possible values from each datum's `recordFieldPath`
       uniq(
         allData.map((datum) => datum[recordFieldPath])
@@ -67,14 +78,19 @@ function TableFilterSelectAllOptions({
           (a, b) => (a > b ? 1 : 0),
         ]))
     ),
-    dependencyList: [allData],
-  });
+    [allData]
+  );
 
   // keep the default settings object from being recreated every render so that it does not trigger filter registration
-  useTableFilterRegistration(recordFieldPath, exactMatch);
+  useTableFilterRegistration(recordFieldPath, !!exactMatch);
 
   return (
-    <th className={joinClassNames('table-header__cell table-header__cell--filter-select', className)} id={id} ref={innerRef} {...rest}>
+    <th
+      className={joinClassNames('table-header__cell table-header__cell--filter-select', className)}
+      id={id ?? undefined}
+      ref={innerRef}
+      {...rest}
+    >
       <Select
         id={`table-filter-select-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}
@@ -84,8 +100,7 @@ function TableFilterSelectAllOptions({
         {...rest}
       >
         <SelectOption
-          className={className}
-          id={id ? `${id}-empty` : null}
+          className={className ?? undefined}
           label=""
           value=""
           // eslint-disable-next-line react/jsx-props-no-spreading
@@ -95,8 +110,7 @@ function TableFilterSelectAllOptions({
           // create select options for each possible data value
           dataOptions.map((dataOption) => (
             <SelectOption
-              className={className}
-              id={id ? `${id}-${dataOption}` : null}
+              className={className ?? undefined}
               key={`${id || 'table-filter-select-all-options'}-${recordFieldPath}-${dataOption}`}
               label={dataOption}
               value={dataOption}

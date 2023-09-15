@@ -1,7 +1,7 @@
 /**
  * Oftentimes you want to sort by multiple levels so that if the first level of sorting results in an equals result then compare the next level
  *
- * @param {[(a: any, b: any) => number]} sorters funcs in sort order that take an a & b parameter and return the comparison result; ie (a, b) => a - b
+ * @param {((a: any, b: any) => number)[]} sorters sorter funcs in sort order; ie (a, b) => a - b
  * @param {any} [sorterParams] can add extra parameters to pass in to each sorter; these are spread in to the sorter
  * @return {(a: any, b: any) => number} func that takes a & b parameters and if the comparison result is zero then calls the next sorter in the array
  */

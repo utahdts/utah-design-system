@@ -1,10 +1,11 @@
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TextInput from '../forms/TextInput';
-import TableContext from './util/TableContext';
-import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 import useTableFilterRegistration from './hooks/useTableFilterRegistration';
+import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
 const propTypes = {
   className: PropTypes.string,
@@ -26,15 +27,27 @@ const defaultProps = {
   value: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.defaultValue]
+ * @param {boolean | null} [props.exactMatch]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {string | null} [props.id]
+ * @param {(() => {}) | null} [props.onChange]
+ * @param {string} props.recordFieldPath
+ * @param {string | null} [props.value]
+ * @returns {JSX.Element}
+ */
 function TableFilterTextInput({
-  className,
-  defaultValue,
-  exactMatch,
-  innerRef,
-  id,
-  onChange,
+  className = null,
+  defaultValue = null,
+  exactMatch = false,
+  innerRef = null,
+  id = null,
+  onChange = null,
   recordFieldPath,
-  value,
+  value = null,
   ...rest
 }) {
   const {
@@ -42,7 +55,6 @@ function TableFilterTextInput({
     currentValue,
     setValue,
   } = useCurrentValuesFromStateContext({
-    context: TableContext,
     contextStatePath: recordFieldPath,
     defaultOnChange: (e) => e.target.value,
     defaultValue,
@@ -50,10 +62,10 @@ function TableFilterTextInput({
     value,
   });
 
-  useTableFilterRegistration(recordFieldPath, exactMatch);
+  useTableFilterRegistration(recordFieldPath, !!exactMatch);
 
   return (
-    <th className={joinClassNames('table-header__cell table-header__cell--filter-text-input', className)} id={id} ref={innerRef}>
+    <th className={joinClassNames('table-header__cell table-header__cell--filter-text-input', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
         id={`table-filter-text-input-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}

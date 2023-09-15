@@ -1,3 +1,4 @@
+// @ts-check
 import PropTypes from 'prop-types';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
@@ -8,6 +9,15 @@ import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import valueAtPath from '../../util/state/valueAtPath';
 import TableContext from './util/TableContext';
+
+/**
+ * @template TableSortingRuleT
+ * @typedef {import('../../jsDocTypes').TableSortingRule<TableSortingRuleT>} TableSortingRule
+*/
+/**
+ * @template TableContextStateT
+ * @typedef {import('../../jsDocTypes').TableContextState<TableContextStateT>} TableContextState
+ */
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -21,7 +31,15 @@ const defaultProps = {
   id: null,
 };
 
+/**
+ * @template SortByFieldTypeDataT
+ * @param {TableSortingRule<SortByFieldTypeDataT>} sortingRule
+ * @param {any} fieldValueA
+ * @param {any} fieldValueB
+ * @returns {number}
+ */
 function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
+  /** @type {number} */
   let result;
   switch (sortingRule.fieldType) {
     case tableSortingRuleFieldType.DATE:
@@ -43,20 +61,14 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
 }
 
 /**
- * tableData has both allData and filteredData separated by component guid. This function
- * combines a particular data type in to a single array.
- * @param {{string: Object[]}} tableData
- * @param {'allData'|'filteredData'} whichField
- * @returns {Object[]}
+ * @template TableDataT
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {string} [props.id]
+ * @returns {JSX.Element}
  */
-function combineData(tableData, whichField) {
-  return (
-    Object.values(tableData)
-      .map((tableDatum) => tableDatum[whichField])
-      .flat()
-  );
-}
-
 function TableWrapper({
   children,
   className,
@@ -64,46 +76,39 @@ function TableWrapper({
   id,
   ...rest
 }) {
-  const [state, setState] = useImmer({
-    // when sorting, should the sort order for a rule be the "default"
-    // ie a rule defaults to ascending so when currentSortingOrderIsDefault is true then sort that rule ascending
-    currentSortingOrderIsDefault: true,
-    // [recordFieldPath]: filterValue <== the current filtering values from <TableFilter... /> components
-    filterValues: {
-      // context level values from a <TableFilters /> component (<TableFilter... /> child components would override/chain these values)
-      // defaultValue - object of [recordFieldPath]:value pairs for filtering inputs
-      defaultValue: null,
-      // onChange to call for any filter change
-      onChange: null,
-      // value - object of [recordFieldPath]:{value, exactMatch, otherFilterSpecificSettings} for filtering inputs
-      value: {},
-    },
-    // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order
-    sortingRules: {},
+  /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('../../jsDocTypes').TableContextState<TableDataT>>]} */
+  const [state, setState] = useImmer(
+    /** @returns {TableContextState<TableDataT>} */
+    () => ({
+      // when sorting, should the sort order for a rule be the "default"
+      // ie a rule defaults to ascending so when currentSortingOrderIsDefault is true then sort that rule ascending
+      currentSortingOrderIsDefault: true,
+      // [recordFieldPath]: filterValue <== the current filtering values from <TableFilter... /> components
+      filterValues: {
+        // context level values from a <TableFilters /> component (<TableFilter... /> child components would override/chain these values)
+        // defaultValue - object of [recordFieldPath]:value pairs for filtering inputs
+        defaultValue: null,
+        // onChange to call for any filter change
+        onChange: null,
+        // value - object of [recordFieldPath]:{value, exactMatch, otherFilterSpecificSettings} for filtering inputs
+        value: {},
+      },
+      // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order
+      sortingRules: {},
 
-    // data for this table separated out by component GUID
-    //
-    // A table may have multiple dynamic and/or static sections of data yet some things, like
-    // a Table Select Filter that wants to show all the possible values, wants to know what all
-    // the possible data is for the table. Each data section needs to be able to add/remove its
-    // data since the data could morph at each render per component. This `tableData` then holds the data per
-    // component (use useComponentGuid() hook to get a guid) so that the component can add/remove its data
-    // without zapping other components' data but still give a full picture of all the data in the end.
-    // Use the context's exposed `setBodyDataForComponentGuid` to manipulate table data for a component
-    //
-    // { [guid]: {allData, filteredData }} - allData = all the records, filteredData = just the records being shown
-    tableData: {},
+      tableData: { allData: [], filteredData: [] },
 
-    // (func) when table sorting changes, this callback will be called: from <TableSortingRules>
-    tableSortingOnChange: null,
-    // (string | [string]) the current recordFieldPath name for the current header being sorted
-    // array if <TableHeadCell> specifies sort order; otherwise, sort fields in registration order
-    // set when a TableHeadCell is selected and sets its tableSortingFieldPaths as the tableSortingFieldPath
-    // TableBodyData uses this value to sort its records
-    tableSortingFieldPath: null,
-    // a TableHeadCell can provide tableSortingFieldPaths to customize which sorters to use in which order
-    tableSortingFieldPaths: null,
-  });
+      // (func) when table sorting changes, this callback will be called: from <TableSortingRules>
+      tableSortingOnChange: null,
+      // (string | [string]) the current recordFieldPath name for the current header being sorted
+      // array if <TableHeadCell> specifies sort order; otherwise, sort fields in registration order
+      // set when a TableHeadCell is selected and sets its tableSortingFieldPaths as the tableSortingFieldPath
+      // TableBodyData uses this value to sort its records
+      tableSortingFieldPath: null,
+      // a TableHeadCell can provide tableSortingFieldPaths to customize which sorters to use in which order
+      tableSortingFieldPaths: null,
+    })
+  );
   const stateRef = useRefAlways(state);
   const tableSortingFieldPathOldRef = useRef(state.tableSortingFieldPath);
   const tableSortingFieldPathsOldRef = useRef(state.tableSortingFieldPaths);
@@ -144,9 +149,8 @@ function TableWrapper({
       // for analytic usage, rendering is generally done at the component level and not at the context level
       // because each data section handles it differently. This allData is useful for filtering and other
       // global table tooling that pokes through the data.
-      allData: combineData(stateRef.current.tableData, 'allData'),
-      // ATTOW: filteredData may/may not work with a TableRow and TableFilters?
-      filteredData: combineData(stateRef.current.tableData, 'filteredData'),
+      allData: stateRef.current.tableData.allData,
+      filteredData: stateRef.current.tableData.filteredData,
 
       // register a new rule for sorting, generally from a <TableSortingRule>
       registerSortingRule: (sortingRule) => setState((draftState) => {
@@ -185,13 +189,17 @@ function TableWrapper({
 
       /**
        * data recording per table body section so as to form a full picture of the currently exposed data
-       * @param {string} guid the guid tied to this specific component instance (use useComponentGuid())
-       * @param {any[] | null} data the data for this component (or null on unmount)
-       * @param {any[] | null} [filteredData] the filtered data for this component (optional, defaults to [])
+       * @param {TableDataT[] | null} allData the data for this component (or null on unmount)
+       * @param {TableDataT[] | null} [filteredData] the filtered data for this component (optional, defaults to [])
        */
-      setBodyDataForComponentGuid: (guid, allData, filteredData) => {
+      setBodyData: (allData, filteredData) => {
         setState((draftState) => {
-          draftState.tableData[guid] = { allData, filteredData: filteredData || [] };
+          draftState.tableData = {
+            // @ts-ignore
+            allData: allData ?? [],
+            // @ts-ignore
+            filteredData: filteredData || [],
+          };
         });
       },
 
@@ -200,6 +208,7 @@ function TableWrapper({
     }),
     [state]
   );
+
   return (
     <TableContext.Provider value={contextValue}>
       <div className={joinClassNames('table__wrapper', className)} id={id} ref={innerRef} {...rest}>

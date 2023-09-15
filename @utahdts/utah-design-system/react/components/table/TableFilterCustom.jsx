@@ -1,31 +1,46 @@
+// @ts-check
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TableContext from './util/TableContext';
 
+/** @typedef {import('../../jsDocTypes').TableContextStateFilterValue} TableContextStateFilterValue */
+/** @typedef {import('../../jsDocTypes').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
+
 const propTypes = {
   children: PropTypes.func.isRequired,
   className: PropTypes.string,
-  innerRef: RefShape,
   id: PropTypes.string,
+  innerRef: RefShape,
 };
 const defaultProps = {
   className: null,
-  innerRef: null,
   id: null,
+  innerRef: null,
 };
 
+/** @typedef {(setter: ((TableContextStateFilterValueObject) => void)) => void} SetterFunc */
+
+/**
+ * @template TableDataT
+ * @param {Object} props
+ * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => JSX.Element | null} props.children
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.id]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @returns {JSX.Element}
+ */
 function TableFilterCustom({
   children,
-  className,
-  innerRef,
-  id,
+  className = null,
+  id = null,
+  innerRef = null,
   ...rest
 }) {
   const { setState: setStateContext, state: stateContext } = useContext(TableContext);
   return (
-    <th className={joinClassNames('table-header__cell', className)} id={id} ref={innerRef} {...rest}>
+    <th className={joinClassNames('table-header__cell', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       {children({
         // current filter values (key => value)
         filterValues: stateContext.filterValues.value,

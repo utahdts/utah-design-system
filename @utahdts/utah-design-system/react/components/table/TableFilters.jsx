@@ -1,13 +1,16 @@
+// @ts-check
 import PropTypes from 'prop-types';
-import { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TableContext from './util/TableContext';
 
+/** @typedef {import('../../jsDocTypes').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
+
 const propTypes = {
   children: PropTypes.node.isRequired,
-  defaultValue: PropTypes.shape({}),
   className: PropTypes.string,
+  defaultValue: PropTypes.shape({}),
   innerRef: RefShape,
   id: PropTypes.string,
   // fires when any filter changes; ie ({ recordFieldPath, value }) => { ... do something ... }
@@ -24,14 +27,25 @@ const defaultProps = {
   value: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string | null} [props.className]
+ * @param {TableContextStateFilterValueObject | null} [props.defaultValue]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {string | null} [props.id]
+ * @param {((e: Event) => void) | null} [props.onChange]
+ * @param {TableContextStateFilterValueObject | null} [props.value]
+ * @returns {JSX.Element}
+ */
 function TableFilters({
   children,
-  className,
-  defaultValue,
-  innerRef,
-  id,
-  onChange,
-  value,
+  className = null,
+  defaultValue = null,
+  innerRef = null,
+  id = null,
+  onChange = null,
+  value = null,
   ...rest
 }) {
   const { setState, state } = useContext(TableContext);
@@ -50,8 +64,8 @@ function TableFilters({
       }
 
       setState((draftState) => {
-        draftState.filterValues.defaultValue = defaultValue;
-        draftState.filterValues.onChange = onChange;
+        draftState.filterValues.defaultValue = defaultValue ?? null;
+        draftState.filterValues.onChange = onChange ?? null;
         draftState.filterValues.value = value || draftState.filterValues.value;
       });
 
@@ -77,7 +91,7 @@ function TableFilters({
   );
 
   return (
-    <tr className={joinClassNames('table-header__row table-header__row--filters', className)} id={id} ref={innerRef} {...rest}>
+    <tr className={joinClassNames('table-header__row table-header__row--filters', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       {children}
     </tr>
   );
