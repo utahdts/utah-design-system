@@ -30,8 +30,13 @@
         padding: 0 var(--spacing-xl) 0 var(--spacing-xs);
       }
     }
+    &.text-area {
+      &--clear-icon-visible {
+        padding: var(--spacing-xs) var(--spacing-xl) var(--spacing-xs) var(--spacing-xs);
+      }
+    }
   }
-  .text-input {
+  .text-input, .text-area {
     &__inner-wrapper {
       position: relative;
     }
@@ -48,6 +53,12 @@
       &[disabled]:active {
         transform: translateY(-50%);
       }
+    }
+  }
+
+  .text-area {
+    &__clear-button {
+      top: var(--spacing);
     }
   }
 
