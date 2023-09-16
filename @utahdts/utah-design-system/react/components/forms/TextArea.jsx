@@ -14,7 +14,10 @@ import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAr
 
 const propTypes = {
   className: PropTypes.string,
-  cols: PropTypes.number,
+  cols: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   defaultValue: PropTypes.string,
   errorMessage: PropTypes.string,
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
@@ -32,7 +35,10 @@ const propTypes = {
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
-  rows: PropTypes.number,
+  rows: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   value: PropTypes.string,
   wrapperClassName: PropTypes.string,
 };
@@ -139,7 +145,7 @@ function TextArea({
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-area', wrapperClassName)} ref={innerRef}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id} className={labelClassName}>
+      <label htmlFor={id} className={joinClassNames('text-area__label', labelClassName)}>
         {label}
         {isRequired ? <RequiredStar /> : null}
       </label>

@@ -57,12 +57,22 @@
   }
 
   .text-area {
+    &__label {
+      display: block;
+    }
+    &__inner-wrapper {
+      // need to turn wrapper into inline-block
+      // for when textarea uses cols and rows
+      // rather than CSS - when clear button is displayed
+      display: inline-block;
+    }
     &__clear-button {
       top: var(--spacing);
     }
   }
 
   textarea {
+    width: auto;
     padding: var(--spacing-xs);
   }
 }

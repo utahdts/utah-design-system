@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import { TextArea } from '@utahdts/utah-design-system';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import pageUrls from '../../../../../routing/pageUrls';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import LightBox from '../../../../../lightbox/LightBox';
-import textAreaScreenshot from '../../../../../../../static/images/screenshots/components/textarea/textArea.png';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import TextAreaExampleCodeReact from './TextAreaExampleCodeReact';
+import TextAreaExampleRender from './TextAreaExampleRender';
+import TextAreaExampleProps from './TextAreaExampleProps';
 
 const propTypes = {};
 const defaultProps = {};
@@ -14,9 +17,27 @@ function TextAreaDocumentation() {
       <p className="lead-in">Text area allows the user to enter in any combination of letters, numbers or symbols in a multi-line input box.</p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={TextAreaExampleRender}
+        PROPS_EXAMPLE={TextAreaExampleProps}
+        CODE_EXAMPLE={TextAreaExampleCodeReact}
+      />
       <StaticExample
-        title="Text Area Example"
-        renderedExample={<LightBox image={textAreaScreenshot} alt="Time Input" className="flex-3up-gap" />}
+        title="Text Area"
+        renderedExample={(
+          <div className="flex flex-col" style={{ width: '65%' }}>
+            <TextArea id="text-area-documentation__plain-text-area" label="Example 1 Label" rows={4} />
+            <TextArea id="text-area-documentation__disabled-text-area" isDisabled label="Example 2 Label" value="This input is disabled" rows={4} />
+            <TextArea id="text-area-documentation__required-text-area" isRequired label="Example 3 Label" rows={4} />
+            <TextArea
+              id="text-area-documentation__error-text-area"
+              isRequired
+              label="Example 4 Label"
+              errorMessage="This field is required"
+              rows={4}
+            />
+          </div>
+        )}
         quickTips={(
           <div>
             <ul>
@@ -70,30 +91,30 @@ function TextAreaDocumentation() {
           (e.g. border-radius: 4px, :focus color matches the primary color, error messages all have the same color, etc.)
         </li>
         <li>
-          <strong>Do not use placeholders as a replacement for labels.</strong>
+          <strong>Do not use placeholders as a replacement for labels.</strong>&#32;
           When a user moves into the text area any placeholder text will disappear and the user will no longer be able to see the purpose
           of the input. In addition, most browsers do not provide a high enough contrast ratio when rendering placeholder text.
         </li>
         <li>
-          <strong>Ensure enough space between other form elements</strong>
+          <strong>Ensure enough space between other form elements.</strong>&#32;
           There should be enough spacing between the text area and other elements on the page to prevent accidental clicks or taps.
         </li>
         <li>
-          <strong>Space for multiple lines of text.</strong>
-          You may add “row” and “col” attributes to allow you to specify an exact size of the <code>&#60;textarea&#62;</code>.
+          <strong>Space for multiple lines of text.</strong>&#32;
+          You may add <code>rows</code> and <code>cols</code> attributes to allow you to specify an exact size of the <code>&#60;textarea&#62;</code>.
           You may also style the size of the text area using css width and height. Setting these is a good idea for consistency,
           as browser defaults can differ.
         </li>
         <li>
-          <strong>The name of the text area may correspond to the data point.</strong>
+          <strong>The name of the text area may correspond to the data point.</strong>&#32;
           A <code>name</code> attribute may be used to set the name of the associated data point submitted to the server when the form is submitted.
         </li>
         <li>
-          <strong>Clear concise labels.</strong>
+          <strong>Clear concise labels.</strong>&#32;
           Use clear and concise labels to describe the purpose of the text area.
         </li>
         <li>
-          <strong>Real time validation.</strong>
+          <strong>Real time validation.</strong>&#32;
           Generally real time validation is preferred as it creates an easy experience for the user when filling out forms.
           Once the user clicks or tabs out of the text area, then it is appropriate to validate the user&apos;s response.
           Provide error messages that are clear and specific to the error.
