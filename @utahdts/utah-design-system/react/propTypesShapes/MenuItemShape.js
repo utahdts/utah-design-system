@@ -4,6 +4,8 @@ const menuItem = {
   // parent menu item must have an id to tie aria attributes together
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
+  isAlternatePath: PropTypes.bool,
+
   // if no link, then it is a "menu header" then the link is computed so there will always be a link even if it wasn't initially passed in
   link: PropTypes.string,
 

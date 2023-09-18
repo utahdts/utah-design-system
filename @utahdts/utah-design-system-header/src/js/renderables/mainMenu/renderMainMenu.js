@@ -11,7 +11,6 @@ import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import findRecursive from '../../misc/findRecursive';
 import notNull from '../../misc/notNull';
 import popupFocusHandler from '../../misc/popupFocusHandler';
 import renderDOMSingle from '../../misc/renderDOMSingle';
@@ -101,8 +100,7 @@ export default function renderMainMenu() {
         `renderMainMenu(): main menu item title span not found for: ${menuItem.title}`
       );
 
-      // add selected to title if selected (or any children are selected)
-      if (menuItem.isSelected || (menuItem.actionMenu && findRecursive(menuItem.actionMenu, ['actionMenu'], (checkMenuItem) => !!checkMenuItem.isSelected))) {
+      if (menuItem.isSelected) {
         menuItemTitleElement.classList.add(domConstants.MENU_ITEM__SELECTED);
       }
 

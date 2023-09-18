@@ -30,7 +30,10 @@ function findMenuItemInMenusByPathname({ menus, pathname }) {
       ))
         .flat(Infinity)
     )
-      .find((menuItem) => menuItem.link === pathname)
+      .find((menuItem) => (
+        menuItem.link === pathname
+        && !menuItem.isAlternatePath
+      ))
   );
 }
 

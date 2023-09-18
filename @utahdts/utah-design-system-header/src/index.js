@@ -2,6 +2,7 @@
 import './css/index.scss';
 
 export { default as childrenMenuTypes } from './js/enumerations/childrenMenuTypes';
+export { default as PopupPlacement } from './js/enumerations/popupPlacement';
 export { default as events } from './js/enumerations/events';
 export { default as sizes } from './js/enumerations/sizes';
 export { loadHeader, removeHeader } from './js/lifecycle/lifecycle';

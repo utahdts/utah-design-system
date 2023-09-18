@@ -82,6 +82,7 @@ declare module "@utahdts/utah-design-system-header" {
     actionMenu?: MenuItem[] | undefined;
     className?: string | undefined;
     icon?: Element | undefined;
+    isAlternatePath?: boolean | undefined;
     isDivider?: boolean | undefined;
     isSelected?: boolean | undefined;
     title: string;
@@ -131,6 +132,7 @@ declare module "@utahdts/utah-design-system-header" {
     childrenMenuType?: ChildrenMenuType | undefined;
     className?: string | undefined;
     icon?: Element | undefined;
+    isAlternatePath?: boolean | undefined;
     isDivider?: boolean | undefined;
     isSelected?: boolean | undefined;
     title: string;

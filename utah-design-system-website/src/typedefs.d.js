@@ -44,6 +44,7 @@
  *  @property {PageUrl[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
  *  @property {boolean} [isSelected]
+ *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }
  */
 
