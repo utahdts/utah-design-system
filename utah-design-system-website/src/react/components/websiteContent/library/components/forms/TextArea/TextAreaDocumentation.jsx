@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { TextArea } from '@utahdts/utah-design-system';
+import {
+  Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
+} from '@utahdts/utah-design-system';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import pageUrls from '../../../../../routing/pageUrls';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
@@ -7,6 +9,8 @@ import SandboxExample from '../../../../../sandbox/SandboxExample';
 import TextAreaExampleCodeReact from './TextAreaExampleCodeReact';
 import TextAreaExampleRender from './TextAreaExampleRender';
 import TextAreaExampleProps from './TextAreaExampleProps';
+import TextAreaPropsDocumentation from './TextAreaPropsDocumentation';
+import TextAreaCssClassesDocumentation from './TextAreaCssClassesDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -148,6 +152,24 @@ function TextAreaDocumentation() {
   <label for="input1" class="error">Some Error</label>
 </div>`}
       />
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-react">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <TextAreaCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <TextAreaPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
