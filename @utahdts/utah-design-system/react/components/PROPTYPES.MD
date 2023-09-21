@@ -38,6 +38,8 @@ This goes on the outer wrapper element of the entire component. The parent then 
   
 * `labelClassName`: (string)
 
+* `name`: (string) - can default to id if name is not given
+
 * `onChange`: ((e, id, newValue) => {})
 triggered when the value changes
 
