@@ -82,6 +82,7 @@ export { default as TableFilterTextInput } from './react/components/table/TableF
 export { default as TableFoot } from './react/components/table/TableFoot';
 export { default as TableFootCell } from './react/components/table/TableFootCell';
 export { default as TableFootRow } from './react/components/table/TableFootRow';
+export { default as TableContextConsumer } from './react/components/table/TableContextConsumer';
 export { default as TableHead } from './react/components/table/TableHead';
 export { default as TableHeadCell } from './react/components/table/TableHeadCell';
 export { default as TableHeadRow } from './react/components/table/TableHeadRow';

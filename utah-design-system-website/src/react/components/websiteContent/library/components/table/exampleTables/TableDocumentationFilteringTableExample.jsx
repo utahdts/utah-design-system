@@ -1,23 +1,27 @@
+// @ts-check
 import {
   Accordion,
+  BUTTON_APPEARANCE,
   Button,
   Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
+  TableContextConsumer,
   TableFilterCustom,
   TableFilterDate,
   TableFilterNone,
-  TableFilters,
   TableFilterSelectAllOptions,
   TableFilterTextInput,
+  TableFilters,
   TableHead,
   TableHeadCell,
   TableHeadRow,
-  TableWrapper
+  TableWrapper,
+  componentColors
 } from '@utahdts/utah-design-system';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import examplePresidentsData from './examplePresidentsData';
 
@@ -71,12 +75,15 @@ function TableDocumentationFilteringTableExample() {
                   `filterValues` when the passed in value changes so that filtering still occurs automatically. But... maybe you
                   really want to just use a TableFilterCustom instead if that's the case.
                 */}
-                <TableFilterTextInput recordFieldPath="funFacts" value={funFactsFilter} onChange={(e) => setFunFactsFilter(e.target.value)} />
+                {/* @ts-ignore */}
+                <TableFilterTextInput recordFieldPath="funFacts" value={funFactsFilter} onChange={(e) => setFunFactsFilter(e.target?.value)} />
 
                 <TableFilterCustom>
                   {
                     ({ filterValues, setFilterValues }) => (
                       <Button
+                        appearance={BUTTON_APPEARANCE.SOLID}
+                        color={componentColors.PRIMARY}
                         onClick={(e) => {
                           e.stopPropagation();
                           setFilterValues((draftState) => {
@@ -110,13 +117,33 @@ function TableDocumentationFilteringTableExample() {
                   <TableBodyDataCellTemplate recordFieldPath="politicalParty" />
                   <TableBodyDataCellTemplate recordFieldPath="inauguration" />
                   <TableBodyDataCellTemplate recordFieldPath="funFacts">
-                    {({ record }) => `${record.funFacts.substring(0, 20)}...`}
+                    {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+                    {({ record }) => <>{`${record.funFacts.substring(0, 20)}...`}</>}
                   </TableBodyDataCellTemplate>
                   <TableBodyDataCellTemplate recordFieldPath="birthPlace">
-                    {({ record }) => [record.birthplace.county, record.birthplace.state].join(', ')}
+                    {({ record }) => <>{[record.birthplace.county, record.birthplace.state].join(', ')}</>}
                   </TableBodyDataCellTemplate>
                 </TableBodyDataRowTemplate>
               </TableBodyData>
+              <TableContextConsumer>
+                {
+                  (tableContext) => {
+                    const hasData = !!tableContext.allData?.length;
+                    const hasFilteredData = !!tableContext.filteredData?.length;
+                    return (
+                      (hasData && !hasFilteredData)
+                        ? (
+                          <tr>
+                            <td className="table__no-results-td" colSpan={100}>
+                              <span className="table__no-results-text">Your filter returned no results.</span>
+                            </td>
+                          </tr>
+                        )
+                        : null
+                    );
+                  }
+                }
+              </TableContextConsumer>
             </TableBody>
           </Table>
         </TableWrapper>

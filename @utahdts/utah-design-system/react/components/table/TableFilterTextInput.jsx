@@ -34,7 +34,7 @@ const defaultProps = {
  * @param {boolean | null} [props.exactMatch]
  * @param {React.RefObject | null} [props.innerRef]
  * @param {string | null} [props.id]
- * @param {(() => {}) | null} [props.onChange]
+ * @param {((e: Event) => void) | null} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string | null} [props.value]
  * @returns {JSX.Element}

@@ -37,7 +37,7 @@ const defaultProps = {
 /**
  * @template TableDataT
  * @param {Object} props
- * @param {React.ReactNode | null} [props.children]
+ * @param {React.ReactNode | null | ((record: TableBodyDataRowContextValue<TableDataT>) => JSX.Element)} [props.children]
  * @param {string | null} [props.className]
  * @param {string | null} [props.id]
  * @param {React.RefObject | null} [props.innerRef]
@@ -62,6 +62,7 @@ function TableBodyDataCellTemplate({
 
   let content;
   if (isFunction(children)) {
+    // @ts-ignore
     content = children(rowContextData);
   } else if (children) {
     content = children;

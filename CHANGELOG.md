@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [Unreleased]
 ## Added
+- TableContextConsumer: allows using context inline with the table
 
 ## Changed
 

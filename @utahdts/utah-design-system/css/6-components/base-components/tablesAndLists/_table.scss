@@ -119,6 +119,7 @@
         }
       }
     }
+
     .table-header {
       position: relative;
 
@@ -138,7 +139,7 @@
             color: var(--primary-color);
           }
           &:focus-visible {
-            outline-offset: -2PX;
+            outline-offset: -2px;
           }
         }
       }
@@ -226,6 +227,20 @@
           }
         }
       }
+    }
+  }
+
+  // Other table class elements
+  .table {
+    &__no-results-td {
+      text-align: center;
+    }
+    &__no-results-text {
+      display: block;
+      background: var(--gray-light-color);
+      padding: var(--spacing);
+      margin: var(--spacing);
+      border-radius: var(--radius-small);
     }
   }
 }
