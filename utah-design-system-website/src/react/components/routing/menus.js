@@ -218,6 +218,7 @@ export const menuLibraryPatternsSecondary = {
       title: 'Form Validation',
       link: pages.validation.link,
       parentLinks: [pages.guidelines.link],
+      isAlternatePath: true,
     },
   ],
 };
@@ -307,8 +308,11 @@ export default Object.fromEntries(
     menuLibrarySecondary,
     menuResourcesSecondary,
   })
-    .map(([menuKey, menu]) => [menuKey, {
-      ...menu,
-      menuItems: calculateMenuItemsParents({ menuItems: menu.menuItems }),
-    }])
+    .map(([menuKey, menu]) => [
+      menuKey,
+      {
+        ...menu,
+        menuItems: calculateMenuItemsParents({ menuItems: menu.menuItems }),
+      },
+    ])
 );

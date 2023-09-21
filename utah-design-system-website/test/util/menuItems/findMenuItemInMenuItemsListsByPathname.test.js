@@ -70,3 +70,16 @@ test('findMenuItemInMenusByPathname: path not found: multi list, multi children'
     pathname: 'test/not-found',
   })).toBe(undefined);
 });
+
+test('findMenuItemInMenusByPathname: ignore `isAlternatePath`', () => {
+  expect(findMenuItemInMenusByPathname({
+    menus: [
+      { menuItems: [{ title: 'item-1', link: 'test/url1', children: [{ title: 'item-1-1', link: 'test/url1-1' }, { title: 'item-1-2', link: 'test/url1-2', isAlternatePath: true }] }] },
+      { menuItems: [{ title: 'item-2', link: 'test/url2', children: [{ title: 'item-2-1', link: 'test/url2-1' }, { title: 'item-2-2', link: 'test/url1-2' }] }] },
+    ],
+    pathname: 'test/url1-2',
+  })).toStrictEqual({
+    title: 'item-2-2',
+    link: 'test/url1-2',
+  });
+});

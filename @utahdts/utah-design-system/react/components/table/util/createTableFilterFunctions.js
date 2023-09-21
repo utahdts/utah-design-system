@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * @typedef {import('../../../jsDocTypes').TableFilterValue} TableFilterValue
  * @typedef {import('../../../jsDocTypes').TableFilterFunction} TableFilterFunction

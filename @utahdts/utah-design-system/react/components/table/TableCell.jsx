@@ -1,8 +1,13 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
+
+/**
+ * @template TableDataT
+ * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ */
 
 const propTypes = {
   children: PropTypes.node,
@@ -21,22 +26,35 @@ const defaultProps = {
   onDoubleClick: null,
 };
 
+/**
+ * @template TableDataT
+ * @param {Object} props
+ * @param {React.ReactNode | null} [props.children]
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.id]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {((param: {e: Event}) => void) | null} [props.onClick]
+ * @param {((param: {e: Event}) => void) | null} [props.onDoubleClick]
+ * @returns {JSX.Element}
+ */
 function TableCell({
-  children,
-  className,
-  id,
-  innerRef,
-  onClick,
-  onDoubleClick,
+  children = null,
+  className = null,
+  id = null,
+  innerRef = null,
+  onClick = null,
+  onDoubleClick = null,
   ...rest
 }) {
   return (
     <td
       className={joinClassNames('table__cell', className)}
-      id={id}
+      id={id ?? undefined}
       ref={innerRef}
-      onClick={onClick}
-      onDoubleClick={onDoubleClick}
+      // @ts-ignore
+      onClick={onClick ?? undefined}
+      // @ts-ignore
+      onDoubleClick={onDoubleClick ?? undefined}
       {...rest}
     >
       {children}

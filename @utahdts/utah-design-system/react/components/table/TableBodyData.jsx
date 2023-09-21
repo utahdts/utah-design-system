@@ -4,7 +4,6 @@ import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import useComponentGuid from '../../hooks/useComponentGuid';
 import TablePaginationShape from '../../propTypesShapes/TablePaginationShape';
 import chainSorters from '../../util/chainSorters';
 import valueAtPath from '../../util/state/valueAtPath';
@@ -13,6 +12,7 @@ import useTableContext from './hooks/useTableContext';
 import convertRecordsToFilterValue from './util/convertRecordsToFilterValue';
 import createTableFilterFunctions from './util/createTableFilterFunctions';
 import filterTableRecords from './util/filterTableRecords';
+import notNullMap from '../../util/notNullMap';
 
 /** @typedef {import('../../jsDocTypes').TablePagination} TablePagination */
 
@@ -33,20 +33,18 @@ const defaultProps = {
  * @template RecordT
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {TablePagination} [props.pagination]
+ * @param {TablePagination | null} [props.pagination]
  * @param {string} props.recordIdField
  * @param {(RecordT & Object)[]} props.records
  * @returns {JSX.Element[] | null}
  */
 function TableBodyData({
   children,
-  pagination,
+  pagination = null,
   recordIdField,
   records,
 }) {
   const [recordsForContexts, setRecordsForContexts] = useImmer(/** @type {(RecordT & Object)[] | null} */(null));
-  const guid = useComponentGuid();
-
   const {
     state: {
       currentSortingOrderIsDefault,
@@ -55,7 +53,7 @@ function TableBodyData({
       tableSortingFieldPath,
       tableSortingFieldPaths,
     },
-    setBodyDataForComponentGuid,
+    setBodyData,
   } = useTableContext();
 
   useEffect(
@@ -65,9 +63,9 @@ function TableBodyData({
       // apply sorting if a column is selected
       if (tableSortingFieldPath || tableSortingFieldPaths) {
         const sorters = castArray(tableSortingFieldPaths || tableSortingFieldPath)
-          .map((sortingValue) => sortingRules[sortingValue]?.sorter)
-          .filter(identity);
-        // @ts-ignore
+          .map((sortingValue) => sortingRules[sortingValue ?? '']?.sorter)
+          .filter(identity)
+          .map(notNullMap);
         newRecordsForContext.sort(chainSorters(sorters, newRecordsForContext));
       }
 
@@ -90,20 +88,9 @@ function TableBodyData({
       setRecordsForContexts(paginatedRecords);
 
       // register the current data with the TableContext for filtering and other table global data users
-      setBodyDataForComponentGuid(guid, records, paginatedRecords);
+      setBodyData(records, paginatedRecords);
     },
-    [
-      currentSortingOrderIsDefault,
-      filterValues,
-      guid,
-      pagination,
-      records,
-      setBodyDataForComponentGuid,
-      setRecordsForContexts,
-      sortingRules,
-      tableSortingFieldPath,
-      tableSortingFieldPaths,
-    ]
+    [currentSortingOrderIsDefault, filterValues, pagination, records, tableSortingFieldPath, tableSortingFieldPaths]
   );
 
   return (

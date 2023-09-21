@@ -1,8 +1,9 @@
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TextInput from '../forms/TextInput';
-import TableContext from './util/TableContext';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
 const propTypes = {
@@ -23,34 +24,46 @@ const defaultProps = {
   value: null,
 };
 
+/**
+ * @template TableDataT
+ * @param {Object} props
+ * @param {string | null} [props.className]
+ * @param {TableDataT | null} [props.defaultValue]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {string | null} [props.id]
+ * @param {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} [props.onChange]
+ * @param {string} props.recordFieldPath
+ * @param {TableDataT | null} [props.value]
+ * @returns {JSX.Element}
+ */
 function TableFilterDate({
-  className,
-  defaultValue,
-  innerRef,
-  id,
-  onChange,
+  className = null,
+  defaultValue = null,
+  innerRef = null,
+  id = null,
+  onChange = null,
   recordFieldPath,
-  value,
+  value = null,
   ...rest
 }) {
   const {
     currentOnChange,
     currentValue,
   } = useCurrentValuesFromStateContext({
-    context: TableContext,
     contextStatePath: recordFieldPath,
-    defaultOnChange: (e) => e.target.value,
+    // @ts-ignore
+    defaultOnChange: (e) => e.target?.value,
     defaultValue,
     onChange,
     value,
   });
   return (
-    <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id} ref={innerRef}>
+    <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
         id={`table-filter-date-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}
         onChange={currentOnChange}
-        value={currentValue}
+        value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />

@@ -1,7 +1,13 @@
+// @ts-check
 import PropTypes from 'prop-types';
 import { useContext, useEffect } from 'react';
 import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
 import TableContext from './util/TableContext';
+
+/**
+ * @template DataT
+ * @typedef {import('../../jsDocTypes').TableSortingFunc<DataT>} TableSortingFunc
+ */
 
 const propTypes = {
   // the A11y notification to be read when this sort rule is applied
@@ -25,11 +31,21 @@ const defaultProps = {
   fieldType: 'string',
 };
 
+/**
+ * @template TableDataT
+ * @param {Object} props
+ * @param {string} props.a11yLabel
+ * @param {TableSortingFunc<TableDataT> | null} props.customSort
+ * @param {Object} props.defaultIsAscending
+ * @param {Object} props.fieldType
+ * @param {Object} props.recordFieldPath
+ * @returns {null}
+ */
 function TableSortingRule({
   a11yLabel,
-  customSort,
-  defaultIsAscending,
-  fieldType,
+  customSort = null,
+  defaultIsAscending = true,
+  fieldType = 'string',
   recordFieldPath,
 }) {
   const { registerSortingRule, unregisterSortingRule } = useContext(TableContext) || {};

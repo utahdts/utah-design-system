@@ -92,7 +92,7 @@ function FormContextProvider({
       },
       state,
     }),
-    [formState, onChange, onSubmit, setState, state]
+    [formState, state]
   );
 
   return (

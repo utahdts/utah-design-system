@@ -1,9 +1,15 @@
-import { useContext } from 'react';
+// @ts-check
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import isFunction from 'lodash/isFunction';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TableBodyDataRowContext from './TableBodyDataRowContext';
+
+/**
+ * @template TableDataT
+ * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ */
 
 const propTypes = {
   // the TableBodyDataCellTemplates for the row
@@ -24,12 +30,22 @@ const defaultProps = {
   onDoubleClick: null,
 };
 
+/**
+ * @template TableDataT
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {((rowContextData: TableBodyDataRowContextValue<TableDataT>) => string) | string | null} [props.className]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void) | null} [props.onClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void) | null} [props.onDoubleClick]
+ * @returns {JSX.Element}
+ */
 function TableBodyDataRowTemplate({
   children,
-  className,
-  innerRef,
-  onClick,
-  onDoubleClick,
+  className = null,
+  innerRef = null,
+  onClick = null,
+  onDoubleClick = null,
   ...rest
 }) {
   // record, recordIndex, records
@@ -38,10 +54,13 @@ function TableBodyDataRowTemplate({
     <tr
       className={joinClassNames(
         'table__row',
+        // @ts-ignore
         isFunction(className) ? className(rowContextData) : className
       )}
-      onClick={onClick && ((e) => onClick({ e, ...rowContextData }))}
-      onDoubleClick={onDoubleClick && ((e) => onDoubleClick({ e, ...rowContextData }))}
+      // @ts-ignore
+      onClick={(onClick && ((e) => onClick({ e, ...rowContextData }))) ?? undefined}
+      // @ts-ignore
+      onDoubleClick={(onDoubleClick && ((e) => onDoubleClick({ e, ...rowContextData }))) ?? undefined}
       ref={innerRef}
       {...rest}
     >
