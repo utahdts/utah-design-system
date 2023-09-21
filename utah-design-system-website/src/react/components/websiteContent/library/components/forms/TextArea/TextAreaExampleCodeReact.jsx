@@ -15,15 +15,14 @@ function TextAreaExampleCodeReact({
   state: {
     props: {
       className,
-      cols,
       errorMessage,
       id,
       isClearable,
       isDisabled,
       isRequired,
       label,
+      name,
       placeholder,
-      rows,
       value,
     },
   },
@@ -33,10 +32,9 @@ function TextAreaExampleCodeReact({
       &lt;TextArea
       <br />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={cols ? `cols="${cols}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={rows ? `rows="${rows}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={name ? `id="${name}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'isClearable' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isRequired ? 'isRequired' : null} indentLevel={1} />

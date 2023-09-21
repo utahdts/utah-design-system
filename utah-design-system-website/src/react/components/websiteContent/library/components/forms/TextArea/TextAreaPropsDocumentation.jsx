@@ -10,6 +10,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
+/** @returns {JSX.Element} */
 function TextAreaPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
@@ -29,22 +30,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the input. This will be added to the &lt;textarea&gt; element.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell><code className="primary-color">cols</code></TableCell>
-              <TableCell>
-                <div className="props-code-wrapper">
-                  <code>number</code>
-                  <span> | </span>
-                  <code>string</code>
-                </div>
-              </TableCell>
-              <TableCell>52</TableCell>
-              <TableCell>
-                Width of the input, in average character widths. Can be overwritten with CSS.
+                This css class will be added to the input. This will be added to the <code>&lt;textarea&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -71,8 +57,8 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                An id to put on the &lt;textarea&gt; element. This will also be use as the <code>name</code>&#32;
-                attribute and <code>htmlFor</code> attribute of the input&apos;s label.
+                An id to put on the <code>&lt;textarea&gt;</code> element. This will also be use as the <code>name</code>
+                attribute (if not set) and <code>htmlFor</code> attribute of the input&apos;s label.
               </TableCell>
             </TableRow>
 
@@ -81,8 +67,8 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>MutableRefObject</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered &lt;div&gt; element allowing the parent component to interact
-                directly with the actual <span className="font-semi-bold">div</span> DOM element.
+                This ref will be attached to the rendered <code>&lt;div&gt;</code> element allowing the parent component to interact
+                directly with the actual <code>&lt;div&gt;</code> DOM element.
               </TableCell>
             </TableRow>
 
@@ -97,7 +83,7 @@ function TextAreaPropsDocumentation() {
               </TableCell>
               <TableCell><code>false</code></TableCell>
               <TableCell>
-                This props will add an icon button allowing the user to clear the input.<br />
+                This prop will add an icon button allowing the user to clear the input.<br />
                 The button appears after the user enters a value.
               </TableCell>
             </TableRow>
@@ -146,7 +132,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the &lt;label&gt; element.
+                This css class will be added to the <code>&lt;label&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -155,7 +141,8 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Function to call when the input&apos;s value changes. Will return an <code>event</code> object.
+                Function to call when the input&apos;s value changes.
+                The function is passed the <code>event</code> object so you can handle it or not.
               </TableCell>
             </TableRow>
 
@@ -187,21 +174,6 @@ function TextAreaPropsDocumentation() {
             </TableRow>
 
             <TableRow>
-              <TableCell><code className="primary-color">rows</code></TableCell>
-              <TableCell>
-                <div className="props-code-wrapper">
-                  <code>number</code>
-                  <span> | </span>
-                  <code>string</code>
-                </div>
-              </TableCell>
-              <TableCell>8</TableCell>
-              <TableCell>
-                Number of visible text lines for the input. Can be overwritten with CSS.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
               <TableCell><code className="primary-color">value</code></TableCell>
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
@@ -215,7 +187,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to main container. This will be added to the &lt;div&gt; element.
+                This css class will be added to main container. This will be added to the <code>&lt;div&gt;</code> element.
               </TableCell>
             </TableRow>
           </TableBody>

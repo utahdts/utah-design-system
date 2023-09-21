@@ -1,5 +1,4 @@
 // @ts-check
-/* eslint-disable no-param-reassign */
 import {
   Form,
   Switch,
@@ -32,15 +31,14 @@ function TextAreaExampleProps({ setState, state }) {
     () => {
       setState((draftState) => {
         draftState.props.className = '';
-        draftState.props.cols = '';
         draftState.props.errorMessage = '';
         draftState.props.id = '';
         draftState.props.isClearable = false;
         draftState.props.isDisabled = false;
         draftState.props.label = '';
+        draftState.props.name = '';
         draftState.props.placeholder = '';
         draftState.props.isRequired = false;
-        draftState.props.rows = '';
         draftState.props.value = '';
       });
     },
@@ -54,10 +52,9 @@ function TextAreaExampleProps({ setState, state }) {
       className="form--stacked"
     >
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
-      <TextInput id="props.cols" label="Cols" className="input--height-small1x" />
-      <TextInput id="props.rows" label="Rows" className="input--height-small1x" />
       <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
+      <TextInput id="props.name" label="Name" className="input--height-small1x" />
       <Switch id="props.isClearable" label="Clearable" width={20} />
       <Switch id="props.isDisabled" label="Disabled" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />

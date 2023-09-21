@@ -3,6 +3,7 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
 
+/** @returns {JSX.Element} */
 function TextAreaCssClassesDocumentation() {
   return (
     <TableWrapper>

@@ -15,7 +15,8 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
+  name: PropTypes.string,
+  // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
@@ -27,6 +28,7 @@ const defaultProps = {
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
+  name: null,
   onChange: null,
   onSubmit: null,
   value: null,
@@ -34,16 +36,17 @@ const defaultProps = {
 
 /**
  * @param {Object} props
- * @param {React.ReactNode} props.children
- * @param {string} [props.className]
- * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.ReactNode | null} [props.children]
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.errorMessage]
+ * @param {React.RefObject | null} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
- * @param {EventAction} props.onChange
- * @param {EventAction} [props.onSubmit]
- * @param {string | value} props.value
+ * @param {string | null} [props.name]
+ * @param {EventAction | null} [props.onChange]
+ * @param {EventAction | null} [props.onSubmit]
+ * @param {string | value} [props.value]
  * @returns {JSX.Element}
  */
 function Select({
@@ -54,6 +57,7 @@ function Select({
   id,
   isDisabled,
   label,
+  name,
   onChange,
   onSubmit,
   value,
@@ -81,7 +85,7 @@ function Select({
         className={className}
         disabled={isDisabled}
         id={id}
-        name={id}
+        name={name || id}
         onChange={currentOnChange}
         onKeyPress={currentOnFormKeyPress}
         ref={innerRef}

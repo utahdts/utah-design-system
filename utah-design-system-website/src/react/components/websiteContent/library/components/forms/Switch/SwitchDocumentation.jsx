@@ -22,6 +22,7 @@ import {
   formElementSizesEnum,
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -401,6 +402,14 @@ function SwitchDocumentation() {
                         </TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>A label can be displayed within the switch itself when its value is set to <code>true</code>.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell><code className="primary-color">name</code></TableCell>
+                        <TableCell><code>string</code></TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>
+                          This will be used for the <code>name</code> attribute of the <code>&lt;input&gt;</code> element.
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell><code className="primary-color">onChange</code></TableCell>

@@ -1,6 +1,6 @@
 // @ts-check
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm';
 import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import RefShape from '../../propTypesShapes/RefShape';
@@ -14,10 +14,6 @@ import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAr
 
 const propTypes = {
   className: PropTypes.string,
-  cols: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
   defaultValue: PropTypes.string,
   errorMessage: PropTypes.string,
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
@@ -28,6 +24,7 @@ const propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelClassName: PropTypes.string,
+  name: PropTypes.string,
   // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
   // e => ... do something when the field should be cleared (if inside a <Form> context, don't have to provide this and can just set isClearable)
@@ -35,16 +32,11 @@ const propTypes = {
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
-  rows: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
   value: PropTypes.string,
   wrapperClassName: PropTypes.string,
 };
 const defaultProps = {
   className: null,
-  cols: 52,
   defaultValue: null,
   errorMessage: null,
   innerRef: null,
@@ -52,40 +44,38 @@ const defaultProps = {
   isDisabled: false,
   isRequired: false,
   labelClassName: null,
+  name: null,
   onChange: null,
   onClear: null,
   onSubmit: null,
   placeholder: null,
-  rows: 8,
   value: null,
   wrapperClassName: null,
 };
 
 /**
  * @param {Object} props
- * @param {string} [props.className]
- * @param {number} [props.cols]
- * @param {string} [props.defaultValue]
- * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.defaultValue]
+ * @param {string | null} [props.errorMessage]
+ * @param {React.RefObject | null} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
- * @param {string} [props.labelClassName]
- * @param {EventAction} [props.onChange]
- * @param {EventAction} [props.onClear]
- * @param {() => void} [props.onSubmit]
- * @param {string} [props.placeholder]
- * @param {number} [props.rows]
- * @param {string} [props.value]
- * @param {string} [props.wrapperClassName]
+ * @param {string | null} [props.labelClassName]
+ * @param {string | null} [props.name]
+ * @param {EventAction | null} [props.onChange]
+ * @param {EventAction | null} [props.onClear]
+ * @param {(() => void) | null} [props.onSubmit]
+ * @param {string | null} [props.placeholder]
+ * @param {string | null} [props.value]
+ * @param {string | null} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
 function TextArea({
   className,
-  cols,
   defaultValue,
   errorMessage,
   innerRef,
@@ -95,11 +85,11 @@ function TextArea({
   isRequired,
   label,
   labelClassName,
+  name,
   onChange,
   onClear,
   onSubmit,
   placeholder,
-  rows,
   value,
   wrapperClassName,
   ...rest
@@ -119,7 +109,7 @@ function TextArea({
     onSubmit,
     value,
   });
-  const inputRef = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
+  const inputRef = /** @type {typeof useRef<HTMLInputElement> | null} */ (useRef)(null);
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
@@ -127,20 +117,20 @@ function TextArea({
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
-  const clearInput = (e) => {
+  const clearInput = useCallback((e) => {
     // @ts-ignore
     currentOnClear(e);
     addAssertiveMessage(`${label} input was cleared`);
     inputRef.current?.focus();
-  };
+  }, [addAssertiveMessage, currentOnClear, label]);
 
-  const checkKeyPressed = (e) => {
+  const checkKeyPressed = useCallback((e) => {
     if (e.key === 'Escape' && showClearIcon) {
       clearInput(e);
     } else {
       currentOnFormKeyPress(e);
     }
-  };
+  }, [clearInput, currentOnFormKeyPress, showClearIcon]);
 
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-area', wrapperClassName)} ref={innerRef}>
@@ -157,20 +147,18 @@ function TextArea({
           className={joinClassNames(className, showClearIcon ? 'text-area--clear-icon-visible' : null)}
           disabled={isDisabled}
           id={id}
-          name={id}
-          onChange={(e) => {
+          name={name || id}
+          onChange={useCallback((e) => {
             onChangeSetCursorPosition(e);
             // @ts-ignore
             currentOnChange(e);
-          }}
+          }, [onChangeSetCursorPosition, currentOnChange])}
           // @ts-ignore
           onKeyUp={checkKeyPressed}
           placeholder={placeholder || undefined}
           ref={inputRef}
           required={isRequired}
           value={currentValue}
-          cols={cols}
-          rows={rows}
           {...rest}
         />
         {

@@ -1,5 +1,4 @@
 // @ts-check
-/* eslint-disable react/jsx-props-no-spreading */
 import { RefShape, TextArea } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -21,14 +20,13 @@ function TextAreaExampleRender({
   state: {
     props: {
       className,
-      cols,
       errorMessage,
       id,
       isClearable,
       isDisabled,
       label,
+      name,
       placeholder,
-      rows,
       isRequired,
       value,
     },
@@ -39,7 +37,6 @@ function TextAreaExampleRender({
     <div style={{ width: '80%' }}>
       <TextArea
         className={className}
-        cols={cols}
         errorMessage={errorMessage}
         id={id || 'text-area-example-render-id'}
         innerRef={innerRef}
@@ -58,8 +55,8 @@ function TextAreaExampleRender({
               : undefined
         }
         label={label || 'Text Area Label'}
+        name={name}
         placeholder={placeholder}
-        rows={rows}
         isRequired={isRequired}
         value={value}
       />
