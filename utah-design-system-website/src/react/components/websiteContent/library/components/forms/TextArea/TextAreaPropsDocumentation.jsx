@@ -11,7 +11,7 @@ import {
 import React from 'react';
 
 /** @returns {JSX.Element} */
-function TextInputPropsDocumentation() {
+function TextAreaPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -30,7 +30,7 @@ function TextInputPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the input. This will be added to the <code>&lt;input&gt;</code> element.
+                This css class will be added to the input. This will be added to the <code>&lt;textarea&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -57,7 +57,7 @@ function TextInputPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                An id to put on the &lt;input&gt; element. This will also be use as the <code>name</code>&#32;
+                An id to put on the <code>&lt;textarea&gt;</code> element. This will also be use as the <code>name</code>
                 attribute (if not set) and <code>htmlFor</code> attribute of the input&apos;s label.
               </TableCell>
             </TableRow>
@@ -68,7 +68,7 @@ function TextInputPropsDocumentation() {
               <TableCell>null</TableCell>
               <TableCell>
                 This ref will be attached to the rendered <code>&lt;div&gt;</code> element allowing the parent component to interact
-                directly with the actual <code>div</code> DOM element.
+                directly with the actual <code>&lt;div&gt;</code> DOM element.
               </TableCell>
             </TableRow>
 
@@ -83,7 +83,7 @@ function TextInputPropsDocumentation() {
               </TableCell>
               <TableCell><code>false</code></TableCell>
               <TableCell>
-                This props will add an icon button allowing the user to clear the input.<br />
+                This prop will add an icon button allowing the user to clear the input.<br />
                 The button appears after the user enters a value.
               </TableCell>
             </TableRow>
@@ -151,7 +151,8 @@ function TextInputPropsDocumentation() {
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Function to call when the input&apos;s value changes. Will return an <code>event</code> object.
+                Function to call when the input&apos;s value changes.
+                The function is passed the <code>event</code> object so you can handle it or not.
               </TableCell>
             </TableRow>
 
@@ -206,4 +207,4 @@ function TextInputPropsDocumentation() {
   );
 }
 
-export default TextInputPropsDocumentation;
+export default TextAreaPropsDocumentation;

@@ -5,9 +5,9 @@ import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm
 import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import IconButton from '../buttons/IconButton';
 import ErrorMessage from './ErrorMessage';
 import RequiredStar from './RequiredStar';
+import IconButton from '../buttons/IconButton';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
@@ -19,7 +19,6 @@ const propTypes = {
   // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
   id: PropTypes.string.isRequired,
   innerRef: RefShape,
-  // should the clearable "X" icon be shown; is auto set to true if onClear is passed in
   isClearable: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
@@ -75,7 +74,7 @@ const defaultProps = {
  * @param {string | null} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-function TextInput({
+function TextArea({
   className,
   defaultValue,
   errorMessage,
@@ -110,7 +109,7 @@ function TextInput({
     onSubmit,
     value,
   });
-  const inputRef = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
+  const inputRef = /** @type {typeof useRef<HTMLInputElement> | null} */ (useRef)(null);
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
@@ -134,18 +133,18 @@ function TextInput({
   }, [clearInput, currentOnFormKeyPress, showClearIcon]);
 
   return (
-    <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)} ref={innerRef}>
+    <div className={joinClassNames('input-wrapper', 'input-wrapper--text-area', wrapperClassName)} ref={innerRef}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id} className={labelClassName}>
+      <label htmlFor={id} className={joinClassNames('text-area__label', labelClassName)}>
         {label}
         {isRequired ? <RequiredStar /> : null}
       </label>
       <ErrorMessage errorMessage={currentErrorMessage} id={id} />
-      <div className="text-input__inner-wrapper">
-        <input
+      <div className="text-area__inner-wrapper">
+        <textarea
           aria-describedby={currentErrorMessage ? `${id}-error` : null}
           aria-invalid={!!currentErrorMessage}
-          className={joinClassNames(className, showClearIcon ? 'text-input--clear-icon-visible' : null)}
+          className={joinClassNames(className, showClearIcon ? 'text-area--clear-icon-visible' : null)}
           disabled={isDisabled}
           id={id}
           name={name || id}
@@ -159,7 +158,6 @@ function TextInput({
           placeholder={placeholder || undefined}
           ref={inputRef}
           required={isRequired}
-          type="text"
           value={currentValue}
           {...rest}
         />
@@ -168,7 +166,7 @@ function TextInput({
             // @ts-ignore
             ? (
               <IconButton
-                className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}
+                className={joinClassNames('text-area__clear-button icon-button--borderless icon-button--small1x')}
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 onClick={clearInput}
                 title="Clear input"
@@ -182,7 +180,7 @@ function TextInput({
   );
 }
 
-TextInput.propTypes = propTypes;
-TextInput.defaultProps = defaultProps;
+TextArea.propTypes = propTypes;
+TextArea.defaultProps = defaultProps;
 
-export default TextInput;
+export default TextArea;

@@ -20,7 +20,8 @@ const propTypes = {
   labelClassName: PropTypes.string,
   labelOff: PropTypes.node,
   labelOn: PropTypes.node,
-  // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
+  name: PropTypes.string,
+  // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
@@ -41,6 +42,7 @@ const defaultProps = {
   labelClassName: '',
   labelOff: null,
   labelOn: null,
+  name: null,
   onChange: null,
   onSubmit: null,
   size: formElementSizesEnum.MEDIUM,
@@ -51,22 +53,23 @@ const defaultProps = {
 
 /**
  * @param {Object} props
- * @param {string} [props.className]
- * @param {boolean} [props.defaultValue]
- * @param {string} [props.errorMessage]
+ * @param {string | null} [props.className]
+ * @param {boolean | null} [props.defaultValue]
+ * @param {string | null} [props.errorMessage]
  * @param {string} props.id
- * @param {React.Ref<HTMLDivElement>} [props.innerRef]
+ * @param {React.Ref<HTMLDivElement> | null} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
- * @param {string} [props.labelOn]
- * @param {string} [props.labelOff]
- * @param {(e: Event, id: string, newValue: boolean) => void} [props.onChange]
- * @param {EventAction} [props.onSubmit]
+ * @param {string | null} [props.labelOn]
+ * @param {string | null} [props.labelOff]
+ * @param {string | null} [props.name]
+ * @param {((e: Event, id: string, newValue: boolean) => void) | null} [props.onChange]
+ * @param {EventAction | null} [props.onSubmit]
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
- * @param {React.ReactNode} [props.sliderChildren]
- * @param {boolean} [props.value]
- * @param {number} [props.width]
+ * @param {React.ReactNode | null} [props.sliderChildren]
+ * @param {boolean | null} [props.value]
+ * @param {number | null} [props.width]
  * @param {...any} rest
  * @returns {JSX.Element}
  */
@@ -81,6 +84,7 @@ function Switch({
   labelClassName,
   labelOn,
   labelOff,
+  name,
   onChange,
   onSubmit,
   size,
@@ -126,7 +130,7 @@ function Switch({
           className={joinClassNames('switch visually-hidden', className)}
           disabled={isDisabled}
           id={id}
-          name={id}
+          name={name || id}
           onChange={currentOnChange}
           onKeyPress={currentOnFormKeyPress}
           role="switch"

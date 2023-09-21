@@ -40,8 +40,8 @@ function TextInputDocumentation() {
         title="Text Input"
         renderedExample={(
           <div className="flex flex-col" style={{ width: '65%' }}>
-            <TextInput id="text-input-documentation__plain-text-input" label="Example 1" />
-            <TextInput id="text-input-documentation__disabled-text-input" isDisabled label="Example 2" value="This input is disabled" />
+            <TextInput id="text-input-documentation__plain-text-input" label="Example 1 Label" />
+            <TextInput id="text-input-documentation__disabled-text-input" isDisabled label="Example 2 Label" value="This input is disabled" />
             <TextInput id="text-input-documentation__required-text-input" isRequired label="Example 3 Label" />
             <TextInput
               id="text-input-documentation__error-text-input"
