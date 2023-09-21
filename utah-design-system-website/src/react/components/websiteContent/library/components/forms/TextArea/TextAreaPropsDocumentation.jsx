@@ -137,6 +137,16 @@ function TextAreaPropsDocumentation() {
             </TableRow>
 
             <TableRow>
+              <TableCell><code className="primary-color">name</code></TableCell>
+              <TableCell><code>string</code></TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                This will be used for the <code>name</code> attribute of the <code>&lt;input&gt;</code> element.
+                Default to the id prop.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
               <TableCell><code className="primary-color">onChange</code></TableCell>
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>

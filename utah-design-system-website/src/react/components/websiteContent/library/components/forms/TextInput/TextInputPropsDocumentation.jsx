@@ -10,6 +10,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
+/** @returns {JSX.Element} */
 function TextInputPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
@@ -141,6 +142,7 @@ function TextInputPropsDocumentation() {
               <TableCell>null</TableCell>
               <TableCell>
                 This will be used for the <code>name</code> attribute of the <code>&lt;input&gt;</code> element.
+                Default to the id prop.
               </TableCell>
             </TableRow>
 
