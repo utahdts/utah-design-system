@@ -4,10 +4,9 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { TextArea } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import characterScreenshot from '../../../../../../../static/images/screenshots/components/character-count/CharacterCount.png';
-import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -23,7 +22,11 @@ function CharacterCountDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Character count"
-        renderedExample={<LightBox image={characterScreenshot} alt="Text area with a character count" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col" style={{ width: '65%' }}>
+            <TextArea id="character-count--example" label="Character Count Example" maxLength={25} />
+          </div>
+        )}
       />
       <p>
         View more information on <Link to={pageUrls.textArea}> Text Area</Link>.

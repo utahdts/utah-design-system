@@ -9,6 +9,7 @@ import ErrorMessage from './ErrorMessage';
 import RequiredStar from './RequiredStar';
 import IconButton from '../buttons/IconButton';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import CharacterCount from './CharacterCount';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
@@ -24,6 +25,7 @@ const propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelClassName: PropTypes.string,
+  maxLength: PropTypes.number,
   name: PropTypes.string,
   // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
@@ -44,6 +46,7 @@ const defaultProps = {
   isDisabled: false,
   isRequired: false,
   labelClassName: null,
+  maxLength: null,
   name: null,
   onChange: null,
   onClear: null,
@@ -65,6 +68,7 @@ const defaultProps = {
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string | null} [props.labelClassName]
+ * @param {number | null} [props.maxLength]
  * @param {string | null} [props.name]
  * @param {EventAction | null} [props.onChange]
  * @param {EventAction | null} [props.onClear]
@@ -85,6 +89,7 @@ function TextArea({
   isRequired,
   label,
   labelClassName,
+  maxLength,
   name,
   onChange,
   onClear,
@@ -117,6 +122,13 @@ function TextArea({
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
+  let ariaDescribedBy = null;
+  if (currentErrorMessage) {
+    ariaDescribedBy = `${id}-error`;
+  } else if (maxLength) {
+    ariaDescribedBy = `${id}-character-count`;
+  }
+
   const clearInput = useCallback((e) => {
     // @ts-ignore
     currentOnClear(e);
@@ -142,7 +154,7 @@ function TextArea({
       <ErrorMessage errorMessage={currentErrorMessage} id={id} />
       <div className="text-area__inner-wrapper">
         <textarea
-          aria-describedby={currentErrorMessage ? `${id}-error` : null}
+          aria-describedby={ariaDescribedBy}
           aria-invalid={!!currentErrorMessage}
           className={joinClassNames(className, showClearIcon ? 'text-area--clear-icon-visible' : null)}
           disabled={isDisabled}
@@ -176,6 +188,7 @@ function TextArea({
             : null
         }
       </div>
+      <CharacterCount id={id} maxLength={maxLength} value={currentValue} />
     </div>
   );
 }

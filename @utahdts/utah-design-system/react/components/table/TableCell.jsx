@@ -47,6 +47,7 @@ function TableCell({
   ...rest
 }) {
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
     <td
       className={joinClassNames('table__cell', className)}
       id={id ?? undefined}
