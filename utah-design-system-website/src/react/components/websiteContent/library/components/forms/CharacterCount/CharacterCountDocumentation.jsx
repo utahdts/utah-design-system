@@ -11,6 +11,10 @@ import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import CharacterCountCssClassesDocumentation from './CharacterCountCssClassesDocumentation';
 import CharacterCountPropsDocumentation from './CharacterCountPropsDocumentation';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import CharacterCountExampleRender from './CharacterCountExampleRender';
+import CharacterCountExampleProps from './CharacterCountExampleProps';
+import CharacterCountExampleCodeReact from './CharacterCountExampleCodeReact';
 
 const propTypes = {};
 const defaultProps = {};
@@ -24,6 +28,11 @@ function CharacterCountDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={CharacterCountExampleRender}
+        PROPS_EXAMPLE={CharacterCountExampleProps}
+        CODE_EXAMPLE={CharacterCountExampleCodeReact}
+      />
       <StaticExample
         title="Character count"
         renderedExample={(
