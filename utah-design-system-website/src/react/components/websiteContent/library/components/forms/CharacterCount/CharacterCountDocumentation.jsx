@@ -24,7 +24,13 @@ function CharacterCountDocumentation() {
         title="Character count"
         renderedExample={(
           <div className="flex flex-col" style={{ width: '65%' }}>
-            <TextArea id="character-count--example" label="Character Count Example" maxLength={25} />
+            <TextArea
+              id="character-count--example"
+              label="Character Count"
+              maxLength={250}
+              value="In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!"
+            />
+            <TextArea id="character-count--example-disabled" label="Character Count Limit" maxLength={25} value="Is this over the character limit?" />
           </div>
         )}
       />
