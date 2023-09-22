@@ -4,9 +4,13 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import { TextArea } from '@utahdts/utah-design-system';
+import {
+  Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
+} from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import CharacterCountCssClassesDocumentation from './CharacterCountCssClassesDocumentation';
+import CharacterCountPropsDocumentation from './CharacterCountPropsDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -30,7 +34,7 @@ function CharacterCountDocumentation() {
               maxLength={250}
               value="In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!"
             />
-            <TextArea id="character-count--example-disabled" label="Character Count Limit" maxLength={25} value="Is this over the character limit?" />
+            <TextArea id="character-count--example-limit" label="Character Count Limit" maxLength={25} value="Is this over the character limit?" />
           </div>
         )}
       />
@@ -84,6 +88,24 @@ function CharacterCountDocumentation() {
           Use the <code>aria-live=&quot;polite&quot;</code> on the character count to update the screen reader. It is recommended to allow the user to pause before updating the aria-live region.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-react">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <CharacterCountCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <CharacterCountPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
