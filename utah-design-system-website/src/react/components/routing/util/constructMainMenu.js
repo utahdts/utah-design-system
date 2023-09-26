@@ -1,4 +1,5 @@
 // @ts-check
+import deleteKeysFromObject from '../../../util/deleteKeysFromObject';
 import {
   menuGuidelinesSecondary,
   menuLibraryComponentsSecondary,
@@ -59,6 +60,7 @@ function constructMenuItems(websiteMainMenuItems, navigate) {
           ? constructMenuItems(websiteMainMenuItem.children, navigate)
           : undefined
       ),
+      isAlternatePath: websiteMainMenuItem.isAlternatePath,
       title: websiteMainMenuItem.title,
     }))
   );
@@ -66,17 +68,27 @@ function constructMenuItems(websiteMainMenuItems, navigate) {
 
 /**
  * @param {(MainMenuItem)[]} parentMenus
- * @param {MainMenuItem} draftMenuItem
+ * @param {MainMenuItem | MenuItem} draftMenuItem
  * @param {WebsiteMainMenuItem | WebsiteMainMenu | undefined} currentMenuItem
  */
 function assignSelectedFromHierarchy(parentMenus, draftMenuItem, currentMenuItem) {
   draftMenuItem.isSelected = (
     draftMenuItem.isSelected
-    // @ts-ignore
-    || (currentMenuItem?.link && currentMenuItem?.link === draftMenuItem.actionFunctionUrl?.url)
+    || (
+      // @ts-ignore
+      currentMenuItem?.link && (
+        // @ts-ignore
+        currentMenuItem?.link === draftMenuItem.actionFunctionUrl?.url
+        // @ts-ignore
+        || currentMenuItem?.link === draftMenuItem?.actionUrl?.url
+      )
+    )
   );
-  if (draftMenuItem.isSelected) {
-    parentMenus.forEach((draftParentMenu) => { draftParentMenu.isSelected = true; });
+  // don't set top menu item of the alternate path item (but still set its parents)
+  if (draftMenuItem.isSelected && !draftMenuItem.isAlternatePath) {
+    parentMenus.forEach((draftParentMenu) => {
+      draftParentMenu.isSelected = true;
+    });
   }
   if (draftMenuItem.actionMenu) {
     const newParents = [...parentMenus, draftMenuItem];
@@ -141,5 +153,8 @@ export default function constructMainMenu(currentMenuItem, navigate) {
   // recursive step through children; if child selected then select all its parents too
   Object.values(mainMenusByLink)
     .forEach((menu) => assignSelectedFromHierarchy([menu], menu, currentMenuItem));
+
+  // clear out `isAlternatePath` from all records as it is not a valid header menu object field, but was needed for selected checking
+  deleteKeysFromObject(mainMenu, ['isAlternatePath']);
   return mainMenu;
 }

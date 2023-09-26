@@ -10,6 +10,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
+/** @returns {JSX.Element} */
 function TextInputPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
@@ -29,7 +30,7 @@ function TextInputPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the input. This will be added to the &lt;input&gt; element.
+                This css class will be added to the input. This will be added to the <code>&lt;input&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -57,7 +58,7 @@ function TextInputPropsDocumentation() {
               <TableCell><em>required</em></TableCell>
               <TableCell>
                 An id to put on the &lt;input&gt; element. This will also be use as the <code>name</code>&#32;
-                attribute and <code>htmlFor</code> attribute of the input&apos;s label.
+                attribute (if not set) and <code>htmlFor</code> attribute of the input&apos;s label.
               </TableCell>
             </TableRow>
 
@@ -66,8 +67,8 @@ function TextInputPropsDocumentation() {
               <TableCell><code>MutableRefObject</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered &lt;div&gt; element allowing the parent component to interact
-                directly with the actual <span className="font-semi-bold">div</span> DOM element.
+                This ref will be attached to the rendered <code>&lt;div&gt;</code> element allowing the parent component to interact
+                directly with the actual <code>div</code> DOM element.
               </TableCell>
             </TableRow>
 
@@ -131,7 +132,17 @@ function TextInputPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the &lt;label&gt; element.
+                This css class will be added to the <code>&lt;label&gt;</code> element.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">name</code></TableCell>
+              <TableCell><code>string</code></TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                This will be used for the <code>name</code> attribute of the <code>&lt;input&gt;</code> element.
+                Default to the id prop.
               </TableCell>
             </TableRow>
 
@@ -185,7 +196,7 @@ function TextInputPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to main container. This will be added to the &lt;div&gt; element.
+                This css class will be added to main container. This will be added to the <code>&lt;div&gt;</code> element.
               </TableCell>
             </TableRow>
           </TableBody>

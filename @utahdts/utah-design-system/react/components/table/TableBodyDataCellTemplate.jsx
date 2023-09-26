@@ -1,10 +1,16 @@
+// @ts-check
 import isFunction from 'lodash/isFunction';
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import valueAtPath from '../../util/state/valueAtPath';
 import TableBodyDataRowContext from './TableBodyDataRowContext';
 import TableCell from './TableCell';
+
+/**
+ * @template TableDataT
+ * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ */
 
 const propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
@@ -28,14 +34,26 @@ const defaultProps = {
   recordFieldPath: null,
 };
 
+/**
+ * @template TableDataT
+ * @param {Object} props
+ * @param {React.ReactNode | null | ((record: TableBodyDataRowContextValue<TableDataT>) => JSX.Element)} [props.children]
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.id]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void) | null} [props.onClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void) | null} [props.onDoubleClick]
+ * @param {string | null} [props.recordFieldPath]
+ * @returns {JSX.Element}
+ */
 function TableBodyDataCellTemplate({
-  children,
-  className,
-  id,
-  innerRef,
-  onClick,
-  onDoubleClick,
-  recordFieldPath,
+  children = null,
+  className = null,
+  id = null,
+  innerRef = null,
+  onClick = null,
+  onDoubleClick = null,
+  recordFieldPath = null,
   ...rest
 }) {
   // record, recordIndex, records
@@ -44,6 +62,7 @@ function TableBodyDataCellTemplate({
 
   let content;
   if (isFunction(children)) {
+    // @ts-ignore
     content = children(rowContextData);
   } else if (children) {
     content = children;
@@ -58,7 +77,9 @@ function TableBodyDataCellTemplate({
       className={className}
       id={id}
       innerRef={innerRef}
+      // @ts-ignore
       onClick={onClick && ((e) => onClick({ e, ...rowContextData }))}
+      // @ts-ignore
       onDoubleClick={onDoubleClick && ((e) => onDoubleClick({ e, ...rowContextData }))}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}

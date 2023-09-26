@@ -1,0 +1,64 @@
+@use "../../../2-tools/tools-index";
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  textarea {
+    color: var(--gray-color);
+    min-height: var(--form-ele-medium);
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    border: 1px solid var(--gray-color);
+    width: 100%;
+    padding: var(--spacing-xs);
+
+    @include tools-index.form-ele-hover-medium;
+    @include tools-index.form-ele-focus;
+
+    &:disabled {
+      background-color: var(--disabled-gray);
+      cursor: not-allowed;
+    }
+
+    &[aria-invalid="true"] {
+      border: 2px solid var(--danger-color)
+    }
+
+    &.text-area {
+      &--clear-icon-visible {
+        padding: var(--spacing-xs) var(--spacing-xl) var(--spacing-xs) var(--spacing-xs);
+      }
+    }
+  }
+  .text-area {
+    &__inner-wrapper {
+      position: relative;
+    }
+    &__clear-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: var(--spacing-xs);
+      font-weight: var(--font-weight-normal);
+      transition: transform;
+      [class*=utds-icon-before-]::before {
+        font-size: .7rem;
+      }
+      &[disabled]:active {
+        transform: translateY(-50%);
+      }
+    }
+    &__label {
+      display: block;
+    }
+    &__inner-wrapper {
+      // need to turn wrapper into inline-block
+      // for when textarea uses cols and rows
+      // rather than CSS - when clear button is displayed
+      display: inline-block;
+      width: 100%;
+    }
+    &__clear-button {
+      top: var(--spacing);
+    }
+  }
+}

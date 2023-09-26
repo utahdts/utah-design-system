@@ -100,7 +100,7 @@ function Popup({
         update().catch((e) => console.error(e));
       }
     },
-    [isVisible, update]
+    [isVisible]
   );
 
   useGlobalKeyEvent({

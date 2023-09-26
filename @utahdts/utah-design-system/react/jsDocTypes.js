@@ -1,8 +1,14 @@
+/* eslint-disable max-len */
 // @ts-check
 
 /**
  * @template ImmerHookT
  * @typedef {import('use-immer').ImmerHook<ImmerHookT>} ImmerHook
+ */
+
+/**
+ * AriaLiveType
+ * @typedef {'assertive' | 'polite'} AriaLiveType
  */
 
 /**
@@ -16,11 +22,6 @@
  */
 
 /**
- * IconButtonAppearance
- * @typedef {'solid' | 'outlined' | 'borderless'} IconButtonAppearance
- */
-
-/**
  * ComponentColors
  * @typedef { 'primary' | 'secondary' | 'accent' | 'none' } ComponentColors
  */
@@ -31,8 +32,13 @@
  */
 
 /**
- * AriaLiveType
- * @typedef {'assertive' | 'polite'} AriaLiveType
+ * IconButtonAppearance
+ * @typedef {'solid' | 'outlined' | 'borderless'} IconButtonAppearance
+ */
+
+/**
+ * TableSortingRuleFieldType
+ * @typedef {'date' | 'number' | 'string'} TableSortingRuleFieldType
  */
 
 /**
@@ -128,6 +134,79 @@
 /**
  * @typedef UtahDesignSystemContextValue {
  *  @property {UtahDesignSystemContextAria} ariaLive
+ * }
+ */
+
+/**
+ * @template TableDataT
+ * @typedef {(param: { fieldValueA: any, fieldValueB: any, recordA: TableDataT, recordB: TableDataT, records: TableDataT[] }) => number} TableSortingFunc
+ */
+
+/**
+ * @template TableDataT
+ * @typedef TableSortingRule {
+ *  @property {string} a11yLabel
+ *  @property {TableSortingFunc<TableDataT> | null} customSort
+ *  @property {boolean} defaultIsAscending
+ *  @property {TableSortingRuleFieldType} fieldType
+ *  @property {string} recordFieldPath
+ *  @property {(a: TableDataT, b: TableDataT) => number} [sorter]
+ * }
+ */
+
+/**
+ * @typedef TableContextStateFilterValue {
+ *  @property {any} value
+ *  @property {boolean} exactMatch
+ *  @property {any} otherFilterSpecificSettings
+ * }
+ */
+/** @typedef {Object.<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
+
+/**
+ * @template TableDataT
+ * @typedef {(param: { recordFieldPath: string, value: TableDataT }) => TableDataT} RecordOnChangeFunc
+ */
+
+/**
+ * @template TableDataT
+ * @typedef TableContextStateFilterValues {
+ *  @property {Object.<string, any> | null} defaultValue
+ *  @property {((e) => TableDataT) | null} onChange
+ *  @property {TableContextStateFilterValueObject} value
+ * }
+ */
+/** @typedef {string} RecordFieldPath */
+/**
+ * @template TableDataT
+ * @typedef TableContextState {
+ *  @property {boolean} currentSortingOrderIsDefault
+ *  @property {TableContextStateFilterValues<TableDataT>} filterValues
+ *  @property {Object.<string, TableSortingRule<TableDataT>>} sortingRules
+ *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
+ *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
+ *  @property {RecordFieldPath | null} tableSortingFieldPath
+ *  @property {RecordFieldPath[] | null} tableSortingFieldPaths
+ * }
+ */
+
+/**
+ * @template TableDataT
+ * @typedef TableContextValue {
+ *  @property {TableDataT[]} allData
+ *  @property {TableDataT[]} filteredData
+ *  @property {(sortingRule: TableSortingRule<TableDataT>) => void} registerSortingRule
+ *  @property {(recordFieldPath: string) => void} unregisterSortingRule
+ *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
+ *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
+ *  @property {TableContextState<TableDataT>} state
+ * }
+ */
+
+/**
+ * @template TableDataT
+ * @typedef TableBodyDataRowContextValue {
+ *  @property {TableDataT | null} record
  * }
  */
 

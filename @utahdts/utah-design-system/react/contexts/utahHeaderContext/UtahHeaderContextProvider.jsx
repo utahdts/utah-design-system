@@ -34,7 +34,7 @@ function UtahHeaderContextProvider({ children, defaultSettings }) {
     [settings]
   );
 
-  const providedSettings = useMemo(() => ({ settings, setSettings, settingsRef }), [setSettings, settings, settingsRef]);
+  const providedSettings = useMemo(() => ({ settings, setSettings, settingsRef }), [settings]);
 
   return (
     // Vite HMR was sometimes getting an "unspreadable" value for this context!

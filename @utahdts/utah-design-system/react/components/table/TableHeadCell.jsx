@@ -1,6 +1,7 @@
+// @ts-check
 import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
-import { useCallback, useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TableContext from './util/TableContext';
@@ -10,10 +11,10 @@ const propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   // The field related to this column. CellTemplate and RowTemplate can define a field. This field is used for determining sorting and filtering.
-  recordFieldPath: PropTypes.string,
-  innerRef: RefShape,
   id: PropTypes.string,
+  innerRef: RefShape,
   onClick: PropTypes.func,
+  recordFieldPath: PropTypes.string,
   /*
     from MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope
     row: The header relates to all cells of the row it belongs to.
@@ -35,20 +36,32 @@ const defaultProps = {
   tableSortingFieldPaths: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode | null} [props.children]
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.id]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {((e: Event) => {}) | null} [props.onClick]
+ * @param {string | null} [props.recordFieldPath]
+ * @param {'row' | 'col' | 'rowgroup' | 'colgroup' | null} [props.scope]
+ * @param {string[] | null} [props.tableSortingFieldPaths]
+ * @returns {JSX.Element}
+ */
 function TableHeadCell({
-  children,
-  className,
-  recordFieldPath,
-  innerRef,
-  id,
-  onClick,
-  scope,
-  tableSortingFieldPaths,
+  children = null,
+  className = null,
+  recordFieldPath = null,
+  innerRef = null,
+  id = null,
+  onClick = null,
+  scope = null,
+  tableSortingFieldPaths = null,
   ...rest
 }) {
   const { setState, state: { currentSortingOrderIsDefault, sortingRules, tableSortingFieldPath } } = useContext(TableContext);
-  const mySortingRules = sortingRules && (tableSortingFieldPaths || [recordFieldPath]).map((sortingRule) => sortingRules[sortingRule]);
-  const isSortable = !!(sortingRules[recordFieldPath] || tableSortingFieldPaths?.length);
+  const mySortingRules = sortingRules && (tableSortingFieldPaths || [recordFieldPath]).map((sortingRule) => sortingRules[sortingRule ?? '']);
+  const isSortable = !!(sortingRules[recordFieldPath ?? ''] || tableSortingFieldPaths?.length);
 
   const onClickCallback = useCallback(
     (e) => {
@@ -84,10 +97,10 @@ function TableHeadCell({
         isCurrentSortingField && 'table-header--sorted',
         isCurrentSortingField && ((isAscending) ? 'table-header__cell--sort-ascending' : 'table-header__cell--sort-descending')
       )}
-      id={id}
+      id={id ?? undefined}
       onClick={onClickCallback}
       ref={innerRef}
-      scope={scope}
+      scope={scope ?? undefined}
       {...rest}
     >
       {

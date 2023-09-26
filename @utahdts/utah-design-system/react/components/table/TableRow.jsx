@@ -1,4 +1,6 @@
+// @ts-check
 import PropTypes from 'prop-types';
+import React from 'react';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 
@@ -20,21 +22,33 @@ const defaultProps = {
   onDoubleClick: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string | null} props.className
+ * @param {React.RefObject | null} props.innerRef
+ * @param {string | null} props.id
+ * @param {((e: Event) => void) | null} props.onClick
+ * @param {((e: Event) => void) | null} props.onDoubleClick
+ * @returns {JSX.Element}
+ */
 function TableRow({
   children,
-  className,
-  innerRef,
-  id,
-  onClick,
-  onDoubleClick,
+  className = null,
+  innerRef = null,
+  id = null,
+  onClick = null,
+  onDoubleClick = null,
   ...rest
 }) {
   return (
     <tr
       className={joinClassNames('table__row', className)}
-      id={id}
+      id={id ?? undefined}
       ref={innerRef}
-      onClick={onClick}
+      // @ts-ignore
+      onClick={onClick ?? undefined}
+      // @ts-ignore
       onDoubleClick={onDoubleClick}
       {...rest}
     >

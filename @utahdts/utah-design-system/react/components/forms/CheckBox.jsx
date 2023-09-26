@@ -11,7 +11,8 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  // e => ... do something with e.target.value ...; can be omitted so as to be uncontrolled OR if changes are sent through form's onChange
+  name: PropTypes.string,
+  // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
   // when enter key pressed in field, submit the form
   onSubmit: PropTypes.func,
@@ -22,11 +23,26 @@ const defaultProps = {
   errorMessage: null,
   innerRef: null,
   isDisabled: false,
+  name: null,
   onChange: null,
   onSubmit: null,
   value: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {string | null} [props.className]
+ * @param {string | null} [props.errorMessage]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {string} props.id
+ * @param {boolean} [props.isDisabled]
+ * @param {string} props.label
+ * @param {string | null} [props.name]
+ * @param {EventAction | null} [props.onChange]
+ * @param {(() => void) | null} [props.onSubmit]
+ * @param {string | null} [props.value]
+ * @returns {JSX.Element}
+ */
 function CheckBox({
   className,
   errorMessage,
@@ -34,6 +50,7 @@ function CheckBox({
   id,
   isDisabled,
   label,
+  name,
   onChange,
   onSubmit,
   value,
@@ -61,7 +78,7 @@ function CheckBox({
         className={className}
         disabled={isDisabled}
         id={id}
-        name={id}
+        name={name || id}
         onChange={currentOnChange}
         onKeyPress={currentOnFormKeyPress}
         ref={innerRef}

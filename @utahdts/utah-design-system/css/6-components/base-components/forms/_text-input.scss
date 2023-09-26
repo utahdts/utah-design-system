@@ -3,8 +3,7 @@
 @use "../../../1-settings/class-vars";
 
 #{class-vars.$base-class} {
-  input[type="text"],
-  textarea {
+  input[type="text"] {
     color: var(--gray-color);
     min-height: var(--form-ele-medium);
     border-radius: var(--radius-small);
@@ -49,9 +48,5 @@
         transform: translateY(-50%);
       }
     }
-  }
-
-  textarea {
-    padding: var(--spacing-xs);
   }
 }
