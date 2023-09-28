@@ -9,7 +9,7 @@ on:
     types: [ opened, synchronize, reopened ]
 name: DEV ESlint Build
 jobs:
-  sonarcloud:
+  esLintCheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
