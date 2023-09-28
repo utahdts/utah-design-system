@@ -1,0 +1,25 @@
+# runs a build to make sure that no eslint rules or build issues happen.
+# this must be successful before continuing with a pull request
+on:
+  # Trigger analysis when pushing in master or pull requests, and when creating a pull request.
+  push:
+    branches:
+      - dev
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+name: DEV ESlint Build
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
+      - name: Build
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: |
+          npm run buildtest
