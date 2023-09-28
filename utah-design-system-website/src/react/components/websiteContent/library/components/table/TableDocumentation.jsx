@@ -41,7 +41,7 @@ function TableDocumentation() {
       <hr />
       <h2 id="section-sandbox-example">Sandbox Example</h2>
       <SandboxExample
-        CODE_EXAMPLE={TableExampleCodeReact}
+          CODE_EXAMPLE={TableExampleCodeReact}
         PROPS_EXAMPLE={TableExampleProps}
         RENDER_EXAMPLE={TableExampleRender}
         componentClassName="sandbox-example__component--flex-start sandbox-example__component--outline"
