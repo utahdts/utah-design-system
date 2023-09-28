@@ -20,7 +20,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     },
     plugins: [
       react(),
-      eslintPlugin(),
+      // fail on eslint errors for build, but don't slow dev down
+      mode === 'production-website' ? eslintPlugin() : null,
       mkcert({
         force: true,
         hosts: ['*.utah.gov', '*.local.utah.gov', '127.0.0.1', 'localhost', '::1'],
@@ -34,7 +35,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     },
     preview: {
       port: 8080,
-    },
-    logLevel: 'silent'
+    }
   };
 });

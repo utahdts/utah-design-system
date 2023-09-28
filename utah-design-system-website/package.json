@@ -14,11 +14,11 @@
     "testOnce": "vitest run"
   },
   "dependencies": {
+    "@popperjs/core": "2.11.8",
     "@utahdts/utah-design-system": "1.5.1",
     "@utahdts/utah-design-system-header": "1.5.1",
     "js-beautify": "1.14.9",
     "lodash": "4.17.21",
-    "@popperjs/core": "2.11.8",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
