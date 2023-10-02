@@ -136,14 +136,13 @@ function TextInput({
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)} ref={innerRef}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id} className={labelClassName}>
+      <label htmlFor={id} className={labelClassName ?? undefined}>
         {label}
         {isRequired ? <RequiredStar /> : null}
       </label>
-      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
       <div className="text-input__inner-wrapper">
         <input
-          aria-describedby={currentErrorMessage ? `${id}-error` : null}
+          aria-describedby={currentErrorMessage ? `${id}-error` : undefined}
           aria-invalid={!!currentErrorMessage}
           className={joinClassNames(className, showClearIcon ? 'text-input--clear-icon-visible' : null)}
           disabled={isDisabled}
@@ -172,12 +171,13 @@ function TextInput({
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 onClick={clearInput}
                 title="Clear input"
-                disabled={isDisabled}
+                isDisabled={isDisabled}
               />
             )
             : null
         }
       </div>
+      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
     </div>
   );
 }

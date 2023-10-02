@@ -23,12 +23,12 @@ import valueAtPath from '../../util/state/valueAtPath';
  *  • controlled by component (<Form> may or may not have onChange and state, but Component itself specifies overriding value and onChange)
  *
  * @param {Object} object
- * @param {string} [object.errorMessage] errorMessage from the component that overrides the one from the form context
+ * @param {string | null} [object.errorMessage] errorMessage from the component that overrides the one from the form context
  * @param {string|boolean|number|any} [object.defaultValue] starting value of the component if not controlled
  * @param {string} object.id id of the component that is also the path to the data for the component in the form context
- * @param {EventAction} [object.onChange] when component changes, call this (e) => void, overrides the one from the form context
- * @param {EventAction} [object.onClear] when component "clears", call this (e) => void, overrides the one from the form context
- * @param {() => void} [object.onSubmit] call on enter key pressed, or other (e) => void event; overrides the one from the form context
+ * @param {EventAction | null} [object.onChange] when component changes, call this (e) => void, overrides the one from the form context
+ * @param {EventAction | null} [object.onClear] when component "clears", call this (e) => void, overrides the one from the form context
+ * @param {(() => void) | null} [object.onSubmit] call on enter key pressed, or other (e) => void event; overrides the one from the form context
  * @param {string|boolean|number|any} object.value current value of the component, overrides the one from the form context
  * @returns {UseCurrentValuesFromFormResult} the same passed in parameters but checking if the component overrides the form's context values
  */

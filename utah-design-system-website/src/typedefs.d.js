@@ -135,4 +135,13 @@
  * }
  */
 
+/**
+ * @typedef CharacterCountExamplePropsShape {
+ * @property {string} className
+ * @property {string} id
+ * @property {string} maxLength
+ * @property {string} text
+ * }
+ */
+
 export default false;

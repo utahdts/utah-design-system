@@ -12,6 +12,7 @@ export { default as ActionItemShape } from './react/propTypesShapes/header/Actio
 export { default as BadgeShape } from './react/propTypesShapes/header/BadgeShape';
 export { default as Button } from './react/components/buttons/Button';
 export { default as chainSorters } from './react/util/chainSorters';
+export { default as CharacterCount } from './react/components/forms/CharacterCount';
 export { default as CheckBox } from './react/components/forms/CheckBox';
 export { default as componentColors } from './react/enums/componentColors';
 export { default as ConfirmationButton } from './react/components/buttons/ConfirmationButton';

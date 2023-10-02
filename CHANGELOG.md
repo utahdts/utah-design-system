@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [Unreleased]
 ## Added
+- CharacterCounter: Documentation page
+- CharacterCounter Component
 - TableContextConsumer: allows using context inline with the table
 
 ## Changed
@@ -14,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Deprecated
 
 ## Removed
+- Remove switch sandbox from DateInput Documentation page
 
 ## Fixed
 - Select only one main menu item on the Website

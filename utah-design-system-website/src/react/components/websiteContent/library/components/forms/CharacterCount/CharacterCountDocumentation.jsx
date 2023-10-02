@@ -4,10 +4,18 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import {
+  CharacterCount,
+  Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
+} from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import characterScreenshot from '../../../../../../../static/images/screenshots/components/character-count/CharacterCount.png';
-import LightBox from '../../../../../lightbox/LightBox';
+import CharacterCountCssClassesDocumentation from './CharacterCountCssClassesDocumentation';
+import CharacterCountPropsDocumentation from './CharacterCountPropsDocumentation';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import CharacterCountExampleRender from './CharacterCountExampleRender';
+import CharacterCountExampleProps from './CharacterCountExampleProps';
+import CharacterCountExampleCodeReact from './CharacterCountExampleCodeReact';
 
 const propTypes = {};
 const defaultProps = {};
@@ -21,9 +29,41 @@ function CharacterCountDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={CharacterCountExampleRender}
+        PROPS_EXAMPLE={CharacterCountExampleProps}
+        CODE_EXAMPLE={CharacterCountExampleCodeReact}
+      />
       <StaticExample
         title="Character count"
-        renderedExample={<LightBox image={characterScreenshot} alt="Text area with a character count" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col" style={{ width: '65%' }}>
+            <TextArea
+              id="character-count--example"
+              label="Character Count"
+              maxLength={250}
+              value="In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!"
+              wrapperClassName="input-wrapper--mb-zero"
+            />
+            <CharacterCount
+              id="character-count__character-count--example"
+              maxLength={250}
+              text="In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!"
+            />
+            <TextArea
+              id="character-count-limit--example"
+              label="Character Count Limit"
+              maxLength={25}
+              value="Is this over the character limit?"
+              wrapperClassName="input-wrapper--mb-zero"
+            />
+            <CharacterCount
+              id="character-count-limit__character-count--example"
+              maxLength={25}
+              text="Is this over the character limit?"
+            />
+          </div>
+        )}
       />
       <p>
         View more information on <Link to={pageUrls.textArea}> Text Area</Link>.
@@ -59,7 +99,7 @@ function CharacterCountDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>The character count should have a contrast ratio of <code>4.5:1</code>, with the background color to ensure legibility.</li>
+        <li>The character count should have a contrast ratio of <code>4.5:1</code> with the background color to ensure legibility.</li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
@@ -69,12 +109,27 @@ function CharacterCountDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>
-          Use the <code>aria-describedby</code> attribute on the input referencing the character count.
-        </li>
-        <li>
-          Use the <code>aria-live=&quot;polite&quot;</code> on the character count to update the screen reader. It is recommended to allow the user to pause before updating the aria-live region.
+          Use an <code>aria-live=&quot;polite&quot;</code> region to notify the screen reader that the character count changed. You should wait for the user to pause before updating the aria-live region.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-react">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <CharacterCountCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <CharacterCountPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

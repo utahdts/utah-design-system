@@ -26,16 +26,17 @@ if an uncontrolled component, this is the default starting value
 * `errorMessage`: (string)
 The message to show if there is an error with the data the component renders.
 
-* `id` (string.isRequired)  
+* `id` (string.isRequired)
 An `id` is required to tie the label and input together for accessibility. When using an "automatic" where an object is given at the form level and each input then is just a field name of the object, the `id` tells which field to use.
-  
+
 * `innerRef` (ref)
-This goes on the outer wrapper element of the entire component. The parent then has the ability to target inner elements. 
+This goes on the outer wrapper element of the entire component. The parent then has the ability to target inner elements.
+Refs tend to be helpful for inputs but not so much for other things?
 
 * `isDisabled` (boolean)
-  
+
 * `label` (string.isRequired)
-  
+
 * `labelClassName`: (string)
 
 * `name`: (string) - can default to id if name is not given
@@ -50,7 +51,7 @@ triggered when the enter key is pressed on the input
 For input fields, `required` shows a '*' by the label. The Design System does not do form validation. There are plenty of libraries available to do validation. Pass your validation error message to the component to be displayed.
 
 * `value` (component specific type)
-Components should be created controlled or uncontrolled. 
+Components should be created controlled or uncontrolled.
 
 * `wrapperClassName`: (string)
 Used for components that have multiple children, eg: input wrapper or label/input
@@ -64,7 +65,7 @@ like a Spinner won't have a rest spread property.
 You can check here to see if some other component already does something your component is wanting to do.
 
 ### Switch, Button, etc.
-* `size`: (formElementSizesEnum - may be limited in possibilities) 
+* `size`: (formElementSizesEnum - may be limited in possibilities)
 Refers to the height and text size (like buttons)
 Many controls will not support all sizes
 Switches, buttons have size; Text Input does not

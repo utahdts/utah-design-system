@@ -109,7 +109,7 @@ function TextArea({
     onSubmit,
     value,
   });
-  const inputRef = /** @type {typeof useRef<HTMLInputElement> | null} */ (useRef)(null);
+  const inputRef = /** @type {typeof useRef<HTMLTextAreaElement | null>} */ (useRef)(null);
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
@@ -118,7 +118,6 @@ function TextArea({
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
   const clearInput = useCallback((e) => {
-    // @ts-ignore
     currentOnClear(e);
     addAssertiveMessage(`${label} input was cleared`);
     inputRef.current?.focus();
@@ -134,15 +133,13 @@ function TextArea({
 
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-area', wrapperClassName)} ref={innerRef}>
-      {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id} className={joinClassNames('text-area__label', labelClassName)}>
         {label}
         {isRequired ? <RequiredStar /> : null}
       </label>
-      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
       <div className="text-area__inner-wrapper">
         <textarea
-          aria-describedby={currentErrorMessage ? `${id}-error` : null}
+          aria-describedby={currentErrorMessage ? `${id}-error` : undefined}
           aria-invalid={!!currentErrorMessage}
           className={joinClassNames(className, showClearIcon ? 'text-area--clear-icon-visible' : null)}
           disabled={isDisabled}
@@ -150,10 +147,8 @@ function TextArea({
           name={name || id}
           onChange={useCallback((e) => {
             onChangeSetCursorPosition(e);
-            // @ts-ignore
             currentOnChange(e);
           }, [onChangeSetCursorPosition, currentOnChange])}
-          // @ts-ignore
           onKeyUp={checkKeyPressed}
           placeholder={placeholder || undefined}
           ref={inputRef}
@@ -163,19 +158,19 @@ function TextArea({
         />
         {
           (showClearIcon)
-            // @ts-ignore
             ? (
               <IconButton
                 className={joinClassNames('text-area__clear-button icon-button--borderless icon-button--small1x')}
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 onClick={clearInput}
                 title="Clear input"
-                disabled={isDisabled}
+                isDisabled={isDisabled}
               />
             )
             : null
         }
       </div>
+      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
     </div>
   );
 }

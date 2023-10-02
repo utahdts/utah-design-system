@@ -32,10 +32,11 @@
   .text-area {
     &__inner-wrapper {
       position: relative;
+      width: 100%;
     }
     &__clear-button {
       position: absolute;
-      top: 50%;
+      top: var(--spacing);
       transform: translateY(-50%);
       right: var(--spacing-xs);
       font-weight: var(--font-weight-normal);
@@ -49,16 +50,6 @@
     }
     &__label {
       display: block;
-    }
-    &__inner-wrapper {
-      // need to turn wrapper into inline-block
-      // for when textarea uses cols and rows
-      // rather than CSS - when clear button is displayed
-      display: inline-block;
-      width: 100%;
-    }
-    &__clear-button {
-      top: var(--spacing);
     }
   }
 }
