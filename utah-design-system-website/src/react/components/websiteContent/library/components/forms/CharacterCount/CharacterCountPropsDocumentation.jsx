@@ -26,9 +26,18 @@ function CharacterCountPropsDocumentation() {
           </TableHead>
           <TableBody>
             <TableRow>
+              <TableCell><code className="primary-color">className</code></TableCell>
+              <TableCell><code>string</code></TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                The CSS Class to use on the character counter wrapper.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
               <TableCell><code className="primary-color">maxLength</code></TableCell>
               <TableCell><code>number</code></TableCell>
-              <TableCell>null</TableCell>
+              <TableCell><em>required</em></TableCell>
               <TableCell>
                 Number of characters allowed in the input.
               </TableCell>
@@ -39,8 +48,7 @@ function CharacterCountPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                Typically, the id from the corresponding <code>&lt;TextArea&gt;</code> component.
-                This prop is used to tie the aria-describedby attribute of the <code>&lt;textarea&gt;</code> element.
+                The id of the character count element.
               </TableCell>
             </TableRow>
 

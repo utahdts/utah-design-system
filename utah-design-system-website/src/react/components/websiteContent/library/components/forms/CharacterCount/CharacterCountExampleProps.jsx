@@ -29,8 +29,9 @@ function CharacterCountExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
-        draftState.props.id = '';
-        draftState.props.maxLength = 250;
+        draftState.props.className = '';
+        draftState.props.id = 'counter-id';
+        draftState.props.maxLength = '50';
         draftState.props.value = '';
       });
     },
@@ -43,6 +44,7 @@ function CharacterCountExampleProps({ setState, state }) {
       setState={setState}
       className="form--stacked"
     >
+      <TextInput id="props.className" label="Class" className="input--height-small1x" />
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
       <TextInput id="props.maxLength" label="Limit" className="input--height-small1x" />
       <TextInput id="props.value" label="Value" className="input--height-small1x" />

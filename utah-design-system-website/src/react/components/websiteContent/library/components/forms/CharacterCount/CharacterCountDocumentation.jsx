@@ -5,6 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import {
+  CharacterCount,
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
 } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
@@ -42,8 +43,25 @@ function CharacterCountDocumentation() {
               label="Character Count"
               maxLength={250}
               value="In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!"
+              wrapperClassName="input-wrapper--mb-zero"
             />
-            <TextArea id="character-count--example-limit" label="Character Count Limit" maxLength={25} value="Is this over the character limit?" />
+            <CharacterCount
+              id="character-count__character-count--example"
+              maxLength={250}
+              text="In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!"
+            />
+            <TextArea
+              id="character-count-limit--example"
+              label="Character Count Limit"
+              maxLength={25}
+              value="Is this over the character limit?"
+              wrapperClassName="input-wrapper--mb-zero"
+            />
+            <CharacterCount
+              id="character-count-limit__character-count--example"
+              maxLength={25}
+              text="Is this over the character limit?"
+            />
           </div>
         )}
       />
@@ -81,7 +99,7 @@ function CharacterCountDocumentation() {
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
       <h4 id="section-contrast">Contrast</h4>
       <ul className="mb-spacing">
-        <li>The character count should have a contrast ratio of <code>4.5:1</code>, with the background color to ensure legibility.</li>
+        <li>The character count should have a contrast ratio of <code>4.5:1</code> with the background color to ensure legibility.</li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>

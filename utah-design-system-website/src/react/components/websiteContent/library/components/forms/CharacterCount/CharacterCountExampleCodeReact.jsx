@@ -14,6 +14,7 @@ const defaultProps = {};
 function CharacterCountExampleCodeReact({
   state: {
     props: {
+      className,
       id,
       maxLength,
       value,
@@ -22,12 +23,12 @@ function CharacterCountExampleCodeReact({
 }) {
   return (
     <>
-      &lt;TextArea
+      &lt;CharacterCount
       <br />
+      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={maxLength ? `maxLength="${maxLength}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'label="Text Area Label"'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`value="${value}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`text={\`${value}\`}`} indentLevel={1} />
       /&gt;
     </>
   );

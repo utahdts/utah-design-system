@@ -16,7 +16,11 @@ function CharacterCountCssClassesDocumentation() {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell><code>.over-limit</code></TableCell>
+            <TableCell><code>character-count</code></TableCell>
+            <TableCell>This class is the overall wrapper class for the character counter.</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code>character-count--over-limit</code></TableCell>
             <TableCell>This class is used when the count is over the set limit.</TableCell>
           </TableRow>
         </TableBody>

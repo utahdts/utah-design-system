@@ -1,56 +1,79 @@
+// @ts-check
 import PropTypes from 'prop-types';
-import {
-  useCallback, useEffect, useRef, useState
+import React, {
+  useMemo,
+  useEffect,
+  useRef,
 } from 'react';
 import joinClassNames from '../../util/joinClassNames';
+import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 
 const propTypes = {
-  maxLength: PropTypes.number,
+  className: PropTypes.string,
+  maxLength: PropTypes.number.isRequired,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  value: PropTypes.string,
+  text: PropTypes.string,
 };
 const defaultProps = {
-  maxLength: null,
-  value: null,
+  className: null,
+  text: null,
 };
 
 /**
- * @param {Object} props
- * @param {string} props.id
- * @param {number | null} [props.maxLength]
- * @param {string | null} [props.value]
- * @returns {JSX.Element}
+ * returns an 's' if the number is plural
+ * @param {number} value
+ * @returns {string}
  */
-export default function CharacterCount({ maxLength, id, value }) {
-  const [ariaMessage, setAriaMessage] = useState(undefined);
-  const timer = useRef(undefined);
+function trailingS(value) {
+  return value >= 2 ? 's' : '';
+}
 
-  const charactersLeft = value?.length ? (maxLength - value.length) : maxLength;
-  const overLimit = value?.length && (value.length > maxLength);
-  const charactersOver = value?.length ? (value.length - maxLength) : 0;
+/**
+ * @param {Object} props
+ * @param {string | null} [props.className]
+ * @param {string} props.id
+ * @param {number} props.maxLength
+ * @param {string | null} [props.text]
+ * @returns {JSX.Element | null}
+ */
+function CharacterCount({
+  className,
+  id,
+  maxLength,
+  text,
+}) {
+  const timer = useRef(NaN);
+  const { addPoliteMessage } = useAriaMessaging();
 
-  const displayMessage = useCallback(() => (
-    overLimit
-      ? `${charactersOver} character${(charactersOver >= 2 ? 's' : '')} over the limit.`
-      : `${charactersLeft} character${(charactersLeft >= 2 ? 's' : '')} left.`
-  ), [charactersLeft, charactersOver, overLimit]);
+  const charactersLeft = text?.length ? (maxLength - text.length) : maxLength;
+  const overLimit = text?.length ? (text.length > maxLength) : false;
+  const charactersOver = text?.length ? (text.length - maxLength) : 0;
 
-  useEffect(() => {
-    clearTimeout(timer.current);
-    timer.current = setTimeout(() => {
-      setAriaMessage(displayMessage());
-      timer.current = undefined;
-    }, 1500);
-  }, [value]);
+  const displayMessage = useMemo(
+    () => (
+      overLimit
+        ? `${charactersOver} character${trailingS(charactersOver)} over the limit`
+        : `${charactersLeft} character${trailingS(charactersLeft)} left`
+    ),
+    [charactersLeft, charactersOver, overLimit]
+  );
+
+  useEffect(
+    () => {
+      timer.current = window.setTimeout(() => addPoliteMessage(displayMessage), 1500);
+      return () => clearTimeout(timer.current);
+    },
+    [addPoliteMessage, displayMessage]
+  );
 
   return (
-    maxLength
+    (maxLength !== undefined && maxLength !== null)
       ? (
-        <div>
-          <div className={joinClassNames('input-wrapper__character-count', overLimit && 'over-limit')} id={`${id}-character-count`}>
-            {displayMessage()}
-          </div>
-          <div className="visually-hidden" aria-live="polite">{ariaMessage}</div>
+        <div
+          className={joinClassNames('character-count', className, overLimit && 'character-count--over-limit')}
+          id={`${id}-character-count`}
+        >
+          {displayMessage}
         </div>
       )
       : null
@@ -59,3 +82,5 @@ export default function CharacterCount({ maxLength, id, value }) {
 
 CharacterCount.propTypes = propTypes;
 CharacterCount.defaultProps = defaultProps;
+
+export default CharacterCount;

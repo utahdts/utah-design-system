@@ -13,17 +13,15 @@
       margin: var(--spacing) 0 var(--spacing-2xs) 0;
     }
 
+    &--mb-zero {
+      margin: 0;
+    }
+
     &__error-message {
       color: var(--danger-color);
     }
-
-    &__character-count {
-      text-align: right;
-      font-size: var(--font-size-s);
-      &.over-limit {
-        font-weight: var(--font-weight-bold);
-        color: var(--danger-color);
-      }
+    input, textarea {
+      display: block;
     }
   }
   .required-star {
