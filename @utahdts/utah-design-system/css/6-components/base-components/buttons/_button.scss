@@ -88,6 +88,7 @@
       [class*='utds-icon-after-']::after,
       [class*='utds-icon-before-']::before {
         font-size: .9em;
+        line-height: 0;
       }
     }
     &--icon-left {
