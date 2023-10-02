@@ -24,7 +24,6 @@ const propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelClassName: PropTypes.string,
-  maxLength: PropTypes.number,
   name: PropTypes.string,
   // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
@@ -45,7 +44,6 @@ const defaultProps = {
   isDisabled: false,
   isRequired: false,
   labelClassName: null,
-  maxLength: null,
   name: null,
   onChange: null,
   onClear: null,
@@ -67,7 +65,6 @@ const defaultProps = {
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string | null} [props.labelClassName]
- * @param {number | null} [props.maxLength]
  * @param {string | null} [props.name]
  * @param {EventAction | null} [props.onChange]
  * @param {EventAction | null} [props.onClear]
@@ -88,7 +85,6 @@ function TextArea({
   isRequired,
   label,
   labelClassName,
-  maxLength,
   name,
   onChange,
   onClear,
