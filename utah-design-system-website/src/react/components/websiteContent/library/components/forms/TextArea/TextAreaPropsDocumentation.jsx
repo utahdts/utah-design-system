@@ -9,8 +9,6 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
 
 /** @returns {JSX.Element} */
 function TextAreaPropsDocumentation() {
@@ -135,17 +133,6 @@ function TextAreaPropsDocumentation() {
               <TableCell>null</TableCell>
               <TableCell>
                 This css class will be added to the <code>&lt;label&gt;</code> element.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell><code className="primary-color">maxLength</code></TableCell>
-              <TableCell><code>number</code></TableCell>
-              <TableCell>null</TableCell>
-              <TableCell>
-                Sets a character limit for the input.
-                This will display a <code>&lt;CharacterCount&gt;</code> component below the input.<br />
-                See the <Link to={pageUrls.characterCount}>CharacterCount</Link> documentation.
               </TableCell>
             </TableRow>
 
