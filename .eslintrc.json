@@ -6,7 +6,8 @@
   "extends": [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:jsx-a11y/recommended"
   ],
   "ignorePatterns": [
     "vite.config.js",
@@ -24,7 +25,8 @@
   },
   "plugins": [
     "react",
-    "react-refresh"
+    "react-refresh",
+    "jsx-a11y"
   ],
   "rules": {
     "react/jsx-one-expression-per-line": "off",
