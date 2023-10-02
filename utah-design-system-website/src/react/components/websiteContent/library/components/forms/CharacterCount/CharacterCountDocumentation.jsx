@@ -109,10 +109,7 @@ function CharacterCountDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>
-          Use the <code>aria-describedby</code> attribute on the input referencing the character count.
-        </li>
-        <li>
-          Use the <code>aria-live=&quot;polite&quot;</code> on the character count to update the screen reader. It is recommended to allow the user to pause before updating the aria-live region.
+          Use an <code>aria-live=&quot;polite&quot;</code> region to notify the screen reader that the character count changed. You should wait for the user to pause before updating the aria-live region.
         </li>
       </ul>
 
