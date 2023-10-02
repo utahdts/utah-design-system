@@ -6,5 +6,5 @@ export default PropTypes.exact({
   className: PropTypes.string,
   id: PropTypes.string,
   maxLength: PropTypes.string,
-  value: PropTypes.string,
+  text: PropTypes.string,
 });

@@ -22,7 +22,7 @@ function CharacterCountExampleRender({
       className,
       id,
       maxLength,
-      value,
+      text,
     },
   },
   innerRef,
@@ -32,17 +32,17 @@ function CharacterCountExampleRender({
       <TextArea
         id="text-area-example-render-id"
         onChange={(e) => setState((draftState) => {
-          draftState.props.value = e.target.value;
+          draftState.props.text = e.target.value;
         })}
         label="Text Area Label"
-        value={value}
+        value={text}
         wrapperClassName="input-wrapper--mb-zero"
       />
       <CharacterCount
         className={className}
         id={id || 'default-character-count-id'}
         maxLength={Number(maxLength) || 0}
-        text={value}
+        text={text}
       />
     </div>
   );

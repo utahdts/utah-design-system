@@ -32,7 +32,7 @@ function CharacterCountExampleProps({ setState, state }) {
         draftState.props.className = '';
         draftState.props.id = 'counter-id';
         draftState.props.maxLength = '50';
-        draftState.props.value = '';
+        draftState.props.text = '';
       });
     },
     [setState]
@@ -47,7 +47,7 @@ function CharacterCountExampleProps({ setState, state }) {
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
       <TextInput id="props.maxLength" label="Limit" className="input--height-small1x" />
-      <TextInput id="props.value" label="Value" className="input--height-small1x" />
+      <TextInput id="props.text" label="Text" className="input--height-small1x" />
     </Form>
   );
 }

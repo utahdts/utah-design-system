@@ -140,7 +140,7 @@
  * @property {string} className
  * @property {string} id
  * @property {string} maxLength
- * @property {string} value
+ * @property {string} text
  * }
  */
 
