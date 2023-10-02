@@ -19,6 +19,7 @@
 
     &__character-count {
       text-align: right;
+      font-size: var(--font-size-s);
       &.over-limit {
         font-weight: var(--font-weight-bold);
         color: var(--danger-color);
