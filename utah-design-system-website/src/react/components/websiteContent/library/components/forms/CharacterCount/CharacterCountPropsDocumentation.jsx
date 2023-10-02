@@ -53,11 +53,11 @@ function CharacterCountPropsDocumentation() {
             </TableRow>
 
             <TableRow>
-              <TableCell><code className="primary-color">value</code></TableCell>
+              <TableCell><code className="primary-color">text</code></TableCell>
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Value of the corresponding <code>&lt;TextArea&gt;</code> component..
+                The text of the that is being counted.
               </TableCell>
             </TableRow>
           </TableBody>
