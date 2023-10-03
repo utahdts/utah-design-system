@@ -77,7 +77,7 @@ function TableFilters({
         });
       };
     },
-    []
+    [defaultValue, onChange, setState, state.filterValues.defaultValue, state.filterValues.onChange, state.filterValues.value, value]
   );
 
   // when value changes, update state...
@@ -87,7 +87,7 @@ function TableFilters({
         draftState.filterValues.value = value || draftState.filterValues.value;
       });
     },
-    [value]
+    [setState, value]
   );
 
   return (

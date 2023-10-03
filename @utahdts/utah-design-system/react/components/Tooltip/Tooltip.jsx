@@ -92,7 +92,7 @@ function Tooltip({
   // When the children update recalculate the popper position
   useEffect(() => {
     updateRef.current?.();
-  }, [children]);
+  }, [children, updateRef]);
 
   useEffect(
     () => {
@@ -138,7 +138,7 @@ function Tooltip({
         }
       );
     },
-    [draftReferenceElement]
+    [draftReferenceElement, isPopperVisible, startNoPopupTimer, startPopupTimer, updateRef]
   );
 
   return (

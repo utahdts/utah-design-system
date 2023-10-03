@@ -90,7 +90,18 @@ function TableBodyData({
       // register the current data with the TableContext for filtering and other table global data users
       setBodyData(records, paginatedRecords);
     },
-    [currentSortingOrderIsDefault, filterValues, pagination, records, tableSortingFieldPath, tableSortingFieldPaths]
+    [
+      currentSortingOrderIsDefault,
+      filterValues,
+      guid,
+      pagination,
+      records,
+      setBodyDataForComponentGuid,
+      setRecordsForContexts,
+      sortingRules,
+      tableSortingFieldPath,
+      tableSortingFieldPaths,
+    ]
   );
 
   return (

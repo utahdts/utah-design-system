@@ -206,7 +206,7 @@ function TableWrapper({
       setState,
       state,
     }),
-    [state]
+    [setState, state, stateRef]
   );
 
   return (

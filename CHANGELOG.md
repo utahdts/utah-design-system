@@ -39,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix svg images merge issue
 
 ## Security
+
 # [1.5.0] 09/12/2023
 
 ## Added
