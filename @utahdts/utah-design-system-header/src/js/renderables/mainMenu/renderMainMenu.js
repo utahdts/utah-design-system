@@ -17,7 +17,7 @@ import renderDOMSingle from '../../misc/renderDOMSingle';
 import uuidv4 from '../../misc/uuidv4';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import renderPopupMenu from '../popupMenu/renderPopupMenu';
-import showSearchModal from '../search/showSearchModal';
+import { setupSearchModal, showSearchModal } from '../search/searchModal';
 import hookupTooltip from '../tooltip/hookupTooltip';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
 
@@ -193,6 +193,8 @@ export default function renderMainMenu() {
     'renderMainMenu: searchIcon not found'
   );
   if (settings.onSearch) {
+    setupSearchModal();
+
     hookupTooltip(searchIcon, document.createTextNode('Search'));
     if (searchIcon.onclick) {
       throw new Error('searchIcon already has onclick');
@@ -224,7 +226,7 @@ export default function renderMainMenu() {
       }
     }
 
-    // UDS-564 - move search top top right if no main menu
+    // UDS-564 - move search to top right if no main menu
     if (!settings.mainMenu && !settings.actionItems && settings.utahId === false) {
       // create search clone
       const searchIconMobile = renderDOMSingle(/** @type {HTMLElement} */(searchIcon).outerHTML);

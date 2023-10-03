@@ -4,16 +4,14 @@
 import SearchModalHtml from './html/SearchModal.html?raw';
 
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import { globalKeyModifiers, globalKeyStatus } from '../../lifecycle/globalEvents';
+import notNull from '../../misc/notNull';
 import renderDOMSingle from '../../misc/renderDOMSingle';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import { globalKeyModifiers, globalKeyStatus } from '../../lifecycle/globalEvents';
 
 function closeSearchModal() {
-  const searchModal = document.getElementById(domConstants.SEARCH__SEARCH_MODAL);
-  if (!searchModal) {
-    throw new Error('closSearchModal: searchModal not found');
-  }
-  searchModal.remove();
+  const searchWrapper = notNull(document.getElementById(domConstants.SEARCH__SEARCH_MODAL), 'closeSearchModal: search modal not found');
+  searchWrapper.classList.add(domConstants.VISUALLY_HIDDEN);
 
   const searchIcon = /** @type {HTMLElement} */ (document.querySelector(getCssClassSelector(domConstants.MAIN_MENU__SEARCH)));
   if (!searchIcon) {
@@ -22,33 +20,45 @@ function closeSearchModal() {
   searchIcon.focus();
 }
 
-export default function showSearchModal() {
+export function showSearchModal() {
+  const searchWrapper = notNull(document.getElementById(domConstants.SEARCH__SEARCH_MODAL), 'showSearchModal: search modal not found');
+  searchWrapper.classList.remove(domConstants.VISUALLY_HIDDEN);
+
+  // focus on search input
+  const searchInput = notNull(
+    /** @type {HTMLInputElement} */(searchWrapper.querySelector(getCssClassSelector(domConstants.SEARCH__SEARCH_INPUT))),
+    'showSearchModal: searchInput not found'
+  );
+  searchInput.focus();
+}
+
+export function setupSearchModal() {
   // create the search DOM
   const searchModal = renderDOMSingle(SearchModalHtml);
 
   const backdrop = /** @type {HTMLElement} */ (searchModal.querySelector(getCssClassSelector(domConstants.SEARCH__SEARCH_BACKDROP)));
   if (!backdrop) {
-    throw new Error('showSearchModal: backdrop not found');
+    throw new Error('setupSearchModal: backdrop not found');
   }
 
   const closeButton = /** @type {HTMLElement} */ (searchModal.querySelector(getCssClassSelector(domConstants.SEARCH__SEARCH_CLOSE_BUTTON)));
   if (!closeButton) {
-    throw new Error('showSearchModal: closeButton not found');
+    throw new Error('setupSearchModal: closeButton not found');
   }
 
   const searchButton = /** @type {HTMLElement} */ (searchModal.querySelector(getCssClassSelector(domConstants.SEARCH__SEARCH_BUTTON)));
   if (!searchButton) {
-    throw new Error('showSearchModal: searchButton not found');
+    throw new Error('setupSearchModal: searchButton not found');
   }
 
   const searchButtonWrapper = /** @type {HTMLElement} */ (searchModal.querySelector(getCssClassSelector(domConstants.SEARCH__SEARCH_BUTTON_WRAPPER)));
   if (!searchButtonWrapper) {
-    throw new Error('showSearchModal: searchButtonWrapper not found');
+    throw new Error('setupSearchModal: searchButtonWrapper not found');
   }
 
   const searchInput = /** @type {HTMLInputElement} */ (searchModal.querySelector(getCssClassSelector(domConstants.SEARCH__SEARCH_INPUT)));
   if (!searchInput) {
-    throw new Error('showSearchModal: searchInput not found');
+    throw new Error('setupSearchModal: searchInput not found');
   }
 
   // hookup events
@@ -80,9 +90,6 @@ export default function showSearchModal() {
   // insert search DOM in to document
   document.body.appendChild(searchModal);
 
-  // focus on search input
-  searchInput.focus();
-
   // input: on enter will search
   // since it has a submit button, this happens naturally
 
@@ -111,10 +118,13 @@ export default function showSearchModal() {
     e.preventDefault();
     e.stopPropagation();
 
-    if (globalKeyStatus[globalKeyModifiers.SHIFT]) {
-      searchButton.focus();
-    } else {
-      searchInput.focus();
+    // when closing the search modal, the close button does loose focus, but should not try to loop focus back to search modal
+    if (!searchModal.classList.contains(domConstants.VISUALLY_HIDDEN)) {
+      if (globalKeyStatus[globalKeyModifiers.SHIFT]) {
+        searchButton.focus();
+      } else {
+        searchInput.focus();
+      }
     }
   });
 
@@ -122,7 +132,7 @@ export default function showSearchModal() {
   // instead, this is the last focusable element so that when it gets focus, focus can be sent back to the close button.
   const hiddenLastFocusableButton = searchModal.querySelector('.search-modal__hidden-last-focusable');
   if (!hiddenLastFocusableButton) {
-    throw new Error('showSearchModal: hiddenLastFocusableButton not found');
+    throw new Error('setupSearchModal: hiddenLastFocusableButton not found');
   }
   hiddenLastFocusableButton.addEventListener('focusin', (e) => {
     e.preventDefault();
