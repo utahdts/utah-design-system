@@ -27,5 +27,3 @@ describe('menus - menu items are single pathed', () => {
     }
   );
 });
-
-// TODO: make sure top level menu only has one selected even with multi menus (as long as one is selected as teh source-of-truth)
