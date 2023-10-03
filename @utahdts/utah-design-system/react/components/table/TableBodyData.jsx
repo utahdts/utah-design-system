@@ -93,10 +93,8 @@ function TableBodyData({
     [
       currentSortingOrderIsDefault,
       filterValues,
-      guid,
       pagination,
       records,
-      setBodyDataForComponentGuid,
       setRecordsForContexts,
       sortingRules,
       tableSortingFieldPath,
