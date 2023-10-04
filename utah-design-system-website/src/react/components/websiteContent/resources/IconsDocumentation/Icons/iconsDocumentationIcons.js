@@ -194,4 +194,29 @@ export default [
     title: 'more horizontal',
     letter: 'm',
   },
+  {
+    cssClass: 'download',
+    title: 'download',
+    letter: 'n',
+  },
+  {
+    cssClass: 'upload',
+    title: 'upload',
+    letter: 'o',
+  },
+  {
+    cssClass: 'favorite',
+    title: 'favorite',
+    letter: 'p',
+  },
+  {
+    cssClass: 'visibility',
+    title: 'visibility',
+    letter: 'q',
+  },
+  {
+    cssClass: 'visibility-off',
+    title: 'visibility-off',
+    letter: 'r',
+  },
 ];
