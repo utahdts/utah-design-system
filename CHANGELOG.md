@@ -194,3 +194,12 @@ N/A
 
 ## Security
 N/A
+
+# 👇 CHANGELOG template 👇
+# [version] date
+## Added
+## Changed
+## Deprecated
+## Removed
+## Fixed
+## Security
