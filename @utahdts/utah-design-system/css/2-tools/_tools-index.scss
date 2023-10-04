@@ -36,35 +36,10 @@ scss mixins and functions
   outline: 2px solid var(--form-ele-color);
   outline-offset: 2px;
   transition: none;
-  // outline: none;
-  // box-shadow: #ffffffaa 0 0 0 2px, var(--form-ele-color-60) 0 0 0 4px;
 }
 
 @mixin form-ele-focus {
   &:focus-visible {
     @include form-ele-focus-appearance;
-  }
-}
-
-@mixin selected-vertical-menu-item {
-  &.menu-item--selected_parent {
-    font-weight: bold;
-  }
-  &.menu-item--selected {
-    font-weight: bold;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
-    //a chiclet
-    &::after {
-      content: '';
-      position: absolute;
-      left: -3px;
-      top: 0;
-      width: 5px;
-      height: 100%;
-      background: var(--primary-color);
-      border-radius: var(--radius-circle);
-    }
   }
 }
