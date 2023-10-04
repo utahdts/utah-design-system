@@ -119,7 +119,6 @@ function TextInput({
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
   const clearInput = useCallback((e) => {
-    // @ts-ignore
     currentOnClear(e);
     addAssertiveMessage(`${label} input was cleared`);
     inputRef.current?.focus();
@@ -135,7 +134,6 @@ function TextInput({
 
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)} ref={innerRef}>
-      {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <label htmlFor={id} className={labelClassName ?? undefined}>
         {label}
         {isRequired ? <RequiredStar /> : null}
@@ -150,10 +148,8 @@ function TextInput({
           name={name || id}
           onChange={useCallback((e) => {
             onChangeSetCursorPosition(e);
-            // @ts-ignore
             currentOnChange(e);
           }, [onChangeSetCursorPosition, currentOnChange])}
-          // @ts-ignore
           onKeyUp={checkKeyPressed}
           placeholder={placeholder || undefined}
           ref={inputRef}
@@ -164,7 +160,6 @@ function TextInput({
         />
         {
           (showClearIcon)
-            // @ts-ignore
             ? (
               <IconButton
                 className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}

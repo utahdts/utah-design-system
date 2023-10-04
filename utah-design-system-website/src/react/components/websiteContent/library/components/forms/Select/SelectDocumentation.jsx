@@ -1,15 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+import { Select, SelectOption } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
-import selectInputScreenshot from '../../../../../../../static/images/screenshots/components/select/selectInput.jpg';
+import SelectExampleCodeReact from './SelectExampleCodeReact';
+import SelectExampleProps from './SelectExampleProps';
+import SelectExampleRender from './SelectExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
@@ -18,14 +16,27 @@ function SelectDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Select</h1>
       <p className="lead-in">
-        A select input allows a user to choose options from an option menu. The Select input and <Link to={pageUrls.comboBox}>Combo Box</Link> are limited to a single option, while a <Link to={pageUrls.multiSelect}>Multi-select</Link> lets users choose multiple options.
+        A select input allows a user to choose options from an option menu. The Select input and <Link to={pageUrls.comboBox}>Combo Box</Link> are limited to a single
+        option, while a <Link to={pageUrls.multiSelect}>Multi-select</Link> lets users choose multiple options.
       </p>
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        CODE_EXAMPLE={SelectExampleCodeReact}
+        PROPS_EXAMPLE={SelectExampleProps}
+        RENDER_EXAMPLE={SelectExampleRender}
+      />
+
       <StaticExample
         title="Select Input Example"
-        renderedExample={<LightBox image={selectInputScreenshot} alt="Select Input" className="flex-3up-gap" />}
+        renderedExample={(
+          <Select id="select-input-example" label="Which Animal?">
+            <SelectOption label="Cat" value="cat" />
+            <SelectOption label="Dog" value="dog" />
+            <SelectOption label="Iguana" value="iguana" />
+          </Select>
+        )}
         quickTips={(
           <ul>
             <li>A select input allows the user to select from a list of options.</li>
