@@ -41,10 +41,14 @@ function SelectDocumentation() {
       <StaticExample
         title="Select Input Example"
         renderedExample={(
-          <Select id="select-input-example" label="Which Animal?">
-            <SelectOption label="Cat" value="cat" />
-            <SelectOption label="Dog" value="dog" />
-            <SelectOption label="Iguana" value="iguana" />
+          <Select id="select-input-example" label="Choose the best wild animal">
+            <SelectOption label="Antelope" value="antelope" />
+            <SelectOption label="Black Bear" value="black-bear" />
+            <SelectOption label="Golden Eagle" value="golden-eagle" />
+            <SelectOption label="Elk" value="elk" />
+            <SelectOption label="Moose" value="moose" />
+            <SelectOption label="Mountain Lion" value="mountain-lion" />
+            <SelectOption label="Red-tailed Hawk" value="red-tailed-hawk" />
           </Select>
         )}
         quickTips={(

@@ -58,7 +58,7 @@ function SelectExampleProps({ setState, state }) {
       <Switch id="props.isDisabled" label="Disabled" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />
       <TextInput id="props.label" label="Label" className="input--height-small1x" />
-      <Select id="props.value" label="Value" className="input--height-small1x">
+      <Select id="props.value" label="Value" className="input--height-small1x" placeholder={'Choose favorite "Mighty 5"'}>
         <SelectOption label="Arches National Park" value="arches" />
         <SelectOption label="Bryce Canyon National Park" value="bryce" />
         <SelectOption label="Canyonlands National Park" value="canyonlands" />

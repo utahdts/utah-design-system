@@ -8,6 +8,7 @@ import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
 import ErrorMessage from './ErrorMessage';
 import SelectOption from './SelectOption';
+import RequiredStar from './RequiredStar';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
@@ -132,7 +133,10 @@ function Select({
 
   return (
     <div className={joinClassNames('input-wrapper input-wrapper--select', wrapperClassName)} ref={innerRef}>
-      <label htmlFor={id} className={labelClassName ?? undefined}>{label}</label>
+      <label htmlFor={id} className={labelClassName ?? undefined}>
+        {label}
+        {isRequired ? <RequiredStar /> : null}
+      </label>
       <div className="select-input__inner-wrapper">
         <select
           aria-describedby={currentErrorMessage ? `${id}-error` : undefined}
@@ -158,7 +162,7 @@ function Select({
                 className={joinClassNames('select-input__clear-button icon-button--borderless icon-button--small1x')}
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 onClick={clearInput}
-                title="Clear input"
+                title="Clear select"
                 isDisabled={isDisabled}
               />
             )
