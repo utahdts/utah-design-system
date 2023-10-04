@@ -16,12 +16,11 @@ function SelectCssClassesDocumentation() {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell><code>.switch--small</code></TableCell>
-            <TableCell>CSS class modifier for a small switch.</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell><code>.switch--large</code></TableCell>
-            <TableCell>CSS class modifier for a large switch.</TableCell>
+            <TableCell><code>.select-input--clear-icon-visible</code></TableCell>
+            <TableCell>
+              This class is used conjointly with the <code>isClearable</code> property.
+              It adds extra padding to the right side to accommodate the clear icon.
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>

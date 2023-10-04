@@ -16,6 +16,12 @@
 
     @include tools-index.form-ele-hover-medium;
     @include tools-index.form-ele-focus;
+
+    &.select-input {
+      &--clear-icon-visible {
+        padding: 0 var(--spacing-3xl) 0 var(--spacing-xs);
+      }
+    }
   }
   .select-input {
     &__inner-wrapper {

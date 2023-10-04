@@ -140,7 +140,7 @@ function Select({
       <div className="select-input__inner-wrapper">
         <select
           aria-describedby={currentErrorMessage ? `${id}-error` : undefined}
-          className={joinClassNames(className, showClearIcon ? 'text-input--clear-icon-visible' : null)}
+          className={joinClassNames(className, showClearIcon ? 'select-input--clear-icon-visible' : null)}
           defaultValue={defaultValue ?? undefined}
           disabled={isDisabled}
           id={id}
