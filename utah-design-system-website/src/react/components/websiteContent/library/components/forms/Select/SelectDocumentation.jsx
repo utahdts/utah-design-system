@@ -1,12 +1,22 @@
 /* eslint-disable max-len */
-import { Select, SelectOption } from '@utahdts/utah-design-system';
+import {
+  Select,
+  SelectOption,
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SelectCssClassesDocumentation from './SelectCssClassesDocumentation';
 import SelectExampleCodeReact from './SelectExampleCodeReact';
 import SelectExampleProps from './SelectExampleProps';
 import SelectExampleRender from './SelectExampleRender';
+import SelectPropsDocumentation from './SelectPropsDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -105,6 +115,24 @@ function SelectDocumentation() {
         <li>Note: Where possible, it is recommended that you use a native <code>&lt;select&gt;</code> element rather than using aria and role attributes, as native elements are more widely supported by user agents and assistive technology. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
         <li>If you customize this component, ensure that it continues to meet the accessibility requirements.</li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="component-props-css">
+          <TabList>
+            <Tab id="component-props-css">CSS</Tab>
+            <Tab id="component-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="component-props-css">
+              <SelectCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react">
+              <SelectPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
