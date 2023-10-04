@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -68,14 +68,14 @@
     "@popperjs/core": "2.11.8"
   },
   "devDependencies": {
-    "@vitest/ui": "0.34.4",
+    "@vitest/ui": "0.34.6",
     "jsdom": "22.1.0",
     "replace": "1.2.2",
-    "sass": "1.66.1",
+    "sass": "1.68.0",
     "tslib": "2.6.2",
     "typescript": "5.2.2",
-    "vite": "4.4.9",
-    "vitest": "0.34.4"
+    "vite": "4.4.10",
+    "vitest": "0.34.6"
   },
   "type": "module"
 }

@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.7.0] 10/04/2023
+## Added
+- New Icons:
+  - Upload
+  - Download
+  - Favorite
+  - Visibility
+  - Visibility Off
+
+## Fix
+- Update vertical menu style for dropdown menus and mobile menu.
+
 # [1.6.1] 10/03/2023
 ## Fixed
 - Keep only one search form at a time
@@ -182,3 +194,12 @@ N/A
 
 ## Security
 N/A
+
+# 👇 CHANGELOG template 👇
+# [version] date
+## Added
+## Changed
+## Deprecated
+## Removed
+## Fixed
+## Security

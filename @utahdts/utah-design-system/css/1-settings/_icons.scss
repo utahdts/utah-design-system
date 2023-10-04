@@ -244,4 +244,29 @@
   .utds-icon-after-more-horizontal::after {
     content: "\006d";
   }
+
+    .utds-icon-before-download::before,
+    .utds-icon-after-download::after {
+      content: "\006e";
+    }
+
+    .utds-icon-before-upload::before,
+    .utds-icon-after-upload::after {
+      content: "\006f";
+    }
+
+    .utds-icon-before-favorite::before,
+    .utds-icon-after-favorite::after {
+      content: "\0070";
+    }
+
+    .utds-icon-before-visibility::before,
+    .utds-icon-after-visibility::after {
+      content: "\0071";
+    }
+
+    .utds-icon-before-visibility-off::before,
+    .utds-icon-after-visibility-off::after {
+      content: "\0072";
+    }
 }

@@ -190,6 +190,7 @@
         &--filters {
           th {
             background-color: var(--gray-light-color);
+            padding: var(--spacing-s) var(--spacing-2xs);
           }
           th:first-child {
             border-top-left-radius: var(--radius-medium);
@@ -200,9 +201,6 @@
             border-top-right-radius: var(--radius-medium);
             border-bottom-right-radius: var(--radius-medium);
             padding: var(--spacing-s) var(--spacing-s) var(--spacing-s) var(--spacing-2xs);
-          }
-          th {
-            padding: var(--spacing-s) var(--spacing-2xs);
           }
           .input-wrapper {
             margin: 0;
