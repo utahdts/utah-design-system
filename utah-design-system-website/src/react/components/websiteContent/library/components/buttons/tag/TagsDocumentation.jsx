@@ -4,7 +4,10 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import { formElementSizesEnum, Icons, Tag } from '@utahdts/utah-design-system';
+import { useCallback } from 'react';
+import {
+  formElementSizesEnum, Icons, Tag, useBanner
+} from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 
@@ -12,6 +15,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function TagsDocumentation() {
+  const showBanner = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Tags</h1>
@@ -85,11 +89,11 @@ function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <Tag className="tag--primary-color" isClearable>Zion</Tag>
-              <Tag onClick={console.log}>Arches</Tag>
-              <Tag onClick={console.log}>Bryce</Tag>
-              <Tag onClick={console.log}>Canyonlands</Tag>
-              <Tag onClick={console.log}>Capitol Reef</Tag>
+              <Tag className="tag--primary-color" isClearable onClear={useCallback(() => showBanner({ message: 'tag cleared' }))}>Zion</Tag>
+              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Arches</Tag>
+              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Bryce</Tag>
+              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Canyonlands</Tag>
+              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Capitol Reef</Tag>
             </div>
           </div>
         )}
