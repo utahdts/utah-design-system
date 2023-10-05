@@ -1,10 +1,21 @@
-.tag {
-  padding: var(--spacing-2xs) var(--spacing-xs);
-  border-radius: var(--radius-small);
-  background-color: var(--gray-light-color);
-
+.utah-design-system .tag {
   &--primary-color {
     background-color: var(--primary-color);
     color: white;
+    fill: white;
+  }
+  &--primary-color-light {
+    background-color: var(--primary-color-light);
+  }
+  &--selected {
+    background-color: var(--gray-color);
+    color: white;
+    fill: white;
+  }
+  &__clear-button {
+    color: white;
+    &:hover {
+      background-color: var(--hover-gray-color-opaque);
+    }
   }
 }

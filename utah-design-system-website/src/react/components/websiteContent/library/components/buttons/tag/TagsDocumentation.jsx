@@ -4,12 +4,9 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { formElementSizesEnum, Icons, Tag } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import tagsSelectingScreenShot from '../../../../../../../static/images/screenshots/components/basic/tags-selecting.jpg';
-import tagsWithIconsScreenShot from '../../../../../../../static/images/screenshots/components/basic/tags-with-icons.jpg';
-import tagsScreenShot from '../../../../../../../static/images/screenshots/components/basic/tags.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
@@ -28,7 +25,26 @@ function TagsDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Informational tag"
-        renderedExample={<LightBox image={tagsScreenShot} alt="Informational Tags" className="flex-3up-gap" />}
+        className="static-example--blank"
+        renderedExample={(
+          <div className="flex flex-col full-width items-center">
+            <div className="flex gap-s mb-spacing">
+              <Tag size={formElementSizesEnum.SMALL} className="tag--primary-color-light">Fruits</Tag>
+              <Tag size={formElementSizesEnum.SMALL} className="tag--primary-color-light">Vegetables</Tag>
+              <Tag size={formElementSizesEnum.SMALL} className="tag--primary-color-light">Bakery</Tag>
+            </div>
+            <div className="flex gap-s mb-spacing">
+              <Tag>Fruits</Tag>
+              <Tag>Vegetables</Tag>
+              <Tag>Bakery</Tag>
+            </div>
+            <div className="flex gap-s">
+              <Tag size={formElementSizesEnum.LARGE} className="tag--primary-color-light">Fruits</Tag>
+              <Tag size={formElementSizesEnum.LARGE} className="tag--primary-color-light">Vegetables</Tag>
+              <Tag size={formElementSizesEnum.LARGE} className="tag--primary-color-light">Bakery</Tag>
+            </div>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Tags can be purely informational and don&apos;t require additional interactivity.</li>
@@ -39,7 +55,19 @@ function TagsDocumentation() {
 
       <StaticExample
         title="Tags with icons"
-        renderedExample={<LightBox image={tagsWithIconsScreenShot} alt="Tags with Icons" className="flex-3up-gap" />}
+        className="static-example--blank"
+        renderedExample={(
+          <div className="flex flex-col full-width items-center">
+            <div className="flex gap-s mb-spacing">
+              <Tag iconLeft={Icons.IconArrowLeft()} className="tag--selected">Left</Tag>
+              <Tag iconRight={Icons.IconArrowRight()}>Right</Tag>
+            </div>
+            <div className="flex gap-s">
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconSlack()} className="tag--primary-color">Slack</Tag>
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconGitHub()} className="tag--primary-color">GitHub</Tag>
+            </div>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>An icon can be used on the left or the right.</li>
@@ -52,7 +80,19 @@ function TagsDocumentation() {
 
       <StaticExample
         title="Filtering and selecting"
-        renderedExample={<LightBox image={tagsSelectingScreenShot} alt="Tags for Selecting or Filtering" className="flex-3up-gap" />}
+        className="static-example--blank"
+        renderedExample={(
+          <div className="flex flex-col full-width">
+            <p className="mb-spacing-s">The Mighty 5:</p>
+            <div className="flex gap-s mb-spacing-xs">
+              <Tag className="tag--primary-color" isClearable>Zion</Tag>
+              <Tag onClick={console.log}>Arches</Tag>
+              <Tag onClick={console.log}>Bryce</Tag>
+              <Tag onClick={console.log}>Canyonlands</Tag>
+              <Tag onClick={console.log}>Capitol Reef</Tag>
+            </div>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Tags can be used to filter and organize similar options. Once a tag is selected, the filtering behavior is immediate.</li>
