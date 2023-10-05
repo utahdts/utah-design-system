@@ -99,8 +99,6 @@ function Select({
   wrapperClassName,
   ...rest
 }) {
-  // TODO: add a clear button like TextInput
-  // TODO: on escape key clears select
   const {
     currentErrorMessage,
     currentOnChange,
@@ -146,7 +144,16 @@ function Select({
           id={id}
           name={name || id}
           onChange={useCallback((e) => { currentOnChange(e); }, [currentOnChange])}
-          onKeyUp={useCallback((e) => { currentOnFormKeyPress(e); }, [currentOnFormKeyPress])}
+          onKeyUp={useCallback(
+            (e) => {
+              if (e.key === 'Escape' && showClearIcon) {
+                clearInput(e);
+              } else {
+                currentOnFormKeyPress(e);
+              }
+            },
+            [clearInput, currentOnFormKeyPress, showClearIcon]
+          )}
           ref={selectInputRef}
           required={isRequired ?? undefined}
           value={currentValue}
