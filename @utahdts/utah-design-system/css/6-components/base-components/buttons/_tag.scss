@@ -1,0 +1,101 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .tag {
+    padding: var(--spacing-2xs) var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-small);
+    background-color: var(--gray-light-color);
+    min-height: var(--form-ele-small1x);
+
+    &__button[type="button"] {
+      border: none;
+      padding: var(--spacing-2xs) var(--spacing-xs);
+      border-radius: var(--radius-small);
+      background-color: var(--gray-light-color);
+      height: 100%;
+
+      &.tag--small {
+        padding: var(--spacing-3xs) var(--spacing-2xs);
+        min-height: 28px;
+        font-size: var(--font-size-xs);
+      }
+
+      &.tag--large {
+        min-height: var(--form-ele-small);
+        font-size: var(--font-size-m);
+      }
+
+      &:hover {
+        color: var(--gray-color);
+        background-color: var(--gray-medium-light-color);
+      }
+    }
+
+    &__clear-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: var(--spacing-3xs);
+      font-weight: var(--font-weight-normal);
+      transition: transform;
+
+      [class*=utds-icon-before-]::before {
+        font-size: .7rem;
+      }
+
+      &[disabled]:active {
+        transform: translateY(-50%);
+      }
+    }
+
+    &__wrapper {
+      border-radius: var(--radius-small);
+      display: flex;
+      align-items: center;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    &--small {
+      font-size: var(--font-size-xs);
+      padding: var(--spacing-3xs) var(--spacing-2xs);
+
+      .tag--icon svg {
+        height: .65rem;
+        width: .65rem;
+      }
+    }
+
+    &--large {
+      font-size: var(--font-size-m);
+
+      .tag--icon svg {
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+
+    &--icon {
+      display: flex;
+      align-items: center;
+
+      svg {
+        height: 0.8rem;
+        width: 0.8rem;
+      }
+
+      &-left {
+        margin-right: var(--spacing-2xs);
+      }
+    }
+
+    &--clearable {
+      .tag {
+        padding: var(--spacing-2xs) var(--spacing-xl) var(--spacing-2xs) var(--spacing-xs);
+        // button and clear?
+      }
+    }
+  }
+}

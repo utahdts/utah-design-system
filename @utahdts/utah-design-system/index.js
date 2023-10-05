@@ -95,6 +95,7 @@ export { default as TableWrapper } from './react/components/table/TableWrapper';
 export { default as TabList } from './react/components/containers/tabs/TabList';
 export { default as TabPanel } from './react/components/containers/tabs/TabPanel';
 export { default as TabPanels } from './react/components/containers/tabs/TabPanels';
+export { default as Tag } from './react/components/buttons/Tags';
 export { default as TextArea } from './react/components/forms/TextArea';
 export { default as TextInput } from './react/components/forms/TextInput';
 export { default as Tooltip } from './react/components/Tooltip/Tooltip';
