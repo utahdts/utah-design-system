@@ -1,3 +1,4 @@
+// @ts-check
 import PropTypes from 'prop-types';
 import React from 'react';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
@@ -133,7 +134,6 @@ function Tag({
         }
       {
         (isClearable && !onClick)
-          // @ts-ignore
           ? (
             <IconButton
               className={joinClassNames('tag__clear-button icon-button--borderless icon-button--small1x')}
