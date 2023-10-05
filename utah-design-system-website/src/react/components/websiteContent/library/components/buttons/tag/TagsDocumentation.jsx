@@ -10,6 +10,10 @@ import {
 } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import TagExampleCodeReact from './TagExampleCodeReact';
+import TagExampleProps from './TagExampleProps';
+import TagExampleRender from './TagExampleRender';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 
 const propTypes = {};
 const defaultProps = {};
@@ -26,7 +30,13 @@ function TagsDocumentation() {
 
       <hr />
 
-      <h2 id="section-example">Examples</h2>
+      <h2 id="section-example">Example</h2>
+      <SandboxExample
+        CODE_EXAMPLE={TagExampleCodeReact}
+        PROPS_EXAMPLE={TagExampleProps}
+        RENDER_EXAMPLE={TagExampleRender}
+        componentClassName="sandbox-example__component--outline"
+      />
       <StaticExample
         title="Informational tag"
         className="static-example--blank"

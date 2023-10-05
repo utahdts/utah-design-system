@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import joinClassNames from '../../util/joinClassNames';
 import handleEvent from '../../util/handleEvent';
@@ -8,29 +7,22 @@ import RefShape from '../../propTypesShapes/RefShape';
 import IconButton from './IconButton';
 
 const propTypes = {
-  // most often is the title of the button, but can also contain most anything
+  // most often is the title of the tag, but can also contain most anything
   children: PropTypes.node.isRequired,
-  // modify your button via classname like 'button--primary' and other modifiers found in the button.scss
+  // modify your tag via classname like 'tag--primary' and other modifiers found in the tag.scss
   className: PropTypes.string,
-  // the base color of the button
-  color: PropTypes.oneOf([
-    componentColors.PRIMARY,
-    componentColors.SECONDARY,
-    componentColors.ACCENT,
-    componentColors.NONE,
-  ]),
-  // a ref to attach to the actual DOM <button> element
+  // a ref to attach to the actual DOM <button> or <span> element
   innerRef: RefShape,
   // an icon for the left/right side
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
-  // the button id
+  // the tag id
   id: PropTypes.string,
   isClearable: PropTypes.bool,
-  // button isDisabled state
+  // tag isDisabled state
   isDisabled: PropTypes.bool,
   onClear: PropTypes.func,
-  // event for when the button is clicked: (e) => { ... do something with e ...}
+  // event for when the tag is clicked: (e) => { ... do something with e ...}
   onClick: PropTypes.func,
   size: PropTypes.oneOf([
     formElementSizesEnum.SMALL,
@@ -40,7 +32,6 @@ const propTypes = {
 };
 const defaultProps = {
   className: null,
-  color: componentColors.NONE,
   innerRef: null,
   iconLeft: null,
   iconRight: null,
@@ -56,7 +47,6 @@ const defaultProps = {
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @param {ComponentColors} [props.color]
  * @param {React.RefObject} [props.innerRef]
  * @param {React.ReactNode} [props.iconLeft]
  * @param {React.ReactNode} [props.iconRight]
@@ -71,7 +61,6 @@ const defaultProps = {
 function Tag({
   children,
   className,
-  color,
   innerRef,
   iconLeft,
   iconRight,
@@ -93,8 +82,6 @@ function Tag({
                 'tag',
                 'tag__button',
                 className,
-                // default color is none
-                (color && color !== 'none') ? `tag--${color}-color` : null,
                 // default size is medium
                 (size && size !== formElementSizesEnum.MEDIUM) ? `tag--${size}` : null
               )}
@@ -124,8 +111,6 @@ function Tag({
               className={joinClassNames(
                 'tag',
                 className,
-                // default color is none
-                (color && color !== 'none') ? `tag--${color}-color` : null,
                 // default size is medium
                 (size && size !== formElementSizesEnum.MEDIUM) ? `tag--${size}` : null
               )}
