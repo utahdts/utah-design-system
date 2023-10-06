@@ -42,7 +42,6 @@ function TagExampleRender({
       iconRight={((iconRight === 'none') || !iconRight) ? null : Icons[iconRight]()}
       id={id}
       innerRef={innerRef}
-      isClearable={isClearable}
       isDisabled={isDisabled}
       onClear={isClearable ? (() => showBanner({ message: 'You have cleared the Tag.' })) : null}
       onClick={onClick ? (() => showBanner({ message: 'You have clicked the Tag.' })) : null}

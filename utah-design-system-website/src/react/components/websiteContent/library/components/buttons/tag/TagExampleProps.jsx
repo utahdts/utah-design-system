@@ -24,8 +24,13 @@ function TagExampleProps({ setState, state }) {
   useEffect(
     () => {
       setState((draftState) => {
+        draftState.props.className = '';
         draftState.props.iconLeft = 'none';
         draftState.props.iconRight = 'none';
+        draftState.props.id = '';
+        draftState.props.isClearable = false;
+        draftState.props.isDisabled = false;
+        draftState.props.onClick = false;
         draftState.props.size = 'medium';
         draftState.props.title = 'Tag Title';
       });
@@ -35,7 +40,6 @@ function TagExampleProps({ setState, state }) {
 
   return (
     <Form
-      // onSubmit(({ state, validationErrors }) => ... do whatever ...)
       state={state}
       setState={setState}
       className="form--stacked"

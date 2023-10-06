@@ -18,8 +18,8 @@ function TagExampleCode({
       isClearable,
       iconLeft,
       iconRight,
-      isDisabled,
       id,
+      isDisabled,
       onClick,
       size,
       style,
@@ -31,7 +31,6 @@ function TagExampleCode({
     <>
       &lt;Tag
       <br />
-      <ExampleCodeReactProp displayProp={isClearable ? 'isClearable' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'onClear={() => { /* ... do something ... */ }' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null} indentLevel={1} />

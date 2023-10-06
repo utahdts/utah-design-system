@@ -99,7 +99,7 @@ function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <Tag className="tag--primary-color" isClearable onClear={useCallback(() => showBanner({ message: 'tag cleared' }))}>Zion</Tag>
+              <Tag className="tag--primary-color" onClear={useCallback(() => showBanner({ message: 'tag cleared' }))}>Zion</Tag>
               <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Arches</Tag>
               <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Bryce</Tag>
               <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Canyonlands</Tag>

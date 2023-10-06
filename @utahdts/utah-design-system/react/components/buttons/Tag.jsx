@@ -19,7 +19,6 @@ const propTypes = {
   iconRight: PropTypes.node,
   // the tag id
   id: PropTypes.string,
-  isClearable: PropTypes.bool,
   // tag isDisabled state
   isDisabled: PropTypes.bool,
   onClear: PropTypes.func,
@@ -36,7 +35,6 @@ const defaultProps = {
   innerRef: null,
   iconLeft: null,
   iconRight: null,
-  isClearable: false,
   isDisabled: false,
   id: null,
   onClear: null,
@@ -46,35 +44,33 @@ const defaultProps = {
 
 /**
  * @param {Object} props
- * @param {React.ReactNode} props.children
- * @param {string} [props.className]
- * @param {React.RefObject} [props.innerRef]
- * @param {React.ReactNode} [props.iconLeft]
- * @param {React.ReactNode} [props.iconRight]
- * @param {boolean} [props.isClearable]
+ * @param {React.ReactNode | null} props.children
+ * @param {string | null} [props.className]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {React.ReactNode | null} [props.iconLeft]
+ * @param {React.ReactNode | null} [props.iconRight]
  * @param {boolean} [props.isDisabled]
- * @param {string} [props.id]
- * @param {EventAction} [props.onClear]
- * @param {EventAction} [props.onClick]
+ * @param {string | null} [props.id]
+ * @param {EventAction | null} [props.onClear]
+ * @param {EventAction | null} [props.onClick]
  * @param {FormElementSizes} [props.size]
  * @returns {JSX.Element}
  */
 function Tag({
-  children,
-  className,
-  innerRef,
-  iconLeft,
-  iconRight,
-  isClearable,
-  isDisabled,
-  id,
-  onClear,
-  onClick,
-  size,
+  children = null,
+  className = null,
+  innerRef = null,
+  iconLeft = null,
+  iconRight = null,
+  isDisabled = false,
+  id = null,
+  onClear = null,
+  onClick = null,
+  size = formElementSizesEnum.MEDIUM,
   ...rest
 }) {
   return (
-    <div className={joinClassNames('tag__wrapper', isClearable && !onClick && 'tag--clearable')}>
+    <div className={joinClassNames('tag__wrapper', onClear && !onClick && 'tag--clearable')}>
       {
         onClick
           ? (
@@ -83,8 +79,7 @@ function Tag({
                 'tag',
                 'tag__button',
                 className,
-                // default size is medium
-                (size && size !== formElementSizesEnum.MEDIUM) ? `tag--${size}` : null
+                `tag--${size}`
               )}
               disabled={isDisabled}
               id={id}
@@ -95,15 +90,15 @@ function Tag({
               {...rest}
             >
               {
-              iconLeft
-                ? <span className="tag--icon tag--icon-left">{iconLeft}</span>
-                : null
+                iconLeft
+                  ? <span className="tag--icon tag--icon-left">{iconLeft}</span>
+                  : null
               }
               {children}
               {
-              iconRight
-                ? <span className="tag--icon tag--icon-right">{iconRight}</span>
-                : null
+                iconRight
+                  ? <span className="tag--icon tag--icon-right">{iconRight}</span>
+                  : null
               }
             </button>
           )
@@ -113,10 +108,11 @@ function Tag({
                 'tag',
                 className,
                 // default size is medium
-                (size && size !== formElementSizesEnum.MEDIUM) ? `tag--${size}` : null
+                `tag--${size}`
               )}
               id={id}
               ref={innerRef}
+              {...rest}
             >
               {
                 iconLeft
@@ -133,10 +129,10 @@ function Tag({
           )
         }
       {
-        (isClearable && !onClick)
+        (onClear && !onClick)
           ? (
             <IconButton
-              className={joinClassNames('tag__clear-button icon-button--borderless icon-button--small1x')}
+              className="tag__clear-button icon-button--borderless icon-button--small1x"
               icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
               onClick={onClear}
               title="Clear tag"
