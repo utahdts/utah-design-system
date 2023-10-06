@@ -6,7 +6,7 @@
 import { Link } from 'react-router-dom';
 import { useCallback } from 'react';
 import {
-  formElementSizesEnum, Icons, Tag, useBanner
+  formElementSizesEnum, Icons, Tab, TabGroup, TabList, TabPanel, TabPanels, Tag, useBanner
 } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -14,6 +14,8 @@ import TagExampleCodeReact from './TagExampleCodeReact';
 import TagExampleProps from './TagExampleProps';
 import TagExampleRender from './TagExampleRender';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
+import TagCssClassesDocumentation from './TagCssClassesDocumentation';
+import TagPropsDocumentation from './TagPropsDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -211,6 +213,24 @@ function TagsDocumentation() {
           If you customize this component, ensure that it continues to meet the accessibility requirements.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-react">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <TagCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <TagPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

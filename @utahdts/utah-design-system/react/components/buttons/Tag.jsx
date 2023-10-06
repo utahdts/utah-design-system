@@ -12,13 +12,13 @@ const propTypes = {
   children: PropTypes.node.isRequired,
   // modify your tag via classname like 'tag--primary' and other modifiers found in the tag.scss
   className: PropTypes.string,
+  // the tag id
+  id: PropTypes.string,
   // a ref to attach to the actual DOM <button> or <span> element
   innerRef: RefShape,
   // an icon for the left/right side
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
-  // the tag id
-  id: PropTypes.string,
   // tag isDisabled state
   isDisabled: PropTypes.bool,
   onClear: PropTypes.func,
@@ -32,11 +32,11 @@ const propTypes = {
 };
 const defaultProps = {
   className: null,
+  id: null,
   innerRef: null,
   iconLeft: null,
   iconRight: null,
   isDisabled: false,
-  id: null,
   onClear: null,
   onClick: null,
   size: formElementSizesEnum.MEDIUM,
