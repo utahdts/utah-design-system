@@ -82,13 +82,7 @@ function FormContextProvider({
         }
       },
       onSubmit: () => {
-        // calculate validation errors
-        if (onSubmit) {
-          onSubmit({
-            validationErrors: null,
-            state,
-          });
-        }
+        onSubmit?.({ validationErrors: null, state });
       },
       state,
     }),

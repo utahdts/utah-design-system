@@ -90,6 +90,28 @@
  */
 
 /**
+ * @typedef CharacterCountExamplePropsShape {
+ * @property {string} className
+ * @property {string} id
+ * @property {string} maxLength
+ * @property {string} text
+ * }
+ */
+
+/**
+ * @typedef ComboBoxExamplePropsShape {
+ * @property {string} className
+ * @property {string} errorMessage
+ * @property {string} id
+ * @property {boolean} isClearable
+ * @property {boolean} isDisabled
+ * @property {boolean} isRequired
+ * @property {string} label
+ * @property {string} value
+ * }
+ */
+
+/**
  * @typedef PaginationExamplePropsShape {
  *  @property {string} className
  *  @property {string} id
@@ -145,15 +167,6 @@
  * @property {string} label
  * @property {string} placeholder
  * @property {string} value
- * }
- */
-
-/**
- * @typedef CharacterCountExamplePropsShape {
- * @property {string} className
- * @property {string} id
- * @property {string} maxLength
- * @property {string} text
  * }
  */
 

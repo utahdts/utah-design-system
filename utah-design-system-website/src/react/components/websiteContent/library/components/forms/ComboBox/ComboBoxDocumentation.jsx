@@ -1,13 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import comboBoxScreenshot from '../../../../../../../static/images/screenshots/components/combo-box/combo-box.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import ComboBoxExampleCodeReact from './ComboBoxExampleCodeReact';
+import ComboBoxExampleProps from './ComboBoxExampleProps';
+import ComboBoxExampleRender from './ComboBoxExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -24,9 +25,26 @@ function ComboBoxDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        CODE_EXAMPLE={ComboBoxExampleCodeReact}
+        PROPS_EXAMPLE={ComboBoxExampleProps}
+        RENDER_EXAMPLE={ComboBoxExampleRender}
+      />
       <StaticExample
-        title="Date Input Examples"
-        renderedExample={<LightBox image={comboBoxScreenshot} alt="Combo Box" className="flex-3up-gap" />}
+        title="ComboBox Example"
+        renderedExample={(
+          <ComboBox id="combo-box-documentation-static-example" label="Choose the best wild animal">
+            <ComboBoxOptionGroup isLabelHidden>
+              <ComboBoxOption label="Antelope" value="antelope">Antelope</ComboBoxOption>
+              <ComboBoxOption label="Black Bear" value="black-bear">Black Bear</ComboBoxOption>
+              <ComboBoxOption label="Golden Eagle" value="golden-eagle">Golden Eagle</ComboBoxOption>
+              <ComboBoxOption label="Elk" value="elk">Elk</ComboBoxOption>
+              <ComboBoxOption label="Moose" value="moose">Moose</ComboBoxOption>
+              <ComboBoxOption label="Mountain Lion" value="mountain-lion">Mountain Lion</ComboBoxOption>
+              <ComboBoxOption label="Red Tailed Hawk" value="red-tailed-hawk">Red Tailed Hawk</ComboBoxOption>
+            </ComboBoxOptionGroup>
+          </ComboBox>
+        )}
         quickTips={(
           <ul>
             <li>A combo box allows the user to select from a list of options.</li>

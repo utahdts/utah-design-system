@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import FormContext from '../../components/forms/FormContext';
-import onKeyPress from '../../util/onKeyPress';
 import valueAtPath from '../../util/state/valueAtPath';
+import useOnKeyPress from '../../util/useOnKeyPress';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
@@ -27,9 +27,10 @@ import valueAtPath from '../../util/state/valueAtPath';
  * @param {string|boolean|number|any} [object.defaultValue] starting value of the component if not controlled
  * @param {string} object.id id of the component that is also the path to the data for the component in the form context
  * @param {EventAction | null} [object.onChange] when component changes, call this (e) => void, overrides the one from the form context
+ * @param {EventAction | null} [object.onKeyUp] when component changes, call this (e) => void, overrides the one from the form context
  * @param {EventAction | null} [object.onClear] when component "clears", call this (e) => void, overrides the one from the form context
  * @param {(() => void) | null} [object.onSubmit] call on enter key pressed, or other (e) => void event; overrides the one from the form context
- * @param {string|boolean|number|any} object.value current value of the component, overrides the one from the form context
+ * @param {string|boolean|number|any} [object.value] current value of the component, overrides the one from the form context
  * @returns {UseCurrentValuesFromFormResult} the same passed in parameters but checking if the component overrides the form's context values
  */
 export default function useCurrentValuesFromForm({
@@ -38,6 +39,7 @@ export default function useCurrentValuesFromForm({
   id,
   onChange,
   onClear,
+  onKeyUp,
   onSubmit,
   value,
 }) {
@@ -53,12 +55,14 @@ export default function useCurrentValuesFromForm({
   } = useContext(FormContext) || {};
 
   const currentOnSubmit = onSubmit ?? contextOnSubmit;
+  const currentOnKeyPress = useOnKeyPress({ targetKey: 'Enter', func: () => currentOnSubmit?.() });
+
   return {
     currentErrorMessage: errorMessage ?? validationErrors?.[id]?.[0],
     currentOnChange: onChange ?? (contextOnChange && ((e, newValue) => contextOnChange({ e, id, newValue }))),
     currentOnClear: onClear ?? (contextOnChange && ((e) => contextOnChange({ e, id, newValue: '' }))),
     currentOnSubmit,
     currentValue: (value ?? (state && valueAtPath({ object: state, path: id }))) ?? defaultValue ?? '',
-    currentOnFormKeyPress: onKeyPress({ targetKey: 'Enter', func: () => currentOnSubmit?.() }),
+    currentOnFormKeyPress: onKeyUp ?? currentOnKeyPress,
   };
 }

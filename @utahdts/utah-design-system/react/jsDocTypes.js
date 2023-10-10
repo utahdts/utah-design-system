@@ -58,6 +58,7 @@
 /** @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event */
 
 /** @typedef {((e: Event) => void)} EventAction */
+/** @typedef {((e: Event) => boolean)} EventActionBoolean */
 
 /** @typedef {(value: string) => boolean} TableFilterFunction */
 
@@ -209,6 +210,28 @@
  *  @property {TableDataT | null} record
  * }
  */
+
+/**
+ * @typedef ComboBoxOption {
+ *  @property {string} value
+ *  @property {string} labelLowerCase
+ *  @property {string} label
+ * }
+*/
+
+/**
+ * @typedef ComboBoxContextValue {
+ *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
+ *  @property {boolean} isOptionsExpanded is the options list visible/expanded
+ *  @property {ComboBoxOption[]} options the known options
+ *  @property {ComboBoxOption[]} optionsFiltered the options filtered by the filterValue
+ *  @property {(option: ComboBoxOption) => void} registerOption add a new option
+ *  @property {string | null} selectedOptionValue which option most closely matches the text input
+ *  @property {(value: string) => void} unregisterOption remove a known option by its value
+ * }
+ */
+
+/** @typedef {import('use-immer').ImmerHook<ComboBoxContextValue>} ComboBoxContext */
 
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
 export default false;
