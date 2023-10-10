@@ -120,7 +120,7 @@ function PaginationDocumentation() {
               <li>
                 <a href="#pagefirst">
                   1
-                  <span class="visuallyhidden">first page</span>
+                  <span class="visually-hidden">first page</span>
                 </a>
               </li>
             `}
