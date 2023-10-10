@@ -39,7 +39,12 @@ function TagExampleCode({
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={style ? `style="${style}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={onClick ? 'onClick={() => { /* ... do something ... */ }' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`} indentLevel={1} />
+      <ExampleCodeReactProp
+        displayProp={(!size || size === formElementSizesEnum.MEDIUM)
+          ? null
+          : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`}
+        indentLevel={1}
+      />
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
