@@ -28,6 +28,7 @@ const propTypes = {
   name: PropTypes.string,
   // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
   onChange: PropTypes.func,
+  onKeyUp: PropTypes.func,
   // e => ... do something when the field should be cleared (if inside a <Form> context, don't have to provide this and can just set isClearable)
   onClear: PropTypes.func,
   // when enter key pressed in field, submit the form
@@ -47,6 +48,7 @@ const defaultProps = {
   labelClassName: null,
   name: null,
   onChange: null,
+  onKeyUp: null,
   onClear: null,
   onSubmit: null,
   placeholder: null,
@@ -59,8 +61,8 @@ const defaultProps = {
  * @param {string | null} [props.className]
  * @param {string | null} [props.defaultValue]
  * @param {string | null} [props.errorMessage]
- * @param {React.RefObject | null} [props.innerRef]
  * @param {string} props.id
+ * @param {React.RefObject | null} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -68,6 +70,7 @@ const defaultProps = {
  * @param {string | null} [props.labelClassName]
  * @param {string | null} [props.name]
  * @param {EventAction | null} [props.onChange]
+ * @param {EventAction | null} [props.onKeyUp]
  * @param {EventAction | null} [props.onClear]
  * @param {(() => void) | null} [props.onSubmit]
  * @param {string | null} [props.placeholder]
@@ -89,6 +92,7 @@ function TextInput({
   name,
   onChange,
   onClear,
+  onKeyUp,
   onSubmit,
   placeholder,
   value,
@@ -106,6 +110,7 @@ function TextInput({
     errorMessage,
     id,
     onChange,
+    onKeyUp,
     onClear,
     onSubmit,
     value,
@@ -150,7 +155,8 @@ function TextInput({
             onChangeSetCursorPosition(e);
             currentOnChange(e);
           }, [onChangeSetCursorPosition, currentOnChange])}
-          onKeyUp={checkKeyPressed}
+          // @ts-ignore
+          onKeyUp={onKeyUp || checkKeyPressed}
           placeholder={placeholder || undefined}
           ref={inputRef}
           required={isRequired}
