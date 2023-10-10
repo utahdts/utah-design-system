@@ -6,6 +6,8 @@
 import { Link } from 'react-router-dom';
 import { useCallback } from 'react';
 import {
+  Accordion,
+  ClickableTag,
   formElementSizesEnum, Icons, Tab, TabGroup, TabList, TabPanel, TabPanels, Tag, useBanner
 } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
@@ -13,9 +15,14 @@ import StaticExample from '../../../../../staticExamples/StaticExample';
 import TagExampleCodeReact from './TagExampleCodeReact';
 import TagExampleProps from './TagExampleProps';
 import TagExampleRender from './TagExampleRender';
+import ClickableTagExampleCodeReact from './clickable/ClickableTagExampleCodeReact';
+import ClickableTagExampleProps from './clickable/ClickableTagExampleProps';
+import ClickableTagExampleRender from './clickable/ClickableTagExampleRender';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import TagCssClassesDocumentation from './TagCssClassesDocumentation';
 import TagPropsDocumentation from './TagPropsDocumentation';
+import ClickableTagCssClassesDocumentation from './clickable/ClickableTagCssClassesDocumentation';
+import ClickableTagPropsDocumentation from './clickable/ClickableTagPropsDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -33,12 +40,34 @@ function TagsDocumentation() {
       <hr />
 
       <h2 id="section-example">Example</h2>
-      <SandboxExample
-        CODE_EXAMPLE={TagExampleCodeReact}
-        PROPS_EXAMPLE={TagExampleProps}
-        RENDER_EXAMPLE={TagExampleRender}
-        componentClassName="sandbox-example__component--outline"
-      />
+
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="tag__sandbox">
+          <TabList>
+            <Tab id="tag__sandbox">Standard</Tab>
+            <Tab id="tag-clickable__sanbox">Clickable</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="tag__sandbox">
+              <SandboxExample
+                CODE_EXAMPLE={TagExampleCodeReact}
+                PROPS_EXAMPLE={TagExampleProps}
+                RENDER_EXAMPLE={TagExampleRender}
+                componentClassName="sandbox-example__component--outline"
+              />
+            </TabPanel>
+            <TabPanel tabId="tag-clickable__sanbox">
+              <SandboxExample
+                CODE_EXAMPLE={ClickableTagExampleCodeReact}
+                PROPS_EXAMPLE={ClickableTagExampleProps}
+                RENDER_EXAMPLE={ClickableTagExampleRender}
+                componentClassName="sandbox-example__component--outline"
+              />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
+
       <StaticExample
         title="Informational tag"
         className="static-example--blank"
@@ -101,11 +130,11 @@ function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <Tag className="tag--primary-color" onClear={useCallback(() => showBanner({ message: 'tag cleared' }))}>Zion</Tag>
-              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Arches</Tag>
-              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Bryce</Tag>
-              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Canyonlands</Tag>
-              <Tag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Capitol Reef</Tag>
+              <ClickableTag className="tag--primary-color" isSelected onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Zion</ClickableTag>
+              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Arches</ClickableTag>
+              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Bryce</ClickableTag>
+              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Canyonlands</ClickableTag>
+              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Capitol Reef</ClickableTag>
             </div>
           </div>
         )}
@@ -215,22 +244,54 @@ function TagsDocumentation() {
       </ul>
 
       <h2 id="section-settings-props">Settings and Props</h2>
-      <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-react">
-          <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel tabId="button-props-css">
-              <TagCssClassesDocumentation />
-            </TabPanel>
-            <TabPanel tabId="button-props-react">
-              <TagPropsDocumentation />
-            </TabPanel>
-          </TabPanels>
-        </TabGroup>
-      </div>
+      <Accordion
+        contentClassName="accordion__content--bordered mb-spacing-xl"
+        headerContent={<span>Standard tag</span>}
+        headerClassName="button--primary-color button--solid"
+        headingLevel={4}
+        isOpen
+      >
+        <div className="documentation-content--small-text mb-spacing-xl">
+          <TabGroup defaultValue="tag-props-react">
+            <TabList>
+              <Tab id="tag-props-css">CSS</Tab>
+              <Tab id="tag-props-react">React</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel tabId="tag-props-css">
+                <TagCssClassesDocumentation />
+              </TabPanel>
+              <TabPanel tabId="tag-props-react">
+                <TagPropsDocumentation />
+              </TabPanel>
+            </TabPanels>
+          </TabGroup>
+        </div>
+      </Accordion>
+
+      <Accordion
+        contentClassName="accordion__content--bordered"
+        headerContent={<span>Clickable tag</span>}
+        headerClassName="button--primary-color button--solid"
+        headingLevel={4}
+      >
+        <div className="documentation-content--small-text">
+          <TabGroup defaultValue="clickable-tag-props-react">
+            <TabList>
+              <Tab id="clickable-tag-props-css">CSS</Tab>
+              <Tab id="clickable-tag-props-react">React</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel tabId="clickable-tag-props-css">
+                <ClickableTagCssClassesDocumentation />
+              </TabPanel>
+              <TabPanel tabId="clickable-tag-props-react">
+                <ClickableTagPropsDocumentation />
+              </TabPanel>
+            </TabPanels>
+          </TabGroup>
+        </div>
+      </Accordion>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import {
-  Tag,
+  ClickableTag,
   Icons,
   RefShape,
   useBanner,
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
-import TagExamplePropsShape from '../../../../../../propTypesShapes/TagExamplePropsShape';
+import TagExamplePropsShape from '../../../../../../../propTypesShapes/ClickableTagExamplePropsShape';
 
 const propTypes = {
   state: PropTypes.shape({
@@ -18,12 +18,12 @@ const defaultProps = {
   innerRef: null,
 };
 
-function TagExampleRender({
+function ClickableTagExampleRender({
   state: {
     props: {
       className,
-      isClearable,
-      isDisabled,
+      isRestricted,
+      isSelected,
       iconLeft,
       iconRight,
       id,
@@ -35,22 +35,23 @@ function TagExampleRender({
 }) {
   const showBanner = useBanner();
   return (
-    <Tag
+    <ClickableTag
       className={className}
       iconLeft={((iconLeft === 'none') || !iconLeft) ? null : Icons[iconLeft]()}
       iconRight={((iconRight === 'none') || !iconRight) ? null : Icons[iconRight]()}
       id={id}
       innerRef={innerRef}
-      isDisabled={isDisabled}
-      onClear={isClearable ? (() => showBanner({ message: 'You have cleared the Tag.' })) : null}
+      isDisabled={isRestricted}
+      isSelected={isSelected}
+      onClick={() => showBanner({ message: 'You have clicked the Tag.' })}
       size={size}
     >
       {title || ''}
-    </Tag>
+    </ClickableTag>
   );
 }
 
-TagExampleRender.propTypes = propTypes;
-TagExampleRender.defaultProps = defaultProps;
+ClickableTagExampleRender.propTypes = propTypes;
+ClickableTagExampleRender.defaultProps = defaultProps;
 
-export default TagExampleRender;
+export default ClickableTagExampleRender;

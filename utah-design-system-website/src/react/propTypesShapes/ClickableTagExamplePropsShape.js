@@ -7,7 +7,8 @@ export default PropTypes.exact({
   iconLeft: PropTypes.string,
   iconRight: PropTypes.string,
   id: PropTypes.string,
-  isDisabled: PropTypes.bool,
+  isRestricted: PropTypes.bool,
+  isSelected: PropTypes.bool,
   size: PropTypes.oneOf([
     formElementSizesEnum.SMALL,
     formElementSizesEnum.MEDIUM,

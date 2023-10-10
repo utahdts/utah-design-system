@@ -11,6 +11,13 @@
     background-color: var(--gray-color);
     color: white;
     fill: white;
+
+    &.tag--primary-color {
+      background-color: var(--primary-color);
+      color: white;
+      fill: white;
+      border: none;
+    }
   }
   &__clear-button {
     color: white;

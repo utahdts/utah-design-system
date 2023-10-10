@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import joinClassNames from '../../util/joinClassNames';
+import handleEvent from '../../util/handleEvent';
 import RefShape from '../../propTypesShapes/RefShape';
-import IconButton from './IconButton';
 
 const propTypes = {
   // most often is the title of the tag, but can also contain most anything
@@ -20,7 +20,9 @@ const propTypes = {
   iconRight: PropTypes.node,
   // tag isDisabled state
   isDisabled: PropTypes.bool,
-  onClear: PropTypes.func,
+  isSelected: PropTypes.bool,
+  // event for when the tag is clicked: (e) => { ... do something with e ...}
+  onClick: PropTypes.func,
   size: PropTypes.oneOf([
     formElementSizesEnum.SMALL,
     formElementSizesEnum.MEDIUM,
@@ -34,7 +36,8 @@ const defaultProps = {
   iconLeft: null,
   iconRight: null,
   isDisabled: false,
-  onClear: null,
+  isSelected: false,
+  onClick: null,
   size: formElementSizesEnum.MEDIUM,
 };
 
@@ -46,34 +49,42 @@ const defaultProps = {
  * @param {React.ReactNode | null} [props.iconLeft]
  * @param {React.ReactNode | null} [props.iconRight]
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isSelected]
  * @param {string | null} [props.id]
- * @param {EventAction | null} [props.onClear]
+ * @param {EventAction | null} [props.onClick]
  * @param {FormElementSizes} [props.size]
  * @returns {JSX.Element}
  */
-function Tag({
+function ClickableTag({
   children = null,
   className = null,
+  id = null,
   innerRef = null,
   iconLeft = null,
   iconRight = null,
   isDisabled = false,
-  id = null,
-  onClear = null,
+  isSelected = false,
+  onClick = null,
   size = formElementSizesEnum.MEDIUM,
   ...rest
 }) {
   return (
-    <div className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}>
-      <span
+    <div className="tag__wrapper">
+      <button
+        aria-pressed={isSelected}
         className={joinClassNames(
           'tag',
+          'tag__button',
           className,
-          // default size is medium
+          isSelected ? 'tag--selected' : '',
           `tag--${size}`
         )}
+        disabled={isDisabled}
         id={id}
+        // @ts-ignore
+        onClick={onClick && handleEvent((e) => onClick?.(e))}
         ref={innerRef}
+        type="button"
         {...rest}
       >
         {
@@ -87,25 +98,12 @@ function Tag({
             ? <span className="tag--icon tag--icon-right">{iconRight}</span>
             : null
         }
-      </span>
-      {
-        onClear
-          ? (
-            <IconButton
-              className="tag__clear-button icon-button--borderless icon-button--small1x"
-              icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
-              onClick={onClear}
-              title="Clear tag"
-              isDisabled={isDisabled}
-            />
-          )
-          : null
-      }
+      </button>
     </div>
   );
 }
 
-Tag.propTypes = propTypes;
-Tag.defaultProps = defaultProps;
+ClickableTag.propTypes = propTypes;
+ClickableTag.defaultProps = defaultProps;
 
-export default Tag;
+export default ClickableTag;

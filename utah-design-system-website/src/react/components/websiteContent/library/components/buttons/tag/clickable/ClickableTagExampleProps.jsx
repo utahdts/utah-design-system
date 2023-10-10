@@ -9,17 +9,17 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import TagExamplePropsShape from '../../../../../../propTypesShapes/TagExamplePropsShape';
+import TagClickableExamplePropsShape from '../../../../../../../propTypesShapes/ClickableTagExamplePropsShape';
 
 const propTypes = {
   setState: PropTypes.func.isRequired,
   state: PropTypes.shape({
-    props: TagExamplePropsShape.isRequired,
+    props: TagClickableExamplePropsShape.isRequired,
   }).isRequired,
 };
 const defaultProps = {};
 
-function TagExampleProps({ setState, state }) {
+function ClickableTagExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
@@ -28,8 +28,8 @@ function TagExampleProps({ setState, state }) {
         draftState.props.iconLeft = 'none';
         draftState.props.iconRight = 'none';
         draftState.props.id = '';
-        draftState.props.isClearable = false;
-        draftState.props.isDisabled = false;
+        draftState.props.isRestricted = false;
+        draftState.props.isSelected = false;
         draftState.props.size = 'medium';
         draftState.props.title = 'Tag Title';
       });
@@ -43,11 +43,9 @@ function TagExampleProps({ setState, state }) {
       setState={setState}
       className="form--stacked"
     >
-      <Switch id="props.isClearable" label="Clearable" />
-
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
 
-      <Switch id="props.isDisabled" label="Disabled" width={20} />
+      <Switch id="props.isRestricted" label="Disabled" width={20} />
 
       <Select id="props.iconLeft" label="Icon Left" className="input--height-small1x">
         <SelectOption label="Checkmark" value="IconCheck" />
@@ -63,6 +61,8 @@ function TagExampleProps({ setState, state }) {
 
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
 
+      <Switch id="props.isSelected" label="Selected" />
+
       <Select id="props.size" label="Size" className="input--height-small1x">
         <SelectOption label="Small" value={formElementSizesEnum.SMALL} />
         <SelectOption label="Medium" value={formElementSizesEnum.MEDIUM} />
@@ -75,7 +75,7 @@ function TagExampleProps({ setState, state }) {
   );
 }
 
-TagExampleProps.propTypes = propTypes;
-TagExampleProps.defaultProps = defaultProps;
+ClickableTagExampleProps.propTypes = propTypes;
+ClickableTagExampleProps.defaultProps = defaultProps;
 
-export default TagExampleProps;
+export default ClickableTagExampleProps;

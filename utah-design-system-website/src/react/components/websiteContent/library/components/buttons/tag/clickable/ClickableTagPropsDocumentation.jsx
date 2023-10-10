@@ -11,7 +11,7 @@ import {
 import React from 'react';
 
 /** @returns {JSX.Element} */
-function TagPropsDocumentation() {
+function ClickableTagPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -100,13 +100,27 @@ function TagPropsDocumentation() {
             </TableRow>
 
             <TableRow>
-              <TableCell><code className="primary-color">onClear</code></TableCell>
+              <TableCell><code className="primary-color">isSelected</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
+              <TableCell>false</TableCell>
+              <TableCell>
+                Used when the tag has been toggle on (selected) or off.
+                Will set the <code>aria-pressed</code> attribute.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">onClick</code></TableCell>
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Will display a clear button.
-                Function to call when the user triggers the clear button.
-                Can not be used in conjunction with <code>onClick</code>.
+                The function to call when the tag is pressed.
               </TableCell>
             </TableRow>
 
@@ -135,4 +149,4 @@ function TagPropsDocumentation() {
   );
 }
 
-export default TagPropsDocumentation;
+export default ClickableTagPropsDocumentation;

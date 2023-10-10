@@ -4,7 +4,7 @@ import {
 } from '@utahdts/utah-design-system';
 
 /** @returns {JSX.Element} */
-function TagCssClassesDocumentation() {
+function ClickableTagCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x">
@@ -24,8 +24,12 @@ function TagCssClassesDocumentation() {
             <TableCell>This class is the overall wrapper for the tag.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>.tag--clearable</code></TableCell>
-            <TableCell>This class is the used then the tag includes a clear button.</TableCell>
+            <TableCell><code>.tag__button</code></TableCell>
+            <TableCell>This class is the interactive tag.</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code>.tag--selected</code></TableCell>
+            <TableCell>This class is the used when the tag has been toggled (selected).</TableCell>
           </TableRow>
           <TableRow>
             <TableCell><code>.tag--icon</code></TableCell>
@@ -45,4 +49,4 @@ function TagCssClassesDocumentation() {
   );
 }
 
-export default TagCssClassesDocumentation;
+export default ClickableTagCssClassesDocumentation;

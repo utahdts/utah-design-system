@@ -10,7 +10,7 @@
     min-height: var(--form-ele-small1x);
 
     &__button[type="button"] {
-      border: none;
+      border: 1px solid var(--gray-medium-color);
       padding: var(--spacing-2xs) var(--spacing-xs);
       border-radius: var(--radius-small);
       background-color: var(--gray-light-color);
@@ -26,6 +26,12 @@
       &.tag--large {
         min-height: var(--form-ele-small);
         font-size: var(--font-size-m);
+      }
+
+      &.tag--selected {
+        background-color: var(--gray-color);
+        color: white;
+        fill: white;
       }
 
       &:hover {
