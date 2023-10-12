@@ -6,7 +6,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
   // throw new Error(`header mode: '${mode}'`);
   return {
     build: {
-      minify: false,
       lib: {
         // Could also be a dictionary or array of multiple entry points
         name: '@utahdts/utah-design-system-header',
