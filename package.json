@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -45,6 +45,7 @@
     "cleanbuild": "run-s cleani build",
     "cleani": "run-s clean npmi",
     "dev": "npm run websiteDev",
+    "preview": "npm run preview -workspace=utah-design-system-website",
     "proveconfig": "run-s proveTest proveBuild proveDev proveExamples",
     "proveBuild": "run-s cleani build",
     "proveDev": "run-s reset",
