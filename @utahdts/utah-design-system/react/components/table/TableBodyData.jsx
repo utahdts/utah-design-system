@@ -2,8 +2,9 @@
 import castArray from 'lodash/castArray';
 import identity from 'lodash/identity';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
+import { isEqual } from 'lodash';
 import TablePaginationShape from '../../propTypesShapes/TablePaginationShape';
 import chainSorters from '../../util/chainSorters';
 import valueAtPath from '../../util/state/valueAtPath';
@@ -13,6 +14,8 @@ import convertRecordsToFilterValue from './util/convertRecordsToFilterValue';
 import createTableFilterFunctions from './util/createTableFilterFunctions';
 import filterTableRecords from './util/filterTableRecords';
 import notNullMap from '../../util/notNullMap';
+import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import trailingS from '../../util/trailingS';
 
 /** @typedef {import('../../jsDocTypes').TablePagination} TablePagination */
 
@@ -44,6 +47,8 @@ function TableBodyData({
   recordIdField,
   records,
 }) {
+  const timer = useRef(NaN);
+  const { addPoliteMessage } = useAriaMessaging();
   const [recordsForContexts, setRecordsForContexts] = useImmer(/** @type {(RecordT & Object)[] | null} */(null));
   const {
     state: {
@@ -55,6 +60,7 @@ function TableBodyData({
     },
     setBodyData,
   } = useTableContext();
+  const previousFilterValues = useRef(filterValues.value);
 
   useEffect(
     () => {
@@ -84,13 +90,26 @@ function TableBodyData({
         paginatedRecords = newRecordsForContext.slice(startIndex, startIndex + pagination.itemsPerPage);
       }
 
-      // create forContexts once for the context provider so as to avoid recreating objects
+      // create forContexts once for the context provider to avoid recreating objects
       setRecordsForContexts(paginatedRecords);
 
       // register the current data with the TableContext for filtering and other table global data users
       setBodyData(records, paginatedRecords);
+
+      // only trigger the timer when the filters have changed
+      if (!isEqual(filterValues.value, previousFilterValues.current)) {
+        if (timer.current) {
+          clearTimeout(timer.current);
+          timer.current = NaN;
+        }
+        timer.current = window.setTimeout(() => {
+          addPoliteMessage(`${paginatedRecords.length} record${trailingS(paginatedRecords.length)} shown after filtering`);
+        }, 1500);
+        previousFilterValues.current = filterValues.value;
+      }
     },
     [
+      addPoliteMessage,
       currentSortingOrderIsDefault,
       filterValues,
       pagination,
