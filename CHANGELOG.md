@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [1.7.1] 10/12/2023
 ## Fixed
-- Pop open sub menus when tabbing #236
+- Pop open sub menus when tabbing
+- Allow clicking grandchild menu items #236
 
 # [1.7.0] 10/04/2023
 ## Added
