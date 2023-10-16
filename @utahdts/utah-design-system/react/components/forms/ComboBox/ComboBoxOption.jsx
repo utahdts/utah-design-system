@@ -1,20 +1,7 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import Button from '../../buttons/Button';
-import useComboBoxContext from './useComboBoxContext';
-
-const propTypes = {
-  // can show any "label" children you want; trumps label
-  children: PropTypes.node,
-  // value used for filtering and auto complete; children trumps this for display, but if there are no children then this is shown in options list
-  label: PropTypes.string.isRequired,
-  // the actual value to return if this option is selected
-  value: PropTypes.string.isRequired,
-};
-const defaultProps = {
-  children: null,
-};
+import useComboBoxContext from './context/useComboBoxContext';
 
 /**
  * @param {Object} props
@@ -24,7 +11,7 @@ const defaultProps = {
  * @param {string} props.value
  * @returns {JSX.Element | null}
  */
-function ComboBoxOption({
+export default function ComboBoxOption({
   children = null,
   label,
   value,
@@ -76,8 +63,3 @@ function ComboBoxOption({
 
   );
 }
-
-ComboBoxOption.propTypes = propTypes;
-ComboBoxOption.defaultProps = defaultProps;
-
-export default ComboBoxOption;

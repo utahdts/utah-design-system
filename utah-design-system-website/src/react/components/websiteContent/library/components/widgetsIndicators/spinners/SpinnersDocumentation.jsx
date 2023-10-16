@@ -1,33 +1,28 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   BUTTON_APPEARANCE,
   Button,
   Spinner,
-  componentColors,
+  Tab,
   TabGroup,
   TabList,
-  Tab,
-  TabPanels,
   TabPanel,
+  TabPanels,
+  componentColors,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SpinnerCssClassesDocumentation from './SpinnerCssClassesDocumentation';
+import SpinnerPropsDocumentation from './SpinnerPropsDocumentation';
 import SpinnersExampleCodeReact from './SpinnersExampleCodeReact';
 import SpinnersExampleProps from './SpinnersExampleProps';
 import SpinnersExampleRender from './SpinnersExampleRender';
-import SpinnerCssClassesDocumentation from './SpinnerCssClassesDocumentation';
-import SpinnerPropsDocumentation from './SpinnerPropsDocumentation';
 
-const propTypes = {};
-const defaultProps = {};
-
-function SpinnersDocumentation() {
+export default function SpinnersDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Spinner</h1>
@@ -38,6 +33,14 @@ function SpinnersDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          id: 'spinner-sandbox-example-id',
+          label: '',
+          size: '',
+          strokeWidth: '',
+          value: '',
+        }}
         CODE_EXAMPLE={SpinnersExampleCodeReact}
         PROPS_EXAMPLE={SpinnersExampleProps}
         RENDER_EXAMPLE={SpinnersExampleRender}
@@ -56,10 +59,10 @@ function SpinnersDocumentation() {
         title="Determinate"
         renderedExample={(
           <>
-            <Spinner size={100} strokeWidth={7} value="0.25">25%</Spinner>
-            <Spinner size={100} strokeWidth={7} value="0.5">50%</Spinner>
-            <Spinner size={100} strokeWidth={7} value="0.75">75%</Spinner>
-            <Spinner size={100} strokeWidth={7} value="1">100%</Spinner>
+            <Spinner size={100} strokeWidth={7} value={0.25}>25%</Spinner>
+            <Spinner size={100} strokeWidth={7} value={0.5}>50%</Spinner>
+            <Spinner size={100} strokeWidth={7} value={0.75}>75%</Spinner>
+            <Spinner size={100} strokeWidth={7} value={1}>100%</Spinner>
           </>
         )}
         quickTips={(
@@ -204,8 +207,3 @@ function SpinnersDocumentation() {
     </div>
   );
 }
-
-SpinnersDocumentation.propTypes = propTypes;
-SpinnersDocumentation.defaultProps = defaultProps;
-
-export default SpinnersDocumentation;

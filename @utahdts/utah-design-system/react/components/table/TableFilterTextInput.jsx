@@ -1,53 +1,31 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import TextInput from '../forms/TextInput';
 import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
-const propTypes = {
-  className: PropTypes.string,
-  defaultValue: PropTypes.string,
-  exactMatch: PropTypes.bool,
-  innerRef: RefShape,
-  id: PropTypes.string,
-  onChange: PropTypes.func,
-  recordFieldPath: PropTypes.string.isRequired,
-  value: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  defaultValue: null,
-  exactMatch: false,
-  innerRef: null,
-  id: null,
-  onChange: null,
-  value: null,
-};
-
 /**
  * @param {Object} props
- * @param {string | null} [props.className]
- * @param {string | null} [props.defaultValue]
- * @param {boolean | null} [props.exactMatch]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {string | null} [props.id]
- * @param {((e: Event) => void) | null} [props.onChange]
+ * @param {string} [props.className]
+ * @param {string} [props.defaultValue]
+ * @param {boolean} [props.exactMatch]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {string} [props.id]
+ * @param {((e: Event) => void)} [props.onChange]
  * @param {string} props.recordFieldPath
- * @param {string | null} [props.value]
+ * @param {string} [props.value]
  * @returns {JSX.Element}
  */
-function TableFilterTextInput({
-  className = null,
-  defaultValue = null,
+export default function TableFilterTextInput({
+  className,
+  defaultValue,
   exactMatch = false,
-  innerRef = null,
-  id = null,
-  onChange = null,
+  innerRef,
+  id,
+  onChange,
   recordFieldPath,
-  value = null,
+  value,
   ...rest
 }) {
   const {
@@ -78,8 +56,3 @@ function TableFilterTextInput({
     </th>
   );
 }
-
-TableFilterTextInput.propTypes = propTypes;
-TableFilterTextInput.defaultProps = defaultProps;
-
-export default TableFilterTextInput;

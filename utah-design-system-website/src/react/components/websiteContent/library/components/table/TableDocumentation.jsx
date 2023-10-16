@@ -1,16 +1,24 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import { ExternalLink } from '@utahdts/utah-design-system';
-import { Link } from 'react-router-dom';
+// @ts-ignore
 import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
+// @ts-ignore
 import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.png';
+// @ts-ignore
 import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.png';
+// @ts-ignore
 import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
+// @ts-ignore
 import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
+// @ts-ignore
 import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.png';
+
+// eslint-disable-next-line import/order
+import { ExternalLink } from '@utahdts/utah-design-system';
+// eslint-disable-next-line import/order
+import React from 'react';
+// eslint-disable-next-line import/order
+import { Link } from 'react-router-dom';
 import LightBox from '../../../../lightbox/LightBox';
 import pageUrls from '../../../../routing/pageUrls';
 import SandboxExample from '../../../../sandbox/SandboxExample';
@@ -41,6 +49,13 @@ function TableDocumentation() {
       <hr />
       <h2 id="section-sandbox-example">Sandbox Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          id: 'example-interactive-table',
+          isFiltering: false,
+          isPaginating: false,
+          isSorting: false,
+        }}
         CODE_EXAMPLE={TableExampleCodeReact}
         PROPS_EXAMPLE={TableExampleProps}
         RENDER_EXAMPLE={TableExampleRender}

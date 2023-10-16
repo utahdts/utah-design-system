@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Table,
   TableBody,
@@ -10,7 +11,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-function SpinnerPropsDocumentation() {
+export default function SpinnerPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -96,5 +97,3 @@ function SpinnerPropsDocumentation() {
     </div>
   );
 }
-
-export default SpinnerPropsDocumentation;

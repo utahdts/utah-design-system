@@ -1,5 +1,4 @@
 // @ts-check
-/* eslint-disable react/prop-types */
 import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 

@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Table,
   TableBody,
@@ -10,7 +11,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-function SpinnerCssClassesDocumentation() {
+export default function SpinnerCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x">
@@ -38,5 +39,3 @@ function SpinnerCssClassesDocumentation() {
     </TableWrapper>
   );
 }
-
-export default SpinnerCssClassesDocumentation;

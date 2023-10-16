@@ -1,20 +1,18 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import PropTypes from 'prop-types';
-import { Icons, RefShape, Switch } from '@utahdts/utah-design-system';
-import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
+// @ts-check
+import { Icons, Switch } from '@utahdts/utah-design-system';
+import React from 'react';
 
-const propTypes = {
-  innerRef: RefShape,
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: SwitchExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../typedefs.d').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
-function SwitchExampleRender({
+/**
+ * @param {Object} props
+ * @param {React.RefObject} props.innerRef
+ * @param {import('use-immer').Updater<{props: SwitchExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {SwitchExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function SwitchExampleRender({
   setState,
   state: {
     props: {
@@ -37,24 +35,20 @@ function SwitchExampleRender({
     <Switch
       className={className}
       errorMessage={errorMessage}
-      id={id || 'switch-example-render-id'}
+      id={id}
+      innerRef={innerRef}
       isDisabled={isDisabled}
       label={label || 'Switch Label'}
       labelOff={labelOff}
       labelOn={labelOn}
-      value={!!value}
-      size={size}
-      width={width}
-      innerRef={innerRef}
       onChange={() => setState((draftState) => {
         draftState.props.value = !draftState.props.value;
       })}
       sliderChildren={((icon === 'none') || !icon) ? null : Icons[icon]()}
+      value={value}
+      width={Number(width) || 80}
+      // @ts-ignore
+      size={size}
     />
   );
 }
-
-SwitchExampleRender.propTypes = propTypes;
-SwitchExampleRender.defaultProps = defaultProps;
-
-export default SwitchExampleRender;

@@ -1,84 +1,37 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React, { useCallback, useRef } from 'react';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm';
-import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
 import ErrorMessage from './ErrorMessage';
-import SelectOption from './SelectOption';
+import useFormContextInput from './FormContext/useFormContextInput';
 import RequiredStar from './RequiredStar';
+import SelectOption from './SelectOption';
 
 /** @typedef {import('../../jsDocTypes').EventAction} EventAction */
-
-const propTypes = {
-  // children are the options
-  children: PropTypes.node,
-  className: PropTypes.string,
-  defaultValue: PropTypes.string,
-  errorMessage: PropTypes.string,
-  // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
-  id: PropTypes.string.isRequired,
-  innerRef: RefShape,
-  isClearable: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  isRequired: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  labelClassName: PropTypes.string,
-  name: PropTypes.string,
-  // e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
-  onChange: PropTypes.func,
-  // e => ... do something when the field should be cleared (if inside a <Form> context, don't have to provide this and can just set isClearable)
-  onClear: PropTypes.func,
-  // when enter key pressed in field, submit the form
-  onSubmit: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  wrapperClassName: PropTypes.string,
-};
-const defaultProps = {
-  children: null,
-  className: null,
-  defaultValue: null,
-  errorMessage: null,
-  innerRef: null,
-  isClearable: false,
-  isDisabled: false,
-  isRequired: null,
-  labelClassName: null,
-  name: null,
-  placeholder: null,
-  onChange: null,
-  onClear: null,
-  onSubmit: null,
-  value: null,
-  wrapperClassName: null,
-};
-
 /**
  * @param {Object} props
- * @param {React.ReactNode | null} [props.children]
- * @param {string | null} [props.className]
- * @param {string | null} [props.defaultValue]
- * @param {string | null} [props.errorMessage]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {string} props.id
+ * @param {React.ReactNode} [props.children] the options as children
+ * @param {string} [props.className]
+ * @param {string} [props.defaultValue]
+ * @param {string} [props.errorMessage]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {string} props.id id of the input; the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
- * @param {boolean | null} [props.isRequired]
+ * @param {boolean} [props.isRequired]
  * @param {string} props.label
- * @param {string | null} [props.labelClassName]
- * @param {string | null} [props.name]
- * @param {EventAction | null} [props.onChange]
- * @param {EventAction | null} [props.onClear]
- * @param {(() => void) | null} [props.onSubmit]
- * @param {string | null} [props.placeholder]
- * @param {string | null} [props.value]
- * @param {string | null} [props.wrapperClassName]
+ * @param {string} [props.labelClassName]
+ * @param {string} [props.name]
+ * @param {EventAction} [props.onChange] e => ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
+ * @param {EventAction} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
+ * @param {(() => void)} [props.onSubmit] when enter key pressed in field, submit the form
+ * @param {string} [props.placeholder]
+ * @param {string} [props.value]
+ * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-function Select({
+export default function Select({
   children,
   className,
   defaultValue,
@@ -100,14 +53,12 @@ function Select({
   ...rest
 }) {
   const {
-    currentErrorMessage,
-    currentOnChange,
-    currentOnClear,
-    currentOnFormKeyPress,
-    currentValue,
-  } = useCurrentValuesFromForm({
+    onChange: currentOnChange,
+    onClear: currentOnClear,
+    onFormKeyUp: currentOnFormKeyUp,
+    value: currentValue,
+  } = useFormContextInput({
     defaultValue,
-    errorMessage,
     id,
     onChange,
     onClear,
@@ -120,7 +71,7 @@ function Select({
 
   const clearInput = useCallback(
     (e) => {
-      currentOnClear(e);
+      currentOnClear?.(e);
       addAssertiveMessage(`${label} input was cleared`);
       selectInputRef.current?.focus();
     },
@@ -128,6 +79,8 @@ function Select({
   );
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
+
+  const onChangeCallback = useCallback((e) => { currentOnChange?.(e); }, [currentOnChange]);
 
   return (
     <div className={joinClassNames('input-wrapper input-wrapper--select', wrapperClassName)} ref={innerRef}>
@@ -137,22 +90,22 @@ function Select({
       </label>
       <div className="select-input__inner-wrapper">
         <select
-          aria-describedby={currentErrorMessage ? `${id}-error` : undefined}
+          aria-describedby={errorMessage ? `${id}-error` : undefined}
           className={joinClassNames(className, showClearIcon ? 'select-input--clear-icon-visible' : null)}
           defaultValue={defaultValue ?? undefined}
           disabled={isDisabled}
           id={id}
           name={name || id}
-          onChange={useCallback((e) => { currentOnChange(e); }, [currentOnChange])}
+          onChange={currentValue !== undefined ? onChangeCallback : undefined}
           onKeyUp={useCallback(
             (e) => {
               if (e.key === 'Escape' && showClearIcon) {
                 clearInput(e);
               } else {
-                currentOnFormKeyPress(e);
+                currentOnFormKeyUp(e);
               }
             },
-            [clearInput, currentOnFormKeyPress, showClearIcon]
+            [clearInput, currentOnFormKeyUp, showClearIcon]
           )}
           ref={selectInputRef}
           required={isRequired ?? undefined}
@@ -176,12 +129,7 @@ function Select({
             : null
         }
       </div>
-      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
+      <ErrorMessage errorMessage={errorMessage} id={id} />
     </div>
   );
 }
-
-Select.propTypes = propTypes;
-Select.defaultProps = defaultProps;
-
-export default Select;

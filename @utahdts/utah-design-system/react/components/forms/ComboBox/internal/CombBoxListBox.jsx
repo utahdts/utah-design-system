@@ -1,20 +1,9 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import joinClassNames from '../../../util/joinClassNames';
-import useComboBoxContext from './useComboBoxContext';
+import joinClassNames from '../../../../util/joinClassNames';
+import useComboBoxContext from '../context/useComboBoxContext';
 
-/** @typedef {import('../../../jsDocTypes').EventAction} EventAction */
-
-const propTypes = {
-  // children are the options
-  children: PropTypes.node,
-  ariaLabelledById: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-};
-const defaultProps = {
-  children: null,
-};
+/** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 
 /**
  * @param {Object} props
@@ -23,7 +12,7 @@ const defaultProps = {
  * @param {string} props.id
  * @returns {JSX.Element}
  */
-function CombBoxListBox({
+export default function CombBoxListBox({
   ariaLabelledById,
   children,
   id,
@@ -43,8 +32,3 @@ function CombBoxListBox({
     </div>
   );
 }
-
-CombBoxListBox.propTypes = propTypes;
-CombBoxListBox.defaultProps = defaultProps;
-
-export default CombBoxListBox;

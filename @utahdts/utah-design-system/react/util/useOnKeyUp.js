@@ -9,7 +9,7 @@ import { useCallback } from 'react';
  * @param {EventAction} func the function to call when the given key is pressed
  * @returns {EventActionBoolean} function that checks for the keypress and fires function when pressed
  */
-export default function useOnKeyPress(targetKey, func) {
+export default function useOnKeyUp(targetKey, func) {
   return useCallback(
     (e) => {
       const isMatchingKey = e.key === targetKey;

@@ -1,35 +1,34 @@
+// @ts-check
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import {
-  componentColors,
-  formElementSizesEnum,
-  IconButton,
   ICON_BUTTON_APPEARANCE,
+  IconButton,
   Tab,
   TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
   Table, TableBody, TableCell,
   TableHead,
   TableHeadCell,
   TableHeadRow, TableRow,
   TableWrapper,
-  TabList,
-  TabPanel,
-  TabPanels,
+  componentColors,
+  formElementSizesEnum,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import ButtonCssClassesDocumentation from '../button/ButtonCssClassesDocumentation';
 import IconButtonExampleCodeReact from './IconButtonExampleCodeReact';
 import IconButtonExampleProps from './IconButtonExampleProps';
 import IconButtonExampleRender from './IconButtonExampleRender';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import ButtonCssClassesDocumentation from '../button/ButtonCssClassesDocumentation';
 
-const propTypes = {};
-const defaultProps = {};
-
-function IconButtonDocumentation() {
+export default function IconButtonDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Icon Button</h1>
@@ -39,6 +38,16 @@ function IconButtonDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          appearance: ICON_BUTTON_APPEARANCE.OUTLINED,
+          color: 'none',
+          // uses icons from `iconsDocumentationIcons` so make sure the initial value here is in there
+          iconCssClass: 'help',
+          id: 'icon-button-sandbox-example-id',
+          isDisabled: false,
+          size: 'medium',
+          title: 'Tooltip Title',
+        }}
         RENDER_EXAMPLE={IconButtonExampleRender}
         PROPS_EXAMPLE={IconButtonExampleProps}
         CODE_EXAMPLE={IconButtonExampleCodeReact}
@@ -201,6 +210,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the Small1X icon button')}
+              // @ts-ignore
               size={formElementSizesEnum.SMALL1X}
               title="Gear icon x-small button"
             />
@@ -210,6 +220,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the small icon button')}
+              // @ts-ignore
               size={formElementSizesEnum.SMALL}
               title="Gear icon small button"
             />
@@ -218,6 +229,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the medium icon button')}
+              // @ts-ignore
               size={formElementSizesEnum.MEDIUM}
               title="Gear icon medium button"
             />
@@ -227,6 +239,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the large icon button')}
+              // @ts-ignore
               size={formElementSizesEnum.LARGE}
               title="Gear icon large button"
             />
@@ -236,6 +249,7 @@ function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the Large1X icon button')}
+              // @ts-ignore
               size={formElementSizesEnum.LARGE1X}
               title="Gear icon x-large button"
             />
@@ -683,8 +697,3 @@ function IconButtonDocumentation() {
     </div>
   );
 }
-
-IconButtonDocumentation.propTypes = propTypes;
-IconButtonDocumentation.defaultProps = defaultProps;
-
-export default IconButtonDocumentation;

@@ -6,6 +6,9 @@
  * @typedef {import('use-immer').Updater<UpdaterT>} Updater
  */
 
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ComponentColors} ComponentColors */
 /** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -90,6 +93,28 @@
  */
 
 /**
+ * @typedef BadgesExamplePropsShape {
+ * @property {string} onClick
+ * }
+ */
+
+/**
+ * @typedef ButtonExamplePropsShape {
+ * @property {ButtonAppearance} appearance
+ * @property {boolean} isBusy
+ * @property {string} className
+ * @property {ComponentColors} color
+ * @property {boolean} isDisabled
+ * @property {string} iconLeft
+ * @property {string} iconRight
+ * @property {string} id
+ * @property {string} size
+ * @property {string} title
+ * @property {ButtonTypes} type
+ * }
+ */
+
+/**
  * @typedef CharacterCountExamplePropsShape {
  * @property {string} className
  * @property {string} id
@@ -123,6 +148,15 @@
  */
 
 /**
+ * @typedef PopupsExamplePropsShape {
+ *  @property {boolean} hasCloseButton
+ *  @property {boolean} isVisible
+ *  @property {PopupPlacement} placement
+ *  @property {'onClick' | 'onHover'} popupType
+ * }
+ */
+
+/**
  * @typedef SelectExamplePropsShape {
  * @property {string} className
  * @property {string} errorMessage
@@ -137,24 +171,55 @@
 
 /**
  * @typedef SpinnersExamplePropsShape {
- *  @property {string} [className]
- *  @property {string} [id]
- *  @property {string} [label]
- *  @property {string} [size]
- *  @property {string} [strokeWidth]
- *  @property {string} [value]
+ *  @property {string} className
+ *  @property {string} id
+ *  @property {string} label
+ *  @property {string} size
+ *  @property {string} strokeWidth
+ *  @property {string} value
  * }
  */
 
 /**
- * @typedef TooltipsExamplePropsShape {
- *   @property {boolean} isPopperVisible
- *   @property {string} offsetDistance
- *   @property {string} offsetSkidding
- *   @property {PopupPlacement} placement
- *   @property {string} popupText
+ * @typedef SwitchExamplePropsShape {
+ * @property {string} className
+ * @property {string} errorMessage
+ * @property {string} icon
+ * @property {string} id
+ * @property {boolean} isDisabled
+ * @property {string} label
+ * @property {string} labelOff
+ * @property {string} labelOn
+ * @property {string} size
+ * @property {boolean} value
+ * @property {string} width
  * }
  */
+
+/**
+ * @typedef TableExamplePropsShape {
+ * @property {string} className
+ * @property {string} id
+ * @property {boolean} isFiltering
+ * @property {boolean} isPaginating
+ * @property {boolean} isSorting
+ * }
+*/
+
+/**
+ * @typedef TextAreaExamplePropsShape {
+ * @property {string} className
+ * @property {string} errorMessage
+ * @property {string} id
+ * @property {boolean} isClearable
+ * @property {boolean} isDisabled
+ * @property {boolean} isRequired
+ * @property {string} label
+ * @property {string} name
+ * @property {string} placeholder
+ * @property {string} value
+ * }
+*/
 
 /**
  * @typedef TextInputExamplePropsShape {
@@ -168,6 +233,15 @@
  * @property {string} placeholder
  * @property {string} value
  * }
- */
+*/
 
+/**
+ * @typedef TooltipsExamplePropsShape {
+ *   @property {boolean} isPopperVisible
+ *   @property {string} offsetDistance
+ *   @property {string} offsetSkidding
+ *   @property {PopupPlacement} placement
+ *   @property {string} popupText
+ * }
+ */
 export default false;

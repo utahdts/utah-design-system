@@ -2,23 +2,19 @@
 import {
   Button,
   Icons,
-  RefShape,
-  useBanner,
+  useBanner
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: ButtonExamplePropsShape.isRequired,
-  }).isRequired,
-  innerRef: RefShape,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
-function ButtonExampleRender({
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: ButtonExamplePropsShape}>} props.setState
+ * @param {{props: ButtonExamplePropsShape}} props.state
+ * @param {React.RefObject} props.innerRef
+ * @returns {JSX.Element}
+ */
+export default function ButtonExampleRender({
   state: {
     props: {
       appearance,
@@ -56,8 +52,3 @@ function ButtonExampleRender({
     </Button>
   );
 }
-
-ButtonExampleRender.propTypes = propTypes;
-ButtonExampleRender.defaultProps = defaultProps;
-
-export default ButtonExampleRender;

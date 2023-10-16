@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Form,
   popupPlacement,
@@ -6,31 +7,18 @@ import {
   Switch
 } from '@utahdts/utah-design-system';
 import startCase from 'lodash/startCase';
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
+import React from 'react';
 
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: PopupsPropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
-function PopupsExampleProps({ setState, state }) {
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.hasCloseButton = false;
-        draftState.props.isVisible = false;
-        draftState.props.placement = popupPlacement.BOTTOM;
-        draftState.props.popupType = 'onClick';
-      });
-    },
-    []
-  );
-
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: PopupsExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {PopupsExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function PopupsExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
@@ -55,8 +43,3 @@ function PopupsExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-PopupsExampleProps.propTypes = propTypes;
-PopupsExampleProps.defaultProps = defaultProps;
-
-export default PopupsExampleProps;

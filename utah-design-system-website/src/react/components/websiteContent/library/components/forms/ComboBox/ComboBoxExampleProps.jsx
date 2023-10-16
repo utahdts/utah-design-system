@@ -1,5 +1,4 @@
 // @ts-check
-/* eslint-disable react/prop-types */
 import {
   Form,
   Select,
@@ -7,7 +6,7 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
@@ -19,23 +18,6 @@ import React, { useEffect } from 'react';
  * @returns {JSX.Element}
  */
 export default function ComboBoxExampleProps({ setState, state }) {
-  useEffect(
-    () => {
-      setState((draftState) => {
-        // default property values
-        draftState.props.className = '';
-        draftState.props.errorMessage = '';
-        draftState.props.id = '';
-        draftState.props.isClearable = false;
-        draftState.props.isDisabled = false;
-        draftState.props.label = 'Select Label';
-        draftState.props.isRequired = false;
-        draftState.props.value = '';
-      });
-    },
-    [setState]
-  );
-
   return (
     <Form
       state={state}

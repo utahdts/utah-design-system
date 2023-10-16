@@ -1,15 +1,16 @@
-import PropTypes from 'prop-types';
-import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
+// @ts-check
+import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: SwitchExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
-function SwitchExampleCodeReact({
+/**
+ * @param {Object} props
+ * @param {Object} props.state
+ * @param {SwitchExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function SwitchExampleCodeReact({
   state: {
     props: {
       className,
@@ -46,8 +47,3 @@ function SwitchExampleCodeReact({
     </>
   );
 }
-
-SwitchExampleCodeReact.propTypes = propTypes;
-SwitchExampleCodeReact.defaultProps = defaultProps;
-
-export default SwitchExampleCodeReact;

@@ -1,45 +1,25 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-param-reassign */
-import PropTypes from 'prop-types';
-import React from 'react';
+// @ts-check
+import React, { useMemo } from 'react';
 import { useImmer } from 'use-immer';
 import joinClassNames from '../../util/joinClassNames';
-import FormContextProvider from './FormContextProvider';
+import setValueAtPath from '../../util/state/setValueAtPath';
+import uuidv4 from '../../util/uuidv4';
+import FormContextProvider from './FormContext/FormContextProvider';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  // respond to field changes for key/value pairs of data, where the key is the `id` of the nested form components/inputs.
-  // ie ({ e, id, value }) => { ... do something ... }
-  // if both onChange AND setState are given, then the returned value from onChange will be passed to setState
-  onChange: PropTypes.func,
-  onSubmit: PropTypes.func,
-
-  // a "setState" compliant state setter
-  setState: PropTypes.func,
-  state: PropTypes.shape({}),
-};
-const defaultProps = {
-  className: null,
-  onChange: null,
-  onSubmit: null,
-  setState: null,
-  state: null,
-};
-
-let nextFormId = 0;
+/** @typedef {import('../../jsDocTypes').Event} Event */
 
 /**
+ * @template FormContextStateT
  * @param {Object} props
- * @param {any} props.children
- * @param {any} [props.className]
- * @param {any} [props.onChange]
- * @param {any} [props.onSubmit]
- * @param {any} [props.setState]
- * @param {any} [props.state]
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} [props.onChange]
+ * @param {(e?: Event) => void} [props.onSubmit]
+ * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
+ * @param {FormContextStateT} [props.state]
  * @returns {JSX.Element}
  */
-function Form({
+export default function Form({
   children,
   className,
   onChange,
@@ -48,31 +28,39 @@ function Form({
   state,
   ...rest
 }) {
-  const [formState] = useImmer(() => {
-    nextFormId += 1;
-    return {
-      formId: nextFormId,
-      originalState: state,
-      validationStyle: 'BLURRED',
-    };
-  });
+  if (!!state !== !!setState) {
+    // eslint-disable-next-line no-console
+    console.error('a <Form> component must either be controlled (pass in both state and setsTate) or be uncontrolled (pass in neither state nor setState)');
+  }
+  const formId = useMemo(() => uuidv4(), []);
+
+  // internal state is only used if state/setState not passed in
+  const internalState = useImmer(() => /** @type {FormContextStateT} */({}));
+  const stateUse = /** @type {typeof useMemo<import('use-immer').ImmerHook<FormContextStateT>>} */ (useMemo)(
+    () => ((state && setState) ? [state, setState] : internalState),
+    [internalState, state, setState]
+  );
+
+  const onChangeUse = useMemo(
+    () => (
+      onChange
+      ?? (({ fieldPath, value }) => stateUse[1]((draftState) => {
+        setValueAtPath({ object: draftState, path: fieldPath, value });
+      }))
+    ),
+    [onChange, stateUse]
+  );
 
   return (
     <FormContextProvider
-      formState={formState}
-      onChange={onChange}
+      onChange={onChangeUse}
       onSubmit={onSubmit}
-      setState={setState}
-      state={state}
+      setState={stateUse[1]}
+      state={stateUse[0]}
     >
-      <form className={joinClassNames('form', className)} id={`form-${formState.formId}`} {...rest}>
+      <form className={joinClassNames('form', className)} id={`form-${formId}`} {...rest}>
         {children}
       </form>
     </FormContextProvider>
   );
 }
-
-Form.propTypes = propTypes;
-Form.defaultProps = defaultProps;
-
-export default Form;

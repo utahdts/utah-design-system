@@ -4,8 +4,8 @@ import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-des
 import React from 'react';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 import ComboBoxExampleCodeReact from './ComboBoxExampleCodeReact';
 import ComboBoxExampleProps from './ComboBoxExampleProps';
 import ComboBoxExampleRender from './ComboBoxExampleRender';
@@ -26,6 +26,16 @@ function ComboBoxDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          errorMessage: '',
+          id: '',
+          isClearable: false,
+          isDisabled: false,
+          label: 'ComboBox Label',
+          isRequired: false,
+          value: '',
+        }}
         CODE_EXAMPLE={ComboBoxExampleCodeReact}
         PROPS_EXAMPLE={ComboBoxExampleProps}
         RENDER_EXAMPLE={ComboBoxExampleRender}

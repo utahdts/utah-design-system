@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Table,
   TableBody,
@@ -11,7 +12,7 @@ import {
 import React from 'react';
 
 /** @returns {JSX.Element} */
-function CharacterCountPropsDocumentation() {
+export default function CharacterCountPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -66,5 +67,3 @@ function CharacterCountPropsDocumentation() {
     </div>
   );
 }
-
-export default CharacterCountPropsDocumentation;

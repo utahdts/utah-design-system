@@ -1,20 +1,20 @@
-import { Link } from 'react-router-dom';
+// @ts-check
 import {
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
 } from '@utahdts/utah-design-system';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import pageUrls from '../../../../../routing/pageUrls';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
-import TextAreaExampleCodeReact from './TextAreaExampleCodeReact';
-import TextAreaExampleRender from './TextAreaExampleRender';
-import TextAreaExampleProps from './TextAreaExampleProps';
-import TextAreaPropsDocumentation from './TextAreaPropsDocumentation';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 import TextAreaCssClassesDocumentation from './TextAreaCssClassesDocumentation';
+import TextAreaExampleCodeReact from './TextAreaExampleCodeReact';
+import TextAreaExampleProps from './TextAreaExampleProps';
+import TextAreaExampleRender from './TextAreaExampleRender';
+import TextAreaPropsDocumentation from './TextAreaPropsDocumentation';
 
-const propTypes = {};
-const defaultProps = {};
-function TextAreaDocumentation() {
+export default function TextAreaDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Text Area</h1>
@@ -22,6 +22,18 @@ function TextAreaDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          errorMessage: '',
+          id: '',
+          isClearable: false,
+          isDisabled: false,
+          label: '',
+          name: '',
+          placeholder: '',
+          isRequired: false,
+          value: '',
+        }}
         RENDER_EXAMPLE={TextAreaExampleRender}
         PROPS_EXAMPLE={TextAreaExampleProps}
         CODE_EXAMPLE={TextAreaExampleCodeReact}
@@ -30,15 +42,14 @@ function TextAreaDocumentation() {
         title="Text Area"
         renderedExample={(
           <div className="flex flex-col" style={{ width: '65%' }}>
-            <TextArea id="text-area-documentation__plain-text-area" label="Example 1 Label" rows={4} />
-            <TextArea id="text-area-documentation__disabled-text-area" isDisabled label="Example 2 Label" value="This input is disabled" rows={4} />
-            <TextArea id="text-area-documentation__required-text-area" isRequired label="Example 3 Label" rows={4} />
+            <TextArea id="text-area-documentation__plain-text-area" label="Example 1 Label" />
+            <TextArea id="text-area-documentation__disabled-text-area" isDisabled label="Example 2 Label" value="This input is disabled" />
+            <TextArea id="text-area-documentation__required-text-area" isRequired label="Example 3 Label" />
             <TextArea
               id="text-area-documentation__error-text-area"
               isRequired
               label="Example 4 Label"
               errorMessage="This field is required"
-              rows={4}
             />
           </div>
         )}
@@ -176,8 +187,3 @@ function TextAreaDocumentation() {
     </div>
   );
 }
-
-TextAreaDocumentation.propTypes = propTypes;
-TextAreaDocumentation.defaultProps = defaultProps;
-
-export default TextAreaDocumentation;

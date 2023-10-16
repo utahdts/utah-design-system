@@ -1,29 +1,17 @@
+// @ts-check
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import TableExamplePropsShape from '../../../../../propTypesShapes/TableExamplePropsShape';
+import React from 'react';
 
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: TableExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
 
-function TableExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.isFiltering = false;
-        draftState.props.isPaginating = false;
-        draftState.props.isSorting = false;
-      });
-    },
-    [setState]
-  );
-
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: TableExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {TableExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function TableExampleProps({ setState, state }) {
   return (
     <Form
       // onSubmit(({ state, validationErrors }) => ... do whatever ...)
@@ -42,8 +30,3 @@ function TableExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-TableExampleProps.propTypes = propTypes;
-TableExampleProps.defaultProps = defaultProps;
-
-export default TableExampleProps;

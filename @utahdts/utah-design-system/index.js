@@ -29,8 +29,8 @@ export { default as FooterAgencyInformationInfo } from './react/components/foote
 export { default as FooterSettingsShape } from './react/propTypesShapes/header/FooterSettingsShape';
 export { default as FooterSocialMediaBar } from './react/components/footer/FooterSocialMediaBar';
 export { default as Form } from './react/components/forms/Form';
-export { default as FormContext } from './react/components/forms/FormContext';
-export { default as FormContextProvider } from './react/components/forms/FormContextProvider';
+export { default as FormContext } from './react/components/forms/FormContext/FormContext';
+export { default as FormContextProvider } from './react/components/forms/FormContext/FormContextProvider';
 export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { default as handleEvent } from './react/util/handleEvent';
 export { default as handleKeyPress } from './react/util/handleKeyPress';

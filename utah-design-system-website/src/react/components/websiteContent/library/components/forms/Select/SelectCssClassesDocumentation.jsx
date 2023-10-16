@@ -1,10 +1,11 @@
-import React from 'react';
+// @ts-check
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @returns {JSX.Element} */
-function SelectCssClassesDocumentation() {
+export default function SelectCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x table--full-width">
@@ -27,5 +28,3 @@ function SelectCssClassesDocumentation() {
     </TableWrapper>
   );
 }
-
-export default SelectCssClassesDocumentation;

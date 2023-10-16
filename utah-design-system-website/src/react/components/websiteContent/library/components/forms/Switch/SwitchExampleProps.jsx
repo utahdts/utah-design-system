@@ -1,6 +1,4 @@
-/* eslint-disable no-param-reassign */
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -9,48 +7,22 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import SwitchExamplePropsShape from '../../../../../../propTypesShapes/SwitchExamplePropsShape';
+import React from 'react';
 
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: SwitchExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
-const DEFAULT_SWITCH_WIDTH = 80;
-const DEFAULT_ICON = 'none';
-
-function SwitchExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.errorMessage = '';
-        draftState.props.icon = DEFAULT_ICON;
-        draftState.props.label = 'Switch Label';
-        draftState.props.labelOff = 'Label Off';
-        draftState.props.labelOn = 'Label On';
-        draftState.props.size = formElementSizesEnum.MEDIUM;
-        draftState.props.value = true;
-        draftState.props.width = DEFAULT_SWITCH_WIDTH;
-      });
-    },
-    [setState]
-  );
-
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: SwitchExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {SwitchExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function SwitchExampleProps({ setState, state }) {
   return (
     <div>
       <div>
         <Form
-          onChange={({ id, value }) => {
-            let returnValue = value;
-            if (id === 'props.width') {
-              returnValue = Number(value) || DEFAULT_SWITCH_WIDTH;
-            }
-            return returnValue;
-          }}
           state={state}
           setState={setState}
         >
@@ -88,8 +60,3 @@ function SwitchExampleProps({ setState, state }) {
     </div>
   );
 }
-
-SwitchExampleProps.propTypes = propTypes;
-SwitchExampleProps.defaultProps = defaultProps;
-
-export default SwitchExampleProps;

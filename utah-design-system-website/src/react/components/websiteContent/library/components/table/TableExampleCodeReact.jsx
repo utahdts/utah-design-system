@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
-import TableExamplePropsShape from '../../../../../propTypesShapes/TableExamplePropsShape';
+// @ts-check
+import React from 'react';
 import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../sandbox/SandboxIndent';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: TableExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
 
-function TableExampleCodeReact({
+/**
+ * @param {Object} props
+ * @param {{props: TableExamplePropsShape}} props.state
+ * @returns {JSX.Element}
+ */
+export default function TableExampleCodeReact({
   state: {
     props: {
       className,
@@ -137,8 +137,3 @@ function TableExampleCodeReact({
     </>
   );
 }
-
-TableExampleCodeReact.propTypes = propTypes;
-TableExampleCodeReact.defaultProps = defaultProps;
-
-export default TableExampleCodeReact;

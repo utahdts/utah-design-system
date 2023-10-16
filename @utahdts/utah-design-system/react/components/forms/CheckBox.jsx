@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm';
+import useFormContextInput from './FormContext/useFormContextInput';
 import RefShape from '../../propTypesShapes/RefShape';
 import ErrorMessage from './ErrorMessage';
 
@@ -61,7 +61,7 @@ function CheckBox({
     currentOnChange,
     currentOnFormKeyPress,
     currentValue,
-  } = useCurrentValuesFromForm({
+  } = useFormContextInput({
     errorMessage,
     id,
     onChange,

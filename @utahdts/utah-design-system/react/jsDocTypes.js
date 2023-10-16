@@ -13,7 +13,7 @@
 
 /**
  * ButtonAppearance
- * @typedef {'solid' | 'outline'} ButtonAppearance
+ * @typedef {'solid' | 'outlined'} ButtonAppearance
  */
 
 /**
@@ -112,16 +112,27 @@
  * }
  */
 
-/** @typedef {Object.<string, any>} FormContextState {} */
+/**
+ * @template FormStateT
+ * @typedef FormContextValue {
+ *  @property {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
+ *  @property {(e?: Event) => void} [onSubmit] submit the form
+ *  @property {FormStateT} [state] current values of all the form elements
+ *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
+ * }
+*/
 
 /**
- * @typedef FormContextValue {
- *  @property {Object.<string, any>} dirtyIds
- *  @property {string} formId
- *  @property {({e, id, newValue}: {e: Event, id: string, newValue: any}) => void} onChange
- *  @property {() => void} onSubmit
- *  @property {Object.<string, string[]> | null} validationErrors
- *  @property {FormContextState} state
+ * @template FormContextT
+ * @template ValueT
+ * @typedef useFormContextInputResult {
+ *  @property {EventAction} [onChange]
+ *  @property {EventAction} [onClear]
+ *  @property {() => void} [onSubmit]
+ *  @property {ValueT} [value]
+ *  @property {EventAction} onFormKeyUp
+ *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
+ *  @property {FormContextT} [state]
  * }
  */
 
@@ -223,6 +234,8 @@
  * @typedef ComboBoxContextValue {
  *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
  *  @property {boolean} isOptionsExpanded is the options list visible/expanded
+ *  @property {() => void} [onClear]
+ *  @property {() => void} [onSubmit]
  *  @property {ComboBoxOption[]} options the known options
  *  @property {ComboBoxOption[]} optionsFiltered the options filtered by the filterValue
  *  @property {(option: ComboBoxOption) => void} registerOption add a new option

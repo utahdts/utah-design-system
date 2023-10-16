@@ -1,17 +1,5 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-
-const propTypes = {
-  // children are the ComboBoxOption components
-  children: PropTypes.node.isRequired,
-  isLabelHidden: PropTypes.bool,
-  label: PropTypes.string,
-};
-const defaultProps = {
-  isLabelHidden: false,
-  label: null,
-};
 
 /**
  * @param {Object} props
@@ -20,7 +8,7 @@ const defaultProps = {
  * @param {string | null} [props.label]
  * @returns {JSX.Element}
  */
-function ComboBoxOptionGroup({
+export default function ComboBoxOptionGroup({
   children,
   label = null,
   isLabelHidden = false,
@@ -32,8 +20,3 @@ function ComboBoxOptionGroup({
     </div>
   );
 }
-
-ComboBoxOptionGroup.propTypes = propTypes;
-ComboBoxOptionGroup.defaultProps = defaultProps;
-
-export default ComboBoxOptionGroup;

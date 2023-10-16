@@ -1,28 +1,41 @@
 // @ts-check
-/* eslint-disable react/prop-types */
 import React, { useCallback, useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import useFormContext from '../useFormContext';
+import useFormContext from '../../FormContext/useFormContext';
 import ComboBoxContext from './ComboBoxContext';
 
-/** @typedef { import('../../../jsDocTypes').ComboBoxContext} ComboBoxContext */
-/** @typedef { import('../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
-/** @typedef { import('../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
-/** @typedef { import('../../../jsDocTypes').EventAction} EventAction */
+/** @typedef { import('../../../../jsDocTypes').ComboBoxContext} ComboBoxContext */
+/** @typedef { import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef { import('../../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
+/** @typedef { import('../../../../jsDocTypes').EventAction} EventAction */
 
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.comboBoxId
+ * @param {string} [props.defaultValue]
+ * @param {((newValue: string) => void)} [props.onChange]
+ * @param {(() => void)} [props.onClear]
+ * @param {(() => void)} [props.onSubmit]
+ * @param {string} [props.value]
  * @returns {JSX.Element}
  */
-export default function ComboBoxContextProvider({ children, comboBoxId }) {
-  // @ts-ignore
-  const { onChange } = useFormContext();
+export default function ComboBoxContextProvider({
+  children,
+  comboBoxId,
+  defaultValue,
+  onChange,
+  onClear,
+  onSubmit,
+  value,
+}) {
+  const { onChange: onChangeFormContext } = useFormContext();
 
   const comboBoxImmer = /** @type {typeof useImmer<ComboBoxContextValue>} */ (useImmer)({
     filterValue: '',
     isOptionsExpanded: false,
+    onClear,
+    onSubmit,
     options: [],
     optionsFiltered: [],
     registerOption: (newOption) => {
@@ -30,7 +43,7 @@ export default function ComboBoxContextProvider({ children, comboBoxId }) {
         draftContext.options.push(newOption);
       });
     },
-    selectedOptionValue: null,
+    selectedOptionValue: defaultValue ?? value ?? null,
     unregisterOption: (optionValue) => {
       comboBoxImmer[1]((draftContext) => {
         draftContext.options = draftContext.options.filter((option) => option.value !== optionValue);
@@ -39,12 +52,32 @@ export default function ComboBoxContextProvider({ children, comboBoxId }) {
   });
   const setComboBoxState = comboBoxImmer[1];
 
+  // handle a controlled component changing its value
+  useEffect(
+    () => {
+      if (value !== undefined && value !== comboBoxImmer[0].selectedOptionValue) {
+        comboBoxImmer[1]((draftState) => {
+          draftState.selectedOptionValue = value;
+          draftState.filterValue = draftState.options.find((option) => option.value === value)?.label ?? '';
+        });
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [value]
+  );
+
   const onChangeFormValue = useCallback(
     /** @param {string} newValue */
     (newValue) => {
-      onChange({ id: comboBoxId, newValue });
+      if (onChange) {
+        // give parent first crack
+        onChange(newValue);
+      } else {
+        // let the form context know about the change, if there is a form context
+        onChangeFormContext?.({ fieldPath: comboBoxId, value: newValue });
+      }
     },
-    [comboBoxId, onChange]
+    [comboBoxId, onChange, onChangeFormContext]
   );
 
   // handle options or filterValue changes
@@ -63,12 +96,12 @@ export default function ComboBoxContextProvider({ children, comboBoxId }) {
       onChangeFormValue(newSelectedOptionValue ?? '');
 
       // otherwise, use existing value if it is not filtered out
-      if (!newSelectedOptionValue) {
+      if (filterValue && !newSelectedOptionValue) {
         newSelectedOptionValue = filteredOptions.find((option) => option.value === selectedOptionValue)?.value ?? null;
       }
 
       // otherwise, use first possible value
-      if (!newSelectedOptionValue) {
+      if (filterValue && !newSelectedOptionValue) {
         newSelectedOptionValue = filteredOptions[0]?.value;
       }
 

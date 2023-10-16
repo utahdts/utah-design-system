@@ -1,21 +1,17 @@
 // @ts-check
-import { Pagination, RefShape } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+import { Pagination } from '@utahdts/utah-design-system';
 import React from 'react';
-import PaginationExamplePropsShape from '../../../../../../propTypesShapes/PaginationExamplePropsShape';
 
-const propTypes = {
-  innerRef: RefShape,
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: PaginationExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../typedefs.d').PaginationExamplePropsShape} PaginationExamplePropsShape */
 
-function PaginationExampleRender({
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: PaginationExamplePropsShape}>} props.setState
+ * @param {{props: PaginationExamplePropsShape}} props.state
+ * @param {React.RefObject} props.innerRef
+ * @returns {JSX.Element | null}
+ */
+export default function PaginationExampleRender({
   setState,
   state: {
     props: {
@@ -29,15 +25,16 @@ function PaginationExampleRender({
   },
   innerRef,
 }) {
+  const valueNumber = Number(value);
   return (
-    (value || value === 0)
+    (valueNumber || valueNumber === 0)
       ? (
         <div style={{ width: '80%' }}>
           <Pagination
             className={className}
             id={id}
             innerRef={innerRef}
-            onChange={(newPageIndex) => setState((draftState) => { draftState.props.value = newPageIndex; })}
+            onChange={(newPageIndex) => setState((draftState) => { draftState.props.value = `${newPageIndex}`; })}
             pageSize={Number(pageSize)}
             totalNumberItems={Number(totalNumberItems)}
             value={Number(value)}
@@ -48,8 +45,3 @@ function PaginationExampleRender({
       : null
   );
 }
-
-PaginationExampleRender.propTypes = propTypes;
-PaginationExampleRender.defaultProps = defaultProps;
-
-export default PaginationExampleRender;

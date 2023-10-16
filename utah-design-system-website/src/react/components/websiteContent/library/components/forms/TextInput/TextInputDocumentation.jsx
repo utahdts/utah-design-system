@@ -1,20 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
 import {
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextInput
 } from '@utahdts/utah-design-system';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import TextInputCssClassesDocumentation from './TextInputCssClassesDocumentation';
 import TextInputExampleCodeReact from './TextInputExampleCodeReact';
 import TextInputExampleProps from './TextInputExampleProps';
 import TextInputExampleRender from './TextInputExampleRender';
-import TextInputCssClassesDocumentation from './TextInputCssClassesDocumentation';
 import TextInputPropsDocumentation from './TextInputPropsDocumentation';
 import TextInputSearchExample from './TextInputSearchExample';
 
@@ -32,6 +30,17 @@ function TextInputDocumentation() {
       <hr />
       <h2 id="example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          errorMessage: '',
+          id: 'text-input-example-render-id',
+          isClearable: false,
+          isDisabled: false,
+          label: '',
+          placeholder: '',
+          isRequired: false,
+          value: '',
+        }}
         CODE_EXAMPLE={TextInputExampleCodeReact}
         PROPS_EXAMPLE={TextInputExampleProps}
         RENDER_EXAMPLE={TextInputExampleRender}

@@ -1,17 +1,16 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
-import CharacterCountExamplePropsShape from '../../../../../../propTypesShapes/CharacterCountExamplePropsShape';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: CharacterCountExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
-function CharacterCountExampleCodeReact({
+/**
+ * @param {Object} props
+ * @param {Object} props.state
+ * @param {CharacterCountExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function CharacterCountExampleCodeReact({
   state: {
     props: {
       className,
@@ -33,8 +32,3 @@ function CharacterCountExampleCodeReact({
     </>
   );
 }
-
-CharacterCountExampleCodeReact.propTypes = propTypes;
-CharacterCountExampleCodeReact.defaultProps = defaultProps;
-
-export default CharacterCountExampleCodeReact;
