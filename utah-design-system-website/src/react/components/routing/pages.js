@@ -21,7 +21,7 @@ import BlockquoteDocumentation from '../websiteContent/library/components/basicA
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
 import ParagraphDocumentation from '../websiteContent/library/components/basicAtomic/Paragraph/ParagraphDocumentation';
-import TagsDocumentation from '../websiteContent/library/components/basicAtomic/TagsDocumentation/TagsDocumentation';
+import TagsDocumentation from '../websiteContent/library/components/buttons/tag/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconBarDocumentation from '../websiteContent/library/components/buttons/iconBar/IconBarDocumentation';
