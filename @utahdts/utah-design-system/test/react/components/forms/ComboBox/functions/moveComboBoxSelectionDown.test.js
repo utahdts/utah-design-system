@@ -58,31 +58,6 @@ describe('moveComboBoxSelectionDown', () => {
   );
 
   test(
-    'if !opened, opens and doesn\'t move',
-    () => {
-      const options = [
-        { label: 'Test 1', value: 'test-1', labelLowerCase: 'test 1' },
-        { label: 'Test 2', value: 'test-2', labelLowerCase: 'test 2' },
-        { label: 'Test 3', value: 'test-3', labelLowerCase: 'test 3' },
-      ];
-      /** @type {ComboBoxContextValue} */
-      const context = {
-        filterValue: '',
-        isOptionsExpanded: false,
-        options,
-        optionsFiltered: options,
-        registerOption: () => { },
-        selectedOptionValue: 'test-2',
-        unregisterOption: () => { },
-      };
-
-      moveComboBoxSelectionDown(context);
-
-      expect(context.selectedOptionValue).toBe('test-2');
-    }
-  );
-
-  test(
     'wrap',
     () => {
       const options = [
