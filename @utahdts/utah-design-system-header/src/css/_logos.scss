@@ -1,54 +1,55 @@
-.utds {
-  &-logo-wrapper {
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  &-logo-vert-line {
-    height: 85%;
-    width: 1px;
-    background-color: #707070;
-    margin: 0 var(--spacing-xs) 0 var(--spacing);
-    display: block;
-  }
-  &-title-wrapper {
-    font-size: var(--font-size-3xl);
-    font-weight: 600;
-    color: var(--gray-medium-color);
-    display: flex;
-    align-items: center;
-    flex: 1;
-    height: 100%;
-    gap: var(--spacing-xs);
-    text-decoration: none;
-    border-radius: var(--radius-small);
-    padding: 0 var(--spacing-xs);
-    &__logo {
+.utah-design-system {
+  .utds {
+    &-logo-wrapper {
+      position: relative;
       height: 100%;
-      width: auto;
-      max-width: 100%;
-      max-height: 100%;
       display: flex;
       align-items: center;
-
-      svg, img {
+    }
+    &-logo-vert-line {
+      height: 85%;
+      width: 1px;
+      background-color: #707070;
+      margin: 0 var(--spacing-xs) 0 var(--spacing);
+      display: block;
+    }
+    &-title-wrapper {
+      font-size: var(--font-size-3xl);
+      font-weight: 600;
+      color: var(--gray-medium-color);
+      display: flex;
+      align-items: center;
+      flex: 1;
+      height: 100%;
+      gap: var(--spacing-xs);
+      text-decoration: none;
+      border-radius: var(--radius-small);
+      padding: 0 var(--spacing-xs);
+      &__logo {
         height: 100%;
         width: auto;
         max-width: 100%;
         max-height: 100%;
+        display: flex;
+        align-items: center;
+
+        svg, img {
+          height: 100%;
+          width: auto;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        img {
+          max-width: none;
+        }
       }
-      img {
-        max-width: none;
+      &__title {
+        line-height: .8;
+        color: var(--gray-medium-color);
       }
-    }
-    &__title {
-      line-height: .8;
-      color: var(--gray-medium-color);
     }
   }
-}
-.utah-design-system {
+
   .utah-logo-wrapper {
     height: 100%;
     margin-bottom: -4px;
@@ -97,6 +98,9 @@
       font-weight: var(--font-weight-normal);
       text-align: center;
     }
+  }
+  a[href].utds-title-wrapper {
+    text-decoration: none;
   }
 }
 

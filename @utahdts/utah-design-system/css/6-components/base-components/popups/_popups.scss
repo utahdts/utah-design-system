@@ -67,6 +67,7 @@ $dsc: rgb(0,0,0);
         height: 9px;
         background: inherit;
         z-index: -1;
+        box-sizing: content-box;
       }
 
       &::before {
