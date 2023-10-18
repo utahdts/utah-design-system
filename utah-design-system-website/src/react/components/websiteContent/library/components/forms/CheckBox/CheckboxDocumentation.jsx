@@ -4,12 +4,13 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { CheckBox } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
-import CheckboxExampleRender from './CheckboxExampleRender';
-import CheckboxExampleProps from './CheckboxExampleProps';
-import CheckboxExampleCodeReact from './CheckboxExampleCodeReact';
+import { CheckboxExampleRender } from './CheckboxExampleRender';
+import { CheckboxExampleProps } from './CheckboxExampleProps';
+import { CheckboxExampleCodeReact } from './CheckboxExampleCodeReact';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -32,26 +33,11 @@ function CheckboxDocumentation() {
         renderedExample={(
           <fieldset>
             <legend className="mb-spacing-xs">Awesome Ice Cream in Utah</legend>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="aggie-creamery">Aggie Creamery</label>
-              <input type="checkbox" id="aggie-creamery" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="byu-creamery">BYU Creamery</label>
-              <input type="checkbox" id="byu-creamery" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="farrs">Farr’s Ice Cream</label>
-              <input type="checkbox" id="farrs" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="leatherbys">Leatherby’s</label>
-              <input type="checkbox" id="leatherbys" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="penguin-brothers">Penguin Brothers</label>
-              <input type="checkbox" id="penguin-brothers" />
-            </div>
+            <CheckBox id="aggie-creamery" label="Aggie Creamery" value />
+            <CheckBox id="byu-creamery" label="BYU Creamery" />
+            <CheckBox id="farrs" label="Farr’s Ice Cream" />
+            <CheckBox id="leatherbys" label="Leatherby’s" value isDisabled />
+            <CheckBox id="penguin-brothers" label="Penguin Brothers" isDisabled />
           </fieldset>
         )}
         quickTips={(

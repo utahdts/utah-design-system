@@ -26,7 +26,7 @@ const defaultProps = {};
  * @param {CheckboxExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function CheckboxExampleProps({ setState, state }) {
+export function CheckboxExampleProps({ setState, state }) {
   // default property values
   useEffect(
     () => {
@@ -60,5 +60,3 @@ function CheckboxExampleProps({ setState, state }) {
 
 CheckboxExampleProps.propTypes = propTypes;
 CheckboxExampleProps.defaultProps = defaultProps;
-
-export default CheckboxExampleProps;

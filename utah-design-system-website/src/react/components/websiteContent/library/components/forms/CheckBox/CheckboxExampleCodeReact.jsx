@@ -11,7 +11,7 @@ const propTypes = {
 };
 const defaultProps = {};
 
-function CheckboxExampleCodeReact({
+export function CheckboxExampleCodeReact({
   state: {
     props: {
       className,
@@ -40,5 +40,3 @@ function CheckboxExampleCodeReact({
 
 CheckboxExampleCodeReact.propTypes = propTypes;
 CheckboxExampleCodeReact.defaultProps = defaultProps;
-
-export default CheckboxExampleCodeReact;

@@ -15,7 +15,7 @@ const defaultProps = {
   innerRef: null,
 };
 
-function CheckboxExampleRender({
+export function CheckboxExampleRender({
   setState,
   state: {
     props: {
@@ -48,5 +48,3 @@ function CheckboxExampleRender({
 
 CheckboxExampleRender.propTypes = propTypes;
 CheckboxExampleRender.defaultProps = defaultProps;
-
-export default CheckboxExampleRender;

@@ -55,6 +55,13 @@
         transition: background-size var(--timing-quick) ease, opacity var(--timing-quick) ease;
       }
     }
+    &:disabled {
+      background-color: var(--form-ele-disabled-color);
+      cursor: not-allowed;
+      &::before {
+        background-color: var(--form-ele-disabled-color);
+      }
+    }
   }
   .input-wrapper {
     &--checkbox {
