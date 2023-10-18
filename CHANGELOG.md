@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Tags component
 
 ## Removed
-- onClick and onDoubleClick from TableCell
+- Remove onClick and onDoubleClick from TableCell
 
 ## Fixed
 - Align sort buttons on condensed table
