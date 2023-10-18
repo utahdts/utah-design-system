@@ -6,6 +6,10 @@
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import CheckboxExampleRender from './CheckboxExampleRender';
+import CheckboxExampleProps from './CheckboxExampleProps';
+import CheckboxExampleCodeReact from './CheckboxExampleCodeReact';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -18,6 +22,11 @@ function CheckboxDocumentation() {
       <p className="lead-in">Checkboxes allow users to select one or more options from a list. They can have two values: selected or unselected.</p>
       <hr />
       <h2 id="example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={CheckboxExampleRender}
+        PROPS_EXAMPLE={CheckboxExampleProps}
+        CODE_EXAMPLE={CheckboxExampleCodeReact}
+      />
       <StaticExample
         title="Checkbox"
         renderedExample={(
