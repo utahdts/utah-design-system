@@ -50,7 +50,6 @@ export default function ComboBox({
   wrapperClassName,
   ...rest
 }) {
-  console.log('🚀 ~ file: ComboBox.jsx:53 ~ value:', value);
   const comboBoxListId = useMemo(() => uuidv4(), []);
 
   return (
