@@ -1,15 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+import {
+  Select,
+  SelectOption,
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
-import selectInputScreenshot from '../../../../../../../static/images/screenshots/components/select/selectInput.jpg';
+import SelectCssClassesDocumentation from './SelectCssClassesDocumentation';
+import SelectExampleCodeReact from './SelectExampleCodeReact';
+import SelectExampleProps from './SelectExampleProps';
+import SelectExampleRender from './SelectExampleRender';
+import SelectPropsDocumentation from './SelectPropsDocumentation';
 
-/* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
@@ -18,14 +26,31 @@ function SelectDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Select</h1>
       <p className="lead-in">
-        A select input allows a user to choose options from an option menu. The Select input and <Link to={pageUrls.comboBox}>Combo Box</Link> are limited to a single option, while a <Link to={pageUrls.multiSelect}>Multi-select</Link> lets users choose multiple options.
+        A select input allows a user to choose options from an option menu. The Select input and <Link to={pageUrls.comboBox}>Combo Box</Link> are limited to a single
+        option, while a <Link to={pageUrls.multiSelect}>Multi-select</Link> lets users choose multiple options.
       </p>
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        CODE_EXAMPLE={SelectExampleCodeReact}
+        PROPS_EXAMPLE={SelectExampleProps}
+        RENDER_EXAMPLE={SelectExampleRender}
+      />
+
       <StaticExample
         title="Select Input Example"
-        renderedExample={<LightBox image={selectInputScreenshot} alt="Select Input" className="flex-3up-gap" />}
+        renderedExample={(
+          <Select id="select-input-example" label="Choose the best wild animal">
+            <SelectOption label="Antelope" value="antelope" />
+            <SelectOption label="Black Bear" value="black-bear" />
+            <SelectOption label="Golden Eagle" value="golden-eagle" />
+            <SelectOption label="Elk" value="elk" />
+            <SelectOption label="Moose" value="moose" />
+            <SelectOption label="Mountain Lion" value="mountain-lion" />
+            <SelectOption label="Red-tailed Hawk" value="red-tailed-hawk" />
+          </Select>
+        )}
         quickTips={(
           <ul>
             <li>A select input allows the user to select from a list of options.</li>
@@ -94,6 +119,24 @@ function SelectDocumentation() {
         <li>Note: Where possible, it is recommended that you use a native <code>&lt;select&gt;</code> element rather than using aria and role attributes, as native elements are more widely supported by user agents and assistive technology. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!</li>
         <li>If you customize this component, ensure that it continues to meet the accessibility requirements.</li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="component-props-css">
+          <TabList>
+            <Tab id="component-props-css">CSS</Tab>
+            <Tab id="component-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="component-props-css">
+              <SelectCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react">
+              <SelectPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

@@ -12,6 +12,9 @@ export function hideMobileMenu() {
   // change from an 'X'
   hamburgerIcon?.classList.add('utds-icon-before-hamburger');
   hamburgerIcon?.classList.remove('utds-icon-before-x-icon');
+
+  // reset style - UDS-1236
+  document.body.style.position = '';
 }
 
 export function showMobileMenu() {
@@ -29,4 +32,7 @@ export function showMobileMenu() {
   // change to an 'X'
   hamburgerIcon?.classList.remove('utds-icon-before-hamburger');
   hamburgerIcon?.classList.add('utds-icon-before-x-icon');
+
+  // make sure the <body> is relative - UDS-1236
+  document.body.style.position = 'relative';
 }

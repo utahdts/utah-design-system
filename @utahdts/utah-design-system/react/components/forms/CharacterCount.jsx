@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import joinClassNames from '../../util/joinClassNames';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import trailingS from '../../util/trailingS';
 
 const propTypes = {
   className: PropTypes.string,
@@ -18,15 +19,6 @@ const defaultProps = {
   className: null,
   text: null,
 };
-
-/**
- * returns an 's' if the number is plural
- * @param {number} value
- * @returns {string}
- */
-function trailingS(value) {
-  return value >= 2 ? 's' : '';
-}
 
 /**
  * @param {Object} props

@@ -85,7 +85,7 @@ const defaultProps = {
  * @param {React.ReactNode} [props.iconRight]
  * @param {boolean} [props.isDisabled]
  * @param {string} [props.id]
- * @param {EventAction} [props.onClick]
+ * @param {EventAction} props.onClick
  * @param {FormElementSizes} [props.size]
  * @param {ButtonTypes} [props.type]
  * @returns {JSX.Element}

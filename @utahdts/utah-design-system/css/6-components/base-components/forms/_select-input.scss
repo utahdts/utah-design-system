@@ -9,12 +9,41 @@
     box-sizing: border-box;
     border: 1px solid var(--gray-color);
     width: 100%;
-    padding: 0 var(--spacing-xs);
+    padding: 0 var(--spacing-l) 0 var(--spacing-xs);
     appearance: none;
     background: white var(--icon-chevron-dark) no-repeat right 5px center;
     background-size: 16px;
 
     @include tools-index.form-ele-hover-medium;
     @include tools-index.form-ele-focus;
+
+    &.select-input {
+      &--clear-icon-visible {
+        padding: 0 var(--spacing-3xl) 0 var(--spacing-xs);
+      }
+    }
+  }
+  .select-input {
+    &__inner-wrapper {
+      position: relative;
+    }
+    &__clear-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: var(--spacing-l);
+      font-weight: var(--font-weight-normal);
+      background: white;
+      transition: transform;
+      [class*=utds-icon-before-]::before {
+        font-size: .7rem;
+      }
+      &:hover {
+        background: var(--hover-gray-color-opaque);
+      }
+      &[disabled]:active {
+        transform: translateY(-50%);
+      }
+    }
   }
 }

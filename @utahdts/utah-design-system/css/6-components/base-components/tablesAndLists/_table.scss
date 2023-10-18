@@ -14,6 +14,7 @@
           vertical-align: bottom;
           font-weight: bold;
           padding: var(--spacing-s);
+          line-height: 1.2;
           &.text-center {
             text-align: center;
           }
@@ -87,14 +88,26 @@
         thead {
           tr {
             th {
-              padding: var(--spacing-2xs);
+              padding: var(--spacing-2xs) var(--spacing-xs);
+            }
+            th.table-header--sortable {
+              padding: 0;
             }
           }
         }
         tbody {
           tr {
             td {
-              padding: var(--spacing-2xs);
+              padding: var(--spacing-2xs) var(--spacing-xs);
+            }
+          }
+        }
+        &.table-header--sortable {
+          thead {
+            tr {
+              th.table-header--sortable {
+                padding: 0;
+              }
             }
           }
         }
@@ -131,9 +144,10 @@
           background: none;
           border-radius: var(--radius-circle);
           justify-content: flex-start;
-          padding: var(--spacing) var(--spacing-s);
+          padding: var(--spacing-s) var(--spacing-s);
           width: 100%;
           font-weight: bold;
+          line-height: 1.2;
           &:hover {
             background: var(--gray-light-color);
             color: var(--primary-color);
@@ -222,6 +236,15 @@
               border-radius: var(--radius-circle);
               padding: 0 var(--spacing-l) 0 var(--spacing-xs);
             }
+          }
+        }
+      }
+    }
+    &.table--condensed {
+      .table-header {
+        &--sortable {
+          button {
+            padding: var(--spacing-s) var(--spacing-xs);
           }
         }
       }
