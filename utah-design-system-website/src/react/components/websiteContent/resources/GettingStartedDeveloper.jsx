@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -55,33 +53,6 @@ function GettingStartedDeveloper() {
         <a href="#h3-css-color-overrides" className="">How to override CSS variables (e.g. customize the default colors)</a>
       </div>
 
-      {/* <br />
-      <br />
-      <br />
-      <ul>
-        <li>
-          Importing via CDN
-          <ul>
-            <li>UMD (JS put in document/window) Example: CSS and JS & Overriding (link)</li>
-            <li>ES (script import) Example: CSS and JS & Overriding (link)</li>
-          </ul>
-        </li>
-        <li>
-          Importing via NPM
-          <ul>
-            <li>Create React App: CSS and JS & Overriding (link)</li>
-            <li>Vite JS App: CSS and JS & Overriding (link)</li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul>
-        <li>Importing via CDN: CSS and JS & Overriding (link)</li>
-        <li>Importing via NPM: CSS and JS & Overriding (link)</li>
-        <li>Using CSS Variables</li>
-        <li>Using CSS vs SCSS</li>
-      </ul> */}
-
       <h2 id="h2-using-header" className="mt-spacing-l">Using only the Utah Header</h2>
 
       <div className="text-center mt-spacing-l">
@@ -91,23 +62,11 @@ function GettingStartedDeveloper() {
             to={pageUrls.utahHeader}
             className="button button--primary-color button--solid"
           >
-            Utah Header Documentation Page
+            Utah Header Documentation Page{' '}
             <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
           </Link>
         </div>
       </div>
-
-      {/* <h3 id="font-dependency">General Font Dependency</h3>
-      <p>The Utah Header depends on the awesome font <code>Source Sans 3</code>. You should load this font in order for the &quot;Utah, an official website&quot;, menus, and other elements to render correctly.</p>
-      <PreCodeForCodeString
-        codeRaw={`
-          <link rel="preconnect" href="https://fonts.googleapis.com">
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        `}
-        allowScrollOverflow
-        showBackgroundColor
-      /> */}
 
       <h3 id="h3-header-importing-cdn" className="mt-spacing">Importing via CDN</h3>
       <p>

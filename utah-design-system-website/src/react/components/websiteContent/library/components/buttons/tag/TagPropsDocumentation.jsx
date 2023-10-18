@@ -60,7 +60,7 @@ function TagPropsDocumentation() {
               <TableCell><code>MutableRefObject</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered <code>&lt;span&gt;</code>
+                This ref will be attached to the rendered <code>&lt;span&gt;</code>{' '}
                 element allowing the parent component to interact directly with the actual DOM element.
               </TableCell>
             </TableRow>

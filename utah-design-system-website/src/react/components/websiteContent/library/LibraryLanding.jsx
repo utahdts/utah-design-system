@@ -33,11 +33,11 @@ function LibraryLanding() {
       <h3 id="section-component" className="mb-spacing">Components</h3>
       <ul>
         <li>
-          <strong>Intention. </strong>
+          <strong>Intention.</strong>{' '}
           Components have a specific purpose or singular functionality and are reusable.
         </li>
         <li>
-          <strong>Structure. </strong>
+          <strong>Structure.</strong>{' '}
           Simple components can be used individually or combined to create a more complex component.
           <ul>
             <li><span>Simple components:</span> headings, hyperlinks, images, etc.</li>
@@ -45,7 +45,7 @@ function LibraryLanding() {
           </ul>
         </li>
         <li>
-          <strong>Vetted. </strong>
+          <strong>Vetted.</strong>{' '}
           Each component has been researched for best practices and industry standards then summarized to help
           clarify usage recommendations as well as speed up implementation.
         </li>
@@ -60,15 +60,15 @@ function LibraryLanding() {
       <h3 id="section-patterns" className="mb-spacing">Patterns</h3>
       <ul>
         <li>
-          <strong>Intention.</strong>
+          <strong>Intention.</strong>{' '}
           Patterns have a specific purpose but can have multiple functionalities within them.
         </li>
         <li>
-          <strong>Structure.</strong>
+          <strong>Structure.</strong>{' '}
           They have a combination of simple and complex components within the pattern.
         </li>
         <li>
-          <strong>Vetted.</strong>
+          <strong>Vetted.</strong>{' '}
           Each pattern has been tested for accessibility and responsiveness prior to being added. After any changes
           or customizations have been done, it is necessary to re-test individual components.
         </li>
@@ -83,15 +83,15 @@ function LibraryLanding() {
       <h3 id="section-templates" className="mb-spacing">Templates</h3>
       <ul>
         <li>
-          <strong>Intention.</strong>
+          <strong>Intention.</strong>{' '}
           Templates are commonly used pages that have a specific purpose.
         </li>
         <li>
-          <strong>Structure.</strong>
+          <strong>Structure.</strong>{' '}
           They have a combination of simple, and complex components as well as patterns.
         </li>
         <li>
-          <strong>Vetted.</strong>
+          <strong>Vetted.</strong>{' '}
           Each layout has been tested for accessibility and responsiveness prior to being added. After any changes or customizations
           have been done,  it is necessary to re-test individual templates.
         </li>

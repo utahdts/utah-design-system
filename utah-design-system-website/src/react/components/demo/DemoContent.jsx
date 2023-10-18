@@ -381,11 +381,11 @@ function DemoContent() {
                 <div>Do have a favorite color?</div>
                 <div className="input__radio">
                   <label htmlFor="favoriteColor-no">
-                    <input id="favoriteColor-no" type="radio" name="favoriteColor" value="no" />
+                    <input id="favoriteColor-no" type="radio" name="favoriteColor" value="no" />{' '}
                     No
                   </label>
                   <label htmlFor="favoriteColor-yes">
-                    <input id="favoriteColor-yes" type="radio" name="favoriteColor" value="yes" />
+                    <input id="favoriteColor-yes" type="radio" name="favoriteColor" value="yes" />{' '}
                     Yes
                   </label>
                 </div>
@@ -432,7 +432,7 @@ function DemoContent() {
                 <p>
                   Lorem ipsum dolor sit amet. Ut enim tempore sed autem aspernatur eum minus fugit
                   ad quia voluptas aut repellendus nemo aut quam libero. Et alias quia
-                  <a href="https://www.loremipzum.com">Est fugit ut repudiandae galisum aut dolore dolores</a>
+                  <a href="https://www.loremipzum.com">Est fugit ut repudiandae galisum aut dolore dolores</a>{' '}
                   sed rerum animi qui animi harum.
                 </p>
                 <p>
@@ -442,12 +442,12 @@ function DemoContent() {
                 <p>
                   At fugiat dolorum aut recusandae eveniet ut dicta pariatur sed illo dicta ut culpa
                   nihil non illo quis cum eligendi earum? Eum necessitatibus dolores in iure laborum
-                  <a href="https://www.loremipzum.com">Id reprehenderit ut ratione doloremque 33 magnam perferendis in veniam quam.</a>
+                  <a href="https://www.loremipzum.com">Id reprehenderit ut ratione doloremque 33 magnam perferendis in veniam quam.</a>{' '}
                   Est voluptatem veniam sit doloremque omnis sit sint quam.
                 </p>
                 <p>
                   Hic omnis reiciendis et cupiditate velit 33 assumenda fuga qui rerum minima et inventore numquam. Et voluptas nemo
-                  <a href="https://www.loremipzum.com">Hic saepe qui expedita inventore cum eius voluptatem</a>
+                  <a href="https://www.loremipzum.com">Hic saepe qui expedita inventore cum eius voluptatem</a>{' '}
                   qui commodi quia ut reiciendis maxime. Ab distinctio vitae aut numquam cupiditate
                   sed dolores deserunt nam pariatur nemo non dignissimos dolore sed quasi delectus.
                   Qui laborum quam qui natus dolorum et fugit fuga?
@@ -465,7 +465,7 @@ function DemoContent() {
               <p>
                 Lorem ipsum dolor sit amet. Ut enim tempore sed autem aspernatur eum minus fugit
                 ad quia voluptas aut repellendus nemo aut quam libero. Et alias quia
-                <a href="https://www.loremipzum.com"> Est fugit ut repudiandae galisum aut dolore dolores</a>
+                <a href="https://www.loremipzum.com"> Est fugit ut repudiandae galisum aut dolore dolores</a>{' '}
                 sed rerum animi qui animi harum.
               </p>
               <p>
@@ -475,7 +475,7 @@ function DemoContent() {
               <p>
                 At fugiat dolorum aut recusandae eveniet ut dicta pariatur sed illo dicta ut culpa
                 nihil non illo quis cum eligendi earum? Eum necessitatibus dolores in iure laborum
-                <a href="https://www.loremipzum.com"> Id reprehenderit ut ratione doloremque 33 magnam perferendis in veniam quam.</a>
+                <a href="https://www.loremipzum.com"> Id reprehenderit ut ratione doloremque 33 magnam perferendis in veniam quam.</a>{' '}
                 Est voluptatem veniam sit doloremque omnis sit sint quam.
               </p>
 
