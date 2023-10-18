@@ -94,7 +94,7 @@ function AccessibilityDocumentation() {
             to={pageUrls.accessibilityChecklist}
             className="button button--primary-color button--solid"
           >
-            Accessibility Checklist
+            Accessibility Checklist{' '}
             <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
           </Link>
         </div>
@@ -296,7 +296,7 @@ function AccessibilityDocumentation() {
 
       <h4 id="section-limited-vision-contrast">Contrast requirement</h4>
       <p>
-        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
+        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.{' '}
         (
         <em>
           <ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink>
@@ -306,7 +306,7 @@ function AccessibilityDocumentation() {
         )
       </p>
       <p>
-        The WCAG 2.1 consists of three levels of guidance: A, AA, and AAA.
+        The WCAG 2.1 consists of three levels of guidance: A, AA, and AAA.{' '}
         <strong>
           State agencies are required to meet WCAG 2.1 Level AA guidelines
           and are encouraged to strive to meet Level AAA guidelines whenever feasible

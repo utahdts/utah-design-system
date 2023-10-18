@@ -419,7 +419,7 @@ function ButtonDocumentation() {
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
         <li><strong>Keep button text short.</strong> Use action words to describe what the button will do.</li>
-        <li><strong>Use Title Case capitalization.</strong>
+        <li><strong>Use Title Case capitalization.</strong>{' '}
           Such as, Download, View More, Sign In, or Sign Out.
         </li>
         <li>
@@ -546,8 +546,8 @@ function ButtonDocumentation() {
                         </TableCell>
                         <TableCell><code>&apos;none&apos;</code></TableCell>
                         <TableCell>
-                          Determines the color from the theme that will be used while rendering the button. Depending on the
-                          <span className="font-semi-bold"> appearance</span> of the button, this can effect the border and/or fill color of the button.
+                          Determines the color from the theme that will be used while rendering the button. Depending on the{' '}
+                          <span className="font-semi-bold">appearance</span> of the button, this can effect the border and/or fill color of the button.
                         </TableCell>
                       </TableRow>
 
