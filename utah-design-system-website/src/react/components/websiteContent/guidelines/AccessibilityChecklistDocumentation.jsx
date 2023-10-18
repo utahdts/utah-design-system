@@ -168,6 +168,7 @@ function AccessibilityTestingDocumentation() {
           <ul>
             <li><ExternalLink href="https://wave.webaim.org/">Wave: Web accessibility evaluation tool</ExternalLink> - free and preferred by DXP team.</li>
             <li><ExternalLink href="https://accessibilityinsights.io/downloads/">Accessibility Insights</ExternalLink> - free</li>
+            <li><ExternalLink href="https://www.ssa.gov/accessibility/andi/help/install.html">Social Security Administration - ANDI</ExternalLink> - free tool made by the Social Security Administration.</li>
             <li><ExternalLink href="https://usablenet.com/automated-accessibility-testing-tool">UsableNet</ExternalLink> - free and paid versions available</li>
             <li><ExternalLink href="https://www.deque.com/axe/">Axe® Accessibility Testing Tools</ExternalLink> - free and paid versions available</li>
           </ul>

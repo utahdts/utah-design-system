@@ -33,7 +33,13 @@ An `id` is required to tie the label and input together for accessibility. When 
 This goes on the outer wrapper element of the entire component. The parent then has the ability to target inner elements.
 Refs tend to be helpful for inputs but not so much for other things?
 
+* `isClearable` (boolean)
+she be coupled with onClear
+
 * `isDisabled` (boolean)
+
+* `isRequired`: (boolean)
+For input fields, `required` shows a '*' by the label. The Design System does not do form validation. There are plenty of libraries available to do validation. Pass your validation error message to the component to be displayed.
 
 * `label` (string.isRequired)
 
@@ -44,11 +50,19 @@ Refs tend to be helpful for inputs but not so much for other things?
 * `onChange`: ((e, id, newValue) => {})
 triggered when the value changes
 
+* `onClear`: ((e) => {})
+she be coupled with isClearable
+
 * `onSubmit`: ((e) => {})
 triggered when the enter key is pressed on the input
 
-* `required`: (boolean)
-For input fields, `required` shows a '*' by the label. The Design System does not do form validation. There are plenty of libraries available to do validation. Pass your validation error message to the component to be displayed.
+* `placeholder`: (string)
+text to show in the input until a value is entered
+
+* `title`: (string | React.ReactNode)
+Button/ToolTip have their "title" as a child element so in the sandbox props label for the title entry it is labeled "Title (children)"
+IconButton has a title as a prop so it's sandbox prop label is just "Title"
+Other controls have a label instead of a title
 
 * `value` (component specific type)
 Components should be created controlled or uncontrolled.
@@ -68,7 +82,7 @@ You can check here to see if some other component already does something your co
 * `size`: (formElementSizesEnum - may be limited in possibilities)
 Refers to the height and text size (like buttons)
 Many controls will not support all sizes
-Switches, buttons have size; Text Input does not
+Switches, buttons have size; Text Input, Select does not
 
 ### Switch
 * `labelOff`: PropTypes.node

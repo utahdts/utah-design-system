@@ -49,7 +49,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .spinner {
-      &__animation {
+      &--indeterminate .spinner__animation {
         animation: spinner-animation 2s linear 4;
       }
     }

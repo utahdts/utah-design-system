@@ -20,4 +20,11 @@
       margin: 0;
     }
   }
+
+  &--blank {
+    .static-example__component-wrapper {
+      background-color: white;
+      border: 1px solid var(--gray-border);
+    }
+  }
 }

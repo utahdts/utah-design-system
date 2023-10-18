@@ -8,6 +8,8 @@ const propTypes = {
   currentPageIndex: PropTypes.number.isRequired,
   // the actual value shown on the page
   label: PropTypes.string.isRequired,
+  // total number of pages
+  numberOfPages: PropTypes.number.isRequired,
   // controlled component: page # changed
   onChange: PropTypes.func.isRequired,
   // index of this page out of all the pages (3 means it's the 4th page, 0 means first page)
@@ -21,6 +23,7 @@ function PaginationLink({
   className,
   currentPageIndex,
   onChange,
+  numberOfPages,
   label,
   pageIndex,
   ...rest
@@ -29,6 +32,7 @@ function PaginationLink({
     <li className="pagination__list-item">
       <a
         aria-current={(pageIndex === currentPageIndex) ? 'page' : undefined}
+        aria-label={`${(pageIndex === (numberOfPages - 1)) ? 'Last page, ' : ''}${(pageIndex === currentPageIndex) ? '' : 'Go to '}page ${label}`}
         className={joinClassNames(
           'pagination__link',
           currentPageIndex !== pageIndex && 'pagination__link--inactive',

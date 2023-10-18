@@ -158,7 +158,7 @@ function TextAreaDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-react">
+        <TabGroup defaultValue="button-props-css">
           <TabList>
             <Tab id="button-props-css">CSS</Tab>
             <Tab id="button-props-react">React</Tab>
