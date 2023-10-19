@@ -4,13 +4,17 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import { CheckBox } from '@utahdts/utah-design-system';
+import {
+  CheckBox, Tab, TabGroup, TabList, TabPanel, TabPanels
+} from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import { CheckboxExampleRender } from './CheckboxExampleRender';
 import { CheckboxExampleProps } from './CheckboxExampleProps';
 import { CheckboxExampleCodeReact } from './CheckboxExampleCodeReact';
+import { CheckboxCssClassesDocumentation } from './CheckboxCssClassesDocumentation';
+import { CheckboxPropsDocumentation } from './CheckboxPropsDocumentation';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -118,6 +122,24 @@ function CheckboxDocumentation() {
           necessary when using semantic HTML. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <CheckboxCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <CheckboxPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
