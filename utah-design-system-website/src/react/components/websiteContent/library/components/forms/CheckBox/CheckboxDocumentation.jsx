@@ -37,11 +37,11 @@ function CheckboxDocumentation() {
         renderedExample={(
           <fieldset>
             <legend className="mb-spacing-xs">Awesome Ice Cream in Utah</legend>
-            <CheckBox id="aggie-creamery" label="Aggie Creamery" value />
-            <CheckBox id="byu-creamery" label="BYU Creamery" />
-            <CheckBox id="farrs" label="Farr’s Ice Cream" />
-            <CheckBox id="leatherbys" label="Leatherby’s" value isDisabled />
-            <CheckBox id="penguin-brothers" label="Penguin Brothers" isDisabled />
+            <CheckBox name="ice-cream" id="aggie-creamery" label="Aggie Creamery" value />
+            <CheckBox name="ice-cream" id="byu-creamery" label="BYU Creamery" />
+            <CheckBox name="ice-cream" id="farrs" label="Farr’s Ice Cream" />
+            <CheckBox name="ice-cream" id="leatherbys" label="Leatherby’s" value isDisabled />
+            <CheckBox name="ice-cream" id="penguin-brothers" label="Penguin Brothers" isDisabled />
           </fieldset>
         )}
         quickTips={(
