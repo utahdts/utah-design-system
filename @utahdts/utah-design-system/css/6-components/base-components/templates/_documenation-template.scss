@@ -58,7 +58,7 @@
       min-width: var(--documentation-right-width);
       box-sizing: border-box;
       max-height: 100vh;
-      overflow: scroll;
+      overflow: auto;
     }
 
   }
@@ -125,8 +125,11 @@
       &__side-panel-left {
         display: none;
       }
+      &__right-group {
+        width: 100%;
+      }
       &__content {
-        max-width: calc(100vw - (2 * var(--spacing)));
+        max-width: calc(100% - (2 * var(--spacing)));
       }
     }
   }

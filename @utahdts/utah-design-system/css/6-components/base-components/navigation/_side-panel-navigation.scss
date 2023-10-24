@@ -1,5 +1,6 @@
 @use "../../../1-settings/class-vars";
 @use "../../../2-tools/tools-index";
+@use "../../../1-settings/media-size-vars";
 
 #{class-vars.$base-class} {
   .menu-side-panel {
@@ -79,6 +80,25 @@
         padding: var(--spacing-xs);
         svg {
           transition: transform var(--timing-quick) ease;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: #{media-size-vars.$media-size-tablet-landscape}) {
+  #{class-vars.$base-class} {
+    .menu-side-panel {
+      .menu-item {
+        &__title {
+          a {
+            &.menu-item--selected {
+              //a chiclet
+              &::after {
+                left: 0;
+              }
+            }
+          }
         }
       }
     }
