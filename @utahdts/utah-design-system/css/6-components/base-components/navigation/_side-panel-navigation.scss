@@ -28,6 +28,8 @@
       &__title {
         a {
           flex: 1 0 auto;
+          max-width: 100%;
+          box-sizing: border-box;
           padding: var(--spacing-2xs) var(--spacing);
           display: block;
           border-radius: var(--radius-circle);
