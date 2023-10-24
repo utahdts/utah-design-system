@@ -18,8 +18,9 @@
     &__side-panel-left {
       border-right: 1px solid var(--gray-border);
       padding: var(--documentation-padding);
-      width: var(--documentation-left-width);
+      width: calc(var(--documentation-left-width) + (2 * var(--spacing-xl)));
       min-width: var(--documentation-left-width);
+      box-sizing: border-box;
     }
     &__right-group {
       display: flex;
@@ -67,21 +68,8 @@
 @media screen and (max-width: 1300px) {
   #{class-vars.$base-class} {
     .documentation-template {
-      &__content {
-        max-width: calc(100vw - (6 * var(--spacing-xl)) - (var(--documentation-left-width)) - (var(--documentation-right-width)));
-      }
-    }
-  }
-}
-@media screen and (max-width: #{media-size-vars.$media-size-desktop-small}) {
-  #{class-vars.$base-class} {
-    .documentation-template {
-      &__side-panel-left,
-      &__side-panel-right {
-        min-width: calc(var(--documentation-left-width) - 50px);
-      }
-      &__content {
-        max-width: calc(100vw - (2 * var(--spacing-xl)) - (var(--documentation-left-width)) - (var(--documentation-right-width)) - 100px);
+      &__right-group {
+        max-width: calc(100% - (2 * var(--spacing-xl)) - (var(--documentation-left-width) + 2px));
       }
     }
   }
@@ -96,18 +84,18 @@
       &__side-panel-left {
         padding: var(--documentation-padding-small);
       }
+      &__right-group {
+        max-width: calc(100% - (2 * var(--spacing-xl)) - (var(--documentation-left-width) + 2px));
+      }
       &__content {
         order: 2;
-        max-width: calc(100vw - (2 * var(--spacing)) - (var(--documentation-left-width)) - 50px);
+        width: 100%;
+        box-sizing: border-box;
         padding: var(--documentation-padding-small);
       }
       &__side-panel-right {
         order: 1;
         position: relative;
-
-        // border-left: none;
-        // padding-bottom: 0;
-
         border-left: 4px solid var(--gray-border);
         padding-bottom: 0;
         padding-top: 0;
@@ -127,9 +115,10 @@
       }
       &__right-group {
         width: 100%;
+        max-width: 100%;
       }
       &__content {
-        max-width: calc(100% - (2 * var(--spacing)));
+        max-width: 100%;
       }
     }
   }
