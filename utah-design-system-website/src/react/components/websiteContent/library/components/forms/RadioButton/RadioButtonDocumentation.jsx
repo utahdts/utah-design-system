@@ -4,10 +4,9 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { RadioButtonsWrapper, RadioButton } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import radioButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/radioButtonScreenshot.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -23,7 +22,13 @@ function RadioButtonDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Radio Button Example"
-        renderedExample={<LightBox image={radioButtonScreenshot} alt="Radio Buttons" className="flex-3up-gap" />}
+        renderedExample={(
+          <RadioButtonsWrapper label="Best Ice Cream Flavor:" name="ice-cream" value="vanilla">
+            <RadioButton id="vanilla" label="Vanilla" value="vanilla" />
+            <RadioButton id="chocolate" label="Chocolate" value="chocolate" />
+            <RadioButton id="strawberry" label="Strawberry" value="strawberry" isDisabled />
+          </RadioButtonsWrapper>
+        )}
         quickTips={(
           <ul>
             <li>The user can only select one item at a time from a list of options.</li>
