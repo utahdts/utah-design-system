@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 import { RadioButtonsWrapper, RadioButton } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import { RadioButtonExampleRender } from './RadioButtonExampleRender';
+import { RadioButtonExampleProps } from './RadioButtonExampleProps';
+import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -20,6 +24,11 @@ function RadioButtonDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={RadioButtonExampleRender}
+        PROPS_EXAMPLE={RadioButtonExampleProps}
+        CODE_EXAMPLE={RadioButtonExampleCodeReact}
+      />
       <StaticExample
         title="Radio Button Example"
         renderedExample={(
