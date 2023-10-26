@@ -6,7 +6,6 @@ import RefShape from '../../../propTypesShapes/RefShape';
 
 const propTypes = {
   className: PropTypes.string,
-  // id of the input; when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
   id: PropTypes.string.isRequired,
   innerRef: RefShape,
   isDisabled: PropTypes.bool,
@@ -22,6 +21,17 @@ const defaultProps = {
   value: null,
 };
 
+/**
+ * @param {Object} props
+ * @param {string | null} [props.className]
+ * @param {React.RefObject | null} [props.innerRef]
+ * @param {string} props.id
+ * @param {boolean} [props.isDisabled]
+ * @param {string} props.label
+ * @param {string | null} [props.name]
+ * @param {string | null} [props.value]
+ * @returns {JSX.Element}
+ */
 export function RadioButton({
   className,
   id,
@@ -32,12 +42,11 @@ export function RadioButton({
   value,
 }) {
   const {
-    state: {
-      currentValue,
-      currentName,
-    },
-    setValue,
+    currentOnChange,
+    currentValue,
+    currentOnFormKeyPress,
   } = useRadioButtonsContext();
+
   return (
     <div className="input-wrapper input-wrapper--radio">
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
@@ -47,8 +56,9 @@ export function RadioButton({
         className={className}
         disabled={isDisabled}
         id={id}
-        name={name || currentName}
-        onChange={useCallback(() => setValue(value), [setValue, value])}
+        name={name}
+        onChange={useCallback(currentOnChange, [currentOnChange])}
+        onKeyPress={currentOnFormKeyPress}
         ref={innerRef}
         type="radio"
         value={value}

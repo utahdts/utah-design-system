@@ -23,10 +23,10 @@ function RadioButtonDocumentation() {
       <StaticExample
         title="Radio Button Example"
         renderedExample={(
-          <RadioButtonsWrapper label="Best Ice Cream Flavor:" name="ice-cream" value="vanilla">
-            <RadioButton id="vanilla" label="Vanilla" value="vanilla" />
-            <RadioButton id="chocolate" label="Chocolate" value="chocolate" />
-            <RadioButton id="strawberry" label="Strawberry" value="strawberry" isDisabled />
+          <RadioButtonsWrapper label="Best Ice Cream Flavor:" id="ice-cream" defaultValue="vanilla">
+            <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
+            <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
+            <RadioButton name="ice-cream" id="strawberry" label="Strawberry" value="strawberry" isDisabled />
           </RadioButtonsWrapper>
         )}
         quickTips={(
