@@ -11,17 +11,13 @@
 
         &>li {
           font-weight: bold;
-          font-size: var(--font-size-l);
+          font-size: var(--font-size-m);
 
           &>ul {
             font-size: var(--font-size);
             font-weight: var(--font-weight-semi-bold);
           }
         }
-      }
-      a[href].vertical-menu__link-title {
-        text-decoration: underline;
-        color: var(--primary-color);
       }
     }
   }
