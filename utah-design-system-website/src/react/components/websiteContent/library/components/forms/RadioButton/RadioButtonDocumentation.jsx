@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { RadioButtonsWrapper, RadioButton } from '@utahdts/utah-design-system';
+import { RadioButton } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
 import { RadioButtonExampleRender } from './RadioButtonExampleRender';
 import { RadioButtonExampleProps } from './RadioButtonExampleProps';
 import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -28,11 +28,14 @@ function RadioButtonDocumentation() {
       <StaticExample
         title="Radio Button Example"
         renderedExample={(
-          <RadioButtonsWrapper label="Best Ice Cream Flavor:" id="ice-cream" defaultValue="vanilla">
-            <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
-            <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
-            <RadioButton name="ice-cream" id="strawberry" label="Strawberry" value="strawberry" isDisabled />
-          </RadioButtonsWrapper>
+          <div className="radio-buttons-wrapper">
+            <fieldset>
+              <legend>Best Ice Cream</legend>
+              <RadioButton name="ice-cream" id="vanilla" label="Vanilla" />
+              <RadioButton name="ice-cream" id="chocolate" label="Chocolate" />
+              <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled />
+            </fieldset>
+          </div>
         )}
         quickTips={(
           <ul>

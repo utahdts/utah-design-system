@@ -168,4 +168,16 @@
  * }
  */
 
+/**
+ * @typedef RadioButtonExamplePropsShape {
+ * @property {string} className
+ * @property {string} errorMessage
+ * @property {string} id
+ * @property {boolean} isDisabled
+ * @property {boolean} isRequired
+ * @property {string} label
+ * @property {boolean} value
+ * }
+ */
+
 export default false;

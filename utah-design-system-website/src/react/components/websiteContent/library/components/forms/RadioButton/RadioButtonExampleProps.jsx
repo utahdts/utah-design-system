@@ -36,9 +36,7 @@ export function RadioButtonExampleProps({ setState, state }) {
         draftState.props.isDisabled = false;
         draftState.props.isRequired = false;
         draftState.props.label = '';
-        draftState.props.value = '';
-        draftState.props.wrapperClassName = '';
-        draftState.props.wrapperLabel = '';
+        draftState.props.value = false;
       });
     },
     [setState]
@@ -50,18 +48,13 @@ export function RadioButtonExampleProps({ setState, state }) {
       setState={setState}
       className="form--stacked"
     >
-      <p className="font-bold mb-spacing-xs">Wrapper Props</p>
-      <TextInput id="props.wrapperClassName" label="Wrapper Class" className="input--height-small1x" />
-      <TextInput id="props.wrapperLabel" label="Wrapper Label" className="input--height-small1x" />
-      <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
-      <Switch id="props.isRequired" label="Required" width={20} />
-
-      <p className="font-bold mb-spacing-xs">Radio Button Props</p>
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
+      <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
       <Switch id="props.isDisabled" label="Disabled" width={20} />
+      <Switch id="props.isRequired" label="Required" width={20} />
       <TextInput id="props.label" label="Label" className="input--height-small1x" />
-      <TextInput id="props.value" label="Value" className="input--height-small1x" />
+      <Switch id="props.value" label="Checked" width={20} />
     </Form>
   );
 }

@@ -21,23 +21,16 @@ export function RadioButtonExampleCodeReact({
       isRequired,
       label,
       value,
-      wrapperClassName,
-      wrapperLabel,
     },
   },
 }) {
   return (
     <>
-      &lt;RadioButtonsWrapper
-      <br />
-      <ExampleCodeReactProp displayProp={wrapperClassName ? `className="${wrapperClassName}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={wrapperLabel ? `label="${wrapperLabel}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`isRequired="${isRequired}"`} indentLevel={1} />
-      /&gt;
       &lt;RadioButton
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={2} />
+      <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={2} />
+      <ExampleCodeReactProp displayProp={`isRequired="${isRequired}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={2} />
       <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={2} />
       <ExampleCodeReactProp displayProp={value ? `value="${value}"` : null} indentLevel={2} />
