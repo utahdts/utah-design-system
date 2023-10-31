@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { RadioButtonsWrapper, RadioButton } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';

@@ -1,5 +1,4 @@
 // @ts-check
-/* eslint-disable no-param-reassign */
 import {
   Form,
   Switch,
