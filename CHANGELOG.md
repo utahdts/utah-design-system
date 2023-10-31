@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Fix
 - Fix css z-index for main menu
 
-# [1.9.1] 10/31/2023
+# [1.9.0] 10/31/2023
 ## Added
 - Documentation for interactive tables (role="grid")
 
