@@ -6,7 +6,7 @@ import {
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
-  TableBodyDataRowTemplate, TableContextConsumer,
+  TableBodyDataRowTemplate,
   TableFilters,
   TableFilterTextInput,
   TableHead,
@@ -49,14 +49,15 @@ function TableExampleRender({
   const [currentPageIndex, setCurrentPageIndex] = useImmer(0);
 
   return (
-    <TableWrapper
-      id={id}
-      innerRef={innerRef}
-      style={{ width: '100%' }}
-    >
-      <Table id="example-interactive-table" className={joinClassNames('table table--lines-x table--v-align-center table--full-width', className)}>
-        <TableHead>
-          {
+    <>
+      <TableWrapper
+        id={id}
+        innerRef={innerRef}
+        style={{ width: '100%' }}
+      >
+        <Table id="example-interactive-table" className={joinClassNames('table table--lines-x table--v-align-center table--full-width', className)}>
+          <TableHead>
+            {
               isSorting
                 ? (
                   <TableSortingRules defaultValue="category">
@@ -67,7 +68,7 @@ function TableExampleRender({
                 )
                 : null
             }
-          {
+            {
               isFiltering
                 ? (
                   <TableFilters>
@@ -78,54 +79,43 @@ function TableExampleRender({
                 )
                 : null
             }
-          <TableHeadRow>
-            {/*
+            <TableHeadRow>
+              {/*
                 NOTE: inline styles are not encouraged. They are used here because this is light weight example, but
                 please use className or a styling library instead of inline styles.
                */}
-            <TableHeadCell recordFieldPath="category" style={{ width: '40%' }}>Category</TableHeadCell>
-            <TableHeadCell recordFieldPath="symbol" style={{ width: '40%' }}>Symbol</TableHeadCell>
-            <TableHeadCell recordFieldPath="year" style={{ width: '20%' }}>Year</TableHeadCell>
-          </TableHeadRow>
-        </TableHead>
-        <TableBody>
-          <TableBodyData pagination={isPaginating ? { currentPageIndex, itemsPerPage: ITEMS_PER_PAGE } : undefined} records={stateSymbols} recordIdField="category">
-            <TableBodyDataRowTemplate>
-              <TableBodyDataCellTemplate recordFieldPath="category" />
-              <TableBodyDataCellTemplate recordFieldPath="symbol" />
-              <TableBodyDataCellTemplate recordFieldPath="year" />
-            </TableBodyDataRowTemplate>
-          </TableBodyData>
-        </TableBody>
-      </Table>
+              <TableHeadCell recordFieldPath="category" style={{ width: '40%' }}>Category</TableHeadCell>
+              <TableHeadCell recordFieldPath="symbol" style={{ width: '40%' }}>Symbol</TableHeadCell>
+              <TableHeadCell recordFieldPath="year" style={{ width: '20%' }}>Year</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableBodyData pagination={isPaginating ? { currentPageIndex, itemsPerPage: ITEMS_PER_PAGE } : undefined} records={stateSymbols} recordIdField="category">
+              <TableBodyDataRowTemplate>
+                <TableBodyDataCellTemplate recordFieldPath="category" />
+                <TableBodyDataCellTemplate recordFieldPath="symbol" />
+                <TableBodyDataCellTemplate recordFieldPath="year" />
+              </TableBodyDataRowTemplate>
+            </TableBodyData>
+          </TableBody>
+        </Table>
+      </TableWrapper>
       {
-          isPaginating
-            ? (
-              <TableContextConsumer>
-                {
-                  (tableContext) => {
-                    console.log(tableContext);
-                    const hasFilteredData = !!tableContext.filteredData?.length;
-                    console.log(tableContext.filteredData.length, stateSymbols.length);
-                    console.log('totalNumberItems', hasFilteredData ? tableContext.filteredData.length : stateSymbols.length);
-                    return (
-                      <div className="flex justify-center">
-                        <Pagination
-                          className="mt-spacing"
-                          onChange={setCurrentPageIndex}
-                          pageSize={ITEMS_PER_PAGE}
-                          totalNumberItems={stateSymbols.length}
-                          value={currentPageIndex}
-                        />
-                      </div>
-                    );
-                  }
-                }
-              </TableContextConsumer>
-            )
-            : null
-        }
-    </TableWrapper>
+        isPaginating
+          ? (
+            <div className="flex justify-center">
+              <Pagination
+                className="mt-spacing"
+                onChange={setCurrentPageIndex}
+                pageSize={ITEMS_PER_PAGE}
+                totalNumberItems={stateSymbols.length}
+                value={currentPageIndex}
+              />
+            </div>
+          )
+          : null
+      }
+    </>
   );
 }
 
