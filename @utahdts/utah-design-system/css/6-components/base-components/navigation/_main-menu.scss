@@ -3,6 +3,10 @@
 
 #{class-vars.$base-class} {
   .main-menu {
+    &__outer {
+      position: relative;
+      z-index: 2000;
+    }
     &__wrapper {
       background-color: var(--gray-light-color);
       display: flex;
@@ -67,7 +71,7 @@
           &.menu-item--selected_parent + span.menu-chiclet {
             font-weight: bold;
           }
-    
+
           &.menu-item--selected + span.menu-chiclet {
             &::after {
               content: "";

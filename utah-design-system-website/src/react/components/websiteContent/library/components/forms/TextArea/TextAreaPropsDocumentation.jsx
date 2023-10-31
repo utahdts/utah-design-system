@@ -57,7 +57,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                An id to put on the <code>&lt;textarea&gt;</code> element. This will also be use as the <code>name</code>{' '}
+                An id to put on the <code>&lt;textarea&gt;</code> element. This will also be used as the <code>name</code>{' '}
                 attribute (if not set) and <code>htmlFor</code> attribute of the input&apos;s label.
               </TableCell>
             </TableRow>

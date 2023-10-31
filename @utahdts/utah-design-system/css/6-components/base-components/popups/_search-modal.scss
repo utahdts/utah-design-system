@@ -8,7 +8,7 @@
     &__form {
       position: fixed;
       top: 25%;
-      z-index: 1010;
+      z-index: 4010;
     }
     &__input[type=text] {
       border-radius: var(--radius-circle);
@@ -16,6 +16,7 @@
       width: 50vw;
       padding: var(--spacing) 170px var(--spacing) var(--spacing-3xl);
       font-size: var(--font-size-l);
+      margin: 0;
     }
     &__button-wrapper {
       position: absolute;
@@ -26,7 +27,7 @@
       position: fixed;
       top: var(--spacing);
       right: var(--spacing);
-      z-index: 1010;
+      z-index: 4010;
     }
     &__close-button {
       & [class*=utds-icon-before-]::before {
