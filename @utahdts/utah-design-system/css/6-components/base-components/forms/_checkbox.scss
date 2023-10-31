@@ -12,6 +12,7 @@
     box-sizing: border-box;
     appearance: none;
     flex-shrink: 0;
+    margin-top: 2px;
 
     &::after {
       content: '';
@@ -54,13 +55,20 @@
         transition: background-size var(--timing-quick) ease, opacity var(--timing-quick) ease;
       }
     }
+    &:disabled {
+      background-color: var(--form-ele-disabled-color);
+      cursor: not-allowed;
+      &::before {
+        background-color: var(--form-ele-disabled-color);
+      }
+    }
   }
   .input-wrapper {
     &--checkbox {
       display: flex;
       flex-direction: row-reverse;
       justify-content: flex-end;
-      align-items: center;
+      align-items: flex-start;
       position: relative;
       z-index: 1;
 

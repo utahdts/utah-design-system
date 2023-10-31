@@ -205,7 +205,7 @@ function ColorGuidelinesDocumentation() {
           to={`${pageUrls.gettingStartedDeveloper}#h3-css-color-overrides`}
           className="button button--primary-color button--solid"
         >
-          How to Override CSS Variables
+          How to Override CSS Variables{' '}
           <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
         </Link>
       </div>

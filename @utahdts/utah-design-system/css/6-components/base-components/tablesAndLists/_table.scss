@@ -103,6 +103,9 @@
           }
         }
         &.table-header--sortable {
+          button {
+            padding: var(--spacing-s) var(--spacing-xs);
+          }
           thead {
             tr {
               th.table-header--sortable {
@@ -236,15 +239,6 @@
               border-radius: var(--radius-circle);
               padding: 0 var(--spacing-l) 0 var(--spacing-xs);
             }
-          }
-        }
-      }
-    }
-    &.table--condensed {
-      .table-header {
-        &--sortable {
-          button {
-            padding: var(--spacing-s) var(--spacing-xs);
           }
         }
       }
