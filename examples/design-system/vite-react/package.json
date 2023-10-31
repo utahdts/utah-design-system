@@ -15,14 +15,14 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.29",
-    "@types/react-dom": "18.2.13",
+    "@types/react": "18.2.33",
+    "@types/react-dom": "18.2.14",
     "@vitejs/plugin-react": "4.1.0",
-    "eslint": "8.51.0",
+    "eslint": "8.52.0",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-react-refresh": "0.4.3",
-    "sass": "1.69.4",
+    "eslint-plugin-react-refresh": "0.4.4",
+    "sass": "1.69.5",
     "vite": "4.5.0"
   }
 }

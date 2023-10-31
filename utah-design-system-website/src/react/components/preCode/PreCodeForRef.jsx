@@ -2,8 +2,9 @@ import { RefShape } from '@utahdts/utah-design-system';
 import { html } from 'js-beautify';
 import PropTypes from 'prop-types';
 import { useLayoutEffect, useState } from 'react';
-import { PreCodeDefaultProps, PreCodeProps } from './PreCode';
+import { PreCodeDefaultProps } from './PreCodeDefaultProps';
 import PreCodeForCodeString from './PreCodeForCodeString';
+import { PreCodeProps } from './PreCodeProps';
 
 const propTypes = {
   ...PreCodeProps,
