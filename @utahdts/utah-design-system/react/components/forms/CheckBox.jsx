@@ -40,7 +40,7 @@ const defaultProps = {
  * @param {string | null} [props.name]
  * @param {EventAction | null} [props.onChange]
  * @param {(() => void) | null} [props.onSubmit]
- * @param {string | null} [props.value]
+ * @param {boolean | null} [props.value]
  * @returns {JSX.Element}
  */
 function CheckBox({

@@ -56,7 +56,7 @@ function TableDocumentation() {
 
       <h2 id="section-static-examples">Static Examples</h2>
       <StaticExample
-        title="Plain table"
+        title="Plain table (mockup)"
         renderedExample={<LightBox image={tablePlainScreenshot} alt="Plain Table" />}
         quickTips={(
           <ul>
@@ -66,7 +66,7 @@ function TableDocumentation() {
       />
 
       <StaticExample
-        title="Table with vertical lines"
+        title="Table with vertical lines (mockup)"
         renderedExample={<LightBox image={tableBorderedScreenshot} alt="Table with Vertical Lines" />}
         quickTips={(
           <ul>
@@ -76,7 +76,7 @@ function TableDocumentation() {
       />
 
       <StaticExample
-        title="Table with alternating row colors"
+        title="Table with alternating row colors (mockup)"
         renderedExample={<LightBox image={tableAlternatingScreenshot} alt="Alternating Rows Table" />}
         quickTips={(
           <ul>
@@ -86,7 +86,7 @@ function TableDocumentation() {
       />
 
       <StaticExample
-        title="Table with filters"
+        title="Table with filters (mockup)"
         renderedExample={<LightBox image={tableFiltersScreenshot} alt="Table with Filters" />}
         quickTips={(
           <ul>
@@ -96,7 +96,7 @@ function TableDocumentation() {
 
       />
       <StaticExample
-        title="Mobile tables"
+        title="Mobile tables (mockup)"
         renderedExample={(
           <>
             <LightBox image={tableMobileScroll} alt="Mobile Table Horizontal Scroll" className="flex-4up-gap" />
@@ -156,6 +156,12 @@ function TableDocumentation() {
       </ul>
       <h4 id="section-contrast">Screen Readers</h4>
       <ul className="mb-spacing">
+        <li><strong>Interactive tables and table cells.</strong> When table cells are clickable the <code>table</code> requires <code>role=&quot;grid&quot;</code>
+          <ul>
+            <li><strong>Clickable table cell option 1:</strong> Use <code>role=&quot;grid-cell&quot;</code> on the <code>&lt;td&gt;</code></li> and attach a click event to the cell.
+            <li><strong>Clickable table cell option 2:</strong> Use a <code>button</code> in the <code>&lt;td&gt;</code></li> and encapsulate the cell&apos;s content inside the button.
+          </ul>
+        </li>
         <li><strong>Add an aria-live region to the page when enabling row sorting.</strong> An <code>aria-live</code> region immediately following the <code>&lt;table&gt;</code> element will automatically announces when the sort state changes for visitors using screen readers.</li>
         <li><strong>Use buttons for sorting.</strong> Use a button to allow the user to sort a column. This allows the button to receive focus and be pressed natively.</li>
         <li><strong>Aria-label attributes to sortable column headers.</strong> The <code>aria-label</code> attribute should be added to to the sortable column headers and their toggle sort buttons. These labels should updated to reflect each column&apos;s current sort state (ascending, descending, or unsorted) whenever sort changes.</li>

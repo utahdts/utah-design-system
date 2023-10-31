@@ -60,7 +60,7 @@ function ClickableTagPropsDocumentation() {
               <TableCell><code>MutableRefObject</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered <code>&lt;button&gt;</code>
+                This ref will be attached to the rendered <code>&lt;button&gt;</code>{' '}
                 element allowing the parent component to interact directly with the actual DOM element.
               </TableCell>
             </TableRow>

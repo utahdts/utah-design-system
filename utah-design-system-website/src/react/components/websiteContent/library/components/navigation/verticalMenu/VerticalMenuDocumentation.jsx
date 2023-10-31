@@ -171,9 +171,8 @@ function VerticalMenuDocumentation() {
             <li>This is needed to identify the purpose of the menu&apos;s contents.</li>
             <li>The label is used to distinguish the menu from other menus on the site.</li>
             <li>
-              Screen readers will announce the element by label and then by role. Avoid adding the word <code>navigation</code> or
-              <code>menu</code> to your label otherwise navigation or menu will be repeated and possibly confuse the
-              user.
+              Screen readers will announce the element by label and then by role. Avoid adding the word <code>navigation</code> or {' '}
+              <code>menu</code> to your label otherwise navigation or menu will be repeated and possibly confuse the user.
             </li>
           </ul>
         </li>

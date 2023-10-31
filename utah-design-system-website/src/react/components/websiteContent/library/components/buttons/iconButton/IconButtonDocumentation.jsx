@@ -556,8 +556,8 @@ function IconButtonDocumentation() {
                       </TableCell>
                       <TableCell><code>&apos;none&apos;</code></TableCell>
                       <TableCell>
-                        Determines the color from the theme that will be used while rendering the button. Depending on the
-                        <span className="font-semi-bold"> appearance</span> of the button, this can effect the border and/or fill color of the button.
+                        Determines the color from the theme that will be used while rendering the button. Depending on the{' '}
+                        <span className="font-semi-bold">appearance</span> of the button, this can effect the border and/or fill color of the button.
                       </TableCell>
                     </TableRow>
 

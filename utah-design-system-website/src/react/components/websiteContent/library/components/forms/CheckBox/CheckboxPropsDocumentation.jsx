@@ -6,12 +6,12 @@ import {
   TableHeadCell,
   TableHeadRow,
   TableRow,
-  TableWrapper
+  TableWrapper,
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
 /** @returns {JSX.Element} */
-function TextAreaPropsDocumentation() {
+export function CheckboxPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -30,16 +30,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the input. This will be added to the <code>&lt;textarea&gt;</code> element.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell><code className="primary-color">defaultValue</code></TableCell>
-              <TableCell><code>string</code></TableCell>
-              <TableCell>null</TableCell>
-              <TableCell>
-                Starting value of the input, if not controlled.
+                The CSS Class to use on the input.
               </TableCell>
             </TableRow>
 
@@ -48,7 +39,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Error message to display. This will appear after the label and before the input.
+                Error message to display.
               </TableCell>
             </TableRow>
 
@@ -57,7 +48,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                An id to put on the <code>&lt;textarea&gt;</code> element. This will also be used as the <code>name</code>{' '}
+                An id to put on the <code>&lt;input&gt;</code> element. This will also be use as the <code>name</code>{' '}
                 attribute (if not set) and <code>htmlFor</code> attribute of the input&apos;s label.
               </TableCell>
             </TableRow>
@@ -67,24 +58,8 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>MutableRefObject</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered <code>&lt;div&gt;</code> element allowing the parent component to interact
-                directly with the actual <code>&lt;div&gt;</code> DOM element.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell><code className="primary-color">isClearable</code></TableCell>
-              <TableCell>
-                <div className="props-code-wrapper">
-                  <code>true</code>
-                  <span> | </span>
-                  <code>false</code>
-                </div>
-              </TableCell>
-              <TableCell><code>false</code></TableCell>
-              <TableCell>
-                This prop will add an icon button allowing the user to clear the input.<br />
-                The button appears after the user enters a value.
+                This ref will be attached to the rendered <code>&lt;input&gt;</code> element allowing the parent component to interact
+                directly with the actual <code>input</code> DOM element.
               </TableCell>
             </TableRow>
 
@@ -104,35 +79,11 @@ function TextAreaPropsDocumentation() {
             </TableRow>
 
             <TableRow>
-              <TableCell><code className="primary-color">isRequired</code></TableCell>
-              <TableCell>
-                <div className="props-code-wrapper">
-                  <code>true</code>
-                  <span> | </span>
-                  <code>false</code>
-                </div>
-              </TableCell>
-              <TableCell><code>false</code></TableCell>
-              <TableCell>
-                Used to make the input a required field. This will set the <code>required</code> attribute and display an asterisk next to its label.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
               <TableCell><code className="primary-color">label</code></TableCell>
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
                 Label of the input.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell><code className="primary-color">labelClassName</code></TableCell>
-              <TableCell><code>string</code></TableCell>
-              <TableCell>null</TableCell>
-              <TableCell>
-                This css class will be added to the <code>&lt;label&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -151,17 +102,7 @@ function TextAreaPropsDocumentation() {
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Function to call when the input&apos;s value changes.
-                The function is passed the <code>event</code> object so you can handle it or not.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell><code className="primary-color">onClear</code></TableCell>
-              <TableCell><code>function</code></TableCell>
-              <TableCell>null</TableCell>
-              <TableCell>
-                Function to call when the user clears the input.
+                Function to call when the input&apos;s value changes. Will return an <code>event</code> object.
               </TableCell>
             </TableRow>
 
@@ -175,29 +116,17 @@ function TextAreaPropsDocumentation() {
             </TableRow>
 
             <TableRow>
-              <TableCell><code className="primary-color">placeholder</code></TableCell>
-              <TableCell><code>string</code></TableCell>
-              <TableCell>null</TableCell>
-              <TableCell>
-                Displays a hint before the user enters a value. Will set the <code>placeholder</code> attribute.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
               <TableCell><code className="primary-color">value</code></TableCell>
-              <TableCell><code>string</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
               <TableCell>null</TableCell>
               <TableCell>
                 Value of the input.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell><code className="primary-color">wrapperClassName</code></TableCell>
-              <TableCell><code>string</code></TableCell>
-              <TableCell>null</TableCell>
-              <TableCell>
-                This css class will be added to main container. This will be added to the <code>&lt;div&gt;</code> element.
               </TableCell>
             </TableRow>
           </TableBody>
@@ -206,5 +135,3 @@ function TextAreaPropsDocumentation() {
     </div>
   );
 }
-
-export default TextAreaPropsDocumentation;

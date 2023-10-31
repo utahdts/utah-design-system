@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import validationScreenshot from '../../../../../../../static/images/screenshots/patterns/form-validation/formValidation.jpg';
+import validationScreenshot from '../../../../../../../static/images/screenshots/patterns/form-validation/formValidation.png';
 import LightBox from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';

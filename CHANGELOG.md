@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.9.0] 10/31/2023
+## Added
+- Documentation for interactive tables (role="grid")
+
+## Changed
+- Enhanced the accessibility page and checklist
+
+## Fix
+- Prevent overflowing header content when scroll bars are visible
+- Update mega menu to better match mockups
+- Update utah header and menu css to fix bugs in WordPress site
+
 # [1.8.0] 10/18/2023
 ## Added
 - Announce current page of Pagination
@@ -16,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Fixed
 - Align sort buttons on condensed table
+- Pagination announces the current page
 
 # [1.7.1] 10/12/2023
 ## Fixed

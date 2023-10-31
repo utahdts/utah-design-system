@@ -1,0 +1,19 @@
+@use "../../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .block-quote {
+    padding: var(--spacing) var(--spacing-l);
+    position: relative;
+    &::before {
+      content: '';
+      height: 100%;
+      width: 5px;
+      border-top-left-radius: var(--radius-small);
+      border-bottom-right-radius: var(--radius-small);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--primary-color-light);
+    }
+  }
+}
