@@ -76,6 +76,7 @@ export function RadioButton({
         onChange={useCallback(currentOnChange, [currentOnChange])}
         onKeyPress={currentOnFormKeyPress}
         ref={innerRef}
+        required={isRequired}
         type="radio"
         value={value}
       />

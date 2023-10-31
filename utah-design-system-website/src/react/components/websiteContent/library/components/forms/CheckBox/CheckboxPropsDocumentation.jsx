@@ -35,6 +35,19 @@ export function CheckboxPropsDocumentation() {
             </TableRow>
 
             <TableRow>
+              <TableCell><code className="primary-color">defaultValue</code></TableCell>
+              <TableCell>
+                <code>true</code>
+                <span> | </span>
+                <code>false</code>
+              </TableCell>
+              <TableCell>false</TableCell>
+              <TableCell>
+                Starting value of the input, if not controlled.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
               <TableCell><code className="primary-color">errorMessage</code></TableCell>
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
@@ -79,11 +92,35 @@ export function CheckboxPropsDocumentation() {
             </TableRow>
 
             <TableRow>
+              <TableCell><code className="primary-color">isRequired</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
+              <TableCell><code>false</code></TableCell>
+              <TableCell>
+                Used to make the input a required field. This will set the <code>required</code> attribute and display an asterisk next to its label.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
               <TableCell><code className="primary-color">label</code></TableCell>
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
                 Label of the input.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">labelClassName</code></TableCell>
+              <TableCell><code>string</code></TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                This css class will be added to the <code>&lt;label&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -127,6 +164,15 @@ export function CheckboxPropsDocumentation() {
               <TableCell>null</TableCell>
               <TableCell>
                 Value of the input.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">wrapperClassName</code></TableCell>
+              <TableCell><code>string</code></TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                This css class will be added to main container. This will be added to the <code>&lt;div&gt;</code> element.
               </TableCell>
             </TableRow>
           </TableBody>
