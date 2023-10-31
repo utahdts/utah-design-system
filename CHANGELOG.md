@@ -7,8 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [1.9.0] 10/31/2023
 ## Added
-- Documentation for CheckBox
-- Documentation for interact tables (role="grid")
+- Documentation for interactive tables (role="grid")
 
 ## Changed
 - Enhanced the accessibility page and checklist
@@ -16,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Fix
 - Prevent overflowing header content when scroll bars are visible
 - Update mega menu to better match mockups
+- Update utah header and menu css to fix bugs in WordPress site
 
 # [1.8.0] 10/18/2023
 ## Added
