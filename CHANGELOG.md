@@ -7,7 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [1.9.0] 10/31/2023
 ## Added
-- Checkbox component
 - Documentation for CheckBox
 - Documentation for interact tables (role="grid")
 
