@@ -2,11 +2,11 @@
 @use "../../../1-settings/color-swatches";
 
 #{class-vars.$base-class} {
+  &.main-menu__outer {
+    position: relative;
+    z-index: 2500;
+  }
   .main-menu {
-    &__outer {
-      position: relative;
-      z-index: 2000;
-    }
     &__wrapper {
       background-color: var(--gray-light-color);
       display: flex;
