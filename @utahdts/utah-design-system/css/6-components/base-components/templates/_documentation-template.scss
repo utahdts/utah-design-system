@@ -50,7 +50,7 @@
         }
       }
     }
-    &__side-panel-right{
+    &__side-panel-right {
       position: sticky;
       top: 0;
       border-left: 1px solid var(--gray-border);
@@ -61,7 +61,6 @@
       max-height: 100vh;
       overflow: auto;
     }
-
   }
 }
 
@@ -80,12 +79,10 @@
     .documentation-template {
       &__right-group {
         flex-direction: column;
+        max-width: calc(100% - (2 * var(--spacing-xl)) - (var(--documentation-left-width) + 2px));
       }
       &__side-panel-left {
         padding: var(--documentation-padding-small);
-      }
-      &__right-group {
-        max-width: calc(100% - (2 * var(--spacing-xl)) - (var(--documentation-left-width) + 2px));
       }
       &__content {
         order: 2;

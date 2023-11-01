@@ -5,11 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.9.2] 11/01/2023
+## Fix
+- Fix css mega-menu width
+
 # [1.9.1] 10/31/2023
 ## Fix
 - Fix css z-index for main menu
 
-# [1.9.1] 10/31/2023
+# [1.9.0] 10/31/2023
 ## Added
 - Documentation for interactive tables (role="grid")
 
