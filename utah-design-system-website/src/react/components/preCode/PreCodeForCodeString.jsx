@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
-import PreCode, { PreCodeDefaultProps, PreCodeProps } from './PreCode';
+import PreCode from './PreCode';
+import { PreCodeDefaultProps } from './PreCodeDefaultProps';
+import { PreCodeProps } from './PreCodeProps';
 import formatPreCode from './formatPreCode';
 
 const propTypes = {

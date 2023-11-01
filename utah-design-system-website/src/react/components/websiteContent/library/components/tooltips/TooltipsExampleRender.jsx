@@ -1,6 +1,6 @@
 // @ts-check
 /* eslint-disable react/jsx-props-no-spreading */
-import { RefShape, Tooltip } from '@utahdts/utah-design-system';
+import { Button, RefShape, Tooltip } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
@@ -39,15 +39,15 @@ function TooltipsExampleRender({
   const referenceElement = /** @type {typeof useRef<HTMLButtonElement | null>} */ (useRef)(null);
   return (
     <div ref={innerRef}>
-      <button
+      <Button
         className="button icon-button button--outlined"
         onClick={() => { }}
-        ref={referenceElement}
+        innerRef={referenceElement}
         type="button"
       >
         <span className="utds-icon-before-gear" aria-hidden="true" />
         <span className="visually-hidden">{popupText}</span>
-      </button>
+      </Button>
       <Tooltip
         isPopperVisible={isPopperVisible || undefined}
         offset={[Number(offsetDistance) || 0, Number(offsetSkidding) || 0]}

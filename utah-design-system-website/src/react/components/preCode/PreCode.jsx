@@ -2,23 +2,8 @@ import { joinClassNames } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import CopyButton from '../copy/CopyButton';
-
-export const PreCodeProps = {
-  addHorizontalPadding: PropTypes.bool,
-  allowScrollOverflow: PropTypes.bool,
-  className: PropTypes.string,
-  maxHeight: PropTypes.string,
-  propsForPre: PropTypes.object,
-  showBackgroundColor: PropTypes.bool,
-};
-export const PreCodeDefaultProps = {
-  addHorizontalPadding: false,
-  allowScrollOverflow: false,
-  className: '',
-  maxHeight: null,
-  propsForPre: {},
-  showBackgroundColor: false,
-};
+import { PreCodeDefaultProps } from './PreCodeDefaultProps';
+import { PreCodeProps } from './PreCodeProps';
 
 const propTypes = {
   ...PreCodeProps,
