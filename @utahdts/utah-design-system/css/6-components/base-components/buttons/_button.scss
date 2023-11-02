@@ -31,6 +31,7 @@
     &:hover {
       background: var(--gray-color);
       color: white;
+      text-shadow: none;
     }
 
     &[disabled], &[disable]:hover {
