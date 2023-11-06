@@ -26,7 +26,7 @@
       top: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 1010;
+      z-index: 4010;
 
       img {
       position: relative;
@@ -54,7 +54,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 1020;
+      z-index: 4020;
       color: white;
       font-weight: var(--font-weight-bold);
       font-size: var(--font-size-3xl);
@@ -63,7 +63,7 @@
       position: fixed;
       top: var(--spacing);
       right: var(--spacing);
-      z-index: 1020;
+      z-index: 4020;
     }
   }
 }
