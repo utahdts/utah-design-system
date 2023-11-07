@@ -78,4 +78,12 @@
       }
     }
   }
+
+  .menu-item--mega-menu {
+    .vertical-menu {
+      li > ul {
+        margin-left: 0;
+      }
+    }
+  }
 }
