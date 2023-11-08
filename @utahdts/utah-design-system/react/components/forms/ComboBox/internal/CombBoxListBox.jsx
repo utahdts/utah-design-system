@@ -1,6 +1,7 @@
 // @ts-check
 import React from 'react';
 import joinClassNames from '../../../../util/joinClassNames';
+import ComboBoxOption from '../ComboBoxOption';
 import useComboBoxContext from '../context/useComboBoxContext';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
@@ -18,8 +19,10 @@ export default function CombBoxListBox({
   id,
 }) {
   const [{ isOptionsExpanded }] = useComboBoxContext();
+  const [{ optionsFiltered }] = useComboBoxContext();
+
   return (
-    <div
+    <ul
       id={id}
       className={joinClassNames(
         'combo-box__list-box',
@@ -27,8 +30,10 @@ export default function CombBoxListBox({
       )}
       role="listbox"
       aria-labelledby={ariaLabelledById}
+      tabIndex={-1}
     >
       {children}
-    </div>
+      {optionsFiltered?.length ? null : <ComboBoxOption isStatic isDisabled label="" value="">No results found</ComboBoxOption>}
+    </ul>
   );
 }

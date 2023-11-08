@@ -1,5 +1,6 @@
 // @ts-check
-import React, { useCallback, useEffect } from 'react';
+import trim from 'lodash/trim';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import useFormContext from '../../FormContext/useFormContext';
 import ComboBoxContext from './ComboBoxContext';
@@ -30,9 +31,11 @@ export default function ComboBoxContextProvider({
   value,
 }) {
   const { onChange: onChangeFormContext } = useFormContext();
+  const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
   const comboBoxImmer = /** @type {typeof useImmer<ComboBoxContextValue>} */ (useImmer)({
     filterValue: '',
+    isFilterValueDirty: false,
     isOptionsExpanded: false,
     onClear,
     onSubmit,
@@ -43,7 +46,9 @@ export default function ComboBoxContextProvider({
         draftContext.options.push(newOption);
       });
     },
-    selectedOptionValue: defaultValue ?? value ?? null,
+    optionValueHighlighted: null,
+    optionValueSelected: defaultValue ?? value ?? null,
+    textInputRef,
     unregisterOption: (optionValue) => {
       comboBoxImmer[1]((draftContext) => {
         draftContext.options = draftContext.options.filter((option) => option.value !== optionValue);
@@ -55,10 +60,11 @@ export default function ComboBoxContextProvider({
   // handle a controlled component changing its value
   useEffect(
     () => {
-      if (value !== undefined && value !== comboBoxImmer[0].selectedOptionValue) {
+      if (value !== undefined && value !== comboBoxImmer[0].optionValueSelected) {
         comboBoxImmer[1]((draftState) => {
-          draftState.selectedOptionValue = value;
+          draftState.optionValueSelected = value;
           draftState.filterValue = draftState.options.find((option) => option.value === value)?.label ?? '';
+          draftState.isFilterValueDirty = false;
         });
       }
     },
@@ -83,35 +89,46 @@ export default function ComboBoxContextProvider({
   // handle options or filterValue changes
   useEffect(
     () => {
-      const { filterValue, options, selectedOptionValue } = comboBoxImmer[0];
+      const {
+        filterValue,
+        isFilterValueDirty,
+        options,
+        optionValueHighlighted,
+      } = comboBoxImmer[0];
+      if (isFilterValueDirty) {
+        const filterValueLowerCase = trim(filterValue).toLocaleLowerCase();
 
-      const filterValueLowerCase = filterValue.toLocaleLowerCase();
+        // filter options to just ones including filterValue
+        const filteredOptions = options.filter((option) => (!filterValueLowerCase || option.labelLowerCase.includes(filterValueLowerCase)));
 
-      // filter options to just ones including filterValue
-      const filteredOptions = options.filter((option) => (!filterValueLowerCase || option.labelLowerCase.includes(filterValueLowerCase)));
+        // if there's an exact match, use its value as the new optionValueHighlighted
+        /** @type {string | null} */
+        let newOptionValueHighlighted = filteredOptions.find((option) => option.labelLowerCase === filterValueLowerCase)?.value ?? null;
+        onChangeFormValue(newOptionValueHighlighted ?? '');
 
-      // if there's an exact match, use its value as the newSelectedOptionValue
-      /** @type {string | null} */
-      let newSelectedOptionValue = filteredOptions.find((option) => option.labelLowerCase === filterValueLowerCase)?.value ?? null;
-      onChangeFormValue(newSelectedOptionValue ?? '');
+        // otherwise, use existing value if it is not filtered out
+        if (filterValue && !newOptionValueHighlighted) {
+          newOptionValueHighlighted = filteredOptions.find((option) => option.value === optionValueHighlighted)?.value ?? null;
+        }
 
-      // otherwise, use existing value if it is not filtered out
-      if (filterValue && !newSelectedOptionValue) {
-        newSelectedOptionValue = filteredOptions.find((option) => option.value === selectedOptionValue)?.value ?? null;
+        // otherwise, use first possible value
+        if (filterValue && !newOptionValueHighlighted) {
+          newOptionValueHighlighted = filteredOptions[0]?.value;
+        }
+
+        // otherwise, leave with null since there are no visible options
+
+        // let children know the selected filter value has changed
+        setComboBoxState((draftContextValue) => {
+          draftContextValue.optionValueHighlighted = newOptionValueHighlighted;
+          draftContextValue.optionsFiltered = filteredOptions;
+        });
+      } else {
+        setComboBoxState((draftContextValue) => {
+          draftContextValue.optionValueHighlighted = null;
+          draftContextValue.optionsFiltered = options;
+        });
       }
-
-      // otherwise, use first possible value
-      if (filterValue && !newSelectedOptionValue) {
-        newSelectedOptionValue = filteredOptions[0]?.value;
-      }
-
-      // otherwise, leave with null since there are no visible options
-
-      // let children know the selected filter value has changed
-      setComboBoxState((draftContextValue) => {
-        draftContextValue.selectedOptionValue = newSelectedOptionValue;
-        draftContextValue.optionsFiltered = filteredOptions;
-      });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].filterValue, comboBoxImmer[0].options, setComboBoxState]

@@ -14,7 +14,7 @@ export default function ComboBoxOptionGroup({
   isLabelHidden = false,
 }) {
   return (
-    <div role="list">
+    <div className="combo-box-group__wrapper">
       {isLabelHidden ? null : <div className="combo-box-group__title">{label}</div>}
       {children}
     </div>

@@ -232,14 +232,26 @@
 
 /**
  * @typedef ComboBoxContextValue {
+ *  -- data --
  *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
+ *  @property {boolean} isFilterValueDirty when filter is changed it becomes dirty
  *  @property {boolean} isOptionsExpanded is the options list visible/expanded
- *  @property {() => void} [onClear]
- *  @property {() => void} [onSubmit]
+ *  @property {string | null} optionValueHighlighted the option matching the filter or user has hovered/arrowed
+ *  @property {string | null} optionValueSelected which option is chosen by user
+ *
+ *  -- elements --
+ *  @property {import('react').MutableRefObject<HTMLInputElement | null>} textInputRef
+ *
+ *  -- options --
  *  @property {ComboBoxOption[]} options the known options
  *  @property {ComboBoxOption[]} optionsFiltered the options filtered by the filterValue
+ *
+ *  -- events --
+ *  @property {() => void} [onClear]
+ *  @property {() => void} [onSubmit]
+ *
+ *  -- options manipulation --
  *  @property {(option: ComboBoxOption) => void} registerOption add a new option
- *  @property {string | null} selectedOptionValue which option most closely matches the text input
  *  @property {(value: string) => void} unregisterOption remove a known option by its value
  * }
  */

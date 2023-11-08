@@ -6,18 +6,22 @@
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
  */
 export function moveComboBoxSelectionUp(draftContext) {
-  if (draftContext.isOptionsExpanded || !draftContext.selectedOptionValue) {
+  if (draftContext.isOptionsExpanded) {
     // get index of currently selected item in the filtered items list
-    const selectionIndex = draftContext.optionsFiltered.findIndex((option) => option.value === draftContext.selectedOptionValue);
+    const selectionIndex = draftContext.optionsFiltered.findIndex(
+      (option) => option.value === draftContext.optionValueHighlighted ?? draftContext.optionValueSelected
+    );
     const currentSelectionIndex = (
       selectionIndex === -1
         ? draftContext.optionsFiltered.length - 1
-        : (selectionIndex - 1 + draftContext.optionsFiltered.length)
+        : (selectionIndex - 1)
     );
-    const nextIndex = currentSelectionIndex % draftContext.optionsFiltered.length;
-    draftContext.selectedOptionValue = draftContext.optionsFiltered[nextIndex]?.value ?? null;
+    if (currentSelectionIndex >= 0) {
+      draftContext.optionValueHighlighted = draftContext.optionsFiltered[currentSelectionIndex]?.value ?? null;
+    } else {
+      // if at top, then close the options list
+      draftContext.isOptionsExpanded = false;
+      draftContext.optionValueHighlighted = null;
+    }
   }
-
-  // open options after pressing up
-  draftContext.isOptionsExpanded = true;
 }

@@ -9,9 +9,10 @@
 export function selectComboBoxSelection(draftContext, onSubmit) {
   if (draftContext.isOptionsExpanded) {
     // select currently highlighted menu item
-    const selectedOption = draftContext.options.find((option) => option.value === draftContext.selectedOptionValue);
-    draftContext.filterValue = selectedOption?.label ?? '';
+    draftContext.filterValue = draftContext.optionValueHighlighted ?? '';
+    draftContext.isFilterValueDirty = false;
     draftContext.isOptionsExpanded = false;
+    draftContext.optionValueSelected = draftContext.optionValueHighlighted;
   } else {
     onSubmit?.();
   }

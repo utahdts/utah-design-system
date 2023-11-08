@@ -6,11 +6,13 @@ import React from 'react';
 const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} */ (React.createContext)([
   {
     filterValue: '',
+    isFilterValueDirty: false,
     isOptionsExpanded: false,
     options: [],
     optionsFiltered: [],
     registerOption: () => { },
-    selectedOptionValue: null,
+    optionValueHighlighted: null,
+    optionValueSelected: null,
     unregisterOption: () => { },
   },
   () => {

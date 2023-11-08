@@ -8,6 +8,8 @@
 export function clearComboBoxSelection(draftContext) {
   // clear input
   draftContext.filterValue = '';
-  draftContext.selectedOptionValue = '';
+  draftContext.isFilterValueDirty = false;
   draftContext.isOptionsExpanded = false;
+  draftContext.optionValueHighlighted = '';
+  draftContext.optionValueSelected = '';
 }

@@ -4,11 +4,11 @@ import React, { useCallback } from 'react';
 import useOnKeyUp from '../../../../util/useOnKeyUp';
 import useFormContext from '../../FormContext/useFormContext';
 import TextInput from '../../TextInput';
+import useComboBoxContext from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
 import { selectComboBoxSelection } from '../functions/selectComboBoxSelection';
-import useComboBoxContext from '../context/useComboBoxContext';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 
@@ -42,7 +42,16 @@ export default function ComboBoxTextInput({
   ...rest
 }) {
   const { onSubmit: onSubmitFormContext } = useFormContext();
-  const [{ filterValue, isOptionsExpanded }, setComboBoxContext] = useComboBoxContext();
+  const [
+    {
+      filterValue,
+      isOptionsExpanded,
+      options,
+      optionValueSelected,
+      textInputRef,
+    },
+    setComboBoxContext,
+  ] = useComboBoxContext();
 
   const onEnterKeyPress = useOnKeyUp(
     'Enter',
@@ -56,59 +65,82 @@ export default function ComboBoxTextInput({
   const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
 
   return (
-    <TextInput
-      aria-autocomplete="list"
-      aria-controls={comboBoxListId}
-      aria-expanded={isOptionsExpanded}
-      id={id}
-      isClearable={isClearable}
-      isDisabled={isDisabled}
-      errorMessage={errorMessage}
-      onChange={(e) => {
-        setComboBoxContext((draftContext) => {
-          draftContext.filterValue = e.target.value;
-        });
-      }}
-      onClear={
-        isClearable
-          ? ((e) => {
-            if (onClear) {
-              onClear(e);
-            } else {
-              setComboBoxContext((draftContext) => {
-                draftContext.filterValue = '';
-                draftContext.selectedOptionValue = null;
-                draftContext.isOptionsExpanded = false;
-              });
-            }
-          })
-          : undefined
-      }
-      onKeyUp={(e) => {
-        if (![
-          onEnterKeyPress(e),
-          onCancelKeyPress(e),
-          onUpArrowPress(e),
-          onDownArrowPress(e),
-        ].some(identity)) {
+    <div>
+      <TextInput
+        aria-autocomplete="list"
+        aria-controls={comboBoxListId}
+        aria-expanded={isOptionsExpanded}
+        id={id}
+        innerRef={(ref) => setComboBoxContext((draftContext) => {
+          draftContext.textInputRef = ref;
+        })}
+        isClearable={isClearable}
+        isDisabled={isDisabled}
+        errorMessage={errorMessage}
+        // @ts-ignore
+        onBlur={() => {
+          const selectedOption = options.find((option) => option.value === optionValueSelected);
           setComboBoxContext((draftContext) => {
-            // if key wasn't one of the others, expand the options
+            // TODO: set to label not value
+            draftContext.filterValue = selectedOption?.label ?? '';
+            draftContext.isFilterValueDirty = false;
+            draftContext.isOptionsExpanded = false;
+          });
+        }}
+        onChange={(e) => {
+          setComboBoxContext((draftContext) => {
+            draftContext.filterValue = e.target.value;
+            draftContext.isFilterValueDirty = true;
+          });
+        }}
+        onClear={
+          isClearable
+            ? ((e) => {
+              if (onClear) {
+                onClear(e);
+              } else {
+                setComboBoxContext((draftContext) => {
+                  draftContext.filterValue = '';
+                  draftContext.isFilterValueDirty = false;
+                  draftContext.isOptionsExpanded = false;
+                  draftContext.optionValueHighlighted = null;
+                  draftContext.optionValueSelected = null;
+                });
+              }
+            })
+            : undefined
+        }
+        onClick={() => {
+          setComboBoxContext((draftContext) => {
             draftContext.isOptionsExpanded = true;
           });
-        }
-      }}
-      onSubmit={onSubmit ?? onSubmitFormContext}
-      placeholder={placeholder}
-      value={filterValue}
-      // @ts-ignore
-      onFocus={() => {
-        setComboBoxContext((draftContext) => {
-          draftContext.isOptionsExpanded = true;
-        });
-      }}
-      role="combobox"
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...rest}
-    />
+        }}
+        onKeyUp={(e) => {
+          if (![
+            onEnterKeyPress(e),
+            onCancelKeyPress(e),
+            onUpArrowPress(e),
+            onDownArrowPress(e),
+          ].some(identity)) {
+            if (!['Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
+              setComboBoxContext((draftContext) => {
+                if (draftContext.filterValue) {
+                  // if key wasn't one of the others, expand the options
+                  draftContext.isOptionsExpanded = true;
+                } else {
+                  draftContext.isFilterValueDirty = false;
+                }
+              });
+            }
+          }
+        }}
+        onSubmit={onSubmit ?? onSubmitFormContext}
+        placeholder={placeholder}
+        role="combobox"
+        value={filterValue}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...rest}
+      />
+    </div>
   );
 }

@@ -16,7 +16,7 @@ import RequiredStar from './RequiredStar';
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form, the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
- * @param {React.RefObject} [props.innerRef]
+ * @param {((element: HTMLDivElement) => void) | React.MutableRefObject} [props.innerRef]
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
