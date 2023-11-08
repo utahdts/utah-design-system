@@ -1,13 +1,19 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
-// eslint-disable-next-line import/no-unresolved, import/order
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
 import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
-// eslint-disable-next-line import/no-unresolved, import/order
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
 import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
 
+// eslint-disable-next-line import/no-unresolved, import/order
 import {
   BUTTON_APPEARANCE,
   BUTTON_TYPES,
@@ -27,11 +33,15 @@ import {
   formElementSizesEnum,
   popupPlacement
 } from '@utahdts/utah-design-system';
-import { useEffect, useRef } from 'react';
+// @ts-ignore
+// eslint-disable-next-line import/order
+import React, { useEffect, useRef } from 'react';
+// @ts-ignore
+// eslint-disable-next-line import/order
 import { Link } from 'react-router-dom';
+// @ts-ignore
+// eslint-disable-next-line import/order
 import { useImmer } from 'use-immer';
-import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
-import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
 import LightBox from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../../routing/pageUrls';
@@ -41,25 +51,22 @@ import PopupsExampleCodeReact from './PopupsExampleCodeReact';
 import PopupsExampleProps from './PopupsExampleProps';
 import PopupsExampleRender from './PopupsExampleRender';
 
-const propTypes = {};
-const defaultProps = {};
-
-function PopupsDocumentation() {
-  const buttonRef = useRef();
-  const button2Ref = useRef();
-  const buttonEditorRef = useRef();
+export default function PopupsDocumentation() {
+  const buttonRef = useRef(null);
+  const button2Ref = useRef(null);
+  const buttonEditorRef = useRef(null);
   const [popupsState, setPopupsState] = useImmer({
     example1: false,
     example2: false,
-    editorExample: null,
+    editorExample: /** @type {boolean | null} */ (null),
   });
 
   useEffect(() => {
     // set the focus on the button or text input depending on visibility
     if (popupsState.editorExample === false) {
-      document.getElementById('button-for-editor-example').focus();
+      document.getElementById('button-for-editor-example')?.focus();
     } else {
-      document.getElementById('editor-example-textarea').focus();
+      document.getElementById('editor-example-textarea')?.focus();
     }
   }, [popupsState.editorExample]);
 
@@ -81,6 +88,12 @@ function PopupsDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          hasCloseButton: false,
+          isVisible: false,
+          placement: popupPlacement.BOTTOM,
+          popupType: 'onClick',
+        }}
         RENDER_EXAMPLE={PopupsExampleRender}
         PROPS_EXAMPLE={PopupsExampleProps}
         CODE_EXAMPLE={PopupsExampleCodeReact}
@@ -104,6 +117,7 @@ function PopupsDocumentation() {
             >
               Toggle Popup
             </button>
+            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-example1"
               id="id-for-example1"
@@ -131,6 +145,7 @@ function PopupsDocumentation() {
             >
               Toggle Popup Example 2
             </button>
+            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-example-2"
               hasCloseButton
@@ -191,7 +206,7 @@ function PopupsDocumentation() {
           <>
             <button
               aria-controls="id-for-editorExample"
-              aria-expanded={popupsState.editorExample}
+              aria-expanded={!!popupsState.editorExample}
               aria-haspopup="dialog"
               id="button-for-editor-example"
               onClick={(e) => {
@@ -204,6 +219,7 @@ function PopupsDocumentation() {
             >
               Toggle Editor Popup Example
             </button>
+            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-editor-example"
               className="popup__wrapper--close-button-absolute"
@@ -542,8 +558,3 @@ function PopupsDocumentation() {
     </div>
   );
 }
-
-PopupsDocumentation.propTypes = propTypes;
-PopupsDocumentation.defaultProps = defaultProps;
-
-export default PopupsDocumentation;

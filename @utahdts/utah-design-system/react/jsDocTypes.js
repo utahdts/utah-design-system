@@ -13,7 +13,7 @@
 
 /**
  * ButtonAppearance
- * @typedef {'solid' | 'outline'} ButtonAppearance
+ * @typedef {'solid' | 'outlined'} ButtonAppearance
  */
 
 /**
@@ -58,6 +58,7 @@
 /** @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event */
 
 /** @typedef {((e: Event) => void)} EventAction */
+/** @typedef {((e: Event) => boolean)} EventActionBoolean */
 
 /** @typedef {(value: string) => boolean} TableFilterFunction */
 
@@ -111,16 +112,27 @@
  * }
  */
 
-/** @typedef {Object.<string, any>} FormContextState {} */
+/**
+ * @template FormStateT
+ * @typedef FormContextValue {
+ *  @property {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
+ *  @property {(e?: Event) => void} [onSubmit] submit the form
+ *  @property {FormStateT} [state] current values of all the form elements
+ *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
+ * }
+*/
 
 /**
- * @typedef FormContextValue {
- *  @property {Object.<string, any>} dirtyIds
- *  @property {string} formId
- *  @property {({e, id, newValue}: {e: Event, id: string, newValue: any}) => void} onChange
- *  @property {() => void} onSubmit
- *  @property {Object.<string, string[]> | null} validationErrors
- *  @property {FormContextState} state
+ * @template FormContextT
+ * @template ValueT
+ * @typedef useFormContextInputResult {
+ *  @property {EventAction} [onChange]
+ *  @property {EventAction} [onClear]
+ *  @property {() => void} [onSubmit]
+ *  @property {ValueT} [value]
+ *  @property {EventAction} onFormKeyUp
+ *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
+ *  @property {FormContextT} [state]
  * }
  */
 
@@ -207,6 +219,50 @@
  * @template TableDataT
  * @typedef TableBodyDataRowContextValue {
  *  @property {TableDataT | null} record
+ * }
+ */
+
+/**
+ * @typedef ComboBoxOption {
+ *  @property {string} value
+ *  @property {string} labelLowerCase
+ *  @property {string} label
+ * }
+*/
+
+/**
+ * @typedef ComboBoxContextValue {
+ *  -- data --
+ *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
+ *  @property {boolean} isFilterValueDirty when filter is changed it becomes dirty
+ *  @property {boolean} isOptionsExpanded is the options list visible/expanded
+ *  @property {string | null} optionValueHighlighted the option matching the filter or user has hovered/arrowed
+ *  @property {string | null} optionValueSelected which option is chosen by user
+ *
+ *  -- elements --
+ *  @property {import('react').MutableRefObject<HTMLInputElement | null>} textInputRef
+ *
+ *  -- options --
+ *  @property {ComboBoxOption[]} options the known options
+ *  @property {ComboBoxOption[]} optionsFiltered the options filtered by the filterValue
+ *
+ *  -- events --
+ *  @property {() => void} [onClear]
+ *  @property {() => void} [onSubmit]
+ *
+ *  -- options manipulation --
+ *  @property {(option: ComboBoxOption) => void} registerOption add a new option
+ *  @property {(value: string) => void} unregisterOption remove a known option by its value
+ * }
+ */
+
+/** @typedef {import('use-immer').ImmerHook<ComboBoxContextValue>} ComboBoxContext */
+
+/**
+ * @typedef RadioButtonsContextValue {
+ *  @property {EventAction} currentOnChange
+ *  @property {string} currentValue
+ *  @property {EventAction} currentOnFormKeyPress
  * }
  */
 

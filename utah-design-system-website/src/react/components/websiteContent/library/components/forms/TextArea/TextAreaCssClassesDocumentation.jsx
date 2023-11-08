@@ -1,7 +1,8 @@
-import React from 'react';
+// @ts-check
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @returns {JSX.Element} */
 function TextAreaCssClassesDocumentation() {

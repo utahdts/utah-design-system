@@ -1,24 +1,15 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import SelectExamplePropsShape from '../../../../../../propTypesShapes/SelectExamplePropsShape';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('../../../../../../../typedefs.d').SelectExamplePropsShape} SelectExamplePropsShape */
-
-const propTypes = {
-  state: PropTypes.shape({
-    props: SelectExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
  * @param {{props: SelectExamplePropsShape}} props.state
  * @returns {JSX.Element}
  */
-function SelectExampleCodeReact({
+export default function SelectExampleCodeReact({
   state: {
     props: {
       className,
@@ -57,8 +48,3 @@ function SelectExampleCodeReact({
     </>
   );
 }
-
-SelectExampleCodeReact.propTypes = propTypes;
-SelectExampleCodeReact.defaultProps = defaultProps;
-
-export default SelectExampleCodeReact;

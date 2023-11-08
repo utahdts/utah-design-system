@@ -1,17 +1,17 @@
+// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
+import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../../sandbox/SandboxIndent';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: ButtonExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
-function ButtonExampleCode({
+/**
+ * @param {Object} props
+ * @param {{props: ButtonExamplePropsShape}} props.state
+ * @returns {JSX.Element}
+ */
+export default function ButtonExampleCode({
   state: {
     props: {
       appearance,
@@ -23,7 +23,6 @@ function ButtonExampleCode({
       isDisabled,
       id,
       size,
-      style,
       title,
       type,
     },
@@ -41,10 +40,9 @@ function ButtonExampleCode({
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={style ? `style="${style}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(type && type !== 'button') ? `type="${type}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={'onClick={() => { /* ... do something ... */ }'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)?.[0]}}`} indentLevel={1} />
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
@@ -54,8 +52,3 @@ function ButtonExampleCode({
     </>
   );
 }
-
-ButtonExampleCode.propTypes = propTypes;
-ButtonExampleCode.defaultProps = defaultProps;
-
-export default ButtonExampleCode;

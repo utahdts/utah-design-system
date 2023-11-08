@@ -1,6 +1,7 @@
+// @ts-check
 /* eslint-disable max-len */
 import { Pagination } from '@utahdts/utah-design-system';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import stateSymbols from '../../../../../../consts/stateSymbols';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
@@ -26,6 +27,14 @@ function PaginationDocumentation() {
       <hr />
       <h2 id="section-example">Examples</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          id: 'pagination-sandbox-example-id',
+          pageSize: '10',
+          totalNumberItems: '87',
+          value: '0',
+          wrapInElement: 'div',
+        }}
         CODE_EXAMPLE={PaginationExampleCodeReact}
         PROPS_EXAMPLE={PaginationExampleProps}
         RENDER_EXAMPLE={PaginationExampleRender}

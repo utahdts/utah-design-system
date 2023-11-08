@@ -87,7 +87,7 @@ function AccessibilityDocumentation() {
 
       <p className="mb-auto">
         Per the CDC, roughly <ExternalLink href="https://dhds.cdc.gov/SP?LocationId=49&CategoryId=DISEST&ShowFootnotes=true&showMode=&IndicatorIds=STATTYPE,AGEIND,SEXIND,RACEIND,VETIND&pnl0=Table,false,YR6,CAT1,BO1,,,,AGEADJPREV&pnl1=Chart,false,YR6,DISSTAT,,,,,PREV&pnl2=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV&pnl3=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV&pnl4=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV">1 in 4 adults have some form of a disability</ExternalLink> in
-        Utah. In the effort to expand accessibility access, we focus those with the following disabilities:
+        Utah. In the effort to expand accessibility access, we focus on those with the following disabilities:
       </p>
       <ul className="mb-spacing">
         <li>Limited or no vision</li>

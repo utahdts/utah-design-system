@@ -1,17 +1,16 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import TextInputExamplePropsShape from '../../../../../../propTypesShapes/TextInputExamplePropsShape';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: TextInputExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').TextInputExamplePropsShape} TextInputExamplePropsShape */
 
-function TextInputExampleCodeReact({
+/**
+ * @param {Object} props
+ * @param {Object} props.state
+ * @param {TextInputExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function TextInputExampleCodeReact({
   state: {
     props: {
       className,
@@ -44,8 +43,3 @@ function TextInputExampleCodeReact({
     </>
   );
 }
-
-TextInputExampleCodeReact.propTypes = propTypes;
-TextInputExampleCodeReact.defaultProps = defaultProps;
-
-export default TextInputExampleCodeReact;

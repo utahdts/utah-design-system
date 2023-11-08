@@ -1,21 +1,18 @@
 // @ts-check
-import { RefShape, TextArea } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+import { TextArea } from '@utahdts/utah-design-system';
 import React from 'react';
-import TextAreaExamplePropsShape from '../../../../../../propTypesShapes/TextAreaExamplePropsShape';
 
-const propTypes = {
-  innerRef: RefShape,
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: TextAreaExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../typedefs.d').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 
-function TextAreaExampleRender({
+/**
+ * @param {Object} props
+ * @param {React.RefObject} props.innerRef
+ * @param {import('use-immer').Updater<{props: TextAreaExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {TextAreaExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function TextAreaExampleRender({
   setState,
   state: {
     props: {
@@ -46,13 +43,13 @@ function TextAreaExampleRender({
           draftState.props.value = e.target.value;
         })}
         onClear={
-            isClearable
-              ? (
-                () => setState((draftState) => {
-                  draftState.props.value = '';
-                })
-              )
-              : undefined
+          isClearable
+            ? (
+              () => setState((draftState) => {
+                draftState.props.value = '';
+              })
+            )
+            : undefined
         }
         label={label || 'Text Area Label'}
         name={name}
@@ -63,8 +60,3 @@ function TextAreaExampleRender({
     </div>
   );
 }
-
-TextAreaExampleRender.propTypes = propTypes;
-TextAreaExampleRender.defaultProps = defaultProps;
-
-export default TextAreaExampleRender;

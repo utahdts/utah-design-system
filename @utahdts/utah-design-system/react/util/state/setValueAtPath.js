@@ -1,7 +1,9 @@
+// @ts-check
 /* eslint-disable no-param-reassign */
 import cloneDeep from 'lodash/cloneDeep';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
+import notNull from '../notNull';
 
 /**
  * Deep cloning the entire state is rarely the desired functionality, especially
@@ -30,6 +32,12 @@ import isObject from 'lodash/isObject';
  * value = 4
  * result: { a: { b: { c: 3 } } }
  * note that the 'e' field did not get created because there is no 'd' object
+ *
+ * @template SetValueAtPathT
+ * @param {Object} params
+ * @param {Object} params.object
+ * @param {string} params.path
+ * @param {SetValueAtPathT} params.value
  */
 export default function setValueAtPath({ object, path, value }) {
   // not a deep clone; does not create a new object because immer will do that
@@ -38,7 +46,7 @@ export default function setValueAtPath({ object, path, value }) {
   // payload can be an array of targets or a single one
   const parts = (path || '').split('.');
   const pathPieces = parts.slice(0, -1);
-  const field = parts.pop();
+  const field = notNull(parts.pop(), 'setValueAtPath: paths are empty');
   const valueCloned = cloneDeep(value);
 
   if (path) {

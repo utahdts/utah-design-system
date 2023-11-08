@@ -1,17 +1,15 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import SpinnersExamplePropsShape from '../../../../../../propTypesShapes/SpinnersExamplePropsShape';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: SpinnersExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
 
-function SpinnersExampleCodeReact({
+/**
+ * @param {Object} props
+ * @param {{props: SpinnersExamplePropsShape}} props.state
+ * @returns {JSX.Element}
+ */
+export default function SpinnersExampleCodeReact({
   state: {
     props: {
       className,
@@ -52,8 +50,3 @@ function SpinnersExampleCodeReact({
     </>
   );
 }
-
-SpinnersExampleCodeReact.propTypes = propTypes;
-SpinnersExampleCodeReact.defaultProps = defaultProps;
-
-export default SpinnersExampleCodeReact;

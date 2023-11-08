@@ -1,6 +1,4 @@
-/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
-/** @typedef {import('use-immer').Updater<TooltipsExamplePropsShape>} UpdaterTooltipsExampleProps */
-
+// @ts-check
 import {
   ExternalLink,
   Form,
@@ -10,17 +8,10 @@ import {
   TextInput,
   popupPlacement
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
+import React from 'react';
 
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: TooltipsExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
+/** @typedef {import('use-immer').Updater<TooltipsExamplePropsShape>} UpdaterTooltipsExampleProps */
 
 /**
  * @param {Object} props
@@ -29,21 +20,7 @@ const defaultProps = {};
  * @param {TooltipsExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function TooltipsExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.isPopperVisible = false;
-        draftState.props.offsetDistance = '0';
-        draftState.props.offsetSkidding = '5';
-        draftState.props.placement = popupPlacement.BOTTOM;
-        draftState.props.popupText = 'Now you see me';
-      });
-    },
-    []
-  );
-
+export default function TooltipsExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -69,8 +46,3 @@ function TooltipsExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-TooltipsExampleProps.propTypes = propTypes;
-TooltipsExampleProps.defaultProps = defaultProps;
-
-export default TooltipsExampleProps;
