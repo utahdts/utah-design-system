@@ -184,7 +184,7 @@ function AccessibilityDocumentation() {
         </li>
         <li>
           <strong>Headings.</strong> <Link to={pageUrls.headings}>Headings</Link> (<code>h1, h2, h3, h4, h5, h6</code>) should create an outline for the page content. They are sequential and clearly distinct from the body text.
-          (Don’t skip heading levels or go out of order.)
+          (Don't skip heading levels or go out of order.)
         </li>
         <li>
           <strong>Lists.</strong> <Link to={pageUrls.lists}>Lists</Link> (<code>ul, ol</code>) are used to identify all content that can be described as a list of something.
@@ -675,7 +675,7 @@ function AccessibilityDocumentation() {
           </p>
           <p>
             The following images depict different forms with the arrows indicating different tab orders. Horizontally arranged forms can create an undesirable user experience.
-            Depending on the user, they are going to expect the cursor to land in a particular place. If it doesn’t go where they expect, it increases
+            Depending on the user, they are going to expect the cursor to land in a particular place. If it doesn't go where they expect, it increases
             the cognitive load trying to figure out where the cursor will actually land.
           </p>
           <StaticExample

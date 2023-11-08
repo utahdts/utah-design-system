@@ -52,9 +52,6 @@
     "webp",
     "xsmall"
   ],
-  "editor.unicodeHighlight.allowedCharacters": {
-    "’": true
-  },
   "typescript.preferences.quoteStyle": "single",
   "sonarlint.connectedMode.project": {
     "connectionId": "utahdts",

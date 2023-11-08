@@ -34,7 +34,7 @@ import DrawerDocumentation from '../websiteContent/library/components/containers
 import InfoBoxDocumentation from '../websiteContent/library/components/containers/InfoBox/InfoBoxDocumentation';
 import TabGroupDocumentation from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import CharacterCountDocumentation from '../websiteContent/library/components/forms/CharacterCount/CharacterCountDocumentation';
-import CheckboxDocumentation from '../websiteContent/library/components/forms/CheckBox/CheckboxDocumentation';
+import CheckboxDocumentation from '../websiteContent/library/components/forms/Checkbox/CheckboxDocumentation';
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import FileInputDocumentation from '../websiteContent/library/components/forms/FileInput/FileInputDocumentation';

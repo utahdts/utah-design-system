@@ -13,7 +13,7 @@ export { default as BadgeShape } from './react/propTypesShapes/header/BadgeShape
 export { default as Button } from './react/components/buttons/Button';
 export { default as chainSorters } from './react/util/chainSorters';
 export { default as CharacterCount } from './react/components/forms/CharacterCount';
-export { default as CheckBox } from './react/components/forms/CheckBox';
+export { Checkbox } from './react/components/forms/Checkbox';
 export { default as ClickableTag } from './react/components/buttons/ClickableTag';
 export { default as ComboBox } from './react/components/forms/ComboBox/ComboBox';
 export { default as ComboBoxOption } from './react/components/forms/ComboBox/ComboBoxOption';

@@ -31,12 +31,12 @@ function GettingStartedDesigner() {
         design system allows designers to work within established visual and interaction frameworks, eliminating the need to reinvent the wheel for each new project. This not only saves time but also ensures a cohesive user experience across various applications, sites, and devices.
       </p>
       <p className="lead-in mt-spacing">
-        However, with so much information available, here we’ve broken down the most applicable parts to get you started.
+        However, with so much information available, here we've broken down the most applicable parts to get you started.
       </p>
       <h2 id="section-accessibility" className="mb-spacing mt-spacing">Accessibility</h2>
       <p>
         While accessibility is usually associated with the development process, it should actually begin much earlier! By planning accessibility into the design, it not only assists developers when implementing your design, it also ensures your content will be accessible to more people.
-        We’ve created a few pages to help demystify and to help check for accessibility.
+        We've created a few pages to help demystify and to help check for accessibility.
         The <Link to={pageUrls.accessibility}>Accessibility</Link> page condenses this massive topic down to the most important parts of why accessibility is important and whose needs we are trying to address.
         The <Link to={pageUrls.accessibilityChecklist}>Accessibility Checklist & Testing</Link> page is a list of items for developers and designers that should be checked. For an alternate view of this list specific to designers, checkout the “Web Accessibility FOR Designers - Infographic below:
       </p>
