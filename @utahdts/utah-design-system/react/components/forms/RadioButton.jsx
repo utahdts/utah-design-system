@@ -1,76 +1,48 @@
 // @ts-check
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 import React from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
-import RequiredStar from './RequiredStar';
-import joinClassNames from '../../util/joinClassNames';
 import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm';
+import joinClassNames from '../../util/joinClassNames';
 import ErrorMessage from './ErrorMessage';
+import RequiredStar from './RequiredStar';
 
-const propTypes = {
-  className: PropTypes.string,
-  defaultValue: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  innerRef: RefShape,
-  isDisabled: PropTypes.bool,
-  isRequired: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  labelClassName: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  onSubmit: PropTypes.func,
-  value: PropTypes.bool,
-  wrapperClassName: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  defaultValue: null,
-  errorMessage: null,
-  isDisabled: false,
-  isRequired: false,
-  innerRef: null,
-  labelClassName: null,
-  name: null,
-  onChange: null,
-  onSubmit: null,
-  value: null,
-  wrapperClassName: null,
-};
+/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 
 /**
  * @param {Object} props
- * @param {string | null} [props.className]
- * @param {boolean | null} [props.defaultValue]
- * @param {string | null} [props.errorMessage]
- * @param {React.RefObject | null} [props.innerRef]
+ * @param {string} [props.className]
+ * @param {boolean} [props.defaultValue]
+ * @param {string} [props.errorMessage]
+ * @param {React.RefObject} [props.innerRef]
  * @param {string} props.id
+ * @param {boolean} [props.isChecked]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
- * @param {string | null} [props.labelClassName]
- * @param {string | null} [props.name]
- * @param {EventAction | null} [props.onChange]
- * @param {(() => void) | null} [props.onSubmit]
- * @param {boolean | null} [props.value]
- * @param {string | null} [props.wrapperClassName]
+ * @param {string} [props.labelClassName]
+ * @param {string} [props.name]
+ * @param {EventAction} [props.onChange]
+ * @param {(() => void)} [props.onSubmit]
+ * @param {string} props.value the html radio button's value to put in to the form data if this radio button is selected
+ * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
 export function RadioButton({
-  className = null,
+  className,
   defaultValue,
   errorMessage,
   id,
+  isChecked,
   isDisabled = false,
   isRequired = false,
-  innerRef = null,
+  innerRef,
   label,
-  labelClassName = null,
-  name = null,
+  labelClassName,
+  name,
   onChange,
   onSubmit,
-  value = null,
-  wrapperClassName = null,
+  value,
+  wrapperClassName,
   ...rest
 }) {
   const {
@@ -84,7 +56,7 @@ export function RadioButton({
     id,
     onChange,
     onSubmit,
-    value,
+    value: isChecked ? value : undefined,
   });
 
   return (
@@ -94,14 +66,16 @@ export function RadioButton({
         {isRequired ? <RequiredStar /> : null}
       </label>
       <input
-        aria-describedby={currentErrorMessage ? `${id}-error` : null}
-        checked={currentValue}
+        aria-describedby={currentErrorMessage ? `${id}-error` : undefined}
+        checked={currentValue === value}
         className={className}
         disabled={isDisabled}
         id={id}
         name={name || id}
-        onChange={currentOnChange}
-        onKeyPress={currentOnFormKeyPress}
+        // @ts-ignore
+        onChange={(e) => currentOnChange(e)}
+        // @ts-ignore
+        onKeyUp={(e) => currentOnFormKeyPress(e)}
         ref={innerRef}
         required={isRequired}
         type="radio"
@@ -111,6 +85,3 @@ export function RadioButton({
     </div>
   );
 }
-
-RadioButton.propTypes = propTypes;
-RadioButton.defaultProps = defaultProps;

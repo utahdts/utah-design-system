@@ -31,10 +31,11 @@ function RadioButtonDocumentation() {
           <div className="radio-buttons-wrapper">
             <fieldset>
               <legend>Best Ice Cream</legend>
-              <RadioButton name="ice-cream" id="vanilla" label="Vanilla" />
-              <RadioButton name="ice-cream" id="chocolate" label="Chocolate" />
-              <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" />
-              <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled />
+              <input name="ice-cream" value="vanilla" />
+              <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
+              <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
+              <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" value="pralines" />
+              <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled value="strawberry" />
             </fieldset>
           </div>
         )}
