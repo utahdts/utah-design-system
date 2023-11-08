@@ -1,13 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { RadioButton } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import radioButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/radioButtonScreenshot.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { RadioButtonExampleRender } from './RadioButtonExampleRender';
+import { RadioButtonExampleProps } from './RadioButtonExampleProps';
+import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -21,9 +20,25 @@ function RadioButtonDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={RadioButtonExampleRender}
+        PROPS_EXAMPLE={RadioButtonExampleProps}
+        CODE_EXAMPLE={RadioButtonExampleCodeReact}
+      />
       <StaticExample
         title="Radio Button Example"
-        renderedExample={<LightBox image={radioButtonScreenshot} alt="Radio Buttons" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="radio-buttons-wrapper">
+            <fieldset>
+              <legend>Best Ice Cream</legend>
+              <input name="ice-cream" value="vanilla" />
+              <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
+              <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
+              <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" value="pralines" />
+              <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled value="strawberry" />
+            </fieldset>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>The user can only select one item at a time from a list of options.</li>

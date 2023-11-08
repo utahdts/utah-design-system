@@ -4,8 +4,17 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import {
+  CheckBox, Tab, TabGroup, TabList, TabPanel, TabPanels
+} from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import { CheckboxExampleRender } from './CheckboxExampleRender';
+import { CheckboxExampleProps } from './CheckboxExampleProps';
+import { CheckboxExampleCodeReact } from './CheckboxExampleCodeReact';
+import { CheckboxCssClassesDocumentation } from './CheckboxCssClassesDocumentation';
+import { CheckboxPropsDocumentation } from './CheckboxPropsDocumentation';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -18,31 +27,21 @@ function CheckboxDocumentation() {
       <p className="lead-in">Checkboxes allow users to select one or more options from a list. They can have two values: selected or unselected.</p>
       <hr />
       <h2 id="example">Example</h2>
+      <SandboxExample
+        RENDER_EXAMPLE={CheckboxExampleRender}
+        PROPS_EXAMPLE={CheckboxExampleProps}
+        CODE_EXAMPLE={CheckboxExampleCodeReact}
+      />
       <StaticExample
         title="Checkbox"
         renderedExample={(
           <fieldset>
             <legend className="mb-spacing-xs">Awesome Ice Cream in Utah</legend>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="aggie-creamery">Aggie Creamery</label>
-              <input type="checkbox" id="aggie-creamery" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="byu-creamery">BYU Creamery</label>
-              <input type="checkbox" id="byu-creamery" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="farrs">Farr’s Ice Cream</label>
-              <input type="checkbox" id="farrs" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="leatherbys">Leatherby’s</label>
-              <input type="checkbox" id="leatherbys" />
-            </div>
-            <div className="input-wrapper input-wrapper--checkbox">
-              <label htmlFor="penguin-brothers">Penguin Brothers</label>
-              <input type="checkbox" id="penguin-brothers" />
-            </div>
+            <CheckBox name="ice-cream" id="aggie-creamery" label="Aggie Creamery" defaultValue />
+            <CheckBox name="ice-cream" id="byu-creamery" label="BYU Creamery" />
+            <CheckBox name="ice-cream" id="farrs" label="Farr’s Ice Cream" />
+            <CheckBox name="ice-cream" id="leatherbys" label="Leatherby’s" defaultValue isDisabled />
+            <CheckBox name="ice-cream" id="penguin-brothers" label="Penguin Brothers" isDisabled />
           </fieldset>
         )}
         quickTips={(
@@ -123,6 +122,24 @@ function CheckboxDocumentation() {
           necessary when using semantic HTML. Remember: The first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <CheckboxCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <CheckboxPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

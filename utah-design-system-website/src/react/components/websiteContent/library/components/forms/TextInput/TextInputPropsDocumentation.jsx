@@ -58,7 +58,7 @@ function TextInputPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                An id to put on the &lt;input&gt; element. This will also be use as the <code>name</code>&#32;
+                An id to put on the &lt;input&gt; element. This will also be used as the <code>name</code>{' '}
                 attribute (if not set) and <code>htmlFor</code> attribute of the input&apos;s label.
               </TableCell>
             </TableRow>

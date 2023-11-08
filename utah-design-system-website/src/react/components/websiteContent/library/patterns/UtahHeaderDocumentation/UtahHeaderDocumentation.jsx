@@ -91,8 +91,8 @@ function UtahHeaderDocumentation() {
         The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. It also provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
       </p>
       <p className="lead-in">
-        The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and Title</strong>
-        , <strong>Action Items</strong>, <strong>Main Menu</strong>, and <strong>Search</strong>.
+        The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and Title</strong>,{' '}
+        <strong>Action Items</strong>, <strong>Main Menu</strong>, and <strong>Search</strong>.
       </p>
       <hr />
       <div className="header-config__title">

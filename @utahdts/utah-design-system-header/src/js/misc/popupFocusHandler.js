@@ -3,9 +3,9 @@ import { createPopper } from '@popperjs/core';
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import popupPlacement from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
+import checkForError from './checkForError';
 import isTouchDevice from './isTouchDevice';
 import showHideElement from './showHideElement';
-import checkForError from './checkForError';
 
 /*
    ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
@@ -28,7 +28,7 @@ import checkForError from './checkForError';
     * trigger the menu (ctrl+opt+space) to have the menu toggle open
   * do the same test as above but with the Utah ID button after logging in so that it opens the Utah Id menu
   * have a main menu item whose children flyout and make sure hovering causes those menu items to flyout
-  * tab to a child menu in a popup menu that also has children menus
+  * tab to a child menu in a popup menu that also has children menus (use an "inline" menu)
     * this "middle" menu (has parent and children) when first focused should not have its chevron open nor show its children
     * tabbing again to see this menu's children then opens the children and toggles the chevron
 
@@ -40,7 +40,15 @@ import checkForError from './checkForError';
   * Added a timeout to the open/close because the focusin, mousedown, and onclick were fighting with timing issues
     * sometimes onfocusin would fire first, other times onmousedown would fire first
     * and they would cause each other to see different statuses because one would open and another would close the menu
-*/
+
+  !!!!  WARNING  !!!!
+  Schrödinger's cat may live here!
+           __..--''``---....___   _..._    __
+  /// //_.-'    .-/";  `        ``<._  ``.''_ `. / // /
+  ///_.-' _..--.'_    \                    `( ) ) // //
+  / (_..-' // (< _     ;_..__               ; `' / ///
+  / // // //  `-._,_)' // / ``--...____..-' /// / //
+ */
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
@@ -143,14 +151,12 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
       // for menus that are both a link and have children menus, when doing a popup, prevent clicking
       // from doing anything so that the popup menu doesn't go away on the click. The link for the
       // menu will be a separate menu item.
-      e.preventDefault();
       e.stopPropagation();
     };
-  } else {
-    wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
-
-    wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
   }
+
+  wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
+  wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
 
   if (options?.shouldFocusOnHover) {
     wrapper.addEventListener('mouseenter', () => performPopup(TIMEOUT_MS_LONG));

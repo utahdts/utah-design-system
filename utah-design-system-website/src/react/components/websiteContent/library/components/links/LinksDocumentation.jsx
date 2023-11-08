@@ -4,6 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { ExternalLink } from '@utahdts/utah-design-system';
 import traxImage from '../../../../../../static/images/trax.jpg';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import pageUrls from '../../../../routing/pageUrls';
@@ -30,7 +31,9 @@ function LinksDocumentation() {
         renderedExample={(
           <div>
             <p>This is an example of what a <a href="#section-example">link</a> should appear like within a block of text.</p>
-            <p className="mb-auto">This is an example of what an <a href="https://google.com" target="_blank" rel="noreferrer">external link<span className="utds-new-tab-link-a11y"><span className="visually-hidden">opens in a new tab</span><span className="utds-icon-after-external-link" aria-hidden="true" /></span></a> or link that opens in a new tab should appear like within a block of text.</p>
+            <p>This is an example of what an external link or link that opens in a new tab should appear like within a block of text: <ExternalLink href="https://www.google.com/search?q=utah+state+flag">Utah State Flag</ExternalLink></p>
+            <p>This is an example of a phone number link: <a href="tel:18006783440"><span className="visually-hidden">DTS help desk phone number:</span>800-678-3440</a></p>
+            <p className="mb-auto">This is an example of a email address link: <a href="mailto:dts_ui@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dts_ui@utah.gov</a></p>
           </div>
         )}
         quickTips={(
@@ -155,6 +158,17 @@ function LinksDocumentation() {
               </a>
             `}
           />
+          For example: <ExternalLink href="https://www.google.com/search?q=zion+national+park">Zion National Park</ExternalLink>
+        </li>
+        <li>
+          Links to phone numbers should include the actual phone number in the text of the link.
+          Additionally, if there is no text to indicate the link is for a phone number, include visually hidden text to inform screen reader users.
+          For example: <a href="tel:18006783440"><span className="visually-hidden">DTS help desk phone number:</span>800-678-3440</a>
+        </li>
+        <li>
+          Links to email addresses should include the actual email address in the text of the link.
+          Additionally, if there is no text to indicate the link is for an email address, include visually hidden text to inform screen reader users.
+          For example: <a href="mailto:dts_ui@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dts_ui@utah.gov</a>
         </li>
       </ul>
     </div>

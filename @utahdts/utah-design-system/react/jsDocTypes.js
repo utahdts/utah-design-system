@@ -258,5 +258,13 @@
 
 /** @typedef {import('use-immer').ImmerHook<ComboBoxContextValue>} ComboBoxContext */
 
+/**
+ * @typedef RadioButtonsContextValue {
+ *  @property {EventAction} currentOnChange
+ *  @property {string} currentValue
+ *  @property {EventAction} currentOnFormKeyPress
+ * }
+ */
+
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
 export default false;

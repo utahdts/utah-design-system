@@ -5,10 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [???] 10/04/2023
+# [1.9.0] TBD
 ## Added
-## Changed
-- Simplify Form Context
+- Documentation for interact tables (role="grid")
+
+# [1.8.0] 10/18/2023
+## Added
+- Announce current page of Pagination
+- Announce number of rows after filtering
+- Add Tags component
+
+## Removed
+- Remove onClick and onDoubleClick from TableCell
+
+## Fixed
+- Align sort buttons on condensed table
+
+# [1.7.1] 10/12/2023
+## Fixed
+- Pop open sub menus when tabbing
+- Allow clicking grandchild menu items #236
 
 # [1.7.0] 10/04/2023
 ## Added

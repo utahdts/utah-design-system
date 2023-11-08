@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import { useCallback, useEffect, useMemo } from 'react';
+import {
+  useCallback, useEffect, useMemo, useRef
+} from 'react';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import useComponentState from '../../../hooks/forms/useComponentState';
 import joinClassNames from '../../../util/joinClassNames';
@@ -7,6 +9,7 @@ import IconButton from '../../buttons/IconButton';
 import PaginationLink from './PaginationLink';
 import determinePaginationLinks from './util/determinePaginationLinks';
 import RefShape from '../../../propTypesShapes/RefShape';
+import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 
 const propTypes = {
   // ariaLabel is used by accessibility to describe the purpose of the pagination
@@ -67,8 +70,18 @@ function Pagination({
   wrapInElement,
   ...rest
 }) {
-  const { onChange: currentOnChange, value: currentPageIndex, valueRef: currentPageIndexRef } = useComponentState({ defaultValue, onChange, value });
+  const {
+    onChange: currentOnChange,
+    value: currentPageIndex,
+    valueRef: currentPageIndexRef,
+  } = useComponentState({
+    defaultValue,
+    onChange,
+    value,
+  });
+  const { addPoliteMessage } = useAriaMessaging();
   const numberOfPages = Math.ceil(totalNumberItems / pageSize);
+  const oldIndex = useRef(currentPageIndex);
 
   // check if current page is out of range...
   useEffect(
@@ -76,6 +89,10 @@ function Pagination({
       // if 0 records then 0 pages and 0 value is OK (0-based page index)
       if ((numberOfPages || currentPageIndex) && currentPageIndex >= numberOfPages) {
         currentOnChange(numberOfPages - 1);
+      }
+      if (currentPageIndex !== oldIndex.current) {
+        oldIndex.current = currentPageIndex;
+        addPoliteMessage(`You are now on page ${currentPageIndex + 1}`);
       }
     },
     [currentOnChange, currentPageIndex, numberOfPages]
@@ -118,6 +135,7 @@ function Pagination({
                   label={paginationLink.label}
                   onChange={currentOnChange}
                   pageIndex={paginationLink.pageIndex}
+                  numberOfPages={numberOfPages}
                 />
               )
           ))

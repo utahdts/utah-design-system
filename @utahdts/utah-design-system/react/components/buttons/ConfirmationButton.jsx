@@ -59,9 +59,9 @@ function ConfirmationButton({
   size,
   type,
 }) {
-  const [isClicked, setClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const buttonClick = () => {
-    setClicked(!isClicked);
+    setIsClicked(!isClicked);
     onClick();
   };
   return (

@@ -24,6 +24,12 @@ function AccessibilityTestingDocumentation() {
         Here are some tools to help with accessibility testing. For more in depth information, view the <NavLink to={pageUrls.accessibility}>accessibility overview page</NavLink>.
       </p>
 
+      <p className="block-quote">
+        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
+        This checklist can be used to help achieve this standard.
+        (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
+      </p>
+
       <h2 id="section-manual-checklist" className="mb-spacing">Manual Checklist</h2>
       <h3 id="section-manual-checklist-content">Content</h3>
       <ul>
@@ -33,9 +39,9 @@ function AccessibilityTestingDocumentation() {
             <li>
               Content is structured logically using HTML code.
               <ul>
-                <li>Use semantic markup.</li>
+                <li>Use <Link to={pageUrls.paragraphs}>semantic HTML</Link> markup.</li>
                 <li>
-                  Limit landmark roles such as <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code> to make it
+                  Limit <Link to={`${pageUrls.accessibility}#section-landmark-roles`}>landmark roles</Link> such as <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code> to make it
                   easier for users of assistive technology to navigate your site.
                   A page should have the following:
                   <ul>
@@ -47,21 +53,32 @@ function AccessibilityTestingDocumentation() {
                 </li>
               </ul>
             </li>
-            <li>The majority of body text is a minimum of 16px (1rem)</li>
+            <li>The majority of <Link to={pageUrls.typography}>body text</Link> is a minimum of 16px (1rem)</li>
+            <li><Link to={pageUrls.typography}>Text</Link> is in plain language that is understandable at an 8th grade level.</li>
             <li>
-              Headings (h1, h2, h3, h4, h5, h6) are sequential and distinct when compared to the body text.
+              <Link to={pageUrls.headings}>Headings</Link> (<code>h1, h2, h3, h4, h5, h6</code>) create an outline for the page content. They are sequential and clearly distinct from the body text.
               (Don’t skip heading levels or go out of order.)
             </li>
-            <li>Text is in plain language that is understandable at an 8th grade level.</li>
-            <li>Hyperlinks do not include generic text such as &quot;click here&quot; or &quot;view more&quot;.</li>
-            <li>Hyperlinks that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.</li>
+            <li><Link to={pageUrls.lists}>Lists</Link> (<code>ul, ol</code>) are used to identify all content that can be described as a list of something.</li>
+            <li><Link to={pageUrls.links}>Links</Link> do not include generic text such as &quot;click here&quot; or &quot;view more&quot;.</li>
+            <li>Links that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.</li>
+            <li>Links to phone numbers and email address should be readable by screen readers.</li>
             <li>Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.</li>
+            <li>
+              <Link to={pageUrls.table}>Tables</Link> should used for presenting rows and columns of data.
+              <ul>
+                <li>Never use tables for layout.</li>
+                <li>
+                  Column and row headers must be correctly identified.
+                </li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li>
           Color
           <ul>
-            <li>Text, including hyperlinks, has a <code>4.5:1</code> contrast ratio to its background.</li>
+            <li>Text, including links, has a <code>4.5:1</code> <Link to={`${pageUrls.accessibility}#section-limited-vision-contrast`}>contrast ratio</Link> to its background.</li>
             <li>Headings and large bold text should pass the contrast ratio of <code>3:1</code>.</li>
             <li>Interactive elements such as buttons and form fields have a border or element boundary that is <code>3:1</code> contrast against its background.</li>
             <li>Elements that use color to convey a meaning also have another method to express the intent (such as an icon or text).</li>
@@ -70,7 +87,7 @@ function AccessibilityTestingDocumentation() {
         <li>
           Images
           <ul>
-            <li>Images that add to the content of the site have descriptive alternative text.</li>
+            <li>Images that add to the content of the site have descriptive <Link to={`${pageUrls.accessibility}#alt-text`}>alternative text</Link>.</li>
             <li>Images that do not contribute to the content are hidden from assistive technologies.</li>
             <li>Text that overlaps images meets contrast requirements.</li>
           </ul>
@@ -115,6 +132,10 @@ function AccessibilityTestingDocumentation() {
       </ul>
 
       <h3 id="section-manual-checklist-keyboard" className="mt-spacing">Keyboard</h3>
+      <p>
+        The site should be designed to be navigated and functional using only the keyboard and the user should never get stuck in any particular
+        page element.
+      </p>
       <ul>
         <li>
           <strong>Tab.</strong> Navigate to links and form controls. Is the tab order sequential and/or logical? Is the focus indicator visible

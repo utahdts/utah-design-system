@@ -1,51 +1,87 @@
+@use "../../../2-tools/tools-index";
 @use "../../../1-settings/class-vars";
 
 #{class-vars.$base-class} {
+  .radio-buttons-wrapper {
+    legend {
+      margin-bottom: var(--spacing-xs);
+    }
+  }
   input[type="radio"] {
     appearance: none;
     border-radius: var(--radius-circle);
     border: 1px solid var(--gray-color);
-    width: var(--form-ele-small1x);
-    height: var(--form-ele-small1x);
+    width: var(--form-checkbox-medium);
+    height: var(--form-checkbox-medium);
     position: relative;
-    top: var(--spacing-2xs);
     margin-right: var(--spacing-xs);
-    &::before {
+    flex-shrink: 0;
+    background: white;
+    &::after {
       content: '';
       display: block;
+      position: absolute;
       width: 100%;
       height: 100%;
+      top: 0;
+      left: 0;
       border-radius: var(--radius-circle);
-      box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 0px;
-      transition: box-shadow var(--timing-xquick) ease-in-out;
+      z-index: -1;
+      @include tools-index.form-ele-hover-base;
     }
-    &:hover::before {
-      box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 7px;
-    }
-    &:checked {
-      background-color: var(--secondary-color);
-      border: 1px solid var(--secondary-color);
+    &:hover {
+      border-color: black;
       &::after {
-        content: '';
+        @include tools-index.form-ele-hover-hovered(7px);
+      }
+    }
+    &::before {
+      content: '';
         display: block;
-        width: 50%;
-        height: 50%;
+        width: 0%;
+        height: 0%;
+        opacity: 0;
         border-radius: var(--radius-circle);
         background-color: white;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+    }
+    &:checked {
+      background-color: var(--form-ele-color);
+      border: 1px solid var(--form-ele-color);
+      &::before {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 50%;
+        opacity: 1;
+        transition: width var(--timing-quick) ease, height var(--timing-quick) ease, opacity var(--timing-quick) ease;
+      }
+    }
+    &[disabled] {
+      background: var(--form-ele-disabled-color);
+      border: none;
+      cursor: not-allowed;
+      &::after {
+        background-color: var(--form-ele-disabled-color);
       }
     }
   }
 
+  .input-wrapper {
+    &--radio {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
 
-  .checkbox:hover ~ span:first-of-type {
-    box-shadow: rgb(240 241 242) 0px 0px 0px 7px;
-  }
-
-  .checkbox ~ span:first-of-type {
-    border-radius: 999px;
+      label {
+        padding: 0 0 0 var(--spacing-2xs);
+      }
+    }
   }
 }

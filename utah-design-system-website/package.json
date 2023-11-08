@@ -1,7 +1,7 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "1.7.0",
+  "version": "1.8.0",
   "type": "module",
   "scripts": {
     "dev": "vite --mode development-local",
@@ -15,25 +15,25 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
-    "@utahdts/utah-design-system": "1.7.0",
-    "@utahdts/utah-design-system-header": "1.7.0",
+    "@utahdts/utah-design-system": "1.8.0",
+    "@utahdts/utah-design-system-header": "1.8.0",
     "js-beautify": "1.14.9",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-popper": "2.3.0",
-    "react-router-dom": "^6.14.2",
+    "react-router-dom": "^6.17.0",
     "tinycolor2": "^1.4.2",
     "use-immer": "0.9.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.24",
-    "@types/react-dom": "18.2.8",
+    "@types/react": "18.2.29",
+    "@types/react-dom": "18.2.13",
     "@vitejs/plugin-react": "4.1.0",
     "jsdom": "22.1.0",
-    "sass": "1.68.0",
-    "vite": "4.4.10",
+    "sass": "1.69.4",
+    "vite": "4.5.0",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-mkcert": "1.16.0",
     "vitest": "0.34.6"

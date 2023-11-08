@@ -27,7 +27,7 @@ function HomeLanding() {
             to={pageUrls.gettingStarted}
             className="button button--primary-color button--solid button--large"
           >
-            Start Using the Design System
+            Start Using the Design System{' '}
             <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
           </Link>
         </div>

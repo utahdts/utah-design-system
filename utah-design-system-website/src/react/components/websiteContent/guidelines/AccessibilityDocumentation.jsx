@@ -57,9 +57,37 @@ function AccessibilityDocumentation() {
         all people including those with varying impairments. By prioritizing accessibility, we demonstrate our commitment to those we serve
         by fostering a sense of inclusivity, and ultimately enhance the user experience for everyone.
       </p>
+
+      <p className="block-quote">
+        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
+        This guide can be used to help achieve this standard.
+        (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
+      </p>
+
+      <hr />
+      <h2 id="section-accessibility-checklist" className="text-center mt-spacing">Accessibility Checklist</h2>
+      <div className="text-center">
+        <p className="mb-auto">
+          We have compiled a quick accessibility overview or checklist.
+        </p>
+        <p>
+          Additionally, we provide resources for accessibility testing.
+        </p>
+        <div className="flex justify-center mt-spacing mb-spacing-xl">
+          <Link
+            to={pageUrls.accessibilityChecklist}
+            className="button button--primary-color button--solid"
+          >
+            Accessibility Checklist{' '}
+            <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+          </Link>
+        </div>
+      </div>
+      <hr className="mb-spacing" />
+
       <p className="mb-auto">
         Per the CDC, roughly <ExternalLink href="https://dhds.cdc.gov/SP?LocationId=49&CategoryId=DISEST&ShowFootnotes=true&showMode=&IndicatorIds=STATTYPE,AGEIND,SEXIND,RACEIND,VETIND&pnl0=Table,false,YR6,CAT1,BO1,,,,AGEADJPREV&pnl1=Chart,false,YR6,DISSTAT,,,,,PREV&pnl2=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV&pnl3=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV&pnl4=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV">1 in 4 adults have some form of a disability</ExternalLink> in
-        Utah. In the effort to expand accessibility access, we hope to reach those with the following disabilities:
+        Utah. In the effort to expand accessibility access, we focus on those with the following disabilities:
       </p>
       <ul className="mb-spacing">
         <li>Limited or no vision</li>
@@ -69,8 +97,8 @@ function AccessibilityDocumentation() {
       </ul>
 
       <p>
-        The State of Utah Design System will provide accessible components as well as guidance for each component in our <Link to={pageUrls.library}>Library</Link>. The components
-        are vetted using WCAG standards and the U.S. Design System.
+        The State of Utah Design System provides accessible components as well as guidance for each component in our <Link to={pageUrls.library}>Library</Link>. The components
+        are vetted using WCAG 2.1 standards and the U.S. Design System.
       </p>
 
       <p className="mb-auto">Each component in the Utah Design System library has an accessibility section where detailed information can be found about:</p>
@@ -85,22 +113,6 @@ function AccessibilityDocumentation() {
         For further information, consider reading documentation provided by <ExternalLink href="https://webaim.org/">WebAIM</ExternalLink>.
       </p>
 
-      <hr />
-      <h2 id="section-accessibility-checklist" className="text-center mt-spacing">Accessibility Checklist</h2>
-      <div className="text-center">
-        We have compiled a checklist and resources for accessibility testing here:
-        <div className="flex justify-center mt-spacing mb-spacing-xl">
-          <Link
-            to={pageUrls.accessibilityChecklist}
-            className="button button--primary-color button--solid"
-          >
-            Accessibility Checklist
-            <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
-          </Link>
-        </div>
-      </div>
-      <hr />
-
       <h2 id="section-areas-to-consider" className="mb-spacing">Areas to Consider</h2>
       <h3 id="section-limited-vision">Limited or No Vision</h3>
       <p>
@@ -110,6 +122,9 @@ function AccessibilityDocumentation() {
 
       <h4 id="section-limited-vision-general-guidelines">General vision guidelines</h4>
       <ul className="mb-spacing">
+        <li>
+          <strong>Semantic HTML.</strong> <Link to={pageUrls.paragraphs}>Semantic HTML</Link> should be used to provide clear and meaningful structure to web documents, making them more accessible to people with disabilities and improving overall search engine optimization (SEO) efforts.
+        </li>
         <li>
           <strong id="section-landmark-roles">Landmark role elements.</strong> In HTML, a landmark role refers to the use of specific HTML elements to define and label certain regions or sections of a webpage.
           These roles serve an important purpose in making web pages more accessible to users, especially those who rely on assistive technologies like screen readers.
@@ -165,16 +180,52 @@ function AccessibilityDocumentation() {
         </li>
         <li>
           <strong>General text.</strong> The majority of text should be a minimum of <code>16px</code> (<code>1rem</code>).
-          All normal size text must maintain a minimum contrast ratio of <code>4.5:1</code>.
+          All normal size text must maintain a minimum contrast ratio of <code>4.5:1</code>. See <Link to={pageUrls.typography}>typography</Link> for more information.
         </li>
         <li>
-          <strong>Headings.</strong> Headings (h1, h2, h3, h4, h5, h6) are sequential and distinct when compared to the body text.
-          (Don’t skip heading levels or go out of order.)
+          <strong>Headings.</strong> <Link to={pageUrls.headings}>Headings</Link> (<code>h1, h2, h3, h4, h5, h6</code>) should create an outline for the page content. They are sequential and clearly distinct from the body text.
+            (Don’t skip heading levels or go out of order.)
+        </li>
+        <li>
+          <strong>Lists.</strong> <Link to={pageUrls.lists}>Lists</Link> (<code>ul, ol</code>) are used to identify all content that can be described as a list of something.
+          This includes menus and other sequential information.
+        </li>
+        <li>
+          <strong><Link to={pageUrls.links}>Links</Link></strong>
+          <ul>
+            <li>
+              Links (hyperlinks) <code>&lt;a&gt;</code> should not include generic text such as &quot;click here&quot; or &quot;view more&quot;.
+              The link text should accurately describe where or what is being linked to. This will also help your page achieve a better SEO score.
+            </li>
+            <li>
+              Links that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.
+              For example: <ExternalLink href="https://www.google.com/search?q=arches+national+park">Arches National Park</ExternalLink>
+            </li>
+            <li>
+              Links to phone numbers should include the actual phone number in the text of the link.
+              Additionally, if there is no text to indicate the link is for a phone number, include visually hidden text to inform screen reader users.
+              For example: <a href="tel:18006783440"><span className="visually-hidden">DTS help desk phone number:</span>800-678-3440</a>
+            </li>
+            <li>
+              Links to email addresses should include the actual email address in the text of the link.
+              Additionally, if there is no text to indicate the link is for an email address, include visually hidden text to inform screen reader users.
+              For example: <a href="mailto:dts_ui@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dts_ui@utah.gov</a>
+            </li>
+          </ul>
         </li>
         <li>
           <strong>Skip Link.</strong> Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.
           This will allow visitor to skip past repetitive sections of your site such as the header and menus.
           The skip link is built into the <Link to={pageUrls.utahHeader}>Utah Header</Link>.
+        </li>
+        <li>
+          <strong>Tables.</strong> <Link to={pageUrls.table}>Tables</Link> should be used for presenting rows and columns of data.
+          <ul>
+            <li>Never use tables for layout.</li>
+            <li>
+              Column and row headers must be correctly identified using <code>scope=&quot;row&quot;</code> or <code>scope=&quot;col&quot;</code>.
+            </li>
+          </ul>
         </li>
         <li>
           <strong>Images and Icons.</strong>
@@ -183,7 +234,7 @@ function AccessibilityDocumentation() {
             <li><strong>Contrast ratio.</strong> Graphical objects that do not provide meaning nor interaction have no contrast requirements.</li>
             <li>
               <p>
-                <strong>Alternative text.</strong> All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding
+                <strong id="alt-text">Alternative text.</strong> All images and icons that contribute to the content require meaningful alternative text. This can be achieved primarily by adding
                 the <code>alt</code> property to the image. For non-semantic <Link to={pageUrls.images}>images</Link> or <Link to={pageUrls.icons}>icons</Link> you
                 can also achieve this by applying an <code>aria-label</code> or <code>title</code> to the element.
                 Using the <code>title</code> attribute has the drawback of the browser generating a tooltip when the user hovers over the element.
@@ -296,7 +347,7 @@ function AccessibilityDocumentation() {
 
       <h4 id="section-limited-vision-contrast">Contrast requirement</h4>
       <p>
-        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
+        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.{' '}
         (
         <em>
           <ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink>
@@ -306,7 +357,7 @@ function AccessibilityDocumentation() {
         )
       </p>
       <p>
-        The WCAG 2.1 consists of three levels of guidance: A, AA, and AAA.
+        The WCAG 2.1 consists of three levels of guidance: A, AA, and AAA.{' '}
         <strong>
           State agencies are required to meet WCAG 2.1 Level AA guidelines
           and are encouraged to strive to meet Level AAA guidelines whenever feasible
@@ -481,7 +532,7 @@ function AccessibilityDocumentation() {
         clicking on small areas or have specialized hardware to help them navigate websites.
       </p>
       <p>
-        The site should be designed to be navigated and functional using only the keyboard and they should never get stuck in any particular
+        The site should be designed to be navigated and functional using only the keyboard and the user should never get stuck in any particular
         page element. This is crucial for those with mobility impairments.
       </p>
 
@@ -573,6 +624,7 @@ function AccessibilityDocumentation() {
         </li>
         <li>
           <strong>Readable content.</strong> Consider the wording and the line length. Could a 8th grader read and understand it? If not, consider reworking the content.
+          Avoid using industry specific jargon and acronyms without properly describing them.
         </li>
         <li>
           <strong>Predictable functionality.</strong> Not all new features are welcome. Consider

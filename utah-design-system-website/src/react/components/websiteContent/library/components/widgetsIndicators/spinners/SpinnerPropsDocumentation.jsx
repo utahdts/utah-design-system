@@ -67,7 +67,7 @@ export default function SpinnerPropsDocumentation() {
               <TableCell><code>number</code></TableCell>
               <TableCell>60</TableCell>
               <TableCell>
-                The height and width of the spinner, in pixel. This will set the <code>height</code> and <code>width</code>&#32;
+                The height and width of the spinner, in pixel. This will set the <code>height</code> and <code>width</code>{' '}
                 attribute of the &lt;svg&gt; element.
               </TableCell>
             </TableRow>
