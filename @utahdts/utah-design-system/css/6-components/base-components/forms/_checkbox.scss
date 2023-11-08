@@ -58,6 +58,7 @@
     }
     &:disabled {
       background-color: var(--form-ele-disabled-color);
+      border: none;
       cursor: not-allowed;
       &::before {
         background-color: var(--form-ele-disabled-color);
