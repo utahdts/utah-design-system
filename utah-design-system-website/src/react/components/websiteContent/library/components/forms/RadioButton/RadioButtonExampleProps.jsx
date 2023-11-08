@@ -4,19 +4,9 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import RadioButtonExamplePropsShape from '../../../../../../propTypesShapes/RadioButtonExamplePropsShape';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
-
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: RadioButtonExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -26,22 +16,6 @@ const defaultProps = {};
  * @returns {JSX.Element}
  */
 export function RadioButtonExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.className = '';
-        draftState.props.errorMessage = '';
-        draftState.props.id = '';
-        draftState.props.isDisabled = false;
-        draftState.props.isRequired = false;
-        draftState.props.label = '';
-        draftState.props.value = false;
-      });
-    },
-    [setState]
-  );
-
   return (
     <Form
       state={state}
@@ -54,10 +28,7 @@ export function RadioButtonExampleProps({ setState, state }) {
       <Switch id="props.isDisabled" label="Disabled" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />
       <TextInput id="props.label" label="Label" className="input--height-small1x" />
-      <Switch id="props.value" label="Checked" width={20} />
+      <Switch id="props.isChecked" label="Checked" width={20} />
     </Form>
   );
 }
-
-RadioButtonExampleProps.propTypes = propTypes;
-RadioButtonExampleProps.defaultProps = defaultProps;

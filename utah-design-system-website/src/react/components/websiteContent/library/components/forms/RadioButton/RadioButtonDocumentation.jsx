@@ -1,12 +1,14 @@
+// @ts-check
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
 import { RadioButton } from '@utahdts/utah-design-system';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import { RadioButtonExampleRender } from './RadioButtonExampleRender';
-import { RadioButtonExampleProps } from './RadioButtonExampleProps';
-import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
+import { RadioButtonExampleProps } from './RadioButtonExampleProps';
+import { RadioButtonExampleRender } from './RadioButtonExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -21,6 +23,15 @@ function RadioButtonDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          errorMessage: '',
+          id: 'radio-button-example-render-id',
+          isChecked: false,
+          isDisabled: false,
+          isRequired: false,
+          label: 'Radio Label',
+        }}
         RENDER_EXAMPLE={RadioButtonExampleRender}
         PROPS_EXAMPLE={RadioButtonExampleProps}
         CODE_EXAMPLE={RadioButtonExampleCodeReact}
@@ -31,7 +42,6 @@ function RadioButtonDocumentation() {
           <div className="radio-buttons-wrapper">
             <fieldset>
               <legend>Best Ice Cream</legend>
-              <input name="ice-cream" value="vanilla" />
               <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
               <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
               <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" value="pralines" />

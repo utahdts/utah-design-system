@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import useCurrentValuesFromForm from '../../hooks/forms/useCurrentValuesFromForm';
 import RefShape from '../../propTypesShapes/RefShape';
 import ErrorMessage from './ErrorMessage';
 import RequiredStar from './RequiredStar';
@@ -75,43 +74,44 @@ function CheckBox({
   wrapperClassName,
   ...rest
 }) {
-  const {
-    currentErrorMessage,
-    currentOnChange,
-    currentOnFormKeyPress,
-    currentValue,
-  } = useFormContextInput({
-    defaultValue,
-    errorMessage,
-    id,
-    onChange,
-    onSubmit,
-    value,
-  });
-  return (
-    <div className={joinClassNames('input-wrapper input-wrapper--checkbox', wrapperClassName)}>
-      {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id} className={labelClassName ?? undefined}>
-        {label}
-        {isRequired ? <RequiredStar /> : null}
-      </label>
-      <input
-        aria-describedby={currentErrorMessage ? `${id}-error` : null}
-        checked={currentValue}
-        className={className}
-        disabled={isDisabled}
-        id={id}
-        name={name || id}
-        onChange={currentOnChange}
-        onKeyPress={currentOnFormKeyPress}
-        ref={innerRef}
-        required={isRequired}
-        type="checkbox"
-        {...rest}
-      />
-      <ErrorMessage errorMessage={currentErrorMessage} id={id} />
-    </div>
-  );
+  return <div>I am broken</div>;
+  // const {
+  //   currentErrorMessage,
+  //   currentOnChange,
+  //   currentOnFormKeyPress,
+  //   currentValue,
+  // } = useFormContextInput({
+  //   defaultValue,
+  //   errorMessage,
+  //   id,
+  //   onChange,
+  //   onSubmit,
+  //   value,
+  // });
+  // return (
+  //   <div className={joinClassNames('input-wrapper input-wrapper--checkbox', wrapperClassName)}>
+  //     {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+  //     <label htmlFor={id} className={labelClassName ?? undefined}>
+  //       {label}
+  //       {isRequired ? <RequiredStar /> : null}
+  //     </label>
+  //     <input
+  //       aria-describedby={currentErrorMessage ? `${id}-error` : null}
+  //       checked={currentValue}
+  //       className={className}
+  //       disabled={isDisabled}
+  //       id={id}
+  //       name={name || id}
+  //       onChange={currentOnChange}
+  //       onKeyPress={currentOnFormKeyPress}
+  //       ref={innerRef}
+  //       required={isRequired}
+  //       type="checkbox"
+  //       {...rest}
+  //     />
+  //     <ErrorMessage errorMessage={currentErrorMessage} id={id} />
+  //   </div>
+  // );
 }
 
 CheckBox.propTypes = propTypes;

@@ -124,6 +124,17 @@
  */
 
 /**
+ * @typedef CheckboxExamplePropsShape {
+ * @property {string} className
+ * @property {string} errorMessage
+ * @property {string} id
+ * @property {boolean} isDisabled
+ * @property {string} label
+ * @property {boolean} value
+ * }
+ */
+
+/**
  * @typedef ComboBoxExamplePropsShape {
  * @property {string} className
  * @property {string} errorMessage
@@ -153,6 +164,18 @@
  *  @property {boolean} isVisible
  *  @property {PopupPlacement} placement
  *  @property {'onClick' | 'onHover'} popupType
+ * }
+ */
+
+/**
+ * @typedef RadioButtonExamplePropsShape {
+ * @property {string} className
+ * @property {string} errorMessage
+ * @property {string} id
+ * @property {boolean} isChecked
+ * @property {boolean} isDisabled
+ * @property {boolean} isRequired
+ * @property {string} label
  * }
  */
 
@@ -242,28 +265,6 @@
  *   @property {string} offsetSkidding
  *   @property {PopupPlacement} placement
  *   @property {string} popupText
- * }
- */
-/**
- * @typedef CheckboxExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isDisabled
- * @property {string} label
- * @property {boolean} value
- * }
- */
-
-/**
- * @typedef RadioButtonExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isDisabled
- * @property {boolean} isRequired
- * @property {string} label
- * @property {boolean} value
  * }
  */
 

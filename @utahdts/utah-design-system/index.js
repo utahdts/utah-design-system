@@ -59,6 +59,7 @@ export { default as PopupMenuShape } from './react/propTypesShapes/header/PopupM
 export { default as popupPlacement } from './react/enums/popupPlacement';
 export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { RadioButton } from './react/components/forms/RadioButton';
+export { RadioButtonWrapper } from './react/components/forms/RadioButtonWrapper';
 export { default as RefShape } from './react/propTypesShapes/RefShape';
 export { default as SegmentedButton } from './react/components/buttons/SegmentedButton';
 export { default as Select } from './react/components/forms/Select';
