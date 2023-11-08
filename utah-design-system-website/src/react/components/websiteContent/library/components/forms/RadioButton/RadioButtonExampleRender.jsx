@@ -1,5 +1,5 @@
 // @ts-check
-import { RadioButton, RadioButtonWrapper } from '@utahdts/utah-design-system';
+import { RadioButton, RadioButtonGroup } from '@utahdts/utah-design-system';
 import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
@@ -18,58 +18,39 @@ export function RadioButtonExampleRender({
       className,
       errorMessage,
       id,
-      isChecked,
       isDisabled,
       isRequired,
       label,
+      value,
     },
   },
   innerRef,
 }) {
   return (
     <div ref={innerRef}>
-      <RadioButtonWrapper
+      <RadioButtonGroup
         errorMessage={errorMessage}
         isRequired={isRequired}
+        id={id}
         label="Choose your station"
-      // TODO: should radio button wrapper have an onchange to conrol its children!
-      // name belongs on the wrapper
-      // wrapper has a radio button context
-      // wrapper handles onchange
-      // wrapper coordinates the current value with the form context
-      // radio button does not have default is checked, instead wrapper has defaultvalue
-      // radio button does not have isChecked, set value through wrapper
-
-      // onChange={() => setState((draftState) => {
-      //   console.log('on change triggered');
-      //   draftState.props.isChecked = !draftState.props.isChecked;
-      // })}
-      // value="radio-button-example-render-value2"
+        onChange={(newValue) => setState((draftState) => {
+          draftState.props.value = newValue;
+        })}
+        value={value}
       >
         <RadioButton
           className={className}
-          id={id}
-          label={label}
-          isChecked={isChecked}
+          id="radio-button-example-render-id-1"
           isDisabled={isDisabled}
-          name="radio-button-example-render-name"
-          onChange={() => setState((draftState) => {
-            console.log('on change triggered');
-            draftState.props.isChecked = !draftState.props.isChecked;
-          })}
-          value="radio-button-example-render-value1"
+          label={label}
+          value="option-1"
         />
         <RadioButton
           id="radio-button-example-render-id-2"
-          isChecked={!isChecked}
           label="Option #2"
-          name="radio-button-example-render-name"
-          onChange={() => setState((draftState) => {
-            draftState.props.isChecked = false;
-          })}
-          value="radio-button-example-render-value2"
+          value="option-2"
         />
-      </RadioButtonWrapper>
+      </RadioButtonGroup>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 // @ts-check
 import {
   Form,
+  Select,
+  SelectOption,
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
@@ -25,10 +27,13 @@ export function RadioButtonExampleProps({ setState, state }) {
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
       <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
-      <Switch id="props.isDisabled" label="Disabled" width={20} />
+      <Switch id="props.isDisabled" label="Disabled Radio" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />
       <TextInput id="props.label" label="Label" className="input--height-small1x" />
-      <Switch id="props.isChecked" label="Checked" width={20} />
+      <Select id="props.value" label="Selected Value">
+        <SelectOption label={state.props.label} value="option-1" />
+        <SelectOption label="Option #2" value="option-2" />
+      </Select>
     </Form>
   );
 }

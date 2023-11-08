@@ -27,10 +27,10 @@ function RadioButtonDocumentation() {
           className: '',
           errorMessage: '',
           id: 'radio-button-example-render-id',
-          isChecked: false,
           isDisabled: false,
           isRequired: false,
-          label: 'Radio Label',
+          label: 'Option #1',
+          value: '',
         }}
         RENDER_EXAMPLE={RadioButtonExampleRender}
         PROPS_EXAMPLE={RadioButtonExampleProps}

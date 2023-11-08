@@ -231,6 +231,15 @@
 */
 
 /**
+ * @typedef RadioButtonGroupContextValue {
+ *  @property {(newValue: string) => void} onChange the onChange to call when the value changes
+ *  @property {string} name name of the radio button inputs to group them together
+ *  @property {string | null} value currently selected radio button's value
+ * }
+ */
+/** @typedef {import('use-immer').ImmerHook<RadioButtonGroupContextValue | undefined>} RadioButtonGroupContext */
+
+/**
  * @typedef ComboBoxContextValue {
  *  -- data --
  *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
@@ -257,14 +266,6 @@
  */
 
 /** @typedef {import('use-immer').ImmerHook<ComboBoxContextValue>} ComboBoxContext */
-
-/**
- * @typedef RadioButtonsContextValue {
- *  @property {EventAction} currentOnChange
- *  @property {string} currentValue
- *  @property {EventAction} currentOnFormKeyPress
- * }
- */
 
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
 export default false;
