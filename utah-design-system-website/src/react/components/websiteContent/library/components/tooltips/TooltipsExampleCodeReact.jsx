@@ -37,13 +37,13 @@ export default function TooltipsExampleCodeReact({
       <br />
       ...
       <br />
-      &lt;button
+      &lt;Button
       <br />
       &nbsp;&nbsp;className=&quot;button icon-button button--outlined&quot;
       <br />
       &nbsp;&nbsp;onClick=&#123;() =&gt; &#123; &#125;&#125;
       <br />
-      &nbsp;&nbsp;ref=&#123;referenceElement&#125;
+      &nbsp;&nbsp;innerRef=&#123;referenceElement&#125;
       <br />
       &nbsp;&nbsp;type=&quot;button&quot;
       <br />
@@ -53,7 +53,7 @@ export default function TooltipsExampleCodeReact({
       <br />
       &nbsp;&nbsp;&lt;span className=&quot;visually-hidden&quot;&gt;Gear Icon with Tooltip&lt;/span&gt;
       <br />
-      &lt;/button&gt;
+      &lt;/Button&gt;
       <br />
 
       &lt;Tooltip
@@ -70,7 +70,7 @@ export default function TooltipsExampleCodeReact({
           : null
       }
       <SandboxIndent indentLevel={1} />
-      referenceElement=&#123;referenceElement&#125;
+      referenceElement=&#123;referenceElement.current&#125;
       <br />
       &gt;
       <br />

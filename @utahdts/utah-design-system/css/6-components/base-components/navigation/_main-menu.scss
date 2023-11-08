@@ -2,6 +2,10 @@
 @use "../../../1-settings/color-swatches";
 
 #{class-vars.$base-class} {
+  &.main-menu__outer {
+    position: relative;
+    z-index: 2500;
+  }
   .main-menu {
     &__wrapper {
       background-color: var(--gray-light-color);
@@ -67,7 +71,7 @@
           &.menu-item--selected_parent + span.menu-chiclet {
             font-weight: bold;
           }
-    
+
           &.menu-item--selected + span.menu-chiclet {
             &::after {
               content: "";

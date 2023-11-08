@@ -66,7 +66,6 @@ $dsc: rgb(0,0,0);
         width: 9px;
         height: 9px;
         background: inherit;
-        z-index: -1;
         box-sizing: content-box;
       }
 
@@ -131,6 +130,14 @@ $dsc: rgb(0,0,0);
           border-bottom: 1px solid var(--gray-3-1-contrast);
           border-left: 1px solid var(--gray-3-1-contrast);
         }
+      }
+    }
+  }
+
+  .menu-item--mega-menu {
+    .popup {
+      &__content {
+        max-width: 720px;
       }
     }
   }
