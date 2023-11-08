@@ -33,6 +33,7 @@ function RadioButtonDocumentation() {
               <legend>Best Ice Cream</legend>
               <RadioButton name="ice-cream" id="vanilla" label="Vanilla" />
               <RadioButton name="ice-cream" id="chocolate" label="Chocolate" />
+              <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" />
               <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled />
             </fieldset>
           </div>
