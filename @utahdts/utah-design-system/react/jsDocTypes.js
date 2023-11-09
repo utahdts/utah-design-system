@@ -37,6 +37,13 @@
  */
 
 /**
+ * @typedef IconConfirmationButton {
+ *  @property {React.ReactNode} initial
+ *  @property {React.ReactNode} prompt
+ * }
+ */
+
+/**
  * TableSortingRuleFieldType
  * @typedef {'date' | 'number' | 'string'} TableSortingRuleFieldType
  */
