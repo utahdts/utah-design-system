@@ -4,6 +4,8 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import { ConfirmationButton, useBanner } from '@utahdts/utah-design-system';
+import { useCallback } from 'react';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
@@ -14,6 +16,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function ConfirmationButtonDocumentation() {
+  const showBanner = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Confirmation Button</h1>
@@ -36,6 +39,19 @@ function ConfirmationButtonDocumentation() {
         )}
       />
 
+      <StaticExample
+        title="Example"
+        renderedExample={(
+          <ConfirmationButton
+            appearance="solid"
+            color="primary"
+            onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
+            promptChildren="Are you sure?"
+          >
+            Delete
+          </ConfirmationButton>
+        )}
+      />
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
