@@ -5,11 +5,15 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { ConfirmationButton, useBanner } from '@utahdts/utah-design-system';
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
+import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleCodeReact';
+import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
+import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -26,7 +30,24 @@ function ConfirmationButtonDocumentation() {
 
       <hr />
 
-      <h2 id="section-example">Examples</h2>
+      <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          appearance: 'solid',
+          className: '',
+          color: 'primary',
+          id: 'button-sandbox-example-id',
+          isBusy: false,
+          isDisabled: false,
+          size: 'medium',
+          title: 'Button Title',
+          promptChildren: 'Prompt',
+          type: 'button',
+        }}
+        RENDER_EXAMPLE={ConfirmationButtonExampleRender}
+        PROPS_EXAMPLE={ConfirmationButtonExampleProps}
+        CODE_EXAMPLE={ConfirmationButtonExampleCodeReact}
+      />
       <StaticExample
         title="Confirmation Button Life Cycle"
         renderedExample={<LightBox image={confirmationButtonScreenshot} alt="Confirmation Button" className="flex-3up-gap" />}
