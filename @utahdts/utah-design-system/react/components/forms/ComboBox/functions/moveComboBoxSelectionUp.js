@@ -18,11 +18,15 @@ export function moveComboBoxSelectionUp(draftContext, textInputRef) {
         : (selectionIndex - 1)
     );
     if (currentSelectionIndex >= 0) {
-      draftContext.optionValueHighlighted = draftContext.optionsFiltered[currentSelectionIndex]?.value ?? null;
+      const newHighlightedValue = draftContext.optionsFiltered[currentSelectionIndex]?.value ?? null;
+      draftContext.optionValueHighlighted = newHighlightedValue;
+      draftContext.optionValueFocused = newHighlightedValue;
+      document.querySelector(`[value="${newHighlightedValue}"]`)?.[0]?.focus();
     } else {
       // if at top, then close the options list
       draftContext.isOptionsExpanded = false;
       draftContext.optionValueHighlighted = null;
+      draftContext.optionValueFocused = null;
       textInputRef.current?.focus();
     }
   }

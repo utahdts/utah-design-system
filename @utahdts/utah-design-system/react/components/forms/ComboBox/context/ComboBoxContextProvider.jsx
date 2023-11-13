@@ -38,9 +38,15 @@ export default function ComboBoxContextProvider({
   const { onChange: onChangeFormContext } = useFormContext();
   const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
+  const comboBoxImmerRef = useRef(/** @type {import('use-immer').ImmerHook<ComboBoxContextValue> | null} */(null));
   const onChangeFormValue = useCallback(
     /** @param {string} newValue */
     (newValue) => {
+      comboBoxImmerRef.current?.[1]((draftContext) => {
+        draftContext.optionValueSelected = newValue;
+        draftContext.filterValue = draftContext.options.find((option) => option.value === newValue)?.label || '';
+        draftContext.isFilterValueDirty = false;
+      });
       if (onChange) {
         // give parent first crack
         onChange(newValue);
@@ -76,6 +82,7 @@ export default function ComboBoxContextProvider({
     },
   });
   const setComboBoxState = comboBoxImmer[1];
+  comboBoxImmerRef.current = comboBoxImmer;
 
   // handle a controlled component changing its value
   useEffect(
@@ -83,7 +90,7 @@ export default function ComboBoxContextProvider({
       if (value !== undefined && value !== comboBoxImmer[0].optionValueSelected) {
         comboBoxImmer[1]((draftState) => {
           draftState.optionValueSelected = value;
-          draftState.filterValue = draftState.options.find((option) => option.value === value)?.label ?? '';
+          draftState.filterValue = draftState.options.find((option) => option.value === value)?.label ?? draftState.filterValue;
           draftState.isFilterValueDirty = false;
         });
       }
@@ -99,7 +106,6 @@ export default function ComboBoxContextProvider({
         filterValue,
         isFilterValueDirty,
         options,
-        optionValueHighlighted,
       } = comboBoxImmer[0];
       if (isFilterValueDirty) {
         const filterValueLowerCase = trim(filterValue).toLocaleLowerCase();
@@ -107,26 +113,8 @@ export default function ComboBoxContextProvider({
         // filter options to just ones including filterValue
         const filteredOptions = options.filter((option) => (!filterValueLowerCase || option.labelLowerCase.includes(filterValueLowerCase)));
 
-        // if there's an exact match, use its value as the new optionValueHighlighted
-        /** @type {string | null} */
-        let newOptionValueHighlighted = filteredOptions.find((option) => option.labelLowerCase === filterValueLowerCase)?.value ?? null;
-        onChangeFormValue(newOptionValueHighlighted ?? '');
-
-        // otherwise, use existing value if it is not filtered out
-        if (filterValue && !newOptionValueHighlighted) {
-          newOptionValueHighlighted = filteredOptions.find((option) => option.value === optionValueHighlighted)?.value ?? null;
-        }
-
-        // otherwise, use first possible value
-        if (filterValue && !newOptionValueHighlighted) {
-          newOptionValueHighlighted = filteredOptions[0]?.value;
-        }
-
-        // otherwise, leave with null since there are no visible options
-
         // let children know the selected filter value has changed
         setComboBoxState((draftContextValue) => {
-          draftContextValue.optionValueHighlighted = newOptionValueHighlighted;
           draftContextValue.optionsFiltered = filteredOptions;
         });
       } else {

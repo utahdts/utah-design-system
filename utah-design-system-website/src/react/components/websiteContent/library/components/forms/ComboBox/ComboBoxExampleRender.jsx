@@ -29,6 +29,7 @@ export default function ComboBoxExampleRender({
       value,
     },
   },
+  innerRef,
 }) {
   const { setState: setStateFormContext } = useFormContext();
   return (
@@ -37,6 +38,7 @@ export default function ComboBoxExampleRender({
         className={className}
         errorMessage={errorMessage}
         id={id || 'combo-box-example-render-id'}
+        innerRef={innerRef}
         isClearable={isClearable}
         isDisabled={isDisabled}
         isRequired={isRequired}

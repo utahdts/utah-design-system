@@ -1,5 +1,5 @@
 // @ts-check
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import joinClassNames from '../../../../util/joinClassNames';
 import ComboBoxOption from '../ComboBoxOption';
 import useComboBoxContext from '../context/useComboBoxContext';
@@ -21,17 +21,6 @@ export default function CombBoxListBox({
   const [{ isOptionsExpanded }] = useComboBoxContext();
   const [{ optionsFiltered }] = useComboBoxContext();
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
-
-  useEffect(
-    () => {
-      // when options open, focus on them
-      if (isOptionsExpanded) {
-        // @ts-ignore
-        ulRef.current?.firstChild?.querySelector('button')?.focus();
-      }
-    },
-    [isOptionsExpanded]
-  );
 
   return (
     <ul

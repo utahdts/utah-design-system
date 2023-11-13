@@ -8,14 +8,18 @@
  * @param {(() => void) | undefined} onSubmit
  */
 export function selectComboBoxSelection(draftContext, textInputRef, onSubmit) {
+  draftContext.optionValueFocused = null;
+
   if (draftContext.isOptionsExpanded) {
-    const selectedOption = draftContext.options.find((option) => option.value === draftContext.optionValueHighlighted);
+    const selectedOption = draftContext.options.find(
+      (option) => option.value === (draftContext.optionValueHighlighted ?? draftContext.optionValueSelected)
+    );
+
     // select currently highlighted menu item
     draftContext.filterValue = selectedOption?.label ?? '';
     draftContext.isFilterValueDirty = false;
     draftContext.isOptionsExpanded = false;
     draftContext.optionValueSelected = selectedOption?.value ?? null;
-    draftContext.optionValueFocused = null;
 
     if (selectedOption) {
       const selectedOptionLabel = selectedOption.label;

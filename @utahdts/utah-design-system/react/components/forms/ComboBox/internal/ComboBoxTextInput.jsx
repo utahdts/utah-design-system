@@ -48,6 +48,7 @@ export default function ComboBoxTextInput({
       isOptionsExpanded,
       onChange,
       options,
+      optionsFiltered,
       optionValueHighlighted,
       optionValueSelected,
     },
@@ -59,13 +60,13 @@ export default function ComboBoxTextInput({
     'Enter',
     useCallback(
       () => {
-        const selectedOption = options.find((option) => option.value === optionValueHighlighted);
+        const selectedOption = options.find((option) => option.value === optionValueHighlighted) ?? optionsFiltered[0];
         if (selectedOption) {
           onChange(selectedOption.value);
         }
         setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, textInputRef, onSubmit ?? onSubmitFormContext));
       },
-      [setComboBoxContext, onChange, onSubmit, onSubmitFormContext, options, optionValueHighlighted, textInputRef]
+      [options, optionsFiltered, setComboBoxContext, optionValueHighlighted, onChange, textInputRef, onSubmit, onSubmitFormContext]
     )
   );
   const onCancelKeyPress = useOnKeyUp('Escape', useCallback(() => isClearable && setComboBoxContext(clearComboBoxSelection), [isClearable, setComboBoxContext]));
@@ -93,11 +94,11 @@ export default function ComboBoxTextInput({
                   const selectedOption = options.find((option) => option.value === optionValueSelected);
                   draftContext.filterValue = selectedOption?.label ?? '';
                   draftContext.isFilterValueDirty = false;
-                  draftContext.isOptionsExpanded = !!draftContext.optionValueFocused;
+                  draftContext.isOptionsExpanded = false;
                 }
               });
             },
-            0
+            1
           );
         }}
         onChange={(e) => {

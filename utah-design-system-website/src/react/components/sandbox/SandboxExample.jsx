@@ -8,7 +8,7 @@ import {
   TabPanels,
   joinClassNames,
 } from '@utahdts/utah-design-system';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
 import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
 import PreCode from '../preCode/PreCode';
@@ -47,6 +47,21 @@ export default function SandboxExample({
 }) {
   const [state, setState] = useImmer({ props: defaultProps });
   const renderedRef = /** @type {typeof useRef<any>} */ (useRef)(null);
+  const [forceUpdateValue, forceUpdate] = useState(0);
+
+  useEffect(
+    () => {
+      // ComboBox loads its options after rendering so rendering the HTML tab does not show the options
+      const timeoutId = setTimeout(
+        () => {
+          forceUpdate((prevValue) => prevValue + 1);
+        },
+        0
+      );
+      return () => clearTimeout(timeoutId);
+    },
+    []
+  );
 
   return (
     <div className={joinClassNames('sandbox-example', className)}>
@@ -67,7 +82,7 @@ export default function SandboxExample({
           </TabList>
           <TabPanels>
             <TabPanel tabId={sandboxCodeTypeEnum.HTML}>
-              <PreCodeForRef targetRef={renderedRef} deps={[state.props]} allowScrollOverflow addHorizontalPadding maxHeight="60vh" />
+              <PreCodeForRef targetRef={renderedRef} deps={[state.props, forceUpdateValue]} allowScrollOverflow addHorizontalPadding maxHeight="60vh" />
             </TabPanel>
             <TabPanel tabId={sandboxCodeTypeEnum.REACT} className="px-spacing pb-spacing">
               <PreCode>

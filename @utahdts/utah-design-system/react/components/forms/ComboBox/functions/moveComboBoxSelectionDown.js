@@ -18,6 +18,7 @@ export function moveComboBoxSelectionDown(draftContext) {
     );
     const nextIndex = currentSelectionIndex % draftContext.optionsFiltered.length;
     draftContext.optionValueHighlighted = draftContext.optionsFiltered[nextIndex]?.value ?? null;
+    draftContext.optionValueFocused = draftContext.optionsFiltered[nextIndex]?.value ?? null;
 
     // open options after pressing down
     draftContext.isOptionsExpanded = true;

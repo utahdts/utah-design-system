@@ -1,5 +1,4 @@
 // @ts-check
-import { identity } from 'lodash';
 import React, { useCallback, useEffect, useRef } from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import useOnKeyUp from '../../../util/useOnKeyUp';
@@ -25,10 +24,12 @@ export default function ComboBoxOption({
   label,
   value,
 }) {
+  const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const [
     {
       onChange,
       optionsFiltered,
+      optionValueFocused,
       optionValueHighlighted,
       optionValueSelected,
       registerOption,
@@ -57,9 +58,9 @@ export default function ComboBoxOption({
     useCallback(
       () => setComboBoxContext((draftCombBoxContext) => {
         draftCombBoxContext.isOptionsExpanded = false;
-        textInputRef.current?.focus();
+        draftCombBoxContext.optionValueFocused = null;
       }),
-      [setComboBoxContext, textInputRef]
+      [setComboBoxContext]
     )
   );
   const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]), true);
@@ -80,14 +81,20 @@ export default function ComboBoxOption({
     [registerOption, unregisterOption, value, label, isStatic]
   );
 
-  const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
+  // handle focusing
   useEffect(
     () => {
-      if (optionValueHighlighted === value) {
-        buttonRef.current?.focus();
+      if (optionValueFocused === value) {
+        if (buttonRef.current !== document.activeElement) {
+          // this is the currently focused value! focus it!
+          buttonRef.current?.focus();
+        }
+      } else if (buttonRef.current === document.activeElement) {
+        // not the current item, but is focused, so blur it
+        buttonRef.current?.blur();
       }
     },
-    [optionValueHighlighted, value]
+    [optionValueFocused, value]
   );
 
   return (
@@ -126,6 +133,7 @@ export default function ComboBoxOption({
             onBlur={() => setComboBoxContext((draftContext) => {
               if (draftContext.optionValueFocused === value) {
                 draftContext.optionValueFocused = null;
+                draftContext.isOptionsExpanded = false;
               }
             })}
             onFocus={() => setComboBoxContext((draftContext) => {
@@ -141,27 +149,11 @@ export default function ComboBoxOption({
               }
             }
             onKeyUp={(e) => {
-              if (![
-                onEnterKeyPress(e),
-                onCancelKeyPress(e),
-                onUpArrowPress(e),
-                onDownArrowPress(e),
-              ].some(identity)) {
-                if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
-                  setComboBoxContext((draftContext) => {
-                    if (draftContext.filterValue) {
-                      // if key wasn't one of the others, expand the options
-                      draftContext.isOptionsExpanded = true;
-                    } else {
-                      draftContext.isFilterValueDirty = false;
-                    }
-                  });
-                }
-              }
+              onEnterKeyPress(e);
+              onCancelKeyPress(e);
+              onUpArrowPress(e);
+              onDownArrowPress(e);
             }}
-            onMouseOver={() => setComboBoxContext((draftContext) => {
-              draftContext.optionValueHighlighted = value;
-            })}
             // https://stackoverflow.com/questions/17769005/onclick-and-onblur-ordering-issue
             onMouseDown={(e) => e.preventDefault()}
             innerRef={buttonRef}
@@ -174,6 +166,5 @@ export default function ComboBoxOption({
         </li>
       )
       : null
-
   );
 }

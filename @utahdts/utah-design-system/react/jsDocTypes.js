@@ -246,7 +246,7 @@
  *  @property {boolean} isFilterValueDirty when filter is changed it becomes dirty
  *  @property {boolean} isOptionsExpanded is the options list visible/expanded
  *  @property {string | null} optionValueFocused which option currently has focus; useful for handling text input on blur
- *  @property {string | null} optionValueHighlighted the option matching the filter or user has hovered/arrowed
+ *  @property {string | null} optionValueHighlighted the option matching the filter or user has arrowed
  *  @property {string | null} optionValueSelected which option is chosen by user
  *
  *  -- options --

@@ -29,7 +29,7 @@ function ComboBoxDocumentation() {
         defaultProps={{
           className: '',
           errorMessage: '',
-          id: '',
+          id: 'combo-box-example-id',
           isClearable: false,
           isDisabled: false,
           label: 'ComboBox Label',
