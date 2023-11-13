@@ -1,6 +1,11 @@
 // @ts-check
 import trim from 'lodash/trim';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 import { useImmer } from 'use-immer';
 import useFormContext from '../../FormContext/useFormContext';
 import ComboBoxContext from './ComboBoxContext';
@@ -33,10 +38,26 @@ export default function ComboBoxContextProvider({
   const { onChange: onChangeFormContext } = useFormContext();
   const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
+  const onChangeFormValue = useCallback(
+    /** @param {string} newValue */
+    (newValue) => {
+      if (onChange) {
+        // give parent first crack
+        onChange(newValue);
+      } else {
+        // let the form context know about the change, if there is a form context
+        onChangeFormContext?.({ fieldPath: comboBoxId, value: newValue });
+      }
+    },
+    [comboBoxId, onChange, onChangeFormContext]
+  );
+
   const comboBoxImmer = /** @type {typeof useImmer<ComboBoxContextValue>} */ (useImmer)({
     filterValue: '',
+    optionValueFocused: null,
     isFilterValueDirty: false,
     isOptionsExpanded: false,
+    onChange: onChangeFormValue,
     onClear,
     onSubmit,
     options: [],
@@ -48,7 +69,6 @@ export default function ComboBoxContextProvider({
     },
     optionValueHighlighted: null,
     optionValueSelected: defaultValue ?? value ?? null,
-    textInputRef,
     unregisterOption: (optionValue) => {
       comboBoxImmer[1]((draftContext) => {
         draftContext.options = draftContext.options.filter((option) => option.value !== optionValue);
@@ -70,20 +90,6 @@ export default function ComboBoxContextProvider({
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [value]
-  );
-
-  const onChangeFormValue = useCallback(
-    /** @param {string} newValue */
-    (newValue) => {
-      if (onChange) {
-        // give parent first crack
-        onChange(newValue);
-      } else {
-        // let the form context know about the change, if there is a form context
-        onChangeFormContext?.({ fieldPath: comboBoxId, value: newValue });
-      }
-    },
-    [comboBoxId, onChange, onChangeFormContext]
   );
 
   // handle options or filterValue changes
@@ -134,8 +140,17 @@ export default function ComboBoxContextProvider({
     [comboBoxImmer[0].filterValue, comboBoxImmer[0].options, setComboBoxState]
   );
 
+  /** @type {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<HTMLInputElement | null>]} */
+  const providerValue = useMemo(
+    () => [
+      ...comboBoxImmer,
+      textInputRef,
+    ],
+    [comboBoxImmer]
+  );
+
   return (
-    <ComboBoxContext.Provider value={comboBoxImmer}>
+    <ComboBoxContext.Provider value={providerValue}>
       {children}
     </ComboBoxContext.Provider>
   );

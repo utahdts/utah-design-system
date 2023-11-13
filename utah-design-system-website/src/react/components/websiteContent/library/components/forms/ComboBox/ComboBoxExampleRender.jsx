@@ -1,7 +1,8 @@
 // @ts-check
 import {
   ComboBox,
-  ComboBoxOption
+  ComboBoxOption,
+  useFormContext
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
@@ -29,6 +30,7 @@ export default function ComboBoxExampleRender({
     },
   },
 }) {
+  const { setState: setStateFormContext } = useFormContext();
   return (
     <div style={{ width: '80%' }}>
       <ComboBox
@@ -41,6 +43,9 @@ export default function ComboBoxExampleRender({
         label={label ?? ''}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;
+          setStateFormContext?.((draftStateFormContext) => {
+            draftStateFormContext['props.value'] = newValue;
+          });
         })}
         value={value}
       >

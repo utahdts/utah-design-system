@@ -4,16 +4,33 @@
 
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
+ * @param {import('react').MutableRefObject<HTMLInputElement | null>} textInputRef
  * @param {(() => void) | undefined} onSubmit
  */
-export function selectComboBoxSelection(draftContext, onSubmit) {
+export function selectComboBoxSelection(draftContext, textInputRef, onSubmit) {
   if (draftContext.isOptionsExpanded) {
+    const selectedOption = draftContext.options.find((option) => option.value === draftContext.optionValueHighlighted);
     // select currently highlighted menu item
-    draftContext.filterValue = draftContext.optionValueHighlighted ?? '';
+    draftContext.filterValue = selectedOption?.label ?? '';
     draftContext.isFilterValueDirty = false;
     draftContext.isOptionsExpanded = false;
-    draftContext.optionValueSelected = draftContext.optionValueHighlighted;
+    draftContext.optionValueSelected = selectedOption?.value ?? null;
+    draftContext.optionValueFocused = null;
+
+    if (selectedOption) {
+      const selectedOptionLabel = selectedOption.label;
+      setTimeout(
+        () => {
+          // move cursor to end after clicking an option so it can be edited
+          // take the update of the selection out of the loop so the state updates before it moves the cursor
+          textInputRef.current?.setSelectionRange(selectedOptionLabel.length, selectedOptionLabel.length);
+          textInputRef.current?.focus();
+        },
+        0
+      );
+    }
   } else {
+    textInputRef.current?.focus();
     onSubmit?.();
   }
 }

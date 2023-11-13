@@ -46,22 +46,30 @@ export default function ComboBoxTextInput({
     {
       filterValue,
       isOptionsExpanded,
+      onChange,
       options,
+      optionValueHighlighted,
       optionValueSelected,
-      textInputRef,
     },
     setComboBoxContext,
+    textInputRef,
   ] = useComboBoxContext();
 
   const onEnterKeyPress = useOnKeyUp(
     'Enter',
     useCallback(
-      () => setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, onSubmit ?? onSubmitFormContext)),
-      [setComboBoxContext, onSubmit, onSubmitFormContext]
+      () => {
+        const selectedOption = options.find((option) => option.value === optionValueHighlighted);
+        if (selectedOption) {
+          onChange(selectedOption.value);
+        }
+        setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, textInputRef, onSubmit ?? onSubmitFormContext));
+      },
+      [setComboBoxContext, onChange, onSubmit, onSubmitFormContext, options, optionValueHighlighted, textInputRef]
     )
   );
   const onCancelKeyPress = useOnKeyUp('Escape', useCallback(() => isClearable && setComboBoxContext(clearComboBoxSelection), [isClearable, setComboBoxContext]));
-  const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext(moveComboBoxSelectionUp), [setComboBoxContext]));
+  const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]));
   const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
 
   return (
@@ -71,21 +79,26 @@ export default function ComboBoxTextInput({
         aria-controls={comboBoxListId}
         aria-expanded={isOptionsExpanded}
         id={id}
-        innerRef={(ref) => setComboBoxContext((draftContext) => {
-          draftContext.textInputRef = ref;
-        })}
+        innerRef={(ref) => { textInputRef.current = ref?.querySelector('input'); }}
         isClearable={isClearable}
         isDisabled={isDisabled}
         errorMessage={errorMessage}
         // @ts-ignore
         onBlur={() => {
-          const selectedOption = options.find((option) => option.value === optionValueSelected);
-          setComboBoxContext((draftContext) => {
-            // TODO: set to label not value
-            draftContext.filterValue = selectedOption?.label ?? '';
-            draftContext.isFilterValueDirty = false;
-            draftContext.isOptionsExpanded = false;
-          });
+          // wait for combo box option to register that it has focus
+          setTimeout(
+            () => {
+              setComboBoxContext((draftContext) => {
+                if (!draftContext.optionValueFocused) {
+                  const selectedOption = options.find((option) => option.value === optionValueSelected);
+                  draftContext.filterValue = selectedOption?.label ?? '';
+                  draftContext.isFilterValueDirty = false;
+                  draftContext.isOptionsExpanded = !!draftContext.optionValueFocused;
+                }
+              });
+            },
+            0
+          );
         }}
         onChange={(e) => {
           setComboBoxContext((draftContext) => {
@@ -122,7 +135,7 @@ export default function ComboBoxTextInput({
             onUpArrowPress(e),
             onDownArrowPress(e),
           ].some(identity)) {
-            if (!['Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
+            if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
               setComboBoxContext((draftContext) => {
                 if (draftContext.filterValue) {
                   // if key wasn't one of the others, expand the options

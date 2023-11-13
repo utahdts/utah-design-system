@@ -245,17 +245,16 @@
  *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
  *  @property {boolean} isFilterValueDirty when filter is changed it becomes dirty
  *  @property {boolean} isOptionsExpanded is the options list visible/expanded
+ *  @property {string | null} optionValueFocused which option currently has focus; useful for handling text input on blur
  *  @property {string | null} optionValueHighlighted the option matching the filter or user has hovered/arrowed
  *  @property {string | null} optionValueSelected which option is chosen by user
- *
- *  -- elements --
- *  @property {import('react').MutableRefObject<HTMLInputElement | null>} textInputRef
  *
  *  -- options --
  *  @property {ComboBoxOption[]} options the known options
  *  @property {ComboBoxOption[]} optionsFiltered the options filtered by the filterValue
  *
  *  -- events --
+ *  @property {(newValue: string) => void} onChange
  *  @property {() => void} [onClear]
  *  @property {() => void} [onSubmit]
  *
@@ -265,7 +264,7 @@
  * }
  */
 
-/** @typedef {import('use-immer').ImmerHook<ComboBoxContextValue>} ComboBoxContext */
+/** @typedef {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<HTMLInputElement | null>]} ComboBoxContext */
 
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
 export default false;

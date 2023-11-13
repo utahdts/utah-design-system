@@ -4,8 +4,9 @@
 
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
+ * @param {import('react').MutableRefObject<HTMLInputElement | null>} textInputRef
  */
-export function moveComboBoxSelectionUp(draftContext) {
+export function moveComboBoxSelectionUp(draftContext, textInputRef) {
   if (draftContext.isOptionsExpanded) {
     // get index of currently selected item in the filtered items list
     const selectionIndex = draftContext.optionsFiltered.findIndex(
@@ -22,6 +23,7 @@ export function moveComboBoxSelectionUp(draftContext) {
       // if at top, then close the options list
       draftContext.isOptionsExpanded = false;
       draftContext.optionValueHighlighted = null;
+      textInputRef.current?.focus();
     }
   }
 }
