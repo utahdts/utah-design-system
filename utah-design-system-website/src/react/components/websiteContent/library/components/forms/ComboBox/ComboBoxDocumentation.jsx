@@ -1,8 +1,12 @@
 // @ts-check
 /* eslint-disable max-len */
-import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
+// @ts-ignore
+// eslint-disable-next-line import/order
+import comboBoxScreenshot from '../../../../../../../static/images/screenshots/components/combo-box/combo-box.jpg';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LightBox from '../../../../../lightbox/LightBox';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -22,7 +26,10 @@ function ComboBoxDocumentation() {
         A combo box helps users select a single item from a large list of options using an active search feature.
         A multi-select allows users to search on and select multiple items, while a single-select lets users choose a single item.
       </p>
-
+      <div className="home-page__color-card home-page__card-wide mb-spacing-l">
+        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Under Development</h3>
+        <p>The Combobox is currently under development. Things may not look right until this work is completed.</p>
+      </div>
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
@@ -42,19 +49,20 @@ function ComboBoxDocumentation() {
       />
       <StaticExample
         title="ComboBox Example"
-        renderedExample={(
-          <ComboBox id="combo-box-documentation-static-example" label="Choose the best wild animal">
-            <ComboBoxOptionGroup isLabelHidden>
-              <ComboBoxOption label="Antelope" value="antelope">Antelope</ComboBoxOption>
-              <ComboBoxOption label="Black Bear" value="black-bear">Black Bear</ComboBoxOption>
-              <ComboBoxOption label="Golden Eagle" value="golden-eagle">Golden Eagle</ComboBoxOption>
-              <ComboBoxOption label="Elk" value="elk">Elk</ComboBoxOption>
-              <ComboBoxOption label="Moose" value="moose">Moose</ComboBoxOption>
-              <ComboBoxOption label="Mountain Lion" value="mountain-lion">Mountain Lion</ComboBoxOption>
-              <ComboBoxOption label="Red Tailed Hawk" value="red-tailed-hawk">Red Tailed Hawk</ComboBoxOption>
-            </ComboBoxOptionGroup>
-          </ComboBox>
-        )}
+        renderedExample={<LightBox image={comboBoxScreenshot} alt="Combo Box" className="flex-3up-gap" />}
+        // renderedExample={(
+        //   <ComboBox id="combo-box-documentation-static-example" label="Choose the best wild animal">
+        //     <ComboBoxOptionGroup isLabelHidden>
+        //       <ComboBoxOption label="Antelope" value="antelope">Antelope</ComboBoxOption>
+        //       <ComboBoxOption label="Black Bear" value="black-bear">Black Bear</ComboBoxOption>
+        //       <ComboBoxOption label="Golden Eagle" value="golden-eagle">Golden Eagle</ComboBoxOption>
+        //       <ComboBoxOption label="Elk" value="elk">Elk</ComboBoxOption>
+        //       <ComboBoxOption label="Moose" value="moose">Moose</ComboBoxOption>
+        //       <ComboBoxOption label="Mountain Lion" value="mountain-lion">Mountain Lion</ComboBoxOption>
+        //       <ComboBoxOption label="Red Tailed Hawk" value="red-tailed-hawk">Red Tailed Hawk</ComboBoxOption>
+        //     </ComboBoxOptionGroup>
+        //   </ComboBox>
+        // )}
         quickTips={(
           <ul>
             <li>A combo box allows the user to select from a list of options.</li>
