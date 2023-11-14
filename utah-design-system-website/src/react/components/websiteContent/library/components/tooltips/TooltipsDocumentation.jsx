@@ -1,12 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
-// @ts-ignore
-// eslint-disable-next-line import/order
-
-import { ICON_BUTTON_APPEARANCE, IconButton } from '@utahdts/utah-design-system';
+import { ICON_BUTTON_APPEARANCE, IconButton, popupPlacement } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
@@ -28,6 +22,13 @@ function TooltipsDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          isPopperVisible: false,
+          offsetDistance: '0',
+          offsetSkidding: '5',
+          placement: popupPlacement.BOTTOM,
+          popupText: 'Now you see me',
+        }}
         RENDER_EXAMPLE={TooltipsExampleRender}
         PROPS_EXAMPLE={TooltipsExampleProps}
         CODE_EXAMPLE={TooltipsExampleCodeReact}

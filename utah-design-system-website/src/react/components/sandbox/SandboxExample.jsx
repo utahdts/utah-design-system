@@ -8,27 +8,11 @@ import {
   TabPanels,
   joinClassNames,
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
 import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
 import PreCode from '../preCode/PreCode';
 import PreCodeForRef from '../preCode/PreCodeForRef';
-
-const propTypes = {
-  // these use SCREAMING_SNAKE_CASE so that they are identifiable as component variable names and not the real component names
-  CODE_EXAMPLE: PropTypes.func.isRequired,
-  PROPS_EXAMPLE: PropTypes.func.isRequired,
-  RENDER_EXAMPLE: PropTypes.func.isRequired,
-  className: PropTypes.string,
-  componentClassName: PropTypes.string,
-  propsInputsClassName: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  componentClassName: null,
-  propsInputsClassName: null,
-};
 
 /**
  * @template UpdaterPropsT
@@ -36,7 +20,7 @@ const defaultProps = {
 */
 /**
  * @template FCT
- * @typedef {React.FC<{state: Object, setState?: UpdaterProps<FCT>, innerRef?: React.RefObject<any>}>} ReactFCStater
+ * @typedef {React.FC<{state: Object, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
  */
 
 /**
@@ -45,24 +29,39 @@ const defaultProps = {
  * @param {ReactFCStater<SandboxExamplePropsT>} props.CODE_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.PROPS_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.RENDER_EXAMPLE
- * @param {string} props.className
- * @param {string} props.componentClassName
- * @param {string} props.propsInputsClassName
+ * @param {string} [props.className]
+ * @param {SandboxExamplePropsT} props.defaultProps
+ * @param {string} [props.componentClassName]
+ * @param {string} [props.propsInputsClassName]
  *
  * @returns {JSX.Element}
  */
-function SandboxExample({
+export default function SandboxExample({
   CODE_EXAMPLE,
   PROPS_EXAMPLE,
   RENDER_EXAMPLE,
   className,
+  defaultProps,
   componentClassName,
   propsInputsClassName,
 }) {
-  const [state, setState] = useImmer({
-    props: /** @type {SandboxExamplePropsT} */ ({}),
-  });
+  const [state, setState] = useImmer({ props: defaultProps });
   const renderedRef = /** @type {typeof useRef<any>} */ (useRef)(null);
+  const [forceUpdateValue, forceUpdate] = useState(0);
+
+  useEffect(
+    () => {
+      // ComboBox loads its options after rendering so rendering the HTML tab does not show the options
+      const timeoutId = setTimeout(
+        () => {
+          forceUpdate((prevValue) => prevValue + 1);
+        },
+        0
+      );
+      return () => clearTimeout(timeoutId);
+    },
+    []
+  );
 
   return (
     <div className={joinClassNames('sandbox-example', className)}>
@@ -71,8 +70,7 @@ function SandboxExample({
           <RENDER_EXAMPLE state={state} setState={setState} innerRef={renderedRef} />
         </div>
         <div className={joinClassNames('sandbox-example__props-inputs', propsInputsClassName)}>
-          <PROPS_EXAMPLE state={state} setState={setState} />
-
+          <PROPS_EXAMPLE state={state} setState={setState} innerRef={renderedRef} />
         </div>
       </div>
       <div className="sandbox-example__bottom">
@@ -84,11 +82,11 @@ function SandboxExample({
           </TabList>
           <TabPanels>
             <TabPanel tabId={sandboxCodeTypeEnum.HTML}>
-              <PreCodeForRef targetRef={renderedRef} deps={[state.props]} allowScrollOverflow addHorizontalPadding maxHeight="60vh" />
+              <PreCodeForRef targetRef={renderedRef} deps={[state.props, forceUpdateValue]} allowScrollOverflow addHorizontalPadding maxHeight="60vh" />
             </TabPanel>
             <TabPanel tabId={sandboxCodeTypeEnum.REACT} className="px-spacing pb-spacing">
               <PreCode>
-                <CODE_EXAMPLE state={state} />
+                <CODE_EXAMPLE setState={setState} state={state} innerRef={renderedRef} />
               </PreCode>
             </TabPanel>
           </TabPanels>
@@ -97,8 +95,3 @@ function SandboxExample({
     </div>
   );
 }
-
-SandboxExample.propTypes = propTypes;
-SandboxExample.defaultProps = defaultProps;
-
-export default SandboxExample;

@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Table,
   TableBody,
@@ -10,7 +11,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-function ButtonCssClassesDocumentation() {
+export default function ButtonCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x">
@@ -80,5 +81,3 @@ function ButtonCssClassesDocumentation() {
     </TableWrapper>
   );
 }
-
-export default ButtonCssClassesDocumentation;

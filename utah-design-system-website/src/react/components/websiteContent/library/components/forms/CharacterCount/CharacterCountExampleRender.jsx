@@ -1,21 +1,18 @@
 // @ts-check
-import { CharacterCount, RefShape, TextArea } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+import { CharacterCount, TextArea } from '@utahdts/utah-design-system';
 import React from 'react';
-import CharacterCountExamplePropsShape from '../../../../../../propTypesShapes/CharacterCountExamplePropsShape';
 
-const propTypes = {
-  innerRef: RefShape,
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: CharacterCountExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../typedefs.d').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
-function CharacterCountExampleRender({
+/**
+ * @param {Object} props
+ * @param {React.RefObject} props.innerRef
+ * @param {import('use-immer').Updater<{props: CharacterCountExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {CharacterCountExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function CharacterCountExampleRender({
   setState,
   state: {
     props: {
@@ -47,8 +44,3 @@ function CharacterCountExampleRender({
     </div>
   );
 }
-
-CharacterCountExampleRender.propTypes = propTypes;
-CharacterCountExampleRender.defaultProps = defaultProps;
-
-export default CharacterCountExampleRender;

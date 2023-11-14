@@ -1,9 +1,7 @@
 // @ts-check
 import identity from 'lodash/identity';
 import uniq from 'lodash/uniq';
-import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
 import chainSorters from '../../util/chainSorters';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
@@ -12,47 +10,27 @@ import useTableContext from './hooks/useTableContext';
 import useTableFilterRegistration from './hooks/useTableFilterRegistration';
 import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
 
-const propTypes = {
-  className: PropTypes.string,
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  exactMatch: PropTypes.bool,
-  id: PropTypes.string,
-  innerRef: RefShape,
-  onChange: PropTypes.func,
-  recordFieldPath: PropTypes.string.isRequired,
-  value: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  defaultValue: null,
-  exactMatch: true,
-  id: null,
-  innerRef: null,
-  onChange: null,
-  value: null,
-};
-
 /**
  * @param {Object} props
- * @param {string | null} [props.className]
- * @param {string | number | null} [props.defaultValue]
- * @param {boolean | null} [props.exactMatch]
- * @param {string | null} [props.id]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {(() => {}) | null} [props.onChange]
+ * @param {string} [props.className]
+ * @param {string | number} [props.defaultValue]
+ * @param {boolean} [props.exactMatch]
+ * @param {string} [props.id]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {(() => {})} [props.onChange]
  * @param {string} props.recordFieldPath
- * @param {string | null} [props.value]
+ * @param {string} [props.value]
  * @returns {JSX.Element}
  */
-function TableFilterSelectAllOptions({
-  className = null,
-  defaultValue = null,
-  exactMatch = null,
-  id = null,
-  innerRef = null,
-  onChange = null,
+export default function TableFilterSelectAllOptions({
+  className,
+  defaultValue,
+  exactMatch,
+  id,
+  innerRef,
+  onChange,
   recordFieldPath,
-  value = null,
+  value,
   ...rest
 }) {
   const {
@@ -123,8 +101,3 @@ function TableFilterSelectAllOptions({
     </th>
   );
 }
-
-TableFilterSelectAllOptions.propTypes = propTypes;
-TableFilterSelectAllOptions.defaultProps = defaultProps;
-
-export default TableFilterSelectAllOptions;

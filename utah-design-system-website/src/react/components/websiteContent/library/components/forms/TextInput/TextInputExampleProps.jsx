@@ -1,23 +1,12 @@
 // @ts-check
-/* eslint-disable no-param-reassign */
 import {
   Form,
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import TextInputExamplePropsShape from '../../../../../../propTypesShapes/TextInputExamplePropsShape';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').TextInputExamplePropsShape} TextInputExamplePropsShape */
-
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: TextInputExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -26,25 +15,7 @@ const defaultProps = {};
  * @param {TextInputExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function TextInputExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.className = '';
-        draftState.props.errorMessage = '';
-        draftState.props.id = '';
-        draftState.props.isClearable = false;
-        draftState.props.isDisabled = false;
-        draftState.props.label = '';
-        draftState.props.placeholder = '';
-        draftState.props.isRequired = false;
-        draftState.props.value = '';
-      });
-    },
-    [setState]
-  );
-
+export default function TextInputExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -63,8 +34,3 @@ function TextInputExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-TextInputExampleProps.propTypes = propTypes;
-TextInputExampleProps.defaultProps = defaultProps;
-
-export default TextInputExampleProps;

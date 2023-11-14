@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Icons,
   Switch,
@@ -13,22 +10,18 @@ import {
   TabPanels,
   formElementSizesEnum,
 } from '@utahdts/utah-design-system';
-import { Link } from 'react-router-dom';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
+import SwitchCssClassesDocumentation from './SwitchCssClassesDocumentation';
 import SwitchExampleCodeReact from './SwitchExampleCodeReact';
 import SwitchExampleProps from './SwitchExampleProps';
 import SwitchExampleRender from './SwitchExampleRender';
 import SwitchPropsDocumentation from './SwitchPropsDocumentation';
-import SwitchCssClassesDocumentation from './SwitchCssClassesDocumentation';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function SwitchDocumentation() {
+export default function SwitchDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Switch</h1>
@@ -39,6 +32,19 @@ function SwitchDocumentation() {
       <hr />
       <h2 id="example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          errorMessage: '',
+          icon: 'none',
+          id: 'switch-example-render-id',
+          isDisabled: false,
+          label: 'Switch Label',
+          labelOff: 'Label Off',
+          labelOn: 'Label On',
+          size: /** @type {string} */ (formElementSizesEnum.MEDIUM),
+          value: true,
+          width: '80',
+        }}
         CODE_EXAMPLE={SwitchExampleCodeReact}
         PROPS_EXAMPLE={SwitchExampleProps}
         RENDER_EXAMPLE={SwitchExampleRender}
@@ -76,17 +82,20 @@ function SwitchDocumentation() {
               errorMessage="You must comply!"
               label="Small"
               id="switch-small"
+              // @ts-ignore
               size={formElementSizesEnum.SMALL}
               width={20}
             />
             <Switch
               label="Medium"
               id="switch-medium"
+              // @ts-ignore
               size={formElementSizesEnum.MEDIUM}
             />
             <Switch
               label="Large"
               id="switch-large"
+              // @ts-ignore
               size={formElementSizesEnum.LARGE}
               width={30}
               defaultValue
@@ -124,7 +133,7 @@ function SwitchDocumentation() {
             <Switch
               label="On"
               id="switch-disabled-on"
-              value
+              defaultValue
               labelOn="on"
               isDisabled
               width={35}
@@ -132,7 +141,7 @@ function SwitchDocumentation() {
             <Switch
               label="Off"
               id="switch-disabled-off"
-              value={false}
+              defaultValue={false}
               labelOff="off"
               isDisabled
               width={35}
@@ -262,8 +271,3 @@ function SwitchDocumentation() {
     </div>
   );
 }
-
-SwitchDocumentation.propTypes = propTypes;
-SwitchDocumentation.defaultProps = defaultProps;
-
-export default SwitchDocumentation;

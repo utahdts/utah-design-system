@@ -1,21 +1,19 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import { Link } from 'react-router-dom';
 import {
   CharacterCount,
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
 } from '@utahdts/utah-design-system';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import CharacterCountCssClassesDocumentation from './CharacterCountCssClassesDocumentation';
-import CharacterCountPropsDocumentation from './CharacterCountPropsDocumentation';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import CharacterCountExampleRender from './CharacterCountExampleRender';
-import CharacterCountExampleProps from './CharacterCountExampleProps';
 import CharacterCountExampleCodeReact from './CharacterCountExampleCodeReact';
+import CharacterCountExampleProps from './CharacterCountExampleProps';
+import CharacterCountExampleRender from './CharacterCountExampleRender';
+import CharacterCountPropsDocumentation from './CharacterCountPropsDocumentation';
 
 const propTypes = {};
 const defaultProps = {};
@@ -30,6 +28,12 @@ function CharacterCountDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          className: '',
+          id: 'counter-id',
+          maxLength: '50',
+          text: '',
+        }}
         RENDER_EXAMPLE={CharacterCountExampleRender}
         PROPS_EXAMPLE={CharacterCountExampleProps}
         CODE_EXAMPLE={CharacterCountExampleCodeReact}
@@ -41,7 +45,6 @@ function CharacterCountDocumentation() {
             <TextArea
               id="character-count--example"
               label="Character Count"
-              maxLength={250}
               value="In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!"
               wrapperClassName="input-wrapper--mb-zero"
             />
@@ -53,7 +56,6 @@ function CharacterCountDocumentation() {
             <TextArea
               id="character-count-limit--example"
               label="Character Count Limit"
-              maxLength={25}
               value="Is this over the character limit?"
               wrapperClassName="input-wrapper--mb-zero"
             />

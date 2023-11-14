@@ -1,17 +1,16 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
-import TextAreaExamplePropsShape from '../../../../../../propTypesShapes/TextAreaExamplePropsShape';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: TextAreaExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 
-function TextAreaExampleCodeReact({
+/**
+ * @param {Object} props
+ * @param {Object} props.state
+ * @param {TextAreaExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function TextAreaExampleCodeReact({
   state: {
     props: {
       className,
@@ -46,8 +45,3 @@ function TextAreaExampleCodeReact({
     </>
   );
 }
-
-TextAreaExampleCodeReact.propTypes = propTypes;
-TextAreaExampleCodeReact.defaultProps = defaultProps;
-
-export default TextAreaExampleCodeReact;

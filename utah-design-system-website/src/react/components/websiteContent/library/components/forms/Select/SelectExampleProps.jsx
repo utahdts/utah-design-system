@@ -6,19 +6,9 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import SelectExamplePropsShape from '../../../../../../propTypesShapes/SelectExamplePropsShape';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').SelectExamplePropsShape} SelectExamplePropsShape */
-
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: SelectExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -27,24 +17,7 @@ const defaultProps = {};
  * @param {SelectExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function SelectExampleProps({ setState, state }) {
-  useEffect(
-    () => {
-      setState((draftState) => {
-        // default property values
-        draftState.props.className = '';
-        draftState.props.errorMessage = '';
-        draftState.props.id = '';
-        draftState.props.isClearable = false;
-        draftState.props.isDisabled = false;
-        draftState.props.label = 'Select Label';
-        draftState.props.isRequired = false;
-        draftState.props.value = '';
-      });
-    },
-    [setState]
-  );
-
+export default function SelectExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -68,8 +41,3 @@ function SelectExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-SelectExampleProps.propTypes = propTypes;
-SelectExampleProps.defaultProps = defaultProps;
-
-export default SelectExampleProps;

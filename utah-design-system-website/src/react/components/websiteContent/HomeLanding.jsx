@@ -236,7 +236,7 @@ function HomeLanding() {
           <h3 className="home-page__color-card-title">Color</h3>
           <p>
             How many design systems provide a color picker to assist you in selecting the primary and secondary colors of your site?
-            How many show you in real-time what your components will look like once you’ve selected these colors? Do they tell you if
+            How many show you in real-time what your components will look like once you&apos;ve selected these colors? Do they tell you if
             your color selections are accessible? With a resounding yes, the Utah Design System does all of this. Starting to feel better?
           </p>
         </div>

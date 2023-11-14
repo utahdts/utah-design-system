@@ -1,3 +1,4 @@
+// @ts-check
 /* eslint-disable max-len */
 import {
   Select,
@@ -8,6 +9,7 @@ import {
   TabPanel,
   TabPanels,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
@@ -33,6 +35,17 @@ function SelectDocumentation() {
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
+        defaultProps={{
+          // default property values
+          className: '',
+          errorMessage: '',
+          id: 'select-example-render-id',
+          isClearable: false,
+          isDisabled: false,
+          label: 'Select Label',
+          isRequired: false,
+          value: '',
+        }}
         CODE_EXAMPLE={SelectExampleCodeReact}
         PROPS_EXAMPLE={SelectExampleProps}
         RENDER_EXAMPLE={SelectExampleRender}

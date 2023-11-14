@@ -1,7 +1,7 @@
+// @ts-check
 import {
   joinClassNames,
   Pagination,
-  RefShape,
   Table,
   TableBody,
   TableBodyData,
@@ -15,26 +15,24 @@ import {
   TableSortingRule,
   tableSortingRuleFieldType,
   TableSortingRules,
-  TableWrapper,
+  TableWrapper
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { useImmer } from 'use-immer';
 import stateSymbols from '../../../../../consts/stateSymbols';
-import TableExamplePropsShape from '../../../../../propTypesShapes/TableExamplePropsShape';
-
-const propTypes = {
-  state: PropTypes.shape({
-    props: TableExamplePropsShape.isRequired,
-  }).isRequired,
-  innerRef: RefShape,
-};
-const defaultProps = {
-  innerRef: null,
-};
 
 const ITEMS_PER_PAGE = 5;
 
-function TableExampleRender({
+/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
+
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: TableExamplePropsShape}>} props.setState
+ * @param {{props: TableExamplePropsShape}} props.state
+ * @param {React.RefObject} props.innerRef
+ * @returns {JSX.Element}
+ */
+export default function TableExampleRender({
   state: {
     props: {
       className,
@@ -53,9 +51,10 @@ function TableExampleRender({
       <TableWrapper
         id={id}
         innerRef={innerRef}
+        // @ts-ignore
         style={{ width: '100%' }}
       >
-        <Table id="example-interactive-table" className={joinClassNames('table table--lines-x table--v-align-center table--full-width', className)}>
+        <Table id={id} className={joinClassNames('table table--lines-x table--v-align-center table--full-width', className)}>
           <TableHead>
             {
               isSorting
@@ -81,12 +80,30 @@ function TableExampleRender({
             }
             <TableHeadRow>
               {/*
-                NOTE: inline styles are not encouraged. They are used here because this is light weight example, but
+                NOTE: inline styles are not encouraged. They are used here because this is a light weight example, but
                 please use className or a styling library instead of inline styles.
                */}
-              <TableHeadCell recordFieldPath="category" style={{ width: '40%' }}>Category</TableHeadCell>
-              <TableHeadCell recordFieldPath="symbol" style={{ width: '40%' }}>Symbol</TableHeadCell>
-              <TableHeadCell recordFieldPath="year" style={{ width: '20%' }}>Year</TableHeadCell>
+              <TableHeadCell
+                recordFieldPath="category"
+                // @ts-ignore
+                style={{ width: '40%' }}
+              >
+                Category
+              </TableHeadCell>
+              <TableHeadCell
+                recordFieldPath="symbol"
+                // @ts-ignore
+                style={{ width: '40%' }}
+              >
+                Symbol
+              </TableHeadCell>
+              <TableHeadCell
+                recordFieldPath="year"
+                // @ts-ignore
+                style={{ width: '20%' }}
+              >
+                Year
+              </TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
@@ -118,8 +135,3 @@ function TableExampleRender({
     </>
   );
 }
-
-TableExampleRender.propTypes = propTypes;
-TableExampleRender.defaultProps = defaultProps;
-
-export default TableExampleRender;

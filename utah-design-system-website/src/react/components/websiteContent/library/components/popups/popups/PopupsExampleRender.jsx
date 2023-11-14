@@ -1,20 +1,17 @@
-import { Popup, RefShape } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import { useCallback, useRef } from 'react';
-import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
+// @ts-check
+import { Popup } from '@utahdts/utah-design-system';
+import React, { useCallback, useRef } from 'react';
 
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: PopupsPropsShape.isRequired,
-  }).isRequired,
-  innerRef: RefShape,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
-function PopupsExampleRender({
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: PopupsExamplePropsShape}>} props.setState
+ * @param {{props: PopupsExamplePropsShape}} props.state
+ * @param {React.RefObject} props.innerRef
+ * @returns {JSX.Element}
+ */
+export default function PopupsExampleRender({
   setState,
   state: {
     props: {
@@ -26,18 +23,25 @@ function PopupsExampleRender({
   },
   innerRef,
 }) {
-  const buttonRef = useRef();
+  const buttonRef = /** @type {typeof useRef<HTMLButtonElement>} */ (useRef)(null);
 
-  const onClickEvent = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    // eslint-disable-next-line no-param-reassign
-    setState((oldState) => { oldState.props.isVisible = !oldState.props.isVisible; });
-  });
-  // eslint-disable-next-line no-param-reassign
-  const onMouseEnter = useCallback(() => setState((oldState) => { oldState.props.isVisible = true; }));
-  // eslint-disable-next-line no-param-reassign
-  const onMouseLeave = useCallback(() => setState((oldState) => { oldState.props.isVisible = false; }));
+  const onClickEvent = useCallback(
+    (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      // eslint-disable-next-line no-param-reassign
+      setState((draftState) => { draftState.props.isVisible = !draftState.props.isVisible; });
+    },
+    [setState]
+  );
+  const onMouseEnter = useCallback(
+    () => setState((draftState) => { draftState.props.isVisible = true; }),
+    [setState]
+  );
+  const onMouseLeave = useCallback(
+    () => setState((draftState) => { draftState.props.isVisible = false; }),
+    [setState]
+  );
 
   return (
     <div ref={innerRef}>
@@ -54,13 +58,17 @@ function PopupsExampleRender({
       >
         Toggle Popup
       </button>
+      {/* @ts-ignore */}
       <Popup
         ariaLabelledBy="popups-example-render-button"
         id="popups-example-render-popup"
         hasCloseButton={!!hasCloseButton}
         isVisible={!!isVisible}
         // eslint-disable-next-line no-param-reassign
-        onVisibleChange={useCallback((_e, newIsVisible) => setState((oldState) => { oldState.props.isVisible = newIsVisible; }))}
+        onVisibleChange={useCallback(
+          (_e, newIsVisible) => setState((draftState) => { draftState.props.isVisible = newIsVisible; }),
+          [setState]
+        )}
         placement={placement}
         referenceElement={buttonRef}
         role="dialog"
@@ -73,8 +81,3 @@ function PopupsExampleRender({
     </div>
   );
 }
-
-PopupsExampleRender.propTypes = propTypes;
-PopupsExampleRender.defaultProps = defaultProps;
-
-export default PopupsExampleRender;

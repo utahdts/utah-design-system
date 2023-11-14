@@ -1,19 +1,8 @@
 // @ts-check
-import { RefShape, Select, SelectOption } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+import { Select, SelectOption } from '@utahdts/utah-design-system';
 import React from 'react';
-import SelectExamplePropsShape from '../../../../../../propTypesShapes/SelectExamplePropsShape';
 
 /** @typedef {import('../../../../../../../typedefs.d').SelectExamplePropsShape} SelectExamplePropsShape */
-
-const propTypes = {
-  innerRef: RefShape.isRequired,
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: SelectExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -22,7 +11,7 @@ const defaultProps = {};
  * @param {React.RefObject} props.innerRef
  * @returns {JSX.Element}
  */
-function SelectExampleRender({
+export default function SelectExampleRender({
   setState,
   state: {
     props: {
@@ -43,7 +32,7 @@ function SelectExampleRender({
       <Select
         className={className}
         errorMessage={errorMessage}
-        id={id || 'select-example-render-id'}
+        id={id}
         innerRef={innerRef}
         isClearable={isClearable}
         isDisabled={isDisabled}
@@ -73,8 +62,3 @@ function SelectExampleRender({
     </div>
   );
 }
-
-SelectExampleRender.propTypes = propTypes;
-SelectExampleRender.defaultProps = defaultProps;
-
-export default SelectExampleRender;

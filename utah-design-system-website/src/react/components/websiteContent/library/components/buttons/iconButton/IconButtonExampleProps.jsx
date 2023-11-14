@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -7,35 +8,19 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import IconButtonExamplePropsShape from '../../../../../../propTypesShapes/IconButtonExamplePropsShape';
+import React from 'react';
 import iconsDocumentationIcons from '../../../../resources/IconsDocumentation/Icons/iconsDocumentationIcons';
 
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: IconButtonExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps */
 
-function IconButtonExampleProps({ setState, state }) {
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.appearance = ICON_BUTTON_APPEARANCE.OUTLINED;
-        draftState.props.color = 'none';
-        // uses icons from `iconsDocumentationIcons` so make sure the initial value here is in there
-        draftState.props.iconCssClass = 'help';
-        draftState.props.isDisabled = false;
-        draftState.props.size = 'medium';
-        draftState.props.title = 'Tooltip Title';
-      });
-    },
-    []
-  );
-
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: IconButtonExampleProps}>} props.setState
+ * @param {Object} props.state
+ * @param {IconButtonExampleProps} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function IconButtonExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -80,8 +65,3 @@ function IconButtonExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-IconButtonExampleProps.propTypes = propTypes;
-IconButtonExampleProps.defaultProps = defaultProps;
-
-export default IconButtonExampleProps;

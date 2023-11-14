@@ -1,34 +1,31 @@
-// @ts-nocheck
-import { RefShape, Spinner } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+// @ts-check
+import { Spinner } from '@utahdts/utah-design-system';
 import React from 'react';
-import SpinnersExamplePropsShape from '../../../../../../propTypesShapes/SpinnersExamplePropsShape';
-
-const propTypes = {
-  innerRef: RefShape,
-  state: PropTypes.shape({
-    props: SpinnersExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {
-  innerRef: null,
-};
 
 /**
- * @param {string} str
+ * @param {string | undefined} str
  * @returns {number | undefined}
  */
 function stringToNumber(str) {
   return str ? Number(str) || 0 : undefined;
 }
 
-function SpinnersExampleRender({
+/** @typedef {import('../../../../../../../typedefs.d').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
+
+/**
+ * @param {Object} props
+ * @param {React.RefObject} props.innerRef
+ * @param {import('use-immer').Updater<{props: SpinnersExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {SpinnersExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function SpinnersExampleRender({
   state: {
     props: {
       className,
       id,
       label,
-      // eslint-disable-next-line no-unused-vars
       size,
       strokeWidth,
       value,
@@ -51,8 +48,3 @@ function SpinnersExampleRender({
     </div>
   );
 }
-
-SpinnersExampleRender.propTypes = propTypes;
-SpinnersExampleRender.defaultProps = defaultProps;
-
-export default SpinnersExampleRender;

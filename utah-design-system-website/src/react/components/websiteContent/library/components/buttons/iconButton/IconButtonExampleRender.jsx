@@ -1,24 +1,14 @@
-import { IconButton, RefShape, useBanner } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import IconButtonExamplePropsShape from '../../../../../../propTypesShapes/IconButtonExamplePropsShape';
+// @ts-check
+import { IconButton, useBanner } from '@utahdts/utah-design-system';
+import React from 'react';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: IconButtonExamplePropsShape.isRequired,
-  }).isRequired,
-  innerRef: RefShape,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps */
 
 /**
- * @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps
- *
- * @param {{state: {props: IconButtonExampleProps}, innerRef: React.Ref<HTMLButtonElement>}} props
- * @returns {React.ReactElement}
- */
-function IconButtonExampleRender({
+* @param {{state: {props: IconButtonExampleProps}, innerRef: React.MutableRefObject<HTMLButtonElement>}} props
+* @returns {React.ReactElement}
+*/
+export default function IconButtonExampleRender({
   state: {
     props: {
       appearance,
@@ -47,8 +37,3 @@ function IconButtonExampleRender({
     />
   );
 }
-
-IconButtonExampleRender.propTypes = propTypes;
-IconButtonExampleRender.defaultProps = defaultProps;
-
-export default IconButtonExampleRender;

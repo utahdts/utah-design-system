@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
-import PopupsPropsShape from '../../../../../../propTypesShapes/PopupsPropsShape';
+// @ts-check
+import React from 'react';
 import ExampleCodeReactCode from '../../../../../sandbox/ExampleCodeReactCode';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: PopupsPropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
-function PopupsExampleCode({
+/**
+ * @param {Object} props
+ * @param {{props: PopupsExamplePropsShape}} props.state
+ * @returns {JSX.Element}
+ */
+export default function PopupsExampleCode({
   state: {
     props: {
       hasCloseButton,
@@ -65,8 +65,3 @@ function PopupsExampleCode({
     </>
   );
 }
-
-PopupsExampleCode.propTypes = propTypes;
-PopupsExampleCode.defaultProps = defaultProps;
-
-export default PopupsExampleCode;

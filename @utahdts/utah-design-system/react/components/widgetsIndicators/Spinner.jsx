@@ -1,61 +1,33 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-
-const propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  id: PropTypes.string,
-  innerRef: RefShape,
-  size: PropTypes.number,
-  strokeWidth: PropTypes.number,
-  value: (props, propName, componentName) => {
-    const number = Number(props[propName]);
-    if (!Number.isNaN(props[propName]) && Number.isNaN(number)) {
-      throw new Error(`Invalid prop '${propName}' passed to ${componentName}. Must be a number.`);
-    }
-    if (number !== undefined && (number < 0 || number > 1)) {
-      throw new Error(`Invalid prop '${propName}' passed to ${componentName}. Must be a number between 0 and 1 (inclusive).`);
-    }
-    return false;
-  },
-};
-const defaultProps = {
-  children: null,
-  className: null,
-  id: null,
-  innerRef: null,
-  size: 60,
-  strokeWidth: 10,
-  value: NaN,
-};
 
 /**
  * @param {Object} props
- * @param {React.ReactNode | null} [props.children]
- * @param {string | null} [props.className]
- * @param {string | null} [props.id]
- * @param {React.RefObject | null} [props.innerRef]
+ * @param {React.ReactNode} [props.children]
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {React.RefObject} [props.innerRef]
  * @param {number} [props.size]
  * @param {number} [props.strokeWidth]
  * @param {number} [props.value]
  * @returns {JSX.Element}
  */
-function Spinner({
+export default function Spinner({
   children,
   className,
   id,
   innerRef,
-  size,
-  strokeWidth,
-  value,
+  size = 60,
+  strokeWidth = 10,
+  value = NaN,
   ...rest
+
 }) {
   const strokeWidthUse = Number.isNaN(strokeWidth) ? 10 : strokeWidth;
   const strokeWidthPlus1Use = Number.isNaN(strokeWidth) ? 10 : ((strokeWidth ?? 0) + 1);
   const widthUse = Number.isNaN(size) ? undefined : size;
+
   return (
     <div
       aria-valuemax={100}
@@ -102,8 +74,3 @@ function Spinner({
     </div>
   );
 }
-
-Spinner.propTypes = propTypes;
-Spinner.defaultProps = defaultProps;
-
-export default Spinner;

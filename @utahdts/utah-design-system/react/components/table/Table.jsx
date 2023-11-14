@@ -19,16 +19,16 @@ const defaultProps = {
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {string | null} [props.className]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {string | null} [props.id]
+ * @param {string} [props.className]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {string} [props.id]
  * @returns {JSX.Element}
  */
 function Table({
   children,
-  className = null,
-  id = null,
-  innerRef = null,
+  className,
+  id,
+  innerRef,
   ...rest
 }) {
   return (
