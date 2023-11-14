@@ -87,7 +87,7 @@ function AccessibilityDocumentation() {
 
       <p className="mb-auto">
         Per the CDC, roughly <ExternalLink href="https://dhds.cdc.gov/SP?LocationId=49&CategoryId=DISEST&ShowFootnotes=true&showMode=&IndicatorIds=STATTYPE,AGEIND,SEXIND,RACEIND,VETIND&pnl0=Table,false,YR6,CAT1,BO1,,,,AGEADJPREV&pnl1=Chart,false,YR6,DISSTAT,,,,,PREV&pnl2=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV&pnl3=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV&pnl4=Chart,false,YR6,DISSTAT,,,,,AGEADJPREV">1 in 4 adults have some form of a disability</ExternalLink> in
-        Utah. In the effort to expand accessibility access, we focus those with the following disabilities:
+        Utah. In the effort to expand accessibility access, we focus on those with the following disabilities:
       </p>
       <ul className="mb-spacing">
         <li>Limited or no vision</li>
@@ -184,7 +184,7 @@ function AccessibilityDocumentation() {
         </li>
         <li>
           <strong>Headings.</strong> <Link to={pageUrls.headings}>Headings</Link> (<code>h1, h2, h3, h4, h5, h6</code>) should create an outline for the page content. They are sequential and clearly distinct from the body text.
-          (Don’t skip heading levels or go out of order.)
+          (Don&apos;t skip heading levels or go out of order.)
         </li>
         <li>
           <strong>Lists.</strong> <Link to={pageUrls.lists}>Lists</Link> (<code>ul, ol</code>) are used to identify all content that can be described as a list of something.
@@ -675,7 +675,7 @@ function AccessibilityDocumentation() {
           </p>
           <p>
             The following images depict different forms with the arrows indicating different tab orders. Horizontally arranged forms can create an undesirable user experience.
-            Depending on the user, they are going to expect the cursor to land in a particular place. If it doesn’t go where they expect, it increases
+            Depending on the user, they are going to expect the cursor to land in a particular place. If it doesn&apos;t go where they expect, it increases
             the cognitive load trying to figure out where the cursor will actually land.
           </p>
           <StaticExample

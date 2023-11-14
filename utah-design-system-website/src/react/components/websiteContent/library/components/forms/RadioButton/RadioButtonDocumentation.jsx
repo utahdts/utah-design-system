@@ -1,13 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+import { RadioButton } from '@utahdts/utah-design-system';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import radioButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/radioButtonScreenshot.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
+import { RadioButtonExampleProps } from './RadioButtonExampleProps';
+import { RadioButtonExampleRender } from './RadioButtonExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
@@ -21,9 +22,31 @@ function RadioButtonDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          errorMessage: '',
+          id: 'radio-button-example-render-id',
+          isDisabled: false,
+          isRequired: false,
+          label: 'Option #1',
+          value: '',
+        }}
+        RENDER_EXAMPLE={RadioButtonExampleRender}
+        PROPS_EXAMPLE={RadioButtonExampleProps}
+        CODE_EXAMPLE={RadioButtonExampleCodeReact}
+      />
       <StaticExample
         title="Radio Button Example"
-        renderedExample={<LightBox image={radioButtonScreenshot} alt="Radio Buttons" className="flex-3up-gap" />}
+        renderedExample={(
+          <fieldset>
+            <legend>Best Ice Cream</legend>
+            <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
+            <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
+            <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" value="pralines" />
+            <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled value="strawberry" />
+          </fieldset>
+        )}
         quickTips={(
           <ul>
             <li>The user can only select one item at a time from a list of options.</li>

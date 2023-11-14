@@ -1,21 +1,8 @@
 // @ts-check
-/* eslint-disable react/jsx-props-no-spreading */
-import { Button, RefShape, Tooltip } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+import { Button, Tooltip } from '@utahdts/utah-design-system';
 import React, { useRef } from 'react';
-import TooltipsExamplePropsShape from '../../../../../propTypesShapes/TooltipsExamplePropsShape';
 
 /** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
-
-const propTypes = {
-  state: PropTypes.shape({
-    props: TooltipsExamplePropsShape.isRequired,
-  }).isRequired,
-  innerRef: RefShape,
-};
-const defaultProps = {
-  innerRef: null,
-};
 
 /**
  * @param {Object} props
@@ -24,7 +11,7 @@ const defaultProps = {
  * @param {React.RefObject} props.innerRef
  * @returns {JSX.Element}
  */
-function TooltipsExampleRender({
+export default function TooltipsExampleRender({
   state: {
     props: {
       isPopperVisible,
@@ -59,8 +46,3 @@ function TooltipsExampleRender({
     </div>
   );
 }
-
-TooltipsExampleRender.propTypes = propTypes;
-TooltipsExampleRender.defaultProps = defaultProps;
-
-export default TooltipsExampleRender;

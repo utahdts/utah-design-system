@@ -3,19 +3,9 @@ import {
   Form,
   TextInput
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import CharacterCountExamplePropsShape from '../../../../../../propTypesShapes/CharacterCountExamplePropsShape';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
-
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: CharacterCountExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -24,20 +14,7 @@ const defaultProps = {};
  * @param {CharacterCountExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function CharacterCountExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.className = '';
-        draftState.props.id = 'counter-id';
-        draftState.props.maxLength = '50';
-        draftState.props.text = '';
-      });
-    },
-    [setState]
-  );
-
+export default function CharacterCountExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -51,8 +28,3 @@ function CharacterCountExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-CharacterCountExampleProps.propTypes = propTypes;
-CharacterCountExampleProps.defaultProps = defaultProps;
-
-export default CharacterCountExampleProps;

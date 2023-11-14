@@ -1,18 +1,8 @@
 // @ts-check
 import { Form, TextInput } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import SpinnersExamplePropsShape from '../../../../../../propTypesShapes/SpinnersExamplePropsShape';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
-
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: SpinnersExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -21,22 +11,7 @@ const defaultProps = {};
  * @param {SpinnersExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function SpinnersExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.className = '';
-        draftState.props.id = '';
-        draftState.props.label = '';
-        draftState.props.size = '';
-        draftState.props.strokeWidth = '';
-        draftState.props.value = '';
-      });
-    },
-    [setState]
-  );
-
+export default function SpinnersExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -52,8 +27,3 @@ function SpinnersExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-SpinnersExampleProps.propTypes = propTypes;
-SpinnersExampleProps.defaultProps = defaultProps;
-
-export default SpinnersExampleProps;

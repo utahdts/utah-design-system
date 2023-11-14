@@ -1,6 +1,4 @@
-/* eslint-disable no-param-reassign */
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -9,33 +7,18 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import ButtonExamplePropsShape from '../../../../../../propTypesShapes/ButtonExamplePropsShape';
+import React from 'react';
 
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: ButtonExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
-function ButtonExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.appearance = 'outlined';
-        draftState.props.color = 'none';
-        draftState.props.iconLeft = 'none';
-        draftState.props.iconRight = 'none';
-        draftState.props.size = 'medium';
-        draftState.props.title = 'Button Title';
-        draftState.props.type = 'button';
-      });
-    },
-    []
-  );
-
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: ButtonExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {ButtonExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function ButtonExampleProps({ setState, state }) {
   return (
     <Form
       // onSubmit(({ state, validationErrors }) => ... do whatever ...)
@@ -93,8 +76,3 @@ function ButtonExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-ButtonExampleProps.propTypes = propTypes;
-ButtonExampleProps.defaultProps = defaultProps;
-
-export default ButtonExampleProps;

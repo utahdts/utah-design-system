@@ -1,16 +1,16 @@
+// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import IconButtonExamplePropsShape from '../../../../../../propTypesShapes/IconButtonExamplePropsShape';
+import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: IconButtonExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps */
 
-function IconButtonExampleCode({
+/**
+ * @param {Object} props
+ * @param {{props: IconButtonExampleProps}} props.state
+ * @returns {JSX.Element}
+ */
+export default function IconButtonExampleCode({
   state: {
     props: {
       appearance,
@@ -33,14 +33,9 @@ function IconButtonExampleCode({
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'disabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={'onClick={() => { /* ... do something ... */}}'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={(!size || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)?.[0]}}`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`title="${title}"`} indentLevel={1} />
       /&gt;
     </>
   );
 }
-
-IconButtonExampleCode.propTypes = propTypes;
-IconButtonExampleCode.defaultProps = defaultProps;
-
-export default IconButtonExampleCode;

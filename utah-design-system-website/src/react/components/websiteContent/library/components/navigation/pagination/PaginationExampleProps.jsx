@@ -5,19 +5,9 @@ import {
   SelectOption,
   TextInput
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import PaginationExamplePropsShape from '../../../../../../propTypesShapes/PaginationExamplePropsShape';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').PaginationExamplePropsShape} PaginationExamplePropsShape */
-
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: PaginationExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -26,22 +16,7 @@ const defaultProps = {};
  * @param {PaginationExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function PaginationExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.className = '';
-        draftState.props.id = '';
-        draftState.props.pageSize = '10';
-        draftState.props.totalNumberItems = '87';
-        draftState.props.value = '0';
-        draftState.props.wrapInElement = 'div';
-      });
-    },
-    [setState]
-  );
-
+export default function PaginationExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -60,8 +35,3 @@ function PaginationExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-PaginationExampleProps.propTypes = propTypes;
-PaginationExampleProps.defaultProps = defaultProps;
-
-export default PaginationExampleProps;

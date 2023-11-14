@@ -34,7 +34,7 @@ function DataVisualizationsDocumentation() {
 
       <h2 id="section-areas-to-consider" className="mb-spacing mt-spacing">Areas to Consider</h2>
       <ul className="mb-spacing">
-        <li><strong>Keep it simple.</strong> Try to use simple ways to visualize the data. If the visualization is too complex and/or requires interaction, it could impact the user’s ability to digest the information.</li>
+        <li><strong>Keep it simple.</strong> Try to use simple ways to visualize the data. If the visualization is too complex and/or requires interaction, it could impact the user&apos;s ability to digest the information.</li>
         <li><strong>Sum it up.</strong> Add a text summary to ensure users understand the meaning of the data shown. Avoid relying on the visualization alone.</li>
         <li><strong>Images.</strong> If the visualization uses axes labels or a legend, make sure to use textual elements rather than an image.</li>
         <li><strong>Labels.</strong> Make sure to properly label any axis and/or elements to help users associate charts with data. Color alone is not enough.</li>

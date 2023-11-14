@@ -4,19 +4,9 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import TextAreaExamplePropsShape from '../../../../../../propTypesShapes/TextAreaExamplePropsShape';
+import React from 'react';
 
 /** @typedef {import('../../../../../../../typedefs.d').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
-
-const propTypes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: TextAreaExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -25,26 +15,7 @@ const defaultProps = {};
  * @param {TextAreaExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-function TextAreaExampleProps({ setState, state }) {
-  // default property values
-  useEffect(
-    () => {
-      setState((draftState) => {
-        draftState.props.className = '';
-        draftState.props.errorMessage = '';
-        draftState.props.id = '';
-        draftState.props.isClearable = false;
-        draftState.props.isDisabled = false;
-        draftState.props.label = '';
-        draftState.props.name = '';
-        draftState.props.placeholder = '';
-        draftState.props.isRequired = false;
-        draftState.props.value = '';
-      });
-    },
-    [setState]
-  );
-
+export default function TextAreaExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
@@ -64,8 +35,3 @@ function TextAreaExampleProps({ setState, state }) {
     </Form>
   );
 }
-
-TextAreaExampleProps.propTypes = propTypes;
-TextAreaExampleProps.defaultProps = defaultProps;
-
-export default TextAreaExampleProps;

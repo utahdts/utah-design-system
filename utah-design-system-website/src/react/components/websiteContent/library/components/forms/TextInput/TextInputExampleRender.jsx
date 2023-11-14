@@ -1,22 +1,19 @@
 // @ts-check
-/* eslint-disable react/jsx-props-no-spreading */
-import { RefShape, TextInput } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
+import { TextInput } from '@utahdts/utah-design-system';
 import React from 'react';
-import TextInputExamplePropsShape from '../../../../../../propTypesShapes/TextInputExamplePropsShape';
 
-const propTypes = {
-  innerRef: RefShape,
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    props: TextInputExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../typedefs.d').TextInputExamplePropsShape} TextInputExamplePropsShape */
 
-function TextInputExampleRender({
+/**
+ * @param {Object} props
+ * @param {React.RefObject} props.innerRef
+ * @param {import('use-immer').Updater<{props: TextInputExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {TextInputExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export default function TextInputExampleRender({
+  innerRef,
   setState,
   state: {
     props: {
@@ -31,14 +28,13 @@ function TextInputExampleRender({
       value,
     },
   },
-  innerRef,
 }) {
   return (
     <div style={{ width: '80%' }}>
       <TextInput
         className={className}
         errorMessage={errorMessage}
-        id={id || 'text-input-example-render-id'}
+        id={id}
         innerRef={innerRef}
         isClearable={isClearable}
         isDisabled={isDisabled}
@@ -62,8 +58,3 @@ function TextInputExampleRender({
     </div>
   );
 }
-
-TextInputExampleRender.propTypes = propTypes;
-TextInputExampleRender.defaultProps = defaultProps;
-
-export default TextInputExampleRender;

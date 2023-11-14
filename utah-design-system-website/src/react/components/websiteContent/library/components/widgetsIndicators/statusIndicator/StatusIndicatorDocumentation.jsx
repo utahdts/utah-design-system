@@ -51,7 +51,7 @@ function StatusIndicatorDocumentation() {
           <strong>Design.</strong> Typically, the text should be all uppercase and have a colored background. Use an appropriate color to convey its meaning (e.g. red for errors, green for success, etc). The text should also convey the status clearly and concisely.
         </li>
         <li>
-          <strong>Icon.</strong>  To emphasize significance, an icon can be added to a status indicator. Try to keep it context-appropriate and consistent throughout the site. Generally, don’t mix and match indicators with and without icons.
+          <strong>Icon.</strong>  To emphasize significance, an icon can be added to a status indicator. Try to keep it context-appropriate and consistent throughout the site. Generally, don&apos;t mix and match indicators with and without icons.
         </li>
       </ul>
 

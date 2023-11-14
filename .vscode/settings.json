@@ -5,6 +5,7 @@
     "borderless",
     "canyonlands",
     "chiclet",
+    "consts",
     "designsystem",
     "DHHS",
     "Divs",
@@ -51,9 +52,6 @@
     "webp",
     "xsmall"
   ],
-  "editor.unicodeHighlight.allowedCharacters": {
-    "’": true
-  },
   "typescript.preferences.quoteStyle": "single",
   "sonarlint.connectedMode.project": {
     "connectionId": "utahdts",

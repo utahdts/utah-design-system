@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Table,
   TableBody,
@@ -11,7 +12,7 @@ import {
 import React from 'react';
 
 /** @returns {JSX.Element} */
-function SwitchPropsDocumentation() {
+export default function SwitchPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -228,5 +229,3 @@ function SwitchPropsDocumentation() {
     </div>
   );
 }
-
-export default SwitchPropsDocumentation;

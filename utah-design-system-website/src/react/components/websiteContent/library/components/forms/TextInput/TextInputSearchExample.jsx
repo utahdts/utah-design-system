@@ -1,5 +1,6 @@
-import { useState } from 'react';
+// @ts-check
 import { joinClassNames } from '@utahdts/utah-design-system';
+import React, { useState } from 'react';
 
 const propTypes = {};
 const defaultProps = {};
@@ -21,7 +22,7 @@ function TextInputSearchExample() {
           <button type="button" className="search-modal__button button button--solid button--primary-color" onClick={search}>Search Now</button>
         </div>
         {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-        <div aria-hidden tabIndex="0" className="search-modal__hidden-last-focusable visually-hidden">end of search form example</div>
+        <div aria-hidden tabIndex={0} className="search-modal__hidden-last-focusable visually-hidden">end of search form example</div>
       </form>
     </div>
   );
