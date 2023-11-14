@@ -17,7 +17,7 @@
     "@popperjs/core": "2.11.8",
     "@utahdts/utah-design-system": "1.10.0",
     "@utahdts/utah-design-system-header": "1.10.0",
-    "js-beautify": "1.14.9",
+    "js-beautify": "1.14.11",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.2.0",
@@ -28,9 +28,9 @@
     "use-immer": "0.9.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.33",
-    "@types/react-dom": "18.2.14",
-    "@vitejs/plugin-react": "4.1.0",
+    "@types/react": "18.2.37",
+    "@types/react-dom": "18.2.15",
+    "@vitejs/plugin-react": "4.1.1",
     "jsdom": "22.1.0",
     "sass": "1.69.5",
     "vite": "4.5.0",
