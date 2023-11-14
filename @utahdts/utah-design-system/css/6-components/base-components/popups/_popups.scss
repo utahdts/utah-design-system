@@ -3,7 +3,7 @@
 @use "../../../1-settings/spacing";
 
 // Drop Shadow Color
-$dsc: rgb(0,0,0);
+$dsc: rgb(0, 0, 0);
 
 #{class-vars.$base-class} {
   .popup {
@@ -27,7 +27,7 @@ $dsc: rgb(0,0,0);
         opacity: 0;
         pointer-events: none;
         .popup__content {
-          transform: scale(.7);
+          transform: scale(0.7);
         }
       }
       &--close-button-absolute {
@@ -54,14 +54,15 @@ $dsc: rgb(0,0,0);
     &__close-button {
       float: right;
       .utds-icon-before-x-icon::before {
-        font-size: .7rem;
+        font-size: 0.7rem;
       }
     }
 
     &__arrow {
       visibility: hidden;
 
-      &, &::before {
+      &,
+      &::before {
         position: absolute;
         width: 9px;
         height: 9px;
@@ -71,15 +72,13 @@ $dsc: rgb(0,0,0);
 
       &::before {
         visibility: visible;
-        content: '';
+        content: "";
         transform: rotate(45deg);
       }
     }
 
-
-    &__wrapper[data-popper-placement^='top'] {
+    &__wrapper[data-popper-placement^="top"] {
       .popup__content {
-        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
         transform-origin: bottom;
       }
       .popup__arrow {
@@ -91,9 +90,8 @@ $dsc: rgb(0,0,0);
       }
     }
 
-    &__wrapper[data-popper-placement^='bottom'] {
+    &__wrapper[data-popper-placement^="bottom"] {
       .popup__content {
-        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), 0 -15px 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
         transform-origin: top;
       }
       .popup__arrow {
@@ -105,9 +103,8 @@ $dsc: rgb(0,0,0);
       }
     }
 
-    &__wrapper[data-popper-placement^='left'] {
+    &__wrapper[data-popper-placement^="left"] {
       .popup__content {
-        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), 15px 0 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
         transform-origin: right;
       }
       .popup__arrow {
@@ -119,9 +116,8 @@ $dsc: rgb(0,0,0);
       }
     }
 
-    &__wrapper[data-popper-placement^='right'] {
+    &__wrapper[data-popper-placement^="right"] {
       .popup__content {
-        // box-shadow: 0 3px 5px -1px rgba($dsc,.2), -15px 0 20px 0 rgba($dsc,.14), 0 1px 18px 0 rgba($dsc,.12);
         transform-origin: left;
       }
       .popup__arrow {

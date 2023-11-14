@@ -9,7 +9,7 @@ export function moveComboBoxSelectionDown(draftContext) {
   if (!draftContext.isFilterValueDirty || draftContext.isOptionsExpanded) {
     // get index of currently selected item in the filtered items list
     const selectionIndex = draftContext.optionsFiltered.findIndex(
-      (option) => option.value === draftContext.optionValueHighlighted ?? draftContext.optionValueSelected
+      (option) => (option.value === draftContext.optionValueHighlighted) ?? draftContext.optionValueSelected
     );
     const currentSelectionIndex = (
       selectionIndex === -1

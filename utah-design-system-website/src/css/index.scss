@@ -17,17 +17,14 @@ BEM standard: Block, Element, Modifier
     - cats-r-great--black
  */
 
-
-// normalize.css
-// @include meta.load-css("./3-generic/normalize.css");
-
 // variables and settings
 @include meta.load-css("1-settings/settings-index");
 
 // mixins, functions
 @include meta.load-css("2-tools/tools-index");
 
-// css resets, etc.
+// css resets, etc.// @include meta.load-css("./3-generic/normalize.css");
+
 @include meta.load-css("3-generic/generic-index");
 
 // elemental html: h1, h2, h3, ul, li, etc.
@@ -49,4 +46,3 @@ BEM standard: Block, Element, Modifier
 // test css, temporary css,
 // this css should eventually be categorized above
 @include meta.load-css("9-tip/tip-index");
-
