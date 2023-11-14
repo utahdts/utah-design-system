@@ -63,6 +63,7 @@ function CssContextProvider({ children }) {
       // switch back to the colors in the url because they are still there causing the
       // user to have lost their color selection.
       if (currentQueryParameters.get('colors')) {
+        // eslint-disable-next-line no-unused-vars
         const { colors, ...paramsMinusColors } = currentQueryParameters;
         setSearchParams(paramsMinusColors);
         setAppState((draftAppState) => { draftAppState.isColorPickerShown = true; });

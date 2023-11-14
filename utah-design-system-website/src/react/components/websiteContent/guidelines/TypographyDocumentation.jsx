@@ -284,7 +284,7 @@ function TypographyDocumentation() {
           typeface. <i>If in doubt, use the recommended sans serif font.</i>
         </li>
         <li>
-          <strong>Neutral typefaces can be a good choice for interfaces</strong> <i>(font used: Source Sans 3)</i>. UIs are the practical expression of a site's organization and functionality. A straightforward and neutral typeface can help the user focus on using the interface as a tool.
+          <strong>Neutral typefaces can be a good choice for interfaces</strong> <i>(font used: Source Sans 3)</i>. UIs are the practical expression of a site&apos;s organization and functionality. A straightforward and neutral typeface can help the user focus on using the interface as a tool.
         </li>
         <li>
           <strong>Avoid long sections of italic or bold text.</strong> Both italic and bold text can degrade readability. Both are best used for limited sections of contrast. Consider replacing long sections of bold or italic text with a callout box, a section header, or some other technique that avoids extended stretches of styled text.
@@ -393,7 +393,7 @@ function TypographyDocumentation() {
           </p>
 
           <p>
-            It is also recommended that you don't set entire paragraphs in a bold or heavy weight as this will also impact the readability of the text.
+            It is also recommended that you don&apos;t set entire paragraphs in a bold or heavy weight as this will also impact the readability of the text.
             On rare occasions you may have the need to dramatically emphasize text.
           </p>
           <p className="typography__black-font">

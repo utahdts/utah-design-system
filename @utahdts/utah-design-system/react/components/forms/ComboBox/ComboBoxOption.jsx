@@ -111,7 +111,7 @@ export default function ComboBoxOption({
             isDisabled={isDisabled}
             // TODO: this `style` attribute is bogus! remove it!
             // @ts-ignore
-            style={isSelected ? { color: 'red' } : (isHighlighted ? { color: 'green' } : undefined)}
+            // style={isSelected ? { color: 'red' } : (isHighlighted ? { color: 'green' } : undefined)}
             onClick={() => {
               onChange(value);
               setComboBoxContext((draftContext) => {

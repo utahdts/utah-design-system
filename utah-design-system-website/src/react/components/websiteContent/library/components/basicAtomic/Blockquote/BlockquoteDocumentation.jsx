@@ -61,7 +61,7 @@ function BlockquoteDocumentation() {
           <strong>Marketing a product or service.</strong> Use to encourage visitors to try a new product/service or emphasizing a success story.
         </li>
         <li>
-          <strong>Attracting attention.</strong> Attracting the user's attention to article text.
+          <strong>Attracting attention.</strong> Attracting the user&apos;s attention to article text.
         </li>
         <li>
           <strong>Breaking up a large body of text.</strong>
@@ -90,7 +90,7 @@ function BlockquoteDocumentation() {
           When to include quotation marks to the copy between the <code>&lt;blockquote&gt;</code> tags:
           <ul>
             <li>
-              <strong>Not using a chiclet:</strong> If you are not using a chiclet (i.e. the vertical line to the left of your quote), you don't need to include quotation marks in your block quote copy – the blockquote style will add the quotation marks for you.
+              <strong>Not using a chiclet:</strong> If you are not using a chiclet (i.e. the vertical line to the left of your quote), you don&apos;t need to include quotation marks in your block quote copy – the blockquote style will add the quotation marks for you.
             </li>
             <li>
               <strong>Using a chiclet:</strong> If you are using a chiclet, you will want to add the quotation marks to the copy inside the block quote tags. (e.g.<code>&lt;blockquote&gt;”Welcome to Utah!”&lt;blockquote&gt;</code>).

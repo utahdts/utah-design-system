@@ -143,7 +143,7 @@ export default function TextAreaDocumentation() {
       <h4>Contrast</h4>
       <ul className="mb-spacing">
         <li>The text area and label should have a contrast ratio of <code>4.5:1</code>, with the background color to ensure legibility.</li>
-        <li>The text area's focus state should be <code>3:1</code> contrast ratio.</li>
+        <li>The text area&apos;s focus state should be <code>3:1</code> contrast ratio.</li>
       </ul>
 
       <h4>Keyboard Interactivity</h4>

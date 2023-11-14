@@ -1,6 +1,6 @@
 // @ts-check
 /* eslint-disable max-len */
-import { Checkbox, RadioButton } from '@utahdts/utah-design-system';
+import { RadioButton } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';

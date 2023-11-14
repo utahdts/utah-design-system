@@ -23,7 +23,7 @@ function DividersDocumentation() {
           <div className="flex flex-col">
             <p className="mb-auto">Of the vast amount of certified International Dark Sky Parks and Communities that are part of a catalog of the finest dark skies in the world, the highest concentration are in Utah. Explore the statewide locations and make plans for experiencing natural wonders after the sun sets.</p>
             <hr className="my-spacing-l" />
-            <p className="mb-spacing-xs">Given Natural Bridges remote location, it's no wonder the park has some of the world's least light-polluted night skies. The International Dark Sky Association named Natural Bridges the world's first “International Dark Sky Park.” Accordingly, park rangers not only give interpretive discussions on astronomy but also changed out the park's light fixtures to reduce their own light pollution.</p>
+            <p className="mb-spacing-xs">Given Natural Bridges remote location, it&apos;s no wonder the park has some of the world&apos;s least light-polluted night skies. The International Dark Sky Association named Natural Bridges the world&apos;s first “International Dark Sky Park.” Accordingly, park rangers not only give interpretive discussions on astronomy but also changed out the park&apos;s light fixtures to reduce their own light pollution.</p>
           </div>
         )}
         quickTips={(
@@ -37,7 +37,7 @@ function DividersDocumentation() {
         renderedExample={(
           <div className="flex">
             <p className="flex-1 border-right pr-spacing">Of the vast amount of certified International Dark Sky Parks and Communities that are part of a catalog of the finest dark skies in the world, the highest concentration are in Utah. Explore the statewide locations and make plans for experiencing natural wonders after the sun sets.</p>
-            <p className="flex-1 pl-spacing">Given Natural Bridges remote location, it's no wonder the park has some of the world's least light-polluted night skies. The International Dark Sky Association named Natural Bridges the world's first “International Dark Sky Park.” Accordingly, park rangers not only give interpretive discussions on astronomy but also changed out the park's light fixtures to reduce their own light pollution.</p>
+            <p className="flex-1 pl-spacing">Given Natural Bridges remote location, it&apos;s no wonder the park has some of the world&apos;s least light-polluted night skies. The International Dark Sky Association named Natural Bridges the world&apos;s first “International Dark Sky Park.” Accordingly, park rangers not only give interpretive discussions on astronomy but also changed out the park&apos;s light fixtures to reduce their own light pollution.</p>
           </div>
         )}
         quickTips={(

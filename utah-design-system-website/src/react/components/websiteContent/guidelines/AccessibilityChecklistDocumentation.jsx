@@ -57,11 +57,11 @@ function AccessibilityTestingDocumentation() {
             <li><Link to={pageUrls.typography}>Text</Link> is in plain language that is understandable at an 8th grade level.</li>
             <li>
               <Link to={pageUrls.headings}>Headings</Link> (<code>h1, h2, h3, h4, h5, h6</code>) create an outline for the page content. They are sequential and clearly distinct from the body text.
-              (Don't skip heading levels or go out of order.)
+              (Don&apos;t skip heading levels or go out of order.)
             </li>
             <li><Link to={pageUrls.lists}>Lists</Link> (<code>ul, ol</code>) are used to identify all content that can be described as a list of something.</li>
             <li><Link to={pageUrls.links}>Links</Link> do not include generic text such as &quot;click here&quot; or &quot;view more&quot;.</li>
-            <li>Links that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.</li>
+            <li>Links that open a new tab have a visual indicator and visually hidden text like &quot;opens in a new tab&quot; to warn screen reader users.</li>
             <li>Links to phone numbers and email address should be readable by screen readers.</li>
             <li>Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.</li>
             <li>

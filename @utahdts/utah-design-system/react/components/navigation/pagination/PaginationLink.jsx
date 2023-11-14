@@ -35,6 +35,7 @@ function PaginationLink({
         aria-label={`${(pageIndex === (numberOfPages - 1)) ? 'Last page, ' : ''}${(pageIndex === currentPageIndex) ? '' : 'Go to '}page ${label}`}
         className={joinClassNames(
           'pagination__link',
+          className,
           currentPageIndex !== pageIndex && 'pagination__link--inactive',
           currentPageIndex === pageIndex && 'pagination__link--active'
         )}

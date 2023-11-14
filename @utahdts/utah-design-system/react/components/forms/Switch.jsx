@@ -23,7 +23,6 @@ import useFormContext from './FormContext/useFormContext';
  * @param {string} [props.labelOff]
  * @param {string} [props.name]
  * @param {((e: Event) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
- * @param {() => void} [props.onSubmit] when enter key pressed in field, submit the form
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
  * @param {React.ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]
@@ -43,7 +42,6 @@ export default function Switch({
   labelOff,
   name,
   onChange,
-  onSubmit,
   size,
   sliderChildren,
   value,
