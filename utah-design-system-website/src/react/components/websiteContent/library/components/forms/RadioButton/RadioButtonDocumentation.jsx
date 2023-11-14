@@ -39,21 +39,13 @@ function RadioButtonDocumentation() {
       <StaticExample
         title="Radio Button Example"
         renderedExample={(
-          <div className="flex flex-col">
-            <fieldset>
-              <legend>Best Ice Cream</legend>
-              <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
-              <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
-              <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" value="pralines" />
-              <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled value="strawberry" />
-            </fieldset>
-            <fieldset>
-              <Checkbox
-                label="Pestering Considerable"
-                id="testingCheckbox"
-              />
-            </fieldset>
-          </div>
+          <fieldset>
+            <legend>Best Ice Cream</legend>
+            <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
+            <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
+            <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" value="pralines" />
+            <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled value="strawberry" />
+          </fieldset>
         )}
         quickTips={(
           <ul>
