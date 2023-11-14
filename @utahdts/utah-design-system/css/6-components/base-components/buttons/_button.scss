@@ -32,6 +32,7 @@
       background: var(--gray-color);
       color: white;
       text-shadow: none;
+      box-shadow: none;
     }
 
     &[disabled], &[disable]:hover {
