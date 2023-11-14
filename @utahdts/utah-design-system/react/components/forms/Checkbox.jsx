@@ -53,25 +53,26 @@ export function Checkbox({
 
   return (
     <div className={joinClassNames('input-wrapper input-wrapper--checkbox', wrapperClassName)}>
-      {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-      <label htmlFor={id} className={labelClassName ?? undefined}>
-        {label}
-        {isRequired ? <RequiredStar /> : null}
-      </label>
-      <input
-        aria-describedby={errorMessage ? `${id}-error` : null}
-        checked={currentValue}
-        className={className}
-        disabled={isDisabled}
-        id={id}
-        name={name || id}
-        onChange={currentOnChange}
-        onKeyUp={currentOnFormKeyUp}
-        ref={innerRef}
-        required={isRequired}
-        type="checkbox"
-        {...rest}
-      />
+      <div className="input-wrapper--checkbox-inner">
+        <label htmlFor={id} className={labelClassName ?? undefined}>
+          {label}
+          {isRequired ? <RequiredStar /> : null}
+        </label>
+        <input
+          aria-describedby={errorMessage ? `${id}-error` : null}
+          checked={currentValue}
+          className={className}
+          disabled={isDisabled}
+          id={id}
+          name={name || id}
+          onChange={currentOnChange}
+          onKeyUp={currentOnFormKeyUp}
+          ref={innerRef}
+          required={isRequired}
+          type="checkbox"
+          {...rest}
+        />
+      </div>
       <ErrorMessage errorMessage={errorMessage} id={id} />
     </div>
   );

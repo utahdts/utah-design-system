@@ -1,6 +1,6 @@
 // @ts-check
 /* eslint-disable max-len */
-import { RadioButton } from '@utahdts/utah-design-system';
+import { Checkbox, RadioButton } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
@@ -39,13 +39,19 @@ function RadioButtonDocumentation() {
       <StaticExample
         title="Radio Button Example"
         renderedExample={(
-          <div className="radio-buttons-wrapper">
+          <div className="flex flex-col">
             <fieldset>
               <legend>Best Ice Cream</legend>
               <RadioButton name="ice-cream" id="vanilla" label="Vanilla" value="vanilla" />
               <RadioButton name="ice-cream" id="chocolate" label="Chocolate" value="chocolate" />
               <RadioButton name="ice-cream" id="pralines" label="Pralines and Cream" value="pralines" />
               <RadioButton name="ice-cream" id="strawberry" label="Strawberry" isDisabled value="strawberry" />
+            </fieldset>
+            <fieldset>
+              <Checkbox
+                label="Pestering Considerable"
+                id="testingCheckbox"
+              />
             </fieldset>
           </div>
         )}

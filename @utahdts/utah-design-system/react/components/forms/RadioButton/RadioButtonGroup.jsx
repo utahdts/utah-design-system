@@ -33,8 +33,10 @@ export function RadioButtonGroup({
   return (
     <>
       <fieldset id={id} className={joinClassNames('fieldset fieldset--radio-wrapper', className)}>
-        {isRequired ? <RequiredStar /> : null}
-        <legend>{label}</legend>
+        <legend>
+          {label}
+          {isRequired ? <RequiredStar /> : null}
+        </legend>
         <RadioButtonGroupContextProvider
           defaultValue={defaultValue}
           name={id}

@@ -2,11 +2,6 @@
 @use "../../../1-settings/class-vars";
 
 #{class-vars.$base-class} {
-  .radio-buttons-wrapper {
-    legend {
-      margin-bottom: var(--spacing-xs);
-    }
-  }
   input[type="radio"] {
     appearance: none;
     border-radius: var(--radius-circle);
@@ -14,7 +9,7 @@
     width: var(--form-checkbox-medium);
     height: var(--form-checkbox-medium);
     position: relative;
-    margin-right: var(--spacing-xs);
+    margin: 2px var(--spacing-xs) 0 0;
     flex-shrink: 0;
     background: white;
     &::after {
@@ -78,10 +73,6 @@
       align-items: flex-start;
       position: relative;
       z-index: 1;
-
-      label {
-        padding: 0 0 0 var(--spacing-2xs);
-      }
     }
   }
 }
