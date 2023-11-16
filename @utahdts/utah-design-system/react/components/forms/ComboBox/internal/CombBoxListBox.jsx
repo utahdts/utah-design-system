@@ -1,8 +1,9 @@
 // @ts-check
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import useAriaMessaging from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import popupPlacement from '../../../../enums/popupPlacement';
+import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
 import joinClassNames from '../../../../util/joinClassNames';
 import ComboBoxOption from '../ComboBoxOption';
 import useComboBoxContext from '../context/useComboBoxContext';
@@ -24,9 +25,17 @@ export default function CombBoxListBox({
   popperReferenceElementRef,
 }) {
   const { addPoliteMessage } = useAriaMessaging();
-  const [{ isOptionsExpanded }] = useComboBoxContext();
-  const [{ optionsFiltered }] = useComboBoxContext();
+  const [
+    {
+      filterValue,
+      isOptionsExpanded,
+      optionsFiltered,
+      optionValueFocused,
+    }, ,
+    textInputRef,
+  ] = useComboBoxContext();
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
+  const announcedArrowKeysRef = useRef(false);
 
   const { styles, attributes, update } = usePopper(
     popperReferenceElementRef.current,
@@ -34,17 +43,39 @@ export default function CombBoxListBox({
     { placement: popupPlacement.BOTTOM }
   );
 
+  const addPoliteMessageDebounced = useDebounceFunc(
+    useCallback(
+      (message) => {
+        addPoliteMessage(message);
+      },
+      [addPoliteMessage]
+    )
+  );
+
   useEffect(
     () => {
-      if (isOptionsExpanded) {
-        // TODO: we need to debounce this
-        addPoliteMessage(`${optionsFiltered?.length} results available`);
-      }
       if (update) {
         update();
       }
     },
-    [addPoliteMessage, isOptionsExpanded, optionsFiltered?.length, update]
+    [isOptionsExpanded, update]
+  );
+
+  useEffect(
+    () => {
+      // only announce if text input or an option for this combo box has focus
+      if (optionValueFocused || document.activeElement === textInputRef.current) {
+        // arrow key announcement only happens the first time the options pop open
+        const sayArrowKeyAnnouncement = isOptionsExpanded && !announcedArrowKeysRef.current;
+        if (sayArrowKeyAnnouncement) {
+          // after first invocation, no longer announce about the arrow keys.
+          announcedArrowKeysRef.current = true;
+        }
+        addPoliteMessageDebounced(`${optionsFiltered?.length} results available.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+      }
+    },
+    // do not include `optionValueFocused` in the dependency list
+    [addPoliteMessageDebounced, filterValue, isOptionsExpanded, optionsFiltered?.length, textInputRef]
   );
 
   return (

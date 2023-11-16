@@ -1,5 +1,10 @@
 // @ts-check
-import React, { useCallback, useEffect, useId, useRef } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+} from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import useOnKeyUp from '../../../util/useOnKeyUp';
 import useComboBoxContext from './context/useComboBoxContext';
@@ -18,14 +23,13 @@ import { selectComboBoxSelection } from './functions/selectComboBoxSelection';
  */
 export default function ComboBoxOption({
   children = null,
-  // TODO: how should isDisabled be implemented?
   isDisabled,
   isStatic,
   label,
   value,
 }) {
-  const liId = useId();
-  const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
+  const optionId = useId();
+  const optionRef = useRef(/** @type {HTMLLIElement | null} */(null));
   const [
     {
       onChange,
@@ -47,10 +51,12 @@ export default function ComboBoxOption({
     'Enter',
     useCallback(
       () => {
-        onChange(value);
-        setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, textInputRef, undefined));
+        if (!isDisabled) {
+          onChange(value);
+          setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, textInputRef, undefined));
+        }
       },
-      [onChange, value, setComboBoxContext, textInputRef]
+      [isDisabled, onChange, value, setComboBoxContext, textInputRef]
     ),
     true
   );
@@ -88,13 +94,13 @@ export default function ComboBoxOption({
   useEffect(
     () => {
       if (optionValueFocused === value) {
-        if (buttonRef.current !== document.activeElement) {
+        if (optionRef.current !== document.activeElement) {
           // this is the currently focused value! focus it!
-          buttonRef.current?.focus();
+          optionRef.current?.focus();
         }
-      } else if (buttonRef.current === document.activeElement) {
+      } else if (optionRef.current === document.activeElement) {
         // not the current item, but is focused, so blur it
-        buttonRef.current?.blur();
+        optionRef.current?.blur();
       }
     },
     [optionValueFocused, value]
@@ -104,34 +110,35 @@ export default function ComboBoxOption({
     isVisible
       ? (
         <li
+          aria-disabled={isDisabled}
           aria-selected={optionValueSelected === value}
           aria-setsize={optionsFiltered.length}
-          id={liId}
-          role="option"
+          id={optionId}
           className={joinClassNames(
             'combo-box-option',
+            isDisabled && 'combo-box-option--disabled',
             isSelected && 'combo-box-option--selected',
             isHighlighted && 'combo-box-option--highlighted'
           )}
-          // TODO: this `style` attribute is bogus! remove it!
-          // style={isSelected ? { color: 'red' } : (isHighlighted ? { color: 'green' } : undefined)}
           onClick={() => {
-            onChange(value);
-            setComboBoxContext((draftContext) => {
-              draftContext.filterValue = label;
-              draftContext.isFilterValueDirty = false;
-              draftContext.isOptionsExpanded = false;
-              draftContext.optionValueHighlighted = null;
-              draftContext.optionValueSelected = value;
-              setTimeout(
-                () => {
-                  // move cursor to end after clicking an option so it can be edited
-                  // take the update of the selection out of the loop so the state updates before it moves the cursor
-                  textInputRef.current?.setSelectionRange(label.length, label.length);
-                },
-                0
-              );
-            });
+            if (!isDisabled) {
+              onChange(value);
+              setComboBoxContext((draftContext) => {
+                draftContext.filterValue = label;
+                draftContext.isFilterValueDirty = false;
+                draftContext.isOptionsExpanded = false;
+                draftContext.optionValueHighlighted = null;
+                draftContext.optionValueSelected = value;
+                setTimeout(
+                  () => {
+                    // move cursor to end after clicking an option so it can be edited
+                    // take the update of the selection out of the loop so the state updates before it moves the cursor
+                    textInputRef.current?.setSelectionRange(label.length, label.length);
+                  },
+                  0
+                );
+              });
+            }
           }}
           // @ts-ignore
           onBlur={() => setComboBoxContext((draftContext) => {
@@ -143,7 +150,7 @@ export default function ComboBoxOption({
           })}
           onFocus={() => setComboBoxContext((draftContext) => {
             draftContext.optionValueFocused = value;
-            draftContext.optionValueFocusedId = liId;
+            draftContext.optionValueFocusedId = optionId;
             draftContext.optionValueHighlighted = value;
           })}
           onKeyDown={
@@ -166,9 +173,8 @@ export default function ComboBoxOption({
           }}
           // https://stackoverflow.com/questions/17769005/onclick-and-onblur-ordering-issue
           onMouseDown={(e) => e.preventDefault()}
-          // @ts-ignore
-          ref={buttonRef}
-          // innerRef={buttonRef}
+          ref={optionRef}
+          role="option"
           tabIndex={isSelected ? 0 : -1}
         >
           {children ?? label}

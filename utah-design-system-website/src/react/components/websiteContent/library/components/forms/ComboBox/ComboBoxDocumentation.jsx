@@ -39,7 +39,7 @@ function ComboBoxDocumentation() {
           id: 'combo-box-example-id',
           isClearable: false,
           isDisabled: false,
-          label: 'ComboBox Label',
+          label: 'Choose a mighty 5',
           isRequired: false,
           value: '',
         }}
@@ -50,6 +50,7 @@ function ComboBoxDocumentation() {
       <StaticExample
         title="ComboBox Example"
         renderedExample={<LightBox image={comboBoxScreenshot} alt="Combo Box" className="flex-3up-gap" />}
+        // TODO: use real component here
         // renderedExample={(
         //   <ComboBox id="combo-box-documentation-static-example" label="Choose the best wild animal">
         //     <ComboBoxOptionGroup isLabelHidden>
