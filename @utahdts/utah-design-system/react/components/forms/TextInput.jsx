@@ -28,6 +28,7 @@ import RequiredStar from './RequiredStar';
  * @param {EventAction} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
  * @param {(() => void)} [props.onSubmit] when enter key pressed in field, this callback may be called
  * @param {string} [props.placeholder]
+ * @param {React.ReactNode} [props.rightContent] custom content to put to the right of the text input
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
@@ -49,6 +50,7 @@ export default function TextInput({
   onKeyUp,
   onSubmit,
   placeholder,
+  rightContent,
   value,
   wrapperClassName,
   ...rest
@@ -138,6 +140,7 @@ export default function TextInput({
             )
             : null
         }
+        {rightContent}
       </div>
       <ErrorMessage errorMessage={errorMessage} id={id} />
     </div>

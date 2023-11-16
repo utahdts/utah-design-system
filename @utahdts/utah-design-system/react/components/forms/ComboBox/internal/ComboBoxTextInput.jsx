@@ -66,6 +66,8 @@ export default function ComboBoxTextInput({
         aria-expanded={isOptionsExpanded}
         aria-haspopup="listbox"
         aria-owns={comboBoxListId}
+        // TODO: what is the right classname for the chevron?
+        className="text-input--clear-icon-visible"
         id={id}
         innerRef={(ref) => { textInputRef.current = ref?.querySelector('input'); }}
         isClearable={isClearable}
@@ -136,6 +138,11 @@ export default function ComboBoxTextInput({
         }}
         onSubmit={onSubmit ?? onSubmitFormContext}
         placeholder={placeholder}
+        rightContent={
+          isOptionsExpanded
+            ? <span className="utds-icon-before-chevron-up" aria-hidden="true" />
+            : <span className="utds-icon-before-chevron-down" aria-hidden="true" />
+        }
         role="combobox"
         value={filterValue}
         // eslint-disable-next-line react/jsx-props-no-spreading
