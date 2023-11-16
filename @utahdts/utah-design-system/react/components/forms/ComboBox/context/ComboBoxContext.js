@@ -13,6 +13,7 @@ const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} 
     options: [],
     optionsFiltered: [],
     registerOption: () => { },
+    optionValueFocusedId: null,
     optionValueHighlighted: null,
     optionValueSelected: null,
     unregisterOption: () => { },

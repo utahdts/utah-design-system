@@ -73,6 +73,7 @@ export default function ComboBoxContextProvider({
         draftContext.options.push(newOption);
       });
     },
+    optionValueFocusedId: null,
     optionValueHighlighted: null,
     optionValueSelected: defaultValue ?? value ?? null,
     unregisterOption: (optionValue) => {

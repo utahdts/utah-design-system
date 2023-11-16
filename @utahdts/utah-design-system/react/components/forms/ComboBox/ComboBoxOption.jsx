@@ -1,8 +1,7 @@
 // @ts-check
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useId, useRef } from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import useOnKeyUp from '../../../util/useOnKeyUp';
-import Button from '../../buttons/Button';
 import useComboBoxContext from './context/useComboBoxContext';
 import { moveComboBoxSelectionDown } from './functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from './functions/moveComboBoxSelectionUp';
@@ -19,11 +18,13 @@ import { selectComboBoxSelection } from './functions/selectComboBoxSelection';
  */
 export default function ComboBoxOption({
   children = null,
+  // TODO: how should isDisabled be implemented?
   isDisabled,
   isStatic,
   label,
   value,
 }) {
+  const liId = useId();
   const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const [
     {
@@ -59,8 +60,10 @@ export default function ComboBoxOption({
       () => setComboBoxContext((draftCombBoxContext) => {
         draftCombBoxContext.isOptionsExpanded = false;
         draftCombBoxContext.optionValueFocused = null;
+        draftCombBoxContext.optionValueFocusedId = null;
+        textInputRef.current?.focus();
       }),
-      [setComboBoxContext]
+      [setComboBoxContext, textInputRef]
     )
   );
   const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]), true);
@@ -73,7 +76,7 @@ export default function ComboBoxOption({
         registerOption({ value, label, labelLowerCase: label.toLocaleLowerCase() });
       }
       return () => {
-        if (isStatic) {
+        if (!isStatic) {
           unregisterOption(value);
         }
       };
@@ -100,69 +103,75 @@ export default function ComboBoxOption({
   return (
     isVisible
       ? (
-        <li>
-          <Button
-            aria-selected={isSelected}
-            className={joinClassNames(
-              'combo-box-option',
-              isSelected && 'combo-box-option--selected',
-              isHighlighted && 'combo-box-option--highlighted'
-            )}
-            isDisabled={isDisabled}
-            // TODO: this `style` attribute is bogus! remove it!
-            // @ts-ignore
-            // style={isSelected ? { color: 'red' } : (isHighlighted ? { color: 'green' } : undefined)}
-            onClick={() => {
-              onChange(value);
-              setComboBoxContext((draftContext) => {
-                draftContext.filterValue = label;
-                draftContext.isFilterValueDirty = false;
-                draftContext.isOptionsExpanded = false;
-                draftContext.optionValueHighlighted = null;
-                draftContext.optionValueSelected = value;
-                setTimeout(
-                  () => {
-                    // move cursor to end after clicking an option so it can be edited
-                    // take the update of the selection out of the loop so the state updates before it moves the cursor
-                    textInputRef.current?.setSelectionRange(label.length, label.length);
-                  },
-                  0
-                );
-              });
-            }}
-            onBlur={() => setComboBoxContext((draftContext) => {
-              if (draftContext.optionValueFocused === value) {
-                draftContext.optionValueFocused = null;
-                draftContext.isOptionsExpanded = false;
-              }
-            })}
-            onFocus={() => setComboBoxContext((draftContext) => {
-              draftContext.optionValueFocused = value;
-              draftContext.optionValueHighlighted = value;
-            })}
-            onKeyDown={
-              (e) => {
-                // prevent browser scrolling when arrowing through options
-                if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-                  e.preventDefault();
-                }
+        <li
+          aria-selected={optionValueSelected === value}
+          aria-setsize={optionsFiltered.length}
+          id={liId}
+          role="option"
+          className={joinClassNames(
+            'combo-box-option',
+            isSelected && 'combo-box-option--selected',
+            isHighlighted && 'combo-box-option--highlighted'
+          )}
+          // TODO: this `style` attribute is bogus! remove it!
+          // style={isSelected ? { color: 'red' } : (isHighlighted ? { color: 'green' } : undefined)}
+          onClick={() => {
+            onChange(value);
+            setComboBoxContext((draftContext) => {
+              draftContext.filterValue = label;
+              draftContext.isFilterValueDirty = false;
+              draftContext.isOptionsExpanded = false;
+              draftContext.optionValueHighlighted = null;
+              draftContext.optionValueSelected = value;
+              setTimeout(
+                () => {
+                  // move cursor to end after clicking an option so it can be edited
+                  // take the update of the selection out of the loop so the state updates before it moves the cursor
+                  textInputRef.current?.setSelectionRange(label.length, label.length);
+                },
+                0
+              );
+            });
+          }}
+          // @ts-ignore
+          onBlur={() => setComboBoxContext((draftContext) => {
+            if (draftContext.optionValueFocused === value) {
+              draftContext.optionValueFocused = null;
+              draftContext.optionValueFocusedId = null;
+              draftContext.isOptionsExpanded = false;
+            }
+          })}
+          onFocus={() => setComboBoxContext((draftContext) => {
+            draftContext.optionValueFocused = value;
+            draftContext.optionValueFocusedId = liId;
+            draftContext.optionValueHighlighted = value;
+          })}
+          onKeyDown={
+            (e) => {
+              // prevent browser scrolling when arrowing through options
+              if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                e.preventDefault();
               }
             }
-            onKeyUp={(e) => {
-              onEnterKeyPress(e);
-              onCancelKeyPress(e);
-              onUpArrowPress(e);
-              onDownArrowPress(e);
-            }}
-            // https://stackoverflow.com/questions/17769005/onclick-and-onblur-ordering-issue
-            onMouseDown={(e) => e.preventDefault()}
-            innerRef={buttonRef}
+          }
+          onKeyUp={(e) => {
             // @ts-ignore
-            role="option"
-            tabIndex={isSelected ? 0 : -1}
-          >
-            {children ?? label}
-          </Button>
+            onEnterKeyPress(e);
+            // @ts-ignore
+            onCancelKeyPress(e);
+            // @ts-ignore
+            onUpArrowPress(e);
+            // @ts-ignore
+            onDownArrowPress(e);
+          }}
+          // https://stackoverflow.com/questions/17769005/onclick-and-onblur-ordering-issue
+          onMouseDown={(e) => e.preventDefault()}
+          // @ts-ignore
+          ref={buttonRef}
+          // innerRef={buttonRef}
+          tabIndex={isSelected ? 0 : -1}
+        >
+          {children ?? label}
         </li>
       )
       : null

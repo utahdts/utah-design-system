@@ -8,7 +8,6 @@ import useComboBoxContext from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
-import { selectComboBoxSelection } from '../functions/selectComboBoxSelection';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 
@@ -46,29 +45,14 @@ export default function ComboBoxTextInput({
     {
       filterValue,
       isOptionsExpanded,
-      onChange,
       options,
-      optionsFiltered,
-      optionValueHighlighted,
+      optionValueFocusedId,
       optionValueSelected,
     },
     setComboBoxContext,
     textInputRef,
   ] = useComboBoxContext();
 
-  const onEnterKeyPress = useOnKeyUp(
-    'Enter',
-    useCallback(
-      () => {
-        const selectedOption = options.find((option) => option.value === optionValueHighlighted) ?? optionsFiltered[0];
-        if (selectedOption) {
-          onChange(selectedOption.value);
-        }
-        setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, textInputRef, onSubmit ?? onSubmitFormContext));
-      },
-      [options, optionsFiltered, setComboBoxContext, optionValueHighlighted, onChange, textInputRef, onSubmit, onSubmitFormContext]
-    )
-  );
   const onCancelKeyPress = useOnKeyUp('Escape', useCallback(() => isClearable && setComboBoxContext(clearComboBoxSelection), [isClearable, setComboBoxContext]));
   const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]));
   const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
@@ -76,9 +60,12 @@ export default function ComboBoxTextInput({
   return (
     <div>
       <TextInput
+        aria-activedescendant={optionValueFocusedId}
         aria-autocomplete="list"
         aria-controls={comboBoxListId}
         aria-expanded={isOptionsExpanded}
+        aria-haspopup="listbox"
+        aria-owns={comboBoxListId}
         id={id}
         innerRef={(ref) => { textInputRef.current = ref?.querySelector('input'); }}
         isClearable={isClearable}
@@ -131,7 +118,6 @@ export default function ComboBoxTextInput({
         }}
         onKeyUp={(e) => {
           if (![
-            onEnterKeyPress(e),
             onCancelKeyPress(e),
             onUpArrowPress(e),
             onDownArrowPress(e),

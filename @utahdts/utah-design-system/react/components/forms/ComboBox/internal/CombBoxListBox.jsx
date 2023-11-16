@@ -1,6 +1,7 @@
 // @ts-check
 import React, { useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
+import useAriaMessaging from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import popupPlacement from '../../../../enums/popupPlacement';
 import joinClassNames from '../../../../util/joinClassNames';
 import ComboBoxOption from '../ComboBoxOption';
@@ -22,6 +23,7 @@ export default function CombBoxListBox({
   id,
   popperReferenceElementRef,
 }) {
+  const { addPoliteMessage } = useAriaMessaging();
   const [{ isOptionsExpanded }] = useComboBoxContext();
   const [{ optionsFiltered }] = useComboBoxContext();
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
@@ -34,11 +36,15 @@ export default function CombBoxListBox({
 
   useEffect(
     () => {
+      if (isOptionsExpanded) {
+        // TODO: we need to debounce this
+        addPoliteMessage(`${optionsFiltered?.length} results available`);
+      }
       if (update) {
         update();
       }
     },
-    [isOptionsExpanded, update]
+    [addPoliteMessage, isOptionsExpanded, optionsFiltered?.length, update]
   );
 
   return (
