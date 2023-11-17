@@ -1,0 +1,115 @@
+@use "../../../1-settings/settings-index";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/spacing";
+@use "../../../7-utilities/animation";
+
+#{class-vars.$base-class} {
+  .banner {
+    &--wrapper {
+      display: inline-flex;
+      border-radius: var(--radius-small);
+      background: white;
+      box-shadow: var(--elevation-small-borderless);
+      margin: var(--spacing);
+
+      &:not(.banner--inline) {
+        position: fixed;
+        z-index: 3000;
+      }
+
+      &.banner--bottom-left, &.banner--top-left {
+        animation: left-in 1s;
+      }
+      &.banner--bottom-right, &.banner--top-right {
+        animation: right-in 1s;
+      }
+
+      &.banner--bottom-left {
+        bottom: 0;
+        left: 0;
+      }
+
+      &.banner--bottom-right {
+        bottom: 0;
+        right: 0;
+      }
+
+      &.banner--top-left {
+        top: 0;
+        left: 0;
+      }
+
+      &.banner--top-right {
+        top: 0;
+        right: 0;
+      }
+
+      &.banner--info, &.banner--warning, &.banner--danger, &.banner--success {
+        color: white;
+        .banner--close-button button {
+          color: white;
+        }
+      }
+
+      &.banner--info {
+        background-color: var(--info-color);
+      }
+      &.banner--warning {
+        background-color: var(--warning-color);
+      }
+      &.banner--danger {
+        background-color: var(--danger-color);
+      }
+      &.banner--success {
+        background-color: var(--success-color);
+      }
+    }
+
+    &--message {
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-s) var(--spacing-xs) var(--spacing-s) var(--spacing);
+    }
+
+    &--icon {
+      padding: var(--spacing-s);
+      background-color: rgba(0, 0, 0, 0.3);
+      display: flex;
+      border-radius: var(--radius-small) 0 0 var(--radius-small);
+
+      span {
+        color: white;
+
+        &[class*=utds-icon-before-]::before {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &--close-button {
+      padding: var(--spacing-xs);
+    }
+  }
+}
+
+@keyframes left-in {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes right-in {
+  0% {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

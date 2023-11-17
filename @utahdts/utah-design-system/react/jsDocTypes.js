@@ -37,6 +37,11 @@
  */
 
 /**
+ * BannerPlacement
+ * @typedef {'inline' | 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'} BannerPlacement
+ */
+
+/**
  * TableSortingRuleFieldType
  * @typedef {'date' | 'number' | 'string'} TableSortingRuleFieldType
  */

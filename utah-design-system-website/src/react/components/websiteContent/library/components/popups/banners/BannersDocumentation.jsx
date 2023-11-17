@@ -4,18 +4,25 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import {
+  Banner,
+  BannerIcon,
+  BannerMessage,
+  useBanner
+} from '@utahdts/utah-design-system';
+import React, { useCallback } from 'react';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import bannerLandmarkScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannerLandmark.jpg';
 import bannersLargeScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersLarge.jpg';
 import bannersMediumScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersMedium.jpg';
-import bannersSmallScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersSmall.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};
 
 function BannersDocumentation() {
+  const showBanner = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Banner</h1>
@@ -30,7 +37,54 @@ function BannersDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Small banners"
-        renderedExample={<LightBox image={bannersSmallScreenshot} alt="Small Banners" className="flex-4up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col items-center">
+            <Banner
+              position="inline"
+              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+            >
+              <BannerMessage>
+                So long, and thanks for all the fish.
+              </BannerMessage>
+            </Banner>
+            <Banner
+              position="inline"
+              className="banner--success"
+              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+            >
+              <BannerIcon>
+                <span className="utds-icon-before-check" aria-hidden="true" />
+              </BannerIcon>
+              <BannerMessage>
+                Email was sent successfully.
+              </BannerMessage>
+            </Banner>
+            <Banner
+              position="inline"
+              className="banner--danger"
+              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+            >
+              <BannerIcon>
+                <span className="utds-icon-before-warning" aria-hidden="true" />
+              </BannerIcon>
+              <BannerMessage>
+                There are errors on the page.
+              </BannerMessage>
+            </Banner>
+            <Banner
+              position="inline"
+              className="banner--info"
+              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+            >
+              <BannerIcon>
+                <span className="utds-icon-before-info" aria-hidden="true" />
+              </BannerIcon>
+              <BannerMessage>
+                The record was updated.
+              </BannerMessage>
+            </Banner>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>A small banner appears in response to a change in an application process or as a direct result of a user action.</li>

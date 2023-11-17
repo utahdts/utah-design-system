@@ -7,9 +7,13 @@ export {
   renderDOMSingle,
 } from '@utahdts/utah-design-system-header';
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
+export { BANNER_PLACEMENT } from './react/enums/bannerPlacement';
 export { default as Accordion } from './react/components/containers/accordion/Accordion';
 export { default as ActionItemShape } from './react/propTypesShapes/header/ActionItemShape';
 export { default as BadgeShape } from './react/propTypesShapes/header/BadgeShape';
+export { Banner } from './react/components/popups/Banner/Banner';
+export { BannerIcon } from './react/components/popups/Banner/BannerIcon';
+export { BannerMessage } from './react/components/popups/Banner/BannerMessage';
 export { default as Button } from './react/components/buttons/Button';
 export { default as chainSorters } from './react/util/chainSorters';
 export { default as CharacterCount } from './react/components/forms/CharacterCount';
