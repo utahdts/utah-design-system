@@ -29,10 +29,9 @@ export function ConfirmationButtonExampleCodeReact({
 }) {
   return (
     <>
-      &lt;Button
+      &lt;ConfirmationButton
       <br />
       <ExampleCodeReactProp displayProp={appearance ? `appearance="${appearance}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={promptChildren ? `promptChildren="${promptChildren}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={color ? `color="${color}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isBusy ? 'isBusy' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
@@ -44,9 +43,16 @@ export function ConfirmationButtonExampleCodeReact({
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
+      &lt;InitialChildren&gt;
       {title}
+      &lt;/InitialChildren&gt;
       <br />
-      &lt;/Button&gt;
+      <SandboxIndent indentLevel={1} />
+      &lt;ConfirmationChildren&gt;
+      {promptChildren}
+      &lt;/ConfirmationChildren&gt;
+      <br />
+      &lt;/ConfirmationButton&gt;
     </>
   );
 }

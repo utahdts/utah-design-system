@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import {
-  ConfirmationButton,
+  ConfirmationButton, ConfirmationChildren, InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
 
@@ -43,9 +43,13 @@ export function ConfirmationButtonExampleRender({
       onClick={() => showBanner({ message: 'You have clicked the button.' })}
       size={size}
       type={type}
-      promptChildren={promptChildren}
     >
-      {title || ''}
+      <InitialChildren>
+        {title || ''}
+      </InitialChildren>
+      <ConfirmationChildren>
+        {promptChildren || ''}
+      </ConfirmationChildren>
     </ConfirmationButton>
   );
 }

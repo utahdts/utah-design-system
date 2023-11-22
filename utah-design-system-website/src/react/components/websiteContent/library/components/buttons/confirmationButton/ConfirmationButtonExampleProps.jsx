@@ -52,9 +52,9 @@ export function ConfirmationButtonExampleProps({ setState, state }) {
         <SelectOption label="Large 1X" value={formElementSizesEnum.LARGE1X} />
       </Select>
 
-      <TextInput id="props.title" label="Title (children)" className="input--height-small1x" />
+      <TextInput id="props.title" label="Initial Title" className="input--height-small1x" />
 
-      <TextInput id="props.promptChildren" label="Prompt" className="input--height-small1x" />
+      <TextInput id="props.promptChildren" label="Confirmation Title" className="input--height-small1x" />
 
       <Select id="props.type" label="Type" className="input--height-small1x">
         <SelectOption label="Button" value="button" />

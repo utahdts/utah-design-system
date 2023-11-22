@@ -19,7 +19,9 @@ export { default as ComboBox } from './react/components/forms/ComboBox/ComboBox'
 export { default as ComboBoxOption } from './react/components/forms/ComboBox/ComboBoxOption';
 export { default as ComboBoxOptionGroup } from './react/components/forms/ComboBox/ComboBoxOptionGroup';
 export { default as componentColors } from './react/enums/componentColors';
-export { default as ConfirmationButton } from './react/components/buttons/ConfirmationButton';
+export { ConfirmationButton } from './react/components/buttons/ConfirmationButton/ConfirmationButton';
+export { ConfirmationChildren } from './react/components/buttons/ConfirmationButton/ConfirmationChildren';
+export { InitialChildren } from './react/components/buttons/ConfirmationButton/InitialChildren';
 export { default as DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
 export { default as DomLocationTargetShape } from './react/propTypesShapes/header/DomLocationTargetShape';
 export { default as EventActionShape } from './react/propTypesShapes/header/EventActionShape';
