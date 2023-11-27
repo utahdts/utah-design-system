@@ -1,8 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+// @ts-ignore
+// eslint-disable-next-line import/order
+import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
+
 import { Link } from 'react-router-dom';
 import {
   ConfirmationButton,
@@ -13,7 +14,6 @@ import {
 import React, { useCallback } from 'react';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
@@ -41,6 +41,7 @@ function ConfirmationButtonDocumentation() {
           appearance: 'solid',
           className: '',
           color: 'primary',
+          confirmationColor: 'primary',
           id: 'button-sandbox-example-id',
           isBusy: false,
           isDisabled: false,
@@ -75,12 +76,12 @@ function ConfirmationButtonDocumentation() {
               color="primary"
               onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
             >
-                <InitialChildren>
-                  Primary
-                </InitialChildren>
-                <ConfirmationChildren>
-                  Are you sure?
-                </ConfirmationChildren>
+              <InitialChildren>
+                Primary
+              </InitialChildren>
+              <ConfirmationChildren>
+                Are you sure?
+              </ConfirmationChildren>
             </ConfirmationButton>
             <ConfirmationButton
               className="mx-spacing-xs"

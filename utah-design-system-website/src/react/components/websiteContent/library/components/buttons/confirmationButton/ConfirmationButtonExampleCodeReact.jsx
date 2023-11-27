@@ -18,6 +18,7 @@ export function ConfirmationButtonExampleCodeReact({
       isBusy,
       className,
       color,
+      confirmationColor,
       isDisabled,
       id,
       size,
@@ -33,6 +34,7 @@ export function ConfirmationButtonExampleCodeReact({
       <br />
       <ExampleCodeReactProp displayProp={appearance ? `appearance="${appearance}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={color ? `color="${color}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={confirmationColor ? `confirmationColor="${confirmationColor}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isBusy ? 'isBusy' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />

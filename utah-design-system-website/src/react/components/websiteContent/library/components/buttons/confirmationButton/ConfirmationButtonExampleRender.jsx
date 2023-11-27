@@ -20,6 +20,7 @@ export function ConfirmationButtonExampleRender({
       isBusy,
       className,
       color,
+      confirmationColor,
       isDisabled,
       id,
       size,
@@ -36,6 +37,7 @@ export function ConfirmationButtonExampleRender({
       appearance={appearance}
       className={className}
       color={color}
+      confirmationColor={confirmationColor}
       id={id}
       innerRef={innerRef}
       isBusy={isBusy}

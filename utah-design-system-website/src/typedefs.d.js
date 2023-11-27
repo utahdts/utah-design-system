@@ -120,6 +120,7 @@
  * @property {boolean} isBusy
  * @property {string} className
  * @property {ComponentColors} color
+ * @property {ComponentColors} confirmationColor
  * @property {boolean} isDisabled
  * @property {string} id
  * @property {string} promptChildren
