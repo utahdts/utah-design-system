@@ -8,6 +8,13 @@ import { handleKeyPress } from '../../../../index';
 import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonContextProvider';
 
 /** @typedef {import('../../../jsDocTypes.js').EventAction} EventAction */
+/** @typedef {import('../../../jsDocTypes.js').FormElementSizes} FormElementSizes */
+
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
+
 /**
  * @param {Object} props
  * @param {ButtonAppearance} [props.appearance]
