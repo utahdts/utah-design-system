@@ -40,7 +40,7 @@ export function ConfirmationButtonExampleProps({ setState, state }) {
         <SelectOption label="None" value="none" />
       </Select>
 
-      <Select id="props.confirmationColor" label="Color" className="input--height-small1x">
+      <Select id="props.confirmationColor" label="Confirmation Color" className="input--height-small1x">
         <SelectOption label="Primary" value="primary" />
         <SelectOption label="Secondary" value="secondary" />
         <SelectOption label="Accent" value="accent" />
