@@ -1,19 +1,31 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-check
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+// @ts-ignore
+// eslint-disable-next-line import/order
+import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
+
 import { Link } from 'react-router-dom';
+import {
+  ConfirmationButton,
+  ConfirmationChildren,
+  InitialChildren,
+  useBanner
+} from '@utahdts/utah-design-system';
+import React, { useCallback } from 'react';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
+import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
+import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleCodeReact';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
 function ConfirmationButtonDocumentation() {
+  const showBanner = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Confirmation Button</h1>
@@ -23,7 +35,25 @@ function ConfirmationButtonDocumentation() {
 
       <hr />
 
-      <h2 id="section-example">Examples</h2>
+      <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          appearance: 'solid',
+          className: '',
+          color: 'primary',
+          confirmationColor: 'primary',
+          id: 'button-sandbox-example-id',
+          isBusy: false,
+          isDisabled: false,
+          size: 'medium',
+          title: 'Initial Title',
+          promptChildren: 'Confirmation Title',
+          type: 'button',
+        }}
+        RENDER_EXAMPLE={ConfirmationButtonExampleRender}
+        PROPS_EXAMPLE={ConfirmationButtonExampleProps}
+        CODE_EXAMPLE={ConfirmationButtonExampleCodeReact}
+      />
       <StaticExample
         title="Confirmation Button Life Cycle"
         renderedExample={<LightBox image={confirmationButtonScreenshot} alt="Confirmation Button" className="flex-3up-gap" />}
@@ -36,6 +66,52 @@ function ConfirmationButtonDocumentation() {
         )}
       />
 
+      <StaticExample
+        title="Button Styles"
+        renderedExample={(
+          <div className="flex">
+            <ConfirmationButton
+              className="mx-spacing-xs"
+              appearance="solid"
+              color="primary"
+              onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
+            >
+              <InitialChildren>
+                Primary
+              </InitialChildren>
+              <ConfirmationChildren>
+                Are you sure?
+              </ConfirmationChildren>
+            </ConfirmationButton>
+            <ConfirmationButton
+              className="mx-spacing-xs"
+              appearance="solid"
+              color="secondary"
+              onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
+            >
+              <InitialChildren>
+                Secondary
+              </InitialChildren>
+              <ConfirmationChildren>
+                Are you sure?
+              </ConfirmationChildren>
+            </ConfirmationButton>
+            <ConfirmationButton
+              className="mx-spacing-xs"
+              appearance="solid"
+              color="accent"
+              onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
+            >
+              <InitialChildren>
+                Accent
+              </InitialChildren>
+              <ConfirmationChildren>
+                Are you sure?
+              </ConfirmationChildren>
+            </ConfirmationButton>
+          </div>
+        )}
+      />
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
