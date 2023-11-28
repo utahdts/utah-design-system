@@ -1,7 +1,7 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "1.10.0",
+  "version": "1.11.0",
   "type": "module",
   "scripts": {
     "dev": "vite --mode development-local",
@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
-    "@utahdts/utah-design-system": "1.10.0",
-    "@utahdts/utah-design-system-header": "1.10.0",
+    "@utahdts/utah-design-system": "1.11.0",
+    "@utahdts/utah-design-system-header": "1.11.0",
     "js-beautify": "1.14.11",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
