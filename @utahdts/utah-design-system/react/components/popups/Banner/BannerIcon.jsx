@@ -1,4 +1,5 @@
 // @ts-check
+import React from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 
 /**
