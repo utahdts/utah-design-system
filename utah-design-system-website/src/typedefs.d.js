@@ -115,6 +115,22 @@
  */
 
 /**
+ * @typedef ConfirmationButtonExamplePropsShape {
+ * @property {ButtonAppearance} appearance
+ * @property {boolean} isBusy
+ * @property {string} className
+ * @property {ComponentColors} color
+ * @property {ComponentColors} confirmationColor
+ * @property {boolean} isDisabled
+ * @property {string} id
+ * @property {string} promptChildren
+ * @property {string} size
+ * @property {string} title
+ * @property {ButtonTypes} type
+ * }
+ */
+
+/**
  * @typedef CharacterCountExamplePropsShape {
  * @property {string} className
  * @property {string} id
