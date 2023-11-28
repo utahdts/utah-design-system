@@ -47,14 +47,14 @@ export default function SandboxExample({
 }) {
   const [state, setState] = useImmer({ props: defaultProps });
   const renderedRef = /** @type {typeof useRef<any>} */ (useRef)(null);
-  const [forceUpdateValue, forceUpdate] = useState(0);
+  const [forceUpdateValue, setForceUpdateValue] = useState(0);
 
   useEffect(
     () => {
       // ComboBox loads its options after rendering so rendering the HTML tab does not show the options
       const timeoutId = setTimeout(
         () => {
-          forceUpdate((prevValue) => prevValue + 1);
+          setForceUpdateValue((prevValue) => prevValue + 1);
         },
         0
       );

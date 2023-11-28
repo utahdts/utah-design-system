@@ -17,10 +17,6 @@ BEM standard: Block, Element, Modifier
     - cats-r-great--black
  */
 
-
-// normalize.css
-// @include meta.load-css("./3-generic/normalize.css");
-
 // variables and settings
 @forward "1-settings/settings-index";
 @include meta.load-css("1-settings/settings-index");
@@ -50,4 +46,3 @@ BEM standard: Block, Element, Modifier
 // test css, temporary css,
 // this css should eventually be categorized above
 @include meta.load-css("9-tip/tip-index");
-

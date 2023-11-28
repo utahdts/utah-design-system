@@ -1,10 +1,10 @@
 // @ts-check
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import joinClassNames from '../../../util/joinClassNames';
 import ErrorMessage from '../ErrorMessage';
-import CombBoxListBox from './internal/CombBoxListBox';
 import ComboBoxContextProvider from './context/ComboBoxContextProvider';
+import CombBoxListBox from './internal/CombBoxListBox';
 import ComboBoxTextInput from './internal/ComboBoxTextInput';
 
 /**
@@ -51,6 +51,7 @@ export default function ComboBox({
   ...rest
 }) {
   const comboBoxListId = useMemo(() => uuidv4(), []);
+  const contentRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
   return (
     <ComboBoxContextProvider
@@ -62,7 +63,7 @@ export default function ComboBox({
       value={value}
     >
       <div className={joinClassNames('input-wrapper input-wrapper--combo-box', wrapperClassName)} ref={innerRef}>
-        <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
+        <div className={joinClassNames('combo-box-input__inner-wrapper', className)} ref={contentRef}>
           <ComboBoxTextInput
             comboBoxListId={comboBoxListId}
             id={id}
@@ -76,7 +77,7 @@ export default function ComboBox({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
           />
-          <CombBoxListBox id={comboBoxListId} ariaLabelledById={id}>
+          <CombBoxListBox id={comboBoxListId} ariaLabelledById={id} popperReferenceElementRef={contentRef}>
             {children}
           </CombBoxListBox>
         </div>
