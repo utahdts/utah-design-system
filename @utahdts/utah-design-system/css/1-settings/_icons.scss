@@ -269,4 +269,9 @@
     .utds-icon-after-visibility-off::after {
       content: "\0072";
     }
+
+    .utds-icon-before-trash::before,
+    .utds-icon-after-trash::after {
+      content: "\0073";
+    }
 }
