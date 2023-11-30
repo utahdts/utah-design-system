@@ -38,7 +38,7 @@ import CheckboxDocumentation from '../websiteContent/library/components/forms/Ch
 import ComboBoxDocumentation from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import DateInputDocumentation from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import FileInputDocumentation from '../websiteContent/library/components/forms/FileInput/FileInputDocumentation';
-import MultiSelectDocumentation from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
+import { MultiSelectDocumentation } from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
 import RadioButtonDocumentation from '../websiteContent/library/components/forms/RadioButton/RadioButtonDocumentation';
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';

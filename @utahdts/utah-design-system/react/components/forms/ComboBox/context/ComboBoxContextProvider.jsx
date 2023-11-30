@@ -43,14 +43,19 @@ export default function ComboBoxContextProvider({
     /** @param {string} newValue */
     (newValue) => {
       comboBoxImmerRef.current?.[1]((draftContext) => {
-        draftContext.optionValueSelected = newValue;
-        draftContext.filterValue = draftContext.options.find((option) => option.value === newValue)?.label || '';
         draftContext.isFilterValueDirty = false;
       });
       if (onChange) {
         // give parent first crack
         onChange(newValue);
       } else {
+        console.log('who is there?');
+        // if parent controls onChange then don't set the value automatically
+        comboBoxImmerRef.current?.[1]((draftContext) => {
+          draftContext.optionValueSelected = newValue;
+          draftContext.filterValue = draftContext.options.find((option) => option.value === newValue)?.label || '';
+        });
+
         // let the form context know about the change, if there is a form context
         onChangeFormContext?.({ fieldPath: comboBoxId, value: newValue });
       }

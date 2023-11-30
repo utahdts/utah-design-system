@@ -16,10 +16,10 @@ export function selectComboBoxSelection(draftContext, textInputRef, onSubmit) {
     );
 
     // select currently highlighted menu item
-    draftContext.filterValue = selectedOption?.label ?? '';
+    // draftContext.filterValue = selectedOption?.label ?? '';
     draftContext.isFilterValueDirty = false;
     draftContext.isOptionsExpanded = false;
-    draftContext.optionValueSelected = selectedOption?.value ?? null;
+    // draftContext.optionValueSelected = selectedOption?.value ?? null;
 
     if (selectedOption) {
       const selectedOptionLabel = selectedOption.label;

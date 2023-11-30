@@ -25,6 +25,7 @@ import ComboBoxTextInput from './internal/ComboBoxTextInput';
  * @param {() => void} [props.onClear]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
+ * @param {React.ReactNode} [props.tagChildren]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
@@ -46,6 +47,7 @@ export default function ComboBox({
   onClear,
   onSubmit,
   placeholder,
+  tagChildren,
   value,
   wrapperClassName,
   ...rest
@@ -64,6 +66,7 @@ export default function ComboBox({
     >
       <div className={joinClassNames('input-wrapper input-wrapper--combo-box', wrapperClassName)} ref={innerRef}>
         <div className={joinClassNames('combo-box-input__inner-wrapper', className)} ref={contentRef}>
+          {tagChildren}
           <ComboBoxTextInput
             comboBoxListId={comboBoxListId}
             id={id}

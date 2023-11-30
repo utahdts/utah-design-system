@@ -1,6 +1,6 @@
 // @ts-check
 import identity from 'lodash/identity';
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import useOnKeyUp from '../../../../util/useOnKeyUp';
 import useFormContext from '../../FormContext/useFormContext';
 import TextInput from '../../TextInput';
@@ -45,6 +45,7 @@ export default function ComboBoxTextInput({
     {
       filterValue,
       isOptionsExpanded,
+      onClear: onClearFromContext,
       options,
       optionValueFocusedId,
       optionValueSelected,
@@ -56,6 +57,7 @@ export default function ComboBoxTextInput({
   const onCancelKeyPress = useOnKeyUp('Escape', useCallback(() => isClearable && setComboBoxContext(clearComboBoxSelection), [isClearable, setComboBoxContext]));
   const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]));
   const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
+  const clearIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
 
   return (
     <div>
@@ -68,6 +70,7 @@ export default function ComboBoxTextInput({
         aria-owns={comboBoxListId}
         // TODO: what is the right classname for the chevron?
         className="text-input--clear-icon-visible"
+        clearIconRef={clearIconRef}
         id={id}
         innerRef={(ref) => { textInputRef.current = ref?.querySelector('input'); }}
         isClearable={isClearable}
@@ -78,14 +81,18 @@ export default function ComboBoxTextInput({
           // wait for combo box option to register that it has focus
           setTimeout(
             () => {
-              setComboBoxContext((draftContext) => {
-                if (!draftContext.optionValueFocused) {
-                  const selectedOption = options.find((option) => option.value === optionValueSelected);
-                  draftContext.filterValue = selectedOption?.label ?? '';
-                  draftContext.isFilterValueDirty = false;
-                  draftContext.isOptionsExpanded = false;
-                }
-              });
+              // clicking the "x" clear icon button takes focus away from the text input and on to the x-button
+              // without checking if the clear button has focus, this was trumping the clear button's onclick
+              if (clearIconRef.current !== document.activeElement) {
+                setComboBoxContext((draftContext) => {
+                  if (!draftContext.optionValueFocused) {
+                    const selectedOption = options.find((option) => option.value === optionValueSelected);
+                    draftContext.filterValue = selectedOption?.label ?? '';
+                    draftContext.isFilterValueDirty = false;
+                    draftContext.isOptionsExpanded = false;
+                  }
+                });
+              }
             },
             1
           );
@@ -101,6 +108,8 @@ export default function ComboBoxTextInput({
             ? ((e) => {
               if (onClear) {
                 onClear(e);
+              } else if (onClearFromContext) {
+                onClearFromContext();
               } else {
                 setComboBoxContext((draftContext) => {
                   draftContext.filterValue = '';

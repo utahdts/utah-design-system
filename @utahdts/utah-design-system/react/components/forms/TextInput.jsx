@@ -13,6 +13,7 @@ import RequiredStar from './RequiredStar';
 /**
  * @param {Object} props
  * @param {string} [props.className]
+ * @param {import('react').MutableRefObject<HTMLButtonElement | null>} [props.clearIconRef]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form, the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
@@ -35,6 +36,7 @@ import RequiredStar from './RequiredStar';
  */
 export default function TextInput({
   className,
+  clearIconRef,
   defaultValue,
   errorMessage,
   innerRef,
@@ -133,9 +135,10 @@ export default function TextInput({
               <IconButton
                 className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                innerRef={clearIconRef}
+                isDisabled={isDisabled}
                 onClick={clearInput}
                 title="Clear input"
-                isDisabled={isDisabled}
               />
             )
             : null

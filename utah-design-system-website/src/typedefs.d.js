@@ -13,75 +13,39 @@
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
+// ========== Rename Types ========== //
 /**
  * PageUrl - it is an enum, but listing ALL the individual pageUrls and keeping it up to date is impossible
  * @typedef {string} PageUrl
- */
-/**
- * WebsiteMainMenuKey
- * @typedef { 'menuMain' | 'menuGuidelinesSecondary' | 'menuLibraryComponentsSecondary' | 'menuLibraryPatternsSecondary' | 'menuResourcesSecondary' } WebsiteMainMenuKey
- */
-/**
- * ColorRating
- * @typedef {'AA' | 'AAA' | 'X'} ColorRating
- */
-/**
- * LayoutTemplate
- * @typedef {'documentation-template' | 'landing-template'} LayoutTemplate
- */
-/**
- * NamedMenus
- * @typedef {'main-menu' | 'secondary-menu-guidelines' | 'secondary-menu-library' | 'secondary-menu-resources'} NamedMenus
- */
+*/
 
+// ========== Enums ========== //
 /**
  * ColorInfo
  * @typedef {{ hexColor: string, isLight: boolean, title: string }} ColorInfo
  */
 
 /**
- * @typedef WebsiteMainMenuItem {
- *  @property {string} [id]
- *  @property {PageUrl} [link]
- *  @property {string} title
- *  @property {PageUrl[]} [parentLinks]
- *  @property {WebsiteMainMenuItem[]} [children]
- *  @property {boolean} [isSelected]
- *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
- * }
- */
+ * ColorRating
+ * @typedef {'AA' | 'AAA' | 'X'} ColorRating
+*/
 
 /**
- * see constructMainMenu() to see a website.WebsiteMainMenu being converted to a header.MainMenu
- * @typedef WebsiteMainMenu {
- *  @property {string} header
- *  @property {string} id
- *  @property {WebsiteMainMenuItem[]} menuItems
- *  @property {boolean} [isSelected]
- * }
- */
+ * LayoutTemplate
+ * @typedef {'documentation-template' | 'landing-template'} LayoutTemplate
+*/
 
 /**
- * @typedef {{[key in WebsiteMainMenuKey]: WebsiteMainMenu}} WebsiteAllMenus
- */
+ * NamedMenus
+ * @typedef {'main-menu' | 'secondary-menu-guidelines' | 'secondary-menu-library' | 'secondary-menu-resources'} NamedMenus
+*/
 
 /**
- * @typedef Page {
- *  @property {() => JSX.Element} content
- *  @property {string[]} [legacyLinks] old links for this component that now redirect to link
- *  @property {string} link !! when this changes, put the old value in legacyLinks !!
- *  @property {NamedMenus} [menuSecondary]
- *  @property {string} pageTitle
- *  @property {LayoutTemplate} template
- * }
+ * WebsiteMainMenuKey
+ * @typedef { 'menuMain' | 'menuGuidelinesSecondary' | 'menuLibraryComponentsSecondary' | 'menuLibraryPatternsSecondary' | 'menuResourcesSecondary' } WebsiteMainMenuKey
  */
 
-/**
- * @typedef AppState {
- *  @property {boolean} isColorPickerShown
- * }
- */
-
+// ========== Objects ========== //
 /**
  * @typedef AppContextValue {
  *  @property {Object.<string, WebsiteMainMenu>} allMenus
@@ -93,73 +57,103 @@
  */
 
 /**
+ * @typedef AppState {
+ *  @property {boolean} isColorPickerShown
+ * }
+ */
+
+/**
  * @typedef BadgesExamplePropsShape {
- * @property {string} onClick
+ *  @property {string} onClick
  * }
  */
 
 /**
  * @typedef ButtonExamplePropsShape {
- * @property {ButtonAppearance} appearance
- * @property {boolean} isBusy
- * @property {string} className
- * @property {ComponentColors} color
- * @property {boolean} isDisabled
- * @property {string} iconLeft
- * @property {string} iconRight
- * @property {string} id
- * @property {string} size
- * @property {string} title
- * @property {ButtonTypes} type
- * }
- */
-
-/**
- * @typedef ConfirmationButtonExamplePropsShape {
- * @property {ButtonAppearance} appearance
- * @property {boolean} isBusy
- * @property {string} className
- * @property {ComponentColors} color
- * @property {ComponentColors} confirmationColor
- * @property {boolean} isDisabled
- * @property {string} id
- * @property {string} promptChildren
- * @property {string} size
- * @property {string} title
- * @property {ButtonTypes} type
+ *  @property {ButtonAppearance} appearance
+ *  @property {boolean} isBusy
+ *  @property {string} className
+ *  @property {ComponentColors} color
+ *  @property {boolean} isDisabled
+ *  @property {string} iconLeft
+ *  @property {string} iconRight
+ *  @property {string} id
+ *  @property {string} size
+ *  @property {string} title
+ *  @property {ButtonTypes} type
  * }
  */
 
 /**
  * @typedef CharacterCountExamplePropsShape {
- * @property {string} className
- * @property {string} id
- * @property {string} maxLength
- * @property {string} text
+ *  @property {string} className
+ *  @property {string} id
+ *  @property {string} maxLength
+ *  @property {string} text
  * }
- */
+*/
 
 /**
  * @typedef CheckboxExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isDisabled
- * @property {string} label
- * @property {boolean} value
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isDisabled
+ *  @property {string} label
+ *  @property {boolean} value
+ * }
+*/
+
+/**
+ * @typedef ComboBoxExamplePropsShape {
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} value
  * }
  */
 
 /**
- * @typedef ComboBoxExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isClearable
- * @property {boolean} isDisabled
- * @property {boolean} isRequired
- * @property {string} label
- * @property {string} value
+ * @typedef ConfirmationButtonExamplePropsShape {
+ *  @property {ButtonAppearance} appearance
+ *  @property {boolean} isBusy
+ *  @property {string} className
+ *  @property {ComponentColors} color
+ *  @property {ComponentColors} confirmationColor
+ *  @property {boolean} isDisabled
+ *  @property {string} id
+ *  @property {string} promptChildren
+ *  @property {string} size
+ *  @property {string} title
+ *  @property {ButtonTypes} type
+ * }
+ */
+
+/**
+ * @typedef MultiSelectExamplePropsShape {
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string[]} values the currently selected/tagged option values
+ * }
+ */
+
+/**
+ * @typedef Page {
+ *  @property {() => JSX.Element} content
+ *  @property {string[]} [legacyLinks] old links for this component that now redirect to link
+ *  @property {string} link !! when this changes, put the old value in legacyLinks !!
+ *  @property {NamedMenus} [menuSecondary]
+ *  @property {string} pageTitle
+ *  @property {LayoutTemplate} template
  * }
  */
 
@@ -185,26 +179,26 @@
 
 /**
  * @typedef RadioButtonExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isDisabled
- * @property {boolean} isRequired
- * @property {string} label
- * @property {string} value
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} value
  * }
  */
 
 /**
  * @typedef SelectExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isClearable
- * @property {boolean} isDisabled
- * @property {boolean} isRequired
- * @property {string} label
- * @property {string} value
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} value
  * }
  */
 
@@ -221,66 +215,92 @@
 
 /**
  * @typedef SwitchExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} icon
- * @property {string} id
- * @property {boolean} isDisabled
- * @property {string} label
- * @property {string} labelOff
- * @property {string} labelOn
- * @property {string} size
- * @property {boolean} value
- * @property {string} width
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} icon
+ *  @property {string} id
+ *  @property {boolean} isDisabled
+ *  @property {string} label
+ *  @property {string} labelOff
+ *  @property {string} labelOn
+ *  @property {string} size
+ *  @property {boolean} value
+ *  @property {string} width
  * }
  */
 
 /**
  * @typedef TableExamplePropsShape {
- * @property {string} className
- * @property {string} id
- * @property {boolean} isFiltering
- * @property {boolean} isPaginating
- * @property {boolean} isSorting
+ *  @property {string} className
+ *  @property {string} id
+ *  @property {boolean} isFiltering
+ *  @property {boolean} isPaginating
+ *  @property {boolean} isSorting
  * }
 */
 
 /**
  * @typedef TextAreaExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isClearable
- * @property {boolean} isDisabled
- * @property {boolean} isRequired
- * @property {string} label
- * @property {string} name
- * @property {string} placeholder
- * @property {string} value
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} name
+ *  @property {string} placeholder
+ *  @property {string} value
  * }
 */
 
 /**
  * @typedef TextInputExamplePropsShape {
- * @property {string} className
- * @property {string} errorMessage
- * @property {string} id
- * @property {boolean} isClearable
- * @property {boolean} isDisabled
- * @property {boolean} isRequired
- * @property {string} label
- * @property {string} placeholder
- * @property {string} value
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} placeholder
+ *  @property {string} value
  * }
 */
 
 /**
  * @typedef TooltipsExamplePropsShape {
- *   @property {boolean} isPopperVisible
- *   @property {string} offsetDistance
- *   @property {string} offsetSkidding
- *   @property {PopupPlacement} placement
- *   @property {string} popupText
+ *  @property {boolean} isPopperVisible
+ *  @property {string} offsetDistance
+ *  @property {string} offsetSkidding
+ *  @property {PopupPlacement} placement
+ *  @property {string} popupText
+ * }
+ */
+
+/**
+ * @typedef {{[key in WebsiteMainMenuKey]: WebsiteMainMenu}} WebsiteAllMenus
+ */
+
+/**
+ * see constructMainMenu() to see a website.WebsiteMainMenu being converted to a header.MainMenu
+ * @typedef WebsiteMainMenu {
+ *  @property {string} header
+ *  @property {string} id
+ *  @property {WebsiteMainMenuItem[]} menuItems
+ *  @property {boolean} [isSelected]
+ * }
+*/
+
+/**
+ * @typedef WebsiteMainMenuItem {
+ *  @property {string} [id]
+ *  @property {PageUrl} [link]
+ *  @property {string} title
+ *  @property {PageUrl[]} [parentLinks]
+ *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {boolean} [isSelected]
+ *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }
  */
 

@@ -69,7 +69,7 @@ const defaultProps = {
  * @param {'primary' | 'secondary' | 'accent' | 'none' | undefined} [props.color]
  * @param {import('react').ReactNode} props.icon
  * @param {string | null | undefined} [props.id]
- * @param {React.MutableRefObject<HTMLButtonElement>} [props.innerRef]
+ * @param {React.MutableRefObject<HTMLButtonElement | null>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isTitleVisible]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
