@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Table,
   TableBody,
@@ -11,7 +12,7 @@ import {
 import React from 'react';
 
 /** @returns {JSX.Element} */
-function ClickableTagPropsDocumentation() {
+export function ClickableTagPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -147,5 +148,3 @@ function ClickableTagPropsDocumentation() {
     </div>
   );
 }
-
-export default ClickableTagPropsDocumentation;
