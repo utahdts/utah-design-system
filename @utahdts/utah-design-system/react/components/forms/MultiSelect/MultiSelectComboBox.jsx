@@ -58,7 +58,7 @@ export function MultiSelectComboBox({
       }}
       onClear={multiSelectContextValue.onClear}
       placeholder={placeholder}
-      tagChildren={<MultiSelectTags />}
+      tagChildren={<MultiSelectTags isDisabled={isDisabled} />}
       // the value is always unset because the multi-select will own and show the current value
       value=""
       wrapperClassName={wrapperClassName}

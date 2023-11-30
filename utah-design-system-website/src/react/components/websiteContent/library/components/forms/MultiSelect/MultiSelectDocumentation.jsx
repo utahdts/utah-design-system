@@ -16,7 +16,7 @@ export function MultiSelectDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Multi-select</h1>
       <p className="lead-in">
-        A multi-select allows you to search on and choose multiple options from an option menu. A <Link to={pageUrls.comboBox}>combo box</Link> lets
+        A multi-select allows you to search and choose multiple options from an option menu. A <Link to={pageUrls.comboBox}>combo box</Link> lets
         you search options to select a single item, while a <Link to={pageUrls.select}>select</Link> lets you pick a single option from a list.
       </p>
 
