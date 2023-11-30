@@ -57,6 +57,7 @@
 
 /** @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event */
 
+// TODO: replace EventAction with import('react').MouseEventHandler<HTMLButtonElement>
 /** @typedef {((e: Event) => void)} EventAction */
 /** @typedef {((e: Event) => boolean)} EventActionBoolean */
 
