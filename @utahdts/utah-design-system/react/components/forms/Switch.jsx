@@ -66,6 +66,7 @@ export default function Switch({
         setInternalState(!!value);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value]
   );
 

@@ -1,10 +1,11 @@
-import React from 'react';
+// @ts-check
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @returns {JSX.Element} */
-function TagCssClassesDocumentation() {
+export function TagCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x">
@@ -44,5 +45,3 @@ function TagCssClassesDocumentation() {
     </TableWrapper>
   );
 }
-
-export default TagCssClassesDocumentation;

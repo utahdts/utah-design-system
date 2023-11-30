@@ -1,3 +1,4 @@
+// @ts-check
 import {
   Table,
   TableBody,
@@ -6,12 +7,12 @@ import {
   TableHeadCell,
   TableHeadRow,
   TableRow,
-  TableWrapper
+  TableWrapper,
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
 /** @returns {JSX.Element} */
-function TagPropsDocumentation() {
+export function TagPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -133,5 +134,3 @@ function TagPropsDocumentation() {
     </div>
   );
 }
-
-export default TagPropsDocumentation;

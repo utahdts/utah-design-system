@@ -8,20 +8,19 @@ import SandboxIndent from '../../../../../../sandbox/SandboxIndent';
 
 /**
  * @param {Object} props
- * @param {Object} props.state
- * @param {TagExamplePropsShape} props.state.props
+ * @param {{props: TagExamplePropsShape}} props.state
  * @returns {JSX.Element}
  */
-export function ClickableTagExampleCodeReact({
+export function TagExampleCodeReact({
   state: {
     props: {
-      clickable: {
+      nonClickable: {
         className,
+        isClearable,
         iconLeft,
         iconRight,
         id,
         isDisabled,
-        isSelected,
         size,
         title,
       },
@@ -29,25 +28,26 @@ export function ClickableTagExampleCodeReact({
   },
 }) {
   const sizeKey = Object.entries(formElementSizesEnum).find(([, value]) => value === size)?.[0];
-
   return (
     <>
-      &lt;ClickableTag
+      &lt;Tag
       <br />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isClearable ? 'onClear={() => { /* ... do something ... */ }' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isSelected ? 'isSelected' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'onClick={() => { /* ... do something ... */ }'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={(!sizeKey || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${sizeKey}}`} indentLevel={1} />
+      <ExampleCodeReactProp
+        displayProp={(!sizeKey || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${sizeKey}}`}
+        indentLevel={1}
+      />
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
       {title}
       <br />
-      &lt;/ClickableTag&gt;
+      &lt;/Tag&gt;
     </>
   );
 }
