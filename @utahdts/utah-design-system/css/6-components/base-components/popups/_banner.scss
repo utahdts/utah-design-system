@@ -17,11 +17,22 @@
         z-index: 3000;
       }
 
-      &.banner--bottom-left, &.banner--top-left {
-        animation: left-in 1s;
+      &.banner {
+        &--bottom-left, &--top-left {
+          animation: left-in 1s;
+        }
+
+        &--bottom-right, &--top-right {
+          animation: right-in 1s;
+        }
+
+        &--bottom, &--top {
+          animation: pop-in .3s;
+        }
       }
-      &.banner--bottom-right, &.banner--top-right {
-        animation: right-in 1s;
+
+      &.banner--bottom {
+
       }
 
       &.banner--bottom-left {
@@ -32,6 +43,10 @@
       &.banner--bottom-right {
         bottom: 0;
         right: 0;
+      }
+
+      &.banner--top {
+
       }
 
       &.banner--top-left {
@@ -65,13 +80,13 @@
       }
     }
 
-    &--message {
+    &__message {
       display: flex;
       align-items: center;
       padding: var(--spacing-s) var(--spacing-xs) var(--spacing-s) var(--spacing);
     }
 
-    &--icon {
+    &__icon {
       padding: var(--spacing-s);
       background-color: rgba(0, 0, 0, 0.3);
       display: flex;
@@ -89,27 +104,5 @@
     &--close-button {
       padding: var(--spacing-xs);
     }
-  }
-}
-
-@keyframes left-in {
-  0% {
-    opacity: 0;
-    transform: translate(-100%, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes right-in {
-  0% {
-    opacity: 0;
-    transform: translate(100%, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
   }
 }

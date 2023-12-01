@@ -2,18 +2,19 @@
 import React from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import formElementSizesEnum from '../../../enums/formElementSizesEnum';
 import IconButton from '../../buttons/IconButton';
+import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
 
 /** @typedef {import('../../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('../../../jsDocTypes').BannerPlacement} BannerPlacement */
 /**
  * @param {Object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id
- * @param {React.RefObject} [props.innerRef]
- * @param {EventAction} [props.onClose]
- * @param {string} [props.position]
+ * @param {React.Ref<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').MouseEventHandler<HTMLButtonElement>} props.onClose
+ * @param {BannerPlacement} [props.position]
  * * @returns {JSX.Element}
  */
 export function Banner({
@@ -22,14 +23,14 @@ export function Banner({
   id,
   innerRef,
   onClose,
-  position,
+  position = BANNER_PLACEMENT.BOTTOM_LEFT,
 }) {
   return (
     <div
       className={joinClassNames(
         'banner--wrapper',
         className,
-        position ? `banner--${position}` : 'banner--bottom-left'
+        `banner--${position}`
       )}
       id={id}
       ref={innerRef}
@@ -42,7 +43,7 @@ export function Banner({
           icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
           onClick={onClose}
           title="Close banner"
-          size={formElementSizesEnum.SMALL}
+          size="small"
         />
       </div>
     </div>

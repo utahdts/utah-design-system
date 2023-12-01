@@ -38,7 +38,7 @@
 
 /**
  * BannerPlacement
- * @typedef {'inline' | 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'} BannerPlacement
+ * @typedef {'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right'} BannerPlacement
  */
 
 /**

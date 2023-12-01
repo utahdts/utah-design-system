@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+// @ts-check
 import { Link } from 'react-router-dom';
 import {
   Banner,
@@ -41,7 +37,7 @@ function BannersDocumentation() {
           <div className="flex flex-col items-center">
             <Banner
               position="inline"
-              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
             >
               <BannerMessage>
                 So long, and thanks for all the fish.
@@ -50,7 +46,7 @@ function BannersDocumentation() {
             <Banner
               position="inline"
               className="banner--success"
-              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
             >
               <BannerIcon>
                 <span className="utds-icon-before-check" aria-hidden="true" />
@@ -62,7 +58,7 @@ function BannersDocumentation() {
             <Banner
               position="inline"
               className="banner--danger"
-              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
             >
               <BannerIcon>
                 <span className="utds-icon-before-warning" aria-hidden="true" />
@@ -74,7 +70,7 @@ function BannersDocumentation() {
             <Banner
               position="inline"
               className="banner--info"
-              onClose={useCallback(() => showBanner({ message: 'banner closed' }), [showBanner])}
+              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
             >
               <BannerIcon>
                 <span className="utds-icon-before-info" aria-hidden="true" />
@@ -92,7 +88,10 @@ function BannersDocumentation() {
             <li>A banner consists of a container, one line of content, and a close button.</li>
             <li>You can include an icon to the left of the text, to help convey the overall message.</li>
             <li>Messages not related to errors are usually displayed in one of the bottom corners of the screen.</li>
-            <li>For messages relating to a user&apos;s error on a form, please refer to the <Link to={pageUrls.validation}>form validation</Link> standards.</li>
+            <li>
+              For messages relating to a user&apos;s error on a form, please refer to the{' '}
+              <Link to={pageUrls.validation}>form validation</Link> standards.
+            </li>
             <li>A banner can be dismissed by the user, have a set period of time that it is displayed, or a combination of both.</li>
           </ul>
         )}
@@ -107,12 +106,15 @@ function BannersDocumentation() {
             <li>An icon may be included to the left of the text to help convey the overall message.</li>
             <li>Medium banners should float above the content on the page.</li>
             <li>
-              Avoid using <Link to={pageUrls.button}>buttons</Link> or <Link to={pageUrls.links}>links</Link> in the banner. While they
-              can guide the user to more information or to perform another action, <Link to={pageUrls.button}>buttons</Link> and <Link to={pageUrls.links}>links</Link> are
-              inaccessible to people using screen readers and people navigating with a keyboard. Interactive elements in floating banners
-              should never be critical for the user to accomplish a task.
+              Avoid using <Link to={pageUrls.button}>buttons</Link> or <Link to={pageUrls.links}>links</Link> in the banner.
+              While they can guide the user to more information or to perform another action, <Link to={pageUrls.button}>buttons</Link> and{' '}
+              <Link to={pageUrls.links}>links</Link> are inaccessible to people using screen readers and people navigating with a keyboard.
+              Interactive elements in floating banners should never be critical for the user to accomplish a task.
             </li>
-            <li>Medium banners are wider than a small banner and can accommodate more text. Medium banners are intended to have a maximum of four lines of text per banner.</li>
+            <li>
+              Medium banners are wider than a small banner and can accommodate more text.
+              Medium banners are intended to have a maximum of four lines of text per banner.
+            </li>
           </ul>
         )}
       />
@@ -123,16 +125,28 @@ function BannersDocumentation() {
         quickTips={(
           <ul>
             <li>Large banners are comprised of a container and content.</li>
-            <li>A close icon should be used on all banners except for things like form validation where the issue must be addressed before the user can continue.</li>
-            <li>An icon may be included to the left of the text to help convey the overall message.</li>
-            <li>Large banners should not float above the content, but should push the content down; The user should be able to dismiss the message at their discretion.</li>
             <li>
-              Since these banners are a part of the content flow, <Link to={pageUrls.button}>buttons</Link> and <Link to={pageUrls.links}>links</Link> may be used in these banners
-              as they will be accessible to the user. However, large banners that appear spontaneously should <strong>not</strong> have interactive elements, since screen reader users will not be
-              able to navigate to the banner easily.
+              A close icon should be used on all banners except for things like form validation where the issue must be
+              addressed before the user can continue.
             </li>
-            <li>A large banner usually displays critical, time-sensitive warnings or directions so that users see them whenever they visit the site.</li>
-            <li>Using the same large banner for critical messaging across agencies helps create a consistent and predictable way for users to find urgent information across all State of Utah websites.</li>
+            <li>An icon may be included to the left of the text to help convey the overall message.</li>
+            <li>
+              Large banners should not float above the content, but should push the content down.
+              The user should be able to dismiss the message at their discretion.
+            </li>
+            <li>
+              Since these banners are a part of the content flow, <Link to={pageUrls.button}>buttons</Link> and{' '}
+              <Link to={pageUrls.links}>links</Link> may be used in these banners as they will be accessible to the user.
+              However, large banners that appear spontaneously should <strong>not</strong> have interactive elements,
+              since screen reader users will not be able to navigate to the banner easily.
+            </li>
+            <li>
+              A large banner usually displays critical, time-sensitive warnings or directions so that users see them whenever they visit the site.
+            </li>
+            <li>
+              Using the same large banner for critical messaging across agencies helps create a consistent and predictable way for users
+              to find urgent information across all State of Utah websites.
+            </li>
           </ul>
         )}
       />
@@ -142,8 +156,15 @@ function BannersDocumentation() {
         renderedExample={<LightBox image={bannerLandmarkScreenshot} alt="Landmark Banner" className="flex-3up-gap" />}
         quickTips={(
           <ul>
-            <li>A landmark banner is persistent across all sites and is visible on every page. These should only be used in association with landmark elements. E.g. <Link to={pageUrls.utahHeader}>Header</Link>, <Link to={pageUrls.utahHeader}>main menu</Link>, or <Link to={pageUrls.verticalMenu}>side menu</Link> etc.</li>
-            <li>A landmark banner&apos;s content is important enough that users should be able to navigate to the section easily; It should allow accessible technologies to navigate to the content quickly.</li>
+            <li>
+              A landmark banner is persistent across all sites and is visible on every page. These should only be used in association with landmark elements. E.g.{' '}
+              <Link to={pageUrls.utahHeader}>Header</Link>, <Link to={pageUrls.utahHeader}>main menu</Link>
+              , or <Link to={pageUrls.verticalMenu}>side menu</Link> etc.
+            </li>
+            <li>
+              A landmark banner&apos;s content is important enough that users should be able to navigate to the section easily;
+              It should allow accessible technologies to navigate to the content quickly.
+            </li>
             <li>Because landmark banners are used in conjunction with landmark elements, these banners should be toggleable.</li>
           </ul>
         )}
@@ -232,13 +253,19 @@ function BannersDocumentation() {
       <ul className="mb-spacing">
         <li>Text within a banner must maintain a <code>4.5:1</code> contrast ratio.</li>
         <li>The banner&apos;s boundary must maintain a <code>3:1</code> contrast ratio against the background.</li>
-        <li>Follow the accessibility guidelines for other elements inside the banner such as <Link to={pageUrls.links}>links</Link> and <Link to={pageUrls.button}>buttons</Link>.</li>
+        <li>
+          Follow the accessibility guidelines for other elements inside the banner such as <Link to={pageUrls.links}>links</Link>
+          and <Link to={pageUrls.button}>buttons</Link>.
+        </li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
         <li>Floating banners do not receive focus.</li>
-        <li>Users can close a landmark banner by pressing the <code>spacebar</code> while the close <Link to={pageUrls.iconButton}>icon button</Link> has focus.</li>
+        <li>
+          Users can close a landmark banner by pressing the <code>spacebar</code> while the close{' '}
+          <Link to={pageUrls.iconButton}>icon button</Link> has focus.
+        </li>
       </ul>
 
       <h4 id="section-screen-readers">Screen readers</h4>
