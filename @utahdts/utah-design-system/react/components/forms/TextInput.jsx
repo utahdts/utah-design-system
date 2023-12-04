@@ -21,6 +21,7 @@ import RequiredStar from './RequiredStar';
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
+ * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
@@ -44,6 +45,7 @@ export default function TextInput({
   isClearable,
   isDisabled,
   isRequired,
+  isShowingClearableIcon,
   label,
   labelClassName,
   name,
@@ -77,7 +79,7 @@ export default function TextInput({
 
   const { addAssertiveMessage } = useAriaMessaging();
 
-  const showClearIcon = !!((isClearable || onClear) && currentValue);
+  const showClearIcon = isShowingClearableIcon ?? !!((isClearable || onClear) && currentValue);
 
   const clearInput = useCallback((e) => {
     if (currentOnClear) {

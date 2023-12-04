@@ -20,6 +20,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
+ * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
@@ -34,6 +35,7 @@ export default function ComboBoxTextInput({
   errorMessage,
   id,
   isClearable,
+  isShowingClearableIcon,
   isDisabled,
   onClear,
   onSubmit,
@@ -75,6 +77,7 @@ export default function ComboBoxTextInput({
         innerRef={(ref) => { textInputRef.current = ref?.querySelector('input'); }}
         isClearable={isClearable}
         isDisabled={isDisabled}
+        isShowingClearableIcon={isShowingClearableIcon}
         errorMessage={errorMessage}
         // @ts-ignore
         onBlur={() => {
@@ -104,7 +107,7 @@ export default function ComboBoxTextInput({
           });
         }}
         onClear={
-          isClearable
+          isShowingClearableIcon
             ? ((e) => {
               if (onClear) {
                 onClear(e);

@@ -50,6 +50,7 @@ export function MultiSelectComboBox({
       isClearable={isClearable}
       isDisabled={isDisabled}
       isRequired={isRequired}
+      isShowingClearableIcon={isClearable && !!multiSelectContextValue.selectedValues.length}
       label={label}
       labelClassName={labelClassName}
       name={name}

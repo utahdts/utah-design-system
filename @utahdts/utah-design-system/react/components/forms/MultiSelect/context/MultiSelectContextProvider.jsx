@@ -39,7 +39,7 @@ export default function MultiSelectContextProvider({
         });
       }
     },
-    onClear,
+    onClear: onClear ?? (() => multiSelectImmer[1]((draftContext) => { draftContext.selectedValues = []; })),
     selectedValues: values ?? defaultValues ?? [],
   }));
 

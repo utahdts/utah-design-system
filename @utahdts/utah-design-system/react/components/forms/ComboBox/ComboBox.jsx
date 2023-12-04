@@ -18,6 +18,7 @@ import ComboBoxTextInput from './internal/ComboBoxTextInput';
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
+ * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
@@ -40,6 +41,7 @@ export default function ComboBox({
   isClearable,
   isDisabled,
   isRequired,
+  isShowingClearableIcon,
   label,
   labelClassName,
   name,
@@ -71,6 +73,7 @@ export default function ComboBox({
             comboBoxListId={comboBoxListId}
             id={id}
             isClearable={isClearable}
+            isShowingClearableIcon={isShowingClearableIcon}
             isDisabled={isDisabled}
             isRequired={isRequired}
             label={label}
