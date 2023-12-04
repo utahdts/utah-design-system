@@ -6,6 +6,7 @@ import joinClassNames from '../../../util/joinClassNames';
 import ComboBox from '../ComboBox/ComboBox';
 import { MultiSelectTags } from './MultiSelectTags';
 import useMultiSelectContext from './context/useMultiSelectContext';
+import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 
 /**
  * @param {Object} props
@@ -41,6 +42,7 @@ export function MultiSelectComboBox({
   const [multiSelectContextValue, setMultiSelectContextValue] = useMultiSelectContext();
   const multiSelectContextValueRef = useRefAlways(multiSelectContextValue);
   const selectedValuesRef = useRefAlways(multiSelectContextValue.selectedValues);
+  const { addPoliteMessage } = useAriaMessaging();
 
   return (
     <ComboBox
@@ -64,7 +66,8 @@ export function MultiSelectComboBox({
         if (e.key === 'Backspace' && !currentFilter && multiSelectContextValueRef.current.selectedValues.length) {
           eventIsHandled = true;
           setMultiSelectContextValue((draftContext) => {
-            draftContext.selectedValues.pop();
+            const deadTag = draftContext.selectedValues.pop();
+            addPoliteMessage(`${deadTag} removed`);
           });
         }
         return eventIsHandled;
