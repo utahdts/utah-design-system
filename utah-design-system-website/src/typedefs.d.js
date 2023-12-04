@@ -9,6 +9,7 @@
 /** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonAppearance} ButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonTypes} ButtonTypes */
 /** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -236,6 +237,25 @@
  *  @property {boolean} isFiltering
  *  @property {boolean} isPaginating
  *  @property {boolean} isSorting
+ * }
+*/
+
+/**
+ * @typedef TagExampleBasePropsShape
+ *  @property {string} className
+ *  @property {boolean} isDisabled
+ *  @property {string} iconLeft
+ *  @property {string} iconRight
+ *  @property {string} id
+ *  @property {FormElementSizes} size
+ *  @property {string} title
+*/
+/** @typedef {TagExampleBasePropsShape & {isSelected: boolean}} TagExampleClickablePropsShape */
+/** @typedef {TagExampleBasePropsShape & {isClearable: boolean}} TagExampleNonClickablePropsShape */
+/**
+ * @typedef TagExamplePropsShape {
+ *  @property {TagExampleClickablePropsShape} clickable
+ *  @property {TagExampleNonClickablePropsShape} nonClickable
  * }
 */
 

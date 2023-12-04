@@ -91,6 +91,9 @@
  * }
  */
 
+// TODO: replace EventAction with import('react').MouseEventHandler<HTMLButtonElement>
+/** @typedef {((e: Event) => void)} EventAction */
+/** @typedef {((e: Event) => boolean)} EventActionBoolean */
 /**
  * @typedef TableContextStateFilterValue {
  *  @property {any} value

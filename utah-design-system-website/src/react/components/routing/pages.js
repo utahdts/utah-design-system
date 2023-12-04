@@ -5,9 +5,11 @@ import Demo from '../demo/Demo';
 import HomeLanding from '../websiteContent/HomeLanding';
 import PlaceHolderDocumentation from '../websiteContent/PlaceHolderDocumentation';
 import ProgressLogPage from '../websiteContent/ProgressLog/ProgressLogPage';
-import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
+import Search from '../websiteContent/Search';
 import AccessibilityChecklistDocumentation from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
+import AccessibilityDocumentation from '../websiteContent/guidelines/AccessibilityDocumentation';
 import ColorGuidelinesDocumentation from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
+import DataVisualizationsDocumentation from '../websiteContent/guidelines/DataVisualizationsDocumentation';
 import DepthElevationShadowsDocumentation from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import GuidelinesLanding from '../websiteContent/guidelines/GuidelinesLanding';
 import ImagesDocumentation from '../websiteContent/guidelines/ImagesDocumentation';
@@ -21,12 +23,12 @@ import BlockquoteDocumentation from '../websiteContent/library/components/basicA
 import DividersDocumentation from '../websiteContent/library/components/basicAtomic/Dividers/DividersDocumentation';
 import HeadlineDocumentation from '../websiteContent/library/components/basicAtomic/Headings/HeadingsDocumentation';
 import ParagraphDocumentation from '../websiteContent/library/components/basicAtomic/Paragraph/ParagraphDocumentation';
-import TagsDocumentation from '../websiteContent/library/components/buttons/tag/TagsDocumentation';
 import ButtonDocumentation from '../websiteContent/library/components/buttons/button/ButtonDocumentation';
 import ConfirmationButtonDocumentation from '../websiteContent/library/components/buttons/confirmationButton/ConfirmationButtonDocumentation';
 import IconBarDocumentation from '../websiteContent/library/components/buttons/iconBar/IconBarDocumentation';
 import IconButtonDocumentation from '../websiteContent/library/components/buttons/iconButton/IconButtonDocumentation';
 import SegmentedButtonDocumentation from '../websiteContent/library/components/buttons/segmentedButton/SegmentedButtonDocumentation';
+import { TagsDocumentation } from '../websiteContent/library/components/buttons/tag/TagsDocumentation';
 import AccordionDocumentation from '../websiteContent/library/components/containers/Accordion/AccordionDocumentation';
 import CardDocumentation from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import CodeBlockDocumentation from '../websiteContent/library/components/containers/CodeBlock/CodeBlockDocumentation';
@@ -42,6 +44,7 @@ import { MultiSelectDocumentation } from '../websiteContent/library/components/f
 import RadioButtonDocumentation from '../websiteContent/library/components/forms/RadioButton/RadioButtonDocumentation';
 import SelectDocumentation from '../websiteContent/library/components/forms/Select/SelectDocumentation';
 import SwitchDocumentation from '../websiteContent/library/components/forms/Switch/SwitchDocumentation';
+import TextAreaDocumentation from '../websiteContent/library/components/forms/TextArea/TextAreaDocumentation';
 import TextInputDocumentation from '../websiteContent/library/components/forms/TextInput/TextInputDocumentation';
 import TimeInputDocumentation from '../websiteContent/library/components/forms/TimeInput/TimeInputDocumentation';
 import ValidationDocumentation from '../websiteContent/library/components/forms/Validation/ValidationDocumentation';
@@ -57,9 +60,9 @@ import SidePanelDocumentation from '../websiteContent/library/components/navigat
 import SkipLinkDocumentation from '../websiteContent/library/components/navigation/skipLink/SkipLinkDocumentation';
 import VerticalMenuDocumentation from '../websiteContent/library/components/navigation/verticalMenu/VerticalMenuDocumentation';
 import BannersDocumentation from '../websiteContent/library/components/popups/banners/BannersDocumentation';
-import CarouselDocumentation from '../websiteContent/library/components/sliders/carousel/CarouselDocumentation';
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
+import CarouselDocumentation from '../websiteContent/library/components/sliders/carousel/CarouselDocumentation';
 import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
@@ -72,16 +75,13 @@ import StepIndicatorDocumentation from '../websiteContent/library/components/wid
 import UtahFooterDocumentation from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import UtahHeaderDocumentation from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
 import GettingStarted from '../websiteContent/resources/GettingStarted';
+import GettingStartedDesigner from '../websiteContent/resources/GettingStartedDesigner';
+import GettingStartedDeveloper from '../websiteContent/resources/GettingStartedDeveloper';
 import IconsDocumentation from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
 import Mockups from '../websiteContent/resources/Mockups';
 import ResourcesLanding from '../websiteContent/resources/ResourcesLanding';
 import Showcase from '../websiteContent/resources/Showcase/Showcase';
 import pageUrls from './pageUrls';
-import GettingStartedDesigner from '../websiteContent/resources/GettingStartedDesigner';
-import GettingStartedDeveloper from '../websiteContent/resources/GettingStartedDeveloper';
-import Search from '../websiteContent/Search';
-import DataVisualizationsDocumentation from '../websiteContent/guidelines/DataVisualizationsDocumentation';
-import TextAreaDocumentation from '../websiteContent/library/components/forms/TextArea/TextAreaDocumentation';
 
 /**
  * React Router v6 added the useRoutes() hook which takes a list of objects to treat as routes
