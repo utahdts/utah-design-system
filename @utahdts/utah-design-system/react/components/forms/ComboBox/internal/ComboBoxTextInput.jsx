@@ -25,6 +25,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
  * @param {EventAction} [props.onClear]
+ * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
@@ -38,6 +39,7 @@ export default function ComboBoxTextInput({
   isShowingClearableIcon,
   isDisabled,
   onClear,
+  onKeyUp,
   onSubmit,
   placeholder,
   ...rest
@@ -48,6 +50,7 @@ export default function ComboBoxTextInput({
       filterValue,
       isOptionsExpanded,
       onClear: onClearFromContext,
+      onKeyUp: onKeyUpFromContext,
       options,
       optionValueFocusedId,
       optionValueSelected,
@@ -60,6 +63,9 @@ export default function ComboBoxTextInput({
   const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]));
   const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
   const clearIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
+
+  // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
+  const onKeyUpPreviousValue = useRef('');
 
   return (
     <div>
@@ -81,6 +87,7 @@ export default function ComboBoxTextInput({
         errorMessage={errorMessage}
         // @ts-ignore
         onBlur={() => {
+          onKeyUpPreviousValue.current = filterValue;
           // wait for combo box option to register that it has focus
           setTimeout(
             () => {
@@ -130,23 +137,27 @@ export default function ComboBoxTextInput({
             draftContext.isOptionsExpanded = true;
           });
         }}
+        onKeyDown={(e) => e.stopPropagation()}
         onKeyUp={(e) => {
-          if (![
-            onCancelKeyPress(e),
-            onUpArrowPress(e),
-            onDownArrowPress(e),
-          ].some(identity)) {
-            if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
-              setComboBoxContext((draftContext) => {
-                if (draftContext.filterValue) {
-                  // if key wasn't one of the others, expand the options
-                  draftContext.isOptionsExpanded = true;
-                } else {
-                  draftContext.isFilterValueDirty = false;
-                }
-              });
+          if (!onKeyUp?.(e, onKeyUpPreviousValue.current) && !onKeyUpFromContext?.(e, onKeyUpPreviousValue.current)) {
+            if (![
+              onCancelKeyPress(e),
+              onUpArrowPress(e),
+              onDownArrowPress(e),
+            ].some(identity)) {
+              if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
+                setComboBoxContext((draftContext) => {
+                  if (draftContext.filterValue) {
+                    // if key wasn't one of the others, expand the options
+                    draftContext.isOptionsExpanded = true;
+                  } else {
+                    draftContext.isFilterValueDirty = false;
+                  }
+                });
+              }
             }
           }
+          onKeyUpPreviousValue.current = filterValue;
         }}
         onSubmit={onSubmit ?? onSubmitFormContext}
         placeholder={placeholder}

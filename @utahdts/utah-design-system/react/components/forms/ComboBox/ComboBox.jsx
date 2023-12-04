@@ -7,6 +7,8 @@ import ComboBoxContextProvider from './context/ComboBoxContextProvider';
 import CombBoxListBox from './internal/CombBoxListBox';
 import ComboBoxTextInput from './internal/ComboBoxTextInput';
 
+/** @typedef {import('../../../jsDocTypes').Event} Event */
+
 /**
  * @param {Object} props
  * @param {React.ReactNode} [props.children]
@@ -24,6 +26,7 @@ import ComboBoxTextInput from './internal/ComboBoxTextInput';
  * @param {string} [props.name]
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {() => void} [props.onClear]
+ * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {React.ReactNode} [props.tagChildren]
@@ -47,6 +50,7 @@ export default function ComboBox({
   name,
   onChange,
   onClear,
+  onKeyUp,
   onSubmit,
   placeholder,
   tagChildren,
@@ -63,6 +67,7 @@ export default function ComboBox({
       defaultValue={defaultValue}
       onChange={onChange}
       onClear={onClear}
+      onKeyUp={onKeyUp}
       onSubmit={onSubmit}
       value={value}
     >

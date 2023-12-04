@@ -13,6 +13,7 @@ import ComboBoxContext from './ComboBoxContext';
 /** @typedef { import('../../../../jsDocTypes').ComboBoxContext} ComboBoxContext */
 /** @typedef { import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
 /** @typedef { import('../../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
+/** @typedef {import('../../../../jsDocTypes').Event} Event */
 /** @typedef { import('../../../../jsDocTypes').EventAction} EventAction */
 
 /**
@@ -22,6 +23,7 @@ import ComboBoxContext from './ComboBoxContext';
  * @param {string} [props.defaultValue]
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {(() => void)} [props.onClear]
+ * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.value]
  * @returns {JSX.Element}
@@ -32,6 +34,7 @@ export default function ComboBoxContextProvider({
   defaultValue,
   onChange,
   onClear,
+  onKeyUp,
   onSubmit,
   value,
 }) {
@@ -49,7 +52,6 @@ export default function ComboBoxContextProvider({
         // give parent first crack
         onChange(newValue);
       } else {
-        console.log('who is there?');
         // if parent controls onChange then don't set the value automatically
         comboBoxImmerRef.current?.[1]((draftContext) => {
           draftContext.optionValueSelected = newValue;
@@ -70,6 +72,7 @@ export default function ComboBoxContextProvider({
     isOptionsExpanded: false,
     onChange: onChangeFormValue,
     onClear,
+    onKeyUp,
     onSubmit,
     options: [],
     optionsFiltered: [],

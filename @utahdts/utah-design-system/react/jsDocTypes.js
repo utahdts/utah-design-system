@@ -91,9 +91,6 @@
  * }
  */
 
-// TODO: replace EventAction with import('react').MouseEventHandler<HTMLButtonElement>
-/** @typedef {((e: Event) => void)} EventAction */
-/** @typedef {((e: Event) => boolean)} EventActionBoolean */
 /**
  * @typedef TableContextStateFilterValue {
  *  @property {any} value
@@ -207,6 +204,7 @@
  *  -- events --
  *  @property {(newValue: string) => void} onChange
  *  @property {() => void} [onClear]
+ *  @property {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
  *  @property {() => void} [onSubmit]
  *
  *  -- options manipulation --

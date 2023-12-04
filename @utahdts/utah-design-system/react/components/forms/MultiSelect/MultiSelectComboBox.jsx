@@ -1,11 +1,11 @@
 // @ts-check
 import { uniq } from 'lodash';
 import React from 'react';
+import useRefAlways from '../../../hooks/useRefAlways';
 import joinClassNames from '../../../util/joinClassNames';
 import ComboBox from '../ComboBox/ComboBox';
 import { MultiSelectTags } from './MultiSelectTags';
 import useMultiSelectContext from './context/useMultiSelectContext';
-import useRefAlways from '../../../hooks/useRefAlways';
 
 /**
  * @param {Object} props
@@ -38,7 +38,8 @@ export function MultiSelectComboBox({
   wrapperClassName,
   ...rest
 }) {
-  const [multiSelectContextValue] = useMultiSelectContext();
+  const [multiSelectContextValue, setMultiSelectContextValue] = useMultiSelectContext();
+  const multiSelectContextValueRef = useRefAlways(multiSelectContextValue);
   const selectedValuesRef = useRefAlways(multiSelectContextValue.selectedValues);
 
   return (
@@ -58,6 +59,16 @@ export function MultiSelectComboBox({
         multiSelectContextValue.onChange(uniq(selectedValuesRef.current.concat(newValue)));
       }}
       onClear={multiSelectContextValue.onClear}
+      onKeyUp={(e, currentFilter) => {
+        let eventIsHandled = false;
+        if (e.key === 'Backspace' && !currentFilter && multiSelectContextValueRef.current.selectedValues.length) {
+          eventIsHandled = true;
+          setMultiSelectContextValue((draftContext) => {
+            draftContext.selectedValues.pop();
+          });
+        }
+        return eventIsHandled;
+      }}
       placeholder={placeholder}
       tagChildren={<MultiSelectTags isDisabled={isDisabled} />}
       // the value is always unset because the multi-select will own and show the current value
