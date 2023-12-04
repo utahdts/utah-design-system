@@ -54,6 +54,10 @@ export { default as MediaSizesShape } from './react/propTypesShapes/header/Media
 export { default as MenuItemFunctionUrlActionShape } from './react/propTypesShapes/header/MenuItemFunctionUrlActionShape';
 export { default as MenuItemShape } from './react/propTypesShapes/header/MenuItemShape';
 export { default as MenuItemUrlActionShape } from './react/propTypesShapes/header/MenuItemUrlActionShape';
+export { MultiSelect } from './react/components/forms/MultiSelect/MultiSelect';
+export { MultiSelectOption } from './react/components/forms/MultiSelect/MultiSelectOption';
+export { MultiSelectOptionGroup } from './react/components/forms/MultiSelect/MultiSelectOptionGroup';
+export { MultiSelectTagTemplate } from './react/components/forms/MultiSelect/MultiSelectTagTemplate';
 export { default as OnThisPage } from './react/components/navigation/OnThisPage';
 export { default as Pagination } from './react/components/navigation/pagination/Pagination';
 export { default as Popup } from './react/components/popups/Popup';

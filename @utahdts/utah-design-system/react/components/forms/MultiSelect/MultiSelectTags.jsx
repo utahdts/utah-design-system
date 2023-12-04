@@ -2,7 +2,7 @@
 import React from 'react';
 import formElementSizesEnum from '../../../enums/formElementSizesEnum';
 import joinClassNames from '../../../util/joinClassNames';
-import Tag from '../../buttons/Tag';
+import { Tag } from '../../buttons/Tag';
 import useComboBoxContext from '../ComboBox/context/useComboBoxContext';
 import useMultiSelectContext from './context/useMultiSelectContext';
 
@@ -27,6 +27,7 @@ export function MultiSelectTags({ isDisabled }) {
               return (
                 <Tag
                   className={joinClassNames('tag--primary-color', 'multi-select__tag')}
+                  clearMessage={`Clear ${selectedOption?.label ?? 'Tag'}`}
                   isDisabled={isDisabled}
                   key={`multi-select-tag__${multiSelectContext.multiSelectId}--${selectedValue}`}
                   onClear={() => setMultiSelectContext((draftContext) => {
@@ -35,7 +36,6 @@ export function MultiSelectTags({ isDisabled }) {
                     );
                   })}
                   size={formElementSizesEnum.SMALL}
-                // TODO: add a ?popupText? prop so can set a custom popup title saying the actual tag's name in the popup
                 >
                   {comboBoxContext.options.find((option) => option.value === selectedValue)?.label}
                 </Tag>

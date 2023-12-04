@@ -10,6 +10,7 @@ import IconButton from './IconButton';
  * @param {Object} props
  * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className]
+ * @param {string} [props.clearMessage] the message to show when hover the "x" icon
  * @param {string} [props.id] the tag id
  * @param {React.RefObject} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
  * @param {React.ReactNode} [props.iconLeft] an icon for the left side
@@ -22,6 +23,7 @@ import IconButton from './IconButton';
 export function Tag({
   children,
   className,
+  clearMessage = 'Clear Tag',
   innerRef,
   iconLeft,
   iconRight,
@@ -50,7 +52,7 @@ export function Tag({
               className="tag__clear-button icon-button--borderless icon-button--small1x"
               icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
               onClick={onClear}
-              title="Clear tag"
+              title={clearMessage}
               isDisabled={isDisabled}
             />
           )
