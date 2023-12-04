@@ -4,6 +4,12 @@
 
 #{class-vars.$base-class} {
   .combo-box-input {
+    &[type=text] {
+      padding: 0 var(--spacing-xl) 0 var(--spacing-xs);
+      &.text-input--clear-icon-visible {
+        padding: 0 var(--spacing-4xl) 0 var(--spacing-xs);
+      }
+    }
     &__chevron {
       position: absolute;
       top: 50%;
@@ -12,6 +18,7 @@
       font-weight: var(--font-weight-normal);
       &[class*=utds-icon-before-]::before {
         font-size: .9rem;
+        line-height: 0;
       }
       &--is-disabled {
         color: var(--form-ele-disabled-color);
@@ -39,14 +46,35 @@
       &:hover {
         background: var(--hover-gray-color);
         cursor: default;
+        color: black;
       }
       &--selected {
         background: var(--form-ele-color);
         color: white;
       }
       &--highlighted {
-        background: var(--form-ele-color-light);
+        background: var(--hover-gray-color);
+        color: black;
       }
+      @include tools-index.form-ele-focus;
+      &:focus-visible {
+        outline-offset: -2px;
+        border-radius: var(--radius-small1x);
+      }
+    }
+    &__group-wrapper {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li.combo-box-input__option {
+          padding: var(--spacing-2xs) var(--spacing-s) var(--spacing-2xs) var(--spacing);
+        }
+      }
+    }
+    &__group-title {
+      padding: var(--spacing-2xs) var(--spacing-s);
+      font-weight: var(--font-weight-bold);
     }
   }
 }

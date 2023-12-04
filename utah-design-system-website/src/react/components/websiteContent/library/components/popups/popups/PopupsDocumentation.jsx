@@ -75,7 +75,7 @@ export default function PopupsDocumentation() {
       <h1 id="h1-top">Popups</h1>
       <div className="lead-in">
         <p>
-          Popups are *non-modal boxes that are triggered by some input from the end user (e.g. clicking a target, or key presses).
+          Popups are non-modal boxes* that are triggered by some input from the end user (e.g. clicking a target, or key presses).
           When the popup is triggered, new content is displayed near the triggering element. The popup is elevated above the main content of the page.
         </p>
         <p>

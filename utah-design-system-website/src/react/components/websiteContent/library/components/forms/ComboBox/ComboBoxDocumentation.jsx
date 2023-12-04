@@ -6,6 +6,7 @@ import comboBoxScreenshot from '../../../../../../../static/images/screenshots/c
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
 import LightBox from '../../../../../lightbox/LightBox';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
@@ -49,21 +50,22 @@ function ComboBoxDocumentation() {
       />
       <StaticExample
         title="ComboBox Example"
-        renderedExample={<LightBox image={comboBoxScreenshot} alt="Combo Box" className="flex-3up-gap" />}
-        // TODO: use real component here
-        // renderedExample={(
-        //   <ComboBox id="combo-box-documentation-static-example" label="Choose the best wild animal">
-        //     <ComboBoxOptionGroup isLabelHidden>
-        //       <ComboBoxOption label="Antelope" value="antelope">Antelope</ComboBoxOption>
-        //       <ComboBoxOption label="Black Bear" value="black-bear">Black Bear</ComboBoxOption>
-        //       <ComboBoxOption label="Golden Eagle" value="golden-eagle">Golden Eagle</ComboBoxOption>
-        //       <ComboBoxOption label="Elk" value="elk">Elk</ComboBoxOption>
-        //       <ComboBoxOption label="Moose" value="moose">Moose</ComboBoxOption>
-        //       <ComboBoxOption label="Mountain Lion" value="mountain-lion">Mountain Lion</ComboBoxOption>
-        //       <ComboBoxOption label="Red Tailed Hawk" value="red-tailed-hawk">Red Tailed Hawk</ComboBoxOption>
-        //     </ComboBoxOptionGroup>
-        //   </ComboBox>
-        // )}
+        renderedExample={(
+          <ComboBox id="combo-box-documentation-static-example" label="Choose the best wild animal">
+            <ComboBoxOptionGroup label="Predators">
+              <ComboBoxOption label="Black Bear" value="black-bear">Black Bear</ComboBoxOption>
+              <ComboBoxOption label="Golden Eagle" value="golden-eagle">Golden Eagle</ComboBoxOption>
+              <ComboBoxOption label="Mountain Lion" value="mountain-lion">Mountain Lion</ComboBoxOption>
+              <ComboBoxOption label="Red Tailed Hawk" value="red-tailed-hawk">Red Tailed Hawk</ComboBoxOption>
+            </ComboBoxOptionGroup>
+            <ComboBoxOptionGroup label="Herbivores">
+              <ComboBoxOption label="Antelope" value="antelope">Antelope</ComboBoxOption>
+              <ComboBoxOption label="Deer" value="deer">Antelope</ComboBoxOption>
+              <ComboBoxOption label="Elk" value="elk">Elk</ComboBoxOption>
+              <ComboBoxOption label="Moose" value="moose">Moose</ComboBoxOption>
+            </ComboBoxOptionGroup>
+          </ComboBox>
+        )}
         quickTips={(
           <ul>
             <li>A combo box allows the user to select from a list of options.</li>

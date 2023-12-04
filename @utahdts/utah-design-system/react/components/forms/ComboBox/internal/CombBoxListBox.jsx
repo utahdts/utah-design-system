@@ -40,7 +40,12 @@ export default function CombBoxListBox({
   const { styles, attributes, update } = usePopper(
     popperReferenceElementRef.current,
     ulRef.current,
-    { placement: popupPlacement.BOTTOM }
+    {
+      placement: popupPlacement.BOTTOM,
+      modifiers: [
+        { name: 'offset', options: { offset: [0, 4] } },
+      ],
+    }
   );
 
   const addPoliteMessageDebounced = useDebounceFunc(
@@ -88,7 +93,10 @@ export default function CombBoxListBox({
       )}
       ref={ulRef}
       role="listbox"
-      style={styles.popper}
+      style={{
+        ...styles.popper,
+        minWidth: popperReferenceElementRef?.current?.scrollWidth,
+      }}
       tabIndex={-1}
       {...attributes.popper}
     >
