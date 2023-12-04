@@ -83,7 +83,7 @@ export default function CombBoxListBox({
       id={id}
       aria-labelledby={ariaLabelledById}
       className={joinClassNames(
-        'combo-box__list-box',
+        'combo-box-input__list-box',
         !isOptionsExpanded && 'visually-hidden'
       )}
       ref={ulRef}

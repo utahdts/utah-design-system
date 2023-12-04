@@ -44,8 +44,8 @@ export default function ComboBoxOption({
     textInputRef,
   ] = useComboBoxContext();
   const isVisible = isStatic || optionsFiltered.find((optionNeedle) => optionNeedle.value === value);
-  const isSelected = optionValueHighlighted === value;
-  const isHighlighted = optionValueSelected === value;
+  const isSelected = optionValueSelected === value;
+  const isHighlighted = optionValueHighlighted === value;
 
   const onEnterKeyPress = useOnKeyUp(
     'Enter',
@@ -115,10 +115,10 @@ export default function ComboBoxOption({
           aria-setsize={optionsFiltered.length}
           id={optionId}
           className={joinClassNames(
-            'combo-box-option',
-            isDisabled && 'combo-box-option--disabled',
-            isSelected && 'combo-box-option--selected',
-            isHighlighted && 'combo-box-option--highlighted'
+            'combo-box-input__option',
+            isDisabled && 'combo-box-input__option--disabled',
+            isSelected && 'combo-box-input__option--selected',
+            isHighlighted && 'combo-box-input__option--highlighted'
           )}
           onClick={() => {
             if (!isDisabled) {

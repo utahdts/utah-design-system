@@ -14,9 +14,11 @@ export default function ComboBoxOptionGroup({
   isLabelHidden = false,
 }) {
   return (
-    <div className="combo-box-group__wrapper">
-      {isLabelHidden ? null : <div className="combo-box-group__title">{label}</div>}
-      {children}
-    </div>
+    <li className="combo-box-input__group-wrapper" role="group">
+      {isLabelHidden ? null : <div className="combo-box-input__group-title">{label}</div>}
+      <ul>
+        {children}
+      </ul>
+    </li>
   );
 }

@@ -1,0 +1,52 @@
+@use "../../../2-tools/tools-index";
+
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .combo-box-input {
+    &__chevron {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: var(--spacing-xs);
+      font-weight: var(--font-weight-normal);
+      &[class*=utds-icon-before-]::before {
+        font-size: .9rem;
+      }
+      &--is-disabled {
+        color: var(--form-ele-disabled-color);
+      }
+    }
+    &__inner-wrapper {
+      .text-input__clear-button {
+        right: var(--spacing-xl);
+      }
+      .input-wrapper--text-input {
+        margin: 0;
+      }
+    }
+    &__list-box {
+      background: white;
+      border-radius: var(--radius-small);
+      border: 1px solid var(--gray-3-1-contrast);
+      box-sizing: border-box;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    &__option {
+      padding: var(--spacing-2xs) var(--spacing-s);
+      &:hover {
+        background: var(--hover-gray-color);
+        cursor: default;
+      }
+      &--selected {
+        background: var(--form-ele-color);
+        color: white;
+      }
+      &--highlighted {
+        background: var(--form-ele-color-light);
+      }
+    }
+  }
+}
