@@ -30,7 +30,7 @@ export function RadioButtonExampleProps({ setState, state }) {
       <Switch id="props.isDisabled" label="Disabled Radio" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />
       <TextInput id="props.label" label="Label" className="input--height-small1x" />
-      <Select id="props.value" label="Selected Value">
+      <Select id="props.value" label="Selected Value" className="input--height-small1x">
         <SelectOption label={state.props.label} value="option-1" />
         <SelectOption label="Option #2" value="option-2" />
       </Select>

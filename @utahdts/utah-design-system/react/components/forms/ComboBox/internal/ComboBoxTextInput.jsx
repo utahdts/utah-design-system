@@ -1,10 +1,11 @@
 // @ts-check
 import identity from 'lodash/identity';
 import React, { useCallback, useRef } from 'react';
+import joinClassNames from '../../../../util/joinClassNames';
 import useOnKeyUp from '../../../../util/useOnKeyUp';
 import useFormContext from '../../FormContext/useFormContext';
 import TextInput from '../../TextInput';
-import useComboBoxContext from '../context/useComboBoxContext';
+import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
@@ -17,6 +18,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
  * @param {string} props.id
+ * @param {React.MutableRefObject<HTMLInputElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -31,10 +33,11 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-export default function ComboBoxTextInput({
+export function ComboBoxTextInput({
   comboBoxListId,
   errorMessage,
   id,
+  innerRef: draftInnerRef,
   isClearable,
   isShowingClearableIcon,
   isDisabled,
@@ -49,18 +52,24 @@ export default function ComboBoxTextInput({
     {
       filterValue,
       isOptionsExpanded,
-      onClear: onClearFromContext,
+      onClear: onClearComboBoxContext,
       onKeyUp: onKeyUpFromContext,
       options,
       optionValueFocusedId,
       optionValueSelected,
     },
     setComboBoxContext,
-    textInputRef,
+    comboBoxContextNonStateRef,
   ] = useComboBoxContext();
 
   const onCancelKeyPress = useOnKeyUp('Escape', useCallback(() => isClearable && setComboBoxContext(clearComboBoxSelection), [isClearable, setComboBoxContext]));
-  const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]));
+  const onUpArrowPress = useOnKeyUp(
+    'ArrowUp',
+    useCallback(
+      () => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, comboBoxContextNonStateRef.current.textInput)),
+      [setComboBoxContext, comboBoxContextNonStateRef]
+    )
+  );
   const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
   const clearIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
 
@@ -76,11 +85,16 @@ export default function ComboBoxTextInput({
         aria-expanded={isOptionsExpanded}
         aria-haspopup="listbox"
         aria-owns={comboBoxListId}
-        // TODO: what is the right classname for the chevron?
-        className="text-input--clear-icon-visible"
+        className="combo-box-input"
         clearIconRef={clearIconRef}
         id={id}
-        innerRef={(ref) => { textInputRef.current = ref?.querySelector('input'); }}
+        innerRef={(ref) => {
+          const input = ref?.querySelector('input');
+          comboBoxContextNonStateRef.current.textInput = input;
+          if (draftInnerRef) {
+            draftInnerRef.current = input;
+          }
+        }}
         isClearable={isClearable}
         isDisabled={isDisabled}
         isShowingClearableIcon={isShowingClearableIcon}
@@ -95,7 +109,8 @@ export default function ComboBoxTextInput({
               // without checking if the clear button has focus, this was trumping the clear button's onclick
               if (clearIconRef.current !== document.activeElement) {
                 setComboBoxContext((draftContext) => {
-                  if (!draftContext.optionValueFocused) {
+                  // ul is focused, with no option focused, if clicking on the scroll-bar for the ul (ul has max-height and auto overflow)
+                  if (!draftContext.optionValueFocused && !document.activeElement?.classList.contains('combo-box-input__list-box')) {
                     const selectedOption = options.find((option) => option.value === optionValueSelected);
                     draftContext.filterValue = selectedOption?.label ?? '';
                     draftContext.isFilterValueDirty = false;
@@ -114,12 +129,16 @@ export default function ComboBoxTextInput({
           });
         }}
         onClear={
-          isShowingClearableIcon
+          isClearable
             ? ((e) => {
               if (onClear) {
                 onClear(e);
-              } else if (onClearFromContext) {
-                onClearFromContext();
+              } else if (onClearComboBoxContext) {
+                onClearComboBoxContext();
+                setComboBoxContext((draftContext) => {
+                  draftContext.filterValue = '';
+                  draftContext.isFilterValueDirty = false;
+                });
               } else {
                 setComboBoxContext((draftContext) => {
                   draftContext.filterValue = '';
@@ -163,8 +182,8 @@ export default function ComboBoxTextInput({
         placeholder={placeholder}
         rightContent={
           isOptionsExpanded
-            ? <span className="utds-icon-before-chevron-up" aria-hidden="true" />
-            : <span className="utds-icon-before-chevron-down" aria-hidden="true" />
+            ? <span className={joinClassNames('combo-box-input__chevron utds-icon-before-chevron-up', isDisabled ? 'combo-box-input__chevron--is-disabled' : '')} aria-hidden="true" />
+            : <span className={joinClassNames('combo-box-input__chevron utds-icon-before-chevron-down', isDisabled ? 'combo-box-input__chevron--is-disabled' : '')} aria-hidden="true" />
         }
         role="combobox"
         value={filterValue}

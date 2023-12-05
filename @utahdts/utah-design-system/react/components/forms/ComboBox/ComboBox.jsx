@@ -2,10 +2,9 @@
 import React, { useMemo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import joinClassNames from '../../../util/joinClassNames';
-import ErrorMessage from '../ErrorMessage';
-import ComboBoxContextProvider from './context/ComboBoxContextProvider';
-import CombBoxListBox from './internal/CombBoxListBox';
-import ComboBoxTextInput from './internal/ComboBoxTextInput';
+import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
+import { CombBoxListBox } from './internal/CombBoxListBox';
+import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /** @typedef {import('../../../jsDocTypes').Event} Event */
 
@@ -34,7 +33,7 @@ import ComboBoxTextInput from './internal/ComboBoxTextInput';
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-export default function ComboBox({
+export function ComboBox({
   children,
   className,
   defaultValue,
@@ -59,7 +58,7 @@ export default function ComboBox({
   ...rest
 }) {
   const comboBoxListId = useMemo(() => uuidv4(), []);
-  const contentRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const contentRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
   return (
     <ComboBoxContextProvider
@@ -72,11 +71,13 @@ export default function ComboBox({
       value={value}
     >
       <div className={joinClassNames('input-wrapper input-wrapper--combo-box', wrapperClassName)} ref={innerRef}>
-        <div className={joinClassNames('combo-box-input__inner-wrapper', className)} ref={contentRef}>
+        <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
           {tagChildren}
           <ComboBoxTextInput
             comboBoxListId={comboBoxListId}
+            errorMessage={errorMessage}
             id={id}
+            innerRef={contentRef}
             isClearable={isClearable}
             isShowingClearableIcon={isShowingClearableIcon}
             isDisabled={isDisabled}
@@ -92,7 +93,6 @@ export default function ComboBox({
             {children}
           </CombBoxListBox>
         </div>
-        <ErrorMessage errorMessage={errorMessage} id={id} />
       </div>
     </ComboBoxContextProvider>
   );
