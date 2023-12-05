@@ -18,9 +18,11 @@
     }
 
     &__error-message {
+      margin-top: var(--spacing-3xs);
       color: var(--danger-color);
     }
-    input, textarea {
+    input,
+    textarea {
       display: block;
     }
   }

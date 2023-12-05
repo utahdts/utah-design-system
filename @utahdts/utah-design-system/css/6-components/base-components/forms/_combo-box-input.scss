@@ -4,7 +4,7 @@
 
 #{class-vars.$base-class} {
   .combo-box-input {
-    &[type=text] {
+    &[type="text"] {
       padding: 0 var(--spacing-xl) 0 var(--spacing-xs);
       &.text-input--clear-icon-visible {
         padding: 0 var(--spacing-4xl) 0 var(--spacing-xs);
@@ -16,8 +16,8 @@
       transform: translateY(-50%);
       right: var(--spacing-xs);
       font-weight: var(--font-weight-normal);
-      &[class*=utds-icon-before-]::before {
-        font-size: .9rem;
+      &[class*="utds-icon-before-"]::before {
+        font-size: 0.9rem;
         line-height: 0;
       }
       &--is-disabled {
@@ -40,6 +40,7 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
+      z-index: 2000;
     }
     &__option {
       padding: var(--spacing-2xs) var(--spacing-s);

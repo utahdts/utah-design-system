@@ -1,14 +1,14 @@
 // @ts-check
 import identity from 'lodash/identity';
 import React, { useCallback } from 'react';
+import joinClassNames from '../../../../util/joinClassNames';
 import useOnKeyUp from '../../../../util/useOnKeyUp';
 import useFormContext from '../../FormContext/useFormContext';
 import TextInput from '../../TextInput';
-import useComboBoxContext from '../context/useComboBoxContext';
+import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
-import joinClassNames from '../../../../util/joinClassNames';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 
@@ -31,7 +31,7 @@ import joinClassNames from '../../../../util/joinClassNames';
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-export default function ComboBoxTextInput({
+export function ComboBoxTextInput({
   comboBoxListId,
   errorMessage,
   id,
@@ -48,16 +48,23 @@ export default function ComboBoxTextInput({
     {
       filterValue,
       isOptionsExpanded,
+      onClear: onClearComboBoxContext,
       options,
       optionValueFocusedId,
       optionValueSelected,
     },
     setComboBoxContext,
-    textInputRef,
+    comboBoxContextNonStateRef,
   ] = useComboBoxContext();
 
   const onCancelKeyPress = useOnKeyUp('Escape', useCallback(() => isClearable && setComboBoxContext(clearComboBoxSelection), [isClearable, setComboBoxContext]));
-  const onUpArrowPress = useOnKeyUp('ArrowUp', useCallback(() => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, textInputRef)), [setComboBoxContext, textInputRef]));
+  const onUpArrowPress = useOnKeyUp(
+    'ArrowUp',
+    useCallback(
+      () => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, comboBoxContextNonStateRef.current.textInput)),
+      [setComboBoxContext, comboBoxContextNonStateRef]
+    )
+  );
   const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
 
   return (
@@ -72,9 +79,8 @@ export default function ComboBoxTextInput({
       id={id}
       innerRef={(ref) => {
         const input = ref?.querySelector('input');
-        textInputRef.current = input;
+        comboBoxContextNonStateRef.current.textInput = input;
         if (draftInnerRef) {
-          // eslint-disable-next-line no-param-reassign
           draftInnerRef.current = input;
         }
       }}
@@ -87,7 +93,8 @@ export default function ComboBoxTextInput({
         setTimeout(
           () => {
             setComboBoxContext((draftContext) => {
-              if (!draftContext.optionValueFocused) {
+              // ul is focused, with no option focused, if clicking on the scroll-bar for the ul (ul has max-height and auto overflow)
+              if (!draftContext.optionValueFocused && !document.activeElement?.classList.contains('combo-box-input__list-box')) {
                 const selectedOption = options.find((option) => option.value === optionValueSelected);
                 draftContext.filterValue = selectedOption?.label ?? '';
                 draftContext.isFilterValueDirty = false;
@@ -109,6 +116,12 @@ export default function ComboBoxTextInput({
           ? ((e) => {
             if (onClear) {
               onClear(e);
+            } else if (onClearComboBoxContext) {
+              onClearComboBoxContext();
+              setComboBoxContext((draftContext) => {
+                draftContext.filterValue = '';
+                draftContext.isFilterValueDirty = false;
+              });
             } else {
               setComboBoxContext((draftContext) => {
                 draftContext.filterValue = '';

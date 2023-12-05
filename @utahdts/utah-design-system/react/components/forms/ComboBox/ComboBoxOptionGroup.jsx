@@ -1,5 +1,7 @@
 // @ts-check
-import React from 'react';
+import React, { useId } from 'react';
+import { ComboBoxOption } from './ComboBoxOption';
+import { ComboBoxOptionGroupContextProvider } from './context/ComboBoxOptionGroupContextProvider';
 
 /**
  * @param {Object} props
@@ -7,16 +9,27 @@ import React from 'react';
  * @param {string} props.label
  * @returns {JSX.Element}
  */
-export default function ComboBoxOptionGroup({
+export function ComboBoxOptionGroup({
   children,
   label,
 }) {
+  const optionGroupId = useId();
+
   return (
-    <li className="combo-box-input__group-wrapper" role="group">
-      <div className="combo-box-input__group-title">{label}</div>
-      <ul>
-        {children}
-      </ul>
-    </li>
+    <ComboBoxOptionGroupContextProvider optionGroupId={optionGroupId}>
+
+      <ComboBoxOption
+        className="combo-box-input__group-wrapper combo-box-input__group-title"
+        identifiesWithOptionGroupId={optionGroupId}
+        isDisabled
+        label={label}
+        value={`${label}--group`}
+      >
+        {label}
+      </ComboBoxOption>
+
+      {children}
+
+    </ComboBoxOptionGroupContextProvider>
   );
 }

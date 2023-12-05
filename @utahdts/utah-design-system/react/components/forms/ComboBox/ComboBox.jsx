@@ -2,9 +2,9 @@
 import React, { useMemo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import joinClassNames from '../../../util/joinClassNames';
-import ComboBoxContextProvider from './context/ComboBoxContextProvider';
-import CombBoxListBox from './internal/CombBoxListBox';
-import ComboBoxTextInput from './internal/ComboBoxTextInput';
+import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
+import { CombBoxListBox } from './internal/CombBoxListBox';
+import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /**
  * @param {Object} props
@@ -28,7 +28,7 @@ import ComboBoxTextInput from './internal/ComboBoxTextInput';
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-export default function ComboBox({
+export function ComboBox({
   children,
   className,
   defaultValue,

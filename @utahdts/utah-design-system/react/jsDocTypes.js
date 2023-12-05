@@ -224,9 +224,11 @@
 
 /**
  * @typedef ComboBoxOption {
- *  @property {string} value
+ *  @property {boolean} [isGroupLabel] some options like group titles are in the list so they can focus but are not filtered nor selectable
  *  @property {string} labelLowerCase
  *  @property {string} label
+ *  @property {string} [optionGroupId]
+ *  @property {string} value
  * }
 */
 
@@ -238,6 +240,12 @@
  * }
  */
 /** @typedef {import('use-immer').ImmerHook<RadioButtonGroupContextValue | undefined>} RadioButtonGroupContext */
+
+/**
+/**
+ * the current comb box option group's id
+ * @typedef {string} ComboBoxOptionGroupContextValue
+ */
 
 /**
  * @typedef ComboBoxContextValue {
@@ -253,6 +261,7 @@
  *  -- options --
  *  @property {ComboBoxOption[]} options the known options
  *  @property {ComboBoxOption[]} optionsFiltered the options filtered by the filterValue
+ *  @property {ComboBoxOption[]} optionsFilteredWithoutGroupLabels group labels are taken out of the mix. they are usually left in so that they are focusable
  *
  *  -- events --
  *  @property {(newValue: string) => void} onChange
@@ -263,9 +272,18 @@
  *  @property {(option: ComboBoxOption) => void} registerOption add a new option
  *  @property {(value: string) => void} unregisterOption remove a known option by its value
  * }
+*/
+
+/**
+ * These are items that don't get updated with state
+ * @typedef ComboBoxContextNonStateRef {
+ *  @property {HTMLInputElement | null} textInput the textInput used for this combo box
+ * }
  */
 
-/** @typedef {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<HTMLInputElement | null>]} ComboBoxContext */
+/**
+ * @typedef {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<ComboBoxContextNonStateRef>]} ComboBoxContext
+ */
 
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
 export default false;

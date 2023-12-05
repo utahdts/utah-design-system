@@ -1,13 +1,8 @@
 // @ts-check
 /* eslint-disable max-len */
-// @ts-ignore
-// eslint-disable-next-line import/order
-import comboBoxScreenshot from '../../../../../../../static/images/screenshots/components/combo-box/combo-box.jpg';
-
+import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
-import LightBox from '../../../../../lightbox/LightBox';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -60,7 +55,7 @@ function ComboBoxDocumentation() {
             </ComboBoxOptionGroup>
             <ComboBoxOptionGroup label="Herbivores">
               <ComboBoxOption label="Antelope" value="antelope">Antelope</ComboBoxOption>
-              <ComboBoxOption label="Deer" value="deer">Antelope</ComboBoxOption>
+              <ComboBoxOption label="Deer" value="deer">Deer</ComboBoxOption>
               <ComboBoxOption label="Elk" value="elk">Elk</ComboBoxOption>
               <ComboBoxOption label="Moose" value="moose">Moose</ComboBoxOption>
             </ComboBoxOptionGroup>
