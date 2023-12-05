@@ -7,6 +7,7 @@ import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
 import joinClassNames from '../../../../util/joinClassNames';
 import { ComboBoxOption } from '../ComboBoxOption';
 import { useComboBoxContext } from '../context/useComboBoxContext';
+import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 
@@ -27,8 +28,8 @@ export function CombBoxListBox({
   const { addPoliteMessage } = useAriaMessaging();
   const [
     {
-      filterValue,
       isOptionsExpanded,
+      optionsFiltered,
       optionsFilteredWithoutGroupLabels,
       optionValueFocused,
     }, ,
@@ -54,7 +55,8 @@ export function CombBoxListBox({
         addPoliteMessage(message);
       },
       [addPoliteMessage]
-    )
+    ),
+    1500
   );
 
   useEffect(
@@ -76,12 +78,23 @@ export function CombBoxListBox({
           // after first invocation, no longer announce about the arrow keys.
           announcedArrowKeysRef.current = true;
         }
-        addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} results available.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+        if (optionsFiltered.length !== optionsFilteredWithoutGroupLabels.length) {
+          const numGroups = optionsFiltered.filter(
+            (option) => (
+              option.isGroupLabel && isOptionGroupVisible(option.isGroupLabel ? option.optionGroupId ?? null : null, option.label, optionsFiltered)
+            )
+          ).length;
+          // the options have "groups": '8 results available in 2 groups'
+          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available in ${numGroups} group${numGroups === 1 ? '' : 's'}.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+        } else {
+          // there are no groups: '8 results available'
+          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+        }
       }
     },
     // do not include `optionValueFocused` in the dependency list
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [filterValue, isOptionsExpanded]
+    [isOptionsExpanded, optionsFilteredWithoutGroupLabels]
   );
 
   return (
