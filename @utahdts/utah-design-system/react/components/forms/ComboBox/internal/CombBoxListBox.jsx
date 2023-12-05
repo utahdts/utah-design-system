@@ -27,7 +27,6 @@ export function CombBoxListBox({
   const { addPoliteMessage } = useAriaMessaging();
   const [
     {
-      filterValue,
       isOptionsExpanded,
       optionsFilteredWithoutGroupLabels,
       optionValueFocused,
@@ -54,7 +53,8 @@ export function CombBoxListBox({
         addPoliteMessage(message);
       },
       [addPoliteMessage]
-    )
+    ),
+    1500
   );
 
   useEffect(
@@ -81,7 +81,7 @@ export function CombBoxListBox({
     },
     // do not include `optionValueFocused` in the dependency list
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [filterValue, isOptionsExpanded, optionsFilteredWithoutGroupLabels]
+    [isOptionsExpanded, optionsFilteredWithoutGroupLabels]
   );
 
   return (
