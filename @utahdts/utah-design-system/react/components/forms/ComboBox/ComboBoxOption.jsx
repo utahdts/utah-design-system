@@ -57,8 +57,8 @@ export function ComboBoxOption({
     isOptionGroupVisible(identifiesWithOptionGroupId ?? null, label, optionsFiltered)
     && (isStatic || optionsFiltered.find((optionNeedle) => optionNeedle.value === value))
   );
-  const isSelected = optionValueSelected === value;
-  const isHighlighted = optionValueHighlighted === value;
+  const isSelected = optionValueSelected !== '' && optionValueSelected !== null && (optionValueSelected === value);
+  const isHighlighted = optionValueHighlighted !== '' && optionValueHighlighted !== null && (optionValueHighlighted === value);
 
   const onEnterKeyPress = useOnKeyUp(
     'Enter',
