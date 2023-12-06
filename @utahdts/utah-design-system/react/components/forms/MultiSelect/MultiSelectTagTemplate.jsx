@@ -1,7 +1,7 @@
 // @ts-check
 import { useEffect } from 'react';
 import notNull from '../../../util/notNull';
-import useComboBoxContext from '../ComboBox/context/useComboBoxContext';
+import { useComboBoxContext } from '../ComboBox/context/useComboBoxContext';
 import useMultiSelectContext from './context/useMultiSelectContext';
 
 /** @typedef {import('../../../jsDocTypes').ComboBoxOption} ComboBoxOption */

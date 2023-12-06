@@ -12,7 +12,7 @@ import IconButton from './IconButton';
  * @param {string} [props.className]
  * @param {string} [props.clearMessage] the message to show when hover the "x" icon
  * @param {string} [props.id] the tag id
- * @param {React.RefObject} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
+ * @param {React.Ref<HTMLDivElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
  * @param {React.ReactNode} [props.iconLeft] an icon for the left side
  * @param {React.ReactNode} [props.iconRight] an icon for the right side
  * @param {boolean} [props.isDisabled] tag isDisabled state
@@ -34,12 +34,16 @@ export function Tag({
   ...rest
 }) {
   return (
-    <div className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}>
+    <div
+      className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}
+      // ref needs to be for the div so that the ref comes back for the div
+      ref={innerRef}
+      // need to spread {...rest} on the div so that it can get onKeyUp for the whole package and not just the span
+      {...rest}
+    >
       <span
         className={joinClassNames('tag', className, `tag--${size}`)}
         id={id}
-        ref={innerRef}
-        {...rest}
       >
         {iconLeft ? <span className="tag--icon tag--icon-left">{iconLeft}</span> : null}
         {children}

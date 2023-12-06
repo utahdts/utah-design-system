@@ -1,19 +1,24 @@
 // @ts-check
-import { uniq } from 'lodash';
+import { isFunction, uniq } from 'lodash';
 import React from 'react';
+import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import useRefAlways from '../../../hooks/useRefAlways';
 import joinClassNames from '../../../util/joinClassNames';
-import ComboBox from '../ComboBox/ComboBox';
+import { ComboBox } from '../ComboBox/ComboBox';
 import { MultiSelectTags } from './MultiSelectTags';
 import useMultiSelectContext from './context/useMultiSelectContext';
-import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+
+/**
+ * @template MutableRefT
+ * @typedef {import('../../../jsDocTypes').MutableRef<MutableRefT>} MutableRef
+ */
 
 /**
  * @param {Object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {MutableRef<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -28,7 +33,7 @@ export function MultiSelectComboBox({
   children,
   className,
   errorMessage,
-  innerRef,
+  innerRef: draftInnerRef,
   isClearable,
   isDisabled,
   isRequired,
@@ -39,7 +44,7 @@ export function MultiSelectComboBox({
   wrapperClassName,
   ...rest
 }) {
-  const [multiSelectContextValue, setMultiSelectContextValue] = useMultiSelectContext();
+  const [multiSelectContextValue, setMultiSelectContextValue, multiSelectContextNonStateRer] = useMultiSelectContext();
   const multiSelectContextValueRef = useRefAlways(multiSelectContextValue);
   const selectedValuesRef = useRefAlways(multiSelectContextValue.selectedValues);
   const { addPoliteMessage } = useAriaMessaging();
@@ -49,7 +54,16 @@ export function MultiSelectComboBox({
       className={joinClassNames('multi-select', className)}
       errorMessage={errorMessage}
       id={multiSelectContextValue.multiSelectId}
-      innerRef={innerRef}
+      innerRef={(ref) => {
+        if (draftInnerRef) {
+          if (isFunction(draftInnerRef)) {
+            draftInnerRef(ref);
+          } else {
+            draftInnerRef.current = ref;
+          }
+        }
+        multiSelectContextNonStateRer.current.comboBoxDivElement = ref;
+      }}
       isClearable={isClearable}
       isDisabled={isDisabled}
       isRequired={isRequired}
@@ -63,12 +77,21 @@ export function MultiSelectComboBox({
       onClear={multiSelectContextValue.onClear}
       onKeyUp={(e, currentFilter) => {
         let eventIsHandled = false;
-        if (e.key === 'Backspace' && !currentFilter && multiSelectContextValueRef.current.selectedValues.length) {
-          eventIsHandled = true;
-          setMultiSelectContextValue((draftContext) => {
-            const deadTag = draftContext.selectedValues.pop();
-            addPoliteMessage(`${deadTag} removed`);
-          });
+        // check that filter is blank and that there are options selected
+        if (!currentFilter && multiSelectContextValueRef.current.selectedValues.length) {
+          if (e.key === 'Backspace') {
+            eventIsHandled = true;
+            setMultiSelectContextValue((draftContext) => {
+              const deadTag = draftContext.selectedValues.pop();
+              addPoliteMessage(`${deadTag} removed`);
+            });
+          }
+          if (e.key === 'ArrowLeft') {
+            eventIsHandled = true;
+            setMultiSelectContextValue((draftContext) => {
+              draftContext.focusedValueTagIndex = draftContext.selectedValues.length - 1;
+            });
+          }
         }
         return eventIsHandled;
       }}

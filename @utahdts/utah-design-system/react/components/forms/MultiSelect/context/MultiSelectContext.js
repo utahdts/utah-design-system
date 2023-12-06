@@ -6,6 +6,7 @@ import React from 'react';
 
 export const MultiSelectContext = /** @type {typeof React.createContext<MultiSelectContext>} */ (React.createContext)([
   {
+    focusedValueTagIndex: NaN,
     hasTagTemplate: false,
     multiSelectId: 'default-context-value',
     selectedValues: [],
@@ -14,5 +15,10 @@ export const MultiSelectContext = /** @type {typeof React.createContext<MultiSel
   },
   () => {
     console.error('calling default MultiSelectContext setter... you should probably setup a context provider before trying to use it.');
+  },
+  {
+    current: {
+      comboBoxDivElement: null,
+    },
   },
 ]);

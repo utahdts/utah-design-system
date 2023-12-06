@@ -6,6 +6,12 @@
  * @typedef {import('use-immer').ImmerHook<ImmerHookT>} ImmerHook
  */
 
+/**
+ * react.Ref<T> is immutable! this version is mutable and follows the same semantics
+ * @template MutableRefT
+ * @typedef {import('react').RefCallback<MutableRefT> | import('react').MutableRefObject<MutableRefT> | null} MutableRef
+ */
+
 // ========== Enums ========== //
 /**
  * AriaLiveType
@@ -256,9 +262,15 @@
  * }
  */
 
-/** @typedef {import('use-immer').ImmerHook<MultiSelectContextValue>} MultiSelectContext */
+/** @typedef MultiSelectContextNonStateRef {
+ *  @property {HTMLDivElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
+ * } */
+
+/** @typedef {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef>]} MultiSelectContext */
+
 /**
  * @typedef MultiSelectContextValue {
+ *  @property {number} focusedValueTagIndex the index of the tag currently having focus
  *  @property {boolean} hasTagTemplate is there a custom template for tags instead of rendering default tags
  *  @property {string} multiSelectId
  *  @property {((newValues: string[]) => void)} onChange

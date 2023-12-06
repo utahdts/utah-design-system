@@ -1,11 +1,12 @@
 // @ts-check
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import useRefAlways from '../../../../hooks/useRefAlways';
 import { MultiSelectContext } from './MultiSelectContext';
 
-/** @typedef {import('../../../../jsDocTypes').MultiSelectContextValue} MultiSelectContextValue */
 /** @typedef {import('../../../../jsDocTypes').MultiSelectContext} MultiSelectContextType */
+/** @typedef {import('../../../../jsDocTypes').MultiSelectContextNonStateRef} MultiSelectContextNonStateRef */
+/** @typedef {import('../../../../jsDocTypes').MultiSelectContextValue} MultiSelectContextValue */
 
 /**
  * @param {Object} props
@@ -26,8 +27,12 @@ export default function MultiSelectContextProvider({
   values,
 }) {
   const onChangeRef = useRefAlways(onChange);
+  const multiSelectContextNonStateRef = /** @type {typeof useRef<MultiSelectContextNonStateRef>} */ (useRef)({
+    comboBoxDivElement: null,
+  });
 
-  const multiSelectImmer = /** @type {typeof useImmer<MultiSelectContextValue>} */ (useImmer)(() => /** @type {MultiSelectContextValue} */({
+  const multiSelectImmer = /** @type {typeof useImmer<MultiSelectContextValue>} */ (useImmer)(() => ({
+    focusedValueTagIndex: NaN,
     hasTagTemplate: false,
     multiSelectId,
     onChange: (newValues) => {
@@ -56,8 +61,15 @@ export default function MultiSelectContextProvider({
     [values]
   );
 
+  // eslint-disable-next-line max-len
+  /** @type {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef>]} */
+  const providerValue = useMemo(
+    () => [...multiSelectImmer, multiSelectContextNonStateRef],
+    [multiSelectImmer]
+  );
+
   return (
-    <MultiSelectContext.Provider value={multiSelectImmer}>
+    <MultiSelectContext.Provider value={providerValue}>
       {children}
     </MultiSelectContext.Provider>
   );

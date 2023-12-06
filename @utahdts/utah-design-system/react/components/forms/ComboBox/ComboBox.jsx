@@ -7,6 +7,10 @@ import { CombBoxListBox } from './internal/CombBoxListBox';
 import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /** @typedef {import('../../../jsDocTypes').Event} Event */
+/**
+ * @template MutableRefT
+ * @typedef {import('../../../jsDocTypes').MutableRef<MutableRefT>} MutableRef
+ */
 
 /**
  * @param {Object} props
@@ -15,7 +19,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id
- * @param {React.RefObject} [props.innerRef]
+ * @param {MutableRef<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -39,7 +43,7 @@ export function ComboBox({
   defaultValue,
   errorMessage,
   id,
-  innerRef,
+  innerRef: draftInnerRef,
   isClearable,
   isDisabled,
   isRequired,
@@ -70,7 +74,10 @@ export function ComboBox({
       onSubmit={onSubmit}
       value={value}
     >
-      <div className={joinClassNames('input-wrapper input-wrapper--combo-box', wrapperClassName)} ref={innerRef}>
+      <div
+        className={joinClassNames('input-wrapper input-wrapper--combo-box', wrapperClassName)}
+        ref={draftInnerRef}
+      >
         <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
           {tagChildren}
           <ComboBoxTextInput

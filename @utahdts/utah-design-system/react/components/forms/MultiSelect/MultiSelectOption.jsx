@@ -1,6 +1,6 @@
 // @ts-check
 import React from 'react';
-import ComboBoxOption from '../ComboBox/ComboBoxOption';
+import { ComboBoxOption } from '../ComboBox/ComboBoxOption';
 
 /**
  * @param {Object} props
