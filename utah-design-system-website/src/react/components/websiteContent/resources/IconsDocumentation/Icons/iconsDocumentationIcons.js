@@ -219,4 +219,9 @@ export default [
     title: 'visibility-off',
     letter: 'r',
   },
+  {
+    cssClass: 'trash',
+    title: 'trash',
+    letter: 's',
+  },
 ];
