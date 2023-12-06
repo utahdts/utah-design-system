@@ -202,6 +202,30 @@ function UtahFooterDocumentation() {
             </TableRow>
             <TableRow>
               <TableCell>
+                <span className="prop__name"><a href="#section-config-custom-links">footer.linkPrivacyPolicy</a></span><br />
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Customize the link for the privacy policy in the footer. This will allow agencies to provide specific agency or application
+                  privacy information to visitors as required by state statue.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-custom-links">footer.linkTermsOfUse</a></span><br />
+                <span className="prop__types">string</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  Customize the link for the terms of use in the footer. This will allow agencies to provide specific agency or application
+                  terms of use information to visitors as required by state statue.
+                </span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
                 <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.showHorizontalRule</a></span><br />
                 <span className="prop__types">boolean</span>
               </TableCell>
@@ -353,6 +377,27 @@ function UtahFooterDocumentation() {
                 ...other settings...,
                 footer: {
                   copyrightYear: '2023'
+                }
+              }
+            )
+          `}
+        />
+      </div>
+
+      <h4 id="section-config-custom-links" className="mt-spacing">linkPrivacyPolicy, linkTermsOfUse</h4>
+      <div>
+        Customize the privacy policy and/or terms of use links in the footer.
+        <br /><br />
+        Example:
+        <PreCodeForCodeString
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                footer: {
+                  linkPrivacyPolicy: 'https://dts.utah.gov/privacy-policy',
+                  linkTermsOfUse: 'https://dts.utah.gov/terms-of-use'
                 }
               }
             )
