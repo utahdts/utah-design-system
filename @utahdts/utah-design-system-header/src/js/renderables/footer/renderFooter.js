@@ -102,6 +102,20 @@ export default function renderFooter() {
         footerHr?.remove();
       }
 
+      // add custom privacy policy link
+      if (settings?.footer?.linkPrivacyPolicy) {
+        const privacyLink = document.getElementById(domConstants.FOOTER_LINK_PRIVACY_ID);
+        checkForError(!privacyLink, 'renderFooter: cannot find privacy policy link');
+        privacyLink?.setAttribute('href', settings.footer.linkPrivacyPolicy);
+      }
+
+      // add custom terms of use link
+      if (settings?.footer?.linkTermsOfUse) {
+        const termsLink = document.getElementById(domConstants.FOOTER_LINK_TERMS_ID);
+        checkForError(!termsLink, 'renderFooter: cannot find terms of use link');
+        termsLink?.setAttribute('href', settings.footer.linkTermsOfUse);
+      }
+
       // make links external links
       const footerLinks = notNull(document.querySelector(getCssClassSelector(domConstants.FOOTER_LINKS)), 'renderFooter: footer links not found');
       const lis = footerLinks.querySelectorAll('a');
