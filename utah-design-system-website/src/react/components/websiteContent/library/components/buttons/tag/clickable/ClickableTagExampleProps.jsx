@@ -29,14 +29,14 @@ export function ClickableTagExampleProps({ setState, state }) {
       <Switch id="props.clickable.isDisabled" label="Disabled" width={20} />
 
       <Select id="props.clickable.iconLeft" label="Icon Left" className="input--height-small1x">
-        <SelectOption label="Checkmark" value="IconCheck" />
-        <SelectOption label="Arrow" value="IconArrowLeft" />
+        <SelectOption label="Checkmark" value="check" />
+        <SelectOption label="Arrow" value="arrow-left" />
         <SelectOption label="None" value="none" />
       </Select>
 
       <Select id="props.clickable.iconRight" label="Icon Right" className="input--height-small1x">
-        <SelectOption label="Checkmark" value="IconCheck" />
-        <SelectOption label="Arrow" value="IconArrowRight" />
+        <SelectOption label="Checkmark" value="check" />
+        <SelectOption label="Arrow" value="arrow-right" />
         <SelectOption label="None" value="none" />
       </Select>
 

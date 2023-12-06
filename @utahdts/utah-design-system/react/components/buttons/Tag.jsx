@@ -32,11 +32,13 @@ export function Tag({
   ...rest
 }) {
   return (
-    <div className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}>
+    <div
+      className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}
+      ref={innerRef}
+    >
       <span
         className={joinClassNames('tag', className, `tag--${size}`)}
         id={id}
-        ref={innerRef}
         {...rest}
       >
         {iconLeft ? <span className="tag--icon tag--icon-left">{iconLeft}</span> : null}
