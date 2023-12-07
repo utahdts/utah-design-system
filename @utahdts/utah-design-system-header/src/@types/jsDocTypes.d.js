@@ -266,8 +266,10 @@
 
 /**
  * @typedef FooterSettings {
- *  @property {string | null | undefined} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
+ *  @property {string | null} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
+ *  @property {string | null} [linkPrivacyPolicy] - a custom link to a privacy policy
+ *  @property {string | null} [linkTermsOfUse] - a custom link to a terms of use
  *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
  * }
  */
