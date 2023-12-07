@@ -128,8 +128,8 @@ export function TagsDocumentation() {
         renderedExample={(
           <div className="flex flex-col full-width items-center">
             <div className="flex gap-s mb-spacing">
-              <Tag iconLeft={Icons.IconArrowLeft()} className="tag--selected">Left</Tag>
-              <Tag iconRight={Icons.IconArrowRight()}>Right</Tag>
+              <Tag iconLeft={<span className="utds-icon-before-arrow-left" aria-hidden="true" />} className="tag--selected">Left</Tag>
+              <Tag iconRight={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}>Right</Tag>
             </div>
             <div className="flex gap-s">
               <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconSlack()} className="tag--primary-color">Slack</Tag>
