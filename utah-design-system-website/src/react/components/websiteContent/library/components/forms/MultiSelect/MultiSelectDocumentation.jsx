@@ -2,8 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
-import multiSelectScreenshot from '../../../../../../../static/images/screenshots/components/multi-select/multiSelectScreenshot.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { MultiSelect, MultiSelectOption } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -38,9 +37,20 @@ export function MultiSelectDocumentation() {
         RENDER_EXAMPLE={MultiSelectExampleRender}
       />
       <StaticExample
-        title="Select Input Example"
-        // TODO: make this a real multi select
-        renderedExample={<LightBox image={multiSelectScreenshot} alt="Multi-select Input" className="flex-3up-gap" />}
+        title="Multi-Select Example"
+        renderedExample={(
+          <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
+            <MultiSelectOption label="Basilisk" value="basilisk" />
+            <MultiSelectOption label="Blemmyae" value="blemmyae" />
+            <MultiSelectOption label="Cardinal" value="cardinal" />
+            <MultiSelectOption label="Dragon" value="dragon" />
+            <MultiSelectOption label="Griffin" value="griffin" />
+            <MultiSelectOption label="Kraken" value="kraken" />
+            <MultiSelectOption label="Manticore" value="manticore" />
+            <MultiSelectOption label="Roc" value="roc" />
+            <MultiSelectOption label="Unicorn" value="unicorn" />
+          </MultiSelect>
+        )}
         quickTips={(
           <ul>
             <li>A multi-select input allows the user to select multiple options from a list.</li>
