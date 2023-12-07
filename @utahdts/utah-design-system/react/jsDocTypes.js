@@ -264,6 +264,7 @@
 
 /** @typedef MultiSelectContextNonStateRef {
  *  @property {HTMLDivElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
+ *  @property {(HTMLDivElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
  * } */
 
 /** @typedef {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef>]} MultiSelectContext */
@@ -271,7 +272,7 @@
 /**
  * @typedef MultiSelectContextValue {
  *  @property {number} focusedValueTagIndex the index of the tag currently having focus
- *  @property {boolean} hasTagTemplate is there a custom template for tags instead of rendering default tags
+ *  @property {((selectedValue: string, selectedOption: ComboBoxOption) => JSX.Element) | null} tagTemplate is there a custom template for tags instead of rendering default tags
  *  @property {string} multiSelectId
  *  @property {((newValues: string[]) => void)} onChange
  *  @property {(() => void)} onClear

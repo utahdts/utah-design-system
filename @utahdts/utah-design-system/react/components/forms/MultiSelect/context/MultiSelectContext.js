@@ -7,7 +7,7 @@ import React from 'react';
 export const MultiSelectContext = /** @type {typeof React.createContext<MultiSelectContext>} */ (React.createContext)([
   {
     focusedValueTagIndex: NaN,
-    hasTagTemplate: false,
+    tagTemplate: null,
     multiSelectId: 'default-context-value',
     selectedValues: [],
     onChange: () => { console.error('calling default MultiSelectContext onChange'); },
@@ -19,6 +19,7 @@ export const MultiSelectContext = /** @type {typeof React.createContext<MultiSel
   {
     current: {
       comboBoxDivElement: null,
+      selectedOptionTagRefs: [],
     },
   },
 ]);

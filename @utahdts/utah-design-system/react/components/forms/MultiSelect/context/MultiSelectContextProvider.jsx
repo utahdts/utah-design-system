@@ -29,11 +29,12 @@ export default function MultiSelectContextProvider({
   const onChangeRef = useRefAlways(onChange);
   const multiSelectContextNonStateRef = /** @type {typeof useRef<MultiSelectContextNonStateRef>} */ (useRef)({
     comboBoxDivElement: null,
+    selectedOptionTagRefs: [],
   });
 
   const multiSelectImmer = /** @type {typeof useImmer<MultiSelectContextValue>} */ (useImmer)(() => ({
     focusedValueTagIndex: NaN,
-    hasTagTemplate: false,
+    tagTemplate: null,
     multiSelectId,
     onChange: (newValues) => {
       if (onChangeRef.current) {
