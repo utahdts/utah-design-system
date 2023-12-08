@@ -13,6 +13,10 @@ import bannerLandmarkScreenshot from '../../../../../../../static/images/screens
 import bannersLargeScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersLarge.jpg';
 import bannersMediumScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersMedium.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import BannersExampleCodeReact from './BannersExampleCodeReact';
+import BannersExampleProps from './BannersExampleProps';
+import BannersExampleRender from './BannersExampleRender';
 
 const propTypes = {};
 const defaultProps = {};
@@ -31,6 +35,19 @@ function BannersDocumentation() {
       <hr />
 
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          color: 'banner--info',
+          icon: 'none',
+          message: 'Here is some information.',
+          position: 'top',
+        }}
+        CODE_EXAMPLE={BannersExampleCodeReact}
+        PROPS_EXAMPLE={BannersExampleProps}
+        RENDER_EXAMPLE={BannersExampleRender}
+      />
+
       <StaticExample
         title="Small banners"
         renderedExample={(

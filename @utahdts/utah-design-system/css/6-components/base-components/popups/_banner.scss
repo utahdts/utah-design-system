@@ -156,6 +156,24 @@
           top: 0;
           right: 0;
         }
+
+        &__bottom, &__top {
+          .banner--wrapper {
+            align-self: baseline;
+          }
+        }
+
+        &__top-right, &__bottom-right {
+          .banner--wrapper {
+            align-self: flex-end;
+          }
+        }
+
+        &__top-left, &__bottom-left {
+          .banner--wrapper {
+            align-self: flex-start;
+          }
+        }
       }
 
       .banner--wrapper {

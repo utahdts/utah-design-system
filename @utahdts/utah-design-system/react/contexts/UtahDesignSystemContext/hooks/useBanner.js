@@ -17,9 +17,9 @@ export function useBanner() {
   const addBanner = useCallback(
     /**
      * @param {string} className
-     * @param {number} duration
+     * @param {number | null} duration
      * @param {HTMLElement} icon
-     * @param {string} message
+     * @param {HTMLElement | string} message
      * @param {string} position
      * @returns {void}
      */
