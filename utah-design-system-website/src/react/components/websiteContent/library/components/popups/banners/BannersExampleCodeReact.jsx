@@ -21,6 +21,7 @@ export default function BannersExampleCodeReact({
       <br />
       <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, color)}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={position ? `position="${position}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp="onClose={() => console.log('Make sure to close the banner!')}" indentLevel={1} />
       &gt;
       {icon !== 'none'
         ? (

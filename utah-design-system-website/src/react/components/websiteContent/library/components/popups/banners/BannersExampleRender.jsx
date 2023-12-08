@@ -38,6 +38,7 @@ export default function BannersExampleRender({
           innerRef={innerRef}
           className={joinClassNames(className, color)}
           position={position}
+          onClose={() => console.log('Make sure to close the banner!')}
         >
           {icon !== 'none'
             ? (
