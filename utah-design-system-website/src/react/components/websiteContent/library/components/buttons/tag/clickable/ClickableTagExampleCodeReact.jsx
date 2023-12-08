@@ -1,49 +1,47 @@
+// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import TagClickableExamplePropsShape from '../../../../../../../propTypesShapes/ClickableTagExamplePropsShape';
+import React from 'react';
 import ExampleCodeReactProp from '../../../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../../../sandbox/SandboxIndent';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: TagClickableExamplePropsShape.isRequired,
-  }).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
 
-function TagClickableExampleCode({
+/**
+ * @param {Object} props
+ * @param {Object} props.state
+ * @param {TagExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export function ClickableTagExampleCodeReact({
   state: {
     props: {
-      className,
-      iconLeft,
-      iconRight,
-      id,
-      isRestricted,
-      isSelected,
-      size,
-      style,
-      title,
+      clickable: {
+        className,
+        iconLeft,
+        iconRight,
+        id,
+        isDisabled,
+        isSelected,
+        size,
+        title,
+      },
     },
   },
 }) {
+  const sizeKey = Object.entries(formElementSizesEnum).find(([, value]) => value === size)?.[0];
+
   return (
     <>
       &lt;ClickableTag
       <br />
+      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isRestricted ? 'isDisabled' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isSelected ? 'isSelected' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={style ? `style="${style}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isSelected ? 'isSelected' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={'onClick={() => { /* ... do something ... */ }'} indentLevel={1} />
-      <ExampleCodeReactProp
-        displayProp={(!size || size === formElementSizesEnum.MEDIUM)
-          ? null
-          : `size={formElementSizesEnum.${Object.entries(formElementSizesEnum).find(([, value]) => value === size)[0]}}`}
-        indentLevel={1}
-      />
+      <ExampleCodeReactProp displayProp={(!sizeKey || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${sizeKey}}`} indentLevel={1} />
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
@@ -53,8 +51,3 @@ function TagClickableExampleCode({
     </>
   );
 }
-
-TagClickableExampleCode.propTypes = propTypes;
-TagClickableExampleCode.defaultProps = defaultProps;
-
-export default TagClickableExampleCode;

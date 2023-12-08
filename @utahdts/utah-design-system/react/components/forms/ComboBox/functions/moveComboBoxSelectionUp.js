@@ -1,24 +1,31 @@
 // @ts-check
+import { isOptionGroupVisible } from './isOptionGroupVisible';
 
 /** @typedef {import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
 
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
- * @param {import('react').MutableRefObject<HTMLInputElement | null>} textInputRef
+ * @param {HTMLInputElement | null} textInput
  */
-export function moveComboBoxSelectionUp(draftContext, textInputRef) {
+export function moveComboBoxSelectionUp(draftContext, textInput) {
   if (draftContext.isOptionsExpanded) {
+    const { optionsFiltered: optionsWithHiddenGroups } = draftContext;
+
+    const optionsToUse = optionsWithHiddenGroups.filter(
+      (option) => isOptionGroupVisible((option.isGroupLabel ? option.optionGroupId : null) ?? null, option.label, optionsWithHiddenGroups)
+    );
+
     // get index of currently selected item in the filtered items list
-    const selectionIndex = draftContext.optionsFiltered.findIndex(
-      (option) => option.value === draftContext.optionValueHighlighted ?? draftContext.optionValueSelected
+    const selectionIndex = optionsToUse.findIndex(
+      (option) => option.value === (draftContext.optionValueHighlighted ?? draftContext.optionValueSelected)
     );
     const currentSelectionIndex = (
       selectionIndex === -1
-        ? draftContext.optionsFiltered.length - 1
+        ? optionsToUse.length - 1
         : (selectionIndex - 1)
     );
     if (currentSelectionIndex >= 0) {
-      const newHighlightedValue = draftContext.optionsFiltered[currentSelectionIndex]?.value ?? null;
+      const newHighlightedValue = optionsToUse[currentSelectionIndex]?.value ?? null;
       draftContext.optionValueHighlighted = newHighlightedValue;
       draftContext.optionValueFocused = newHighlightedValue;
       document.querySelector(`[value="${newHighlightedValue}"]`)?.[0]?.focus();
@@ -27,7 +34,7 @@ export function moveComboBoxSelectionUp(draftContext, textInputRef) {
       draftContext.isOptionsExpanded = false;
       draftContext.optionValueHighlighted = null;
       draftContext.optionValueFocused = null;
-      textInputRef.current?.focus();
+      textInput?.focus();
     }
   }
 }

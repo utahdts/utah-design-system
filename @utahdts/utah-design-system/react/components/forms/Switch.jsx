@@ -50,7 +50,7 @@ export default function Switch({
 }) {
   // there is no "uncontrolled" version of this component
   const { setState, state } = useFormContext();
-  const [internalState, setInternalSetState] = useState(!!(defaultValue ?? value));
+  const [internalState, setInternalState] = useState(!!(defaultValue ?? value));
 
   // switch example was passing in a value but it wasn't updating the UI
   useEffect(
@@ -63,9 +63,10 @@ export default function Switch({
             value,
           });
         });
-        setInternalSetState(!!value);
+        setInternalState(!!value);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value]
   );
 
@@ -82,7 +83,7 @@ export default function Switch({
           });
         });
       } else {
-        setInternalSetState(e.target.checked);
+        setInternalState(e.target.checked);
       }
     },
     [id, setState]

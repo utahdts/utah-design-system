@@ -8,12 +8,20 @@ import React, {
 } from 'react';
 import { useImmer } from 'use-immer';
 import useFormContext from '../../FormContext/useFormContext';
-import ComboBoxContext from './ComboBoxContext';
+import { ComboBoxContext } from './ComboBoxContext';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContext} ComboBoxContext */
+/** @typedef { import('../../../../jsDocTypes').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
 /** @typedef { import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
-/** @typedef { import('../../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
-/** @typedef { import('../../../../jsDocTypes').EventAction} EventAction */
+
+/**
+ * @template MutableRefObjectT
+ * @typedef {import('react').MutableRefObject<MutableRefObjectT>} MutableRefObject
+ */
+
+/**
+ * @template UpdaterT
+ * @typedef {import('use-immer').Updater<UpdaterT>} Updater
+ */
 
 /**
  * @param {Object} props
@@ -26,7 +34,7 @@ import ComboBoxContext from './ComboBoxContext';
  * @param {string} [props.value]
  * @returns {JSX.Element}
  */
-export default function ComboBoxContextProvider({
+export function ComboBoxContextProvider({
   children,
   comboBoxId,
   defaultValue,
@@ -36,7 +44,6 @@ export default function ComboBoxContextProvider({
   value,
 }) {
   const { onChange: onChangeFormContext } = useFormContext();
-  const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
   const comboBoxImmerRef = useRef(/** @type {import('use-immer').ImmerHook<ComboBoxContextValue> | null} */(null));
   const onChangeFormValue = useCallback(
@@ -58,6 +65,11 @@ export default function ComboBoxContextProvider({
     [comboBoxId, onChange, onChangeFormContext]
   );
 
+  const comboBoxContextNonStateRef = useRef({
+    currentOptionGroupId: '',
+    textInput: /** @type {HTMLInputElement | null} */(null),
+  });
+
   const comboBoxImmer = /** @type {typeof useImmer<ComboBoxContextValue>} */ (useImmer)({
     filterValue: '',
     optionValueFocused: null,
@@ -68,11 +80,13 @@ export default function ComboBoxContextProvider({
     onSubmit,
     options: [],
     optionsFiltered: [],
+    optionsFilteredWithoutGroupLabels: [],
     registerOption: (newOption) => {
       comboBoxImmer[1]((draftContext) => {
         draftContext.options.push(newOption);
       });
     },
+    optionValueFocusedId: null,
     optionValueHighlighted: null,
     optionValueSelected: defaultValue ?? value ?? null,
     unregisterOption: (optionValue) => {
@@ -111,16 +125,20 @@ export default function ComboBoxContextProvider({
         const filterValueLowerCase = trim(filterValue).toLocaleLowerCase();
 
         // filter options to just ones including filterValue
-        const filteredOptions = options.filter((option) => (!filterValueLowerCase || option.labelLowerCase.includes(filterValueLowerCase)));
+        const filteredOptions = options.filter(
+          (option) => option.isGroupLabel || (!filterValueLowerCase || option.labelLowerCase.includes(filterValueLowerCase))
+        );
 
         // let children know the selected filter value has changed
         setComboBoxState((draftContextValue) => {
           draftContextValue.optionsFiltered = filteredOptions;
+          draftContextValue.optionsFilteredWithoutGroupLabels = filteredOptions.filter((option) => !option.isGroupLabel);
         });
       } else {
         setComboBoxState((draftContextValue) => {
           draftContextValue.optionValueHighlighted = null;
           draftContextValue.optionsFiltered = options;
+          draftContextValue.optionsFilteredWithoutGroupLabels = options.filter((option) => !option.isGroupLabel);
         });
       }
     },
@@ -128,13 +146,14 @@ export default function ComboBoxContextProvider({
     [comboBoxImmer[0].filterValue, comboBoxImmer[0].options, setComboBoxState]
   );
 
-  /** @type {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<HTMLInputElement | null>]} */
+  // eslint-disable-next-line max-len
+  /** @type {[ComboBoxContextValue, Updater<ComboBoxContextValue>, MutableRefObject<ComboBoxContextNonStateRef>]} */
   const providerValue = useMemo(
     () => [
       ...comboBoxImmer,
-      textInputRef,
+      comboBoxContextNonStateRef,
     ],
-    [comboBoxImmer]
+    [comboBoxImmer, comboBoxContextNonStateRef]
   );
 
   return (

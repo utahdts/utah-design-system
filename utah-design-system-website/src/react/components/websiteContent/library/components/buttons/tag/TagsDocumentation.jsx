@@ -1,34 +1,56 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import { Link } from 'react-router-dom';
-import { useCallback } from 'react';
+// @ts-check
 import {
   Accordion,
   ClickableTag,
   formElementSizesEnum, Icons, Tab, TabGroup, TabList, TabPanel, TabPanels, Tag, useBanner
 } from '@utahdts/utah-design-system';
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import TagExampleCodeReact from './TagExampleCodeReact';
-import TagExampleProps from './TagExampleProps';
-import TagExampleRender from './TagExampleRender';
-import ClickableTagExampleCodeReact from './clickable/ClickableTagExampleCodeReact';
-import ClickableTagExampleProps from './clickable/ClickableTagExampleProps';
-import ClickableTagExampleRender from './clickable/ClickableTagExampleRender';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
-import TagCssClassesDocumentation from './TagCssClassesDocumentation';
-import TagPropsDocumentation from './TagPropsDocumentation';
-import ClickableTagCssClassesDocumentation from './clickable/ClickableTagCssClassesDocumentation';
-import ClickableTagPropsDocumentation from './clickable/ClickableTagPropsDocumentation';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import { ClickableTagCssClassesDocumentation } from './clickable/ClickableTagCssClassesDocumentation';
+import { ClickableTagExampleCodeReact } from './clickable/ClickableTagExampleCodeReact';
+import { ClickableTagExampleProps } from './clickable/ClickableTagExampleProps';
+import { ClickableTagExampleRender } from './clickable/ClickableTagExampleRender';
+import { ClickableTagPropsDocumentation } from './clickable/ClickableTagPropsDocumentation';
+import { TagCssClassesDocumentation } from './non-clickable/TagCssClassesDocumentation';
+import { TagExampleCodeReact } from './non-clickable/TagExampleCodeReact';
+import { TagExampleProps } from './non-clickable/TagExampleProps';
+import { TagExampleRender } from './non-clickable/TagExampleRender';
+import { TagPropsDocumentation } from './non-clickable/TagPropsDocumentation';
 
-const propTypes = {};
-const defaultProps = {};
+/** @typedef {import('../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
 
-function TagsDocumentation() {
-  const { addBanner } = useBanner();
+/** @returns {JSX.Element} */
+export function TagsDocumentation() {
+  const showBanner = useBanner();
+  /** @type {TagExamplePropsShape} */
+  const defaultSandboxProps = useMemo(
+    () => ({
+      clickable: {
+        className: '',
+        iconLeft: 'none',
+        iconRight: 'none',
+        id: '',
+        isDisabled: false,
+        isSelected: false,
+        size: formElementSizesEnum.MEDIUM,
+        title: 'Tag Title',
+      },
+      nonClickable: {
+        className: '',
+        iconLeft: 'none',
+        iconRight: 'none',
+        id: '',
+        isClearable: false,
+        isDisabled: false,
+        size: formElementSizesEnum.MEDIUM,
+        title: 'Tag Title',
+      },
+    }),
+    []
+  );
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Tags</h1>
@@ -45,19 +67,21 @@ function TagsDocumentation() {
         <TabGroup defaultValue="tag__sandbox">
           <TabList>
             <Tab id="tag__sandbox">Standard</Tab>
-            <Tab id="tag-clickable__sanbox">Clickable</Tab>
+            <Tab id="tag-clickable__sandbox">Clickable</Tab>
           </TabList>
           <TabPanels>
             <TabPanel tabId="tag__sandbox">
               <SandboxExample
+                defaultProps={defaultSandboxProps}
                 CODE_EXAMPLE={TagExampleCodeReact}
                 PROPS_EXAMPLE={TagExampleProps}
                 RENDER_EXAMPLE={TagExampleRender}
                 componentClassName="sandbox-example__component--outline"
               />
             </TabPanel>
-            <TabPanel tabId="tag-clickable__sanbox">
+            <TabPanel tabId="tag-clickable__sandbox">
               <SandboxExample
+                defaultProps={defaultSandboxProps}
                 CODE_EXAMPLE={ClickableTagExampleCodeReact}
                 PROPS_EXAMPLE={ClickableTagExampleProps}
                 RENDER_EXAMPLE={ClickableTagExampleRender}
@@ -104,8 +128,8 @@ function TagsDocumentation() {
         renderedExample={(
           <div className="flex flex-col full-width items-center">
             <div className="flex gap-s mb-spacing">
-              <Tag iconLeft={Icons.IconArrowLeft()} className="tag--selected">Left</Tag>
-              <Tag iconRight={Icons.IconArrowRight()}>Right</Tag>
+              <Tag iconLeft={<span className="utds-icon-before-arrow-left" aria-hidden="true" />} className="tag--selected">Left</Tag>
+              <Tag iconRight={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}>Right</Tag>
             </div>
             <div className="flex gap-s">
               <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconSlack()} className="tag--primary-color">Slack</Tag>
@@ -130,11 +154,11 @@ function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <ClickableTag className="tag--primary-color" isSelected onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Zion</ClickableTag>
-              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Arches</ClickableTag>
-              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Bryce</ClickableTag>
-              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Canyonlands</ClickableTag>
-              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Capitol Reef</ClickableTag>
+              <ClickableTag className="tag--primary-color" isSelected onClick={() => showBanner({ message: 'tag clicked' })}>Zion</ClickableTag>
+              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Arches</ClickableTag>
+              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Bryce</ClickableTag>
+              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Canyonlands</ClickableTag>
+              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Capitol Reef</ClickableTag>
             </div>
           </div>
         )}
@@ -149,7 +173,9 @@ function TagsDocumentation() {
       <h2 id="section-guidance" className="mb-spacing mt-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Draw attention to new, important content.</strong> Tags can focus attention on important content that might otherwise be missed.</li>
+        <li>
+          <strong>Draw attention to new, important content.</strong> Tags can focus attention on important content that might otherwise be missed.
+        </li>
         <li><strong>Filter results with one or more tags.</strong></li>
         <li><strong>Categorize and organize data.</strong> Use when you have data that helps categorize and organize information.</li>
         <li>
@@ -161,7 +187,8 @@ function TagsDocumentation() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Confusion with buttons.</strong> Avoid tags if they might appear in the same area of the page as <Link to={pageUrls.button}>buttons</Link>.
+          <strong>Confusion with buttons.</strong> Avoid tags if they might appear in the same area of
+          the page as <Link to={pageUrls.button}>buttons</Link>.
         </li>
         <li>
           <strong>New or updated content.</strong> To call attention to new or updated content, consider changing the background
@@ -220,7 +247,9 @@ function TagsDocumentation() {
           Always use an <Link to={pageUrls.iconButton}>icon button</Link> for the dismiss action <code>x</code> on a dismissible tag. This
           provides the required keyboard navigability.
         </li>
-        <li>Use the <code>tab</code> key to move between form elements. An interactive tag should display a visible focus state when users tab to them.</li>
+        <li>
+          Use the <code>tab</code> key to move between form elements. An interactive tag should display a visible focus state when users tab to them.
+        </li>
       </ul>
 
       <h4 id="section-screen-readers">Screen readers</h4>
@@ -295,8 +324,3 @@ function TagsDocumentation() {
     </div>
   );
 }
-
-TagsDocumentation.propTypes = propTypes;
-TagsDocumentation.defaultProps = defaultProps;
-
-export default TagsDocumentation;

@@ -1,92 +1,49 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import joinClassNames from '../../util/joinClassNames';
-import RefShape from '../../propTypesShapes/RefShape';
 import IconButton from './IconButton';
 
-const propTypes = {
-  // most often is the title of the tag, but can also contain most anything
-  children: PropTypes.node.isRequired,
-  // modify your tag via classname like 'tag--primary' and other modifiers found in the tag.scss
-  className: PropTypes.string,
-  // the tag id
-  id: PropTypes.string,
-  // a ref to attach to the actual DOM <button> or <span> element
-  innerRef: RefShape,
-  // an icon for the left/right side
-  iconLeft: PropTypes.node,
-  iconRight: PropTypes.node,
-  // tag isDisabled state
-  isDisabled: PropTypes.bool,
-  onClear: PropTypes.func,
-  size: PropTypes.oneOf([
-    formElementSizesEnum.SMALL,
-    formElementSizesEnum.MEDIUM,
-    formElementSizesEnum.LARGE,
-  ]),
-};
-const defaultProps = {
-  className: null,
-  id: null,
-  innerRef: null,
-  iconLeft: null,
-  iconRight: null,
-  isDisabled: false,
-  onClear: null,
-  size: formElementSizesEnum.MEDIUM,
-};
+/** @typedef {import('../../jsDocTypes').FormElementSizes} FormElementSizes */
 
 /**
  * @param {Object} props
- * @param {React.ReactNode | null} props.children
- * @param {string | null} [props.className]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {React.ReactNode | null} [props.iconLeft]
- * @param {React.ReactNode | null} [props.iconRight]
- * @param {boolean} [props.isDisabled]
- * @param {string | null} [props.id]
- * @param {EventAction | null} [props.onClear]
+ * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
+ * @param {string} [props.className]
+ * @param {string} [props.id] the tag id
+ * @param {React.RefObject} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
+ * @param {React.ReactNode} [props.iconLeft] an icon for the left side
+ * @param {React.ReactNode} [props.iconRight] an icon for the right side
+ * @param {boolean} [props.isDisabled] tag isDisabled state
+ * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClear]
  * @param {FormElementSizes} [props.size]
  * @returns {JSX.Element}
  */
-function Tag({
-  children = null,
-  className = null,
-  innerRef = null,
-  iconLeft = null,
-  iconRight = null,
-  isDisabled = false,
-  id = null,
-  onClear = null,
+export function Tag({
+  children,
+  className,
+  innerRef,
+  iconLeft,
+  iconRight,
+  isDisabled,
+  id,
+  onClear,
   size = formElementSizesEnum.MEDIUM,
   ...rest
 }) {
   return (
-    <div className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}>
+    <div
+      className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}
+      ref={innerRef}
+    >
       <span
-        className={joinClassNames(
-          'tag',
-          className,
-          // default size is medium
-          `tag--${size}`
-        )}
+        className={joinClassNames('tag', className, `tag--${size}`)}
         id={id}
-        ref={innerRef}
         {...rest}
       >
-        {
-          iconLeft
-            ? <span className="tag--icon tag--icon-left">{iconLeft}</span>
-            : null
-        }
+        {iconLeft ? <span className="tag--icon tag--icon-left">{iconLeft}</span> : null}
         {children}
-        {
-          iconRight
-            ? <span className="tag--icon tag--icon-right">{iconRight}</span>
-            : null
-        }
+        {iconRight ? <span className="tag--icon tag--icon-right">{iconRight}</span> : null}
       </span>
       {
         onClear
@@ -104,8 +61,3 @@ function Tag({
     </div>
   );
 }
-
-Tag.propTypes = propTypes;
-Tag.defaultProps = defaultProps;
-
-export default Tag;

@@ -1,34 +1,29 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import {
-  ClickableTag,
-  Icons,
-  RefShape,
-  useBanner,
-} from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import TagExamplePropsShape from '../../../../../../../propTypesShapes/ClickableTagExamplePropsShape';
+// @ts-check
+import { ClickableTag, useBanner } from '@utahdts/utah-design-system';
+import React from 'react';
 
-const propTypes = {
-  state: PropTypes.shape({
-    props: TagExamplePropsShape.isRequired,
-  }).isRequired,
-  innerRef: RefShape,
-};
-const defaultProps = {
-  innerRef: null,
-};
+/** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
 
-function ClickableTagExampleRender({
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
+ * @param {{props: TagExamplePropsShape}} props.state
+ * @param {React.RefObject<HTMLButtonElement>} props.innerRef
+ * @returns {JSX.Element}
+ */
+export function ClickableTagExampleRender({
   state: {
     props: {
-      className,
-      isRestricted,
-      isSelected,
-      iconLeft,
-      iconRight,
-      id,
-      size,
-      title,
+      clickable: {
+        className,
+        isDisabled,
+        isSelected,
+        iconLeft,
+        iconRight,
+        id,
+        size,
+        title,
+      },
     },
   },
   innerRef,
@@ -37,11 +32,11 @@ function ClickableTagExampleRender({
   return (
     <ClickableTag
       className={className}
-      iconLeft={((iconLeft === 'none') || !iconLeft) ? null : Icons[iconLeft]()}
-      iconRight={((iconRight === 'none') || !iconRight) ? null : Icons[iconRight]()}
+      iconLeft={((iconLeft === 'none') || !iconLeft) ? null : <span className={`utds-icon-before-${iconLeft}`} aria-hidden="true" />}
+      iconRight={((iconRight === 'none') || !iconRight) ? null : <span className={`utds-icon-before-${iconRight}`} aria-hidden="true" />}
       id={id}
       innerRef={innerRef}
-      isDisabled={isRestricted}
+      isDisabled={isDisabled}
       isSelected={isSelected}
       onClick={() => addBanner({ message: 'You have clicked the Tag.', duration: 3500 })}
       size={size}
@@ -50,8 +45,3 @@ function ClickableTagExampleRender({
     </ClickableTag>
   );
 }
-
-ClickableTagExampleRender.propTypes = propTypes;
-ClickableTagExampleRender.defaultProps = defaultProps;
-
-export default ClickableTagExampleRender;
