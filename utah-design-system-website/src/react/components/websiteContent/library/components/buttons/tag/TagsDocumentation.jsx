@@ -28,7 +28,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function TagsDocumentation() {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Tags</h1>
@@ -130,11 +130,11 @@ function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <ClickableTag className="tag--primary-color" isSelected onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Zion</ClickableTag>
-              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Arches</ClickableTag>
-              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Bryce</ClickableTag>
-              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Canyonlands</ClickableTag>
-              <ClickableTag onClick={useCallback(() => showBanner({ message: 'tag clicked' }))}>Capitol Reef</ClickableTag>
+              <ClickableTag className="tag--primary-color" isSelected onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Zion</ClickableTag>
+              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Arches</ClickableTag>
+              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Bryce</ClickableTag>
+              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Canyonlands</ClickableTag>
+              <ClickableTag onClick={useCallback(() => addBanner({ message: 'Tag clicked', duration: 3500 }), [addBanner])}>Capitol Reef</ClickableTag>
             </div>
           </div>
         )}

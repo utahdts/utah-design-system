@@ -33,7 +33,7 @@ function ClickableTagExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <ClickableTag
       className={className}
@@ -43,7 +43,7 @@ function ClickableTagExampleRender({
       innerRef={innerRef}
       isDisabled={isRestricted}
       isSelected={isSelected}
-      onClick={() => showBanner({ message: 'You have clicked the Tag.' })}
+      onClick={() => addBanner({ message: 'You have clicked the Tag.', duration: 3500 })}
       size={size}
     >
       {title || ''}

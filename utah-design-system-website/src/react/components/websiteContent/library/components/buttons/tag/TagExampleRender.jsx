@@ -33,7 +33,7 @@ function TagExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <Tag
       className={className}
@@ -42,7 +42,7 @@ function TagExampleRender({
       id={id}
       innerRef={innerRef}
       isDisabled={isDisabled}
-      onClear={isClearable ? (() => showBanner({ message: 'You have cleared the Tag.' })) : null}
+      onClear={isClearable ? (() => addBanner({ message: 'You have cleared the Tag.', duration: 3500 })) : null}
       size={size}
     >
       {title || ''}

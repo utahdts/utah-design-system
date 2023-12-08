@@ -4,9 +4,16 @@ import useUtahDesignSystemContext from '../useUtahDesignSystemContext';
 import uuidv4 from '../../../util/uuidv4';
 
 /** @typedef {import('../../../jsDocTypes').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
+/** @typedef {import('../../../jsDocTypes').BannerPlacement} BannerPlacement */
 /**
  * @returns {{
- * addBanner: function({className: string, duration: number, icon: HTMLElement, message: string, position: string}): void,
+ * addBanner: function({
+ *  className: string | undefined,
+ *  duration: number | undefined,
+ *  icon: HTMLElement | undefined,
+ *  message: HTMLElement | string,
+ *  position: BannerPlacement | undefined
+ * }): void,
  * removeBanner: function(UtahDesignSystemContextBanner): void
  * }}
  */
@@ -16,11 +23,11 @@ export function useBanner() {
   // eslint-disable-next-line function-paren-newline
   const addBanner = useCallback(
     /**
-     * @param {string} className
-     * @param {number | null} duration
-     * @param {HTMLElement} icon
+     * @param {string | undefined} [className]
+     * @param {number | undefined} [duration]
+     * @param {HTMLElement | undefined} [icon]
      * @param {HTMLElement | string} message
-     * @param {string} position
+     * @param {string | undefined} position
      * @returns {void}
      */
     ({
@@ -28,7 +35,7 @@ export function useBanner() {
       duration,
       icon,
       message,
-      position,
+      position = 'bottom-left',
     }) => {
       setState((draftState) => {
         draftState.banners.push({

@@ -44,7 +44,7 @@ export function BannersGlobal({ banners }) {
       draftZones[banner.position].push(banner);
     });
     setZones(draftZones);
-  }, [banners, removeBanner, timers]);
+  }, [banners, currentOnClose, removeBanner, timers]);
 
   return (
     <div

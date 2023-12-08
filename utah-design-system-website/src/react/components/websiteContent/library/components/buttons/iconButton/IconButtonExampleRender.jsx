@@ -22,7 +22,7 @@ export default function IconButtonExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <IconButton
       appearance={appearance}
@@ -31,7 +31,7 @@ export default function IconButtonExampleRender({
       id={id}
       innerRef={innerRef}
       isDisabled={isDisabled}
-      onClick={() => showBanner({ message: 'You have clicked the icon button.' })}
+      onClick={() => addBanner({ message: 'You have clicked the icon button.', duration: 3500 })}
       size={size}
       title={title || ''}
     />

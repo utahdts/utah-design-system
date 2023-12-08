@@ -32,7 +32,7 @@ export default function ButtonExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <Button
       appearance={appearance}
@@ -44,7 +44,7 @@ export default function ButtonExampleRender({
       innerRef={innerRef}
       isBusy={isBusy}
       isDisabled={isDisabled}
-      onClick={() => showBanner({ message: 'You have clicked the button.' })}
+      onClick={() => addBanner({ message: 'You have clicked the button.', duration: 3500 })}
       size={size}
       type={type}
     >

@@ -22,7 +22,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function BannersDocumentation() {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Banner</h1>
@@ -54,7 +54,10 @@ function BannersDocumentation() {
           <div className="flex flex-col items-center">
             <Banner
               position="inline"
-              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+                duration: 3500,
+              }), [addBanner])}
             >
               <BannerMessage>
                 So long, and thanks for all the fish.
@@ -63,7 +66,10 @@ function BannersDocumentation() {
             <Banner
               position="inline"
               className="banner--success"
-              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+                duration: 3500,
+              }), [addBanner])}
             >
               <BannerIcon>
                 <span className="utds-icon-before-check" aria-hidden="true" />
@@ -75,7 +81,10 @@ function BannersDocumentation() {
             <Banner
               position="inline"
               className="banner--danger"
-              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+                duration: 3500,
+              }), [addBanner])}
             >
               <BannerIcon>
                 <span className="utds-icon-before-warning" aria-hidden="true" />
@@ -87,7 +96,10 @@ function BannersDocumentation() {
             <Banner
               position="inline"
               className="banner--info"
-              onClose={useCallback(() => showBanner({ message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.' }), [showBanner])}
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+                duration: 3500,
+              }), [addBanner])}
             >
               <BannerIcon>
                 <span className="utds-icon-before-info" aria-hidden="true" />
