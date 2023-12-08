@@ -142,6 +142,16 @@
  */
 
 /**
+ * @typedef UtahDesignSystemContextBanner
+ *  @property {string} className
+ *  @property {number} duration
+ *  @property {string} id
+ *  @property {HTMLElement} icon
+ *  @property {HTMLElement | string} message
+ *  @property {BannerPlacement} position
+ */
+
+/**
  * @typedef UtahDesignSystemContextAria {
  *  @property {string[]} assertiveMessages
  *  @property {string[]} politeMessages
@@ -151,6 +161,7 @@
 /**
  * @typedef UtahDesignSystemContextValue {
  *  @property {UtahDesignSystemContextAria} ariaLive
+ *  @property {UtahDesignSystemContextBanner[]} banners
  * }
  */
 

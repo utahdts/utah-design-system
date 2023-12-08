@@ -110,7 +110,7 @@ export { default as TextArea } from './react/components/forms/TextArea';
 export { default as TextInput } from './react/components/forms/TextInput';
 export { default as Tooltip } from './react/components/Tooltip/Tooltip';
 export { default as useAriaMessaging } from './react/contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-export { default as useBanner } from './react/hooks/useBanner';
+export { useBanner } from './react/contexts/UtahDesignSystemContext/hooks/useBanner';
 export { default as useFormContext } from './react/components/forms/FormContext/useFormContext';
 export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useImmerRef } from './react/hooks/useImmerRef';

@@ -5,6 +5,7 @@ import { useImmer } from 'use-immer';
 import { ariaLiveTypes } from '../../enums/ariaLiveTypes';
 import UtahDesignSystemContext from './UtahDesignSystemContext';
 import AriaLiveMessages from './components/AriaLiveMessages';
+import { BannersGlobal } from './components/BannersGlobal';
 
 /** @typedef {import('../../jsDocTypes').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
 
@@ -26,6 +27,7 @@ function UtahDesignSystemContextProvider({ children }) {
       assertiveMessages: [],
       politeMessages: [],
     },
+    banners: [],
   }));
 
   return (
@@ -33,6 +35,7 @@ function UtahDesignSystemContextProvider({ children }) {
       {children}
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.ASSERTIVE} messages={immerHook[0].ariaLive.assertiveMessages} />
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.POLITE} messages={immerHook[0].ariaLive.politeMessages} />
+      <BannersGlobal banners={immerHook[0].banners} />
     </UtahDesignSystemContext.Provider>
   );
 }
