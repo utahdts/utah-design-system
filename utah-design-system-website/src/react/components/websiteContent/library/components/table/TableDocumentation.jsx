@@ -26,17 +26,15 @@ import StaticExample from '../../../../staticExamples/StaticExample';
 import TableExampleCodeReact from './TableExampleCodeReact';
 import TableExampleProps from './TableExampleProps';
 import TableExampleRender from './TableExampleRender';
+import { TableDocumentationFilteringPaginationTableExample } from './exampleTables/TableDocumentationFilteringPaginationTableExample';
 import TableDocumentationFilteringTableExample from './exampleTables/TableDocumentationFilteringTableExample';
 import TableDocumentationFooterExample from './exampleTables/TableDocumentationFooterExample';
 import TableDocumentationPaginationTableExample from './exampleTables/TableDocumentationPaginationTableExample';
 import TableDocumentationSimpleTableExample from './exampleTables/TableDocumentationSimpleTableExample';
 import TableDocumentationSortingTableExample from './exampleTables/TableDocumentationSortingTableExample';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function TableDocumentation() {
+/** @returns {JSX.Element} */
+export function TableDocumentation() {
   return (
     <div className="documentation-content">
 
@@ -194,11 +192,7 @@ function TableDocumentation() {
       <TableDocumentationFooterExample />
       <TableDocumentationPaginationTableExample />
       <TableDocumentationSortingTableExample />
+      <TableDocumentationFilteringPaginationTableExample />
     </div>
   );
 }
-
-TableDocumentation.propTypes = propTypes;
-TableDocumentation.defaultProps = defaultProps;
-
-export default TableDocumentation;

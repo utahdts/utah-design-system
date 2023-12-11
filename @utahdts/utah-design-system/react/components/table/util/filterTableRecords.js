@@ -12,7 +12,7 @@
  * @param {Object.<string, TableFilterFunction>} filterRules The current filter values and settings
  * @returns {TableRecord[]}
  */
-export default function filterTableRecords(records, filterRules) {
+export function filterTableRecords(records, filterRules) {
   return records.filter((recordData) => (
     Object.entries(recordData.filterFields)
       .every(([filterField, recordValue]) => filterRules[filterField](recordValue))

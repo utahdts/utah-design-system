@@ -63,7 +63,7 @@ import BannersDocumentation from '../websiteContent/library/components/popups/ba
 import ModalsDocumentation from '../websiteContent/library/components/popups/modals/ModalsDocumentation';
 import PopupsDocumentation from '../websiteContent/library/components/popups/popups/PopupsDocumentation';
 import CarouselDocumentation from '../websiteContent/library/components/sliders/carousel/CarouselDocumentation';
-import TableDocumentation from '../websiteContent/library/components/table/TableDocumentation';
+import { TableDocumentation } from '../websiteContent/library/components/table/TableDocumentation';
 import TooltipsDocumentation from '../websiteContent/library/components/tooltips/TooltipsDocumentation';
 import BadgesDocumentation from '../websiteContent/library/components/widgetsIndicators/badges/BadgesDocumentation';
 import ProcessListDocumentation from '../websiteContent/library/components/widgetsIndicators/processList/ProcessListDocumentation';

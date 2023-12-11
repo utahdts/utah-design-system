@@ -1,51 +1,29 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React, { useContext, useEffect } from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import TableContext from './util/TableContext';
+import { TableContext } from './util/TableContext';
 
 /** @typedef {import('../../jsDocTypes').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  defaultValue: PropTypes.shape({}),
-  innerRef: RefShape,
-  id: PropTypes.string,
-  // fires when any filter changes; ie ({ recordFieldPath, value }) => { ... do something ... }
-  onChange: PropTypes.func,
-  // make sure to useMemo() before passing value in here
-  value: PropTypes.shape({}),
-};
-const defaultProps = {
-  className: null,
-  defaultValue: null,
-  innerRef: null,
-  id: null,
-  onChange: null,
-  value: null,
-};
 
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {string | null} [props.className]
- * @param {TableContextStateFilterValueObject | null} [props.defaultValue]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {string | null} [props.id]
- * @param {((e: Event) => void) | null} [props.onChange]
- * @param {TableContextStateFilterValueObject | null} [props.value]
+ * @param {string} [props.className]
+ * @param {TableContextStateFilterValueObject} [props.defaultValue]
+ * @param {React.RefObject} [props.innerRef]
+ * @param {string} [props.id]
+ * @param {((e: Event) => void)} [props.onChange]
+ * @param {TableContextStateFilterValueObject} [props.value]
  * @returns {JSX.Element}
  */
-function TableFilters({
+export function TableFilters({
   children,
-  className = null,
-  defaultValue = null,
-  innerRef = null,
-  id = null,
-  onChange = null,
-  value = null,
+  className,
+  defaultValue,
+  innerRef,
+  id,
+  onChange,
+  value,
   ...rest
 }) {
   const { setState, state } = useContext(TableContext);
@@ -77,6 +55,7 @@ function TableFilters({
         });
       };
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
@@ -87,6 +66,7 @@ function TableFilters({
         draftState.filterValues.value = value || draftState.filterValues.value;
       });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value]
   );
 
@@ -96,8 +76,3 @@ function TableFilters({
     </tr>
   );
 }
-
-TableFilters.propTypes = propTypes;
-TableFilters.defaultProps = defaultProps;
-
-export default TableFilters;

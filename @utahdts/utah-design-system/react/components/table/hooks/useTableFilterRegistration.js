@@ -1,6 +1,6 @@
 // @ts-check
 import { useEffect } from 'react';
-import useTableContext from './useTableContext';
+import { useTableContext } from './useTableContext';
 
 /**
  * @typedef {import('../../../jsDocTypes').TableFilterOptions} TableFilterOptions
@@ -14,14 +14,17 @@ import useTableContext from './useTableContext';
  * @param {string} recordFieldPath path to the field in the record on which this filter applies
  * @param {boolean} exactMatch should the filter be an exact match on the data
  */
-export default function useTableFilterRegistration(recordFieldPath, exactMatch) {
+export function useTableFilterRegistration(recordFieldPath, exactMatch) {
   const { setState } = useTableContext();
 
   useEffect(
     () => {
       // store information about this filter in the context
       setState((draftState) => {
-        draftState.filterValues.value[recordFieldPath] = { exactMatch };
+        draftState.filterValues.value[recordFieldPath] = {
+          exactMatch,
+          value: '',
+        };
       });
 
       // remove this filter from the context
