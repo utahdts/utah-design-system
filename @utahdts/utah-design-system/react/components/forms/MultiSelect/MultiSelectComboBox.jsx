@@ -85,6 +85,13 @@ export function MultiSelectComboBox({
               const deadTag = draftContext.selectedValues.pop();
               addPoliteMessage(`${deadTag} removed`);
             });
+            // close the combo box popup. the state of the popup being open is in the combobox context and has no external controls
+            // but, it closes when the input blurs, so this is a big hack to make the popup close on blur
+            const { activeElement } = document;
+            // @ts-ignore
+            activeElement?.blur();
+            // @ts-ignore
+            activeElement?.focus();
           }
           if (e.key === 'ArrowLeft') {
             eventIsHandled = true;
