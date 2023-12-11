@@ -1,6 +1,7 @@
 // @ts-check
 import React from 'react';
 import { ComboBoxOption } from '../ComboBox/ComboBoxOption';
+import useMultiSelectContext from './context/useMultiSelectContext';
 
 /**
  * @param {Object} props
@@ -18,10 +19,12 @@ export function MultiSelectOption({
   label,
   value,
 }) {
+  const [{ selectedValues }] = useMultiSelectContext();
   return (
     <ComboBoxOption
       isDisabled={isDisabled}
       isStatic={isStatic}
+      isHidden={selectedValues.includes(value)}
       label={label}
       value={value}
     >

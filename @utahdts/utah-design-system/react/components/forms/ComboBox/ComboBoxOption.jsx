@@ -20,6 +20,7 @@ import { selectComboBoxSelection } from './functions/selectComboBoxSelection';
  * @param {string} [props.className]
  * @param {string} [props.identifiesWithOptionGroupId] some things like group labels are focusable in the list, but not filterable, this is their `id`
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isHidden] multi-select does not show options that are selected
  * @param {boolean} [props.isStatic] static options are always visible and not filterable
  * @param {string} props.label
  * @param {string} props.value
@@ -31,6 +32,7 @@ export function ComboBoxOption({
   isDisabled,
   identifiesWithOptionGroupId,
   isStatic,
+  isHidden,
   label,
   value,
   ...rest
@@ -54,7 +56,8 @@ export function ComboBoxOption({
   ] = useComboBoxContext();
   const optionGroupId = useComboBoxOptionGroupContext();
   const isVisible = (
-    isOptionGroupVisible(identifiesWithOptionGroupId ?? null, label, optionsFiltered)
+    !isHidden
+    && isOptionGroupVisible(identifiesWithOptionGroupId ?? null, label, optionsFiltered)
     && (isStatic || optionsFiltered.find((optionNeedle) => optionNeedle.value === value))
   );
   const isSelected = optionValueSelected !== '' && optionValueSelected !== null && (optionValueSelected === value);
