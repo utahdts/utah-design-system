@@ -1,6 +1,7 @@
 // @ts-check
 import React from 'react';
 import joinClassNames from '../../../util/joinClassNames';
+import { MultiSelectClearIcon } from './MultiSelectClearIcon';
 import { MultiSelectComboBox } from './MultiSelectComboBox';
 import MultiSelectContextProvider from './context/MultiSelectContextProvider';
 
@@ -31,7 +32,7 @@ export function MultiSelect({
   defaultValues,
   errorMessage,
   id,
-  innerRef,
+  innerRef: draftInnerRef,
   isClearable,
   isDisabled,
   isRequired,
@@ -53,23 +54,27 @@ export function MultiSelect({
       onClear={onClear}
       values={values}
     >
-      <MultiSelectComboBox
-        className={joinClassNames('multi-select', className)}
-        errorMessage={errorMessage}
-        innerRef={innerRef}
-        isClearable={isClearable}
-        isDisabled={isDisabled}
-        isRequired={isRequired}
-        label={label}
-        labelClassName={labelClassName}
-        name={name}
-        placeholder={placeholder}
-        wrapperClassName={wrapperClassName}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...rest}
+      <div
+        className={wrapperClassName}
+        ref={draftInnerRef}
       >
-        {children}
-      </MultiSelectComboBox>
+        <MultiSelectComboBox
+          className={joinClassNames('multi-select', className)}
+          errorMessage={errorMessage}
+          isDisabled={isDisabled}
+          isRequired={isRequired}
+          label={label}
+          labelClassName={labelClassName}
+          name={name}
+          placeholder={placeholder}
+          wrapperClassName={wrapperClassName}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...rest}
+        >
+          {children}
+        </MultiSelectComboBox>
+        <MultiSelectClearIcon isClearable={isClearable} isDisabled={isDisabled} />
+      </div>
     </MultiSelectContextProvider>
   );
 }

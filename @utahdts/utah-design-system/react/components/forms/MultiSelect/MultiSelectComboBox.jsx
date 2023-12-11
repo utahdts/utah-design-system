@@ -19,7 +19,6 @@ import useMultiSelectContext from './context/useMultiSelectContext';
  * @param {string} [props.className]
  * @param {string} [props.errorMessage]
  * @param {MutableRef<HTMLDivElement | null>} [props.innerRef]
- * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
@@ -34,7 +33,6 @@ export function MultiSelectComboBox({
   className,
   errorMessage,
   innerRef: draftInnerRef,
-  isClearable,
   isDisabled,
   isRequired,
   label,
@@ -64,17 +62,14 @@ export function MultiSelectComboBox({
         }
         multiSelectContextNonStateRer.current.comboBoxDivElement = ref;
       }}
-      isClearable={isClearable}
       isDisabled={isDisabled}
       isRequired={isRequired}
-      isShowingClearableIcon={isClearable && !!multiSelectContextValue.selectedValues.length}
       label={label}
       labelClassName={labelClassName}
       name={name}
       onChange={(newValue) => {
         multiSelectContextValue.onChange(uniq(selectedValuesRef.current.concat(newValue)));
       }}
-      onClear={multiSelectContextValue.onClear}
       onKeyUp={(e, currentFilter) => {
         let eventIsHandled = false;
         // check that filter is blank and that there are options selected
