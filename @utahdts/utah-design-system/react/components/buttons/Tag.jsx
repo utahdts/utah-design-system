@@ -58,6 +58,7 @@ export function Tag({
               onClick={onClear}
               title={clearMessage}
               isDisabled={isDisabled}
+              tabIndex={-1}
             />
           )
           : null

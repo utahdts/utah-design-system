@@ -87,6 +87,9 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
       }}
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
+      role="option"
+      aria-selected="true"
+      aria-activedescendant={selectedValueIndex === multiSelectContext.focusedValueTagIndex}
     >
       {children}
     </div>
