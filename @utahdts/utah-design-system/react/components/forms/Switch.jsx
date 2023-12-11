@@ -7,7 +7,7 @@ import valueAtPath from '../../util/state/valueAtPath';
 import ErrorMessage from './ErrorMessage';
 import useFormContext from './FormContext/useFormContext';
 
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 
 /**
  * @param {Object} props

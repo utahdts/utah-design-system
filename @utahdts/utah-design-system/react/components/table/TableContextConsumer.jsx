@@ -3,7 +3,7 @@ import { useTableContext } from './hooks/useTableContext';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').TableContextValue<TableDataT>} TableContextValue
+ * @typedef {import('@utahdts/utah-design-system').TableContextValue<TableDataT>} TableContextValue
  */
 
 /**

@@ -4,7 +4,7 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @template DataT
- * @typedef {import('../../jsDocTypes').TableSortingFunc<DataT>} TableSortingFunc
+ * @typedef {import('@utahdts/utah-design-system').TableSortingFunc<DataT>} TableSortingFunc
  */
 
 /**

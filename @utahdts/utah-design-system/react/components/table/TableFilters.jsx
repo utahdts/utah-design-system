@@ -3,14 +3,14 @@ import React, { useContext, useEffect } from 'react';
 import joinClassNames from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
-/** @typedef {import('../../jsDocTypes').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
+/** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
 
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {TableContextStateFilterValueObject} [props.defaultValue]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {((e: Event) => void)} [props.onChange]
  * @param {TableContextStateFilterValueObject} [props.value]

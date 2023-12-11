@@ -8,7 +8,7 @@ import IconButton from '../buttons/IconButton';
 import ErrorMessage from './ErrorMessage';
 import RequiredStar from './RequiredStar';
 
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 
 /**
  * @param {Object} props

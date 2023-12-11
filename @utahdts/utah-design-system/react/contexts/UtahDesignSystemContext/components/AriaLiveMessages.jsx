@@ -1,8 +1,8 @@
 // @ts-check
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
-/** @typedef {import('../../../jsDocTypes').AriaLiveType} AriaLiveType */
+/** @typedef {import('@utahdts/utah-design-system').AriaLiveType} AriaLiveType */
 
 const propTypes = {
   ariaLiveType: PropTypes.oneOf(['assertive', 'polite']).isRequired,
@@ -43,7 +43,7 @@ function AriaLiveMessages({ ariaLiveType, messages }) {
       messages.reduce(
         (lists, message, i) => {
           // give messages an ID for their react key
-          lists[i % NUMBER_REGIONS].push({ id: `${i}-${message}`, message });
+          lists[i % NUMBER_REGIONS]?.push({ id: `${i}-${message}`, message });
           return lists;
         },
         setupDefaultLists(NUMBER_REGIONS)

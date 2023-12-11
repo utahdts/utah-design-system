@@ -6,7 +6,7 @@ import { ariaLiveTypes } from '../../enums/ariaLiveTypes';
 import UtahDesignSystemContext from './UtahDesignSystemContext';
 import AriaLiveMessages from './components/AriaLiveMessages';
 
-/** @typedef {import('../../jsDocTypes').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
 
 const propTypes = {
   children: PropTypes.node.isRequired,

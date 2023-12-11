@@ -9,7 +9,7 @@ import { TableContext } from './util/TableContext';
  * @param {React.ReactNode} [props.children] if this header cell is "sortable", the children will be wrapped in a <button>, so be careful!
  * @param {string} [props.className]
  * @param {string} [props.id] field related to this column. CellTemplate and RowTemplate can define a field. used for sorting and filtering.
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {((e: Event) => {})} [props.onClick]
  * @param {string} [props.recordFieldPath]
  * @param {'row' | 'col' | 'rowgroup' | 'colgroup'} [props.scope] MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope

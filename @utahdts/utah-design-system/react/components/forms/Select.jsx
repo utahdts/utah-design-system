@@ -8,14 +8,14 @@ import useFormContextInput from './FormContext/useFormContextInput';
 import RequiredStar from './RequiredStar';
 import SelectOption from './SelectOption';
 
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /**
  * @param {Object} props
  * @param {React.ReactNode} [props.children] the options as children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id id of the input; the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]

@@ -29,6 +29,13 @@ Example new code:
 // @param dependencyList : passed as second parameter to useEffect as the list of items to watch for changes
 // @return [state, setState] : the state variables
 /** @deprecated use useMemo and useCallback instead */
+/**
+ * @template DataT
+ * @param {Object} param
+ * @param {(previousValue: null | DataT) => DataT} param.calculateValueFn
+ * @param {() => void} param.onUnmountFn
+ * @param {any[]} param.dependencyList
+ */
 export default ({ calculateValueFn, onUnmountFn, dependencyList }) => {
   const [state, setState] = useState(() => calculateValueFn(null));
 

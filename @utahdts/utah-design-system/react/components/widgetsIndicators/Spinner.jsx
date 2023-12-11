@@ -7,7 +7,7 @@ import joinClassNames from '../../util/joinClassNames';
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {number} [props.size]
  * @param {number} [props.strokeWidth]
  * @param {number} [props.value]

@@ -1,7 +1,7 @@
 // @ts-check
 import { createContext } from 'react';
 
-/** @typedef {import('../../../jsDocTypes').TableContextValue<any>} TableContextValue */
+/** @typedef {import('@utahdts/utah-design-system').TableContextValue<any>} TableContextValue */
 
 /* <TableWrapper> is the Context Provider for this TableContext */
 export const TableContext = /** @type {typeof createContext<TableContextValue>} */ (createContext)({
@@ -30,6 +30,7 @@ export const TableContext = /** @type {typeof createContext<TableContextValue>} 
     sortingRules: {},
 
     tableData: { allData: [], filteredData: [] },
+    tableRowIds: [],
     tableSortingOnChange: null,
     tableSortingFieldPath: null,
     tableSortingFieldPaths: null,

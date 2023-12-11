@@ -1,7 +1,7 @@
 // @ts-check
 import React from 'react';
 
-/** @typedef { import('../../../../jsDocTypes').RadioButtonGroupContext} RadioButtonGroupContext */
+/** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContext} RadioButtonGroupContext */
 
 const RadioButtonGroupContext = /** @type {typeof React.createContext<RadioButtonGroupContext>} */ (React.createContext)([
   undefined,

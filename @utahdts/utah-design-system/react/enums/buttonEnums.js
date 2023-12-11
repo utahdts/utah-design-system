@@ -1,8 +1,8 @@
 // @ts-check
 
-/** @typedef {import('../jsDocTypes').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('../jsDocTypes').ButtonTypes} ButtonTypes */
-/** @typedef {import('../jsDocTypes').IconButtonAppearance} IconButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 
 /** @enum {ButtonAppearance} */
 export const BUTTON_APPEARANCE = {

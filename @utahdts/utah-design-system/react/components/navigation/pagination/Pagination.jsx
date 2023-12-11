@@ -49,7 +49,7 @@ const defaultProps = {
  * @param {string} [props.className]
  * @param {number} [props.defaultValue]
  * @param {string} props.id
- * @param {React.RefObject} props.innerRef
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @param {(newValue: number) => void} [props.onChange]
  * @param {number} props.pageSize
  * @param {number} props.totalNumberItems
@@ -105,6 +105,7 @@ function Pagination({
   const WrapInElement = wrapInElement || 'div';
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
+    // @ts-ignore
     <WrapInElement ref={innerRef} className={joinClassNames('pagination', className)} id={id} aria-label={ariaLabel} {...rest}>
       <ul>
         <IconButton

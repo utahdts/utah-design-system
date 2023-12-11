@@ -9,7 +9,7 @@ import { ComboBoxOption } from '../ComboBoxOption';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
-/** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 
 /**
  * @param {Object} props

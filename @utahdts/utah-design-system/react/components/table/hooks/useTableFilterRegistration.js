@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useTableContext } from './useTableContext';
 
 /**
- * @typedef {import('../../../jsDocTypes').TableFilterOptions} TableFilterOptions
+ * @typedef {import('@utahdts/utah-design-system').TableFilterOptions} TableFilterOptions
  */
 
 /**

@@ -9,8 +9,14 @@ import useRefAlways from './useRefAlways';
  * wiring. This is a simple hook that does that wiring and supplies state, setState,
  * and ref in a visually less distracting hook.
  *
+ * Be careful, because setting the value of the ref does NOT update the state and will reset
+ * back to the state's value after the next render.
+ *
  * Note that because defaultState goes to useState and then flows to useRef, that this
  * hook makes useRef now allow a function to be resolved as its default value! yay!
+ * @template StateT
+ * @param {StateT} defaultState
+ * @returns {[StateT, import('use-immer').Updater<StateT>, import('react').MutableRefObject<StateT>]}
  */
 export default function useImmerRef(defaultState) {
   const [state, setState] = useImmer(defaultState);

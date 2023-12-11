@@ -2,10 +2,10 @@
 import React, { useMemo } from 'react';
 import FormContext from './FormContext';
 
-/** @typedef {import('../../../jsDocTypes').Event} Event */
+/** @typedef {import('@utahdts/utah-design-system').Event} Event */
 /**
  * @template FormContextStateT
- * @typedef {import('../../../jsDocTypes').FormContextValue<FormContextStateT>} FormContextValue
+ * @typedef {import('@utahdts/utah-design-system').FormContextValue<FormContextStateT>} FormContextValue
  */
 /**
  * @template FormContextStateT

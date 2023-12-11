@@ -3,9 +3,9 @@ import valueAtPath from '../../../util/state/valueAtPath';
 import toSafeString from '../../../util/toSafeString';
 
 /**
- * @typedef {import('../../../jsDocTypes').TableFilterValue} TableFilterValue
- * @typedef {import('../../../jsDocTypes').TableRecord} TableRecord
- * @typedef {import('../../../jsDocTypes').TableRecordForFiltering} TableRecordForFiltering
+ * @typedef {import('@utahdts/utah-design-system').TableFilterValue} TableFilterValue
+ * @typedef {import('@utahdts/utah-design-system').TableRecord} TableRecord
+ * @typedef {import('@utahdts/utah-design-system').TableRecordForFiltering} TableRecordForFiltering
  */
 
 /**

@@ -4,12 +4,17 @@ import valueAtPath from '../../../util/state/valueAtPath';
 import useOnKeyUp from '../../../util/useOnKeyUp';
 import useFormContext from './useFormContext';
 
-/** @typedef {import('../../../jsDocTypes').Event} Event */
-/** @typedef {import('../../../jsDocTypes').EventAction} EventAction */
+/**
+ * @template FormEventT
+ * @typedef {import('react').FormEvent<FormEventT>} FormEvent
+ */
+
+/** @typedef {import('@utahdts/utah-design-system').Event} Event */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /**
  * @template FormContextT
  * @template ValueT
- * @typedef {import('../../../jsDocTypes').useFormContextInputResult<FormContextT, ValueT>} useFormContextInputResult
+ * @typedef {import('@utahdts/utah-design-system').useFormContextInputResult<FormContextT, ValueT>} useFormContextInputResult
  */
 
 /**
@@ -23,9 +28,9 @@ import useFormContext from './useFormContext';
  * @param {Object} param
  * @param {ValueT} [param.defaultValue] starting value of the component
  * @param {string} param.id id of the component that is also the path to the data for the component in the form context
- * @param {EventAction} [param.onChange] when component changes, call this (e) => void
- * @param {EventAction} [param.onKeyUp] when component changes, call this (e) => void
- * @param {EventAction} [param.onClear] when component "clears", call this (e) => void
+ * @param {FormEvent<HTMLInputElement>} [param.onChange] when component changes, call this (e) => void
+ * @param {FormEvent<HTMLInputElement>} [param.onKeyUp] when component changes, call this (e) => void
+ * @param {FormEvent<HTMLInputElement>} [param.onClear] when component "clears", call this (e) => void
  * @param {(e?: Event) => void} [param.onSubmit] call on enter key pressed, or other (e) => void event
  * @param {ValueT} [param.value] current value of the component
  * @returns {useFormContextInputResult<FormContextT, ValueT>} parameters w/ default form context values
@@ -66,6 +71,7 @@ export default function useFormContextInput({
   const internalOnKeyUp = useOnKeyUp('Enter', () => currentOnSubmit?.());
 
   const internalOnClear = useCallback(
+    /** @param {Event} e */
     (e) => contextOnChange?.({ e, fieldPath: id, value: '' }),
     [contextOnChange, id]
   );

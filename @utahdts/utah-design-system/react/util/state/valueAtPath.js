@@ -5,7 +5,7 @@ import split from 'lodash/split';
  * @template ObjectT
  * @template ValueT
  * @param {Object} param
- * @param {ObjectT} param.object
+ * @param {ObjectT & Object.<string, any>} param.object
  * @param {string} param.path
  * @returns {ValueT}
  */

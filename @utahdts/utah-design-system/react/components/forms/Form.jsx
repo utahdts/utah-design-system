@@ -6,7 +6,7 @@ import setValueAtPath from '../../util/state/setValueAtPath';
 import uuidv4 from '../../util/uuidv4';
 import FormContextProvider from './FormContext/FormContextProvider';
 
-/** @typedef {import('../../jsDocTypes').Event} Event */
+/** @typedef {import('@utahdts/utah-design-system').Event} Event */
 
 /**
  * @template FormContextStateT

@@ -1,4 +1,4 @@
-/** @typedef {import('../../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
+/** @typedef {import('@utahdts/utah-design-system').ComboBoxOption} ComboBoxOption */
 
 /**
  * @param {string | null} optionGroupId the id of this option group being checked, or null if not a group

@@ -1,9 +1,9 @@
 // @ts-check
 
 /**
- * @typedef {import('../../../jsDocTypes').TableFilterFunction} TableFilterFunction
- * @typedef {import('../../../jsDocTypes').TableRecord} TableRecord
- * @typedef {import('../../../jsDocTypes').TableRecordForFiltering} TableRecordForFiltering
+ * @typedef {import('@utahdts/utah-design-system').TableFilterFunction} TableFilterFunction
+ * @typedef {import('@utahdts/utah-design-system').TableRecord} TableRecord
+ * @typedef {import('@utahdts/utah-design-system').TableRecordForFiltering} TableRecordForFiltering
  */
 
 /**

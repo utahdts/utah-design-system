@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 import { ComboBoxContext } from './ComboBoxContext';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContext} ComboBoxContextType */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContext} ComboBoxContextType */
 
 /** @return {ComboBoxContextType} */
 export function useComboBoxContext() {

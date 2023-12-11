@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 import { ComboBoxOptionGroupContext } from './ComboBoxOptionGroupContext';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxOptionGroupContextValue} ComboBoxOptionGroupContextValue */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxOptionGroupContextValue} ComboBoxOptionGroupContextValue */
 
 /** @return {ComboBoxOptionGroupContextValue} */
 export function useComboBoxOptionGroupContext() {

@@ -4,7 +4,7 @@ import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import joinClassNames from '../../util/joinClassNames';
 import IconButton from './IconButton';
 
-/** @typedef {import('../../jsDocTypes').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 
 /**
  * @param {Object} props

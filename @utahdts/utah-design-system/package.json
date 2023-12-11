@@ -39,6 +39,8 @@
     "test-publish": "npm publish --dry-run",
     "test": "vitest",
     "testOnce": "vitest run",
+    "tsc": "tsc",
+    "tscw": "tsc --watch --skipLibCheck",
     "watch": "vite build --watch"
   },
   "repository": {
@@ -69,12 +71,14 @@
     "uuid": "9.0.1"
   },
   "devDependencies": {
+    "@types/lodash": "4.14.202",
     "@types/react": "18.2.39",
     "@types/react-dom": "18.2.17",
     "@vitejs/plugin-react": "4.2.0",
     "@vitest/coverage-istanbul": "0.34.6",
     "jsdom": "23.0.0",
     "sass": "1.69.5",
+    "typescript": "5.3.3",
     "vite": "5.0.3",
     "vitest": "0.34.6"
   },

@@ -8,14 +8,14 @@ import ErrorMessage from './ErrorMessage';
 import useFormContextInput from './FormContext/useFormContextInput';
 import RequiredStar from './RequiredStar';
 
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 
 /**
  * @param {Object} props
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]

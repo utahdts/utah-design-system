@@ -12,7 +12,7 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').RecordOnChangeFunc<TableDataT>} RecordOnChangeFunc
+ * @typedef {import('@utahdts/utah-design-system').RecordOnChangeFunc<TableDataT>} RecordOnChangeFunc
  */
 
 /**

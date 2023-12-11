@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-/** @typedef {import('../../jsDocTypes').Address} Address */
+/** @typedef {import('@utahdts/utah-design-system').Address} Address */
 
 const AddressShape = PropTypes.shape({
   city: PropTypes.string.isRequired,

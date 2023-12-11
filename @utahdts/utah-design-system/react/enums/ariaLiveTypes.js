@@ -1,5 +1,5 @@
 // @ts-check
-/** @typedef {import('../jsDocTypes').AriaLiveType} AriaLiveType */
+/** @typedef {import('@utahdts/utah-design-system').AriaLiveType} AriaLiveType */
 
 /** @enum {AriaLiveType} */
 export const ariaLiveTypes = {

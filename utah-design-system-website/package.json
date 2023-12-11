@@ -10,6 +10,8 @@
     "publishLibrary": "npm publish --access public",
     "test": "vitest",
     "testc": "vitest run --coverage",
+    "tsc": "tsc",
+    "tscw": "tsc --watch --skipLibCheck",
     "watch": "vite watch",
     "testOnce": "vitest run"
   },

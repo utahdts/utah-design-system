@@ -35,7 +35,7 @@ import notNull from '../notNull';
  *
  * @template SetValueAtPathT
  * @param {Object} params
- * @param {Object} params.object
+ * @param {Object.<string, any>} params.object
  * @param {string} params.path
  * @param {SetValueAtPathT} params.value
  */

@@ -10,8 +10,8 @@ import { useImmer } from 'use-immer';
 import useFormContext from '../../FormContext/useFormContext';
 import { ComboBoxContext } from './ComboBoxContext';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
 
 /**
  * @template MutableRefObjectT

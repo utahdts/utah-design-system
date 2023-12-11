@@ -49,18 +49,18 @@ const defaultProps = {
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @param {React.MutableRefObject | null} [props.innerRef]
- * @param {boolean | null} props.isPopperVisible
+ * @param {React.MutableRefObject<HTMLDivElement>} [props.innerRef]
+ * @param {boolean} props.isPopperVisible
  * @param {[number, number]} [props.offset]
  * @param {PopupPlacement} [props.placement]
- * @param {HTMLElement | null} props.referenceElement
+ * @param {HTMLElement} props.referenceElement
  * @returns {JSX.Element}
  */
 function Tooltip({
   children,
   className,
-  innerRef: draftInnerRef = null,
-  isPopperVisible = null,
+  innerRef: draftInnerRef,
+  isPopperVisible,
   offset = [0, 5],
   placement = popupPlacement.BOTTOM,
   referenceElement: draftReferenceElement,

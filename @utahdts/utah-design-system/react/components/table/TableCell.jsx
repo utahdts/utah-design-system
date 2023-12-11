@@ -4,11 +4,10 @@ import joinClassNames from '../../util/joinClassNames';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ * @typedef {import('@utahdts/utah-design-system').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
  */
 
 /**
- * @template TableDataT
  * @param {Object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]

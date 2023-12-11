@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import FormContext from './FormContext';
+import { FormContext } from './FormContext';
 
 /**
  * @template FormContextT
- * @typedef {import('../../../jsDocTypes').FormContextValue<FormContextT>} FormContextValue
+ * @typedef {import('@utahdts/utah-design-system').FormContextValue<FormContextT>} FormContextValue
  */
 
 /**
@@ -11,5 +11,6 @@ import FormContext from './FormContext';
  * @returns {FormContextValue<FormContextT>}
  */
 export default function useFormContext() {
+  // @ts-ignore
   return useContext(FormContext);
 }

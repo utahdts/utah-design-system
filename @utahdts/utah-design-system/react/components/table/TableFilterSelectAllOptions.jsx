@@ -16,7 +16,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {string | number} [props.defaultValue]
  * @param {boolean} [props.exactMatch]
  * @param {string} [props.id]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {(() => {})} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]

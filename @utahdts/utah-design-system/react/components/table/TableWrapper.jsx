@@ -10,11 +10,11 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @template TableSortingRuleT
- * @typedef {import('../../jsDocTypes').TableSortingRule<TableSortingRuleT>} TableSortingRule
+ * @typedef {import('@utahdts/utah-design-system').TableSortingRule<TableSortingRuleT>} TableSortingRule
 */
 /**
  * @template TableContextStateT
- * @typedef {import('../../jsDocTypes').TableContextState<TableContextStateT>} TableContextState
+ * @typedef {import('@utahdts/utah-design-system').TableContextState<TableContextStateT>} TableContextState
  */
 
 /**
@@ -51,7 +51,7 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} [props.id]
  * @returns {JSX.Element}
  */
@@ -62,7 +62,7 @@ export function TableWrapper({
   id,
   ...rest
 }) {
-  /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('../../../@types/jsDocTypes.d').TableContextState<TableDataT>>]} */
+  /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('@utahdts/utah-design-system').TableContextState<TableDataT>>]} */
   const [state, setState] = useImmer(
     /** @returns {TableContextState<TableDataT>} */
     () => ({
@@ -83,9 +83,6 @@ export function TableWrapper({
       sortingRules: {},
 
       tableData: { allData: [], filteredData: [] },
-
-      // each table row inserts itself in order in this list to track where they are in the data for pagination
-      tableRowIds: [],
 
       // (func) when table sorting changes, this callback will be called: from <TableSortingRules>
       tableSortingOnChange: null,

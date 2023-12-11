@@ -1,7 +1,7 @@
 // @ts-check
 import { useEffect, useRef, useState } from 'react';
 
-/** @typedef {import('../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 
 /**
  * @param {Object} params

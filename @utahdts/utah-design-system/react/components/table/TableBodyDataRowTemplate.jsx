@@ -7,7 +7,7 @@ import { TableRow } from './TableRow';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ * @typedef {import('@utahdts/utah-design-system').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
  */
 
 /**

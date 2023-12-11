@@ -6,7 +6,7 @@ import joinClassNames from '../../util/joinClassNames';
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.className
- * @param {React.RefObject} props.innerRef
+ * @param {React.RefObject<HTMLTableSectionElement>} props.innerRef
  * @param {string} props.id
  * @returns {JSX.Element}
  */

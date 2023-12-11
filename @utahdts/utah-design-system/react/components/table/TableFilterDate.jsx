@@ -9,7 +9,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {Object} props
  * @param {string} [props.className]
  * @param {TableDataT} [props.defaultValue]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT)} [props.onChange]
  * @param {string} props.recordFieldPath

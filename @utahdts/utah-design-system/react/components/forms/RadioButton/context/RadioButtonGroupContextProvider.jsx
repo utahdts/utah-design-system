@@ -4,8 +4,8 @@ import { useImmer } from 'use-immer';
 import useFormContext from '../../FormContext/useFormContext';
 import RadioButtonGroupContext from './RadioButtonGroupContext';
 
-/** @typedef { import('../../../../jsDocTypes').RadioButtonGroupContext} RadioButtonGroupContext */
-/** @typedef { import('../../../../jsDocTypes').RadioButtonGroupContextValue} RadioButtonGroupContextValue */
+/** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContext} RadioButtonGroupContext */
+/** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContextValue} RadioButtonGroupContextValue */
 
 /**
  * @param {Object} props

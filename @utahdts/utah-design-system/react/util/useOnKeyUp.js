@@ -1,6 +1,6 @@
 // @ts-check
-/** @typedef {import('../jsDocTypes').EventAction} EventAction */
-/** @typedef {import('../jsDocTypes').EventActionBoolean} EventActionBoolean */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventActionBoolean} EventActionBoolean */
 
 import { useCallback } from 'react';
 

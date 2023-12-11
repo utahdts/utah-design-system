@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import useRefAlways from '../useRefAlways';
 
-// TODO: is this really needed?
+/**
+ * @template RefObjectT
+ * @typedef {import('react').RefObject<RefObjectT>} RefObject
+ */
+
 /**
  * A component can be Uncontrolled or Controlled. An uncontrolled component can have a default starting value.
  * The library components were intended to allow usage as either uncontrolled or controlled.
@@ -10,20 +14,25 @@ import useRefAlways from '../useRefAlways';
  * If a component is "uncontrolled" this trumps and makes it controlled.
  *
  * @deprecated this is improperly typed and improperly conceptualized. components should not be forced to always be controlled?
- * @param {defaultValue} any UNCONTROLLED: the starting value for an uncontrolled component
- * @param {onChange} func CONTROLLED: function to call when component changes
- * @param {value} func CONTROLLED: current value of the component
- * @returns {onChange, value} the value and onChange for the component
+ * @template ValueT
+ * @param {Object} param
+ * @param {ValueT} param.defaultValue UNCONTROLLED: the starting value for an uncontrolled component
+ * @param {(newValue: ValueT) => void} param.onChange CONTROLLED: function to call when component changes
+ * @param {ValueT} param.value CONTROLLED: function to call when component changes
+ * @returns {{onChange: (newValue: ValueT) => void, value: ValueT, valueRef: RefObject<ValueT>}} the value and onChange for the component
  */
 export default function useComponentState({ defaultValue, onChange, value }) {
   const [currentValue, setCurrentValue] = useState(value === undefined ? defaultValue : value);
-  const result = {
-    onChange: onChange || setCurrentValue,
-    value: value === undefined ? currentValue : value,
-  };
+  const valueUse = value === undefined ? currentValue : value;
 
-  const valueRef = useRefAlways(result.value);
-  result.valueRef = valueRef;
-
-  return result;
+  const valueRef = useRefAlways(valueUse);
+  return useMemo(
+    () => ({
+      onChange: onChange || setCurrentValue,
+      value: valueUse,
+      valueRef,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [onChange, valueUse]
+  );
 }

@@ -7,13 +7,12 @@ import handleEvent from '../../../util/handleEvent';
 import { handleKeyPress } from '../../../../index';
 import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonContextProvider';
 
-/** @typedef {import('../../../jsDocTypes.js').EventAction} EventAction */
-/** @typedef {import('../../../jsDocTypes.js').FormElementSizes} FormElementSizes */
-
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonTypes} ButtonTypes */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ComponentColors} ComponentColors */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 
 /**
  * @param {Object} props
@@ -22,7 +21,7 @@ import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonC
  * @param {string} [props.className]
  * @param {ComponentColors} [props.color]
  * @param {ComponentColors} [props.confirmationColor]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isBusy]
  * @param {boolean} [props.isDisabled]
  * @param {string} [props.id]

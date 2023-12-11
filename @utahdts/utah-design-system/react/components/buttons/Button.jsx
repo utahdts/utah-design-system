@@ -9,11 +9,11 @@ import handleEvent from '../../util/handleEvent';
 import joinClassNames from '../../util/joinClassNames';
 import Spinner from '../widgetsIndicators/Spinner';
 
-/** @typedef {import('../../jsDocTypes').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('../../jsDocTypes').ButtonTypes} ButtonTypes */
-/** @typedef {import('../../jsDocTypes').ComponentColors} ComponentColors */
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
-/** @typedef {import('../../jsDocTypes').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 
 const propTypes = {
   // the appearance of the button
@@ -23,7 +23,7 @@ const propTypes = {
   ]),
   // most often is the title of the button, but can also contain most anything
   children: PropTypes.node.isRequired,
-  // modify your button via classname like 'button--primary' and other modifiers found in the button.scss
+  // modify your button via className like 'button--primary' and other modifiers found in the button.scss
   className: PropTypes.string,
   // the base color of the button
   color: PropTypes.oneOf([
@@ -79,7 +79,7 @@ const defaultProps = {
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {ComponentColors} [props.color]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isBusy]
  * @param {React.ReactNode} [props.iconLeft]
  * @param {React.ReactNode} [props.iconRight]

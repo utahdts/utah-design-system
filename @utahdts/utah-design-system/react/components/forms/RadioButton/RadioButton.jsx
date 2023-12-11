@@ -11,7 +11,7 @@ import useRadioButtonGroupContext from './context/useRadioButtonGroupContext';
  * @param {Object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultIsChecked] allows default checking if uncontrolled (not in RadioButtonGroup)
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLInputElement>} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label

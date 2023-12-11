@@ -45,7 +45,8 @@
     "testc": "vitest run --coverage",
     "testOnce": "vitest run",
     "testui": "vitest --ui",
-    "tsc": "tsc --watch",
+    "tsc": "tsc",
+    "tscw": "tsc --watch --skipLibCheck",
     "watch": "vite build --watch"
   },
   "repository": {

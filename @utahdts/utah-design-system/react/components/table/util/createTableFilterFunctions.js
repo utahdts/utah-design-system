@@ -1,7 +1,7 @@
 // @ts-check
 /**
- * @typedef {import('../../../jsDocTypes').TableFilterValue} TableFilterValue
- * @typedef {import('../../../jsDocTypes').TableFilterFunction} TableFilterFunction
+ * @typedef {import('@utahdts/utah-design-system').TableFilterValue} TableFilterValue
+ * @typedef {import('@utahdts/utah-design-system').TableFilterFunction} TableFilterFunction
  */
 
 /**

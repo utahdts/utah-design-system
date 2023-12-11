@@ -185,7 +185,7 @@
  * @template TableDataT
  * @typedef TableContextStateFilterValues {
  *  @property {Object.<string, any> | null} defaultValue
- *  @property {((e) => TableDataT) | null} onChange
+ *  @property {((e: Event) => TableDataT) | null} onChange
  *  @property {TableContextStateFilterValueObject} value
  * }
  */
