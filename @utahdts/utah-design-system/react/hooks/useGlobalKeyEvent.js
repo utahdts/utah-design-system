@@ -1,18 +1,17 @@
 // @ts-check
 import { useEffect, useRef, useState } from 'react';
 
-/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
-
 /**
+ * @template KeyboardEventHandlerT
  * @param {Object} params
  * @param {string} params.whichKeyCode
- * @param {EventAction} params.onKeyDown
- * @param {EventAction} params.onKeyUp
+ * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} params.onKeyDown
+ * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} params.onKeyUp
  */
-export default ({ whichKeyCode, onKeyDown, onKeyUp }) => {
+export default function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
   const [keyPressed, setKeyPressed] = useState(false);
 
-  const keydownFuncRef = useRef(/** @type {EventAction | null} */(null));
+  const keydownFuncRef = useRef(/** @type {React.KeyboardEventHandler<KeyboardEventHandlerT> | null} */(null));
   useEffect(
     () => {
       keydownFuncRef.current = (e) => {
@@ -50,4 +49,4 @@ export default ({ whichKeyCode, onKeyDown, onKeyUp }) => {
   );
 
   return keyPressed;
-};
+}

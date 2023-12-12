@@ -46,21 +46,6 @@
  * @typedef {'div' | 'nav'} WrapInElement
  */
 
-/**
- * @typedef PoorMansTarget {
- *  @property {boolean} checked
- *  @property {string} key
- *  @property {string} type
- *  @property {any} value
- * }
- */
-
-/** @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event */
-
-// TODO: replace EventAction with import('react').MouseEventHandler<HTMLButtonElement>
-/** @typedef {((e: Event) => void)} EventAction */
-/** @typedef {((e: Event) => boolean)} EventActionBoolean */
-
 /** @typedef {(value: string) => boolean} TableFilterFunction */
 
 /**
