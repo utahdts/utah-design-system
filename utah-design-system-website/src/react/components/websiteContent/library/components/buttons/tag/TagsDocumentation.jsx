@@ -24,7 +24,7 @@ import { TagPropsDocumentation } from './non-clickable/TagPropsDocumentation';
 
 /** @returns {JSX.Element} */
 export function TagsDocumentation() {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   /** @type {TagExamplePropsShape} */
   const defaultSandboxProps = useMemo(
     () => ({
@@ -154,11 +154,11 @@ export function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <ClickableTag className="tag--primary-color" isSelected onClick={() => showBanner({ message: 'tag clicked' })}>Zion</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Arches</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Bryce</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Canyonlands</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Capitol Reef</ClickableTag>
+              <ClickableTag className="tag--primary-color" isSelected onClick={() => addBanner({ message: 'Tag clicked' })}>Zion</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Arches</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Bryce</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Canyonlands</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Capitol Reef</ClickableTag>
             </div>
           </div>
         )}

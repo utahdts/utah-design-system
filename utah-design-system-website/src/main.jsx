@@ -13,7 +13,7 @@ const baseName = '';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename={baseName}>
-      <UtahDesignSystemContextProvider>
+      <UtahDesignSystemContextProvider defaultSettings={{ bannerDuration: 3500 }}>
         <AppContextProvider>
           <CssContextProvider>
             <UtahHeaderContextProvider defaultSettings={{ ...defaultSettings, ...websiteUtahHeaderSettings }}>
