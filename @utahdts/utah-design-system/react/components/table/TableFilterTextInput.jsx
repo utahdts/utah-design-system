@@ -2,8 +2,8 @@
 import React from 'react';
 import joinClassNames from '../../util/joinClassNames';
 import TextInput from '../forms/TextInput';
-import useTableFilterRegistration from './hooks/useTableFilterRegistration';
-import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
+import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
+import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
  * @param {Object} props
@@ -17,10 +17,10 @@ import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext
  * @param {string} [props.value]
  * @returns {JSX.Element}
  */
-export default function TableFilterTextInput({
+export function TableFilterTextInput({
   className,
   defaultValue,
-  exactMatch = false,
+  exactMatch,
   innerRef,
   id,
   onChange,

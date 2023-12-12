@@ -3,11 +3,8 @@ import { createContext } from 'react';
 
 /** @typedef {import('../../../jsDocTypes').TableContextValue<any>} TableContextValue */
 
-/*
-  The TableWrapper is the Context Provider for the TableContext
-*/
-
-const TableContext = /** @type {typeof createContext<TableContextValue>} */ (createContext)({
+/* <TableWrapper> is the Context Provider for this TableContext */
+export const TableContext = /** @type {typeof createContext<TableContextValue>} */ (createContext)({
   allData: [],
   filteredData: [],
   // eslint-disable-next-line no-console
@@ -38,4 +35,3 @@ const TableContext = /** @type {typeof createContext<TableContextValue>} */ (cre
     tableSortingFieldPaths: null,
   },
 });
-export default TableContext;

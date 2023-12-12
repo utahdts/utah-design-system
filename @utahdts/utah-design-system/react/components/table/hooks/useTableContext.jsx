@@ -1,6 +1,7 @@
+// @ts-check
 import { useContext } from 'react';
-import TableContext from '../util/TableContext';
+import { TableContext } from '../util/TableContext';
 
-export default function useTableContext() {
+export function useTableContext() {
   return useContext(TableContext);
 }

@@ -7,8 +7,6 @@ import { createContext } from 'react';
  */
 
 /** @template TableDataT */
-const TableBodyDataRowContext = /** @type {typeof createContext<TableBodyDataRowContextValue<TableDataT>>} */ (createContext)({
+export const TableBodyDataRowContext = /** @type {typeof createContext<TableBodyDataRowContextValue<TableDataT>>} */ (createContext)({
   record: null,
 });
-
-export default TableBodyDataRowContext;

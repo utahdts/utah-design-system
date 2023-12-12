@@ -1,14 +1,12 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
+import { tableSortingRuleFieldType } from '../../enums/tableSortingRuleFieldType';
 import useRefAlways from '../../hooks/useRefAlways';
-import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import valueAtPath from '../../util/state/valueAtPath';
-import TableContext from './util/TableContext';
+import { TableContext } from './util/TableContext';
 
 /**
  * @template TableSortingRuleT
@@ -18,18 +16,6 @@ import TableContext from './util/TableContext';
  * @template TableContextStateT
  * @typedef {import('../../jsDocTypes').TableContextState<TableContextStateT>} TableContextState
  */
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  innerRef: RefShape,
-  id: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  innerRef: null,
-  id: null,
-};
 
 /**
  * @template SortByFieldTypeDataT
@@ -69,14 +55,14 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
  * @param {string} [props.id]
  * @returns {JSX.Element}
  */
-function TableWrapper({
+export function TableWrapper({
   children,
   className,
   innerRef,
   id,
   ...rest
 }) {
-  /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('../../jsDocTypes').TableContextState<TableDataT>>]} */
+  /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('../../../@types/jsDocTypes.d').TableContextState<TableDataT>>]} */
   const [state, setState] = useImmer(
     /** @returns {TableContextState<TableDataT>} */
     () => ({
@@ -217,8 +203,3 @@ function TableWrapper({
     </TableContext.Provider>
   );
 }
-
-TableWrapper.propTypes = propTypes;
-TableWrapper.defaultProps = defaultProps;
-
-export default TableWrapper;

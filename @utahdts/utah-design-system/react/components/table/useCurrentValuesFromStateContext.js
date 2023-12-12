@@ -8,7 +8,7 @@ import {
 import { useImmer } from 'use-immer';
 import setValueAtPath from '../../util/state/setValueAtPath';
 import valueAtPath from '../../util/state/valueAtPath';
-import TableContext from './util/TableContext';
+import { TableContext } from './util/TableContext';
 
 /**
  * @template TableDataT
@@ -30,7 +30,7 @@ import TableContext from './util/TableContext';
  * @param {TableDataT | null} param.value the current value of this item
  * @returns {{ currentOnChange: (e) => TableDataT, currentValue: TableDataT | null, setValue: (TableDataT) => void }}
  */
-export default function useCurrentValuesFromStateContext({
+export function useCurrentValuesFromStateContext({
   // the path in the state object of the context to the data being used
   contextStatePath,
   // if onChange is not found on context nor passed in, then use this onChange to get the value

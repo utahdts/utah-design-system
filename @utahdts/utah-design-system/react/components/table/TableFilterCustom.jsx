@@ -1,41 +1,27 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import TableContext from './util/TableContext';
+import { TableContext } from './util/TableContext';
 
 /** @typedef {import('../../jsDocTypes').TableContextStateFilterValue} TableContextStateFilterValue */
 /** @typedef {import('../../jsDocTypes').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
-
-const propTypes = {
-  children: PropTypes.func.isRequired,
-  className: PropTypes.string,
-  id: PropTypes.string,
-  innerRef: RefShape,
-};
-const defaultProps = {
-  className: null,
-  id: null,
-  innerRef: null,
-};
 
 /** @typedef {(setter: ((TableContextStateFilterValueObject) => void)) => void} SetterFunc */
 
 /**
  * @template TableDataT
  * @param {Object} props
- * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => JSX.Element | null} props.children
- * @param {string | null} [props.className]
- * @param {string | null} [props.id]
- * @param {React.RefObject | null} [props.innerRef]
+ * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => JSX.Element} props.children
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {React.RefObject} [props.innerRef]
  * @returns {JSX.Element}
  */
-function TableFilterCustom({
+export function TableFilterCustom({
   children,
-  className = null,
-  id = null,
-  innerRef = null,
+  className,
+  id,
+  innerRef,
   ...rest
 }) {
   const { setState: setStateContext, state: stateContext } = useContext(TableContext);
@@ -55,8 +41,3 @@ function TableFilterCustom({
     </th>
   );
 }
-
-TableFilterCustom.propTypes = propTypes;
-TableFilterCustom.defaultProps = defaultProps;
-
-export default TableFilterCustom;
