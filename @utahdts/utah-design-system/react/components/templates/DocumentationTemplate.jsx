@@ -1,18 +1,14 @@
-import PropTypes from 'prop-types';
-import RefShape from '../../propTypesShapes/RefShape';
-import MainContent from './MainContent';
+import { MainContent } from './MainContent';
 
-const propTypes = {
-  content: PropTypes.func.isRequired,
-  contentRef: RefShape.isRequired,
-  sidePanelRightContent: PropTypes.element.isRequired,
-  sidePanelLeftContent: PropTypes.element,
-};
-const defaultProps = {
-  sidePanelLeftContent: null,
-};
-
-function DocumentationTemplate({
+/**
+ * @param {Object} props
+ * @param {() => JSX.Element} props.content
+ * @param {React.RefObject<HTMLElement>} [props.contentRef]
+ * @param {React.ReactNode} props.sidePanelRightContent
+ * @param {React.ReactNode} [props.sidePanelLeftContent]
+ * @returns {JSX.Element}
+ */
+export function DocumentationTemplate({
   content: Content,
   contentRef,
   sidePanelRightContent,
@@ -36,8 +32,3 @@ function DocumentationTemplate({
     </div>
   );
 }
-
-DocumentationTemplate.propTypes = propTypes;
-DocumentationTemplate.defaultProps = defaultProps;
-
-export default DocumentationTemplate;

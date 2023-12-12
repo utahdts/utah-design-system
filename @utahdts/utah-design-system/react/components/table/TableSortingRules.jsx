@@ -6,7 +6,7 @@ import { TableContext } from './util/TableContext';
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.defaultValue]
- * @param {((e) => void)} [props.onChange]
+ * @param {(({recordFieldPath}: {recordFieldPath: string}) => void)} [props.onChange]
  * @param {string} [props.value]
  * @returns {JSX.Element}
  */

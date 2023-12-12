@@ -152,7 +152,7 @@
 
 /**
  * @template TableDataT
- * @typedef {(param: { fieldValueA: any, fieldValueB: any, recordA: TableDataT, recordB: TableDataT, records: TableDataT[] }) => number} TableSortingFunc
+ * @typedef {(param: { fieldValueA: any, fieldValueB: any, recordA: TableDataT, recordAIndex: number, recordB: TableDataT, recordBIndex: number, records: TableDataT[] }) => number} TableSortingFunc
  */
 
 /**
@@ -163,7 +163,7 @@
  *  @property {boolean} defaultIsAscending
  *  @property {TableSortingRuleFieldType} fieldType
  *  @property {string} recordFieldPath
- *  @property {(a: TableDataT, b: TableDataT) => number} [sorter]
+ *  @property {(a: {record: TableDataT, recordIndex: number}, b: {record: TableDataT, recordIndex: number}, records: TableDataT[]) => number} [sorter]
  * }
  */
 
@@ -185,7 +185,7 @@
  * @template TableDataT
  * @typedef TableContextStateFilterValues {
  *  @property {Object.<string, any> | null} defaultValue
- *  @property {((e: Event) => TableDataT) | null} onChange
+ *  @property {(({ recordFieldPath, value }: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} onChange
  *  @property {TableContextStateFilterValueObject} value
  * }
  */

@@ -1,5 +1,5 @@
 // @ts-check
-import split from 'lodash/split';
+import { split } from 'lodash';
 
 /**
  * @template ObjectT

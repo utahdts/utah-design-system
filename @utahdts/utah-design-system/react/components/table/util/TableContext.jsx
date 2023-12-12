@@ -30,7 +30,6 @@ export const TableContext = /** @type {typeof createContext<TableContextValue>} 
     sortingRules: {},
 
     tableData: { allData: [], filteredData: [] },
-    tableRowIds: [],
     tableSortingOnChange: null,
     tableSortingFieldPath: null,
     tableSortingFieldPaths: null,

@@ -49,7 +49,7 @@ const defaultProps = {
  * @param {string} [props.className]
  * @param {number} [props.defaultValue]
  * @param {string} props.id
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @param {React.RefObject<HTMLElement | null>} [props.innerRef]
  * @param {(newValue: number) => void} [props.onChange]
  * @param {number} props.pageSize
  * @param {number} props.totalNumberItems

@@ -15,7 +15,7 @@
 export function filterTableRecords(records, filterRules) {
   return records.filter((recordData) => (
     Object.entries(recordData.filterFields)
-      .every(([filterField, recordValue]) => filterRules[filterField](recordValue))
+      .every(([filterField, recordValue]) => filterRules[filterField]?.(recordValue))
   ))
     .map((recordData) => recordData.record);
 }

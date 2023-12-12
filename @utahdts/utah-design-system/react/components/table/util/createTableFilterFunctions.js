@@ -14,6 +14,7 @@ export function createTableFilterFunctions(filterValues) {
     Object.fromEntries(
       Object.entries(filterValues || {})
         .map(([filterKey, filterData]) => {
+          /** @type {TableFilterFunction} */
           let testFunc;
 
           if (filterData.exactMatch) {

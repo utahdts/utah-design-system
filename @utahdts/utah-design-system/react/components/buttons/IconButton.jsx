@@ -6,7 +6,7 @@ import componentColors from '../../enums/componentColors';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
-import Tooltip from '../Tooltip/Tooltip';
+import { Tooltip } from '../Tooltip/Tooltip';
 
 const propTypes = {
   // the appearance of the button
