@@ -91,7 +91,7 @@
 /**
  * @typedef TablePagination {
  *  @property {number} currentPageIndex what page to start on
- *  @property {number} itemsPerPage how many items per page
+ *  @property {number} pageSize how many items per page
  * }
  */
 
@@ -195,6 +195,7 @@
  * @typedef TableContextState {
  *  @property {boolean} currentSortingOrderIsDefault
  *  @property {TableContextStateFilterValues<TableDataT>} filterValues
+ *  @property {TablePagination} [pagination]
  *  @property {Object.<string, TableSortingRule<TableDataT>>} sortingRules
  *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
  *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
