@@ -84,9 +84,6 @@ export function TableWrapper({
 
       tableData: { allData: [], filteredData: [] },
 
-      // each table row inserts itself in order in this list to track where they are in the data for pagination
-      tableRowIds: [],
-
       // (func) when table sorting changes, this callback will be called: from <TableSortingRules>
       tableSortingOnChange: null,
       // (string | [string]) the current recordFieldPath name for the current header being sorted
