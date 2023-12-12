@@ -144,12 +144,12 @@
 
 /**
  * @typedef UtahDesignSystemContextBanner
- *  @property {string | undefined} [className]
- *  @property {number | undefined} [duration]
- *  @property {string | undefined} [id]
- *  @property {HTMLElement | undefined} [icon]
+ *  @property {string} [className]
+ *  @property {number} [duration]
+ *  @property {string} [id]
+ *  @property {HTMLElement} [icon]
  *  @property {HTMLElement | string} message
- *  @property {BannerPlacement | undefined} [position]
+ *  @property {BannerPlacement} [position]
  */
 
 /**

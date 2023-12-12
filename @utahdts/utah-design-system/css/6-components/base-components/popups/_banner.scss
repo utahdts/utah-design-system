@@ -5,7 +5,7 @@
 
 #{class-vars.$base-class} {
   .banner {
-    &--wrapper {
+    &__wrapper {
       display: inline-flex;
       border-radius: var(--radius-small);
       background: white;
@@ -29,58 +29,58 @@
         &--bottom, &--top {
           animation: fade-in .5s;
         }
-      }
 
-      &.banner--bottom {
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      &.banner--bottom-left {
-        bottom: 0;
-        left: 0;
-      }
-
-      &.banner--bottom-right {
-        bottom: 0;
-        right: 0;
-      }
-
-      &.banner--top {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      &.banner--top-left {
-        top: 0;
-        left: 0;
-      }
-
-      &.banner--top-right {
-        top: 0;
-        right: 0;
-      }
-
-      &.banner--info, &.banner--warning, &.banner--danger, &.banner--success {
-        color: white;
-        .banner--close-button button {
-          color: white;
+        &--bottom {
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
         }
-      }
 
-      &.banner--info {
-        background-color: var(--info-color);
-      }
-      &.banner--warning {
-        background-color: var(--warning-color);
-      }
-      &.banner--danger {
-        background-color: var(--danger-color);
-      }
-      &.banner--success {
-        background-color: var(--success-color);
+        &--bottom-left {
+          bottom: 0;
+          left: 0;
+        }
+
+        &--bottom-right {
+          bottom: 0;
+          right: 0;
+        }
+
+        &--top {
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &--top-left {
+          top: 0;
+          left: 0;
+        }
+
+        &--top-right {
+          top: 0;
+          right: 0;
+        }
+
+        &--info, &--warning, &--danger, &--success {
+          color: white;
+          .banner__close-button button {
+            color: white;
+          }
+        }
+
+        &--info {
+          background-color: var(--info-color);
+        }
+        &--warning {
+          background-color: var(--warning-color);
+        }
+        &--danger {
+          background-color: var(--danger-color);
+        }
+        &--success {
+          background-color: var(--success-color);
+        }
       }
     }
 
@@ -105,80 +105,78 @@
       }
     }
 
-    &--close-button {
+    &__close-button {
       padding: var(--spacing-xs);
     }
   }
 
-  &.banner {
-    &-global {
-      z-index: 4000;
-      position: fixed;
+  &.banner-global__wrapper {
+    z-index: 4000;
+    position: fixed;
 
-      .banner-global{
-        &--wrapper{
-          position: fixed;
-          display: flex;
-          flex-direction: column-reverse;
-        }
+    .banner-global{
+      &__zone{
+        position: fixed;
+        display: flex;
+        flex-direction: column-reverse;
+      }
 
-        &__bottom {
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          flex-direction: column;
-        }
+      &__bottom {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+      }
 
-        &__bottom-left {
-          bottom: 0;
-          left: 0;
-          flex-direction: column;
-        }
+      &__bottom-left {
+        bottom: 0;
+        left: 0;
+        flex-direction: column;
+      }
 
-        &__bottom-right {
-          bottom: 0;
-          right: 0;
-          flex-direction: column;
-        }
+      &__bottom-right {
+        bottom: 0;
+        right: 0;
+        flex-direction: column;
+      }
 
-        &__top {
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-        }
+      &__top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-        &__top-left {
-          top: 0;
-          left: 0;
-        }
+      &__top-left {
+        top: 0;
+        left: 0;
+      }
 
-        &__top-right {
-          top: 0;
-          right: 0;
-        }
+      &__top-right {
+        top: 0;
+        right: 0;
+      }
 
-        &__bottom, &__top {
-          .banner--wrapper {
-            align-self: baseline;
-          }
-        }
-
-        &__top-right, &__bottom-right {
-          .banner--wrapper {
-            align-self: flex-end;
-          }
-        }
-
-        &__top-left, &__bottom-left {
-          .banner--wrapper {
-            align-self: flex-start;
-          }
+      &__bottom, &__top {
+        .banner__wrapper {
+          align-self: baseline;
         }
       }
 
-      .banner--wrapper {
-        position: relative;
+      &__top-right, &__bottom-right {
+        .banner__wrapper {
+          align-self: flex-end;
+        }
       }
+
+      &__top-left, &__bottom-left {
+        .banner__wrapper {
+          align-self: flex-start;
+        }
+      }
+    }
+
+    .banner__wrapper {
+      position: relative;
     }
   }
 }

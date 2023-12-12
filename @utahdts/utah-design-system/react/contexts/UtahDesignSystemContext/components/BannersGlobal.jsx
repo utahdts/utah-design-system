@@ -3,8 +3,8 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  useState
 } from 'react';
+import { useImmer } from 'use-immer';
 import { Banner } from '../../../components/popups/Banner/Banner';
 import { BannerMessage } from '../../../components/popups/Banner/BannerMessage';
 import { BannerIcon } from '../../../components/popups/Banner/BannerIcon';
@@ -20,8 +20,7 @@ import joinClassNames from '../../../util/joinClassNames';
 export function BannersGlobal({ banners }) {
   const { removeBanner } = useBanner();
   const timers = useMemo(() => ({}), []);
-  const [zones, setZones] = useState({});
-
+  const [zones, setZones] = useImmer({});
   const currentOnClose = useCallback((e, banner) => {
     if (banner.onClose) {
       banner.onClose(e);
@@ -44,16 +43,21 @@ export function BannersGlobal({ banners }) {
       draftZones[banner.position].push(banner);
     });
     setZones(draftZones);
-  }, [banners, currentOnClose, removeBanner, timers]);
+  }, [banners, currentOnClose, removeBanner, setZones, timers]);
+
+  useEffect(() => {
+    // Cleaning timers
+    Object.keys(timers).forEach((key) => clearTimeout(timers[key]));
+  }, []);
 
   return (
     <div
-      className="utah-design-system banner-global"
+      className="utah-design-system banner-global__wrapper"
       aria-live="polite"
     >
       {Object.keys(zones).map((zone) => (
         <div
-          className={joinClassNames(`banner-global__${zone}`, 'banner-global--wrapper')}
+          className={joinClassNames(`banner-global__${zone}`, 'banner-global__zone')}
           key={`banner-global__${zone}`}
         >
           {zones[zone].map((banner) => (
@@ -64,7 +68,7 @@ export function BannersGlobal({ banners }) {
               position={banner.position}
               onClose={(e) => currentOnClose(e, banner)}
             >
-              {banner.icon && <BannerIcon>{banner.icon}</BannerIcon>}
+              {banner.icon ? <BannerIcon>{banner.icon}</BannerIcon> : ''}
               <BannerMessage>
                 {banner.message}
               </BannerMessage>

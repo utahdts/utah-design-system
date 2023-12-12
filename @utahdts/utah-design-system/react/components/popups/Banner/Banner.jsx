@@ -28,7 +28,7 @@ export function Banner({
   return (
     <div
       className={joinClassNames(
-        'banner--wrapper',
+        'banner__wrapper',
         className,
         `banner--${position}`
       )}
@@ -37,7 +37,7 @@ export function Banner({
       role="status"
     >
       {children}
-      <div className="banner--close-button">
+      <div className="banner__close-button">
         <IconButton
           aria-hidden="true"
           appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}

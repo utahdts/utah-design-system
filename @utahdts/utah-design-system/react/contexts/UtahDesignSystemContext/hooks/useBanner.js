@@ -7,13 +7,7 @@ import uuidv4 from '../../../util/uuidv4';
 /** @typedef {import('../../../jsDocTypes').BannerPlacement} BannerPlacement */
 /**
  * @returns {{
- * addBanner: function({
- *  className: string | undefined,
- *  duration: number | undefined,
- *  icon: HTMLElement | undefined,
- *  message: HTMLElement | string,
- *  position: BannerPlacement | undefined
- * }): void,
+ * addBanner: function(UtahDesignSystemContextBanner): void,
  * removeBanner: function(UtahDesignSystemContextBanner): void
  * }}
  */
@@ -23,16 +17,18 @@ export function useBanner() {
   // eslint-disable-next-line function-paren-newline
   const addBanner = useCallback(
     /**
-     * @param {string | undefined} [className]
-     * @param {number | undefined} [duration]
-     * @param {HTMLElement | undefined} [icon]
+     * @param {string} [className]
+     * @param {number} [duration]
+     * @param {string} [id]
+     * @param {HTMLElement} [icon]
      * @param {HTMLElement | string} message
-     * @param {string | undefined} position
+     * @param {string} [position]
      * @returns {void}
      */
     ({
       className,
       duration,
+      id,
       icon,
       message,
       position = 'bottom-left',
@@ -41,8 +37,8 @@ export function useBanner() {
         draftState.banners.push({
           className,
           duration,
-          id: uuidv4(),
           icon,
+          id: id || uuidv4(),
           message,
           position,
         });
@@ -58,7 +54,7 @@ export function useBanner() {
     (banner) => {
       setState((draftState) => {
         const currentIndex = draftState.banners.findIndex((item) => item.id === banner.id);
-        if (currentIndex !== -1) draftState.banners.splice(currentIndex, 1);
+        if (currentIndex !== -1) { draftState.banners.splice(currentIndex, 1); }
       });
     }, [setState]);
 
