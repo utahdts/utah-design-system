@@ -7,7 +7,11 @@ export {
   renderDOMSingle,
 } from '@utahdts/utah-design-system-header';
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
+export { BANNER_PLACEMENT } from './react/enums/bannerPlacement';
 export { default as Accordion } from './react/components/containers/accordion/Accordion';
+export { Banner } from './react/components/popups/Banner/Banner';
+export { BannerIcon } from './react/components/popups/Banner/BannerIcon';
+export { BannerMessage } from './react/components/popups/Banner/BannerMessage';
 export { default as Button } from './react/components/buttons/Button';
 export { default as chainSorters } from './react/util/chainSorters';
 export { default as CharacterCount } from './react/components/forms/CharacterCount';
@@ -91,7 +95,7 @@ export { default as TextArea } from './react/components/forms/TextArea';
 export { default as TextInput } from './react/components/forms/TextInput';
 export { Tooltip } from './react/components/Tooltip/Tooltip';
 export { default as useAriaMessaging } from './react/contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-export { default as useBanner } from './react/hooks/useBanner';
+export { useBanner } from './react/contexts/UtahDesignSystemContext/hooks/useBanner';
 export { default as useFormContext } from './react/components/forms/FormContext/useFormContext';
 export { default as useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { default as useImmerRef } from './react/hooks/useImmerRef';

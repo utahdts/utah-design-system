@@ -10,6 +10,7 @@ const UtahDesignSystemContext = /** @type {typeof React.createContext<ImmerHookU
       assertiveMessages: [],
       politeMessages: [],
     },
+    banners: [],
   },
   () => { },
 ]);

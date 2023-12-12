@@ -37,6 +37,11 @@
  */
 
 /**
+ * BannerPlacement
+ * @typedef {'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right'} BannerPlacement
+ */
+
+/**
  * TableSortingRuleFieldType
  * @typedef {'date' | 'number' | 'string'} TableSortingRuleFieldType
  */
@@ -123,6 +128,21 @@
  */
 
 /**
+ * @typedef UtahDesignSystemContextBanner
+ *  @property {string} [className]
+ *  @property {number} [duration]
+ *  @property {string} [id]
+ *  @property {HTMLElement} [icon]
+ *  @property {HTMLElement | string} message
+ *  @property {BannerPlacement} [position]
+ */
+
+/**
+ * @typedef UtahDesignSystemDefaultSettings
+ * @property {number} [bannerDuration]
+ */
+
+/**
  * @typedef UtahDesignSystemContextAria {
  *  @property {string[]} assertiveMessages
  *  @property {string[]} politeMessages
@@ -132,6 +152,7 @@
 /**
  * @typedef UtahDesignSystemContextValue {
  *  @property {UtahDesignSystemContextAria} ariaLive
+ *  @property {UtahDesignSystemContextBanner[]} banners
  * }
  */
 

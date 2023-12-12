@@ -32,7 +32,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function ButtonDocumentation() {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Button</h1>
@@ -64,27 +64,27 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'primary emphasized button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Primary emphasized button clicked' }), [addBanner])}
             >
               Primary Color
             </Button>
             <Button
               appearance="solid"
               color="secondary"
-              onClick={useCallback(() => showBanner({ message: 'secondary emphasized button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Secondary emphasized button clicked' }), [addBanner])}
             >
               Secondary Color
             </Button>
             <Button
               appearance="solid"
               color="accent"
-              onClick={useCallback(() => showBanner({ message: 'accent emphasized button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Accent emphasized button clicked' }), [addBanner])}
             >
               Accent Color
             </Button>
             <Button
               appearance="solid"
-              onClick={useCallback(() => showBanner({ message: 'default emphasized button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Default emphasized button clicked' }), [addBanner])}
             >
               No Color
             </Button>
@@ -110,27 +110,27 @@ function ButtonDocumentation() {
           <>
             <Button
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'primary unemphasized  button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Primary unemphasized  button clicked' }), [addBanner])}
             >
               Primary Color
             </Button>
             <Button
               appearance="outlined"
               color="secondary"
-              onClick={useCallback(() => showBanner({ message: 'secondary unemphasized  button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Secondary unemphasized  button clicked' }), [addBanner])}
             >
               Secondary Color
             </Button>
             <Button
               appearance="outlined"
               color="accent"
-              onClick={useCallback(() => showBanner({ message: 'accent unemphasized  button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Accent unemphasized  button clicked' }), [addBanner])}
             >
               Accent Color
             </Button>
             <Button
               appearance="outlined"
-              onClick={useCallback(() => showBanner({ message: 'unemphasized button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Unemphasized button clicked' }), [addBanner])}
             >
               No Color
             </Button>
@@ -159,14 +159,14 @@ function ButtonDocumentation() {
             <Button
               appearance="outlined"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'cancel button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Cancel button clicked' }), [addBanner])}
             >
               Cancel
             </Button>
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'ok button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Okay button clicked' }), [addBanner])}
             >
               Okay
             </Button>
@@ -195,7 +195,7 @@ function ButtonDocumentation() {
               appearance="outlined"
               color="primary"
               iconLeft={Icons.IconCheck()}
-              onClick={useCallback(() => showBanner({ message: '`left icon` button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: '`Left Icon` button clicked' }), [addBanner])}
             >
               Button
             </Button>
@@ -203,7 +203,7 @@ function ButtonDocumentation() {
               appearance="solid"
               color="primary"
               iconRight={Icons.IconArrowRight()}
-              onClick={useCallback(() => showBanner({ message: '`see more` button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: '`See More` button clicked' }), [addBanner])}
             >
               See More
             </Button>
@@ -225,7 +225,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'small button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Small button clicked' }), [addBanner])}
               size={formElementSizesEnum.SMALL1X}
             >
               Small 1X
@@ -233,7 +233,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'small button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Small button clicked' }), [addBanner])}
               size={formElementSizesEnum.SMALL}
             >
               Small
@@ -241,7 +241,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Mdium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
             >
               Medium
@@ -249,7 +249,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'large button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Large button clicked' }), [addBanner])}
               size={formElementSizesEnum.LARGE}
             >
               Large
@@ -257,7 +257,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'large1x button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: '`large1x` button clicked' }), [addBanner])}
               size={formElementSizesEnum.LARGE1X}
             >
               Large 1X
@@ -278,7 +278,7 @@ function ButtonDocumentation() {
           <Button
             appearance="solid"
             color="primary"
-            onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+            onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
             size={formElementSizesEnum.MEDIUM}
             isBusy
           >
@@ -299,7 +299,7 @@ function ButtonDocumentation() {
           <>
             <Button
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
             >
               Cancel
@@ -307,7 +307,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
               isDisabled
             >
@@ -330,7 +330,7 @@ function ButtonDocumentation() {
           <>
             <Button
               color="secondary"
-              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
             >
               Hover Me
@@ -338,7 +338,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="secondary"
-              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
             >
               Hover Me
@@ -360,7 +360,7 @@ function ButtonDocumentation() {
             <Button
               color="primary"
               className="button--active"
-              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
             >
               Pressed
@@ -369,7 +369,7 @@ function ButtonDocumentation() {
               appearance="solid"
               color="primary"
               className="button--active"
-              onClick={useCallback(() => showBanner({ message: 'medium button clicked' }), [showBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
             >
               Pressed
