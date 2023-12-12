@@ -14,10 +14,11 @@ import joinClassNames from '../../../util/joinClassNames';
 /** @typedef {import('../../../jsDocTypes').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
 /**
  * @param {UtahDesignSystemContextBanner[]} banners
+ * @param {number} [bannerDuration]
  * @returns {JSX.Element}
  * @constructor
  */
-export function BannersGlobal({ banners }) {
+export function BannersGlobal({ banners, bannerDuration }) {
   const { removeBanner } = useBanner();
   const timers = useMemo(() => ({}), []);
   const [zones, setZones] = useImmer({});
@@ -35,15 +36,16 @@ export function BannersGlobal({ banners }) {
     const uniqueZones = [...new Set(banners.map((banner) => banner.position))];
     uniqueZones.forEach((zone) => { draftZones[zone] = []; });
     banners.forEach((banner) => {
-      if (banner.duration && !timers[banner.id]) {
+      const duration = banner.duration || bannerDuration;
+      if (duration && !timers[banner.id]) {
         timers[banner.id] = setTimeout(() => {
           currentOnClose(undefined, banner);
-        }, banner.duration);
+        }, duration);
       }
       draftZones[banner.position].push(banner);
     });
     setZones(draftZones);
-  }, [banners, currentOnClose, removeBanner, setZones, timers]);
+  }, [bannerDuration, banners, currentOnClose, removeBanner, setZones, timers]);
 
   useEffect(() => {
     // Cleaning timers

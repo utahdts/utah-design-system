@@ -56,7 +56,6 @@ function BannersDocumentation() {
               position="inline"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
-                duration: 3500,
               }), [addBanner])}
             >
               <BannerMessage>
@@ -68,7 +67,6 @@ function BannersDocumentation() {
               className="banner--success"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
-                duration: 3500,
               }), [addBanner])}
             >
               <BannerIcon>
@@ -83,7 +81,6 @@ function BannersDocumentation() {
               className="banner--danger"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
-                duration: 3500,
               }), [addBanner])}
             >
               <BannerIcon>
@@ -98,7 +95,6 @@ function BannersDocumentation() {
               className="banner--info"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
-                duration: 3500,
               }), [addBanner])}
             >
               <BannerIcon>

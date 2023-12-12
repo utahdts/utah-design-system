@@ -153,6 +153,11 @@
  */
 
 /**
+ * @typedef UtahDesignSystemDefaultSettings
+ * @property {number} [bannerDuration]
+ */
+
+/**
  * @typedef UtahDesignSystemContextAria {
  *  @property {string[]} assertiveMessages
  *  @property {string[]} politeMessages

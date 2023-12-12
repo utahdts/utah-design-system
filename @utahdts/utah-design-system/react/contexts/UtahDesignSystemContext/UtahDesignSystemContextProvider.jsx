@@ -8,6 +8,7 @@ import AriaLiveMessages from './components/AriaLiveMessages';
 import { BannersGlobal } from './components/BannersGlobal';
 
 /** @typedef {import('../../jsDocTypes').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
+/** @typedef {import('../../jsDocTypes').UtahDesignSystemDefaultSettings} UtahDesignSystemDefaultSettings */
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -19,9 +20,10 @@ const defaultProps = {
  * provider that wraps the app at the top level
  * @param {Object} props
  * @param {React.ReactNode} props.children
+ * @param {UtahDesignSystemDefaultSettings} props.defaultSettings
  * @returns {JSX.Element}
  */
-function UtahDesignSystemContextProvider({ children }) {
+function UtahDesignSystemContextProvider({ children, defaultSettings }) {
   const immerHook = /** @type {typeof useImmer<UtahDesignSystemContextValue>} */ (useImmer)(() => ({
     ariaLive: {
       assertiveMessages: [],
@@ -35,7 +37,7 @@ function UtahDesignSystemContextProvider({ children }) {
       {children}
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.ASSERTIVE} messages={immerHook[0].ariaLive.assertiveMessages} />
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.POLITE} messages={immerHook[0].ariaLive.politeMessages} />
-      <BannersGlobal banners={immerHook[0].banners} />
+      <BannersGlobal banners={immerHook[0].banners} bannerDuration={defaultSettings.bannerDuration} />
     </UtahDesignSystemContext.Provider>
   );
 }

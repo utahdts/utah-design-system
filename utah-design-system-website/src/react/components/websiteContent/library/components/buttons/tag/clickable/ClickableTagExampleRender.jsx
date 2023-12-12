@@ -38,7 +38,7 @@ export function ClickableTagExampleRender({
       innerRef={innerRef}
       isDisabled={isDisabled}
       isSelected={isSelected}
-      onClick={() => addBanner({ message: 'You have clicked the Tag.', duration: 3500 })}
+      onClick={() => addBanner({ message: 'You have clicked the Tag.' })}
       size={size}
     >
       {title || ''}

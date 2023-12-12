@@ -154,11 +154,11 @@ export function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <ClickableTag className="tag--primary-color" isSelected onClick={() => addBanner({ message: 'Tag clicked', duration: 3500 })}>Zion</ClickableTag>
-              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked', duration: 3500 })}>Arches</ClickableTag>
-              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked', duration: 3500 })}>Bryce</ClickableTag>
-              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked', duration: 3500 })}>Canyonlands</ClickableTag>
-              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked', duration: 3500 })}>Capitol Reef</ClickableTag>
+              <ClickableTag className="tag--primary-color" isSelected onClick={() => addBanner({ message: 'Tag clicked' })}>Zion</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Arches</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Bryce</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Canyonlands</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Capitol Reef</ClickableTag>
             </div>
           </div>
         )}

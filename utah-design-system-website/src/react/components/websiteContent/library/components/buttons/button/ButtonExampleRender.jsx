@@ -44,7 +44,7 @@ export default function ButtonExampleRender({
       innerRef={innerRef}
       isBusy={isBusy}
       isDisabled={isDisabled}
-      onClick={() => addBanner({ message: 'You have clicked the button.', duration: 3500 })}
+      onClick={() => addBanner({ message: 'You have clicked the button.' })}
       size={size}
       type={type}
     >

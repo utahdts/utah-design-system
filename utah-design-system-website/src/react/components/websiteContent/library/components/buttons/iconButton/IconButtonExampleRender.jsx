@@ -31,7 +31,7 @@ export default function IconButtonExampleRender({
       id={id}
       innerRef={innerRef}
       isDisabled={isDisabled}
-      onClick={() => addBanner({ message: 'You have clicked the icon button.', duration: 3500 })}
+      onClick={() => addBanner({ message: 'You have clicked the icon button.' })}
       size={size}
       title={title || ''}
     />
