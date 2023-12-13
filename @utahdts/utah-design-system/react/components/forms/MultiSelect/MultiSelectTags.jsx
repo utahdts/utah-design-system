@@ -38,7 +38,12 @@ export function MultiSelectTags({ isDisabled }) {
                   : (
                     <Tag
                       className={joinClassNames('tag--primary-color', 'multi-select__tag')}
-                      clearMessage={`Clear ${selectedOption?.label ?? 'Tag'}`}
+                      iconButtonProps={{
+                        'aria-hidden': true,
+                        // make title different for screen readers, but tooltipText is shown on hover
+                        title: 'selected. Press delete to remove this tag',
+                        tooltipText: 'Clear Tag',
+                      }}
                       isDisabled={isDisabled}
                       onClear={
                         () => (

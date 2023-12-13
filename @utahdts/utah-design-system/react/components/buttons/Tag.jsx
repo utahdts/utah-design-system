@@ -12,6 +12,7 @@ import IconButton from './IconButton';
  * @param {string} [props.className]
  * @param {string} [props.clearMessage] the message to show when hover the "x" icon
  * @param {string} [props.id] the tag id
+ * @param {Object} [props.iconButtonProps] props for the icon button
  * @param {React.Ref<HTMLDivElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
  * @param {React.ReactNode} [props.iconLeft] an icon for the left side
  * @param {React.ReactNode} [props.iconRight] an icon for the right side
@@ -24,6 +25,7 @@ export function Tag({
   children,
   className,
   clearMessage = 'Clear Tag',
+  iconButtonProps = {},
   innerRef,
   iconLeft,
   iconRight,
@@ -54,10 +56,12 @@ export function Tag({
           ? (
             <IconButton
               className="tag__clear-button icon-button--borderless icon-button--small1x"
-              icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+              icon={<span className="utds-icon-before-x-icon" aria-hidden />}
               onClick={onClear}
               title={clearMessage}
               isDisabled={isDisabled}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...iconButtonProps}
             />
           )
           : null
