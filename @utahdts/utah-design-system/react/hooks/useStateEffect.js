@@ -33,8 +33,9 @@ Example new code:
  * @template DataT
  * @param {Object} param
  * @param {(previousValue: null | DataT) => DataT} param.calculateValueFn
- * @param {() => void} param.onUnmountFn
+ * @param {() => void} [param.onUnmountFn]
  * @param {any[]} param.dependencyList
+ * @returns {[DataT, React.Dispatch<React.SetStateAction<DataT>>]}
  */
 export default ({ calculateValueFn, onUnmountFn, dependencyList }) => {
   const [state, setState] = useState(() => calculateValueFn(null));

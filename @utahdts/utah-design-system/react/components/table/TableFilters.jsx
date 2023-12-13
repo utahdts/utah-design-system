@@ -6,13 +6,14 @@ import { TableContext } from './util/TableContext';
 /** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
 
 /**
+ * @template TableDataT
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {TableContextStateFilterValueObject} [props.defaultValue]
  * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {((e: Event) => void)} [props.onChange]
+ * @param {(({ recordFieldPath, value }: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} [props.onChange]
  * @param {TableContextStateFilterValueObject} [props.value]
  * @returns {JSX.Element}
  */

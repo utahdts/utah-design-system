@@ -106,8 +106,8 @@
 /**
  * @template FormStateT
  * @typedef FormContextValue {
- *  @property {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {(e?: Event) => void} [onSubmit] submit the form
+ *  @property {({e, fieldPath, value}: {e?: React.KeyboardEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
+ *  @property {(e?: React.KeyboardEvent) => void} [onSubmit] submit the form
  *  @property {FormStateT} [state] current values of all the form elements
  *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
  * }
@@ -117,11 +117,11 @@
  * @template FormContextT
  * @template ValueT
  * @typedef useFormContextInputResult {
- *  @property {EventAction} [onChange]
- *  @property {EventAction} [onClear]
+ *  @property {UIEvent} [onChange]
+ *  @property {UIEvent} [onClear]
  *  @property {() => void} [onSubmit]
  *  @property {ValueT} [value]
- *  @property {EventAction} onFormKeyUp
+ *  @property {KeyboardEvent} onFormKeyUp
  *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
  *  @property {FormContextT} [state]
  * }
@@ -131,10 +131,11 @@
  * @typedef UtahDesignSystemContextBanner
  *  @property {string} [className]
  *  @property {number} [duration]
- *  @property {string} [id]
- *  @property {HTMLElement} [icon]
- *  @property {HTMLElement | string} message
- *  @property {BannerPlacement} [position]
+ *  @property {string} id
+ *  @property {React.ReactNode} [icon]
+ *  @property {React.ReactNode} message
+ *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
+ *  @property {BannerPlacement} position
  */
 
 /**
@@ -177,7 +178,7 @@
  * @typedef TableContextStateFilterValue {
  *  @property {any} value
  *  @property {boolean} exactMatch
- *  @property {any} otherFilterSpecificSettings
+ *  @property {any} [otherFilterSpecificSettings]
  * }
  */
 /** @typedef {Object.<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
@@ -226,7 +227,7 @@
 /**
  * @template TableDataT
  * @typedef TableBodyDataRowContextValue {
- *  @property {TableDataT | null} record
+ *  @property {(TableDataT & Object.<string, any>) | null} record
  * }
  */
 
@@ -291,6 +292,41 @@
 
 /**
  * @typedef {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<ComboBoxContextNonStateRef>]} ComboBoxContext
+ */
+
+/**
+ * copied from website types... maybe not correct?
+ * @typedef WebsiteMainMenuItem {
+ *  @property {string} [id]
+ *  @property {string} [link]
+ *  @property {string} title
+ *  @property {string[]} [parentLinks]
+ *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {boolean} [isSelected]
+ *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
+ * }
+ */
+
+/**
+ * copied from website types... plus titleTag props... maybe not correct?
+ * @typedef WebsiteMainMenu {
+ *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {string} header
+ *  @property {string} id
+ *  @property {WebsiteMainMenuItem[]} menuItems
+ *  @property {boolean} [isSelected]
+ *  @property {string[]} [parentLinks]
+ *  @property {string} [titleTagName]
+ *  @property {string} [titleTagClassName]
+ * }
+ */
+
+/**
+ * @typedef HierarchyNode {
+ *  @property {HierarchyNode[]} children
+ *  @property {number} level
+ *  @property {Element} node
+ * }
  */
 
 // without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)

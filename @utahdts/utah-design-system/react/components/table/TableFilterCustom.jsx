@@ -9,7 +9,6 @@ import { TableContext } from './util/TableContext';
 /** @typedef {(setter: ((param: TableContextStateFilterValueObject) => void)) => void} SetterFunc */
 
 /**
- * @template TableDataT
  * @param {Object} props
  * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => JSX.Element} props.children
  * @param {string} [props.className]

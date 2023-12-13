@@ -1,82 +1,51 @@
-import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import popupPlacement from '../../enums/popupPlacement';
 import useClickOutside from '../../hooks/useClickOutside';
 import useGlobalKeyEvent from '../../hooks/useGlobalKeyEvent';
-import RefShape from '../../propTypesShapes/RefShape';
 import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
 
-const propTypes = {
-  // usually the id of the button that controls the popup
-  ariaLabelledBy: PropTypes.string.isRequired,
+/** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
-  // The content of the popup
-  children: PropTypes.node.isRequired,
-
-  // CSS class to apply to the popup
-  className: PropTypes.string,
-
-  // the top right `X` close button
-  hasCloseButton: PropTypes.bool,
-
-  // used for hooking up to the button that controls the popup by aria-control
-  id: PropTypes.string.isRequired,
-
-  // ref to the popup wrapper
-  innerRef: RefShape,
-
-  // Control the visibility of the popup
-  isVisible: PropTypes.bool.isRequired,
-
-  // [x, y] offset of popped content from
-  offset: PropTypes.arrayOf(PropTypes.number),
-
-  // triggered when popup is closed because of loss of focus; (e, newVisibility) => { ... do something ... }
-  onVisibleChange: PropTypes.func.isRequired,
-
-  // The Popper Placement
-  placement: PropTypes.oneOf(Object.values(popupPlacement)),
-
-  // the anchor element around which the popup content will pop
-  referenceElement: RefShape.isRequired,
-
-  // popup must tell its role for accessibility
-  role: PropTypes.oneOf(['dialog', 'grid', 'listbox', 'menu', 'tree']).isRequired,
-};
-
-const defaultProps = {
-  className: null,
-  hasCloseButton: false,
-  innerRef: null,
-  offset: [0, 10],
-  placement: popupPlacement.AUTO,
-};
-
-function Popup({
+/**
+ * @param {Object} props
+ * @param {string} props.ariaLabelledBy usually the id of the button that controls the popup
+ * @param {React.ReactNode} props.children The content of the popup
+ * @param {string} [props.className] CSS class to apply to the popup
+ * @param {boolean} [props.hasCloseButton] the top right `X` close button
+ * @param {string} props.id used for hooking up to the button that controls the popup by aria-control
+ * @param {React.MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
+ * @param {boolean} props.isVisible Control the visibility of the popup
+ * @param {[number, number]} [props.offset] [x, y] offset of popped content from
+ * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }
+ * @param {PopupPlacement} [props.placement] The Popper Placement
+ * @param {React.RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
+ * @param {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} props.role popup must tell its role for accessibility
+ * @returns {JSX.Element}
+ */
+export function Popup({
   ariaLabelledBy,
   children,
   className,
   hasCloseButton,
   id,
-  innerRef,
+  innerRef: draftInnerRef,
   isVisible,
-  offset,
+  offset = [0, 10],
   onVisibleChange,
-  placement,
+  placement = popupPlacement.AUTO,
   referenceElement,
   role,
   ...rest
 }) {
-  const popperRef = useRef();
-  const arrowRef = useRef();
+  const popperRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const arrowRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
-  if (innerRef) {
+  if (draftInnerRef) {
     // eslint-disable-next-line no-param-reassign
-    innerRef.current = popperRef.current;
+    draftInnerRef.current = popperRef.current;
   }
 
   const { styles, attributes, update } = usePopper(referenceElement.current, popperRef.current, {
@@ -108,7 +77,11 @@ function Popup({
     onKeyUp: (e) => onVisibleChange(e, false),
   });
 
-  const onVisibleChangeCallback = useCallback((e) => onVisibleChange(e, false), [onVisibleChange]);
+  const onVisibleChangeCallback = useCallback(
+    /** @param {React.KeyboardEvent} e */
+    (e) => onVisibleChange(e, false),
+    [onVisibleChange]
+  );
   useClickOutside(popperRef, onVisibleChangeCallback, !isVisible);
 
   return (
@@ -137,7 +110,7 @@ function Popup({
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 onClick={(e) => onVisibleChange(e, false)}
                 title="Close popup"
-                size={formElementSizesEnum.SMALL}
+                size="small"
               />
             )
             : undefined
@@ -148,8 +121,3 @@ function Popup({
     </div>
   );
 }
-
-Popup.propTypes = propTypes;
-Popup.defaultProps = defaultProps;
-
-export default Popup;

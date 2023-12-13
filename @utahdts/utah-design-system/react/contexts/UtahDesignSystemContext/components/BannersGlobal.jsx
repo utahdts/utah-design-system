@@ -6,35 +6,49 @@ import {
 } from 'react';
 import { useImmer } from 'use-immer';
 import { Banner } from '../../../components/popups/Banner/Banner';
-import { BannerMessage } from '../../../components/popups/Banner/BannerMessage';
 import { BannerIcon } from '../../../components/popups/Banner/BannerIcon';
-import { useBanner } from '../hooks/useBanner';
+import { BannerMessage } from '../../../components/popups/Banner/BannerMessage';
 import joinClassNames from '../../../util/joinClassNames';
+import { useBanner } from '../hooks/useBanner';
 
-/** @typedef {import('../../../jsDocTypes').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
 /**
- * @param {UtahDesignSystemContextBanner[]} banners
- * @param {number} [bannerDuration]
+ * @param {Object} props
+ * @param {UtahDesignSystemContextBanner[]} props.banners
+ * @param {number} [props.bannerDuration]
  * @returns {JSX.Element}
- * @constructor
  */
 export function BannersGlobal({ banners, bannerDuration }) {
   const { removeBanner } = useBanner();
-  const timers = useMemo(() => ({}), []);
-  const [zones, setZones] = useImmer({});
-  const currentOnClose = useCallback((e, banner) => {
-    if (banner.onClose) {
-      banner.onClose(e);
-    } else {
-      removeBanner(banner);
-    }
-    clearTimeout(timers[banner.id]);
-  }, [removeBanner, timers]);
+  const timers = useMemo(() => /** @type {Object.<string, number>} */({}), []);
+  const [zones, setZones] = useImmer(/** @type {Object.<string, UtahDesignSystemContextBanner[]>} */({}));
+  const currentOnClose = useCallback(
+    /**
+     * @param {React.MouseEvent | undefined} e
+     * @param {UtahDesignSystemContextBanner} banner
+     */
+    (e, banner) => {
+      if (banner.onClose) {
+        banner.onClose(e);
+      } else {
+        removeBanner(banner);
+      }
+      if (banner.id) {
+        clearTimeout(timers[banner.id]);
+      }
+    },
+    [removeBanner, timers]
+  );
 
   useEffect(() => {
-    const draftZones = {};
+    const draftZones = /** @type {Object.<string, UtahDesignSystemContextBanner[]>} */ ({});
     const uniqueZones = [...new Set(banners.map((banner) => banner.position))];
-    uniqueZones.forEach((zone) => { draftZones[zone] = []; });
+    uniqueZones.forEach((zone) => {
+      if (zone) {
+        // @ts-ignore
+        draftZones[zone] = [];
+      }
+    });
     banners.forEach((banner) => {
       const duration = banner.duration || bannerDuration;
       if (duration && !timers[banner.id]) {
@@ -42,6 +56,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
           currentOnClose(undefined, banner);
         }, duration);
       }
+      // @ts-ignore
       draftZones[banner.position].push(banner);
     });
     setZones(draftZones);
@@ -62,7 +77,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
           className={joinClassNames(`banner-global__${zone}`, 'banner-global__zone')}
           key={`banner-global__${zone}`}
         >
-          {zones[zone].map((banner) => (
+          {zones[zone]?.map((banner) => (
             <Banner
               key={`banner-${banner.id}`}
               id={`banner-${banner.id}`}

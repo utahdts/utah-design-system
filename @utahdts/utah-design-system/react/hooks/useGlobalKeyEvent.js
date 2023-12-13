@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
  * @template KeyboardEventHandlerT
  * @param {Object} params
  * @param {string} params.whichKeyCode
- * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} params.onKeyDown
- * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} params.onKeyUp
+ * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyDown]
+ * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyUp]
  */
 export default function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
   const [keyPressed, setKeyPressed] = useState(false);

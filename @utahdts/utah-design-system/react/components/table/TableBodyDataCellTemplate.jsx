@@ -17,8 +17,8 @@ import { TableCell } from './TableCell';
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event, record: TableDataT})) => void)} [props.onClick]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event, record: TableDataT})) => void)} [props.onDoubleClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onDoubleClick]
  * @param {string} [props.recordFieldPath] the field path in the record to the data to render in the <td>; ie 'person.contact.address.city'
  * @returns {JSX.Element}
  */

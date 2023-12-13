@@ -9,8 +9,6 @@ import useFormContext from './useFormContext';
  * @typedef {import('react').FormEvent<FormEventT>} FormEvent
  */
 
-/** @typedef {import('@utahdts/utah-design-system').Event} Event */
-/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /**
  * @template FormContextT
  * @template ValueT
@@ -31,7 +29,7 @@ import useFormContext from './useFormContext';
  * @param {FormEvent<HTMLInputElement>} [param.onChange] when component changes, call this (e) => void
  * @param {FormEvent<HTMLInputElement>} [param.onKeyUp] when component changes, call this (e) => void
  * @param {FormEvent<HTMLInputElement>} [param.onClear] when component "clears", call this (e) => void
- * @param {(e?: Event) => void} [param.onSubmit] call on enter key pressed, or other (e) => void event
+ * @param {(e?: KeyboardEvent) => void} [param.onSubmit] call on enter key pressed, or other (e) => void event
  * @param {ValueT} [param.value] current value of the component
  * @returns {useFormContextInputResult<FormContextT, ValueT>} parameters w/ default form context values
  */
@@ -53,7 +51,7 @@ export default function useFormContextInput({
 
   const internalOnChange = useCallback(
     (
-      /** @param {Event} e */
+      /** @param {React.KeyboardEvent} e */
       (e) => {
         // input component didn't supply an onChange so try to handle it automagically
         let newValue = e?.target?.value;
@@ -71,7 +69,7 @@ export default function useFormContextInput({
   const internalOnKeyUp = useOnKeyUp('Enter', () => currentOnSubmit?.());
 
   const internalOnClear = useCallback(
-    /** @param {Event} e */
+    /** @param {React.KeyboardEvent} e */
     (e) => contextOnChange?.({ e, fieldPath: id, value: '' }),
     [contextOnChange, id]
   );

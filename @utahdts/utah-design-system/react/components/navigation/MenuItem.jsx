@@ -2,28 +2,28 @@ import { useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import useStateEffect from '../../hooks/useStateEffect';
-import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import joinClassNames from '../../util/joinClassNames';
 import IconButton from '../buttons/IconButton';
 import Icons from '../icons/Icons';
 
-const propTypes = {
-  currentMenuItem: MenuItemShape,
-  menuItem: MenuItemShape.isRequired,
-};
-const defaultProps = {
-  currentMenuItem: null,
-};
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
-function MenuItem({ currentMenuItem, menuItem }) {
+/**
+ * @param {Object} props
+ * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
+ * @param {WebsiteMainMenuItem} props.menuItem
+ * @returns {JSX.Element}
+ */
+export function MenuItem({ currentMenuItem, menuItem }) {
   const { pathname } = useLocation();
   // check if any of this menuItem's children are the currently open page/menuItem and if so, then keep this menuItem's children list open
-  const [isChildrenOpen, setIsChildrenOpen] = useStateEffect({
-    calculateValueFn: (isChildrenOpenPreviously) => isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link),
+  const [isChildrenOpen, setIsChildrenOpen] = /** @type {typeof useStateEffect<boolean>} */ (useStateEffect)({
+    calculateValueFn: (isChildrenOpenPreviously) => !!(isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')),
     dependencyList: [currentMenuItem, menuItem, pathname],
   });
 
-  const navLinkRef = useRef(null);
+  const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
 
   useLayoutEffect(
     () => {
@@ -62,7 +62,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
             : (
               <NavLink
                 className={(navData) => joinClassNames(
-                  (currentMenuItem?.parentLinks?.includes(menuItem.link) || navData.isActive)
+                  (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
                   && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
                 )}
                 end
@@ -114,8 +114,3 @@ function MenuItem({ currentMenuItem, menuItem }) {
     </li>
   );
 }
-
-MenuItem.propTypes = propTypes;
-MenuItem.defaultProps = defaultProps;
-
-export default MenuItem;

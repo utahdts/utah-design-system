@@ -6,15 +6,13 @@ import setValueAtPath from '../../util/state/setValueAtPath';
 import uuidv4 from '../../util/uuidv4';
 import FormContextProvider from './FormContext/FormContextProvider';
 
-/** @typedef {import('@utahdts/utah-design-system').Event} Event */
-
 /**
  * @template FormContextStateT
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @param {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} [props.onChange]
- * @param {(e?: Event) => void} [props.onSubmit]
+ * @param {({e, fieldPath, value}: {e?: React.KeyboardEvent, fieldPath: string, value: any}) => void} [props.onChange]
+ * @param {(e?: React.KeyboardEvent) => void} [props.onSubmit]
  * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
  * @param {FormContextStateT} [props.state]
  * @returns {JSX.Element}

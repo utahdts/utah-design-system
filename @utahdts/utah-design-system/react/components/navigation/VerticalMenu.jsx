@@ -1,41 +1,39 @@
-import PropTypes from 'prop-types';
-import MenuItemShape from '../../propTypesShapes/MenuItemShape';
-import MenuShape from '../../propTypesShapes/MenuShape';
 import joinClassNames from '../../util/joinClassNames';
-import MenuItem from './MenuItem';
+import { MenuItem } from './MenuItem';
 
-const propTypes = {
-  currentMenuItem: MenuItemShape,
-  menus: PropTypes.arrayOf(MenuShape).isRequired,
-};
-const defaultProps = {
-  currentMenuItem: null,
-};
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
-function VerticalMenu({ currentMenuItem, menus }) {
+/**
+ * @param {Object} props
+ * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
+ * @param {WebsiteMainMenu[]} props.menus
+ * @returns {JSX.Element}
+ */
+export function VerticalMenu({ currentMenuItem, menus }) {
   return (
-    menus.map((menu) => {
-      const TitleTagName = menu.titleTagName || 'h2';
-      return (
-        <nav className="menu-side-panel" key={`side-panel-navigation-menu__${menu.id}`} aria-labelledby={menu.id}>
-          <TitleTagName
-            id={menu.id}
-            className={joinClassNames(menu.titleTagClassName, 'menu-side-panel__header')}
-          >
-            {menu.header}
-          </TitleTagName>
-          <ul key={`side-panel-navigation-menu__${menu.id}`} role="menu">
-            {menu.menuItems.map((menuItem) => (
-              <MenuItem currentMenuItem={currentMenuItem} menuItem={menuItem} key={`menu-side-panel__menu-item__${menuItem.link}-${menuItem.title}}`} />
-            ))}
-          </ul>
-        </nav>
-      );
-    })
+    <>
+      {
+        menus.map((menu) => {
+          const TitleTagName = menu.titleTagName || 'h2';
+          return (
+            <nav className="menu-side-panel" key={`side-panel-navigation-menu__${menu.id}`} aria-labelledby={menu.id}>
+              {/* @ts-ignore */}
+              <TitleTagName
+                id={menu.id}
+                className={joinClassNames(menu.titleTagClassName, 'menu-side-panel__header')}
+              >
+                {menu.header}
+              </TitleTagName>
+              <ul key={`side-panel-navigation-menu__${menu.id}`} role="menu">
+                {menu.menuItems.map((menuItem) => (
+                  <MenuItem currentMenuItem={currentMenuItem} menuItem={menuItem} key={`menu-side-panel__menu-item__${menuItem.link}-${menuItem.title}}`} />
+                ))}
+              </ul>
+            </nav>
+          );
+        })
+      }
+    </>
   );
 }
-
-VerticalMenu.propTypes = propTypes;
-VerticalMenu.defaultProps = defaultProps;
-
-export default VerticalMenu;

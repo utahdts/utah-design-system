@@ -1,14 +1,13 @@
-import RefShape from '../../propTypesShapes/RefShape';
-import OnThisPageHeadersLevel from './OnThisPageHeadersLevel';
+import { OnThisPageHeadersLevel } from './OnThisPageHeadersLevel';
 import findElementsByTagNameMatch from './util/findElementsByTagNameMatch';
 import groupElementsByHeaderLevel from './util/groupElementsByHeaderLevel';
 
-const propTypes = {
-  contentRef: RefShape.isRequired,
-};
-const defaultProps = {};
-
-function OnThisPage({ contentRef }) {
+/**
+ * @param {Object} props
+ * @param {React.MutableRefObject<Element>} props.contentRef
+ * @returns {JSX.Element}
+ */
+export function OnThisPage({ contentRef }) {
   const headers = findElementsByTagNameMatch(contentRef.current);
   const headersTree = groupElementsByHeaderLevel(headers);
 
@@ -33,8 +32,3 @@ function OnThisPage({ contentRef }) {
     </div>
   );
 }
-
-OnThisPage.propTypes = propTypes;
-OnThisPage.defaultProps = defaultProps;
-
-export default OnThisPage;

@@ -3,9 +3,11 @@ import useStateEffect from '../../../../hooks/useStateEffect';
 /**
  * companion to <Pagination>, hook for slicing a list based on the current page number
  *
- * @param {list} array list of items
- * @param {pageIndex} number current page index (0-based)
- * @param {itemsPerPage} number how many items are on each page
+ * @template ListT
+ * @param {Object} props
+ * @param {ListT[]} props.list list of items
+ * @param {number} props.pageIndex current page index (0-based)
+ * @param {number} props.itemsPerPage how many items are on each page
  * @returns new list starting at the given page number
  */
 export default function usePaginatedList({ list, pageIndex, itemsPerPage }) {

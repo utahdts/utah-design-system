@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import MenuItemShape from '../../propTypesShapes/MenuItemShape';
 import MenuShape from '../../propTypesShapes/MenuShape';
 import joinClassNames from '../../util/joinClassNames';
-import MenuItem from './MenuItem';
+import { MenuItem } from './MenuItem';
 
 const propTypes = {
   className: PropTypes.string,

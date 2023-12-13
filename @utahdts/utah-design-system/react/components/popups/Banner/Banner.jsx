@@ -5,15 +5,14 @@ import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import IconButton from '../../buttons/IconButton';
 import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
 
-/** @typedef {import('../../../jsDocTypes').EventAction} EventAction */
-/** @typedef {import('../../../jsDocTypes').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 /**
  * @param {Object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id
  * @param {React.Ref<HTMLDivElement>} [props.innerRef]
- * @param {import('react').MouseEventHandler<HTMLButtonElement>} props.onClose
+ * @param {React.MouseEventHandler} props.onClose
  * @param {BannerPlacement} [props.position]
  * * @returns {JSX.Element}
  */

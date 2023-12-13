@@ -22,7 +22,7 @@ import useFormContext from './FormContext/useFormContext';
  * @param {string} [props.labelOn]
  * @param {string} [props.labelOff]
  * @param {string} [props.name]
- * @param {((e: Event) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
+ * @param {((e: React.KeyboardEvent) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
  * @param {React.ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]

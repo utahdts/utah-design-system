@@ -65,15 +65,15 @@ const defaultProps = {
 /**
  * @param {Object} props
  * @param {IconButtonAppearance} [props.appearance]
- * @param {string | null | undefined} [props.className]
- * @param {'primary' | 'secondary' | 'accent' | 'none' | undefined} [props.color]
+ * @param {string} [props.className]
+ * @param {'primary' | 'secondary' | 'accent' | 'none'} [props.color]
  * @param {import('react').ReactNode} props.icon
- * @param {string | null | undefined} [props.id]
+ * @param {string} [props.id]
  * @param {React.MutableRefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isTitleVisible]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
- * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x' | undefined} [props.size]
+ * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x'} [props.size]
  * @param {string} props.title
  * @param {string | null} [props.tooltipText]
  * @returns {JSX.Element}

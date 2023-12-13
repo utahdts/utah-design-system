@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 // Improved version of https://usehooks.com/useOnClickOutside/
 /**
  * @param {React.RefObject<HTMLElement>} ref
- * @param {(e: Event) => void} handler
+ * @param {React.KeyboardEventHandler} handler
  * @param {boolean} isDisabled
  */
 function useClickOutside(ref, handler, isDisabled = false) {
@@ -25,6 +25,7 @@ function useClickOutside(ref, handler, isDisabled = false) {
             // @ts-ignore
             && (ref.current && !ref.current.contains(event.target))
           ) {
+            // @ts-ignore
             handler(event);
           }
         };

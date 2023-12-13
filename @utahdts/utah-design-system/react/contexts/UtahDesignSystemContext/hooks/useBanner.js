@@ -3,8 +3,8 @@ import { useCallback, useMemo } from 'react';
 import useUtahDesignSystemContext from '../useUtahDesignSystemContext';
 import uuidv4 from '../../../util/uuidv4';
 
-/** @typedef {import('../../../jsDocTypes').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
-/** @typedef {import('../../../jsDocTypes').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
 /**
  * @returns {{
  * addBanner: function(UtahDesignSystemContextBanner): void,
@@ -17,13 +17,13 @@ export function useBanner() {
   // eslint-disable-next-line function-paren-newline
   const addBanner = useCallback(
     /**
-     * @param {string} [className]
-     * @param {number} [duration]
-     * @param {string} [id]
-     * @param {HTMLElement} [icon]
-     * @param {HTMLElement | string} message
-     * @param {string} [position]
-     * @returns {void}
+     * @param {Object} props
+     * @param {string} [props.className]
+     * @param {number} [props.duration]
+     * @param {string} [props.id]
+     * @param {React.ReactNode} [props.icon]
+     * @param {React.ReactNode} props.message
+     * @param {BannerPlacement} [props.position]
      */
     ({
       className,
@@ -48,7 +48,7 @@ export function useBanner() {
   // eslint-disable-next-line function-paren-newline
   const removeBanner = useCallback(
     /**
-     * @param {UtahDesignSystemContextValue} banner
+     * @param {UtahDesignSystemContextBanner} banner
      * @returns {void}
      */
     (banner) => {

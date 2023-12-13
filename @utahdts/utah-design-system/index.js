@@ -43,9 +43,9 @@ export { default as joinClassNames } from './react/util/joinClassNames';
 export { LandingTemplate } from './react/components/templates/LandingTemplate';
 export { default as LinkCallback } from './react/components/navigation/LinkCallback';
 export { MainContent } from './react/components/templates/MainContent';
-export { default as OnThisPage } from './react/components/navigation/OnThisPage';
-export { default as Pagination } from './react/components/navigation/pagination/Pagination';
-export { default as Popup } from './react/components/popups/Popup';
+export { OnThisPage } from './react/components/navigation/OnThisPage';
+export { Pagination } from './react/components/navigation/pagination/Pagination';
+export { Popup } from './react/components/popups/Popup';
 export { default as popupPlacement } from './react/enums/popupPlacement';
 export { default as rectContainsPoint } from './react/util/rectContainsPoint';
 export { RadioButton } from './react/components/forms/RadioButton/RadioButton';
@@ -112,6 +112,6 @@ export { default as UtahDesignSystemContextProvider } from './react/contexts/Uta
 export { default as UtahHeaderContext } from './react/contexts/utahHeaderContext/UtahHeaderContext';
 export { UtahHeaderContextProvider } from './react/contexts/utahHeaderContext/UtahHeaderContextProvider';
 export { default as valueAtPath } from './react/util/state/valueAtPath';
-export { default as VerticalMenu } from './react/components/navigation/VerticalMenu';
+export { VerticalMenu } from './react/components/navigation/VerticalMenu';
 
 export const { version } = packageJson;

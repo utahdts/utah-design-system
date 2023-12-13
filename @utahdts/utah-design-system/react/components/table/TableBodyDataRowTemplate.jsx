@@ -16,8 +16,8 @@ import { TableRow } from './TableRow';
  * @param {React.ReactNode} props.children
  * @param {((rowContextData: TableBodyDataRowContextValue<TableDataT>) => string) | string} [props.className]
  * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void)} [props.onClick]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void)} [props.onDoubleClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent})) => void)} [props.onClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent})) => void)} [props.onDoubleClick]
  * @returns {JSX.Element}
  */
 export function TableBodyDataRowTemplate({

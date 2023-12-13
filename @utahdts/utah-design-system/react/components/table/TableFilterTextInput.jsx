@@ -12,7 +12,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {boolean} [props.exactMatch]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {((e: EventAction) => void)} [props.onChange]
+ * @param {((e: React.KeyboardEvent) => (string | void | undefined))} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
  * @returns {JSX.Element}
@@ -34,7 +34,8 @@ export function TableFilterTextInput({
     setValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    defaultOnChange: (e) => e.target.value,
+    // @ts-ignore
+    defaultOnChange: (e) => e.target?.value,
     defaultValue,
     onChange,
     value,

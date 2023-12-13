@@ -38,6 +38,7 @@ export function TableFilterSelectAllOptions({
     currentValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
+    // @ts-ignore
     defaultOnChange: (e) => e.target.value,
     defaultValue,
     onChange,
