@@ -25,7 +25,7 @@ export { ConfirmationButton } from './react/components/buttons/ConfirmationButto
 export { ConfirmationChildren } from './react/components/buttons/ConfirmationButton/ConfirmationChildren';
 export { InitialChildren } from './react/components/buttons/ConfirmationButton/InitialChildren';
 export { DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
-export { default as ExternalLink } from './react/components/navigation/ExternalLink';
+export { ExternalLink } from './react/components/navigation/ExternalLink';
 export { default as FooterAgencyInformation } from './react/components/footer/FooterAgencyInformation';
 export { default as FooterAgencyInformationColumn } from './react/components/footer/FooterAgencyInformationColumn';
 export { default as FooterAgencyInformationInfo } from './react/components/footer/FooterAgencyInformationInfo';
@@ -36,12 +36,12 @@ export { default as FormContextProvider } from './react/components/forms/FormCon
 export { default as formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { default as handleEvent } from './react/util/handleEvent';
 export { default as handleKeyPress } from './react/util/handleKeyPress';
-export { default as HorizontalMenu } from './react/components/navigation/HorizontalMenu';
+export { HorizontalMenu } from './react/components/navigation/HorizontalMenu';
 export { default as IconButton } from './react/components/buttons/IconButton';
 export { default as Icons } from './react/components/icons/Icons';
 export { default as joinClassNames } from './react/util/joinClassNames';
 export { LandingTemplate } from './react/components/templates/LandingTemplate';
-export { default as LinkCallback } from './react/components/navigation/LinkCallback';
+export { LinkCallback } from './react/components/navigation/LinkCallback';
 export { MainContent } from './react/components/templates/MainContent';
 export { OnThisPage } from './react/components/navigation/OnThisPage';
 export { Pagination } from './react/components/navigation/pagination/Pagination';

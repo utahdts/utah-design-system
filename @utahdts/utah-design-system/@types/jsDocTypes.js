@@ -37,8 +37,24 @@
  */
 
 /**
+ * IconFunc
+ * @typedef {(props: {className?: string, altText?: string}) => React.ReactNode} IconFunc
+ */
+
+/**
  * BannerPlacement
  * @typedef {'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right'} BannerPlacement
+ */
+
+/**
+ * these match the popper's position options
+ * PopupPlacement
+ * @typedef {'auto' | 'auto-start' | 'auto-end' |
+ *   'bottom' | 'bottom-start' | 'bottom-end' |
+ *    'left' | 'left-start' | 'left-end' |
+ *    'right' | 'right-start' | 'right-end' |
+ *    'top' | 'top-start' | 'top-end'
+ * } PopupPlacement
  */
 
 /**
@@ -106,8 +122,8 @@
 /**
  * @template FormStateT
  * @typedef FormContextValue {
- *  @property {({e, fieldPath, value}: {e?: React.KeyboardEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {(e?: React.KeyboardEvent) => void} [onSubmit] submit the form
+ *  @property {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
+ *  @property {React.ChangeEventHandler<HTMLElement>} [onSubmit] submit the form
  *  @property {FormStateT} [state] current values of all the form elements
  *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
  * }
@@ -116,10 +132,11 @@
 /**
  * @template FormContextT
  * @template ValueT
+ * @template HTMLElementT
  * @typedef useFormContextInputResult {
- *  @property {UIEvent} [onChange]
- *  @property {UIEvent} [onClear]
- *  @property {() => void} [onSubmit]
+ *  @property {React.ChangeEventHandler<HTMLElementT>} [onChange]
+ *  @property {React.UIEventHandler<HTMLElementT>} [onClear]
+ *  @property {React.ChangeEventHandler<HTMLElementT>} [onSubmit]
  *  @property {ValueT} [value]
  *  @property {KeyboardEvent} onFormKeyUp
  *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements

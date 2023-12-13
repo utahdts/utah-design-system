@@ -22,7 +22,7 @@ function MockupNavButton({ pageLinks }) {
             to={pageLink.url}
           >
             View {pageLink.title} Page
-            <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
+            <span className="button--icon button--icon-right"><Icons.IconArrowRight /></span>
           </Link>
         ))
       }

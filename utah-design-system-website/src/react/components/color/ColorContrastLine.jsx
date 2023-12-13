@@ -65,7 +65,7 @@ function ColorContrast({
         <div className="color-contrast__contrast-container">
           <div className="color-contrast__contrast">{contrastInfo.contrast}:1</div>
           <div className="color-contrast__rating">
-            {contrastInfo.rating === RATINGS.BAD ? Icons.IconChevron() : contrastInfo.rating}
+            {contrastInfo.rating === RATINGS.BAD ? <Icons.IconChevron /> : contrastInfo.rating}
           </div>
         </div>
       </div>

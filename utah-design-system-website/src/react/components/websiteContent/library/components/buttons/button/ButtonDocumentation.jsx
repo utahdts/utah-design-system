@@ -202,7 +202,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              iconRight={Icons.IconArrowRight()}
+              iconRight={<Icons.IconArrowRight />}
               onClick={useCallback(() => addBanner({ message: '`See More` button clicked' }), [addBanner])}
             >
               See More
@@ -419,9 +419,9 @@ function ButtonDocumentation() {
           <ul>
             <li>
               Use the button style if it also includes a visual indicator such as an arrow icon.
-              For example <code>Read More {Icons.IconArrowRight()}</code>.
+              For example <code>Read More <Icons.IconArrowRight /></code>.
             </li>
-            <li>Use the button style for a call to action. For example, <code>Register Now {Icons.IconArrowRight()}</code>.</li>
+            <li>Use the button style for a call to action. For example, <code>Register Now <Icons.IconArrowRight /></code>.</li>
           </ul>
         </li>
       </ul>

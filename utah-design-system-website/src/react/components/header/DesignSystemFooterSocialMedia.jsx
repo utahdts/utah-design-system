@@ -23,7 +23,7 @@ function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        {Icons.IconEnvelope()}
+        <Icons.IconEnvelope />
         <span className="visually-hidden">Email us, opens in a new tab</span>
       </a>
       <a
@@ -32,7 +32,7 @@ function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        {Icons.IconSlack()}
+        <Icons.IconSlack />
         <span className="visually-hidden">Utah Design System Slack, opens in a new tab</span>
       </a>
       <a
@@ -41,7 +41,7 @@ function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        {Icons.IconGitHub()}
+        <Icons.IconGitHub />
         <span className="visually-hidden">Utah Design System Git Hub, opens in a new tab</span>
       </a>
     </FooterSocialMediaBar>

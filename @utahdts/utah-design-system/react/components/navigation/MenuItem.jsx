@@ -87,7 +87,7 @@ export function MenuItem({ currentMenuItem, menuItem }) {
                   isChildrenOpen && 'menu-item__chevron--open'
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                icon={Icons.IconChevron()}
+                icon={<Icons.IconChevron />}
                 title="Expand sub-menu"
               />
             )

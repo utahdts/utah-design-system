@@ -132,8 +132,8 @@ export function TagsDocumentation() {
               <Tag iconRight={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}>Right</Tag>
             </div>
             <div className="flex gap-s">
-              <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconSlack()} className="tag--primary-color">Slack</Tag>
-              <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconGitHub()} className="tag--primary-color">GitHub</Tag>
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={<Icons.IconSlack />} className="tag--primary-color">Slack</Tag>
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={<Icons.IconGitHub />} className="tag--primary-color">GitHub</Tag>
             </div>
           </div>
         )}

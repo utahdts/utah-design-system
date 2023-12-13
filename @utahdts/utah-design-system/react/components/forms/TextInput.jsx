@@ -8,24 +8,22 @@ import IconButton from '../buttons/IconButton';
 import ErrorMessage from './ErrorMessage';
 import RequiredStar from './RequiredStar';
 
-/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
-
 /**
  * @param {Object} props
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form, the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
- * @param {((element: HTMLDivElement) => void) | React.MutableRefObject} [props.innerRef]
+ * @param {React.MutableRefObject<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {EventAction} [props.onChange] e => ... do something with e.target.value ...; can be omitted to be uncontrolled OR controlled by form
- * @param {EventAction} [props.onKeyUp]
- * @param {EventAction} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
+ * @param {React.FormEventHandler} [props.onChange] can be omitted to be uncontrolled OR controlled by form
+ * @param {React.FormEventHandler} [props.onKeyUp]
+ * @param {React.FormEventHandler} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
  * @param {(() => void)} [props.onSubmit] when enter key pressed in field, this callback may be called
  * @param {string} [props.placeholder]
  * @param {React.ReactNode} [props.rightContent] custom content to put to the right of the text input

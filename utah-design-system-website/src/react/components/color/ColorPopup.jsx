@@ -106,7 +106,7 @@ function ColorPopup({ onClose }) {
             </div>
           </button>
           <IconButton
-            icon={Icons.IconReset()}
+            icon={<Icons.IconReset />}
             className="icon-button--borderless"
             title="Reset color picker"
             onClick={() => (
@@ -117,7 +117,7 @@ function ColorPopup({ onClose }) {
           />
           <div className="color-picker-popup__title">Color Picker</div>
           <IconButton
-            icon={Icons.IconShare()}
+            icon={<Icons.IconShare />}
             title={copiedUrlTitle}
             className="icon-button--borderless"
             onClick={() => {

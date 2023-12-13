@@ -12,7 +12,8 @@ import useFormContext from './useFormContext';
 /**
  * @template FormContextT
  * @template ValueT
- * @typedef {import('@utahdts/utah-design-system').useFormContextInputResult<FormContextT, ValueT>} useFormContextInputResult
+ * @template HTMLElementT
+ * @typedef {import('@utahdts/utah-design-system').useFormContextInputResult<FormContextT, ValueT, HTMLElementT>} useFormContextInputResult
  */
 
 /**
@@ -23,15 +24,16 @@ import useFormContext from './useFormContext';
  *
  * @template FormContextT
  * @template ValueT
+ * @template HTMLElementT
  * @param {Object} param
  * @param {ValueT} [param.defaultValue] starting value of the component
  * @param {string} param.id id of the component that is also the path to the data for the component in the form context
- * @param {FormEvent<HTMLInputElement>} [param.onChange] when component changes, call this (e) => void
- * @param {FormEvent<HTMLInputElement>} [param.onKeyUp] when component changes, call this (e) => void
- * @param {FormEvent<HTMLInputElement>} [param.onClear] when component "clears", call this (e) => void
- * @param {(e?: KeyboardEvent) => void} [param.onSubmit] call on enter key pressed, or other (e) => void event
+ * @param {React.ChangeEventHandler<HTMLElementT>} [param.onChange] when component changes, call this (e) => void
+ * @param {React.KeyboardEventHandler<HTMLElementT>} [param.onKeyUp] when component changes, call this (e) => void
+ * @param {React.UIEventHandler<HTMLElementT>} [param.onClear] when component "clears", call this (e) => void
+ * @param {React.ChangeEventHandler<HTMLElementT>} [param.onSubmit] call on enter key pressed, or other (e) => void event
  * @param {ValueT} [param.value] current value of the component
- * @returns {useFormContextInputResult<FormContextT, ValueT>} parameters w/ default form context values
+ * @returns {useFormContextInputResult<FormContextT, ValueT, HTMLElementT>} parameters w/ default form context values
  */
 export default function useFormContextInput({
   defaultValue,
@@ -51,11 +53,12 @@ export default function useFormContextInput({
 
   const internalOnChange = useCallback(
     (
-      /** @param {React.KeyboardEvent} e */
+      /** @param {React.ChangeEvent<HTMLElementT>} e */
       (e) => {
         // input component didn't supply an onChange so try to handle it automagically
         let newValue = e?.target?.value;
         if (e?.target?.type === 'checkbox') {
+          // @ts-ignore
           newValue = e.target.checked;
         }
         // could also use setState; Form is doing this anyways; but do generic here and specific there
@@ -66,10 +69,11 @@ export default function useFormContextInput({
   );
 
   const currentOnSubmit = onSubmit ?? contextOnSubmit;
-  const internalOnKeyUp = useOnKeyUp('Enter', () => currentOnSubmit?.());
+  // @ts-ignore
+  const internalOnKeyUp = useOnKeyUp('Enter', (e) => currentOnSubmit?.(e));
 
   const internalOnClear = useCallback(
-    /** @param {React.KeyboardEvent} e */
+    /** @param {React.UIEvent<HTMLElementT>} e */
     (e) => contextOnChange?.({ e, fieldPath: id, value: '' }),
     [contextOnChange, id]
   );
@@ -78,7 +82,7 @@ export default function useFormContextInput({
     () => {
       let retValue = value;
       if (retValue === undefined) {
-        retValue = valueAtPath({ object: state, path: id });
+        retValue = valueAtPath({ object: state ?? null, path: id });
       }
       if (retValue === undefined) {
         // if an onChange is provided then it's meant to be controlled, so start with this value

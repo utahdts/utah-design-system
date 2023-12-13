@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types';
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string.isRequired,
-};
-const defaultProps = {};
-
-function ExternalLink({ children, href, ...rest }) {
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} props.href
+ * @returns {JSX.Element}
+ */
+export function ExternalLink({ children, href, ...rest }) {
   return (
     <a href={href} target="_blank" rel="noreferrer" {...rest}>
       {children}&#8239;
@@ -17,8 +15,3 @@ function ExternalLink({ children, href, ...rest }) {
     </a>
   );
 }
-
-ExternalLink.propTypes = propTypes;
-ExternalLink.defaultProps = defaultProps;
-
-export default ExternalLink;
