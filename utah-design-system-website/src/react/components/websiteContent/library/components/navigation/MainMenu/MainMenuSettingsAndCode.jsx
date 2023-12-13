@@ -94,6 +94,19 @@ function MainMenuSettingsAndCode() {
 
             <TableRow>
               <TableCell>
+                <span className="prop__description"><a href="#section-auth-menu-items">mainMenu.menuItems[].actionUrl.skipHandleEvent</a></span><br />
+                <span className="prop__types">boolean</span>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  This flag allows the action url to be clicked if it has menu items. MenuItems take over the event, preventing clicking. WordPress menus have menus
+                  that are both clickable and have children, but for the best user experience, most menus should either be clickable or have children.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
                 <span className="prop__description"><a href="#section-mainMenu">mainMenu.menuItems[].actionFunction</a></span><br />
                 <span className="prop__types">function</span>
               </TableCell>

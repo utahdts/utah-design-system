@@ -1,5 +1,5 @@
 // @ts-check
-import { Icons, Tag, useBanner } from '@utahdts/utah-design-system';
+import { Tag, useBanner } from '@utahdts/utah-design-system';
 import React from 'react';
 
 /** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
@@ -32,8 +32,8 @@ export function TagExampleRender({
   return (
     <Tag
       className={className}
-      iconLeft={((iconLeft === 'none') || !iconLeft) ? null : Icons[iconLeft]()}
-      iconRight={((iconRight === 'none') || !iconRight) ? null : Icons[iconRight]()}
+      iconLeft={((iconLeft === 'none') || !iconLeft) ? null : <span className={`utds-icon-before-${iconLeft}`} aria-hidden="true" />}
+      iconRight={((iconRight === 'none') || !iconRight) ? null : <span className={`utds-icon-before-${iconRight}`} aria-hidden="true" />}
       id={id}
       innerRef={innerRef}
       isDisabled={isDisabled}

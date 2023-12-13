@@ -1,49 +1,28 @@
 // @ts-check
-import castArray from 'lodash/castArray';
-import identity from 'lodash/identity';
-import PropTypes from 'prop-types';
+import { castArray, identity, isEqual } from 'lodash';
 import React, { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
-import { isEqual } from 'lodash';
-import TablePaginationShape from '../../propTypesShapes/TablePaginationShape';
-import chainSorters from '../../util/chainSorters';
-import valueAtPath from '../../util/state/valueAtPath';
-import TableBodyDataRowContext from './TableBodyDataRowContext';
-import useTableContext from './hooks/useTableContext';
-import convertRecordsToFilterValue from './util/convertRecordsToFilterValue';
-import createTableFilterFunctions from './util/createTableFilterFunctions';
-import filterTableRecords from './util/filterTableRecords';
-import notNullMap from '../../util/notNullMap';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import chainSorters from '../../util/chainSorters';
+import notNullMap from '../../util/notNullMap';
+import valueAtPath from '../../util/state/valueAtPath';
 import trailingS from '../../util/trailingS';
-
-/** @typedef {import('../../jsDocTypes').TablePagination} TablePagination */
-
-const propTypes = {
-  // the TableBodyDataRowTemplate and TableBodyDataCellTemplate elements making up the repeatable section
-  children: PropTypes.node.isRequired,
-  pagination: TablePaginationShape,
-  // field on the record that provides the unique id of the record; uses pathing ie 'contact.address.zipCode'
-  recordIdField: PropTypes.string.isRequired,
-  // the data records to repeat in the children templates
-  records: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-};
-const defaultProps = {
-  pagination: null,
-};
+import { TableBodyDataRowContext } from './TableBodyDataRowContext';
+import { useTableContext } from './hooks/useTableContext';
+import { convertRecordsToFilterValue } from './util/convertRecordsToFilterValue';
+import { createTableFilterFunctions } from './util/createTableFilterFunctions';
+import { filterTableRecords } from './util/filterTableRecords';
 
 /**
  * @template RecordT
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {TablePagination | null} [props.pagination]
  * @param {string} props.recordIdField
  * @param {(RecordT & Object)[]} props.records
  * @returns {JSX.Element[] | null}
  */
-function TableBodyData({
+export function TableBodyData({
   children,
-  pagination = null,
   recordIdField,
   records,
 }) {
@@ -54,6 +33,7 @@ function TableBodyData({
     state: {
       currentSortingOrderIsDefault,
       filterValues,
+      pagination,
       sortingRules,
       tableSortingFieldPath,
       tableSortingFieldPaths,
@@ -61,6 +41,7 @@ function TableBodyData({
     setBodyData,
   } = useTableContext();
   const previousFilterValues = useRef(filterValues.value);
+  const [paginatedRecords, setPaginatedRecords] = useImmer(/** @type {{record: any, recordIndex: number, records: any}[]} */([]));
 
   useEffect(
     () => {
@@ -84,17 +65,28 @@ function TableBodyData({
       // @ts-ignore
       newRecordsForContext = filterTableRecords(recordsToFilter, filterRules);
 
-      let paginatedRecords = newRecordsForContext;
-      if (pagination) {
-        const startIndex = pagination.currentPageIndex * pagination.itemsPerPage;
-        paginatedRecords = newRecordsForContext.slice(startIndex, startIndex + pagination.itemsPerPage);
+      let paginationBeginIndex = (
+        pagination
+          ? pagination.currentPageIndex * pagination.pageSize
+          : 0
+      );
+      if (paginationBeginIndex >= newRecordsForContext.length) {
+        paginationBeginIndex = 0;
       }
+      const paginationEndIndex = (
+        pagination
+          ? paginationBeginIndex + pagination.pageSize
+          : newRecordsForContext.length
+      );
+
+      setPaginatedRecords(newRecordsForContext.slice(paginationBeginIndex, paginationEndIndex));
 
       // create forContexts once for the context provider to avoid recreating objects
-      setRecordsForContexts(paginatedRecords);
+      // @ts-ignore
+      setRecordsForContexts(newRecordsForContext);
 
       // register the current data with the TableContext for filtering and other table global data users
-      setBodyData(records, paginatedRecords);
+      setBodyData(records, newRecordsForContext);
 
       // only trigger the timer when the filters have changed
       if (!isEqual(filterValues.value, previousFilterValues.current)) {
@@ -103,18 +95,17 @@ function TableBodyData({
           timer.current = NaN;
         }
         timer.current = window.setTimeout(() => {
-          addPoliteMessage(`${paginatedRecords.length} record${trailingS(paginatedRecords.length)} shown after filtering`);
+          addPoliteMessage(`${newRecordsForContext.length} record${trailingS(newRecordsForContext.length)} shown after filtering`);
         }, 1500);
         previousFilterValues.current = filterValues.value;
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
-      addPoliteMessage,
       currentSortingOrderIsDefault,
       filterValues,
       pagination,
       records,
-      setRecordsForContexts,
       sortingRules,
       tableSortingFieldPath,
       tableSortingFieldPaths,
@@ -125,7 +116,7 @@ function TableBodyData({
     recordsForContexts?.length
       ? (
         // repeat the Row/Cell templates for each record
-        recordsForContexts?.map((recordForContext) => (
+        paginatedRecords?.map((recordForContext) => (
           <TableBodyDataRowContext.Provider value={recordForContext} key={`table-body-data-${valueAtPath({ object: recordForContext.record, path: recordIdField })}`}>
             {children}
           </TableBodyDataRowContext.Provider>
@@ -134,8 +125,3 @@ function TableBodyData({
       : null
   );
 }
-
-TableBodyData.propTypes = propTypes;
-TableBodyData.defaultProps = defaultProps;
-
-export default TableBodyData;

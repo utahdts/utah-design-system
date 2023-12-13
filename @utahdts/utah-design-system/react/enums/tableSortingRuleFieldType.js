@@ -2,7 +2,7 @@
 /** @typedef {import('../jsDocTypes').TableSortingRuleFieldType} TableSortingRuleFieldType */
 
 /** @enum {TableSortingRuleFieldType} */
-export default {
+export const tableSortingRuleFieldType = {
   // compares dates as Date() objects
   // dates represented by an ISO string should use the STRING enum value
   DATE: /** @type {TableSortingRuleFieldType} */ ('date'),

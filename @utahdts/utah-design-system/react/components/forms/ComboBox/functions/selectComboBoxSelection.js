@@ -4,10 +4,10 @@
 
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
- * @param {import('react').MutableRefObject<HTMLInputElement | null>} textInputRef
+ * @param {HTMLInputElement | null} textInput
  * @param {(() => void) | undefined} onSubmit
  */
-export function selectComboBoxSelection(draftContext, textInputRef, onSubmit) {
+export function selectComboBoxSelection(draftContext, textInput, onSubmit) {
   draftContext.optionValueFocused = null;
 
   if (draftContext.isOptionsExpanded) {
@@ -27,14 +27,14 @@ export function selectComboBoxSelection(draftContext, textInputRef, onSubmit) {
         () => {
           // move cursor to end after clicking an option so it can be edited
           // take the update of the selection out of the loop so the state updates before it moves the cursor
-          textInputRef.current?.setSelectionRange(selectedOptionLabel.length, selectedOptionLabel.length);
-          textInputRef.current?.focus();
+          textInput?.setSelectionRange(selectedOptionLabel.length, selectedOptionLabel.length);
+          textInput?.focus();
         },
         0
       );
     }
   } else {
-    textInputRef.current?.focus();
+    textInput?.focus();
     onSubmit?.();
   }
 }

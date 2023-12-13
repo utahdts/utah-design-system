@@ -179,8 +179,10 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
       const wasAlreadyOpen = button.getAttribute('aria-expanded') === 'true';
       // for click popups
       if (!options?.isPerformPopup || options.isPerformPopup()) {
-        e.stopPropagation();
-        e.preventDefault();
+        if (!options?.skipHandleEvent) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
         /*
            ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
           |   \   / _ \  | \| | ( ) |_   _|   |_   _|  / _ \  | | | |  / __| | || |

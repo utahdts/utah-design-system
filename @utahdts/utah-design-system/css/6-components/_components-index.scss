@@ -16,6 +16,7 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/forms/input-wrapper";
 @use "base-components/forms/text-area";
 @use "base-components/forms/text-input";
+@use "base-components/forms/combo-box-input";
 @use "base-components/forms/character-count";
 @use "base-components/forms/checkbox";
 @use "base-components/forms/select-input";
@@ -30,6 +31,7 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/navigation/skip-link";
 @use "base-components/navigation/vertical-menu";
 @use "base-components/navigation/mega-menu";
+@use "base-components/popups/banner";
 @use "base-components/popups/popups";
 @use "base-components/popups/tooltips";
 @use "base-components/popups/modal";

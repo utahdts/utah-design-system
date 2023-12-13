@@ -9,7 +9,7 @@
  * @param {Object.<string, TableFilterValue>} filterValues the filters
  * @returns {Object.<string, TableFilterFunction>} a function for each filter key that takes a value and determines if it matches the filter
  */
-export default function createTableFilterFunctions(filterValues) {
+export function createTableFilterFunctions(filterValues) {
   return (
     Object.fromEntries(
       Object.entries(filterValues || {})

@@ -1,49 +1,29 @@
 // @ts-check
-import PropTypes from 'prop-types';
 import { useContext, useEffect } from 'react';
-import tableSortingRuleFieldType from '../../enums/tableSortingRuleFieldType';
-import TableContext from './util/TableContext';
+import { TableContext } from './util/TableContext';
 
 /**
  * @template DataT
  * @typedef {import('../../jsDocTypes').TableSortingFunc<DataT>} TableSortingFunc
  */
 
-const propTypes = {
-  // the A11y notification to be read when this sort rule is applied
-  a11yLabel: PropTypes.string.isRequired,
-  // should be a function that does sorting
-  // ({ fieldValueA, fieldValueB, recordA, recordB, records }) => (a < b ? -1 : a > b ? 1 : 0)
-  customSort: PropTypes.func,
-  // should the field sort ascending by default
-  defaultIsAscending: PropTypes.bool,
-  // what type of data is in this field so it knows how to sort it
-  fieldType: PropTypes.oneOf(Object.values(tableSortingRuleFieldType)),
-  // recordFieldPath should match with a recordFieldPath for a <TableHeadCell> in the table
-  // OR as one of the tableSortingFieldPaths in a<TableHeadCell>
-  // if your records need a calculated field, it is suggested to calculate the value and store it on the record and set this path to the
-  // calculated value's path. This way the value does not have to be recalculated on every render.
-  recordFieldPath: PropTypes.string.isRequired,
-};
-const defaultProps = {
-  customSort: null,
-  defaultIsAscending: true,
-  fieldType: 'string',
-};
-
 /**
  * @template TableDataT
  * @param {Object} props
- * @param {string} props.a11yLabel
- * @param {TableSortingFunc<TableDataT> | null} props.customSort
- * @param {Object} props.defaultIsAscending
- * @param {Object} props.fieldType
- * @param {Object} props.recordFieldPath
+ * @param {string} props.a11yLabel the A11y notification to be read when this sort rule is applied
+ * @param {TableSortingFunc<TableDataT>} [props.customSort] should be a function that does sorting
+ * @param {Object} [props.defaultIsAscending] should the field sort ascending by default
+ * @param {Object} [props.fieldType] what type of data is in this field so it knows how to sort it
+ * @param {Object} [props.recordFieldPath]
+ *   recordFieldPath should match with a recordFieldPath for a <TableHeadCell> in the table
+ *   OR as one of the tableSortingFieldPaths in a<TableHeadCell>
+ *   if your records need a calculated field, it is suggested to calculate the value and store it on the record and set this path to the
+ *   calculated value's path. This way the value does not have to be recalculated on every render.
  * @returns {null}
  */
-function TableSortingRule({
+export function TableSortingRule({
   a11yLabel,
-  customSort = null,
+  customSort,
   defaultIsAscending = true,
   fieldType = 'string',
   recordFieldPath,
@@ -56,7 +36,7 @@ function TableSortingRule({
       if (registerSortingRule) {
         registerSortingRule({
           a11yLabel,
-          customSort,
+          customSort: customSort ?? null,
           defaultIsAscending,
           fieldType,
           recordFieldPath,
@@ -71,8 +51,3 @@ function TableSortingRule({
   // this component does not render anything
   return null;
 }
-
-TableSortingRule.propTypes = propTypes;
-TableSortingRule.defaultProps = defaultProps;
-
-export default TableSortingRule;

@@ -24,7 +24,7 @@ import { TagPropsDocumentation } from './non-clickable/TagPropsDocumentation';
 
 /** @returns {JSX.Element} */
 export function TagsDocumentation() {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   /** @type {TagExamplePropsShape} */
   const defaultSandboxProps = useMemo(
     () => ({
@@ -128,8 +128,8 @@ export function TagsDocumentation() {
         renderedExample={(
           <div className="flex flex-col full-width items-center">
             <div className="flex gap-s mb-spacing">
-              <Tag iconLeft={Icons.IconArrowLeft()} className="tag--selected">Left</Tag>
-              <Tag iconRight={Icons.IconArrowRight()}>Right</Tag>
+              <Tag iconLeft={<span className="utds-icon-before-arrow-left" aria-hidden="true" />} className="tag--selected">Left</Tag>
+              <Tag iconRight={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}>Right</Tag>
             </div>
             <div className="flex gap-s">
               <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconSlack()} className="tag--primary-color">Slack</Tag>
@@ -154,11 +154,11 @@ export function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <ClickableTag className="tag--primary-color" isSelected onClick={() => showBanner({ message: 'tag clicked' })}>Zion</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Arches</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Bryce</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Canyonlands</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Capitol Reef</ClickableTag>
+              <ClickableTag className="tag--primary-color" isSelected onClick={() => addBanner({ message: 'Tag clicked' })}>Zion</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Arches</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Bryce</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Canyonlands</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Capitol Reef</ClickableTag>
             </div>
           </div>
         )}

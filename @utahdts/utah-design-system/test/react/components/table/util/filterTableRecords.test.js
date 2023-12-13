@@ -1,6 +1,6 @@
 // @ts-check
 import { describe, expect, test } from 'vitest';
-import filterTableRecords from '../../../../../react/components/table/util/filterTableRecords';
+import { filterTableRecords } from '../../../../../react/components/table/util/filterTableRecords';
 
 describe('filterTableRecords', () => {
   const record1 = { record: { id: 1, name: 'one', occupation: 'ring leader' } };

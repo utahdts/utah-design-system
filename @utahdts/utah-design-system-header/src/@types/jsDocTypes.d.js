@@ -88,6 +88,7 @@
  * @typedef MenuItemUrlAction {
  *  @property {string} url - the url to which to go when interacted with
  *  @property {boolean} [openInNewTab] - true to have the link open in a new window defaults to `false` if not provided
+ *  @property {boolean} [skipHandleEvent] - should handleEvent automatically be used to call your function to stop propagation and prevent default
  * }
  */
 
@@ -148,6 +149,7 @@
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
  *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
+ *  @property {boolean} [skipHandleEvent] should preventDefault/stopPropagation be called? (menu.actionUrl for clickable menus with menuItems)
  * }
  */
 
@@ -266,8 +268,10 @@
 
 /**
  * @typedef FooterSettings {
- *  @property {string | null | undefined} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
+ *  @property {string | null} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
+ *  @property {string | null} [linkPrivacyPolicy] - a custom link to a privacy policy
+ *  @property {string | null} [linkTermsOfUse] - a custom link to a terms of use
  *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
  * }
  */
