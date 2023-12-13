@@ -33,6 +33,8 @@ export default function MultiSelectContextProvider({
   });
 
   const multiSelectImmer = /** @type {typeof useImmer<MultiSelectContextValue>} */ (useImmer)(() => ({
+    clearButtonHasFocus: false,
+    comboBoxOptions: [],
     focusedValueTagIndex: NaN,
     tagTemplate: null,
     multiSelectId,
@@ -47,6 +49,7 @@ export default function MultiSelectContextProvider({
     },
     onClear: onClear ?? (() => multiSelectImmer[1]((draftContext) => { draftContext.selectedValues = []; })),
     selectedValues: values ?? defaultValues ?? [],
+    textInputHasFocus: false,
   }));
 
   // when values changes externally, update the inner context state

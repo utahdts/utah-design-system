@@ -5,7 +5,6 @@ import formElementSizesEnum from '../../../enums/formElementSizesEnum';
 import joinClassNames from '../../../util/joinClassNames';
 import notNull from '../../../util/notNull';
 import { Tag } from '../../buttons/Tag';
-import { useComboBoxContext } from '../ComboBox/context/useComboBoxContext';
 import { MultiSelectTagWrapper } from './MultiSelectTagWrapper';
 import useMultiSelectContext from './context/useMultiSelectContext';
 import { removeSelectedOption } from './functions/removeSelectedOption';
@@ -17,14 +16,13 @@ import { removeSelectedOption } from './functions/removeSelectedOption';
  */
 export function MultiSelectTags({ isDisabled }) {
   const [multiSelectContext, setMultiSelectContext, multiSelectContextNonStateRef] = useMultiSelectContext();
-  const [comboBoxContext] = useComboBoxContext();
   const { addPoliteMessage } = useAriaMessaging();
 
   return (
     <div className="multi-select__tag-container">
       {
         multiSelectContext.selectedValues.map((selectedValue, selectedValueIndex) => {
-          const selectedOption = notNull(comboBoxContext.options.find((option) => option.value === selectedValue), 'MultiSelectTags: missing option information');
+          const selectedOption = notNull(multiSelectContext.comboBoxOptions.find((option) => option.value === selectedValue), 'MultiSelectTags: missing option information');
           return (
             <MultiSelectTagWrapper
               key={`multi-select-tag-wrapper__${multiSelectContext.multiSelectId}--${selectedValue}`}
@@ -41,6 +39,9 @@ export function MultiSelectTags({ isDisabled }) {
                       className={joinClassNames('tag--primary-color', 'multi-select__tag')}
                       iconButtonProps={{
                         'aria-hidden': true,
+                        onBlur: () => console.log('i am blurring...'),
+                        onFocus: () => console.log('i am focusing...'),
+                        tabIndex: -1,
                         // make title different for screen readers, but tooltipText is shown on hover
                         title: 'selected. Press delete to remove this tag',
                         tooltipText: 'Clear Tag',
@@ -61,7 +62,7 @@ export function MultiSelectTags({ isDisabled }) {
                       }
                       size={formElementSizesEnum.SMALL}
                     >
-                      {comboBoxContext.options.find((option) => option.value === selectedValue)?.label}
+                      {selectedOption?.label}
                     </Tag>
                   )
               }

@@ -15,7 +15,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
  * @param {Object} props
  * @param {string} props.ariaLabelledById
  * @param {React.ReactNode | null} [props.children]
- * @param {React.MutableRefObject<any>} props.popperReferenceElementRef
+ * @param {HTMLElement | null} props.popperReferenceElement
  * @param {string} props.id
  * @returns {JSX.Element}
  */
@@ -23,7 +23,7 @@ export function CombBoxListBox({
   ariaLabelledById,
   children,
   id,
-  popperReferenceElementRef,
+  popperReferenceElement,
 }) {
   const { addPoliteMessage } = useAriaMessaging();
   const [
@@ -39,7 +39,7 @@ export function CombBoxListBox({
   const announcedArrowKeysRef = useRef(false);
 
   const { styles, attributes, update } = usePopper(
-    popperReferenceElementRef.current,
+    popperReferenceElement,
     ulRef.current,
     {
       placement: popupPlacement.BOTTOM,
@@ -109,7 +109,7 @@ export function CombBoxListBox({
       role="listbox"
       style={{
         ...styles.popper,
-        minWidth: popperReferenceElementRef?.current?.scrollWidth,
+        minWidth: popperReferenceElement?.scrollWidth,
       }}
       tabIndex={-1}
       {...attributes.popper}

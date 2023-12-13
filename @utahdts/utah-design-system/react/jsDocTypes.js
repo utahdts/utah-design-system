@@ -263,7 +263,7 @@
  */
 
 /** @typedef MultiSelectContextNonStateRef {
- *  @property {HTMLDivElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
+ *  @property {HTMLElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
  *  @property {(HTMLDivElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
  * } */
 
@@ -271,12 +271,15 @@
 
 /**
  * @typedef MultiSelectContextValue {
- *  @property {number} focusedValueTagIndex the index of the tag currently having focus
- *  @property {((selectedValue: string, selectedOption: ComboBoxOption) => JSX.Element) | null} tagTemplate is there a custom template for tags instead of rendering default tags
+ *  @property {boolean} clearButtonHasFocus (1 of 3) multi select has focus if any of the three have focus
+ *  @property {ComboBoxOption[]} comboBoxOptions the known options in the comboBox context nested in the multi-select context
+ *  @property {number} focusedValueTagIndex the index of the tag currently having focus; (2 of 3) multi select has focus if any of the three have focus
  *  @property {string} multiSelectId
  *  @property {((newValues: string[]) => void)} onChange
  *  @property {(() => void)} onClear
  *  @property {string[]} selectedValues the values selected in the multi-select to show as tags
+ *  @property {((selectedValue: string, selectedOption: ComboBoxOption) => JSX.Element) | null} tagTemplate is there a custom template for tags instead of rendering default tags
+ *  @property {boolean} textInputHasFocus (3 of 3) multi select has focus if any of the three have focus
  * }
 */
 /** @typedef {(selectedValue: string) => JSX.Element} MultiSelectTagTemplate */

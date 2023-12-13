@@ -1,7 +1,6 @@
 // @ts-check
 import React from 'react';
 import joinClassNames from '../../../util/joinClassNames';
-import { MultiSelectClearIcon } from './MultiSelectClearIcon';
 import { MultiSelectComboBox } from './MultiSelectComboBox';
 import MultiSelectContextProvider from './context/MultiSelectContextProvider';
 
@@ -32,7 +31,7 @@ export function MultiSelect({
   defaultValues,
   errorMessage,
   id,
-  innerRef: draftInnerRef,
+  innerRef,
   isClearable,
   isDisabled,
   isRequired,
@@ -48,34 +47,29 @@ export function MultiSelect({
 }) {
   return (
     <MultiSelectContextProvider
-      multiSelectId={id}
       defaultValues={defaultValues}
+      multiSelectId={id}
       onChange={onChange}
       onClear={onClear}
       values={values}
     >
-      <div
-        className={joinClassNames('input-wrapper input-wrapper--multi-select', wrapperClassName)}
-        ref={draftInnerRef}
+      <MultiSelectComboBox
+        className={joinClassNames('multi-select', className)}
+        errorMessage={errorMessage}
+        innerRef={innerRef}
+        isClearable={isClearable}
+        isDisabled={isDisabled}
+        isRequired={isRequired}
+        label={label}
+        labelClassName={labelClassName}
+        name={name}
+        placeholder={placeholder}
+        wrapperClassName={wrapperClassName}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...rest}
       >
-        {/* TODO: move label to here */}
-        <MultiSelectComboBox
-          className={joinClassNames('multi-select', className)}
-          errorMessage={errorMessage}
-          isDisabled={isDisabled}
-          isRequired={isRequired}
-          label={label}
-          labelClassName={labelClassName}
-          name={name}
-          placeholder={placeholder}
-          wrapperClassName={wrapperClassName}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...rest}
-        >
-          {children}
-        </MultiSelectComboBox>
-        <MultiSelectClearIcon isClearable={isClearable} isDisabled={isDisabled} />
-      </div>
+        {children}
+      </MultiSelectComboBox>
     </MultiSelectContextProvider>
   );
 }

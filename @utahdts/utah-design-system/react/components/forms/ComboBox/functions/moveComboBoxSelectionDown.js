@@ -2,13 +2,20 @@
 import { isOptionGroupVisible } from './isOptionGroupVisible';
 
 /** @typedef {import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef {import('../../../../jsDocTypes').MultiSelectContextValue} MultiSelectContextValue */
 
-/** @param {import('immer').Draft<ComboBoxContextValue>} draftContext */
-export function moveComboBoxSelectionDown(draftContext) {
+/**
+ * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
+ * @param {MultiSelectContextValue} multiSelectContext
+ */
+export function moveComboBoxSelectionDown(draftContext, multiSelectContext) {
   const { optionsFiltered: optionsWithHiddenGroups } = draftContext;
 
   const optionsToUse = optionsWithHiddenGroups.filter(
-    (option) => isOptionGroupVisible((option.isGroupLabel ? option.optionGroupId : null) ?? null, option.label, optionsWithHiddenGroups)
+    (option) => (
+      !multiSelectContext?.selectedValues.includes(option.value)
+      && isOptionGroupVisible((option.isGroupLabel ? option.optionGroupId : null) ?? null, option.label, optionsWithHiddenGroups)
+    )
   );
 
   // get index of currently selected item in the filtered items list

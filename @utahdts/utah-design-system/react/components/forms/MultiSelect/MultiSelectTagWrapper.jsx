@@ -89,7 +89,6 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
       tabIndex={0}
       role="option"
       aria-selected="true"
-      aria-activedescendant={selectedValueIndex === multiSelectContext.focusedValueTagIndex}
     >
       {children}
     </div>

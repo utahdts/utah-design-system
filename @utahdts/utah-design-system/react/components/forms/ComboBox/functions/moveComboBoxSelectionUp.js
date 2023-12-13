@@ -7,12 +7,15 @@ import { isOptionGroupVisible } from './isOptionGroupVisible';
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
  * @param {HTMLInputElement | null} textInput
  */
-export function moveComboBoxSelectionUp(draftContext, textInput) {
+export function moveComboBoxSelectionUp(draftContext, textInput, multiSelectContext) {
   if (draftContext.isOptionsExpanded) {
     const { optionsFiltered: optionsWithHiddenGroups } = draftContext;
 
     const optionsToUse = optionsWithHiddenGroups.filter(
-      (option) => isOptionGroupVisible((option.isGroupLabel ? option.optionGroupId : null) ?? null, option.label, optionsWithHiddenGroups)
+      (option) => (
+        !multiSelectContext?.selectedValues.includes(option.value)
+        && isOptionGroupVisible((option.isGroupLabel ? option.optionGroupId : null) ?? null, option.label, optionsWithHiddenGroups)
+      )
     );
 
     // get index of currently selected item in the filtered items list

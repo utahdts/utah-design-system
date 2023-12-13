@@ -20,6 +20,7 @@ import RequiredStar from './RequiredStar';
  * @param {((element: HTMLDivElement) => void) | React.MutableRefObject} [props.innerRef]
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isLabelSkipped] highly recommended to not skip the label; instead, hide it; multiselect skips label - it renders its own
  * @param {boolean} [props.isRequired]
  * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
  * @param {string} props.label
@@ -44,6 +45,7 @@ export default function TextInput({
   id,
   isClearable,
   isDisabled,
+  isLabelSkipped,
   isRequired,
   isShowingClearableIcon,
   label,
@@ -109,10 +111,16 @@ export default function TextInput({
 
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--text-input', wrapperClassName)} ref={innerRef}>
-      <label htmlFor={id} className={labelClassName ?? undefined}>
-        {label}
-        {isRequired ? <RequiredStar /> : null}
-      </label>
+      {
+        isLabelSkipped
+          ? null
+          : (
+            <label htmlFor={id} className={labelClassName ?? undefined}>
+              {label}
+              {isRequired ? <RequiredStar /> : null}
+            </label>
+          )
+      }
       <div className="text-input__inner-wrapper">
         <input
           aria-describedby={errorMessage ? `${id}-error` : undefined}

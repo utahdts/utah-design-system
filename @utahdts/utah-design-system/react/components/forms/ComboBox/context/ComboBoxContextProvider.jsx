@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import { useImmer } from 'use-immer';
 import useFormContext from '../../FormContext/useFormContext';
+import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxContext } from './ComboBoxContext';
 
 /** @typedef { import('../../../../jsDocTypes').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
@@ -49,6 +50,7 @@ export function ComboBoxContextProvider({
   value,
 }) {
   const { onChange: onChangeFormContext } = useFormContext();
+  const [, setMultiSelectContext] = useMultiSelectContext();
 
   const comboBoxImmerRef = useRef(/** @type {import('use-immer').ImmerHook<ComboBoxContextValue> | null} */(null));
   const onChangeFormValue = useCallback(
@@ -164,6 +166,17 @@ export function ComboBoxContextProvider({
       comboBoxContextNonStateRef,
     ],
     [comboBoxImmer, comboBoxContextNonStateRef]
+  );
+
+  // update multi-select-context if there is one when combo box's options change
+  useEffect(
+    () => {
+      setMultiSelectContext((draftContext) => {
+        draftContext.comboBoxOptions = comboBoxImmer[0].options;
+      });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [comboBoxImmer[0].options]
   );
 
   return (

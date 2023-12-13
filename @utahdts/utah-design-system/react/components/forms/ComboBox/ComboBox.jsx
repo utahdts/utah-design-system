@@ -33,6 +33,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
+ * @param {HTMLElement | null} [props.popperContentRef] for multi-select the popup relates to the multi-select wrapper, not the input
  * @param {React.ReactNode} [props.tagChildren]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
@@ -57,6 +58,7 @@ export function ComboBox({
   onKeyUp,
   onSubmit,
   placeholder,
+  popperContentRef,
   isWrapperSkipped,
   tagChildren,
   value,
@@ -73,7 +75,9 @@ export function ComboBox({
         comboBoxListId={comboBoxListId}
         errorMessage={errorMessage}
         id={id}
-        innerRef={contentRef}
+        innerRef={(ref) => {
+          contentRef.current = ref;
+        }}
         isClearable={isClearable}
         isShowingClearableIcon={isShowingClearableIcon}
         isDisabled={isDisabled}
@@ -85,7 +89,11 @@ export function ComboBox({
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
-      <CombBoxListBox id={comboBoxListId} ariaLabelledById={id} popperReferenceElementRef={contentRef}>
+      <CombBoxListBox
+        id={comboBoxListId}
+        ariaLabelledById={id}
+        popperReferenceElement={popperContentRef ?? contentRef.current}
+      >
         {children}
       </CombBoxListBox>
     </div>

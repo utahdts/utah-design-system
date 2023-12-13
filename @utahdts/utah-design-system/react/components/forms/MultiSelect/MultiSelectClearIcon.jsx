@@ -14,7 +14,7 @@ export function MultiSelectClearIcon({
   isClearable,
   isDisabled,
 }) {
-  const [multiSelectContextValue] = useMultiSelectContext();
+  const [multiSelectContextValue, setMultiSelectContextValue] = useMultiSelectContext();
 
   return (
     (isClearable && multiSelectContextValue.selectedValues.length)
@@ -25,6 +25,9 @@ export function MultiSelectClearIcon({
           isDisabled={isDisabled}
           onClick={multiSelectContextValue.onClear}
           title="Clear all selected values"
+          // @ts-ignore
+          onFocus={() => setMultiSelectContextValue((draftContext) => { draftContext.clearButtonHasFocus = true; })}
+          onBlur={() => setMultiSelectContextValue((draftContext) => { draftContext.clearButtonHasFocus = false; })}
         />
       )
       : null

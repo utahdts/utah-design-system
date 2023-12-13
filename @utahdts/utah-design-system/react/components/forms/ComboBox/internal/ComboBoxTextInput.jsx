@@ -1,9 +1,11 @@
 // @ts-check
+import { isFunction } from 'lodash';
 import identity from 'lodash/identity';
 import React, { useCallback, useRef } from 'react';
 import joinClassNames from '../../../../util/joinClassNames';
 import useOnKeyUp from '../../../../util/useOnKeyUp';
 import useFormContext from '../../FormContext/useFormContext';
+import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
 import TextInput from '../../TextInput';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
@@ -11,6 +13,10 @@ import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDow
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
+/**
+ * @template MutableRefT
+ * @typedef {import('../../../../jsDocTypes').MutableRef<MutableRefT>} MutableRef
+ */
 
 /**
  * @param {Object} props
@@ -18,7 +24,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
  * @param {string} props.id
- * @param {React.MutableRefObject<HTMLInputElement | null>} [props.innerRef]
+ * @param {MutableRef<HTMLInputElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -26,6 +32,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
+ * @param {React.UIEventHandler} [props.onBlur]
  * @param {EventAction} [props.onClear]
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
  * @param {(() => void)} [props.onSubmit]
@@ -41,12 +48,14 @@ export function ComboBoxTextInput({
   isClearable,
   isShowingClearableIcon,
   isDisabled,
+  onBlur,
   onClear,
   onKeyUp,
   onSubmit,
   placeholder,
   ...rest
 }) {
+  const [multiSelectContext] = useMultiSelectContext();
   const { onSubmit: onSubmitFormContext } = useFormContext();
   const [
     {
@@ -66,11 +75,24 @@ export function ComboBoxTextInput({
   const onUpArrowPress = useOnKeyUp(
     'ArrowUp',
     useCallback(
-      () => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, comboBoxContextNonStateRef.current.textInput)),
-      [setComboBoxContext, comboBoxContextNonStateRef]
+      () => setComboBoxContext(
+        (draftContext) => moveComboBoxSelectionUp(draftContext, comboBoxContextNonStateRef.current.textInput, multiSelectContext)
+      ),
+      [comboBoxContextNonStateRef, multiSelectContext, setComboBoxContext]
     )
   );
-  const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]));
+  const onDownArrowPress = useOnKeyUp(
+    'ArrowDown',
+    useCallback(
+      () => {
+        // if there are no options left from which to pick, don't open menu
+        if (multiSelectContext.selectedValues.length !== options.filter((option) => !option.isGroupLabel).length) {
+          setComboBoxContext((draftContext) => moveComboBoxSelectionDown(draftContext, multiSelectContext));
+        }
+      },
+      [multiSelectContext, options, setComboBoxContext]
+    )
+  );
   const clearIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
 
   // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
@@ -92,7 +114,11 @@ export function ComboBoxTextInput({
           const input = ref?.querySelector('input');
           comboBoxContextNonStateRef.current.textInput = input;
           if (draftInnerRef) {
-            draftInnerRef.current = input;
+            if (isFunction(draftInnerRef)) {
+              draftInnerRef(input);
+            } else {
+              draftInnerRef.current = input;
+            }
           }
         }}
         isClearable={isClearable}
@@ -100,7 +126,8 @@ export function ComboBoxTextInput({
         isShowingClearableIcon={isShowingClearableIcon}
         errorMessage={errorMessage}
         // @ts-ignore
-        onBlur={() => {
+        onBlur={(e) => {
+          onBlur?.(e);
           onKeyUpPreviousValue.current = filterValue;
           // wait for combo box option to register that it has focus
           setTimeout(

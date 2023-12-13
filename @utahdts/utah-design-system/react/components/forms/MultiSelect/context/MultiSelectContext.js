@@ -6,15 +6,18 @@ import React from 'react';
 
 export const MultiSelectContext = /** @type {typeof React.createContext<MultiSelectContext>} */ (React.createContext)([
   {
+    clearButtonHasFocus: false,
+    comboBoxOptions: [],
     focusedValueTagIndex: NaN,
     tagTemplate: null,
     multiSelectId: 'default-context-value',
-    selectedValues: [],
     onChange: () => { console.error('calling default MultiSelectContext onChange'); },
     onClear: () => { console.error('calling default MultiSelectContext onChange'); },
+    selectedValues: [],
+    textInputHasFocus: false,
   },
   () => {
-    console.error('calling default MultiSelectContext setter... you should probably setup a context provider before trying to use it.');
+    // comboBox will call this empty setter if there is no wrapping multi-select context
   },
   {
     current: {
