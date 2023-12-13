@@ -49,6 +49,7 @@ export default function ComboBoxExampleRender({
             draftStateFormContext['props.value'] = newValue;
           });
         })}
+        onClear={() => setState((draftState) => { draftState.props.value = ''; })}
         value={value}
       >
         <ComboBoxOption label="Arches National Park" value="arches" />

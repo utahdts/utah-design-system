@@ -52,6 +52,8 @@ export default {
 
   FOOTER_COPYRIGHT_YEAR: 'utds-footer__copyright-year',
   FOOTER_HORIZONTAL_DIVIDER: 'utds-footer__horizontal-divider',
+  FOOTER_LINK_PRIVACY_ID: 'utds-footer-privacy-link',
+  FOOTER_LINK_TERMS_ID: 'utds-footer-terms-link',
   FOOTER_LINKS: 'utds-footer__links',
 
   LOGO: 'utds-logo-wrapper',

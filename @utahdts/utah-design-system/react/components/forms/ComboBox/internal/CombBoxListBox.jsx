@@ -5,8 +5,9 @@ import useAriaMessaging from '../../../../contexts/UtahDesignSystemContext/hooks
 import popupPlacement from '../../../../enums/popupPlacement';
 import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
 import joinClassNames from '../../../../util/joinClassNames';
-import ComboBoxOption from '../ComboBoxOption';
-import useComboBoxContext from '../context/useComboBoxContext';
+import { ComboBoxOption } from '../ComboBoxOption';
+import { useComboBoxContext } from '../context/useComboBoxContext';
+import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 
@@ -18,7 +19,7 @@ import useComboBoxContext from '../context/useComboBoxContext';
  * @param {string} props.id
  * @returns {JSX.Element}
  */
-export default function CombBoxListBox({
+export function CombBoxListBox({
   ariaLabelledById,
   children,
   id,
@@ -27,12 +28,12 @@ export default function CombBoxListBox({
   const { addPoliteMessage } = useAriaMessaging();
   const [
     {
-      filterValue,
       isOptionsExpanded,
       optionsFiltered,
+      optionsFilteredWithoutGroupLabels,
       optionValueFocused,
     }, ,
-    textInputRef,
+    comboBoxContextNonStateRef,
   ] = useComboBoxContext();
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
   const announcedArrowKeysRef = useRef(false);
@@ -40,7 +41,12 @@ export default function CombBoxListBox({
   const { styles, attributes, update } = usePopper(
     popperReferenceElementRef.current,
     ulRef.current,
-    { placement: popupPlacement.BOTTOM }
+    {
+      placement: popupPlacement.BOTTOM,
+      modifiers: [
+        { name: 'offset', options: { offset: [0, 4] } },
+      ],
+    }
   );
 
   const addPoliteMessageDebounced = useDebounceFunc(
@@ -49,7 +55,8 @@ export default function CombBoxListBox({
         addPoliteMessage(message);
       },
       [addPoliteMessage]
-    )
+    ),
+    1500
   );
 
   useEffect(
@@ -64,18 +71,30 @@ export default function CombBoxListBox({
   useEffect(
     () => {
       // only announce if text input or an option for this combo box has focus
-      if (optionValueFocused || document.activeElement === textInputRef.current) {
+      if (optionValueFocused || document.activeElement === comboBoxContextNonStateRef.current.textInput) {
         // arrow key announcement only happens the first time the options pop open
         const sayArrowKeyAnnouncement = isOptionsExpanded && !announcedArrowKeysRef.current;
         if (sayArrowKeyAnnouncement) {
           // after first invocation, no longer announce about the arrow keys.
           announcedArrowKeysRef.current = true;
         }
-        addPoliteMessageDebounced(`${optionsFiltered?.length} results available.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+        if (optionsFiltered.length !== optionsFilteredWithoutGroupLabels.length) {
+          const numGroups = optionsFiltered.filter(
+            (option) => (
+              option.isGroupLabel && isOptionGroupVisible(option.isGroupLabel ? option.optionGroupId ?? null : null, option.label, optionsFiltered)
+            )
+          ).length;
+          // the options have "groups": '8 results available in 2 groups'
+          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available in ${numGroups} group${numGroups === 1 ? '' : 's'}.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+        } else {
+          // there are no groups: '8 results available'
+          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+        }
       }
     },
     // do not include `optionValueFocused` in the dependency list
-    [addPoliteMessageDebounced, filterValue, isOptionsExpanded, optionsFiltered?.length, textInputRef]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isOptionsExpanded, optionsFilteredWithoutGroupLabels]
   );
 
   return (
@@ -83,17 +102,20 @@ export default function CombBoxListBox({
       id={id}
       aria-labelledby={ariaLabelledById}
       className={joinClassNames(
-        'combo-box__list-box',
+        'combo-box-input__list-box',
         !isOptionsExpanded && 'visually-hidden'
       )}
       ref={ulRef}
       role="listbox"
-      style={styles.popper}
+      style={{
+        ...styles.popper,
+        minWidth: popperReferenceElementRef?.current?.scrollWidth,
+      }}
       tabIndex={-1}
       {...attributes.popper}
     >
       {children}
-      {optionsFiltered?.length ? null : <ComboBoxOption isStatic isDisabled label="" value="">No results found</ComboBoxOption>}
+      {optionsFilteredWithoutGroupLabels.length ? null : <ComboBoxOption isStatic isDisabled label="" value="">No results found</ComboBoxOption>}
     </ul>
   );
 }

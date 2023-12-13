@@ -4,4 +4,5 @@ import PropTypes from 'prop-types';
 export default PropTypes.exact({
   url: PropTypes.string.isRequired,
   openInNewTab: PropTypes.bool,
+  skipHandleEvent: PropTypes.bool,
 });

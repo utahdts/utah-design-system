@@ -1,22 +1,35 @@
 // @ts-check
-import React from 'react';
+import React, { useId } from 'react';
+import { ComboBoxOption } from './ComboBoxOption';
+import { ComboBoxOptionGroupContextProvider } from './context/ComboBoxOptionGroupContextProvider';
 
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {boolean} [props.isLabelHidden]
- * @param {string | null} [props.label]
+ * @param {string} props.label
  * @returns {JSX.Element}
  */
-export default function ComboBoxOptionGroup({
+export function ComboBoxOptionGroup({
   children,
-  label = null,
-  isLabelHidden = false,
+  label,
 }) {
+  const optionGroupId = useId();
+
   return (
-    <div className="combo-box-group__wrapper">
-      {isLabelHidden ? null : <div className="combo-box-group__title">{label}</div>}
+    <ComboBoxOptionGroupContextProvider optionGroupId={optionGroupId}>
+
+      <ComboBoxOption
+        className="combo-box-input__group-wrapper combo-box-input__group-title"
+        identifiesWithOptionGroupId={optionGroupId}
+        isDisabled
+        label={label}
+        value={`${label}--group`}
+      >
+        {label}
+      </ComboBoxOption>
+
       {children}
-    </div>
+
+    </ComboBoxOptionGroupContextProvider>
   );
 }

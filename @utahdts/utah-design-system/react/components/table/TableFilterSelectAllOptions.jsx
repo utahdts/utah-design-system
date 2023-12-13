@@ -6,9 +6,9 @@ import chainSorters from '../../util/chainSorters';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
 import SelectOption from '../forms/SelectOption';
-import useTableContext from './hooks/useTableContext';
-import useTableFilterRegistration from './hooks/useTableFilterRegistration';
-import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
+import { useTableContext } from './hooks/useTableContext';
+import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
+import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
  * @param {Object} props
@@ -22,7 +22,7 @@ import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext
  * @param {string} [props.value]
  * @returns {JSX.Element}
  */
-export default function TableFilterSelectAllOptions({
+export function TableFilterSelectAllOptions({
   className,
   defaultValue,
   exactMatch,

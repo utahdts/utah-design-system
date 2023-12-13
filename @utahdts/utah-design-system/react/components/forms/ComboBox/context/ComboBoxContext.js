@@ -3,7 +3,7 @@ import React from 'react';
 
 /** @typedef { import('../../../../jsDocTypes').ComboBoxContext} ComboBoxContext */
 
-const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} */ (React.createContext)([
+export const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} */ (React.createContext)([
   {
     filterValue: '',
     optionValueFocused: null,
@@ -12,6 +12,7 @@ const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} 
     onChange: () => { },
     options: [],
     optionsFiltered: [],
+    optionsFilteredWithoutGroupLabels: [],
     registerOption: () => { },
     optionValueFocusedId: null,
     optionValueHighlighted: null,
@@ -22,7 +23,9 @@ const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} 
     // eslint-disable-next-line no-console
     console.error('calling default ComboBoxContext setter... you should probably setup a context provider before trying to use it.');
   },
-  { current: null },
+  {
+    current: {
+      textInput: null,
+    },
+  },
 ]);
-
-export default ComboBoxContext;

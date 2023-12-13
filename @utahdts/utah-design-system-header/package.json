@@ -69,12 +69,12 @@
   },
   "devDependencies": {
     "@vitest/ui": "0.34.6",
-    "jsdom": "22.1.0",
+    "jsdom": "23.0.0",
     "replace": "1.2.2",
     "sass": "1.69.5",
     "tslib": "2.6.2",
-    "typescript": "5.2.2",
-    "vite": "4.5.0",
+    "typescript": "5.3.2",
+    "vite": "5.0.3",
     "vitest": "0.34.6"
   },
   "type": "module"

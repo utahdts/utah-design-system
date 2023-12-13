@@ -11,7 +11,7 @@ import IconButton from './IconButton';
  * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className]
  * @param {string} [props.id] the tag id
- * @param {React.RefObject} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
  * @param {React.ReactNode} [props.iconLeft] an icon for the left side
  * @param {React.ReactNode} [props.iconRight] an icon for the right side
  * @param {boolean} [props.isDisabled] tag isDisabled state
@@ -32,11 +32,13 @@ export function Tag({
   ...rest
 }) {
   return (
-    <div className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}>
+    <div
+      className={joinClassNames('tag__wrapper', onClear && 'tag--clearable')}
+      ref={innerRef}
+    >
       <span
         className={joinClassNames('tag', className, `tag--${size}`)}
         id={id}
-        ref={innerRef}
         {...rest}
       >
         {iconLeft ? <span className="tag--icon tag--icon-left">{iconLeft}</span> : null}

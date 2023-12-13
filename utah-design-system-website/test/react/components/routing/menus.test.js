@@ -19,6 +19,7 @@ describe('menus - menu items are single pathed', () => {
       allLinks.forEach((link) => {
         const knownPathsHasLink = knownPaths.has(link);
         if (knownPathsHasLink) {
+          // eslint-disable-next-line no-console
           console.error(`menus: duplicate path found for link '${link}'`);
         }
         expect(knownPathsHasLink).toBeFalsy();

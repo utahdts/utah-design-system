@@ -121,7 +121,13 @@ export default function renderMainMenu() {
           }
         );
         mainMenuItem.appendChild(subMenuPopup);
-        popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true });
+        popupFocusHandler(
+          mainMenuItem,
+          menuItemTitleElement,
+          subMenuPopup,
+          'menu',
+          { shouldFocusOnHover: true, skipHandleEvent: menuItem.actionUrl?.skipHandleEvent }
+        );
         /** @type {string} */
         let menuClass;
         switch (menuItem.childrenMenuType) {
@@ -164,6 +170,7 @@ export default function renderMainMenu() {
         // go to url when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
+        // actionUrl.skipHandleEvent is handled in renderPopupMenu
       }
 
       if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {

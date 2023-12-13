@@ -14,7 +14,7 @@ import toSafeString from '../../../util/toSafeString';
  * @param {Object.<string, TableFilterValue>} filterValues The current filter values and settings
  * @returns {TableRecordForFiltering[]}
  */
-export default function convertRecordsToFilterValue(records, filterValues) {
+export function convertRecordsToFilterValue(records, filterValues) {
   return records.map((record) => ({
     record,
     filterFields: (
