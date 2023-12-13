@@ -55,9 +55,10 @@ export function MultiSelect({
       values={values}
     >
       <div
-        className={wrapperClassName}
+        className={joinClassNames('input-wrapper input-wrapper--multi-select', wrapperClassName)}
         ref={draftInnerRef}
       >
+        {/* TODO: move label to here */}
         <MultiSelectComboBox
           className={joinClassNames('multi-select', className)}
           errorMessage={errorMessage}

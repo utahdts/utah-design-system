@@ -64,6 +64,7 @@ export function MultiSelectComboBox({
       }}
       isDisabled={isDisabled}
       isRequired={isRequired}
+      isWrapperSkipped
       label={label}
       labelClassName={labelClassName}
       name={name}

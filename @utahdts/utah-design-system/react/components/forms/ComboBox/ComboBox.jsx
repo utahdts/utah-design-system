@@ -24,6 +24,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
+ * @param {boolean} [props.isWrapperSkipped] wrapper div is optional
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
@@ -56,6 +57,7 @@ export function ComboBox({
   onKeyUp,
   onSubmit,
   placeholder,
+  isWrapperSkipped,
   tagChildren,
   value,
   wrapperClassName,
@@ -63,6 +65,31 @@ export function ComboBox({
 }) {
   const comboBoxListId = useMemo(() => uuidv4(), []);
   const contentRef = useRef(/** @type {HTMLInputElement | null} */(null));
+
+  const child = (
+    <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
+      {tagChildren}
+      <ComboBoxTextInput
+        comboBoxListId={comboBoxListId}
+        errorMessage={errorMessage}
+        id={id}
+        innerRef={contentRef}
+        isClearable={isClearable}
+        isShowingClearableIcon={isShowingClearableIcon}
+        isDisabled={isDisabled}
+        isRequired={isRequired}
+        label={label}
+        labelClassName={labelClassName}
+        name={name}
+        placeholder={placeholder}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...rest}
+      />
+      <CombBoxListBox id={comboBoxListId} ariaLabelledById={id} popperReferenceElementRef={contentRef}>
+        {children}
+      </CombBoxListBox>
+    </div>
+  );
 
   return (
     <ComboBoxContextProvider
@@ -74,33 +101,18 @@ export function ComboBox({
       onSubmit={onSubmit}
       value={value}
     >
-      <div
-        className={joinClassNames('input-wrapper input-wrapper--combo-box', wrapperClassName)}
-        ref={draftInnerRef}
-      >
-        <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
-          {tagChildren}
-          <ComboBoxTextInput
-            comboBoxListId={comboBoxListId}
-            errorMessage={errorMessage}
-            id={id}
-            innerRef={contentRef}
-            isClearable={isClearable}
-            isShowingClearableIcon={isShowingClearableIcon}
-            isDisabled={isDisabled}
-            isRequired={isRequired}
-            label={label}
-            labelClassName={labelClassName}
-            name={name}
-            placeholder={placeholder}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...rest}
-          />
-          <CombBoxListBox id={comboBoxListId} ariaLabelledById={id} popperReferenceElementRef={contentRef}>
-            {children}
-          </CombBoxListBox>
-        </div>
-      </div>
+      {
+        isWrapperSkipped
+          ? child
+          : (
+            <div
+              className={joinClassNames('input-wrapper input-wrapper--combo-box', wrapperClassName)}
+              ref={draftInnerRef}
+            >
+              {child}
+            </div>
+          )
+      }
     </ComboBoxContextProvider>
   );
 }
