@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { usePopper } from 'react-popper';
-import popupPlacement from '../../enums/popupPlacement';
-import usePopupDelay from '../../hooks/usePopupDelay';
-import useRefAlways from '../../hooks/useRefAlways';
-import joinClassNames from '../../util/joinClassNames';
+import { popupPlacement } from '../../enums/popupPlacement';
+import { usePopupDelay } from '../../hooks/usePopupDelay';
+import { useRefAlways } from '../../hooks/useRefAlways';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 

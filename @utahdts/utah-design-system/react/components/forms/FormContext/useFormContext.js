@@ -10,7 +10,7 @@ import { FormContext } from './FormContext';
  * @template FormContextT
  * @returns {FormContextValue<FormContextT>}
  */
-export default function useFormContext() {
+export function useFormContext() {
   // @ts-ignore
   return useContext(FormContext);
 }

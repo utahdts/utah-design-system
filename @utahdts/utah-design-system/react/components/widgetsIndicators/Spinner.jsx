@@ -1,5 +1,5 @@
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
  * @param {Object} props
@@ -12,7 +12,7 @@ import joinClassNames from '../../util/joinClassNames';
  * @param {number} [props.value]
  * @returns {JSX.Element}
  */
-export default function Spinner({
+export function Spinner({
   children,
   className,
   id,

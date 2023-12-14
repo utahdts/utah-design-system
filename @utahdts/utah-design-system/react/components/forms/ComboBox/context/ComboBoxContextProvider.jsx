@@ -6,7 +6,7 @@ import React, {
   useRef,
 } from 'react';
 import { useImmer } from 'use-immer';
-import useFormContext from '../../FormContext/useFormContext';
+import { useFormContext } from '../../FormContext/useFormContext';
 import { ComboBoxContext } from './ComboBoxContext';
 
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */

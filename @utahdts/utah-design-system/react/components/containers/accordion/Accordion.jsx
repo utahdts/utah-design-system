@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import handleEvent from '../../../util/handleEvent';
-import joinClassNames from '../../../util/joinClassNames';
+import { handleEvent } from '../../../util/handleEvent';
+import { joinClassNames } from '../../../util/joinClassNames';
 
 /**
  * @param {Object} props

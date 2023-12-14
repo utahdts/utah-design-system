@@ -1,27 +1,6 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 /** @typedef {import('@utahdts/utah-design-system').Address} Address */
-
-const AddressShape = PropTypes.shape({
-  city: PropTypes.string.isRequired,
-  state: PropTypes.string.isRequired,
-  streetAddress1: PropTypes.string.isRequired,
-  streetAddress2: PropTypes.string,
-  zipCode: PropTypes.string.isRequired,
-});
-
-const propTypes = {
-  agencyTitleFirstLine: PropTypes.string.isRequired,
-  agencyTitleSecondLine: PropTypes.string.isRequired,
-  address: AddressShape.isRequired,
-  email: PropTypes.string.isRequired,
-  logo: PropTypes.node.isRequired,
-  phone: PropTypes.string,
-};
-const defaultProps = {
-  phone: null,
-};
 
 /**
  * @param {Object} props
@@ -30,10 +9,10 @@ const defaultProps = {
  * @param {Address} props.address
  * @param {string} props.email
  * @param {React.ReactNode} props.logo
- * @param {string} props.phone
+ * @param {string} [props.phone]
  * @returns {JSX.Element}
  */
-function FooterAgencyInformationInfo({
+export function FooterAgencyInformationInfo({
   agencyTitleFirstLine,
   agencyTitleSecondLine,
   address,
@@ -86,8 +65,3 @@ function FooterAgencyInformationInfo({
     </>
   );
 }
-
-FooterAgencyInformationInfo.propTypes = propTypes;
-FooterAgencyInformationInfo.defaultProps = defaultProps;
-
-export default FooterAgencyInformationInfo;

@@ -3,7 +3,7 @@
  * @param {Element[]} headers
  * @returns
  */
-export default function groupElementsByHeaderLevel(headers) {
+export function groupElementsByHeaderLevel(headers) {
   if (!headers?.length) {
     return [];
   }

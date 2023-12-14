@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
-import useUtahDesignSystemContext from '../useUtahDesignSystemContext';
-import uuidv4 from '../../../util/uuidv4';
+import { v4 as uuidv4 } from 'uuid';
+import { useUtahDesignSystemContext } from '../useUtahDesignSystemContext';
 
 /** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 /** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */

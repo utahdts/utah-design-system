@@ -33,7 +33,7 @@ import { FormContext } from './FormContext';
  * @param {FormContextStateT} props.state known by the caller; every field in it with its type
  * @returns {JSX.Element}
  */
-export default function FormContextProvider({
+export function FormContextProvider({
   children,
   onChange,
   onSubmit,

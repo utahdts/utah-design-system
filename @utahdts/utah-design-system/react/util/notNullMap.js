@@ -9,7 +9,7 @@
  * @param {T} value
  * @returns {NonNullable<T>}
  */
-export default function notNullMap(value) {
+export function notNullMap(value) {
   if (value === null || value === undefined) {
     throw new Error('notNullMap: value is null or undefined');
   }

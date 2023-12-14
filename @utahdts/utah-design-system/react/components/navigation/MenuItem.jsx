@@ -1,10 +1,10 @@
 import { useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
-import useStateEffect from '../../hooks/useStateEffect';
-import joinClassNames from '../../util/joinClassNames';
+import { useStateEffect } from '../../hooks/useStateEffect';
+import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
-import Icons from '../icons/Icons';
+import { Icons } from '../icons/Icons';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */

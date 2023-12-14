@@ -1,13 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  title: PropTypes.string,
-};
-const defaultProps = {
-  title: 'Follow us online',
-};
 
 /**
  * @param {Object} props
@@ -15,7 +7,7 @@ const defaultProps = {
  * @param {String|null} props.title
  * @returns {JSX.Element}
  */
-function FooterSocialMediaBar({ children, title }) {
+export function FooterSocialMediaBar({ children, title = 'Follow us online' }) {
   return (
     <div className="utah-design-system">
       <div className="footer-social-media-bar">
@@ -27,8 +19,3 @@ function FooterSocialMediaBar({ children, title }) {
     </div>
   );
 }
-
-FooterSocialMediaBar.propTypes = propTypes;
-FooterSocialMediaBar.defaultProps = defaultProps;
-
-export default FooterSocialMediaBar;

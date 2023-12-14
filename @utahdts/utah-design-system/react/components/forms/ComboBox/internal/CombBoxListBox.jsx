@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
-import useAriaMessaging from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import popupPlacement from '../../../../enums/popupPlacement';
+import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { popupPlacement } from '../../../../enums/popupPlacement';
 import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
-import joinClassNames from '../../../../util/joinClassNames';
+import { joinClassNames } from '../../../../util/joinClassNames';
 import { ComboBoxOption } from '../ComboBoxOption';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';

@@ -1,5 +1,5 @@
 import { useImmer } from 'use-immer';
-import useRefAlways from './useRefAlways';
+import { useRefAlways } from './useRefAlways';
 
 /**
  * Stale state is an issue! Occurs mainly inside event callbacks where the callback's
@@ -18,7 +18,7 @@ import useRefAlways from './useRefAlways';
  * @param {StateT} defaultState
  * @returns {[StateT, import('use-immer').Updater<StateT>, import('react').MutableRefObject<StateT>]}
  */
-export default function useImmerRef(defaultState) {
+export function useImmerRef(defaultState) {
   const [state, setState] = useImmer(defaultState);
   const stateRef = useRefAlways(state);
 

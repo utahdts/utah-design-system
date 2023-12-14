@@ -1,10 +1,10 @@
 import React from 'react';
 import { BUTTON_APPEARANCE, BUTTON_TYPES } from '../../enums/buttonEnums';
-import componentColors from '../../enums/componentColors';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import handleEvent from '../../util/handleEvent';
-import joinClassNames from '../../util/joinClassNames';
-import Spinner from '../widgetsIndicators/Spinner';
+import { componentColors } from '../../enums/componentColors';
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { handleEvent } from '../../util/handleEvent';
+import { joinClassNames } from '../../util/joinClassNames';
+import { Spinner } from '../widgetsIndicators/Spinner';
 
 /** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */

@@ -1,4 +1,4 @@
-import joinClassNames from '../../../util/joinClassNames';
+import { joinClassNames } from '../../../util/joinClassNames';
 
 /**
  * @param {Object} props

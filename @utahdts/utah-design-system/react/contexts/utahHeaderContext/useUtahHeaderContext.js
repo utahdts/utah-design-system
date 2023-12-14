@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import UtahHeaderContext from './UtahHeaderContext';
+import { UtahHeaderContext } from './UtahHeaderContext';
 
 /** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 /** @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput */
@@ -8,6 +8,6 @@ import UtahHeaderContext from './UtahHeaderContext';
 /**
  * @return {{ settings: Settings, setSettings: import('use-immer').Updater<Settings>, settingsRef: import('react').RefObject<Settings> }}
  */
-export default function useUtahHeaderContext() {
+export function useUtahHeaderContext() {
   return useContext(UtahHeaderContext);
 }

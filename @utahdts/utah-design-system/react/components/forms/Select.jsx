@@ -1,9 +1,9 @@
 import React, { useCallback, useRef } from 'react';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import joinClassNames from '../../util/joinClassNames';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { ErrorMessage } from './ErrorMessage';
-import useFormContextInput from './FormContext/useFormContextInput';
+import { useFormContextInput } from './FormContext/useFormContextInput';
 import { RequiredStar } from './RequiredStar';
 import { SelectOption } from './SelectOption';
 
@@ -29,7 +29,7 @@ import { SelectOption } from './SelectOption';
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-export default function Select({
+export function Select({
   children,
   className,
   defaultValue,

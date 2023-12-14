@@ -6,7 +6,7 @@
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} func The function to run
  * @returns {import('react').MouseEventHandler<HTMLButtonElement>}
  */
-export default function handleEvent(func) {
+export function handleEvent(func) {
   return (e) => {
     if (e.preventDefault) {
       e.preventDefault();

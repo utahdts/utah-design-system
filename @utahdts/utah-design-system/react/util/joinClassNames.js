@@ -6,7 +6,7 @@ import trim from 'lodash/trim';
  * pass in comma separated list of class name strings to be trimmed, filtered, and joined together with a space
  * @param {(string | boolean | any[] | null | undefined)[]} classNames really can be anything, but should be string if truey
  */
-export default function joinClassNames(...classNames) {
+export function joinClassNames(...classNames) {
   return (
     // convert passed in parameters to an array
     castArray(Array.from(classNames))

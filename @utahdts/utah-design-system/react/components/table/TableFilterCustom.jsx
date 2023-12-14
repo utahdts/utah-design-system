@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
 /** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValue} TableContextStateFilterValue */

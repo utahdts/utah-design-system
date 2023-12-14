@@ -1,10 +1,10 @@
 import React, { useCallback, useRef } from 'react';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
-import joinClassNames from '../../util/joinClassNames';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition';
+import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { ErrorMessage } from './ErrorMessage';
-import useFormContextInput from './FormContext/useFormContextInput';
+import { useFormContextInput } from './FormContext/useFormContextInput';
 import { RequiredStar } from './RequiredStar';
 
 /**
@@ -28,7 +28,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-export default function TextArea({
+export function TextArea({
   className,
   defaultValue,
   errorMessage,

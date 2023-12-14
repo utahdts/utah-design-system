@@ -1,8 +1,7 @@
 /* eslint-disable no-param-reassign */
 import cloneDeep from 'lodash/cloneDeep';
-import isArray from 'lodash/isArray';
-import isObject from 'lodash/isObject';
-import notNull from '../notNull';
+import { isArray, isObject } from 'lodash';
+import { notNull } from '../notNull';
 
 /**
  * Deep cloning the entire state is rarely the desired functionality, especially
@@ -38,7 +37,7 @@ import notNull from '../notNull';
  * @param {string} params.path
  * @param {SetValueAtPathT} params.value
  */
-export default function setValueAtPath({ object, path, value }) {
+export function setValueAtPath({ object, path, value }) {
   // not a deep clone; does not create a new object because immer will do that
   const result = object || {};
 

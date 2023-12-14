@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import useFormContext from '../../FormContext/useFormContext';
-import RadioButtonGroupContext from './RadioButtonGroupContext';
+import { useFormContext } from '../../FormContext/useFormContext';
+import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 
-/** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContext} RadioButtonGroupContext */
 /** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContextValue} RadioButtonGroupContextValue */
 
 /**
@@ -15,7 +14,7 @@ import RadioButtonGroupContext from './RadioButtonGroupContext';
  * @param {string} [props.value]
  * @returns {JSX.Element}
  */
-export default function RadioButtonGroupContextProvider({
+export function RadioButtonGroupContextProvider({
   children,
   defaultValue,
   name,

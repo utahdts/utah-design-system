@@ -1,9 +1,9 @@
 import identity from 'lodash/identity';
 import React, { useCallback } from 'react';
-import joinClassNames from '../../../../util/joinClassNames';
-import useOnKeyUp from '../../../../util/useOnKeyUp';
-import useFormContext from '../../FormContext/useFormContext';
-import TextInput from '../../TextInput';
+import { joinClassNames } from '../../../../util/joinClassNames';
+import { useOnKeyUp } from '../../../../util/useOnKeyUp';
+import { useFormContext } from '../../FormContext/useFormContext';
+import { TextInput } from '../../TextInput';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';

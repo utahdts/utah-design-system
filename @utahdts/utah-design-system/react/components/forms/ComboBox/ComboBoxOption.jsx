@@ -4,8 +4,8 @@ import React, {
   useId,
   useRef,
 } from 'react';
-import joinClassNames from '../../../util/joinClassNames';
-import useOnKeyUp from '../../../util/useOnKeyUp';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { useComboBoxContext } from './context/useComboBoxContext';
 import { useComboBoxOptionGroupContext } from './context/useComboBoxOptionGroupContext';
 import { isOptionGroupVisible } from './functions/isOptionGroupVisible';

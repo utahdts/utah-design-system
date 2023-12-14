@@ -1,6 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import React, { useContext } from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 import { TableBodyDataRowContext } from './TableBodyDataRowContext';
 import { TableRow } from './TableRow';
 

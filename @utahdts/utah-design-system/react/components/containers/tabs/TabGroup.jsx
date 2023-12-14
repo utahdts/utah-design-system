@@ -1,6 +1,6 @@
 import React, { useId, useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import joinClassNames from '../../../util/joinClassNames';
+import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './TabGroupContext';
 
 /** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */

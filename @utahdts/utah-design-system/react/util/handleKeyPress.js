@@ -9,4 +9,6 @@
  * @param {() => void} handler
  * @returns {KeyboardEventHandler<KeyboardEventHandlerT>}
  */
-export default (code, handler) => (e) => e.code === code && handler();
+export function handleKeyPress(code, handler) {
+  return (e) => e.code === code && handler();
+}

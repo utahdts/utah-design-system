@@ -1,18 +1,11 @@
-import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 
 /** @typedef {import('@utahdts/utah-design-system').AriaLiveType} AriaLiveType */
 
-const propTypes = {
-  ariaLiveType: PropTypes.oneOf(['assertive', 'polite']).isRequired,
-  messages: PropTypes.arrayOf(PropTypes.node).isRequired,
-};
-const defaultProps = {};
-
 /**
  * @typedef MessageObject {
  *  @property {string} id
- *  @property {string} message
+ *  @property {React.ReactNode} message
  * }
  */
 
@@ -29,10 +22,10 @@ const NUMBER_REGIONS = 100;
 /**
  * @param {Object} props
  * @param {AriaLiveType} props.ariaLiveType
- * @param {string[]} props.messages
+ * @param {React.ReactNode[]} props.messages
  * @returns {JSX.Element}
  */
-function AriaLiveMessages({ ariaLiveType, messages }) {
+export function AriaLiveMessages({ ariaLiveType, messages }) {
   const messagesLists = useMemo(
     () => (
       // divide out messages in to equally chunked lists
@@ -76,8 +69,3 @@ function AriaLiveMessages({ ariaLiveType, messages }) {
     </div>
   );
 }
-
-AriaLiveMessages.propTypes = propTypes;
-AriaLiveMessages.defaultProps = defaultProps;
-
-export default AriaLiveMessages;

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import joinClassNames from '../../../react/util/joinClassNames';
+import { joinClassNames } from '../../../react/util/joinClassNames';
 
 test('joinClassNames', () => {
   expect(joinClassNames('1', '2')).toBe('1 2');

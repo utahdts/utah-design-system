@@ -12,7 +12,7 @@ import { useImmer } from 'use-immer';
  * @param {string} value
  * @returns {React.ChangeEventHandler<HTMLElement> }
  */
-export default function useRememberCursorPosition(ref, value) {
+export function useRememberCursorPosition(ref, value) {
   const [cursor, setCursor] = useImmer(NaN);
 
   useEffect(

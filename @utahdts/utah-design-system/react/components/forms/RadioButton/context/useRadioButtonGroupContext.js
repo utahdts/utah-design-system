@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import RadioButtonGroupContext from './RadioButtonGroupContext';
+import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 
 /** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContext} RadioButtonGroupContextType */
 
 /**
  * @return {RadioButtonGroupContextType}
  */
-export default function useRadioButtonGroupContext() {
+export function useRadioButtonGroupContext() {
   return useContext(RadioButtonGroupContext);
 }

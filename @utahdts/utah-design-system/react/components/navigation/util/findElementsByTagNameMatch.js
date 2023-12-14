@@ -6,11 +6,10 @@ import { notNullArray } from '../../../util/notNullArray';
 // relevant to previous matching headers, but this function is tightly coupled to groupElementsByHeaderLevel()
 // so it'd be a larger change.
 /**
- *
  * @param {Element} element
  * @returns {Element[]}
  */
-export default function findElementsByTagNameMatch(element) {
+export function findElementsByTagNameMatch(element) {
   // @ts-ignore
   return notNullArray(
     [

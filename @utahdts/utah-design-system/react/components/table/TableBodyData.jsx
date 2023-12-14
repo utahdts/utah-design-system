@@ -1,11 +1,11 @@
 import { castArray, identity, isEqual } from 'lodash';
 import React, { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { chainSorters } from '../../util/chainSorters';
-import notNullMap from '../../util/notNullMap';
-import valueAtPath from '../../util/state/valueAtPath';
-import trailingS from '../../util/trailingS';
+import { notNullMap } from '../../util/notNullMap';
+import { valueAtPath } from '../../util/state/valueAtPath';
+import { trailingS } from '../../util/trailingS';
 import { TableBodyDataRowContext } from './TableBodyDataRowContext';
 import { useTableContext } from './hooks/useTableContext';
 import { convertRecordsToFilterValue } from './util/convertRecordsToFilterValue';

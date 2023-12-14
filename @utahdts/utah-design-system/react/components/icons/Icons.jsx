@@ -1,6 +1,6 @@
 /** @typedef {import('@utahdts/utah-design-system').IconFunc} IconFunc */
 /** @enum {IconFunc} */
-export default {
+export const Icons = {
   IconArrowLeft: /** @type {IconFunc} */ (({ className }) => (<svg viewBox="0 0 12.334 12.334" className={`icon-svg icon-arrow-left ${className || ''}`}><g><path d="M0,6.167L6.167,0l1.458,1.438-3.708,3.708H12.334v2.042H3.917s3.708,3.708,3.708,3.708l-1.458,1.438L0,6.167Z" /></g></svg>)),
   IconArrowRight: /** @type {IconFunc} */ (({ className }) => (<svg viewBox="0 0 12.334 12.334" className={`icon-svg icon-arrow-right ${className || ''}`}><g><path d="M6.167,12.334l-1.458-1.438,3.708-3.708H0v-2.042H8.417L4.709,1.438l1.458-1.438,6.167,6.167-6.167,6.167Z" /></g></svg>)),
   IconChevron: /** @type {IconFunc} */ (({ className }) => (<svg viewBox="0 0 10.75 6.834" className={`icon-svg icon-chevron ${className || ''}`}><g><path d="M5.375,6.834L0,1.438,1.437,0l3.938,3.938L9.313,0l1.437,1.438L5.375,6.834Z" /></g></svg>)),

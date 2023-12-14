@@ -7,7 +7,7 @@
  * @param {string} errorMessage
  * @returns {NonNullable<T>}
  */
-export default function notNull(value, errorMessage) {
+export function notNull(value, errorMessage) {
   if (value === null || value === undefined) {
     throw new Error(errorMessage);
   }

@@ -1,6 +1,6 @@
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
-import TextInput from '../forms/TextInput';
+import { joinClassNames } from '../../util/joinClassNames';
+import { TextInput } from '../forms/TextInput';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**

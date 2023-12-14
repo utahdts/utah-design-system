@@ -5,8 +5,8 @@ import {
   useMemo,
 } from 'react';
 import { useImmer } from 'use-immer';
-import setValueAtPath from '../../util/state/setValueAtPath';
-import valueAtPath from '../../util/state/valueAtPath';
+import { setValueAtPath } from '../../util/state/setValueAtPath';
+import { valueAtPath } from '../../util/state/valueAtPath';
 import { TableContext } from './util/TableContext';
 
 /**

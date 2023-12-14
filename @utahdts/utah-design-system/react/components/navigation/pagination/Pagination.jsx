@@ -2,13 +2,13 @@ import {
   useCallback, useEffect, useMemo, useRef
 } from 'react';
 import { useImmer } from 'use-immer';
-import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import useRefAlways from '../../../hooks/useRefAlways';
-import joinClassNames from '../../../util/joinClassNames';
+import { useRefAlways } from '../../../hooks/useRefAlways';
+import { joinClassNames } from '../../../util/joinClassNames';
 import { IconButton } from '../../buttons/IconButton';
 import { PaginationLink } from './PaginationLink';
-import determinePaginationLinks from './util/determinePaginationLinks';
+import { determinePaginationLinks } from './util/determinePaginationLinks';
 
 /**
  * @param {Object} props

@@ -6,8 +6,8 @@ import { useRef } from 'react';
  * @param {UseRefAlwaysT} value
  * @return {React.MutableRefObject<UseRefAlwaysT>}
  */
-export default (value) => {
+export function useRefAlways(value) {
   const ref = useRef(value);
   ref.current = value;
   return ref;
-};
+}

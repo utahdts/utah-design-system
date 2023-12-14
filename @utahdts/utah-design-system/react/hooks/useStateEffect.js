@@ -37,7 +37,7 @@ Example new code:
  * @param {any[]} param.dependencyList
  * @returns {[DataT, React.Dispatch<React.SetStateAction<DataT>>]}
  */
-export default ({ calculateValueFn, onUnmountFn, dependencyList }) => {
+export function useStateEffect({ calculateValueFn, onUnmountFn, dependencyList }) {
   const [state, setState] = useState(() => calculateValueFn(null));
 
   useEffect(
@@ -50,4 +50,4 @@ export default ({ calculateValueFn, onUnmountFn, dependencyList }) => {
   );
 
   return [state, setState];
-};
+}

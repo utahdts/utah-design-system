@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
-import componentColors from '../../enums/componentColors';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import joinClassNames from '../../util/joinClassNames';
+import { componentColors } from '../../enums/componentColors';
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { joinClassNames } from '../../util/joinClassNames';
 import { Tooltip } from '../Tooltip/Tooltip';
 
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */

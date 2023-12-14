@@ -1,4 +1,4 @@
-import notNull from './notNull';
+import { notNull } from './notNull';
 
 /**
  * Makes sure all elements in an array are neither null nor undefined (for type safety)

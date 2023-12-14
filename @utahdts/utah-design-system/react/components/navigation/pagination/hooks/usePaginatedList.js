@@ -1,4 +1,4 @@
-import useStateEffect from '../../../../hooks/useStateEffect';
+import { useStateEffect } from '../../../../hooks/useStateEffect';
 
 /**
  * companion to <Pagination>, hook for slicing a list based on the current page number
@@ -10,7 +10,7 @@ import useStateEffect from '../../../../hooks/useStateEffect';
  * @param {number} props.itemsPerPage how many items are on each page
  * @returns new list starting at the given page number
  */
-export default function usePaginatedList({ list, pageIndex, itemsPerPage }) {
+export function usePaginatedList({ list, pageIndex, itemsPerPage }) {
   const [paginatedList] = useStateEffect({
     calculateValueFn: () => {
       const totalPages = Math.ceil(list.length / itemsPerPage);

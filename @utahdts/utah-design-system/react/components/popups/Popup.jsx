@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
-import popupPlacement from '../../enums/popupPlacement';
-import useClickOutside from '../../hooks/useClickOutside';
-import useGlobalKeyEvent from '../../hooks/useGlobalKeyEvent';
-import joinClassNames from '../../util/joinClassNames';
+import { popupPlacement } from '../../enums/popupPlacement';
+import { useClickOutside } from '../../hooks/useClickOutside';
+import { useGlobalKeyEvent } from '../../hooks/useGlobalKeyEvent';
+import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */

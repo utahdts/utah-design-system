@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import joinClassNames from '../../util/joinClassNames';
-import setValueAtPath from '../../util/state/setValueAtPath';
-import valueAtPath from '../../util/state/valueAtPath';
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { joinClassNames } from '../../util/joinClassNames';
+import { setValueAtPath } from '../../util/state/setValueAtPath';
+import { valueAtPath } from '../../util/state/valueAtPath';
 import { ErrorMessage } from './ErrorMessage';
-import useFormContext from './FormContext/useFormContext';
+import { useFormContext } from './FormContext/useFormContext';
 
 /**
  * @param {Object} props
@@ -26,7 +26,7 @@ import useFormContext from './FormContext/useFormContext';
  * @param {number} [props.width]
  * @returns {JSX.Element}
  */
-export default function Switch({
+export function Switch({
   className,
   defaultValue,
   errorMessage,

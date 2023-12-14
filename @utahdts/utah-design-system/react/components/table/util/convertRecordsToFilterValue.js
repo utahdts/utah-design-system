@@ -1,5 +1,5 @@
-import valueAtPath from '../../../util/state/valueAtPath';
-import toSafeString from '../../../util/toSafeString';
+import { valueAtPath } from '../../../util/state/valueAtPath';
+import { toSafeString } from '../../../util/toSafeString';
 
 /**
  * @typedef {import('@utahdts/utah-design-system').TableFilterValue} TableFilterValue

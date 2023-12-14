@@ -7,7 +7,7 @@ import { useCallback } from 'react';
  * @param {boolean} [stopPropagation]
  * @returns {(event: React.KeyboardEvent<KeyboardEventElementT>) => boolean} function that checks for the keypress and fires function when pressed
  */
-export default function useOnKeyUp(targetKey, func, stopPropagation) {
+export function useOnKeyUp(targetKey, func, stopPropagation) {
   return useCallback(
     (e) => {
       const isMatchingKey = e.key === targetKey;

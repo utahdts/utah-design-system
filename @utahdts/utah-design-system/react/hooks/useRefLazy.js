@@ -1,4 +1,4 @@
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash';
 import { useRef } from 'react';
 
 /**
@@ -7,7 +7,7 @@ import { useRef } from 'react';
  * @param {T | (() => T)} lazyValue
  * @returns {React.MutableRefObject<T>}
  */
-export default (lazyValue) => {
+export function useRefLazy(lazyValue) {
   const isLoadedRef = useRef(false);
   const ref = useRef(/** @type {T} */(undefined));
   if (!isLoadedRef.current) {
@@ -15,4 +15,4 @@ export default (lazyValue) => {
     ref.current = isFunction(lazyValue) ? lazyValue() : lazyValue;
   }
   return ref;
-};
+}

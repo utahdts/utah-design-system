@@ -1,7 +1,7 @@
 import React from 'react';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import handleEvent from '../../util/handleEvent';
-import joinClassNames from '../../util/joinClassNames';
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { handleEvent } from '../../util/handleEvent';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 

@@ -1,23 +1,11 @@
-import PropTypes from 'prop-types';
 import {
   useEffect,
   useMemo,
   useRef,
 } from 'react';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import joinClassNames from '../../util/joinClassNames';
-import trailingS from '../../util/trailingS';
-
-const propTypes = {
-  className: PropTypes.string,
-  maxLength: PropTypes.number.isRequired,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  text: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  text: null,
-};
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { joinClassNames } from '../../util/joinClassNames';
+import { trailingS } from '../../util/trailingS';
 
 /**
  * @param {Object} props
@@ -27,7 +15,7 @@ const defaultProps = {
  * @param {string | null} [props.text]
  * @returns {JSX.Element | null}
  */
-function CharacterCount({
+export function CharacterCount({
   className,
   id,
   maxLength,
@@ -70,8 +58,3 @@ function CharacterCount({
       : null
   );
 }
-
-CharacterCount.propTypes = propTypes;
-CharacterCount.defaultProps = defaultProps;
-
-export default CharacterCount;

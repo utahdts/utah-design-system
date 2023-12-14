@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import toSafeString from '../../../react/util/toSafeString';
+import { toSafeString } from '../../../react/util/toSafeString';
 
 describe('toSafeString', () => {
   test('empties', () => {

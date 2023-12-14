@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import joinClassNames from '../../util/joinClassNames';
-import setValueAtPath from '../../util/state/setValueAtPath';
-import uuidv4 from '../../util/uuidv4';
-import FormContextProvider from './FormContext/FormContextProvider';
+import { v4 as uuidv4 } from 'uuid';
+import { joinClassNames } from '../../util/joinClassNames';
+import { setValueAtPath } from '../../util/state/setValueAtPath';
+import { FormContextProvider } from './FormContext/FormContextProvider';
 
 /**
  * @template FormContextStateT
@@ -16,7 +16,7 @@ import FormContextProvider from './FormContext/FormContextProvider';
  * @param {FormContextStateT} [props.state]
  * @returns {JSX.Element}
  */
-export default function Form({
+export function Form({
   children,
   className,
   onChange,

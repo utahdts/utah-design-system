@@ -4,7 +4,7 @@
  * @param {number} param.numberOfPages
  * @returns {{ isEllipsis: boolean, title?: string, label: string | null, pageIndex: number }[]}
  */
-export default function determinePaginationLinks({ currentPageIndex, numberOfPages }) {
+export function determinePaginationLinks({ currentPageIndex, numberOfPages }) {
   const numberOfPagesAtLeastOne = Math.max(numberOfPages, 1);
   let currentPageIndexUse = currentPageIndex || 0;
   if (currentPageIndex < 0 || currentPageIndex >= numberOfPagesAtLeastOne) {

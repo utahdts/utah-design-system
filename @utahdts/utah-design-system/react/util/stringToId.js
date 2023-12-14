@@ -2,7 +2,7 @@
  * Convert an input string such as a title to a valid html id
  * @param {string} inputString The string to convert to an html id string
  */
-export default function stringToId(inputString) {
+export function stringToId(inputString) {
   let retVal;
   retVal = inputString?.toLowerCase();
   retVal = retVal?.replaceAll(' ', '-');

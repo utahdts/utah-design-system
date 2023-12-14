@@ -5,6 +5,6 @@
  * @param {{ x: number, y: number }} point ({x, y}) defines a point
  * @returns {boolean}
  */
-export default function rectContainsPoint(rect, point) {
+export function rectContainsPoint(rect, point) {
   return rect.left <= point.x && rect.right >= point.x && rect.top <= point.y && rect.bottom >= point.y;
 }

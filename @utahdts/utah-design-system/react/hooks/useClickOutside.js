@@ -6,7 +6,7 @@ import { useEffect } from 'react';
  * @param {React.KeyboardEventHandler} handler
  * @param {boolean} isDisabled
  */
-function useClickOutside(ref, handler, isDisabled = false) {
+export function useClickOutside(ref, handler, isDisabled = false) {
   useEffect(
     () => {
       let retVal;
@@ -53,5 +53,3 @@ function useClickOutside(ref, handler, isDisabled = false) {
     [ref.current, handler, isDisabled]
   );
 }
-
-export default useClickOutside;

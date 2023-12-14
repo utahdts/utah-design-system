@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
-import formElementSizesEnum from '../../../enums/formElementSizesEnum';
-import joinClassNames from '../../../util/joinClassNames';
-import Spinner from '../../widgetsIndicators/Spinner';
-import handleEvent from '../../../util/handleEvent';
 import { handleKeyPress } from '../../../../index';
+import { formElementSizesEnum } from '../../../enums/formElementSizesEnum';
+import { handleEvent } from '../../../util/handleEvent';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { Spinner } from '../../widgetsIndicators/Spinner';
 import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonContextProvider';
 
 /** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */

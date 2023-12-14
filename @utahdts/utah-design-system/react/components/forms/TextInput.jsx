@@ -1,8 +1,8 @@
 import React, { useCallback, useRef } from 'react';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import useFormContextInput from './FormContext/useFormContextInput';
-import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
-import joinClassNames from '../../util/joinClassNames';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useFormContextInput } from './FormContext/useFormContextInput';
+import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition';
+import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { ErrorMessage } from './ErrorMessage';
 import { RequiredStar } from './RequiredStar';
@@ -30,7 +30,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
  */
-export default function TextInput({
+export function TextInput({
   className,
   defaultValue,
   errorMessage,

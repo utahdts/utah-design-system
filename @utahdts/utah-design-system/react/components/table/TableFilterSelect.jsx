@@ -1,6 +1,6 @@
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
-import Select from '../forms/Select';
+import { joinClassNames } from '../../util/joinClassNames';
+import { Select } from '../forms/Select';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 

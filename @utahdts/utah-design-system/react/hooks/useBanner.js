@@ -1,8 +1,8 @@
-export default function useBanner() {
+export function useBanner() {
   return (
     /**
      * @param {Object} param
-     * @param {string} param.message
+     * @param {React.ReactNode} param.message
      */
     ({ message }) => {
       // TODO: replace this console.log with adding the banner to the banner queue in the design system context

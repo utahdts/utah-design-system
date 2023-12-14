@@ -7,7 +7,7 @@ import { useImmer } from 'use-immer';
 import { Banner } from '../../../components/popups/Banner/Banner';
 import { BannerIcon } from '../../../components/popups/Banner/BannerIcon';
 import { BannerMessage } from '../../../components/popups/Banner/BannerMessage';
-import joinClassNames from '../../../util/joinClassNames';
+import { joinClassNames } from '../../../util/joinClassNames';
 import { useBanner } from '../hooks/useBanner';
 
 /** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */

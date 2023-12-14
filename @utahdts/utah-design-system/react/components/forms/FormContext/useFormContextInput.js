@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
-import valueAtPath from '../../../util/state/valueAtPath';
-import useOnKeyUp from '../../../util/useOnKeyUp';
-import useFormContext from './useFormContext';
+import { valueAtPath } from '../../../util/state/valueAtPath';
+import { useOnKeyUp } from '../../../util/useOnKeyUp';
+import { useFormContext } from './useFormContext';
 
 /**
  * @template FormEventT
@@ -34,7 +34,7 @@ import useFormContext from './useFormContext';
  * @param {ValueT} [param.value] current value of the component
  * @returns {useFormContextInputResult<FormContextT, ValueT, HTMLElementT>} parameters w/ default form context values
  */
-export default function useFormContextInput({
+export function useFormContextInput({
   defaultValue,
   id,
   onChange,
