@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { cloneDeep } from 'lodash';
-import { isArray, isObject } from 'lodash';
+import { cloneDeep, isArray, isObject } from 'lodash';
 import { notNull } from '../notNull';
 
 /**
