@@ -1,8 +1,7 @@
-// @ts-check
 import identity from 'lodash/identity';
 import uniq from 'lodash/uniq';
 import React, { useMemo } from 'react';
-import chainSorters from '../../util/chainSorters';
+import { chainSorters } from '../../util/chainSorters';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
 import { SelectOption } from '../forms/SelectOption';

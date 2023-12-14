@@ -1,4 +1,3 @@
-// @ts-check
 import trim from 'lodash/trim';
 import React, {
   useCallback,

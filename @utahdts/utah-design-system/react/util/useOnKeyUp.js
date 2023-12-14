@@ -1,4 +1,3 @@
-// @ts-check
 import { useCallback } from 'react';
 
 /**

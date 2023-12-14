@@ -1,4 +1,3 @@
-// @ts-check
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 

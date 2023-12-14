@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useEffect } from 'react';
 import notNull from '../../util/notNull';
 import { Pagination } from '../navigation/pagination/Pagination';

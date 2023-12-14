@@ -1,4 +1,3 @@
-// @ts-check
 import { isFunction } from 'lodash';
 import React, { useContext } from 'react';
 import valueAtPath from '../../util/state/valueAtPath';

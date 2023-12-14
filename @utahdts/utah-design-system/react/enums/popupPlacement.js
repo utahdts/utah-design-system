@@ -1,5 +1,3 @@
-// @ts-check
-
 // !! This file exists twice !! //
 // this file also is in the header!
 // see the header twin file for an explanation

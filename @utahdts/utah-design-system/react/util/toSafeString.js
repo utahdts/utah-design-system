@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * @param {string | number | null | undefined} value
  * @returns {string}

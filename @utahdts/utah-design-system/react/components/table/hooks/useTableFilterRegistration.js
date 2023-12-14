@@ -1,4 +1,3 @@
-// @ts-check
 import { useEffect } from 'react';
 import { useTableContext } from './useTableContext';
 

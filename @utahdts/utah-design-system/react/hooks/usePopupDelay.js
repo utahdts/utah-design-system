@@ -1,4 +1,3 @@
-// @ts-check
 const NO_POP_UP_TIMEOUT_MS = 350;
 const POP_UP_TIMEOUT_MS = 350;
 

@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useContext } from 'react';
 import joinClassNames from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';

@@ -1,4 +1,3 @@
-// @ts-check
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useImmer } from 'use-immer';

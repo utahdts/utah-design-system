@@ -1,4 +1,3 @@
-// @ts-check
 /** @typedef {import('@utahdts/utah-design-system').AriaLiveType} AriaLiveType */
 
 /** @enum {AriaLiveType} */

@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useCallback, useEffect, useState } from 'react';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import joinClassNames from '../../util/joinClassNames';

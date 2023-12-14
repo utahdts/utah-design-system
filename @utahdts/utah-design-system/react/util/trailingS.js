@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * returns an 's' if the number is plural
  * @param {number} value

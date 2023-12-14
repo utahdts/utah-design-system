@@ -1,4 +1,3 @@
-// @ts-check
 import { useCallback, useEffect } from 'react';
 import { useImmer } from 'use-immer';
 

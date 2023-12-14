@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useCallback, useRef } from 'react';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import useFormContextInput from './FormContext/useFormContextInput';

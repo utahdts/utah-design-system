@@ -1,4 +1,3 @@
-// @ts-check
 import { useCallback, useMemo } from 'react';
 import valueAtPath from '../../../util/state/valueAtPath';
 import useOnKeyUp from '../../../util/useOnKeyUp';

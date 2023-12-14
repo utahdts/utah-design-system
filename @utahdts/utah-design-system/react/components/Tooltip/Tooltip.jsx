@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useEffect, useState } from 'react';
 import { usePopper } from 'react-popper';
 import popupPlacement from '../../enums/popupPlacement';

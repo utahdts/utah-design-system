@@ -13,7 +13,7 @@ export { Banner } from './react/components/popups/Banner/Banner';
 export { BannerIcon } from './react/components/popups/Banner/BannerIcon';
 export { BannerMessage } from './react/components/popups/Banner/BannerMessage';
 export { Button } from './react/components/buttons/Button';
-export { default as chainSorters } from './react/util/chainSorters';
+export { chainSorters } from './react/util/chainSorters';
 export { default as CharacterCount } from './react/components/forms/CharacterCount';
 export { Checkbox } from './react/components/forms/Checkbox';
 export { ClickableTag } from './react/components/buttons/ClickableTag';

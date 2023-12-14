@@ -1,4 +1,3 @@
-// @ts-check
 import identity from 'lodash/identity';
 import { notNullArray } from '../../../util/notNullArray';
 

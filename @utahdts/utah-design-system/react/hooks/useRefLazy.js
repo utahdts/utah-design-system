@@ -1,4 +1,3 @@
-// @ts-check
 import isFunction from 'lodash/isFunction';
 import { useRef } from 'react';
 

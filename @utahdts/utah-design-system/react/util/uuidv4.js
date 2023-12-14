@@ -1,4 +1,3 @@
-// @ts-check
 import notNull from './notNull';
 
 /** @returns {string} */

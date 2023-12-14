@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';

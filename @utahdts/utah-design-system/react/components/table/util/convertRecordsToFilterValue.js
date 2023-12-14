@@ -1,4 +1,3 @@
-// @ts-check
 import valueAtPath from '../../../util/state/valueAtPath';
 import toSafeString from '../../../util/toSafeString';
 

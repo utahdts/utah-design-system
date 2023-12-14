@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';

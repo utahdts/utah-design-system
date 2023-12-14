@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable react/prop-types */
 import React, { useCallback } from 'react';
 import joinClassNames from '../../../util/joinClassNames';

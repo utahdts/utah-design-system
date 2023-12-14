@@ -1,5 +1,3 @@
-// @ts-check
-
 /** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */

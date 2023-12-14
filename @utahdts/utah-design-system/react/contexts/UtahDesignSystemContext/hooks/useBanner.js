@@ -1,4 +1,3 @@
-// @ts-check
 import { useCallback, useMemo } from 'react';
 import useUtahDesignSystemContext from '../useUtahDesignSystemContext';
 import uuidv4 from '../../../util/uuidv4';

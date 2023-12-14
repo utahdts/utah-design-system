@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useId, useRef } from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';

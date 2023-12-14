@@ -1,4 +1,3 @@
-// @ts-check
 import { createContext } from 'react';
 
 /** @typedef {import('@utahdts/utah-design-system').TableContextValue<any>} TableContextValue */

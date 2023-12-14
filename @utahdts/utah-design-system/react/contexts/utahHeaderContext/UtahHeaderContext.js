@@ -1,4 +1,3 @@
-// @ts-check
 import { getUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import React from 'react';
 

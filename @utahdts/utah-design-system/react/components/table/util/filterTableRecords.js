@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * @typedef {import('@utahdts/utah-design-system').TableFilterFunction} TableFilterFunction
  * @typedef {import('@utahdts/utah-design-system').TableRecord} TableRecord

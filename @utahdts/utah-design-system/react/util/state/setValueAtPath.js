@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable no-param-reassign */
 import cloneDeep from 'lodash/cloneDeep';
 import isArray from 'lodash/isArray';

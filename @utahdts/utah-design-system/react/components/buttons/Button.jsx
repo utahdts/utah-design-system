@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import { BUTTON_APPEARANCE, BUTTON_TYPES } from '../../enums/buttonEnums';
 import componentColors from '../../enums/componentColors';

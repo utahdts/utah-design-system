@@ -1,5 +1,3 @@
-// @ts-check
-
 /** @typedef {import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
 
 /**

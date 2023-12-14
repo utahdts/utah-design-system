@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import { ComboBoxOptionGroupContext } from './ComboBoxOptionGroupContext';
 

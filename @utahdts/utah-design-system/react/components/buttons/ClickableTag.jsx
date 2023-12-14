@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import handleEvent from '../../util/handleEvent';

@@ -1,4 +1,3 @@
-// @ts-check
 import { isOptionGroupVisible } from './isOptionGroupVisible';
 
 /** @typedef {import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */

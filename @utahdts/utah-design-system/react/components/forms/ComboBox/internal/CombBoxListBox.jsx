@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import useAriaMessaging from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';

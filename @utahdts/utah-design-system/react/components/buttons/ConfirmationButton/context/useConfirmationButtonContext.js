@@ -1,4 +1,3 @@
-// @ts-check
 import { useContext } from 'react';
 import { ConfirmationButtonContext } from './ConfirmationButtonContext';
 

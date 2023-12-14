@@ -1,4 +1,3 @@
-// @ts-check
 import { useRef } from 'react';
 
 /**

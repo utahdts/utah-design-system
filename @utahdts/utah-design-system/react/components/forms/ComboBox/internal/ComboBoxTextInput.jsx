@@ -1,4 +1,3 @@
-// @ts-check
 import identity from 'lodash/identity';
 import React, { useCallback } from 'react';
 import joinClassNames from '../../../../util/joinClassNames';

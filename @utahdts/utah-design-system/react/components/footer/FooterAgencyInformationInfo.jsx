@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-// @ts-check
 import PropTypes from 'prop-types';
 import React from 'react';
 
