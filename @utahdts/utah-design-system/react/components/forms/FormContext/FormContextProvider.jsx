@@ -1,6 +1,6 @@
 // @ts-check
 import React, { useMemo } from 'react';
-import FormContext from './FormContext';
+import { FormContext } from './FormContext';
 
 /**
  * @template FormContextStateT
@@ -28,8 +28,8 @@ import FormContext from './FormContext';
  * @template FormContextStateT
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {({e, fieldPath, value}: {e?: React.KeyboardEvent, fieldPath: string, value: any}) => void} props.onChange children inputs should always give a new value
- * @param {(e?: React.KeyboardEvent) => void} [props.onSubmit] called when the form is somehow submitted by a child element
+ * @param {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} props.onChange
+ * @param {(e?: React.ChangeEvent) => void} [props.onSubmit] called when the form is somehow submitted by a child element
  * @param {FormContextValueUpdater<FormContextStateT>} props.setState setter for setting the `state`
  * @param {FormContextStateT} props.state known by the caller; every field in it with its type
  * @returns {JSX.Element}

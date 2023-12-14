@@ -11,7 +11,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {TableDataT} [props.defaultValue]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {(e: React.KeyboardEvent) => TableDataT} [props.onChange]
+ * @param {(e: React.ChangeEvent) => TableDataT} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {TableDataT} [props.value]
  * @returns {JSX.Element}

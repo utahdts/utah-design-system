@@ -10,7 +10,6 @@ import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonC
 /** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
 /** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
-/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 
@@ -25,7 +24,7 @@ import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonC
  * @param {boolean} [props.isBusy]
  * @param {boolean} [props.isDisabled]
  * @param {string} [props.id]
- * @param {EventAction} props.onClick
+ * @param {React.MouseEventHandler} props.onClick
  * @param {FormElementSizes} [props.size]
  * @param {ButtonTypes} [props.type]
  * @returns {JSX.Element}

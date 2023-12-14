@@ -1,6 +1,6 @@
 // @ts-check
 import React from 'react';
-import SelectOption from '../forms/SelectOption';
+import { SelectOption } from '../forms/SelectOption';
 
 /**
  * @param {Object} props

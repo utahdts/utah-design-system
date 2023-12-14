@@ -5,7 +5,7 @@ import React, { useMemo } from 'react';
 import chainSorters from '../../util/chainSorters';
 import joinClassNames from '../../util/joinClassNames';
 import Select from '../forms/Select';
-import SelectOption from '../forms/SelectOption';
+import { SelectOption } from '../forms/SelectOption';
 import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';

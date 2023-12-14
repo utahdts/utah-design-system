@@ -56,12 +56,15 @@ export default function useFormContextInput({
       /** @param {React.ChangeEvent<HTMLElementT>} e */
       (e) => {
         // input component didn't supply an onChange so try to handle it automagically
+        // @ts-ignore
         let newValue = e?.target?.value;
+        // @ts-ignore
         if (e?.target?.type === 'checkbox') {
           // @ts-ignore
           newValue = e.target.checked;
         }
         // could also use setState; Form is doing this anyways; but do generic here and specific there
+        // @ts-ignore
         contextOnChange?.({ e, fieldPath: id, value: newValue });
       }
     ),
@@ -74,6 +77,7 @@ export default function useFormContextInput({
 
   const internalOnClear = useCallback(
     /** @param {React.UIEvent<HTMLElementT>} e */
+    // @ts-ignore
     (e) => contextOnChange?.({ e, fieldPath: id, value: '' }),
     [contextOnChange, id]
   );
@@ -98,6 +102,7 @@ export default function useFormContextInput({
     [defaultValue, id, onChange, state, value]
   );
 
+  // @ts-ignore
   return useMemo(
     () => ({
       // indirect generic "magic" functions for passing to event attributes in inputs

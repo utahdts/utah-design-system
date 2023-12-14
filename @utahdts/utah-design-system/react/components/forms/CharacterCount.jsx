@@ -1,12 +1,12 @@
 // @ts-check
 import PropTypes from 'prop-types';
-import React, {
-  useMemo,
+import {
   useEffect,
+  useMemo,
   useRef,
 } from 'react';
-import joinClassNames from '../../util/joinClassNames';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import joinClassNames from '../../util/joinClassNames';
 import trailingS from '../../util/trailingS';
 
 const propTypes = {

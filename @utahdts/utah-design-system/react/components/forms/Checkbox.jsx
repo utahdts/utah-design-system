@@ -1,8 +1,8 @@
 import React from 'react';
 import joinClassNames from '../../util/joinClassNames';
-import ErrorMessage from './ErrorMessage';
+import { ErrorMessage } from './ErrorMessage';
 import useFormContextInput from './FormContext/useFormContextInput';
-import RequiredStar from './RequiredStar';
+import { RequiredStar } from './RequiredStar';
 
 /**
  * @template FormEventT
@@ -21,7 +21,7 @@ import RequiredStar from './RequiredStar';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {FormEvent<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
+ * @param {React.ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {(() => void)} [props.onSubmit]
  * @param {boolean} [props.value]
  * @param {string} [props.wrapperClassName]
@@ -64,7 +64,7 @@ export function Checkbox({
           {isRequired ? <RequiredStar /> : null}
         </label>
         <input
-          aria-describedby={errorMessage ? `${id}-error` : null}
+          aria-describedby={errorMessage ? `${id}-error` : undefined}
           checked={currentValue}
           className={className}
           disabled={isDisabled}

@@ -5,7 +5,7 @@ import popupPlacement from '../../enums/popupPlacement';
 import useClickOutside from '../../hooks/useClickOutside';
 import useGlobalKeyEvent from '../../hooks/useGlobalKeyEvent';
 import joinClassNames from '../../util/joinClassNames';
-import IconButton from '../buttons/IconButton';
+import { IconButton } from '../buttons/IconButton';
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 

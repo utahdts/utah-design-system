@@ -1,20 +1,16 @@
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import joinClassNames from '../../../util/joinClassNames';
-import TabGroupContext from './TabGroupContext';
+import { TabGroupContext } from './TabGroupContext';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  // a tabId id must be provided for accessibility and selecting tabs
-  tabId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-};
-const defaultProps = {
-  className: null,
-};
-
-function TabPanel({ children, className, tabId }) {
-  const { selectedTabId, tabGroupId } = /** @type {@typeof useContext<number>} */ (useContext)(TabGroupContext);
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {string} [props.tabId]
+ * @returns {JSX.Element}
+ */
+export function TabPanel({ children, className, tabId }) {
+  const { selectedTabId, tabGroupId } = useContext(TabGroupContext);
 
   return (
     <div
@@ -28,14 +24,9 @@ function TabPanel({ children, className, tabId }) {
       // `id` must match the related Tab's `aria-controls`
       id={`tabpanel-${tabGroupId}-${tabId}`}
       role="tabpanel"
-      tabIndex="0"
+      tabIndex={0}
     >
       {children}
     </div>
   );
 }
-
-TabPanel.propTypes = propTypes;
-TabPanel.defaultProps = defaultProps;
-
-export default TabPanel;

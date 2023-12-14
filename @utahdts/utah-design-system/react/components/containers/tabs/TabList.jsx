@@ -1,17 +1,14 @@
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import joinClassNames from '../../../util/joinClassNames';
-import TabGroupContext from './TabGroupContext';
+import { TabGroupContext } from './TabGroupContext';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-};
-
-function TabList({ children, className }) {
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @returns {JSX.Element}
+ */
+export function TabList({ children, className }) {
   const { tabGroupId } = useContext(TabGroupContext);
 
   return (
@@ -24,8 +21,3 @@ function TabList({ children, className }) {
     </div>
   );
 }
-
-TabList.propTypes = propTypes;
-TabList.defaultProps = defaultProps;
-
-export default TabList;

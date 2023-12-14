@@ -4,9 +4,9 @@ import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAr
 import useFormContextInput from './FormContext/useFormContextInput';
 import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import joinClassNames from '../../util/joinClassNames';
-import IconButton from '../buttons/IconButton';
-import ErrorMessage from './ErrorMessage';
-import RequiredStar from './RequiredStar';
+import { IconButton } from '../buttons/IconButton';
+import { ErrorMessage } from './ErrorMessage';
+import { RequiredStar } from './RequiredStar';
 
 /**
  * @param {Object} props
@@ -14,7 +14,7 @@ import RequiredStar from './RequiredStar';
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form, the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
- * @param {React.MutableRefObject<HTMLDivElement>} [props.innerRef]
+ * @param {React.Ref<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -24,7 +24,7 @@ import RequiredStar from './RequiredStar';
  * @param {React.FormEventHandler} [props.onChange] can be omitted to be uncontrolled OR controlled by form
  * @param {React.FormEventHandler} [props.onKeyUp]
  * @param {React.FormEventHandler} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
- * @param {(() => void)} [props.onSubmit] when enter key pressed in field, this callback may be called
+ * @param {React.ChangeEventHandler} [props.onSubmit] when enter key pressed in field, this callback may be called
  * @param {string} [props.placeholder]
  * @param {React.ReactNode} [props.rightContent] custom content to put to the right of the text input
  * @param {string} [props.value]
@@ -75,25 +75,34 @@ export default function TextInput({
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
-  const clearInput = useCallback((e) => {
-    if (currentOnClear) {
-      currentOnClear(e);
-    } else if (inputRef.current) {
-      inputRef.current.value = '';
-    }
-    addAssertiveMessage(`${label} input was cleared`);
-    inputRef.current?.focus();
-  }, [addAssertiveMessage, currentOnClear, label]);
+  const clearInput = useCallback(
+    /** @param {React.UIEvent} e */
+    (e) => {
+      if (currentOnClear) {
+        currentOnClear(e);
+      } else if (inputRef.current) {
+        inputRef.current.value = '';
+      }
+      addAssertiveMessage(`${label} input was cleared`);
+      inputRef.current?.focus();
+    },
+    [addAssertiveMessage, currentOnClear, label]
+  );
 
-  const checkKeyPressed = useCallback((e) => {
-    if (e.key === 'Escape' && showClearIcon) {
-      clearInput(e);
-    } else {
-      currentOnFormKeyUp(e);
-    }
-  }, [clearInput, currentOnFormKeyUp, showClearIcon]);
+  const checkKeyPressed = useCallback(
+    /** @param {React.KeyboardEvent} e */
+    (e) => {
+      if (e.key === 'Escape' && showClearIcon) {
+        clearInput(e);
+      } else {
+        currentOnFormKeyUp(e);
+      }
+    },
+    [clearInput, currentOnFormKeyUp, showClearIcon]
+  );
 
   const onChangeCallback = useCallback(
+    /** @param {React.ChangeEvent<HTMLElement>} e */
     (e) => {
       onChangeSetCursorPosition(e);
       currentOnChange?.(e);

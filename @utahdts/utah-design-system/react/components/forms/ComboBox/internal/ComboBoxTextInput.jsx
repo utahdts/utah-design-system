@@ -10,8 +10,6 @@ import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
 
-/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
-
 /**
  * @param {Object} props
  * @param {string} [props.className]
@@ -25,8 +23,8 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {EventAction} [props.onClear]
- * @param {(() => void)} [props.onSubmit]
+ * @param {React.ChangeEventHandler} [props.onClear]
+ * @param {React.ChangeEventHandler} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
  * @returns {JSX.Element}
@@ -79,9 +77,9 @@ export function ComboBoxTextInput({
       id={id}
       innerRef={(ref) => {
         const input = ref?.querySelector('input');
-        comboBoxContextNonStateRef.current.textInput = input;
+        comboBoxContextNonStateRef.current.textInput = input ?? null;
         if (draftInnerRef) {
-          draftInnerRef.current = input;
+          draftInnerRef.current = input ?? null;
         }
       }}
       isClearable={isClearable}
@@ -107,6 +105,7 @@ export function ComboBoxTextInput({
       }}
       onChange={(e) => {
         setComboBoxContext((draftContext) => {
+          // @ts-ignore
           draftContext.filterValue = e.target.value;
           draftContext.isFilterValueDirty = true;
         });
@@ -115,6 +114,7 @@ export function ComboBoxTextInput({
         isClearable
           ? ((e) => {
             if (onClear) {
+              // @ts-ignore
               onClear(e);
             } else if (onClearComboBoxContext) {
               onClearComboBoxContext();
@@ -141,10 +141,14 @@ export function ComboBoxTextInput({
       }}
       onKeyUp={(e) => {
         if (![
+          // @ts-ignore
           onCancelKeyPress(e),
+          // @ts-ignore
           onUpArrowPress(e),
+          // @ts-ignore
           onDownArrowPress(e),
         ].some(identity)) {
+          // @ts-ignore
           if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
             setComboBoxContext((draftContext) => {
               if (draftContext.filterValue) {

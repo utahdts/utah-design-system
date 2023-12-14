@@ -138,7 +138,7 @@
  *  @property {React.UIEventHandler<HTMLElementT>} [onClear]
  *  @property {React.ChangeEventHandler<HTMLElementT>} [onSubmit]
  *  @property {ValueT} [value]
- *  @property {KeyboardEvent} onFormKeyUp
+ *  @property {React.KeyboardEventHandler} onFormKeyUp
  *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
  *  @property {FormContextT} [state]
  * }
@@ -171,6 +171,14 @@
  * @typedef UtahDesignSystemContextValue {
  *  @property {UtahDesignSystemContextAria} ariaLive
  *  @property {UtahDesignSystemContextBanner[]} banners
+ * }
+ */
+
+/**
+ * @typedef TabGroupContextValue {
+ *  @property {string} tabGroupId
+ *  @property {string} selectedTabId
+ *  @property {(tabId: string) => void} setSelectedTabId
  * }
  */
 

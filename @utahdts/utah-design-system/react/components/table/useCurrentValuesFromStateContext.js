@@ -24,12 +24,12 @@ import { TableContext } from './util/TableContext';
  * @template TableDataT
  * @param {Object} param the path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
  * @param {string} param.contextStatePath path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
- * @param {(e: React.KeyboardEvent) => TableDataT} param.defaultOnChange
+ * @param {(e: React.ChangeEvent) => TableDataT} param.defaultOnChange
  * @param {TableDataT | null} param.defaultValue starting value for this component (controlled and uncontrolled)
- * @param {(e: React.KeyboardEvent) => TableDataT} [param.onChange]
+ * @param {(e: React.ChangeEvent) => TableDataT} [param.onChange]
  * @param {TableDataT | null} param.value the current value of this item
  * @returns {{
- *   currentOnChange: (e: React.KeyboardEvent) => TableDataT
+ *   currentOnChange: (e: React.ChangeEvent) => TableDataT
  *   currentValue: (TableDataT | null)
  *   setValue: (newValue: TableDataT) => void
  * }}

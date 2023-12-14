@@ -3,12 +3,10 @@ import React, { useCallback, useRef } from 'react';
 import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
 import joinClassNames from '../../util/joinClassNames';
-import IconButton from '../buttons/IconButton';
-import ErrorMessage from './ErrorMessage';
+import { IconButton } from '../buttons/IconButton';
+import { ErrorMessage } from './ErrorMessage';
 import useFormContextInput from './FormContext/useFormContextInput';
-import RequiredStar from './RequiredStar';
-
-/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
+import { RequiredStar } from './RequiredStar';
 
 /**
  * @param {Object} props
@@ -23,8 +21,8 @@ import RequiredStar from './RequiredStar';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {EventAction} [props.onChange]
- * @param {EventAction} [props.onClear]
+ * @param {React.ChangeEventHandler} [props.onChange]
+ * @param {React.UIEventHandler} [props.onClear]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
@@ -72,21 +70,30 @@ export default function TextArea({
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
-  const clearInput = useCallback((e) => {
-    currentOnClear?.(e);
-    addAssertiveMessage(`${label} input was cleared`);
-    inputRef.current?.focus();
-  }, [addAssertiveMessage, currentOnClear, label]);
+  const clearInput = useCallback(
+    /** @param {React.UIEvent} e */
+    (e) => {
+      currentOnClear?.(e);
+      addAssertiveMessage(`${label} input was cleared`);
+      inputRef.current?.focus();
+    },
+    [addAssertiveMessage, currentOnClear, label]
+  );
 
-  const checkKeyPressed = useCallback((e) => {
-    if (e.key === 'Escape' && showClearIcon) {
-      clearInput(e);
-    } else {
-      currentOnFormKeyUp(e);
-    }
-  }, [clearInput, currentOnFormKeyUp, showClearIcon]);
+  const checkKeyPressed = useCallback(
+    /** @param {React.KeyboardEvent} e */
+    (e) => {
+      if (e.key === 'Escape' && showClearIcon) {
+        clearInput(e);
+      } else {
+        currentOnFormKeyUp(e);
+      }
+    },
+    [clearInput, currentOnFormKeyUp, showClearIcon]
+  );
 
   const onChangeCallback = useCallback(
+    /** @param {React.ChangeEvent<HTMLElement>} e */
     (e) => {
       onChangeSetCursorPosition(e);
       currentOnChange?.(e);

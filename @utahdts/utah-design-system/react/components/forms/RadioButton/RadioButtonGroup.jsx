@@ -2,8 +2,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import joinClassNames from '../../../util/joinClassNames';
-import ErrorMessage from '../ErrorMessage';
-import RequiredStar from '../RequiredStar';
+import { ErrorMessage } from '../ErrorMessage';
+import { RequiredStar } from '../RequiredStar';
 import RadioButtonGroupContextProvider from './context/RadioButtonGroupContextProvider';
 
 /**

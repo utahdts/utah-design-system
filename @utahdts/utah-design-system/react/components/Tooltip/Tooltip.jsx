@@ -16,7 +16,7 @@ import joinClassNames from '../../util/joinClassNames';
  * @param {React.ReactNode} props.children The content of the tool tip
  * @param {string} [props.className] CSS class to apply to the popup
  * @param {React.MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
- * @param {boolean} props.isPopperVisible controlled value for telling if tool tip is visible
+ * @param {boolean} [props.isPopperVisible] controlled value for telling if tool tip is visible
  * @param {[number, number]} [props.offset] default offset is [0, 5] (see popper documentation for details)
  * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
  * @param {HTMLElement} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)

@@ -4,10 +4,8 @@ import formElementSizesEnum from '../../enums/formElementSizesEnum';
 import joinClassNames from '../../util/joinClassNames';
 import setValueAtPath from '../../util/state/setValueAtPath';
 import valueAtPath from '../../util/state/valueAtPath';
-import ErrorMessage from './ErrorMessage';
+import { ErrorMessage } from './ErrorMessage';
 import useFormContext from './FormContext/useFormContext';
-
-/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 
 /**
  * @param {Object} props
@@ -49,7 +47,7 @@ export default function Switch({
   ...rest
 }) {
   // there is no "uncontrolled" version of this component
-  const { setState, state } = useFormContext();
+  const { setState, state } = /** @type {typeof useFormContext<Object>} */ (useFormContext)();
   const [internalState, setInternalState] = useState(!!(defaultValue ?? value));
 
   // switch example was passing in a value but it wasn't updating the UI
@@ -70,19 +68,22 @@ export default function Switch({
     [value]
   );
 
-  const currentValue = valueAtPath({ object: state, path: id }) ?? internalState;
+  const currentValue = valueAtPath({ object: state ?? null, path: id }) ?? internalState;
 
   const internalOnChange = useCallback(
+    /** @param {React.KeyboardEvent} e */
     (e) => {
       if (setState) {
         setState((draftState) => {
           setValueAtPath({
             object: draftState,
             path: id,
+            // @ts-ignore
             value: e.target.checked,
           });
         });
       } else {
+        // @ts-ignore
         setInternalState(e.target.checked);
       }
     },

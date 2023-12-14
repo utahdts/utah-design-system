@@ -37,7 +37,7 @@ export function RadioButton({
   const {
     setState: formContextSetState,
     state: formContextState,
-  } = useFormContext();
+  } = /** @type {typeof useFormContext<Object.<string, any>>} */ (useFormContext)();
 
   const [contextValues] = useRadioButtonGroupContext();
 

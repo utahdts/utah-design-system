@@ -11,8 +11,8 @@ import FormContextProvider from './FormContext/FormContextProvider';
  * @param {Object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @param {({e, fieldPath, value}: {e?: React.KeyboardEvent, fieldPath: string, value: any}) => void} [props.onChange]
- * @param {(e?: React.KeyboardEvent) => void} [props.onSubmit]
+ * @param {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
+ * @param {(e?: React.ChangeEvent) => void} [props.onSubmit]
  * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
  * @param {FormContextStateT} [props.state]
  * @returns {JSX.Element}
@@ -41,10 +41,17 @@ export default function Form({
 
   const onChangeUse = useMemo(
     () => (
-      onChange
-      ?? (({ fieldPath, value }) => stateUse[1]((draftState) => {
-        setValueAtPath({ object: draftState, path: fieldPath, value });
-      }))
+      onChange ?? (
+        /**
+         * @param {Object} param
+         * @param {string} param.fieldPath
+         * @param {any} param.value
+         */
+        ({ fieldPath, value }) => stateUse[1]((draftState) => {
+          // @ts-ignore
+          setValueAtPath({ object: draftState, path: fieldPath, value });
+        })
+      )
     ),
     [onChange, stateUse]
   );

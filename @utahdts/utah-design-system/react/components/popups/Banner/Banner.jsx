@@ -2,7 +2,7 @@
 import React from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import IconButton from '../../buttons/IconButton';
+import { IconButton } from '../../buttons/IconButton';
 import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
 
 /** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */

@@ -1,32 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import joinClassNames from '../../../util/joinClassNames';
 import handleEvent from '../../../util/handleEvent';
+import joinClassNames from '../../../util/joinClassNames';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  contentClassName: PropTypes.string,
-  headingLevel: PropTypes.number,
-  headerClassName: PropTypes.string,
-  headerContent: PropTypes.node.isRequired,
-  isOpen: PropTypes.bool,
-  onToggle: PropTypes.func,
-};
-const defaultProps = {
-  className: undefined,
-  contentClassName: undefined,
-  headingLevel: 2,
-  headerClassName: undefined,
-  isOpen: undefined,
-  onToggle: undefined,
-};
-
-function Accordion({
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {string} [props.contentClassName]
+ * @param {number} [props.headingLevel]
+ * @param {string} [props.headerClassName]
+ * @param {React.ReactNode} props.headerContent
+ * @param {boolean} [props.isOpen]
+ * @param {(previousIsOpen: boolean) => void} [props.onToggle]
+ * @returns {JSX.Element}
+ */
+export function Accordion({
   children,
   className,
   contentClassName,
-  headingLevel,
+  headingLevel = 2,
   headerClassName,
   headerContent,
   isOpen,
@@ -35,7 +27,7 @@ function Accordion({
   const [stateIsOpen, setStateIsOpen] = useState(isOpen || false);
 
   useEffect(() => {
-    setStateIsOpen(isOpen);
+    setStateIsOpen(!!isOpen);
   }, [isOpen]);
 
   function toggleAccordion() {
@@ -54,6 +46,7 @@ function Accordion({
         type="button"
         onClick={handleEvent(toggleAccordion)}
       >
+        {/* @ts-ignore */}
         <HeadingTag>{headerContent}</HeadingTag>
         <span className={`utds-icon-before-circle-chevron-up icon-button__icon ${stateIsOpen ? '' : 'icon-button__icon--rotate180'}`} />
       </button>
@@ -65,8 +58,3 @@ function Accordion({
     </div>
   );
 }
-
-Accordion.propTypes = propTypes;
-Accordion.defaultProps = defaultProps;
-
-export default Accordion;

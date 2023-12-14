@@ -1,6 +1,5 @@
 // @ts-check
-import React, { useMemo, useRef } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useRef } from 'react';
 import joinClassNames from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
 import { CombBoxListBox } from './internal/CombBoxListBox';
@@ -49,7 +48,7 @@ export function ComboBox({
   wrapperClassName,
   ...rest
 }) {
-  const comboBoxListId = useMemo(() => uuidv4(), []);
+  const comboBoxListId = useId();
   const contentRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
   return (

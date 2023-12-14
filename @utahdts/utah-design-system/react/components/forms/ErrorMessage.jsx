@@ -1,15 +1,10 @@
-import PropTypes from 'prop-types';
-
-const propTypes = {
-  errorMessage: PropTypes.string,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-
-};
-const defaultProps = {
-  errorMessage: null,
-};
-
-export default function ErrorMessage({ errorMessage, id }) {
+/**
+ * @param {Object} props
+ * @param {string} [props.errorMessage]
+ * @param {string} props.id
+ * @returns {JSX.Element | null}
+ */
+export function ErrorMessage({ errorMessage, id }) {
   return (
     errorMessage
       ? (
@@ -20,6 +15,3 @@ export default function ErrorMessage({ errorMessage, id }) {
       : null
   );
 }
-
-ErrorMessage.propTypes = propTypes;
-ErrorMessage.defaultProps = defaultProps;

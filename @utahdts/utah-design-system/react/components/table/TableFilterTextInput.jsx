@@ -12,7 +12,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {boolean} [props.exactMatch]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {((e: React.KeyboardEvent) => (string | void | undefined))} [props.onChange]
+ * @param {((e: React.ChangeEvent) => (string | void | undefined))} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
  * @returns {JSX.Element}
