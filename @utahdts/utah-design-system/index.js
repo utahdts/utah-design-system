@@ -2,7 +2,6 @@ import './css/index.scss';
 import packageJson from './package.json';
 
 export {
-  childrenMenuType,
   events,
   renderDOMSingle,
 } from '@utahdts/utah-design-system-header';

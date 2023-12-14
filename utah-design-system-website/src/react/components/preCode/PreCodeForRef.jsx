@@ -1,4 +1,3 @@
-import { RefShape } from '@utahdts/utah-design-system';
 import { html } from 'js-beautify';
 import PropTypes from 'prop-types';
 import { useLayoutEffect, useState } from 'react';
@@ -12,7 +11,8 @@ const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   deps: PropTypes.array.isRequired,
   // target DOM element from which to pull the DOM string
-  targetRef: RefShape.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  targetRef: PropTypes.object.isRequired,
 };
 const defaultProps = {
   ...PreCodeDefaultProps,

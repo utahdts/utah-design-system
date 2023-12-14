@@ -44,7 +44,7 @@
         "@types/jsDocTypes.js"
       ],
       "@utahdts/utah-design-system-header": [
-        "../src/@types/jsDocTypes.d.js"
+        "../utah-design-system-header/artifacts/index.d.ts"
       ]
     }, /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     "rootDirs": [], /* List of root folders whose combined content represents the structure of the project at runtime. */
@@ -71,6 +71,7 @@
     "react/**/*"
   ],
   "exclude": [
-    "node_modules/**/*"
+    "node_modules/**/*",
+    "../utah-design-system-header/artifacts/**/*"
   ]
 }

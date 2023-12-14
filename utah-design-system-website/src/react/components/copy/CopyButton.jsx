@@ -1,11 +1,12 @@
-import { IconButton, RefShape, useAriaMessaging } from '@utahdts/utah-design-system';
+import { IconButton, useAriaMessaging } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 
 const propTypes = {
   // Ref to the element that will be copied from
-  copyRef: RefShape.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  copyRef: PropTypes.object.isRequired,
   // allows morphing the text to copy eg. (draftText) => transformedText
   onCopy: PropTypes.func,
 };

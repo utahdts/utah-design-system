@@ -15,7 +15,7 @@
 
 /**
  * ChildrenMenuType
- * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuType
+ * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuTypes
  */
 
 /**
@@ -66,7 +66,7 @@
  *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  *  @property {MenuItem[]} [actionMenu] - children menus
  *
- *  @property {ChildrenMenuType} [childrenMenuType] - default is "flyout"
+ *  @property {ChildrenMenuTypes} [childrenMenuType] - default is "flyout"
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {boolean} [isAlternatePath] - there are more than one menu paths to this menu item, and this one is no the "source of truth"
@@ -161,7 +161,7 @@
 
 /**
  * @typedef RenderPopupMenuOptions {
- *   @property {ChildrenMenuType} childrenMenuType
+ *   @property {ChildrenMenuTypes} childrenMenuType
  *   - flyout: children in new popup
  *   - inline: expandable children
  *   - mega-menu: always expanded children

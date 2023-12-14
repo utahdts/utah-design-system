@@ -62,7 +62,7 @@
     "publishLibrary": "npm run publishLibrary -workspace=@utahdts/utah-design-system",
     "reset": "run-s cleani websiteDev",
     "sitemap": "run-s generateSitemap submitSitemap",
-    "tsc": "run-s tsc-header tsc-design tsc-website",
+    "tsc": "run-s tscHeader tscLibrary tscWebsite",
     "tscw": "run-s tscw-header tscw-design tscw-website"
   },
   "devDependencies": {

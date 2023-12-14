@@ -23,7 +23,6 @@ import uuidv4 from '../../misc/uuidv4';
 import renderPopup from '../popup/renderPopup';
 
 /**
- * @typedef {import('src/@types/jsDocTypes.d').ChildrenMenuType} ChildrenMenuType
  * @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem
  * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
  * @typedef {import('src/@types/jsDocTypes.d').RenderPopupMenuOptions} RenderPopupMenuOptions
