@@ -127,10 +127,7 @@ export default function renderMainMenu() {
         }
 
         /** @type {PopupMenu} */
-        const popupMenu = {
-          menuItems: menuItem.actionMenu,
-          title: menuItem.title,
-        };
+        const popupMenu = { menuItems, title: menuItem.title };
         const subMenuPopup = renderPopupMenu(
           popupMenu,
           menuItemTitleElement,
