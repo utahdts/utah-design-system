@@ -1,5 +1,4 @@
-import identity from 'lodash/identity';
-import uniq from 'lodash/uniq';
+import { identity, uniq } from 'lodash';
 import React, { useMemo } from 'react';
 import { chainSorters } from '../../util/chainSorters';
 import { joinClassNames } from '../../util/joinClassNames';
@@ -56,6 +55,7 @@ export function TableFilterSelectAllOptions({
           (a, b) => (a > b ? 1 : 0),
         ]))
     ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [allData]
   );
 
