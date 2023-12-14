@@ -108,6 +108,24 @@ export default function renderMainMenu() {
         // render children menu items
         menuItemTitleSpanElement.innerHTML = menuItem.title;
 
+        const menuItems = [...menuItem.actionMenu];
+        // if have both an action url and menu items, show a page link since the menu can't be both clicked to open
+        // the sub menu AND clicked to got to the link
+        if (
+          menuItem.actionFunction
+          || menuItem.actionUrl
+          || menuItem.actionFunctionUrl
+        ) {
+          menuItems.unshift({
+            actionFunction: menuItem.actionFunction,
+            actionFunctionUrl: menuItem.actionFunctionUrl,
+            actionUrl: menuItem.actionUrl,
+            className: menuItem.className,
+            icon: menuItem.icon,
+            title: `${menuItem.title} (page)`,
+          });
+        }
+
         /** @type {PopupMenu} */
         const popupMenu = {
           menuItems: menuItem.actionMenu,
