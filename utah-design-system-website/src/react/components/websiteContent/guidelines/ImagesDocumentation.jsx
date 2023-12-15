@@ -6,7 +6,7 @@
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../routing/pageUrls';
-import StaticExample from '../../staticExamples/StaticExample';
+import { StaticExample } from '../../staticExamples/StaticExample';
 import { LightBox } from '../../lightbox/LightBox';
 import imageCropped from '../../../../static/images/screenshots/examples/images-crop-example.webp';
 import imagePixelated from '../../../../static/images/screenshots/examples/images-pixelated-example.webp';

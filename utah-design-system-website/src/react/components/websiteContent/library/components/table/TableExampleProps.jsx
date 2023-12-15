@@ -1,5 +1,4 @@
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
@@ -10,7 +9,7 @@ import React from 'react';
  * @param {TableExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function TableExampleProps({ setState, state }) {
+export function TableExampleProps({ setState, state }) {
   return (
     <Form
       // onSubmit(({ state, validationErrors }) => ... do whatever ...)

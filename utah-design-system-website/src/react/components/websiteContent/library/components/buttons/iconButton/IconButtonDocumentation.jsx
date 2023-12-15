@@ -20,8 +20,8 @@ import {
   formElementSizesEnum,
 } from '@utahdts/utah-design-system';
 import React from 'react';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import ButtonCssClassesDocumentation from '../button/ButtonCssClassesDocumentation';
 import IconButtonExampleCodeReact from './IconButtonExampleCodeReact';
 import IconButtonExampleProps from './IconButtonExampleProps';

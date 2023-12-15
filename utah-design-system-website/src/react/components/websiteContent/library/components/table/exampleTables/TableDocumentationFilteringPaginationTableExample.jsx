@@ -15,8 +15,8 @@ import {
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
-import examplePresidentsData from './examplePresidentsData';
+import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
+import { examplePresidentsData } from './examplePresidentsData';
 
 const DEFAULT_ITEMS_PER_PAGE = 10;
 /** @returns {JSX.Element} */
@@ -85,7 +85,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
               </TableBodyData>
             </TableBody>
           </Table>
-          <TablePagination pageSize={itemsPerPage} className="flex justify-center mt-spacing" />
+          <TablePagination id="tableDocumentationFilteringPaginationTableExample-pagination" pageSize={itemsPerPage} className="flex justify-center mt-spacing" />
         </TableWrapper>
       </Accordion>
     </div>

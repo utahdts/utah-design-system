@@ -14,15 +14,13 @@ import {
 } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
-import examplePresidentsData from './examplePresidentsData';
 import { pageUrls } from '../../../../../routing/pageUrls';
-
-const propTypes = {};
-const defaultProps = {};
+import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
+import { examplePresidentsData } from './examplePresidentsData';
 
 const DEFAULT_ITEMS_PER_PAGE = 10;
-function TableDocumentationPaginationTableExample() {
+
+export function TableDocumentationPaginationTableExample() {
   const [itemsPerPage, setItemsPerPage] = useState(DEFAULT_ITEMS_PER_PAGE);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const paginatedData = usePaginatedList({ list: examplePresidentsData, pageIndex: currentPageIndex, itemsPerPage });
@@ -58,7 +56,15 @@ function TableDocumentationPaginationTableExample() {
         <TextInput
           id="table-pagination__items-per-page"
           label="Items Per Page"
-          onChange={(e) => setItemsPerPage(Number(e.target.value) || DEFAULT_ITEMS_PER_PAGE)}
+          onChange={
+            (e) => (
+              setItemsPerPage(
+                // @ts-ignore
+                Number(e.target.value)
+                || DEFAULT_ITEMS_PER_PAGE
+              )
+            )
+          }
           value={`${itemsPerPage}`}
         />
         <TableWrapper>
@@ -89,6 +95,7 @@ function TableDocumentationPaginationTableExample() {
         <div className="flex justify-center">
           <Pagination
             className="mt-spacing"
+            id="tableDocumentationPaginationTableExample-pagination"
             onChange={setCurrentPageIndex}
             pageSize={itemsPerPage}
             totalNumberItems={examplePresidentsData.length}
@@ -99,8 +106,3 @@ function TableDocumentationPaginationTableExample() {
     </div>
   );
 }
-
-TableDocumentationPaginationTableExample.propTypes = propTypes;
-TableDocumentationPaginationTableExample.defaultProps = defaultProps;
-
-export default TableDocumentationPaginationTableExample;

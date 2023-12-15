@@ -12,9 +12,9 @@ import {
 } from '@utahdts/utah-design-system';
 import React, { useCallback } from 'react';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
 import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
 import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleCodeReact';

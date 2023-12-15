@@ -13,7 +13,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
-import StaticExample from '../../staticExamples/StaticExample';
+import { StaticExample } from '../../staticExamples/StaticExample';
 import { LightBox } from '../../lightbox/LightBox';
 import spacingScreenshot1 from '../../../../static/images/screenshots/spacing/spacing-2xl.webp';
 import spacingScreenshot2 from '../../../../static/images/screenshots/spacing/spacing-3xs-2xs.webp';

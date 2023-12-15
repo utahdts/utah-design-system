@@ -5,9 +5,12 @@
 /* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+// @ts-ignore
 import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
+// @ts-ignore
 import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
+// @ts-ignore
 import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 

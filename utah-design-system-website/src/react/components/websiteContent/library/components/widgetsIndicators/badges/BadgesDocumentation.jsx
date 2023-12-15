@@ -14,7 +14,8 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+// @ts-ignore
 import badgesMockup from '../../../../../../../static/images/mockups/Badges.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 

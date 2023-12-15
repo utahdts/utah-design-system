@@ -15,22 +15,21 @@ import tablePlainScreenshot from '../../../../../../static/images/screenshots/co
 // eslint-disable-next-line import/order
 import { ExternalLink } from '@utahdts/utah-design-system';
 // eslint-disable-next-line import/order
-import React from 'react';
 // eslint-disable-next-line import/order
 import { Link } from 'react-router-dom';
 import { LightBox } from '../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../routing/pageUrls';
-import SandboxExample from '../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../staticExamples/StaticExample';
-import TableExampleCodeReact from './TableExampleCodeReact';
-import TableExampleProps from './TableExampleProps';
-import TableExampleRender from './TableExampleRender';
+import { SandboxExample } from '../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../staticExamples/StaticExample';
+import { TableExampleCodeReact } from './TableExampleCodeReact';
+import { TableExampleProps } from './TableExampleProps';
+import { TableExampleRender } from './TableExampleRender';
 import { TableDocumentationFilteringPaginationTableExample } from './exampleTables/TableDocumentationFilteringPaginationTableExample';
-import TableDocumentationFilteringTableExample from './exampleTables/TableDocumentationFilteringTableExample';
-import TableDocumentationFooterExample from './exampleTables/TableDocumentationFooterExample';
-import TableDocumentationPaginationTableExample from './exampleTables/TableDocumentationPaginationTableExample';
-import TableDocumentationSimpleTableExample from './exampleTables/TableDocumentationSimpleTableExample';
-import TableDocumentationSortingTableExample from './exampleTables/TableDocumentationSortingTableExample';
+import { TableDocumentationFilteringTableExample } from './exampleTables/TableDocumentationFilteringTableExample';
+import { TableDocumentationFooterExample } from './exampleTables/TableDocumentationFooterExample';
+import { TableDocumentationPaginationTableExample } from './exampleTables/TableDocumentationPaginationTableExample';
+import { TableDocumentationSimpleTableExample } from './exampleTables/TableDocumentationSimpleTableExample';
+import { TableDocumentationSortingTableExample } from './exampleTables/TableDocumentationSortingTableExample';
 
 /** @returns {JSX.Element} */
 export function TableDocumentation() {

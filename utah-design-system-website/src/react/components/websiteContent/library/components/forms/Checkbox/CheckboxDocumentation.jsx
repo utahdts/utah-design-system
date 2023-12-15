@@ -4,8 +4,8 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { CheckboxCssClassesDocumentation } from './CheckboxCssClassesDocumentation';
 import { CheckboxExampleCodeReact } from './CheckboxExampleCodeReact';
 import { CheckboxExampleProps } from './CheckboxExampleProps';

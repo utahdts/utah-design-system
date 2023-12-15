@@ -1,13 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+// @ts-ignore
 import statusIndicatorScreenshot from '../../../../../../../static/images/screenshots/components/statusIndicator/StatusIndicator.png';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 

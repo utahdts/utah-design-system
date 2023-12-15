@@ -1,4 +1,3 @@
-import React from 'react';
 import { LightBox } from '../../lightbox/LightBox';
 // images
 // @ts-ignore

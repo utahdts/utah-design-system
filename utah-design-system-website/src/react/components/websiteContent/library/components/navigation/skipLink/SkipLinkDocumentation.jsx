@@ -7,7 +7,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import skipLinkScreenshot from '../../../../../../../static/images/screenshots/components/skip-link/SkipLink.png';
 

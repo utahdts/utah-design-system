@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@utahdts/utah-design-system';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';
-import StaticExample from '../../staticExamples/StaticExample';
+import { StaticExample } from '../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};

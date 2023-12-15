@@ -1,4 +1,5 @@
 import {
+  Accordion,
   Table,
   TableBody,
   TableBodyData,
@@ -14,15 +15,12 @@ import {
   TableSortingRules,
   TableWrapper,
   tableSortingRuleFieldType,
-  useRefLazy, Accordion
+  useRefLazy
 } from '@utahdts/utah-design-system';
-import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
-import exampleGovernorsData from './exampleGovernorsData';
+import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
+import { exampleGovernorsData } from './exampleGovernorsData';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TableDocumentationFooterExample() {
+export function TableDocumentationFooterExample() {
   const dataRef = useRefLazy(() => exampleGovernorsData.map((gov) => ({
     ...gov,
     duration: gov.to ? gov.to - gov.from : null,
@@ -63,13 +61,24 @@ function TableDocumentationFooterExample() {
               <TableSortingRule
                 a11yLabel="Name"
                 recordFieldPath="name"
-                customSort={({ fieldValueA, fieldValueB }) => {
-                  // sort by lastName
-                  function getLastName(fullName) {
-                    return (fullName || '').split(' ').pop();
+                customSort={
+                  /**
+                   * @param {Object} param
+                   * @param {string} param.fieldValueA
+                   * @param {string} param.fieldValueB
+                   * @returns {number}
+                   */
+                  ({ fieldValueA, fieldValueB }) => {
+                    /**
+                     * @param {string} fullName
+                     * @returns {string}
+                     */
+                    function getLastName(fullName) {
+                      return (fullName || '').split(' ').pop() ?? '';
+                    }
+                    return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
                   }
-                  return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
-                }}
+                }
               />
               <TableSortingRule a11yLabel="From" recordFieldPath="from" fieldType={tableSortingRuleFieldType.NUMBER} />
               <TableSortingRule a11yLabel="To" recordFieldPath="to" fieldType={tableSortingRuleFieldType.NUMBER} />
@@ -98,6 +107,7 @@ function TableDocumentationFooterExample() {
 
             <TableFoot>
               <TableFootRow>
+                {/* @ts-ignore */}
                 <TableFootCell colSpan={3}>
                   Average Duration
                 </TableFootCell>
@@ -105,7 +115,7 @@ function TableDocumentationFooterExample() {
                   {
                     (
                       dataRef.current.filter((gov) => gov.to)
-                        .reduce((totalDuration, gov) => totalDuration + gov.duration, 0)
+                        .reduce((totalDuration, gov) => totalDuration + (gov.duration ?? 0), 0)
                       / dataRef.current.length
                     )
                       .toFixed(2)
@@ -120,8 +130,3 @@ function TableDocumentationFooterExample() {
     </div>
   );
 }
-
-TableDocumentationFooterExample.propTypes = propTypes;
-TableDocumentationFooterExample.defaultProps = defaultProps;
-
-export default TableDocumentationFooterExample;

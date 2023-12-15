@@ -6,7 +6,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import backToTopScreenshot from '../../../../../../../static/images/screenshots/components/backToTop/BackToTop.png';
 

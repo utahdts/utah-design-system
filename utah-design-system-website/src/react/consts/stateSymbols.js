@@ -2,7 +2,7 @@
 // * https://www.utah.gov/about/state-symbols.html
 // * https://www.uen.org/utah_history_encyclopedia/u/UTAH_STATE_SYMBOLS.shtml#:~:text=The%20beehive%2C%20or%20skep%2C%20was,nicknamed%20the%20%22Beehive%20State.%22&text=The%20topaz%20became%20the%20official,House%20Bill%206%20into%20law.
 // * https://en.wikipedia.org/wiki/List_of_Utah_state_symbols
-export default [
+export const stateSymbols = [
   { category: 'Bird', symbol: 'California Seagull', year: 1955 },
   { category: 'Emblem', symbol: 'Beehive', year: 1959 },
   { category: 'Folk Dance', symbol: 'Square Dance', year: 1994 },

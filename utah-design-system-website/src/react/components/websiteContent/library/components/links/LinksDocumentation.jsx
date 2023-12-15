@@ -8,7 +8,7 @@ import { ExternalLink } from '@utahdts/utah-design-system';
 import traxImage from '../../../../../../static/images/trax.jpg';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../routing/pageUrls';
-import StaticExample from '../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};

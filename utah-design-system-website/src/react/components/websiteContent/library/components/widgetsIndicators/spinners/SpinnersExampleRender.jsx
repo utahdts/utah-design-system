@@ -13,7 +13,7 @@ function stringToNumber(str) {
 
 /**
  * @param {Object} props
- * @param {React.RefObject} props.innerRef
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: SpinnersExamplePropsShape}>} props.setState
  * @param {Object} props.state
  * @param {SpinnersExamplePropsShape} props.state.props

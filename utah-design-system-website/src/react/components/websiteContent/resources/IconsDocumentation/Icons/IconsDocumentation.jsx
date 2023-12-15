@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useImmer } from 'use-immer';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
 import PreCodeForRef from '../../../../preCode/PreCodeForRef';
-import StaticExample from '../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../staticExamples/StaticExample';
 import iconsDocumentationIcons from './iconsDocumentationIcons';
 
 export function IconsDocumentation() {

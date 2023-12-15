@@ -2,7 +2,7 @@ import { valueAtPath } from '@utahdts/utah-design-system';
 import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
 /**
- * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
+ * @typedef {import('@utahdts/utah-design-system-header').Settings} Settings
 */
 
 export class ParseHeaderSettingsError extends Error {
@@ -19,6 +19,7 @@ export default function parseHeaderSettings(settingsString) {
   try {
     resultSettings = JSON.parse(settingsString);
   } catch (e) {
+    // @ts-ignore
     throw new ParseHeaderSettingsError(e);
   }
 

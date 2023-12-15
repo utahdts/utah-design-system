@@ -3,7 +3,7 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};

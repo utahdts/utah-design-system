@@ -1,5 +1,4 @@
 import { popupPlacement } from '@utahdts/utah-design-system';
-import React from 'react';
 import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../sandbox/SandboxIndent';
 

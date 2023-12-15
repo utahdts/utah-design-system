@@ -20,14 +20,11 @@ import {
   TableWrapper,
   componentColors
 } from '@utahdts/utah-design-system';
-import React, { useState } from 'react';
-import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
-import examplePresidentsData from './examplePresidentsData';
+import { useState } from 'react';
+import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
+import { examplePresidentsData } from './examplePresidentsData';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TableDocumentationFilteringTableExample() {
+export function TableDocumentationFilteringTableExample() {
   const [funFactsFilter, setFunFactsFilter] = useState('');
 
   return (
@@ -150,8 +147,3 @@ function TableDocumentationFilteringTableExample() {
     </div>
   );
 }
-
-TableDocumentationFilteringTableExample.propTypes = propTypes;
-TableDocumentationFilteringTableExample.defaultProps = defaultProps;
-
-export default TableDocumentationFilteringTableExample;

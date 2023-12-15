@@ -8,7 +8,6 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 export default function SpinnerPropsDocumentation() {
   return (

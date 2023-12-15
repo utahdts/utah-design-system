@@ -14,13 +14,10 @@ import {
   TableSortingRules,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
-import examplePresidentsData from './examplePresidentsData';
+import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
+import { examplePresidentsData } from './examplePresidentsData';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TableDocumentationSortingTableExample() {
+export function TableDocumentationSortingTableExample() {
   return (
     <div className="static-example mt-spacing-xl">
       <HeadingWithLink
@@ -68,12 +65,24 @@ function TableDocumentationSortingTableExample() {
                   a11yLabel="Name"
                   recordFieldPath="name"
                   // sort by lastName
-                  customSort={({ fieldValueA, fieldValueB }) => {
-                    function getLastName(fullName) {
-                      return (fullName || '').split(' ').pop();
+                  customSort={
+                    /**
+                     * @param {Object} param
+                     * @param {string} param.fieldValueA
+                     * @param {string} param.fieldValueB
+                     * @returns {number}
+                     */
+                    ({ fieldValueA, fieldValueB }) => {
+                      /**
+                       * @param {string} fullName
+                       * @returns {string}
+                       */
+                      function getLastName(fullName) {
+                        return (fullName || '').split(' ').pop() ?? '';
+                      }
+                      return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
                     }
-                    return getLastName(fieldValueA).localeCompare(getLastName(fieldValueB));
-                  }}
+                  }
                 />
                 <TableSortingRule a11yLabel="Nth President" recordFieldPath="nthPresident" fieldType={tableSortingRuleFieldType.NUMBER} defaultIsAscending={false} />
                 <TableSortingRule a11yLabel="Political Party" recordFieldPath="politicalParty" />
@@ -103,7 +112,7 @@ function TableDocumentationSortingTableExample() {
                   <TableBodyDataCellTemplate recordFieldPath="inauguration" />
                   {/* <TableBodyDataCellTemplate recordFieldPath="funFacts" /> */}
                   <TableBodyDataCellTemplate recordFieldPath="birthPlace">
-                    {({ record }) => [record.birthplace.county, record.birthplace.state].join(', ')}
+                    {({ record }) => <>{[record.birthplace.county, record.birthplace.state].join(', ')}</>}
                   </TableBodyDataCellTemplate>
                   <TableBodyDataCellTemplate>
                     <Button className="button--small" onClick={() => { }}>More</Button>
@@ -118,8 +127,3 @@ function TableDocumentationSortingTableExample() {
     </div>
   );
 }
-
-TableDocumentationSortingTableExample.propTypes = propTypes;
-TableDocumentationSortingTableExample.defaultProps = defaultProps;
-
-export default TableDocumentationSortingTableExample;

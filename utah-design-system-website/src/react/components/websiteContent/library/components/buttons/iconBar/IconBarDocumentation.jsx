@@ -3,7 +3,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import iconBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/IconBar.png';
 import toolBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/Toolbar.png';

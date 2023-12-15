@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';
 import { LightBox } from '../../lightbox/LightBox';
-import StaticExample from '../../staticExamples/StaticExample';
+import { StaticExample } from '../../staticExamples/StaticExample';
 import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
 import badAltAudio from '../../../../static/audio/BadAlt.mp3';
 import goodTextOverImg from '../../../../static/images/screenshots/examples/GoodTextOverImage.png';

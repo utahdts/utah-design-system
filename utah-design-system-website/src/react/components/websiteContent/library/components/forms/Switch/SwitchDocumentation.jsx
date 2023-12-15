@@ -12,8 +12,8 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import SwitchCssClassesDocumentation from './SwitchCssClassesDocumentation';
 import SwitchExampleCodeReact from './SwitchExampleCodeReact';
 import SwitchExampleProps from './SwitchExampleProps';

@@ -6,7 +6,6 @@ import {
   Switch
 } from '@utahdts/utah-design-system';
 import startCase from 'lodash/startCase';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 

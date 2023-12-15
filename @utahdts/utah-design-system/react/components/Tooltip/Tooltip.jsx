@@ -18,7 +18,7 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {boolean} [props.isPopperVisible] controlled value for telling if tool tip is visible
  * @param {[number, number]} [props.offset] default offset is [0, 5] (see popper documentation for details)
  * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
- * @param {HTMLElement} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
+ * @param {HTMLElement | null} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
  * @returns {JSX.Element}
  */
 export function Tooltip({

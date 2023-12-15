@@ -4,9 +4,7 @@ import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
 
 export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
 
-/**
- * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
-*/
+/** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 /**
  * turns functions and DOM in to strings so they can be saved correctly

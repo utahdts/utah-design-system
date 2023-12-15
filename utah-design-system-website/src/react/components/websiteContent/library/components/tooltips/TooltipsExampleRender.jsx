@@ -7,7 +7,7 @@ import React, { useRef } from 'react';
  * @param {Object} props
  * @param {Object} props.state
  * @param {TooltipsExamplePropsShape} props.state.props
- * @param {React.RefObject} props.innerRef
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @returns {JSX.Element}
  */
 export default function TooltipsExampleRender({

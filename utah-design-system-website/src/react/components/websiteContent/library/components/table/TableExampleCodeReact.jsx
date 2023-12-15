@@ -1,4 +1,3 @@
-import React from 'react';
 import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../sandbox/SandboxIndent';
 
@@ -9,7 +8,7 @@ import SandboxIndent from '../../../../sandbox/SandboxIndent';
  * @param {{props: TableExamplePropsShape}} props.state
  * @returns {JSX.Element}
  */
-export default function TableExampleCodeReact({
+export function TableExampleCodeReact({
   state: {
     props: {
       className,

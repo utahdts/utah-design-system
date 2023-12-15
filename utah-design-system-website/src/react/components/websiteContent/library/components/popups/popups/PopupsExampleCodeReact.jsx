@@ -1,4 +1,3 @@
-import React from 'react';
 import ExampleCodeReactCode from '../../../../../sandbox/ExampleCodeReactCode';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 

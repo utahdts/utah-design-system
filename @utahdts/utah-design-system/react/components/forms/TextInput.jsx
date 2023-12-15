@@ -20,10 +20,10 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {React.FormEventHandler} [props.onChange] can be omitted to be uncontrolled OR controlled by form
- * @param {React.FormEventHandler} [props.onKeyUp]
- * @param {React.FormEventHandler} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
- * @param {React.ChangeEventHandler} [props.onSubmit] when enter key pressed in field, this callback may be called
+ * @param {React.ChangeEventHandler<HTMLInputElement>} [props.onChange] can be omitted to be uncontrolled OR controlled by form
+ * @param {React.KeyboardEventHandler<HTMLInputElement>} [props.onKeyUp]
+ * @param {React.UIEventHandler<HTMLInputElement>} [props.onClear] (not needed if inside a <Form> context)
+ * @param {React.ChangeEventHandler<HTMLInputElement>} [props.onSubmit] when enter key pressed in field, this callback may be called
  * @param {string} [props.placeholder]
  * @param {React.ReactNode} [props.rightContent] custom content to put to the right of the text input
  * @param {string} [props.value]
@@ -75,7 +75,7 @@ export function TextInput({
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
   const clearInput = useCallback(
-    /** @param {React.UIEvent} e */
+    /** @param {React.UIEvent<HTMLInputElement>} e */
     (e) => {
       if (currentOnClear) {
         currentOnClear(e);
@@ -89,7 +89,7 @@ export function TextInput({
   );
 
   const checkKeyPressed = useCallback(
-    /** @param {React.KeyboardEvent} e */
+    /** @param {React.KeyboardEvent<HTMLInputElement>} e */
     (e) => {
       if (e.key === 'Escape' && showClearIcon) {
         clearInput(e);
@@ -101,7 +101,7 @@ export function TextInput({
   );
 
   const onChangeCallback = useCallback(
-    /** @param {React.ChangeEvent<HTMLElement>} e */
+    /** @param {React.ChangeEvent<HTMLInputElement>} e */
     (e) => {
       onChangeSetCursorPosition(e);
       currentOnChange?.(e);
@@ -139,6 +139,7 @@ export function TextInput({
               <IconButton
                 className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                // @ts-ignore
                 onClick={clearInput}
                 title="Clear input"
                 isDisabled={isDisabled}

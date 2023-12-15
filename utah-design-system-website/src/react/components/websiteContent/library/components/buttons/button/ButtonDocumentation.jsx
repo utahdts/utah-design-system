@@ -20,8 +20,8 @@ import {
 import React, { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import ButtonCssClassesDocumentation from './ButtonCssClassesDocumentation';
 import ButtonExampleCodeReact from './ButtonExampleCodeReact';
 import ButtonExampleProps from './ButtonExampleProps';

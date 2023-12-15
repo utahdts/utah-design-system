@@ -19,7 +19,7 @@ import PreCodeForRef from '../preCode/PreCodeForRef';
 */
 /**
  * @template FCT
- * @typedef {React.FC<{state: Object, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
+ * @typedef {React.FC<{state: any, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
  */
 
 /**
@@ -35,7 +35,7 @@ import PreCodeForRef from '../preCode/PreCodeForRef';
  *
  * @returns {JSX.Element}
  */
-export default function SandboxExample({
+export function SandboxExample({
   CODE_EXAMPLE,
   PROPS_EXAMPLE,
   RENDER_EXAMPLE,

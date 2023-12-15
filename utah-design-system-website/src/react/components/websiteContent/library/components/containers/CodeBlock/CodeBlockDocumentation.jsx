@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 
 const propTypes = {};

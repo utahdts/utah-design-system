@@ -9,7 +9,7 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import sidePanelMockup from '../../../../../../../static/images/mockups/SidePanelNav.jpg';
 import sidePanelMobile from '../../../../../../../static/images/mockups/SidePanelNavMobileClosed.jpg';
 import sidePanelMobileOpen from '../../../../../../../static/images/mockups/SidePanelNavMobileOpen.jpg';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};

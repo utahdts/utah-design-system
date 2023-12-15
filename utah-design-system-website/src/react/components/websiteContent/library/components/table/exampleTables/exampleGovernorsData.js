@@ -1,5 +1,5 @@
 // https://archives.utah.gov/research/guides/governor.html
-export default [
+export const exampleGovernorsData = [
   { name: 'Brigham Young', from: 1850, to: 1857 },
   { name: 'Alfred Cumming', from: 1857, to: 1861 },
   { name: 'John W. Dawson', from: 1861, to: 1861 },

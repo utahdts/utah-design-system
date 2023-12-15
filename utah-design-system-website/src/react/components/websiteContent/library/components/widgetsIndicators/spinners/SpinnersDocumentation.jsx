@@ -10,11 +10,10 @@ import {
   TabPanels,
   componentColors,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import SpinnerCssClassesDocumentation from './SpinnerCssClassesDocumentation';
 import SpinnerPropsDocumentation from './SpinnerPropsDocumentation';
 import SpinnersExampleCodeReact from './SpinnersExampleCodeReact';

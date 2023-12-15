@@ -1,4 +1,3 @@
-import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('utah-design-system-website').SpinnersExamplePropsShape} SpinnersExamplePropsShape */

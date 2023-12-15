@@ -4,20 +4,20 @@ import { joinClassNames } from '../../util/joinClassNames';
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {string} props.className
- * @param {React.RefObject<HTMLTableSectionElement>} props.innerRef
- * @param {string} props.id
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {React.RefObject<HTMLTableSectionElement>} [props.innerRef]
  * @returns {JSX.Element}
  */
 export function TableFoot({
   children,
   className,
-  innerRef,
   id,
+  innerRef,
   ...rest
 }) {
   return (
-    <tfoot className={joinClassNames('table-foot', className)} id={id ?? undefined} ref={innerRef} {...rest}>
+    <tfoot className={joinClassNames('table-foot', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tfoot>
   );

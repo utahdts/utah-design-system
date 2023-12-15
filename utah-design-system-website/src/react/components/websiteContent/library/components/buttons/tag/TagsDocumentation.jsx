@@ -6,8 +6,8 @@ import {
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { ClickableTagCssClassesDocumentation } from './clickable/ClickableTagCssClassesDocumentation';
 import { ClickableTagExampleCodeReact } from './clickable/ClickableTagExampleCodeReact';
 import { ClickableTagExampleProps } from './clickable/ClickableTagExampleProps';

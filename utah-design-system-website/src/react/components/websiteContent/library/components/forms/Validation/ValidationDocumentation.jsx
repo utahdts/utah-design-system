@@ -8,7 +8,7 @@ import validationScreenshot from '../../../../../../../static/images/screenshots
 import { LightBox } from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
 const defaultProps = {};

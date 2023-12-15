@@ -3,8 +3,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  useRef,
-  useState
+  useRef
 } from 'react';
 import { useImmer } from 'use-immer';
 import baseSettings from '../../../../../../websiteUtahHeaderSettings';
@@ -60,8 +59,8 @@ export default function useInteractiveHeaderState() {
     return resultSettings;
   });
 
-  const [headerIsOn, setHeaderIsOn] = useState(false);
-  const [parseError, setParseError] = useState(/** @type {string | null} */(null));
+  const [headerIsOn, setHeaderIsOn] = useImmer(false);
+  const [parseError, setParseError] = useImmer(/** @type {string | null} */(null));
 
   /**
    * Outside influences may have changed the header (like adding a logo image), so
@@ -69,6 +68,7 @@ export default function useInteractiveHeaderState() {
    * @param {React.SetStateAction<boolean>} headerIsOnMaybeFunc either the new value or a function (old) => new
    */
   const setHeaderIsOnSafely = useCallback(
+    /** @param {boolean | import('use-immer').DraftFunction<boolean>} headerIsOnMaybeFunc */
     (headerIsOnMaybeFunc) => {
       if (!headerIsOn) {
         originalHeader.current = getUtahHeaderSettings();
@@ -98,18 +98,19 @@ export default function useInteractiveHeaderState() {
         setParseError(null);
       } catch (e) {
         setUtahHeaderSettings(originalHeader.current);
+        // @ts-ignore
         setParseError(e.message);
       }
 
       // store to local storage when changed
       localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, stringifyHeaderSettings(headerSettings));
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [headerIsOn, headerSettings]
   );
 
   /** @type {InteractiveHeaderState} */
   return useMemo(
-    // @ts-ignore
     () => ({
       headerString: stringifyHeaderSettings(headerSettings),
       setHeaderString: (newHeaderString) => {
@@ -121,6 +122,7 @@ export default function useInteractiveHeaderState() {
           setHeaderIsOnSafely(true);
           setParseError(null);
         } catch (e) {
+          // @ts-ignore
           setParseError(e.message);
         }
       },
@@ -143,6 +145,7 @@ export default function useInteractiveHeaderState() {
         // clear all settings
         const blankSettings = { ...getUtahHeaderSettings() };
         Object.keys(blankSettings).forEach((settingsKey) => {
+          // @ts-ignore
           blankSettings[settingsKey] = null;
         });
         // add back in defaults and app base settings
@@ -150,6 +153,7 @@ export default function useInteractiveHeaderState() {
         setParseError(null);
       },
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [headerIsOn, headerSettings, parseError, setHeaderIsOnSafely, setHeaderSettings]
   );
 }

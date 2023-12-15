@@ -1,10 +1,14 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+// @ts-ignore
 import skeletonShapes from '../../../../../../../static/images/mockups/Skeleton.jpg';
+// @ts-ignore
 import skeletonFullScreenshot from '../../../../../../../static/images/mockups/skeletonFullPage.jpg';
+// @ts-ignore
 import skeletonLazyScreenshot from '../../../../../../../static/images/mockups/skeletonLazyLoad.jpg';
+// @ts-ignore
 import skeletonTableScreenshot from '../../../../../../../static/images/mockups/skeletonTable.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 

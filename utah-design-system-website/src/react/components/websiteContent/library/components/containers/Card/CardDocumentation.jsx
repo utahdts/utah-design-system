@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import basicCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/basicCards.jpg';
 import actionCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/actionCards.jpg';

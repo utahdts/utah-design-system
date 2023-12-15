@@ -1,14 +1,16 @@
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-one-expression-per-line */
-import { Link } from 'react-router-dom';
 import { ExternalLink } from '@utahdts/utah-design-system';
-import React from 'react';
-import { pageUrls } from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { Link } from 'react-router-dom';
 import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+// @ts-ignore
 import progressBarScreenshotA from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBar1.png';
+// @ts-ignore
 import progressBarScreenshotDeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarDeterminate.png';
+// @ts-ignore
 import progressBarScreenshotIndeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarIndeterminate.png';
+// @ts-ignore
 import progressBarScreenshotStates from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarStates.png';
 
 const propTypes = {};

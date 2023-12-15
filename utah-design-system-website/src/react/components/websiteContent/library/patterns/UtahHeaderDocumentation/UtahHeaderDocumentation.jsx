@@ -33,7 +33,7 @@ import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowC
 import { CopyButton } from '../../../../copy/CopyButton';
 import { LightBox } from '../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../routing/pageUrls';
-import StaticExample from '../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../staticExamples/StaticExample';
 import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
 import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
