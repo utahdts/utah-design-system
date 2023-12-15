@@ -5,7 +5,16 @@ import {
   useBanner,
 } from '@utahdts/utah-design-system';
 
-export default function BannersExampleRender({
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: BannerExamplePropsShape}>} props.setState
+ * @param {{props: BannerExamplePropsShape}} props.state
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @returns {JSX.Element}
+ */
+export function BannersExampleRender({
   state: {
     props: {
       className,
@@ -33,6 +42,7 @@ export default function BannersExampleRender({
       </Button>
       <div className="visually-hidden">
         <Banner
+          id="banners-example-render"
           innerRef={innerRef}
           className={joinClassNames(className, color)}
           position={position}

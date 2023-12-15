@@ -1,7 +1,14 @@
-import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
-export default function PaginationExampleCodeReact({
+/** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
+
+/**
+ * @param {Object} props
+ * @param {Object} props.state
+ * @param {PaginationExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export function PaginationExampleCodeReact({
   state: {
     props: {
       className,

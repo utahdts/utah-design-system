@@ -1,21 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
+// @ts-ignore
 import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
+// @ts-ignore
 import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';
+// @ts-ignore
 import verticalMenuRightSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuRightSidebar.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-function VerticalMenuDocumentation() {
+export function VerticalMenuDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Vertical Menu</h1>
@@ -231,8 +227,3 @@ function VerticalMenuDocumentation() {
     </div>
   );
 }
-
-VerticalMenuDocumentation.propTypes = propTypes;
-VerticalMenuDocumentation.defaultProps = defaultProps;
-
-export default VerticalMenuDocumentation;

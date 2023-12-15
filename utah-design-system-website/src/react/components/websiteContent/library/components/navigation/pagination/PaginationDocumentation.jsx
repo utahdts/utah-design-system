@@ -1,22 +1,19 @@
 /* eslint-disable max-len */
 import { Pagination } from '@utahdts/utah-design-system';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import stateSymbols from '../../../../../../consts/stateSymbols';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { stateSymbols } from '../../../../../../consts/stateSymbols';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import PaginationExampleCodeReact from './PaginationExampleCodeReact';
-import PaginationExampleProps from './PaginationExampleProps';
-import PaginationExampleRender from './PaginationExampleRender';
-
-const propTypes = {};
-const defaultProps = {};
+import { PaginationExampleCodeReact } from './PaginationExampleCodeReact';
+import { PaginationExampleProps } from './PaginationExampleProps';
+import { PaginationExampleRender } from './PaginationExampleRender';
 
 const STATIC_EXAMPLE_PAGE_SIZE = 4;
 
-function PaginationDocumentation() {
+export function PaginationDocumentation() {
   const [demoPaginationIndex, setDemoPaginationIndex] = useState(0);
 
   return (
@@ -138,8 +135,3 @@ function PaginationDocumentation() {
     </div>
   );
 }
-
-PaginationDocumentation.propTypes = propTypes;
-PaginationDocumentation.defaultProps = defaultProps;
-
-export default PaginationDocumentation;

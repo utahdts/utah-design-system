@@ -9,7 +9,7 @@ import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
  * @param {Object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
- * @param {string} props.id
+ * @param {string} [props.id]
  * @param {React.Ref<HTMLDivElement>} [props.innerRef]
  * @param {React.MouseEventHandler} props.onClose
  * @param {BannerPlacement} [props.position]

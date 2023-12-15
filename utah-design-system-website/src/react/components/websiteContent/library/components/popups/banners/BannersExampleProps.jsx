@@ -4,9 +4,17 @@ import {
   SelectOption,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-export default function BannersExampleProps({ setState, state }) {
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {Object} props
+ * @param {import('use-immer').Updater<{props: BannerExamplePropsShape}>} props.setState
+ * @param {Object} props.state
+ * @param {BannerExamplePropsShape} props.state.props
+ * @returns {JSX.Element}
+ */
+export function BannersExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

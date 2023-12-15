@@ -1,24 +1,20 @@
 import { html } from 'js-beautify';
-import PropTypes from 'prop-types';
 import { useLayoutEffect, useState } from 'react';
-import { PreCodeDefaultProps } from './PreCodeDefaultProps';
-import PreCodeForCodeString from './PreCodeForCodeString';
-import { PreCodeProps } from './PreCodeProps';
+import { PreCodeForCodeString } from './PreCodeForCodeString';
 
-const propTypes = {
-  ...PreCodeProps,
-  // what dependencies determine when the targetRef has changed content
-  // eslint-disable-next-line react/forbid-prop-types
-  deps: PropTypes.array.isRequired,
-  // target DOM element from which to pull the DOM string
-  // eslint-disable-next-line react/forbid-prop-types
-  targetRef: PropTypes.object.isRequired,
-};
-const defaultProps = {
-  ...PreCodeDefaultProps,
-};
-
-function PreCodeForRef({
+/**
+ * @param {Object} props
+ * @param {any[]} props.deps what dependencies determine when the targetRef has changed content
+ * @param {React.RefObject<HTMLElement>} props.targetRef target DOM element from which to pull the DOM string
+ * @param {boolean} [props.addHorizontalPadding]
+ * @param {boolean} [props.allowScrollOverflow]
+ * @param {string} [props.className]
+ * @param {string} [props.maxHeight]
+ * @param {Object} [props.propsForPre]
+ * @param {boolean} [props.showBackgroundColor]
+ * @returns {JSX.Element}
+ */
+export function PreCodeForRef({
   deps,
   targetRef,
   ...preCodeProps
@@ -32,7 +28,7 @@ function PreCodeForRef({
         targetRef.current?.outerHTML
           // place some mandatory newlines because js-beautify is not fully smart
           .replace(/>([a-z])/gi, '>\n$1')
-          .replace(/([a-z])<\//gi, '$1\n</'),
+          .replace(/([a-z])<\//gi, '$1\n</') ?? '',
         {
           indent_size: 2,
           wrap_attributes: 'force-expand-multiline',
@@ -43,6 +39,7 @@ function PreCodeForRef({
       const events = [
         'onClick',
       ]
+        // @ts-ignore
         .filter((event) => targetRef.current && targetRef.current[event.toLowerCase()])
         .map((event) => ` ${event}="() => { /* ... do something ... */ }" `)
         .join(' ');
@@ -53,14 +50,10 @@ function PreCodeForRef({
       setInnerHtml(cleanHTML);
     },
     // only update when the properties change so as not to get an infinite loop
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     deps
   );
 
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <PreCodeForCodeString codeRaw={innerHtml} {...preCodeProps} />;
 }
-
-PreCodeForRef.propTypes = propTypes;
-PreCodeForRef.defaultProps = defaultProps;
-
-export default PreCodeForRef;

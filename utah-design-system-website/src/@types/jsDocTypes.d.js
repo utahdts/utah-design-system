@@ -5,11 +5,12 @@
  * @typedef {import('use-immer').Updater<UpdaterT>} Updater
  */
 
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonTypes} ButtonTypes */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ComponentColors} ComponentColors */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').FormElementSizes} FormElementSizes */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
@@ -99,6 +100,16 @@
 /**
  * @typedef BadgesExamplePropsShape {
  * @property {string} onClick
+ * }
+ */
+
+/**
+ * @typedef BannerExamplePropsShape {
+ *  @property {string} className
+ *  @property {ComponentColors} color
+ *  @property {string} icon
+ *  @property {string} message
+ *  @property {BannerPlacement} position
  * }
  */
 

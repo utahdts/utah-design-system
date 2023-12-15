@@ -114,3 +114,11 @@ export { valueAtPath } from './react/util/state/valueAtPath';
 export { VerticalMenu } from './react/components/navigation/VerticalMenu';
 
 export const { version } = packageJson;
+
+// website includes this file as the "types" source, so have to export global types here
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */

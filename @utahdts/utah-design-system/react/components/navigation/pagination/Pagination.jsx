@@ -15,7 +15,7 @@ import { determinePaginationLinks } from './util/determinePaginationLinks';
  * @param {string} [props.ariaLabel] ariaLabel is used by accessibility to describe the purpose of the pagination
  * @param {string} [props.className] can add your own className to the pagination
  * @param {number} [props.defaultValue] starting page number (for uncontrolled - what good is an uncontrolled Pagination element?)
- * @param {string} props.id id to put on the pagination element
+ * @param {string} [props.id] id to put on the pagination element
  * @param {React.RefObject<HTMLElement | null>} [props.innerRef]
  * @param {(newValue: number) => void} [props.onChange] controlled component: page # changed
  * @param {number} props.pageSize how many items on each "page"

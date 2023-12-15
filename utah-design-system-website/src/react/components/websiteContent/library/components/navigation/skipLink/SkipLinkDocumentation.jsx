@@ -1,20 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
 import { Link } from 'react-router-dom';
+// @ts-ignore
+import skipLinkScreenshot from '../../../../../../../static/images/screenshots/components/skip-link/SkipLink.png';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-import skipLinkScreenshot from '../../../../../../../static/images/screenshots/components/skip-link/SkipLink.png';
 
-const propTypes = {};
-const defaultProps = {};
-
-function SkipLinkDocumentation() {
+export function SkipLinkDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Skip Link</h1>
@@ -34,10 +27,12 @@ function SkipLinkDocumentation() {
             <li>The skip link is the first focusable element on the page.</li>
             <li>When the user activates the link it takes them to the main content.</li>
             <li>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
                 href="#"
                 onClick={() => {
-                  document.querySelector('.skip-link__link').focus();
+                  // @ts-ignore
+                  document.querySelector('.skip-link__link')?.focus();
                 }}
               >
                 Click here for a demo of the skip link.
@@ -126,8 +121,3 @@ function SkipLinkDocumentation() {
     </div>
   );
 }
-
-SkipLinkDocumentation.propTypes = propTypes;
-SkipLinkDocumentation.defaultProps = defaultProps;
-
-export default SkipLinkDocumentation;

@@ -1,9 +1,15 @@
-import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../../sandbox/SandboxIndent';
 
-export default function BannersExampleCodeReact({
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {Object} props
+ * @param {{props: BannerExamplePropsShape}} props.state
+ * @returns {JSX.Element}
+ */
+export function BannersExampleCodeReact({
   state: {
     props: {
       className,

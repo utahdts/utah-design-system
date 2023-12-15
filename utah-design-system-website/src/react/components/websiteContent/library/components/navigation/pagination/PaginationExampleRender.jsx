@@ -7,10 +7,10 @@ import React from 'react';
  * @param {Object} props
  * @param {import('use-immer').Updater<{props: PaginationExamplePropsShape}>} props.setState
  * @param {{props: PaginationExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
+ * @param {React.RefObject<HTMLElement | null>} props.innerRef
  * @returns {JSX.Element | null}
  */
-export default function PaginationExampleRender({
+export function PaginationExampleRender({
   setState,
   state: {
     props: {

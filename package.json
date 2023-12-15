@@ -63,9 +63,10 @@
     "reset": "run-s cleani websiteDev",
     "sitemap": "run-s generateSitemap submitSitemap",
     "tsc": "run-s tscHeader tscLibrary tscWebsite",
-    "tscw": "run-s tscw-header tscw-design tscw-website"
+    "tscw": "run-s tscwHeader tscwDesign tscwWebsite"
   },
   "devDependencies": {
+    "@types/js-beautify": "1.14.3",
     "@vitest/coverage-istanbul": "1.0.4",
     "eslint": "8.55.0",
     "eslint-config-airbnb": "19.0.4",

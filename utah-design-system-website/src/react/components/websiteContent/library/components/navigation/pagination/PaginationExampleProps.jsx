@@ -4,7 +4,6 @@ import {
   SelectOption,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
 
@@ -15,7 +14,7 @@ import React from 'react';
  * @param {PaginationExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function PaginationExampleProps({ setState, state }) {
+export function PaginationExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
