@@ -1,5 +1,5 @@
 import { useRefAlways } from '@utahdts/utah-design-system';
-import { useState } from 'react';
+import { useImmer } from 'use-immer';
 
 /**
  * Stale state is an issue! Occurs mainly inside event callbacks where the callback's
@@ -11,10 +11,13 @@ import { useState } from 'react';
  *
  * Note that because defaultState goes to useState and then flows to useRef, that this
  * hook makes useRef now allow a function to be resolved as its default value! yay!
+ * @template StateT
+ * @param {StateT} defaultState
+ * @returns {[StateT, import('use-immer').Updater<StateT>, React.RefObject<StateT>]}
  */
-export default (defaultState) => {
-  const [state, setState] = useState(defaultState);
+export function useStateRef(defaultState) {
+  const [state, setState] = useImmer(defaultState);
   const stateRef = useRefAlways(state);
 
   return [state, setState, stateRef];
-};
+}

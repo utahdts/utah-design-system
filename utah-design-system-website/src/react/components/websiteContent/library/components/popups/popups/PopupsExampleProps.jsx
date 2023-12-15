@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   popupPlacement,
@@ -9,7 +8,7 @@ import {
 import startCase from 'lodash/startCase';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
 /**
  * @param {Object} props

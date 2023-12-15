@@ -1,4 +1,3 @@
-// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
 import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';

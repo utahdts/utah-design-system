@@ -4,9 +4,9 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import fileInputMulti from '../../../../../../../static/images/screenshots/components/form-elements/fileInputMulti.jpg';
 import fileInputSingle from '../../../../../../../static/images/screenshots/components/form-elements/fileInputSingle.jpg';
 

@@ -1,23 +1,17 @@
 import { IconButton, useAriaMessaging } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-
-const propTypes = {
-  // Ref to the element that will be copied from
-  // eslint-disable-next-line react/forbid-prop-types
-  copyRef: PropTypes.object.isRequired,
-  // allows morphing the text to copy eg. (draftText) => transformedText
-  onCopy: PropTypes.func,
-};
-const defaultProps = {
-  onCopy: null,
-};
 
 const COPY_CODE = 'Copy code';
 const COPIED = 'Copied';
 
-function CopyButton({ copyRef, onCopy }) {
+/**
+ * @param {Object} props
+ * @param {React.RefObject<HTMLElement>} props.copyRef Ref to the element that will be copied from
+ * @param {(copiedText: string) => string} props.onCopy allows morphing the text to copy eg. (draftText) => transformedText
+ * @returns {JSX.Element}
+ */
+export function CopyButton({ copyRef, onCopy }) {
   const { addPoliteMessage } = useAriaMessaging();
 
   const [state, setState] = useImmer({
@@ -26,23 +20,27 @@ function CopyButton({ copyRef, onCopy }) {
     copyButtonTooltip: COPY_CODE,
   });
 
-  useEffect(() => {
-    let delay;
-    if (state.showFeedback) {
-      setState((draftState) => {
-        draftState.copyButtonTitle = COPIED;
-      });
-      delay = setTimeout(() => {
+  useEffect(
+    () => {
+      let delay = NaN;
+      if (state.showFeedback) {
         setState((draftState) => {
-          draftState.showFeedback = false;
-          draftState.copyButtonTitle = COPY_CODE;
+          draftState.copyButtonTitle = COPIED;
         });
-      }, 1500);
-    }
-    return () => {
-      clearTimeout(delay);
-    };
-  }, [state.showFeedback]);
+        delay = setTimeout(() => {
+          setState((draftState) => {
+            draftState.showFeedback = false;
+            draftState.copyButtonTitle = COPY_CODE;
+          });
+        }, 1500);
+      }
+      return () => {
+        clearTimeout(delay);
+      };
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [state.showFeedback]
+  );
 
   return (
     <div className="copy-button">
@@ -56,6 +54,7 @@ function CopyButton({ copyRef, onCopy }) {
               case 'INPUT':
               case 'SELECT':
               case 'TEXTAREA':
+                // @ts-ignore
                 copiedText = copyRef.current.value;
                 break;
               default:
@@ -83,8 +82,3 @@ function CopyButton({ copyRef, onCopy }) {
     </div>
   );
 }
-
-CopyButton.propTypes = propTypes;
-CopyButton.defaultProps = defaultProps;
-
-export default CopyButton;

@@ -1,6 +1,5 @@
-// @ts-check
 import React from 'react';
-import LightBox from '../../lightbox/LightBox';
+import { LightBox } from '../../lightbox/LightBox';
 // images
 // @ts-ignore
 import libraryOverview from '../../../../static/images/layout-overview.jpg';

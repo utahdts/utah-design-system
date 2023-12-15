@@ -1,8 +1,8 @@
 import { Accordion } from '@utahdts/utah-design-system';
 import traxImageUrl from '../../../static/images/trax.jpg';
 import useCssContext from '../../context/cssContext/useCssContext';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import getBorderClass from '../../util/color/getBorderClass';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
+import { getBorderClass } from '../../util/color/getBorderClass';
 import LinkIcon from '../navigation/LinkIcon';
 
 function DemoContent() {

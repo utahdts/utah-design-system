@@ -1,4 +1,3 @@
-// @ts-check
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 

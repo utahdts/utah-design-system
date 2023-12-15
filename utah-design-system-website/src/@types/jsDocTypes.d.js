@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 
 /**
@@ -25,6 +24,10 @@
 /**
  * ColorRating
  * @typedef {'AA' | 'AAA' | 'X'} ColorRating
+ */
+/**
+ * CSS_VARIABLES_KEYS
+ * @typedef { '--primary-color' | '--primary-color-dark' | '--primary-color-light' | '--gray-on-primary-color' | '--secondary-color' | '--secondary-color-dark' | '--secondary-color-light' | '--gray-on-secondary-color' | '--accent-color' | '--accent-color-dark' | '--accent-color-light' | '--gray-on-accent-color' | '--gray-color'} CSS_VARIABLES_KEYS
  */
 /**
  * LayoutTemplate
@@ -161,6 +164,15 @@
  * @property {boolean} isRequired
  * @property {string} label
  * @property {string} value
+ * }
+ */
+
+/** @typedef {Object.<CSS_VARIABLES_KEYS, string> & {selectedColorPicker: CSS_VARIABLES_KEYS}} CssContextState */
+
+/**
+ * @typedef CssContextValue {
+ *  @property {CssContextState} cssState
+ *  @property {Updater<CssContextState>} setCssState
  * }
  */
 

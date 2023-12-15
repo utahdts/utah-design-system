@@ -3,8 +3,9 @@ import {
   ConfirmationButton, ConfirmationChildren, InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
+/** @typedef {import('../../../../../../../@types/jsDocTypes.d').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
 /**
  * @param {Object} props
@@ -31,7 +32,7 @@ export function ConfirmationButtonExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <ConfirmationButton
       appearance={appearance}
@@ -42,7 +43,7 @@ export function ConfirmationButtonExampleRender({
       innerRef={innerRef}
       isBusy={isBusy}
       isDisabled={isDisabled}
-      onClick={() => showBanner({ message: 'You have clicked the button.' })}
+      onClick={() => addBanner({ message: 'You have clicked the button.' })}
       size={size}
       type={type}
     >

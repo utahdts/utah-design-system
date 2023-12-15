@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -42,9 +41,9 @@ import { Link } from 'react-router-dom';
 // @ts-ignore
 // eslint-disable-next-line import/order
 import { useImmer } from 'use-immer';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import PopupsExampleCodeReact from './PopupsExampleCodeReact';

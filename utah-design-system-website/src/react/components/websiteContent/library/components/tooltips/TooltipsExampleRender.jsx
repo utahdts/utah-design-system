@@ -1,8 +1,7 @@
-// @ts-check
 import { Button, Tooltip } from '@utahdts/utah-design-system';
 import React, { useRef } from 'react';
 
-/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 
 /**
  * @param {Object} props

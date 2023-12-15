@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 import { sizes } from '@utahdts/utah-design-system-header';
 // @ts-ignore

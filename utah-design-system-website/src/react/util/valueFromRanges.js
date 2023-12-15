@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * @template ValueFromRangesT
  * @param {number} value the value to see what range it is in

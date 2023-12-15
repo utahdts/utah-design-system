@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Accordion,
   BUTTON_APPEARANCE,

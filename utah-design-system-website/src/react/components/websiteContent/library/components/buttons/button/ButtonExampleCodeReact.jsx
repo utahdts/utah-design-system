@@ -1,10 +1,9 @@
-// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
 import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../../sandbox/SandboxIndent';
 
-/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
 /**
  * @param {Object} props

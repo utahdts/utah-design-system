@@ -1,8 +1,7 @@
-// @ts-check
 import { Checkbox } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').CheckboxExamplePropsShape} CheckboxExamplePropsShape */
+/** @typedef {import('utah-design-system-website').CheckboxExamplePropsShape} CheckboxExamplePropsShape */
 
 /**
  * @param {Object} props

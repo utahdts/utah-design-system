@@ -1,4 +1,3 @@
-// @ts-check
 import { IconButton, useBanner } from '@utahdts/utah-design-system';
 import React from 'react';
 

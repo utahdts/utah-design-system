@@ -1,11 +1,10 @@
-// @ts-check
 /* eslint-disable max-len */
 import { Pagination } from '@utahdts/utah-design-system';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import stateSymbols from '../../../../../../consts/stateSymbols';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import PaginationExampleCodeReact from './PaginationExampleCodeReact';

@@ -1,4 +1,3 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
 import menus from '../../../../src/react/components/routing/menus';
 import valuesForKey from '../../../util/valuesForKey';

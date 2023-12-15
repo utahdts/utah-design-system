@@ -1,5 +1,4 @@
-// @ts-check
-/** @typedef {import('../../typedefs.d').LayoutTemplate} LayoutTemplate */
+/** @typedef {import('utah-design-system-website').LayoutTemplate} LayoutTemplate */
 /** @enum {LayoutTemplate} */
 export default {
   // 3 column with secondary menu

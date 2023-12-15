@@ -1,4 +1,3 @@
-// @ts-check
 // https://www.themanual.com/culture/one-sentence-to-describe-each-president-of-the-united-states/
 // https://www.census.gov/library/stories/2021/02/presidential-birth-states-and-places-with-names-of-presidents.html
 // https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States_by_home_state

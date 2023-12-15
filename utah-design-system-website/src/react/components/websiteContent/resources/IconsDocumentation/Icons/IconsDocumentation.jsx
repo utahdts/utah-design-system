@@ -1,24 +1,21 @@
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { useRef } from 'react';
 import { useImmer } from 'use-immer';
-import PreCodeForRef from '../../../../preCode/PreCodeForRef';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
+import PreCodeForRef from '../../../../preCode/PreCodeForRef';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import iconsDocumentationIcons from './iconsDocumentationIcons';
 
-const propTypes = {};
-const defaultProps = {};
-
-function IconsDocumentation() {
+export function IconsDocumentation() {
   const [state, setState] = useImmer({
     currentIcon: iconsDocumentationIcons[3],
   });
-  const iconDOMRef1 = useRef();
-  const iconDOMRef2 = useRef();
-  const iconDOMRef3 = useRef();
-  const iconDOMRef4 = useRef();
+  const iconDOMRef1 = useRef(/** @type {HTMLDivElement | null} */(null));
+  const iconDOMRef2 = useRef(/** @type {HTMLDivElement | null} */(null));
+  const iconDOMRef3 = useRef(/** @type {HTMLDivElement | null} */(null));
+  const iconDOMRef4 = useRef(/** @type {HTMLDivElement | null} */(null));
 
+  /** @param {{ cssClass: string, title: string, letter: string }} icon */
   function clickIconButton(icon) {
     setState((draftState) => {
       draftState.currentIcon = icon;
@@ -220,8 +217,3 @@ function IconsDocumentation() {
     </div>
   );
 }
-
-IconsDocumentation.propTypes = propTypes;
-IconsDocumentation.defaultProps = defaultProps;
-
-export default IconsDocumentation;

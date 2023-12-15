@@ -5,8 +5,8 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link, NavLink } from 'react-router-dom';
 import menusDropdownScreenshot from '../../../../../../../static/images/mockups/MenusDropdown.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
-import pageUrls from '../../../../../routing/pageUrls';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import MainMenuSettingsAndCode from './MainMenuSettingsAndCode';
 

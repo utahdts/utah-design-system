@@ -1,14 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { ExternalLink } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../routing/pageUrls';
+import { pageUrls } from '../../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function GettingStarted() {
+export function GettingStarted() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Getting Started</h1>
@@ -48,8 +44,3 @@ function GettingStarted() {
     </div>
   );
 }
-
-GettingStarted.propTypes = propTypes;
-GettingStarted.defaultProps = defaultProps;
-
-export default GettingStarted;

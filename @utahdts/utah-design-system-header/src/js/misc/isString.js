@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * @param {any} s candidate for being a string
  * @returns {boolean} true if javascript thinks `s` is a string

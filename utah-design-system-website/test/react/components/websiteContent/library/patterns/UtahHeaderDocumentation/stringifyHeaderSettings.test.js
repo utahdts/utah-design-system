@@ -1,4 +1,3 @@
-// @ts-check
 import { sizes } from '@utahdts/utah-design-system-header';
 import { describe, expect, test } from 'vitest';
 import stringifyHeaderSettings, { FUNCTION_PLACEHOLDER } from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';

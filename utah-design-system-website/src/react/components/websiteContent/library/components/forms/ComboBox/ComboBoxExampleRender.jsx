@@ -1,4 +1,3 @@
-// @ts-check
 import {
   ComboBox,
   ComboBoxOption,
@@ -6,7 +5,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
 /**
  * @param {Object} props

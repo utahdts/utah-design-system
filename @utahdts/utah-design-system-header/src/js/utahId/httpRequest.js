@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * An XMLHttpRequest that fires callback functions when the request is complete
  * @param {Object} params

@@ -5,8 +5,8 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
-import LightBox from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import carouselScreenshot from '../../../../../../../static/images/screenshots/components/carousel/Carousel.jpg';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 

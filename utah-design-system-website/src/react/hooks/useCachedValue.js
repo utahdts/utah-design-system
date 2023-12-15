@@ -1,4 +1,3 @@
-// @ts-check
 import { setValueAtPath, valueAtPath } from '@utahdts/utah-design-system';
 
 const GLOBAL_CACHES = {};

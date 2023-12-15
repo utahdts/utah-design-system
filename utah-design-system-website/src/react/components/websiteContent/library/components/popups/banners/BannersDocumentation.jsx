@@ -1,4 +1,3 @@
-// @ts-check
 import { Link } from 'react-router-dom';
 import {
   Banner,
@@ -7,12 +6,12 @@ import {
   useBanner
 } from '@utahdts/utah-design-system';
 import React, { useCallback } from 'react';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import bannerLandmarkScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannerLandmark.jpg';
 import bannersLargeScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersLarge.jpg';
 import bannersMediumScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersMedium.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import BannersExampleCodeReact from './BannersExampleCodeReact';
 import BannersExampleProps from './BannersExampleProps';

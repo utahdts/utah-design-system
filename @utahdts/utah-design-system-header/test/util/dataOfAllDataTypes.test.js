@@ -1,4 +1,3 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
 import dataOfAllDataTypes, { DATA_OF_ALL_DATATYPES, allDataTypes } from './dataOfAllDataTypes';
 

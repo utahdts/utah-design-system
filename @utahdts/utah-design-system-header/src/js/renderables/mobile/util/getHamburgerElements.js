@@ -1,4 +1,3 @@
-// @ts-check
 import domConstants, { getCssClassSelector } from '../../../enumerations/domConstants';
 import notNull from '../../../misc/notNull';
 

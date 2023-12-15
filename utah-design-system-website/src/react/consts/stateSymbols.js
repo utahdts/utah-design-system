@@ -1,4 +1,3 @@
-// @ts-check
 // data from:
 // * https://www.utah.gov/about/state-symbols.html
 // * https://www.uen.org/utah_history_encyclopedia/u/UTAH_STATE_SYMBOLS.shtml#:~:text=The%20beehive%2C%20or%20skep%2C%20was,nicknamed%20the%20%22Beehive%20State.%22&text=The%20topaz%20became%20the%20official,House%20Bill%206%20into%20law.

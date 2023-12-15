@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 /* eslint-disable no-trailing-spaces */

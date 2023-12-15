@@ -1,23 +1,19 @@
 import { Button, formElementSizesEnum } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 
-const propTypes = {
-  // this function is triggered when a selection is made: (e, option) => { ... do something with the selected option ... }
-  onSelect: PropTypes.func.isRequired,
+/**
+ * @typedef PresetOption {
+ *  @property {string} title
+ * }
+ */
 
-  // options to show as a list from which the user selects
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-
-  // title representing the preset list
-  title: PropTypes.string.isRequired,
-};
-const defaultProps = {};
-
-function UtahHeaderInteractivePresetSelector({
+/**
+ * @param {Object} props
+ * @param {(e: React.MouseEvent, option: PresetOption) => void} props.onSelect this function is triggered when a selection is made
+ * @param {PresetOption[]} props.options options to show as a list from which the user selects
+ * @param {string} props.title title representing the preset list
+ * @returns {JSX.Element}
+ */
+export function UtahHeaderInteractivePresetSelector({
   onSelect,
   options,
   title,
@@ -45,8 +41,3 @@ function UtahHeaderInteractivePresetSelector({
     </div>
   );
 }
-
-UtahHeaderInteractivePresetSelector.propTypes = propTypes;
-UtahHeaderInteractivePresetSelector.defaultProps = defaultProps;
-
-export default UtahHeaderInteractivePresetSelector;

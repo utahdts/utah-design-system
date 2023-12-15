@@ -4,9 +4,9 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import segmentedButtonBorderless from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonBorderless.webp';
 import segmentedButtonBorderless2 from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonBorderless2.webp';
 import segmentedButtonIconOnly from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonIconOnly.webp';

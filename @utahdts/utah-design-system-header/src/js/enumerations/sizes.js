@@ -1,5 +1,3 @@
-// @ts-check
-
 /** @typedef {import('src/@types/jsDocTypes.d').Size} Size */
 
 /**

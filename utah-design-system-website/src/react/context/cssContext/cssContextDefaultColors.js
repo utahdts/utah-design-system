@@ -1,4 +1,4 @@
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import colors, { colorsIndexes } from '../../util/color/colors';
 
 export default {

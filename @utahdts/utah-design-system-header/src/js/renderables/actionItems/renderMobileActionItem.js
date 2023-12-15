@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import MobileActionItemHtml from './html/MobileActionItem.html?raw';

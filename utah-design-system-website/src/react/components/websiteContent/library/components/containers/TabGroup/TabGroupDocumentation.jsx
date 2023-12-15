@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 import tabsHorizontalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsHorizontalScreenshot.jpg';
 import tabsOverflowScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsOverflowScreenshot.jpg';
 import tabsVerticalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsVerticalScreenshot.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};

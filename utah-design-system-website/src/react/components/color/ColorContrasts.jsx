@@ -4,14 +4,14 @@ import { useMemo } from 'react';
 import { useImmer } from 'use-immer';
 import { NavLink } from 'react-router-dom';
 import useCssContext from '../../context/cssContext/useCssContext';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import isLightColor from '../../util/color/isLightColor';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
+import { isLightColor } from '../../util/color/isLightColor';
 import ColorContrastBox from './ColorContrastBox';
 import ContrastValues from './ContrastValues';
-import pageUrls from '../routing/pageUrls';
+import { pageUrls } from '../routing/pageUrls';
 import ColorExample from './ColorExample';
 
-/** @typedef {import('../../../typedefs.d').ColorInfo} ColorInfo */
+/** @typedef {import('utah-design-system-website').ColorInfo} ColorInfo */
 
 const propTypes = {};
 const defaultProps = {};

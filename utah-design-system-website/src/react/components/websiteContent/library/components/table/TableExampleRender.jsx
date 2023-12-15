@@ -1,4 +1,3 @@
-// @ts-check
 import {
   joinClassNames,
   Table,
@@ -20,7 +19,7 @@ import {
 import React from 'react';
 import stateSymbols from '../../../../../consts/stateSymbols';
 
-/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
  * @param {Object} props

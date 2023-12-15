@@ -1,7 +1,4 @@
-// @ts-check
-/**
- * @enum { string }
-*/
+/** @enum {string} */
 export default {
   PROFILE: 'https://id.utah.gov',
   SIGN_IN: `https://id.utah.gov/login?goto=${window.location}`,

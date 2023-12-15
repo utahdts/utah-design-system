@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';

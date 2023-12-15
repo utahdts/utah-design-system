@@ -5,9 +5,9 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../routing/pageUrls';
+import { pageUrls } from '../../routing/pageUrls';
 import StaticExample from '../../staticExamples/StaticExample';
-import LightBox from '../../lightbox/LightBox';
+import { LightBox } from '../../lightbox/LightBox';
 import imageCropped from '../../../../static/images/screenshots/examples/images-crop-example.webp';
 import imagePixelated from '../../../../static/images/screenshots/examples/images-pixelated-example.webp';
 import imageTextOverlay from '../../../../static/images/screenshots/examples/images-text-overlay-example.webp';

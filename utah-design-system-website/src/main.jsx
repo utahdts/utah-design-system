@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import AppContextProvider from './react/context/AppContext/AppContextProvider';
-import CssContextProvider from './react/context/cssContext/CssContextProvider';
+import { CssContextProvider } from './react/context/cssContext/CssContextProvider';
 import websiteUtahHeaderSettings from './websiteUtahHeaderSettings';
 
 const baseName = '';

@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * deep copy an object but skip certain keys. This is useful for if functions or DOM or other things
  * are in the object that can't be copied. structuredClone almost does the job but gets errors cloning

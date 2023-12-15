@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { MainContent } from '@utahdts/utah-design-system';
-import pageUrls from '../routing/pageUrls';
+import { pageUrls } from '../routing/pageUrls';
 
 const propTypes = {};
 const defaultProps = {};

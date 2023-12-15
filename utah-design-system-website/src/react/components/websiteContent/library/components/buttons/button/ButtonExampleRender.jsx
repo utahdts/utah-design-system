@@ -5,7 +5,7 @@ import {
   useBanner
 } from '@utahdts/utah-design-system';
 
-/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
 /**
  * @param {Object} props

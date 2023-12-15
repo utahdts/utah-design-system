@@ -1,8 +1,7 @@
-// @ts-check
 import { Pagination } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').PaginationExamplePropsShape} PaginationExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
 
 /**
  * @param {Object} props

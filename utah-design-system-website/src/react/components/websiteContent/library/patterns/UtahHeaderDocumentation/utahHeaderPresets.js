@@ -1,10 +1,10 @@
-// eslint-disable-next-line import/no-unresolved
+// @ts-ignore
 import logoPng from '../../../../../../static/images/designSystemCircleGray.png';
 import { FUNCTION_PLACEHOLDER } from './stringifyHeaderSettings';
 
 const LOGO_IMAGE = `<img src="${logoPng}" id="design-system-logo" />`;
 
-const utahHeaderPresets = [
+export const utahHeaderPresets = [
   // --- Size --- //
   {
     options: [
@@ -352,11 +352,14 @@ if (!mainMenusPreset) {
 }
 mainMenusPreset.options.push({
   title: 'All',
+  // @ts-ignore
   settingsSnippet: {
     mainMenu: {
       menuItems: (
         mainMenusPreset.options
+          // @ts-ignore
           .filter((option) => option.settingsSnippet.mainMenu)
+          // @ts-ignore
           .map((option) => option.settingsSnippet.mainMenu.menuItems[0])
       ),
       title: 'Utah Design System Main Menu',
@@ -372,11 +375,11 @@ if (!actionItemsPreset) {
 }
 actionItemsPreset.options.push({
   title: 'All',
+  // @ts-ignore
   settingsSnippet: {
     actionItems: [
+      // @ts-ignore
       ...actionItemsPreset.options.map((option) => option.settingsSnippet.actionItems).flat(),
     ],
   },
 });
-
-export default utahHeaderPresets;

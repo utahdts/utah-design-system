@@ -1,7 +1,6 @@
-// @ts-check
 import tinycolor from 'tinycolor2';
 import { describe, expect, test } from 'vitest';
-import readableColor from '../../../src/react/util/color/readableColor';
+import { readableColor } from '../../../src/react/util/color/readableColor';
 
 const grayColors = [
   '#ffffff',

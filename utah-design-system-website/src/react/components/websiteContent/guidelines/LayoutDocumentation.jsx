@@ -15,9 +15,9 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../routing/pageUrls';
+import { pageUrls } from '../../routing/pageUrls';
 import StaticExample from '../../staticExamples/StaticExample';
-import LightBox from '../../lightbox/LightBox';
+import { LightBox } from '../../lightbox/LightBox';
 import gridScreenshot from '../../../../static/images/screenshots/gridLayout.webp';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 

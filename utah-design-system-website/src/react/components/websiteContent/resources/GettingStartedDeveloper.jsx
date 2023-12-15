@@ -1,13 +1,9 @@
 import { ExternalLink } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
-import pageUrls from '../../routing/pageUrls';
+import { pageUrls } from '../../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function GettingStartedDeveloper() {
+export function GettingStartedDeveloper() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Getting Started for Developers</h1>
@@ -96,7 +92,13 @@ function GettingStartedDeveloper() {
         showBackgroundColor
       />
       <div className="flex justify-end mb-spacing-l">
-        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html" className="button button--primary-color button--small">View a detailed example on GitHub</ExternalLink>
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html"
+          // @ts-ignore
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub
+        </ExternalLink>
       </div>
 
       <h4 id="example__es-module">ES Module Example (ES import)</h4>
@@ -118,7 +120,13 @@ function GettingStartedDeveloper() {
         showBackgroundColor
       />
       <div className="flex justify-end mb-spacing-l">
-        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html" className="button button--primary-color button--small">View a detailed example on GitHub</ExternalLink>
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html"
+          // @ts-ignore
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub
+        </ExternalLink>
       </div>
 
       <h3 id="h3-header-importing-npm" className="mt-spacing">Importing via NPM</h3>
@@ -205,7 +213,13 @@ function GettingStartedDeveloper() {
         </li>
       </ol>
       <div className="flex justify-end mb-spacing-l">
-        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/create-react-app" className="button button--primary-color button--small">View a detailed example on GitHub</ExternalLink>
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/create-react-app"
+          // @ts-ignore
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub
+        </ExternalLink>
       </div>
 
       <h4 id="example__vite-plain-js-app">Vite Plain Javascript App Example</h4>
@@ -264,7 +278,13 @@ function GettingStartedDeveloper() {
         </li>
       </ol>
       <div className="flex justify-end mb-spacing-l">
-        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite" className="button button--primary-color button--small">View a detailed example on GitHub</ExternalLink>
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite"
+          // @ts-ignore
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub
+        </ExternalLink>
       </div>
 
       <h2 id="h2-using-design-system" className="mt-spacing-l">Using the Design System</h2>
@@ -415,14 +435,15 @@ function GettingStartedDeveloper() {
       />
 
       <div className="flex justify-end mb-spacing-l">
-        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html" className="button button--primary-color button--small">View a detailed example on GitHub</ExternalLink>
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html"
+          // @ts-ignore
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub
+        </ExternalLink>
       </div>
 
     </div>
   );
 }
-
-GettingStartedDeveloper.propTypes = propTypes;
-GettingStartedDeveloper.defaultProps = defaultProps;
-
-export default GettingStartedDeveloper;

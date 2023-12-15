@@ -18,8 +18,8 @@ import {
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
-import pageUrls from '../../routing/pageUrls';
-import LightBox from '../../lightbox/LightBox';
+import { pageUrls } from '../../routing/pageUrls';
+import { LightBox } from '../../lightbox/LightBox';
 import StaticExample from '../../staticExamples/StaticExample';
 import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
 import badAltAudio from '../../../../static/audio/BadAlt.mp3';

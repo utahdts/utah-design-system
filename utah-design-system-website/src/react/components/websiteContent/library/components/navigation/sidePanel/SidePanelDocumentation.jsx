@@ -4,8 +4,8 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import LightBox from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import sidePanelMockup from '../../../../../../../static/images/mockups/SidePanelNav.jpg';
 import sidePanelMobile from '../../../../../../../static/images/mockups/SidePanelNavMobileClosed.jpg';
 import sidePanelMobileOpen from '../../../../../../../static/images/mockups/SidePanelNavMobileOpen.jpg';

@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 // @ts-ignore
 import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
@@ -19,8 +18,8 @@ import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
 // eslint-disable-next-line import/order
 import { Link } from 'react-router-dom';
-import LightBox from '../../../../lightbox/LightBox';
-import pageUrls from '../../../../routing/pageUrls';
+import { LightBox } from '../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../routing/pageUrls';
 import SandboxExample from '../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import TableExampleCodeReact from './TableExampleCodeReact';

@@ -4,12 +4,12 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
 import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
 import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 
 const propTypes = {};
 const defaultProps = {};

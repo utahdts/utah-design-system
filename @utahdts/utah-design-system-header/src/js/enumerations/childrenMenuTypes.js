@@ -1,4 +1,3 @@
-// @ts-check
 
 /** @typedef {import('src/@types/jsDocTypes.d').ChildrenMenuTypes} ChildrenMenuTypes */
 

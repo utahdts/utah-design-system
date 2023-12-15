@@ -1,5 +1,8 @@
 import identity from 'lodash/identity';
 
+/** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */
+
 /**
  * For each menu item, add information about who are the parents so that when a menu item is visited, the
  * top main menu can still highlight this menu item's parent main menu item. ie if on the Segmented Buttons
@@ -28,25 +31,30 @@ import identity from 'lodash/identity';
  *   ],
  * }
  *
- * @param object.parentLinks [string] (optional) the known parent links passed recursively from parents to children
- * @param object.menuItems [MenuItemShape] the menuItems for which to add parents
- * @returns the menuItems now with parentLinks information
+ * @param {Object} param
+ * @param {PageUrl[]} [param.parentLinks] the known parent links passed recursively from parents to children
+ * @param {WebsiteMainMenuItem[]} param.menuItems the menuItems for which to add parents
+ * @returns {WebsiteMainMenuItem} the menuItems now with parentLinks information
  */
 export default function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
-  return (menuItems || []).map((menuItem) => {
-    const menuItemLink = menuItem.link || `menuHeader::${menuItem.title}`;
-    return {
-      ...menuItem,
-      link: menuItemLink,
-      parentLinks: [...(menuItem.parentLinks || []), ...parentLinks],
-      children: menuItem.children && calculateMenuItemsParents({
-        parentLinks: [
-          ...(menuItem.parentLinks || []),
-          ...parentLinks,
-          menuItemLink,
-        ].filter(identity),
-        menuItems: menuItem.children,
-      }),
-    };
-  });
+  // @ts-ignore
+  return (
+    (menuItems || [])
+      .map((menuItem) => {
+        const menuItemLink = menuItem.link || `menuHeader::${menuItem.title}`;
+        return {
+          ...menuItem,
+          link: menuItemLink,
+          parentLinks: [...(menuItem.parentLinks || []), ...parentLinks],
+          children: menuItem.children && calculateMenuItemsParents({
+            parentLinks: [
+              ...(menuItem.parentLinks || []),
+              ...parentLinks,
+              menuItemLink,
+            ].filter(identity),
+            menuItems: menuItem.children,
+          }),
+        };
+      })
+  );
 }

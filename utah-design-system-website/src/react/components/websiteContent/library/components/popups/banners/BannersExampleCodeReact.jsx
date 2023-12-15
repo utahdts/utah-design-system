@@ -1,4 +1,3 @@
-// @ts-check
 import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';

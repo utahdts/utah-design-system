@@ -19,9 +19,9 @@ import footerScreenshot from '../../../../../../static/images/mockups/Footer.jpg
 import agencyFooter from '../../../../../../static/images/screenshots/patterns/footer/agencyFooter.jpg';
 import requiredFooter from '../../../../../../static/images/screenshots/patterns/footer/requiredFooter.jpg';
 import socialBar from '../../../../../../static/images/screenshots/patterns/footer/socialBar.jpg';
-import LightBox from '../../../../lightbox/LightBox';
+import { LightBox } from '../../../../lightbox/LightBox';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../routing/pageUrls';
+import { pageUrls } from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
 
 const propTypes = {};

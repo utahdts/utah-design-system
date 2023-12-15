@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * Google information on sitemaps:
  * https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#createsitemap
@@ -22,7 +21,7 @@
  */
 import fs from 'fs';
 import { EOL } from 'node:os';
-import pageUrls from '../src/react/components/routing/pageUrls';
+import { pageUrls } from '../src/react/components/routing/pageUrls';
 
 // use absolute urls, so will need to check branch during deploy
 // BUT only submit for the prod site, so no need to use multiple urls

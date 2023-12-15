@@ -1,4 +1,3 @@
-// @ts-check
 import { defaultSettings, getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import {
   useCallback,
@@ -22,10 +21,10 @@ import stringifyHeaderSettings from './stringifyHeaderSettings';
  *  @property {string} headerString
  *  @property {(s: String) => void} setHeaderString
  *  @property {Settings} headerSettings
- *  @property {(immerSetterFunc: any) => void} setHeaderSettings
+ *  @property {import('use-immer').Updater<Settings>} setHeaderSettings
  *
  *  @property {boolean} headerIsOn
- *  @property {(headerIsOn: boolean) => void} setHeaderIsOn
+ *  @property {import('use-immer').Updater<boolean>} setHeaderIsOn
  *
  *  @property {Settings} originalHeader
  *

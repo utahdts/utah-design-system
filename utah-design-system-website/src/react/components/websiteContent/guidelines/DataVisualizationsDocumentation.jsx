@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 
-import LightBox from '../../lightbox/LightBox';
+import { LightBox } from '../../lightbox/LightBox';
 import lineChart from '../../../../static/images/screenshots/examples/LineChart.png';
 import barChart from '../../../../static/images/screenshots/examples/BarChart.png';
 import StaticExample from '../../staticExamples/StaticExample';

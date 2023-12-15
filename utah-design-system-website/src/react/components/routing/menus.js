@@ -1,8 +1,7 @@
-// @ts-check
 import calculateMenuItemsParents from '../../util/menuItems/calculateMenuItemsParents';
 import pages from './pages';
 
-/** @typedef {import('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
 
 /** @type {WebsiteMainMenu} */
 export const menuMain = {

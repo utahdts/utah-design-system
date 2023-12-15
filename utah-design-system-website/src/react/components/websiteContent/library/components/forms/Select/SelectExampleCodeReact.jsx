@@ -1,8 +1,7 @@
-// @ts-check
 import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
-/** @typedef {import('../../../../../../../typedefs.d').SelectExamplePropsShape} SelectExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
 /**
  * @param {Object} props

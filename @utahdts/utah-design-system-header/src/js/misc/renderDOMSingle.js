@@ -1,5 +1,3 @@
-// @ts-check
-
 import isString from './isString';
 
 /**

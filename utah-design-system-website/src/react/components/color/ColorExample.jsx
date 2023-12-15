@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-/** @typedef {import('../../../typedefs.d').ColorInfo} ColorInfo */
+/** @typedef {import('utah-design-system-website').ColorInfo} ColorInfo */
 
 const ColorInfoShape = PropTypes.shape({
   hexColor: PropTypes.string.isRequired,

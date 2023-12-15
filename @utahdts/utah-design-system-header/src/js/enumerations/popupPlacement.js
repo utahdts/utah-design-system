@@ -1,5 +1,3 @@
-// @ts-check
-
 // !! This file exists twice !! //
 // this file also is in the library. It was duplicated because of build issues with the header
 // having the library "external". This was requiring the header AND the library to have the header

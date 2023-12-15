@@ -1,4 +1,3 @@
-// @ts-check
 import sizes from '../enumerations/sizes';
 
 /**

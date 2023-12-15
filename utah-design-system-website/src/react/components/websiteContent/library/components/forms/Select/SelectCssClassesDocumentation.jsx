@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';

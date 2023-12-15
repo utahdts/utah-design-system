@@ -1,10 +1,9 @@
-// @ts-check
 import { popupPlacement } from '@utahdts/utah-design-system';
 import React from 'react';
 import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
 import SandboxIndent from '../../../../sandbox/SandboxIndent';
 
-/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 
 /**
  * @param {Object} props

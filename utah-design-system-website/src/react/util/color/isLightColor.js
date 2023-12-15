@@ -1,7 +1,9 @@
 import tinycolor from 'tinycolor2';
 
-function isLightColor(color) {
+/**
+ * @param {tinycolor.ColorInput} color
+ * @returns {boolean}
+ */
+export function isLightColor(color) {
   return !tinycolor.isReadable(color, '#ffffff');
 }
-
-export default isLightColor;

@@ -10,7 +10,7 @@ import {
 import { useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import useAppContext from '../../../context/AppContext/useAppContext';
-import pageUrls from '../../routing/pageUrls';
+import { pageUrls } from '../../routing/pageUrls';
 
 const propTypes = {};
 const defaultProps = {};

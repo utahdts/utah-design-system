@@ -1,4 +1,3 @@
-// @ts-check
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import { renderMenu } from '../popupMenu/renderPopupMenu';

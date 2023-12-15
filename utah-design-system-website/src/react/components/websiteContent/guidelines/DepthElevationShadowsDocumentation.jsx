@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../routing/pageUrls';
+import { pageUrls } from '../../routing/pageUrls';
 import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import elevationExample from '../../../../static/images/screenshots/spacing/guidelines/elevation-best-practice.webp';
 

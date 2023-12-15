@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -9,7 +8,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
  * @param {Object} props

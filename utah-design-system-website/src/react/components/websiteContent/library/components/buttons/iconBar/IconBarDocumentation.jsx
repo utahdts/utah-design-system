@@ -2,9 +2,9 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import React from 'react';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import iconBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/IconBar.png';
 import toolBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/Toolbar.png';
 import actionBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/ActionBar.png';

@@ -1,8 +1,7 @@
-// @ts-check
 import { Icons, Switch } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').SwitchExamplePropsShape} SwitchExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
 /**
  * @param {Object} props

@@ -1,8 +1,7 @@
-// @ts-check
 import { Popup } from '@utahdts/utah-design-system';
 import React, { useCallback, useRef } from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
 /**
  * @param {Object} props

@@ -1,4 +1,3 @@
-// @ts-check
 import { Spinner } from '@utahdts/utah-design-system';
 import React from 'react';
 
@@ -10,7 +9,7 @@ function stringToNumber(str) {
   return str ? Number(str) || 0 : undefined;
 }
 
-/** @typedef {import('../../../../../../../typedefs.d').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
 
 /**
  * @param {Object} props

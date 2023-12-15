@@ -1,7 +1,6 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
 import { colorsFromUrlParams, colorsToUrlParams } from '../../../../src/react/components/color/colorPickerUrlParams';
-import CSS_VARIABLES_KEYS from '../../../../src/react/enums/cssVariablesKeys';
+import { CSS_VARIABLES_KEYS } from '../../../../src/react/enums/cssVariablesKeys';
 
 describe('colorPickerColorsBase64 - sanity', () => {
   test('sanity check - colors list known and in specific order', () => {

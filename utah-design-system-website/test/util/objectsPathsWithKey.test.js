@@ -1,4 +1,3 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
 import objectsPathsWithKeys from '../../src/react/util/objectsPathsWithKeys';
 

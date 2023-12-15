@@ -1,10 +1,9 @@
-// @ts-check
 import PropTypes from 'prop-types';
 import React, { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import PageShape from '../../propTypesShapes/PageShape';
 
-/** @typedef {import('../../../typedefs.d').Page} Page */
+/** @typedef {import('utah-design-system-website').Page} Page */
 
 const propTypes = {
   children: PropTypes.element.isRequired,

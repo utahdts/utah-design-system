@@ -14,7 +14,7 @@ import {
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import examplePresidentsData from './examplePresidentsData';
 

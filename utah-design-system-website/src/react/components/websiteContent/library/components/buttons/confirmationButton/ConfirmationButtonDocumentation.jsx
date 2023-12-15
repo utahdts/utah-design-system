@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 // @ts-ignore
 // eslint-disable-next-line import/order
@@ -12,9 +11,9 @@ import {
   useBanner
 } from '@utahdts/utah-design-system';
 import React, { useCallback } from 'react';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
 import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';

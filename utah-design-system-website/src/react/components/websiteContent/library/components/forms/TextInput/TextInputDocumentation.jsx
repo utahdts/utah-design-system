@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextInput
@@ -6,7 +5,7 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import TextInputCssClassesDocumentation from './TextInputCssClassesDocumentation';

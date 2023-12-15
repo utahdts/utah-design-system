@@ -3,8 +3,8 @@
 import { Accordion, ExternalLink, MainContent } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
-import LightBox from '../lightbox/LightBox';
-import pageUrls from '../routing/pageUrls';
+import { LightBox } from '../lightbox/LightBox';
+import { pageUrls } from '../routing/pageUrls';
 import IconsWebsite from './IconsWebsite';
 
 const propTypes = {};

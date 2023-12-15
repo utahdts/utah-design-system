@@ -1,10 +1,8 @@
-// @ts-check
-
-/** @typedef {import('../../../typedefs.d.js').PageUrl} PageUrl */
+/** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
 
 // !!!!! IF YOU CHANGE THESE, make sure you update the related legacyLinks in pages.js !!!!! //
 /** @enum {PageUrl} */
-const pageUrls = {
+export const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibility'),
   accessibilityChecklist: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityChecklistTesting'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
@@ -101,5 +99,3 @@ const pageUrls = {
   validation: /** @type {PageUrl} */ ('/guidelinesStandards/formValidation'),
   verticalMenu: /** @type {PageUrl} */ ('/library/components/navigationLinks/verticalMenu'),
 };
-
-export default pageUrls;

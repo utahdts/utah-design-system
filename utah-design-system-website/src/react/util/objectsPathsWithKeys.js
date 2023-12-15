@@ -1,4 +1,3 @@
-// @ts-check
 import identity from 'lodash/identity';
 
 /**
@@ -23,6 +22,7 @@ export default function objectsPathsWithKeys(object, searchKeys, path = '') {
   searchKeys.forEach((searchKey) => {
     // don't traverse into DOM land
     if (object && typeof object === 'object' && !(object instanceof window.Element)) {
+      // @ts-ignore
       if (object[searchKey] !== undefined) {
         foundObjects.push({ object, path, searchKey });
       }

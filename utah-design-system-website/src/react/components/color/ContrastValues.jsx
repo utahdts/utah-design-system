@@ -5,7 +5,7 @@ import valueFromRanges from '../../util/valueFromRanges';
 import COLOR_RATINGS from './COLOR_RATINGS';
 import ContrastValueBox from './ContrastValueBox';
 
-/** @typedef {import('../../../typedefs.d').ColorInfo} ColorInfo */
+/** @typedef {import('utah-design-system-website').ColorInfo} ColorInfo */
 
 const ColorInfoShape = PropTypes.shape({
   hexColor: PropTypes.string.isRequired,

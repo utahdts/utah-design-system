@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   Select,
@@ -11,7 +10,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import SelectCssClassesDocumentation from './SelectCssClassesDocumentation';

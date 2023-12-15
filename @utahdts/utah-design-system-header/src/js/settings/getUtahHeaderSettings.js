@@ -1,4 +1,3 @@
-// @ts-check
 import settingsKeeper from './settingsKeeper';
 
 /**

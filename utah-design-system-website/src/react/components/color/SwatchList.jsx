@@ -5,7 +5,7 @@ import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import useCssContext from '../../context/cssContext/useCssContext';
 import CSS_CLASS_NAMES from '../../enums/cssClassNames';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 
 const propTypes = {
   colorFamily: PropTypes.exact({

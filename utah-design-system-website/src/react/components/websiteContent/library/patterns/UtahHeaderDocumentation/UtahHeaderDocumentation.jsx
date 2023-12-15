@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
 import {
   Button,
   events,
@@ -27,20 +23,26 @@ import {
   useState
 } from 'react';
 import { Link } from 'react-router-dom';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
 import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
 import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
-import CopyButton from '../../../../copy/CopyButton';
-import LightBox from '../../../../lightbox/LightBox';
-import pageUrls from '../../../../routing/pageUrls';
+import { CopyButton } from '../../../../copy/CopyButton';
+import { LightBox } from '../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../routing/pageUrls';
 import StaticExample from '../../../../staticExamples/StaticExample';
 import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
 import useInteractiveHeaderState from './useInteractiveHeaderState';
-import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
-import utahHeaderPresets from './utahHeaderPresets';
+import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
+import { utahHeaderPresets } from './utahHeaderPresets';
 
+// @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
+// @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
@@ -50,7 +52,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function UtahHeaderDocumentation() {
-  const interactiveTextAreaRef = useRef(/** @type {HTMLInputElement} */(null));
+  const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
   const {
     headerString,
     setHeaderString,
@@ -65,7 +67,9 @@ function UtahHeaderDocumentation() {
   useEffect(
     () => {
       // when string is changed externally (reset, apply), update the text area
-      interactiveTextAreaRef.current.value = headerString;
+      if (interactiveTextAreaRef.current) {
+        interactiveTextAreaRef.current.value = headerString;
+      }
     },
     [headerString]
   );
@@ -75,9 +79,11 @@ function UtahHeaderDocumentation() {
   const isDirtyIntervalRef = useRef(NaN);
   useEffect(
     () => {
-      isDirtyIntervalRef.current = setInterval(() => {
-        setIsDirty(parseError || !headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
-      }, 500);
+      if (interactiveTextAreaRef.current) {
+        isDirtyIntervalRef.current = setInterval(() => {
+          setIsDirty(!!parseError || !headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
+        }, 500);
+      }
 
       return () => clearInterval(isDirtyIntervalRef.current);
     },
@@ -121,7 +127,7 @@ function UtahHeaderDocumentation() {
               />
               <CopyButton
                 copyRef={interactiveTextAreaRef}
-                onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy), [])}
+                onCopy={formatHeaderSettingsForCopy}
               />
               <div className="sandbox-example__code-info">
                 <span>Pos {position}, </span>
@@ -154,8 +160,10 @@ function UtahHeaderDocumentation() {
                       // set the new settings object as the new settings state and
                       // apply just the preset.settingsSnippet fields to the settings
                       setHeaderSettings((draftHeaderObject) => {
+                        // @ts-ignore
                         Object.entries(selectedOption.settingsSnippet)
                           .forEach(([settingKey, settingValue]) => {
+                            // @ts-ignore
                             draftHeaderObject[settingKey] = settingValue;
                           });
                       })
@@ -173,7 +181,7 @@ function UtahHeaderDocumentation() {
                 color="primary"
                 id="apply-interactive-utah-header"
                 isDisabled={!isDirty}
-                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value), [setHeaderString])}
+                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current?.value ?? ''), [setHeaderString])}
               >
                 Apply
               </Button>
@@ -215,6 +223,7 @@ function UtahHeaderDocumentation() {
         renderedExample={(
           <div style={{ height: '50px' }}>
             <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="utds-title-wrapper" href="#">
                 <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={agencyBrand} /></div>
                 <div className="utds-title-wrapper__title">Agency/Division Title </div>
@@ -1329,6 +1338,7 @@ function UtahHeaderDocumentation() {
             </TableRow>
 
             <TableRow>
+              {/* @ts-ignore */}
               <TableCell colSpan="100">
                 <span className="prop__section-title">UtahId Events</span>
               </TableCell>
@@ -1383,6 +1393,7 @@ function UtahHeaderDocumentation() {
             </TableRow>
 
             <TableRow>
+              {/* @ts-ignore */}
               <TableCell colSpan="100">
                 <span className="prop__section-title">UtahId Custom Menu Items</span>
               </TableCell>

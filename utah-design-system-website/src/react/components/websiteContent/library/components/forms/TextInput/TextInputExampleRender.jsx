@@ -1,8 +1,7 @@
-// @ts-check
 import { TextInput } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').TextInputExamplePropsShape} TextInputExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TextInputExamplePropsShape} TextInputExamplePropsShape */
 
 /**
  * @param {Object} props

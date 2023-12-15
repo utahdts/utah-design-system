@@ -16,7 +16,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
 import examplePresidentsData from './examplePresidentsData';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 
 const propTypes = {};
 const defaultProps = {};

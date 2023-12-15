@@ -33,6 +33,8 @@
   },
   "scripts": {
     "build": "vite build",
+    "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
+    "buildTypesTsc": "npx tsc",
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
     "test:ci": "vitest run --coverage --mode development-local",

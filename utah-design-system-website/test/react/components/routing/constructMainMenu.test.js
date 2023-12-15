@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import pageUrls from '../../../../src/react/components/routing/pageUrls';
+import { pageUrls } from '../../../../src/react/components/routing/pageUrls';
 import constructMainMenu from '../../../../src/react/components/routing/util/constructMainMenu';
 
 describe('constructMainMenu: isAlternatePath', () => {

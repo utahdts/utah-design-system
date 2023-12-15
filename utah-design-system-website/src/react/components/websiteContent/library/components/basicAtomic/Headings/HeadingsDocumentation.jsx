@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 
 const propTypes = {};
@@ -47,78 +47,78 @@ function HeadlineDocumentation() {
         outline.
       </p>
       <ul style={{ listStyleType: 'none' }}>
-          <li>
-            <code>&lt;h1&gt;</code> Great Places to Visit in Utah
-            <ul style={{ listStyleType: 'none' }}>
-              <li>
+        <li>
+          <code>&lt;h1&gt;</code> Great Places to Visit in Utah
+          <ul style={{ listStyleType: 'none' }}>
+            <li>
               <code>&lt;h2&gt;</code> Northern Utah
-                <ul style={{ listStyleType: 'none' }}>
-                  <li>
-                    <code>&lt;h3&gt;</code> National Parks, Monuments, Forests
-                    <ul>
-                      <li><code>&lt;h4&gt;</code> Dinosaur National Monument</li>
-                      <li><code>&lt;h4&gt;</code> Flaming Gorge National Recreation Area</li>
-                      <li><code>&lt;h4&gt;</code> Mirror Lake Highway, High Uintahs</li>
-                      <li><code>&lt;h4&gt;</code> Timpanogos Cave</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <code>&lt;h3&gt;</code> State Parks
-                    <ul>
-                      <li><code>&lt;h4&gt;</code> Antelope Island</li>
-                      <li><code>&lt;h4&gt;</code> Bear Lake</li>
-                      <li><code>&lt;h4&gt;</code> Jordanelle</li>
-                      <li><code>&lt;h4&gt;</code> Wasatch Mountain</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li>
+              <ul style={{ listStyleType: 'none' }}>
+                <li>
+                  <code>&lt;h3&gt;</code> National Parks, Monuments, Forests
+                  <ul>
+                    <li><code>&lt;h4&gt;</code> Dinosaur National Monument</li>
+                    <li><code>&lt;h4&gt;</code> Flaming Gorge National Recreation Area</li>
+                    <li><code>&lt;h4&gt;</code> Mirror Lake Highway, High Uintahs</li>
+                    <li><code>&lt;h4&gt;</code> Timpanogos Cave</li>
+                  </ul>
+                </li>
+                <li>
+                  <code>&lt;h3&gt;</code> State Parks
+                  <ul>
+                    <li><code>&lt;h4&gt;</code> Antelope Island</li>
+                    <li><code>&lt;h4&gt;</code> Bear Lake</li>
+                    <li><code>&lt;h4&gt;</code> Jordanelle</li>
+                    <li><code>&lt;h4&gt;</code> Wasatch Mountain</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
               <code>&lt;h2&gt;</code> Central Utah
-                <ul style={{ listStyleType: 'none' }}>
-                  <li>
-                    <code>&lt;h3&gt;</code> State Parks
-                    <ul>
-                      <li><code>&lt;h4&gt;</code> Territorial State House</li>
-                      <li><code>&lt;h4&gt;</code> Yuba Lake</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li>
+              <ul style={{ listStyleType: 'none' }}>
+                <li>
+                  <code>&lt;h3&gt;</code> State Parks
+                  <ul>
+                    <li><code>&lt;h4&gt;</code> Territorial State House</li>
+                    <li><code>&lt;h4&gt;</code> Yuba Lake</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
               <code>&lt;h2&gt;</code> Southern Utah
-                <ul style={{ listStyleType: 'none' }}>
-                  <li>
-                    <code>&lt;h3&gt;</code> National Parks, Monuments, Forests
-                    <ul>
-                      <li><code>&lt;h4&gt;</code> Arches National Park</li>
-                      <li><code>&lt;h4&gt;</code> Canyonlands National Park
-                        <ul style={{ listStyleType: 'none' }}>
-                          <li><code>&lt;h5&gt;</code> Island in the Sky</li>
-                          <li><code>&lt;h5&gt;</code> The Maze</li>
-                          <li><code>&lt;h5&gt;</code> Horseshoe Canyon</li>
-                          <li><code>&lt;h5&gt;</code> The Needles</li>
-                        </ul>
-                      </li>
-                      <li><code>&lt;h4&gt;</code> Capitol Reef National Park</li>
-                      <li><code>&lt;h4&gt;</code> Bryce Canyon National Park</li>
-                      <li><code>&lt;h4&gt;</code> Natural Bridges National Monument</li>
-                      <li><code>&lt;h4&gt;</code> Zion National Park</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <code>&lt;h3&gt;</code> State Parks
-                    <ul>
-                      <li><code>&lt;h4&gt;</code> Goblin Valley State Park</li>
-                      <li><code>&lt;h4&gt;</code> Dead Horse Point</li>
-                      <li><code>&lt;h4&gt;</code> Kodachrome Basin</li>
-                      <li><code>&lt;h4&gt;</code> Snow Canyon</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+              <ul style={{ listStyleType: 'none' }}>
+                <li>
+                  <code>&lt;h3&gt;</code> National Parks, Monuments, Forests
+                  <ul>
+                    <li><code>&lt;h4&gt;</code> Arches National Park</li>
+                    <li><code>&lt;h4&gt;</code> Canyonlands National Park
+                      <ul style={{ listStyleType: 'none' }}>
+                        <li><code>&lt;h5&gt;</code> Island in the Sky</li>
+                        <li><code>&lt;h5&gt;</code> The Maze</li>
+                        <li><code>&lt;h5&gt;</code> Horseshoe Canyon</li>
+                        <li><code>&lt;h5&gt;</code> The Needles</li>
+                      </ul>
+                    </li>
+                    <li><code>&lt;h4&gt;</code> Capitol Reef National Park</li>
+                    <li><code>&lt;h4&gt;</code> Bryce Canyon National Park</li>
+                    <li><code>&lt;h4&gt;</code> Natural Bridges National Monument</li>
+                    <li><code>&lt;h4&gt;</code> Zion National Park</li>
+                  </ul>
+                </li>
+                <li>
+                  <code>&lt;h3&gt;</code> State Parks
+                  <ul>
+                    <li><code>&lt;h4&gt;</code> Goblin Valley State Park</li>
+                    <li><code>&lt;h4&gt;</code> Dead Horse Point</li>
+                    <li><code>&lt;h4&gt;</code> Kodachrome Basin</li>
+                    <li><code>&lt;h4&gt;</code> Snow Canyon</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
 
       <h2 id="section-guidance" className="mb-spacing mt-spacing">Guidance</h2>

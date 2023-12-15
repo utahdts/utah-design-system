@@ -1,5 +1,4 @@
-// @ts-check
-/** @typedef {import('../../../typedefs.d').ColorRating} ColorRating */
+/** @typedef {import('utah-design-system-website').ColorRating} ColorRating */
 /** @enum {ColorRating} */
 export default {
   AA: /** @type {ColorRating} */ ('AA'),

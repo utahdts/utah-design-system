@@ -3,9 +3,9 @@
 import { Link } from 'react-router-dom';
 import { ExternalLink } from '@utahdts/utah-design-system';
 import React from 'react';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import progressBarScreenshotA from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBar1.png';
 import progressBarScreenshotDeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarDeterminate.png';
 import progressBarScreenshotIndeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarIndeterminate.png';

@@ -1,4 +1,3 @@
-// @ts-check
 // https://archives.utah.gov/research/guides/governor.html
 export default [
   { name: 'Brigham Young', from: 1850, to: 1857 },

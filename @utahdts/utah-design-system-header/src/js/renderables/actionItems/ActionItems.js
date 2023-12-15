@@ -1,5 +1,3 @@
-// @ts-check
-
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';

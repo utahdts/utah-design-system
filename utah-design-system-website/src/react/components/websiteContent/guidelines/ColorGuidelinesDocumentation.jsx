@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link, NavLink } from 'react-router-dom';
 import { ExternalLink } from '@utahdts/utah-design-system';
-import pageUrls from '../../routing/pageUrls';
+import { pageUrls } from '../../routing/pageUrls';
 import useAppContext from '../../../context/AppContext/useAppContext';
 
 const propTypes = {};

@@ -1,4 +1,3 @@
-// @ts-check
 import deleteKeysFromObject from '../../../util/deleteKeysFromObject';
 import {
   menuGuidelinesSecondary,
@@ -8,15 +7,16 @@ import {
   menuMain,
   menuResourcesSecondary,
 } from '../menus';
-import pageUrls from '../pageUrls';
+import { pageUrls } from '../pageUrls';
 
 /** @typedef {import('@utahdts/utah-design-system-header').EventAction} EventAction */
 /** @typedef {import('@utahdts/utah-design-system-header').MainMenu} MainMenu */
 /** @typedef {import('@utahdts/utah-design-system-header').MainMenuItem} MainMenuItem */
 /** @typedef {import('@utahdts/utah-design-system-header').MenuItem} MenuItem */
-/** @typedef {import('../../../../typedefs.d').PageUrl} PageUrl */
-/** @typedef {import('../../../../typedefs.d').WebsiteMainMenu} WebsiteMainMenu */
-/** @typedef {import('../../../../typedefs.d').WebsiteMainMenuItem} WebsiteMainMenuItem */
+
+/** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
  * @param {string} url

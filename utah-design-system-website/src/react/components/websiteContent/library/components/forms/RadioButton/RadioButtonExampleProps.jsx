@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   Select,
@@ -8,7 +7,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
 
 /**
  * @param {Object} props

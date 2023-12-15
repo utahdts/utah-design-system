@@ -15,7 +15,7 @@ import {
 } from 'react-router-dom';
 import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
 import menusEnum from '../../enums/menusEnum';
-import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
+import { useCurrentMenuItem } from '../../hooks/useCurrentMenuItem';
 import HomeLanding from '../websiteContent/HomeLanding';
 import Page404 from '../websiteContent/Page404';
 import RoutePage from './RoutePage';

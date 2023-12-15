@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Accordion,
   ClickableTag,
@@ -6,7 +5,7 @@ import {
 } from '@utahdts/utah-design-system';
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import { ClickableTagCssClassesDocumentation } from './clickable/ClickableTagCssClassesDocumentation';
@@ -20,7 +19,7 @@ import { TagExampleProps } from './non-clickable/TagExampleProps';
 import { TagExampleRender } from './non-clickable/TagExampleRender';
 import { TagPropsDocumentation } from './non-clickable/TagPropsDocumentation';
 
-/** @typedef {import('../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /** @returns {JSX.Element} */
 export function TagsDocumentation() {

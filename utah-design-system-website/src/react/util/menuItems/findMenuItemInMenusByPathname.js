@@ -1,6 +1,5 @@
-// @ts-check
-/** @typedef {import('../../../typedefs.d.js').WebsiteMainMenu} WebsiteMainMenu */
-/** @typedef {import('../../../typedefs.d.js').WebsiteMainMenuItem} WebsiteMainMenuItem */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} parent
@@ -22,7 +21,7 @@ function flattenChildren(parent) {
  * @param {string} props.pathname string the current pathname on which to match a menuItem
  * @returns {WebsiteMainMenu | WebsiteMainMenuItem | undefined} the matching menu item or `undefined` if not found
  */
-function findMenuItemInMenusByPathname({ menus, pathname }) {
+export function findMenuItemInMenusByPathname({ menus, pathname }) {
   return (
     /** @type {(WebsiteMainMenuItem)[]} */ (
       (menus || []).map((menu) => (
@@ -36,5 +35,3 @@ function findMenuItemInMenusByPathname({ menus, pathname }) {
       ))
   );
 }
-
-export default findMenuItemInMenusByPathname;

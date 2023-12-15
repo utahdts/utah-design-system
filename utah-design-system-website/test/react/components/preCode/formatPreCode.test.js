@@ -1,4 +1,3 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
 import formatPreCode from '../../../../src/react/components/preCode/formatPreCode';
 

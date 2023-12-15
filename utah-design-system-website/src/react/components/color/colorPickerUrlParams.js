@@ -1,7 +1,6 @@
-// @ts-check
 /* eslint-disable no-bitwise */
 import padEnd from 'lodash/padEnd';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 
 const NULL_COLOR_HEX = '_';
 

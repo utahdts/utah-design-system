@@ -1,4 +1,3 @@
-// @ts-check
 import events from '../enumerations/events';
 import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
 import defaultSettings from './defaultSettings';

@@ -1,4 +1,3 @@
-// @ts-check
 import './css/index.scss';
 
 export { default as childrenMenuTypes } from './js/enumerations/childrenMenuTypes';

@@ -1,5 +1,4 @@
-// @ts-check
-/** @typedef {import('../../typedefs.d').NamedMenus} NamedMenus */
+/** @typedef {import('utah-design-system-website').NamedMenus} NamedMenus */
 /** @enum {NamedMenus} */
 export default {
   MAIN_MENU: /** @type {NamedMenus} */ ('main-menu'),

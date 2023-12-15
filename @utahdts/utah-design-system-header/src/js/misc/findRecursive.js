@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * recursively searches through an object for fields that match a custom function like when a menu is
  * searching if it or any of its children are selected.

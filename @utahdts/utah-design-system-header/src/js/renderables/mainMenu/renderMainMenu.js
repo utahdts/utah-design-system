@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import MainMenuItem from './html/MainMenuItem.html?raw';

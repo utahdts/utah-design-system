@@ -1,4 +1,3 @@
-// @ts-check
 import { createPopper } from '@popperjs/core';
 import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
 import popupPlacement from '../enumerations/popupPlacement';

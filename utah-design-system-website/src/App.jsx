@@ -1,4 +1,3 @@
-// @ts-check
 import {
   FormContextProvider,
   joinClassNames,

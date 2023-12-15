@@ -1,4 +1,3 @@
-// @ts-check
 import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
 import utahIdUrls from '../../enumerations/utahIdUrls';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';

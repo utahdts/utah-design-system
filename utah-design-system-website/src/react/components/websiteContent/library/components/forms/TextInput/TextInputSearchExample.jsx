@@ -1,4 +1,3 @@
-// @ts-check
 import { joinClassNames } from '@utahdts/utah-design-system';
 import React, { useState } from 'react';
 

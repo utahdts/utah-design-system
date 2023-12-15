@@ -1,4 +1,3 @@
-// @ts-check
 import utahIdUrls from '../enumerations/utahIdUrls';
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
 import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';

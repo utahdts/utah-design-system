@@ -6,9 +6,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import skipLinkScreenshot from '../../../../../../../static/images/screenshots/components/skip-link/SkipLink.png';
 
 const propTypes = {};
@@ -40,7 +40,7 @@ function SkipLinkDocumentation() {
                   document.querySelector('.skip-link__link').focus();
                 }}
               >
-              Click here for a demo of the skip link.
+                Click here for a demo of the skip link.
               </a>
             </li>
           </ul>

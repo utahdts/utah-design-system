@@ -1,4 +1,3 @@
-// @ts-check
 import { ExternalLink } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import React from 'react';
