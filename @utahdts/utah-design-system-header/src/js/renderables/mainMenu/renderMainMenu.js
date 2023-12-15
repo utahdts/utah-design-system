@@ -107,11 +107,26 @@ export default function renderMainMenu() {
         // render children menu items
         menuItemTitleSpanElement.innerHTML = menuItem.title;
 
+        const menuItems = [...menuItem.actionMenu];
+        // if have both an action url and menu items, show a page link since the menu can't be both clicked to open
+        // the sub menu AND clicked to got to the link
+        if (
+          menuItem.actionFunction
+          || menuItem.actionUrl
+          || menuItem.actionFunctionUrl
+        ) {
+          menuItems.unshift({
+            actionFunction: menuItem.actionFunction,
+            actionFunctionUrl: menuItem.actionFunctionUrl,
+            actionUrl: menuItem.actionUrl,
+            className: menuItem.className,
+            icon: menuItem.icon,
+            title: `${menuItem.title} (page)`,
+          });
+        }
+
         /** @type {PopupMenu} */
-        const popupMenu = {
-          menuItems: menuItem.actionMenu,
-          title: menuItem.title,
-        };
+        const popupMenu = { menuItems, title: menuItem.title };
         const subMenuPopup = renderPopupMenu(
           popupMenu,
           menuItemTitleElement,
@@ -120,13 +135,7 @@ export default function renderMainMenu() {
           }
         );
         mainMenuItem.appendChild(subMenuPopup);
-        popupFocusHandler(
-          mainMenuItem,
-          menuItemTitleElement,
-          subMenuPopup,
-          'menu',
-          { shouldFocusOnHover: true, skipHandleEvent: menuItem.actionUrl?.skipHandleEvent }
-        );
+        popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true });
         /** @type {string} */
         let menuClass;
         switch (menuItem.childrenMenuType) {
@@ -169,7 +178,6 @@ export default function renderMainMenu() {
         // go to url when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
-        // actionUrl.skipHandleEvent is handled in renderPopupMenu
       }
 
       if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {

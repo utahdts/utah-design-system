@@ -49,7 +49,7 @@ export function TableDocumentation() {
           className: '',
           id: 'example-interactive-table',
           isFiltering: false,
-          isPaginating: false,
+          isPaginating: true,
           isSorting: false,
         }}
         CODE_EXAMPLE={TableExampleCodeReact}

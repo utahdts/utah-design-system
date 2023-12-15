@@ -24,6 +24,7 @@ export default {
   },
   showTitle: true,
   size: sizes.MEDIUM,
+  skipLinkUrl: '#main-content',
   title: 'My Utah.gov Site',
   titleURL: '/',
   utahId: false,
