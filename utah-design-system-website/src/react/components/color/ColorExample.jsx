@@ -1,18 +1,4 @@
-import PropTypes from 'prop-types';
-
 /** @typedef {import('utah-design-system-website').ColorInfo} ColorInfo */
-
-const ColorInfoShape = PropTypes.shape({
-  hexColor: PropTypes.string.isRequired,
-  isLight: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-});
-
-const propTypes = {
-  color1: ColorInfoShape.isRequired,
-  color2: ColorInfoShape.isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {object} props
@@ -20,7 +6,7 @@ const defaultProps = {};
  * @param {ColorInfo} props.color2
  * @returns {JSX.Element}
  */
-function ColorExample({
+export function ColorExample({
   color1,
   color2,
 }) {
@@ -76,8 +62,3 @@ function ColorExample({
     </div>
   );
 }
-
-ColorExample.propTypes = propTypes;
-ColorExample.defaultProps = defaultProps;
-
-export default ColorExample;

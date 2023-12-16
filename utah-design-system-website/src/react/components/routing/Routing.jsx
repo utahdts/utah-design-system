@@ -23,6 +23,7 @@ import { pages } from './pages';
 import { constructMainMenu } from './util/constructMainMenu';
 
 export function Routing() {
+  // @ts-ignore
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef(/** @type {HTMLElement | null} */(null));
   const { setSettings = () => { } } = useUtahHeaderContext() || {};

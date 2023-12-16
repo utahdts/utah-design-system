@@ -1,5 +1,5 @@
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
-import colors, { colorsIndexes } from '../../util/color/colors';
+import { colors, colorsIndexes } from '../../util/color/colors';
 
 export const cssContextDefaultColors = {
   // default --primary-color for website

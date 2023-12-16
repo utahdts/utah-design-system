@@ -6,9 +6,9 @@
 /**
  * @template KeyboardEventHandlerT
  * @param {string} code
- * @param {() => void} handler
- * @returns {KeyboardEventHandler<KeyboardEventHandlerT>}
+ * @param {React.EventHandler<any>} handler
+ * @returns {React.KeyboardEventHandler<KeyboardEventHandlerT>}
  */
 export function handleKeyPress(code, handler) {
-  return (e) => e.code === code && handler();
+  return (e) => e.code === code && handler(e);
 }

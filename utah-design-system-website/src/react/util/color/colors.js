@@ -4,7 +4,7 @@ export const colorsIndexes = {
   lightIndex: 17,
 };
 
-export default {
+export const colors = {
   PURPLE: {
     title: 'Purple',
     swatches: [

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import useCssContext from '../../context/cssContext/useCssContext';
+import { useCssContext } from '../../context/cssContext/useCssContext';
 
 function DemoAppStyle() {
   const { cssState } = useCssContext();

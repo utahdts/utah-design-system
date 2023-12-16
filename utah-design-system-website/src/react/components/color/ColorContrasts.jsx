@@ -1,20 +1,17 @@
 // @ ts-check
 import { Button, joinClassNames } from '@utahdts/utah-design-system';
 import { useMemo } from 'react';
-import { useImmer } from 'use-immer';
 import { NavLink } from 'react-router-dom';
-import useCssContext from '../../context/cssContext/useCssContext';
+import { useImmer } from 'use-immer';
+import { useCssContext } from '../../context/cssContext/useCssContext';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import { isLightColor } from '../../util/color/isLightColor';
-import ColorContrastBox from './ColorContrastBox';
-import ContrastValues from './ContrastValues';
 import { pageUrls } from '../routing/pageUrls';
-import ColorExample from './ColorExample';
+import { ColorContrastBox } from './ColorContrastBox';
+import { ColorExample } from './ColorExample';
+import { ContrastValues } from './ContrastValues';
 
 /** @typedef {import('utah-design-system-website').ColorInfo} ColorInfo */
-
-const propTypes = {};
-const defaultProps = {};
 
 const USER_COLORS = [
   { cssVariableKey: CSS_VARIABLES_KEYS.PRIMARY_COLOR, title: 'Primary' },
@@ -39,11 +36,8 @@ const GRAY_COLORS = [
   { hexColor: '#000000', isLight: false, title: 'Black' },
 ];
 
-/**
- * @returns {JSX.Element}
- */
-// eslint-disable-next-line no-unused-vars
-function ColorContrasts() {
+/** @returns {JSX.Element} */
+export function ColorContrasts() {
   const { cssState } = useCssContext();
   const [selectedColorTitles, setSelectedColorTitles] = /** @type {typeof useImmer<string[]>} */ (useImmer)([]);
 
@@ -187,8 +181,3 @@ function ColorContrasts() {
     </div>
   );
 }
-
-ColorContrasts.propTypes = propTypes;
-ColorContrasts.defaultProps = defaultProps;
-
-export default ColorContrasts;

@@ -1,4 +1,4 @@
-import DemoContent from './DemoContent';
+import { DemoContent } from './DemoContent';
 
 export function Demo() {
   return <DemoContent />;
