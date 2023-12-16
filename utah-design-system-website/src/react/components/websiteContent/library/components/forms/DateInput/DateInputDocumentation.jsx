@@ -1,18 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import dateInputScreenshot from '../../../../../../../static/images/screenshots/components/dateInput/dateInput.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function DateInputDocumentation() {
+export function DateInputDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Date Input</h1>
@@ -91,8 +84,3 @@ function DateInputDocumentation() {
     </div>
   );
 }
-
-DateInputDocumentation.propTypes = propTypes;
-DateInputDocumentation.defaultProps = defaultProps;
-
-export default DateInputDocumentation;

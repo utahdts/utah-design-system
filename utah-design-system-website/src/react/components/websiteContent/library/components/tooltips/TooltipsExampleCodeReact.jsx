@@ -1,6 +1,6 @@
 import { popupPlacement } from '@utahdts/utah-design-system';
-import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
 
 /** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 
@@ -10,7 +10,7 @@ import SandboxIndent from '../../../../sandbox/SandboxIndent';
  * @param {TooltipsExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function TooltipsExampleCodeReact({
+export function TooltipsExampleCodeReact({
   state: {
     props: {
       isPopperVisible,

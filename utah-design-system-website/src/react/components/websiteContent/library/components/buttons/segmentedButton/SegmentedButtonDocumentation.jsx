@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
@@ -14,10 +10,7 @@ import segmentedButtonIconText from '../../../../../../../static/images/screensh
 import segmentedButtonOutlined from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonOutlined.webp';
 import segmentedButtonSizes from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonSizes.webp';
 
-const propTypes = {};
-const defaultProps = {};
-
-function SegmentedButtonDocumentation() {
+export function SegmentedButtonDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Segmented Button</h1>
@@ -224,8 +217,3 @@ function SegmentedButtonDocumentation() {
     </div>
   );
 }
-
-SegmentedButtonDocumentation.propTypes = propTypes;
-SegmentedButtonDocumentation.defaultProps = defaultProps;
-
-export default SegmentedButtonDocumentation;

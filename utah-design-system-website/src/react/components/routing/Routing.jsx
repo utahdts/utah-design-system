@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default-member */
 import {
   DocumentationTemplate,
   LandingTemplate,
@@ -13,28 +12,26 @@ import {
   Routes,
   useNavigate,
 } from 'react-router-dom';
-import layoutTemplatesEnum from '../../enums/layoutTemplatesEnum';
-import menusEnum from '../../enums/menusEnum';
+import { layoutTemplatesEnum } from '../../enums/layoutTemplatesEnum';
+import { menusEnum } from '../../enums/menusEnum';
 import { useCurrentMenuItem } from '../../hooks/useCurrentMenuItem';
-import HomeLanding from '../websiteContent/HomeLanding';
-import Page404 from '../websiteContent/Page404';
-import RoutePage from './RoutePage';
-import allMenus from './menus';
-import pages from './pages';
-import constructMainMenu from './util/constructMainMenu';
+import { HomeLanding } from '../websiteContent/HomeLanding';
+import { Page404 } from '../websiteContent/Page404';
+import { RoutePage } from './RoutePage';
+import { allMenus } from './menus';
+import { pages } from './pages';
+import { constructMainMenu } from './util/constructMainMenu';
 
-const propTypes = {};
-const defaultProps = {};
-
-function Routing() {
+export function Routing() {
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
-  const contentRef = useRef();
+  const contentRef = useRef(/** @type {HTMLElement | null} */(null));
   const { setSettings = () => { } } = useUtahHeaderContext() || {};
   const navigate = useNavigate();
 
   useEffect(
     () => {
       setSettings((draftSettings) => {
+        // @ts-ignore
         draftSettings.mainMenu = constructMainMenu(currentMenuItem, navigate);
       });
     },
@@ -68,7 +65,7 @@ function Routing() {
                 break;
               default:
                 if (page.menuSecondary) {
-                  throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.title}'; menuSecondary='${page.menuSecondary}'`);
+                  throw new Error(`Unknown secondary menu for the Documentation Template. page='${page.pageTitle}'; menuSecondary='${page.menuSecondary}'`);
                 }
             }
             element = (
@@ -88,7 +85,7 @@ function Routing() {
 
           default:
             throw new Error(
-              `Invalid template (${page.template}) for page (${page.title})`
+              `Invalid template (${page.template}) for page (${page.pageTitle})`
             );
         }
 
@@ -113,8 +110,3 @@ function Routing() {
     </Routes>
   );
 }
-
-Routing.propTypes = propTypes;
-Routing.defaultProps = defaultProps;
-
-export default Routing;

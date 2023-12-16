@@ -13,7 +13,6 @@ import { useUtahDesignSystemContext } from '../useUtahDesignSystemContext';
 export function useBanner() {
   const [, setState] = useUtahDesignSystemContext();
 
-  // eslint-disable-next-line function-paren-newline
   const addBanner = useCallback(
     /**
      * @param {Object} props
@@ -42,9 +41,10 @@ export function useBanner() {
           position,
         });
       });
-    }, [setState]);
+    },
+    [setState]
+  );
 
-  // eslint-disable-next-line function-paren-newline
   const removeBanner = useCallback(
     /**
      * @param {UtahDesignSystemContextBanner} banner
@@ -55,7 +55,9 @@ export function useBanner() {
         const currentIndex = draftState.banners.findIndex((item) => item.id === banner.id);
         if (currentIndex !== -1) { draftState.banners.splice(currentIndex, 1); }
       });
-    }, [setState]);
+    },
+    [setState]
+  );
 
   return useMemo(() => ({ addBanner, removeBanner }), [addBanner, removeBanner]);
 }

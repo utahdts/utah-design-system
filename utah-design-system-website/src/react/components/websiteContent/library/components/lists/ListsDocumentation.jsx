@@ -1,16 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { StaticExample } from '../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ListsDocumentation() {
+export function ListsDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Lists</h1>
@@ -109,8 +102,3 @@ function ListsDocumentation() {
     </div>
   );
 }
-
-ListsDocumentation.propTypes = propTypes;
-ListsDocumentation.defaultProps = defaultProps;
-
-export default ListsDocumentation;

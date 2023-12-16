@@ -1,18 +1,10 @@
-import PropTypes from 'prop-types';
-
-const propTypes = {
-  code: PropTypes.string,
-  isRenderable: PropTypes.bool.isRequired,
-};
-const defaultProps = {
-  code: null,
-};
-
-function ExampleCodeReactCode({ code, isRenderable }) {
+/**
+ * @param {Object} props
+ * @param {string} [props.code]
+ * @param {boolean} props.isRenderable
+ * @returns {JSX.Element | null}
+ */
+export function ExampleCodeReactCode({ code, isRenderable }) {
   // eslint-disable-next-line react/jsx-one-expression-per-line
-  return (isRenderable ? (<><span>{code}</span><br /></>) : undefined);
+  return (isRenderable ? (<><span>{code}</span><br /></>) : null);
 }
-ExampleCodeReactCode.propTypes = propTypes;
-ExampleCodeReactCode.defaultProps = defaultProps;
-
-export default ExampleCodeReactCode;

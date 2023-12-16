@@ -16,11 +16,7 @@ import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleC
 import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
 import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function ConfirmationButtonDocumentation() {
+export function ConfirmationButtonDocumentation() {
   const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
@@ -177,8 +173,3 @@ function ConfirmationButtonDocumentation() {
     </div>
   );
 }
-
-ConfirmationButtonDocumentation.propTypes = propTypes;
-ConfirmationButtonDocumentation.defaultProps = defaultProps;
-
-export default ConfirmationButtonDocumentation;

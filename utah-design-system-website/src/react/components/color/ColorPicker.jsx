@@ -7,7 +7,7 @@ import {
 import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import tinycolor from 'tinycolor2';
-import useAppContext from '../../context/AppContext/useAppContext';
+import { useAppContext } from '../../context/AppContext/useAppContext';
 import { isLightColor } from '../../util/color/isLightColor';
 
 const propTypes = {

@@ -1,12 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-import { Link } from 'react-router-dom';
 import { MainContent } from '@utahdts/utah-design-system';
+import { Link } from 'react-router-dom';
 import { pageUrls } from '../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function Page404() {
+export function Page404() {
   return (
     <MainContent className="landing-page-template page-not-found">
       <div className="top-banner" />
@@ -36,8 +32,3 @@ function Page404() {
     </MainContent>
   );
 }
-
-Page404.propTypes = propTypes;
-Page404.defaultProps = defaultProps;
-
-export default Page404;

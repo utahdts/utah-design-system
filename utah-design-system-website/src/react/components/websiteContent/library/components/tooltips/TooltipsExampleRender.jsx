@@ -10,7 +10,7 @@ import { useRef } from 'react';
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @returns {JSX.Element}
  */
-export default function TooltipsExampleRender({
+export function TooltipsExampleRender({
   state: {
     props: {
       isPopperVisible,

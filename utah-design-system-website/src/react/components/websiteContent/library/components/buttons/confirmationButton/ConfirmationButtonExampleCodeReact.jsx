@@ -1,6 +1,6 @@
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
 /** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 

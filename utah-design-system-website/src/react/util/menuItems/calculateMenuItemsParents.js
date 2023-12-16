@@ -36,7 +36,7 @@ import identity from 'lodash/identity';
  * @param {WebsiteMainMenuItem[]} param.menuItems the menuItems for which to add parents
  * @returns {WebsiteMainMenuItem} the menuItems now with parentLinks information
  */
-export default function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
+export function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
   // @ts-ignore
   return (
     (menuItems || [])

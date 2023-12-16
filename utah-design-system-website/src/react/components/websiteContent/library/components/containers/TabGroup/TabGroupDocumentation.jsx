@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import tabsHorizontalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsHorizontalScreenshot.jpg';
 import tabsOverflowScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsOverflowScreenshot.jpg';
@@ -12,10 +8,7 @@ import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeStrin
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TabGroupDocumentation() {
+export function TabGroupDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Tab Group</h1>
@@ -184,8 +177,3 @@ function TabGroupDocumentation() {
     </div>
   );
 }
-
-TabGroupDocumentation.propTypes = propTypes;
-TabGroupDocumentation.defaultProps = defaultProps;
-
-export default TabGroupDocumentation;

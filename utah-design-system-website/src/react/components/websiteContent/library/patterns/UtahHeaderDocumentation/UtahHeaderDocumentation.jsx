@@ -23,35 +23,25 @@ import {
   useState
 } from 'react';
 import { Link } from 'react-router-dom';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
 import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
-// @ts-ignore
 // eslint-disable-next-line import/no-unresolved
+import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
+// eslint-disable-next-line import/no-unresolved
+import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
 import { useTextAreaCaretRowColumn } from '../../../../../hooks/useTextAreaCaretRowColumn';
 import { CopyButton } from '../../../../copy/CopyButton';
 import { LightBox } from '../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { StaticExample } from '../../../../staticExamples/StaticExample';
+import { MainMenuSettingsAndCode } from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
 import { formatHeaderSettingsForCopy } from './formatHeaderSettingsForCopy';
 import { useInteractiveHeaderState } from './useInteractiveHeaderState';
 import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
 import { utahHeaderPresets } from './utahHeaderPresets';
 
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
-import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
-import { MainMenuSettingsAndCode } from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
-
-const propTypes = {};
-const defaultProps = {};
-
-function UtahHeaderDocumentation() {
+export function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
   const {
     headerString,
@@ -1687,8 +1677,3 @@ function UtahHeaderDocumentation() {
     </div>
   );
 }
-
-UtahHeaderDocumentation.propTypes = propTypes;
-UtahHeaderDocumentation.defaultProps = defaultProps;
-
-export default UtahHeaderDocumentation;

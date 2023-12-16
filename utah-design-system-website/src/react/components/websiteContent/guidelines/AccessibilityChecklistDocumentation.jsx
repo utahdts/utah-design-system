@@ -1,21 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   ExternalLink,
   LinkCallback,
 } from '@utahdts/utah-design-system';
 import { useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import useAppContext from '../../../context/AppContext/useAppContext';
+import { useAppContext } from '../../../context/AppContext/useAppContext';
 import { pageUrls } from '../../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function AccessibilityTestingDocumentation() {
+export function AccessibilityChecklistDocumentation() {
   const { setAppState } = useAppContext();
   return (
     <div className="documentation-content">
@@ -198,8 +191,3 @@ function AccessibilityTestingDocumentation() {
     </div>
   );
 }
-
-AccessibilityTestingDocumentation.propTypes = propTypes;
-AccessibilityTestingDocumentation.defaultProps = defaultProps;
-
-export default AccessibilityTestingDocumentation;

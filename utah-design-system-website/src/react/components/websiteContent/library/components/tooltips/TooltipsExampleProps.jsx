@@ -18,7 +18,7 @@ import {
  * @param {TooltipsExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function TooltipsExampleProps({ setState, state }) {
+export function TooltipsExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

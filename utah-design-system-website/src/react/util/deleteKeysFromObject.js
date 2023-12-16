@@ -1,5 +1,4 @@
-import isArray from 'lodash/isArray';
-import isObject from 'lodash/isObject';
+import { isArray, isObject } from 'lodash';
 
 /**
  * the "key-del" library seemed to be fighting with immer, so rewrote a poor-man's version here
@@ -9,7 +8,7 @@ import isObject from 'lodash/isObject';
  * @param {string[]} keys
  * @returns {{[key: string]: any}}
  */
-export default function deleteKeysFromObject(draftObj, keys) {
+export function deleteKeysFromObject(draftObj, keys) {
   Object.entries(draftObj)
     .forEach(([key, value]) => {
       if (keys.includes(key)) {

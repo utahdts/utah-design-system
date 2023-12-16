@@ -6,7 +6,7 @@ import { notNullArray } from '../../../util/notNullArray';
 // relevant to previous matching headers, but this function is tightly coupled to groupElementsByHeaderLevel()
 // so it'd be a larger change.
 /**
- * @param {Element} element
+ * @param {HTMLElement | null} element
  * @returns {Element[]}
  */
 export function findElementsByTagNameMatch(element) {
@@ -14,6 +14,7 @@ export function findElementsByTagNameMatch(element) {
   return notNullArray(
     [
       (element?.tagName?.match?.(/^h[23]$/i)) ? element : null,
+      // @ts-ignore
       ...((element?.children) ? Array.from(element.children).map((child) => findElementsByTagNameMatch(child)) : []),
     ]
       .flat(Infinity)

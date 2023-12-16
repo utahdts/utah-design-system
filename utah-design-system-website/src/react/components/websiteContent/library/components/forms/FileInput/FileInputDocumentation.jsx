@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
@@ -10,11 +6,7 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import fileInputMulti from '../../../../../../../static/images/screenshots/components/form-elements/fileInputMulti.jpg';
 import fileInputSingle from '../../../../../../../static/images/screenshots/components/form-elements/fileInputSingle.jpg';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function FileInputDocumentation() {
+export function FileInputDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">File Input</h1>
@@ -115,8 +107,3 @@ function FileInputDocumentation() {
     </div>
   );
 }
-
-FileInputDocumentation.propTypes = propTypes;
-FileInputDocumentation.defaultProps = defaultProps;
-
-export default FileInputDocumentation;

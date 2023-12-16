@@ -20,7 +20,7 @@ import SpinnersExampleCodeReact from './SpinnersExampleCodeReact';
 import SpinnersExampleProps from './SpinnersExampleProps';
 import SpinnersExampleRender from './SpinnersExampleRender';
 
-export default function SpinnersDocumentation() {
+export function SpinnersDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Spinner</h1>

@@ -4,7 +4,7 @@ import { groupElementsByHeaderLevel } from './util/groupElementsByHeaderLevel';
 
 /**
  * @param {Object} props
- * @param {React.MutableRefObject<Element>} props.contentRef
+ * @param {React.MutableRefObject<HTMLElement | null>} props.contentRef
  * @returns {JSX.Element}
  */
 export function OnThisPage({ contentRef }) {

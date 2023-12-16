@@ -7,10 +7,7 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-function SidePanelDocumentation() {
+export function SidePanelDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Side Panel</h1>
@@ -85,8 +82,3 @@ function SidePanelDocumentation() {
     </div>
   );
 }
-
-SidePanelDocumentation.propTypes = propTypes;
-SidePanelDocumentation.defaultProps = defaultProps;
-
-export default SidePanelDocumentation;

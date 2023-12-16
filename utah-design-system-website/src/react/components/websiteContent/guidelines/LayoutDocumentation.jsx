@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   ExternalLink,
   Table,
@@ -15,16 +11,13 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
+import gridScreenshot from '../../../../static/images/screenshots/gridLayout.webp';
+import { LightBox } from '../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';
 import { StaticExample } from '../../staticExamples/StaticExample';
-import { LightBox } from '../../lightbox/LightBox';
-import gridScreenshot from '../../../../static/images/screenshots/gridLayout.webp';
-import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 
-const propTypes = {};
-const defaultProps = {};
-
-function LayoutDocumentation() {
+export function LayoutDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Layout</h1>
@@ -259,8 +252,3 @@ function LayoutDocumentation() {
     </div>
   );
 }
-
-LayoutDocumentation.propTypes = propTypes;
-LayoutDocumentation.defaultProps = defaultProps;
-
-export default LayoutDocumentation;

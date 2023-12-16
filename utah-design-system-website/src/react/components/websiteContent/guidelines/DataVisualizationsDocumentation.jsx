@@ -1,18 +1,10 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-
-import { LightBox } from '../../lightbox/LightBox';
-import lineChart from '../../../../static/images/screenshots/examples/LineChart.png';
 import barChart from '../../../../static/images/screenshots/examples/BarChart.png';
+import lineChart from '../../../../static/images/screenshots/examples/LineChart.png';
+import { LightBox } from '../../lightbox/LightBox';
 import { StaticExample } from '../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function DataVisualizationsDocumentation() {
+export function DataVisualizationsDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Data Visualizations</h1>
@@ -51,8 +43,3 @@ function DataVisualizationsDocumentation() {
     </div>
   );
 }
-
-DataVisualizationsDocumentation.propTypes = propTypes;
-DataVisualizationsDocumentation.defaultProps = defaultProps;
-
-export default DataVisualizationsDocumentation;

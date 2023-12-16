@@ -1,5 +1,5 @@
-import calculateMenuItemsParents from '../../util/menuItems/calculateMenuItemsParents';
-import pages from './pages';
+import { calculateMenuItemsParents } from '../../util/menuItems/calculateMenuItemsParents';
+import { pages } from './pages';
 
 /** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
 
@@ -209,7 +209,7 @@ export const menuLibraryComponentsSecondary = {
 };
 
 // sort forms sub-menu alphabetically
-menuLibraryComponentsSecondary.menuItems.find((item) => (item.id === 'components__forms'))?.children.sort((a, b) => a.title.localeCompare(b.title));
+menuLibraryComponentsSecondary.menuItems.find((item) => (item.id === 'components__forms'))?.children?.sort((a, b) => a.title.localeCompare(b.title));
 
 /** @type {WebsiteMainMenu} */
 export const menuLibraryPatternsSecondary = {
@@ -290,7 +290,15 @@ export const menuResourcesSecondary = {
   ],
 };
 
-const sorter = (a, b) => a.title.localeCompare(b.title);
+/**
+ * @param {{title: string}} a
+ * @param {{title: string}} b
+ * @returns {number}
+ */
+function sorter(a, b) {
+  return a.title.localeCompare(b.title);
+}
+
 // sort menu items alphabetically
 menuGuidelinesSecondary.menuItems.sort(sorter);
 menuLibraryComponentsSecondary.menuItems.sort(sorter);
@@ -301,7 +309,7 @@ menuResourcesSecondary.menuItems.sort(sorter);
 // add parent link to all the menus and export them in an object
 // this allows the menus to be grabbed by name and to all be formatted the same way all at once
 // though you do have to do dot notation to access them after importing
-export default Object.fromEntries(
+export const allMenus = Object.fromEntries(
   Object.entries({
     menuMain,
     menuGuidelinesSecondary,

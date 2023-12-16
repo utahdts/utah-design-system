@@ -1,19 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { Accordion } from '@utahdts/utah-design-system';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import coralPinkSandDunes from '../../../../../../../static/images/screenshots/examples/CoralPinkSandDunes.jpg';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function AccordionDocumentation() {
+export function AccordionDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Accordion</h1>
@@ -190,8 +182,3 @@ function AccordionDocumentation() {
     </div>
   );
 }
-
-AccordionDocumentation.propTypes = propTypes;
-AccordionDocumentation.defaultProps = defaultProps;
-
-export default AccordionDocumentation;

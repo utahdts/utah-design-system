@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import allMenus from '../../components/routing/menus';
+import { allMenus } from '../../components/routing/menus';
 import { pageUrls } from '../../components/routing/pageUrls';
-import pages from '../../components/routing/pages';
+import { pages } from '../../components/routing/pages';
 import { AppContext } from './AppContext';
 
 /** @typedef {import('utah-design-system-website').AppContextValue} AppContextValue */

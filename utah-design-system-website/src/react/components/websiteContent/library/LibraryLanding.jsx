@@ -1,14 +1,11 @@
 import { LightBox } from '../../lightbox/LightBox';
 // images
-import libraryOverview from '../../../../static/images/layout-overview.jpg';
-import atomicTemplate from '../../../../static/images/atomicTemplate.svg';
-import atomicPatterns from '../../../../static/images/atomicPatterns.svg';
 import atomicComponents from '../../../../static/images/atomicComponents.svg';
+import atomicPatterns from '../../../../static/images/atomicPatterns.svg';
+import atomicTemplate from '../../../../static/images/atomicTemplate.svg';
+import libraryOverview from '../../../../static/images/layout-overview.jpg';
 
-const propTypes = {};
-const defaultProps = {};
-
-function LibraryLanding() {
+export function LibraryLanding() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Welcome to the Library!</h1>
@@ -125,8 +122,3 @@ function LibraryLanding() {
     </div>
   );
 }
-
-LibraryLanding.propTypes = propTypes;
-LibraryLanding.defaultProps = defaultProps;
-
-export default LibraryLanding;

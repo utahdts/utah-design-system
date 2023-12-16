@@ -144,19 +144,21 @@
  */
 
 /**
- * @typedef UtahDesignSystemContextBanner
+ * @typedef UtahDesignSystemContextBanner {
  *  @property {string} [className]
  *  @property {number} [duration]
  *  @property {string} id
  *  @property {React.ReactNode} [icon]
  *  @property {React.ReactNode} message
  *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
- *  @property {BannerPlacement} position
+ *  @property {BannerPlacement} [position]
+ * }
  */
 
 /**
- * @typedef UtahDesignSystemDefaultSettings
- * @property {number} [bannerDuration]
+ * @typedef UtahDesignSystemDefaultSettings {
+ *  @property {number} [bannerDuration]
+ * }
  */
 
 /**

@@ -1,5 +1,5 @@
-import ExampleCodeReactCode from '../../../../../sandbox/ExampleCodeReactCode';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactCode } from '../../../../../sandbox/ExampleCodeReactCode';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 

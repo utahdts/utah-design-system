@@ -1,5 +1,5 @@
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */
 

@@ -1,18 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ParagraphDocumentation() {
+export function ParagraphDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Basic and Semantic Text</h1>
@@ -243,8 +236,3 @@ function ParagraphDocumentation() {
     </div>
   );
 }
-
-ParagraphDocumentation.propTypes = propTypes;
-ParagraphDocumentation.defaultProps = defaultProps;
-
-export default ParagraphDocumentation;

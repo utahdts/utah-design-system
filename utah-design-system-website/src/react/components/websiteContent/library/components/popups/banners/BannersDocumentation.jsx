@@ -17,10 +17,7 @@ import { BannersExampleCodeReact } from './BannersExampleCodeReact';
 import { BannersExampleProps } from './BannersExampleProps';
 import { BannersExampleRender } from './BannersExampleRender';
 
-const propTypes = {};
-const defaultProps = {};
-
-function BannersDocumentation() {
+export function BannersDocumentation() {
   const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
@@ -312,8 +309,3 @@ function BannersDocumentation() {
     </div>
   );
 }
-
-BannersDocumentation.propTypes = propTypes;
-BannersDocumentation.defaultProps = defaultProps;
-
-export default BannersDocumentation;

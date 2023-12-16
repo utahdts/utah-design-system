@@ -119,8 +119,8 @@ import { pageUrls } from './pageUrls';
 
 /** @typedef {import('utah-design-system-website').Page} Page */
 
-/** @type {Object.<string, Page>} */
-const pages = {
+/** @enum {Page} */
+export const pages = {
   // === Main top menu pages === //
   home: {
     content: HomeLanding,
@@ -847,5 +847,3 @@ const pages = {
   },
 
 };
-
-export default pages;
