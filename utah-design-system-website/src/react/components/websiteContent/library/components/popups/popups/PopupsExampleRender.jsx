@@ -1,5 +1,5 @@
 import { Popup } from '@utahdts/utah-design-system';
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
@@ -10,7 +10,7 @@ import React, { useCallback, useRef } from 'react';
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @returns {JSX.Element}
  */
-export default function PopupsExampleRender({
+export function PopupsExampleRender({
   setState,
   state: {
     props: {

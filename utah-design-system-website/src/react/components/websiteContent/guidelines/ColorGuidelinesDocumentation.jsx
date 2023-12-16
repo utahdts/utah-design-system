@@ -1,19 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import { Link, NavLink } from 'react-router-dom';
 import { ExternalLink } from '@utahdts/utah-design-system';
+import { Link, NavLink } from 'react-router-dom';
+import { useAppContext } from '../../../context/AppContext/useAppContext';
 import { pageUrls } from '../../routing/pageUrls';
-import useAppContext from '../../../context/AppContext/useAppContext';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ColorGuidelinesDocumentation() {
+export function ColorGuidelinesDocumentation() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
 
+  /** @param {React.MouseEvent<HTMLAnchorElement> } e */
   function toggleColorPickerPopup(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -32,6 +26,7 @@ function ColorGuidelinesDocumentation() {
       <p className="mb-auto">
         The Utah Design System provides a base palette of colors that has already been tested for accessibility and spans a wide color spectrum.
         The base text color (#474747) ensures that your main body text meets accessibility requirements.
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         A color picker is provided at the top of every page under the gear icon <a href="#" onClick={toggleColorPickerPopup}><span className="utds-icon-before-gear" aria-hidden="true" /><span className="visually-hidden">open color tool</span></a>
         that allows you to choose primary, secondary, and accent colors. It allows you to preview these colors on this site, as well as with components, patterns, and the <NavLink to={pageUrls.demoPage}>demo page</NavLink>.
       </p>
@@ -213,8 +208,3 @@ function ColorGuidelinesDocumentation() {
     </div>
   );
 }
-
-ColorGuidelinesDocumentation.propTypes = propTypes;
-ColorGuidelinesDocumentation.defaultProps = defaultProps;
-
-export default ColorGuidelinesDocumentation;

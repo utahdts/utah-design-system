@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
 import { joinClassNames } from '../../util/joinClassNames';
 import { setValueAtPath } from '../../util/state/setValueAtPath';

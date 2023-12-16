@@ -121,10 +121,10 @@
 /**
  * @template FormStateT
  * @typedef FormContextValue {
- *  @property {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {React.ChangeEventHandler<HTMLElement>} [onSubmit] submit the form
- *  @property {FormStateT} [state] current values of all the form elements
- *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
+ *  @property {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} onChange a change triggered on a field; the field must always supply a new value
+ *  @property {React.ChangeEventHandler<HTMLElement>} onSubmit submit the form
+ *  @property {FormStateT} state current values of all the form elements
+ *  @property {import('use-immer').Updater<FormStateT>} setState current values of all the form elements
  * }
 */
 

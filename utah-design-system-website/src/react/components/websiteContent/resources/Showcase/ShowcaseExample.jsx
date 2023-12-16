@@ -1,5 +1,4 @@
 import { ExternalLink } from '@utahdts/utah-design-system';
-import React from 'react';
 import { LightBox } from '../../../lightbox/LightBox';
 
 /**

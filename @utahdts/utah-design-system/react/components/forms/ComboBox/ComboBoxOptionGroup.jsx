@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import { useId } from 'react';
 import { ComboBoxOption } from './ComboBoxOption';
 import { ComboBoxOptionGroupContextProvider } from './context/ComboBoxOptionGroupContextProvider';
 

@@ -7,11 +7,11 @@ import {
   TabPanels,
   joinClassNames,
 } from '@utahdts/utah-design-system';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
-import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
-import PreCode from '../preCode/PreCode';
-import PreCodeForRef from '../preCode/PreCodeForRef';
+import { sandboxCodeTypeEnum } from '../../enums/sandboxCodeTypeEnum';
+import { PreCode } from '../preCode/PreCode';
+import { PreCodeForRef } from '../preCode/PreCodeForRef';
 
 /**
  * @template UpdaterPropsT

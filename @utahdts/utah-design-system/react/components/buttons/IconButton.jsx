@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import { componentColors } from '../../enums/componentColors';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';

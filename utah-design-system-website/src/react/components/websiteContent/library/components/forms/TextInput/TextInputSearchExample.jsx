@@ -1,15 +1,15 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TextInputSearchExample() {
+export function TextInputSearchExample() {
   const [query, setQuery] = useState('');
-  const search = (e) => {
-    e.preventDefault();
-    console.log('You are searching!');
-  };
+  const search = /** @type {React.FormEventHandler} */ (
+    (e) => {
+      e.preventDefault();
+      // eslint-disable-next-line no-console
+      console.log('You are searching!');
+    }
+  );
 
   return (
     <div className="search-page">
@@ -26,8 +26,3 @@ function TextInputSearchExample() {
     </div>
   );
 }
-
-TextInputSearchExample.propTypes = propTypes;
-TextInputSearchExample.defaultProps = defaultProps;
-
-export default TextInputSearchExample;

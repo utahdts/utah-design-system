@@ -1,4 +1,4 @@
-import React from 'react';
+import { createContext } from 'react';
 
 /**
  * @template FormContextT
@@ -6,4 +6,9 @@ import React from 'react';
  */
 
 /** @template FormContextT */
-export const FormContext = /** @type {typeof React.createContext<FormContextValue<FormContextT>>} */ (React.createContext)({});
+export const FormContext = /** @type {typeof createContext<FormContextValue<FormContextT>>} */(createContext)({
+  onChange: () => { },
+  onSubmit: () => { },
+  setState: () => { },
+  state: /** @type {any} */ ({}),
+});

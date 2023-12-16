@@ -3,7 +3,6 @@ import {
   ComboBoxOption,
   useFormContext
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
@@ -11,10 +10,10 @@ import React from 'react';
  * @param {Object} props
  * @param {import('use-immer').Updater<{props: ComboBoxExamplePropsShape}>} props.setState
  * @param {{props: ComboBoxExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @returns {JSX.Element}
  */
-export default function ComboBoxExampleRender({
+export function ComboBoxExampleRender({
   setState,
   state: {
     props: {
@@ -44,9 +43,12 @@ export default function ComboBoxExampleRender({
         label={label ?? ''}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;
-          setStateFormContext?.((draftStateFormContext) => {
-            draftStateFormContext['props.value'] = newValue;
-          });
+          setStateFormContext?.(
+            // @ts-ignore
+            (draftStateFormContext) => {
+              draftStateFormContext['props.value'] = newValue;
+            }
+          );
         })}
         onClear={() => setState((draftState) => { draftState.props.value = ''; })}
         value={value}

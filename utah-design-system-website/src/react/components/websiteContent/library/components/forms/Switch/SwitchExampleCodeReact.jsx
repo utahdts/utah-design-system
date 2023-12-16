@@ -1,4 +1,3 @@
-import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('utah-design-system-website').SwitchExamplePropsShape} SwitchExamplePropsShape */
@@ -9,7 +8,7 @@ import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
  * @param {SwitchExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function SwitchExampleCodeReact({
+export function SwitchExampleCodeReact({
   state: {
     props: {
       className,

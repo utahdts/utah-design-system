@@ -8,9 +8,7 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
 export function ClickableTagPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">

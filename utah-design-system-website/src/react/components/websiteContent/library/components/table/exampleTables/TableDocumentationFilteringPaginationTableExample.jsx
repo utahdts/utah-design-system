@@ -19,7 +19,6 @@ import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 import { examplePresidentsData } from './examplePresidentsData';
 
 const DEFAULT_ITEMS_PER_PAGE = 10;
-/** @returns {JSX.Element} */
 export function TableDocumentationFilteringPaginationTableExample() {
   const [itemsPerPage, setItemsPerPage] = useImmer(DEFAULT_ITEMS_PER_PAGE);
 

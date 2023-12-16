@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Button,
   ExternalLink,
@@ -17,38 +13,37 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
-import { pageUrls } from '../../routing/pageUrls';
-import { LightBox } from '../../lightbox/LightBox';
-import { StaticExample } from '../../staticExamples/StaticExample';
-import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
 import badAltAudio from '../../../../static/audio/BadAlt.mp3';
-import goodTextOverImg from '../../../../static/images/screenshots/examples/GoodTextOverImage.png';
-import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
-import goodColorRepImg from '../../../../static/images/screenshots/examples/GoodColorRepresentation.png';
-import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
-import captionsImg from '../../../../static/images/screenshots/examples/Captions.jpg';
+import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
+import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
+import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
+import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
+import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
+import captionsImg from '../../../../static/images/screenshots/examples/Captions.jpg';
+import goodColorRepImg from '../../../../static/images/screenshots/examples/GoodColorRepresentation.png';
+import goodTextOverImg from '../../../../static/images/screenshots/examples/GoodTextOverImage.png';
 import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
-import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
-import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
-import useAppContext from '../../../context/AppContext/useAppContext';
+import { useAppContext } from '../../../context/AppContext/useAppContext';
+import { LightBox } from '../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../routing/pageUrls';
+import { StaticExample } from '../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function AccessibilityDocumentation() {
+export function AccessibilityDocumentation() {
   const goodAltAudioVtt = new URL('../../../../static/audio/vtt/GoodAlt.vtt', import.meta.url).href;
   const badAltAudioVtt = new URL('../../../../static/audio/vtt/BadAlt.vtt', import.meta.url).href;
 
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
 
+  /** @param {React.MouseEvent<HTMLAnchorElement>} e */
   function toggleColorPickerPopup(e) {
     e.preventDefault();
     e.stopPropagation();
     setAppState((draftAppState) => { draftAppState.isColorPickerShown = !isColorPickerShown; });
   }
+
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Accessibility Overview</h1>
@@ -876,8 +871,3 @@ function AccessibilityDocumentation() {
     </div>
   );
 }
-
-AccessibilityDocumentation.propTypes = propTypes;
-AccessibilityDocumentation.defaultProps = defaultProps;
-
-export default AccessibilityDocumentation;

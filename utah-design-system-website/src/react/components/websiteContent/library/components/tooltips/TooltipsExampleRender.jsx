@@ -1,5 +1,5 @@
 import { Button, Tooltip } from '@utahdts/utah-design-system';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 /** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 

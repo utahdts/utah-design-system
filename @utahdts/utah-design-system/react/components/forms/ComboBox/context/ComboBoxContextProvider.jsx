@@ -1,5 +1,5 @@
 import { trim } from 'lodash';
-import React, {
+import {
   useCallback,
   useEffect,
   useMemo,

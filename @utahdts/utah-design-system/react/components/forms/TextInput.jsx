@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { useFormContextInput } from './FormContext/useFormContextInput';
 import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition';

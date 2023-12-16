@@ -8,10 +8,8 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
-export default function SelectPropsDocumentation() {
+export function SelectPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>

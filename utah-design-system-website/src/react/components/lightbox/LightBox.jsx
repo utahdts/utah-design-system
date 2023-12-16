@@ -1,5 +1,4 @@
 import { IconButton, joinClassNames } from '@utahdts/utah-design-system';
-import React from 'react';
 import { useImmer } from 'use-immer';
 import { useKeyEventGlobal } from '../../hooks/useKeyEventGlobal';
 

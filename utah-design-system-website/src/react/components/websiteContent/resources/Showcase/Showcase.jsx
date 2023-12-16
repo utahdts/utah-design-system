@@ -8,7 +8,6 @@ import oneutahsummitWebsiteScreenshot from '../../../../../static/images/screens
 import thrivingWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/thriving-utah-gov.webp';
 import { ShowcaseExample } from './ShowcaseExample';
 
-/** @returns {JSX.Element} */
 export function Showcase() {
   return (
     <div className="documentation-content">

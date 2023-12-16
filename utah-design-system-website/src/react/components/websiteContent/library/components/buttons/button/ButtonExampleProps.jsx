@@ -16,7 +16,7 @@ import {
  * @param {ButtonExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function ButtonExampleProps({ setState, state }) {
+export function ButtonExampleProps({ setState, state }) {
   return (
     <Form
       // onSubmit(({ state, validationErrors }) => ... do whatever ...)

@@ -59,7 +59,6 @@ export function TableDocumentationPaginationTableExample() {
           onChange={
             (e) => (
               setItemsPerPage(
-                // @ts-ignore
                 Number(e.target.value)
                 || DEFAULT_ITEMS_PER_PAGE
               )

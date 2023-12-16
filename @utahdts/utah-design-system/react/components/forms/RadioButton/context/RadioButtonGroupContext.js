@@ -1,5 +1,3 @@
-import React from 'react';
-
 /** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContext} RadioButtonGroupContext */
 
 export const RadioButtonGroupContext = /** @type {typeof React.createContext<RadioButtonGroupContext>} */ (React.createContext)([

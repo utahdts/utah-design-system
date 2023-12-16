@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { notNull } from '../../util/notNull';
 import { Pagination } from '../navigation/pagination/Pagination';
 import { useTableContext } from './hooks/useTableContext';

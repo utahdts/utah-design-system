@@ -6,7 +6,6 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
@@ -17,7 +16,7 @@ import React from 'react';
  * @param {SwitchExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function SwitchExampleProps({ setState, state }) {
+export function SwitchExampleProps({ setState, state }) {
   return (
     <div>
       <div>

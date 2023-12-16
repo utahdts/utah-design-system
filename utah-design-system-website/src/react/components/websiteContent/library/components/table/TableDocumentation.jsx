@@ -21,7 +21,6 @@ import { TableDocumentationPaginationTableExample } from './exampleTables/TableD
 import { TableDocumentationSimpleTableExample } from './exampleTables/TableDocumentationSimpleTableExample';
 import { TableDocumentationSortingTableExample } from './exampleTables/TableDocumentationSortingTableExample';
 
-/** @returns {JSX.Element} */
 export function TableDocumentation() {
   return (
     <div className="documentation-content">

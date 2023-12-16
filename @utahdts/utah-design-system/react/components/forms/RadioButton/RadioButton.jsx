@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useFormContext } from '../FormContext/useFormContext';
 import { useRadioButtonGroupContext } from './context/useRadioButtonGroupContext';

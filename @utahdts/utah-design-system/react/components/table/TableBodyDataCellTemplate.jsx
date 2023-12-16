@@ -1,5 +1,5 @@
 import { isFunction } from 'lodash';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { valueAtPath } from '../../util/state/valueAtPath';
 import { TableBodyDataRowContext } from './TableBodyDataRowContext';
 import { TableCell } from './TableCell';

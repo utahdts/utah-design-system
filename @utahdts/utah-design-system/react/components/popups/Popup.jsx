@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import { popupPlacement } from '../../enums/popupPlacement';

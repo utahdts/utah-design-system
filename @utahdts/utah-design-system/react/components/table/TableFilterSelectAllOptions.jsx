@@ -1,5 +1,5 @@
 import { identity, uniq } from 'lodash';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { chainSorters } from '../../util/chainSorters';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Select } from '../forms/Select';
@@ -36,8 +36,10 @@ export function TableFilterSelectAllOptions({
     currentValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    // @ts-ignore
-    defaultOnChange: (e) => e.target.value,
+    defaultOnChange: (
+      /** @param {React.BaseSyntheticEvent} e */
+      (e) => e.target.value
+    ),
     defaultValue,
     onChange,
     value,

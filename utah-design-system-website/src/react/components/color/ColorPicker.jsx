@@ -73,6 +73,7 @@ function ColorPicker({
           label={label}
           labelClassName="visually-hidden"
           onChange={useCallback(
+            /** @param {React.BaseSyntheticEvent} e */
             (e) => { onChange(e.target.value); },
             [onChange]
           )}

@@ -1,7 +1,6 @@
 import {
   Checkbox, Tab, TabGroup, TabList, TabPanel, TabPanels
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -12,11 +11,7 @@ import { CheckboxExampleProps } from './CheckboxExampleProps';
 import { CheckboxExampleRender } from './CheckboxExampleRender';
 import { CheckboxPropsDocumentation } from './CheckboxPropsDocumentation';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function CheckboxDocumentation() {
+export function CheckboxDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Checkbox</h1>
@@ -148,8 +143,3 @@ function CheckboxDocumentation() {
     </div>
   );
 }
-
-CheckboxDocumentation.propTypes = propTypes;
-CheckboxDocumentation.defaultProps = defaultProps;
-
-export default CheckboxDocumentation;

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
 
 const propTypes = {
@@ -9,6 +8,7 @@ const defaultProps = {
   className: undefined,
 };
 
+/** */
 function LinkIcon({ className }) {
   return (
     <span className={joinClassNames(['utds-icon-before-chevron-right', className])} aria-hidden="true" />

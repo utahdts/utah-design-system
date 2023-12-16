@@ -1,4 +1,3 @@
-import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
@@ -9,7 +8,7 @@ import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
  * @param {CharacterCountExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function CharacterCountExampleCodeReact({
+export function CharacterCountExampleCodeReact({
   state: {
     props: {
       className,

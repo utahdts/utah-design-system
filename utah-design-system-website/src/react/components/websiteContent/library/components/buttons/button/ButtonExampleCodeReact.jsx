@@ -9,7 +9,7 @@ import SandboxIndent from '../../../../../sandbox/SandboxIndent';
  * @param {{props: ButtonExamplePropsShape}} props.state
  * @returns {JSX.Element}
  */
-export default function ButtonExampleCode({
+export function ButtonExampleCodeReact({
   state: {
     props: {
       appearance,

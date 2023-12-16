@@ -8,7 +8,7 @@ import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
  * @param {{props: PopupsExamplePropsShape}} props.state
  * @returns {JSX.Element}
  */
-export default function PopupsExampleCode({
+export function PopupsExampleCodeReact({
   state: {
     props: {
       hasCloseButton,

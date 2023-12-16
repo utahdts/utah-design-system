@@ -3,7 +3,7 @@ import {
   ClickableTag,
   formElementSizesEnum, Icons, Tab, TabGroup, TabList, TabPanel, TabPanels, Tag, useBanner
 } from '@utahdts/utah-design-system';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -21,7 +21,6 @@ import { TagPropsDocumentation } from './non-clickable/TagPropsDocumentation';
 
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
-/** @returns {JSX.Element} */
 export function TagsDocumentation() {
   const { addBanner } = useBanner();
   /** @type {TagExamplePropsShape} */

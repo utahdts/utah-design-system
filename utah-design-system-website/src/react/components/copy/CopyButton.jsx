@@ -1,5 +1,5 @@
 import { IconButton, useAriaMessaging } from '@utahdts/utah-design-system';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 
 const COPY_CODE = 'Copy code';

@@ -1,18 +1,4 @@
 /* eslint-disable max-len */
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
-
-// eslint-disable-next-line import/no-unresolved, import/order
 import {
   BUTTON_APPEARANCE,
   BUTTON_TYPES,
@@ -32,25 +18,25 @@ import {
   formElementSizesEnum,
   popupPlacement
 } from '@utahdts/utah-design-system';
-// @ts-ignore
-// eslint-disable-next-line import/order
-import React, { useEffect, useRef } from 'react';
-// @ts-ignore
-// eslint-disable-next-line import/order
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-// @ts-ignore
-// eslint-disable-next-line import/order
 import { useImmer } from 'use-immer';
+import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
+import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import PopupsExampleCodeReact from './PopupsExampleCodeReact';
-import PopupsExampleProps from './PopupsExampleProps';
-import PopupsExampleRender from './PopupsExampleRender';
+// eslint-disable-next-line import/no-unresolved
+import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
+// eslint-disable-next-line import/no-unresolved
+import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
+import { PopupsExampleCodeReact } from './PopupsExampleCodeReact';
+import { PopupsExampleProps } from './PopupsExampleProps';
+import { PopupsExampleRender } from './PopupsExampleRender';
 
-export default function PopupsDocumentation() {
+export function PopupsDocumentation() {
   const buttonRef = useRef(null);
   const button2Ref = useRef(null);
   const buttonEditorRef = useRef(null);

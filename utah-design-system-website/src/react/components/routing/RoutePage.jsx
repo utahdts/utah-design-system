@@ -1,15 +1,7 @@
-import PropTypes from 'prop-types';
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import PageShape from '../../propTypesShapes/PageShape';
 
 /** @typedef {import('utah-design-system-website').Page} Page */
-
-const propTypes = {
-  children: PropTypes.element.isRequired,
-  page: PageShape.isRequired,
-};
-const defaultProps = {};
 
 /**
  * @param {Object} props
@@ -17,7 +9,7 @@ const defaultProps = {};
  * @param {Page} props.page
  * @returns {JSX.Element}
  */
-function RoutePage({ children, page }) {
+export function RoutePage({ children, page }) {
   const location = useLocation();
 
   useLayoutEffect(
@@ -35,13 +27,9 @@ function RoutePage({ children, page }) {
         document.title = `${page.pageTitle} - Utah Design System`;
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [location.hash, location.pathname]
   );
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 }
-
-RoutePage.propTypes = propTypes;
-RoutePage.defaultProps = defaultProps;
-
-export default RoutePage;

@@ -1,16 +1,12 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 import { Accordion, ExternalLink, MainContent } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
 import { LightBox } from '../lightbox/LightBox';
 import { pageUrls } from '../routing/pageUrls';
-import IconsWebsite from './IconsWebsite';
+import { IconsWebsite } from './IconsWebsite';
 
-const propTypes = {};
-const defaultProps = {};
-
-function HomeLanding() {
+export function HomeLanding() {
   return (
     <MainContent className="landing-page-template">
       <div className="home-banner">
@@ -288,8 +284,3 @@ function HomeLanding() {
     </MainContent>
   );
 }
-
-HomeLanding.propTypes = propTypes;
-HomeLanding.defaultProps = defaultProps;
-
-export default HomeLanding;

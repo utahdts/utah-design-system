@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { handleKeyPress } from '../../../../index';
 import { formElementSizesEnum } from '../../../enums/formElementSizesEnum';
 import { handleEvent } from '../../../util/handleEvent';

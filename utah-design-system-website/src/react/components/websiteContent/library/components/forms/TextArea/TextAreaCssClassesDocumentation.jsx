@@ -1,10 +1,8 @@
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
-function TextAreaCssClassesDocumentation() {
+export function TextAreaCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x">
@@ -27,5 +25,3 @@ function TextAreaCssClassesDocumentation() {
     </TableWrapper>
   );
 }
-
-export default TextAreaCssClassesDocumentation;

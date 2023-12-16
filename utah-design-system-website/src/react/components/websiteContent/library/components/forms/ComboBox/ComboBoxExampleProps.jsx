@@ -5,7 +5,6 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
@@ -16,7 +15,7 @@ import React from 'react';
  * @param {ComboBoxExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function ComboBoxExampleProps({ setState, state }) {
+export function ComboBoxExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

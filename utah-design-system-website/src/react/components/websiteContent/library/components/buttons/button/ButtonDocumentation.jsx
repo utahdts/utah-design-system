@@ -17,20 +17,17 @@ import {
   TabPanels,
   useBanner,
 } from '@utahdts/utah-design-system';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import ButtonCssClassesDocumentation from './ButtonCssClassesDocumentation';
-import ButtonExampleCodeReact from './ButtonExampleCodeReact';
-import ButtonExampleProps from './ButtonExampleProps';
-import ButtonExampleRender from './ButtonExampleRender';
+import { ButtonCssClassesDocumentation } from './ButtonCssClassesDocumentation';
+import { ButtonExampleCodeReact } from './ButtonExampleCodeReact';
+import { ButtonExampleProps } from './ButtonExampleProps';
+import { ButtonExampleRender } from './ButtonExampleRender';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ButtonDocumentation() {
+export function ButtonDocumentation() {
   const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
@@ -695,8 +692,3 @@ function ButtonDocumentation() {
     </div>
   );
 }
-
-ButtonDocumentation.propTypes = propTypes;
-ButtonDocumentation.defaultProps = defaultProps;
-
-export default ButtonDocumentation;

@@ -1,4 +1,3 @@
-import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
@@ -8,7 +7,7 @@ import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
  * @param {{props: ComboBoxExamplePropsShape}} props.state
  * @returns {JSX.Element}
  */
-export default function ComboBoxExampleCodeReact({
+export function ComboBoxExampleCodeReact({
   state: {
     props: {
       className,

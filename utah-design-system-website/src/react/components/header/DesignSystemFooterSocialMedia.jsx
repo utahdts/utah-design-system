@@ -5,12 +5,8 @@ import {
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
-import React from 'react';
 
-const propTypes = {};
-const defaultProps = {};
-
-function DesignSystemFooterSocialMedia() {
+export function DesignSystemFooterSocialMedia() {
   return (
     <FooterSocialMediaBar title="Connect with us">
       <a
@@ -43,8 +39,3 @@ function DesignSystemFooterSocialMedia() {
     </FooterSocialMediaBar>
   );
 }
-
-DesignSystemFooterSocialMedia.propTypes = propTypes;
-DesignSystemFooterSocialMedia.defaultProps = defaultProps;
-
-export default DesignSystemFooterSocialMedia;

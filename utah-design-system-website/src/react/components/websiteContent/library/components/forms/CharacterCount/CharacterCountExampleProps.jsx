@@ -2,7 +2,6 @@ import {
   Form,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
@@ -13,7 +12,7 @@ import React from 'react';
  * @param {CharacterCountExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function CharacterCountExampleProps({ setState, state }) {
+export function CharacterCountExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

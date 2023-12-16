@@ -1,5 +1,3 @@
-import React from 'react';
-
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContext} ComboBoxContext */
 
 export const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} */ (React.createContext)([

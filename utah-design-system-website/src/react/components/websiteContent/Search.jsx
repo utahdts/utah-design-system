@@ -1,7 +1,6 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
 import { useEffect, useState } from 'react';
 
-/** @returns {JSX.Element} */
 export function Search() {
   const [query, setQuery] = useState('');
 

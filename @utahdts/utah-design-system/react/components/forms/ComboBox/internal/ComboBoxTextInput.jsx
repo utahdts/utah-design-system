@@ -1,5 +1,5 @@
 import { identity } from 'lodash';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { joinClassNames } from '../../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { useFormContext } from '../../FormContext/useFormContext';
@@ -104,7 +104,6 @@ export function ComboBoxTextInput({
       }}
       onChange={(e) => {
         setComboBoxContext((draftContext) => {
-          // @ts-ignore
           draftContext.filterValue = e.target.value;
           draftContext.isFilterValueDirty = true;
         });

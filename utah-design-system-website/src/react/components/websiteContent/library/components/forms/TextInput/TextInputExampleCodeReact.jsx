@@ -1,4 +1,3 @@
-import React from 'react';
 import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
 
 /** @typedef {import('utah-design-system-website').TextInputExamplePropsShape} TextInputExamplePropsShape */
@@ -9,7 +8,7 @@ import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
  * @param {TextInputExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function TextInputExampleCodeReact({
+export function TextInputExampleCodeReact({
   state: {
     props: {
       className,

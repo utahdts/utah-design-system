@@ -1,9 +1,7 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import {
   ConfirmationButton, ConfirmationChildren, InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('../../../../../../../@types/jsDocTypes.d').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
@@ -11,7 +9,7 @@ import React from 'react';
  * @param {Object} props
  * @param {import('use-immer').Updater<{props: ConfirmationButtonExamplePropsShape}>} props.setState
  * @param {{props: ConfirmationButtonExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
+ * @param {React.RefObject<HTMLButtonElement>} props.innerRef
  * @returns {JSX.Element}
  */
 export function ConfirmationButtonExampleRender({

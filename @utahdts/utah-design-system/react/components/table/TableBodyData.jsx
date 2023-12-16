@@ -1,5 +1,5 @@
 import { castArray, identity, isEqual } from 'lodash';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { chainSorters } from '../../util/chainSorters';

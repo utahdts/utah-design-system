@@ -1,19 +1,14 @@
 /* eslint-disable max-len */
 import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import ComboBoxExampleCodeReact from './ComboBoxExampleCodeReact';
-import ComboBoxExampleProps from './ComboBoxExampleProps';
-import ComboBoxExampleRender from './ComboBoxExampleRender';
+import { ComboBoxExampleCodeReact } from './ComboBoxExampleCodeReact';
+import { ComboBoxExampleProps } from './ComboBoxExampleProps';
+import { ComboBoxExampleRender } from './ComboBoxExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function ComboBoxDocumentation() {
+export function ComboBoxDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Combo Box</h1>
@@ -161,8 +156,3 @@ function ComboBoxDocumentation() {
     </div>
   );
 }
-
-ComboBoxDocumentation.propTypes = propTypes;
-ComboBoxDocumentation.defaultProps = defaultProps;
-
-export default ComboBoxDocumentation;

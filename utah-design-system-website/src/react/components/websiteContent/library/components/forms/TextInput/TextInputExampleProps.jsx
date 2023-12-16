@@ -3,7 +3,6 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TextInputExamplePropsShape} TextInputExamplePropsShape */
 
@@ -14,7 +13,7 @@ import React from 'react';
  * @param {TextInputExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function TextInputExampleProps({ setState, state }) {
+export function TextInputExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

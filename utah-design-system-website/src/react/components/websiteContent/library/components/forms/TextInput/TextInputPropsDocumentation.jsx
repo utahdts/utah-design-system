@@ -8,10 +8,8 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
-function TextInputPropsDocumentation() {
+export function TextInputPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -205,5 +203,3 @@ function TextInputPropsDocumentation() {
     </div>
   );
 }
-
-export default TextInputPropsDocumentation;

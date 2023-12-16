@@ -8,7 +8,7 @@ import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
  * @param {{props: IconButtonExampleProps}} props.state
  * @returns {JSX.Element}
  */
-export function IconButtonExampleCode({
+export function IconButtonExampleCodeReact({
   state: {
     props: {
       appearance,

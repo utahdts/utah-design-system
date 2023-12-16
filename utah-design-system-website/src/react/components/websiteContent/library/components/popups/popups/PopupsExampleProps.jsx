@@ -16,7 +16,7 @@ import startCase from 'lodash/startCase';
  * @param {PopupsExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function PopupsExampleProps({ setState, state }) {
+export function PopupsExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
