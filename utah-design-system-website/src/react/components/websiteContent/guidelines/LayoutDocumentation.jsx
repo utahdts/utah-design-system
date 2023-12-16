@@ -19,7 +19,7 @@ import { pageUrls } from '../../routing/pageUrls';
 import { StaticExample } from '../../staticExamples/StaticExample';
 import { LightBox } from '../../lightbox/LightBox';
 import gridScreenshot from '../../../../static/images/screenshots/gridLayout.webp';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 
 const propTypes = {};
 const defaultProps = {};

@@ -1,12 +1,8 @@
 import { LightBox } from '../../lightbox/LightBox';
 // images
-// @ts-ignore
 import libraryOverview from '../../../../static/images/layout-overview.jpg';
-// @ts-ignore
 import atomicTemplate from '../../../../static/images/atomicTemplate.svg';
-// @ts-ignore
 import atomicPatterns from '../../../../static/images/atomicPatterns.svg';
-// @ts-ignore
 import atomicComponents from '../../../../static/images/atomicComponents.svg';
 
 const propTypes = {};

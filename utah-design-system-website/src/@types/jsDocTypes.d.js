@@ -10,6 +10,7 @@
 /** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
 /** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -184,6 +185,18 @@
  * @typedef CssContextValue {
  *  @property {CssContextState} cssState
  *  @property {Updater<CssContextState>} setCssState
+ * }
+ */
+
+/**
+ * @typedef IconButtonExampleProps {
+ *  @property {IconButtonAppearance} appearance
+ *  @property {'primary' | 'secondary' | 'accent' | 'none'} color
+ *  @property {string} iconCssClass
+ *  @property {string} id
+ *  @property {boolean} isDisabled
+ *  @property {'small1x' | 'small' | 'medium' | 'large' | 'large1x'} size
+ *  @property {string} title
  * }
  */
 

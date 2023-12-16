@@ -17,7 +17,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';
 import { LightBox } from '../../lightbox/LightBox';
 import { StaticExample } from '../../staticExamples/StaticExample';

@@ -1,13 +1,10 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-// @ts-ignore
 import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
-// @ts-ignore
 import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';
-// @ts-ignore
 import verticalMenuRightSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuRightSidebar.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 

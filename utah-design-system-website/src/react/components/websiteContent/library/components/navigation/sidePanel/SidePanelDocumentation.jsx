@@ -1,13 +1,10 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { pageUrls } from '../../../../../routing/pageUrls';
-import { LightBox } from '../../../../../lightbox/LightBox';
-// @ts-ignore
 import sidePanelMockup from '../../../../../../../static/images/mockups/SidePanelNav.jpg';
-// @ts-ignore
 import sidePanelMobile from '../../../../../../../static/images/mockups/SidePanelNavMobileClosed.jpg';
-// @ts-ignore
 import sidePanelMobileOpen from '../../../../../../../static/images/mockups/SidePanelNavMobileOpen.jpg';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
 /* eslint-disable react/jsx-one-expression-per-line */

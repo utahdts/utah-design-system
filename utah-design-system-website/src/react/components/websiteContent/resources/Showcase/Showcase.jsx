@@ -1,20 +1,12 @@
-import { ShowcaseExample } from './ShowcaseExample';
-// @ts-ignore
 import absWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/abs-utah-gov.webp';
-// @ts-ignore
-import thrivingWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/thriving-utah-gov.webp';
-// @ts-ignore
-import dhhsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhhs-utah-gov.webp';
-// @ts-ignore
-import dhrmWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhrm-utah-gov.webp';
-// @ts-ignore
 import bewiseWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/bewise-utah-gov.webp';
-// @ts-ignore
+import dhhsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhhs-utah-gov.webp';
+import dhrmWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhrm-utah-gov.webp';
 import healthcarestatsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/healthcarestats-utah-gov.webp';
-// @ts-ignore
 import medicalcannabisWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/medicalcannabis-utah-gov.webp';
-// @ts-ignore
 import oneutahsummitWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/oneutahsummit-utah-gov.webp';
+import thrivingWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/thriving-utah-gov.webp';
+import { ShowcaseExample } from './ShowcaseExample';
 
 /** @returns {JSX.Element} */
 export function Showcase() {

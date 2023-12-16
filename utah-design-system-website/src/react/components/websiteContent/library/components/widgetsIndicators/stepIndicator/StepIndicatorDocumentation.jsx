@@ -1,19 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import stepIndicatorScreenshot from '../../../../../../../static/images/mockups/StepIndicator.jpg';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-// @ts-ignore
-import stepIndicatorScreenshot from '../../../../../../../static/images/mockups/StepIndicator.jpg';
 
-const propTypes = {};
-const defaultProps = {};
-
-function StepIndicatorDocumentation() {
+export function StepIndicatorDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Step Indicator</h1>
@@ -173,8 +165,3 @@ function StepIndicatorDocumentation() {
     </div>
   );
 }
-
-StepIndicatorDocumentation.propTypes = propTypes;
-StepIndicatorDocumentation.defaultProps = defaultProps;
-
-export default StepIndicatorDocumentation;

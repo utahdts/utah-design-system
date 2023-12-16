@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import blockquoteScreenshotA from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
 import blockquoteScreenshotB from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
 

@@ -6,16 +6,13 @@ import {
 } from '@utahdts/utah-design-system';
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { pageUrls } from '../../../../../routing/pageUrls';
-import { StaticExample } from '../../../../../staticExamples/StaticExample';
-// @ts-ignore
 import bannerLandmarkScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannerLandmark.jpg';
-// @ts-ignore
 import bannersLargeScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersLarge.jpg';
-// @ts-ignore
 import bannersMediumScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersMedium.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { BannersExampleCodeReact } from './BannersExampleCodeReact';
 import { BannersExampleProps } from './BannersExampleProps';
 import { BannersExampleRender } from './BannersExampleRender';

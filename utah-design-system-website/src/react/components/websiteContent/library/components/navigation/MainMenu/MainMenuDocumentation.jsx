@@ -1,19 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link, NavLink } from 'react-router-dom';
 import menusDropdownScreenshot from '../../../../../../../static/images/mockups/MenusDropdown.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import MainMenuSettingsAndCode from './MainMenuSettingsAndCode';
+import { MainMenuSettingsAndCode } from './MainMenuSettingsAndCode';
 
-const propTypes = {};
-const defaultProps = {};
-
-function MainMenuDocumentation() {
+export function MainMenuDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Main Menu</h1>
@@ -93,8 +86,3 @@ function MainMenuDocumentation() {
     </div>
   );
 }
-
-MainMenuDocumentation.propTypes = propTypes;
-MainMenuDocumentation.defaultProps = defaultProps;
-
-export default MainMenuDocumentation;

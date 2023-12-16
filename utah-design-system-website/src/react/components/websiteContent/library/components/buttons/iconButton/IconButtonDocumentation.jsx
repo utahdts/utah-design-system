@@ -19,15 +19,14 @@ import {
   componentColors,
   formElementSizesEnum,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import ButtonCssClassesDocumentation from '../button/ButtonCssClassesDocumentation';
-import IconButtonExampleCodeReact from './IconButtonExampleCodeReact';
-import IconButtonExampleProps from './IconButtonExampleProps';
-import IconButtonExampleRender from './IconButtonExampleRender';
+import { ButtonCssClassesDocumentation } from '../button/ButtonCssClassesDocumentation';
+import { IconButtonExampleCodeReact } from './IconButtonExampleCodeReact';
+import { IconButtonExampleProps } from './IconButtonExampleProps';
+import { IconButtonExampleRender } from './IconButtonExampleRender';
 
-export default function IconButtonDocumentation() {
+export function IconButtonDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Icon Button</h1>

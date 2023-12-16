@@ -121,4 +121,5 @@ export const { version } = packageJson;
 /** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
 /** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */

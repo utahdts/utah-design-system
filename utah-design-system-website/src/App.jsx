@@ -16,8 +16,8 @@ import DesignSystemFooterSocialMedia from './react/components/header/DesignSyste
 import Routing from './react/components/routing/Routing';
 import useAppContext from './react/context/AppContext/useAppContext';
 import useCssContext from './react/context/cssContext/useCssContext';
-import CSS_CLASS_NAMES from './react/enums/cssClassNames';
-import CSS_STATE_KEYS from './react/enums/cssStateKeys';
+import { CSS_CLASS_NAMES } from './react/enums/cssClassNames';
+import { CSS_STATE_KEYS } from './react/enums/cssStateKeys';
 
 /** @typedef {import('../../@utahdts/utah-design-system/react/jsDocTypes').FormContextState} FormContextState */
 

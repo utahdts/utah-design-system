@@ -29,13 +29,13 @@ import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
-import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
+import { useTextAreaCaretRowColumn } from '../../../../../hooks/useTextAreaCaretRowColumn';
 import { CopyButton } from '../../../../copy/CopyButton';
 import { LightBox } from '../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { StaticExample } from '../../../../staticExamples/StaticExample';
-import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
-import useInteractiveHeaderState from './useInteractiveHeaderState';
+import { formatHeaderSettingsForCopy } from './formatHeaderSettingsForCopy';
+import { useInteractiveHeaderState } from './useInteractiveHeaderState';
 import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
 import { utahHeaderPresets } from './utahHeaderPresets';
 
@@ -45,8 +45,8 @@ import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-syste
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
-import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
-import MainMenuSettingsAndCode from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
+import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
+import { MainMenuSettingsAndCode } from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
 
 const propTypes = {};
 const defaultProps = {};

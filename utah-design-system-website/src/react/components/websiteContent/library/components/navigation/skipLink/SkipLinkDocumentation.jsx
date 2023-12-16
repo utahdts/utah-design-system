@@ -1,9 +1,8 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-// @ts-ignore
 import skipLinkScreenshot from '../../../../../../../static/images/screenshots/components/skip-link/SkipLink.png';
 import { LightBox } from '../../../../../lightbox/LightBox';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 

@@ -11,7 +11,7 @@ export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
  * @param {Settings} settingsObject
  * @returns {string}
  */
-export default function stringifyHeaderSettings(settingsObject) {
+export function stringifyHeaderSettings(settingsObject) {
   // !!!! Changes here need to also be made in parseHeaderSettings.js !!!! //
   const customFields = ['actionDom', 'actionFunction', 'icon', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut', 'actionDom', 'onSearch'];
   const actionItems = objectsPathsWithKeys(settingsObject, customFields);

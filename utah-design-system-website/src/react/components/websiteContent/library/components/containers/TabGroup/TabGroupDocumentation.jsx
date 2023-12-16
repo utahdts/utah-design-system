@@ -8,7 +8,7 @@ import tabsHorizontalScreenshot from '../../../../../../../static/images/screens
 import tabsOverflowScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsOverflowScreenshot.jpg';
 import tabsVerticalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsVerticalScreenshot.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 

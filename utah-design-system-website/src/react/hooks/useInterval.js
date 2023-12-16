@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
  * @param {() => void} callback function to call after delay expires
  * @param {number} delay how long to wait before firing callback
  */
-export default function useInterval(callback, delay) {
+export function useInterval(callback, delay) {
   const savedCallback = useRef(/** @type {(() => void) | null} */(null));
 
   // Remember the latest callback.

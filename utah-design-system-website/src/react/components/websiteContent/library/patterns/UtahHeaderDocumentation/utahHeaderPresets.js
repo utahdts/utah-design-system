@@ -1,4 +1,3 @@
-// @ts-ignore
 import logoPng from '../../../../../../static/images/designSystemCircleGray.png';
 import { FUNCTION_PLACEHOLDER } from './stringifyHeaderSettings';
 

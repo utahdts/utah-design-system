@@ -1,16 +1,12 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
+import statusIndicatorScreenshot from '../../../../../../../static/images/screenshots/components/statusIndicator/StatusIndicator.png';
 import { LightBox } from '../../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-// @ts-ignore
-import statusIndicatorScreenshot from '../../../../../../../static/images/screenshots/components/statusIndicator/StatusIndicator.png';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 
-const propTypes = {};
-const defaultProps = {};
-
-function StatusIndicatorDocumentation() {
+export function StatusIndicatorDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Status Indicator</h1>
@@ -77,8 +73,3 @@ function StatusIndicatorDocumentation() {
     </div>
   );
 }
-
-StatusIndicatorDocumentation.propTypes = propTypes;
-StatusIndicatorDocumentation.defaultProps = defaultProps;
-
-export default StatusIndicatorDocumentation;

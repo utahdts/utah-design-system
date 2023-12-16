@@ -1,22 +1,12 @@
 /* eslint-disable max-len */
-// @ts-ignore
-import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
-// @ts-ignore
-import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.png';
-// @ts-ignore
-import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.png';
-// @ts-ignore
-import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
-// @ts-ignore
-import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
-// @ts-ignore
-import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.png';
-
-// eslint-disable-next-line import/order
 import { ExternalLink } from '@utahdts/utah-design-system';
-// eslint-disable-next-line import/order
-// eslint-disable-next-line import/order
 import { Link } from 'react-router-dom';
+import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
+import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.png';
+import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.png';
+import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
+import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
+import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.png';
 import { LightBox } from '../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../sandbox/SandboxExample';

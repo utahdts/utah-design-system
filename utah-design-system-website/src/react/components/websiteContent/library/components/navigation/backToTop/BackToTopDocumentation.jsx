@@ -1,19 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
 import { Link } from 'react-router-dom';
+import backToTopScreenshot from '../../../../../../../static/images/screenshots/components/backToTop/BackToTop.png';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-import backToTopScreenshot from '../../../../../../../static/images/screenshots/components/backToTop/BackToTop.png';
 
-const propTypes = {};
-const defaultProps = {};
-
-function BackToTopDocumentation() {
+export function BackToTopDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Back to Top</h1>
@@ -96,8 +88,3 @@ function BackToTopDocumentation() {
     </div>
   );
 }
-
-BackToTopDocumentation.propTypes = propTypes;
-BackToTopDocumentation.defaultProps = defaultProps;
-
-export default BackToTopDocumentation;

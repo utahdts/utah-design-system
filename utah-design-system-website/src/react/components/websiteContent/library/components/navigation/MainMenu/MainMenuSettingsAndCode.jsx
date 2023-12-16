@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Table,
   TableBody,
@@ -13,12 +9,9 @@ import {
   TableRow,
   TableWrapper,
 } from '@utahdts/utah-design-system';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
-const propTypes = {};
-const defaultProps = {};
-
-function MainMenuSettingsAndCode() {
+export function MainMenuSettingsAndCode() {
   return (
     <>
       <h3 id="section-mainmenu-settings" className="mb-spacing mt-spacing">Main Menu Settings</h3>
@@ -528,8 +521,3 @@ function MainMenuSettingsAndCode() {
     </>
   );
 }
-
-MainMenuSettingsAndCode.propTypes = propTypes;
-MainMenuSettingsAndCode.defaultProps = defaultProps;
-
-export default MainMenuSettingsAndCode;

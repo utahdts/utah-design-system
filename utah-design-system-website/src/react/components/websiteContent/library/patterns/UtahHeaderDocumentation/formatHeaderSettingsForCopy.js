@@ -5,6 +5,6 @@ import { FUNCTION_PLACEHOLDER } from './stringifyHeaderSettings';
  * @param {string} settingsString
  * @returns {string}
  */
-export default function formatHeaderSettingsForCopy(settingsString) {
+export function formatHeaderSettingsForCopy(settingsString) {
   return settingsString.replace(`"${FUNCTION_PLACEHOLDER}"`, `() => alert('${FUNCTION_PLACEHOLDER}')`);
 }

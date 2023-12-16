@@ -6,10 +6,10 @@ import {
   useRef
 } from 'react';
 import { useImmer } from 'use-immer';
-import baseSettings from '../../../../../../websiteUtahHeaderSettings';
-import localStorageKeys from '../../../../../enums/localStorageKeys';
-import parseHeaderSettings from './parseHeaderSettings';
-import stringifyHeaderSettings from './stringifyHeaderSettings';
+import { websiteUtahHeaderSettings } from '../../../../../../websiteUtahHeaderSettings';
+import { localStorageKeys } from '../../../../../enums/localStorageKeys';
+import { parseHeaderSettings } from './parseHeaderSettings';
+import { stringifyHeaderSettings } from './stringifyHeaderSettings';
 
 /**
  * @typedef {import('@utahdts/utah-design-system-header').Settings} Settings
@@ -36,7 +36,7 @@ import stringifyHeaderSettings from './stringifyHeaderSettings';
 /**
  * @returns {InteractiveHeaderState}
  */
-export default function useInteractiveHeaderState() {
+export function useInteractiveHeaderState() {
   const originalHeader = useRef(getUtahHeaderSettings());
 
   // a real Settings object is the core 'source-of-truth' off of which everything else spins
@@ -50,7 +50,7 @@ export default function useInteractiveHeaderState() {
     } else {
       resultSettings = {
         ...getUtahHeaderSettings(),
-        ...baseSettings,
+        ...websiteUtahHeaderSettings,
         actionItems: [],
         mainMenu: false,
         onSearch: false,

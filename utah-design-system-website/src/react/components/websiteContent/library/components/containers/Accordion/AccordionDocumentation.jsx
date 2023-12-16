@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import { Accordion } from '@utahdts/utah-design-system';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import coralPinkSandDunes from '../../../../../../../static/images/screenshots/examples/CoralPinkSandDunes.jpg';
 

@@ -1,19 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
 import { Link } from 'react-router-dom';
+import megaMenuScreenshot from '../../../../../../../static/images/screenshots/components/megaMenu/MegaMenu.png';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-import megaMenuScreenshot from '../../../../../../../static/images/screenshots/components/megaMenu/MegaMenu.png';
 
-const propTypes = {};
-const defaultProps = {};
-
-function MegaMenuDocumentation() {
+export function MegaMenuDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Mega Menu</h1>
@@ -82,8 +74,3 @@ function MegaMenuDocumentation() {
     </div>
   );
 }
-
-MegaMenuDocumentation.propTypes = propTypes;
-MegaMenuDocumentation.defaultProps = defaultProps;
-
-export default MegaMenuDocumentation;

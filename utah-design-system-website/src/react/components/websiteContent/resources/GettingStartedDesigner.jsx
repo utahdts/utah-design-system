@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 import { useAppContext } from '../../../context/AppContext/useAppContext';
 import { pageUrls } from '../../routing/pageUrls';
 // content
-// @ts-ignore
 import xdScreenshot from '../../../../static/images/screenshots/utah-design-system-mockups-xd.webp';
 import { LightBox } from '../../lightbox/LightBox';
 
-const propTypes = {};
-const defaultProps = {};
-
-function GettingStartedDesigner() {
+export function GettingStartedDesigner() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
 
   /** @param {React.MouseEvent} e */
@@ -77,8 +73,3 @@ function GettingStartedDesigner() {
     </div>
   );
 }
-
-GettingStartedDesigner.propTypes = propTypes;
-GettingStartedDesigner.defaultProps = defaultProps;
-
-export default GettingStartedDesigner;

@@ -8,7 +8,7 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import iconBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/IconBar.png';
 import toolBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/Toolbar.png';
 import actionBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/ActionBar.png';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 const propTypes = {};
 const defaultProps = {};

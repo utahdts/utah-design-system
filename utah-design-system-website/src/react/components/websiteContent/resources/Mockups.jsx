@@ -1,217 +1,118 @@
 import { LightBox } from '../../lightbox/LightBox';
 import { pageUrls } from '../../routing/pageUrls';
 
-// @ts-ignore
 import breadcrumb from '../../../../static/images/mockups/Breadcrumb.jpg';
-// @ts-ignore
 import cards1 from '../../../../static/images/mockups/Cards1.jpg';
-// @ts-ignore
 import cards2 from '../../../../static/images/mockups/Cards2.jpg';
-// @ts-ignore
 import cards3 from '../../../../static/images/mockups/Cards3.jpg';
-// @ts-ignore
 import cardsActionCards from '../../../../static/images/mockups/CardsActionCards.jpg';
-// @ts-ignore
 import footer from '../../../../static/images/mockups/Footer.jpg';
-// @ts-ignore
 import formInputs01 from '../../../../static/images/mockups/FormInputs01.jpg';
-// @ts-ignore
 import formInputs02 from '../../../../static/images/mockups/FormInputs02.jpg';
-// @ts-ignore
 import formInputs03 from '../../../../static/images/mockups/FormInputs03.jpg';
-// @ts-ignore
 import formInputs04 from '../../../../static/images/mockups/FormInputs04.jpg';
-// @ts-ignore
 import formInputs05 from '../../../../static/images/mockups/FormInputs05.jpg';
-// @ts-ignore
 import formInputs06 from '../../../../static/images/mockups/FormInputs06.jpg';
-// @ts-ignore
 import formInputs07 from '../../../../static/images/mockups/FormInputs07.jpg';
-// @ts-ignore
 import fullPageMockup1 from '../../../../static/images/mockups/FullPageMockup1.jpg';
-// @ts-ignore
 import fullPageMockup2 from '../../../../static/images/mockups/FullPageMockup2.jpg';
-// @ts-ignore
 import fullPageMockup3 from '../../../../static/images/mockups/FullPageMockup3.jpg';
-// @ts-ignore
 import fullPageMockup4 from '../../../../static/images/mockups/FullPageMockup4.jpg';
-// @ts-ignore
 import header from '../../../../static/images/mockups/Header.jpg';
-// @ts-ignore
 import iconBar from '../../../../static/images/mockups/IconBar.jpg';
-// @ts-ignore
 import segmentedButton from '../../../../static/images/mockups/SegmentedButton.jpg';
-// @ts-ignore
 import nav1 from '../../../../static/images/mockups/SidePanelNav.jpg';
-// @ts-ignore
 import nav2 from '../../../../static/images/mockups/SidePanelNavMobileClosed.jpg';
-// @ts-ignore
 import nav3 from '../../../../static/images/mockups/SidePanelNavMobileOpen.jpg';
-// @ts-ignore
 import tags from '../../../../static/images/mockups/Tags.jpg';
 
-// @ts-ignore
 import heroLarge1 from '../../../../static/images/mockups/HeroLarge1.jpg';
-// @ts-ignore
 import heroLarge2 from '../../../../static/images/mockups/HeroLarge2.jpg';
-// @ts-ignore
 import heroLarge3 from '../../../../static/images/mockups/HeroLarge3.jpg';
-// @ts-ignore
 import heroLarge4 from '../../../../static/images/mockups/HeroLarge4.jpg';
-// @ts-ignore
 import heroMediumPlus1 from '../../../../static/images/mockups/HeroMedium+1.jpg';
-// @ts-ignore
 import heroMediumPlus2 from '../../../../static/images/mockups/HeroMedium+2.jpg';
-// @ts-ignore
 import heroMediumPlus3 from '../../../../static/images/mockups/HeroMedium+3.jpg';
-// @ts-ignore
 import heroMedium1 from '../../../../static/images/mockups/HeroMedium1.jpg';
-// @ts-ignore
 import heroMedium2 from '../../../../static/images/mockups/HeroMedium2.jpg';
-// @ts-ignore
 import heroMedium3 from '../../../../static/images/mockups/HeroMedium3.jpg';
-// @ts-ignore
 import heroSmall1 from '../../../../static/images/mockups/HeroSmall1.jpg';
-// @ts-ignore
 import heroSmall2 from '../../../../static/images/mockups/HeroSmall2.jpg';
-// @ts-ignore
 import heroSmall3 from '../../../../static/images/mockups/HeroSmall3.jpg';
 
-// @ts-ignore
 import accordion from '../../../../static/images/mockups/Accordion.jpg';
-// @ts-ignore
 import menusDropdown from '../../../../static/images/mockups/MenusDropdown.jpg';
-// @ts-ignore
 import menusPopup from '../../../../static/images/mockups/MenusPopup.jpg';
 
-// @ts-ignore
 import popupEditor from '../../../../static/images/mockups/Popup-Editor.jpg';
-// @ts-ignore
 import popupLarge from '../../../../static/images/mockups/Popup-Large.jpg';
-// @ts-ignore
 import popupPlacement from '../../../../static/images/mockups/Popup-Placement.jpg';
-// @ts-ignore
 import popupVariations from '../../../../static/images/mockups/Popup-Variations.jpg';
-// @ts-ignore
 import tooltips from '../../../../static/images/mockups/Tooltips.jpg';
 
-// @ts-ignore
 import modal1 from '../../../../static/images/mockups/Modal1.jpg';
-// @ts-ignore
 import modal2 from '../../../../static/images/mockups/Modal2.jpg';
-// @ts-ignore
 import modal3 from '../../../../static/images/mockups/Modal3.jpg';
 
-// @ts-ignore
 import banner1 from '../../../../static/images/mockups/Banner1.jpg';
-// @ts-ignore
 import banner2 from '../../../../static/images/mockups/Banner2.jpg';
-// @ts-ignore
 import banner3 from '../../../../static/images/mockups/Banner3.jpg';
 
-// @ts-ignore
 import elevation from '../../../../static/images/mockups/Elevation.jpg';
-// @ts-ignore
 import pagination from '../../../../static/images/mockups/Pagination.jpg';
-// @ts-ignore
 import tables from '../../../../static/images/mockups/Tables.jpg';
-// @ts-ignore
 import tabs from '../../../../static/images/mockups/Tabs.jpg';
 
-// @ts-ignore
 import processList from '../../../../static/images/mockups/ProcessList.jpg';
-// @ts-ignore
 import stepIndicator from '../../../../static/images/mockups/StepIndicator.jpg';
 
-// @ts-ignore
 import sidePanelClosed from '../../../../static/images/mockups/SidePanelClosed.jpg';
-// @ts-ignore
 import sidePanelFloating from '../../../../static/images/mockups/SidePanelFloating.jpg';
-// @ts-ignore
 import sidePanelModal from '../../../../static/images/mockups/SidePanelModal.jpg';
-// @ts-ignore
 import sidePanelPush from '../../../../static/images/mockups/SidePanelPush.jpg';
 
-// @ts-ignore
 import progressBarLabels from '../../../../static/images/mockups/ProgressBarLabels.jpg';
-// @ts-ignore
 import progressBarMobile from '../../../../static/images/mockups/ProgressBarMobile.jpg';
-// @ts-ignore
 import progressBarMobileLoadingContentArea from '../../../../static/images/mockups/ProgressBarMobileLoadingContentArea.jpg';
-// @ts-ignore
 import progressBarSizes from '../../../../static/images/mockups/ProgressBarSizes.jpg';
-// @ts-ignore
 import progressBarVariations from '../../../../static/images/mockups/ProgressBarVariations.jpg';
-// @ts-ignore
 import skeleton from '../../../../static/images/mockups/Skeleton.jpg';
-// @ts-ignore
 import spinner from '../../../../static/images/mockups/Spinner.jpg';
-// @ts-ignore
 import skeleton2 from '../../../../static/images/mockups/skeletonFullPage.jpg';
-// @ts-ignore
 import skeleton3 from '../../../../static/images/mockups/skeletonLazyLoad.jpg';
-// @ts-ignore
 import skeleton4 from '../../../../static/images/mockups/skeletonTable.jpg';
 
-// @ts-ignore
 import horizontalRule from '../../../../static/images/mockups/HorizontalRule.jpg';
-// @ts-ignore
 import horizontalRuleNeutralColor from '../../../../static/images/mockups/HorizontalRuleNeutralColor.jpg';
-// @ts-ignore
 import horizontalRulePrimaryColor from '../../../../static/images/mockups/HorizontalRulePrimaryColor.jpg';
-// @ts-ignore
 import verticalDivider from '../../../../static/images/mockups/VerticalDividers.jpg';
 
-// @ts-ignore
 import badges from '../../../../static/images/mockups/Badges.jpg';
-// @ts-ignore
 import statusIndicator from '../../../../static/images/mockups/StatusIndicator.jpg';
 
-// @ts-ignore
-import blockquote1 from '../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
-// @ts-ignore
-import blockquote2 from '../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
-// @ts-ignore
 import callOuts from '../../../../static/images/mockups/CallOuts.jpg';
-// @ts-ignore
 import headlines from '../../../../static/images/mockups/Headlines.jpg';
-// @ts-ignore
 import leadInText from '../../../../static/images/mockups/LeadInText.jpg';
-// @ts-ignore
 import links from '../../../../static/images/mockups/Links.jpg';
-// @ts-ignore
 import list from '../../../../static/images/mockups/List.jpg';
-// @ts-ignore
 import textStyling from '../../../../static/images/mockups/TextStyling.jpg';
+import blockquote1 from '../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
+import blockquote2 from '../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
 
-// @ts-ignore
 import skipLink from '../../../../static/images/mockups/SkipLink.jpg';
 
-// @ts-ignore
 import map from '../../../../static/images/mockups/Map.jpg';
-// @ts-ignore
 import mapLocationDetails from '../../../../static/images/mockups/MapLocationDetails.jpg';
-// @ts-ignore
 import mapLocationEdit from '../../../../static/images/mockups/MapLocationEdit.jpg';
-// @ts-ignore
 import mapMobile1 from '../../../../static/images/mockups/MapMobile1.jpg';
-// @ts-ignore
 import mapMobile2 from '../../../../static/images/mockups/MapMobile2.jpg';
-// @ts-ignore
 import mapMobile3 from '../../../../static/images/mockups/MapMobile3.jpg';
-// @ts-ignore
 import mapMobile4 from '../../../../static/images/mockups/MapMobile4.jpg';
-// @ts-ignore
 import mapMobile5 from '../../../../static/images/mockups/MapMobile5.jpg';
-// @ts-ignore
 import mapMobile6 from '../../../../static/images/mockups/MapMobile6.jpg';
-// @ts-ignore
 import mapMobile7 from '../../../../static/images/mockups/MapMobile7.jpg';
-// @ts-ignore
 import mapPin from '../../../../static/images/mockups/MapPin.jpg';
-// @ts-ignore
 import mapSearch from '../../../../static/images/mockups/MapSearch.jpg';
-// @ts-ignore
 import mapSearch1 from '../../../../static/images/mockups/MapSearch1.jpg';
 import { MockupNavButton } from './MockupNavButton';
 

@@ -12,7 +12,7 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { StaticExample } from '../../staticExamples/StaticExample';
 import { LightBox } from '../../lightbox/LightBox';
 import spacingScreenshot1 from '../../../../static/images/screenshots/spacing/spacing-2xl.webp';

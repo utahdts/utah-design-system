@@ -1,22 +1,15 @@
 /* eslint-disable max-len */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
+import progressBarScreenshotA from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBar1.png';
+import progressBarScreenshotDeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarDeterminate.png';
+import progressBarScreenshotIndeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarIndeterminate.png';
+import progressBarScreenshotStates from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarStates.png';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-// @ts-ignore
-import progressBarScreenshotA from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBar1.png';
-// @ts-ignore
-import progressBarScreenshotDeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarDeterminate.png';
-// @ts-ignore
-import progressBarScreenshotIndeterminate from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarIndeterminate.png';
-// @ts-ignore
-import progressBarScreenshotStates from '../../../../../../../static/images/screenshots/components/progress-bar/ProgressBarStates.png';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ProgressBarDocumentation() {
+export function ProgressBarDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Progress Bar</h1>
@@ -152,8 +145,3 @@ function ProgressBarDocumentation() {
     </div>
   );
 }
-
-ProgressBarDocumentation.propTypes = propTypes;
-ProgressBarDocumentation.defaultProps = defaultProps;
-
-export default ProgressBarDocumentation;

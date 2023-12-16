@@ -1,16 +1,11 @@
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
+import processListScreenshot from '../../../../../../../static/images/screenshots/components/progress-list/ProcessList.png';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-// @ts-ignore
-import processListScreenshot from '../../../../../../../static/images/screenshots/components/progress-list/ProcessList.png';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ProcessListDocumentation() {
+export function ProcessListDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Process List</h1>
@@ -138,8 +133,3 @@ function ProcessListDocumentation() {
     </div>
   );
 }
-
-ProcessListDocumentation.propTypes = propTypes;
-ProcessListDocumentation.defaultProps = defaultProps;
-
-export default ProcessListDocumentation;

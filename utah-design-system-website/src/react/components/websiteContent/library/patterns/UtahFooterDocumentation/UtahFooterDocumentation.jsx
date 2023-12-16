@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   ExternalLink,
   Table,
@@ -15,23 +11,16 @@ import {
   TableWrapper,
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-// @ts-ignore
 import footerScreenshot from '../../../../../../static/images/mockups/Footer.jpg';
-// @ts-ignore
 import agencyFooter from '../../../../../../static/images/screenshots/patterns/footer/agencyFooter.jpg';
-// @ts-ignore
 import requiredFooter from '../../../../../../static/images/screenshots/patterns/footer/requiredFooter.jpg';
-// @ts-ignore
 import socialBar from '../../../../../../static/images/screenshots/patterns/footer/socialBar.jpg';
 import { LightBox } from '../../../../lightbox/LightBox';
-import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
+import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { StaticExample } from '../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function UtahFooterDocumentation() {
+export function UtahFooterDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Utah Footer</h1>
@@ -411,8 +400,3 @@ function UtahFooterDocumentation() {
     </div>
   );
 }
-
-UtahFooterDocumentation.propTypes = propTypes;
-UtahFooterDocumentation.defaultProps = defaultProps;
-
-export default UtahFooterDocumentation;

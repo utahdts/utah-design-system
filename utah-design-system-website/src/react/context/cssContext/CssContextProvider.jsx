@@ -3,13 +3,13 @@ import { useSearchParams } from 'react-router-dom';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import { colorsFromUrlParams } from '../../components/color/colorPickerUrlParams';
-import CSS_STATE_KEYS from '../../enums/cssStateKeys';
+import { CSS_STATE_KEYS } from '../../enums/cssStateKeys';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
-import localStorageKeys from '../../enums/localStorageKeys';
+import { localStorageKeys } from '../../enums/localStorageKeys';
 import { readableColor } from '../../util/color/readableColor';
 import { useAppContext } from '../AppContext/useAppContext';
 import { CssContext } from './CssContext';
-import cssContextDefaultColors from './cssContextDefaultColors';
+import { cssContextDefaultColors } from './cssContextDefaultColors';
 
 /** @typedef {import('utah-design-system-website').CssContextState} CssContextState */
 /** @typedef {import('utah-design-system-website').CssContextValue} CssContextValue */
