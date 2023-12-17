@@ -11,12 +11,12 @@ import headerWrapper from './html/HeaderWrapper.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import verticalLineHtml from './html/VerticalLine.html?raw';
 
-import sizes from '../../enumerations/sizes';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import CitizenExperience from '../citizenExperience/CitizenExperience';
-import LogoTitle from '../logoTitle/LogoTitle';
-import UtahLogo from '../utahLogo/UtahLogo';
+import { sizes } from '../../enumerations/sizes';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { CitizenExperience } from '../citizenExperience/CitizenExperience';
+import { LogoTitle } from '../logoTitle/LogoTitle';
+import { UtahLogo } from '../utahLogo/UtahLogo';
 
 /**
  * Creates the header wrapper DOM and appends the:

@@ -1,5 +1,5 @@
-import domConstants, { getCssClassSelector } from '../../../enumerations/domConstants';
-import getHamburgerElements from './getHamburgerElements';
+import { domConstants, getCssClassSelector } from '../../../enumerations/domConstants';
+import { getHamburgerElements } from './getHamburgerElements';
 
 export function hideMobileMenu() {
   const { hamburger, hamburgerIcon, mobileMenu } = getHamburgerElements('hideMobileMenu');

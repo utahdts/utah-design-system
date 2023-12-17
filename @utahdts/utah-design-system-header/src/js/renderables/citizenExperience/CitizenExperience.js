@@ -2,9 +2,9 @@
 // eslint-disable-next-line import/no-unresolved
 import CitizenExperienceWrapper from './html/CitizenExperienceWrapper.html?raw';
 
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import ActionItems from '../actionItems/ActionItems';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { ActionItems } from '../actionItems/ActionItems';
 import { renderUtahIdForDesktop } from '../utahId/UtahId';
 
 export function CitizenExperience() {

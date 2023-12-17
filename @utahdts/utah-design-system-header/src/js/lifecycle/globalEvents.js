@@ -1,5 +1,5 @@
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import showHideElement from '../misc/showHideElement';
+import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
+import { showHideElement } from '../misc/showHideElement';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').GlobalEventType} GlobalEventType

@@ -1,11 +1,11 @@
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import checkForError from '../../misc/checkForError';
-import notNull from '../../misc/notNull';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import renderActionItemBadge from '../actionItems/renderActionItemBadge';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { checkForError } from '../../misc/checkForError';
+import { notNull } from '../../misc/notNull';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { renderActionItemBadge } from '../actionItems/renderActionItemBadge';
 import { closeOfficialWebsite } from '../utahLogo/renderOfficialWebsite';
-import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
-import getHamburgerElements from './util/getHamburgerElements';
+import { mobileMenuInteractionHandler } from './mobileMenuInteractionHandler';
+import { getHamburgerElements } from './util/getHamburgerElements';
 import { hideMobileMenu } from './util/showHideHamburgerElements';
 
 /**

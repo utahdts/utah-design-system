@@ -1,5 +1,5 @@
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import valueOrFunctionValue from '../../misc/valueOrFunctionValue';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
 import { hideMobileMenu, showMobileMenu } from './util/showHideHamburgerElements';
 
 /**

@@ -2,11 +2,11 @@
 // eslint-disable-next-line import/no-unresolved
 import SearchModalHtml from './html/SearchModal.html?raw';
 
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { globalKeyModifiers, globalKeyStatus } from '../../lifecycle/globalEvents';
-import notNull from '../../misc/notNull';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
+import { notNull } from '../../misc/notNull';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 
 function closeSearchModal() {
   const searchWrapper = notNull(document.getElementById(domConstants.SEARCH__SEARCH_MODAL), 'closeSearchModal: search modal not found');

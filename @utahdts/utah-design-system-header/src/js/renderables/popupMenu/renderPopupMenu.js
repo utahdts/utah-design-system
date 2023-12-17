@@ -12,14 +12,14 @@ import PopupMenuHtml from './html/PopupMenu.html?raw';
 import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 
 // eslint-disable-next-line import/order
-import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import popupPlacement from '../../enumerations/popupPlacement';
-import findRecursive from '../../misc/findRecursive';
-import popupFocusHandler from '../../misc/popupFocusHandler';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
-import renderPopup from '../popup/renderPopup';
+import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { PopupPlacement } from '../../enumerations/popupPlacement';
+import { findRecursive } from '../../misc/findRecursive';
+import { popupFocusHandler } from '../../misc/popupFocusHandler';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
+import { renderPopup } from '../popup/renderPopup';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem
@@ -165,7 +165,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
           subMenuItemsPopup,
           'menu',
           {
-            popupPlacement: popupPlacement.RIGHT_START,
+            popupPlacement: PopupPlacement.RIGHT_START,
             preventOnClickHandling: true,
             shouldFocusOnHover: true,
           }

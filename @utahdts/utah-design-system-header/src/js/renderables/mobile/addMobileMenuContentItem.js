@@ -2,9 +2,9 @@
 // eslint-disable-next-line import/no-unresolved
 import MobileMenuContentItemWrapper from './html/MobileMenuContentItemWrapper.html?raw';
 
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
 
 /**
  * @param {HTMLElement} mobileMenuContentItem

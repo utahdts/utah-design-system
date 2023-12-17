@@ -1,4 +1,4 @@
-import settingsKeeper from './settingsKeeper';
+import { settingsKeeper } from './settingsKeeper';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings

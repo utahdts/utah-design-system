@@ -4,9 +4,9 @@ import TooltipHTML from './html/Tooltip.html?raw';
 
 // eslint-disable-next-line import/order
 import { createPopper } from '@popperjs/core';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import popupPlacement from '../../enumerations/popupPlacement';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { PopupPlacement } from '../../enumerations/popupPlacement';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
 
 let tooltipCloseTimeoutId = NaN;
 /**
@@ -27,7 +27,7 @@ export function hookupTooltip(element, dom) {
     element,
     tooltip,
     {
-      placement: popupPlacement.BOTTOM,
+      placement: PopupPlacement.BOTTOM,
       modifiers: [
         {
           name: 'offset',

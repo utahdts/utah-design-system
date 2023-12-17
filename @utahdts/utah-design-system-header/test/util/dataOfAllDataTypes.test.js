@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import dataOfAllDataTypes, { DATA_OF_ALL_DATATYPES, allDataTypes } from './dataOfAllDataTypes';
+import { dataOfAllDataTypes, DATA_OF_ALL_DATATYPES, allDataTypes } from './dataOfAllDataTypes';
 
 describe('dataOfAllDataTypes', () => {
   test.each(Object.values(allDataTypes))(

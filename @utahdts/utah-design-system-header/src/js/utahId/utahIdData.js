@@ -1,6 +1,6 @@
-import utahIdUrls from '../enumerations/utahIdUrls';
+import { utahIdUrls } from '../enumerations/utahIdUrls';
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
-import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';
+import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 /**
  * @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData
  * @typedef {import('src/@types/jsDocTypes.d').UtahIdFetchStyle} UtahIdFetchStyle

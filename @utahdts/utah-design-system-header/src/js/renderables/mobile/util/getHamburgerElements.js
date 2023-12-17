@@ -1,5 +1,5 @@
-import domConstants, { getCssClassSelector } from '../../../enumerations/domConstants';
-import notNull from '../../../misc/notNull';
+import { domConstants, getCssClassSelector } from '../../../enumerations/domConstants';
+import { notNull } from '../../../misc/notNull';
 
 /**
  * @param {string} callerContext what function called this? so the error message can be specific

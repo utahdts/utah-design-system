@@ -1,7 +1,7 @@
-import events from '../enumerations/events';
+import { events } from '../enumerations/events';
 import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
-import defaultSettings from './defaultSettings';
-import settingsKeeper from './settingsKeeper';
+import { defaultSettings } from './defaultSettings';
+import { settingsKeeper } from './settingsKeeper';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings

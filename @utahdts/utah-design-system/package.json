@@ -37,6 +37,8 @@
     "build": "vite build",
     "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
     "buildTypesTsc": "npx tsc",
+    "eslint": "npx eslint",
+    "eslintw": "npx eslint-watch -w",
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
     "test:ci": "vitest run --coverage --mode development-local",

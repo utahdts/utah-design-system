@@ -1,8 +1,8 @@
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import addMobileMenuContentItem from '../mobile/addMobileMenuContentItem';
-import mobileMenuInteractionHandler from '../mobile/mobileMenuInteractionHandler';
-import renderMobileActionItem from './renderMobileActionItem';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { addMobileMenuContentItem } from '../mobile/addMobileMenuContentItem';
+import { mobileMenuInteractionHandler } from '../mobile/mobileMenuInteractionHandler';
+import { renderMobileActionItem } from './renderMobileActionItem';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem

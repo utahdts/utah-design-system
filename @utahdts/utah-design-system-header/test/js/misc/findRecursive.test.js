@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import findRecursive from '../../../src/js/misc/findRecursive';
+import { findRecursive } from '../../../src/js/misc/findRecursive';
 
 describe('findRecursive', () => {
   const testObject = {

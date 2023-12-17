@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --mode development-local",
     "build": "vite build --mode production-website",
+    "eslint": "npx eslint",
+    "eslintw": "npx eslint-watch -w",
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
     "test": "vitest",

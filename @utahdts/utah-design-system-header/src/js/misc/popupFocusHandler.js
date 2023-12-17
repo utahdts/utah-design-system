@@ -1,10 +1,10 @@
 import { createPopper } from '@popperjs/core';
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import popupPlacement from '../enumerations/popupPlacement';
+import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
+import { PopupPlacement } from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
-import checkForError from './checkForError';
-import isTouchDevice from './isTouchDevice';
-import showHideElement from './showHideElement';
+import { checkForError } from './checkForError';
+import { isTouchDevice } from './isTouchDevice';
+import { showHideElement } from './showHideElement';
 
 /*
    ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
@@ -93,7 +93,7 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
       delayPopupTimeoutId = window.setTimeout(
         () => {
           createPopper(button, popup, {
-            placement: options?.popupPlacement || popupPlacement.BOTTOM,
+            placement: options?.popupPlacement || PopupPlacement.BOTTOM,
             modifiers: [
               {
                 name: 'offset',

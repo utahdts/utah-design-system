@@ -5,10 +5,10 @@ import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import valueOrFunctionValue from '../../misc/valueOrFunctionValue';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 
 /**
  * @returns {Element}

@@ -1,4 +1,4 @@
-import sizes from '../enumerations/sizes';
+import { sizes } from '../enumerations/sizes';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings

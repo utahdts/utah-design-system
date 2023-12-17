@@ -1,4 +1,4 @@
-import isString from './isString';
+import { isString } from './isString';
 
 /**
  * Render a DOM from a string and return just the DOM child node

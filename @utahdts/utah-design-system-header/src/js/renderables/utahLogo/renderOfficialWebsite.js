@@ -1,12 +1,11 @@
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { notNull } from '../../misc/notNull';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
+import { hideMobileMenu } from '../mobile/util/showHideHamburgerElements';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import UtahOfficialWebsitePopupContentHtml from './html/UtahOfficialWebsitePopupContent.html?raw';
-
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import notNull from '../../misc/notNull';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
-import { hideMobileMenu } from '../mobile/util/showHideHamburgerElements';
 
 export function closeOfficialWebsite() {
   const officialWebsiteWrapper = notNull(

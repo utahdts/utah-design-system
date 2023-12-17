@@ -1,9 +1,9 @@
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import utahIdUrls from '../../enumerations/utahIdUrls';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { utahIdUrls } from '../../enumerations/utahIdUrls';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { getCurrentUtahIdData } from '../../utahId/utahIdData';
-import addMobileMenuContentItem from './addMobileMenuContentItem';
-import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
+import { addMobileMenuContentItem } from './addMobileMenuContentItem';
+import { mobileMenuInteractionHandler } from './mobileMenuInteractionHandler';
 
 export function removeUtahIdInMobileMenu() {
   const profileActionItem = document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__PROFILE_ID);
