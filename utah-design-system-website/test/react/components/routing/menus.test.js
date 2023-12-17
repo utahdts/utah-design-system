@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import menus from '../../../../src/react/components/routing/menus';
-import valuesForKey from '../../../util/valuesForKey';
+import { allMenus } from '../../../../src/react/components/routing/menus';
+import { valuesForKey } from '../../../util/valuesForKey';
 
 describe('menus - menu items are single pathed', () => {
   test(
@@ -13,7 +13,7 @@ describe('menus - menu items are single pathed', () => {
       /** @type {Set<string>} */
       const knownPaths = new Set();
 
-      const allLinks = valuesForKey(menus, 'link', (_, linkObject) => !linkObject.isAlternatePath);
+      const allLinks = valuesForKey(allMenus, 'link', (_, linkObject) => !linkObject.isAlternatePath);
 
       allLinks.forEach((link) => {
         const knownPathsHasLink = knownPaths.has(link);

@@ -69,7 +69,7 @@ export function UtahHeaderDocumentation() {
   useEffect(
     () => {
       if (interactiveTextAreaRef.current) {
-        isDirtyIntervalRef.current = setInterval(() => {
+        isDirtyIntervalRef.current = window.setInterval(() => {
           setIsDirty(!!parseError || !headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
         }, 500);
       }

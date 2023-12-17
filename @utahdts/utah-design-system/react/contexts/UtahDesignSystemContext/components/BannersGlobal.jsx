@@ -51,7 +51,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
     banners.forEach((banner) => {
       const duration = banner.duration || bannerDuration;
       if (duration && !timers[banner.id]) {
-        timers[banner.id] = setTimeout(() => {
+        timers[banner.id] = window.setTimeout(() => {
           currentOnClose(undefined, banner);
         }, duration);
       }

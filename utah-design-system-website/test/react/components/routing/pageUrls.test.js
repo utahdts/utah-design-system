@@ -1,7 +1,7 @@
-import camelCase from 'lodash/camelCase';
+import { camelCase } from 'lodash';
 import { describe, expect, test } from 'vitest';
 import { pageUrls } from '../../../../src/react/components/routing/pageUrls';
-import constructMainMenu from '../../../../src/react/components/routing/util/constructMainMenu';
+import { constructMainMenu } from '../../../../src/react/components/routing/util/constructMainMenu';
 
 /** @typedef {import('@utahdts/utah-design-system-header').MenuItem} MenuItem */
 /** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
@@ -66,6 +66,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
     // add entry for menuItem
     const menuItemPath = `${basePath}/${cleanMenuItemTitlePath(menuItem.title)}`;
     if (pageUrl) {
+      // @ts-ignore
       pagePaths[pageUrlReverseLookup[pageUrl]] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
     }
 

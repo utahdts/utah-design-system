@@ -1,4 +1,4 @@
-import isObject from 'lodash/isObject';
+import { isObject } from 'lodash';
 
 /**
  * Recursively search an "object" for a key and return its value no matter at what level in the object's tree the value is found
@@ -14,6 +14,7 @@ export function valuesForKey(obj, key, filterFunc) {
   if (obj && isObject(obj)) {
     // @ts-ignore <-- isObject() removes the case for which this error generates
     if (key in obj && (!filterFunc || filterFunc(obj[key], obj))) {
+      // @ts-ignore
       result.push(obj[key]);
     }
     Object.values(obj).forEach((value) => (

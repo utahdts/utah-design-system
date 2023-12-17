@@ -27,7 +27,7 @@ export function CopyButton({ copyRef, onCopy }) {
         setState((draftState) => {
           draftState.copyButtonTitle = COPIED;
         });
-        delay = setTimeout(() => {
+        delay = window.setTimeout(() => {
           setState((draftState) => {
             draftState.showFeedback = false;
             draftState.copyButtonTitle = COPY_CODE;

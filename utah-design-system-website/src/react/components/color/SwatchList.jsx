@@ -50,7 +50,7 @@ export function SwatchList({ colorFamily, onColorSelected }) {
             throw new Error(`unknown selectedColorPicker: '${cssState.selectedColorPicker}'`);
         }
         clearTimeout(bounceColorsTimeoutRef.current);
-        bounceColorsTimeoutRef.current = setTimeout(
+        bounceColorsTimeoutRef.current = window.setTimeout(
           () => {
             setChangedColorKeys([]);
           },

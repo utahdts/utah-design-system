@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link, NavLink } from 'react-router-dom';

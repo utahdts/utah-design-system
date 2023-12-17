@@ -35,7 +35,7 @@ export function PreCode({
           addHorizontalPadding && 'pre-code--padded'
         )}
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={allowScrollOverflow ? 0 : NaN}
+        tabIndex={allowScrollOverflow ? 0 : undefined}
         style={maxHeight ? { maxHeight: `${maxHeight}` } : undefined}
         {...propsForPre}
       >

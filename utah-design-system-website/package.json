@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
     "test": "vitest",
+    "testw": "vitest",
     "testc": "vitest run --coverage",
     "tsc": "tsc",
     "tscw": "tsc --watch --skipLibCheck",

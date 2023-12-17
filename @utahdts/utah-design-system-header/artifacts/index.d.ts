@@ -46,7 +46,7 @@ declare module "@utahdts/utah-design-system-header" {
   }
 
   export type Sizes = 'SMALL' | 'MEDIUM' | 'LARGE';
-  export enum size {
+  export enum sizes {
     SMALL = 'SMALL',
     MEDIUM = 'MEDIUM',
     LARGE = 'LARGE',
