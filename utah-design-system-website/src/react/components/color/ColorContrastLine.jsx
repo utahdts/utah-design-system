@@ -1,15 +1,6 @@
 import { Icons } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
 import useCachedValue from '../../hooks/useCachedValue';
-
-const propTypes = {
-  color1: PropTypes.string.isRequired,
-  color1Title: PropTypes.string.isRequired,
-  color2: PropTypes.string.isRequired,
-  color2Title: PropTypes.string.isRequired,
-};
-const defaultProps = {};
 
 const RATINGS = {
   AA: 'AA',
@@ -20,22 +11,22 @@ const RATINGS = {
 /**
  * @param {object} props
  * @param {string} props.color1
- * @param {string} props.color1Title
  * @param {string} props.color2
- * @param {string} props.color2Title
  * @returns {JSX.Element}
  */
-function ColorContrast({
+export function ColorContrast({
   color1,
-  // eslint-disable-next-line no-unused-vars
-  color1Title,
   color2,
-  // eslint-disable-next-line no-unused-vars
-  color2Title,
 }) {
   const contrastInfo = useCachedValue(
     'contrastDecimal',
+    /** @type {[string, string]} */
     [color1, color2],
+    /**
+     * @param {[string, string]} param
+     * @returns {{contrast: number, rating: string}}
+     */
+    // @ts-ignore
     ([colorA, colorB]) => {
       const contrast = Number(tinycolor.readability(colorA, colorB).toFixed(2));
       let rating;
@@ -52,11 +43,6 @@ function ColorContrast({
 
   return (
     <div className="color-contrast__contrast">
-      {/* <div className="color-contrast__color-titles">
-        <div className="color-contrast__color-title">{color1Title}</div>
-        <div className="color-contrast__color-title">&nbsp;|&nbsp;</div>
-        <div className="color-contrast__color-title">{color2Title}</div>
-      </div> */}
       <div className="color-contrast__text-contrast">
         <div className="color-contrast__text-container">
           <div className="color-contrast__filled" style={{ backgroundColor: color1, borderColor: color1, color: color2 }}>Sample</div>
@@ -72,8 +58,3 @@ function ColorContrast({
     </div>
   );
 }
-
-ColorContrast.propTypes = propTypes;
-ColorContrast.defaultProps = defaultProps;
-
-export default ColorContrast;

@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { cloneDeep, isArray, isObject } from 'lodash';
 import { notNull } from '../notNull';
 
@@ -48,15 +47,15 @@ export function setValueAtPath({ object, path, value }) {
 
   if (path) {
     // shallow clone all objects in the path
-    const targetObject = pathPieces.reduce((nextLevel, pathPiece) => {
+    const targetObject = pathPieces.reduce((draftNextLevel, pathPiece) => {
       // if current level isn't an object then childObj is undefined (can't get a field out of a non-object)
       let childObj;
-      if (isObject(nextLevel)) {
-        childObj = nextLevel[pathPiece];
+      if (isObject(draftNextLevel)) {
+        childObj = draftNextLevel[pathPiece];
         if (childObj === undefined || childObj === null) {
           // childObj is missing, so add a blank object
-          nextLevel[pathPiece] = {};
-          childObj = nextLevel[pathPiece];
+          draftNextLevel[pathPiece] = {};
+          childObj = draftNextLevel[pathPiece];
         } else if (isObject(childObj)) {
           // no need to clone a non-object
           if (isArray(childObj)) {
@@ -65,7 +64,7 @@ export function setValueAtPath({ object, path, value }) {
             childObj = { ...childObj };
           }
           // put clone back in state so that the pointers change which will trigger react to render
-          nextLevel[pathPiece] = childObj;
+          draftNextLevel[pathPiece] = childObj;
         }
       }
       return childObj;

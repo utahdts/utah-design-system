@@ -85,6 +85,7 @@ export function TableDocumentationFilteringTableExample() {
                           setFilterValues((draftState) => {
                             // filter values must be a string
                             // the field (ie birthplace.state) can be a dot path in to the record
+                            // @ts-ignore
                             draftState['birthplace.state'] = draftState['birthplace.state'] ? '' : { value: 'Virginia' };
                           });
                         }}

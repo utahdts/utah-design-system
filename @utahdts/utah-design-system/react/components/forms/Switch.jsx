@@ -46,20 +46,23 @@ export function Switch({
   ...rest
 }) {
   // there is no "uncontrolled" version of this component
-  const { setState, state } = /** @type {typeof useFormContext<Object>} */ (useFormContext)();
+  const { setState, state } = useFormContext();
   const [internalState, setInternalState] = useState(!!(defaultValue ?? value));
 
   // switch example was passing in a value but it wasn't updating the UI
   useEffect(
     () => {
       if (value !== undefined) {
-        setState?.((draftState) => {
-          setValueAtPath({
-            object: draftState,
-            path: id,
-            value,
-          });
-        });
+        setState?.(
+          /** @param {Object.<String, any>} draftState */
+          (draftState) => {
+            setValueAtPath({
+              object: draftState,
+              path: id,
+              value,
+            });
+          }
+        );
         setInternalState(!!value);
       }
     },
@@ -73,14 +76,17 @@ export function Switch({
     /** @param {React.KeyboardEvent} e */
     (e) => {
       if (setState) {
-        setState((draftState) => {
-          setValueAtPath({
-            object: draftState,
-            path: id,
-            // @ts-ignore
-            value: e.target.checked,
-          });
-        });
+        setState(
+          /** @param {Object.<String, any>} draftState */
+          (draftState) => {
+            setValueAtPath({
+              object: draftState,
+              path: id,
+              // @ts-ignore
+              value: e.target.checked,
+            });
+          }
+        );
       } else {
         // @ts-ignore
         setInternalState(e.target.checked);

@@ -73,6 +73,7 @@ export function Routing() {
               <DocumentationTemplate
                 content={page.content}
                 contentRef={contentRef}
+                // @ts-ignore
                 sidePanelLeftContent={menuSecondary && <VerticalMenu currentMenuItem={currentMenuItem} menus={menuSecondary} />}
                 sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />

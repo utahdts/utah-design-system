@@ -11,8 +11,8 @@ import {
   TableHeadCell,
   TableHeadRow,
   TablePagination,
-  TableSortingRule,
   tableSortingRuleFieldType,
+  TableSortingRule,
   TableSortingRules,
   TableWrapper
 } from '@utahdts/utah-design-system';

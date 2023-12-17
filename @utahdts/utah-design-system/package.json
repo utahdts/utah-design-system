@@ -10,6 +10,7 @@
       "production": "./dist/utah-design-system.es.js",
       "import": "./dist/utah-design-system.es.js",
       "require": "./dist/utah-design-system.umd.js",
+      "types": "./@types/jsDocTypes.d.js",
       "default": [
         "./dist/utah-design-system.es.js",
         "./dist/utah-design-system.umd.js",
@@ -22,6 +23,7 @@
     "./css/index.scss": "./css/index.scss"
   },
   "main": "index.js",
+  "types": "./@types/jsDocTypes.d.js",
   "files": [
     "css",
     "dist",

@@ -114,7 +114,7 @@ export function SwitchDocumentation() {
             <Switch
               label="With Icon"
               id="switch-icon"
-              sliderChildren={Icons.IconCheck()}
+              sliderChildren={<Icons.IconCheck />}
             />
           </div>
         )}

@@ -19,7 +19,7 @@
     // "outFile": "./", /* Concatenate and emit outputØ to single file. */
     "outDir": "./dist", /* Redirect output structure to the directory. */
     "outFile": "./dist/index.js", /* Where to put the built types file - converts to index.d.ts */
-    "rootDir": "./", /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "rootDir": "../", /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     "removeComments": true, /* Do not emit comments to output. */
     "noEmit": false, /* Do not emit outputs. */
     "importHelpers": true, /* Import emit helpers from 'tslib'. */
@@ -41,7 +41,10 @@
     "baseUrl": "./", /* Base directory to resolve non-absolute module names. */
     "paths": {
       "@utahdts/utah-design-system": [
-        "../@utahdts/utah-design-system/index.js"
+        "../@utahdts/utah-design-system/@types/jsDocTypes.d.js"
+      ],
+      "@utahdts/utah-design-system-types": [
+        "../@utahdts/utah-design-system/@types/jsDocTypes.d.js"
       ],
       "utah-design-system-website": [
         "src/@types/jsDocTypes.d.js"

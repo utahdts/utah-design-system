@@ -10,21 +10,21 @@ import { BannerMessage } from '../../../components/popups/Banner/BannerMessage';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useBanner } from '../hooks/useBanner';
 
-/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBannerWithId} UtahDesignSystemContextBannerWithId */
 /**
  * @param {Object} props
- * @param {UtahDesignSystemContextBanner[]} props.banners
+ * @param {UtahDesignSystemContextBannerWithId[]} props.banners
  * @param {number} [props.bannerDuration]
  * @returns {JSX.Element}
  */
 export function BannersGlobal({ banners, bannerDuration }) {
   const { removeBanner } = useBanner();
   const timers = useMemo(() => /** @type {Object.<string, number>} */({}), []);
-  const [zones, setZones] = useImmer(/** @type {Object.<string, UtahDesignSystemContextBanner[]>} */({}));
+  const [zones, setZones] = useImmer(/** @type {Object.<string, UtahDesignSystemContextBannerWithId[]>} */({}));
   const currentOnClose = useCallback(
     /**
      * @param {React.MouseEvent | undefined} e
-     * @param {UtahDesignSystemContextBanner} banner
+     * @param {UtahDesignSystemContextBannerWithId} banner
      */
     (e, banner) => {
       if (banner.onClose) {
@@ -40,7 +40,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
   );
 
   useEffect(() => {
-    const draftZones = /** @type {Object.<string, UtahDesignSystemContextBanner[]>} */ ({});
+    const draftZones = /** @type {Object.<string, UtahDesignSystemContextBannerWithId[]>} */ ({});
     const uniqueZones = [...new Set(banners.map((banner) => banner.position))];
     uniqueZones.forEach((zone) => {
       if (zone) {

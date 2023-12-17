@@ -190,7 +190,7 @@ export function ButtonDocumentation() {
             <Button
               appearance="outlined"
               color="primary"
-              iconLeft={Icons.IconCheck()}
+              iconLeft={<Icons.IconCheck />}
               onClick={useCallback(() => addBanner({ message: '`Left Icon` button clicked' }), [addBanner])}
             >
               Button

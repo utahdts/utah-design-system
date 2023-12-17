@@ -44,8 +44,8 @@ export function ComboBoxExampleRender({
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;
           setStateFormContext?.(
-            // @ts-ignore
             (draftStateFormContext) => {
+              // @ts-ignore
               draftStateFormContext['props.value'] = newValue;
             }
           );

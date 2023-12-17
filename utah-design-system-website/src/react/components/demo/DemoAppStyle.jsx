@@ -1,10 +1,10 @@
-/* eslint-disable react/no-danger */
 import { useCssContext } from '../../context/cssContext/useCssContext';
 
-function DemoAppStyle() {
+export function DemoAppStyle() {
   const { cssState } = useCssContext();
   return (
     <style
+      /* eslint-disable react/no-danger */
       dangerouslySetInnerHTML={
         {
           __html: `.utah-design-system {${(
@@ -17,5 +17,3 @@ function DemoAppStyle() {
     />
   );
 }
-
-export default DemoAppStyle;

@@ -94,7 +94,7 @@
  */
 
 /**
- * @typedef TablePagination {
+ * @typedef TablePaginationType {
  *  @property {number} currentPageIndex what page to start on
  *  @property {number} pageSize how many items per page
  * }
@@ -121,10 +121,10 @@
 /**
  * @template FormStateT
  * @typedef FormContextValue {
- *  @property {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} onChange a change triggered on a field; the field must always supply a new value
+ *  @property {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
  *  @property {React.ChangeEventHandler<HTMLElement>} onSubmit submit the form
- *  @property {FormStateT} state current values of all the form elements
  *  @property {import('use-immer').Updater<FormStateT>} setState current values of all the form elements
+ *  @property {FormStateT} state current values of all the form elements
  * }
 */
 
@@ -145,6 +145,18 @@
 
 /**
  * @typedef UtahDesignSystemContextBanner {
+ *  @property {string} [className]
+ *  @property {number} [duration]
+ *  @property {string} [id]
+ *  @property {React.ReactNode} [icon]
+ *  @property {React.ReactNode} message
+ *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
+ *  @property {BannerPlacement} [position]
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextBannerWithId {
  *  @property {string} [className]
  *  @property {number} [duration]
  *  @property {string} id
@@ -171,7 +183,7 @@
 /**
  * @typedef UtahDesignSystemContextValue {
  *  @property {UtahDesignSystemContextAria} ariaLive
- *  @property {UtahDesignSystemContextBanner[]} banners
+ *  @property {UtahDesignSystemContextBannerWithId[]} banners
  * }
  */
 
@@ -190,7 +202,7 @@
 
 /**
  * @template TableDataT
- * @typedef TableSortingRule {
+ * @typedef TableSortingRuleType {
  *  @property {string} a11yLabel
  *  @property {TableSortingFunc<TableDataT> | null} customSort
  *  @property {boolean} defaultIsAscending
@@ -228,8 +240,8 @@
  * @typedef TableContextState {
  *  @property {boolean} currentSortingOrderIsDefault
  *  @property {TableContextStateFilterValues<TableDataT>} filterValues
- *  @property {TablePagination} [pagination]
- *  @property {Object.<string, TableSortingRule<TableDataT>>} sortingRules
+ *  @property {TablePaginationType} [pagination]
+ *  @property {Object.<string, TableSortingRuleType<TableDataT>>} sortingRules
  *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
  *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
  *  @property {RecordFieldPath | null} tableSortingFieldPath
@@ -242,7 +254,7 @@
  * @typedef TableContextValue {
  *  @property {TableDataT[]} allData
  *  @property {TableDataT[]} filteredData
- *  @property {(sortingRule: TableSortingRule<TableDataT>) => void} registerSortingRule
+ *  @property {(sortingRule: TableSortingRuleType<TableDataT>) => void} registerSortingRule
  *  @property {(recordFieldPath: string) => void} unregisterSortingRule
  *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
  *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
@@ -258,7 +270,7 @@
  */
 
 /**
- * @typedef ComboBoxOption {
+ * @typedef ComboBoxOptionType {
  *  @property {boolean} [isGroupLabel] some options like group titles are in the list so they can focus but are not filtered nor selectable
  *  @property {string} labelLowerCase
  *  @property {string} label
@@ -294,9 +306,9 @@
  *  @property {string | null} optionValueSelected which option is chosen by user
  *
  *  -- options --
- *  @property {ComboBoxOption[]} options the known options
- *  @property {ComboBoxOption[]} optionsFiltered the options filtered by the filterValue
- *  @property {ComboBoxOption[]} optionsFilteredWithoutGroupLabels group labels are taken out of the mix. they are usually left in so that they are focusable
+ *  @property {ComboBoxOptionType[]} options the known options
+ *  @property {ComboBoxOptionType[]} optionsFiltered the options filtered by the filterValue
+ *  @property {ComboBoxOptionType[]} optionsFilteredWithoutGroupLabels group labels are taken out of the mix. they are usually left in so that they are focusable
  *
  *  -- events --
  *  @property {(newValue: string) => void} onChange
@@ -304,7 +316,7 @@
  *  @property {() => void} [onSubmit]
  *
  *  -- options manipulation --
- *  @property {(option: ComboBoxOption) => void} registerOption add a new option
+ *  @property {(option: ComboBoxOptionType) => void} registerOption add a new option
  *  @property {(value: string) => void} unregisterOption remove a known option by its value
  * }
 */
@@ -355,5 +367,5 @@
  * }
  */
 
-// without this export, `@typedef import` reports this file 'is not a module'... (눈_눈)
-export default false;
+// export everything so that website sees everything
+export * from '../index';

@@ -9,7 +9,7 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @template TableSortingRuleT
- * @typedef {import('@utahdts/utah-design-system').TableSortingRule<TableSortingRuleT>} TableSortingRule
+ * @typedef {import('@utahdts/utah-design-system').TableSortingRuleType<TableSortingRuleT>} TableSortingRuleType
 */
 /**
  * @template TableContextStateT
@@ -22,7 +22,7 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @template SortByFieldTypeDataT
- * @param {TableSortingRule<SortByFieldTypeDataT>} sortingRule
+ * @param {TableSortingRuleType<SortByFieldTypeDataT>} sortingRule
  * @param {any} fieldValueA
  * @param {any} fieldValueB
  * @returns {number}

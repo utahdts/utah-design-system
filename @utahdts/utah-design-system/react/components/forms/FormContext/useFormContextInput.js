@@ -48,7 +48,7 @@ export function useFormContextInput({
     onSubmit: contextOnSubmit,
     setState,
     state,
-  } = /** @type {typeof useFormContext<FormContextT>} */ (useFormContext)();
+  } = useFormContext();
 
   const internalOnChange = useCallback(
     (

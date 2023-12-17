@@ -3,7 +3,6 @@ import {
   Button,
   events,
   ExternalLink,
-  formElementSizesEnum,
   ICON_BUTTON_APPEARANCE,
   IconButton,
   Switch,
@@ -100,7 +99,7 @@ export function UtahHeaderDocumentation() {
           labelOn="Header Config On"
           labelOff="Header Config Off"
           onChange={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn), [setHeaderIsOn])}
-          size={formElementSizesEnum.LARGE}
+          size="large"
           value={headerIsOn}
           width={140}
         />

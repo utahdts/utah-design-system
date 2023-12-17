@@ -1,4 +1,3 @@
-// @ ts-check
 import { Button, joinClassNames } from '@utahdts/utah-design-system';
 import { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -6,6 +5,7 @@ import { useImmer } from 'use-immer';
 import { useCssContext } from '../../context/cssContext/useCssContext';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import { isLightColor } from '../../util/color/isLightColor';
+import { notNull } from '../../util/notNull/notNull';
 import { pageUrls } from '../routing/pageUrls';
 import { ColorContrastBox } from './ColorContrastBox';
 import { ColorExample } from './ColorExample';
@@ -84,11 +84,11 @@ export function ColorContrasts() {
       });
       // add black if missing 1st color
       if (colorInfos.length < 1) {
-        colorInfos.push({ ...GRAY_COLORS[0], title: 'Choose a color' });
+        colorInfos.push({ ...notNull(GRAY_COLORS[0], 'ColorContrasts: A'), title: 'Choose a color' });
       }
       // add white if missing 2nd color
       if (colorInfos.length < 2) {
-        colorInfos.push({ ...GRAY_COLORS[GRAY_COLORS.length - 1], title: 'Choose a color' });
+        colorInfos.push({ ...notNull(GRAY_COLORS[GRAY_COLORS.length - 1], 'ColorContrasts: B'), title: 'Choose a color' });
       }
       return colorInfos;
     },
@@ -99,6 +99,7 @@ export function ColorContrasts() {
     () => (
       USER_COLORS.reduce(
         (draftUseColorsMap, useColor) => {
+          // @ts-ignore
           draftUseColorsMap[useColor.cssVariableKey] = isLightColor(cssState[useColor.cssVariableKey]);
           return draftUseColorsMap;
         },
@@ -108,6 +109,9 @@ export function ColorContrasts() {
     [cssState]
   );
 
+  const selectedColorInfos0 = notNull(selectedColorInfos[0], 'ColorContrasts: selectedColorInfos0');
+  const selectedColorInfos1 = notNull(selectedColorInfos[1], 'ColorContrasts: selectedColorInfos1');
+
   return (
     <div className="color-contrast__wrapper">
       <div className="color-contrast__instructions">
@@ -116,12 +120,14 @@ export function ColorContrasts() {
       <div className="color-contrast__color-swatches">
         {
           USER_COLORS.map(({ cssVariableKey, title }) => {
+            // @ts-ignore
             const isLight = userColorsIsLight[cssVariableKey];
             return (
               <Button
                 className={joinClassNames('color-contrast__color-swatch', isLight && 'color-is-light')}
                 key={`one-of-nine__${cssVariableKey}`}
                 onClick={setSelectedColorTitleCurry({ hexColor: cssState[cssVariableKey], isLight, title })}
+                // @ts-ignore
                 style={{ backgroundColor: cssState[cssVariableKey] }}
               >
                 {
@@ -141,6 +147,7 @@ export function ColorContrasts() {
               className={joinClassNames('color-contrast__color-swatch', isLight && 'color-is-light')}
               key={`gray-color__${hexColor}`}
               onClick={setSelectedColorTitleCurry({ hexColor, isLight, title })}
+              // @ts-ignore
               style={{ backgroundColor: hexColor }}
             >
               {
@@ -154,22 +161,22 @@ export function ColorContrasts() {
       </div>
       <div className="color-contrast__compare-wrapper">
         <ColorContrastBox
-          color1={selectedColorInfos[0].hexColor}
-          color1IsLight={selectedColorInfos[0].isLight}
-          color1Title={selectedColorInfos[0].title}
-          color1ShowHex={selectedColorInfos[0].title !== 'Choose a color'}
-          color2={selectedColorInfos[1].hexColor}
-          color2IsLight={selectedColorInfos[1].isLight}
-          color2Title={selectedColorInfos[1].title}
-          color2ShowHex={selectedColorInfos[0].title !== 'Choose a color'}
+          color1={selectedColorInfos0.hexColor}
+          color1IsLight={selectedColorInfos0.isLight}
+          color1Title={selectedColorInfos0.title}
+          color1ShowHex={selectedColorInfos0.title !== 'Choose a color'}
+          color2={selectedColorInfos1.hexColor}
+          color2IsLight={selectedColorInfos1.isLight}
+          color2Title={selectedColorInfos1.title}
+          color2ShowHex={selectedColorInfos1.title !== 'Choose a color'}
         />
         <ContrastValues
-          color1={selectedColorInfos[0]}
-          color2={selectedColorInfos[1]}
+          color1={selectedColorInfos0}
+          color2={selectedColorInfos1}
         />
         <ColorExample
-          color1={selectedColorInfos[0]}
-          color2={selectedColorInfos[1]}
+          color1={selectedColorInfos0}
+          color2={selectedColorInfos1}
         />
       </div>
       <div className="color-contrast__info-link">

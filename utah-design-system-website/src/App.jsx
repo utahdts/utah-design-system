@@ -2,6 +2,7 @@ import {
   FormContextProvider,
   joinClassNames,
   useUtahHeaderContext
+  // @ts-ignore
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/3-generic/normalize.css';
@@ -19,18 +20,15 @@ import { useCssContext } from './react/context/cssContext/useCssContext';
 import { CSS_CLASS_NAMES } from './react/enums/cssClassNames';
 import { CSS_STATE_KEYS } from './react/enums/cssStateKeys';
 
-/** @typedef {import('@utahdts/utah-design-system').FormContextValue} FormContextValue */
-
-const propTypes = {};
-const defaultProps = {};
+/** @typedef {import('@utahdts/utah-design-system-types').FormContextValue<Object.<string, any>>} FormContextValue */
 
 /**
  * @returns {JSX.Element} the App!
  */
-function App() {
+export function App() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
   const { cssState } = useCssContext();
-  const [state, setState] = /** @type {typeof useImmer<FormContextValue>} */ (useImmer)({});
+  const [state, setState] = useImmer({});
   const { settings: utahHeaderSettings, setSettings: setUtahHeaderSettings } = useUtahHeaderContext();
   const isActionItemsAddedRef = useRef(false);
 
@@ -58,6 +56,7 @@ function App() {
         });
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [utahHeaderSettings]
   );
 
@@ -90,8 +89,3 @@ function App() {
     </FormContextProvider>
   );
 }
-
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
-
-export default App;

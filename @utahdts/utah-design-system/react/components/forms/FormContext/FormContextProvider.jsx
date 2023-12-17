@@ -27,8 +27,8 @@ import { FormContext } from './FormContext';
  * @template FormContextStateT
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} props.onChange
- * @param {(e?: React.ChangeEvent) => void} [props.onSubmit] called when the form is somehow submitted by a child element
+ * @param {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
+ * @param {React.ChangeEventHandler<HTMLElement>} [props.onSubmit] called when the form is somehow submitted by a child element
  * @param {FormContextValueUpdater<FormContextStateT>} props.setState setter for setting the `state`
  * @param {FormContextStateT} props.state known by the caller; every field in it with its type
  * @returns {JSX.Element}
@@ -36,7 +36,7 @@ import { FormContext } from './FormContext';
 export function FormContextProvider({
   children,
   onChange,
-  onSubmit,
+  onSubmit = () => { }, // onSubmit is going to be removed anyways...
   setState,
   state,
 }) {
