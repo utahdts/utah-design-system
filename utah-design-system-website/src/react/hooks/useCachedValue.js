@@ -13,7 +13,7 @@ const GLOBAL_CACHES = {};
  * @param {(params: CACHED_VALUE_TYPE[]) => VALUE_TYPE} valueFunction the function that deterministically retrieves a value given a value set
  * @returns {VALUE_TYPE} returns the determined value for the given cachedValueSet
  */
-export default function useCachedValue(cacheId, cachedValueSet, valueFunction) {
+export function useCachedValue(cacheId, cachedValueSet, valueFunction) {
   const path = `${cacheId}.${cachedValueSet.join('.')}`;
   let value = /** @type {VALUE_TYPE} */ (valueAtPath({ object: caches, path }));
   if (!value) {

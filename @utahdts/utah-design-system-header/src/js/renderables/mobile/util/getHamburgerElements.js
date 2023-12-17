@@ -5,7 +5,7 @@ import notNull from '../../../misc/notNull';
  * @param {string} callerContext what function called this? so the error message can be specific
  * @returns {{ hamburger: HTMLElement | null, hamburgerIcon: HTMLElement | null, mobileMenu: HTMLElement }}
  */
-export default function getHamburgerElements(callerContext) {
+export function getHamburgerElements(callerContext) {
   const mobileMenu = /** @type {HTMLElement} */ (notNull(
     document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU)),
     `${callerContext}: mobileMenu not found`

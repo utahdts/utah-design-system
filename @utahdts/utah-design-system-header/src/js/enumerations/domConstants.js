@@ -11,7 +11,7 @@ export function getCssClassSelector(domConstants) {
  * An enum for CSS classes used in the utah.gov header
  * @enum {string}
  */
-export default {
+export const domConstants = {
   // Global Information
   UTAH_DESIGN_SYSTEM: 'utah-design-system',
   HEADER: 'utds-header',

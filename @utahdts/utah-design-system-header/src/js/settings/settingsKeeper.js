@@ -1,4 +1,4 @@
-import defaultSettings from './defaultSettings';
+import { defaultSettings } from './defaultSettings';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings
@@ -43,4 +43,4 @@ class SettingsKeeper {
   }
 }
 
-export default new SettingsKeeper();
+export const settingsKeeper = new SettingsKeeper();

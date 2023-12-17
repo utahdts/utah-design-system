@@ -9,7 +9,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 
-export default function SpinnerPropsDocumentation() {
+export function SpinnerPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>

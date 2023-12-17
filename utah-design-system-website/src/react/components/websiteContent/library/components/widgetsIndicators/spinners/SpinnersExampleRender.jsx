@@ -18,7 +18,7 @@ function stringToNumber(str) {
  * @param {SpinnersExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function SpinnersExampleRender({
+export function SpinnersExampleRender({
   state: {
     props: {
       className,

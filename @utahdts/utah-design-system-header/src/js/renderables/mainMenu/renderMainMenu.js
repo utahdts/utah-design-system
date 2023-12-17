@@ -27,7 +27,7 @@ import { renderUtahIdForMobile } from '../utahId/UtahId';
 /**
  * @returns {{mainMenuWrapper: HTMLElement, utahIdPopup: HTMLElement | null}}
  */
-export default function renderMainMenu() {
+export function renderMainMenu() {
   const settings = getUtahHeaderSettings();
   /** @type {HTMLElement} */
   const mainMenuWrapper = renderDOMSingle(MainMenuWrapper);

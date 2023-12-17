@@ -9,7 +9,7 @@ import isObject from 'lodash/isObject';
  * @param {(item: any, obj: any) => boolean} [filterFunc] obj is "any" type because it is any nested type of the original object
  * @returns {ResultT[]}
  */
-export default function valuesForKey(obj, key, filterFunc) {
+export function valuesForKey(obj, key, filterFunc) {
   const result = [];
   if (obj && isObject(obj)) {
     // @ts-ignore <-- isObject() removes the case for which this error generates

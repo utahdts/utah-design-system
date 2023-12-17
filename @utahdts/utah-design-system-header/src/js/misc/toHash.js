@@ -3,7 +3,7 @@
 /** https://stackoverflow.com/a/8076436/1478933
  * @param {object | string} thing the thing to hash
  */
-export default function toHash(thing) {
+export function toHash(thing) {
   let hash = 0;
   const string = JSON.stringify(thing);
   for (let i = 0; i < string.length; i += 1) {

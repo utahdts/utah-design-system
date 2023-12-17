@@ -9,7 +9,7 @@ import renderMobileActionItem from './renderMobileActionItem';
  * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
 */
 
-export default function renderMobileActionItems() {
+export function renderMobileActionItems() {
   const homeActionItem = document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__HOME_ID);
   if (!homeActionItem) {
     throw new Error('renderMobileActionItems: homeActionItem not found');

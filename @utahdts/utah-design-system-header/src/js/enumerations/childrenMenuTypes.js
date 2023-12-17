@@ -4,7 +4,7 @@
  * menu types for the header
  * @enum {ChildrenMenuTypes}
  */
-export default {
+export const childrenMenuTypes = {
   FLYOUT: /** @type {ChildrenMenuTypes} */ ('flyout'),
   INLINE: /** @type {ChildrenMenuTypes} */ ('inline'),
   MEGA_MENU: /** @type {ChildrenMenuTypes} */ ('mega-menu'),

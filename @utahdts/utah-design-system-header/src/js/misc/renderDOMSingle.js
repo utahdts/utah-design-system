@@ -43,7 +43,7 @@ function renderDOM(str) {
  * @param {string | HTMLElement} str
  * @returns {HTMLElement}
  */
-export default function renderDOMSingle(str) {
+export function renderDOMSingle(str) {
   const dom = typeof str === 'string' ? renderDOM(str) : str;
   if (dom instanceof HTMLCollection && dom.length > 1) {
     throw new Error('renderDOMSingle: must render a single element');

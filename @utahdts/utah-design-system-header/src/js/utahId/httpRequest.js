@@ -8,7 +8,7 @@
  * @param {function} params.onResolve - Function to call on a successful request
  * @param {function} params.onReject - Function to call on error or timeout
  */
-export default function httpRequest({
+export function httpRequest({
   url,
   method,
   headers,

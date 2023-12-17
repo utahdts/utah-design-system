@@ -319,7 +319,7 @@ export function renderMenu(menuItems, options) {
  * @param {RenderPopupMenuOptions} options
  * @returns {HTMLElement}
  */
-export default function renderPopupMenu(popupMenu, labelledByElement, options) {
+export function renderPopupMenu(popupMenu, labelledByElement, options) {
   // create the popup
   const popupWrapper = renderPopup(labelledByElement, { removePopupArrow: options.removePopupArrow });
 

@@ -14,7 +14,7 @@ import sizes from '../enumerations/sizes';
  * default values as a starting place for a new app.
  * @type {Settings} the current settings of the header
  */
-export default {
+export const defaultSettings = {
   onSearch: false,
   mainMenu: false,
   mediaSizes: {

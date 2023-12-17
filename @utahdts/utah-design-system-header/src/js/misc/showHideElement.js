@@ -4,7 +4,7 @@
  * @param {string} visibleClass
  * @param {string} hiddenClass
  */
-export default function showHideElement(element, isShown, visibleClass, hiddenClass) {
+export function showHideElement(element, isShown, visibleClass, hiddenClass) {
   if (isShown) {
     element.classList.remove(hiddenClass);
     element.classList.add(visibleClass);

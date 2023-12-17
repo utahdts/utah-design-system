@@ -3,7 +3,7 @@
 /**
  * @enum { Size }
 */
-export default {
+export const sizes = {
   SMALL: /** @type {Size} */ ('SMALL'),
   MEDIUM: /** @type {Size} */ ('MEDIUM'),
   LARGE: /** @type {Size} */ ('LARGE'),

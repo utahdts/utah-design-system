@@ -7,7 +7,7 @@ import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import ActionItems from '../actionItems/ActionItems';
 import { renderUtahIdForDesktop } from '../utahId/UtahId';
 
-export default function CitizenExperience() {
+export function CitizenExperience() {
   const citizenExperienceWrapper = renderDOMSingle(CitizenExperienceWrapper);
 
   const actionItems = ActionItems();

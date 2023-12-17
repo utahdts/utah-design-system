@@ -7,7 +7,7 @@ import { loadHeader, setUtahHeaderSettings } from '../../../src';
 /**
  * @param {Settings} settings
  */
-export default function loadTestHeader(settings) {
+export function loadTestHeader(settings) {
   setUtahHeaderSettings(settings);
   loadHeader();
   expect(document.querySelector('.utah-design-system.utds-header')).toBeTruthy();

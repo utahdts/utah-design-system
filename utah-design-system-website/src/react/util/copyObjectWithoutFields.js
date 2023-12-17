@@ -7,7 +7,7 @@
  * @param {string[]} skipKeys the keys for which to search in the object and its children
  * @returns {Object.<string, any> | any[]} the objects with the key
 */
-export default function copyObjectWithoutFields(object, skipKeys) {
+export function copyObjectWithoutFields(object, skipKeys) {
   return JSON.parse(JSON.stringify(
     object,
     (key, value) => (skipKeys.includes(key) ? undefined : value)

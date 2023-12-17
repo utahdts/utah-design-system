@@ -14,11 +14,11 @@ import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import SpinnerCssClassesDocumentation from './SpinnerCssClassesDocumentation';
-import SpinnerPropsDocumentation from './SpinnerPropsDocumentation';
-import SpinnersExampleCodeReact from './SpinnersExampleCodeReact';
-import SpinnersExampleProps from './SpinnersExampleProps';
-import SpinnersExampleRender from './SpinnersExampleRender';
+import { SpinnerCssClassesDocumentation } from './SpinnerCssClassesDocumentation';
+import { SpinnerPropsDocumentation } from './SpinnerPropsDocumentation';
+import { SpinnersExampleCodeReact } from './SpinnersExampleCodeReact';
+import { SpinnersExampleProps } from './SpinnersExampleProps';
+import { SpinnersExampleRender } from './SpinnersExampleRender';
 
 export function SpinnersDocumentation() {
   return (

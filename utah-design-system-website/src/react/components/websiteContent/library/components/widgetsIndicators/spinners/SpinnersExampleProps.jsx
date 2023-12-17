@@ -9,7 +9,7 @@ import { Form, TextInput } from '@utahdts/utah-design-system';
  * @param {SpinnersExamplePropsShape} props.state.props
  * @returns {JSX.Element}
  */
-export default function SpinnersExampleProps({ setState, state }) {
+export function SpinnersExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

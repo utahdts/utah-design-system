@@ -24,7 +24,7 @@ import UtahLogo from '../utahLogo/UtahLogo';
  *
  * @returns {Element}
  */
-export default function HeaderWrapper() {
+export function HeaderWrapper() {
   const header = renderDOMSingle(headerWrapper);
 
   header.classList.add(`utds-header--${getUtahHeaderSettings().size?.toLowerCase() || sizes.MEDIUM}`);

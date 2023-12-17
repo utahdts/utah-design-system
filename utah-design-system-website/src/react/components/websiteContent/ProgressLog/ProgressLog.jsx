@@ -11,8 +11,8 @@ import {
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../routing/pageUrls';
-import ProgressLogCheckboxChecked from './ProgressLogCheckboxChecked';
-import ProgressLogCheckboxUnchecked from './ProgressLogCheckboxUnchecked';
+import { ProgressLogCheckboxChecked } from './ProgressLogCheckboxChecked';
+import { ProgressLogCheckboxUnchecked } from './ProgressLogCheckboxUnchecked';
 import { ProgressLogVersionRow } from './ProgressLogVersionRow';
 
 /**

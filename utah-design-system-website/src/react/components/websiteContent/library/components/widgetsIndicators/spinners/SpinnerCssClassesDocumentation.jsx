@@ -9,7 +9,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 
-export default function SpinnerCssClassesDocumentation() {
+export function SpinnerCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x">

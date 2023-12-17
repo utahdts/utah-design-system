@@ -5,7 +5,7 @@
  * @param {string} key the key for which to search in the object and its children
  * @returns {Object.<string, any>[]} the objects with the key
  */
-export default function objectsWithKey(object, key) {
+export function objectsWithKey(object, key) {
   /** @type {Object.<string, any>[]} */
   const foundObjects = [];
   if (object && typeof object === 'object') {

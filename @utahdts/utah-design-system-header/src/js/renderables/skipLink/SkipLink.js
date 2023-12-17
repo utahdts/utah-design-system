@@ -11,7 +11,7 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
  *
  * @returns {Element | null}
  */
-export default function SkipLink() {
+export function SkipLink() {
   const { skipLinkUrl } = getUtahHeaderSettings();
   let skipLink;
 

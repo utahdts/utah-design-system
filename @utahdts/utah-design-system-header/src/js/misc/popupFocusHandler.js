@@ -66,7 +66,7 @@ import showHideElement from './showHideElement';
  * @param {AriaHasPopupType} ariaHasPopup aria tag for popup type
  * @param {PopupFocusHandlerOptions | undefined} options
  */
-export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options) {
+export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options) {
   let delayPopupTimeoutId = NaN;
   let delayHideTimeoutId = NaN;
   const TIMEOUT_MS_LONG = 350;

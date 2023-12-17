@@ -2,7 +2,7 @@ import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
 import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
 
-export default function renderMobileMenuHomeMenu() {
+export function renderMobileMenuHomeMenu() {
   const settings = getUtahHeaderSettings();
   return renderMenu(
     (settings.mainMenu && settings.mainMenu?.menuItems) || undefined,

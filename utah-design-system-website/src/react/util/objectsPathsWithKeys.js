@@ -16,7 +16,7 @@ import identity from 'lodash/identity';
  * @param {string} [path] the current path to the given object
  * @returns {ObjectPathWithKey[]} the objects with the key
 */
-export default function objectsPathsWithKeys(object, searchKeys, path = '') {
+export function objectsPathsWithKeys(object, searchKeys, path = '') {
   /** @type {ObjectPathWithKey[]} */
   const foundObjects = [];
   searchKeys.forEach((searchKey) => {

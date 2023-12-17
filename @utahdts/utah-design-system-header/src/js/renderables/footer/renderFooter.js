@@ -42,7 +42,7 @@ const previousFooterSettings = {
 /**
  * @returns {Element | null}
  */
-export default function renderFooter() {
+export function renderFooter() {
   const settings = getUtahHeaderSettings();
   const previousFooter = document.querySelector(getCssClassSelector(domConstants.FOOTER));
   let footer = previousFooter;

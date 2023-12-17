@@ -1,6 +1,6 @@
 import { valueAtPath } from '@utahdts/utah-design-system';
-import copyObjectWithoutFields from '../../../../../util/copyObjectWithoutFields';
-import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
+import { copyObjectWithoutFields } from '../../../../../util/copyObjectWithoutFields';
+import { objectsPathsWithKeys } from '../../../../../util/objectsPathsWithKeys';
 
 export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
 

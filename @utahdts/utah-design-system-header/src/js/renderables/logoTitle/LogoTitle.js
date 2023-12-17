@@ -13,7 +13,7 @@ import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
 /**
  * @returns {Element}
  */
-export default function LogoTitle() {
+export function LogoTitle() {
   const logoTitleURL = getUtahHeaderSettings().titleURL;
   const logoTitleWrapper = !logoTitleURL ? renderDOMSingle(LogoTitleWrapper) : renderDOMSingle(LogoTitleWrapperLink);
   if (!logoTitleWrapper) {

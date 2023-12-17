@@ -10,6 +10,6 @@ import settingsKeeper from './settingsKeeper';
  * it didn't stick. back to functions.
  * @returns {Settings} the current settings information
  */
-export default function getUtahHeaderSettings() {
+export function getUtahHeaderSettings() {
   return settingsKeeper.getSettings();
 }

@@ -18,7 +18,7 @@ import hookupTooltip from '../tooltip/hookupTooltip';
 /**
  * @returns {Element}
  */
-export default function UtahLogo() {
+export function UtahLogo() {
   let sizedLogo;
   switch (getUtahHeaderSettings().size) {
     case sizes.LARGE:

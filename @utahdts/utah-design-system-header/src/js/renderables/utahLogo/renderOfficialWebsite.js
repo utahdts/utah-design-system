@@ -81,7 +81,7 @@ export function openOfficialWebsite() {
 /**
  * @returns {Element}
  */
-export default function renderOfficialWebsite() {
+export function renderOfficialWebsite() {
   const officialWebsiteWrapper = renderDOMSingle(UtahOfficialWebsitePopupContentHtml);
 
   const logoWrapper = document.querySelector(getCssClassSelector(domConstants.LOGO));

@@ -10,7 +10,7 @@ import domConstants, { getCssClassSelector } from '../../enumerations/domConstan
  * @param {string} title
  * @returns {HTMLElement}
  */
-export default function renderMenuWithTitle(menu, title) {
+export function renderMenuWithTitle(menu, title) {
   const menuWithTitle = renderDOMSingle(MenuWithTitle);
   const menuTitleDiv = menuWithTitle.querySelector(getCssClassSelector(domConstants.POPUP_MENU_WRAPPER__WRAPPER_TITLE));
   if (!menuTitleDiv) {

@@ -9,7 +9,7 @@
  * @param {boolean} isError if true then an Error will be thrown
  * @param {string} errorMessage the message to show in the Error if isError is true
  */
-export default function checkForError(isError, errorMessage) {
+export function checkForError(isError, errorMessage) {
   if (isError) {
     throw new Error(errorMessage);
   }

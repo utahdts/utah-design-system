@@ -117,7 +117,7 @@ export const DATA_OF_ALL_DATATYPES = {
  * @param {string[]} [options.excludes] allDataTypes enum
  * @returns {any[]}
  */
-export default function dataOfAllDataTypes({ includes, excludes } = {}) {
+export function dataOfAllDataTypes({ includes, excludes } = {}) {
   return (
     Object.keys(DATA_OF_ALL_DATATYPES)
       .filter((key) => (!includes || includes.includes(key)) && (!excludes?.includes(key)))

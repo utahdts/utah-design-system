@@ -1,6 +1,6 @@
 import { Icons } from '@utahdts/utah-design-system';
 import tinycolor from 'tinycolor2';
-import useCachedValue from '../../hooks/useCachedValue';
+import { useCachedValue } from '../../hooks/useCachedValue';
 
 const RATINGS = {
   AA: 'AA',

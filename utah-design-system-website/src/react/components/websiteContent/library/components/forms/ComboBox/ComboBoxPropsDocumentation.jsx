@@ -9,7 +9,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 
-export default function ComboBoxPropsDocumentation() {
+export function ComboBoxPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>

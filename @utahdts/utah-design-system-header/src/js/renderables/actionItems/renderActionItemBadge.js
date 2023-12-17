@@ -1,5 +1,5 @@
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
@@ -13,7 +13,7 @@ import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
  * @param {Badge | undefined} badge - the action's badge information
  * @return {HTMLElement | null}
  */
-export default function renderActionItemBadge(badge) {
+export function renderActionItemBadge(badge) {
   let badgeWrapper = null;
   if (badge) {
     /** @type HTMLElement */

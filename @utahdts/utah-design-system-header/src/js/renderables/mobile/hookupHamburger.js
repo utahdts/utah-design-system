@@ -11,7 +11,7 @@ import { hideMobileMenu } from './util/showHideHamburgerElements';
 /**
  * @param {HTMLElement} mobileMainMenuContentItem
  */
-export default function hookupHamburger(mobileMainMenuContentItem) {
+export function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
   const hamburgerNotNull = /** @param {string} context */ (context) => notNull(hamburger, `hookupHamburger: hamburger required but is null: ${context}`);
 

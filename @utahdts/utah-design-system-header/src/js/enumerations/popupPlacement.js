@@ -8,23 +8,23 @@
 // dependency be "internal". It would be hoped to have the library as a dependency and have it tree shaken
 // so it would only grab the pieces it uses. But that's more config for another time.
 
-/** @typedef {import('src/@types/jsDocTypes.d').PopupPlacement} PopupPlacement */
+/** @typedef {import('src/@types/jsDocTypes.d').PopupPlacement} PopupPlacementType */
 
-/** @enum {PopupPlacement} */
-export default {
-  AUTO: /** @type {PopupPlacement} */ ('auto'),
-  AUTO_START: /** @type {PopupPlacement} */ ('auto-start'),
-  AUTO_END: /** @type {PopupPlacement} */ ('auto-end'),
-  BOTTOM: /** @type {PopupPlacement} */ ('bottom'),
-  BOTTOM_START: /** @type {PopupPlacement} */ ('bottom-start'),
-  BOTTOM_END: /** @type {PopupPlacement} */ ('bottom-end'),
-  LEFT: /** @type {PopupPlacement} */ ('left'),
-  LEFT_START: /** @type {PopupPlacement} */ ('left-start'),
-  LEFT_END: /** @type {PopupPlacement} */ ('left-end'),
-  RIGHT: /** @type {PopupPlacement} */ ('right'),
-  RIGHT_START: /** @type {PopupPlacement} */ ('right-start'),
-  RIGHT_END: /** @type {PopupPlacement} */ ('right-end'),
-  TOP: /** @type {PopupPlacement} */ ('top'),
-  TOP_START: /** @type {PopupPlacement} */ ('top-start'),
-  TOP_END: /** @type {PopupPlacement} */ ('top-end'),
+/** @enum {PopupPlacementType} */
+export const PopupPlacement = {
+  AUTO: /** @type {PopupPlacementType} */ ('auto'),
+  AUTO_START: /** @type {PopupPlacementType} */ ('auto-start'),
+  AUTO_END: /** @type {PopupPlacementType} */ ('auto-end'),
+  BOTTOM: /** @type {PopupPlacementType} */ ('bottom'),
+  BOTTOM_START: /** @type {PopupPlacementType} */ ('bottom-start'),
+  BOTTOM_END: /** @type {PopupPlacementType} */ ('bottom-end'),
+  LEFT: /** @type {PopupPlacementType} */ ('left'),
+  LEFT_START: /** @type {PopupPlacementType} */ ('left-start'),
+  LEFT_END: /** @type {PopupPlacementType} */ ('left-end'),
+  RIGHT: /** @type {PopupPlacementType} */ ('right'),
+  RIGHT_START: /** @type {PopupPlacementType} */ ('right-start'),
+  RIGHT_END: /** @type {PopupPlacementType} */ ('right-end'),
+  TOP: /** @type {PopupPlacementType} */ ('top'),
+  TOP_START: /** @type {PopupPlacementType} */ ('top-start'),
+  TOP_END: /** @type {PopupPlacementType} */ ('top-end'),
 };

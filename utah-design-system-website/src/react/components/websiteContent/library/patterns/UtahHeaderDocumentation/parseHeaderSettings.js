@@ -1,5 +1,5 @@
 import { valueAtPath } from '@utahdts/utah-design-system';
-import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
+import { objectsPathsWithKeys } from '../../../../../util/objectsPathsWithKeys';
 
 /** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 

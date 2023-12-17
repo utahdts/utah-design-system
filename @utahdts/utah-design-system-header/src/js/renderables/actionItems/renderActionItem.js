@@ -3,14 +3,14 @@
 import ActionItemHtml from './html/ActionItem.html?raw';
 
 import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import popupFocusHandler from '../../misc/popupFocusHandler';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
-import renderPopup from '../popup/renderPopup';
-import renderPopupMenu from '../popupMenu/renderPopupMenu';
-import hookupTooltip from '../tooltip/hookupTooltip';
-import renderActionItemBadge from './renderActionItemBadge';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { popupFocusHandler } from '../../misc/popupFocusHandler';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
+import { renderPopup } from '../popup/renderPopup';
+import { renderPopupMenu } from '../popupMenu/renderPopupMenu';
+import { hookupTooltip } from '../tooltip/hookupTooltip';
+import { renderActionItemBadge } from './renderActionItemBadge';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem
@@ -22,7 +22,7 @@ import renderActionItemBadge from './renderActionItemBadge';
  * @param {ActionItem} actionItem - the action item to add
  * @returns {Element}
  */
-export default function renderActionItem(actionItem) {
+export function renderActionItem(actionItem) {
   const actionItemElement = renderDOMSingle(ActionItemHtml);
   const titleElement = document.createTextNode(actionItem.title);
 

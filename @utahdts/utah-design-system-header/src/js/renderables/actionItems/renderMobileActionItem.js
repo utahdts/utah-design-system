@@ -5,12 +5,12 @@ import MobileActionItemHtml from './html/MobileActionItem.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import ActionItemMenuContentHtml from './html/ActionItemMenuContent.html?raw';
 
-import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
+import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
-import renderActionItemBadge from './renderActionItemBadge';
+import { renderActionItemBadge } from './renderActionItemBadge';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem
@@ -22,7 +22,7 @@ import renderActionItemBadge from './renderActionItemBadge';
  * @param {ActionItem} actionItem - the action item to add
  * @returns {{actionItemElement: HTMLElement, actionItemContent: HTMLElement | null}}
  */
-export default function renderMobileActionItem(actionItem) {
+export function renderMobileActionItem(actionItem) {
   const actionItemElement = renderDOMSingle(MobileActionItemHtml);
   if (!actionItemElement.getAttribute('id')) {
     actionItemElement.setAttribute('id', uuidv4());
