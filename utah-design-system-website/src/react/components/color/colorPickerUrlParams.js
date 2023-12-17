@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise */
-import padEnd from 'lodash/padEnd';
+import { padEnd } from 'lodash';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import { notNull } from '../../util/notNull/notNull';
 

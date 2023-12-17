@@ -5,7 +5,7 @@ import {
   SelectOption,
   Switch
 } from '@utahdts/utah-design-system';
-import startCase from 'lodash/startCase';
+import { startCase } from 'lodash';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
