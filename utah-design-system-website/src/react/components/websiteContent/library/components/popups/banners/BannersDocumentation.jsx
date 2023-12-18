@@ -10,8 +10,6 @@ import React, { useCallback } from 'react';
 import pageUrls from '../../../../../routing/pageUrls';
 import StaticExample from '../../../../../staticExamples/StaticExample';
 import bannerLandmarkScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannerLandmark.jpg';
-import bannersLargeScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersLarge.jpg';
-import bannersMediumScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersMedium.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import BannersExampleCodeReact from './BannersExampleCodeReact';
@@ -42,6 +40,7 @@ function BannersDocumentation() {
           icon: 'none',
           message: 'Here is some information.',
           position: 'top',
+          size: 'banner--small',
         }}
         CODE_EXAMPLE={BannersExampleCodeReact}
         PROPS_EXAMPLE={BannersExampleProps}
@@ -53,6 +52,7 @@ function BannersDocumentation() {
         renderedExample={(
           <div className="flex flex-col items-center">
             <Banner
+              className="banner--small"
               position="inline"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
@@ -64,7 +64,7 @@ function BannersDocumentation() {
             </Banner>
             <Banner
               position="inline"
-              className="banner--success"
+              className="banner--success banner--small"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
               }), [addBanner])}
@@ -78,7 +78,7 @@ function BannersDocumentation() {
             </Banner>
             <Banner
               position="inline"
-              className="banner--danger"
+              className="banner--danger banner--small"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
               }), [addBanner])}
@@ -92,7 +92,7 @@ function BannersDocumentation() {
             </Banner>
             <Banner
               position="inline"
-              className="banner--info"
+              className="banner--info banner--small"
               onClose={useCallback(() => addBanner({
                 message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
               }), [addBanner])}
@@ -124,7 +124,41 @@ function BannersDocumentation() {
 
       <StaticExample
         title="Medium banners"
-        renderedExample={<LightBox image={bannersMediumScreenshot} alt="Medium Banners" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col items-center">
+            <Banner
+              className="banner--medium"
+              position="inline"
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+              }), [addBanner])}
+            >
+              <BannerIcon>
+                <span className="utds-icon-before-info" aria-hidden="true" />
+              </BannerIcon>
+              <BannerMessage>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non ligula nulla.
+                Nulla nec magna orci. Cras bibendum est quis risus venenatis convallis.
+                Maecenas in mi sed leo luctus pharetra. Phasellus varius sit amet sapien sed convallis.
+              </BannerMessage>
+            </Banner>
+            <Banner
+              className="banner--medium banner--info"
+              position="inline"
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+              }), [addBanner])}
+            >
+              <BannerIcon>
+                <span className="utds-icon-before-info" aria-hidden="true" />
+              </BannerIcon>
+              <BannerMessage>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non ligula nulla.
+                Nulla nec magna orci. Cras bibendum est quis risus venenatis convallis.
+              </BannerMessage>
+            </Banner>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Medium banners consist of a container, content, and a close button.</li>
@@ -146,7 +180,50 @@ function BannersDocumentation() {
 
       <StaticExample
         title="Large banners"
-        renderedExample={<LightBox image={bannersLargeScreenshot} alt="Large Banners" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col items-center">
+            <Banner
+              className="banner--medium banner--dark"
+              position="inline"
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+              }), [addBanner])}
+            >
+              <BannerIcon>
+                <span className="utds-icon-before-warning" aria-hidden="true" />
+              </BannerIcon>
+              <BannerMessage>
+                <span>
+                  The TSOB will be closed on Saturday, August 13th, 2022 from 7:00am
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  to 4:00pm for a power upgrade. <a href="#">Learn more.</a>
+                </span>
+              </BannerMessage>
+            </Banner>
+            <Banner
+              className="banner--medium"
+              position="inline"
+              onClose={useCallback(() => addBanner({
+                message: 'The banner\'s close button has been triggered. You are in charge of closing your own banners.',
+              }), [addBanner])}
+            >
+              <BannerIcon>
+                <span className="utds-icon-before-info" aria-hidden="true" />
+              </BannerIcon>
+              <BannerMessage>
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non ligula nulla.
+                  Nulla nec magna orci. Cras bibendum est quis risus venenatis convallis.
+                </span>
+                <button
+                  type="button"
+                >
+                  Undo
+                </button>
+              </BannerMessage>
+            </Banner>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Large banners are comprised of a container and content.</li>

@@ -35,6 +35,11 @@ export default function BannersExampleProps({ setState, state }) {
         <SelectOption label="Danger" value="banner--danger" />
         <SelectOption label="Info" value="banner--info" />
       </Select>
+      <Select id="props.size" label="Size" className="input--height-small1x">
+        <SelectOption label="Small" value="banner--small" />
+        <SelectOption label="Medium" value="banner--medium" />
+        <SelectOption label="Large" value="banner--large" />
+      </Select>
     </Form>
   );
 }
