@@ -4,28 +4,28 @@
 // eslint-disable-next-line import/order
 import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
 
-import { Link } from 'react-router-dom';
 import {
   ConfirmationButton,
   ConfirmationChildren,
   InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
-import React, { useCallback } from 'react';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import LightBox from '../../../../../lightbox/LightBox';
+import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
-import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
-import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
+import StaticExample from '../../../../../staticExamples/StaticExample';
 import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleCodeReact';
+import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
+import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 const propTypes = {};
 const defaultProps = {};
 
 function ConfirmationButtonDocumentation() {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Confirmation Button</h1>
@@ -74,7 +74,7 @@ function ConfirmationButtonDocumentation() {
               className="mx-spacing-xs"
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
+              onClick={() => addBanner({ message: 'Confirmation button clicked' })}
             >
               <InitialChildren>
                 Primary
@@ -87,7 +87,7 @@ function ConfirmationButtonDocumentation() {
               className="mx-spacing-xs"
               appearance="solid"
               color="secondary"
-              onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
+              onClick={() => addBanner({ message: 'Confirmation button clicked' })}
             >
               <InitialChildren>
                 Secondary
@@ -100,7 +100,7 @@ function ConfirmationButtonDocumentation() {
               className="mx-spacing-xs"
               appearance="solid"
               color="accent"
-              onClick={useCallback(() => showBanner({ message: 'Confirmation button clicked' }), [showBanner])}
+              onClick={() => addBanner({ message: 'Confirmation button clicked' })}
             >
               <InitialChildren>
                 Accent
