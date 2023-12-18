@@ -15,6 +15,7 @@ export default function BannersExampleRender({
       icon,
       message,
       position,
+      size,
     },
   },
   innerRef,
@@ -24,7 +25,7 @@ export default function BannersExampleRender({
     <div>
       <Button
         onClick={() => addBanner({
-          className: joinClassNames(className, color),
+          className: joinClassNames(className, color, size),
           duration: 5000,
           icon: icon !== 'none' ? <span className={icon} aria-hidden="true" /> : null,
           message,
@@ -36,7 +37,7 @@ export default function BannersExampleRender({
       <div className="visually-hidden">
         <Banner
           innerRef={innerRef}
-          className={joinClassNames(className, color)}
+          className={joinClassNames(className, color, size)}
           position={position}
           onClose={() => console.log('Make sure to close the banner!')}
         >
