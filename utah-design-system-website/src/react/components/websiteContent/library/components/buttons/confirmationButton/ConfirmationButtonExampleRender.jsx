@@ -31,7 +31,7 @@ export function ConfirmationButtonExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <ConfirmationButton
       appearance={appearance}
@@ -42,7 +42,7 @@ export function ConfirmationButtonExampleRender({
       innerRef={innerRef}
       isBusy={isBusy}
       isDisabled={isDisabled}
-      onClick={() => showBanner({ message: 'You have clicked the button.' })}
+      onClick={() => addBanner({ message: 'You have clicked the button.' })}
       size={size}
       type={type}
     >
