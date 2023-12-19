@@ -58,6 +58,10 @@ export { default as MediaSizesShape } from './react/propTypesShapes/header/Media
 export { default as MenuItemFunctionUrlActionShape } from './react/propTypesShapes/header/MenuItemFunctionUrlActionShape';
 export { default as MenuItemShape } from './react/propTypesShapes/header/MenuItemShape';
 export { default as MenuItemUrlActionShape } from './react/propTypesShapes/header/MenuItemUrlActionShape';
+export { Modal } from './react/components/popups/Modal/Modal';
+export { ModalContent } from './react/components/popups/Modal/ModalContent';
+export { ModalFooter } from './react/components/popups/Modal/ModalFooter';
+export { ModalTitle } from './react/components/popups/Modal/ModalTitle';
 export { default as OnThisPage } from './react/components/navigation/OnThisPage';
 export { default as Pagination } from './react/components/navigation/pagination/Pagination';
 export { default as Popup } from './react/components/popups/Popup';

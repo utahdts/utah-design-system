@@ -1,15 +1,66 @@
 @use "../../../1-settings/settings-index";
 @use "../../../1-settings/class-vars";
 @use "../../../1-settings/spacing";
-
+@use "../../../7-utilities/animation";
 
 #{class-vars.$base-class} {
-  .modal-backdrop {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 4000;
+  .modal{
+    &-backdrop {
+      position: fixed;
+      width: calc(100% - var(--spacing-3xl));
+      height: calc(100% - var(--spacing-3xl));
+      top: 0;
+      left: 0;
+      z-index: 4000;
+      padding: 1.5rem;
+    }
+
+    &__wrapper {
+      animation: 400ms ease-in-out 100ms drop-in both;
+      background: #fff;
+      display: inline-block;
+      max-width: 660px;
+      width: calc(100% - var(--spacing-3xl));
+      border-radius: var(--radius-medium);
+      left: 50%;
+      margin: var(--spacing-4xl) var(--spacing) var(--spacing-4xl) 0;
+      overflow: visible;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: 5000;
+    }
+
+    &__title, &__footer {
+      padding: var(--spacing);
+    }
+
+    &__title {
+      padding-right: calc(var(--spacing) + 1.4rem)
+    }
+
+    &__content {
+      padding: var(--spacing-s) var(--spacing);
+    }
+
+    &__close-button {
+      position: absolute;
+      top: var(--spacing-2xs);
+      right: var(--spacing-2xs);
+
+      .utds-icon-before-x-icon::before {
+        font-size: 0.7rem;
+      }
+    }
+
+    &--small {
+      max-width: 440px;
+      border-radius: var(--radius-small);
+    }
+
+    &--large {
+      max-width: 990px;
+      border-radius: var(--radius-large);
+    }
   }
 }
