@@ -3,7 +3,7 @@ import {
   useBanner
 } from '@utahdts/utah-design-system';
 
-/** @typedef {import('../../../../../../../@types/jsDocTypes.d').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
 /**
  * @param {Object} props
