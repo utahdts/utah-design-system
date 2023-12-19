@@ -149,6 +149,7 @@
  *  @property {string} [id]
  *  @property {HTMLElement} [icon]
  *  @property {HTMLElement | string} message
+ *  @property {() => void} [onClose]
  *  @property {BannerPlacement} [position]
  */
 

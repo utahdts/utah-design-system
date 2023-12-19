@@ -9,6 +9,7 @@ import {
   TabList,
   TabPanel,
   TabPanels,
+  useBanner
 } from '@utahdts/utah-design-system';
 import PropTypes from 'prop-types';
 import { useCallback, useRef, useState } from 'react';
@@ -21,9 +22,9 @@ import colors from '../../util/color/colors';
 import pageUrls from '../routing/pageUrls';
 import ColorContrasts from './ColorContrasts';
 import ColorPicker from './ColorPicker';
-import SwatchList from './SwatchList';
-import { colorsToUrlParams } from './colorPickerUrlParams';
 import ColorPickerInstructions from './ColorPickerInstructions';
+import { colorsToUrlParams } from './colorPickerUrlParams';
+import SwatchList from './SwatchList';
 
 const propTypes = {
   onClose: PropTypes.func,
@@ -43,6 +44,7 @@ function ColorPopup({ onClose }) {
   const [mousePositionOffset, setMousePositionOffset] = useImmer({ x: 0, y: 0 });
   const draggableDivRef = useRef(null);
   const [copiedUrlTitle, setCopiedUrlTitle] = useState('Share colors');
+  const { addBanner } = useBanner();
 
   const { mousePosition } = useMousePositionTracker({
     shouldBeginDrag: (e) => {
@@ -124,7 +126,10 @@ function ColorPopup({ onClose }) {
               const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
               navigator.clipboard.writeText(returnUrl)
                 .then(() => {
-                  console.log('Colors copied to clipboard ready to share!', returnUrl);
+                  addBanner({
+                    message: <div>Colors copied to clipboard ready to share!<br />{returnUrl}</div>,
+                    position: 'top-right',
+                  });
                   setCopiedUrlTitle('Share URL copied to to clipboard');
                   setTimeout(() => {
                     setCopiedUrlTitle('Share URL');

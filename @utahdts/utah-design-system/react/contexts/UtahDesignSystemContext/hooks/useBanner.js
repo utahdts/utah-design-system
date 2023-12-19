@@ -22,6 +22,7 @@ export function useBanner() {
      * @param {string} [id]
      * @param {HTMLElement} [icon]
      * @param {HTMLElement | string} message
+     * @param {() => void} [onClose]
      * @param {string} [position]
      * @returns {void}
      */
@@ -31,6 +32,7 @@ export function useBanner() {
       id,
       icon,
       message,
+      onClose,
       position = 'bottom-left',
     }) => {
       setState((draftState) => {
@@ -40,6 +42,7 @@ export function useBanner() {
           icon,
           id: id || uuidv4(),
           message,
+          onClose,
           position,
         });
       });

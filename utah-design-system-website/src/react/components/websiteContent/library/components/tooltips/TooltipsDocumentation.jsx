@@ -1,6 +1,6 @@
 // @ts-check
 /* eslint-disable max-len */
-import { ICON_BUTTON_APPEARANCE, IconButton, popupPlacement } from '@utahdts/utah-design-system';
+import { ICON_BUTTON_APPEARANCE, IconButton, popupPlacement, useBanner } from '@utahdts/utah-design-system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
@@ -15,6 +15,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function TooltipsDocumentation() {
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Tooltips</h1>
@@ -40,25 +41,25 @@ function TooltipsDocumentation() {
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              onClick={() => console.log('Triggered the gear icon button')}
+              onClick={() => addBanner({ message: 'Triggered the gear icon button', position: 'top-right' })}
               title="Gear icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-plus" aria-hidden="true" />)}
-              onClick={() => console.log('Triggered the plus icon button')}
+              onClick={() => addBanner({ message: 'Triggered the plus icon button', position: 'top-right' })}
               title="Plus icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
-              onClick={() => console.log('Triggered the bookmark icon button')}
+              onClick={() => addBanner({ message: 'Triggered the bookmark icon button', position: 'top-right' })}
               title="Bookmark icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
-              onClick={() => console.log('Triggered the help icon button')}
+              onClick={() => addBanner({ message: 'Triggered the help icon button', position: 'top-right' })}
               title="Help icon button"
             />
           </>
