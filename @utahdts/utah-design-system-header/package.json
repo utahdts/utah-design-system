@@ -42,10 +42,12 @@
     "publishHeader": "npm publish --access public",
     "test-publish": "npm publish --dry-run",
     "test": "vitest",
+    "testw": "vitest",
     "testc": "vitest run --coverage",
     "testOnce": "vitest run",
     "testui": "vitest --ui",
     "tsc": "tsc --watch",
+    "tscw": "tsc --watch",
     "watch": "vite build --watch"
   },
   "repository": {

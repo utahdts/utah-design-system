@@ -76,6 +76,9 @@ export default function renderMainMenu() {
         `renderMainMenu(): button title not found for ${menuItem.title}`
       );
       mainMenuItemButtonTitle.setAttribute('id', `${domConstants.MENU_ITEM__BUTTON_TITLE}__${menuItem.title}-${uuidv4()}`);
+      if (menuItem.className) {
+        mainMenuItemButtonTitle.classList.add(menuItem.className);
+      }
 
       const mainMenuItemLinkTitle = notNull(
         /** @type {HTMLElement} */(
@@ -84,6 +87,9 @@ export default function renderMainMenu() {
         `renderMainMenu(): link title not found for ${menuItem.title}`
       );
       mainMenuItemLinkTitle.setAttribute('id', `${domConstants.MENU_ITEM__LINK_TITLE}__${menuItem.title}-${uuidv4()}`);
+      if (menuItem.className) {
+        mainMenuItemLinkTitle.classList.add(menuItem.className);
+      }
 
       let menuItemTitleElement;
       if (menuItem.actionFunctionUrl || menuItem.actionUrl) {
@@ -116,6 +122,7 @@ export default function renderMainMenu() {
           || menuItem.actionUrl
           || menuItem.actionFunctionUrl
         ) {
+          // add `(page)` menu item to top of children menu
           menuItems.unshift({
             actionFunction: menuItem.actionFunction,
             actionFunctionUrl: menuItem.actionFunctionUrl,
@@ -163,25 +170,34 @@ export default function renderMainMenu() {
       if (menuItem.actionFunction) {
         // custom function when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
-        menuItemTitleElement.onclick = menuItem.actionFunction;
+        // if have children, then the action is moved to the `(page)` menu item and not here
+        if (!menuItem.actionMenu) {
+          menuItemTitleElement.onclick = menuItem.actionFunction;
+        }
       } else if (menuItem.actionFunctionUrl) {
         menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
 
-        menuItemTitleElement.onclick = (e) => {
-          if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
-            e.stopPropagation();
-            e.preventDefault();
-          }
-          menuItem.actionFunctionUrl?.actionFunction(e);
-        };
+        // if have children, then the action is moved to the `(page)` menu item and not here
+        if (!menuItem.actionMenu) {
+          menuItemTitleElement.onclick = (e) => {
+            if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
+              e.stopPropagation();
+              e.preventDefault();
+            }
+            menuItem.actionFunctionUrl?.actionFunction(e);
+          };
+        }
       } else if (menuItem.actionUrl) {
         // go to url when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
       }
 
-      if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {
+      if (
+        !menuItem.actionMenu
+        && (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab)
+      ) {
         menuItemTitleElement.setAttribute('target', '_blank');
         menuItemTitleElement.appendChild(renderDOMSingle(NewTabAccessibility));
       }

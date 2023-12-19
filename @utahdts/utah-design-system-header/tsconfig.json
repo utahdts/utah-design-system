@@ -63,11 +63,13 @@
     "esModuleInterop": true, // fixes some issues TS originally had with the ES6 spec where TypeScript treats CommonJS/AMD/UMD modules similar to ES6 module
     "noUncheckedIndexedAccess": true, // accessing index must always check for undefined
     "resolveJsonModule": true,
+    "skipLibCheck": true,
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "test/**/*"
   ],
   "exclude": [
-    "node_modules/**/*"
+    "**/node_modules/**/*"
   ]
 }
