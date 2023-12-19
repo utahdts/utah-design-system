@@ -11,13 +11,13 @@ import { TableRow } from './TableRow';
 
 /**
  * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {((rowContextData: TableBodyDataRowContextValue<TableDataT>) => string) | string} [props.className]
  * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent})) => void)} [props.onClick]
  * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent})) => void)} [props.onDoubleClick]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableBodyDataRowTemplate({
   children,

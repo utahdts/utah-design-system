@@ -10,7 +10,7 @@ import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDow
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
@@ -26,7 +26,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {React.ChangeEventHandler} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxTextInput({
   comboBoxListId,

@@ -8,7 +8,6 @@ import { findMenuItemInMenusByPathname } from '../util/menuItems/findMenuItemInM
 /**
  * Compares lists of menuItems against the current url location to determine which menu
  * item is the currently visited menu item.
- *
  * @param {WebsiteMainMenu[]} menus all the known menus
  * @returns {WebsiteMainMenu | WebsiteMainMenuItem | undefined} the first menu item from all the menus that matches the current url
  */

@@ -9,7 +9,7 @@ import { RequiredStar } from './RequiredStar';
  */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
@@ -24,7 +24,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {(() => void)} [props.onSubmit]
  * @param {boolean} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Checkbox({
   className,

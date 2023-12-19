@@ -3,7 +3,7 @@ import { joinClassNames } from '@utahdts/utah-design-system';
 /**
  * @param {object} props
  * @param {string} props.className
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function LinkIcon({ className }) {
   return (

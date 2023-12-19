@@ -1,12 +1,12 @@
 /**
  * An XMLHttpRequest that fires callback functions when the request is complete
- * @param {Object} params
+ * @param {object} params
  * @param {string} params.url - URL and parameters of the request
  * @param {string} params.method - 'GET' or 'POST' - defaults to 'GET'
- * @param {Object.<string, string>} params.headers - key:value pairs to set request headers
+ * @param {Record<string, string>} params.headers - key:value pairs to set request headers
  * @param {number} params.timeout - The timeout length
- * @param {function} params.onResolve - Function to call on a successful request
- * @param {function} params.onReject - Function to call on error or timeout
+ * @param {Function} params.onResolve - Function to call on a successful request
+ * @param {Function} params.onReject - Function to call on error or timeout
  */
 export function httpRequest({
   url,

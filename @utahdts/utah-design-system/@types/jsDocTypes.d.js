@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+/** @typedef {import('react')} React */
+
 /**
  * @template ImmerHookT
  * @typedef {import('use-immer').ImmerHook<ImmerHookT>} ImmerHook
@@ -84,12 +86,12 @@
  * }
  */
 
-/** @typedef {Object.<string, any>} TableRecord */
+/** @typedef {Record<string, any>} TableRecord */
 
 /**
  * @typedef TableRecordForFiltering {
- *  @property {Object.<string, any>} record
- *  @property {Object.<string, string>} filterFields
+ *  @property {Record<string, any>} record
+ *  @property {Record<string, string>} filterFields
  * }
  */
 
@@ -121,12 +123,12 @@
 /**
  * @template FormStateT
  * @typedef FormContextValue {
- *  @property {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
+ *  @property {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
  *  @property {React.ChangeEventHandler<HTMLElement>} onSubmit submit the form
  *  @property {import('use-immer').Updater<FormStateT>} setState current values of all the form elements
  *  @property {FormStateT} state current values of all the form elements
  * }
-*/
+ */
 
 /**
  * @template FormContextT
@@ -221,7 +223,7 @@
  *  @property {any} [otherFilterSpecificSettings]
  * }
  */
-/** @typedef {Object.<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
+/** @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
 
 /**
  * @template TableDataT
@@ -231,8 +233,8 @@
 /**
  * @template TableDataT
  * @typedef TableContextStateFilterValues {
- *  @property {Object.<string, any> | null} defaultValue
- *  @property {(({ recordFieldPath, value }: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} onChange
+ *  @property {Record<string, any> | null} defaultValue
+ *  @property {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} onChange
  *  @property {TableContextStateFilterValueObject} value
  * }
  */
@@ -243,7 +245,7 @@
  *  @property {boolean} currentSortingOrderIsDefault
  *  @property {TableContextStateFilterValues<TableDataT>} filterValues
  *  @property {TablePaginationType} [pagination]
- *  @property {Object.<string, TableSortingRuleType<TableDataT>>} sortingRules
+ *  @property {Record<string, TableSortingRuleType<TableDataT>>} sortingRules
  *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
  *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
  *  @property {RecordFieldPath | null} tableSortingFieldPath
@@ -267,7 +269,7 @@
 /**
  * @template TableDataT
  * @typedef TableBodyDataRowContextValue {
- *  @property {(TableDataT & Object.<string, any>) | null} record
+ *  @property {(TableDataT & Record<string, any>) | null} record
  * }
  */
 
@@ -279,7 +281,7 @@
  *  @property {string} [optionGroupId]
  *  @property {string} value
  * }
-*/
+ */
 
 /**
  * @typedef RadioButtonGroupContextValue {
@@ -321,7 +323,7 @@
  *  @property {(option: ComboBoxOptionType) => void} registerOption add a new option
  *  @property {(value: string) => void} unregisterOption remove a known option by its value
  * }
-*/
+ */
 
 /**
  * These are items that don't get updated with state

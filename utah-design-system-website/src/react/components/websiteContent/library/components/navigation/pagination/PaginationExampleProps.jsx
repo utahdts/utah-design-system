@@ -8,11 +8,11 @@ import {
 /** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: PaginationExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {PaginationExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function PaginationExampleProps({ setState, state }) {
   return (

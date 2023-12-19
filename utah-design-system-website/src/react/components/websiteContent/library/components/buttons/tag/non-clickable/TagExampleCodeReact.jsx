@@ -5,9 +5,9 @@ import { SandboxIndent } from '../../../../../../sandbox/SandboxIndent';
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: TagExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TagExampleCodeReact({
   state: {

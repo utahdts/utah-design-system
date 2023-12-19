@@ -5,10 +5,10 @@ import { MenuItem } from './MenuItem';
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {WebsiteMainMenu[]} props.menus
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function VerticalMenu({ currentMenuItem, menus }) {
   return (

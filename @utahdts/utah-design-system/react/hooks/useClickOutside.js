@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 // Improved version of https://usehooks.com/useOnClickOutside/
 /**

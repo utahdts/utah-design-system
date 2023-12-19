@@ -29,7 +29,8 @@
  */
 /**
  * CSS_VARIABLES_KEYS
- * @typedef { '--primary-color' | '--primary-color-dark' | '--primary-color-light' | '--gray-on-primary-color' | '--secondary-color' | '--secondary-color-dark' | '--secondary-color-light' | '--gray-on-secondary-color' | '--accent-color' | '--accent-color-dark' | '--accent-color-light' | '--gray-on-accent-color' | '--gray-color'} CSS_VARIABLES_KEYS
+ * 'selectedColorPicker' is a member just so an object can have a key of that value
+ * @typedef { '--primary-color' | '--primary-color-dark' | '--primary-color-light' | '--gray-on-primary-color' | '--secondary-color' | '--secondary-color-dark' | '--secondary-color-light' | '--gray-on-secondary-color' | '--accent-color' | '--accent-color-dark' | '--accent-color-light' | '--gray-on-accent-color' | '--gray-color' | 'selectedColorPicker'} CSS_VARIABLES_KEYS
  */
 /**
  * LayoutTemplate
@@ -73,7 +74,7 @@
 
 /**
  * @typedef Page {
- *  @property {() => JSX.Element} content
+ *  @property {() => import('react').JSX.Element} content
  *  @property {string[]} [legacyLinks] old links for this component that now redirect to link
  *  @property {string} link !! when this changes, put the old value in legacyLinks !!
  *  @property {NamedMenus} [menuSecondary]
@@ -90,9 +91,9 @@
 
 /**
  * @typedef AppContextValue {
- *  @property {Object.<string, WebsiteMainMenu>} allMenus
- *  @property {Object.<string, Page>} pages
- *  @property {Object.<string, PageUrl>} pageUrls
+ *  @property {Record<string, WebsiteMainMenu>} allMenus
+ *  @property {Record<string, Page>} pages
+ *  @property {Record<string, PageUrl>} pageUrls
  *  @property {AppState} appState
  *  @property {Updater<AppState>} setAppState
  * }
@@ -180,7 +181,7 @@
  * }
  */
 
-/** @typedef {Object.<CSS_VARIABLES_KEYS, string> & {selectedColorPicker: CSS_VARIABLES_KEYS}} CssContextState */
+/** @typedef {Record<CSS_VARIABLES_KEYS, string>} CssContextState */
 
 /**
  * @typedef CssContextValue {
@@ -281,7 +282,7 @@
  * @property {boolean} isPaginating
  * @property {boolean} isSorting
  * }
-*/
+ */
 
 /**
  * @typedef TagExampleBasePropsShape
@@ -292,7 +293,7 @@
  *  @property {string} id
  *  @property {FormElementSizes} size
  *  @property {string} title
-*/
+ */
 /** @typedef {TagExampleBasePropsShape & {isSelected: boolean}} TagExampleClickablePropsShape */
 /** @typedef {TagExampleBasePropsShape & {isClearable: boolean}} TagExampleNonClickablePropsShape */
 /**
@@ -300,7 +301,7 @@
  *  @property {TagExampleClickablePropsShape} clickable
  *  @property {TagExampleNonClickablePropsShape} nonClickable
  * }
-*/
+ */
 
 /**
  * @typedef TextAreaExamplePropsShape {
@@ -315,7 +316,7 @@
  * @property {string} placeholder
  * @property {string} value
  * }
-*/
+ */
 
 /**
  * @typedef TextInputExamplePropsShape {
@@ -329,7 +330,7 @@
  * @property {string} placeholder
  * @property {string} value
  * }
-*/
+ */
 
 /**
  * @typedef TooltipsExamplePropsShape {

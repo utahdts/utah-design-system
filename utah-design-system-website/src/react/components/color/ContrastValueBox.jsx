@@ -4,11 +4,11 @@ import { COLOR_RATINGS } from './COLOR_RATINGS';
 /** @typedef {import('utah-design-system-website').ColorRating} ColorRating */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {ColorRating} props.contrastRating
  * @param {number} props.contrastValue
  * @param {string} props.title
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ContrastValueBox({
   contrastRating,

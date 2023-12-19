@@ -1,12 +1,12 @@
 // The MainContent component renders a <main> tag.
 // Use primarily to provide a target for the skip link.
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.RefObject<HTMLElement>} [props.innerRef]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function MainContent({
   children,

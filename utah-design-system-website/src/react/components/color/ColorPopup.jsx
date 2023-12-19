@@ -11,7 +11,7 @@ import {
   TabPanels,
   useBanner
 } from '@utahdts/utah-design-system';
-import { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
 import { cssContextDefaultColors } from '../../context/cssContext/cssContextDefaultColors';
 import { useCssContext } from '../../context/cssContext/useCssContext';
@@ -29,7 +29,7 @@ import { SwatchList } from './SwatchList';
 /**
  * @param {object} props
  * @param {React.MouseEventHandler<HTMLButtonElement>} props.onClose
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ColorPopup({ onClose }) {
   const [isOpen, setIsOpen] = useImmer(true);
@@ -111,6 +111,7 @@ export function ColorPopup({ onClose }) {
             onClick={() => (
               // @ts-ignore
               setCssState((draftCssState) => (
+                // @ts-ignore
                 Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
               ))
             )}

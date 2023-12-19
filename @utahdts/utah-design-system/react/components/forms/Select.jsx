@@ -8,7 +8,7 @@ import { RequiredStar } from './RequiredStar';
 import { SelectOption } from './SelectOption';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children] the options as children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
@@ -27,7 +27,7 @@ import { SelectOption } from './SelectOption';
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Select({
   children,

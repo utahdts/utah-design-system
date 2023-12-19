@@ -15,7 +15,6 @@ function flattenChildren(parent) {
 
 /**
  * Given lists of menuItems, find the a menuItem that matches the current website path.
- *
  * @param {object} props
  * @param {WebsiteMainMenu[]} props.menus menus in which to search (mainMenu, sidePanel, etc) (see menus.js)
  * @param {string} props.pathname string the current pathname on which to match a menuItem

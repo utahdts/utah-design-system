@@ -11,12 +11,12 @@ import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
 /**
  * renders a badge on an action item
  * @param {Badge | undefined} badge - the action's badge information
- * @return {HTMLElement | null}
+ * @returns {HTMLElement | null}
  */
 export function renderActionItemBadge(badge) {
   let badgeWrapper = null;
   if (badge) {
-    /** @type HTMLElement */
+    /** @type {HTMLElement} */
     badgeWrapper = /** @type {HTMLElement} */(renderDOMSingle(BadgeWrapperHtml));
     badgeWrapper.classList.add(domConstants.BADGE_WRAPPER__ACTION_ITEM);
 

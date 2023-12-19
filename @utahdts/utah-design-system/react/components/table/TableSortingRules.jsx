@@ -2,12 +2,12 @@ import { useContext, useEffect } from 'react';
 import { TableContext } from './util/TableContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.defaultValue]
  * @param {(({recordFieldPath}: {recordFieldPath: string}) => void)} [props.onChange]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableSortingRules({
   children,

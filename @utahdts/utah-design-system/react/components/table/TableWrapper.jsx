@@ -51,12 +51,12 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
 
 /**
  * @template TableDataT extends TableDataT & { [x: string]: any; }
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} [props.id]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableWrapper({
   children,

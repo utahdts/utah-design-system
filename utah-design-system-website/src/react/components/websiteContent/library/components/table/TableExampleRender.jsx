@@ -21,11 +21,11 @@ import { stateSymbols } from '../../../../../consts/stateSymbols';
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: TableExamplePropsShape}>} props.setState
  * @param {{props: TableExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableExampleRender({
   state: {

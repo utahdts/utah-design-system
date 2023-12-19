@@ -14,11 +14,11 @@ import { filterTableRecords } from './util/filterTableRecords';
 
 /**
  * @template RecordT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.recordIdField
  * @param {(RecordT & Object)[]} props.records
- * @returns {JSX.Element[] | null}
+ * @returns {React.JSX.Element[] | null}
  */
 export function TableBodyData({
   children,

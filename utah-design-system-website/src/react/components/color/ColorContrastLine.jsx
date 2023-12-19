@@ -12,7 +12,7 @@ const RATINGS = {
  * @param {object} props
  * @param {string} props.color1
  * @param {string} props.color2
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ColorContrast({
   color1,

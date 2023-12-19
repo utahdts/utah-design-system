@@ -5,9 +5,9 @@ import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 /** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: BannerExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function BannersExampleCodeReact({
   state: {

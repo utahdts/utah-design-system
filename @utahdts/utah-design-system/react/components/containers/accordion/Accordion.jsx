@@ -3,7 +3,7 @@ import { handleEvent } from '../../../util/handleEvent';
 import { joinClassNames } from '../../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.contentClassName]
@@ -12,7 +12,7 @@ import { joinClassNames } from '../../../util/joinClassNames';
  * @param {React.ReactNode} props.headerContent
  * @param {boolean} [props.isOpen]
  * @param {(previousIsOpen: boolean) => void} [props.onToggle]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Accordion({
   children,

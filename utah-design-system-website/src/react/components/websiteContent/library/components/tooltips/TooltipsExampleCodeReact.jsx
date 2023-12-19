@@ -5,10 +5,10 @@ import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
 /** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {Object} props.state
+ * @param {object} props
+ * @param {object} props.state
  * @param {TooltipsExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TooltipsExampleCodeReact({
   state: {

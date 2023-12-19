@@ -20,8 +20,7 @@ import { identity } from 'lodash';
  *     { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle, parentLinks: [pages.library.link, pages.button.link] },
  *   ],
  * }
-
-* Example outgoing data:
+ * Example outgoing data:
  * {
  *   title: 'Buttons',
  *   parentLinks: [pages.library.link],
@@ -30,8 +29,7 @@ import { identity } from 'lodash';
  *     { link: pages.segmentedButton.link, title: pages.segmentedButton.pageTitle, parentLinks: [pages.library.link, pages.button.link] },
  *   ],
  * }
- *
- * @param {Object} param
+ * @param {object} param
  * @param {PageUrl[]} [param.parentLinks] the known parent links passed recursively from parents to children
  * @param {WebsiteMainMenuItem[]} param.menuItems the menuItems for which to add parents
  * @returns {WebsiteMainMenuItem} the menuItems now with parentLinks information

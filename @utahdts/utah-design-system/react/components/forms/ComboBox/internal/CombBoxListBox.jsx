@@ -9,12 +9,12 @@ import { useComboBoxContext } from '../context/useComboBoxContext';
 import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.ariaLabelledById
  * @param {React.ReactNode | null} [props.children]
  * @param {React.MutableRefObject<any>} props.popperReferenceElementRef
  * @param {string} props.id
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function CombBoxListBox({
   ariaLabelledById,

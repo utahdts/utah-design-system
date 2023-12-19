@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
@@ -51,9 +51,9 @@ const fallbackGrayColors = [
 ];
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function CssContextProvider({ children }) {
   const colorsInUrl = colorsFromUrlParams(window.location.search);
@@ -80,21 +80,27 @@ export function CssContextProvider({ children }) {
 
   const [cssState, setCssState] = useImmer(() => {
     const colorsInStorageString = localStorage.getItem(localStorageKeys.COLOR_PICKER_COLORS);
-    const colorsInStorage = colorsInStorageString ? JSON.parse(colorsInStorageString) : cssContextDefaultColors;
+    const colorsInStorage = /** @type {Record<CSS_VARIABLES_KEYS, string>} */ (
+      colorsInStorageString ? JSON.parse(colorsInStorageString) : cssContextDefaultColors
+    );
 
     /** @type {CssContextState} */
+    // @ts-ignore
     const defaultState = {
       selectedColorPicker: CSS_VARIABLES_KEYS.PRIMARY_COLOR,
+      ...cssContextDefaultColors,
     };
 
     // storage trumps defaults
     Object.entries(colorsInStorage || {})
       .filter(([, colorValue]) => !!colorValue)
+      // @ts-ignore
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
     // url trumps storage & default
     Object.entries(colorsInUrl || {})
       .filter(([, colorValue]) => !!colorValue)
+      // @ts-ignore
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
     return defaultState;

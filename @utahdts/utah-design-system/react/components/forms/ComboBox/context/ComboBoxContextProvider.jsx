@@ -23,7 +23,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.comboBoxId
  * @param {string} [props.defaultValue]
@@ -31,7 +31,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  * @param {(() => void)} [props.onClear]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxContextProvider({
   children,

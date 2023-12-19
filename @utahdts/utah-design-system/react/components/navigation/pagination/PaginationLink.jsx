@@ -1,14 +1,14 @@
 import { joinClassNames } from '../../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className] className to put on this element
  * @param {number} props.currentPageIndex the currently selected page
  * @param {string} props.label the actual value shown on the page
  * @param {number} props.numberOfPages total number of pages
  * @param {(newPageIndex: number) => void} props.onChange controlled component: page # changed
  * @param {number} props.pageIndex index of this page out of all the pages (3 means it's the 4th page, 0 means first page)
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function PaginationLink({
   className,

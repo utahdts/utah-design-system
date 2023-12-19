@@ -1,12 +1,12 @@
 import { ExternalLink } from '@utahdts/utah-design-system';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.headingTag
  * @param {string} props.headingTitle
  * @param {string} props.id
  * @param {string} props.linkUrl
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function HeadingWithLink({
   headingTag: HeadingTag,

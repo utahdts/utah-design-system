@@ -1,8 +1,8 @@
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.code]
  * @param {boolean} props.isRenderable
- * @returns {JSX.Element | null}
+ * @returns {React.JSX.Element | null}
  */
 export function ExampleCodeReactCode({ code, isRenderable }) {
   // eslint-disable-next-line react/jsx-one-expression-per-line

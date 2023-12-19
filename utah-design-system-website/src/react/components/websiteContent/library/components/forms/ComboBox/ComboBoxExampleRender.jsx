@@ -7,11 +7,11 @@ import {
 /** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: ComboBoxExamplePropsShape}>} props.setState
  * @param {{props: ComboBoxExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxExampleRender({
   setState,

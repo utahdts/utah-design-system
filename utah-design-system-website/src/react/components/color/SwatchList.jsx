@@ -1,5 +1,5 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import { useCssContext } from '../../context/cssContext/useCssContext';
@@ -7,13 +7,12 @@ import { CSS_CLASS_NAMES } from '../../enums/cssClassNames';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import { notNull } from '../../util/notNull/notNull';
 
+/** @typedef {import('utah-design-system-website').CSS_VARIABLES_KEYS} CSS_VARIABLES_KEYS_TYPE */
 /**
- * @param {Object} props
- * @param {Object} props.colorFamily
- * @param {string} [props.colorFamily.title]
- * @param {tinycolor.ColorInput[]} props.colorFamily.swatches
+ * @param {object} props
+ * @param {{title: string, swatches: tinycolor.ColorInput[]}} props.colorFamily
  * @param {(selectedColor: tinycolor.ColorInput) => void} props.onColorSelected
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function SwatchList({ colorFamily, onColorSelected }) {
   const baseColor = notNull(colorFamily.swatches[4], 'SwatchList: swatches[4]');
@@ -21,7 +20,7 @@ export function SwatchList({ colorFamily, onColorSelected }) {
 
   const { cssState } = useCssContext();
 
-  const [lastSelectedColorPicker, setLastSelectedColorPicker] = useImmer(null);
+  const [lastSelectedColorPicker, setLastSelectedColorPicker] = useImmer(/** @type {CSS_VARIABLES_KEYS_TYPE | null} */(null));
   const [changedColorKeys, setChangedColorKeys] = useImmer(/** @type {string[]} */([]));
   const bounceColorsTimeoutRef = useRef(NaN);
   useEffect(() => () => clearTimeout(bounceColorsTimeoutRef.current), []);

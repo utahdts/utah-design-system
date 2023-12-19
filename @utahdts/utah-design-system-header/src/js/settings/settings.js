@@ -7,7 +7,7 @@ import { settingsKeeper } from './settingsKeeper';
  * @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings
  * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
  * @typedef {import('src/@types/jsDocTypes.d').SettingsInput} SettingsInput
-*/
+ */
 
 function doLoadHeader() {
   removeHeader(false);

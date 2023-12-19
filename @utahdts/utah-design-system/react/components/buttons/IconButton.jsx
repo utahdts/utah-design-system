@@ -8,7 +8,7 @@ import { Tooltip } from '../Tooltip/Tooltip';
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {IconButtonAppearance} [props.appearance] the appearance of the button
  * @param {string} [props.className] css classes for the button
  * @param {'primary' | 'secondary' | 'accent' | 'none'} [props.color] the base color of the button
@@ -21,7 +21,7 @@ import { Tooltip } from '../Tooltip/Tooltip';
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x'} [props.size]
  * @param {string} props.title A title is used for accessibility purposes to describe the button for screen readers
  * @param {string | null} [props.tooltipText]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function IconButton({
   appearance = ICON_BUTTON_APPEARANCE.OUTLINED,

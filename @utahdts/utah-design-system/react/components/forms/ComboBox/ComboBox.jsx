@@ -5,7 +5,7 @@ import { CombBoxListBox } from './internal/CombBoxListBox';
 import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
@@ -24,7 +24,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBox({
   children,

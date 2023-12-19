@@ -10,7 +10,7 @@ import { useAppContext } from '../../context/AppContext/useAppContext';
 import { isLightColor } from '../../util/color/isLightColor';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.className
  * @param {string} [props.colorGray]
  * @param {string} props.id
@@ -20,7 +20,7 @@ import { isLightColor } from '../../util/color/isLightColor';
  * @param {React.MouseEventHandler<HTMLDivElement>} props.onClick
  * @param {string} props.title
  * @param {string} props.value
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ColorPicker({
   className,

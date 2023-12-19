@@ -6,10 +6,10 @@ const COPY_CODE = 'Copy code';
 const COPIED = 'Copied';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.RefObject<HTMLElement>} props.copyRef Ref to the element that will be copied from
  * @param {(copiedText: string) => string} [props.onCopy] allows morphing the text to copy eg. (draftText) => transformedText
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function CopyButton({ copyRef, onCopy }) {
   const { addPoliteMessage } = useAriaMessaging();

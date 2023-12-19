@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useUtahDesignSystemContext } from '../useUtahDesignSystemContext';
 
-/** @return {{addAssertiveMessage: (message: string) => void, addPoliteMessage: (message: string) => void}} */
+/** @returns {{addAssertiveMessage: (message: string) => void, addPoliteMessage: (message: string) => void}} */
 export function useAriaMessaging() {
   const [, setState] = useUtahDesignSystemContext();
 

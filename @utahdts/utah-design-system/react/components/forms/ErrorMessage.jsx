@@ -1,8 +1,8 @@
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.errorMessage]
  * @param {string} props.id
- * @returns {JSX.Element | null}
+ * @returns {React.JSX.Element | null}
  */
 export function ErrorMessage({ errorMessage, id }) {
   return (

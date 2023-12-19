@@ -1,4 +1,4 @@
-import {
+import React, {
   useCallback, useEffect, useMemo, useRef
 } from 'react';
 import { useImmer } from 'use-immer';
@@ -11,7 +11,7 @@ import { PaginationLink } from './PaginationLink';
 import { determinePaginationLinks } from './util/determinePaginationLinks';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.ariaLabel] ariaLabel is used by accessibility to describe the purpose of the pagination
  * @param {string} [props.className] can add your own className to the pagination
  * @param {number} [props.defaultValue] starting page number (for uncontrolled - what good is an uncontrolled Pagination element?)
@@ -21,8 +21,8 @@ import { determinePaginationLinks } from './util/determinePaginationLinks';
  * @param {number} props.pageSize how many items on each "page"
  * @param {number} props.totalNumberItems how many total items there are in the full data set
  * @param {number} [props.value] controlled component: value is the current page number (0 based-index)
- * @param {Object} [props.wrapInElement] if wrapping in `nav`, make sure to provide the ariaLabel
- * @returns {JSX.Element}
+ * @param {'div' | 'nav'} [props.wrapInElement] if wrapping in `nav`, make sure to provide the ariaLabel
+ * @returns {React.JSX.Element}
  */
 export function Pagination({
   ariaLabel,

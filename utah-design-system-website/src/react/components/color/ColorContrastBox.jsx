@@ -1,7 +1,7 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.color1
  * @param {boolean} props.color1IsLight
  * @param {boolean} props.color1ShowHex
@@ -10,7 +10,7 @@ import { joinClassNames } from '@utahdts/utah-design-system';
  * @param {boolean} props.color2IsLight
  * @param {boolean} props.color2ShowHex
  * @param {string} props.color2Title
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ColorContrastBox({
   color1,

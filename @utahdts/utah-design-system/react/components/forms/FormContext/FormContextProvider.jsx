@@ -25,13 +25,13 @@ import { FormContext } from './FormContext';
  *  - form using its own internal state/setState passed
  *
  * @template FormContextStateT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
  * @param {React.ChangeEventHandler<HTMLElement>} [props.onSubmit] called when the form is somehow submitted by a child element
  * @param {FormContextValueUpdater<FormContextStateT>} props.setState setter for setting the `state`
  * @param {FormContextStateT} props.state known by the caller; every field in it with its type
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function FormContextProvider({
   children,

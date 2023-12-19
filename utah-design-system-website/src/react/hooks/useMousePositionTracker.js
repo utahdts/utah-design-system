@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useFriendlyDocumentEvent } from './useFriendlyDocumentEvent';
 import { useStateRef } from './useStateRef';
 
@@ -10,7 +10,7 @@ import { useStateRef } from './useStateRef';
  */
 
 /**
- * @param {Object} param
+ * @param {object} param
  * @param {(e: React.MouseEvent) => boolean} param.shouldBeginDrag helpful to check if click was in a region before dragging (e => {})
  * @returns {{ isDragging: boolean, mousePosition: MousePosition }}
  */

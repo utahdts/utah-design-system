@@ -8,7 +8,7 @@ import { useFormContextInput } from './FormContext/useFormContextInput';
 import { RequiredStar } from './RequiredStar';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
@@ -26,7 +26,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TextArea({
   className,

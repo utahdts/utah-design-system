@@ -1,12 +1,12 @@
 /**
  * search in an object (including itself) for a key. if found, return the object that has the key.
  * includes searching the children of the object
- * @param {Object.<string, any> | any[]} object the object in to which to search
+ * @param {Record<string, any> | any[]} object the object in to which to search
  * @param {string} key the key for which to search in the object and its children
- * @returns {Object.<string, any>[]} the objects with the key
+ * @returns {Record<string, any>[]} the objects with the key
  */
 export function objectsWithKey(object, key) {
-  /** @type {Object.<string, any>[]} */
+  /** @type {Record<string, any>[]} */
   const foundObjects = [];
   if (object && typeof object === 'object') {
     // @ts-ignore

@@ -3,12 +3,13 @@ import { split } from 'lodash';
 /**
  * @template ObjectT
  * @template ValueT
- * @param {Object} param
+ * @param {object} param
  * @param {ObjectT | null} param.object
  * @param {string} param.path
  * @returns {ValueT}
  */
 export function valueAtPath({ object, path }) {
+  // eslint-disable-next-line jsdoc/no-undefined-types
   return /** @type {ValueT} */ (
     /** @type {any} */ (
       split(path, '.').reduce(

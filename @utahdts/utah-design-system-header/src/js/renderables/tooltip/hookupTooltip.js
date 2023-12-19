@@ -12,7 +12,7 @@ let tooltipCloseTimeoutId = NaN;
 /**
  * @param {HTMLElement} element the element from which the tooltip will trigger
  * @param {Node} dom the dom to show in the tooltip
-*/
+ */
 export function hookupTooltip(element, dom) {
   const tooltip = renderDOMSingle(TooltipHTML);
   const tooltipContent = tooltip.querySelector(getCssClassSelector(domConstants.TOOLTIP__CONTENT));

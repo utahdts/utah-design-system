@@ -7,14 +7,14 @@ import { FormContextProvider } from './FormContext/FormContextProvider';
 
 /**
  * @template FormContextStateT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
  * @param {(e?: React.ChangeEvent) => void} [props.onSubmit]
  * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
  * @param {FormContextStateT} [props.state]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Form({
   children,
@@ -42,7 +42,7 @@ export function Form({
     () => (
       onChange ?? (
         /**
-         * @param {Object} param
+         * @param {object} param
          * @param {string} param.fieldPath
          * @param {any} param.value
          */

@@ -4,9 +4,9 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: IconButtonExampleProps}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function IconButtonExampleCodeReact({
   state: {

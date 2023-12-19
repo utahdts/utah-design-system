@@ -2,14 +2,14 @@ import { ExternalLink } from '@utahdts/utah-design-system';
 import { LightBox } from '../../../lightbox/LightBox';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.agency
  * @param {string} props.id
  * @param {React.ReactNode} props.image
  * @param {string} [props.text]
  * @param {string} props.title
  * @param {string} props.url
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ShowcaseExample({
   agency,

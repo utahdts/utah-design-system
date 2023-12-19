@@ -5,7 +5,7 @@ import { useInterval } from './useInterval';
 /**
  * This ONLY works if line wrapping is turned off because it counts line endings. Otherwise, soft wraps throw off the
  * current line #.
- * @param {React.MutableRefObject<HTMLTextAreaElement | null>} textAreaRef the textarea for which to track the current cursor position
+ * @param {import('react').MutableRefObject<HTMLTextAreaElement | null>} textAreaRef the textarea for which to track the current cursor position
  * @returns {{ column: number, position: number, row: number }}
  */
 export function useTextAreaCaretRowColumn(textAreaRef) {

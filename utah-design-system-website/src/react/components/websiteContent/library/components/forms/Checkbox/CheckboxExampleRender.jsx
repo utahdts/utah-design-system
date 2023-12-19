@@ -3,12 +3,12 @@ import { Checkbox } from '@utahdts/utah-design-system';
 /** @typedef {import('utah-design-system-website').CheckboxExamplePropsShape} CheckboxExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: CheckboxExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {CheckboxExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function CheckboxExampleRender({
   setState,

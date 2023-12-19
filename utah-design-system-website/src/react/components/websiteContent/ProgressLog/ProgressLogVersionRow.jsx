@@ -4,9 +4,9 @@ import {
 } from '@utahdts/utah-design-system';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.version
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ProgressLogVersionRow({ version }) {
   return (

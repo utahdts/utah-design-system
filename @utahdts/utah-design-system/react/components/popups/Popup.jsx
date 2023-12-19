@@ -10,7 +10,7 @@ import { IconButton } from '../buttons/IconButton';
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.ariaLabelledBy usually the id of the button that controls the popup
  * @param {React.ReactNode} props.children The content of the popup
  * @param {string} [props.className] CSS class to apply to the popup
@@ -23,7 +23,7 @@ import { IconButton } from '../buttons/IconButton';
  * @param {PopupPlacement} [props.placement] The Popper Placement
  * @param {React.RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
  * @param {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} props.role popup must tell its role for accessibility
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Popup({
   ariaLabelledBy,

@@ -9,7 +9,7 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.a11yLabel the A11y notification to be read when this sort rule is applied
  * @param {TableSortingFunc<TableDataT>} [props.customSort] should be a function that does sorting
  * @param {boolean} [props.defaultIsAscending] should the field sort ascending by default

@@ -13,7 +13,13 @@ import { hideMobileMenu } from './util/showHideHamburgerElements';
  */
 export function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
-  const hamburgerNotNull = /** @param {string} context */ (context) => notNull(hamburger, `hookupHamburger: hamburger required but is null: ${context}`);
+  const hamburgerNotNull = (
+    /**
+     * @param {string} context
+     * @returns {HTMLElement}
+     */
+    (context) => notNull(hamburger, `hookupHamburger: hamburger required but is null: ${context}`)
+  );
 
   const settings = getUtahHeaderSettings();
   const actionItemHasBadge = settings.actionItems?.some((actionItem) => !!actionItem.badge);

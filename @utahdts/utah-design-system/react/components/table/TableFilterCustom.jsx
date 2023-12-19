@@ -8,12 +8,12 @@ import { TableContext } from './util/TableContext';
 /** @typedef {(setter: ((param: TableContextStateFilterValueObject) => void)) => void} SetterFunc */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => JSX.Element} props.children
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableFilterCustom({
   children,

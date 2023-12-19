@@ -6,7 +6,7 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {TableContextStateFilterValueObject} [props.defaultValue]
@@ -14,7 +14,7 @@ import { TableContext } from './util/TableContext';
  * @param {string} [props.id]
  * @param {(({ recordFieldPath, value }: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} [props.onChange]
  * @param {TableContextStateFilterValueObject} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableFilters({
   children,

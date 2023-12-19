@@ -2,9 +2,7 @@
 import { sizes } from '@utahdts/utah-design-system-header';
 import logoPng from './static/images/designSystemCircleGray.png';
 
-/**
- * @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput
-*/
+/** @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput */
 
 /**
  * These are the base default settings for the Design System Website

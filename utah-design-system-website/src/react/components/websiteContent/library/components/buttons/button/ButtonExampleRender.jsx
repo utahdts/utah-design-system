@@ -7,11 +7,11 @@ import {
 /** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: ButtonExamplePropsShape}>} props.setState
  * @param {{props: ButtonExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLButtonElement>} props.innerRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ButtonExampleRender({
   state: {

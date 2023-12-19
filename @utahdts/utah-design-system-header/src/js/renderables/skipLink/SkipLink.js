@@ -8,7 +8,6 @@ import { domConstants, getCssClassSelector } from '../../enumerations/domConstan
 
 /**
  * Renders the skip link if the setting `skipLinkUrl` is set.
- *
  * @returns {Element | null}
  */
 export function SkipLink() {

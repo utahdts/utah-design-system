@@ -5,9 +5,9 @@ import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 /** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: ConfirmationButtonExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ConfirmationButtonExampleCodeReact({
   state: {

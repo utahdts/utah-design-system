@@ -48,7 +48,6 @@ const utahIdData = {
 
 /**
  * when auth status changes, call this to notify the world including the Sign In button
- *
  * @param {UtahIdData} newUtahIdData the current information to store
  */
 function maybeTriggerAuthEvent(newUtahIdData) {

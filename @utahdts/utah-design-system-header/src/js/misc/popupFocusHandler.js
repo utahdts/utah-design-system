@@ -59,7 +59,6 @@ import { showHideElement } from './showHideElement';
  * for both onClicks AND tabbing to focus is pretty complicated. The idea is that while the
  * button OR menu has focus, the menu is shown. Also global events like clicking off the wrapper
  * or pressing escape should also close the popup.
- *
  * @param {HTMLElement} wrapper the wrapper containing the button and popup
  * @param {HTMLElement} button the button that toggles the popup to open/close
  * @param {HTMLElement} popup the actual popup being opened and closed

@@ -56,12 +56,12 @@ function testMainMenuHasChildren() {
 /**
  * @param {HTMLElement | null} menuItem1ChildrenMenu
  * @param {number} menuItemCount
- * @returns {NodeListOf<HTMLElement> | undefined}
+ * @returns {HTMLElement[] | undefined}
  */
 function testMainMenuHasChildrenCount(menuItem1ChildrenMenu, menuItemCount) {
   const menuItem1ChildrenMenuItems = menuItem1ChildrenMenu?.querySelectorAll('.vertical-menu__item');
   expect(menuItem1ChildrenMenuItems?.length).toBe(menuItemCount);
-  return /** @type {NodeListOf<HTMLElement> | undefined} */ (menuItem1ChildrenMenuItems);
+  return menuItem1ChildrenMenuItems && /** @type {HTMLElement[]} */ (Array.from(menuItem1ChildrenMenuItems));
 }
 
 function testMainMenuHasNoChildren() {

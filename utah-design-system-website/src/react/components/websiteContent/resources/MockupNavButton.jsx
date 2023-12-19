@@ -2,9 +2,9 @@ import { Icons } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{title: string, url: string}[]} props.pageLinks
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function MockupNavButton({ pageLinks }) {
   return (

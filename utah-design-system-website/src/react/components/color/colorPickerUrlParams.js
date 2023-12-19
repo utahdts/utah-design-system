@@ -34,7 +34,7 @@ export function colorsToUrlParams(cssState) {
 /**
  * given a url param, pull out color information
  * @param {string} windowLocationSearch the result of window.location.search (doesn't do it itself so can be passed in for testing)
- * @returns {Object.<string, string | null>}
+ * @returns {Record<string, string | null>}
  */
 export function colorsFromUrlParams(windowLocationSearch) {
   const resultColors = Object.fromEntries(Object.entries(CSS_VARIABLES_KEYS).map(([, colorKey]) => [colorKey, /** @type {string | null} */ (null)]));

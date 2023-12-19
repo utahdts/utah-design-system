@@ -12,15 +12,15 @@ import { useBanner } from '../hooks/useBanner';
 
 /** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBannerWithId} UtahDesignSystemContextBannerWithId */
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {UtahDesignSystemContextBannerWithId[]} props.banners
  * @param {number} [props.bannerDuration]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function BannersGlobal({ banners, bannerDuration }) {
   const { removeBanner } = useBanner();
-  const timers = useMemo(() => /** @type {Object.<string, number>} */({}), []);
-  const [zones, setZones] = useImmer(/** @type {Object.<string, UtahDesignSystemContextBannerWithId[]>} */({}));
+  const timers = useMemo(() => /** @type {Record<string, number>} */({}), []);
+  const [zones, setZones] = useImmer(/** @type {Record<string, UtahDesignSystemContextBannerWithId[]>} */({}));
   const currentOnClose = useCallback(
     /**
      * @param {React.MouseEvent | undefined} e
@@ -40,7 +40,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
   );
 
   useEffect(() => {
-    const draftZones = /** @type {Object.<string, UtahDesignSystemContextBannerWithId[]>} */ ({});
+    const draftZones = /** @type {Record<string, UtahDesignSystemContextBannerWithId[]>} */ ({});
     const uniqueZones = [...new Set(banners.map((banner) => banner.position))];
     uniqueZones.forEach((zone) => {
       if (zone) {

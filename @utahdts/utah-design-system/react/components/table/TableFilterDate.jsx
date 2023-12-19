@@ -4,7 +4,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
 
 /**
  * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {TableDataT} [props.defaultValue]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
@@ -12,7 +12,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {(e: React.ChangeEvent) => TableDataT} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {TableDataT} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableFilterDate({
   className,

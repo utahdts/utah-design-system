@@ -14,7 +14,7 @@ import { moveComboBoxSelectionUp } from './functions/moveComboBoxSelectionUp';
 import { selectComboBoxSelection } from './functions/selectComboBoxSelection';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.identifiesWithOptionGroupId] some things like group labels are focusable in the list, but not filterable, this is their `id`
@@ -22,7 +22,7 @@ import { selectComboBoxSelection } from './functions/selectComboBoxSelection';
  * @param {boolean} [props.isStatic] static options are always visible and not filterable
  * @param {string} props.label
  * @param {string} props.value
- * @returns {JSX.Element | null}
+ * @returns {React.JSX.Element | null}
  */
 export function ComboBoxOption({
   children,

@@ -39,7 +39,6 @@ function renderDOM(str) {
 
 /**
  * Pull first element out of a collection if a collection was rendered
- *
  * @param {string | HTMLElement} str
  * @returns {HTMLElement}
  */
@@ -48,8 +47,8 @@ export function renderDOMSingle(str) {
   if (dom instanceof HTMLCollection && dom.length > 1) {
     throw new Error('renderDOMSingle: must render a single element');
   }
-  /** @type HTMLElement | null */
-  const firstChild = /** @type HTMLElement | null */ (dom instanceof HTMLCollection ? dom[0] : dom);
+  /** @type {HTMLElement | null} */
+  const firstChild = /** @type {HTMLElement | null} */ (dom instanceof HTMLCollection ? dom[0] : dom);
   if (!firstChild) {
     // eslint-disable-next-line no-console
     console.error(str);

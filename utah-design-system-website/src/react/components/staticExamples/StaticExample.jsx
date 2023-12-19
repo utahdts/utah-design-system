@@ -1,13 +1,13 @@
 import { joinClassNames, stringToId } from '@utahdts/utah-design-system';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.ReactNode} [props.quickTips]
  * @param {React.ReactNode} props.renderedExample
  * @param {string} [props.title]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function StaticExample({
   className,

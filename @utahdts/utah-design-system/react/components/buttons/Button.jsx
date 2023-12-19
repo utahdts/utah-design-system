@@ -1,3 +1,4 @@
+import React from 'react';
 import { BUTTON_APPEARANCE, BUTTON_TYPES } from '../../enums/buttonEnums';
 import { componentColors } from '../../enums/componentColors';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
@@ -11,7 +12,7 @@ import { Spinner } from '../widgetsIndicators/Spinner';
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {ButtonAppearance} [props.appearance] the appearance of the button
  * @param {React.ReactNode} props.children most often is the title of the button, but can also contain most anything
  * @param {string} [props.className] modify your button via className like 'button--primary' and other modifiers found in the button.scss
@@ -25,7 +26,7 @@ import { Spinner } from '../widgetsIndicators/Spinner';
  * @param {React.MouseEventHandler} props.onClick event for when the button is clicked: (e) => { ... do something with e ...}
  * @param {FormElementSizes} [props.size]
  * @param {ButtonTypes} [props.type] button type
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Button({
   appearance = BUTTON_APPEARANCE.OUTLINED,

@@ -67,7 +67,7 @@ export function TableDocumentationSortingTableExample() {
                   // sort by lastName
                   customSort={
                     /**
-                     * @param {Object} param
+                     * @param {object} param
                      * @param {string} param.fieldValueA
                      * @param {string} param.fieldValueB
                      * @returns {number}

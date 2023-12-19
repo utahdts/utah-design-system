@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useUtahDesignSystemContext } from '../useUtahDesignSystemContext';
 
@@ -15,7 +15,7 @@ export function useBanner() {
 
   const addBanner = useCallback(
     /**
-     * @param {Object} param
+     * @param {object} param
      * @param {string} [param.className]
      * @param {number} [param.duration]
      * @param {string} [param.id]

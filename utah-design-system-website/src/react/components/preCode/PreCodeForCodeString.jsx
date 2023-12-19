@@ -3,15 +3,15 @@ import { PreCode } from './PreCode';
 import { formatPreCode } from './formatPreCode';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.codeRaw
  * @param {boolean} [props.addHorizontalPadding]
  * @param {boolean} [props.allowScrollOverflow]
  * @param {string} [props.className]
  * @param {string} [props.maxHeight]
- * @param {Object} [props.propsForPre]
+ * @param {object} [props.propsForPre]
  * @param {boolean} [props.showBackgroundColor]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function PreCodeForCodeString({
   codeRaw,

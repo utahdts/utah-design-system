@@ -1,8 +1,8 @@
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {String|null} props.title
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function FooterSocialMediaBar({ children, title = 'Follow us online' }) {
   return (

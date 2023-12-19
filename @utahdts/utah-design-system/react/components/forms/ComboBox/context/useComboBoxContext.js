@@ -3,7 +3,7 @@ import { ComboBoxContext } from './ComboBoxContext';
 
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContext} ComboBoxContextType */
 
-/** @return {ComboBoxContextType} */
+/** @returns {ComboBoxContextType} */
 export function useComboBoxContext() {
   return useContext(ComboBoxContext);
 }

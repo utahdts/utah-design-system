@@ -5,7 +5,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
 
 /**
  * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string | number} [props.defaultValue]
@@ -15,7 +15,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {((e: React.ChangeEvent) => TableDataT)} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string | number} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableFilterSelect({
   children,

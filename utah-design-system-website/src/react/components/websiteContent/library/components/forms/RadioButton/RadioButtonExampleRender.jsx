@@ -3,11 +3,11 @@ import { RadioButton, RadioButtonGroup } from '@utahdts/utah-design-system';
 /** @typedef {import('utah-design-system-website').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: RadioButtonExamplePropsShape}>} props.setState
  * @param {{props: RadioButtonExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function RadioButtonExampleRender({
   setState,

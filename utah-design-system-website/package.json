@@ -43,5 +43,9 @@
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-mkcert": "1.17.1",
     "vitest": "1.0.4"
-  }
+  },
+  "eslint.workingDirectories": [
+    "./src",
+    "./test"
+  ]
 }

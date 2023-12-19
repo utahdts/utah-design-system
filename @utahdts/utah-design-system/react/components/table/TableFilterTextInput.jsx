@@ -4,7 +4,7 @@ import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {boolean} [props.exactMatch]
@@ -13,7 +13,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {((e: React.ChangeEvent) => (string | void | undefined))} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableFilterTextInput({
   className,

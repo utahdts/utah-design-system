@@ -13,7 +13,7 @@ import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonC
 /** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {ButtonAppearance} [props.appearance]
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
@@ -26,7 +26,7 @@ import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonC
  * @param {React.MouseEventHandler} props.onClick
  * @param {FormElementSizes} [props.size]
  * @param {ButtonTypes} [props.type]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ConfirmationButton({
   appearance,

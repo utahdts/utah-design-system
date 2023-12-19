@@ -7,9 +7,9 @@ import { notNull } from '../notNull';
  * Keep in mind that React does pointer comparison to see if an object has changed
  * so shallow cloning all objects in the path notifies React of changes along that path.
  * Methodology
- *   1) do a shallow clone of the state
- *   2) shallow clone the object that is changing and all the objects in the path to that object
- *   3) deep clone the new value
+ * 1) do a shallow clone of the state
+ * 2) shallow clone the object that is changing and all the objects in the path to that object
+ * 3) deep clone the new value
  *
  * note: if path to the object doesn't exist then it won't be created; but if the field in the object doesn't exist then it will be created
  *
@@ -28,12 +28,12 @@ import { notNull } from '../notNull';
  * value = 4
  * result: { a: { b: { c: 3 } } }
  * note that the 'e' field did not get created because there is no 'd' object
- *
  * @template SetValueAtPathT
- * @param {Object} params
- * @param {Object.<string, any>} params.object
+ * @param {object} params
+ * @param {Record<string, any>} params.object
  * @param {string} params.path
  * @param {SetValueAtPathT} params.value
+ * @returns {Record<string, any>}
  */
 export function setValueAtPath({ object, path, value }) {
   // not a deep clone; does not create a new object because immer will do that

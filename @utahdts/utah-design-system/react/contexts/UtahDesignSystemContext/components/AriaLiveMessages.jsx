@@ -20,10 +20,10 @@ function setupDefaultLists(numberOfLists) {
 const NUMBER_REGIONS = 100;
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {AriaLiveType} props.ariaLiveType
  * @param {React.ReactNode[]} props.messages
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function AriaLiveMessages({ ariaLiveType, messages }) {
   const messagesLists = useMemo(

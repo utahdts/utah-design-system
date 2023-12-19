@@ -3,12 +3,12 @@ import { useImmer } from 'use-immer';
 import { useKeyEventGlobal } from '../../hooks/useKeyEventGlobal';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.alt
  * @param {string} [props.className]
  * @param {boolean} [props.hideAlt]
  * @param {React.ReactNode} props.image
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function LightBox({
   alt,

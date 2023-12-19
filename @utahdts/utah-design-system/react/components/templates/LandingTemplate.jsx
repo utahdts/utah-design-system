@@ -1,7 +1,7 @@
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {() => JSX.Element} props.content
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function LandingTemplate({ content: Content }) {
   return (<Content />);

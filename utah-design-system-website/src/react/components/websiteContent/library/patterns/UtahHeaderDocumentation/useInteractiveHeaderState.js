@@ -13,22 +13,18 @@ import { stringifyHeaderSettings } from './stringifyHeaderSettings';
 
 /**
  * @typedef {import('@utahdts/utah-design-system-header').Settings} Settings
-*/
+ */
 
 /**
  * @typedef InteractiveHeaderState {
  *  @property {string} headerString
- *  @property {(s: String) => void} setHeaderString
+ *  @property {(s: string) => void} setHeaderString
  *  @property {Settings} headerSettings
  *  @property {import('use-immer').Updater<Settings>} setHeaderSettings
- *
  *  @property {boolean} headerIsOn
  *  @property {import('use-immer').Updater<boolean>} setHeaderIsOn
- *
  *  @property {Settings} originalHeader
- *
  *  @property {string | null} parseError
- *
  *  @property {() => void} reset
  * }
  */
@@ -65,7 +61,7 @@ export function useInteractiveHeaderState() {
   /**
    * Outside influences may have changed the header (like adding a logo image), so
    * get the current settings before clobbering them with the "interactive" settings
-   * @param {React.SetStateAction<boolean>} headerIsOnMaybeFunc either the new value or a function (old) => new
+   * @param {import('react').SetStateAction<boolean>} headerIsOnMaybeFunc either the new value or a function (old) => new
    */
   const setHeaderIsOnSafely = useCallback(
     /** @param {boolean | import('use-immer').DraftFunction<boolean>} headerIsOnMaybeFunc */

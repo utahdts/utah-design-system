@@ -1,7 +1,7 @@
 /** @typedef {import('@utahdts/utah-design-system').HierarchyNode} HierarchyNode */
 /**
  * @param {Element[]} headers
- * @returns
+ * @returns {HierarchyNode[]}
  */
 export function groupElementsByHeaderLevel(headers) {
   if (!headers?.length) {

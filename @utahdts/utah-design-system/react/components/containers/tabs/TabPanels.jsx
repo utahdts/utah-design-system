@@ -1,7 +1,7 @@
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TabPanels({ children }) {
   return (

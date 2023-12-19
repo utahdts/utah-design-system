@@ -5,7 +5,7 @@ import { joinClassNames } from '../../util/joinClassNames';
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className] modify your tag via className like 'tag--primary' and other modifiers found in the tag.scss
  * @param {string} [props.id] the tag id
@@ -16,7 +16,7 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {boolean} [props.isSelected]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick] (e) => { ... do something with e ...}
  * @param {FormElementSizes} [props.size]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ClickableTag({
   children,

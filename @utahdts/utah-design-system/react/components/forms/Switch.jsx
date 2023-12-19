@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
 import { joinClassNames } from '../../util/joinClassNames';
 import { setValueAtPath } from '../../util/state/setValueAtPath';
@@ -7,7 +7,7 @@ import { ErrorMessage } from './ErrorMessage';
 import { useFormContext } from './FormContext/useFormContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
@@ -24,7 +24,7 @@ import { useFormContext } from './FormContext/useFormContext';
  * @param {React.ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]
  * @param {number} [props.width]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Switch({
   className,
@@ -54,7 +54,8 @@ export function Switch({
     () => {
       if (value !== undefined) {
         setState?.(
-          /** @param {Object.<String, any>} draftState */
+          /** @param {Record<string, any>} draftState */
+          // @ts-ignore
           (draftState) => {
             setValueAtPath({
               object: draftState,
@@ -77,7 +78,8 @@ export function Switch({
     (e) => {
       if (setState) {
         setState(
-          /** @param {Object.<String, any>} draftState */
+          /** @param {Record<string, any>} draftState */
+          // @ts-ignore
           (draftState) => {
             setValueAtPath({
               object: draftState,

@@ -1,4 +1,4 @@
-import {
+import React, {
   useCallback,
   useContext,
   useEffect,
@@ -19,9 +19,8 @@ import { TableContext } from './util/TableContext';
  * This function takes these values in to account and provides a current value and onChange event
  * The passed in values trump those of the parent context. A local state is used if neither passed in nor
  * context have a value.
- *
  * @template TableDataT
- * @param {Object} param the path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
+ * @param {object} param the path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
  * @param {string} param.contextStatePath path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
  * @param {(e: React.ChangeEvent) => TableDataT} param.defaultOnChange
  * @param {TableDataT | null} param.defaultValue starting value for this component (controlled and uncontrolled)

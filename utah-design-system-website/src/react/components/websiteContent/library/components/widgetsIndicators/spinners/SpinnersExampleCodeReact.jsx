@@ -3,9 +3,9 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /** @typedef {import('utah-design-system-website').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: SpinnersExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function SpinnersExampleCodeReact({
   state: {

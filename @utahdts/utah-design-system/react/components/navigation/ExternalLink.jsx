@@ -1,8 +1,8 @@
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.href
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ExternalLink({ children, href, ...rest }) {
   return (

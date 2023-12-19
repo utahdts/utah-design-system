@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 /**
  *
- * @param {Object} param
+ * @param {object} param
  * @param {string} param.whichKeyCode
  * @param {React.KeyboardEventHandler} [param.onKeyDown]
  * @param {React.KeyboardEventHandler} [param.onKeyUp]

@@ -4,7 +4,7 @@ import { RequiredStar } from '../RequiredStar';
 import { RadioButtonGroupContextProvider } from './context/RadioButtonGroupContextProvider';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue] starting value if not controlled
@@ -14,7 +14,7 @@ import { RadioButtonGroupContextProvider } from './context/RadioButtonGroupConte
  * @param {string} props.label
  * @param {(newValue: string) => void} [props.onChange] respond to changes of current value if controlled
  * @param {string} [props.value] value of the currently selected Radio Button if controlled
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function RadioButtonGroup({
   children,

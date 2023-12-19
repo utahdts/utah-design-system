@@ -16,13 +16,13 @@ import { ProgressLogCheckboxUnchecked } from './ProgressLogCheckboxUnchecked';
 import { ProgressLogVersionRow } from './ProgressLogVersionRow';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.title
  * @param {string} props.toUrl
  * @param {boolean} [props.isDefinitionChecked]
  * @param {boolean} [props.isCssChecked]
  * @param {boolean} [props.isComponentExampleChecked]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 function ProgressLogTableRow({
   title,

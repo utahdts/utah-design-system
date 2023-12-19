@@ -3,9 +3,9 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /** @typedef {import('utah-design-system-website').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: RadioButtonExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function RadioButtonExampleCodeReact({
   state: {

@@ -4,9 +4,9 @@ import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: TableExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableExampleCodeReact({
   state: {

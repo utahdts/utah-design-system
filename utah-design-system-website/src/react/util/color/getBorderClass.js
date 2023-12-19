@@ -3,7 +3,7 @@ import { CSS_CLASS_NAMES } from '../../enums/cssClassNames';
 import { isLightColor } from './isLightColor';
 
 /**
- * @param {Object} param
+ * @param {object} param
  * @param {tinycolor.ColorInput} param.backgroundColor
  * @param {tinycolor.ColorInput} param.foregroundColor
  * @param {number} [param.targetContrast]

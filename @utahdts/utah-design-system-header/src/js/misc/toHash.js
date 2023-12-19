@@ -1,7 +1,9 @@
 /* eslint-disable no-bitwise */
 
-/** https://stackoverflow.com/a/8076436/1478933
+/**
+ * https://stackoverflow.com/a/8076436/1478933
  * @param {object | string} thing the thing to hash
+ * @returns {number}
  */
 export function toHash(thing) {
   let hash = 0;

@@ -3,7 +3,7 @@ import { isLightColor } from './isLightColor';
 
 /**
  * Given a color (#123123) and a colorList, find the first color on the list the conforms to the target level: AA or AAA
- * @param {Object} obj
+ * @param {object} obj
  * @param {string} obj.color - The main color to compare with.
  * @param {string[]} obj.colorList - The list of colors to find the first readable color
  * @param {number} [obj.minimumContrast]

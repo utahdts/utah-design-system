@@ -6,13 +6,13 @@ import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 /** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContextValue} RadioButtonGroupContextValue */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.defaultValue]
  * @param {string} props.name
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function RadioButtonGroupContextProvider({
   children,

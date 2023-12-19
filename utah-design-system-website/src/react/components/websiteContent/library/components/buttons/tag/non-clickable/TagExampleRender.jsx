@@ -3,11 +3,11 @@ import { Tag, useBanner } from '@utahdts/utah-design-system';
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
  * @param {{props: TagExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TagExampleRender({
   state: {

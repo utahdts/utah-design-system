@@ -7,7 +7,7 @@
 /**
  * convert a table record in to a filtering record that has the record and each filterable field formatted for filtering
  * @param {TableRecordForFiltering[]} records the data records in a table that are being filtered
- * @param {Object.<string, TableFilterFunction>} filterRules The current filter values and settings
+ * @param {Record<string, TableFilterFunction>} filterRules The current filter values and settings
  * @returns {TableRecord[]}
  */
 export function filterTableRecords(records, filterRules) {

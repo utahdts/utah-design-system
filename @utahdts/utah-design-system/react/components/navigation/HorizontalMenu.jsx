@@ -5,14 +5,14 @@ import { MenuItem } from './MenuItem';
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {string} props.id
  * @param {WebsiteMainMenu} props.menu
  * @param {string} [props.titleTagClassName]
  * @param {'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'} [props.titleTagName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function HorizontalMenu({
   className,

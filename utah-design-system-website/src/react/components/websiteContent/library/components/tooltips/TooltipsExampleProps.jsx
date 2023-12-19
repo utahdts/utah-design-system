@@ -12,11 +12,11 @@ import {
 /** @typedef {import('use-immer').Updater<TooltipsExamplePropsShape>} UpdaterTooltipsExampleProps */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {any} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {TooltipsExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TooltipsExampleProps({ setState, state }) {
   return (

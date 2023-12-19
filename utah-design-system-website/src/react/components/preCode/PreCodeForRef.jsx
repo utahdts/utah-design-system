@@ -3,16 +3,16 @@ import { useLayoutEffect, useState } from 'react';
 import { PreCodeForCodeString } from './PreCodeForCodeString';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {any[]} props.deps what dependencies determine when the targetRef has changed content
  * @param {React.RefObject<HTMLElement>} props.targetRef target DOM element from which to pull the DOM string
  * @param {boolean} [props.addHorizontalPadding]
  * @param {boolean} [props.allowScrollOverflow]
  * @param {string} [props.className]
  * @param {string} [props.maxHeight]
- * @param {Object} [props.propsForPre]
+ * @param {object} [props.propsForPre]
  * @param {boolean} [props.showBackgroundColor]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function PreCodeForRef({
   deps,

@@ -1,5 +1,5 @@
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {React.RefObject<HTMLOptionElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]

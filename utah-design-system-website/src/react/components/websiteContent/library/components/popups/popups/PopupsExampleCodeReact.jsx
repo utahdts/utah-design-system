@@ -4,9 +4,9 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: PopupsExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function PopupsExampleCodeReact({
   state: {

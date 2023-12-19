@@ -1,14 +1,14 @@
 /** @typedef {import('@utahdts/utah-design-system').Address} Address */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.agencyTitleFirstLine ie Utah Department of (smaller font above main title)
  * @param {string} props.agencyTitleSecondLine ie Government Operations (larger font below firstLine)
  * @param {Address} props.address
  * @param {string} props.email
  * @param {React.ReactNode} props.logo
  * @param {string} [props.phone]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function FooterAgencyInformationInfo({
   agencyTitleFirstLine,

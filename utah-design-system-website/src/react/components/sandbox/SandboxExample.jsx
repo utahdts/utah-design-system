@@ -24,7 +24,7 @@ import { PreCodeForRef } from '../preCode/PreCodeForRef';
 
 /**
  * @template SandboxExamplePropsT
- * @param {Object} props
+ * @param {object} props
  * @param {ReactFCStater<SandboxExamplePropsT>} props.CODE_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.PROPS_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.RENDER_EXAMPLE
@@ -33,7 +33,7 @@ import { PreCodeForRef } from '../preCode/PreCodeForRef';
  * @param {string} [props.componentClassName]
  * @param {string} [props.propsInputsClassName]
  *
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function SandboxExample({
   CODE_EXAMPLE,

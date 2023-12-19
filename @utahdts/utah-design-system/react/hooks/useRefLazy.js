@@ -5,7 +5,7 @@ import { useRef } from 'react';
  * lazy loads the ref like how useState() can lazy load state via a function
  * @template T
  * @param {T | (() => T)} lazyValue
- * @returns {React.MutableRefObject<T>}
+ * @returns {import('react').MutableRefObject<T>}
  */
 export function useRefLazy(lazyValue) {
   const isLoadedRef = useRef(false);

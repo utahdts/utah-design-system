@@ -1,12 +1,12 @@
 import { MainContent } from './MainContent';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {() => JSX.Element} props.content
  * @param {React.RefObject<HTMLElement>} [props.contentRef]
  * @param {React.ReactNode} props.sidePanelRightContent
  * @param {React.ReactNode} [props.sidePanelLeftContent]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function DocumentationTemplate({
   content: Content,

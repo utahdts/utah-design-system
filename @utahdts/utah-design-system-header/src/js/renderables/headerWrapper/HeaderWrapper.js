@@ -21,7 +21,6 @@ import { UtahLogo } from '../utahLogo/UtahLogo';
 /**
  * Creates the header wrapper DOM and appends the:
  * Utah logo, flexible space, Agency Logo, and citizen experience (action items, utah id button) to it.
- *
  * @returns {Element}
  */
 export function HeaderWrapper() {

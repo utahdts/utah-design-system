@@ -63,7 +63,7 @@ export function TableDocumentationFooterExample() {
                 recordFieldPath="name"
                 customSort={
                   /**
-                   * @param {Object} param
+                   * @param {object} param
                    * @param {string} param.fieldValueA
                    * @param {string} param.fieldValueB
                    * @returns {number}

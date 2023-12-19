@@ -30,6 +30,7 @@ const pageUrlReverseLookup = (
  * the title path has spaces slashes uppercase and all sorts of tom-foolery
  * convert it to the pageUrl format so it can match the pageUrl path
  * @param {string} menuItemTitlePath
+ * @returns {string}
  */
 function cleanMenuItemTitlePath(menuItemTitlePath) {
   let resultPath = menuItemTitlePath;

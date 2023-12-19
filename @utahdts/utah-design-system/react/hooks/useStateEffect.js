@@ -31,11 +31,11 @@ Example new code:
 /** @deprecated use useMemo and useCallback instead */
 /**
  * @template DataT
- * @param {Object} param
+ * @param {object} param
  * @param {(previousValue: null | DataT) => DataT} param.calculateValueFn
  * @param {() => void} [param.onUnmountFn]
  * @param {any[]} param.dependencyList
- * @returns {[DataT, React.Dispatch<React.SetStateAction<DataT>>]}
+ * @returns {[DataT, import('react').Dispatch<import('react').SetStateAction<DataT>>]}
  */
 export function useStateEffect({ calculateValueFn, onUnmountFn, dependencyList }) {
   const [state, setState] = useState(() => calculateValueFn(null));

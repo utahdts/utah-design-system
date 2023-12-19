@@ -4,10 +4,10 @@ import { useLocation } from 'react-router-dom';
 /** @typedef {import('utah-design-system-website').Page} Page */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {Page} props.page
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function RoutePage({ children, page }) {
   const location = useLocation();

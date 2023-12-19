@@ -10,10 +10,10 @@ import { Icons } from '../icons/Icons';
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {WebsiteMainMenuItem} props.menuItem
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function MenuItem({ currentMenuItem, menuItem }) {
   const { pathname } = useLocation();

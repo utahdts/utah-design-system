@@ -29,7 +29,7 @@ import { renderPopup } from '../popup/renderPopup';
 
 /**
  * @param {HTMLElement} element the ul or child of a ul that has uls inside of it that need open/closed
-*/
+ */
 function toggleChildMenuExpansion(element) {
   const parent = element.closest('li');
   if (!parent) {
@@ -64,7 +64,7 @@ function toggleChildMenuExpansion(element) {
 
 /**
  * @param {HTMLElement} htmlElement the element on which to toggle opening and closing its children
- * @returns {function(this: GlobalEventHandlers, MouseEvent): any} an event handler for toggling open child menus
+ * @returns {(e: MouseEvent) => void} an event handler for toggling open child menus
  */
 function handleMenuExpansion(htmlElement) {
   return (e) => {
@@ -87,7 +87,7 @@ function renderChevron() {
  * @param {Element} menuUl
  * @param {MenuItem} popupMenuItem
  * @param {RenderPopupMenuOptions} options
- * @return {HTMLElement}
+ * @returns {HTMLElement}
  */
 function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   const menuItemWrapper = renderDOMSingle(PopupMenuItemHtml);
@@ -95,15 +95,15 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   if (!menuItemTitleWrapper) {
     throw new Error('renderPopupMenuItem: menuItemTitleWrapper not found');
   }
-  const menuButton = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE)));
+  const menuButton = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE)));
   if (!menuButton) {
     throw new Error('renderPopupMenuItem: menuButton not found');
   }
-  const menuAHref = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TITLE)));
+  const menuAHref = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TITLE)));
   if (!menuAHref) {
     throw new Error('renderPopupMenuItem: aHref not found');
   }
-  const plainTitle = /** @type HTMLElement | null */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__PLAIN_TITLE)));
+  const plainTitle = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__PLAIN_TITLE)));
   if (!plainTitle) {
     throw new Error('renderPopupMenuItem: plainTitle not found');
   }
@@ -198,7 +198,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
         menuItemWrapper.addEventListener('focusin', (e) => {
           // Do not stop propagation as trickling-up will make parents open
           // if e.target is switched to e.currenttarget then tabbing through child popup menus does not open the children
-          for (let childUl = /** @type Element | null | undefined */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
+          for (let childUl = /** @type {Element | null | undefined} */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
             childUl.classList.remove(domConstants.VISUALLY_HIDDEN);
             menuButton.setAttribute('aria-expanded', 'true');
             // if target is the button then don't expand chevron just yet, wait for a child to be visible

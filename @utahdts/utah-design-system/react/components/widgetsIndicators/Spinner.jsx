@@ -1,7 +1,7 @@
 import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
@@ -9,7 +9,7 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {number} [props.size]
  * @param {number} [props.strokeWidth]
  * @param {number} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Spinner({
   children,

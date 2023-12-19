@@ -9,10 +9,10 @@ import { BannersGlobal } from './components/BannersGlobal';
 
 /**
  * provider that wraps the app at the top level
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {UtahDesignSystemDefaultSettings} props.defaultSettings
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function UtahDesignSystemContextProvider({ children, defaultSettings }) {
   const immerHook = /** @type {typeof useImmer<UtahDesignSystemContextValue>} */ (useImmer)(() => ({

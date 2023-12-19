@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { valueAtPath } from '../../../util/state/valueAtPath';
 import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { useFormContext } from './useFormContext';
@@ -20,11 +20,10 @@ import { useFormContext } from './useFormContext';
  * If an input is not inside a form context (ignoring default context) then it is uncontrolled.
  * This hook takes the passed in values from the input and trumps the form context or
  * leaves the values undefined to allow for uncontrolled mode.
- *
  * @template FormContextT
  * @template ValueT
  * @template HTMLElementT
- * @param {Object} param
+ * @param {object} param
  * @param {ValueT} [param.defaultValue] starting value of the component
  * @param {string} param.id id of the component that is also the path to the data for the component in the form context
  * @param {React.ChangeEventHandler<HTMLElementT>} [param.onChange] when component changes, call this (e) => void
@@ -77,7 +76,7 @@ export function useFormContextInput({
   const internalOnClear = useCallback(
     /** @param {React.UIEvent<HTMLElementT>} e */
     // @ts-ignore
-    (e) => contextOnChange?.({ e, fieldPath: id, value: '' }),
+    (e) => { contextOnChange?.({ e, fieldPath: id, value: '' }); },
     [contextOnChange, id]
   );
 

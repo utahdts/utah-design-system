@@ -4,7 +4,7 @@ import { hideMobileMenu, showMobileMenu } from './util/showHideHamburgerElements
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
-*/
+ */
 
 /**
  * @param {HTMLElement} mobileMenuWrapper

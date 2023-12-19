@@ -12,11 +12,11 @@ import { iconsDocumentationIcons } from '../../../../resources/IconsDocumentatio
 /** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: IconButtonExampleProps}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {IconButtonExampleProps} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function IconButtonExampleProps({ setState, state }) {
   return (

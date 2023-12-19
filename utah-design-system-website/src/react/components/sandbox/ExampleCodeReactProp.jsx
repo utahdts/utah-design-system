@@ -1,10 +1,10 @@
 import { SandboxIndent } from './SandboxIndent';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string | null} [props.displayProp]
  * @param {number} props.indentLevel
- * @returns {JSX.Element | null}
+ * @returns {React.JSX.Element | null}
  */
 export function ExampleCodeReactProp({ displayProp, indentLevel }) {
   return (

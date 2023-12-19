@@ -6,11 +6,11 @@ import {
 /** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: ConfirmationButtonExamplePropsShape}>} props.setState
  * @param {{props: ConfirmationButtonExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLButtonElement>} props.innerRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ConfirmationButtonExampleRender({
   state: {

@@ -4,7 +4,7 @@ import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children] if this header cell is "sortable", the children will be wrapped in a <button>, so be careful!
  * @param {string} [props.className]
  * @param {string} [props.id] field related to this column. CellTemplate and RowTemplate can define a field. used for sorting and filtering.
@@ -17,7 +17,7 @@ import { TableContext } from './util/TableContext';
  *  rowgroup: The header belongs to a rowgroup and relates to all of its cells.
  *  colgroup: The header belongs to a colgroup and relates to all of its cells.
  * @param {string[]} [props.tableSortingFieldPaths]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableHeadCell({
   children,

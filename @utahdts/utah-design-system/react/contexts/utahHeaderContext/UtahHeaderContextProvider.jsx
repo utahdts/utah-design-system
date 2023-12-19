@@ -7,10 +7,10 @@ import { UtahHeaderContext } from './UtahHeaderContext';
 
 /**
  * provider that wraps the app at the top level
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {SettingsInput} [props.defaultSettings]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function UtahHeaderContextProvider({ children, defaultSettings }) {
   const [settings, setSettings, settingsRef] = (

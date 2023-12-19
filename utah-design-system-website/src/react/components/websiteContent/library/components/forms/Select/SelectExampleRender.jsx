@@ -3,11 +3,11 @@ import { Select, SelectOption } from '@utahdts/utah-design-system';
 /** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: SelectExamplePropsShape}>} props.setState
  * @param {{props: SelectExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function SelectExampleRender({
   setState,

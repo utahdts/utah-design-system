@@ -11,7 +11,7 @@ import { TableCell } from './TableCell';
 
 /**
  * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode | ((record: TableBodyDataRowContextValue<TableDataT>) => JSX.Element)} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
@@ -19,7 +19,7 @@ import { TableCell } from './TableCell';
  * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onClick]
  * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onDoubleClick]
  * @param {string} [props.recordFieldPath] the field path in the record to the data to render in the <td>; ie 'person.contact.address.city'
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableBodyDataCellTemplate({
   children,

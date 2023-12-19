@@ -4,17 +4,17 @@ import { htmlDecode } from '../../util/htmlDecode';
 
 /**
  * @typedef Header {
- *  @property {Object} node
+ *  @property {object} node
  *  @property {2 | 3 | 4} level
  *  @property {Header[]} children
  * }
  */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {HierarchyNode[]} [props.children]
  * @param {HierarchyNode[]} props.headersLevel
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function OnThisPageHeadersLevel({ headersLevel }) {
   return (

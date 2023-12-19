@@ -7,11 +7,11 @@ import {
 /** @typedef {import('utah-design-system-website').TextInputExamplePropsShape} TextInputExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: TextInputExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {TextInputExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TextInputExampleProps({ setState, state }) {
   return (

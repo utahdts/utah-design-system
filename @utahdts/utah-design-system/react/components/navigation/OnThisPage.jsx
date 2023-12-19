@@ -3,9 +3,9 @@ import { findElementsByTagNameMatch } from './util/findElementsByTagNameMatch';
 import { groupElementsByHeaderLevel } from './util/groupElementsByHeaderLevel';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.MutableRefObject<HTMLElement | null>} props.contentRef
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function OnThisPage({ contentRef }) {
   const headers = findElementsByTagNameMatch(contentRef.current);

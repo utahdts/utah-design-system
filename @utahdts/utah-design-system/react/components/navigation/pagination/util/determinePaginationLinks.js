@@ -1,5 +1,5 @@
 /**
- * @param {Object} param
+ * @param {object} param
  * @param {number} param.currentPageIndex
  * @param {number} param.numberOfPages
  * @returns {{ isEllipsis: boolean, title?: string, label: string | null, pageIndex: number }[]}

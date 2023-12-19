@@ -1,10 +1,10 @@
 import { ConfirmationButtonContext } from './ConfirmationButtonContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {boolean} props.isClicked
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ConfirmationButtonContextProvider({
   children,

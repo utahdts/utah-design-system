@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 /**
  * @template KeyboardEventHandlerT
- * @param {Object} params
+ * @param {object} params
  * @param {string} params.whichKeyCode
  * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyDown]
  * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyUp]
+ * @returns {boolean}
  */
 export function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
   const [keyPressed, setKeyPressed] = useState(false);

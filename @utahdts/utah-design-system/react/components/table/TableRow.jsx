@@ -1,14 +1,14 @@
 import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {import('react').MouseEventHandler<HTMLTableRowElement>} [props.onClick]
  * @param {import('react').MouseEventHandler<HTMLTableRowElement>} [props.onDoubleClick]
- * @returns {JSX.Element | null}
+ * @returns {React.JSX.Element | null}
  */
 export function TableRow({
   children,

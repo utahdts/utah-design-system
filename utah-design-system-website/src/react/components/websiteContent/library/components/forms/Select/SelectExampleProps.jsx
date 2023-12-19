@@ -9,11 +9,11 @@ import {
 /** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: SelectExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {SelectExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function SelectExampleProps({ setState, state }) {
   return (

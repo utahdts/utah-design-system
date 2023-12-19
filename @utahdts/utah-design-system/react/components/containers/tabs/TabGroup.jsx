@@ -6,13 +6,13 @@ import { TabGroupContext } from './TabGroupContext';
 /** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {(newTabId: string) => void} [props.onChange]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TabGroup({
   children,

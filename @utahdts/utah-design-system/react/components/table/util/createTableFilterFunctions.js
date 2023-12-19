@@ -5,8 +5,8 @@
 
 /**
  * convert each filter in to a function that will validate that filter rule (value, exactMatch, etc)
- * @param {Object.<string, TableFilterValue>} filterValues the filters
- * @returns {Object.<string, TableFilterFunction>} a function for each filter key that takes a value and determines if it matches the filter
+ * @param {Record<string, TableFilterValue>} filterValues the filters
+ * @returns {Record<string, TableFilterFunction>} a function for each filter key that takes a value and determines if it matches the filter
  */
 export function createTableFilterFunctions(filterValues) {
   return (

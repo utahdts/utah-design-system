@@ -1,12 +1,12 @@
 import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableFootRow({
   children,

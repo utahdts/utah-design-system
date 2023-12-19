@@ -8,11 +8,11 @@ import {
 /** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: BannerExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {BannerExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function BannersExampleProps({ setState, state }) {
   return (

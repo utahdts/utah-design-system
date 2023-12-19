@@ -2,7 +2,7 @@ import { settingsKeeper } from './settingsKeeper';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
-*/
+ */
 
 /**
  * an easy to use function, this is what the world expects.

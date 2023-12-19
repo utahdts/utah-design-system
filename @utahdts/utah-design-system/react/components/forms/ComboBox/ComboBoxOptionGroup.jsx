@@ -3,10 +3,10 @@ import { ComboBoxOption } from './ComboBoxOption';
 import { ComboBoxOptionGroupContextProvider } from './context/ComboBoxOptionGroupContextProvider';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.label
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxOptionGroup({
   children,

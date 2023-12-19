@@ -3,10 +3,10 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /** @typedef {import('utah-design-system-website').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {Object} props.state
+ * @param {object} props
+ * @param {object} props.state
  * @param {TextAreaExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TextAreaExampleCodeReact({
   state: {

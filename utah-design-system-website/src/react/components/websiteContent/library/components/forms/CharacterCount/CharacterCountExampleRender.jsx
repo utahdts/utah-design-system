@@ -3,12 +3,12 @@ import { CharacterCount, TextArea } from '@utahdts/utah-design-system';
 /** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: CharacterCountExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {CharacterCountExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function CharacterCountExampleRender({
   setState,

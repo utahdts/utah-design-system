@@ -45,7 +45,6 @@ function loadCssSettings() {
 /**
  * Based on the current settings, determine in to which DOM element to insert the utah design system header.
  * defaults to document.body (at the top)
- *
  * @returns {HTMLElement}
  */
 function determineTargetElementForHeader() {

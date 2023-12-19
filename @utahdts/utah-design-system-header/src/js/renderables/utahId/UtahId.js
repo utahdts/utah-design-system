@@ -20,9 +20,9 @@ import { renderMenu } from '../popupMenu/renderPopupMenu';
  * @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem
  * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
  * @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData
-*/
+ */
 
-/** @type UtahIdData | null */
+/** @type {UtahIdData | null} */
 let utahIdData = null;
 
 /**
@@ -124,7 +124,7 @@ export function renderUtahIdMenu(shouldAddMenuTitle) {
       title: '--divider--',
     });
   }
-  /** @type MenuItem[] */
+  /** @type {MenuItem[]} */
   const popupMenuItems = [
     ...customUtahIdMenuItems,
     {

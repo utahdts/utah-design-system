@@ -10,7 +10,7 @@ import { toSafeString } from '../../../util/toSafeString';
 /**
  * convert a table record in to a filtering record that has the record and each filterable field formatted for filtering
  * @param {TableRecord[]} records the data records in a table that are being filtered
- * @param {Object.<string, TableFilterValue>} filterValues The current filter values and settings
+ * @param {Record<string, TableFilterValue>} filterValues The current filter values and settings
  * @returns {TableRecordForFiltering[]}
  */
 export function convertRecordsToFilterValue(records, filterValues) {

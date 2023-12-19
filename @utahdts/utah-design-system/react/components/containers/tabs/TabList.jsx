@@ -3,10 +3,10 @@ import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './TabGroupContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TabList({ children, className }) {
   const { tabGroupId } = useContext(TabGroupContext);
