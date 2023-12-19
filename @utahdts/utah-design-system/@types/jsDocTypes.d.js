@@ -144,10 +144,10 @@
  */
 
 /**
- * @typedef UtahDesignSystemContextBanner {
+ * @typedef UtahDesignSystemContextBannerWithId {
  *  @property {string} [className]
  *  @property {number} [duration]
- *  @property {string} [id]
+ *  @property {string} id
  *  @property {React.ReactNode} [icon]
  *  @property {React.ReactNode} message
  *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
@@ -156,10 +156,10 @@
  */
 
 /**
- * @typedef UtahDesignSystemContextBannerWithId {
+ * @typedef UtahDesignSystemContextBanner {
  *  @property {string} [className]
  *  @property {number} [duration]
- *  @property {string} id
+ *  @property {string} [id]
  *  @property {React.ReactNode} [icon]
  *  @property {React.ReactNode} message
  *  @property {(e: React.MouseEvent | undefined) => void} [onClose]

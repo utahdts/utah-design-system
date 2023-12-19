@@ -9,9 +9,21 @@ import {
   TabList,
   TabPanel,
   TabPanels,
+  useBanner
 } from '@utahdts/utah-design-system';
 import { useCallback, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
+import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
+import useCssContext from '../../context/cssContext/useCssContext';
+import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import useMousePositionTracker from '../../hooks/useMousePositionTracker';
+import colors from '../../util/color/colors';
+import pageUrls from '../routing/pageUrls';
+import ColorContrasts from './ColorContrasts';
+import ColorPicker from './ColorPicker';
+import ColorPickerInstructions from './ColorPickerInstructions';
+import { colorsToUrlParams } from './colorPickerUrlParams';
+import SwatchList from './SwatchList';
 import { cssContextDefaultColors } from '../../context/cssContext/cssContextDefaultColors';
 import { useCssContext } from '../../context/cssContext/useCssContext';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
@@ -36,6 +48,7 @@ export function ColorPopup({ onClose }) {
   const [mousePositionOffset, setMousePositionOffset] = useImmer({ x: 0, y: 0 });
   const draggableDivRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [copiedUrlTitle, setCopiedUrlTitle] = useState('Share colors');
+  const { addBanner } = useBanner();
 
   const { mousePosition } = useMousePositionTracker({
     shouldBeginDrag: (e) => {
@@ -122,7 +135,10 @@ export function ColorPopup({ onClose }) {
               const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
               navigator.clipboard.writeText(returnUrl)
                 .then(() => {
-                  console.log('Colors copied to clipboard ready to share!', returnUrl);
+                  addBanner({
+                    message: <div>Colors copied to clipboard ready to share!<br />{returnUrl}</div>,
+                    position: 'top-right',
+                  });
                   setCopiedUrlTitle('Share URL copied to to clipboard');
                   setTimeout(() => {
                     setCopiedUrlTitle('Share URL');

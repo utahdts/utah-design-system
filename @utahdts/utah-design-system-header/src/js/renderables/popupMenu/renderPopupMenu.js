@@ -295,6 +295,10 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     menuItemWrapper.classList.remove(selectedClassName);
   }
 
+  if (popupMenuItem.className) {
+    menuItemWrapper.classList.add(popupMenuItem.className);
+  }
+
   menuUl.appendChild(menuItemWrapper);
 
   return menuItemWrapper;

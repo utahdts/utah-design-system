@@ -10,6 +10,11 @@ export const actionItemsOn = [{
 export const actionItemsOff = undefined;
 export const utahIdOn = true;
 export const utahIdOff = false;
-// eslint-disable-next-line no-alert
-export const searchOn = (search) => alert(`${search}!`);
+export const searchOn = (
+  /** @param {string} search */
+  (search) => {
+    // eslint-disable-next-line no-alert
+    alert(`${search}!`);
+  }
+);
 export const searchOff = undefined;

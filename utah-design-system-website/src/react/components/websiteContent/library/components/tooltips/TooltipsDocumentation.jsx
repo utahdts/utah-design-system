@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { ICON_BUTTON_APPEARANCE, IconButton, popupPlacement, useBanner } from '@utahdts/utah-design-system';
 import {
   ICON_BUTTON_APPEARANCE, IconButton, popupPlacement, useBanner
 } from '@utahdts/utah-design-system';
@@ -38,25 +39,25 @@ export function TooltipsDocumentation() {
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the gear icon button' })}
+              onClick={() => addBanner({ message: 'Triggered the gear icon button', position: 'top-right' })}
               title="Gear icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-plus" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the plus icon button' })}
+              onClick={() => addBanner({ message: 'Triggered the plus icon button', position: 'top-right' })}
               title="Plus icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the bookmark icon button' })}
+              onClick={() => addBanner({ message: 'Triggered the bookmark icon button', position: 'top-right' })}
               title="Bookmark icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the help icon button' })}
+              onClick={() => addBanner({ message: 'Triggered the help icon button', position: 'top-right' })}
               title="Help icon button"
             />
           </>

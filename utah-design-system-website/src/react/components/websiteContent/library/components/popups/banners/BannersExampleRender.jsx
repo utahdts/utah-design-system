@@ -22,6 +22,7 @@ export function BannersExampleRender({
       icon,
       message,
       position,
+      size,
     },
   },
   innerRef,
@@ -31,7 +32,7 @@ export function BannersExampleRender({
     <div>
       <Button
         onClick={() => addBanner({
-          className: joinClassNames(className, color),
+          className: joinClassNames(className, color, size),
           duration: 5000,
           icon: icon !== 'none' ? <span className={icon} aria-hidden="true" /> : null,
           message,
@@ -44,7 +45,7 @@ export function BannersExampleRender({
         <Banner
           id="banners-example-render"
           innerRef={innerRef}
-          className={joinClassNames(className, color)}
+          className={joinClassNames(className, color, size)}
           position={position}
           onClose={() => console.log('Make sure to close the banner!')}
         >

@@ -15,13 +15,13 @@ export function useBanner() {
 
   const addBanner = useCallback(
     /**
-     * @param {Object} props
-     * @param {string} [props.className]
-     * @param {number} [props.duration]
-     * @param {string} [props.id]
-     * @param {React.ReactNode} [props.icon]
-     * @param {React.ReactNode} props.message
-     * @param {BannerPlacement} [props.position]
+     * @param {string} [className]
+     * @param {number} [duration]
+     * @param {string} [id]
+     * @param {React.ReactNode} [icon]
+     * @param {React.ReactNode} message
+     * @param {() => void} [onClose]
+     * @param {BannerPlacement} [position]
      */
     ({
       className,
@@ -29,6 +29,7 @@ export function useBanner() {
       id,
       icon,
       message,
+      onClose,
       position = 'bottom-left',
     }) => {
       setState((draftState) => {
@@ -38,6 +39,7 @@ export function useBanner() {
           icon,
           id: id || uuidv4(),
           message,
+          onClose,
           position,
         });
       });

@@ -5,6 +5,15 @@ import {
   InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import LightBox from '../../../../../lightbox/LightBox';
+import pageUrls from '../../../../../routing/pageUrls';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import StaticExample from '../../../../../staticExamples/StaticExample';
+import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleCodeReact';
+import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
+import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
@@ -66,7 +75,7 @@ export function ConfirmationButtonDocumentation() {
               className="mx-spacing-xs"
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => addBanner({ message: 'Confirmation button clicked' }), [addBanner])}
+              onClick={() => addBanner({ message: 'Confirmation button clicked' })}
             >
               <InitialChildren>
                 Primary
@@ -79,7 +88,7 @@ export function ConfirmationButtonDocumentation() {
               className="mx-spacing-xs"
               appearance="solid"
               color="secondary"
-              onClick={useCallback(() => addBanner({ message: 'Confirmation button clicked' }), [addBanner])}
+              onClick={() => addBanner({ message: 'Confirmation button clicked' })}
             >
               <InitialChildren>
                 Secondary
@@ -92,7 +101,7 @@ export function ConfirmationButtonDocumentation() {
               className="mx-spacing-xs"
               appearance="solid"
               color="accent"
-              onClick={useCallback(() => addBanner({ message: 'Confirmation button clicked' }), [addBanner])}
+              onClick={() => addBanner({ message: 'Confirmation button clicked' })}
             >
               <InitialChildren>
                 Accent

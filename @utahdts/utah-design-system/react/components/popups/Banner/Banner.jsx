@@ -34,7 +34,7 @@ export function Banner({
       role="status"
     >
       {children}
-      <div className="banner__close-button">
+      <div className="banner__close-button flex flex-col justify-center">
         <IconButton
           aria-hidden="true"
           appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}

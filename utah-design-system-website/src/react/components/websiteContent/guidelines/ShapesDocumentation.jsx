@@ -1,4 +1,9 @@
 /* eslint-disable max-len */
+import { Link } from 'react-router-dom';
+import { Button, useBanner } from '@utahdts/utah-design-system';
+import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
+import pageUrls from '../../routing/pageUrls';
+import StaticExample from '../../staticExamples/StaticExample';
 import { Button } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
@@ -6,6 +11,7 @@ import { pageUrls } from '../../routing/pageUrls';
 import { StaticExample } from '../../staticExamples/StaticExample';
 
 export function ShapesDocumentation() {
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Shape - Rounded Corners</h1>
@@ -34,7 +40,12 @@ export function ShapesDocumentation() {
               <code>12px</code>
             </div>
             <div className="flex flex-col items-center">
-              <Button onClick={() => console.log('click')} className="button--primary-color button--solid mb-spacing-s">Button</Button>
+              <Button
+                onClick={() => addBanner({ message: 'Click!', position: 'top-right' })}
+                className="button--primary-color button--solid mb-spacing-s"
+              >
+                Button
+              </Button>
               <code>999px</code>
             </div>
           </div>

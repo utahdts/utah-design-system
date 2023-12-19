@@ -62,9 +62,9 @@
           right: 0;
         }
 
-        &--info, &--warning, &--danger, &--success {
+        &--info, &--warning, &--danger, &--success, &--dark {
           color: white;
-          .banner__close-button button {
+          .banner__close-button button, a {
             color: white;
           }
         }
@@ -80,6 +80,19 @@
         }
         &--success {
           background-color: var(--success-color);
+        }
+        &--dark {
+          background-color: var(--gray-color);
+        }
+
+        &--small {
+          max-width: 320px;
+        }
+        &--medium {
+          max-width: 640px;
+        }
+        &--large {
+          max-width: 960px;
         }
       }
     }
