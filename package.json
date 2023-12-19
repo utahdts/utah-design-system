@@ -64,7 +64,7 @@
     "reset": "run-s cleani websiteDev",
     "sitemap": "run-s generateSitemap submitSitemap",
     "tsc": "run-s tscHeader tscLibrary tscWebsite",
-    "tscw": "run-s tscwHeader tscwDesign tscwWebsite"
+    "tscw": "run-s tscwHeader tscLibrary tscwWebsite"
   },
   "devDependencies": {
     "@types/js-beautify": "1.14.3",

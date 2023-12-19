@@ -152,6 +152,7 @@
  *  @property {React.ReactNode} message
  *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
  *  @property {BannerPlacement} [position]
+ *  @property {'small' | 'medium' | 'large'} [size]
  * }
  */
 
@@ -164,6 +165,7 @@
  *  @property {React.ReactNode} message
  *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
  *  @property {BannerPlacement} [position]
+ *  @property {'small' | 'medium' | 'large'} [size]
  * }
  */
 

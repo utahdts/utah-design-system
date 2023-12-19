@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { ICON_BUTTON_APPEARANCE, IconButton, popupPlacement, useBanner } from '@utahdts/utah-design-system';
 import {
   ICON_BUTTON_APPEARANCE, IconButton, popupPlacement, useBanner
 } from '@utahdts/utah-design-system';

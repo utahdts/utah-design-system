@@ -13,17 +13,6 @@ import {
 } from '@utahdts/utah-design-system';
 import { useCallback, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
-import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
-import useCssContext from '../../context/cssContext/useCssContext';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import useMousePositionTracker from '../../hooks/useMousePositionTracker';
-import colors from '../../util/color/colors';
-import pageUrls from '../routing/pageUrls';
-import ColorContrasts from './ColorContrasts';
-import ColorPicker from './ColorPicker';
-import ColorPickerInstructions from './ColorPickerInstructions';
-import { colorsToUrlParams } from './colorPickerUrlParams';
-import SwatchList from './SwatchList';
 import { cssContextDefaultColors } from '../../context/cssContext/cssContextDefaultColors';
 import { useCssContext } from '../../context/cssContext/useCssContext';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';

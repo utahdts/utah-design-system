@@ -1,7 +1,7 @@
-import { joinClassNames } from '../../../util/joinClassNames';
-import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import { IconButton } from '../../buttons/IconButton';
 import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
+import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
 
 /** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 /**
@@ -12,6 +12,7 @@ import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
  * @param {React.Ref<HTMLDivElement>} [props.innerRef]
  * @param {React.MouseEventHandler} props.onClose
  * @param {BannerPlacement} [props.position]
+ * @param {'small' | 'medium' | 'large'} [props.size]
  * * @returns {JSX.Element}
  */
 export function Banner({
@@ -21,13 +22,15 @@ export function Banner({
   innerRef,
   onClose,
   position = BANNER_PLACEMENT.BOTTOM_LEFT,
+  size,
 }) {
   return (
     <div
       className={joinClassNames(
         'banner__wrapper',
         className,
-        `banner--${position}`
+        `banner--${position}`,
+        size && `banner--${size}`
       )}
       id={id}
       ref={innerRef}

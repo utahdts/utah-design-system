@@ -5,16 +5,6 @@ import {
   InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import LightBox from '../../../../../lightbox/LightBox';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleCodeReact';
-import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
-import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
-import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';

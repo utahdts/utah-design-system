@@ -7,13 +7,6 @@ import {
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import bannerLandmarkScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannerLandmark.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import BannersExampleCodeReact from './BannersExampleCodeReact';
-import BannersExampleProps from './BannersExampleProps';
-import BannersExampleRender from './BannersExampleRender';
-import bannersLargeScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersLarge.jpg';
-import bannersMediumScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannersMedium.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -43,7 +36,7 @@ export function BannersDocumentation() {
           icon: 'none',
           message: 'Here is some information.',
           position: 'top',
-          size: 'banner--small',
+          size: 'small',
         }}
         CODE_EXAMPLE={BannersExampleCodeReact}
         PROPS_EXAMPLE={BannersExampleProps}

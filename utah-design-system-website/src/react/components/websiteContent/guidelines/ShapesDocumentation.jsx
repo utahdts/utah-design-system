@@ -1,10 +1,5 @@
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
 import { Button, useBanner } from '@utahdts/utah-design-system';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
-import pageUrls from '../../routing/pageUrls';
-import StaticExample from '../../staticExamples/StaticExample';
-import { Button } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';

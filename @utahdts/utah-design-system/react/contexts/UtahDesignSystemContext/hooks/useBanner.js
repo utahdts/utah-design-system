@@ -15,13 +15,14 @@ export function useBanner() {
 
   const addBanner = useCallback(
     /**
-     * @param {string} [className]
-     * @param {number} [duration]
-     * @param {string} [id]
-     * @param {React.ReactNode} [icon]
-     * @param {React.ReactNode} message
-     * @param {() => void} [onClose]
-     * @param {BannerPlacement} [position]
+     * @param {Object} param
+     * @param {string} [param.className]
+     * @param {number} [param.duration]
+     * @param {string} [param.id]
+     * @param {React.ReactNode} [param.icon]
+     * @param {React.ReactNode} param.message
+     * @param {(e: React.MouseEvent | undefined) => void} [param.onClose]
+     * @param {BannerPlacement} [param.position]
      */
     ({
       className,

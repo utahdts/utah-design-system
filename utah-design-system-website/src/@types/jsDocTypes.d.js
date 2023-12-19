@@ -111,6 +111,7 @@
  *  @property {string} icon
  *  @property {string} message
  *  @property {BannerPlacement} position
+ *  @property {'small' | 'medium' | 'large'} size
  * }
  */
 
