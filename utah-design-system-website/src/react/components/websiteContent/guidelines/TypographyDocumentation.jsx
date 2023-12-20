@@ -35,7 +35,7 @@ export function TypographyDocumentation() {
       <h2 id="section-font-family" className="mb-spacing">Font Family</h2>
       <p>
         The Utah Design System recommends the follow font family pairings.
-        In the majority of cases these fonts are an excellent choice for websites and applications within the State of Utah.
+        In the majority of cases these fonts are an excellent choice for websites and applications within the state of Utah.
         These fonts were carefully chosen for ease of reading and professional appearance.
       </p>
       <p className="mb-auto">

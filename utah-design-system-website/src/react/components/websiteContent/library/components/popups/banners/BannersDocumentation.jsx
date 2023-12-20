@@ -243,7 +243,7 @@ export function BannersDocumentation() {
             </li>
             <li>
               Using the same large banner for critical messaging across agencies helps create a consistent and predictable way for users
-              to find urgent information across all State of Utah websites.
+              to find urgent information across all state of Utah websites.
             </li>
           </ul>
         )}

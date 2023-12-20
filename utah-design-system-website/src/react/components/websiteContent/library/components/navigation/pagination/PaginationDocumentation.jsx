@@ -39,7 +39,7 @@ export function PaginationDocumentation() {
         title="Pagination"
         renderedExample={(
           <div className="flex flex-col items-center">
-            <h4 className="mb-spacing-xs">Symbols of the State of Utah</h4>
+            <h4 className="mb-spacing-xs">Symbols of the state of Utah</h4>
             <ul style={{ height: '115px', width: '90%' }}>
               {
                 stateSymbols

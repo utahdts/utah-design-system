@@ -49,7 +49,7 @@ export function AccessibilityDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Accessibility Overview</h1>
       <p className="lead-in">
-        One of the top goals at the State of Utah is to make websites and applications, across our many different agencies accessible for
+        One of the top goals at the state of Utah is to make websites and applications, across our many different agencies accessible for
         all people including those with varying impairments. By prioritizing accessibility, we demonstrate our commitment to those we serve
         by fostering a sense of inclusivity, and ultimately enhance the user experience for everyone.
       </p>
@@ -93,7 +93,7 @@ export function AccessibilityDocumentation() {
       </ul>
 
       <p>
-        The State of Utah Design System provides accessible components as well as guidance for each component in our <Link to={pageUrls.library}>Library</Link>. The components
+        The state of Utah Design System provides accessible components as well as guidance for each component in our <Link to={pageUrls.library}>Library</Link>. The components
         are vetted using WCAG 2.1 standards and the U.S. Design System.
       </p>
 
@@ -360,7 +360,7 @@ export function AccessibilityDocumentation() {
         </strong>.
       </p>
       <p>
-        All State of Utah agency websites must provide adequate contrast between text and its background (or an object and its background)
+        All state of Utah agency websites must provide adequate contrast between text and its background (or an object and its background)
         so that it can be read or identified by people with moderately low vision (who do not use contrast-enhancing assistive technology).
         Contrast values are measured with the foreground color and the background color in a ratio such as: <code>3:1</code>, <code>4.5:1</code>, <code>7:1</code>.
         Contrast requirements vary with the size of the text or object. Larger text/objects require less contrast, whereas smaller text/objects require more contrast.

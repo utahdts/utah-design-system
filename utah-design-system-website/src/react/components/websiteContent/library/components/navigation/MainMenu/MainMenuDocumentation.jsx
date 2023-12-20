@@ -41,7 +41,7 @@ export function MainMenuDocumentation() {
       <ul className="mb-spacing">
         <li><strong>Main Menu</strong>
           <ul>
-            <li><strong>Always use</strong>. The Main Menu and Search bar is used in conjunction with the Utah Header to instill a sense of trust that this is a State of Utah site.</li>
+            <li><strong>Always use</strong>. The Main Menu and Search bar is used in conjunction with the Utah Header to instill a sense of trust that this is a state of Utah site.</li>
             <li><strong>Main menu items can be links</strong>. Use this when you need to send the user to a specific url.</li>
             <li><strong>Open up a list of menu items</strong>. Main menu items can display a list of sub menus in either a Popup menu or a Mega Menu.</li>
             <li><strong>Menu items can be a custom function</strong>. If you would like the menu item to trigger a function.</li>

@@ -195,7 +195,7 @@ export function UtahHeaderDocumentation() {
         quickTips={(
           <ul>
             <li>The Utah identification is required on all headers.</li>
-            <li>The <code>Utah, an official website</code> helps the user to know that they are visiting an official State website.</li>
+            <li>The <code>Utah, an official website</code> helps the user to know that they are visiting an official state website.</li>
             <li>At the moment, the color of the identification can be changed to match the primary or secondary color of the site.</li>
             <li>Depending on the height of the header use one of the above sizes (eg <code>SMALL</code>, <code>MEDIUM</code>, or <code>LARGE</code>).
               <ul>
@@ -818,7 +818,7 @@ export function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                title: 'My fantastic State of Utah site',
+                title: 'My fantastic state of Utah site',
               }
             )
           `}
@@ -1144,7 +1144,7 @@ export function UtahHeaderDocumentation() {
               <TableCell>
                 <span className="prop__description">
                   The Utah footer is the required bar at the bottom of the page with information and links
-                  for the State of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
+                  for the state of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
                   for the footer.
                 </span>
               </TableCell>
@@ -1407,8 +1407,8 @@ export function UtahHeaderDocumentation() {
 
       <h4 id="section-auth-config" className="mt-spacing">utahId</h4>
       <div>
-        By default, the State of Utah Header checks Utah ID for the current logged in user. Instead, your application can take control of this
-        process and provide the current user information to the Utah Header, in which case the State of Utah Header will not look up current
+        By default, the state of Utah Header checks Utah ID for the current logged in user. Instead, your application can take control of this
+        process and provide the current user information to the Utah Header, in which case the state of Utah Header will not look up current
         user information and will rely solely on your application for current user information.
         <br />
         <br />
@@ -1465,7 +1465,7 @@ export function UtahHeaderDocumentation() {
           `}
         />
         This example shows an unauthenticated user. This is a case where your application may have a cached user who is not yet verified. The
-        State of Utah Header will not trust this user information and will show the UtahID Sign In button.
+        state of Utah Header will not trust this user information and will show the UtahID Sign In button.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
@@ -1482,9 +1482,9 @@ export function UtahHeaderDocumentation() {
             )
           `}
         />
-        By setting the currentUser to null, this example shows how the application tells the State of Utah Header that the application is
+        By setting the currentUser to null, this example shows how the application tells the state of Utah Header that the application is
         controlling the user authentication process and that there is not a currently logged in user. In contrast, setting currentUser to undefined
-        will indicate to the State of Utah Header to perform its default behavior to fetch the current user information from Utah ID.
+        will indicate to the state of Utah Header to perform its default behavior to fetch the current user information from Utah ID.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`

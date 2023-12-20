@@ -39,7 +39,7 @@ export function HomeLanding() {
               <h3>Trust and Perception</h3>
             </div>
             <p>
-              Consistency and user experience significantly influence the perceived quality of the services offered by State Agencies.
+              Consistency and user experience significantly influence the perceived quality of the services offered by state Agencies.
               Utilizing a design system yields long-term benefits by fostering efficiency, maintaining high standards, and positively shaping
               public perception. Agencies will enhance their credibility and establish a trustworthy digital presence.
               Consistent visual branding and user experience instills confidence in citizens, reinforcing the integrity and professionalism of public institutions.
@@ -51,7 +51,7 @@ export function HomeLanding() {
               <h3>Accessibility</h3>
             </div>
             <p>
-              One of the top goals at the State of Utah is to make websites and applications across our many agencies accessible for all people,
+              One of the top goals at the state of Utah is to make websites and applications across our many agencies accessible for all people,
               including those with varying impairments.  Each component in the Utah Design System library includes an accessibility section where
               detailed information can be found about contrast, keyboard interaction, and screen readers.
             </p>
@@ -257,7 +257,7 @@ export function HomeLanding() {
         <div className="home-page__color-card home-page__card-wide">
           <h3 className="home-page__color-card-title">Accessibility</h3>
           <p>
-            All web interfaces at the State of Utah should be designed with accessibility in mind.
+            All web interfaces at the state of Utah should be designed with accessibility in mind.
             Let&apos;s be honest, many times the best accessibility is not always clear, approachable, or easy. Every component in the Utah Design System has
             been designed with an &quot;accessibility first&quot; approach. The goal is to make accessibility more accessible by providing clear guidance on
             every component. Thoughtful consideration has been give to each component to achieve the best possible user experience for everyone.

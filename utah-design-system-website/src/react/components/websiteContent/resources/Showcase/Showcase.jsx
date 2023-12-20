@@ -18,7 +18,7 @@ export function Showcase() {
       <p>
         By exploring these showcases, one can witness the power and versatility of the Utah Design System in action.
         Each website represents a unique blend of cohesive elements, consistent patterns, and harmonious aesthetics,
-        all made possible by the implementation of a well-defined design system. These sites demonstrate how State Agencies
+        all made possible by the implementation of a well-defined design system. These sites demonstrate how state Agencies
         can enhance the user experience, streamline development processes, and elevate trust with visitors.
       </p>
       <hr />

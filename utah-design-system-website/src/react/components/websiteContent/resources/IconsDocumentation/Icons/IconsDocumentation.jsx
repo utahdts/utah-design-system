@@ -32,7 +32,7 @@ export function IconsDocumentation() {
       <hr />
 
       <h2 id="section-icon-resource-location">Icon Resource Location</h2>
-      <p className="mb-spacing-xs">The Utah Design System Icons can be found on the State CDN:</p>
+      <p className="mb-spacing-xs">The Utah Design System Icons can be found on the state CDN:</p>
       <PreCodeForCodeString
         codeRaw={`
 @font-face {
