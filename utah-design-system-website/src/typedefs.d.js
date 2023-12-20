@@ -165,6 +165,16 @@
  */
 
 /**
+ * @typedef ModalExamplePropsShape {
+ * @property {string} className
+ * @property {string} title
+ * @property {string} content
+ * @property {string} size
+ * @property {boolean} isForced
+ * }
+ */
+
+/**
  * @typedef PaginationExamplePropsShape {
  *  @property {string} className
  *  @property {string} id

@@ -47,7 +47,7 @@ export default function BannersExampleCodeReact({
       <SandboxIndent indentLevel={1} />
       &lt;/BannerMessage&gt;
       <br />
-      &lt;/Button&gt;
+      &lt;/Banner&gt;
     </>
   );
 }

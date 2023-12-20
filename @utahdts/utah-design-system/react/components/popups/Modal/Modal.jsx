@@ -9,6 +9,7 @@ import IconButton from '../../buttons/IconButton';
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id
+ * @param {React.Ref<HTMLDivElement>} [props.innerRef]
  * @param {import('react').MouseEventHandler} [props.onClose]
  * @returns {JSX.Element}
  */
@@ -16,6 +17,7 @@ export function Modal({
   children,
   className,
   id,
+  innerRef,
   onClose,
 }) {
   const ref = /** @type {typeof useRef<HTMLDialogElement>} */ (useRef)(null);
@@ -37,7 +39,7 @@ export function Modal({
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-    <div className="modal-backdrop backdrop-dark" onClick={onClose}>
+    <div className="modal-backdrop backdrop-dark" onClick={onClose} ref={innerRef}>
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <dialog
         aria-modal="true"

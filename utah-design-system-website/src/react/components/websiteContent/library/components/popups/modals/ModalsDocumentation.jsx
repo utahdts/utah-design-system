@@ -10,6 +10,10 @@ import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
 import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
 import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
 import LightBox from '../../../../../lightbox/LightBox';
+import SandboxExample from '../../../../../sandbox/SandboxExample';
+import { ModalsExampleProps } from './ModalsExampleProps';
+import { ModalsExampleRender } from './ModalsExampleRender';
+import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
 
 const propTypes = {};
 const defaultProps = {};
@@ -27,6 +31,19 @@ function ModalsDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          title: 'Modal Title',
+          content: 'Modal Content',
+          size: 'modal--small',
+          isForced: false,
+        }}
+        CODE_EXAMPLE={ModalsExampleCodeReact}
+        PROPS_EXAMPLE={ModalsExampleProps}
+        RENDER_EXAMPLE={ModalsExampleRender}
+      />
+
       <StaticExample
         title="Complex Modal"
         renderedExample={(
