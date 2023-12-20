@@ -43,6 +43,7 @@ export function ModalsExampleRender({
           <Modal
             className={joinClassNames(className, size)}
             id="modal-example"
+            innerRef={innerRef}
             onClose={isForced ? undefined : closeModal}
             onEscape={isForced ? undefined : closeModal}
           >
@@ -67,34 +68,6 @@ export function ModalsExampleRender({
           </Modal>
         )
         : undefined}
-      <div className="visually-hidden">
-        <Modal
-          className={joinClassNames(className, size)}
-          id="modal-id"
-          innerRef={innerRef}
-          onClose={isForced ? undefined : closeModal}
-          onEscape={isForced ? undefined : closeModal}
-        >
-          <ModalTitle>
-            <h3>{title}</h3>
-          </ModalTitle>
-          <ModalContent>{content}</ModalContent>
-          <ModalFooter className="flex float-right">
-            <Button
-              className="mr-spacing"
-              onClick={closeModal}
-            >
-              Cancel
-            </Button>
-            <Button
-              className="button--solid button--primary-color"
-              onClick={closeModal}
-            >
-              Okay
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </div>
     </div>
   );
 }

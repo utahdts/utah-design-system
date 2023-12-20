@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { IconButton } from '../../buttons/IconButton';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 
 /**
  * @param {object} props
@@ -24,6 +25,8 @@ export function Modal({
 }) {
   const ref = /** @type {typeof useRef<HTMLDialogElement>} */ (useRef)(null);
 
+  const { addAssertiveMessage } = useAriaMessaging();
+
   const escListener = useCallback((/** @type {React.KeyboardEvent<HTMLDialogElement>} */ e) => {
     if (e.code === 'Escape' || e.key === 'Escape') {
       e.preventDefault();
@@ -38,6 +41,11 @@ export function Modal({
     // set initial focus
     resetFocus();
   }, []);
+
+  useEffect(() => () => {
+    // unmount component
+    addAssertiveMessage('Closing dialog');
+  }, [addAssertiveMessage]);
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
