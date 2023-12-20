@@ -1,18 +1,11 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-};
-const defaultProps = {};
-
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-function FooterAgencyInformation({ children }) {
+export function FooterAgencyInformation({ children }) {
   return (
     <div className="utah-design-system">
       <div className="footer-agency-information">
@@ -21,8 +14,3 @@ function FooterAgencyInformation({ children }) {
     </div>
   );
 }
-
-FooterAgencyInformation.propTypes = propTypes;
-FooterAgencyInformation.defaultProps = defaultProps;
-
-export default FooterAgencyInformation;

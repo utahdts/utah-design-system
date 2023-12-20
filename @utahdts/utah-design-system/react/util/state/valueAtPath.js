@@ -1,16 +1,26 @@
-// @ts-check
-import split from 'lodash/split';
+import { split } from 'lodash';
 
 /**
  * @template ObjectT
  * @template ValueT
- * @param {Object} param
- * @param {ObjectT} param.object
+ * @param {object} param
+ * @param {ObjectT | null} param.object
  * @param {string} param.path
  * @returns {ValueT}
  */
-export default function valueAtPath({ object, path }) {
+export function valueAtPath({ object, path }) {
+  // eslint-disable-next-line jsdoc/no-undefined-types
   return /** @type {ValueT} */ (
-    /** @type {any} */ (split(path, '.').reduce((obj, field) => ((field && obj) ? obj[field] : obj), object))
+    /** @type {any} */ (
+      split(path, '.').reduce(
+        (obj, field) => (
+          (field && obj)
+            // @ts-ignore
+            ? obj[field]
+            : obj
+        ),
+        object
+      )
+    )
   );
 }

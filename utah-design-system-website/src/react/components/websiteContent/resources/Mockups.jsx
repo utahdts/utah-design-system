@@ -1,7 +1,5 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
-import LightBox from '../../lightbox/LightBox';
-import pageUrls from '../../routing/pageUrls';
+import { LightBox } from '../../lightbox/LightBox';
+import { pageUrls } from '../../routing/pageUrls';
 
 import breadcrumb from '../../../../static/images/mockups/Breadcrumb.jpg';
 import cards1 from '../../../../static/images/mockups/Cards1.jpg';
@@ -92,14 +90,14 @@ import verticalDivider from '../../../../static/images/mockups/VerticalDividers.
 import badges from '../../../../static/images/mockups/Badges.jpg';
 import statusIndicator from '../../../../static/images/mockups/StatusIndicator.jpg';
 
-import blockquote1 from '../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
-import blockquote2 from '../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
 import callOuts from '../../../../static/images/mockups/CallOuts.jpg';
 import headlines from '../../../../static/images/mockups/Headlines.jpg';
 import leadInText from '../../../../static/images/mockups/LeadInText.jpg';
 import links from '../../../../static/images/mockups/Links.jpg';
 import list from '../../../../static/images/mockups/List.jpg';
 import textStyling from '../../../../static/images/mockups/TextStyling.jpg';
+import blockquote1 from '../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
+import blockquote2 from '../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
 
 import skipLink from '../../../../static/images/mockups/SkipLink.jpg';
 
@@ -116,9 +114,9 @@ import mapMobile7 from '../../../../static/images/mockups/MapMobile7.jpg';
 import mapPin from '../../../../static/images/mockups/MapPin.jpg';
 import mapSearch from '../../../../static/images/mockups/MapSearch.jpg';
 import mapSearch1 from '../../../../static/images/mockups/MapSearch1.jpg';
-import MockupNavButton from './MockupNavButton';
+import { MockupNavButton } from './MockupNavButton';
 
-function Mockups() {
+export function Mockups() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Design System Mockups</h1>
@@ -517,5 +515,3 @@ function Mockups() {
     </div>
   );
 }
-
-export default Mockups;

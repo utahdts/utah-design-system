@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   Select,
@@ -7,19 +6,19 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').PaginationExamplePropsShape} PaginationExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: PaginationExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {PaginationExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
-export default function PaginationExampleProps({ setState, state }) {
+export function PaginationExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

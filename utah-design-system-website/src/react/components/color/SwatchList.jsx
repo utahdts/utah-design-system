@@ -1,29 +1,27 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
-import useCssContext from '../../context/cssContext/useCssContext';
-import CSS_CLASS_NAMES from '../../enums/cssClassNames';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import { useCssContext } from '../../context/cssContext/useCssContext';
+import { CSS_CLASS_NAMES } from '../../enums/cssClassNames';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
+import { notNull } from '../../util/notNull/notNull';
 
-const propTypes = {
-  colorFamily: PropTypes.exact({
-    title: PropTypes.string.isRequired,
-    swatches: PropTypes.arrayOf(PropTypes.string).isRequired,
-  }).isRequired,
-  onColorSelected: PropTypes.func.isRequired,
-};
-const defaultProps = {};
-
-function SwatchList({ colorFamily, onColorSelected }) {
-  const baseColor = colorFamily.swatches[4];
+/** @typedef {import('utah-design-system-website').CSS_VARIABLES_KEYS} CSS_VARIABLES_KEYS_TYPE */
+/**
+ * @param {object} props
+ * @param {{title: string, swatches: tinycolor.ColorInput[]}} props.colorFamily
+ * @param {(selectedColor: tinycolor.ColorInput) => void} props.onColorSelected
+ * @returns {React.JSX.Element}
+ */
+export function SwatchList({ colorFamily, onColorSelected }) {
+  const baseColor = notNull(colorFamily.swatches[4], 'SwatchList: swatches[4]');
   const colorIsLight = !tinycolor.isReadable(baseColor, '#ffffff');
 
   const { cssState } = useCssContext();
 
-  const [lastSelectedColorPicker, setLastSelectedColorPicker] = useImmer(null);
-  const [changedColorKeys, setChangedColorKeys] = useImmer([]);
+  const [lastSelectedColorPicker, setLastSelectedColorPicker] = useImmer(/** @type {CSS_VARIABLES_KEYS_TYPE | null} */(null));
+  const [changedColorKeys, setChangedColorKeys] = useImmer(/** @type {string[]} */([]));
   const bounceColorsTimeoutRef = useRef(NaN);
   useEffect(() => () => clearTimeout(bounceColorsTimeoutRef.current), []);
   useEffect(
@@ -51,7 +49,7 @@ function SwatchList({ colorFamily, onColorSelected }) {
             throw new Error(`unknown selectedColorPicker: '${cssState.selectedColorPicker}'`);
         }
         clearTimeout(bounceColorsTimeoutRef.current);
-        bounceColorsTimeoutRef.current = setTimeout(
+        bounceColorsTimeoutRef.current = window.setTimeout(
           () => {
             setChangedColorKeys([]);
           },
@@ -60,6 +58,7 @@ function SwatchList({ colorFamily, onColorSelected }) {
         setLastSelectedColorPicker(cssState.selectedColorPicker);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [lastSelectedColorPicker, cssState.selectedColorPicker, changedColorKeys]
   );
 
@@ -82,6 +81,7 @@ function SwatchList({ colorFamily, onColorSelected }) {
     <div className="color-family">
       <button
         className={`color-family__title ${colorIsLight ? CSS_CLASS_NAMES.COLOR_IS_LIGHT : ''}`}
+        // @ts-ignore
         style={{ backgroundColor: baseColor }}
         type="button"
         onClick={() => onColorSelected(baseColor)}
@@ -106,12 +106,14 @@ function SwatchList({ colorFamily, onColorSelected }) {
                 <button
                   className="color-family__swatch"
                   onClick={() => onColorSelected(swatch)}
+                  // @ts-ignore
                   style={{ backgroundColor: swatch }}
                   type="button"
                 >
                   <span className="visually-hidden">
                     Pick
-                    {swatch}
+                    {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+                    <>{swatch}</>
                   </span>
                 </button>
               </li>
@@ -122,8 +124,3 @@ function SwatchList({ colorFamily, onColorSelected }) {
     </div>
   );
 }
-
-SwatchList.propTypes = propTypes;
-SwatchList.defaultProps = defaultProps;
-
-export default SwatchList;

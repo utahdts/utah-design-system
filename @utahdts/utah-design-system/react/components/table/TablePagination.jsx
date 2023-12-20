@@ -1,18 +1,17 @@
-// @ts-check
 import React, { useEffect } from 'react';
-import notNull from '../../util/notNull';
-import Pagination from '../navigation/pagination/Pagination';
+import { notNull } from '../../util/notNull';
+import { Pagination } from '../navigation/pagination/Pagination';
 import { useTableContext } from './hooks/useTableContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.ariaLabel]
  * @param {string} [props.className]
  * @param {string} props.id
  * @param {React.RefObject<HTMLDivElement | HTMLElement | null>} [props.innerRef]
  * @param {number} props.pageSize
  * @param {'div' | 'nav'} [props.wrapInElement]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TablePagination({
   ariaLabel,

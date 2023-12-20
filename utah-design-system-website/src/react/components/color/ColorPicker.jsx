@@ -4,29 +4,25 @@ import {
   joinClassNames,
   useGlobalKeyEvent
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import tinycolor from 'tinycolor2';
-import useAppContext from '../../context/AppContext/useAppContext';
-import isLightColor from '../../util/color/isLightColor';
+import { useAppContext } from '../../context/AppContext/useAppContext';
+import { isLightColor } from '../../util/color/isLightColor';
 
-const propTypes = {
-  className: PropTypes.string.isRequired,
-  colorGray: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  isSelected: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-};
-const defaultProps = {
-  colorGray: null,
-  isSelected: false,
-};
-
-function ColorPicker({
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} [props.colorGray]
+ * @param {string} props.id
+ * @param {boolean} [props.isSelected]
+ * @param {string} props.label
+ * @param {(newColor: string) => void} props.onChange
+ * @param {React.MouseEventHandler<HTMLDivElement>} props.onClick
+ * @param {string} props.title
+ * @param {string} props.value
+ * @returns {React.JSX.Element}
+ */
+export function ColorPicker({
   className,
   value,
   colorGray,
@@ -63,7 +59,7 @@ function ColorPicker({
       onKeyUp={handleKeyPress('Enter', onClick)}
       role="button"
       style={{ color: textColor, background: tinyColorValue }}
-      tabIndex="0"
+      tabIndex={0}
     >
       <div className="color-picker__hex-color">
         <span>{title}</span>
@@ -73,10 +69,12 @@ function ColorPicker({
           label={label}
           labelClassName="visually-hidden"
           onChange={useCallback(
+            /** @param {React.BaseSyntheticEvent} e */
             (e) => { onChange(e.target.value); },
             [onChange]
           )}
           value={value}
+          // @ts-ignore
           style={{ borderColor: textColor }}
         />
       </div>
@@ -86,7 +84,7 @@ function ColorPicker({
         <span className="color-picker__ratio">{contrastDecimal}:1</span>
         <span style={{ background: textColor, color: tinyColorValue }}>
           {
-            contrastDecimal >= 7
+            Number(contrastDecimal) >= 7
               ? (
                 <span className="color-picker__rating">AAA</span>
               )
@@ -108,8 +106,3 @@ function ColorPicker({
     </div>
   );
 }
-
-ColorPicker.propTypes = propTypes;
-ColorPicker.defaultProps = defaultProps;
-
-export default ColorPicker;

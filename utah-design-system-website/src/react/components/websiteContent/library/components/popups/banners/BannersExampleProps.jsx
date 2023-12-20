@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   Select,
@@ -7,10 +6,19 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-export default function BannersExampleProps({ setState, state }) {
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {object} props
+ * @param {import('use-immer').Updater<{props: BannerExamplePropsShape}>} props.setState
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
+ */
+export function BannersExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >
@@ -34,6 +42,11 @@ export default function BannersExampleProps({ setState, state }) {
         <SelectOption label="Success" value="banner--success" />
         <SelectOption label="Danger" value="banner--danger" />
         <SelectOption label="Info" value="banner--info" />
+      </Select>
+      <Select id="props.size" label="Size" className="input--height-small1x">
+        <SelectOption label="Small" value="banner--small" />
+        <SelectOption label="Medium" value="banner--medium" />
+        <SelectOption label="Large" value="banner--large" />
       </Select>
     </Form>
   );

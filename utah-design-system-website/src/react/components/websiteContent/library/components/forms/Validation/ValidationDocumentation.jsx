@@ -1,28 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
 import validationScreenshot from '../../../../../../../static/images/screenshots/patterns/form-validation/formValidation.png';
-import LightBox from '../../../../../lightbox/LightBox';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
+/** @param {string} role */
 function addBanner(role) {
   const banner = document.createElement('span');
-  const bannerTarget = document.getElementById('banner-target');
   banner.setAttribute('role', role);
   banner.appendChild(document.createTextNode('Warning: there are errors on the form!'));
   banner.style.display = 'inline-block';
-  bannerTarget.appendChild(banner);
+
+  const bannerTarget = document.getElementById('banner-target');
+  bannerTarget?.appendChild(banner);
 }
 
-function ValidationDocumentation() {
+export function ValidationDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Form Validation</h1>
@@ -52,7 +47,7 @@ function ValidationDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>HTML5.</strong> Avoid using default validation. Each browser handles validation differently. We want
-          the experience to be consistent for all users within the State of Utah ecosystem.
+          the experience to be consistent for all users within the state of Utah ecosystem.
         </li>
         <li>
           <strong>Required.</strong> If an input is required, should include a red asterisk <code>*</code> in the label.
@@ -178,8 +173,3 @@ function ValidationDocumentation() {
     </div>
   );
 }
-
-ValidationDocumentation.propTypes = propTypes;
-ValidationDocumentation.defaultProps = defaultProps;
-
-export default ValidationDocumentation;

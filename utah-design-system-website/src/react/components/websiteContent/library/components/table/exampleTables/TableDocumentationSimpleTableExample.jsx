@@ -7,12 +7,9 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import HeadingWithLink from '../../../../../staticExamples/HeadingWithLink';
+import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TableDocumentationSimpleTableExample() {
+export function TableDocumentationSimpleTableExample() {
   return (
     <div className="static-example mt-spacing-xl">
       <HeadingWithLink
@@ -157,8 +154,3 @@ function TableDocumentationSimpleTableExample() {
     </div>
   );
 }
-
-TableDocumentationSimpleTableExample.propTypes = propTypes;
-TableDocumentationSimpleTableExample.defaultProps = defaultProps;
-
-export default TableDocumentationSimpleTableExample;

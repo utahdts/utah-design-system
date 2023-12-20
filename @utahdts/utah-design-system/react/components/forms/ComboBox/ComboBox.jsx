@@ -1,19 +1,17 @@
-// @ts-check
-import React, { useMemo, useRef } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import joinClassNames from '../../../util/joinClassNames';
+import React, { useId, useRef } from 'react';
+import { joinClassNames } from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
 import { CombBoxListBox } from './internal/CombBoxListBox';
 import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -26,7 +24,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBox({
   children,
@@ -49,7 +47,7 @@ export function ComboBox({
   wrapperClassName,
   ...rest
 }) {
-  const comboBoxListId = useMemo(() => uuidv4(), []);
+  const comboBoxListId = useId();
   const contentRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
   return (

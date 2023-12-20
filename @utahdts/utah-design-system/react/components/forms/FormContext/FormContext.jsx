@@ -1,11 +1,14 @@
-// @ts-check
-import React from 'react';
+import { createContext } from 'react';
 
 /**
  * @template FormContextT
- * @typedef {import('../../../jsDocTypes').FormContextValue<FormContextT>} FormContextValue
+ * @typedef {import('@utahdts/utah-design-system').FormContextValue<FormContextT>} FormContextValue
  */
 
 /** @template FormContextT */
-const FormContext = /** @type {typeof React.createContext<FormContextValue<FormContextT>>} */ (React.createContext)({});
-export default FormContext;
+export const FormContext = /** @type {typeof createContext<FormContextValue<FormContextT>>} */(createContext)({
+  onChange: () => { },
+  onSubmit: () => { },
+  setState: () => { },
+  state: /** @type {any} */ ({}),
+});

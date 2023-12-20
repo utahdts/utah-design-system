@@ -1,26 +1,21 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { LightBox } from '../../../../../lightbox/LightBox';
 import multiSelectScreenshot from '../../../../../../../static/images/screenshots/components/multi-select/multiSelectScreenshot.jpg';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function MultiSelectDocumentation() {
+export function MultiSelectDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Multi-select</h1>
       <p className="lead-in">
         A multi-select allows you to search on and choose multiple options from an option menu. A <Link to={pageUrls.comboBox}>combo box</Link> lets you search options and select a single item, while a <Link to={pageUrls.select}>select</Link> lets you choose a single option.
       </p>
-
+      <div className="home-page__color-card home-page__card-wide mb-spacing-l">
+        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Under Development</h3>
+        <p>The Multi-select is currently under development. Things may not look right until this work is completed.</p>
+      </div>
       <hr />
       <h2 id="section-example">Example</h2>
       <StaticExample
@@ -96,8 +91,3 @@ function MultiSelectDocumentation() {
     </div>
   );
 }
-
-MultiSelectDocumentation.propTypes = propTypes;
-MultiSelectDocumentation.defaultProps = defaultProps;
-
-export default MultiSelectDocumentation;

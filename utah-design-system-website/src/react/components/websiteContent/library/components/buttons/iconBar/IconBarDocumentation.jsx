@@ -1,19 +1,14 @@
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import React from 'react';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import actionBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/ActionBar.png';
 import iconBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/IconBar.png';
 import toolBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/Toolbar.png';
-import actionBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/ActionBar.png';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function IconBarDocumentation() {
+export function IconBarDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Icon Bar</h1>
@@ -113,8 +108,3 @@ function IconBarDocumentation() {
     </div>
   );
 }
-
-IconBarDocumentation.propTypes = propTypes;
-IconBarDocumentation.defaultProps = defaultProps;
-
-export default IconBarDocumentation;

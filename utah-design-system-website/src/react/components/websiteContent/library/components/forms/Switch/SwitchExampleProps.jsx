@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -9,21 +8,21 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').SwitchExamplePropsShape} SwitchExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: SwitchExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {SwitchExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
-export default function SwitchExampleProps({ setState, state }) {
+export function SwitchExampleProps({ setState, state }) {
   return (
     <div>
       <div>
         <Form
           state={state}
+          // @ts-ignore
           setState={setState}
         >
           <TextInput id="props.className" label="Class" className="input--height-small1x" />

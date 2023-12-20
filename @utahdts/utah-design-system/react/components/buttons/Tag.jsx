@@ -1,13 +1,12 @@
-// @ts-check
 import React from 'react';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import joinClassNames from '../../util/joinClassNames';
-import IconButton from './IconButton';
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { joinClassNames } from '../../util/joinClassNames';
+import { IconButton } from './IconButton';
 
-/** @typedef {import('../../jsDocTypes').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className]
  * @param {string} [props.id] the tag id
@@ -17,7 +16,7 @@ import IconButton from './IconButton';
  * @param {boolean} [props.isDisabled] tag isDisabled state
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClear]
  * @param {FormElementSizes} [props.size]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Tag({
   children,

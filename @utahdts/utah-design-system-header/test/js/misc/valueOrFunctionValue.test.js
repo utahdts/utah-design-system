@@ -1,7 +1,6 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import valueOrFunctionValue from '../../../src/js/misc/valueOrFunctionValue';
-import dataOfAllDataTypes from '../../util/dataOfAllDataTypes';
+import { valueOrFunctionValue } from '../../../src/js/misc/valueOrFunctionValue';
+import { dataOfAllDataTypes } from '../../util/dataOfAllDataTypes';
 
 describe('valueOrFunctionValue', () => {
   test.each(

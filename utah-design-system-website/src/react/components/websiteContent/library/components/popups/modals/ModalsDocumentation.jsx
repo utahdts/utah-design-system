@@ -1,24 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
 import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
 import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { ModalsExampleProps } from './ModalsExampleProps';
 import { ModalsExampleRender } from './ModalsExampleRender';
 import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ModalsDocumentation() {
+export function ModalsDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Modals</h1>
@@ -140,8 +133,3 @@ function ModalsDocumentation() {
     </div>
   );
 }
-
-ModalsDocumentation.propTypes = propTypes;
-ModalsDocumentation.defaultProps = defaultProps;
-
-export default ModalsDocumentation;

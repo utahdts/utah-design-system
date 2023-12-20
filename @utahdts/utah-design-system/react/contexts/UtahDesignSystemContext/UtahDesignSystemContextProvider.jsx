@@ -1,29 +1,21 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
 import { useImmer } from 'use-immer';
 import { ariaLiveTypes } from '../../enums/ariaLiveTypes';
-import UtahDesignSystemContext from './UtahDesignSystemContext';
-import AriaLiveMessages from './components/AriaLiveMessages';
+import { UtahDesignSystemContext } from './UtahDesignSystemContext';
+import { AriaLiveMessages } from './components/AriaLiveMessages';
 import { BannersGlobal } from './components/BannersGlobal';
 
-/** @typedef {import('../../jsDocTypes').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
-/** @typedef {import('../../jsDocTypes').UtahDesignSystemDefaultSettings} UtahDesignSystemDefaultSettings */
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-};
-const defaultProps = {
-};
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemDefaultSettings} UtahDesignSystemDefaultSettings */
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
 
 /**
  * provider that wraps the app at the top level
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {UtahDesignSystemDefaultSettings} props.defaultSettings
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-function UtahDesignSystemContextProvider({ children, defaultSettings }) {
+export function UtahDesignSystemContextProvider({ children, defaultSettings }) {
   const immerHook = /** @type {typeof useImmer<UtahDesignSystemContextValue>} */ (useImmer)(() => ({
     ariaLive: {
       assertiveMessages: [],
@@ -41,7 +33,3 @@ function UtahDesignSystemContextProvider({ children, defaultSettings }) {
     </UtahDesignSystemContext.Provider>
   );
 }
-UtahDesignSystemContextProvider.propTypes = propTypes;
-UtahDesignSystemContextProvider.defaultProps = defaultProps;
-
-export default UtahDesignSystemContextProvider;

@@ -1,19 +1,18 @@
-// @ts-check
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {number} [props.size]
  * @param {number} [props.strokeWidth]
  * @param {number} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function Spinner({
+export function Spinner({
   children,
   className,
   id,

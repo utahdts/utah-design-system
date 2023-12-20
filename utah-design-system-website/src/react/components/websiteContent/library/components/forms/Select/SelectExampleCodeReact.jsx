@@ -1,15 +1,13 @@
-// @ts-check
-import React from 'react';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
-/** @typedef {import('../../../../../../../typedefs.d').SelectExamplePropsShape} SelectExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: SelectExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function SelectExampleCodeReact({
+export function SelectExampleCodeReact({
   state: {
     props: {
       className,

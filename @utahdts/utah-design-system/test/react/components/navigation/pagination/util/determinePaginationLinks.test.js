@@ -4,7 +4,7 @@ import {
   test,
   vi,
 } from 'vitest';
-import determinePaginationLinks from '../../../../../../react/components/navigation/pagination/util/determinePaginationLinks';
+import { determinePaginationLinks } from '../../../../../../react/components/navigation/pagination/util/determinePaginationLinks';
 
 describe('determinePaginationLinks: scenarios', () => {
   // eslint-disable-next-line no-console

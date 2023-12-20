@@ -1,5 +1,4 @@
-// @ts-check
-import trim from 'lodash/trim';
+import { trim } from 'lodash';
 import React, {
   useCallback,
   useEffect,
@@ -7,11 +6,11 @@ import React, {
   useRef,
 } from 'react';
 import { useImmer } from 'use-immer';
-import useFormContext from '../../FormContext/useFormContext';
+import { useFormContext } from '../../FormContext/useFormContext';
 import { ComboBoxContext } from './ComboBoxContext';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
 
 /**
  * @template MutableRefObjectT
@@ -24,7 +23,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.comboBoxId
  * @param {string} [props.defaultValue]
@@ -32,7 +31,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  * @param {(() => void)} [props.onClear]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxContextProvider({
   children,

@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import AppContext from './AppContext';
+import { AppContext } from './AppContext';
 
-/** @typedef {import ('../../../typedefs.d').AppContextValue} AppContextValue */
+/** @typedef {import ('utah-design-system-website').AppContextValue} AppContextValue */
 
 /**
  * @returns {AppContextValue}
  */
-export default function useAppContext() {
+export function useAppContext() {
   return useContext(AppContext);
 }

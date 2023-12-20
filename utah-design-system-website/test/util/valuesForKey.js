@@ -1,5 +1,4 @@
-// @ts-check
-import isObject from 'lodash/isObject';
+import { isObject } from 'lodash';
 
 /**
  * Recursively search an "object" for a key and return its value no matter at what level in the object's tree the value is found
@@ -10,11 +9,12 @@ import isObject from 'lodash/isObject';
  * @param {(item: any, obj: any) => boolean} [filterFunc] obj is "any" type because it is any nested type of the original object
  * @returns {ResultT[]}
  */
-export default function valuesForKey(obj, key, filterFunc) {
+export function valuesForKey(obj, key, filterFunc) {
   const result = [];
   if (obj && isObject(obj)) {
     // @ts-ignore <-- isObject() removes the case for which this error generates
     if (key in obj && (!filterFunc || filterFunc(obj[key], obj))) {
+      // @ts-ignore
       result.push(obj[key]);
     }
     Object.values(obj).forEach((value) => (

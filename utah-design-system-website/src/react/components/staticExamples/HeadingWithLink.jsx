@@ -1,25 +1,14 @@
-// @ts-check
 import { ExternalLink } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React from 'react';
-
-const propTypes = {
-  headingTag: PropTypes.string.isRequired,
-  headingTitle: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  linkUrl: PropTypes.string.isRequired,
-};
-const defaultProps = {};
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.headingTag
  * @param {string} props.headingTitle
  * @param {string} props.id
  * @param {string} props.linkUrl
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-function HeadingWithLink({
+export function HeadingWithLink({
   headingTag: HeadingTag,
   headingTitle,
   id,
@@ -37,8 +26,3 @@ function HeadingWithLink({
     </div>
   );
 }
-
-HeadingWithLink.propTypes = propTypes;
-HeadingWithLink.defaultProps = defaultProps;
-
-export default HeadingWithLink;

@@ -1,16 +1,14 @@
-// @ts-check
-import React from 'react';
-import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
 
-/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: TableExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function TableExampleCodeReact({
+export function TableExampleCodeReact({
   state: {
     props: {
       className,

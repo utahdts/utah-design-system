@@ -1,19 +1,16 @@
-// @ts-check
-import identity from 'lodash/identity';
+import { identity } from 'lodash';
 import React, { useCallback } from 'react';
-import joinClassNames from '../../../../util/joinClassNames';
-import useOnKeyUp from '../../../../util/useOnKeyUp';
-import useFormContext from '../../FormContext/useFormContext';
-import TextInput from '../../TextInput';
+import { joinClassNames } from '../../../../util/joinClassNames';
+import { useOnKeyUp } from '../../../../util/useOnKeyUp';
+import { useFormContext } from '../../FormContext/useFormContext';
+import { TextInput } from '../../TextInput';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
 
-/** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
-
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
@@ -25,11 +22,11 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {EventAction} [props.onClear]
- * @param {(() => void)} [props.onSubmit]
+ * @param {React.ChangeEventHandler} [props.onClear]
+ * @param {React.ChangeEventHandler} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxTextInput({
   comboBoxListId,
@@ -79,9 +76,9 @@ export function ComboBoxTextInput({
       id={id}
       innerRef={(ref) => {
         const input = ref?.querySelector('input');
-        comboBoxContextNonStateRef.current.textInput = input;
+        comboBoxContextNonStateRef.current.textInput = input ?? null;
         if (draftInnerRef) {
-          draftInnerRef.current = input;
+          draftInnerRef.current = input ?? null;
         }
       }}
       isClearable={isClearable}
@@ -115,6 +112,7 @@ export function ComboBoxTextInput({
         isClearable
           ? ((e) => {
             if (onClear) {
+              // @ts-ignore
               onClear(e);
             } else if (onClearComboBoxContext) {
               onClearComboBoxContext();
@@ -141,10 +139,14 @@ export function ComboBoxTextInput({
       }}
       onKeyUp={(e) => {
         if (![
+          // @ts-ignore
           onCancelKeyPress(e),
+          // @ts-ignore
           onUpArrowPress(e),
+          // @ts-ignore
           onDownArrowPress(e),
         ].some(identity)) {
+          // @ts-ignore
           if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
             setComboBoxContext((draftContext) => {
               if (draftContext.filterValue) {

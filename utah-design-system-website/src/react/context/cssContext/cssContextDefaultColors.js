@@ -1,7 +1,7 @@
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import colors, { colorsIndexes } from '../../util/color/colors';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
+import { colors, colorsIndexes } from '../../util/color/colors';
 
-export default {
+export const cssContextDefaultColors = {
   // default --primary-color for website
   [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.CELTIC.swatches[colorsIndexes.primeIndex],
   [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.CELTIC.swatches[0],

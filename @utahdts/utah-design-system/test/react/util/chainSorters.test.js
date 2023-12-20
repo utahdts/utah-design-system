@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import chainSorters from '../../../react/util/chainSorters';
+import { chainSorters } from '../../../react/util/chainSorters';
 
 test('chainSorters - several rules', () => {
   const sorter = chainSorters([

@@ -1,14 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function DividersDocumentation() {
+export function DividersDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Dividers</h1>
@@ -139,8 +132,3 @@ function DividersDocumentation() {
     </div>
   );
 }
-
-DividersDocumentation.propTypes = propTypes;
-DividersDocumentation.defaultProps = defaultProps;
-
-export default DividersDocumentation;

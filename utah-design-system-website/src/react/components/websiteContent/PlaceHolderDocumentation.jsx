@@ -1,15 +1,11 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { ExternalLink } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import useAppContext from '../../context/AppContext/useAppContext';
-import useCurrentMenuItem from '../../hooks/useCurrentMenuItem';
-import pageUrls from '../routing/pageUrls';
+import { useAppContext } from '../../context/AppContext/useAppContext';
+import { useCurrentMenuItem } from '../../hooks/useCurrentMenuItem';
+import { pageUrls } from '../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function PlaceHolderDocumentation() {
+export function PlaceHolderDocumentation() {
   const { pages, allMenus } = useAppContext();
   const { pathname } = useLocation();
 
@@ -23,6 +19,7 @@ function PlaceHolderDocumentation() {
     <>
       <h1 id="h1-top">
         {
+          // @ts-ignore
           currentMenuItem?.header
           || currentPage?.pageTitle
           || currentPageUrl?.split('/')?.pop?.()
@@ -45,8 +42,3 @@ function PlaceHolderDocumentation() {
     </>
   );
 }
-
-PlaceHolderDocumentation.propTypes = propTypes;
-PlaceHolderDocumentation.defaultProps = defaultProps;
-
-export default PlaceHolderDocumentation;

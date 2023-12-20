@@ -9,51 +9,47 @@ import {
   TabList,
   TabPanel,
   TabPanels,
+  useBanner
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
-import cssContextDefaultColors from '../../context/cssContext/cssContextDefaultColors';
-import useCssContext from '../../context/cssContext/useCssContext';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import useMousePositionTracker from '../../hooks/useMousePositionTracker';
-import colors from '../../util/color/colors';
-import pageUrls from '../routing/pageUrls';
-import ColorContrasts from './ColorContrasts';
-import ColorPicker from './ColorPicker';
-import SwatchList from './SwatchList';
+import { cssContextDefaultColors } from '../../context/cssContext/cssContextDefaultColors';
+import { useCssContext } from '../../context/cssContext/useCssContext';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
+import { useMousePositionTracker } from '../../hooks/useMousePositionTracker';
+import { colors } from '../../util/color/colors';
+import { notNull } from '../../util/notNull/notNull';
+import { pageUrls } from '../routing/pageUrls';
+import { ColorContrasts } from './ColorContrasts';
+import { ColorPicker } from './ColorPicker';
+import { ColorPickerInstructions } from './ColorPickerInstructions';
 import { colorsToUrlParams } from './colorPickerUrlParams';
-import ColorPickerInstructions from './ColorPickerInstructions';
-
-const propTypes = {
-  onClose: PropTypes.func,
-};
-const defaultProps = {
-  onClose: null,
-};
+import { SwatchList } from './SwatchList';
 
 /**
  * @param {object} props
- * @param {(): {} | null} props.onClose
- * @returns {JSX.Element}
+ * @param {React.MouseEventHandler<HTMLButtonElement>} props.onClose
+ * @returns {React.JSX.Element}
  */
-function ColorPopup({ onClose }) {
+export function ColorPopup({ onClose }) {
   const [isOpen, setIsOpen] = useImmer(true);
   const { cssState, setCssState } = useCssContext();
   const [mousePositionOffset, setMousePositionOffset] = useImmer({ x: 0, y: 0 });
-  const draggableDivRef = useRef(null);
+  const draggableDivRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [copiedUrlTitle, setCopiedUrlTitle] = useState('Share colors');
+  const { addBanner } = useBanner();
 
   const { mousePosition } = useMousePositionTracker({
     shouldBeginDrag: (e) => {
+      const draggableDiv = notNull(draggableDivRef.current, 'ColorPopup: draggleDivRef is null');
       const mousePoint = ({ x: e.clientX, y: e.clientY });
-      const isMousedownInsideDiv = rectContainsPoint(draggableDivRef.current.getBoundingClientRect(), mousePoint);
+      const isMousedownInsideDiv = rectContainsPoint(draggableDiv.getBoundingClientRect(), mousePoint);
 
       if (isMousedownInsideDiv) {
         // pick offset between top left and click position so that when mouse moves, it maintains that offset
         setMousePositionOffset({
-          x: mousePoint.x - draggableDivRef.current.getBoundingClientRect().left,
-          y: mousePoint.y - draggableDivRef.current.getBoundingClientRect().top,
+          x: mousePoint.x - draggableDiv.getBoundingClientRect().left,
+          y: mousePoint.y - draggableDiv.getBoundingClientRect().top,
         });
       }
 
@@ -66,14 +62,16 @@ function ColorPopup({ onClose }) {
   mousePositionRef.current = mousePosition || mousePositionRef.current;
 
   const setColor = useCallback(
-    (swatch) => (
+    /** @param {string} swatch */
+    (swatch) => {
       setCssState((oldCssVariables) => (
         {
           ...oldCssVariables,
           [cssState.selectedColorPicker]: swatch,
         }
-      ))
-    ),
+      ));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [cssState.selectedColorPicker]
   );
 
@@ -83,11 +81,11 @@ function ColorPopup({ onClose }) {
         className="color-picker-popup"
         role="button"
         style={{
-          position: mousePositionRef.current ? 'absolute' : null,
-          left: mousePositionRef.current?.x ? `${mousePositionRef.current.x - mousePositionOffset.x}px` : null,
-          top: mousePositionRef.current?.y ? `${mousePositionRef.current.y - mousePositionOffset.y}px` : null,
+          position: mousePositionRef.current ? 'absolute' : undefined,
+          left: mousePositionRef.current?.x ? `${mousePositionRef.current.x - mousePositionOffset.x}px` : undefined,
+          top: mousePositionRef.current?.y ? `${mousePositionRef.current.y - mousePositionOffset.y}px` : undefined,
         }}
-        tabIndex="0"
+        tabIndex={0}
       >
         <div className="color-picker-popup__title-bar" ref={draggableDivRef}>
           <button
@@ -106,30 +104,36 @@ function ColorPopup({ onClose }) {
             </div>
           </button>
           <IconButton
-            icon={Icons.IconReset()}
+            icon={<Icons.IconReset />}
             className="icon-button--borderless"
             title="Reset color picker"
             onClick={() => (
+              // @ts-ignore
               setCssState((draftCssState) => (
+                // @ts-ignore
                 Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
               ))
             )}
           />
           <div className="color-picker-popup__title">Color Picker</div>
           <IconButton
-            icon={Icons.IconShare()}
+            icon={<Icons.IconShare />}
             title={copiedUrlTitle}
             className="icon-button--borderless"
             onClick={() => {
               const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
               navigator.clipboard.writeText(returnUrl)
                 .then(() => {
-                  console.log('Colors copied to clipboard ready to share!', returnUrl);
+                  addBanner({
+                    message: <div>Colors copied to clipboard ready to share!<br />{returnUrl}</div>,
+                    position: 'top-right',
+                  });
                   setCopiedUrlTitle('Share URL copied to to clipboard');
                   setTimeout(() => {
                     setCopiedUrlTitle('Share URL');
                   }, 1500);
                 })
+                // eslint-disable-next-line no-console
                 .catch((e) => console.error(e));
             }}
           />
@@ -172,10 +176,10 @@ function ColorPopup({ onClose }) {
                       id="primary-prime-color"
                       isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
                       label="Primary: Prime"
+                      // @ts-ignore
                       onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR; })}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
                       onChange={(newColor) => setColor(newColor)}
-                      isLarge
                       title="Primary"
                       value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR]}
                     />
@@ -186,6 +190,7 @@ function ColorPopup({ onClose }) {
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK}
                         label="Primary: Dark"
                         onChange={(newColor) => setColor(newColor)}
+                        // @ts-ignore
                         onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK; })}
                         title="Dark"
                         value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
@@ -197,6 +202,7 @@ function ColorPopup({ onClose }) {
                         label="Primary: Light"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
+                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT; })
                         )}
                         title="Light"
@@ -213,10 +219,10 @@ function ColorPopup({ onClose }) {
                       label="Secondary: Prime"
                       onChange={(newColor) => setColor(newColor)}
                       onClick={() => (
+                        // @ts-ignore
                         setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR; })
                       )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]}
-                      isLarge
                       title="Secondary"
                       value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR]}
                     />
@@ -228,6 +234,7 @@ function ColorPopup({ onClose }) {
                         label="Secondary: Dark"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
+                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK; })
                         )}
                         title="Dark"
@@ -241,6 +248,7 @@ function ColorPopup({ onClose }) {
                         label="Secondary: Light"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
+                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT; })
                         )}
                         title="Light"
@@ -257,10 +265,10 @@ function ColorPopup({ onClose }) {
                       label="Accent: Prime"
                       onChange={(newColor) => setColor(newColor)}
                       onClick={() => (
+                        // @ts-ignore
                         setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR; })
                       )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
-                      isLarge
                       title="Accent"
                       value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR]}
                     />
@@ -272,6 +280,7 @@ function ColorPopup({ onClose }) {
                         label="Accent: Dark"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
+                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK; })
                         )}
                         title="Dark"
@@ -285,6 +294,7 @@ function ColorPopup({ onClose }) {
                         label="Accent: Light"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
+                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT; })
                         )}
                         title="Light"
@@ -308,12 +318,14 @@ function ColorPopup({ onClose }) {
                             <SwatchList
                               colorFamily={color}
                               key={`swatch-list-color-${color.title}`}
+                              // @ts-ignore
                               onColorSelected={(swatch) => setColor(swatch)}
                             />
                           ))
                         }
                       </TabPanel>
                       <TabPanel tabId="tab-group__color-contrast">
+                        {/* @ts-ignore */}
                         <ColorContrasts colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]} />
                       </TabPanel>
                       <TabPanel tabId="tab-group__instructions">
@@ -330,8 +342,3 @@ function ColorPopup({ onClose }) {
     </div>
   );
 }
-
-ColorPopup.propTypes = propTypes;
-ColorPopup.defaultProps = defaultProps;
-
-export default ColorPopup;

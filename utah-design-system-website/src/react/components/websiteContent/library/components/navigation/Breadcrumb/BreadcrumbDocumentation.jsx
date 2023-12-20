@@ -1,20 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import breadcrumbNormal from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbNormal.jpg';
 import breadcrumbCondensed from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbCondensed.jpg';
 import breadcrumbPopup from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbPopup.jpg';
 
-const propTypes = {};
-const defaultProps = {};
-
-function BreadcrumbDocumentation() {
+export function BreadcrumbDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Breadcrumbs</h1>
@@ -194,8 +187,3 @@ function BreadcrumbDocumentation() {
     </div>
   );
 }
-
-BreadcrumbDocumentation.propTypes = propTypes;
-BreadcrumbDocumentation.defaultProps = defaultProps;
-
-export default BreadcrumbDocumentation;

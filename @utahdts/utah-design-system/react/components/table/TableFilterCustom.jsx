@@ -1,21 +1,19 @@
-// @ts-check
 import React, { useContext } from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
-/** @typedef {import('../../jsDocTypes').TableContextStateFilterValue} TableContextStateFilterValue */
-/** @typedef {import('../../jsDocTypes').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
+/** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValue} TableContextStateFilterValue */
+/** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
 
-/** @typedef {(setter: ((TableContextStateFilterValueObject) => void)) => void} SetterFunc */
+/** @typedef {(setter: ((param: TableContextStateFilterValueObject) => void)) => void} SetterFunc */
 
 /**
- * @template TableDataT
- * @param {Object} props
- * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => JSX.Element} props.children
+ * @param {object} props
+ * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => React.JSX.Element} props.children
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.RefObject} [props.innerRef]
- * @returns {JSX.Element}
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @returns {React.JSX.Element}
  */
 export function TableFilterCustom({
   children,

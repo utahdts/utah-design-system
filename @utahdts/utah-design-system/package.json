@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -33,12 +33,19 @@
   },
   "scripts": {
     "build": "vite build",
+    "buildw": "vite build --watch",
+    "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
+    "buildTypesTsc": "npx tsc",
+    "eslint": "npx eslint",
+    "eslintw": "npx eslint-watch -w",
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
     "test:ci": "vitest run --coverage --mode development-local",
     "test-publish": "npm publish --dry-run",
     "test": "vitest",
     "testOnce": "vitest run",
+    "tsc": "tsc",
+    "tscw": "tsc --watch --skipLibCheck",
     "watch": "vite build --watch"
   },
   "repository": {
@@ -59,7 +66,7 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.12.0",
+    "@utahdts/utah-design-system-header": "1.12.1",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
@@ -69,13 +76,16 @@
     "uuid": "9.0.1"
   },
   "devDependencies": {
+    "@types/lodash": "4.14.202",
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.17",
+    "@types/uuid": "9.0.7",
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-istanbul": "1.0.4",
     "@vitest/ui": "1.0.4",
     "jsdom": "23.0.1",
     "sass": "1.69.5",
+    "typescript": "5.3.3",
     "vite": "5.0.8",
     "vitest": "1.0.4"
   },

@@ -1,15 +1,10 @@
-import PropTypes from 'prop-types';
+import React from 'react';
 
-const propTypes = {
-  content: PropTypes.func.isRequired,
-};
-const defaultProps = {};
-
-function LandingTemplate({ content: Content }) {
+/**
+ * @param {object} props
+ * @param {() => React.JSX.Element} props.content
+ * @returns {React.JSX.Element}
+ */
+export function LandingTemplate({ content: Content }) {
   return (<Content />);
 }
-
-LandingTemplate.propTypes = propTypes;
-LandingTemplate.defaultProps = defaultProps;
-
-export default LandingTemplate;

@@ -24,8 +24,8 @@ document.querySelector('#app').innerHTML = `
 
   <!-- 
   The default style sets body's display to flex. 
-  There are many ways to make the State of Utah Header work with a flexed body.
-  Setting body's display to block is a quick hack to prove the proof of concept of importing the State of Utah Header.
+  There are many ways to make the state of Utah Header work with a flexed body.
+  Setting body's display to block is a quick hack to prove the proof of concept of importing the state of Utah Header.
   -->
   <style>body { display: block }</style>
 `;

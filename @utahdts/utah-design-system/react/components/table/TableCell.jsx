@@ -1,20 +1,18 @@
-// @ts-check
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ * @typedef {import('@utahdts/utah-design-system').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
  */
 
 /**
- * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableCell({
   children,

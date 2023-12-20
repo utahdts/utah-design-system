@@ -1,20 +1,19 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved, import/order
 import TooltipHTML from './html/Tooltip.html?raw';
 
 // eslint-disable-next-line import/order
 import { createPopper } from '@popperjs/core';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import popupPlacement from '../../enumerations/popupPlacement';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { PopupPlacement } from '../../enumerations/popupPlacement';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
 
 let tooltipCloseTimeoutId = NaN;
 /**
  * @param {HTMLElement} element the element from which the tooltip will trigger
  * @param {Node} dom the dom to show in the tooltip
-*/
-export default function hookupTooltip(element, dom) {
+ */
+export function hookupTooltip(element, dom) {
   const tooltip = renderDOMSingle(TooltipHTML);
   const tooltipContent = tooltip.querySelector(getCssClassSelector(domConstants.TOOLTIP__CONTENT));
   if (!tooltipContent) {
@@ -28,7 +27,7 @@ export default function hookupTooltip(element, dom) {
     element,
     tooltip,
     {
-      placement: popupPlacement.BOTTOM,
+      placement: PopupPlacement.BOTTOM,
       modifiers: [
         {
           name: 'offset',

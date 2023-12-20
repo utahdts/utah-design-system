@@ -1,25 +1,20 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import TextInputCssClassesDocumentation from './TextInputCssClassesDocumentation';
-import TextInputExampleCodeReact from './TextInputExampleCodeReact';
-import TextInputExampleProps from './TextInputExampleProps';
-import TextInputExampleRender from './TextInputExampleRender';
-import TextInputPropsDocumentation from './TextInputPropsDocumentation';
-import TextInputSearchExample from './TextInputSearchExample';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { TextInputCssClassesDocumentation } from './TextInputCssClassesDocumentation';
+import { TextInputExampleCodeReact } from './TextInputExampleCodeReact';
+import { TextInputExampleProps } from './TextInputExampleProps';
+import { TextInputExampleRender } from './TextInputExampleRender';
+import { TextInputPropsDocumentation } from './TextInputPropsDocumentation';
+import { TextInputSearchExample } from './TextInputSearchExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TextInputDocumentation() {
+export function TextInputDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Text Input</h1>
@@ -205,8 +200,3 @@ function TextInputDocumentation() {
     </div>
   );
 }
-
-TextInputDocumentation.propTypes = propTypes;
-TextInputDocumentation.defaultProps = defaultProps;
-
-export default TextInputDocumentation;

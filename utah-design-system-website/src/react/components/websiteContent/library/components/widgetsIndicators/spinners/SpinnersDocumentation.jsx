@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   BUTTON_APPEARANCE,
@@ -11,18 +10,17 @@ import {
   TabPanels,
   componentColors,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import SpinnerCssClassesDocumentation from './SpinnerCssClassesDocumentation';
-import SpinnerPropsDocumentation from './SpinnerPropsDocumentation';
-import SpinnersExampleCodeReact from './SpinnersExampleCodeReact';
-import SpinnersExampleProps from './SpinnersExampleProps';
-import SpinnersExampleRender from './SpinnersExampleRender';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SpinnerCssClassesDocumentation } from './SpinnerCssClassesDocumentation';
+import { SpinnerPropsDocumentation } from './SpinnerPropsDocumentation';
+import { SpinnersExampleCodeReact } from './SpinnersExampleCodeReact';
+import { SpinnersExampleProps } from './SpinnersExampleProps';
+import { SpinnersExampleRender } from './SpinnersExampleRender';
 
-export default function SpinnersDocumentation() {
+export function SpinnersDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Spinner</h1>

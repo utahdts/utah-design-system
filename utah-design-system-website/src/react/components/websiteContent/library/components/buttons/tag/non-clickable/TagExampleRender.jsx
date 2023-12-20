@@ -1,15 +1,13 @@
-// @ts-check
 import { Tag, useBanner } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
+ * @param {object} props
  * @param {{props: TagExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @returns {React.JSX.Element}
  */
 export function TagExampleRender({
   state: {
@@ -28,7 +26,7 @@ export function TagExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <Tag
       className={className}
@@ -37,7 +35,7 @@ export function TagExampleRender({
       id={id}
       innerRef={innerRef}
       isDisabled={isDisabled}
-      onClear={isClearable ? (() => showBanner({ message: 'You have cleared the Tag.' })) : undefined}
+      onClear={isClearable ? (() => addBanner({ message: 'You have cleared the Tag.' })) : undefined}
       size={size}
     >
       {title || ''}

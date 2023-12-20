@@ -1,10 +1,15 @@
-// @ts-check
-import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
-export default function BannersExampleCodeReact({
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {object} props
+ * @param {{props: BannerExamplePropsShape}} props.state
+ * @returns {React.JSX.Element}
+ */
+export function BannersExampleCodeReact({
   state: {
     props: {
       className,
@@ -12,6 +17,7 @@ export default function BannersExampleCodeReact({
       icon,
       message,
       position,
+      size,
     },
   },
 }) {
@@ -19,7 +25,7 @@ export default function BannersExampleCodeReact({
     <>
       &lt;Banner
       <br />
-      <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, color)}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, color, size)}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={position ? `position="${position}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp="onClose={() => console.log('Make sure to close the banner!')}" indentLevel={1} />
       &gt;

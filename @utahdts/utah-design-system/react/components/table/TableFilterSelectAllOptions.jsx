@@ -1,26 +1,24 @@
-// @ts-check
-import identity from 'lodash/identity';
-import uniq from 'lodash/uniq';
+import { identity, uniq } from 'lodash';
 import React, { useMemo } from 'react';
-import chainSorters from '../../util/chainSorters';
-import joinClassNames from '../../util/joinClassNames';
-import Select from '../forms/Select';
-import SelectOption from '../forms/SelectOption';
+import { chainSorters } from '../../util/chainSorters';
+import { joinClassNames } from '../../util/joinClassNames';
+import { Select } from '../forms/Select';
+import { SelectOption } from '../forms/SelectOption';
 import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string | number} [props.defaultValue]
  * @param {boolean} [props.exactMatch]
  * @param {string} [props.id]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {(() => {})} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function TableFilterSelectAllOptions({
   className,
@@ -38,7 +36,13 @@ export function TableFilterSelectAllOptions({
     currentValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    defaultOnChange: (e) => e.target.value,
+    defaultOnChange: (
+      /**
+       * @param {React.BaseSyntheticEvent} e
+       * @returns {any}
+       */
+      (e) => e.target.value
+    ),
     defaultValue,
     onChange,
     value,
@@ -56,6 +60,7 @@ export function TableFilterSelectAllOptions({
           (a, b) => (a > b ? 1 : 0),
         ]))
     ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [allData]
   );
 

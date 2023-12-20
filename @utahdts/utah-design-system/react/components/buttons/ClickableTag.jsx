@@ -1,24 +1,23 @@
-// @ts-check
 import React from 'react';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import handleEvent from '../../util/handleEvent';
-import joinClassNames from '../../util/joinClassNames';
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { handleEvent } from '../../util/handleEvent';
+import { joinClassNames } from '../../util/joinClassNames';
 
-/** @typedef {import('../../jsDocTypes').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className] modify your tag via className like 'tag--primary' and other modifiers found in the tag.scss
  * @param {string} [props.id] the tag id
- * @param {React.RefObject} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
+ * @param {React.RefObject<HTMLButtonElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
  * @param {React.ReactNode} [props.iconLeft] an icon for the left side
  * @param {React.ReactNode} [props.iconRight] an icon for the right side
  * @param {boolean} [props.isDisabled] tag isDisabled state
  * @param {boolean} [props.isSelected]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick] (e) => { ... do something with e ...}
  * @param {FormElementSizes} [props.size]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ClickableTag({
   children,

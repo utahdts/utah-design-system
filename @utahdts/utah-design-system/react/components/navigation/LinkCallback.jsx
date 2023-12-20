@@ -1,17 +1,14 @@
-import PropTypes from 'prop-types';
+import React from 'react';
 
-const propTypes = {
-  // a description to show to screen readers about what the callback will be performing
-  actionDescription: PropTypes.string.isRequired,
-  // a function to call when the link is clicked
-  callback: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-  // the href to show in the link, but not for actual navigation
-  href: PropTypes.string.isRequired,
-};
-const defaultProps = {};
-
-function LinkCallback({
+/**
+ * @param {object} props
+ * @param {string} props.actionDescription a description to show to screen readers about what the callback will be performing
+ * @param {React.MouseEventHandler} props.callback a function to call when the link is clicked
+ * @param {React.ReactNode} props.children
+ * @param {string} props.href the href to show in the link, but not for actual navigation
+ * @returns {React.JSX.Element}
+ */
+export function LinkCallback({
   actionDescription,
   callback,
   children,
@@ -27,8 +24,3 @@ function LinkCallback({
     </a>
   );
 }
-
-LinkCallback.propTypes = propTypes;
-LinkCallback.defaultProps = defaultProps;
-
-export default LinkCallback;

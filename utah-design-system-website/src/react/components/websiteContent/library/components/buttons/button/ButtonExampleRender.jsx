@@ -1,20 +1,19 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import {
   Button,
   Icons,
   useBanner
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {import('use-immer').Updater<{props: ButtonExamplePropsShape}>} props.setState
+ * @param {object} props
  * @param {{props: ButtonExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {React.RefObject<HTMLButtonElement>} props.innerRef
+ * @returns {React.JSX.Element}
  */
-export default function ButtonExampleRender({
+export function ButtonExampleRender({
   state: {
     props: {
       appearance,
@@ -38,8 +37,20 @@ export default function ButtonExampleRender({
       appearance={appearance}
       className={className}
       color={color}
-      iconLeft={((iconLeft === 'none') || !iconLeft) ? null : Icons[iconLeft]()}
-      iconRight={((iconRight === 'none') || !iconRight) ? null : Icons[iconRight]()}
+      iconLeft={
+        (
+          (iconLeft === 'none') || !iconLeft)
+          ? null
+          // @ts-ignore
+          : Icons[iconLeft]()
+      }
+      iconRight={
+        (
+          (iconRight === 'none') || !iconRight)
+          ? null
+          // @ts-ignore
+          : Icons[iconRight]()
+      }
       id={id}
       innerRef={innerRef}
       isBusy={isBusy}

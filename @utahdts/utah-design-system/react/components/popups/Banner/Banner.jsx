@@ -1,21 +1,20 @@
-// @ts-check
 import React from 'react';
-import joinClassNames from '../../../util/joinClassNames';
-import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import IconButton from '../../buttons/IconButton';
 import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
+import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
 
-/** @typedef {import('../../../jsDocTypes').EventAction} EventAction */
-/** @typedef {import('../../../jsDocTypes').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
- * @param {string} props.id
+ * @param {string} [props.id]
  * @param {React.Ref<HTMLDivElement>} [props.innerRef]
- * @param {import('react').MouseEventHandler<HTMLButtonElement>} props.onClose
+ * @param {React.MouseEventHandler} props.onClose
  * @param {BannerPlacement} [props.position]
- * * @returns {JSX.Element}
+ * @param {'small' | 'medium' | 'large'} [props.size]
+ * @returns {React.JSX.Element}
  */
 export function Banner({
   children,
@@ -24,20 +23,22 @@ export function Banner({
   innerRef,
   onClose,
   position = BANNER_PLACEMENT.BOTTOM_LEFT,
+  size,
 }) {
   return (
     <div
       className={joinClassNames(
         'banner__wrapper',
         className,
-        `banner--${position}`
+        `banner--${position}`,
+        size && `banner--${size}`
       )}
       id={id}
       ref={innerRef}
       role="status"
     >
       {children}
-      <div className="banner__close-button">
+      <div className="banner__close-button flex flex-col justify-center">
         <IconButton
           aria-hidden="true"
           appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}

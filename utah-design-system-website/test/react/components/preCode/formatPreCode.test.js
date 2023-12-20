@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import formatPreCode from '../../../../src/react/components/preCode/formatPreCode';
+import { formatPreCode } from '../../../../src/react/components/preCode/formatPreCode';
 
 describe('formatPreCode', () => {
   test('remove last/first \n', () => {

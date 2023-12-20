@@ -1,17 +1,16 @@
-// @ts-check
 import { Popup } from '@utahdts/utah-design-system';
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: PopupsExamplePropsShape}>} props.setState
  * @param {{props: PopupsExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @returns {React.JSX.Element}
  */
-export default function PopupsExampleRender({
+export function PopupsExampleRender({
   setState,
   state: {
     props: {
@@ -25,6 +24,7 @@ export default function PopupsExampleRender({
 }) {
   const buttonRef = /** @type {typeof useRef<HTMLButtonElement>} */ (useRef)(null);
 
+  /** @type {React.MouseEventHandler<HTMLButtonElement>} */
   const onClickEvent = useCallback(
     (e) => {
       e.preventDefault();

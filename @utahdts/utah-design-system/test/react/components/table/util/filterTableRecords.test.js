@@ -1,4 +1,3 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
 import { filterTableRecords } from '../../../../../react/components/table/util/filterTableRecords';
 

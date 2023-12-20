@@ -1,7 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { expect, test } from 'vitest';
-import domConstants from '../../../../src/js/enumerations/domConstants';
+import { domConstants } from '../../../../src/js/enumerations/domConstants';
 
+/** @param {any} headerComponentsExist */
 export function testSanity(headerComponentsExist) {
   // if this changes, then there are more scenarios for which to check
   expectHeaderComponentsExistSanityCheck();

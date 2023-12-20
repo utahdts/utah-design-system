@@ -1,13 +1,10 @@
-// @ts-check
 import { useContext } from 'react';
-import UtahDesignSystemContext from './UtahDesignSystemContext';
+import { UtahDesignSystemContext } from './UtahDesignSystemContext';
 
-/** @typedef {import('../../jsDocTypes').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextValue} UtahDesignSystemContextValue */
 /** @typedef {import('use-immer').ImmerHook<UtahDesignSystemContextValue>} ImmerHookUtahDesignSystemContext */
 
-/**
- * @return {ImmerHookUtahDesignSystemContext}
- */
-export default function useUtahDesignSystemContext() {
+/** @returns {ImmerHookUtahDesignSystemContext} */
+export function useUtahDesignSystemContext() {
   return useContext(UtahDesignSystemContext);
 }

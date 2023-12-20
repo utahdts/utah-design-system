@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import isString from '../../../src/js/misc/isString';
-import dataOfAllDataTypes, { allDataTypes } from '../../util/dataOfAllDataTypes';
+import { isString } from '../../../src/js/misc/isString';
+import { allDataTypes, dataOfAllDataTypes } from '../../util/dataOfAllDataTypes';
 
 describe('isString', () => {
   test('string', () => {

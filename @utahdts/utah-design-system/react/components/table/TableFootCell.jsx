@@ -1,24 +1,23 @@
-// @ts-check
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {string} props.className
- * @param {React.RefObject} props.innerRef
- * @param {string} props.id
- * @returns {JSX.Element}
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @returns {React.JSX.Element}
  */
 export function TableFootCell({
   children,
   className,
-  innerRef,
   id,
+  innerRef,
   ...rest
 }) {
   return (
-    <td className={joinClassNames('table-foot__cell', className)} id={id ?? undefined} ref={innerRef} {...rest}>
+    <td className={joinClassNames('table-foot__cell', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </td>
   );

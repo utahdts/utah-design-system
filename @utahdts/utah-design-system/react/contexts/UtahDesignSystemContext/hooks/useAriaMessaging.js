@@ -1,9 +1,8 @@
-// @ts-check
 import { useCallback, useMemo } from 'react';
-import useUtahDesignSystemContext from '../useUtahDesignSystemContext';
+import { useUtahDesignSystemContext } from '../useUtahDesignSystemContext';
 
-/** @return {{addAssertiveMessage: (message: string) => void, addPoliteMessage: (message: string) => void}} */
-export default function useAriaMessaging() {
+/** @returns {{addAssertiveMessage: (message: string) => void, addPoliteMessage: (message: string) => void}} */
+export function useAriaMessaging() {
   const [, setState] = useUtahDesignSystemContext();
 
   const addPoliteMessage = useCallback(

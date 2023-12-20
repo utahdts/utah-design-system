@@ -1,46 +1,36 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-param-reassign */
-import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { useId, useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import joinClassNames from '../../../util/joinClassNames';
-import TabGroupContext from './TabGroupContext';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { TabGroupContext } from './TabGroupContext';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onChange: PropTypes.func,
-  // value is the currentSelectedTabIndex number
-  value: PropTypes.number,
-};
-const defaultProps = {
-  className: null,
-  defaultValue: null,
-  onChange: null,
-  value: null,
-};
+/** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */
 
-let nextTabGroupId = 0;
-
-function TabGroup({
+/**
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {string} [props.defaultValue]
+ * @param {(newTabId: string) => void} [props.onChange]
+ * @param {string} [props.value]
+ * @returns {React.JSX.Element}
+ */
+export function TabGroup({
   children,
   className,
   defaultValue,
   onChange,
   value,
 }) {
-  const [tabGroupState, setTabGroupState] = useImmer(() => {
-    nextTabGroupId += 1;
-    return {
-      selectedTabId: defaultValue || NaN,
-      tabGroupId: nextTabGroupId,
-    };
-  });
+  const tabGroupId = useId();
+  const [tabGroupState, setTabGroupState] = useImmer(() => ({
+    selectedTabId: defaultValue,
+    tabGroupId,
+  }));
+  /** @type {TabGroupContextValue} */
   const contextValue = useMemo(
     () => ({
       tabGroupId: tabGroupState.tabGroupId,
-      selectedTabId: value || tabGroupState.selectedTabId,
+      selectedTabId: value || tabGroupState.selectedTabId || '',
       setSelectedTabId: (tabId) => {
         if (onChange) {
           onChange(tabId);
@@ -53,14 +43,9 @@ function TabGroup({
   );
   return (
     <TabGroupContext.Provider value={contextValue}>
-      <div className={joinClassNames('tab-group', className)} id={`tab-group-${tabGroupState.id}`}>
+      <div className={joinClassNames('tab-group', className)} id={`tab-group-${tabGroupState.tabGroupId}`}>
         {children}
       </div>
     </TabGroupContext.Provider>
   );
 }
-
-TabGroup.propTypes = propTypes;
-TabGroup.defaultProps = defaultProps;
-
-export default TabGroup;

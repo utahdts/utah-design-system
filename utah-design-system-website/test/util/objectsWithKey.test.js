@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import objectsWithKey from '../../src/react/util/objectsWithKey';
+import { objectsWithKey } from '../../src/react/util/objectsWithKey';
 
 const KEY = 'b';
 

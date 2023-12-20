@@ -1,100 +1,38 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
 import { BUTTON_APPEARANCE, BUTTON_TYPES } from '../../enums/buttonEnums';
-import componentColors from '../../enums/componentColors';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import RefShape from '../../propTypesShapes/RefShape';
-import handleEvent from '../../util/handleEvent';
-import joinClassNames from '../../util/joinClassNames';
-import Spinner from '../widgetsIndicators/Spinner';
+import { componentColors } from '../../enums/componentColors';
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { handleEvent } from '../../util/handleEvent';
+import { joinClassNames } from '../../util/joinClassNames';
+import { Spinner } from '../widgetsIndicators/Spinner';
 
-/** @typedef {import('../../jsDocTypes').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('../../jsDocTypes').ButtonTypes} ButtonTypes */
-/** @typedef {import('../../jsDocTypes').ComponentColors} ComponentColors */
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
-/** @typedef {import('../../jsDocTypes').FormElementSizes} FormElementSizes */
-
-const propTypes = {
-  // the appearance of the button
-  appearance: PropTypes.oneOf([
-    BUTTON_APPEARANCE.OUTLINED,
-    BUTTON_APPEARANCE.SOLID,
-  ]),
-  // most often is the title of the button, but can also contain most anything
-  children: PropTypes.node.isRequired,
-  // modify your button via classname like 'button--primary' and other modifiers found in the button.scss
-  className: PropTypes.string,
-  // the base color of the button
-  color: PropTypes.oneOf([
-    componentColors.PRIMARY,
-    componentColors.SECONDARY,
-    componentColors.ACCENT,
-    componentColors.NONE,
-  ]),
-  // a ref to attach to the actual DOM <button> element
-  innerRef: RefShape,
-  // an icon for the left/right side
-  iconLeft: PropTypes.node,
-  iconRight: PropTypes.node,
-  // the button id
-  id: PropTypes.string,
-  // if the button is busy then it shows a spinner indicator on it and disables the button
-  isBusy: PropTypes.bool,
-  // button isDisabled state
-  isDisabled: PropTypes.bool,
-  // event for when the button is clicked: (e) => { ... do something with e ...}
-  onClick: PropTypes.func.isRequired,
-  size: PropTypes.oneOf([
-    formElementSizesEnum.SMALL1X,
-    formElementSizesEnum.SMALL,
-    formElementSizesEnum.MEDIUM,
-    formElementSizesEnum.LARGE,
-    formElementSizesEnum.LARGE1X,
-  ]),
-  // button type
-  type: PropTypes.oneOf([
-    BUTTON_TYPES.BUTTON,
-    BUTTON_TYPES.RESET,
-    BUTTON_TYPES.SUBMIT,
-  ]),
-};
-const defaultProps = {
-  appearance: BUTTON_APPEARANCE.OUTLINED,
-  className: null,
-  color: componentColors.NONE,
-  innerRef: null,
-  isBusy: false,
-  iconLeft: null,
-  iconRight: null,
-  isDisabled: false,
-  id: null,
-  size: formElementSizesEnum.MEDIUM,
-  type: BUTTON_TYPES.BUTTON,
-};
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 
 /**
- * @param {Object} props
- * @param {ButtonAppearance} [props.appearance]
- * @param {React.ReactNode} props.children
- * @param {string} [props.className]
- * @param {ComponentColors} [props.color]
- * @param {React.RefObject} [props.innerRef]
- * @param {boolean} [props.isBusy]
- * @param {React.ReactNode} [props.iconLeft]
+ * @param {object} props
+ * @param {ButtonAppearance} [props.appearance] the appearance of the button
+ * @param {React.ReactNode} props.children most often is the title of the button, but can also contain most anything
+ * @param {string} [props.className] modify your button via className like 'button--primary' and other modifiers found in the button.scss
+ * @param {ComponentColors} [props.color] the base color of the button
+ * @param {React.RefObject<HTMLButtonElement>} [props.innerRef] a ref to attach to the actual DOM <button> element
+ * @param {React.ReactNode} [props.iconLeft] an icon for the left/right side
  * @param {React.ReactNode} [props.iconRight]
- * @param {boolean} [props.isDisabled]
- * @param {string} [props.id]
- * @param {EventAction} props.onClick
+ * @param {boolean} [props.isDisabled] button isDisabled state
+ * @param {string} [props.id] the button id
+ * @param {boolean} [props.isBusy] if the button is busy then it shows a spinner indicator on it and disables the button
+ * @param {React.MouseEventHandler} props.onClick event for when the button is clicked: (e) => { ... do something with e ...}
  * @param {FormElementSizes} [props.size]
- * @param {ButtonTypes} [props.type]
- * @returns {JSX.Element}
+ * @param {ButtonTypes} [props.type] button type
+ * @returns {React.JSX.Element}
  */
-function Button({
-  appearance,
+export function Button({
+  appearance = BUTTON_APPEARANCE.OUTLINED,
   children,
   className,
-  color,
+  color = componentColors.NONE,
   innerRef,
   isBusy,
   iconLeft,
@@ -102,8 +40,8 @@ function Button({
   isDisabled,
   id,
   onClick,
-  size,
-  type,
+  size = 'medium',
+  type = BUTTON_TYPES.BUTTON,
   ...rest
 }) {
   return (
@@ -151,8 +89,3 @@ function Button({
     </button>
   );
 }
-
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
-
-export default Button;

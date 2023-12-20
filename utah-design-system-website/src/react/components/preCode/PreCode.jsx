@@ -1,20 +1,20 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 import { useRef } from 'react';
-import CopyButton from '../copy/CopyButton';
-import { PreCodeDefaultProps } from './PreCodeDefaultProps';
-import { PreCodeProps } from './PreCodeProps';
+import { CopyButton } from '../copy/CopyButton';
 
-const propTypes = {
-  ...PreCodeProps,
-  children: PropTypes.node.isRequired,
-};
-const defaultProps = {
-  ...PreCodeDefaultProps,
-};
-
-// The PreCode component takes children containing some sort of "code" and wraps it in a "pre" tag.
-function PreCode({
+/**
+ * The PreCode component takes children containing some sort of "code" and wraps it in a "pre" tag.
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ * @param {boolean} [props.addHorizontalPadding]
+ * @param {boolean} [props.allowScrollOverflow]
+ * @param {string} [props.className]
+ * @param {string} [props.maxHeight]
+ * @param {object} [props.propsForPre]
+ * @param {boolean} [props.showBackgroundColor]
+ * @returns {React.JSX.Element}
+ */
+export function PreCode({
   addHorizontalPadding,
   allowScrollOverflow,
   children,
@@ -35,8 +35,8 @@ function PreCode({
           addHorizontalPadding && 'pre-code--padded'
         )}
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={allowScrollOverflow ? '0' : undefined}
-        style={maxHeight && { maxHeight: `${maxHeight}` }}
+        tabIndex={allowScrollOverflow ? 0 : undefined}
+        style={maxHeight ? { maxHeight: `${maxHeight}` } : undefined}
         {...propsForPre}
       >
         <div
@@ -51,8 +51,3 @@ function PreCode({
     </div>
   );
 }
-
-PreCode.propTypes = propTypes;
-PreCode.defaultProps = defaultProps;
-
-export default PreCode;

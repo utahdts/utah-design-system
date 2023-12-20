@@ -1,7 +1,3 @@
-// @ts-check
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved, import/order
-
 import {
   FooterSocialMediaBar,
   Icons,
@@ -9,12 +5,8 @@ import {
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
-import React from 'react';
 
-const propTypes = {};
-const defaultProps = {};
-
-function DesignSystemFooterSocialMedia() {
+export function DesignSystemFooterSocialMedia() {
   return (
     <FooterSocialMediaBar title="Connect with us">
       <a
@@ -23,7 +15,7 @@ function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        {Icons.IconEnvelope()}
+        <Icons.IconEnvelope />
         <span className="visually-hidden">Email us, opens in a new tab</span>
       </a>
       <a
@@ -32,7 +24,7 @@ function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        {Icons.IconSlack()}
+        <Icons.IconSlack />
         <span className="visually-hidden">Utah Design System Slack, opens in a new tab</span>
       </a>
       <a
@@ -41,14 +33,9 @@ function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        {Icons.IconGitHub()}
+        <Icons.IconGitHub />
         <span className="visually-hidden">Utah Design System Git Hub, opens in a new tab</span>
       </a>
     </FooterSocialMediaBar>
   );
 }
-
-DesignSystemFooterSocialMedia.propTypes = propTypes;
-DesignSystemFooterSocialMedia.defaultProps = defaultProps;
-
-export default DesignSystemFooterSocialMedia;

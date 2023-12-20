@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   Switch,
@@ -6,19 +5,19 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: TextAreaExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {TextAreaExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
-export default function TextAreaExampleProps({ setState, state }) {
+export function TextAreaExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

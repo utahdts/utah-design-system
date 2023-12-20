@@ -1,9 +1,9 @@
-/** @typedef {import('../../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
+/** @typedef {import('@utahdts/utah-design-system').ComboBoxOptionType} ComboBoxOptionType */
 
 /**
  * @param {string | null} optionGroupId the id of this option group being checked, or null if not a group
  * @param {string} optionLabel the label of this option group being checked
- * @param {ComboBoxOption[]} optionsFiltered including group options that aren't removed from the filter but may not be visible
+ * @param {ComboBoxOptionType[]} optionsFiltered including group options that aren't removed from the filter but may not be visible
  * @returns {boolean}
  */
 export function isOptionGroupVisible(optionGroupId, optionLabel, optionsFiltered) {

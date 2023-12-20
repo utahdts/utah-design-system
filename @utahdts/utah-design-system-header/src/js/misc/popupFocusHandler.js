@@ -1,11 +1,10 @@
-// @ts-check
 import { createPopper } from '@popperjs/core';
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import popupPlacement from '../enumerations/popupPlacement';
+import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
+import { PopupPlacement } from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
-import checkForError from './checkForError';
-import isTouchDevice from './isTouchDevice';
-import showHideElement from './showHideElement';
+import { checkForError } from './checkForError';
+import { isTouchDevice } from './isTouchDevice';
+import { showHideElement } from './showHideElement';
 
 /*
    ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
@@ -60,14 +59,13 @@ import showHideElement from './showHideElement';
  * for both onClicks AND tabbing to focus is pretty complicated. The idea is that while the
  * button OR menu has focus, the menu is shown. Also global events like clicking off the wrapper
  * or pressing escape should also close the popup.
- *
  * @param {HTMLElement} wrapper the wrapper containing the button and popup
  * @param {HTMLElement} button the button that toggles the popup to open/close
  * @param {HTMLElement} popup the actual popup being opened and closed
  * @param {AriaHasPopupType} ariaHasPopup aria tag for popup type
  * @param {PopupFocusHandlerOptions | undefined} options
  */
-export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options) {
+export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options) {
   let delayPopupTimeoutId = NaN;
   let delayHideTimeoutId = NaN;
   const TIMEOUT_MS_LONG = 350;
@@ -94,7 +92,7 @@ export default function popupFocusHandler(wrapper, button, popup, ariaHasPopup, 
       delayPopupTimeoutId = window.setTimeout(
         () => {
           createPopper(button, popup, {
-            placement: options?.popupPlacement || popupPlacement.BOTTOM,
+            placement: options?.popupPlacement || PopupPlacement.BOTTOM,
             modifiers: [
               {
                 name: 'offset',

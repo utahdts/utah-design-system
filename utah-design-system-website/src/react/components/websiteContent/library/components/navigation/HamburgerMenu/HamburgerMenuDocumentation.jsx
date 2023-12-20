@@ -1,19 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import hamburgerClosedScreenshot from '../../../../../../../static/images/screenshots/components/hamburger-menu/hamburger-closed.jpg';
 import hamburgerOpenScreenshot from '../../../../../../../static/images/screenshots/components/hamburger-menu/hamburger-open.jpg';
 
-const propTypes = {};
-const defaultProps = {};
-
-function HamburgerMenuDocumentation() {
+export function HamburgerMenuDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Hamburger Menu</h1>
@@ -103,8 +96,3 @@ function HamburgerMenuDocumentation() {
     </div>
   );
 }
-
-HamburgerMenuDocumentation.propTypes = propTypes;
-HamburgerMenuDocumentation.defaultProps = defaultProps;
-
-export default HamburgerMenuDocumentation;

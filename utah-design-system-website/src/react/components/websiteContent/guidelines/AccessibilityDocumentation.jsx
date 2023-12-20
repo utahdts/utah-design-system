@@ -1,8 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Button,
   ExternalLink,
@@ -17,43 +14,42 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
-import pageUrls from '../../routing/pageUrls';
-import LightBox from '../../lightbox/LightBox';
-import StaticExample from '../../staticExamples/StaticExample';
-import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
 import badAltAudio from '../../../../static/audio/BadAlt.mp3';
-import goodTextOverImg from '../../../../static/images/screenshots/examples/GoodTextOverImage.png';
-import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
-import goodColorRepImg from '../../../../static/images/screenshots/examples/GoodColorRepresentation.png';
-import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
-import captionsImg from '../../../../static/images/screenshots/examples/Captions.jpg';
+import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
+import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
+import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
+import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
+import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
+import captionsImg from '../../../../static/images/screenshots/examples/Captions.jpg';
+import goodColorRepImg from '../../../../static/images/screenshots/examples/GoodColorRepresentation.png';
+import goodTextOverImg from '../../../../static/images/screenshots/examples/GoodTextOverImage.png';
 import boatImage from '../../../../static/images/screenshots/examples/JordanelleBoat.jpg';
-import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
-import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
-import useAppContext from '../../../context/AppContext/useAppContext';
+import { useAppContext } from '../../../context/AppContext/useAppContext';
+import { LightBox } from '../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../routing/pageUrls';
+import { StaticExample } from '../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function AccessibilityDocumentation() {
+export function AccessibilityDocumentation() {
   const goodAltAudioVtt = new URL('../../../../static/audio/vtt/GoodAlt.vtt', import.meta.url).href;
   const badAltAudioVtt = new URL('../../../../static/audio/vtt/BadAlt.vtt', import.meta.url).href;
 
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
 
+  /** @param {React.MouseEvent<HTMLAnchorElement>} e */
   function toggleColorPickerPopup(e) {
     e.preventDefault();
     e.stopPropagation();
     setAppState((draftAppState) => { draftAppState.isColorPickerShown = !isColorPickerShown; });
   }
+
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Accessibility Overview</h1>
       <p className="lead-in">
-        One of the top goals at the State of Utah is to make websites and applications, across our many different agencies accessible for
+        One of the top goals at the state of Utah is to make websites and applications, across our many different agencies accessible for
         all people including those with varying impairments. By prioritizing accessibility, we demonstrate our commitment to those we serve
         by fostering a sense of inclusivity, and ultimately enhance the user experience for everyone.
       </p>
@@ -97,7 +93,7 @@ function AccessibilityDocumentation() {
       </ul>
 
       <p>
-        The State of Utah Design System provides accessible components as well as guidance for each component in our <Link to={pageUrls.library}>Library</Link>. The components
+        The state of Utah Design System provides accessible components as well as guidance for each component in our <Link to={pageUrls.library}>Library</Link>. The components
         are vetted using WCAG 2.1 standards and the U.S. Design System.
       </p>
 
@@ -364,7 +360,7 @@ function AccessibilityDocumentation() {
         </strong>.
       </p>
       <p>
-        All State of Utah agency websites must provide adequate contrast between text and its background (or an object and its background)
+        All state of Utah agency websites must provide adequate contrast between text and its background (or an object and its background)
         so that it can be read or identified by people with moderately low vision (who do not use contrast-enhancing assistive technology).
         Contrast values are measured with the foreground color and the background color in a ratio such as: <code>3:1</code>, <code>4.5:1</code>, <code>7:1</code>.
         Contrast requirements vary with the size of the text or object. Larger text/objects require less contrast, whereas smaller text/objects require more contrast.
@@ -876,8 +872,3 @@ function AccessibilityDocumentation() {
     </div>
   );
 }
-
-AccessibilityDocumentation.propTypes = propTypes;
-AccessibilityDocumentation.defaultProps = defaultProps;
-
-export default AccessibilityDocumentation;

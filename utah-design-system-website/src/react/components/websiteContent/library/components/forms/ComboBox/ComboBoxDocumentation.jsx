@@ -1,20 +1,14 @@
-// @ts-check
 /* eslint-disable max-len */
 import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import ComboBoxExampleCodeReact from './ComboBoxExampleCodeReact';
-import ComboBoxExampleProps from './ComboBoxExampleProps';
-import ComboBoxExampleRender from './ComboBoxExampleRender';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { ComboBoxExampleCodeReact } from './ComboBoxExampleCodeReact';
+import { ComboBoxExampleProps } from './ComboBoxExampleProps';
+import { ComboBoxExampleRender } from './ComboBoxExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function ComboBoxDocumentation() {
+export function ComboBoxDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Combo Box</h1>
@@ -22,10 +16,6 @@ function ComboBoxDocumentation() {
         A combo box helps users select a single item from a large list of options using an active search feature.
         A multi-select allows users to search on and select multiple items, while a single-select lets users choose a single item.
       </p>
-      <div className="home-page__color-card home-page__card-wide mb-spacing-l">
-        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Under Development</h3>
-        <p>The Combobox is currently under development. Things may not look right until this work is completed.</p>
-      </div>
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample
@@ -162,8 +152,3 @@ function ComboBoxDocumentation() {
     </div>
   );
 }
-
-ComboBoxDocumentation.propTypes = propTypes;
-ComboBoxDocumentation.defaultProps = defaultProps;
-
-export default ComboBoxDocumentation;

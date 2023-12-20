@@ -1,16 +1,14 @@
-// @ts-check
 import { Checkbox } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').CheckboxExamplePropsShape} CheckboxExamplePropsShape */
+/** @typedef {import('utah-design-system-website').CheckboxExamplePropsShape} CheckboxExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {React.RefObject} props.innerRef
+ * @param {object} props
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: CheckboxExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {CheckboxExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function CheckboxExampleRender({
   setState,

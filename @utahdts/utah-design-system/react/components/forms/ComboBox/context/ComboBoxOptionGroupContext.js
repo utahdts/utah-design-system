@@ -1,6 +1,5 @@
-// @ts-check
-import React from 'react';
+import { createContext } from 'react';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxOptionGroupContextValue} ComboBoxOptionGroupContextValue */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxOptionGroupContextValue} ComboBoxOptionGroupContextValue */
 
-export const ComboBoxOptionGroupContext = /** @type {typeof React.createContext<ComboBoxOptionGroupContextValue>} */ (React.createContext)('');
+export const ComboBoxOptionGroupContext = /** @type {typeof createContext<ComboBoxOptionGroupContextValue>} */ (createContext)('');

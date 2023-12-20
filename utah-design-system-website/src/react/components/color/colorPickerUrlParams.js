@@ -1,7 +1,7 @@
-// @ts-check
 /* eslint-disable no-bitwise */
-import padEnd from 'lodash/padEnd';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
+import { padEnd } from 'lodash';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
+import { notNull } from '../../util/notNull/notNull';
 
 const NULL_COLOR_HEX = '_';
 
@@ -12,13 +12,14 @@ const NULL_COLOR_HEX = '_';
 export function colorsToUrlParams(cssState) {
   const hexes = (
     Object.values(CSS_VARIABLES_KEYS)
+      // @ts-ignore
       .map((colorKey) => /** @type {string | null} */(cssState[colorKey])?.substring(1) || NULL_COLOR_HEX)
       .map((colorHex) => {
         let retVal = colorHex;
         if (retVal !== NULL_COLOR_HEX) {
           if (retVal.length === 3) {
             // ie. expand #e63 to be #ee6633
-            retVal = retVal[0] + retVal[0] + retVal[1] + retVal[1] + retVal[2] + retVal[2];
+            retVal = (retVal[0] ?? '') + (retVal[0] ?? '') + retVal[1] + retVal[1] + retVal[2] + retVal[2];
           } else {
             retVal = padEnd(retVal, 6, '0').substring(0, 6);
           }
@@ -33,7 +34,7 @@ export function colorsToUrlParams(cssState) {
 /**
  * given a url param, pull out color information
  * @param {string} windowLocationSearch the result of window.location.search (doesn't do it itself so can be passed in for testing)
- * @returns {Object.<string, string | null>}
+ * @returns {Record<string, string | null>}
  */
 export function colorsFromUrlParams(windowLocationSearch) {
   const resultColors = Object.fromEntries(Object.entries(CSS_VARIABLES_KEYS).map(([, colorKey]) => [colorKey, /** @type {string | null} */ (null)]));
@@ -50,7 +51,7 @@ export function colorsFromUrlParams(windowLocationSearch) {
       colorKeysIndex < colorKeys?.length && colorsParamIndex < colorsHexes.length;
       colorKeysIndex += 1
     ) {
-      const colorKey = colorKeys[colorKeysIndex];
+      const colorKey = notNull(colorKeys[colorKeysIndex], 'colorPickerUrlParams: colorKeysIndex not found');
       if (colorsHexes[colorsParamIndex] === NULL_COLOR_HEX) {
         resultColors[colorKey] = null;
         colorsParamIndex += 1;

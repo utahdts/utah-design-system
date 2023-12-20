@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   popupPlacement,
@@ -6,22 +5,22 @@ import {
   SelectOption,
   Switch
 } from '@utahdts/utah-design-system';
-import startCase from 'lodash/startCase';
+import { startCase } from 'lodash';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: PopupsExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {PopupsExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
-export default function PopupsExampleProps({ setState, state }) {
+export function PopupsExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
+      // @ts-ignore
       setState={setState}
       state={state}
     >

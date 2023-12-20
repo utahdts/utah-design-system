@@ -1,7 +1,6 @@
-// @ts-check
 import { isOptionGroupVisible } from './isOptionGroupVisible';
 
-/** @typedef {import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef {import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
 
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
@@ -28,6 +27,7 @@ export function moveComboBoxSelectionUp(draftContext, textInput) {
       const newHighlightedValue = optionsToUse[currentSelectionIndex]?.value ?? null;
       draftContext.optionValueHighlighted = newHighlightedValue;
       draftContext.optionValueFocused = newHighlightedValue;
+      // @ts-ignore
       document.querySelector(`[value="${newHighlightedValue}"]`)?.[0]?.focus();
     } else {
       // if at top, then close the options list

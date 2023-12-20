@@ -1,35 +1,33 @@
-// @ts-check
 import {
-  joinClassNames,
   Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
-  TableFilters,
   TableFilterTextInput,
+  TableFilters,
   TableHead,
   TableHeadCell,
   TableHeadRow,
   TablePagination,
   TableSortingRule,
-  tableSortingRuleFieldType,
   TableSortingRules,
-  TableWrapper
+  TableWrapper,
+  joinClassNames,
+  tableSortingRuleFieldType
 } from '@utahdts/utah-design-system';
 import React from 'react';
-import stateSymbols from '../../../../../consts/stateSymbols';
+import { stateSymbols } from '../../../../../consts/stateSymbols';
 
-/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {import('use-immer').Updater<{props: TableExamplePropsShape}>} props.setState
+ * @param {object} props
  * @param {{props: TableExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @returns {React.JSX.Element}
  */
-export default function TableExampleRender({
+export function TableExampleRender({
   state: {
     props: {
       className,

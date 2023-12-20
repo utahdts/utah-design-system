@@ -1,14 +1,13 @@
-// @ts-check
 import { IconButton, useBanner } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps */
+/** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */
 
 /**
-* @param {{state: {props: IconButtonExampleProps}, innerRef: React.MutableRefObject<HTMLButtonElement>}} props
-* @returns {React.ReactElement}
-*/
-export default function IconButtonExampleRender({
+ * @param {{state: {props: IconButtonExampleProps}, innerRef: React.MutableRefObject<HTMLButtonElement>}} props
+ * @returns {React.ReactElement}
+ */
+export function IconButtonExampleRender({
   state: {
     props: {
       appearance,

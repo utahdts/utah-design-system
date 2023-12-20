@@ -1,21 +1,19 @@
-// @ts-check
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: TableExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {TableExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
-export default function TableExampleProps({ setState, state }) {
+export function TableExampleProps({ setState, state }) {
   return (
     <Form
-      // onSubmit(({ state, validationErrors }) => ... do whatever ...)
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

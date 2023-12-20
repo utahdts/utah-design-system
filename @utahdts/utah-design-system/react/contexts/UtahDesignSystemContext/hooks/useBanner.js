@@ -1,10 +1,9 @@
-// @ts-check
-import { useCallback, useMemo } from 'react';
-import useUtahDesignSystemContext from '../useUtahDesignSystemContext';
-import uuidv4 from '../../../util/uuidv4';
+import React, { useCallback, useMemo } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { useUtahDesignSystemContext } from '../useUtahDesignSystemContext';
 
-/** @typedef {import('../../../jsDocTypes').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
-/** @typedef {import('../../../jsDocTypes').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
 /**
  * @returns {{
  * addBanner: function(UtahDesignSystemContextBanner): void,
@@ -14,16 +13,16 @@ import uuidv4 from '../../../util/uuidv4';
 export function useBanner() {
   const [, setState] = useUtahDesignSystemContext();
 
-  // eslint-disable-next-line function-paren-newline
   const addBanner = useCallback(
     /**
-     * @param {string} [className]
-     * @param {number} [duration]
-     * @param {string} [id]
-     * @param {HTMLElement} [icon]
-     * @param {HTMLElement | string} message
-     * @param {string} [position]
-     * @returns {void}
+     * @param {object} param
+     * @param {string} [param.className]
+     * @param {number} [param.duration]
+     * @param {string} [param.id]
+     * @param {React.ReactNode} [param.icon]
+     * @param {React.ReactNode} param.message
+     * @param {(e: React.MouseEvent | undefined) => void} [param.onClose]
+     * @param {BannerPlacement} [param.position]
      */
     ({
       className,
@@ -31,6 +30,7 @@ export function useBanner() {
       id,
       icon,
       message,
+      onClose,
       position = 'bottom-left',
     }) => {
       setState((draftState) => {
@@ -40,15 +40,17 @@ export function useBanner() {
           icon,
           id: id || uuidv4(),
           message,
+          onClose,
           position,
         });
       });
-    }, [setState]);
+    },
+    [setState]
+  );
 
-  // eslint-disable-next-line function-paren-newline
   const removeBanner = useCallback(
     /**
-     * @param {UtahDesignSystemContextValue} banner
+     * @param {UtahDesignSystemContextBanner} banner
      * @returns {void}
      */
     (banner) => {
@@ -56,7 +58,9 @@ export function useBanner() {
         const currentIndex = draftState.banners.findIndex((item) => item.id === banner.id);
         if (currentIndex !== -1) { draftState.banners.splice(currentIndex, 1); }
       });
-    }, [setState]);
+    },
+    [setState]
+  );
 
   return useMemo(() => ({ addBanner, removeBanner }), [addBanner, removeBanner]);
 }

@@ -1,15 +1,15 @@
 import tinycolor from 'tinycolor2';
-import isLightColor from './isLightColor';
+import { isLightColor } from './isLightColor';
 
 /**
  * Given a color (#123123) and a colorList, find the first color on the list the conforms to the target level: AA or AAA
- * @param {Object} obj
+ * @param {object} obj
  * @param {string} obj.color - The main color to compare with.
  * @param {string[]} obj.colorList - The list of colors to find the first readable color
  * @param {number} [obj.minimumContrast]
  * @returns {string} The color found to match
  */
-function readableColor({ color, colorList, minimumContrast = 4.5 }) {
+export function readableColor({ color, colorList, minimumContrast = 4.5 }) {
   const contrasts = colorList.map((testColor) => ({
     color: testColor,
     contrast: tinycolor.readability(color, testColor),
@@ -23,5 +23,3 @@ function readableColor({ color, colorList, minimumContrast = 4.5 }) {
 
   return foundColor;
 }
-
-export default readableColor;
