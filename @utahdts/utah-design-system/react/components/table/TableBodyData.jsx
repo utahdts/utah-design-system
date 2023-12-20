@@ -1,5 +1,5 @@
 import { castArray, identity, isEqual } from 'lodash';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { chainSorters } from '../../util/chainSorters';
@@ -17,7 +17,7 @@ import { filterTableRecords } from './util/filterTableRecords';
  * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.recordIdField
- * @param {(RecordT & Object)[]} props.records
+ * @param {(RecordT & object)[]} props.records
  * @returns {React.JSX.Element[] | null}
  */
 export function TableBodyData({
@@ -27,7 +27,7 @@ export function TableBodyData({
 }) {
   const timer = useRef(NaN);
   const { addPoliteMessage } = useAriaMessaging();
-  const [recordsForContexts, setRecordsForContexts] = useImmer(/** @type {(RecordT & Object)[] | null} */(null));
+  const [recordsForContexts, setRecordsForContexts] = useImmer(/** @type {(RecordT & object)[] | null} */(null));
   const {
     state: {
       currentSortingOrderIsDefault,

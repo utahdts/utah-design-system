@@ -2,12 +2,12 @@ import {
   ConfirmationButton, ConfirmationChildren, InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
 /**
  * @param {object} props
- * @param {import('use-immer').Updater<{props: ConfirmationButtonExamplePropsShape}>} props.setState
  * @param {{props: ConfirmationButtonExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLButtonElement>} props.innerRef
  * @returns {React.JSX.Element}

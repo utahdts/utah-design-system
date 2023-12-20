@@ -1,3 +1,4 @@
+import React from 'react';
 import { htmlDecode } from '../../util/htmlDecode';
 
 /** @typedef {import('@utahdts/utah-design-system').HierarchyNode} HierarchyNode */
@@ -12,7 +13,6 @@ import { htmlDecode } from '../../util/htmlDecode';
 
 /**
  * @param {object} props
- * @param {HierarchyNode[]} [props.children]
  * @param {HierarchyNode[]} props.headersLevel
  * @returns {React.JSX.Element}
  */

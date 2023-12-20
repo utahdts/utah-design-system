@@ -1,4 +1,5 @@
 import { CharacterCount, TextArea } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
@@ -28,9 +29,11 @@ export function CharacterCountExampleRender({
         id="text-area-example-render-id"
         onChange={
           /** @param {React.BaseSyntheticEvent} e */
-          (e) => setState((draftState) => {
-            draftState.props.text = e.target.value;
-          })
+          (e) => {
+            setState((draftState) => {
+              draftState.props.text = e.target.value;
+            });
+          }
         }
         label="Text Area Label"
         value={text}

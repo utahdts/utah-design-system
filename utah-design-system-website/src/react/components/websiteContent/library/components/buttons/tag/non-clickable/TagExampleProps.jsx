@@ -6,6 +6,7 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
@@ -13,13 +14,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {TagExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function TagExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
+      // @ts-ignore
       setState={setState}
       state={state}
     >

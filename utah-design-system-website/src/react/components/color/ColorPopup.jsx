@@ -63,15 +63,14 @@ export function ColorPopup({ onClose }) {
 
   const setColor = useCallback(
     /** @param {string} swatch */
-    (swatch) => (
-      // @ts-ignore
+    (swatch) => {
       setCssState((oldCssVariables) => (
         {
           ...oldCssVariables,
           [cssState.selectedColorPicker]: swatch,
         }
-      ))
-    ),
+      ));
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [cssState.selectedColorPicker]
   );
@@ -134,6 +133,7 @@ export function ColorPopup({ onClose }) {
                     setCopiedUrlTitle('Share URL');
                   }, 1500);
                 })
+                // eslint-disable-next-line no-console
                 .catch((e) => console.error(e));
             }}
           />

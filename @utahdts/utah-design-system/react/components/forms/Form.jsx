@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useImmer } from 'use-immer';
 import { v4 as uuidv4 } from 'uuid';
 import { joinClassNames } from '../../util/joinClassNames';
@@ -10,7 +10,7 @@ import { FormContextProvider } from './FormContext/FormContextProvider';
  * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @param {({e, fieldPath, value}: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
+ * @param {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
  * @param {(e?: React.ChangeEvent) => void} [props.onSubmit]
  * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
  * @param {FormContextStateT} [props.state]
@@ -46,10 +46,12 @@ export function Form({
          * @param {string} param.fieldPath
          * @param {any} param.value
          */
-        ({ fieldPath, value }) => stateUse[1]((draftState) => {
-          // @ts-ignore
-          setValueAtPath({ object: draftState, path: fieldPath, value });
-        })
+        ({ fieldPath, value }) => {
+          stateUse[1]((draftState) => {
+            // @ts-ignore
+            setValueAtPath({ object: draftState, path: fieldPath, value });
+          });
+        }
       )
     ),
     [onChange, stateUse]

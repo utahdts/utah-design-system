@@ -1,4 +1,4 @@
-import {
+import React, {
   useCallback,
   useEffect,
   useMemo,
@@ -61,10 +61,14 @@ export function BannersGlobal({ banners, bannerDuration }) {
     setZones(draftZones);
   }, [bannerDuration, banners, currentOnClose, removeBanner, setZones, timers]);
 
-  useEffect(() => {
-    // Cleaning timers
-    Object.keys(timers).forEach((key) => clearTimeout(timers[key]));
-  }, []);
+  useEffect(
+    () => {
+      // Cleaning timers
+      Object.keys(timers).forEach((key) => clearTimeout(timers[key]));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   return (
     <div

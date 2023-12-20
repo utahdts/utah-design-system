@@ -1,6 +1,8 @@
+import React from 'react';
+
 /**
  * @param {object} props
- * @param {() => JSX.Element} props.content
+ * @param {() => React.JSX.Element} props.content
  * @returns {React.JSX.Element}
  */
 export function LandingTemplate({ content: Content }) {

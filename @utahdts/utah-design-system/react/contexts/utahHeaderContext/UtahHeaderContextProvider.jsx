@@ -1,5 +1,5 @@
 import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
-import { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useImmerRef } from '../../hooks/useImmerRef';
 import { UtahHeaderContext } from './UtahHeaderContext';
 

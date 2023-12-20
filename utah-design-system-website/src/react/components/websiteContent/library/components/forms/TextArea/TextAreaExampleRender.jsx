@@ -1,4 +1,5 @@
 import { TextArea } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 
@@ -39,9 +40,11 @@ export function TextAreaExampleRender({
         isDisabled={isDisabled}
         onChange={
           /** @param {React.BaseSyntheticEvent} e */
-          (e) => setState((draftState) => {
-            draftState.props.value = e.target.value;
-          })
+          (e) => {
+            setState((draftState) => {
+              draftState.props.value = e.target.value;
+            });
+          }
         }
         onClear={
           isClearable

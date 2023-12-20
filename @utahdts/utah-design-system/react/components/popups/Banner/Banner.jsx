@@ -1,3 +1,4 @@
+import React from 'react';
 import { BANNER_PLACEMENT } from '../../../enums/bannerPlacement';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { joinClassNames } from '../../../util/joinClassNames';
@@ -13,7 +14,7 @@ import { IconButton } from '../../buttons/IconButton';
  * @param {React.MouseEventHandler} props.onClose
  * @param {BannerPlacement} [props.position]
  * @param {'small' | 'medium' | 'large'} [props.size]
- * * @returns {React.JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Banner({
   children,

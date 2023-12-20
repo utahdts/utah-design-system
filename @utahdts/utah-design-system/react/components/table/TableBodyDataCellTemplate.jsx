@@ -1,5 +1,5 @@
 import { isFunction } from 'lodash';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { valueAtPath } from '../../util/state/valueAtPath';
 import { TableBodyDataRowContext } from './TableBodyDataRowContext';
 import { TableCell } from './TableCell';
@@ -12,7 +12,7 @@ import { TableCell } from './TableCell';
 /**
  * @template TableDataT
  * @param {object} props
- * @param {React.ReactNode | ((record: TableBodyDataRowContextValue<TableDataT>) => JSX.Element)} [props.children]
+ * @param {React.ReactNode | ((record: TableBodyDataRowContextValue<TableDataT>) => React.JSX.Element)} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]

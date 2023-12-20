@@ -1,8 +1,9 @@
+import React from 'react';
 import { MainContent } from './MainContent';
 
 /**
  * @param {object} props
- * @param {() => JSX.Element} props.content
+ * @param {() => React.JSX.Element} props.content
  * @param {React.RefObject<HTMLElement>} [props.contentRef]
  * @param {React.ReactNode} props.sidePanelRightContent
  * @param {React.ReactNode} [props.sidePanelLeftContent]

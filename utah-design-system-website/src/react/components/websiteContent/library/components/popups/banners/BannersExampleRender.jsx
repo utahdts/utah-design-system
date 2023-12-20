@@ -4,12 +4,12 @@ import {
   joinClassNames,
   useBanner,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
 
 /**
  * @param {object} props
- * @param {import('use-immer').Updater<{props: BannerExamplePropsShape}>} props.setState
  * @param {{props: BannerExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @returns {React.JSX.Element}
@@ -47,6 +47,7 @@ export function BannersExampleRender({
           innerRef={innerRef}
           className={joinClassNames(className, color, size)}
           position={position}
+          // eslint-disable-next-line no-console
           onClose={() => console.log('Make sure to close the banner!')}
         >
           {icon !== 'none'

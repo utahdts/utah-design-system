@@ -1,28 +1,28 @@
 import {
-  joinClassNames,
   Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
-  TableFilters,
   TableFilterTextInput,
+  TableFilters,
   TableHead,
   TableHeadCell,
   TableHeadRow,
   TablePagination,
-  tableSortingRuleFieldType,
   TableSortingRule,
   TableSortingRules,
-  TableWrapper
+  TableWrapper,
+  joinClassNames,
+  tableSortingRuleFieldType
 } from '@utahdts/utah-design-system';
+import React from 'react';
 import { stateSymbols } from '../../../../../consts/stateSymbols';
 
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
  * @param {object} props
- * @param {import('use-immer').Updater<{props: TableExamplePropsShape}>} props.setState
  * @param {{props: TableExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @returns {React.JSX.Element}

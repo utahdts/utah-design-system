@@ -6,6 +6,7 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
@@ -13,7 +14,6 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: SwitchExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {SwitchExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function SwitchExampleProps({ setState, state }) {
@@ -22,6 +22,7 @@ export function SwitchExampleProps({ setState, state }) {
       <div>
         <Form
           state={state}
+          // @ts-ignore
           setState={setState}
         >
           <TextInput id="props.className" label="Class" className="input--height-small1x" />

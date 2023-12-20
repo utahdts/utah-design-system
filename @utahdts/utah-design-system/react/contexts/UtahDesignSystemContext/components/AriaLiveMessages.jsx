@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 /** @typedef {import('@utahdts/utah-design-system').AriaLiveType} AriaLiveType */
 

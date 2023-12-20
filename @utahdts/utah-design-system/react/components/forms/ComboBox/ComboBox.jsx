@@ -1,4 +1,4 @@
-import { useId, useRef } from 'react';
+import React, { useId, useRef } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
 import { CombBoxListBox } from './internal/CombBoxListBox';

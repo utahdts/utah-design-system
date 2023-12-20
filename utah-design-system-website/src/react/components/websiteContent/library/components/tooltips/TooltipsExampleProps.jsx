@@ -7,6 +7,7 @@ import {
   TextInput,
   popupPlacement
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 /** @typedef {import('use-immer').Updater<TooltipsExamplePropsShape>} UpdaterTooltipsExampleProps */
@@ -15,7 +16,6 @@ import {
  * @param {object} props
  * @param {any} props.setState
  * @param {object} props.state
- * @param {TooltipsExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function TooltipsExampleProps({ setState, state }) {

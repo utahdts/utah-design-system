@@ -5,6 +5,7 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
@@ -12,13 +13,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: ComboBoxExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {ComboBoxExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function ComboBoxExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

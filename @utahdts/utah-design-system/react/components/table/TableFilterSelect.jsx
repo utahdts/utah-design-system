@@ -1,3 +1,4 @@
+import React from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Select } from '../forms/Select';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
@@ -35,7 +36,10 @@ export function TableFilterSelect({
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
     defaultOnChange: (
-      /** @param {React.BaseSyntheticEvent} e */
+      /**
+       * @param {React.BaseSyntheticEvent} e
+       * @returns {any}
+       */
       (e) => e.target.value
     ),
     defaultValue,

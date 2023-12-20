@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';

@@ -33,6 +33,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "buildw": "vite build --watch",
     "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
     "buildTypesTsc": "npx tsc",
     "eslint": "npx eslint",

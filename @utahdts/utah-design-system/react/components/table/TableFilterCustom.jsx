@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
@@ -9,7 +9,7 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @param {object} props
- * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => JSX.Element} props.children
+ * @param {(params: {filterValues: TableContextStateFilterValueObject, setFilterValues: SetterFunc}) => React.JSX.Element} props.children
  * @param {string} [props.className]
  * @param {string} [props.id]
  * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]

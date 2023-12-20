@@ -1,10 +1,10 @@
 import { Tag, useBanner } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
  * @param {object} props
- * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
  * @param {{props: TagExamplePropsShape}} props.state
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
  * @returns {React.JSX.Element}

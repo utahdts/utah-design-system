@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * @param {object} props
  * @param {string} props.actionDescription a description to show to screen readers about what the callback will be performing

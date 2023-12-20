@@ -3,6 +3,7 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 
@@ -10,13 +11,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: TextAreaExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {TextAreaExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function TextAreaExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

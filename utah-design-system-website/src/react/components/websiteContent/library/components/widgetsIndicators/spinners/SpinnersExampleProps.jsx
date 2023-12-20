@@ -1,4 +1,5 @@
 import { Form, TextInput } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
 
@@ -6,13 +7,13 @@ import { Form, TextInput } from '@utahdts/utah-design-system';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: SpinnersExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {SpinnersExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function SpinnersExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

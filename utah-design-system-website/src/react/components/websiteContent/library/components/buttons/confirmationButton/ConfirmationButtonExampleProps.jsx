@@ -6,6 +6,7 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
@@ -13,13 +14,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: ConfirmationButtonExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {ConfirmationButtonExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function ConfirmationButtonExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

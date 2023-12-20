@@ -1,11 +1,12 @@
 import { IconButton, useBanner } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */
 
 /**
-* @param {{state: {props: IconButtonExampleProps}, innerRef: React.MutableRefObject<HTMLButtonElement>}} props
-* @returns {React.ReactElement}
-*/
+ * @param {{state: {props: IconButtonExampleProps}, innerRef: React.MutableRefObject<HTMLButtonElement>}} props
+ * @returns {React.ReactElement}
+ */
 export function IconButtonExampleRender({
   state: {
     props: {

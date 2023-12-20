@@ -1,4 +1,5 @@
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
@@ -6,14 +7,13 @@ import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: TableExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {TableExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function TableExampleProps({ setState, state }) {
   return (
     <Form
-      // onSubmit(({ state, validationErrors }) => ... do whatever ...)
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

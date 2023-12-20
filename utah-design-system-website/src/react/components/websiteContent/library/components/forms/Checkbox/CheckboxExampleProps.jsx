@@ -1,4 +1,5 @@
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').CheckboxExamplePropsShape} CheckboxExamplePropsShape */
 
@@ -6,13 +7,13 @@ import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: CheckboxExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {CheckboxExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function CheckboxExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

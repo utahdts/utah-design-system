@@ -1,11 +1,11 @@
-import { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { TableContext } from './util/TableContext';
 
 /**
  * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.defaultValue]
- * @param {(({recordFieldPath}: {recordFieldPath: string}) => void)} [props.onChange]
+ * @param {((param: {recordFieldPath: string}) => void)} [props.onChange]
  * @param {string} [props.value]
  * @returns {React.JSX.Element}
  */

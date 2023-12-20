@@ -2,6 +2,7 @@ import {
   Form,
   TextInput
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
@@ -9,13 +10,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: CharacterCountExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {CharacterCountExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function CharacterCountExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

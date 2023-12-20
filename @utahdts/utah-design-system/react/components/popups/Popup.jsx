@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import { popupPlacement } from '../../enums/popupPlacement';
@@ -79,7 +79,7 @@ export function Popup({
 
   const onVisibleChangeCallback = useCallback(
     /** @param {React.KeyboardEvent} e */
-    (e) => onVisibleChange(e, false),
+    (e) => { onVisibleChange(e, false); },
     [onVisibleChange]
   );
   useClickOutside(popperRef, onVisibleChangeCallback, !isVisible);

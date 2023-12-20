@@ -5,14 +5,14 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
 
 /**
  * @param {object} props
  * @param {import('use-immer').Updater<{props: RadioButtonExamplePropsShape}>} props.setState
- * @param {object} props.state
- * @param {RadioButtonExamplePropsShape} props.state.props
+ * @param {{props: RadioButtonExamplePropsShape}} props.state
  * @returns {React.JSX.Element}
  */
 export function RadioButtonExampleProps({ setState, state }) {

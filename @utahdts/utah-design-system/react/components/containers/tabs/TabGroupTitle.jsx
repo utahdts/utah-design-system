@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './TabGroupContext';
 

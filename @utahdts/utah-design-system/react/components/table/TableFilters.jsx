@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
@@ -12,7 +12,7 @@ import { TableContext } from './util/TableContext';
  * @param {TableContextStateFilterValueObject} [props.defaultValue]
  * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {(({ recordFieldPath, value }: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} [props.onChange]
+ * @param {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} [props.onChange]
  * @param {TableContextStateFilterValueObject} [props.value]
  * @returns {React.JSX.Element}
  */

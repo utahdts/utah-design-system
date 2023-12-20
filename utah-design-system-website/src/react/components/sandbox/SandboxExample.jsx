@@ -7,7 +7,7 @@ import {
   TabPanels,
   joinClassNames,
 } from '@utahdts/utah-design-system';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
 import { sandboxCodeTypeEnum } from '../../enums/sandboxCodeTypeEnum';
 import { PreCode } from '../preCode/PreCode';
@@ -16,7 +16,7 @@ import { PreCodeForRef } from '../preCode/PreCodeForRef';
 /**
  * @template UpdaterPropsT
  * @typedef {import('use-immer').Updater<{props: UpdaterPropsT}>} UpdaterProps
-*/
+ */
 /**
  * @template FCT
  * @typedef {React.FC<{state: any, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
@@ -32,7 +32,6 @@ import { PreCodeForRef } from '../preCode/PreCodeForRef';
  * @param {SandboxExamplePropsT} props.defaultProps
  * @param {string} [props.componentClassName]
  * @param {string} [props.propsInputsClassName]
- *
  * @returns {React.JSX.Element}
  */
 export function SandboxExample({

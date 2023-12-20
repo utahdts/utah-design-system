@@ -1,4 +1,6 @@
-/** @typedef {({className}: {className?: string}) => JSX.Element} IconsWebsiteFunc */
+import React from 'react';
+
+/** @typedef {(param: {className?: string}) => React.JSX.Element} IconsWebsiteFunc */
 
 /** @enum {IconsWebsiteFunc} */
 export const IconsWebsite = {

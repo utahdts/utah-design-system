@@ -4,6 +4,7 @@ import {
   SelectOption,
   TextInput
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
 
@@ -11,13 +12,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: PaginationExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {PaginationExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function PaginationExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * @param {object} props
  * @param {string} [props.className]
@@ -5,6 +7,7 @@
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
  * @param {string | number} props.value
+ * @returns {React.JSX.Element}
  */
 export function SelectOption({
   className,

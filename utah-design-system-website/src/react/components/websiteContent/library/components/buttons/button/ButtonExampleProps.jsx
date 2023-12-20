@@ -6,6 +6,7 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
@@ -13,14 +14,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: ButtonExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {ButtonExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function ButtonExampleProps({ setState, state }) {
   return (
     <Form
-      // onSubmit(({ state, validationErrors }) => ... do whatever ...)
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

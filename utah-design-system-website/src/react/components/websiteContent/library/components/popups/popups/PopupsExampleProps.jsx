@@ -6,6 +6,7 @@ import {
   Switch
 } from '@utahdts/utah-design-system';
 import { startCase } from 'lodash';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
@@ -13,13 +14,13 @@ import { startCase } from 'lodash';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: PopupsExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {PopupsExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function PopupsExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
+      // @ts-ignore
       setState={setState}
       state={state}
     >

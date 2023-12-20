@@ -1,3 +1,4 @@
+import React from 'react';
 import { useConfirmationButtonContext } from './context/useConfirmationButtonContext';
 
 /**

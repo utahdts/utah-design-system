@@ -1,4 +1,5 @@
 import { Spinner } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /**
  * @param {string | undefined} str
@@ -13,7 +14,6 @@ function stringToNumber(str) {
 /**
  * @param {object} props
  * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @param {import('use-immer').Updater<{props: SpinnersExamplePropsShape}>} props.setState
  * @param {object} props.state
  * @param {SpinnersExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}

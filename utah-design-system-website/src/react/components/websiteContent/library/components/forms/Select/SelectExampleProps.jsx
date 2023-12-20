@@ -5,6 +5,7 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
 /** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
@@ -12,13 +13,13 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: SelectExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @param {SelectExamplePropsShape} props.state.props
  * @returns {React.JSX.Element}
  */
 export function SelectExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >
