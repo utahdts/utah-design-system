@@ -1,4 +1,4 @@
-import { useStateEffect } from '../../../../hooks/useStateEffect';
+import { useMemo } from 'react';
 
 /**
  * companion to <Pagination>, hook for slicing a list based on the current page number
@@ -10,8 +10,8 @@ import { useStateEffect } from '../../../../hooks/useStateEffect';
  * @returns {ListT[]} new list starting at the given page number
  */
 export function usePaginatedList({ list, pageIndex, itemsPerPage }) {
-  const [paginatedList] = useStateEffect({
-    calculateValueFn: () => {
+  return useMemo(
+    () => {
       const totalPages = Math.ceil(list.length / itemsPerPage);
 
       const startIndex = totalPages ? Math.max(Math.min(totalPages - 1, pageIndex) * itemsPerPage) : 0;
@@ -19,8 +19,6 @@ export function usePaginatedList({ list, pageIndex, itemsPerPage }) {
 
       return list.slice(startIndex, endIndex);
     },
-    dependencyList: [list, pageIndex, itemsPerPage],
-  });
-
-  return paginatedList;
+    [list, pageIndex, itemsPerPage]
+  );
 }

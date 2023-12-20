@@ -1,7 +1,7 @@
-import { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
-import { useStateEffect } from '../../hooks/useStateEffect';
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { Icons } from '../icons/Icons';
@@ -18,10 +18,16 @@ import { Icons } from '../icons/Icons';
 export function MenuItem({ currentMenuItem, menuItem }) {
   const { pathname } = useLocation();
   // check if any of this menuItem's children are the currently open page/menuItem and if so, then keep this menuItem's children list open
-  const [isChildrenOpen, setIsChildrenOpen] = /** @type {typeof useStateEffect<boolean>} */ (useStateEffect)({
-    calculateValueFn: (isChildrenOpenPreviously) => !!(isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')),
-    dependencyList: [currentMenuItem, menuItem, pathname],
-  });
+  const [isChildrenOpen, setIsChildrenOpen] = useImmer(() => (
+    !!currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')
+  ));
+
+  useEffect(
+    () => {
+      setIsChildrenOpen((isChildrenOpenPreviously) => !!(isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')));
+    },
+    [currentMenuItem, menuItem, pathname]
+  );
 
   const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
 

@@ -103,7 +103,6 @@ export { usePaginatedList } from './react/components/navigation/pagination/hooks
 export { usePopupDelay } from './react/hooks/usePopupDelay';
 export { useRefAlways } from './react/hooks/useRefAlways';
 export { useRefLazy } from './react/hooks/useRefLazy';
-export { useStateEffect } from './react/hooks/useStateEffect';
 export { useUtahDesignSystemContext } from './react/contexts/UtahDesignSystemContext/useUtahDesignSystemContext';
 export { useUtahHeaderContext } from './react/contexts/utahHeaderContext/useUtahHeaderContext';
 export { UtahDesignSystemContext } from './react/contexts/UtahDesignSystemContext/UtahDesignSystemContext';
