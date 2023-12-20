@@ -1,34 +1,36 @@
 // @ts-check
 import React, { useCallback, useEffect, useRef } from 'react';
-import joinClassNames from '../../../util/joinClassNames';
+import { joinClassNames } from '../../../util/joinClassNames';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import IconButton from '../../buttons/IconButton';
+import { IconButton } from '../../buttons/IconButton';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id
  * @param {React.Ref<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').KeyboardEventHandler} [props.onEscape]
  * @param {import('react').MouseEventHandler} [props.onClose]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Modal({
   children,
   className,
   id,
   innerRef,
+  onEscape,
   onClose,
 }) {
   const ref = /** @type {typeof useRef<HTMLDialogElement>} */ (useRef)(null);
 
-  const escListener = useCallback((e) => {
+  const escListener = useCallback((/** @type {React.KeyboardEvent<HTMLDialogElement>} */ e) => {
     if (e.code === 'Escape' || e.key === 'Escape') {
       e.preventDefault();
       e.stopPropagation();
-      if (onClose) { onClose(e); }
+      if (onEscape) { onEscape(e); }
     }
-  }, [onClose]);
+  }, [onEscape]);
 
   const resetFocus = useCallback(() => ref?.current?.focus(), []);
 
@@ -45,7 +47,7 @@ export function Modal({
         aria-modal="true"
         className={joinClassNames('modal__wrapper', className)}
         id={id}
-        onClick={useCallback((e) => e.stopPropagation(), [])}
+        onClick={useCallback((/** @type {{ stopPropagation: () => any; }} */ e) => e.stopPropagation(), [])}
         onKeyUp={escListener}
         ref={ref}
         tabIndex={-1}

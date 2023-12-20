@@ -1,12 +1,12 @@
 // @ts-check
 import React from 'react';
-import joinClassNames from '../../../util/joinClassNames';
+import { joinClassNames } from '../../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ModalTitle({
   children,

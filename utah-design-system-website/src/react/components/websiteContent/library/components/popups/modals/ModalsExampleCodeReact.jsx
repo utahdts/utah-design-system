@@ -1,15 +1,14 @@
 import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
-/** @typedef {import('../../../../../../../typedefs.d').ModalExamplePropsShape} ModalExamplePropsShape */
-
+/** @typedef {import('utah-design-system-website').ModalExamplePropsShape} ModalExamplePropsShape */
 /**
- * @param {Object} props
- * @param {Object} props.state
+ * @param {object} props
+ * @param {object} props.state
  * @param {ModalExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ModalsExampleCodeReact({
   state: {

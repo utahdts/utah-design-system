@@ -6,16 +6,15 @@ import {
   ModalFooter,
   ModalTitle
 } from '@utahdts/utah-design-system';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ModalExamplePropsShape} ModalExamplePropsShape */
-
+/** @typedef {import('utah-design-system-website').ModalExamplePropsShape} ModalExamplePropsShape */
 /**
- * @param {Object} props
- * @param {React.RefObject} props.innerRef
- * @param {Object} props.state
+ * @param {object} props
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @param {object} props.state
  * @param {ModalExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ModalsExampleRender({
   state: {
@@ -44,7 +43,8 @@ export function ModalsExampleRender({
           <Modal
             className={joinClassNames(className, size)}
             id="modal-example"
-            onClose={isForced ? null : closeModal}
+            onClose={isForced ? undefined : closeModal}
+            onEscape={isForced ? undefined : closeModal}
           >
             <ModalTitle>
               <h3>{title}</h3>
@@ -72,7 +72,8 @@ export function ModalsExampleRender({
           className={joinClassNames(className, size)}
           id="modal-id"
           innerRef={innerRef}
-          onClose={isForced ? null : closeModal}
+          onClose={isForced ? undefined : closeModal}
+          onEscape={isForced ? undefined : closeModal}
         >
           <ModalTitle>
             <h3>{title}</h3>
