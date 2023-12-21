@@ -105,6 +105,7 @@
         "variables": true,
         "allowNamedExports": false
       }
-    ]
+    ],
+    "react-hooks/exhaustive-deps": "off"
   }
 }

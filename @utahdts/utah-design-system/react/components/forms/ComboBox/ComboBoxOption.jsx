@@ -113,6 +113,7 @@ export function ComboBoxOption({
   useEffect(
     () => {
       if (!isStatic) {
+        // register also updates if it already exists
         registerOption({
           isHidden,
           isGroupLabel: !!identifiesWithOptionGroupId,
@@ -122,14 +123,21 @@ export function ComboBoxOption({
           value,
         });
       }
-      return () => {
+      // unregister is handled on unmount instead of on data change
+    },
+    [registerOption, unregisterOption, value, label, identifiesWithOptionGroupId, isHidden, isStatic, comboBoxContextNonStateRef]
+  );
+
+  useEffect(
+    // unregister only when unmounting
+    () => (
+      () => {
         if (!isStatic) {
           unregisterOption(value);
         }
-      };
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [registerOption, unregisterOption, value, label, identifiesWithOptionGroupId, isHidden, isStatic, comboBoxContextNonStateRef]
+      }
+    ),
+    []
   );
 
   // handle focusing

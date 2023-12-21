@@ -98,7 +98,12 @@ export function ComboBoxContextProvider({
     optionsFilteredWithoutGroupLabels: [],
     registerOption: (newOption) => {
       comboBoxImmer[1]((draftContext) => {
-        draftContext.options.push(newOption);
+        const oldOption = draftContext.options.find((searchOption) => searchOption.value === newOption.value);
+        if (oldOption) {
+          Object.assign(oldOption, newOption);
+        } else {
+          draftContext.options.push(newOption);
+        }
       });
     },
     optionValueFocusedId: null,
