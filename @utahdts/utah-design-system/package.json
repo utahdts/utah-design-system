@@ -17,7 +17,6 @@
       ]
     },
     "./css": "./dist/style.css",
-    "./css/3-generic/normalize.css": "./css/3-generic/normalize.css",
     "./src/css/": "./src/css/",
     "./css/index.scss": "./css/index.scss"
   },
