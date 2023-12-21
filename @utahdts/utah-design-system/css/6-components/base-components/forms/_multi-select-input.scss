@@ -1,0 +1,57 @@
+@use "../../../2-tools/tools-index";
+
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .multi-select {
+    background: white;
+    color: var(--gray-color);
+    min-height: var(--form-ele-medium);
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    border: 1px solid var(--gray-color);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: var(--spacing-2xs);
+    padding: var(--spacing-2xs);
+
+    @include tools-index.form-ele-hover-medium;
+
+    &__combo-box {
+      flex: 1;
+      min-width: 30%;
+
+      .combo-box-input {
+        border: none;
+        min-height: var(--form-ele-small1x);
+        padding: 0;
+        flex: 1;
+
+        &__chevron {
+          display: none;
+        }
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+
+    &__chevron {
+      border: none;
+      width: 20px;
+    }
+
+    &--focused {
+      outline: 2px solid var(--form-ele-color);
+      outline-offset: 2px;
+      transition: none;
+    }
+  }
+}

@@ -32,6 +32,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  * @param {React.ReactNode} props.children
  * @param {string} props.comboBoxId
  * @param {string} [props.defaultValue]
+ * @param {boolean} [props.isValueClearedOnSelection]
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {(() => void)} [props.onClear]
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
@@ -43,6 +44,7 @@ export function ComboBoxContextProvider({
   children,
   comboBoxId,
   defaultValue,
+  isValueClearedOnSelection,
   onChange,
   onClear,
   onKeyUp,
@@ -86,6 +88,7 @@ export function ComboBoxContextProvider({
     optionValueFocused: null,
     isFilterValueDirty: false,
     isOptionsExpanded: false,
+    isValueClearedOnSelection: !!isValueClearedOnSelection,
     onChange: onChangeFormValue,
     onClear,
     onKeyUp,
@@ -144,13 +147,13 @@ export function ComboBoxContextProvider({
         // let children know the selected filter value has changed
         setComboBoxState((draftContextValue) => {
           draftContextValue.optionsFiltered = filteredOptions;
-          draftContextValue.optionsFilteredWithoutGroupLabels = filteredOptions.filter((option) => !option.isGroupLabel);
+          draftContextValue.optionsFilteredWithoutGroupLabels = filteredOptions.filter((option) => !option.isGroupLabel && !option.isHidden);
         });
       } else {
         setComboBoxState((draftContextValue) => {
           draftContextValue.optionValueHighlighted = null;
           draftContextValue.optionsFiltered = options;
-          draftContextValue.optionsFilteredWithoutGroupLabels = options.filter((option) => !option.isGroupLabel);
+          draftContextValue.optionsFilteredWithoutGroupLabels = options.filter((option) => !option.isGroupLabel && !option.isHidden);
         });
       }
     },
@@ -178,7 +181,19 @@ export function ComboBoxContextProvider({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].options]
   );
+  useEffect(
+    () => {
+      // TODO: am i good?
+      setMultiSelectContext((draftContext) => {
+        draftContext.isOptionsExpanded = comboBoxImmer[0].isOptionsExpanded;
+      });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [comboBoxImmer[0].isOptionsExpanded]
+  );
 
+      // TODO: am i good?
+  console.log('🚀 combobox context isExpanded:', providerValue[0].isOptionsExpanded, new Date().getTime());
   return (
     <ComboBoxContext.Provider value={providerValue}>
       {children}

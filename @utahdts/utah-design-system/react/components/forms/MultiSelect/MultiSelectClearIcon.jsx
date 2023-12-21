@@ -23,7 +23,10 @@ export function MultiSelectClearIcon({
           className={joinClassNames('multi-select__clear-button icon-button--borderless icon-button--small1x')}
           icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
           isDisabled={isDisabled}
-          onClick={multiSelectContextValue.onClear}
+          onClick={(e) => {
+            e.stopPropagation();
+            multiSelectContextValue.onClear();
+          }}
           title="Clear all selected values"
           // @ts-ignore
           onFocus={() => setMultiSelectContextValue((draftContext) => { draftContext.clearButtonHasFocus = true; })}

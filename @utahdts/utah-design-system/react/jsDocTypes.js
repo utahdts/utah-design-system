@@ -193,6 +193,7 @@
 /**
  * @typedef ComboBoxOption {
  *  @property {boolean} [isGroupLabel] some options like group titles are in the list so they can focus but are not filtered nor selectable
+ *  @property {boolean} [isHidden] multi-select will "hide" options that have been selected (tags)
  *  @property {string} labelLowerCase
  *  @property {string} label
  *  @property {string} [optionGroupId]
@@ -222,6 +223,7 @@
  *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
  *  @property {boolean} isFilterValueDirty when filter is changed it becomes dirty
  *  @property {boolean} isOptionsExpanded is the options list visible/expanded
+ *  @property {boolean} isValueClearedOnSelection after selection, is the value cleared so it appears to not be selected (multi-select uses this)
  *  @property {string | null} optionValueFocused which option currently has focus; useful for handling text input on blur
  *  @property {string | null} optionValueFocusedId which option DOM element has focus
  *  @property {string | null} optionValueHighlighted the option matching the filter or user has arrowed
@@ -265,6 +267,7 @@
 /** @typedef MultiSelectContextNonStateRef {
  *  @property {HTMLElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
  *  @property {(HTMLDivElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
+ *  @property {HTMLInputElement | null} textInput the textInput used for this multi select's combo box
  * } */
 
 /** @typedef {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef>]} MultiSelectContext */
@@ -274,6 +277,7 @@
  *  @property {boolean} clearButtonHasFocus (1 of 3) multi select has focus if any of the three have focus
  *  @property {ComboBoxOption[]} comboBoxOptions the known options in the comboBox context nested in the multi-select context
  *  @property {number} focusedValueTagIndex the index of the tag currently having focus; (2 of 3) multi select has focus if any of the three have focus
+ *  @property {boolean} isOptionsExpanded ComboBoxContext updates this value to match
  *  @property {string} multiSelectId
  *  @property {((newValues: string[]) => void)} onChange
  *  @property {(() => void)} onClear

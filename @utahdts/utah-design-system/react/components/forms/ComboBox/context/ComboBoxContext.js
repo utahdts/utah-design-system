@@ -9,6 +9,7 @@ export const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxCon
     optionValueFocused: null,
     isFilterValueDirty: false,
     isOptionsExpanded: false,
+    isValueClearedOnSelection: false,
     onChange: () => { },
     options: [],
     optionsFiltered: [],

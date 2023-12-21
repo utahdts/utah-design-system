@@ -1,6 +1,6 @@
 // @ts-check
 import { uniq } from 'lodash';
-import React from 'react';
+import React, { useRef } from 'react';
 import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import useRefAlways from '../../../hooks/useRefAlways';
 import joinClassNames from '../../../util/joinClassNames';
@@ -47,25 +47,39 @@ export function MultiSelectComboBox({
   wrapperClassName,
   ...rest
 }) {
-  const [multiSelectContextValue, setMultiSelectContextValue, multiSelectContextNonStateRer] = useMultiSelectContext();
+  const [multiSelectContextValue, setMultiSelectContextValue, multiSelectContextNonStateRef] = useMultiSelectContext();
   const multiSelectContextValueRef = useRefAlways(multiSelectContextValue);
   const selectedValuesRef = useRefAlways(multiSelectContextValue.selectedValues);
   const { addPoliteMessage } = useAriaMessaging();
+  const wrapperRef = useRef(/** @type {HTMLDivElement | null} */(null));
+      // TODO: am i good?
+  console.log('isoptionsexpanded?:', multiSelectContextValue.isOptionsExpanded, new Date().getTime());
 
   return (
     <div
-      className={joinClassNames('input-wrapper input-wrapper__multi-select', wrapperClassName)}
-      ref={draftInnerRef}
+      className={joinClassNames('input-wrapper input-wrapper--multi-select', wrapperClassName)}
+      ref={(ref) => {
+        if (draftInnerRef) {
+          if (typeof draftInnerRef === 'function') {
+            draftInnerRef(ref);
+          } else {
+            draftInnerRef.current = ref;
+          }
+        }
+        wrapperRef.current = ref;
+      }}
     >
       <label htmlFor={multiSelectContextValue.multiSelectId} className={labelClassName ?? undefined}>
         {label}
         {isRequired ? <RequiredStar /> : null}
       </label>
 
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         aria-describedby={errorMessage ? `${multiSelectContextValue.multiSelectId}-error` : undefined}
         aria-invalid={!!errorMessage}
         className={joinClassNames(
+          className,
           (
             multiSelectContextValue.focusedValueTagIndex
             || multiSelectContextValue.focusedValueTagIndex === 0
@@ -77,14 +91,22 @@ export function MultiSelectComboBox({
           'multi-select',
           errorMessage && ''
         )}
-        ref={(ref) => { multiSelectContextNonStateRer.current.comboBoxDivElement = ref; }}
+        onClick={() => {
+      // TODO: am i good?
+          multiSelectContextNonStateRef.current.textInput?.click();
+          multiSelectContextNonStateRef.current.textInput?.focus();
+        }}
+        ref={(ref) => {
+          multiSelectContextNonStateRef.current.comboBoxDivElement = ref;
+        }}
       >
         <MultiSelectTags isDisabled={isDisabled} />
         <ComboBox
-          className={joinClassNames(className, 'multi-select__combo-box')}
+          className="multi-select__combo-box"
           id={multiSelectContextValue.multiSelectId}
           isDisabled={isDisabled}
           isRequired={isRequired}
+          isValueClearedOnSelection
           isWrapperSkipped
           label={label}
           labelClassName={joinClassNames('visually-hidden', labelClassName)}
@@ -120,7 +142,7 @@ export function MultiSelectComboBox({
             return eventIsHandled;
           }}
           placeholder={placeholder}
-          popperContentRef={multiSelectContextNonStateRer.current.comboBoxDivElement}
+          popperContentRef={multiSelectContextNonStateRef.current.comboBoxDivElement}
           // the value is always unset because the multi-select will own and show the current value
           value=""
           wrapperClassName={wrapperClassName}
@@ -135,6 +157,32 @@ export function MultiSelectComboBox({
           {children}
         </ComboBox>
         <MultiSelectClearIcon isClearable={isClearable} isDisabled={isDisabled} />
+        <button
+          aria-hidden="true"
+          className={joinClassNames(
+            'multi-select__chevron',
+            multiSelectContextValue.isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down',
+            isDisabled ? 'multi-select__chevron--is-disabled' : ''
+          )}
+      // TODO: am i good?
+      // TODO: THIS IS NUTS
+          // onMouseDown={(e) => e.stopPropagation()}
+          // onMouseUp={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            console.log('🚀 ~ file: MultiSelectComboBox.jsx:169 ~ multiSelectContextValue.isOptionsExpanded:', multiSelectContextValueRef.current.isOptionsExpanded);
+            if (multiSelectContextValueRef.current.isOptionsExpanded) {
+              //   // close the options by blurring and refocusing the combobox text input
+              //   multiSelectContextNonStateRef.current.textInput?.blur();
+              //   e.stopPropagation();
+              setTimeout(() => console.log('focus!') || multiSelectContextNonStateRef.current.textInput?.focus(), 2000);
+            } else {
+                setTimeout(() => console.log('click!') || multiSelectContextNonStateRef.current.textInput?.click(), 2000);
+
+            }
+          }}
+          type="button"
+        />
       </div>
       <ErrorMessage errorMessage={errorMessage} id={multiSelectContextValue.multiSelectId} />
     </div>

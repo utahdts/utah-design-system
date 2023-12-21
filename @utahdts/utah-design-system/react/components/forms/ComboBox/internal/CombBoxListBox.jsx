@@ -8,6 +8,7 @@ import joinClassNames from '../../../../util/joinClassNames';
 import { ComboBoxOption } from '../ComboBoxOption';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
+import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 
@@ -25,6 +26,7 @@ export function CombBoxListBox({
   id,
   popperReferenceElement,
 }) {
+  const [{ selectedValues }] = useMultiSelectContext();
   const { addPoliteMessage } = useAriaMessaging();
   const [
     {
@@ -65,7 +67,7 @@ export function CombBoxListBox({
         update();
       }
     },
-    [isOptionsExpanded, update]
+    [isOptionsExpanded, selectedValues, update]
   );
 
   useEffect(

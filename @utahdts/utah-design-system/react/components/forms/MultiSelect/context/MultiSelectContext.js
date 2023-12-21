@@ -9,6 +9,7 @@ export const MultiSelectContext = /** @type {typeof React.createContext<MultiSel
     clearButtonHasFocus: false,
     comboBoxOptions: [],
     focusedValueTagIndex: NaN,
+    isOptionsExpanded: false,
     tagTemplate: null,
     multiSelectId: 'default-context-value',
     onChange: () => { console.error('calling default MultiSelectContext onChange'); },
@@ -23,6 +24,7 @@ export const MultiSelectContext = /** @type {typeof React.createContext<MultiSel
     current: {
       comboBoxDivElement: null,
       selectedOptionTagRefs: [],
+      textInput: null,
     },
   },
 ]);

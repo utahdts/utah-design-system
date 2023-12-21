@@ -114,6 +114,7 @@ export function ComboBoxOption({
     () => {
       if (!isStatic) {
         registerOption({
+          isHidden,
           isGroupLabel: !!identifiesWithOptionGroupId,
           label,
           labelLowerCase: label.toLocaleLowerCase(),
@@ -128,7 +129,7 @@ export function ComboBoxOption({
       };
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [registerOption, unregisterOption, value, label, identifiesWithOptionGroupId, isStatic, comboBoxContextNonStateRef]
+    [registerOption, unregisterOption, value, label, identifiesWithOptionGroupId, isHidden, isStatic, comboBoxContextNonStateRef]
   );
 
   // handle focusing

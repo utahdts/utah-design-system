@@ -2,12 +2,12 @@
 
 #{class-vars.$base-class} {
   .tag {
-    padding: var(--spacing-2xs) var(--spacing-xs);
+    padding: 0 var(--spacing-s);
     display: flex;
     align-items: center;
     border-radius: var(--radius-small);
-    background-color: var(--gray-light-color);
-    min-height: var(--form-ele-small1x);
+    min-height: var(--form-ele-small);
+    line-height: 1;
 
     &__button[type="button"] {
       border: 1px solid var(--gray-medium-color);
@@ -16,17 +16,6 @@
       background-color: var(--gray-light-color);
       height: 100%;
       line-height: 1.4;
-
-      &.tag--small {
-        padding: var(--spacing-3xs) var(--spacing-2xs);
-        min-height: 28px;
-        font-size: var(--font-size-xs);
-      }
-
-      &.tag--large {
-        min-height: var(--form-ele-small);
-        font-size: var(--font-size-m);
-      }
 
       &.tag--selected {
         background-color: var(--gray-color);
@@ -41,10 +30,6 @@
     }
 
     &__clear-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: var(--spacing-3xs);
       font-weight: var(--font-weight-normal);
       transition: transform;
 
@@ -61,13 +46,15 @@
       border-radius: var(--radius-small);
       display: flex;
       align-items: center;
-      line-height: 1.4;
       position: relative;
+      background-color: var(--gray-light-color);
     }
 
     &--small {
       font-size: var(--font-size-xs);
-      padding: var(--spacing-3xs) var(--spacing-2xs);
+      padding: 0 var(--spacing-xs);
+      min-height: var(--form-ele-small2x);
+
 
       .tag--icon {
         svg {
@@ -119,8 +106,12 @@
 
     &--clearable {
       .tag {
-        padding: var(--spacing-2xs) var(--spacing-xl) var(--spacing-2xs) var(--spacing-xs);
+        padding: 0 0 0 var(--spacing-xs);
+      }
+      .tag--small {
+        padding: 0 0 0 var(--spacing-xs);
       }
     }
+
   }
 }

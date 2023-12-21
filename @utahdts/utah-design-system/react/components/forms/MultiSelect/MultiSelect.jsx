@@ -1,6 +1,5 @@
 // @ts-check
 import React from 'react';
-import joinClassNames from '../../../util/joinClassNames';
 import { MultiSelectComboBox } from './MultiSelectComboBox';
 import MultiSelectContextProvider from './context/MultiSelectContextProvider';
 
@@ -54,7 +53,7 @@ export function MultiSelect({
       values={values}
     >
       <MultiSelectComboBox
-        className={joinClassNames('multi-select', className)}
+        className={className}
         errorMessage={errorMessage}
         innerRef={innerRef}
         isClearable={isClearable}

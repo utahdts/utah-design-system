@@ -30,6 +30,7 @@ export default function MultiSelectContextProvider({
   const multiSelectContextNonStateRef = /** @type {typeof useRef<MultiSelectContextNonStateRef>} */ (useRef)({
     comboBoxDivElement: null,
     selectedOptionTagRefs: [],
+    textInput: null,
   });
 
   const multiSelectImmer = /** @type {typeof useImmer<MultiSelectContextValue>} */ (useImmer)(() => ({
@@ -37,6 +38,7 @@ export default function MultiSelectContextProvider({
     comboBoxOptions: [],
     focusedValueTagIndex: NaN,
     tagTemplate: null,
+    isOptionsExpanded: false,
     multiSelectId,
     onChange: (newValues) => {
       if (onChangeRef.current) {

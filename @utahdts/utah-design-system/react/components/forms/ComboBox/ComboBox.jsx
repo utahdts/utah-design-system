@@ -24,6 +24,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
+ * @param {boolean} [props.isValueClearedOnSelection] after selection, is the value cleared so it appears to not be selected (multi-select uses this)
  * @param {boolean} [props.isWrapperSkipped] wrapper div is optional
  * @param {string} props.label
  * @param {string} [props.labelClassName]
@@ -59,6 +60,7 @@ export function ComboBox({
   onSubmit,
   placeholder,
   popperContentRef,
+  isValueClearedOnSelection,
   isWrapperSkipped,
   tagChildren,
   value,
@@ -92,7 +94,7 @@ export function ComboBox({
       <CombBoxListBox
         id={comboBoxListId}
         ariaLabelledById={id}
-        popperReferenceElement={popperContentRef ?? contentRef.current}
+        popperReferenceElement={popperContentRef ?? contentRef.current ?? null}
       >
         {children}
       </CombBoxListBox>
@@ -103,6 +105,7 @@ export function ComboBox({
     <ComboBoxContextProvider
       comboBoxId={id}
       defaultValue={defaultValue}
+      isValueClearedOnSelection={isValueClearedOnSelection}
       onChange={onChange}
       onClear={onClear}
       onKeyUp={onKeyUp}

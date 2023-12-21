@@ -55,7 +55,7 @@ export function ComboBoxTextInput({
   placeholder,
   ...rest
 }) {
-  const [multiSelectContext] = useMultiSelectContext();
+  const [multiSelectContext, , multiSelectContextRefs] = useMultiSelectContext();
   const { onSubmit: onSubmitFormContext } = useFormContext();
   const [
     {
@@ -113,6 +113,9 @@ export function ComboBoxTextInput({
         innerRef={(ref) => {
           const input = ref?.querySelector('input');
           comboBoxContextNonStateRef.current.textInput = input;
+          if (multiSelectContextRefs) {
+            multiSelectContextRefs.current.textInput = input;
+          }
           if (draftInnerRef) {
             if (isFunction(draftInnerRef)) {
               draftInnerRef(input);
@@ -137,7 +140,11 @@ export function ComboBoxTextInput({
               if (clearIconRef.current !== document.activeElement) {
                 setComboBoxContext((draftContext) => {
                   // ul is focused, with no option focused, if clicking on the scroll-bar for the ul (ul has max-height and auto overflow)
-                  if (!draftContext.optionValueFocused && !document.activeElement?.classList.contains('combo-box-input__list-box')) {
+                  if (
+                    !draftContext.optionValueFocused
+                    && !document.activeElement?.classList.contains('combo-box-input__list-box')
+                    && !document.activeElement?.classList.contains('multi-select__chevron')
+                  ) {
                     const selectedOption = options.find((option) => option.value === optionValueSelected);
                     draftContext.filterValue = selectedOption?.label ?? '';
                     draftContext.isFilterValueDirty = false;
@@ -207,11 +214,25 @@ export function ComboBoxTextInput({
         }}
         onSubmit={onSubmit ?? onSubmitFormContext}
         placeholder={placeholder}
-        rightContent={
-          isOptionsExpanded
-            ? <span className={joinClassNames('combo-box-input__chevron utds-icon-before-chevron-up', isDisabled ? 'combo-box-input__chevron--is-disabled' : '')} aria-hidden="true" />
-            : <span className={joinClassNames('combo-box-input__chevron utds-icon-before-chevron-down', isDisabled ? 'combo-box-input__chevron--is-disabled' : '')} aria-hidden="true" />
-        }
+        rightContent={(
+          <button
+            aria-hidden="true"
+            className={joinClassNames(
+              'combo-box-input__chevron',
+              isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down',
+              isDisabled ? 'combo-box-input__chevron--is-disabled' : ''
+            )}
+            onClick={(e) => {
+      // TODO: am i good?
+              e.stopPropagation();
+              setComboBoxContext((draftContext) => {
+                draftContext.isOptionsExpanded = !draftContext.isOptionsExpanded;
+                multiSelectContextRefs.current.textInput?.focus();
+              });
+            }}
+            type="button"
+          />
+        )}
         role="combobox"
         value={filterValue}
         // eslint-disable-next-line react/jsx-props-no-spreading

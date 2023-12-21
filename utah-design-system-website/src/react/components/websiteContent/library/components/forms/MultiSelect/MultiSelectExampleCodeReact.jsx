@@ -37,12 +37,12 @@ export default function MultiSelectExampleCodeReact({
       <ExampleCodeReactProp displayProp={isClearable ? 'onClear={(e) => { /* ... do something w/ e ... */ }' : null} indentLevel={1} />
       &gt;
       <br />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Arches" value="arches" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Bryce Canyon" value="bryce" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Canyonlands" value="canyonlands" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Capitol Reef" value="capitol-reef" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Zion" value="zion" />'} indentLevel={1} />
-      &lt; /MultiSelect&gt;
+      <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Arches" value="arches" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Bryce Canyon" value="bryce" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Canyonlands" value="canyonlands" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Capitol Reef" value="capitol-reef" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Zion" value="zion" />'} indentLevel={1} />
+      &lt;/MultiSelect&gt;
     </>
   );
 }
