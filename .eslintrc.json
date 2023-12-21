@@ -4,6 +4,10 @@
     "es2021": true
   },
   "root": true,
+  "globals": {
+    "React": true,
+    "JSX": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
