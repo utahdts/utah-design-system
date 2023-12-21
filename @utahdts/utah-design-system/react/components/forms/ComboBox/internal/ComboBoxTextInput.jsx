@@ -11,6 +11,7 @@ import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
+import IconButton from '../../../buttons/IconButton';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 /**
@@ -215,13 +216,13 @@ export function ComboBoxTextInput({
         onSubmit={onSubmit ?? onSubmitFormContext}
         placeholder={placeholder}
         rightContent={(
-          <button
+          <IconButton
             aria-hidden="true"
             className={joinClassNames(
-              'combo-box-input__chevron',
-              isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down',
-              isDisabled ? 'combo-box-input__chevron--is-disabled' : ''
+              'combo-box-input__chevron icon-button--borderless icon-button--small1x'
             )}
+            icon={<span className={isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'} aria-hidden="true" />}
+            isDisabled={isDisabled}
             onClick={(e) => {
       // TODO: am i good?
               e.stopPropagation();
@@ -230,7 +231,7 @@ export function ComboBoxTextInput({
                 multiSelectContextRefs.current.textInput?.focus();
               });
             }}
-            type="button"
+            title="Toggle popup menu"
           />
         )}
         role="combobox"
