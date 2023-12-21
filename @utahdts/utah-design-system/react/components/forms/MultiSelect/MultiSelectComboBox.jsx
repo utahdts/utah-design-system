@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import useRefAlways from '../../../hooks/useRefAlways';
 import joinClassNames from '../../../util/joinClassNames';
+import IconButton from '../../buttons/IconButton';
 import { ComboBox } from '../ComboBox/ComboBox';
 import ErrorMessage from '../ErrorMessage';
 import RequiredStar from '../RequiredStar';
@@ -52,8 +53,6 @@ export function MultiSelectComboBox({
   const selectedValuesRef = useRefAlways(multiSelectContextValue.selectedValues);
   const { addPoliteMessage } = useAriaMessaging();
   const wrapperRef = useRef(/** @type {HTMLDivElement | null} */(null));
-      // TODO: am i good?
-  console.log('isoptionsexpanded?:', multiSelectContextValue.isOptionsExpanded, new Date().getTime());
 
   return (
     <div
@@ -92,12 +91,19 @@ export function MultiSelectComboBox({
           errorMessage && ''
         )}
         onClick={() => {
-      // TODO: am i good?
-          multiSelectContextNonStateRef.current.textInput?.click();
-          multiSelectContextNonStateRef.current.textInput?.focus();
+          if (multiSelectContextValue.isOptionsExpanded) {
+            multiSelectContextNonStateRef?.current.textInput?.blur();
+          } else {
+            multiSelectContextNonStateRef?.current.textInput?.click();
+          }
+          multiSelectContextNonStateRef?.current.textInput?.focus();
         }}
+        // prevent default so clicking doesn't cause focus to blur from textinput
+        onMouseDown={(e) => e.preventDefault()}
         ref={(ref) => {
-          multiSelectContextNonStateRef.current.comboBoxDivElement = ref;
+          if (multiSelectContextNonStateRef) {
+            multiSelectContextNonStateRef.current.comboBoxDivElement = ref;
+          }
         }}
       >
         <MultiSelectTags isDisabled={isDisabled} />
@@ -142,7 +148,7 @@ export function MultiSelectComboBox({
             return eventIsHandled;
           }}
           placeholder={placeholder}
-          popperContentRef={multiSelectContextNonStateRef.current.comboBoxDivElement}
+          popperContentRef={multiSelectContextNonStateRef?.current.comboBoxDivElement}
           // the value is always unset because the multi-select will own and show the current value
           value=""
           wrapperClassName={wrapperClassName}
@@ -157,31 +163,27 @@ export function MultiSelectComboBox({
           {children}
         </ComboBox>
         <MultiSelectClearIcon isClearable={isClearable} isDisabled={isDisabled} />
-        <button
+        <IconButton
           aria-hidden="true"
           className={joinClassNames(
             'multi-select__chevron',
-            multiSelectContextValue.isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down',
+            'icon-button--borderless',
+            'icon-button--small1x',
             isDisabled ? 'multi-select__chevron--is-disabled' : ''
           )}
-      // TODO: am i good?
-      // TODO: THIS IS NUTS
-          // onMouseDown={(e) => e.stopPropagation()}
-          // onMouseUp={(e) => e.stopPropagation()}
-          onClick={(e) => {
-            e.stopPropagation();
-            console.log('🚀 ~ file: MultiSelectComboBox.jsx:169 ~ multiSelectContextValue.isOptionsExpanded:', multiSelectContextValueRef.current.isOptionsExpanded);
-            if (multiSelectContextValueRef.current.isOptionsExpanded) {
-              //   // close the options by blurring and refocusing the combobox text input
-              //   multiSelectContextNonStateRef.current.textInput?.blur();
-              //   e.stopPropagation();
-              setTimeout(() => console.log('focus!') || multiSelectContextNonStateRef.current.textInput?.focus(), 2000);
+          icon={<span className={multiSelectContextValue.isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'} aria-hidden="true" />}
+          isDisabled={isDisabled}
+          onClick={() => {
+            if (multiSelectContextValue.isOptionsExpanded) {
+              multiSelectContextNonStateRef?.current.textInput?.blur();
+              multiSelectContextNonStateRef?.current.textInput?.focus();
             } else {
-                setTimeout(() => console.log('click!') || multiSelectContextNonStateRef.current.textInput?.click(), 2000);
-
+              multiSelectContextNonStateRef?.current.textInput?.click();
             }
           }}
-          type="button"
+          title="Toggle popup menu"
+          // @ts-ignore prevent the chevron from closing and reopening the popup
+          onMouseDown={(e) => e.preventDefault()}
         />
       </div>
       <ErrorMessage errorMessage={errorMessage} id={multiSelectContextValue.multiSelectId} />

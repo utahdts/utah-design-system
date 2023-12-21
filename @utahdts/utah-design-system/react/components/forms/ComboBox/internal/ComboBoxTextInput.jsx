@@ -2,7 +2,6 @@
 import { isFunction } from 'lodash';
 import identity from 'lodash/identity';
 import React, { useCallback, useRef } from 'react';
-import joinClassNames from '../../../../util/joinClassNames';
 import useOnKeyUp from '../../../../util/useOnKeyUp';
 import IconButton from '../../../buttons/IconButton';
 import useFormContext from '../../FormContext/useFormContext';
@@ -220,9 +219,7 @@ export function ComboBoxTextInput({
         rightContent={(
           <IconButton
             aria-hidden="true"
-            className={joinClassNames(
-              'combo-box-input__chevron icon-button--borderless icon-button--small1x'
-            )}
+            className="combo-box-input__chevron icon-button--borderless icon-button--small1x"
             icon={<span className={isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'} aria-hidden="true" />}
             isDisabled={isDisabled}
             onClick={(e) => {
@@ -233,6 +230,9 @@ export function ComboBoxTextInput({
               });
             }}
             title="Toggle popup menu"
+            // @ts-ignore
+            // prevent the chevron from closing and reopening the popup
+            onMouseDown={(e) => e.preventDefault()}
           />
         )}
         role="combobox"

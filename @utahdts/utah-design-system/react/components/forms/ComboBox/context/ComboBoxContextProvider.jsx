@@ -183,7 +183,6 @@ export function ComboBoxContextProvider({
   );
   useEffect(
     () => {
-      // TODO: am i good?
       setMultiSelectContext((draftContext) => {
         draftContext.isOptionsExpanded = comboBoxImmer[0].isOptionsExpanded;
       });
