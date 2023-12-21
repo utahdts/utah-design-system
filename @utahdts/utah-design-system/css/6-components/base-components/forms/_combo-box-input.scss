@@ -30,6 +30,9 @@
       .input-wrapper--text-input {
         margin: 0;
       }
+      .tooltip__wrapper {
+        z-index: 2001;
+      }
     }
     &__list-box {
       background: white;
