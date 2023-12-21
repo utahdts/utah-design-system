@@ -19,6 +19,10 @@
 
     &__wrapper {
       position: relative;
+
+      .tooltip__wrapper {
+        z-index: 2001;
+      }
     }
 
     @include tools-index.form-ele-hover-medium;
