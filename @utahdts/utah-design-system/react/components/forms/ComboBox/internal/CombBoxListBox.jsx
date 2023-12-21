@@ -83,7 +83,13 @@ export function CombBoxListBox({
         if (optionsFiltered.length !== optionsFilteredWithoutGroupLabels.length) {
           const numGroups = optionsFiltered.filter(
             (option) => (
-              option.isGroupLabel && isOptionGroupVisible(option.isGroupLabel ? option.optionGroupId ?? null : null, option.label, optionsFiltered)
+              option.isGroupLabel
+              && isOptionGroupVisible(
+                option.isGroupLabel ? option.optionGroupId ?? null : null,
+                option.label,
+                optionsFiltered,
+                selectedValues
+              )
             )
           ).length;
           // the options have "groups": '8 results available in 2 groups'

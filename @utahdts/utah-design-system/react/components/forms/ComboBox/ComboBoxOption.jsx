@@ -59,7 +59,7 @@ export function ComboBoxOption({
   const optionGroupId = useComboBoxOptionGroupContext();
   const isVisible = (
     !isHidden
-    && isOptionGroupVisible(identifiesWithOptionGroupId ?? null, label, optionsFiltered)
+    && isOptionGroupVisible(identifiesWithOptionGroupId ?? null, label, optionsFiltered, multiSelectContext.selectedValues)
     && (isStatic || optionsFiltered.find((optionNeedle) => optionNeedle.value === value))
   );
   const isSelected = optionValueSelected !== '' && optionValueSelected !== null && (optionValueSelected === value);

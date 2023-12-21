@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
-import { MultiSelect, MultiSelectOption } from '@utahdts/utah-design-system';
+import { MultiSelect, MultiSelectOption, MultiSelectOptionGroup } from '@utahdts/utah-design-system';
 import pageUrls from '../../../../../routing/pageUrls';
 import SandboxExample from '../../../../../sandbox/SandboxExample';
 import StaticExample from '../../../../../staticExamples/StaticExample';
@@ -59,6 +59,29 @@ export function MultiSelectDocumentation() {
             <li>Selected options are added as clearable tags to the input when they are selected.</li>
             <li>The user can clear all options by hitting the clear icon (x) on the right side of the input.</li>
           </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Multi-Select With Option Groups Example"
+        renderedExample={(
+          <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
+            <MultiSelectOptionGroup label="Lizard-Like">
+              <MultiSelectOption label="Basilisk" value="basilisk" />
+              <MultiSelectOption label="Dragon" value="dragon" />
+              <MultiSelectOption label="Kraken" value="kraken" />
+            </MultiSelectOptionGroup>
+            <MultiSelectOptionGroup label="Airborne Animal">
+              <MultiSelectOption label="Cardinal" value="cardinal" />
+              <MultiSelectOption label="Griffin" value="griffin" />
+              <MultiSelectOption label="Roc" value="roc" />
+            </MultiSelectOptionGroup>
+            <MultiSelectOptionGroup label="Ground Animal">
+              <MultiSelectOption label="Blemmyae" value="blemmyae" />
+              <MultiSelectOption label="Manticore" value="manticore" />
+              <MultiSelectOption label="Unicorn" value="unicorn" />
+            </MultiSelectOptionGroup>
+          </MultiSelect>
         )}
       />
 

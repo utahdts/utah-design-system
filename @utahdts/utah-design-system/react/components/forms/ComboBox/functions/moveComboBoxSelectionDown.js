@@ -14,7 +14,12 @@ export function moveComboBoxSelectionDown(draftContext, multiSelectContext) {
   const optionsToUse = optionsWithHiddenGroups.filter(
     (option) => (
       !multiSelectContext?.selectedValues.includes(option.value)
-      && isOptionGroupVisible((option.isGroupLabel ? option.optionGroupId : null) ?? null, option.label, optionsWithHiddenGroups)
+      && isOptionGroupVisible(
+        (option.isGroupLabel ? option.optionGroupId : null) ?? null,
+        option.label,
+        optionsWithHiddenGroups,
+        multiSelectContext.selectedValues
+      )
     )
   );
 

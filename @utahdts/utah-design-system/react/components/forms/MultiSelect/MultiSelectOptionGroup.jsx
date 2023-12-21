@@ -1,22 +1,23 @@
 // @ts-check
 import React from 'react';
+import { ComboBoxOptionGroup } from '../ComboBox/ComboBoxOptionGroup';
 
 /**
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @param {boolean} [props.isLabelHidden]
- * @param {string | null} [props.label]
+ * @param {string} props.label
  * @returns {JSX.Element}
  */
 export function MultiSelectOptionGroup({
   children,
-  label = null,
-  isLabelHidden = false,
+  label,
 }) {
   return (
-    <div className="multi-select-group__wrapper">
-      {isLabelHidden ? null : <div className="multi-select-group__title">{label}</div>}
+    <ComboBoxOptionGroup
+      className="multi-select-option-group"
+      label={label}
+    >
       {children}
-    </div>
+    </ComboBoxOptionGroup>
   );
 }
