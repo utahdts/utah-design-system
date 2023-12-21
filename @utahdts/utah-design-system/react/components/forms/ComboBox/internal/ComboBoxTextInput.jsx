@@ -4,6 +4,7 @@ import identity from 'lodash/identity';
 import React, { useCallback, useRef } from 'react';
 import joinClassNames from '../../../../util/joinClassNames';
 import useOnKeyUp from '../../../../util/useOnKeyUp';
+import IconButton from '../../../buttons/IconButton';
 import useFormContext from '../../FormContext/useFormContext';
 import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
 import TextInput from '../../TextInput';
@@ -11,7 +12,6 @@ import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
-import IconButton from '../../../buttons/IconButton';
 
 /** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
 /**
@@ -99,6 +99,7 @@ export function ComboBoxTextInput({
   // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
   const onKeyUpPreviousValue = useRef('');
 
+  const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
   return (
     <div>
       <TextInput
@@ -113,6 +114,7 @@ export function ComboBoxTextInput({
         id={id}
         innerRef={(ref) => {
           const input = ref?.querySelector('input');
+          textInputRef.current = input;
           comboBoxContextNonStateRef.current.textInput = input;
           if (multiSelectContextRefs) {
             multiSelectContextRefs.current.textInput = input;
@@ -224,11 +226,10 @@ export function ComboBoxTextInput({
             icon={<span className={isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'} aria-hidden="true" />}
             isDisabled={isDisabled}
             onClick={(e) => {
-      // TODO: am i good?
               e.stopPropagation();
               setComboBoxContext((draftContext) => {
                 draftContext.isOptionsExpanded = !draftContext.isOptionsExpanded;
-                multiSelectContextRefs.current.textInput?.focus();
+                textInputRef.current?.focus();
               });
             }}
             title="Toggle popup menu"

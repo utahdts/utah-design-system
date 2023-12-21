@@ -5,6 +5,7 @@ import joinClassNames from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
 import { CombBoxListBox } from './internal/CombBoxListBox';
 import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
+import { useComboBoxContext } from './context/useComboBoxContext';
 
 /** @typedef {import('../../../jsDocTypes').Event} Event */
 /**

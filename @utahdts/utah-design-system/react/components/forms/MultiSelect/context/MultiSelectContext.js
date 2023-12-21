@@ -20,11 +20,6 @@ export const MultiSelectContext = /** @type {typeof React.createContext<MultiSel
   () => {
     // comboBox will call this empty setter if there is no wrapping multi-select context
   },
-  {
-    current: {
-      comboBoxDivElement: null,
-      selectedOptionTagRefs: [],
-      textInput: null,
-    },
-  },
+  // the global context does not track refs; had a bug where combo boxes were using global multi-select context refs
+  null,
 ]);

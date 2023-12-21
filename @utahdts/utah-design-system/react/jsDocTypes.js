@@ -270,7 +270,7 @@
  *  @property {HTMLInputElement | null} textInput the textInput used for this multi select's combo box
  * } */
 
-/** @typedef {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef>]} MultiSelectContext */
+/** @typedef {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef> | null]} MultiSelectContext */
 
 /**
  * @typedef MultiSelectContextValue {

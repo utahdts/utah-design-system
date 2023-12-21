@@ -192,8 +192,6 @@ export function ComboBoxContextProvider({
     [comboBoxImmer[0].isOptionsExpanded]
   );
 
-      // TODO: am i good?
-  console.log('🚀 combobox context isExpanded:', providerValue[0].isOptionsExpanded, new Date().getTime());
   return (
     <ComboBoxContext.Provider value={providerValue}>
       {children}
