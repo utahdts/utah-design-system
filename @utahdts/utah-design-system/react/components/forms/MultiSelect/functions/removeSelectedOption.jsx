@@ -8,7 +8,7 @@
  * @param {(message: string) => void} addPoliteMessage accessibility announcer
  * @param {number} selectedValueIndex the index of the tag being deleted
  * @param {ComboBoxOption} selectedOption the option being removed
- * @param {React.MutableRefObject<MultiSelectContextNonStateRef>} multiSelectContextNonStateRef
+ * @param {React.MutableRefObject<MultiSelectContextNonStateRef> | null} multiSelectContextNonStateRef
  */
 export function removeSelectedOption(draftContext, addPoliteMessage, selectedValueIndex, selectedOption, multiSelectContextNonStateRef) {
   // remove from selected values
@@ -21,6 +21,6 @@ export function removeSelectedOption(draftContext, addPoliteMessage, selectedVal
     // focus on the text input if there is not a next item
     draftContext.focusedValueTagIndex = NaN;
     // @ts-ignore
-    multiSelectContextNonStateRef.current.comboBoxDivElement?.querySelector('.combo-box-input')?.focus();
+    multiSelectContextNonStateRef?.current.comboBoxDivElement?.querySelector('.combo-box-input')?.focus();
   }
 }

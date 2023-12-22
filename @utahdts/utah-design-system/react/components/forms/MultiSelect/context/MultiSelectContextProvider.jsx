@@ -50,6 +50,7 @@ export default function MultiSelectContextProvider({
       }
     },
     onClear: onClear ?? (() => multiSelectImmer[1]((draftContext) => { draftContext.selectedValues = []; })),
+    optionTagClassNames: {},
     selectedValues: values ?? defaultValues ?? [],
     textInputHasFocus: false,
   }));

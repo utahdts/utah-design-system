@@ -82,6 +82,7 @@ export function MultiSelectComboBox({
             className,
             'multi-select',
             isClearable ? 'multi-select--clear-icon-visible' : '',
+            isDisabled ? 'multi-select--disabled' : '',
             (
               multiSelectContextValue.focusedValueTagIndex
               || multiSelectContextValue.focusedValueTagIndex === 0

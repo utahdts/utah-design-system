@@ -34,7 +34,7 @@ export function MultiSelectTags({ isDisabled }) {
               : (
                 <Tag
                   aria-label={`Press delete to remove ${selectedOption.label}`}
-                  className={joinClassNames('tag--primary-color', 'multi-select__tag', '')}
+                  className={joinClassNames('multi-select__tag', multiSelectContext.optionTagClassNames[selectedOption.value])}
                   iconButtonProps={{
                     'aria-hidden': true,
                     tabIndex: -1,

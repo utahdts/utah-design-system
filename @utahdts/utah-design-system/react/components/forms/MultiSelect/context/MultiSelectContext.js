@@ -14,6 +14,7 @@ export const MultiSelectContext = /** @type {typeof React.createContext<MultiSel
     multiSelectId: 'default-context-value',
     onChange: () => { console.error('calling default MultiSelectContext onChange'); },
     onClear: () => { console.error('calling default MultiSelectContext onChange'); },
+    optionTagClassNames: {},
     selectedValues: [],
     textInputHasFocus: false,
   },

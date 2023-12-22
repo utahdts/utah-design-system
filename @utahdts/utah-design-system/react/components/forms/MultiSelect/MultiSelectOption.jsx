@@ -1,5 +1,5 @@
 // @ts-check
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ComboBoxOption } from '../ComboBox/ComboBoxOption';
 import useMultiSelectContext from './context/useMultiSelectContext';
 
@@ -9,6 +9,7 @@ import useMultiSelectContext from './context/useMultiSelectContext';
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isStatic] static options are always visible and not filterable
  * @param {string} props.label
+ * @param {string} [props.tagClassName] this class will be put on the tag when this option is selected
  * @param {string} props.value
  * @returns {JSX.Element | null}
  */
@@ -17,9 +18,26 @@ export function MultiSelectOption({
   isDisabled,
   isStatic,
   label,
+  tagClassName,
   value,
 }) {
-  const [{ selectedValues }] = useMultiSelectContext();
+  const [{ selectedValues }, setMultiSelectContext] = useMultiSelectContext();
+
+  useEffect(
+    () => {
+      setMultiSelectContext((draftContext) => {
+        // @ts-ignore
+        draftContext.optionTagClassNames[value] = tagClassName;
+      });
+      return () => {
+        setMultiSelectContext((draftContext) => {
+          delete draftContext.optionTagClassNames[value];
+        });
+      };
+    },
+    []
+  );
+
   return (
     <ComboBoxOption
       isDisabled={isDisabled}

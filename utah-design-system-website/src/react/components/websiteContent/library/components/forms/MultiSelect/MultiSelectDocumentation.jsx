@@ -67,19 +67,19 @@ export function MultiSelectDocumentation() {
         renderedExample={(
           <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
             <MultiSelectOptionGroup label="Lizard-Like">
-              <MultiSelectOption label="Basilisk" value="basilisk" />
-              <MultiSelectOption label="Dragon" value="dragon" />
-              <MultiSelectOption label="Kraken" value="kraken" />
+              <MultiSelectOption label="Basilisk" tagClassName="tag--primary-color" value="basilisk" />
+              <MultiSelectOption label="Dragon" tagClassName="tag--primary-color" value="dragon" />
+              <MultiSelectOption label="Kraken" tagClassName="tag--primary-color" value="kraken" />
             </MultiSelectOptionGroup>
             <MultiSelectOptionGroup label="Airborne Animal">
-              <MultiSelectOption label="Cardinal" value="cardinal" />
-              <MultiSelectOption label="Griffin" value="griffin" />
-              <MultiSelectOption label="Roc" value="roc" />
+              <MultiSelectOption label="Cardinal" tagClassName="tag--secondary-color" value="cardinal" />
+              <MultiSelectOption label="Griffin" tagClassName="tag--secondary-color" value="griffin" />
+              <MultiSelectOption label="Roc" tagClassName="tag--secondary-color" value="roc" />
             </MultiSelectOptionGroup>
             <MultiSelectOptionGroup label="Ground Animal">
-              <MultiSelectOption label="Blemmyae" value="blemmyae" />
-              <MultiSelectOption label="Manticore" value="manticore" />
-              <MultiSelectOption label="Unicorn" value="unicorn" />
+              <MultiSelectOption label="Blemmyae" tagClassName="tag--info-color" value="blemmyae" />
+              <MultiSelectOption label="Manticore" tagClassName="tag--info-color" value="manticore" />
+              <MultiSelectOption label="Unicorn" tagClassName="tag--info-color" value="unicorn" />
             </MultiSelectOptionGroup>
           </MultiSelect>
         )}

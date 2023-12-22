@@ -281,6 +281,7 @@
  *  @property {string} multiSelectId
  *  @property {((newValues: string[]) => void)} onChange
  *  @property {(() => void)} onClear
+ *  @property {Record<string, string>} optionTagClassNames key is the option's `value`; value is the tag className associated with this option to put on its tag (helpful for coloring of tags)
  *  @property {string[]} selectedValues the values selected in the multi-select to show as tags
  *  @property {((selectedValue: string, selectedOption: ComboBoxOption) => JSX.Element) | null} tagTemplate is there a custom template for tags instead of rendering default tags
  *  @property {boolean} textInputHasFocus (3 of 3) multi select has focus if any of the three have focus

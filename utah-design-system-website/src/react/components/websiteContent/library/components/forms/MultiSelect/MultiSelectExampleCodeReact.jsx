@@ -19,6 +19,7 @@ export default function MultiSelectExampleCodeReact({
       isDisabled,
       isRequired,
       label,
+      values,
     },
   },
 }) {
@@ -35,6 +36,7 @@ export default function MultiSelectExampleCodeReact({
       <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={'onChange={(e) => { /* ... do something w/ e ... */ }'} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'onClear={(e) => { /* ... do something w/ e ... */ }' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`values={[${values.map((value) => `'${value}'`).join(',')}]}`} indentLevel={1} />
       &gt;
       <br />
       <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Arches" value="arches" />'} indentLevel={1} />
