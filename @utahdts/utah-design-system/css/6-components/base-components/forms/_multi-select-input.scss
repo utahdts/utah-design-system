@@ -75,10 +75,21 @@
       padding: var(--spacing-2xs) var(--spacing-4xl) var(--spacing-2xs) var(--spacing-2xs);
     }
 
+    &--disabled {
+      background-color: var(--disabled-gray);
+      cursor: not-allowed;
+      input[type=text] {
+        background: transparent;
+      }
+    }
+
     &--focused {
       outline: 2px solid var(--form-ele-color);
       outline-offset: 2px;
       transition: none;
+      &.multi-select--disabled {
+        outline: none;
+      }
     }
   }
 }
