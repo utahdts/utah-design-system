@@ -17,7 +17,8 @@ export function ModalsExampleCodeReact({
       title,
       content,
       size,
-      isForced,
+      showCloseButton,
+      closeOnEsc,
     },
   },
 }) {
@@ -27,7 +28,8 @@ export function ModalsExampleCodeReact({
       <br />
       <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, size)}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp='id="modal-example"' indentLevel={1} />
-      {isForced ? '' : <ExampleCodeReactProp displayProp="onClose={myFunction}" indentLevel={1} />}
+      {showCloseButton ? <ExampleCodeReactProp displayProp="onClose={myFunction}" indentLevel={1} /> : ''}
+      {closeOnEsc ? <ExampleCodeReactProp displayProp="onEsc={myFunction}" indentLevel={1} /> : ''}
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />

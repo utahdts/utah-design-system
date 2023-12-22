@@ -1,9 +1,24 @@
-// @ts-check
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, {
+  useCallback, useEffect, useRef
+} from 'react';
+import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { IconButton } from '../../buttons/IconButton';
 import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+
+/**
+ * Based on the list from https://api.jqueryui.com/tabbable-selector/
+ * Used to get a list of focusable elements within a modal component
+ * @param {HTMLDialogElement} element
+ * @returns {HTMLElement[]}
+ */
+function getFocusableElements(element) {
+  // @ts-ignore
+  return [
+    ...element.querySelectorAll('a[href], area[href], button, input, textarea, select, object, [tabindex]:not([tabindex="-1"])'),
+  ].filter((item) => !item.hasAttribute('disabled'));
+}
 
 /**
  * @param {object} props
@@ -23,11 +38,13 @@ export function Modal({
   onEscape,
   onClose,
 }) {
-  const ref = /** @type {typeof useRef<HTMLDialogElement>} */ (useRef)(null);
-
+  const ref = /** @type {typeof useRef<HTMLDialogElement | null>} */ (useRef)(null);
+  const [lastActiveElement] = useImmer(/** @type {HTMLElement | undefined} */(document.activeElement));
+  const [firstTabElement, setFirstTabElement] = useImmer(/** @type {HTMLElement | undefined} */(undefined));
+  const [lastTabElement, setLastTabElement] = useImmer(/** @type {HTMLElement | undefined} */(undefined));
   const { addAssertiveMessage } = useAriaMessaging();
 
-  const escListener = useCallback((/** @type {React.KeyboardEvent<HTMLDialogElement>} */ e) => {
+  const handleEscape = useCallback((/** @type {React.KeyboardEvent<HTMLDialogElement>} */ e) => {
     if (e.code === 'Escape' || e.key === 'Escape') {
       e.preventDefault();
       e.stopPropagation();
@@ -35,17 +52,44 @@ export function Modal({
     }
   }, [onEscape]);
 
-  const resetFocus = useCallback(() => ref?.current?.focus(), []);
+  const handleTab = useCallback((/** @type {React.KeyboardEvent<HTMLDialogElement>} */ e) => {
+    if (e.code === 'Tab' || e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === firstTabElement) {
+          lastTabElement?.focus();
+          e.preventDefault();
+        }
+      } else {
+        // eslint-disable-next-line no-lonely-if
+        if (document.activeElement === lastTabElement) {
+          firstTabElement?.focus();
+          e.preventDefault();
+        }
+      }
+    }
+  }, [firstTabElement, lastTabElement]);
 
   useEffect(() => {
-    // set initial focus
-    resetFocus();
+    if (ref) {
+      // @ts-ignore
+      const list = getFocusableElements(ref.current);
+      if (list.length) {
+        const firstElement = list[0];
+        setFirstTabElement(firstElement);
+        const lastElement = list[list.length - 1];
+        setLastTabElement(lastElement);
+        firstElement?.focus();
+      } else {
+        console.warn('No focusable element found. Make sure to include a way to close the modal.');
+      }
+    }
   }, []);
 
   useEffect(() => () => {
-    // unmount component
+    // Unmount component
     addAssertiveMessage('Closing dialog');
-  }, [addAssertiveMessage]);
+    lastActiveElement?.focus();
+  }, []);
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
@@ -55,10 +99,10 @@ export function Modal({
         aria-modal="true"
         className={joinClassNames('modal__wrapper', className)}
         id={id}
-        onClick={useCallback((/** @type {{ stopPropagation: () => any; }} */ e) => e.stopPropagation(), [])}
-        onKeyUp={escListener}
+        onClick={(e) => e.stopPropagation()}
+        onKeyUp={handleEscape}
+        onKeyDown={handleTab}
         ref={ref}
-        tabIndex={-1}
       >
         {children}
         {
@@ -75,11 +119,6 @@ export function Modal({
             )
             : undefined
         }
-        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-        <div aria-hidden tabIndex={0} className="modal__hidden-last-focusable visually-hidden" onFocus={resetFocus}>
-          end of modal
-          {/* we want to keep the user within the modal, we use this to loop them back at the beginning when they tab through */}
-        </div>
       </dialog>
     </div>
   );

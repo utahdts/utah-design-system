@@ -31,7 +31,8 @@ export function ModalsExampleProps({ setState, state }) {
         <SelectOption label="Medium" value="modal--medium" />
         <SelectOption label="Large" value="modal--large" />
       </Select>
-      <Switch id="props.isForced" label="Forced action" width={20} />
+      <Switch id="props.showCloseButton" label="Show close button" width={20} />
+      <Switch id="props.closeOnEsc" label="Close on esc" width={20} />
     </Form>
   );
 }

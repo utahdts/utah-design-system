@@ -30,7 +30,8 @@ export function ModalsDocumentation() {
           title: 'Modal Title',
           content: 'Modal Content',
           size: 'modal--small',
-          isForced: false,
+          showCloseButton: true,
+          closeOnEsc: true,
         }}
         CODE_EXAMPLE={ModalsExampleCodeReact}
         PROPS_EXAMPLE={ModalsExampleProps}

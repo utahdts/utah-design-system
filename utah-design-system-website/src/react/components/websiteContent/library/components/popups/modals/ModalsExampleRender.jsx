@@ -1,5 +1,5 @@
 import {
-  Button,
+  Button, ICON_BUTTON_APPEARANCE, IconButton,
   joinClassNames,
   Modal,
   ModalContent,
@@ -23,7 +23,8 @@ export function ModalsExampleRender({
       title,
       content,
       size,
-      isForced,
+      showCloseButton,
+      closeOnEsc,
     },
   },
   innerRef,
@@ -42,16 +43,13 @@ export function ModalsExampleRender({
         ? (
           <Modal
             className={joinClassNames(className, size)}
-            id="modal-example"
-            innerRef={innerRef}
-            onClose={isForced ? undefined : closeModal}
-            onEscape={isForced ? undefined : closeModal}
+            id="modal-example-render"
+            onClose={showCloseButton ? closeModal : undefined}
+            onEscape={closeOnEsc ? closeModal : undefined}
           >
-            <ModalTitle>
-              <h3>{title}</h3>
-            </ModalTitle>
+            <ModalTitle>{title}</ModalTitle>
             <ModalContent>{content}</ModalContent>
-            <ModalFooter className="flex float-right">
+            <ModalFooter className="flex float-right flex-wrap">
               <Button
                 className="mr-spacing"
                 onClick={closeModal}
@@ -68,6 +66,46 @@ export function ModalsExampleRender({
           </Modal>
         )
         : undefined}
+      <div className="visually-hidden">
+        <div className="modal-backdrop backdrop-dark" ref={innerRef}>
+          <dialog
+            aria-modal="true"
+            className={joinClassNames('modal__wrapper', className, size)}
+            id="modal-example"
+          >
+            <ModalTitle>{title}</ModalTitle>
+            <ModalContent>{content}</ModalContent>
+            <ModalFooter className="flex float-right flex-wrap">
+              <Button
+                className="mr-spacing"
+                onClick={() => undefined}
+              >
+                Cancel
+              </Button>
+              <Button
+                className="button--solid button--primary-color"
+                onClick={() => undefined}
+              >
+                Okay
+              </Button>
+            </ModalFooter>
+            {
+                showCloseButton
+                  ? (
+                    <IconButton
+                      appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                      className="modal__close-button"
+                      icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                      onClick={() => undefined}
+                      size="small"
+                      title="Close modal"
+                    />
+                  )
+                  : undefined
+                    }
+          </dialog>
+        </div>
+      </div>
     </div>
   );
 }

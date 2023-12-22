@@ -208,7 +208,8 @@
  * @property {string} title
  * @property {string} content
  * @property {string} size
- * @property {boolean} isForced
+ * @property {boolean} showCloseButton
+ * @property {boolean} closeOnEsc
  * }
  */
 

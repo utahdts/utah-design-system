@@ -7,12 +7,11 @@
   .modal{
     &-backdrop {
       position: fixed;
-      width: calc(100% - var(--spacing-3xl));
-      height: calc(100% - var(--spacing-3xl));
+      width: 100vw;
+      height: 100vh;
       top: 0;
       left: 0;
       z-index: 4000;
-      padding: 1.5rem;
     }
 
     &__wrapper {
@@ -31,16 +30,18 @@
       z-index: 5000;
     }
 
-    &__title, &__footer {
-      padding: var(--spacing);
+    &__title, &__content, &__footer {
+      padding: var(--spacing-2xs) var(--spacing);
     }
 
     &__title {
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-2xl);
       padding-right: calc(var(--spacing) + 1.4rem)
     }
 
     &__content {
-      padding: var(--spacing-s) var(--spacing);
+      line-height: 1.6rem;
     }
 
     &__close-button {
