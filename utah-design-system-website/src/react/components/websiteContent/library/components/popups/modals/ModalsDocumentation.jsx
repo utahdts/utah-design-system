@@ -6,6 +6,10 @@ import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { ModalsExampleProps } from './ModalsExampleProps';
+import { ModalsExampleRender } from './ModalsExampleRender';
+import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
 
 export function ModalsDocumentation() {
   return (
@@ -20,6 +24,20 @@ export function ModalsDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          title: 'Modal Title',
+          content: 'Modal Content',
+          size: 'modal--small',
+          showCloseButton: true,
+          closeOnEsc: true,
+        }}
+        CODE_EXAMPLE={ModalsExampleCodeReact}
+        PROPS_EXAMPLE={ModalsExampleProps}
+        RENDER_EXAMPLE={ModalsExampleRender}
+      />
+
       <StaticExample
         title="Complex Modal"
         renderedExample={(
