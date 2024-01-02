@@ -4,17 +4,17 @@ import {
 import { useCallback, useState } from 'react';
 
 export function SimpleModal() {
-  const [showModal, setModal] = useState(false);
-  const closeModal = useCallback(() => setModal(false), []);
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = useCallback(() => setShowModal(false), []);
   return (
     <>
-      <Button onClick={() => setModal(true)} className="mb-spacing">
+      <Button onClick={() => setShowModal(true)} className="mb-spacing">
         Simple Modal
       </Button>
       {showModal
         ? (
           <Modal
-            id="saimple-modal"
+            id="simple-modal"
             onClose={closeModal}
             onEscape={closeModal}
           >

@@ -4,11 +4,11 @@ import {
 import { useCallback, useState } from 'react';
 
 export function LargeModal() {
-  const [showModal, setModal] = useState(false);
-  const closeModal = useCallback(() => setModal(false), []);
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = useCallback(() => setShowModal(false), []);
   return (
     <>
-      <Button onClick={() => setModal(true)} className="mb-spacing">
+      <Button onClick={() => setShowModal(true)} className="mb-spacing">
         Large Modal
       </Button>
       {showModal
