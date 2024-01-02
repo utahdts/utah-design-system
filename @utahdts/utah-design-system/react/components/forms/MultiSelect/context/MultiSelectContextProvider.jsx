@@ -1,22 +1,21 @@
-// @ts-check
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
-import useRefAlways from '../../../../hooks/useRefAlways';
+import { useRefAlways } from '../../../../hooks/useRefAlways';
 import { MultiSelectContext } from './MultiSelectContext';
 
-/** @typedef {import('../../../../jsDocTypes').MultiSelectContext} MultiSelectContextType */
-/** @typedef {import('../../../../jsDocTypes').MultiSelectContextNonStateRef} MultiSelectContextNonStateRef */
-/** @typedef {import('../../../../jsDocTypes').MultiSelectContextValue} MultiSelectContextValue */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContext} MultiSelectContextType */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContextNonStateRef} MultiSelectContextNonStateRef */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContextValue} MultiSelectContextValue */
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.multiSelectId
  * @param {string[]} [props.defaultValues]
  * @param {((newValues: string[]) => void)} [props.onChange]
  * @param {(() => void)} [props.onClear]
  * @param {string[]} [props.values]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export default function MultiSelectContextProvider({
   children,

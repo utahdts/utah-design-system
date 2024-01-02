@@ -4,9 +4,9 @@ import { TabGroupContext } from './TabGroupContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TabList({ children, className }) {
   const { tabGroupId } = useContext(TabGroupContext);

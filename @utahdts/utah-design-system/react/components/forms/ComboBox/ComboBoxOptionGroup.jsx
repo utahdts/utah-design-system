@@ -1,14 +1,14 @@
 import React, { useId } from 'react';
-import joinClassNames from '../../../util/joinClassNames';
+import { joinClassNames } from '../../../util/joinClassNames';
 import { ComboBoxOption } from './ComboBoxOption';
 import { ComboBoxOptionGroupContextProvider } from './context/ComboBoxOptionGroupContextProvider';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @param {string} props.className
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]
  * @param {string} props.label
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxOptionGroup({
   children,

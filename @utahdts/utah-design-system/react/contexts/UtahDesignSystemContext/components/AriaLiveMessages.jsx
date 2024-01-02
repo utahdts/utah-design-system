@@ -5,7 +5,7 @@ import React, { useMemo } from 'react';
 /**
  * @typedef MessageObject {
  *  @property {string} id
- *  @property {React.ReactNode} message
+ *  @property {import('react').ReactNode} message
  * }
  */
 
@@ -22,8 +22,8 @@ const NUMBER_REGIONS = 100;
 /**
  * @param {object} props
  * @param {AriaLiveType} props.ariaLiveType
- * @param {React.ReactNode[]} props.messages
- * @returns {React.JSX.Element}
+ * @param {import('react').ReactNode[]} props.messages
+ * @returns {import('react').JSX.Element}
  */
 export function AriaLiveMessages({ ariaLiveType, messages }) {
   const messagesLists = useMemo(

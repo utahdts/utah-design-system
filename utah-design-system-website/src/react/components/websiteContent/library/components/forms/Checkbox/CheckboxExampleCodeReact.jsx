@@ -6,7 +6,7 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
  * @param {object} props
  * @param {object} props.state
  * @param {CheckboxExamplePropsShape} props.state.props
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function CheckboxExampleCodeReact({
   state: {

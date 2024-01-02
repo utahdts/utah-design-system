@@ -7,14 +7,14 @@ import { IconButton } from '../../buttons/IconButton';
 /** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 /**
  * @param {object} props
- * @param {React.ReactNode} [props.children]
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.Ref<HTMLDivElement>} [props.innerRef]
- * @param {React.MouseEventHandler} props.onClose
+ * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').MouseEventHandler} props.onClose
  * @param {BannerPlacement} [props.position]
  * @param {'small' | 'medium' | 'large'} [props.size]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Banner({
   children,

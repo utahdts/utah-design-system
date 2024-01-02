@@ -7,18 +7,18 @@ import { IconButton } from './IconButton';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
+ * @param {import('react').ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className]
  * @param {string} [props.clearMessage] the message to show when hover the "x" icon
  * @param {string} [props.id] the tag id
- * @param {Object} [props.iconButtonProps] props for the icon button
- * @param {React.RefObject<HTMLDivElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
- * @param {React.ReactNode} [props.iconLeft] an icon for the left side
- * @param {React.ReactNode} [props.iconRight] an icon for the right side
+ * @param {object} [props.iconButtonProps] props for the icon button
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
+ * @param {import('react').ReactNode} [props.iconLeft] an icon for the left side
+ * @param {import('react').ReactNode} [props.iconRight] an icon for the right side
  * @param {boolean} [props.isDisabled] tag isDisabled state
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClear]
  * @param {FormElementSizes} [props.size]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Tag({
   children,

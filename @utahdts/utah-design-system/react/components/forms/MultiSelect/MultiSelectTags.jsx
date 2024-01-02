@@ -1,18 +1,17 @@
-// @ts-check
 import React from 'react';
-import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import formElementSizesEnum from '../../../enums/formElementSizesEnum';
-import joinClassNames from '../../../util/joinClassNames';
-import notNull from '../../../util/notNull';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { formElementSizesEnum } from '../../../enums/formElementSizesEnum';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { notNull } from '../../../util/notNull';
 import { Tag } from '../../buttons/Tag';
 import { MultiSelectTagWrapper } from './MultiSelectTagWrapper';
-import useMultiSelectContext from './context/useMultiSelectContext';
+import { useMultiSelectContext } from './context/useMultiSelectContext';
 import { removeSelectedOption } from './functions/removeSelectedOption';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {boolean | undefined} props.isDisabled
- * @returns {JSX.Element[]}
+ * @returns {import('react').JSX.Element[]}
  */
 export function MultiSelectTags({ isDisabled }) {
   const [multiSelectContext, setMultiSelectContext, multiSelectContextNonStateRef] = useMultiSelectContext();

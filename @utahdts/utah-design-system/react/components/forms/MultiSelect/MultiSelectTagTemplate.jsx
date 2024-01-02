@@ -1,13 +1,12 @@
-// @ts-check
-import { useEffect } from 'react';
-import useMultiSelectContext from './context/useMultiSelectContext';
+import React, { useEffect } from 'react';
+import { useMultiSelectContext } from './context/useMultiSelectContext';
 
-/** @typedef {import('../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
+/** @typedef {import('@utahdts/utah-design-system').ComboBoxOptionType} ComboBoxOptionType */
 
 /**
  * just registers its "children" as the option template to render selected tags
- * @param {Object} props
- * @param {(selectedValue: string, selectedOption: ComboBoxOption) => JSX.Element} props.children function to call to render a selected option
+ * @param {object} props
+ * @param {(selectedValue: string, selectedOption: ComboBoxOptionType) => React.JSX.Element} props.children render a selected option
  * @returns {null}
  */
 export function MultiSelectTagTemplate({ children }) {

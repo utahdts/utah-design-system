@@ -11,8 +11,8 @@ import React from 'react';
 /**
  * @param {object} props
  * @param {{props: BannerExamplePropsShape}} props.state
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {React.JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
 export function BannersExampleRender({
   state: {

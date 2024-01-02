@@ -14,18 +14,18 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.className]
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject<HTMLInputElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLInputElement>} [props.innerRef]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {React.ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
+ * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {(() => void)} [props.onSubmit]
  * @param {boolean} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Checkbox({
   className,

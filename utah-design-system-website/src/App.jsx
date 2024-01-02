@@ -22,7 +22,7 @@ import { CSS_STATE_KEYS } from './react/enums/cssStateKeys';
 /** @typedef {import('@utahdts/utah-design-system-types').FormContextValue<Record<string, any>>} FormContextValue */
 
 /**
- * @returns {React.JSX.Element} the App!
+ * @returns {import('react').JSX.Element} the App!
  */
 export function App() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();

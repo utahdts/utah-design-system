@@ -8,7 +8,7 @@ import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
  * @param {object} props
  * @param {object} props.state
  * @param {TooltipsExamplePropsShape} props.state.props
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TooltipsExampleCodeReact({
   state: {

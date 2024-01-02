@@ -7,8 +7,8 @@ import { useKeyEventGlobal } from '../../hooks/useKeyEventGlobal';
  * @param {string} props.alt
  * @param {string} [props.className]
  * @param {boolean} [props.hideAlt]
- * @param {React.ReactNode} props.image
- * @returns {React.JSX.Element}
+ * @param {import('react').ReactNode} props.image
+ * @returns {import('react').JSX.Element}
  */
 export function LightBox({
   alt,

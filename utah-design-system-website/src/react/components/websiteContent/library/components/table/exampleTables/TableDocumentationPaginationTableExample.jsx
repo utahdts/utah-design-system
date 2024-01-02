@@ -96,7 +96,7 @@ export function TableDocumentationPaginationTableExample() {
             className="mt-spacing"
             id="tableDocumentationPaginationTableExample-pagination"
             onChange={setCurrentPageIndex}
-            pageSize={itemsPerPage}
+            itemsPerPage={itemsPerPage}
             totalNumberItems={examplePresidentsData.length}
             value={currentPageIndex}
           />

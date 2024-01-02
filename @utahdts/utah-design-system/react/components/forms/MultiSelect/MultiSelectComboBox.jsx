@@ -1,25 +1,24 @@
-// @ts-check
 import { uniq } from 'lodash';
 import React, { useRef } from 'react';
-import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import useRefAlways from '../../../hooks/useRefAlways';
-import joinClassNames from '../../../util/joinClassNames';
-import IconButton from '../../buttons/IconButton';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useRefAlways } from '../../../hooks/useRefAlways';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
 import { ComboBox } from '../ComboBox/ComboBox';
-import ErrorMessage from '../ErrorMessage';
-import RequiredStar from '../RequiredStar';
+import { ErrorMessage } from '../ErrorMessage';
+import { RequiredStar } from '../RequiredStar';
 import { MultiSelectClearIcon } from './MultiSelectClearIcon';
 import { MultiSelectTags } from './MultiSelectTags';
-import useMultiSelectContext from './context/useMultiSelectContext';
+import { useMultiSelectContext } from './context/useMultiSelectContext';
 
 /**
  * @template MutableRefT
- * @typedef {import('../../../jsDocTypes').MutableRef<MutableRefT>} MutableRef
+ * @typedef {import('@utahdts/utah-design-system').MutableRef<MutableRefT>} MutableRef
  */
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} [props.children]
+ * @param {object} props
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.errorMessage]
  * @param {MutableRef<HTMLDivElement | null>} [props.innerRef]
@@ -31,7 +30,7 @@ import useMultiSelectContext from './context/useMultiSelectContext';
  * @param {string} [props.name]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function MultiSelectComboBox({
   children,
@@ -127,6 +126,7 @@ export function MultiSelectComboBox({
               let eventIsHandled = false;
               // check that filter is blank and that there are options selected
               if (!currentFilter && multiSelectContextValueRef.current.selectedValues.length) {
+                // @ts-ignore
                 if (e.key === 'Backspace') {
                   eventIsHandled = true;
                   setMultiSelectContextValue((draftContext) => {
@@ -141,6 +141,7 @@ export function MultiSelectComboBox({
                   // @ts-ignore
                   activeElement?.focus();
                 }
+                // @ts-ignore
                 if (e.key === 'ArrowLeft') {
                   eventIsHandled = true;
                   setMultiSelectContextValue((draftContext) => {

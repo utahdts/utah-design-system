@@ -1,20 +1,19 @@
-// @ts-check
 import React, { useLayoutEffect } from 'react';
-import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import joinClassNames from '../../../util/joinClassNames';
-import useMultiSelectContext from './context/useMultiSelectContext';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { useMultiSelectContext } from './context/useMultiSelectContext';
 import { removeSelectedOption } from './functions/removeSelectedOption';
 
-/** @typedef {import('../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
+/** @typedef {import('@utahdts/utah-design-system').ComboBoxOptionType} ComboBoxOptionType */
 
 /**
  * wraps a div around a tag to perform common functionality like left/right arrows, backspace
  * focusing, etc. Both tag templated and normal selected option tags are wrapped in this.
- * @param {Object} props
- * @param {React.ReactNode} props.children the actual tag
- * @param {ComboBoxOption} props.selectedOption the selected option's details
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children the actual tag
+ * @param {ComboBoxOptionType} props.selectedOption the selected option's details
  * @param {number} props.selectedValueIndex the index of this selected value in the selected values list
- * @returns {JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function MultiSelectTagWrapper({ children, selectedOption, selectedValueIndex }) {
   const [multiSelectContext, setMultiSelectContext, multiSelectContextNonStateRef] = useMultiSelectContext();
@@ -28,9 +27,9 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
         // a tag is focused
         (multiSelectContext.focusedValueTagIndex || multiSelectContext.focusedValueTagIndex === 0)
         // the focused tag is not this one
-        && tagWrapper !== multiSelectContextNonStateRef.current.selectedOptionTagRefs[multiSelectContext.focusedValueTagIndex]
+        && tagWrapper !== multiSelectContextNonStateRef?.current.selectedOptionTagRefs[multiSelectContext.focusedValueTagIndex]
       ) {
-        multiSelectContextNonStateRef.current.selectedOptionTagRefs[multiSelectContext.focusedValueTagIndex]?.focus();
+        multiSelectContextNonStateRef?.current.selectedOptionTagRefs[multiSelectContext.focusedValueTagIndex]?.focus();
       }
     }
     // call this effect after EVERY render
@@ -47,7 +46,9 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
       }
       ref={
         (ref) => {
-          multiSelectContextNonStateRef.current.selectedOptionTagRefs[selectedValueIndex] = ref;
+          if (multiSelectContextNonStateRef) {
+            multiSelectContextNonStateRef.current.selectedOptionTagRefs[selectedValueIndex] = ref;
+          }
         }
       }
       onBlur={() => setMultiSelectContext((draftContext) => {

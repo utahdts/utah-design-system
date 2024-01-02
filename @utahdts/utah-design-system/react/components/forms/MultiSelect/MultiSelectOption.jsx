@@ -1,17 +1,16 @@
-// @ts-check
 import React, { useEffect } from 'react';
 import { ComboBoxOption } from '../ComboBox/ComboBoxOption';
-import useMultiSelectContext from './context/useMultiSelectContext';
+import { useMultiSelectContext } from './context/useMultiSelectContext';
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} [props.children]
+ * @param {object} props
+ * @param {import('react').ReactNode} [props.children]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isStatic] static options are always visible and not filterable
  * @param {string} props.label
  * @param {string} [props.tagClassName] this class will be put on the tag when this option is selected
  * @param {string} props.value
- * @returns {JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function MultiSelectOption({
   children = null,

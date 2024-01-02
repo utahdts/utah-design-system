@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Table,
   TableBody,
@@ -9,9 +8,8 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
+/** @returns {import('react').JSX.Element} */
 export default function MultiSelectPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">

@@ -14,11 +14,11 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {string | number} [props.defaultValue]
  * @param {boolean} [props.exactMatch]
  * @param {string} [props.id]
- * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {(() => {})} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableFilterSelectAllOptions({
   className,
@@ -38,7 +38,7 @@ export function TableFilterSelectAllOptions({
     contextStatePath: recordFieldPath,
     defaultOnChange: (
       /**
-       * @param {React.BaseSyntheticEvent} e
+       * @param {import('react').BaseSyntheticEvent} e
        * @returns {any}
        */
       (e) => e.target.value

@@ -28,8 +28,8 @@ import { SwatchList } from './SwatchList';
 
 /**
  * @param {object} props
- * @param {React.MouseEventHandler<HTMLButtonElement>} props.onClose
- * @returns {React.JSX.Element}
+ * @param {import('react').MouseEventHandler<HTMLButtonElement>} props.onClose
+ * @returns {import('react').JSX.Element}
  */
 export function ColorPopup({ onClose }) {
   const [isOpen, setIsOpen] = useImmer(true);

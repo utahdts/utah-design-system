@@ -36,7 +36,7 @@ const GRAY_COLORS = [
   { hexColor: '#000000', isLight: false, title: 'Black' },
 ];
 
-/** @returns {React.JSX.Element} */
+/** @returns {import('react').JSX.Element} */
 export function ColorContrasts() {
   const { cssState } = useCssContext();
   const [selectedColorTitles, setSelectedColorTitles] = /** @type {typeof useImmer<string[]>} */ (useImmer)([]);

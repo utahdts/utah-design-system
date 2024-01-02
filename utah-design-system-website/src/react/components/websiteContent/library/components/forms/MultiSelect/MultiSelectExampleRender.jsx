@@ -1,4 +1,3 @@
-// @ts-check
 import {
   MultiSelect,
   MultiSelectOption,
@@ -6,16 +5,16 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').MultiSelectExamplePropsShape} MultiSelectExamplePropsShape */
+/** @typedef {import('utah-design-system-website').MultiSelectExamplePropsShape} MultiSelectExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: MultiSelectExamplePropsShape}>} props.setState
  * @param {{props: MultiSelectExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement | null>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
-export default function MultiSelectExampleRender({
+export function MultiSelectExampleRender({
   setState,
   state: {
     props: {
@@ -46,6 +45,7 @@ export default function MultiSelectExampleRender({
         onChange={(newValue) => setState((draftState) => {
           draftState.props.values = newValue;
           setStateFormContext?.((draftStateFormContext) => {
+            // @ts-ignore
             draftStateFormContext['props.values'] = newValue;
           });
         })}

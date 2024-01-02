@@ -1,16 +1,15 @@
-// @ts-check
 import React from 'react';
 import { MultiSelectComboBox } from './MultiSelectComboBox';
 import MultiSelectContextProvider from './context/MultiSelectContextProvider';
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} [props.children]
+ * @param {object} props
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string[]} [props.defaultValues]
  * @param {string} [props.errorMessage]
  * @param {string} props.id
- * @param {React.RefObject} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -22,7 +21,7 @@ import MultiSelectContextProvider from './context/MultiSelectContextProvider';
  * @param {string} [props.placeholder]
  * @param {string[]} [props.values]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function MultiSelect({
   children,

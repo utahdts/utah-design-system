@@ -1,10 +1,12 @@
 import { isOptionGroupVisible } from './isOptionGroupVisible';
 
 /** @typedef {import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContextValue} MultiSelectContextValue */
 
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
  * @param {HTMLInputElement | null} textInput
+ * @param {MultiSelectContextValue} multiSelectContext
  */
 export function moveComboBoxSelectionUp(draftContext, textInput, multiSelectContext) {
   if (draftContext.isOptionsExpanded) {

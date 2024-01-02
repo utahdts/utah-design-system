@@ -1,14 +1,13 @@
-// @ts-check
-/** @typedef {import('../../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
-/** @typedef {import('../../../../jsDocTypes').MultiSelectContextValue} MultiSelectContextValue */
-/** @typedef {import('../../../../jsDocTypes').MultiSelectContextNonStateRef} MultiSelectContextNonStateRef */
+/** @typedef {import('@utahdts/utah-design-system').ComboBoxOptionType} ComboBoxOptionType */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContextValue} MultiSelectContextValue */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContextNonStateRef} MultiSelectContextNonStateRef */
 
 /**
  * @param {MultiSelectContextValue} draftContext the context for updating state
  * @param {(message: string) => void} addPoliteMessage accessibility announcer
  * @param {number} selectedValueIndex the index of the tag being deleted
- * @param {ComboBoxOption} selectedOption the option being removed
- * @param {React.MutableRefObject<MultiSelectContextNonStateRef> | null} multiSelectContextNonStateRef
+ * @param {ComboBoxOptionType} selectedOption the option being removed
+ * @param {import('react').MutableRefObject<MultiSelectContextNonStateRef> | null} multiSelectContextNonStateRef
  */
 export function removeSelectedOption(draftContext, addPoliteMessage, selectedValueIndex, selectedOption, multiSelectContextNonStateRef) {
   // remove from selected values

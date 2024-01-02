@@ -3,13 +3,13 @@ import { joinClassNames } from '../../util/joinClassNames';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {import('react').MouseEventHandler<HTMLTableRowElement>} [props.onClick]
  * @param {import('react').MouseEventHandler<HTMLTableRowElement>} [props.onDoubleClick]
- * @returns {React.JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function TableRow({
   children,

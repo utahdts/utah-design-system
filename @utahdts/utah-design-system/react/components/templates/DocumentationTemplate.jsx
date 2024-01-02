@@ -4,10 +4,10 @@ import { MainContent } from './MainContent';
 /**
  * @param {object} props
  * @param {() => React.JSX.Element} props.content
- * @param {React.RefObject<HTMLElement>} [props.contentRef]
- * @param {React.ReactNode} props.sidePanelRightContent
- * @param {React.ReactNode} [props.sidePanelLeftContent]
- * @returns {React.JSX.Element}
+ * @param {import('react').RefObject<HTMLElement>} [props.contentRef]
+ * @param {import('react').ReactNode} props.sidePanelRightContent
+ * @param {import('react').ReactNode} [props.sidePanelLeftContent]
+ * @returns {import('react').JSX.Element}
  */
 export function DocumentationTemplate({
   content: Content,

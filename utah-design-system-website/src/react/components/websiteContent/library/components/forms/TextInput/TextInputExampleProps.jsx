@@ -11,7 +11,7 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: TextInputExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TextInputExampleProps({ setState, state }) {
   return (

@@ -1,14 +1,13 @@
-// @ts-check
 import React from 'react';
-import joinClassNames from '../../../util/joinClassNames';
-import IconButton from '../../buttons/IconButton';
-import useMultiSelectContext from './context/useMultiSelectContext';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
+import { useMultiSelectContext } from './context/useMultiSelectContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
- * @returns {JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function MultiSelectClearIcon({
   isClearable,
@@ -23,6 +22,7 @@ export function MultiSelectClearIcon({
           className={joinClassNames('multi-select__clear-button icon-button--borderless icon-button--small1x')}
           icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
           isDisabled={isDisabled}
+          // @ts-ignore
           onClick={(e) => {
             e.stopPropagation();
             multiSelectContextValue.onClear();

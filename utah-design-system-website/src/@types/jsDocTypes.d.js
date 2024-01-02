@@ -19,7 +19,7 @@
 /**
  * PageUrl - it is an enum, but listing ALL the individual pageUrls and keeping it up to date is impossible
  * @typedef {string} PageUrl
-*/
+ */
 
 // ========== Enums ========== //
 /**
@@ -30,7 +30,7 @@
 /**
  * ColorRating
  * @typedef {'AA' | 'AAA' | 'X'} ColorRating
-*/
+ */
 
 /**
  * CSS_VARIABLES_KEYS
@@ -40,22 +40,16 @@
 /**
  * LayoutTemplate
  * @typedef {'documentation-template' | 'landing-template'} LayoutTemplate
-*/
+ */
 
 /**
  * NamedMenus
  * @typedef {'main-menu' | 'secondary-menu-guidelines' | 'secondary-menu-library' | 'secondary-menu-resources'} NamedMenus
-*/
+ */
 
 /**
  * WebsiteMainMenuKey
  * @typedef { 'menuMain' | 'menuGuidelinesSecondary' | 'menuLibraryComponentsSecondary' | 'menuLibraryPatternsSecondary' | 'menuResourcesSecondary' } WebsiteMainMenuKey
- */
-
-/**
- * @typedef AppState {
- *  @property {boolean} isColorPickerShown
- * }
  */
 
 /**
@@ -101,7 +95,7 @@
  *  @property {string} iconLeft
  *  @property {string} iconRight
  *  @property {string} id
- *  @property {string} size
+ *  @property {FormElementSizes} size
  *  @property {string} title
  *  @property {ButtonTypes} type
  * }
@@ -114,7 +108,7 @@
  *  @property {string} maxLength
  *  @property {string} text
  * }
-*/
+ */
 
 /**
  * @typedef CheckboxExamplePropsShape {
@@ -125,7 +119,7 @@
  *  @property {string} label
  *  @property {boolean} value
  * }
-*/
+ */
 
 /**
  * @typedef ComboBoxExamplePropsShape {
@@ -150,7 +144,7 @@
  *  @property {boolean} isDisabled
  *  @property {string} id
  *  @property {string} promptChildren
- *  @property {string} size
+ *  @property {FormElementSizes} size
  *  @property {string} title
  *  @property {ButtonTypes} type
  * }
@@ -216,7 +210,7 @@
  * @typedef PaginationExamplePropsShape {
  *  @property {string} className
  *  @property {string} id
- *  @property {string} pageSize
+ *  @property {string} itemsPerPage
  *  @property {string} totalNumberItems
  *  @property {string} value
  *  @property {WrapInElement} wrapInElement
@@ -364,7 +358,7 @@
  *  @property {WebsiteMainMenuItem[]} menuItems
  *  @property {boolean} [isSelected]
  * }
-*/
+ */
 
 /**
  * @typedef WebsiteMainMenuItem {

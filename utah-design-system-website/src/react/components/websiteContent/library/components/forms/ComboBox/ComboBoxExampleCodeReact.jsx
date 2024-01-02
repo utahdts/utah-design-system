@@ -5,7 +5,7 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /**
  * @param {object} props
  * @param {{props: ComboBoxExamplePropsShape}} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxExampleCodeReact({
   state: {

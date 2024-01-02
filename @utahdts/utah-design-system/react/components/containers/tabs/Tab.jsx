@@ -5,9 +5,9 @@ import { TabGroupContext } from './TabGroupContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.id
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Tab({ children, id }) {
   const {

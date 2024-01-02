@@ -4,10 +4,10 @@ import { TabGroupContext } from './TabGroupContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.tagName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TabGroupTitle({ children, className, tagName: TagName = 'div' }) {
   const { tabGroupId } = useContext(TabGroupContext);

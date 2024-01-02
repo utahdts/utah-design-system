@@ -3,17 +3,16 @@ import { joinClassNames } from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
 import { CombBoxListBox } from './internal/CombBoxListBox';
 import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
-import { useComboBoxContext } from './context/useComboBoxContext';
 
-/** @typedef {import('../../../jsDocTypes').Event} Event */
+/** @typedef {import('@utahdts/utah-design-system').Event} Event */
 /**
  * @template MutableRefT
- * @typedef {import('../../../jsDocTypes').MutableRef<MutableRefT>} MutableRef
+ * @typedef {import('@utahdts/utah-design-system').MutableRef<MutableRefT>} MutableRef
  */
 
 /**
  * @param {object} props
- * @param {React.ReactNode} [props.children]
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
@@ -34,10 +33,10 @@ import { useComboBoxContext } from './context/useComboBoxContext';
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {HTMLElement | null} [props.popperContentRef] for multi-select the popup relates to the multi-select wrapper, not the input
- * @param {React.ReactNode} [props.tagChildren]
+ * @param {import('react').ReactNode} [props.tagChildren]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBox({
   children,
@@ -107,6 +106,7 @@ export function ComboBox({
       isValueClearedOnSelection={isValueClearedOnSelection}
       onChange={onChange}
       onClear={onClear}
+      // @ts-ignore
       onKeyUp={onKeyUp}
       onSubmit={onSubmit}
       value={value}

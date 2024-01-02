@@ -9,8 +9,8 @@ import { AppContext } from './AppContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @returns {React.JSX.Element}
+ * @param {import('react').ReactNode} props.children
+ * @returns {import('react').JSX.Element}
  */
 export function AppContextProvider({ children }) {
   const [appState, setAppState] = useImmer(() => ({ isColorPickerShown: false }));

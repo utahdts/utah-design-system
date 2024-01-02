@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
@@ -9,11 +9,11 @@ import { SelectOption } from './SelectOption';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} [props.children] the options as children
+ * @param {import('react').ReactNode} [props.children] the options as children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id id of the input; the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
@@ -21,13 +21,13 @@ import { SelectOption } from './SelectOption';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {React.ChangeEventHandler} [props.onChange] e => ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
- * @param {React.UIEventHandler} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
+ * @param {import('react').ChangeEventHandler} [props.onChange] can be omitted to be uncontrolled OR if changes are sent through form's onChange
+ * @param {import('react').UIEventHandler} [props.onClear] do something when the field should be cleared (not needed if inside a <Form> context)
  * @param {(() => void)} [props.onSubmit] when enter key pressed in field, submit the form
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Select({
   children,
@@ -68,7 +68,7 @@ export function Select({
   const { addAssertiveMessage } = useAriaMessaging();
 
   const clearInput = useCallback(
-    /** @param {React.MouseEvent} e */
+    /** @param {import('react').MouseEvent} e */
     (e) => {
       currentOnClear?.(e);
       addAssertiveMessage(`${label} input was cleared`);
@@ -80,7 +80,7 @@ export function Select({
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
   const onChangeCallback = useCallback(
-    /** @param {React.ChangeEvent} e */
+    /** @param {import('react').ChangeEvent} e */
     (e) => { currentOnChange?.(e); },
     [currentOnChange]
   );
@@ -101,7 +101,7 @@ export function Select({
           name={name || id}
           onChange={currentValue !== undefined ? onChangeCallback : undefined}
           onKeyUp={useCallback(
-            /** @param {React.KeyboardEvent} e */
+            /** @param {import('react').KeyboardEvent} e */
             (e) => {
               if (e.key === 'Escape' && showClearIcon) {
                 // @ts-ignore

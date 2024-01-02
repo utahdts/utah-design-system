@@ -9,7 +9,7 @@ import { useRadioButtonGroupContext } from './context/useRadioButtonGroupContext
  * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultIsChecked] allows default checking if uncontrolled (not in RadioButtonGroup)
- * @param {React.RefObject<HTMLInputElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLInputElement>} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
@@ -17,7 +17,7 @@ import { useRadioButtonGroupContext } from './context/useRadioButtonGroupContext
  * @param {string} [props.name] groups radio buttons together in the DOM; from context, though can override or be solo
  * @param {string} props.value the html radio button's value to put in to the form data if this radio button is selected
  * @param {string} [props.wrapperClassName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function RadioButton({
   className,

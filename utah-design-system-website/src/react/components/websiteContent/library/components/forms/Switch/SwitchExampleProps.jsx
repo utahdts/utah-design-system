@@ -14,7 +14,7 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: SwitchExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function SwitchExampleProps({ setState, state }) {
   return (

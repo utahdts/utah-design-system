@@ -13,7 +13,7 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: ComboBoxExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxExampleProps({ setState, state }) {
   return (

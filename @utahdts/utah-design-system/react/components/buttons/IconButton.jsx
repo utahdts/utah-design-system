@@ -8,20 +8,20 @@ import { Tooltip } from '../Tooltip/Tooltip';
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {IconButtonAppearance} [props.appearance]
  * @param {string} [props.className]
  * @param {'primary' | 'secondary' | 'accent' | 'none'} [props.color]
  * @param {import('react').ReactNode} props.icon
  * @param {string} [props.id]
- * @param {React.MutableRefObject<HTMLButtonElement | null>} [props.innerRef]
+ * @param {import('react').MutableRefObject<HTMLButtonElement | null>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isTitleVisible]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick] what to do when the button is clicked
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x'} [props.size]
  * @param {string} props.title A title is used for accessibility purposes to describe the button for screen readers
  * @param {string | null} [props.tooltipText]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function IconButton({
   appearance = ICON_BUTTON_APPEARANCE.OUTLINED,

@@ -3,9 +3,9 @@ import { ComboBoxOptionGroupContext } from './ComboBoxOptionGroupContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.optionGroupId
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxOptionGroupContextProvider({ children, optionGroupId }) {
   return (

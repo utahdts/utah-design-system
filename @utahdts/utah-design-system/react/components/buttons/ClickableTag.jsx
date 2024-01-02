@@ -7,17 +7,17 @@ import { joinClassNames } from '../../util/joinClassNames';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children most often is the title of the tag, but can also contain most anything
+ * @param {import('react').ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className] modify your tag via className like 'tag--primary' and other modifiers found in the tag.scss
  * @param {string} [props.id] the tag id
- * @param {React.RefObject<HTMLButtonElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
- * @param {React.ReactNode} [props.iconLeft] an icon for the left side
- * @param {React.ReactNode} [props.iconRight] an icon for the right side
+ * @param {import('react').RefObject<HTMLButtonElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
+ * @param {import('react').ReactNode} [props.iconLeft] an icon for the left side
+ * @param {import('react').ReactNode} [props.iconRight] an icon for the right side
  * @param {boolean} [props.isDisabled] tag isDisabled state
  * @param {boolean} [props.isSelected]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick] (e) => { ... do something with e ...}
  * @param {FormElementSizes} [props.size]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ClickableTag({
   children,

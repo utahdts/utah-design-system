@@ -75,7 +75,7 @@
  * @typedef {'div' | 'nav'} WrapInElement
  */
 
-/** @typedef {(MouseEvent | TouchEvent | KeyboardEvent) & {key: string, target: PoorMansTarget}} Event */
+/** @typedef {MouseEvent | TouchEvent | KeyboardEvent} Event */
 
 // TODO: replace EventAction with import('react').MouseEventHandler<HTMLButtonElement>
 /** @typedef {((e: Event) => void)} EventAction */
@@ -101,7 +101,8 @@
  * @typedef TableContextState {
  *  @property {boolean} currentSortingOrderIsDefault
  *  @property {TableContextStateFilterValues<TableDataT>} filterValues
- *  @property {Object.<string, TableSortingRule<TableDataT>>} sortingRules
+ *  @property {TablePaginationType} [pagination]
+ *  @property {Record<string, TableSortingRuleType<TableDataT>>} sortingRules
  *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
  *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
  *  @property {RecordFieldPath | null} tableSortingFieldPath
@@ -113,23 +114,10 @@
  * @typedef TableContextStateFilterValue {
  *  @property {any} value
  *  @property {boolean} exactMatch
- *  @property {any} otherFilterSpecificSettings
+ *  @property {any} [otherFilterSpecificSettings]
  * }
  */
-/** @typedef {Object.<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
-
-/**
- * @template TableDataT
- * @typedef TableContextValue {
- *  @property {TableDataT[]} allData
- *  @property {TableDataT[]} filteredData
- *  @property {(sortingRule: TableSortingRule<TableDataT>) => void} registerSortingRule
- *  @property {(recordFieldPath: string) => void} unregisterSortingRule
- *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
- *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
- *  @property {TableContextState<TableDataT>} state
- * }
- */
+/** @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
 
 /** @typedef {(value: string) => boolean} TableFilterFunction */
 
@@ -146,13 +134,6 @@
  * @typedef TableFilterValue {
  *  @property {boolean} exactMatch
  *  @property {string} value
- * }
- */
-
-/**
- * @typedef TablePagination {
- *  @property {number} currentPageIndex what page to start on
- *  @property {number} itemsPerPage how many items per page
  * }
  */
 
@@ -173,33 +154,6 @@
  */
 
 /**
- * @typedef Address {
- *  @property {string} city
- *  @property {string} state ie UT (usually not fully spelled out)
- *  @property {string} streetAddress1
- *  @property {string} [streetAddress2]
- *  @property {string} zipCode
- * }
- */
-
-/**
- * @typedef MenuItem {
- *  @property {string} link
- *  @property {string} pageTitle
- *  @property {string[]} parentLinks
- * }
- */
-
-/**
- * @template FormStateT
- * @typedef FormContextValue {
- *  @property {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {React.ChangeEventHandler<HTMLElement>} onSubmit submit the form
- *  @property {import('use-immer').Updater<FormStateT>} setState current values of all the form elements
- *  @property {FormStateT} state current values of all the form elements * }
-*/
-
-/**
  * @typedef TabGroupContextValue {
  *  @property {string} tabGroupId
  *  @property {string} selectedTabId
@@ -212,26 +166,13 @@
  * @template ValueT
  * @template HTMLElementT
  * @typedef useFormContextInputResult {
- *  @property {React.ChangeEventHandler<HTMLElementT>} [onChange]
- *  @property {React.UIEventHandler<HTMLElementT>} [onClear]
- *  @property {React.ChangeEventHandler<HTMLElementT>} [onSubmit]
+ *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onChange]
+ *  @property {import('react').UIEventHandler<HTMLElementT>} [onClear]
+ *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onSubmit]
  *  @property {ValueT} [value]
- *  @property {React.KeyboardEventHandler} onFormKeyUp
+ *  @property {import('react').KeyboardEventHandler} onFormKeyUp
  *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
  *  @property {FormContextT} [state]
- * }
- */
-
-/**
- * @typedef UtahDesignSystemContextAria {
- *  @property {string[]} assertiveMessages
- *  @property {string[]} politeMessages
- * }
- */
-
-/**
- * @typedef UtahDesignSystemContextValue {
- *  @property {UtahDesignSystemContextAria} ariaLive
  * }
  */
 
@@ -240,8 +181,8 @@
  *  @property {string} [className]
  *  @property {number} [duration]
  *  @property {string} id
- *  @property {React.ReactNode} [icon]
- *  @property {React.ReactNode} message
+ *  @property {import('react').ReactNode} [icon]
+ *  @property {import('react').ReactNode} message
  *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
  *  @property {BannerPlacement} [position]
  *  @property {'small' | 'medium' | 'large'} [size]
@@ -253,8 +194,8 @@
  *  @property {string} [className]
  *  @property {number} [duration]
  *  @property {string} [id]
- *  @property {React.ReactNode} [icon]
- *  @property {React.ReactNode} message
+ *  @property {import('react').ReactNode} [icon]
+ *  @property {import('react').ReactNode} message
  *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
  *  @property {BannerPlacement} [position]
  *  @property {'small' | 'medium' | 'large'} [size]
@@ -284,39 +225,11 @@
  */
 
 /**
- * @typedef TableContextStateFilterValue {
- *  @property {any} value
- *  @property {boolean} exactMatch
- *  @property {any} [otherFilterSpecificSettings]
- * }
- */
-/** @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
-
-/**
- * @template TableDataT
- * @typedef {(param: { recordFieldPath: string, value: TableDataT }) => TableDataT} RecordOnChangeFunc
- */
-
-/**
  * @template TableDataT
  * @typedef TableContextStateFilterValues {
  *  @property {Record<string, any> | null} defaultValue
  *  @property {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} onChange
  *  @property {TableContextStateFilterValueObject} value
- * }
- */
-/** @typedef {string} RecordFieldPath */
-/**
- * @template TableDataT
- * @typedef TableContextState {
- *  @property {boolean} currentSortingOrderIsDefault
- *  @property {TableContextStateFilterValues<TableDataT>} filterValues
- *  @property {TablePaginationType} [pagination]
- *  @property {Record<string, TableSortingRuleType<TableDataT>>} sortingRules
- *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
- *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
- *  @property {RecordFieldPath | null} tableSortingFieldPath
- *  @property {RecordFieldPath[] | null} tableSortingFieldPaths
  * }
  */
 
@@ -341,13 +254,6 @@
  *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
  *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
  *  @property {TableContextState<TableDataT>} state
- * }
- */
-
-/**
- * @template TableDataT
- * @typedef TableBodyDataRowContextValue {
- *  @property {(TableDataT & Record<string, any>) | null} record
  * }
  */
 
@@ -399,7 +305,7 @@
  *  -- events --
  *  @property {(newValue: string) => void} onChange
  *  @property {() => void} [onClear]
- *  @property {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
+ *  @property {(e: Event, currentFilterValue: string) => boolean} [onKeyUp] return true if the key press was handled by this handler
  *  @property {() => void} [onSubmit]
  *
  *  -- options manipulation --
@@ -411,12 +317,12 @@
 /**
  * @template FormStateT
  * @typedef FormContextValue {
- *  @property {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
+ *  @property {(param: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
  *  @property {(e?: Event) => void} [onSubmit] submit the form
  *  @property {FormStateT} [state] current values of all the form elements
  *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
  * }
-*/
+ */
 
 /**
  * @typedef MenuItem {
@@ -426,18 +332,20 @@
  * }
  */
 
-/** @typedef MultiSelectContextNonStateRef {
+/**
+ * @typedef MultiSelectContextNonStateRef {
  *  @property {HTMLElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
  *  @property {(HTMLDivElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
  *  @property {HTMLInputElement | null} textInput the textInput used for this multi select's combo box
- * } */
+ * }
+ */
 
 /** @typedef {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef> | null]} MultiSelectContext */
 
 /**
  * @typedef MultiSelectContextValue {
  *  @property {boolean} clearButtonHasFocus (1 of 3) multi select has focus if any of the three have focus
- *  @property {ComboBoxOption[]} comboBoxOptions the known options in the comboBox context nested in the multi-select context
+ *  @property {ComboBoxOptionType[]} comboBoxOptions the known options in the comboBox context nested in the multi-select context
  *  @property {number} focusedValueTagIndex the index of the tag currently having focus; (2 of 3) multi select has focus if any of the three have focus
  *  @property {boolean} isOptionsExpanded ComboBoxContext updates this value to match
  *  @property {string} multiSelectId
@@ -445,11 +353,11 @@
  *  @property {(() => void)} onClear
  *  @property {Record<string, string>} optionTagClassNames key is the option's `value`; value is the tag className associated with this option to put on its tag (helpful for coloring of tags)
  *  @property {string[]} selectedValues the values selected in the multi-select to show as tags
- *  @property {((selectedValue: string, selectedOption: ComboBoxOption) => JSX.Element) | null} tagTemplate is there a custom template for tags instead of rendering default tags
+ *  @property {((selectedValue: string, selectedOption: ComboBoxOptionType) => React.JSX.Element) | null} tagTemplate is there a custom template for tags instead of rendering default tags
  *  @property {boolean} textInputHasFocus (3 of 3) multi select has focus if any of the three have focus
  * }
-*/
-/** @typedef {(selectedValue: string) => JSX.Element} MultiSelectTagTemplate */
+ */
+/** @typedef {(selectedValue: string) => React.JSX.Element} MultiSelectTagTemplate */
 
 /** @typedef {import('use-immer').ImmerHook<RadioButtonGroupContextValue | undefined>} RadioButtonGroupContext */
 /**
@@ -457,20 +365,6 @@
  *  @property {(newValue: string) => void} onChange the onChange to call when the value changes
  *  @property {string} name name of the radio button inputs to group them together
  *  @property {string | null} value currently selected radio button's value
- * }
- */
-
-/**
- * @template FormContextT
- * @template ValueT
- * @typedef useFormContextInputResult {
- *  @property {EventAction} [onChange]
- *  @property {EventAction} [onClear]
- *  @property {() => void} [onSubmit]
- *  @property {ValueT} [value]
- *  @property {EventAction} onFormKeyUp
- *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
- *  @property {FormContextT} [state]
  * }
  */
 

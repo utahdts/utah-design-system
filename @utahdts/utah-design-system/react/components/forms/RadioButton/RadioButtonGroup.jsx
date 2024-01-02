@@ -6,7 +6,7 @@ import { RadioButtonGroupContextProvider } from './context/RadioButtonGroupConte
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue] starting value if not controlled
  * @param {string} [props.errorMessage]
@@ -15,7 +15,7 @@ import { RadioButtonGroupContextProvider } from './context/RadioButtonGroupConte
  * @param {string} props.label
  * @param {(newValue: string) => void} [props.onChange] respond to changes of current value if controlled
  * @param {string} [props.value] value of the currently selected Radio Button if controlled
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function RadioButtonGroup({
   children,

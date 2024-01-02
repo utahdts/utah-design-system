@@ -16,7 +16,7 @@ import React from 'react';
  * @param {object} props
  * @param {any} props.setState
  * @param {object} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TooltipsExampleProps({ setState, state }) {
   return (

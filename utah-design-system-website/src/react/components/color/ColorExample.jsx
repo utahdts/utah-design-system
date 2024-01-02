@@ -4,7 +4,7 @@
  * @param {object} props
  * @param {ColorInfo} props.color1
  * @param {ColorInfo} props.color2
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ColorExample({
   color1,

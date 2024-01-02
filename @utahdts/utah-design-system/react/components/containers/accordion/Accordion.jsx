@@ -4,15 +4,15 @@ import { joinClassNames } from '../../../util/joinClassNames';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.contentClassName]
  * @param {number} [props.headingLevel]
  * @param {string} [props.headerClassName]
- * @param {React.ReactNode} props.headerContent
+ * @param {import('react').ReactNode} props.headerContent
  * @param {boolean} [props.isOpen]
  * @param {(previousIsOpen: boolean) => void} [props.onToggle]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Accordion({
   children,

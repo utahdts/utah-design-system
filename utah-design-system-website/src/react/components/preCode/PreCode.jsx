@@ -5,14 +5,14 @@ import { CopyButton } from '../copy/CopyButton';
 /**
  * The PreCode component takes children containing some sort of "code" and wraps it in a "pre" tag.
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {boolean} [props.addHorizontalPadding]
  * @param {boolean} [props.allowScrollOverflow]
  * @param {string} [props.className]
  * @param {string} [props.maxHeight]
  * @param {object} [props.propsForPre]
  * @param {boolean} [props.showBackgroundColor]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function PreCode({
   addHorizontalPadding,

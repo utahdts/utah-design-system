@@ -3,11 +3,11 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.defaultValue]
  * @param {((param: {recordFieldPath: string}) => void)} [props.onChange]
  * @param {string} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableSortingRules({
   children,

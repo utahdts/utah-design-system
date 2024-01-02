@@ -19,8 +19,8 @@ export function useBanner() {
      * @param {string} [param.className]
      * @param {number} [param.duration]
      * @param {string} [param.id]
-     * @param {React.ReactNode} [param.icon]
-     * @param {React.ReactNode} param.message
+     * @param {import('react').ReactNode} [param.icon]
+     * @param {import('react').ReactNode} param.message
      * @param {(e: React.MouseEvent | undefined) => void} [param.onClose]
      * @param {BannerPlacement} [param.position]
      */

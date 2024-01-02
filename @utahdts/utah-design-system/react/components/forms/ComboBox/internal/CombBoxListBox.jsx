@@ -4,18 +4,18 @@ import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/h
 import { popupPlacement } from '../../../../enums/popupPlacement';
 import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
 import { joinClassNames } from '../../../../util/joinClassNames';
+import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxOption } from '../ComboBoxOption';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
-import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
 
 /**
  * @param {object} props
  * @param {string} props.ariaLabelledById
- * @param {React.ReactNode | null} [props.children]
+ * @param {import('react').ReactNode | null} [props.children]
  * @param {HTMLElement | null} props.popperReferenceElement
  * @param {string} props.id
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function CombBoxListBox({
   ariaLabelledById,

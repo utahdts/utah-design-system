@@ -26,7 +26,7 @@ export function PaginationDocumentation() {
         defaultProps={{
           className: '',
           id: 'pagination-sandbox-example-id',
-          pageSize: '10',
+          itemsPerPage: '10',
           totalNumberItems: '87',
           value: '0',
           wrapInElement: 'div',
@@ -52,7 +52,7 @@ export function PaginationDocumentation() {
             <div className="flex items-center flex-col">
               <Pagination
                 onChange={(newPageNumber) => setDemoPaginationIndex(newPageNumber)}
-                pageSize={STATIC_EXAMPLE_PAGE_SIZE}
+                itemsPerPage={STATIC_EXAMPLE_PAGE_SIZE}
                 totalNumberItems={stateSymbols.length}
                 value={demoPaginationIndex}
               />

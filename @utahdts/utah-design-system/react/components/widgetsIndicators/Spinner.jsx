@@ -3,14 +3,14 @@ import { joinClassNames } from '../../util/joinClassNames';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} [props.children]
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {number} [props.size]
  * @param {number} [props.strokeWidth]
  * @param {number} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Spinner({
   children,

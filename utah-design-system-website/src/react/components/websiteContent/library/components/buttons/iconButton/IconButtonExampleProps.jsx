@@ -16,7 +16,7 @@ import { iconsDocumentationIcons } from '../../../../resources/IconsDocumentatio
  * @param {object} props
  * @param {import('use-immer').Updater<{props: IconButtonExampleProps}>} props.setState
  * @param {object} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function IconButtonExampleProps({ setState, state }) {
   return (

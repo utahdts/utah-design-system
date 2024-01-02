@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
-// @ts-check
 import React from 'react';
 
-/** @typedef { import('../../../../jsDocTypes').MultiSelectContext} MultiSelectContext */
+/** @typedef { import('@utahdts/utah-design-system').MultiSelectContext} MultiSelectContext */
 
 export const MultiSelectContext = /** @type {typeof React.createContext<MultiSelectContext>} */ (React.createContext)([
   {

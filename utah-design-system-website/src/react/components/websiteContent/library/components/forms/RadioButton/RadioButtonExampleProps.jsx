@@ -13,7 +13,7 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: RadioButtonExamplePropsShape}>} props.setState
  * @param {{props: RadioButtonExamplePropsShape}} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function RadioButtonExampleProps({ setState, state }) {
   return (

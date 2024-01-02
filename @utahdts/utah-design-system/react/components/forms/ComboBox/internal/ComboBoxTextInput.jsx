@@ -1,6 +1,5 @@
-// @ts-check
-import { isFunction, identity } from 'lodash';
-import React, { useCallback, useRef } from 'react';
+import { identity, isFunction } from 'lodash';
+import { useCallback, useRef } from 'react';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { IconButton } from '../../../buttons/IconButton';
 import { useFormContext } from '../../FormContext/useFormContext';
@@ -11,10 +10,10 @@ import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
 
-/** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
+/** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /**
  * @template MutableRefT
- * @typedef {import('../../../../jsDocTypes').MutableRef<MutableRefT>} MutableRef
+ * @typedef {import('@utahdts/utah-design-system').MutableRef<MutableRefT>} MutableRef
  */
 
 /**
@@ -31,13 +30,13 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {React.UIEventHandler} [props.onBlur]
+ * @param {import('react').UIEventHandler} [props.onBlur]
  * @param {EventAction} [props.onClear]
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxTextInput({
   comboBoxListId,
@@ -111,7 +110,7 @@ export function ComboBoxTextInput({
         clearIconRef={clearIconRef}
         id={id}
         innerRef={(ref) => {
-          const input = ref?.querySelector('input');
+          const input = ref?.querySelector('input') ?? null;
           textInputRef.current = input;
           comboBoxContextNonStateRef.current.textInput = input;
           if (multiSelectContextRefs) {
@@ -165,25 +164,28 @@ export function ComboBoxTextInput({
         }}
         onClear={
           isClearable
-            ? ((e) => {
-              if (onClear) {
-                onClear(e);
-              } else if (onClearComboBoxContext) {
-                onClearComboBoxContext();
-                setComboBoxContext((draftContext) => {
-                  draftContext.filterValue = '';
-                  draftContext.isFilterValueDirty = false;
-                });
-              } else {
-                setComboBoxContext((draftContext) => {
-                  draftContext.filterValue = '';
-                  draftContext.isFilterValueDirty = false;
-                  draftContext.isOptionsExpanded = false;
-                  draftContext.optionValueHighlighted = null;
-                  draftContext.optionValueSelected = null;
-                });
+            ? (
+              (e) => {
+                if (onClear) {
+                  // @ts-ignore
+                  onClear(e);
+                } else if (onClearComboBoxContext) {
+                  onClearComboBoxContext();
+                  setComboBoxContext((draftContext) => {
+                    draftContext.filterValue = '';
+                    draftContext.isFilterValueDirty = false;
+                  });
+                } else {
+                  setComboBoxContext((draftContext) => {
+                    draftContext.filterValue = '';
+                    draftContext.isFilterValueDirty = false;
+                    draftContext.isOptionsExpanded = false;
+                    draftContext.optionValueHighlighted = null;
+                    draftContext.optionValueSelected = null;
+                  });
+                }
               }
-            })
+            )
             : undefined
         }
         onClick={() => {
@@ -191,8 +193,10 @@ export function ComboBoxTextInput({
             draftContext.isOptionsExpanded = true;
           });
         }}
+        // @ts-ignore
         onKeyDown={(e) => e.stopPropagation()}
         onKeyUp={(e) => {
+          // @ts-ignore
           if (!onKeyUp?.(e, onKeyUpPreviousValue.current) && !onKeyUpFromContext?.(e, onKeyUpPreviousValue.current)) {
             if (![
               onCancelKeyPress(e),
@@ -213,6 +217,7 @@ export function ComboBoxTextInput({
           }
           onKeyUpPreviousValue.current = filterValue;
         }}
+        // @ts-ignore
         onSubmit={onSubmit ?? onSubmitFormContext}
         placeholder={placeholder}
         rightContent={(

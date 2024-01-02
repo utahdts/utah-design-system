@@ -1,21 +1,18 @@
-// @ts-check
 import {
   Form,
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').MultiSelectExamplePropsShape} MultiSelectExamplePropsShape */
+/** @typedef {import('utah-design-system-website').MultiSelectExamplePropsShape} MultiSelectExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: MultiSelectExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {MultiSelectExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {{props: MultiSelectExamplePropsShape}} props.state
+ * @returns {import('react').JSX.Element}
  */
-export default function MultiSelectExampleProps({ setState, state }) {
+export function MultiSelectExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

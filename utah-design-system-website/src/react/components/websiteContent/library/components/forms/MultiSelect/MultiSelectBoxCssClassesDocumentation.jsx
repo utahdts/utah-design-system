@@ -1,9 +1,8 @@
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
+/** @returns {import('react').JSX.Element} */
 export default function MultiSelectCssClassesDocumentation() {
   return (
     <TableWrapper>

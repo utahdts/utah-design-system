@@ -52,8 +52,8 @@ const fallbackGrayColors = [
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @returns {React.JSX.Element}
+ * @param {import('react').ReactNode} props.children
+ * @returns {import('react').JSX.Element}
  */
 export function CssContextProvider({ children }) {
   const colorsInUrl = colorsFromUrlParams(window.location.search);

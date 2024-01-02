@@ -38,7 +38,7 @@ export function AccessibilityDocumentation() {
 
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
 
-  /** @param {React.MouseEvent<HTMLAnchorElement>} e */
+  /** @param {import('react').MouseEvent<HTMLAnchorElement>} e */
   function toggleColorPickerPopup(e) {
     e.preventDefault();
     e.stopPropagation();

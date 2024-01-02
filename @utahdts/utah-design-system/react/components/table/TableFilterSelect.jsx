@@ -7,16 +7,16 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
 /**
  * @template TableDataT
  * @param {object} props
- * @param {React.ReactNode} [props.children]
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string | number} [props.defaultValue]
  * @param {boolean} [props.exactMatch]
- * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {((e: React.ChangeEvent) => TableDataT)} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string | number} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableFilterSelect({
   children,
@@ -37,7 +37,7 @@ export function TableFilterSelect({
     contextStatePath: recordFieldPath,
     defaultOnChange: (
       /**
-       * @param {React.BaseSyntheticEvent} e
+       * @param {import('react').BaseSyntheticEvent} e
        * @returns {any}
        */
       (e) => e.target.value

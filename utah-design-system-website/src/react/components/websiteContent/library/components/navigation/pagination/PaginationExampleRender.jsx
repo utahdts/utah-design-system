@@ -7,8 +7,8 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: PaginationExamplePropsShape}>} props.setState
  * @param {{props: PaginationExamplePropsShape}} props.state
- * @param {React.RefObject<HTMLElement | null>} props.innerRef
- * @returns {React.JSX.Element | null}
+ * @param {import('react').RefObject<HTMLElement | null>} props.innerRef
+ * @returns {import('react').JSX.Element | null}
  */
 export function PaginationExampleRender({
   setState,
@@ -16,7 +16,7 @@ export function PaginationExampleRender({
     props: {
       className,
       id,
-      pageSize,
+      itemsPerPage,
       totalNumberItems,
       value,
       wrapInElement,
@@ -34,7 +34,7 @@ export function PaginationExampleRender({
             id={id}
             innerRef={innerRef}
             onChange={(newPageIndex) => setState((draftState) => { draftState.props.value = `${newPageIndex}`; })}
-            pageSize={Number(pageSize)}
+            itemsPerPage={Number(itemsPerPage)}
             totalNumberItems={Number(totalNumberItems)}
             value={Number(value)}
             wrapInElement={wrapInElement}

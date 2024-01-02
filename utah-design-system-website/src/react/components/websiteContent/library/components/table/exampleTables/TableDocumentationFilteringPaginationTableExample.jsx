@@ -84,7 +84,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
               </TableBodyData>
             </TableBody>
           </Table>
-          <TablePagination id="tableDocumentationFilteringPaginationTableExample-pagination" pageSize={itemsPerPage} className="flex justify-center mt-spacing" />
+          <TablePagination id="tableDocumentationFilteringPaginationTableExample-pagination" itemsPerPage={itemsPerPage} className="flex justify-center mt-spacing" />
         </TableWrapper>
       </Accordion>
     </div>

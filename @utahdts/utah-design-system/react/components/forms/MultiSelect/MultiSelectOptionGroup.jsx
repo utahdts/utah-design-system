@@ -1,12 +1,11 @@
-// @ts-check
 import React from 'react';
 import { ComboBoxOptionGroup } from '../ComboBox/ComboBoxOptionGroup';
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.label
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function MultiSelectOptionGroup({
   children,

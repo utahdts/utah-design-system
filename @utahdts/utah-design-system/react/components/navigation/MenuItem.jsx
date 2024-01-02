@@ -13,7 +13,7 @@ import { Icons } from '../icons/Icons';
  * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {WebsiteMainMenuItem} props.menuItem
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function MenuItem({ currentMenuItem, menuItem }) {
   const { pathname } = useLocation();

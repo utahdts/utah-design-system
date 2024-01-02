@@ -1,12 +1,9 @@
-// @ts-check
 import { useContext } from 'react';
 import { MultiSelectContext } from './MultiSelectContext';
 
-/** @typedef { import('../../../../jsDocTypes').MultiSelectContext} MultiSelectContextType */
+/** @typedef { import('@utahdts/utah-design-system').MultiSelectContext} MultiSelectContextType */
 
-/**
- * @return {MultiSelectContextType}
- */
-export default function useMultiSelectContext() {
+/** @returns {MultiSelectContextType} */
+export function useMultiSelectContext() {
   return useContext(MultiSelectContext);
 }

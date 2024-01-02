@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { valueAtPath } from '../../../util/state/valueAtPath';
 import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { useFormContext } from './useFormContext';
@@ -26,10 +26,10 @@ import { useFormContext } from './useFormContext';
  * @param {object} param
  * @param {ValueT} [param.defaultValue] starting value of the component
  * @param {string} param.id id of the component that is also the path to the data for the component in the form context
- * @param {React.ChangeEventHandler<HTMLElementT>} [param.onChange] when component changes, call this (e) => void
- * @param {React.KeyboardEventHandler<HTMLElementT>} [param.onKeyUp] when component changes, call this (e) => void
- * @param {React.UIEventHandler<HTMLElementT>} [param.onClear] when component "clears", call this (e) => void
- * @param {React.ChangeEventHandler<HTMLElementT>} [param.onSubmit] call on enter key pressed, or other (e) => void event
+ * @param {import('react').ChangeEventHandler<HTMLElementT>} [param.onChange] when component changes, call this (e) => void
+ * @param {import('react').KeyboardEventHandler<HTMLElementT>} [param.onKeyUp] when component changes, call this (e) => void
+ * @param {import('react').UIEventHandler<HTMLElementT>} [param.onClear] when component "clears", call this (e) => void
+ * @param {import('react').ChangeEventHandler<HTMLElementT>} [param.onSubmit] call on enter key pressed, or other (e) => void event
  * @param {ValueT} [param.value] current value of the component
  * @returns {useFormContextInputResult<FormContextT, ValueT, HTMLElementT>} parameters w/ default form context values
  */
@@ -51,7 +51,7 @@ export function useFormContextInput({
 
   const internalOnChange = useCallback(
     (
-      /** @param {React.ChangeEvent<HTMLElementT>} e */
+      /** @param {import('react').ChangeEvent<HTMLElementT>} e */
       (e) => {
         // input component didn't supply an onChange so try to handle it automagically
         // @ts-ignore
@@ -74,7 +74,7 @@ export function useFormContextInput({
   const internalOnKeyUp = useOnKeyUp('Enter', (e) => currentOnSubmit?.(e));
 
   const internalOnClear = useCallback(
-    /** @param {React.UIEvent<HTMLElementT>} e */
+    /** @param {import('react').UIEvent<HTMLElementT>} e */
     // @ts-ignore
     (e) => { contextOnChange?.({ e, fieldPath: id, value: '' }); },
     [contextOnChange, id]

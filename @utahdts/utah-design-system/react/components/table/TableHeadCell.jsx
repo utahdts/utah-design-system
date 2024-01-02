@@ -5,10 +5,10 @@ import { TableContext } from './util/TableContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} [props.children] if this header cell is "sortable", the children will be wrapped in a <button>, so be careful!
+ * @param {import('react').ReactNode} [props.children] if this header cell is "sortable", the children will be wrapped in a <button>, so be careful!
  * @param {string} [props.className]
  * @param {string} [props.id] field related to this column. CellTemplate and RowTemplate can define a field. used for sorting and filtering.
- * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {((e: React.MouseEvent<HTMLElement>) => {})} [props.onClick]
  * @param {string} [props.recordFieldPath]
  * @param {'row' | 'col' | 'rowgroup' | 'colgroup'} [props.scope] MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope
@@ -17,7 +17,7 @@ import { TableContext } from './util/TableContext';
  *  rowgroup: The header belongs to a rowgroup and relates to all of its cells.
  *  colgroup: The header belongs to a colgroup and relates to all of its cells.
  * @param {string[]} [props.tableSortingFieldPaths]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableHeadCell({
   children,
@@ -35,7 +35,7 @@ export function TableHeadCell({
   const isSortable = !!(sortingRules[recordFieldPath ?? ''] || tableSortingFieldPaths?.length);
 
   const onClickCallback = useCallback(
-    /** @type {React.MouseEventHandler<HTMLElement>} */(
+    /** @type {import('react').MouseEventHandler<HTMLElement>} */(
       (e) => {
         e.stopPropagation();
         if (onClick) {

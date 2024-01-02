@@ -14,7 +14,7 @@ import { htmlDecode } from '../../util/htmlDecode';
 /**
  * @param {object} props
  * @param {HierarchyNode[]} props.headersLevel
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function OnThisPageHeadersLevel({ headersLevel }) {
   return (

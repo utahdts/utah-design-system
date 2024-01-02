@@ -6,15 +6,12 @@ import React, {
   useRef,
 } from 'react';
 import { useImmer } from 'use-immer';
-import useFormContext from '../../FormContext/useFormContext';
-import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
+import { useFormContext } from '../../FormContext/useFormContext';
+import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxContext } from './ComboBoxContext';
 
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
-/** @typedef { import('@utahdts/utah-design-system').ComboBoxOption} ComboBoxOption */
-/** @typedef { import('../../../../jsDocTypes').Event} Event */
-/** @typedef { import('../../../../jsDocTypes').EventAction} EventAction */
 
 /**
  * @template MutableRefObjectT
@@ -28,7 +25,7 @@ import { ComboBoxContext } from './ComboBoxContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.comboBoxId
  * @param {string} [props.defaultValue]
  * @param {boolean} [props.isValueClearedOnSelection]
@@ -37,7 +34,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxContextProvider({
   children,
