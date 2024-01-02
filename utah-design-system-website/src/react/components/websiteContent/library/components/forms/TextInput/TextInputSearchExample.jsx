@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export function TextInputSearchExample() {
   const [query, setQuery] = useState('');
-  const search = /** @type {React.FormEventHandler} */ (
+  const search = /** @type {import('react').FormEventHandler} */ (
     (e) => {
       e.preventDefault();
       // eslint-disable-next-line no-console

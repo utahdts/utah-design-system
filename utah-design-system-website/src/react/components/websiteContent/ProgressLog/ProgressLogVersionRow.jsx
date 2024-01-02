@@ -6,7 +6,7 @@ import {
 /**
  * @param {object} props
  * @param {string} props.version
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ProgressLogVersionRow({ version }) {
   return (

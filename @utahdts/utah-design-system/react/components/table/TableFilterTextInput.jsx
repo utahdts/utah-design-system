@@ -9,12 +9,12 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {boolean} [props.exactMatch]
- * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {((e: React.ChangeEvent) => (string | void | undefined))} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableFilterTextInput({
   className,

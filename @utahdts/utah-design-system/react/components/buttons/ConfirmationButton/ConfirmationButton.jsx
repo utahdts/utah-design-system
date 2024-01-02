@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { handleKeyPress } from '../../../../index';
 import { formElementSizesEnum } from '../../../enums/formElementSizesEnum';
 import { handleEvent } from '../../../util/handleEvent';
@@ -15,18 +15,18 @@ import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonC
 /**
  * @param {object} props
  * @param {ButtonAppearance} [props.appearance]
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {ComponentColors} [props.color]
  * @param {ComponentColors} [props.confirmationColor]
- * @param {React.RefObject<HTMLButtonElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isBusy]
  * @param {boolean} [props.isDisabled]
  * @param {string} [props.id]
- * @param {React.MouseEventHandler} props.onClick
+ * @param {import('react').MouseEventHandler} props.onClick
  * @param {FormElementSizes} [props.size]
  * @param {ButtonTypes} [props.type]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ConfirmationButton({
   appearance,

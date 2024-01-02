@@ -12,18 +12,18 @@ import { IconButton } from '../buttons/IconButton';
 /**
  * @param {object} props
  * @param {string} props.ariaLabelledBy usually the id of the button that controls the popup
- * @param {React.ReactNode} props.children The content of the popup
+ * @param {import('react').ReactNode} props.children The content of the popup
  * @param {string} [props.className] CSS class to apply to the popup
  * @param {boolean} [props.hasCloseButton] the top right `X` close button
  * @param {string} props.id used for hooking up to the button that controls the popup by aria-control
- * @param {React.MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
+ * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
  * @param {boolean} props.isVisible Control the visibility of the popup
  * @param {[number, number]} [props.offset] [x, y] offset of popped content from
  * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }
  * @param {PopupPlacement} [props.placement] The Popper Placement
- * @param {React.RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
+ * @param {import('react').RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
  * @param {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} props.role popup must tell its role for accessibility
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Popup({
   ariaLabelledBy,
@@ -78,7 +78,7 @@ export function Popup({
   });
 
   const onVisibleChangeCallback = useCallback(
-    /** @param {React.KeyboardEvent} e */
+    /** @param {import('react').KeyboardEvent} e */
     (e) => { onVisibleChange(e, false); },
     [onVisibleChange]
   );

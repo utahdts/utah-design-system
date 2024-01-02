@@ -1,13 +1,25 @@
 import { isOptionGroupVisible } from './isOptionGroupVisible';
 
 /** @typedef {import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContextValue} MultiSelectContextValue */
 
-/** @param {import('immer').Draft<ComboBoxContextValue>} draftContext */
-export function moveComboBoxSelectionDown(draftContext) {
+/**
+ * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
+ * @param {MultiSelectContextValue} multiSelectContext
+ */
+export function moveComboBoxSelectionDown(draftContext, multiSelectContext) {
   const { optionsFiltered: optionsWithHiddenGroups } = draftContext;
 
   const optionsToUse = optionsWithHiddenGroups.filter(
-    (option) => isOptionGroupVisible((option.isGroupLabel ? option.optionGroupId : null) ?? null, option.label, optionsWithHiddenGroups)
+    (option) => (
+      !multiSelectContext?.selectedValues.includes(option.value)
+      && isOptionGroupVisible(
+        (option.isGroupLabel ? option.optionGroupId : null) ?? null,
+        option.label,
+        optionsWithHiddenGroups,
+        multiSelectContext.selectedValues
+      )
+    )
   );
 
   // get index of currently selected item in the filtered items list

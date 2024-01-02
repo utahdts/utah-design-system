@@ -19,7 +19,7 @@ import { PreCodeForRef } from '../preCode/PreCodeForRef';
  */
 /**
  * @template FCT
- * @typedef {React.FC<{state: any, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
+ * @typedef {import('react').FC<{state: any, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
  */
 
 /**
@@ -32,7 +32,7 @@ import { PreCodeForRef } from '../preCode/PreCodeForRef';
  * @param {SandboxExamplePropsT} props.defaultProps
  * @param {string} [props.componentClassName]
  * @param {string} [props.propsInputsClassName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function SandboxExample({
   CODE_EXAMPLE,

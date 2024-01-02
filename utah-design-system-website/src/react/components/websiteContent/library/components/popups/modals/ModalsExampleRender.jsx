@@ -6,15 +6,15 @@ import {
   ModalFooter,
   ModalTitle
 } from '@utahdts/utah-design-system';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 /** @typedef {import('utah-design-system-website').ModalExamplePropsShape} ModalExamplePropsShape */
 /**
  * @param {object} props
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
  * @param {object} props.state
  * @param {ModalExamplePropsShape} props.state.props
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ModalsExampleRender({
   state: {
@@ -90,19 +90,19 @@ export function ModalsExampleRender({
               </Button>
             </ModalFooter>
             {
-                showCloseButton
-                  ? (
-                    <IconButton
-                      appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-                      className="modal__close-button"
-                      icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
-                      onClick={() => undefined}
-                      size="small"
-                      title="Close modal"
-                    />
-                  )
-                  : undefined
-                    }
+              showCloseButton
+                ? (
+                  <IconButton
+                    appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                    className="modal__close-button"
+                    icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                    onClick={() => undefined}
+                    size="small"
+                    title="Close modal"
+                  />
+                )
+                : undefined
+            }
           </dialog>
         </div>
       </div>

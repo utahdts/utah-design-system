@@ -12,14 +12,14 @@ import { TableCell } from './TableCell';
 /**
  * @template TableDataT
  * @param {object} props
- * @param {React.ReactNode | ((record: TableBodyDataRowContextValue<TableDataT>) => React.JSX.Element)} [props.children]
+ * @param {import('react').ReactNode | ((record: TableBodyDataRowContextValue<TableDataT>) => React.JSX.Element)} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onClick]
  * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onDoubleClick]
  * @param {string} [props.recordFieldPath] the field path in the record to the data to render in the <td>; ie 'person.contact.address.city'
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableBodyDataCellTemplate({
   children,

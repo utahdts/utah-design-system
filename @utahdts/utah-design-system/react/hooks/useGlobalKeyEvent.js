@@ -1,17 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * @template KeyboardEventHandlerT
  * @param {object} params
  * @param {string} params.whichKeyCode
- * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyDown]
- * @param {React.KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyUp]
+ * @param {import('react').KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyDown]
+ * @param {import('react').KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyUp]
  * @returns {boolean}
  */
 export function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
   const [keyPressed, setKeyPressed] = useState(false);
 
-  const keydownFuncRef = useRef(/** @type {React.KeyboardEventHandler<KeyboardEventHandlerT> | null} */(null));
+  const keydownFuncRef = useRef(/** @type {import('react').KeyboardEventHandler<KeyboardEventHandlerT> | null} */(null));
   useEffect(
     () => {
       keydownFuncRef.current = (e) => {

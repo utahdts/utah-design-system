@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
@@ -52,8 +52,8 @@ const fallbackGrayColors = [
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @returns {React.JSX.Element}
+ * @param {import('react').ReactNode} props.children
+ * @returns {import('react').JSX.Element}
  */
 export function CssContextProvider({ children }) {
   const colorsInUrl = colorsFromUrlParams(window.location.search);

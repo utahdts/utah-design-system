@@ -7,8 +7,8 @@ import { useCallback, useRef } from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: PopupsExamplePropsShape}>} props.setState
  * @param {{props: PopupsExamplePropsShape}} props.state
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {React.JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
 export function PopupsExampleRender({
   setState,
@@ -24,7 +24,7 @@ export function PopupsExampleRender({
 }) {
   const buttonRef = /** @type {typeof useRef<HTMLButtonElement>} */ (useRef)(null);
 
-  /** @type {React.MouseEventHandler<HTMLButtonElement>} */
+  /** @type {import('react').MouseEventHandler<HTMLButtonElement>} */
   const onClickEvent = useCallback(
     (e) => {
       e.preventDefault();

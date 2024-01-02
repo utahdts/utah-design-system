@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { tableSortingRuleFieldType } from '../../enums/tableSortingRuleFieldType';
@@ -52,11 +52,11 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
 /**
  * @template TableDataT extends TableDataT & { [x: string]: any; }
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} [props.id]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableWrapper({
   children,

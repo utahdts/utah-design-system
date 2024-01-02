@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import { componentColors } from '../../enums/componentColors';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
@@ -9,19 +9,19 @@ import { Tooltip } from '../Tooltip/Tooltip';
 
 /**
  * @param {object} props
- * @param {IconButtonAppearance} [props.appearance] the appearance of the button
- * @param {string} [props.className] css classes for the button
- * @param {'primary' | 'secondary' | 'accent' | 'none'} [props.color] the base color of the button
- * @param {import('react').ReactNode} props.icon the icon for the button
- * @param {string} [props.id] the button id
- * @param {React.MutableRefObject<HTMLButtonElement>} [props.innerRef] a ref to attach to the actual DOM <button> element
- * @param {boolean} [props.isDisabled] button isDisabled state
+ * @param {IconButtonAppearance} [props.appearance]
+ * @param {string} [props.className]
+ * @param {'primary' | 'secondary' | 'accent' | 'none'} [props.color]
+ * @param {import('react').ReactNode} props.icon
+ * @param {string} [props.id]
+ * @param {import('react').MutableRefObject<HTMLButtonElement | null>} [props.innerRef]
+ * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isTitleVisible]
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick] what to do when the button is clicked
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x'} [props.size]
  * @param {string} props.title A title is used for accessibility purposes to describe the button for screen readers
  * @param {string | null} [props.tooltipText]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function IconButton({
   appearance = ICON_BUTTON_APPEARANCE.OUTLINED,

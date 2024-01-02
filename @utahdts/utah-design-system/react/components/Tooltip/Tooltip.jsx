@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePopper } from 'react-popper';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { usePopupDelay } from '../../hooks/usePopupDelay';
@@ -12,14 +12,14 @@ import { joinClassNames } from '../../util/joinClassNames';
  * Pass in a "referenceElement" to have "zero-config" for onMouseEnter and onMouseLeave triggering
  * Pass in a isPopperVisible and setIsPopperVisible to have it be a controlled component
  * @param {object} props
- * @param {React.ReactNode} props.children The content of the tool tip
+ * @param {import('react').ReactNode} props.children The content of the tool tip
  * @param {string} [props.className] CSS class to apply to the popup
- * @param {React.MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
+ * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
  * @param {boolean} [props.isPopperVisible] controlled value for telling if tool tip is visible
  * @param {[number, number]} [props.offset] default offset is [0, 5] (see popper documentation for details)
  * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
  * @param {HTMLElement | null} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Tooltip({
   children,

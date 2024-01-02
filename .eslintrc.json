@@ -114,6 +114,7 @@
     "jsdoc/require-param-description": 0,
     "jsdoc/require-property-description": 0,
     "jsdoc/require-jsdoc": 0,
-    "jsdoc/no-undefined-types": "error"
+    "jsdoc/no-undefined-types": "error",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

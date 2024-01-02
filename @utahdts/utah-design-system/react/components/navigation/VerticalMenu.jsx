@@ -1,4 +1,3 @@
-import React from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { MenuItem } from './MenuItem';
 
@@ -9,7 +8,7 @@ import { MenuItem } from './MenuItem';
  * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {WebsiteMainMenu[]} props.menus
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function VerticalMenu({ currentMenuItem, menus }) {
   return (

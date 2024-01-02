@@ -1,4 +1,3 @@
-import React from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 
 /**
@@ -9,7 +8,7 @@ import { joinClassNames } from '../../../util/joinClassNames';
  * @param {number} props.numberOfPages total number of pages
  * @param {(newPageIndex: number) => void} props.onChange controlled component: page # changed
  * @param {number} props.pageIndex index of this page out of all the pages (3 means it's the 4th page, 0 means first page)
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function PaginationLink({
   className,

@@ -1,10 +1,8 @@
-import React from 'react';
-
 /**
  * @param {object} props
  * @param {string} [props.errorMessage]
  * @param {string} props.id
- * @returns {React.JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function ErrorMessage({ errorMessage, id }) {
   return (

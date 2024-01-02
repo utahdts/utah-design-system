@@ -1,7 +1,7 @@
 /**
  * @param {object} props
  * @param {number} props.indentLevel
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function SandboxIndent({ indentLevel }) {
   return (

@@ -16,9 +16,8 @@
       transform: translateY(-50%);
       right: var(--spacing-xs);
       font-weight: var(--font-weight-normal);
-      &[class*="utds-icon-before-"]::before {
+      [class*="utds-icon-before-"]::before {
         font-size: 0.9rem;
-        line-height: 0;
       }
       &--is-disabled {
         color: var(--form-ele-disabled-color);
@@ -30,6 +29,9 @@
       }
       .input-wrapper--text-input {
         margin: 0;
+      }
+      .tooltip__wrapper {
+        z-index: 2001;
       }
     }
     &__list-box {

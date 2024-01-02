@@ -8,10 +8,10 @@ import { Button, formElementSizesEnum } from '@utahdts/utah-design-system';
 
 /**
  * @param {object} props
- * @param {(e: React.MouseEvent, option: PresetOption) => void} props.onSelect this function is triggered when a selection is made
+ * @param {(e: import('react').MouseEvent, option: PresetOption) => void} props.onSelect this function is triggered when a selection is made
  * @param {PresetOption[]} props.options options to show as a list from which the user selects
  * @param {string} props.title title representing the preset list
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function UtahHeaderInteractivePresetSelector({
   onSelect,

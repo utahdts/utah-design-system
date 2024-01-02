@@ -1,15 +1,14 @@
 import { CharacterCount, TextArea } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
 /**
  * @param {object} props
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: CharacterCountExamplePropsShape}>} props.setState
  * @param {object} props.state
  * @param {CharacterCountExamplePropsShape} props.state.props
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function CharacterCountExampleRender({
   setState,
@@ -28,7 +27,7 @@ export function CharacterCountExampleRender({
       <TextArea
         id="text-area-example-render-id"
         onChange={
-          /** @param {React.BaseSyntheticEvent} e */
+          /** @param {import('react').BaseSyntheticEvent} e */
           (e) => {
             setState((draftState) => {
               draftState.props.text = e.target.value;

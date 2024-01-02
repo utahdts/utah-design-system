@@ -1,8 +1,10 @@
 @use "../../../../../@utahdts/utah-design-system//css/1-settings/class-vars";
 
 #{class-vars.$base-class} {
+  // TODO: static wrapper does not seem to fit here?!
   .static-example__component-wrapper {
     .tag {
+      // TODO: what about the other colors?
       &--primary-color {
         background-color: var(--primary-color);
         color: white;

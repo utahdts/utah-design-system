@@ -7,7 +7,7 @@ import { SandboxIndent } from '../../../../../../sandbox/SandboxIndent';
 /**
  * @param {object} props
  * @param {{props: TagExamplePropsShape}} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TagExampleCodeReact({
   state: {

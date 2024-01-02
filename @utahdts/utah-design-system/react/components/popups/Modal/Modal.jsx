@@ -1,11 +1,11 @@
-import React, {
+import {
   useCallback, useEffect, useRef
 } from 'react';
 import { useImmer } from 'use-immer';
-import { joinClassNames } from '../../../util/joinClassNames';
-import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import { IconButton } from '../../buttons/IconButton';
 import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
 
 /**
  * Based on the list from https://api.jqueryui.com/tabbable-selector/
@@ -22,13 +22,13 @@ function getFocusableElements(element) {
 
 /**
  * @param {object} props
- * @param {React.ReactNode} [props.children]
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id
- * @param {React.Ref<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
  * @param {import('react').KeyboardEventHandler} [props.onEscape]
  * @param {import('react').MouseEventHandler} [props.onClose]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Modal({
   children,
@@ -44,7 +44,7 @@ export function Modal({
   const [lastTabElement, setLastTabElement] = useImmer(/** @type {HTMLElement | undefined} */(undefined));
   const { addAssertiveMessage } = useAriaMessaging();
 
-  const handleEscape = useCallback((/** @type {React.KeyboardEvent<HTMLDialogElement>} */ e) => {
+  const handleEscape = useCallback((/** @type {import('react').KeyboardEvent<HTMLDialogElement>} */ e) => {
     if (e.code === 'Escape' || e.key === 'Escape') {
       e.preventDefault();
       e.stopPropagation();
@@ -52,7 +52,7 @@ export function Modal({
     }
   }, [onEscape]);
 
-  const handleTab = useCallback((/** @type {React.KeyboardEvent<HTMLDialogElement>} */ e) => {
+  const handleTab = useCallback((/** @type {import('react').KeyboardEvent<HTMLDialogElement>} */ e) => {
     if (e.code === 'Tab' || e.key === 'Tab') {
       if (e.shiftKey) {
         if (document.activeElement === firstTabElement) {
@@ -80,6 +80,7 @@ export function Modal({
         setLastTabElement(lastElement);
         firstElement?.focus();
       } else {
+        // eslint-disable-next-line no-console
         console.warn('No focusable element found. Make sure to include a way to close the modal.');
       }
     }

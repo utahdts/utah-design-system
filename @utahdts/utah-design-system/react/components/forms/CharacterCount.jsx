@@ -1,4 +1,4 @@
-import React, {
+import {
   useEffect,
   useMemo,
   useRef,
@@ -13,7 +13,7 @@ import { trailingS } from '../../util/trailingS';
  * @param {string} props.id
  * @param {number} props.maxLength
  * @param {string | null} [props.text]
- * @returns {React.JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function CharacterCount({
   className,

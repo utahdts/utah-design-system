@@ -1,10 +1,8 @@
-import React from 'react';
-
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string | null} props.title
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function FooterSocialMediaBar({ children, title = 'Follow us online' }) {
   return (

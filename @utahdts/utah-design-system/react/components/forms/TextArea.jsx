@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition';
 import { joinClassNames } from '../../util/joinClassNames';
@@ -12,7 +12,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
@@ -20,13 +20,13 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {React.ChangeEventHandler} [props.onChange]
- * @param {React.UIEventHandler} [props.onClear]
+ * @param {import('react').ChangeEventHandler} [props.onChange]
+ * @param {import('react').UIEventHandler} [props.onClear]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TextArea({
   className,
@@ -70,7 +70,7 @@ export function TextArea({
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
   const clearInput = useCallback(
-    /** @param {React.UIEvent} e */
+    /** @param {import('react').UIEvent} e */
     (e) => {
       currentOnClear?.(e);
       addAssertiveMessage(`${label} input was cleared`);
@@ -80,7 +80,7 @@ export function TextArea({
   );
 
   const checkKeyPressed = useCallback(
-    /** @param {React.KeyboardEvent} e */
+    /** @param {import('react').KeyboardEvent} e */
     (e) => {
       if (e.key === 'Escape' && showClearIcon) {
         clearInput(e);
@@ -92,7 +92,7 @@ export function TextArea({
   );
 
   const onChangeCallback = useCallback(
-    /** @param {React.ChangeEvent<HTMLElement>} e */
+    /** @param {import('react').ChangeEvent<HTMLElement>} e */
     (e) => {
       onChangeSetCursorPosition(e);
       currentOnChange?.(e);

@@ -6,7 +6,7 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /**
  * @param {object} props
  * @param {{props: PopupsExamplePropsShape}} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function PopupsExampleCodeReact({
   state: {

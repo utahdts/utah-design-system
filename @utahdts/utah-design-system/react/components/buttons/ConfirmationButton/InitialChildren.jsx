@@ -1,10 +1,9 @@
-import React from 'react';
 import { useConfirmationButtonContext } from './context/useConfirmationButtonContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @returns {React.JSX.Element | null}
+ * @param {import('react').ReactNode} props.children
+ * @returns {import('react').JSX.Element | null}
  */
 export function InitialChildren({
   children,

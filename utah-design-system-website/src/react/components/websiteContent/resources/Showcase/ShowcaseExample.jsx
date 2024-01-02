@@ -5,11 +5,11 @@ import { LightBox } from '../../../lightbox/LightBox';
  * @param {object} props
  * @param {string} props.agency
  * @param {string} props.id
- * @param {React.ReactNode} props.image
+ * @param {import('react').ReactNode} props.image
  * @param {string} [props.text]
  * @param {string} props.title
  * @param {string} props.url
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ShowcaseExample({
   agency,

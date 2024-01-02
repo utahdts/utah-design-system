@@ -1,5 +1,5 @@
 import { getUtahHeaderSettings, setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useImmerRef } from '../../hooks/useImmerRef';
 import { UtahHeaderContext } from './UtahHeaderContext';
 
@@ -8,9 +8,9 @@ import { UtahHeaderContext } from './UtahHeaderContext';
 /**
  * provider that wraps the app at the top level
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {SettingsInput} [props.defaultSettings]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function UtahHeaderContextProvider({ children, defaultSettings }) {
   const [settings, setSettings, settingsRef] = (

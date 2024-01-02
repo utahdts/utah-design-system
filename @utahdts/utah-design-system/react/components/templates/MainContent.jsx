@@ -1,14 +1,12 @@
-import React from 'react';
-
 // The MainContent component renders a <main> tag.
 // Use primarily to provide a target for the skip link.
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.RefObject<HTMLElement>} [props.innerRef]
- * @returns {React.JSX.Element}
+ * @param {import('react').RefObject<HTMLElement>} [props.innerRef]
+ * @returns {import('react').JSX.Element}
  */
 export function MainContent({
   children,

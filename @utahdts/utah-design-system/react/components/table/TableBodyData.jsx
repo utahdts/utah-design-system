@@ -1,5 +1,5 @@
 import { castArray, identity, isEqual } from 'lodash';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { chainSorters } from '../../util/chainSorters';
@@ -15,10 +15,10 @@ import { filterTableRecords } from './util/filterTableRecords';
 /**
  * @template RecordT
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.recordIdField
  * @param {(RecordT & object)[]} props.records
- * @returns {React.JSX.Element[] | null}
+ * @returns {import('react').JSX.Element[] | null}
  */
 export function TableBodyData({
   children,
@@ -66,7 +66,7 @@ export function TableBodyData({
 
       let paginationBeginIndex = (
         pagination
-          ? pagination.currentPageIndex * pagination.pageSize
+          ? pagination.currentPageIndex * pagination.itemsPerPage
           : 0
       );
       if (paginationBeginIndex >= newRecordsForContext.length) {
@@ -74,7 +74,7 @@ export function TableBodyData({
       }
       const paginationEndIndex = (
         pagination
-          ? paginationBeginIndex + pagination.pageSize
+          ? paginationBeginIndex + pagination.itemsPerPage
           : newRecordsForContext.length
       );
 

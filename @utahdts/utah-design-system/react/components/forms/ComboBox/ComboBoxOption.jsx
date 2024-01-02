@@ -1,4 +1,4 @@
-import React, {
+import {
   useCallback,
   useEffect,
   useId,
@@ -6,6 +6,7 @@ import React, {
 } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../util/useOnKeyUp';
+import { useMultiSelectContext } from '../MultiSelect/context/useMultiSelectContext';
 import { useComboBoxContext } from './context/useComboBoxContext';
 import { useComboBoxOptionGroupContext } from './context/useComboBoxOptionGroupContext';
 import { isOptionGroupVisible } from './functions/isOptionGroupVisible';
@@ -15,14 +16,15 @@ import { selectComboBoxSelection } from './functions/selectComboBoxSelection';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} [props.children]
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.identifiesWithOptionGroupId] some things like group labels are focusable in the list, but not filterable, this is their `id`
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isHidden] multi-select does not show options that are selected
  * @param {boolean} [props.isStatic] static options are always visible and not filterable
  * @param {string} props.label
  * @param {string} props.value
- * @returns {React.JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function ComboBoxOption({
   children,
@@ -30,12 +32,14 @@ export function ComboBoxOption({
   isDisabled,
   identifiesWithOptionGroupId,
   isStatic,
+  isHidden,
   label,
   value,
   ...rest
 }) {
   const optionId = useId();
   const optionRef = useRef(/** @type {HTMLLIElement | null} */(null));
+  const [multiSelectContext] = useMultiSelectContext();
   const [
     {
       isOptionsExpanded,
@@ -53,7 +57,8 @@ export function ComboBoxOption({
   ] = useComboBoxContext();
   const optionGroupId = useComboBoxOptionGroupContext();
   const isVisible = (
-    isOptionGroupVisible(identifiesWithOptionGroupId ?? null, label, optionsFiltered)
+    !isHidden
+    && isOptionGroupVisible(identifiesWithOptionGroupId ?? null, label, optionsFiltered, multiSelectContext.selectedValues)
     && (isStatic || optionsFiltered.find((optionNeedle) => optionNeedle.value === value))
   );
   const isSelected = optionValueSelected !== '' && optionValueSelected !== null && (optionValueSelected === value);
@@ -87,18 +92,29 @@ export function ComboBoxOption({
   const onUpArrowPress = useOnKeyUp(
     'ArrowUp',
     useCallback(
-      () => setComboBoxContext((draftContext) => moveComboBoxSelectionUp(draftContext, comboBoxContextNonStateRef.current.textInput)),
-      [setComboBoxContext, comboBoxContextNonStateRef]
+      () => setComboBoxContext(
+        (draftContext) => moveComboBoxSelectionUp(draftContext, comboBoxContextNonStateRef.current.textInput, multiSelectContext)
+      ),
+      [comboBoxContextNonStateRef, multiSelectContext, setComboBoxContext]
     ),
     true
   );
-  const onDownArrowPress = useOnKeyUp('ArrowDown', useCallback(() => setComboBoxContext(moveComboBoxSelectionDown), [setComboBoxContext]), true);
+  const onDownArrowPress = useOnKeyUp(
+    'ArrowDown',
+    useCallback(
+      () => setComboBoxContext((draftContext) => moveComboBoxSelectionDown(draftContext, multiSelectContext)),
+      [multiSelectContext, setComboBoxContext]
+    ),
+    true
+  );
 
   // let comboBox context know this option exists
   useEffect(
     () => {
       if (!isStatic) {
+        // register also updates if it already exists
         registerOption({
+          isHidden,
           isGroupLabel: !!identifiesWithOptionGroupId,
           label,
           labelLowerCase: label.toLocaleLowerCase(),
@@ -106,14 +122,21 @@ export function ComboBoxOption({
           value,
         });
       }
-      return () => {
+      // unregister is handled on unmount instead of on data change
+    },
+    [registerOption, unregisterOption, value, label, identifiesWithOptionGroupId, isHidden, isStatic, comboBoxContextNonStateRef]
+  );
+
+  useEffect(
+    // unregister only when unmounting
+    () => (
+      () => {
         if (!isStatic) {
           unregisterOption(value);
         }
-      };
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [registerOption, unregisterOption, value, label, identifiesWithOptionGroupId, isStatic, comboBoxContextNonStateRef]
+      }
+    ),
+    []
   );
 
   // handle focusing
@@ -152,11 +175,12 @@ export function ComboBoxOption({
             if (!isDisabled) {
               onChange(value);
               setComboBoxContext((draftContext) => {
-                draftContext.filterValue = label;
                 draftContext.isFilterValueDirty = false;
                 draftContext.isOptionsExpanded = false;
                 draftContext.optionValueHighlighted = null;
-                draftContext.optionValueSelected = value;
+                // TODO: onChange does this? so not needed here?
+                // draftContext.filterValue = label;
+                // draftContext.optionValueSelected = value;
                 setTimeout(
                   () => {
                     // move cursor to end after clicking an option so it can be edited

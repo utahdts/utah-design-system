@@ -1,5 +1,5 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import { useCssContext } from '../../context/cssContext/useCssContext';
@@ -12,7 +12,7 @@ import { notNull } from '../../util/notNull/notNull';
  * @param {object} props
  * @param {{title: string, swatches: tinycolor.ColorInput[]}} props.colorFamily
  * @param {(selectedColor: tinycolor.ColorInput) => void} props.onColorSelected
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function SwatchList({ colorFamily, onColorSelected }) {
   const baseColor = notNull(colorFamily.swatches[4], 'SwatchList: swatches[4]');

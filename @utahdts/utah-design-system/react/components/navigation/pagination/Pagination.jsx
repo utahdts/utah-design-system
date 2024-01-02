@@ -1,4 +1,4 @@
-import React, {
+import {
   useCallback, useEffect, useMemo, useRef
 } from 'react';
 import { useImmer } from 'use-immer';
@@ -16,13 +16,13 @@ import { determinePaginationLinks } from './util/determinePaginationLinks';
  * @param {string} [props.className] can add your own className to the pagination
  * @param {number} [props.defaultValue] starting page number (for uncontrolled - what good is an uncontrolled Pagination element?)
  * @param {string} [props.id] id to put on the pagination element
- * @param {React.RefObject<HTMLElement | null>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLElement | null>} [props.innerRef]
  * @param {(newValue: number) => void} [props.onChange] controlled component: page # changed
- * @param {number} props.pageSize how many items on each "page"
+ * @param {number} props.itemsPerPage how many items on each "page"
  * @param {number} props.totalNumberItems how many total items there are in the full data set
  * @param {number} [props.value] controlled component: value is the current page number (0 based-index)
  * @param {'div' | 'nav'} [props.wrapInElement] if wrapping in `nav`, make sure to provide the ariaLabel
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Pagination({
   ariaLabel,
@@ -31,7 +31,7 @@ export function Pagination({
   id,
   innerRef,
   onChange,
-  pageSize,
+  itemsPerPage,
   totalNumberItems,
   value = 0,
   wrapInElement = 'div',
@@ -56,7 +56,7 @@ export function Pagination({
   );
 
   const { addPoliteMessage } = useAriaMessaging();
-  const numberOfPages = Math.ceil(totalNumberItems / pageSize);
+  const numberOfPages = Math.ceil(totalNumberItems / itemsPerPage);
   const oldIndex = useRef(currentPageIndex);
 
   // check if current page is out of range...

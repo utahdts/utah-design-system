@@ -1,4 +1,3 @@
-import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
 import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
@@ -8,7 +7,7 @@ import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
  * @param {object} props
  * @param {object} props.state
  * @param {ModalExamplePropsShape} props.state.props
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ModalsExampleCodeReact({
   state: {

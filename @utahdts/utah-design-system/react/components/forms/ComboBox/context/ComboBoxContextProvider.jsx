@@ -1,5 +1,5 @@
 import { trim } from 'lodash';
-import React, {
+import {
   useCallback,
   useEffect,
   useMemo,
@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { useImmer } from 'use-immer';
 import { useFormContext } from '../../FormContext/useFormContext';
+import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxContext } from './ComboBoxContext';
 
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
@@ -24,39 +25,48 @@ import { ComboBoxContext } from './ComboBoxContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.comboBoxId
  * @param {string} [props.defaultValue]
+ * @param {boolean} [props.isValueClearedOnSelection]
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {(() => void)} [props.onClear]
+ * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxContextProvider({
   children,
   comboBoxId,
   defaultValue,
+  isValueClearedOnSelection,
   onChange,
   onClear,
+  onKeyUp,
   onSubmit,
   value,
 }) {
   const { onChange: onChangeFormContext } = useFormContext();
+  const [, setMultiSelectContext] = useMultiSelectContext();
 
   const comboBoxImmerRef = useRef(/** @type {import('use-immer').ImmerHook<ComboBoxContextValue> | null} */(null));
   const onChangeFormValue = useCallback(
     /** @param {string} newValue */
     (newValue) => {
       comboBoxImmerRef.current?.[1]((draftContext) => {
-        draftContext.optionValueSelected = newValue;
-        draftContext.filterValue = draftContext.options.find((option) => option.value === newValue)?.label || '';
         draftContext.isFilterValueDirty = false;
       });
       if (onChange) {
         // give parent first crack
         onChange(newValue);
       } else {
+        // if parent controls onChange then don't set the value automatically
+        comboBoxImmerRef.current?.[1]((draftContext) => {
+          draftContext.optionValueSelected = newValue;
+          draftContext.filterValue = draftContext.options.find((option) => option.value === newValue)?.label || '';
+        });
+
         // let the form context know about the change, if there is a form context
         onChangeFormContext?.({ fieldPath: comboBoxId, value: newValue });
       }
@@ -74,15 +84,22 @@ export function ComboBoxContextProvider({
     optionValueFocused: null,
     isFilterValueDirty: false,
     isOptionsExpanded: false,
+    isValueClearedOnSelection: !!isValueClearedOnSelection,
     onChange: onChangeFormValue,
     onClear,
+    onKeyUp,
     onSubmit,
     options: [],
     optionsFiltered: [],
     optionsFilteredWithoutGroupLabels: [],
     registerOption: (newOption) => {
       comboBoxImmer[1]((draftContext) => {
-        draftContext.options.push(newOption);
+        const oldOption = draftContext.options.find((searchOption) => searchOption.value === newOption.value);
+        if (oldOption) {
+          Object.assign(oldOption, newOption);
+        } else {
+          draftContext.options.push(newOption);
+        }
       });
     },
     optionValueFocusedId: null,
@@ -131,13 +148,13 @@ export function ComboBoxContextProvider({
         // let children know the selected filter value has changed
         setComboBoxState((draftContextValue) => {
           draftContextValue.optionsFiltered = filteredOptions;
-          draftContextValue.optionsFilteredWithoutGroupLabels = filteredOptions.filter((option) => !option.isGroupLabel);
+          draftContextValue.optionsFilteredWithoutGroupLabels = filteredOptions.filter((option) => !option.isGroupLabel && !option.isHidden);
         });
       } else {
         setComboBoxState((draftContextValue) => {
           draftContextValue.optionValueHighlighted = null;
           draftContextValue.optionsFiltered = options;
-          draftContextValue.optionsFilteredWithoutGroupLabels = options.filter((option) => !option.isGroupLabel);
+          draftContextValue.optionsFilteredWithoutGroupLabels = options.filter((option) => !option.isGroupLabel && !option.isHidden);
         });
       }
     },
@@ -153,6 +170,26 @@ export function ComboBoxContextProvider({
       comboBoxContextNonStateRef,
     ],
     [comboBoxImmer, comboBoxContextNonStateRef]
+  );
+
+  // update multi-select-context if there is one when combo box's options change
+  useEffect(
+    () => {
+      setMultiSelectContext((draftContext) => {
+        draftContext.comboBoxOptions = comboBoxImmer[0].options;
+      });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [comboBoxImmer[0].options]
+  );
+  useEffect(
+    () => {
+      setMultiSelectContext((draftContext) => {
+        draftContext.isOptionsExpanded = comboBoxImmer[0].isOptionsExpanded;
+      });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [comboBoxImmer[0].isOptionsExpanded]
   );
 
   return (

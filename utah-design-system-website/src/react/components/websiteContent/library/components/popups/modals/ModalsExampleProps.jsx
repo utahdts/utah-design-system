@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Form,
   Select,
@@ -12,9 +11,8 @@ import {
 /**
  * @param {object} props
  * @param {import('use-immer').Updater<{props: ModalExamplePropsShape}>} props.setState
- * @param {object} props.state
- * @param {ModalExamplePropsShape} props.state.props
- * @returns {React.JSX.Element}
+ * @param {{props: ModalExamplePropsShape}} props.state
+ * @returns {import('react').JSX.Element}
  */
 export function ModalsExampleProps({ setState, state }) {
   return (
