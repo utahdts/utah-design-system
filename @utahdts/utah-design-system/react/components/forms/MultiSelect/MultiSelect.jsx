@@ -1,4 +1,3 @@
-import React from 'react';
 import { MultiSelectComboBox } from './MultiSelectComboBox';
 import MultiSelectContextProvider from './context/MultiSelectContextProvider';
 

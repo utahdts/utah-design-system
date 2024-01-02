@@ -1,5 +1,5 @@
 import { identity, uniq } from 'lodash';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { chainSorters } from '../../util/chainSorters';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Select } from '../forms/Select';

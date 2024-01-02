@@ -1,4 +1,3 @@
-import React from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { IconButton } from '../../buttons/IconButton';
 import { useMultiSelectContext } from './context/useMultiSelectContext';

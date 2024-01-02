@@ -1,5 +1,4 @@
 import { Spinner } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /**
  * @param {string | undefined} str

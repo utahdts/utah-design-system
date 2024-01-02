@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { tableSortingRuleFieldType } from '../../enums/tableSortingRuleFieldType';

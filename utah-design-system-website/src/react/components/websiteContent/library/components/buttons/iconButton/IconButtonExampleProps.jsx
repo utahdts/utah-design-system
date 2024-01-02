@@ -7,7 +7,6 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { iconsDocumentationIcons } from '../../../../resources/IconsDocumentation/Icons/iconsDocumentationIcons';
 
 /** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */

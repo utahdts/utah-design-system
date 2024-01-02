@@ -6,7 +6,7 @@ import {
   ModalFooter,
   ModalTitle
 } from '@utahdts/utah-design-system';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 /** @typedef {import('utah-design-system-website').ModalExamplePropsShape} ModalExamplePropsShape */
 /**

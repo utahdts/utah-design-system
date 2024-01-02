@@ -16,7 +16,6 @@ import {
   joinClassNames,
   tableSortingRuleFieldType
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { stateSymbols } from '../../../../../consts/stateSymbols';
 
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */

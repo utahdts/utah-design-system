@@ -1,4 +1,3 @@
-import React from 'react';
 import { OnThisPageHeadersLevel } from './OnThisPageHeadersLevel';
 import { findElementsByTagNameMatch } from './util/findElementsByTagNameMatch';
 import { groupElementsByHeaderLevel } from './util/groupElementsByHeaderLevel';

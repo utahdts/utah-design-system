@@ -1,5 +1,3 @@
-import React from 'react';
-
 // The MainContent component renders a <main> tag.
 // Use primarily to provide a target for the skip link.
 /**

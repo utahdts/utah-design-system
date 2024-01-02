@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { formElementSizesEnum } from '../../../enums/formElementSizesEnum';
 import { joinClassNames } from '../../../util/joinClassNames';

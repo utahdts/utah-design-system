@@ -6,7 +6,7 @@ import {
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/index.scss';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import './css/index.scss';
 import { ColorPopup } from './react/components/color/ColorPopup';

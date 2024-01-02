@@ -1,5 +1,3 @@
-import React from 'react';
-
 /** @typedef {import('@utahdts/utah-design-system').Address} Address */
 
 /**

@@ -1,4 +1,3 @@
-import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
 import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';

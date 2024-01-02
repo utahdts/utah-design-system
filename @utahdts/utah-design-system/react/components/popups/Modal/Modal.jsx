@@ -1,11 +1,11 @@
-import React, {
+import {
   useCallback, useEffect, useRef
 } from 'react';
 import { useImmer } from 'use-immer';
-import { joinClassNames } from '../../../util/joinClassNames';
-import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import { IconButton } from '../../buttons/IconButton';
 import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
 
 /**
  * Based on the list from https://api.jqueryui.com/tabbable-selector/

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ComboBoxOption } from '../ComboBox/ComboBoxOption';
 import { useMultiSelectContext } from './context/useMultiSelectContext';
 

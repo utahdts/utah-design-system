@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BUTTON_APPEARANCE, BUTTON_TYPES } from '../../enums/buttonEnums';
 import { componentColors } from '../../enums/componentColors';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';

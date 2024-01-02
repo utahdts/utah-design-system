@@ -1,4 +1,3 @@
-import React from 'react';
 import { htmlDecode } from '../../util/htmlDecode';
 
 /** @typedef {import('@utahdts/utah-design-system').HierarchyNode} HierarchyNode */

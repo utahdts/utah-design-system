@@ -1,5 +1,5 @@
 import { uniq } from 'lodash';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { useRefAlways } from '../../../hooks/useRefAlways';
 import { joinClassNames } from '../../../util/joinClassNames';

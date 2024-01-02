@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useMultiSelectContext } from './context/useMultiSelectContext';

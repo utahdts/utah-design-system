@@ -1,5 +1,4 @@
 import { TextArea } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 

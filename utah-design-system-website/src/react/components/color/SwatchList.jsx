@@ -1,5 +1,5 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import { useCssContext } from '../../context/cssContext/useCssContext';

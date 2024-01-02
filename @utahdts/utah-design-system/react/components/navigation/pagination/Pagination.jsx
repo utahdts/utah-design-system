@@ -1,4 +1,4 @@
-import React, {
+import {
   useCallback, useEffect, useMemo, useRef
 } from 'react';
 import { useImmer } from 'use-immer';
