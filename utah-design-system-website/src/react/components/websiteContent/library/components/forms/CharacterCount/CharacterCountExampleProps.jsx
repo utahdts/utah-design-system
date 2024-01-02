@@ -1,23 +1,21 @@
-// @ts-check
 import {
   Form,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
+/** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: CharacterCountExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {CharacterCountExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {import('react').JSX.Element}
  */
-export default function CharacterCountExampleProps({ setState, state }) {
+export function CharacterCountExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

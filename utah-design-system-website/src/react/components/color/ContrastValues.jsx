@@ -1,31 +1,18 @@
-import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import tinycolor from 'tinycolor2';
-import valueFromRanges from '../../util/valueFromRanges';
-import COLOR_RATINGS from './COLOR_RATINGS';
-import ContrastValueBox from './ContrastValueBox';
+import { valueFromRanges } from '../../util/valueFromRanges';
+import { COLOR_RATINGS } from './COLOR_RATINGS';
+import { ContrastValueBox } from './ContrastValueBox';
 
-/** @typedef {import('../../../typedefs.d').ColorInfo} ColorInfo */
-
-const ColorInfoShape = PropTypes.shape({
-  hexColor: PropTypes.string.isRequired,
-  isLight: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-});
-
-const propTypes = {
-  color1: ColorInfoShape.isRequired,
-  color2: ColorInfoShape.isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('utah-design-system-website').ColorInfo} ColorInfo */
 
 /**
  * @param {object} props
  * @param {ColorInfo} props.color1
  * @param {ColorInfo} props.color2
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-function ContrastValues({
+export function ContrastValues({
   color1,
   color2,
 }) {
@@ -75,8 +62,3 @@ function ContrastValues({
     </div>
   );
 }
-
-ContrastValues.propTypes = propTypes;
-ContrastValues.defaultProps = defaultProps;
-
-export default ContrastValues;

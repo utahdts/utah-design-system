@@ -1,15 +1,16 @@
 import { Icons } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import COLOR_RATINGS from './COLOR_RATINGS';
+import { COLOR_RATINGS } from './COLOR_RATINGS';
 
-const propTypes = {
-  contrastRating: PropTypes.oneOf(Object.values(COLOR_RATINGS)).isRequired,
-  contrastValue: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('utah-design-system-website').ColorRating} ColorRating */
 
-function ContrastValueBox({
+/**
+ * @param {object} props
+ * @param {ColorRating} props.contrastRating
+ * @param {number} props.contrastValue
+ * @param {string} props.title
+ * @returns {import('react').JSX.Element}
+ */
+export function ContrastValueBox({
   contrastRating,
   contrastValue,
   title,
@@ -37,8 +38,3 @@ function ContrastValueBox({
     </div>
   );
 }
-
-ContrastValueBox.propTypes = propTypes;
-ContrastValueBox.defaultProps = defaultProps;
-
-export default ContrastValueBox;

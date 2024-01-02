@@ -1,7 +1,6 @@
-import React from 'react';
-import ProgressLog from './ProgressLog';
+import { ProgressLog } from './ProgressLog';
 
-function ProgressLogPage() {
+export function ProgressLogPage() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Progress Log</h1>
@@ -14,5 +13,3 @@ function ProgressLogPage() {
     </div>
   );
 }
-
-export default ProgressLogPage;

@@ -1,15 +1,12 @@
-// @ts-check
 import { ClickableTag, useBanner } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
+ * @param {object} props
  * @param {{props: TagExamplePropsShape}} props.state
- * @param {React.RefObject<HTMLButtonElement>} props.innerRef
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLButtonElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
 export function ClickableTagExampleRender({
   state: {

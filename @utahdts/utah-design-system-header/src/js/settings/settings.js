@@ -1,14 +1,13 @@
-// @ts-check
-import events from '../enumerations/events';
+import { events } from '../enumerations/events';
 import { loadHeader, removeHeader } from '../lifecycle/lifecycle';
-import defaultSettings from './defaultSettings';
-import settingsKeeper from './settingsKeeper';
+import { defaultSettings } from './defaultSettings';
+import { settingsKeeper } from './settingsKeeper';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings
  * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
  * @typedef {import('src/@types/jsDocTypes.d').SettingsInput} SettingsInput
-*/
+ */
 
 function doLoadHeader() {
   removeHeader(false);

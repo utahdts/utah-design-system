@@ -1,12 +1,11 @@
-// @ts-check
 import { castArray, identity, isEqual } from 'lodash';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import chainSorters from '../../util/chainSorters';
-import notNullMap from '../../util/notNullMap';
-import valueAtPath from '../../util/state/valueAtPath';
-import trailingS from '../../util/trailingS';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { chainSorters } from '../../util/chainSorters';
+import { notNullMap } from '../../util/notNullMap';
+import { valueAtPath } from '../../util/state/valueAtPath';
+import { trailingS } from '../../util/trailingS';
 import { TableBodyDataRowContext } from './TableBodyDataRowContext';
 import { useTableContext } from './hooks/useTableContext';
 import { convertRecordsToFilterValue } from './util/convertRecordsToFilterValue';
@@ -15,11 +14,11 @@ import { filterTableRecords } from './util/filterTableRecords';
 
 /**
  * @template RecordT
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.recordIdField
- * @param {(RecordT & Object)[]} props.records
- * @returns {JSX.Element[] | null}
+ * @param {(RecordT & object)[]} props.records
+ * @returns {import('react').JSX.Element[] | null}
  */
 export function TableBodyData({
   children,
@@ -28,7 +27,7 @@ export function TableBodyData({
 }) {
   const timer = useRef(NaN);
   const { addPoliteMessage } = useAriaMessaging();
-  const [recordsForContexts, setRecordsForContexts] = useImmer(/** @type {(RecordT & Object)[] | null} */(null));
+  const [recordsForContexts, setRecordsForContexts] = useImmer(/** @type {(RecordT & object)[] | null} */(null));
   const {
     state: {
       currentSortingOrderIsDefault,
@@ -67,7 +66,7 @@ export function TableBodyData({
 
       let paginationBeginIndex = (
         pagination
-          ? pagination.currentPageIndex * pagination.pageSize
+          ? pagination.currentPageIndex * pagination.itemsPerPage
           : 0
       );
       if (paginationBeginIndex >= newRecordsForContext.length) {
@@ -75,7 +74,7 @@ export function TableBodyData({
       }
       const paginationEndIndex = (
         pagination
-          ? paginationBeginIndex + pagination.pageSize
+          ? paginationBeginIndex + pagination.itemsPerPage
           : newRecordsForContext.length
       );
 

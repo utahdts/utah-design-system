@@ -1,4 +1,3 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
 import { createTableFilterFunctions } from '../../../../../react/components/table/util/createTableFilterFunctions';
 

@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * @template ValueFromRangesT
  * @param {number} value the value to see what range it is in
@@ -6,6 +5,6 @@
  * @param {NonNullable<ValueFromRangesT>} defaultValue value if not found... sometimes this isn't possible, but define it anyways, typing ftw!
  * @returns {NonNullable<ValueFromRangesT>}
  */
-export default function valueFromRanges(value, ranges, defaultValue) {
+export function valueFromRanges(value, ranges, defaultValue) {
   return ranges.find((range) => range.minValue <= value)?.returnValue || defaultValue;
 }

@@ -1,8 +1,15 @@
 import tinycolor from 'tinycolor2';
-import CSS_CLASS_NAMES from '../../enums/cssClassNames';
-import isLightColor from './isLightColor';
+import { CSS_CLASS_NAMES } from '../../enums/cssClassNames';
+import { isLightColor } from './isLightColor';
 
-function getBorderClass({ backgroundColor, foregroundColor, targetContrast = 3 }) {
+/**
+ * @param {object} param
+ * @param {tinycolor.ColorInput} param.backgroundColor
+ * @param {tinycolor.ColorInput} param.foregroundColor
+ * @param {number} [param.targetContrast]
+ * @returns {string}
+ */
+export function getBorderClass({ backgroundColor, foregroundColor, targetContrast = 3 }) {
   let returnClassName = '';
   const contrast = tinycolor.readability(backgroundColor, foregroundColor);
   if (contrast < targetContrast) {
@@ -14,5 +21,3 @@ function getBorderClass({ backgroundColor, foregroundColor, targetContrast = 3 }
   }
   return returnClassName;
 }
-
-export default getBorderClass;

@@ -1,35 +1,32 @@
-// @ts-check
 import React, { useCallback, useEffect, useState } from 'react';
-import formElementSizesEnum from '../../enums/formElementSizesEnum';
-import joinClassNames from '../../util/joinClassNames';
-import setValueAtPath from '../../util/state/setValueAtPath';
-import valueAtPath from '../../util/state/valueAtPath';
-import ErrorMessage from './ErrorMessage';
-import useFormContext from './FormContext/useFormContext';
-
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
+import { joinClassNames } from '../../util/joinClassNames';
+import { setValueAtPath } from '../../util/state/setValueAtPath';
+import { valueAtPath } from '../../util/state/valueAtPath';
+import { ErrorMessage } from './ErrorMessage';
+import { useFormContext } from './FormContext/useFormContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
- * @param {React.Ref<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.labelOn]
  * @param {string} [props.labelOff]
  * @param {string} [props.name]
- * @param {((e: Event) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
+ * @param {((e: React.KeyboardEvent) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
- * @param {React.ReactNode} [props.sliderChildren]
+ * @param {import('react').ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]
  * @param {number} [props.width]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function Switch({
+export function Switch({
   className,
   defaultValue,
   errorMessage,
@@ -56,13 +53,17 @@ export default function Switch({
   useEffect(
     () => {
       if (value !== undefined) {
-        setState?.((draftState) => {
-          setValueAtPath({
-            object: draftState,
-            path: id,
-            value,
-          });
-        });
+        setState?.(
+          /** @param {Record<string, any>} draftState */
+          // @ts-ignore
+          (draftState) => {
+            setValueAtPath({
+              object: draftState,
+              path: id,
+              value,
+            });
+          }
+        );
         setInternalState(!!value);
       }
     },
@@ -70,19 +71,26 @@ export default function Switch({
     [value]
   );
 
-  const currentValue = valueAtPath({ object: state, path: id }) ?? internalState;
+  const currentValue = valueAtPath({ object: state ?? null, path: id }) ?? internalState;
 
   const internalOnChange = useCallback(
+    /** @param {import('react').KeyboardEvent} e */
     (e) => {
       if (setState) {
-        setState((draftState) => {
-          setValueAtPath({
-            object: draftState,
-            path: id,
-            value: e.target.checked,
-          });
-        });
+        setState(
+          /** @param {Record<string, any>} draftState */
+          // @ts-ignore
+          (draftState) => {
+            setValueAtPath({
+              object: draftState,
+              path: id,
+              // @ts-ignore
+              value: e.target.checked,
+            });
+          }
+        );
       } else {
+        // @ts-ignore
         setInternalState(e.target.checked);
       }
     },

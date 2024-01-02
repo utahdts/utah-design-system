@@ -1,11 +1,10 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import PopupHtml from './html/Popup.html?raw';
 
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').RenderPopupOptions} RenderPopupOptions
@@ -16,7 +15,7 @@ import uuidv4 from '../../misc/uuidv4';
  * @param {RenderPopupOptions} [options] - for flyouts and their ilk, the popup arrow should not be shown
  * @returns {HTMLElement}
  */
-export default function renderPopup(labelledByElement, options) {
+export function renderPopup(labelledByElement, options) {
   const labelledById = labelledByElement.getAttribute('id');
   if (!labelledById) {
     throw new Error('renderPopup: labelledByElement does not have an `id` attribute');

@@ -1,11 +1,10 @@
-// @ts-check
-import defaultSettings from './defaultSettings';
+import { defaultSettings } from './defaultSettings';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings
  * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
  * @typedef {import('src/@types/jsDocTypes.d').SettingsInput} SettingsInput
-*/
+ */
 
 /**
  * @param {Settings} settingsToValidate
@@ -38,10 +37,10 @@ class SettingsKeeper {
 
   /**
    * @returns {Settings}
-  */
+   */
   getSettings() {
     return this.settings;
   }
 }
 
-export default new SettingsKeeper();
+export const settingsKeeper = new SettingsKeeper();

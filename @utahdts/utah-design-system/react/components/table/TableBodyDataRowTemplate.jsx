@@ -1,24 +1,23 @@
-// @ts-check
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash';
 import React, { useContext } from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 import { TableBodyDataRowContext } from './TableBodyDataRowContext';
 import { TableRow } from './TableRow';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ * @typedef {import('@utahdts/utah-design-system').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
  */
 
 /**
  * @template TableDataT
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {((rowContextData: TableBodyDataRowContextValue<TableDataT>) => string) | string} [props.className]
- * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void)} [props.onClick]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void)} [props.onDoubleClick]
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLTableRowElement>} [props.innerRef]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent})) => void)} [props.onClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent})) => void)} [props.onDoubleClick]
+ * @returns {import('react').JSX.Element}
  */
 export function TableBodyDataRowTemplate({
   children,

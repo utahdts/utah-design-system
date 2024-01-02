@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import UtahLogoLargeHtml from './html/UtahLogoLarge.html?raw';
@@ -9,17 +8,17 @@ import UtahLogoMediumHtml from './html/UtahLogoMedium.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import UtahOfficialWebsiteHoverContentHtml from './html/UtahOfficialWebsiteHoverContent.html?raw';
 
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import sizes from '../../enumerations/sizes';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import hookupTooltip from '../tooltip/hookupTooltip';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { sizes } from '../../enumerations/sizes';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { hookupTooltip } from '../tooltip/hookupTooltip';
 
 /**
  * @returns {Element}
  */
-export default function UtahLogo() {
+export function UtahLogo() {
   let sizedLogo;
   switch (getUtahHeaderSettings().size) {
     case sizes.LARGE:

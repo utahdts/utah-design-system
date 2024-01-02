@@ -1,41 +1,40 @@
-// @ts-check
-import React, { useEffect } from 'react';
-import notNull from '../../util/notNull';
-import Pagination from '../navigation/pagination/Pagination';
+import { useEffect } from 'react';
+import { notNull } from '../../util/notNull';
+import { Pagination } from '../navigation/pagination/Pagination';
 import { useTableContext } from './hooks/useTableContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.ariaLabel]
  * @param {string} [props.className]
  * @param {string} props.id
- * @param {React.RefObject<HTMLDivElement | HTMLElement | null>} [props.innerRef]
- * @param {number} props.pageSize
+ * @param {import('react').RefObject<HTMLDivElement | HTMLElement | null>} [props.innerRef]
+ * @param {number} props.itemsPerPage
  * @param {'div' | 'nav'} [props.wrapInElement]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TablePagination({
   ariaLabel,
   className,
   id,
   innerRef,
-  pageSize,
+  itemsPerPage,
   wrapInElement,
   ...rest
 }) {
   const { filteredData, setState, state } = useTableContext();
 
-  // == pageSize == //
+  // == itemsPerPage == //
   useEffect(
     () => {
       setState((draftContext) => {
         if (!draftContext.pagination) {
           draftContext.pagination = {
             currentPageIndex: 0,
-            pageSize,
+            itemsPerPage,
           };
         }
-        draftContext.pagination.pageSize = pageSize;
+        draftContext.pagination.itemsPerPage = itemsPerPage;
       });
       return () => {
         setState((draftContext) => {
@@ -44,7 +43,7 @@ export function TablePagination({
       };
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [pageSize]
+    [itemsPerPage]
   );
 
   return (
@@ -58,7 +57,7 @@ export function TablePagination({
           notNull(draftContext.pagination, 'TablePagination: onChange pagination').currentPageIndex = newPageIndex;
         })
       )}
-      pageSize={pageSize}
+      itemsPerPage={itemsPerPage}
       totalNumberItems={filteredData.length}
       value={state.pagination?.currentPageIndex ?? 0}
       wrapInElement={wrapInElement}

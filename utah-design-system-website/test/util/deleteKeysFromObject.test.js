@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import deleteKeysFromObject from '../../src/react/util/deleteKeysFromObject';
+import { deleteKeysFromObject } from '../../src/react/util/deleteKeysFromObject';
 
 describe('deleteKeysFromObject', () => {
   test('deleteKeysFromObject : simple', () => {

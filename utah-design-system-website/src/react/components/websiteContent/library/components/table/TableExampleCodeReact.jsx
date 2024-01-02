@@ -1,16 +1,14 @@
-// @ts-check
-import React from 'react';
-import ExampleCodeReactProp from '../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
 
-/** @typedef {import('../../../../../../typedefs.d').TableExamplePropsShape} TableExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: TableExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function TableExampleCodeReact({
+export function TableExampleCodeReact({
   state: {
     props: {
       className,
@@ -141,7 +139,7 @@ export default function TableExampleCodeReact({
               <ExampleCodeReactProp displayProp="<TablePagination" indentLevel={1} />
               <ExampleCodeReactProp displayProp={'className="mt-spacing"'} indentLevel={2} />
               <ExampleCodeReactProp displayProp={'id="table-example-render-pagination-id"'} indentLevel={2} />
-              <ExampleCodeReactProp displayProp="pageSize={5}" indentLevel={2} />
+              <ExampleCodeReactProp displayProp="itemsPerPage={5}" indentLevel={2} />
               <ExampleCodeReactProp displayProp="/>" indentLevel={1} />
             </>
           )

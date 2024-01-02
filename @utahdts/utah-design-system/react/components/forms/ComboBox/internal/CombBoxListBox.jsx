@@ -1,30 +1,29 @@
-// @ts-check
-import React, { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
-import useAriaMessaging from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import popupPlacement from '../../../../enums/popupPlacement';
+import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { popupPlacement } from '../../../../enums/popupPlacement';
 import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
-import joinClassNames from '../../../../util/joinClassNames';
+import { joinClassNames } from '../../../../util/joinClassNames';
+import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxOption } from '../ComboBoxOption';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
-/** @typedef {import('../../../../jsDocTypes').EventAction} EventAction */
-
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.ariaLabelledById
- * @param {React.ReactNode | null} [props.children]
- * @param {React.MutableRefObject<any>} props.popperReferenceElementRef
+ * @param {import('react').ReactNode | null} [props.children]
+ * @param {HTMLElement | null} props.popperReferenceElement
  * @param {string} props.id
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function CombBoxListBox({
   ariaLabelledById,
   children,
   id,
-  popperReferenceElementRef,
+  popperReferenceElement,
 }) {
+  const [{ selectedValues }] = useMultiSelectContext();
   const { addPoliteMessage } = useAriaMessaging();
   const [
     {
@@ -39,7 +38,7 @@ export function CombBoxListBox({
   const announcedArrowKeysRef = useRef(false);
 
   const { styles, attributes, update } = usePopper(
-    popperReferenceElementRef.current,
+    popperReferenceElement,
     ulRef.current,
     {
       placement: popupPlacement.BOTTOM,
@@ -65,7 +64,7 @@ export function CombBoxListBox({
         update();
       }
     },
-    [isOptionsExpanded, update]
+    [isOptionsExpanded, selectedValues, update]
   );
 
   useEffect(
@@ -81,7 +80,13 @@ export function CombBoxListBox({
         if (optionsFiltered.length !== optionsFilteredWithoutGroupLabels.length) {
           const numGroups = optionsFiltered.filter(
             (option) => (
-              option.isGroupLabel && isOptionGroupVisible(option.isGroupLabel ? option.optionGroupId ?? null : null, option.label, optionsFiltered)
+              option.isGroupLabel
+              && isOptionGroupVisible(
+                option.isGroupLabel ? option.optionGroupId ?? null : null,
+                option.label,
+                optionsFiltered,
+                selectedValues
+              )
             )
           ).length;
           // the options have "groups": '8 results available in 2 groups'
@@ -109,7 +114,7 @@ export function CombBoxListBox({
       role="listbox"
       style={{
         ...styles.popper,
-        minWidth: popperReferenceElementRef?.current?.scrollWidth,
+        minWidth: popperReferenceElement?.scrollWidth,
       }}
       tabIndex={-1}
       {...attributes.popper}

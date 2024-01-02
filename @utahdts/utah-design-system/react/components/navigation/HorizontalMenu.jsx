@@ -1,32 +1,26 @@
-import PropTypes from 'prop-types';
-import MenuItemShape from '../../propTypesShapes/MenuItemShape';
-import MenuShape from '../../propTypesShapes/MenuShape';
-import joinClassNames from '../../util/joinClassNames';
-import MenuItem from './MenuItem';
+import { joinClassNames } from '../../util/joinClassNames';
+import { MenuItem } from './MenuItem';
 
-const propTypes = {
-  className: PropTypes.string,
-  currentMenuItem: MenuItemShape,
-  // used for accessibility labeling
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  menu: MenuShape.isRequired,
-  titleTagClassName: PropTypes.string,
-  titleTagName: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  currentMenuItem: null,
-  titleTagClassName: 'visually-hidden',
-  titleTagName: 'h2',
-};
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
-function HorizontalMenu({
+/**
+ * @param {object} props
+ * @param {string} [props.className]
+ * @param {WebsiteMainMenuItem} [props.currentMenuItem]
+ * @param {string} props.id
+ * @param {WebsiteMainMenu} props.menu
+ * @param {string} [props.titleTagClassName]
+ * @param {'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'} [props.titleTagName]
+ * @returns {import('react').JSX.Element}
+ */
+export function HorizontalMenu({
   className,
   currentMenuItem,
   id,
   menu,
-  titleTagClassName,
-  titleTagName: TitleTagName,
+  titleTagClassName = 'visually-hidden',
+  titleTagName: TitleTagName = 'h2',
 }) {
   return (
     <nav className={joinClassNames(className, 'horizontal-menu')} aria-labelledby={id}>
@@ -39,8 +33,3 @@ function HorizontalMenu({
     </nav>
   );
 }
-
-HorizontalMenu.propTypes = propTypes;
-HorizontalMenu.defaultProps = defaultProps;
-
-export default HorizontalMenu;

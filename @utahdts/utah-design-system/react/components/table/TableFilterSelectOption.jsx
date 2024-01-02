@@ -1,14 +1,12 @@
-// @ts-check
-import React from 'react';
-import SelectOption from '../forms/SelectOption';
+import { SelectOption } from '../forms/SelectOption';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
- * @param {React.RefObject<HTMLOptionElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLOptionElement>} [props.innerRef]
  * @param {string} props.label
  * @param {string | number} props.value
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableFilterSelectOption({
   className,

@@ -1,29 +1,13 @@
-import PropTypes from 'prop-types';
-import RefShape from '../../propTypesShapes/RefShape';
-
-const propTypes = {
-  className: PropTypes.string,
-  innerRef: RefShape,
-  isDisabled: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  value: PropTypes.any.isRequired,
-};
-const defaultProps = {
-  className: null,
-  innerRef: null,
-  isDisabled: false,
-};
-
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
- * @param {React.RefObject} [props.innerRef]
+ * @param {import('react').RefObject<HTMLOptionElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
  * @param {string | number} props.value
+ * @returns {import('react').JSX.Element}
  */
-function SelectOption({
+export function SelectOption({
   className,
   innerRef,
   isDisabled,
@@ -43,8 +27,3 @@ function SelectOption({
     </option>
   );
 }
-
-SelectOption.propTypes = propTypes;
-SelectOption.defaultProps = defaultProps;
-
-export default SelectOption;

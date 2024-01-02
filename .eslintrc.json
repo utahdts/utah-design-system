@@ -3,19 +3,22 @@
     "browser": true,
     "es2021": true
   },
+  "root": true,
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "airbnb",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:jsdoc/recommended"
   ],
   "ignorePatterns": [
     "vite.config.js",
     "dist/**",
     "**/dist/**",
     "/node_modules/**",
-    "**/node_modules/**"
+    "**/node_modules/**",
+    "/examples"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -27,7 +30,8 @@
   "plugins": [
     "react",
     "react-refresh",
-    "jsx-a11y"
+    "jsx-a11y",
+    "jsdoc"
   ],
   "rules": {
     "no-unused-vars": [
@@ -105,6 +109,12 @@
         "variables": true,
         "allowNamedExports": false
       }
-    ]
+    ],
+    "jsdoc/require-returns-description": 0,
+    "jsdoc/require-param-description": 0,
+    "jsdoc/require-property-description": 0,
+    "jsdoc/require-jsdoc": 0,
+    "jsdoc/no-undefined-types": "error",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

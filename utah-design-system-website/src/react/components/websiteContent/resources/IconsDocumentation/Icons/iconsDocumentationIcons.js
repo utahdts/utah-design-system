@@ -1,4 +1,4 @@
-export default [
+export const iconsDocumentationIcons = [
   {
     cssClass: 'external-link',
     title: 'external link',

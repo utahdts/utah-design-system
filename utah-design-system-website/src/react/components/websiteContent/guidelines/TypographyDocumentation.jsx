@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   ExternalLink,
   Table,
@@ -15,13 +11,10 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
-import pageUrls from '../../routing/pageUrls';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TypographyDocumentation() {
+export function TypographyDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Typography</h1>
@@ -42,7 +35,7 @@ function TypographyDocumentation() {
       <h2 id="section-font-family" className="mb-spacing">Font Family</h2>
       <p>
         The Utah Design System recommends the follow font family pairings.
-        In the majority of cases these fonts are an excellent choice for websites and applications within the State of Utah.
+        In the majority of cases these fonts are an excellent choice for websites and applications within the state of Utah.
         These fonts were carefully chosen for ease of reading and professional appearance.
       </p>
       <p className="mb-auto">
@@ -446,8 +439,3 @@ function TypographyDocumentation() {
     </div>
   );
 }
-
-TypographyDocumentation.propTypes = propTypes;
-TypographyDocumentation.defaultProps = defaultProps;
-
-export default TypographyDocumentation;

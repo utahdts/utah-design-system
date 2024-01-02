@@ -1,17 +1,15 @@
-// @ts-check
 import { Select, SelectOption } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').SelectExamplePropsShape} SelectExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: SelectExamplePropsShape}>} props.setState
  * @param {{props: SelectExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
-export default function SelectExampleRender({
+export function SelectExampleRender({
   setState,
   state: {
     props: {
@@ -36,9 +34,14 @@ export default function SelectExampleRender({
         innerRef={innerRef}
         isClearable={isClearable}
         isDisabled={isDisabled}
-        onChange={(e) => setState((draftState) => {
-          draftState.props.value = e.target.value;
-        })}
+        onChange={
+          /** @param {import('react').BaseSyntheticEvent} e */
+          (e) => {
+            setState((draftState) => {
+              draftState.props.value = e.target.value;
+            });
+          }
+        }
         onClear={
           isClearable
             ? (

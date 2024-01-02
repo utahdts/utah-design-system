@@ -111,16 +111,16 @@ export const DATA_OF_ALL_DATATYPES = {
 /**
  * made a function so maybe in the future could pass in options as to what
  * type of data to test
- *
- * @param {Object} [options]
+ * @param {object} [options]
  * @param {string[]} [options.includes] allDataTypes enum
  * @param {string[]} [options.excludes] allDataTypes enum
  * @returns {any[]}
  */
-export default function dataOfAllDataTypes({ includes, excludes } = {}) {
+export function dataOfAllDataTypes({ includes, excludes } = {}) {
   return (
     Object.keys(DATA_OF_ALL_DATATYPES)
       .filter((key) => (!includes || includes.includes(key)) && (!excludes?.includes(key)))
+      // @ts-ignore
       .map((dataTypeKey) => Object.values(DATA_OF_ALL_DATATYPES[dataTypeKey]))
       .flat()
   );

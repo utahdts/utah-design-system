@@ -1,15 +1,14 @@
-import React from 'react';
-import ShowcaseExample from './ShowcaseExample';
 import absWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/abs-utah-gov.webp';
-import thrivingWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/thriving-utah-gov.webp';
+import bewiseWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/bewise-utah-gov.webp';
 import dhhsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhhs-utah-gov.webp';
 import dhrmWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhrm-utah-gov.webp';
-import bewiseWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/bewise-utah-gov.webp';
 import healthcarestatsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/healthcarestats-utah-gov.webp';
 import medicalcannabisWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/medicalcannabis-utah-gov.webp';
 import oneutahsummitWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/oneutahsummit-utah-gov.webp';
+import thrivingWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/thriving-utah-gov.webp';
+import { ShowcaseExample } from './ShowcaseExample';
 
-function Showcase() {
+export function Showcase() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Design System Showcase</h1>
@@ -19,7 +18,7 @@ function Showcase() {
       <p>
         By exploring these showcases, one can witness the power and versatility of the Utah Design System in action.
         Each website represents a unique blend of cohesive elements, consistent patterns, and harmonious aesthetics,
-        all made possible by the implementation of a well-defined design system. These sites demonstrate how State Agencies
+        all made possible by the implementation of a well-defined design system. These sites demonstrate how state Agencies
         can enhance the user experience, streamline development processes, and elevate trust with visitors.
       </p>
       <hr />
@@ -99,5 +98,3 @@ function Showcase() {
     </div>
   );
 }
-
-export default Showcase;

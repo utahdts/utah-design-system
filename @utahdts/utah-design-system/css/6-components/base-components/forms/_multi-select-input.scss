@@ -1,0 +1,95 @@
+@use "../../../2-tools/tools-index";
+
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .multi-select {
+    background: white;
+    color: var(--gray-color);
+    min-height: var(--form-ele-medium);
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    border: 1px solid var(--gray-color);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: var(--spacing-2xs);
+    padding: var(--spacing-2xs) var(--spacing-xl) var(--spacing-2xs) var(--spacing-2xs);
+
+    &__wrapper {
+      position: relative;
+
+      .tooltip__wrapper {
+        z-index: 2001;
+      }
+    }
+
+    @include tools-index.form-ele-hover-medium;
+
+    &__combo-box {
+      flex: 1;
+      min-width: 25%;
+
+      .combo-box-input {
+        border: none;
+        min-height: var(--form-ele-small1x);
+        padding: 0;
+        flex: 1;
+
+        &__chevron {
+          display: none;
+        }
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+
+    &__chevron, &__clear-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: var(--spacing-xs);
+      font-weight: var(--font-weight-normal);
+      [class*="utds-icon-before-"]::before {
+        font-size: 0.9rem;
+      }
+      &[disabled]:active {
+        transform: translateY(-50%);
+      }
+    }
+    &__clear-button {
+      right: var(--spacing-xl);
+      [class*="utds-icon-before-"]::before {
+        font-size: .7rem;
+      }
+    }
+
+    &--clear-icon-visible {
+      padding: var(--spacing-2xs) var(--spacing-4xl) var(--spacing-2xs) var(--spacing-2xs);
+    }
+
+    &--disabled {
+      background-color: var(--disabled-gray);
+      cursor: not-allowed;
+      input[type=text] {
+        background: transparent;
+      }
+    }
+
+    &--focused {
+      outline: 2px solid var(--form-ele-color);
+      outline-offset: 2px;
+      transition: none;
+      &.multi-select--disabled {
+        outline: none;
+      }
+    }
+  }
+}

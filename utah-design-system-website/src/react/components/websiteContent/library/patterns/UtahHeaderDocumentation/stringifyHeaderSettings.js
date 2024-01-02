@@ -1,19 +1,17 @@
 import { valueAtPath } from '@utahdts/utah-design-system';
-import copyObjectWithoutFields from '../../../../../util/copyObjectWithoutFields';
-import objectsPathsWithKeys from '../../../../../util/objectsPathsWithKeys';
+import { copyObjectWithoutFields } from '../../../../../util/copyObjectWithoutFields';
+import { objectsPathsWithKeys } from '../../../../../util/objectsPathsWithKeys';
 
 export const FUNCTION_PLACEHOLDER = '--replace with a real function--';
 
-/**
- * @typedef {import('../../../../../../../../utah-header/src/js/misc/jsDocTypes').Settings} Settings
-*/
+/** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 /**
  * turns functions and DOM in to strings so they can be saved correctly
  * @param {Settings} settingsObject
  * @returns {string}
  */
-export default function stringifyHeaderSettings(settingsObject) {
+export function stringifyHeaderSettings(settingsObject) {
   // !!!! Changes here need to also be made in parseHeaderSettings.js !!!! //
   const customFields = ['actionDom', 'actionFunction', 'icon', 'onAuthChanged', 'onProfile', 'onSignIn', 'onSignOut', 'actionDom', 'onSearch'];
   const actionItems = objectsPathsWithKeys(settingsObject, customFields);

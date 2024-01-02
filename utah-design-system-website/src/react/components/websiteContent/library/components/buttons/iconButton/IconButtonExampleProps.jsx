@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -8,22 +7,21 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
-import iconsDocumentationIcons from '../../../../resources/IconsDocumentation/Icons/iconsDocumentationIcons';
+import { iconsDocumentationIcons } from '../../../../resources/IconsDocumentation/Icons/iconsDocumentationIcons';
 
-/** @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps */
+/** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: IconButtonExampleProps}>} props.setState
- * @param {Object} props.state
- * @param {IconButtonExampleProps} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {import('react').JSX.Element}
  */
-export default function IconButtonExampleProps({ setState, state }) {
+export function IconButtonExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

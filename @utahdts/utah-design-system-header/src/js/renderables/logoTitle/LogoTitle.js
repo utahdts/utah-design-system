@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
@@ -6,15 +5,15 @@ import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import valueOrFunctionValue from '../../misc/valueOrFunctionValue';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 
 /**
  * @returns {Element}
  */
-export default function LogoTitle() {
+export function LogoTitle() {
   const logoTitleURL = getUtahHeaderSettings().titleURL;
   const logoTitleWrapper = !logoTitleURL ? renderDOMSingle(LogoTitleWrapper) : renderDOMSingle(LogoTitleWrapperLink);
   if (!logoTitleWrapper) {

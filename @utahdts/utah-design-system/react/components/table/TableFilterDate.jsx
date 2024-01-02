@@ -1,20 +1,19 @@
-// @ts-check
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
-import TextInput from '../forms/TextInput';
+import { joinClassNames } from '../../util/joinClassNames';
+import { TextInput } from '../forms/TextInput';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
  * @template TableDataT
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {TableDataT} [props.defaultValue]
- * @param {React.RefObject} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT)} [props.onChange]
+ * @param {(e: React.ChangeEvent) => TableDataT} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {TableDataT} [props.value]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableFilterDate({
   className,

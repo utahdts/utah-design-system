@@ -1,18 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
 import blockquoteScreenshotA from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
 import blockquoteScreenshotB from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function BlockquoteDocumentation() {
+export function BlockquoteDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Block Quote</h1>
@@ -153,8 +146,3 @@ function BlockquoteDocumentation() {
     </div>
   );
 }
-
-BlockquoteDocumentation.propTypes = propTypes;
-BlockquoteDocumentation.defaultProps = defaultProps;
-
-export default BlockquoteDocumentation;

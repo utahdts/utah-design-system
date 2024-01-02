@@ -1,9 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-// @ts-check
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved, import/order
-import govOps from '../../../static/images/DTS-Color-Reversed.svg';
-
 import {
   ExternalLink,
   FooterAgencyInformation,
@@ -12,17 +6,13 @@ import {
   useUtahHeaderContext
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
-import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import packageJSON from '../../../../package.json';
-import pageUrls from '../routing/pageUrls';
+import govOps from '../../../static/images/DTS-Color-Reversed.svg';
+import { pageUrls } from '../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function DesignSystemFooterMainContent() {
+export function DesignSystemFooterMainContent() {
   const { settings: utahHeaderSettings } = useUtahHeaderContext();
   return (
     <FooterAgencyInformation>
@@ -78,8 +68,3 @@ function DesignSystemFooterMainContent() {
     </FooterAgencyInformation>
   );
 }
-
-DesignSystemFooterMainContent.propTypes = propTypes;
-DesignSystemFooterMainContent.defaultProps = defaultProps;
-
-export default DesignSystemFooterMainContent;

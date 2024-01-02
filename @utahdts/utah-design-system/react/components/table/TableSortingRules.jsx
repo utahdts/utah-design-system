@@ -1,14 +1,13 @@
-// @ts-check
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { TableContext } from './util/TableContext';
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.defaultValue]
- * @param {((e) => void)} [props.onChange]
+ * @param {((param: {recordFieldPath: string}) => void)} [props.onChange]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableSortingRules({
   children,

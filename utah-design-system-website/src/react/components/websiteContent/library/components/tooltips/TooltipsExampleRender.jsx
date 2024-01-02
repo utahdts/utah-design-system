@@ -1,17 +1,16 @@
-// @ts-check
 import { Button, Tooltip } from '@utahdts/utah-design-system';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
-/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {Object} props.state
+ * @param {object} props
+ * @param {object} props.state
  * @param {TooltipsExamplePropsShape} props.state.props
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
-export default function TooltipsExampleRender({
+export function TooltipsExampleRender({
   state: {
     props: {
       isPopperVisible,

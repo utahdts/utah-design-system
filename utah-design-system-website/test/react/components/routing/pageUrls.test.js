@@ -1,11 +1,10 @@
-// @ts-check
-import camelCase from 'lodash/camelCase';
+import { camelCase } from 'lodash';
 import { describe, expect, test } from 'vitest';
-import pageUrls from '../../../../src/react/components/routing/pageUrls';
-import constructMainMenu from '../../../../src/react/components/routing/util/constructMainMenu';
+import { pageUrls } from '../../../../src/react/components/routing/pageUrls';
+import { constructMainMenu } from '../../../../src/react/components/routing/util/constructMainMenu';
 
 /** @typedef {import('@utahdts/utah-design-system-header').MenuItem} MenuItem */
-/** @typedef {import('../../../../src/typedefs.d.js').PageUrl} PageUrl */
+/** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
 
 /**
  * @param {string[] | undefined} existingPaths
@@ -31,6 +30,7 @@ const pageUrlReverseLookup = (
  * the title path has spaces slashes uppercase and all sorts of tom-foolery
  * convert it to the pageUrl format so it can match the pageUrl path
  * @param {string} menuItemTitlePath
+ * @returns {string}
  */
 function cleanMenuItemTitlePath(menuItemTitlePath) {
   let resultPath = menuItemTitlePath;
@@ -67,6 +67,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
     // add entry for menuItem
     const menuItemPath = `${basePath}/${cleanMenuItemTitlePath(menuItem.title)}`;
     if (pageUrl) {
+      // @ts-ignore
       pagePaths[pageUrlReverseLookup[pageUrl]] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
     }
 

@@ -1,12 +1,10 @@
-// @ts-check
-import React from 'react';
 import { ComboBoxOptionGroupContext } from './ComboBoxOptionGroupContext';
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} props.optionGroupId
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ComboBoxOptionGroupContextProvider({ children, optionGroupId }) {
   return (

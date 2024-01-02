@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import valuesForKey from './valuesForKey';
+import { valuesForKey } from './valuesForKey';
 
 describe(
   'valuesForKey',

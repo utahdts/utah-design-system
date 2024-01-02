@@ -1,25 +1,28 @@
-// @ts-check
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { tableSortingRuleFieldType } from '../../enums/tableSortingRuleFieldType';
-import useRefAlways from '../../hooks/useRefAlways';
-import joinClassNames from '../../util/joinClassNames';
-import valueAtPath from '../../util/state/valueAtPath';
+import { useRefAlways } from '../../hooks/useRefAlways';
+import { joinClassNames } from '../../util/joinClassNames';
+import { valueAtPath } from '../../util/state/valueAtPath';
 import { TableContext } from './util/TableContext';
 
 /**
  * @template TableSortingRuleT
- * @typedef {import('../../jsDocTypes').TableSortingRule<TableSortingRuleT>} TableSortingRule
-*/
+ * @typedef {import('@utahdts/utah-design-system').TableSortingRuleType<TableSortingRuleT>} TableSortingRuleType
+ */
 /**
  * @template TableContextStateT
- * @typedef {import('../../jsDocTypes').TableContextState<TableContextStateT>} TableContextState
+ * @typedef {import('@utahdts/utah-design-system').TableContextState<TableContextStateT>} TableContextState
+ */
+/**
+ * @template TableContextStateT
+ * @typedef {import('@utahdts/utah-design-system').TableContextValue<TableContextStateT>} TableContextValue
  */
 
 /**
  * @template SortByFieldTypeDataT
- * @param {TableSortingRule<SortByFieldTypeDataT>} sortingRule
+ * @param {TableSortingRuleType<SortByFieldTypeDataT>} sortingRule
  * @param {any} fieldValueA
  * @param {any} fieldValueB
  * @returns {number}
@@ -47,13 +50,13 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
 }
 
 /**
- * @template TableDataT
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @template TableDataT extends TableDataT & { [x: string]: any; }
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @param {React.RefObject} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} [props.id]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableWrapper({
   children,
@@ -62,7 +65,7 @@ export function TableWrapper({
   id,
   ...rest
 }) {
-  /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('../../../@types/jsDocTypes.d').TableContextState<TableDataT>>]} */
+  /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('@utahdts/utah-design-system').TableContextState<TableDataT>>]} */
   const [state, setState] = useImmer(
     /** @returns {TableContextState<TableDataT>} */
     () => ({
@@ -118,7 +121,7 @@ export function TableWrapper({
         const sortingRules = sortingFields.map((sortingField) => state.sortingRules[sortingField]);
         const sortingRulesMessages = sortingRules.map((sortingRule) => {
           const isAscending = (!!sortingRule?.defaultIsAscending === !!state.currentSortingOrderIsDefault);
-          return `${sortingRule.a11yLabel} ${isAscending ? 'ascending' : 'descending'}`;
+          return `${sortingRule?.a11yLabel ?? ''} ${isAscending ? 'ascending' : 'descending'}`;
         });
         addPoliteMessage(`Sorting changed to ${sortingRulesMessages.join(', ')}`);
         state.tableSortingOnChange?.({ recordFieldPath: state.tableSortingFieldPath });
@@ -131,7 +134,7 @@ export function TableWrapper({
   );
 
   const contextValue = useMemo(
-    () => ({
+    () => /** @type {TableContextValue<TableDataT>} */({
       // for analytic usage, rendering is generally done at the component level and not at the context level
       // because each data section handles it differently. This allData is useful for filtering and other
       // global table tooling that pokes through the data.
@@ -140,11 +143,22 @@ export function TableWrapper({
 
       // register a new rule for sorting, generally from a <TableSortingRule>
       registerSortingRule: (sortingRule) => setState((draftState) => {
+        // @ts-ignore
         draftState.sortingRules[sortingRule.recordFieldPath] = {
           ...sortingRule,
+          // @ts-ignore ignoring that TableDataT may not be the same as TableDataT
           sorter: (
+            /**
+             *
+             * @param {{ record: TableDataT, recordIndex: number }} recordA
+             * @param {{ record: TableDataT, recordIndex: number }} recordB
+             * @param {TableDataT[]} records
+             * @returns {number}
+             */
             (recordA, recordB, records) => {
+              // @ts-ignore
               const fieldValueA = valueAtPath({ object: recordA.record, path: sortingRule.recordFieldPath });
+              // @ts-ignore
               const fieldValueB = valueAtPath({ object: recordB.record, path: sortingRule.recordFieldPath });
 
               let result;

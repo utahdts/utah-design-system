@@ -1,25 +1,21 @@
-// @ts-check
-import { Link } from 'react-router-dom';
 import {
   Banner,
   BannerIcon,
   BannerMessage,
   useBanner
 } from '@utahdts/utah-design-system';
-import React, { useCallback } from 'react';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import bannerLandmarkScreenshot from '../../../../../../../static/images/screenshots/components/banners/bannerLandmark.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import BannersExampleCodeReact from './BannersExampleCodeReact';
-import BannersExampleProps from './BannersExampleProps';
-import BannersExampleRender from './BannersExampleRender';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { BannersExampleCodeReact } from './BannersExampleCodeReact';
+import { BannersExampleProps } from './BannersExampleProps';
+import { BannersExampleRender } from './BannersExampleRender';
 
-const propTypes = {};
-const defaultProps = {};
-
-function BannersDocumentation() {
+export function BannersDocumentation() {
   const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
@@ -40,7 +36,7 @@ function BannersDocumentation() {
           icon: 'none',
           message: 'Here is some information.',
           position: 'top',
-          size: 'banner--small',
+          size: 'small',
         }}
         CODE_EXAMPLE={BannersExampleCodeReact}
         PROPS_EXAMPLE={BannersExampleProps}
@@ -247,7 +243,7 @@ function BannersDocumentation() {
             </li>
             <li>
               Using the same large banner for critical messaging across agencies helps create a consistent and predictable way for users
-              to find urgent information across all State of Utah websites.
+              to find urgent information across all state of Utah websites.
             </li>
           </ul>
         )}
@@ -390,8 +386,3 @@ function BannersDocumentation() {
     </div>
   );
 }
-
-BannersDocumentation.propTypes = propTypes;
-BannersDocumentation.defaultProps = defaultProps;
-
-export default BannersDocumentation;

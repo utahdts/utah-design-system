@@ -1,11 +1,8 @@
-// @ts-check
 import { sizes } from '@utahdts/utah-design-system-header';
 import { describe, expect, test } from 'vitest';
-import stringifyHeaderSettings, { FUNCTION_PLACEHOLDER } from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';
+import { FUNCTION_PLACEHOLDER, stringifyHeaderSettings } from '../../../../../../../src/react/components/websiteContent/library/patterns/UtahHeaderDocumentation/stringifyHeaderSettings';
 
-/**
- * @typedef {import('@utahdts/utah-design-system-header').Settings} Settings
- */
+/** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 const MATCH_BASIC_FIELDS = [
   '"showTitle": true',

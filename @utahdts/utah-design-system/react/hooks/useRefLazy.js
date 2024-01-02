@@ -1,14 +1,13 @@
-// @ts-check
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash';
 import { useRef } from 'react';
 
 /**
  * lazy loads the ref like how useState() can lazy load state via a function
  * @template T
  * @param {T | (() => T)} lazyValue
- * @returns {React.MutableRefObject<T>}
+ * @returns {import('react').MutableRefObject<T>}
  */
-export default (lazyValue) => {
+export function useRefLazy(lazyValue) {
   const isLoadedRef = useRef(false);
   const ref = useRef(/** @type {T} */(undefined));
   if (!isLoadedRef.current) {
@@ -16,4 +15,4 @@ export default (lazyValue) => {
     ref.current = isFunction(lazyValue) ? lazyValue() : lazyValue;
   }
   return ref;
-};
+}

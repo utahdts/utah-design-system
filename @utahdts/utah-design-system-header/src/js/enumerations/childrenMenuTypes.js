@@ -1,13 +1,11 @@
-// @ts-check
-
-/** @typedef {import('src/@types/jsDocTypes.d').ChildrenMenuType} ChildrenMenuType */
+/** @typedef {import('src/@types/jsDocTypes.d').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /**
  * menu types for the header
- * @enum {ChildrenMenuType}
+ * @enum {ChildrenMenuTypes}
  */
-export default {
-  FLYOUT: /** @type {ChildrenMenuType} */ ('flyout'),
-  INLINE: /** @type {ChildrenMenuType} */ ('inline'),
-  MEGA_MENU: /** @type {ChildrenMenuType} */ ('mega-menu'),
+export const childrenMenuTypes = {
+  FLYOUT: /** @type {ChildrenMenuTypes} */ ('flyout'),
+  INLINE: /** @type {ChildrenMenuTypes} */ ('inline'),
+  MEGA_MENU: /** @type {ChildrenMenuTypes} */ ('mega-menu'),
 };

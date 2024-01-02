@@ -1,17 +1,14 @@
-// @ts-check
-
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
-
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import renderActionItem from './renderActionItem';
+import { renderActionItem } from './renderActionItem';
 
 /**
  * @returns {Element | null}
  */
-export default function ActionItems() {
+export function ActionItems() {
   const { actionItems } = getUtahHeaderSettings();
   /** @type {HTMLElement | null} */
   let actionItemsWrapper = null;

@@ -1,21 +1,19 @@
-// @ts-check
 import {
   ComboBox,
   ComboBoxOption,
   useFormContext
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: ComboBoxExamplePropsShape}>} props.setState
  * @param {{props: ComboBoxExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
-export default function ComboBoxExampleRender({
+export function ComboBoxExampleRender({
   setState,
   state: {
     props: {
@@ -45,9 +43,12 @@ export default function ComboBoxExampleRender({
         label={label ?? ''}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;
-          setStateFormContext?.((draftStateFormContext) => {
-            draftStateFormContext['props.value'] = newValue;
-          });
+          setStateFormContext?.(
+            (draftStateFormContext) => {
+              // @ts-ignore
+              draftStateFormContext['props.value'] = newValue;
+            }
+          );
         })}
         onClear={() => setState((draftState) => { draftState.props.value = ''; })}
         value={value}

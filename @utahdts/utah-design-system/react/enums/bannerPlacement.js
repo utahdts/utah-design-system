@@ -1,6 +1,4 @@
-// @ts-check
-
-/** @typedef {import('../jsDocTypes').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 
 /**
  * Positions for banners

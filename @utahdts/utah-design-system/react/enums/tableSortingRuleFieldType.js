@@ -1,5 +1,4 @@
-// @ts-check
-/** @typedef {import('../jsDocTypes').TableSortingRuleFieldType} TableSortingRuleFieldType */
+/** @typedef {import('@utahdts/utah-design-system').TableSortingRuleFieldType} TableSortingRuleFieldType */
 
 /** @enum {TableSortingRuleFieldType} */
 export const tableSortingRuleFieldType = {

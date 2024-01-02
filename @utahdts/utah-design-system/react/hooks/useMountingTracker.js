@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 /** @param {string} title */
-export default function useMountingTracker(title) {
+export function useMountingTracker(title) {
   const originalTitleRef = useRef(title);
 
   // eslint-disable-next-line no-console

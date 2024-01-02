@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   Button,
@@ -18,20 +17,17 @@ import {
   TabPanels,
   useBanner,
 } from '@utahdts/utah-design-system';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import ButtonCssClassesDocumentation from './ButtonCssClassesDocumentation';
-import ButtonExampleCodeReact from './ButtonExampleCodeReact';
-import ButtonExampleProps from './ButtonExampleProps';
-import ButtonExampleRender from './ButtonExampleRender';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { ButtonCssClassesDocumentation } from './ButtonCssClassesDocumentation';
+import { ButtonExampleCodeReact } from './ButtonExampleCodeReact';
+import { ButtonExampleProps } from './ButtonExampleProps';
+import { ButtonExampleRender } from './ButtonExampleRender';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ButtonDocumentation() {
+export function ButtonDocumentation() {
   const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
@@ -194,7 +190,7 @@ function ButtonDocumentation() {
             <Button
               appearance="outlined"
               color="primary"
-              iconLeft={Icons.IconCheck()}
+              iconLeft={<Icons.IconCheck />}
               onClick={useCallback(() => addBanner({ message: '`Left Icon` button clicked' }), [addBanner])}
             >
               Button
@@ -202,7 +198,7 @@ function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              iconRight={Icons.IconArrowRight()}
+              iconRight={<Icons.IconArrowRight />}
               onClick={useCallback(() => addBanner({ message: '`See More` button clicked' }), [addBanner])}
             >
               See More
@@ -419,9 +415,9 @@ function ButtonDocumentation() {
           <ul>
             <li>
               Use the button style if it also includes a visual indicator such as an arrow icon.
-              For example <code>Read More {Icons.IconArrowRight()}</code>.
+              For example <code>Read More <Icons.IconArrowRight /></code>.
             </li>
-            <li>Use the button style for a call to action. For example, <code>Register Now {Icons.IconArrowRight()}</code>.</li>
+            <li>Use the button style for a call to action. For example, <code>Register Now <Icons.IconArrowRight /></code>.</li>
           </ul>
         </li>
       </ul>
@@ -696,8 +692,3 @@ function ButtonDocumentation() {
     </div>
   );
 }
-
-ButtonDocumentation.propTypes = propTypes;
-ButtonDocumentation.defaultProps = defaultProps;
-
-export default ButtonDocumentation;

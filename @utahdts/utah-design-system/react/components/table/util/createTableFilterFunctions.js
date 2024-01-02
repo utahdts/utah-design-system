@@ -1,19 +1,19 @@
-// @ts-check
 /**
- * @typedef {import('../../../jsDocTypes').TableFilterValue} TableFilterValue
- * @typedef {import('../../../jsDocTypes').TableFilterFunction} TableFilterFunction
+ * @typedef {import('@utahdts/utah-design-system').TableFilterValue} TableFilterValue
+ * @typedef {import('@utahdts/utah-design-system').TableFilterFunction} TableFilterFunction
  */
 
 /**
  * convert each filter in to a function that will validate that filter rule (value, exactMatch, etc)
- * @param {Object.<string, TableFilterValue>} filterValues the filters
- * @returns {Object.<string, TableFilterFunction>} a function for each filter key that takes a value and determines if it matches the filter
+ * @param {Record<string, TableFilterValue>} filterValues the filters
+ * @returns {Record<string, TableFilterFunction>} a function for each filter key that takes a value and determines if it matches the filter
  */
 export function createTableFilterFunctions(filterValues) {
   return (
     Object.fromEntries(
       Object.entries(filterValues || {})
         .map(([filterKey, filterData]) => {
+          /** @type {TableFilterFunction} */
           let testFunc;
 
           if (filterData.exactMatch) {

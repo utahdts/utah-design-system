@@ -1,19 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
-import LightBox from '../../../../../lightbox/LightBox';
 import carouselScreenshot from '../../../../../../../static/images/screenshots/components/carousel/Carousel.jpg';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function CarouselDocumentation() {
+export function CarouselDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Carousel</h1>
@@ -159,8 +152,3 @@ function CarouselDocumentation() {
     </div>
   );
 }
-
-CarouselDocumentation.propTypes = propTypes;
-CarouselDocumentation.defaultProps = defaultProps;
-
-export default CarouselDocumentation;
