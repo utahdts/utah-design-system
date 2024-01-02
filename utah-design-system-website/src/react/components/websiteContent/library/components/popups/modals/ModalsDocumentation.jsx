@@ -1,14 +1,14 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
 import { ModalsExampleProps } from './ModalsExampleProps';
 import { ModalsExampleRender } from './ModalsExampleRender';
-import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
-import { SimpleModal } from './examples/SimpleModal';
 import { LargeModal } from './examples/LargeModal';
-import { ModalWithForm } from './examples/ModalWithForm.jsx';
+import { ModalWithForm } from './examples/ModalWithForm';
+import { SimpleModal } from './examples/SimpleModal';
 
 export function ModalsDocumentation() {
   return (
