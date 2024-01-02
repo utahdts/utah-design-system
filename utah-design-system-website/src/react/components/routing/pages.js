@@ -8,6 +8,7 @@ import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
 import { ColorGuidelinesDocumentation } from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
+import { DataPrivacyDocumentation } from '../websiteContent/guidelines/DataPrivacyDocumentation';
 import { DataVisualizationsDocumentation } from '../websiteContent/guidelines/DataVisualizationsDocumentation';
 import { DepthElevationShadowsDocumentation } from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
 import { GuidelinesLanding } from '../websiteContent/guidelines/GuidelinesLanding';
@@ -276,6 +277,13 @@ export const pages = {
     link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Opacity',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  dataPrivacy: /** @type {Page} */ ({
+    content: DataPrivacyDocumentation,
+    link: pageUrls.dataPrivacy,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Data Privacy',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   dataVisualizations: /** @type {Page} */ ({

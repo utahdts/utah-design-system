@@ -32,6 +32,7 @@ export function ColorGuidelinesDocumentation() {
         that allows you to choose primary, secondary, and accent colors. It allows you to preview these colors on this site, as well as with components, patterns, and the <NavLink to={pageUrls.demoPage}>demo page</NavLink>.
       </p>
 
+      <hr />
       <h2 id="section-areas-to-consider" className="mt-spacing mb-spacing">Areas to Consider</h2>
       <h3 id="section-limited-vision">Accessibility</h3>
       <p>

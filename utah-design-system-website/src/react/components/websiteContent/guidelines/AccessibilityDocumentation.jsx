@@ -109,6 +109,7 @@ export function AccessibilityDocumentation() {
         For further information, consider reading documentation provided by <ExternalLink href="https://webaim.org/">WebAIM</ExternalLink>.
       </p>
 
+      <hr />
       <h2 id="section-areas-to-consider" className="mb-spacing">Areas to Consider</h2>
       <h3 id="section-limited-vision">Limited or No Vision</h3>
       <p>

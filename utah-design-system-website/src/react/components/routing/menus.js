@@ -38,6 +38,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.dataPrivacy.link,
+      title: pages.dataPrivacy.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.dataVisualizations.link,
       title: pages.dataVisualizations.pageTitle,
       parentLinks: [pages.guidelines.link],
