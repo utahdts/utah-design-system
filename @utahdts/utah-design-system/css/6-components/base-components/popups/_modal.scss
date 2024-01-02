@@ -23,25 +23,27 @@
       border-radius: var(--radius-medium);
       left: 50%;
       margin: var(--spacing-4xl) var(--spacing) var(--spacing-4xl) 0;
-      overflow: visible;
+      overflow: hidden;
+      padding: 0;
       position: absolute;
       top: 0;
       transform: translateX(-50%);
       z-index: 5000;
     }
 
-    &__title, &__content, &__footer {
-      padding: var(--spacing-2xs) var(--spacing);
-    }
-
     &__title {
       font-weight: var(--font-weight-bold);
       font-size: var(--font-size-2xl);
-      padding-right: calc(var(--spacing) + 1.4rem)
+      padding: var(--spacing-xs) calc(var(--spacing) + 1.4rem) var(--spacing-xs) var(--spacing-l);
     }
 
     &__content {
       line-height: 1.6rem;
+      padding: var(--spacing-xs) var(--spacing-l);
+    }
+
+    &__footer {
+      padding: var(--spacing-xs) var(--spacing-l) var(--spacing);
     }
 
     &__close-button {

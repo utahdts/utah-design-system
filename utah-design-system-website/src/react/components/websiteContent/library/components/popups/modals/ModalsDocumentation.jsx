@@ -1,15 +1,14 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
-import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
-import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { ModalsExampleProps } from './ModalsExampleProps';
 import { ModalsExampleRender } from './ModalsExampleRender';
 import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
+import { SimpleModal } from './examples/SimpleModal';
+import { LargeModal } from './examples/LargeModal';
+import { ModalWithForm } from './examples/ModalWithForm.jsx';
 
 export function ModalsDocumentation() {
   return (
@@ -41,11 +40,11 @@ export function ModalsDocumentation() {
       <StaticExample
         title="Complex Modal"
         renderedExample={(
-          <>
-            <LightBox image={modal1} alt="Modals" className="flex-4up-gap" />
-            <LightBox image={modal2} alt="Large Modals" className="flex-4up-gap" />
-            <LightBox image={modal3} alt="Modal with Form" className="flex-4up-gap" />
-          </>
+          <div className="flex flex-col items-center">
+            <SimpleModal />
+            <LargeModal />
+            <ModalWithForm />
+          </div>
         )}
         quickTips={(
           <ul>
