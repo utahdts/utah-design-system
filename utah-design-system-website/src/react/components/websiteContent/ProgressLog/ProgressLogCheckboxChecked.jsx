@@ -1,7 +1,4 @@
-const propTypes = {};
-const defaultProps = {};
-
-function ProgressLogCheckboxChecked() {
+export function ProgressLogCheckboxChecked() {
   return (
     <div className="checkbox-circle">
       <span
@@ -14,8 +11,3 @@ function ProgressLogCheckboxChecked() {
     </div>
   );
 }
-
-ProgressLogCheckboxChecked.propTypes = propTypes;
-ProgressLogCheckboxChecked.defaultProps = defaultProps;
-
-export default ProgressLogCheckboxChecked;

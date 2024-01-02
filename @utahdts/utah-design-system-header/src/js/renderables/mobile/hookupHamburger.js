@@ -1,20 +1,25 @@
-// @ts-check
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import checkForError from '../../misc/checkForError';
-import notNull from '../../misc/notNull';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import renderActionItemBadge from '../actionItems/renderActionItemBadge';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { checkForError } from '../../misc/checkForError';
+import { notNull } from '../../misc/notNull';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { renderActionItemBadge } from '../actionItems/renderActionItemBadge';
 import { closeOfficialWebsite } from '../utahLogo/renderOfficialWebsite';
-import mobileMenuInteractionHandler from './mobileMenuInteractionHandler';
-import getHamburgerElements from './util/getHamburgerElements';
+import { mobileMenuInteractionHandler } from './mobileMenuInteractionHandler';
+import { getHamburgerElements } from './util/getHamburgerElements';
 import { hideMobileMenu } from './util/showHideHamburgerElements';
 
 /**
  * @param {HTMLElement} mobileMainMenuContentItem
  */
-export default function hookupHamburger(mobileMainMenuContentItem) {
+export function hookupHamburger(mobileMainMenuContentItem) {
   const { hamburger } = getHamburgerElements('hookupHamburger');
-  const hamburgerNotNull = /** @param {string} context */ (context) => notNull(hamburger, `hookupHamburger: hamburger required but is null: ${context}`);
+  const hamburgerNotNull = (
+    /**
+     * @param {string} context
+     * @returns {HTMLElement}
+     */
+    (context) => notNull(hamburger, `hookupHamburger: hamburger required but is null: ${context}`)
+  );
 
   const settings = getUtahHeaderSettings();
   const actionItemHasBadge = settings.actionItems?.some((actionItem) => !!actionItem.badge);

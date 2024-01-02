@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   Table,
   TableBody,
@@ -12,9 +8,6 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
-import StaticExample from '../../staticExamples/StaticExample';
-import LightBox from '../../lightbox/LightBox';
 import spacingScreenshot1 from '../../../../static/images/screenshots/spacing/spacing-2xl.webp';
 import spacingScreenshot2 from '../../../../static/images/screenshots/spacing/spacing-3xs-2xs.webp';
 import spacingScreenshot3 from '../../../../static/images/screenshots/spacing/spacing-6xl.webp';
@@ -23,11 +16,11 @@ import spacingScreenshot5 from '../../../../static/images/screenshots/spacing/sp
 import spacingScreenshot6 from '../../../../static/images/screenshots/spacing/spacing-l-2xl-3xl-4xl.webp';
 import spacingScreenshot7 from '../../../../static/images/screenshots/spacing/spacing-s-l.webp';
 import spacingScreenshot8 from '../../../../static/images/screenshots/spacing/spacing-xl.webp';
+import { LightBox } from '../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
+import { StaticExample } from '../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function SpacingDocumentation() {
+export function SpacingDocumentation() {
   return (
     <div className="documentation-content spacing-documentation">
       <h1 id="h1-top mb-spacing">Spacing</h1>
@@ -313,8 +306,3 @@ function SpacingDocumentation() {
     </div>
   );
 }
-
-SpacingDocumentation.propTypes = propTypes;
-SpacingDocumentation.defaultProps = defaultProps;
-
-export default SpacingDocumentation;

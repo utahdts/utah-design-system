@@ -1,20 +1,20 @@
-// @ts-check
-import React, { useContext, useEffect } from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { useContext, useEffect } from 'react';
+import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
-/** @typedef {import('../../jsDocTypes').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
+/** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @template TableDataT
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {TableContextStateFilterValueObject} [props.defaultValue]
- * @param {React.RefObject} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {((e: Event) => void)} [props.onChange]
+ * @param {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} [props.onChange]
  * @param {TableContextStateFilterValueObject} [props.value]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TableFilters({
   children,

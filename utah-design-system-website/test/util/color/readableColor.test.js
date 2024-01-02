@@ -1,7 +1,6 @@
-// @ts-check
 import tinycolor from 'tinycolor2';
 import { describe, expect, test } from 'vitest';
-import readableColor from '../../../src/react/util/color/readableColor';
+import { readableColor } from '../../../src/react/util/color/readableColor';
 
 const grayColors = [
   '#ffffff',
@@ -55,7 +54,7 @@ function colorContrasts(color, colorList) {
 
 /**
  * @param {string} testColor
- * @returns {{foundColor: ColorContrast, previousColor: ColorContrast}}
+ * @returns {{foundColor: ColorContrast, previousColor: ColorContrast | undefined}}
  */
 function calcTest(testColor) {
   const contrasts = colorContrasts(testColor, grayColors);
@@ -113,7 +112,7 @@ describe('readableColor', () => {
       expect(foundColor.contrast).toBeGreaterThanOrEqual(4.5);
 
       // previous possible color should be < 4.5
-      expect(previousColor.contrast).toBeLessThan(4.5);
+      expect(previousColor?.contrast).toBeLessThan(4.5);
       expect(previousColor).toStrictEqual({
         color: expectedPreviousColor,
         contrast: expectedPreviousContrast,

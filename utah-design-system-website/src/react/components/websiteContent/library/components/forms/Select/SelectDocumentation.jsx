@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   Select,
@@ -9,21 +8,17 @@ import {
   TabPanel,
   TabPanels,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import SelectCssClassesDocumentation from './SelectCssClassesDocumentation';
-import SelectExampleCodeReact from './SelectExampleCodeReact';
-import SelectExampleProps from './SelectExampleProps';
-import SelectExampleRender from './SelectExampleRender';
-import SelectPropsDocumentation from './SelectPropsDocumentation';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SelectCssClassesDocumentation } from './SelectCssClassesDocumentation';
+import { SelectExampleCodeReact } from './SelectExampleCodeReact';
+import { SelectExampleProps } from './SelectExampleProps';
+import { SelectExampleRender } from './SelectExampleRender';
+import { SelectPropsDocumentation } from './SelectPropsDocumentation';
 
-const propTypes = {};
-const defaultProps = {};
-
-function SelectDocumentation() {
+export function SelectDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Select</h1>
@@ -153,8 +148,3 @@ function SelectDocumentation() {
     </div>
   );
 }
-
-SelectDocumentation.propTypes = propTypes;
-SelectDocumentation.defaultProps = defaultProps;
-
-export default SelectDocumentation;

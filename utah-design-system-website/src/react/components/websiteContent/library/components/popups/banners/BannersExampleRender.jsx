@@ -1,5 +1,3 @@
-// @ts-check
-import React from 'react';
 import {
   Banner, BannerIcon, BannerMessage,
   Button,
@@ -7,7 +5,15 @@ import {
   useBanner,
 } from '@utahdts/utah-design-system';
 
-export default function BannersExampleRender({
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {object} props
+ * @param {{props: BannerExamplePropsShape}} props.state
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
+ */
+export function BannersExampleRender({
   state: {
     props: {
       className,
@@ -36,9 +42,11 @@ export default function BannersExampleRender({
       </Button>
       <div className="visually-hidden">
         <Banner
+          id="banners-example-render"
           innerRef={innerRef}
           className={joinClassNames(className, color, size)}
           position={position}
+          // eslint-disable-next-line no-console
           onClose={() => console.log('Make sure to close the banner!')}
         >
           {icon !== 'none'

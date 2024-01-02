@@ -1,6 +1,4 @@
-// @ts-check
-
-import isString from './isString';
+import { isString } from './isString';
 
 /**
  * Render a DOM from a string and return just the DOM child node
@@ -41,17 +39,16 @@ function renderDOM(str) {
 
 /**
  * Pull first element out of a collection if a collection was rendered
- *
  * @param {string | HTMLElement} str
  * @returns {HTMLElement}
  */
-export default function renderDOMSingle(str) {
+export function renderDOMSingle(str) {
   const dom = typeof str === 'string' ? renderDOM(str) : str;
   if (dom instanceof HTMLCollection && dom.length > 1) {
     throw new Error('renderDOMSingle: must render a single element');
   }
-  /** @type HTMLElement | null */
-  const firstChild = /** @type HTMLElement | null */ (dom instanceof HTMLCollection ? dom[0] : dom);
+  /** @type {HTMLElement | null} */
+  const firstChild = /** @type {HTMLElement | null} */ (dom instanceof HTMLCollection ? dom[0] : dom);
   if (!firstChild) {
     // eslint-disable-next-line no-console
     console.error(str);

@@ -1,9 +1,8 @@
-// @ts-check
 import { createContext } from 'react';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ * @typedef {import('@utahdts/utah-design-system').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
  */
 
 /** @template TableDataT */

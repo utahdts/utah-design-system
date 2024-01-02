@@ -1,10 +1,9 @@
 import { useContext } from 'react';
-import CssContext from './CssContext';
+import { CssContext } from './CssContext';
 
-/**
- * This hook provides the context's data; most everything should just use this hook and nothing else
- * @returns {{cssState: Object, setCssState: import('use-immer').Updater }} the context state
- */
-export default function useCssContext() {
+/** @typedef {import('utah-design-system-website').CssContextValue} CssContextValue */
+
+/** @returns {CssContextValue} */
+export function useCssContext() {
   return useContext(CssContext);
 }

@@ -1,39 +1,26 @@
-// @ts-check
 /* eslint-disable max-len */
-// @ts-ignore
-import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
-// @ts-ignore
-import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.png';
-// @ts-ignore
-import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.png';
-// @ts-ignore
-import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
-// @ts-ignore
-import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
-// @ts-ignore
-import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.png';
-
-// eslint-disable-next-line import/order
 import { ExternalLink } from '@utahdts/utah-design-system';
-// eslint-disable-next-line import/order
-import React from 'react';
-// eslint-disable-next-line import/order
 import { Link } from 'react-router-dom';
-import LightBox from '../../../../lightbox/LightBox';
-import pageUrls from '../../../../routing/pageUrls';
-import SandboxExample from '../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../staticExamples/StaticExample';
-import TableExampleCodeReact from './TableExampleCodeReact';
-import TableExampleProps from './TableExampleProps';
-import TableExampleRender from './TableExampleRender';
+import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
+import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.png';
+import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.png';
+import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
+import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
+import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.png';
+import { LightBox } from '../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../staticExamples/StaticExample';
+import { TableExampleCodeReact } from './TableExampleCodeReact';
+import { TableExampleProps } from './TableExampleProps';
+import { TableExampleRender } from './TableExampleRender';
 import { TableDocumentationFilteringPaginationTableExample } from './exampleTables/TableDocumentationFilteringPaginationTableExample';
-import TableDocumentationFilteringTableExample from './exampleTables/TableDocumentationFilteringTableExample';
-import TableDocumentationFooterExample from './exampleTables/TableDocumentationFooterExample';
-import TableDocumentationPaginationTableExample from './exampleTables/TableDocumentationPaginationTableExample';
-import TableDocumentationSimpleTableExample from './exampleTables/TableDocumentationSimpleTableExample';
-import TableDocumentationSortingTableExample from './exampleTables/TableDocumentationSortingTableExample';
+import { TableDocumentationFilteringTableExample } from './exampleTables/TableDocumentationFilteringTableExample';
+import { TableDocumentationFooterExample } from './exampleTables/TableDocumentationFooterExample';
+import { TableDocumentationPaginationTableExample } from './exampleTables/TableDocumentationPaginationTableExample';
+import { TableDocumentationSimpleTableExample } from './exampleTables/TableDocumentationSimpleTableExample';
+import { TableDocumentationSortingTableExample } from './exampleTables/TableDocumentationSortingTableExample';
 
-/** @returns {JSX.Element} */
 export function TableDocumentation() {
   return (
     <div className="documentation-content">

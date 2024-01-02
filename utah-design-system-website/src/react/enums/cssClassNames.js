@@ -1,4 +1,4 @@
-const CSS_CLASS_NAMES = {
+export const CSS_CLASS_NAMES = {
   PRIMARY_COLOR_IS_LIGHT: 'primary-color-is-light',
   SECONDARY_COLOR_IS_LIGHT: 'secondary-color-is-light',
   ACCENT_COLOR_IS_LIGHT: 'accent-color-is-light',
@@ -15,5 +15,3 @@ const CSS_CLASS_NAMES = {
   // contrast-border-light --white
   // contrast-border-dark  --dark
 };
-
-export default CSS_CLASS_NAMES;

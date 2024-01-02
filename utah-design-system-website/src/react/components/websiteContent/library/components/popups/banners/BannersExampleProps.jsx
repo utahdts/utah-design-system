@@ -1,16 +1,23 @@
-// @ts-check
 import {
   Form,
   Select,
   SelectOption,
   TextInput
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-export default function BannersExampleProps({ setState, state }) {
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {object} props
+ * @param {import('use-immer').Updater<{props: BannerExamplePropsShape}>} props.setState
+ * @param {object} props.state
+ * @returns {import('react').JSX.Element}
+ */
+export function BannersExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Tab,
   TabGroup,
@@ -10,22 +9,22 @@ import {
 } from '@utahdts/utah-design-system';
 import React, { useEffect, useRef, useState } from 'react';
 import { useImmer } from 'use-immer';
-import sandboxCodeTypeEnum from '../../enums/sandboxCodeTypeEnum';
-import PreCode from '../preCode/PreCode';
-import PreCodeForRef from '../preCode/PreCodeForRef';
+import { sandboxCodeTypeEnum } from '../../enums/sandboxCodeTypeEnum';
+import { PreCode } from '../preCode/PreCode';
+import { PreCodeForRef } from '../preCode/PreCodeForRef';
 
 /**
  * @template UpdaterPropsT
  * @typedef {import('use-immer').Updater<{props: UpdaterPropsT}>} UpdaterProps
-*/
+ */
 /**
  * @template FCT
- * @typedef {React.FC<{state: Object, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
+ * @typedef {import('react').FC<{state: any, setState: UpdaterProps<FCT>, innerRef: React.RefObject<any>}>} ReactFCStater
  */
 
 /**
  * @template SandboxExamplePropsT
- * @param {Object} props
+ * @param {object} props
  * @param {ReactFCStater<SandboxExamplePropsT>} props.CODE_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.PROPS_EXAMPLE
  * @param {ReactFCStater<SandboxExamplePropsT>} props.RENDER_EXAMPLE
@@ -33,10 +32,9 @@ import PreCodeForRef from '../preCode/PreCodeForRef';
  * @param {SandboxExamplePropsT} props.defaultProps
  * @param {string} [props.componentClassName]
  * @param {string} [props.propsInputsClassName]
- *
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function SandboxExample({
+export function SandboxExample({
   CODE_EXAMPLE,
   PROPS_EXAMPLE,
   RENDER_EXAMPLE,

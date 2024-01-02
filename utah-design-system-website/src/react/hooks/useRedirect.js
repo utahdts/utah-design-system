@@ -1,4 +1,3 @@
-// @ts-check
 import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
  * @param {boolean} [options.isImmediate]
  * @returns {{ navigate: () => void}}
  */
-export default function useRedirect({ pageUrl, isImmediate }) {
+export function useRedirect({ pageUrl, isImmediate }) {
   const navigate = useNavigate();
 
   const doNavigate = useCallback(

@@ -1,4 +1,9 @@
-import React from 'react';
+import { createContext } from 'react';
 
-const TabGroupContext = React.createContext({});
-export default TabGroupContext;
+/** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */
+
+export const TabGroupContext = /** @type {typeof createContext<TabGroupContextValue>} */ (createContext)({
+  selectedTabId: '',
+  setSelectedTabId: () => { },
+  tabGroupId: '',
+});

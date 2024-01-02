@@ -1,30 +1,21 @@
-// @ts-check
 /* eslint-disable max-len */
-// @ts-ignore
-// eslint-disable-next-line import/order
-import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
-
 import {
   ConfirmationButton,
   ConfirmationChildren,
   InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import LightBox from '../../../../../lightbox/LightBox';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import confirmationButtonScreenshot from '../../../../../../../static/images/screenshots/components/form-elements/confirmationButtonScreenshot.jpg';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { ConfirmationButtonExampleCodeReact } from './ConfirmationButtonExampleCodeReact';
 import { ConfirmationButtonExampleProps } from './ConfirmationButtonExampleProps';
 import { ConfirmationButtonExampleRender } from './ConfirmationButtonExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function ConfirmationButtonDocumentation() {
+export function ConfirmationButtonDocumentation() {
   const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
@@ -181,8 +172,3 @@ function ConfirmationButtonDocumentation() {
     </div>
   );
 }
-
-ConfirmationButtonDocumentation.propTypes = propTypes;
-ConfirmationButtonDocumentation.defaultProps = defaultProps;
-
-export default ConfirmationButtonDocumentation;

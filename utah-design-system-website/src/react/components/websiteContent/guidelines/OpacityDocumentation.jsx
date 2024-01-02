@@ -1,13 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 
-const propTypes = {};
-const defaultProps = {};
-
-function OpacityDocumentation() {
+export function OpacityDocumentation() {
   const renderExamples = () => {
     const values = [...Array(11).keys()];
     return values.map((v) => (
@@ -60,8 +53,3 @@ function OpacityDocumentation() {
     </div>
   );
 }
-
-OpacityDocumentation.propTypes = propTypes;
-OpacityDocumentation.defaultProps = defaultProps;
-
-export default OpacityDocumentation;

@@ -5,7 +5,7 @@
 [![ARB Approved](https://img.shields.io/badge/Utah_ARB-Approved-2e7114?style=for-the-badge)](https://dts.utah.gov/standards/architecture-review-board)
 
 
-The Utah Header is part of the Utah Design System. It provides a common experience for users of State of Utah websites and applications. This code also renders the [Utah Footer](https://designsystem.utah.gov/library/patterns/utahFooter).
+The Utah Header is part of the Utah Design System. It provides a common experience for users of state of Utah websites and applications. This code also renders the [Utah Footer](https://designsystem.utah.gov/library/patterns/utahFooter).
 
 ## What's included
 

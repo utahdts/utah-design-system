@@ -1,0 +1,15 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .modal {
+    &--primary {
+      .modal__title {
+        color: white;
+        background-color: var(--primary-color);
+      }
+      .modal__close-button {
+        color: white;
+      }
+    }
+  }
+}

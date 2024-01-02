@@ -2,12 +2,10 @@
  * A function used as a callback often needs to the triggering event
  * from triggering other events. Wrapping the function in this handleEvent function
  * automatically stops the event propagation. ie handleEvent(() => { ... do something ... })
- *
- * @template HandleEventT
- * @param {import('react').EventHandler<HandleEventT>} func The function to run
- * @returns {import('react').EventHandler<HandleEventT>}
+ * @param {import('react').MouseEventHandler<HTMLButtonElement>} func The function to run
+ * @returns {import('react').MouseEventHandler<HTMLButtonElement>}
  */
-export default function handleEvent(func) {
+export function handleEvent(func) {
   return (e) => {
     if (e.preventDefault) {
       e.preventDefault();

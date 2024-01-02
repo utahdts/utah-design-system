@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
@@ -6,27 +5,27 @@ import mediaQueriesCSS from '../../css/media-queries.css?raw';
 // eslint-disable-next-line import/no-unresolved
 import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
 
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import events from '../enumerations/events';
-import checkForError from '../misc/checkForError';
-import notNull from '../misc/notNull';
-import renderDOMSingle from '../misc/renderDOMSingle';
-import renderMobileActionItems from '../renderables/actionItems/renderMobileActionItems';
-import renderFooter from '../renderables/footer/renderFooter';
-import HeaderWrapper from '../renderables/headerWrapper/HeaderWrapper';
-import renderMainMenu from '../renderables/mainMenu/renderMainMenu';
-import renderMenuWithTitle from '../renderables/menu/renderMenuWithTitle';
-import addMobileMenuContentItem from '../renderables/mobile/addMobileMenuContentItem';
-import hookupHamburger from '../renderables/mobile/hookupHamburger';
+import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
+import { events } from '../enumerations/events';
+import { checkForError } from '../misc/checkForError';
+import { notNull } from '../misc/notNull';
+import { renderDOMSingle } from '../misc/renderDOMSingle';
+import { renderMobileActionItems } from '../renderables/actionItems/renderMobileActionItems';
+import { renderFooter } from '../renderables/footer/renderFooter';
+import { HeaderWrapper } from '../renderables/headerWrapper/HeaderWrapper';
+import { renderMainMenu } from '../renderables/mainMenu/renderMainMenu';
+import { renderMenuWithTitle } from '../renderables/menu/renderMenuWithTitle';
+import { addMobileMenuContentItem } from '../renderables/mobile/addMobileMenuContentItem';
+import { hookupHamburger } from '../renderables/mobile/hookupHamburger';
 import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderables/mobile/hookupUtahIdInMobileMenu';
-import renderMobileMenuHomeMenu from '../renderables/mobile/renderMobileMenuHomeMenu';
+import { renderMobileMenuHomeMenu } from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
-import renderOfficialWebsite from '../renderables/utahLogo/renderOfficialWebsite';
-import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';
+import { renderOfficialWebsite } from '../renderables/utahLogo/renderOfficialWebsite';
+import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
-import hookupMobileActionItemKeyboarding from './hookupMobileActionItemKeyboarding';
-import SkipLink from '../renderables/skipLink/SkipLink';
+import { hookupMobileActionItemKeyboarding } from './hookupMobileActionItemKeyboarding';
+import { SkipLink } from '../renderables/skipLink/SkipLink';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -46,7 +45,6 @@ function loadCssSettings() {
 /**
  * Based on the current settings, determine in to which DOM element to insert the utah design system header.
  * defaults to document.body (at the top)
- *
  * @returns {HTMLElement}
  */
 function determineTargetElementForHeader() {

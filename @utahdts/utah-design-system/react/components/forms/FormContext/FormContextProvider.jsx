@@ -1,11 +1,9 @@
-// @ts-check
 import React, { useMemo } from 'react';
-import FormContext from './FormContext';
+import { FormContext } from './FormContext';
 
-/** @typedef {import('../../../jsDocTypes').Event} Event */
 /**
  * @template FormContextStateT
- * @typedef {import('../../../jsDocTypes').FormContextValue<FormContextStateT>} FormContextValue
+ * @typedef {import('@utahdts/utah-design-system').FormContextValue<FormContextStateT>} FormContextValue
  */
 /**
  * @template FormContextStateT
@@ -25,20 +23,19 @@ import FormContext from './FormContext';
  *  - developer passing value/onChange to the input
  *  - developer passing state/setState to the form
  *  - form using its own internal state/setState passed
- *
  * @template FormContextStateT
- * @param {Object} props
- * @param {React.ReactNode} props.children
- * @param {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} props.onChange children inputs should always give a new value
- * @param {(e?: Event) => void} [props.onSubmit] called when the form is somehow submitted by a child element
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
+ * @param {import('react').ChangeEventHandler<HTMLElement>} [props.onSubmit] called when the form is somehow submitted by a child element
  * @param {FormContextValueUpdater<FormContextStateT>} props.setState setter for setting the `state`
  * @param {FormContextStateT} props.state known by the caller; every field in it with its type
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function FormContextProvider({
+export function FormContextProvider({
   children,
   onChange,
-  onSubmit,
+  onSubmit = () => { }, // onSubmit is going to be removed anyways...
   setState,
   state,
 }) {
@@ -51,6 +48,7 @@ export default function FormContextProvider({
   */
 
   /** @type {FormContextValue<FormContextStateT>} */
+  // @ts-ignore
   const contextValue = useMemo(
     () => ({
       onChange,

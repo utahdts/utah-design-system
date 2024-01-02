@@ -1,25 +1,22 @@
-// @ts-check
 import React, { useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import joinClassNames from '../../util/joinClassNames';
-import setValueAtPath from '../../util/state/setValueAtPath';
-import uuidv4 from '../../util/uuidv4';
-import FormContextProvider from './FormContext/FormContextProvider';
-
-/** @typedef {import('../../jsDocTypes').Event} Event */
+import { v4 as uuidv4 } from 'uuid';
+import { joinClassNames } from '../../util/joinClassNames';
+import { setValueAtPath } from '../../util/state/setValueAtPath';
+import { FormContextProvider } from './FormContext/FormContextProvider';
 
 /**
  * @template FormContextStateT
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @param {({e, fieldPath, value}: {e?: Event, fieldPath: string, value: any}) => void} [props.onChange]
- * @param {(e?: Event) => void} [props.onSubmit]
+ * @param {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
+ * @param {(e?: React.ChangeEvent) => void} [props.onSubmit]
  * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
  * @param {FormContextStateT} [props.state]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function Form({
+export function Form({
   children,
   className,
   onChange,
@@ -43,10 +40,19 @@ export default function Form({
 
   const onChangeUse = useMemo(
     () => (
-      onChange
-      ?? (({ fieldPath, value }) => stateUse[1]((draftState) => {
-        setValueAtPath({ object: draftState, path: fieldPath, value });
-      }))
+      onChange ?? (
+        /**
+         * @param {object} param
+         * @param {string} param.fieldPath
+         * @param {any} param.value
+         */
+        ({ fieldPath, value }) => {
+          stateUse[1]((draftState) => {
+            // @ts-ignore
+            setValueAtPath({ object: draftState, path: fieldPath, value });
+          });
+        }
+      )
     ),
     [onChange, stateUse]
   );

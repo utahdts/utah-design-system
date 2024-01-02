@@ -1,4 +1,3 @@
-// @ts-check
 import { useRef } from 'react';
 
 /**
@@ -8,7 +7,7 @@ import { useRef } from 'react';
  * @param {FieldT} field
  * @param {string} fieldName
  */
-export default function useDebugDidIChange(field, fieldName) {
+export function useDebugDidIChange(field, fieldName) {
   const fieldRef = useRef(field);
   if (fieldRef.current !== field) {
     // eslint-disable-next-line no-console

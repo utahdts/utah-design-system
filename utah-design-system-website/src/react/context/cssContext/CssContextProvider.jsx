@@ -1,16 +1,18 @@
-import PropTypes from 'prop-types';
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import { colorsFromUrlParams } from '../../components/color/colorPickerUrlParams';
-import CSS_STATE_KEYS from '../../enums/cssStateKeys';
-import CSS_VARIABLES_KEYS from '../../enums/cssVariablesKeys';
-import localStorageKeys from '../../enums/localStorageKeys';
-import readableColor from '../../util/color/readableColor';
-import useAppContext from '../AppContext/useAppContext';
-import CssContext from './CssContext';
-import cssContextDefaultColors from './cssContextDefaultColors';
+import { CSS_STATE_KEYS } from '../../enums/cssStateKeys';
+import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
+import { localStorageKeys } from '../../enums/localStorageKeys';
+import { readableColor } from '../../util/color/readableColor';
+import { useAppContext } from '../AppContext/useAppContext';
+import { CssContext } from './CssContext';
+import { cssContextDefaultColors } from './cssContextDefaultColors';
+
+/** @typedef {import('utah-design-system-website').CssContextState} CssContextState */
+/** @typedef {import('utah-design-system-website').CssContextValue} CssContextValue */
 
 const fallbackGrayColors = [
   // '#ffffff',
@@ -48,10 +50,12 @@ const fallbackGrayColors = [
   // '#000000',
 ];
 
-const propTypes = { children: PropTypes.node.isRequired };
-const defaultProps = {};
-
-function CssContextProvider({ children }) {
+/**
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
+ * @returns {import('react').JSX.Element}
+ */
+export function CssContextProvider({ children }) {
   const colorsInUrl = colorsFromUrlParams(window.location.search);
   const { setAppState } = useAppContext();
 
@@ -63,36 +67,46 @@ function CssContextProvider({ children }) {
       // switch back to the colors in the url because they are still there causing the
       // user to have lost their color selection.
       if (currentQueryParameters.get('colors')) {
+        // @ts-ignore
         // eslint-disable-next-line no-unused-vars
         const { colors, ...paramsMinusColors } = currentQueryParameters;
         setSearchParams(paramsMinusColors);
         setAppState((draftAppState) => { draftAppState.isColorPickerShown = true; });
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentQueryParameters, setSearchParams]
   );
 
   const [cssState, setCssState] = useImmer(() => {
     const colorsInStorageString = localStorage.getItem(localStorageKeys.COLOR_PICKER_COLORS);
-    const colorsInStorage = colorsInStorageString ? JSON.parse(colorsInStorageString) : cssContextDefaultColors;
+    const colorsInStorage = /** @type {Record<CSS_VARIABLES_KEYS, string>} */ (
+      colorsInStorageString ? JSON.parse(colorsInStorageString) : cssContextDefaultColors
+    );
 
+    /** @type {CssContextState} */
+    // @ts-ignore
     const defaultState = {
       selectedColorPicker: CSS_VARIABLES_KEYS.PRIMARY_COLOR,
+      ...cssContextDefaultColors,
     };
 
     // storage trumps defaults
     Object.entries(colorsInStorage || {})
       .filter(([, colorValue]) => !!colorValue)
+      // @ts-ignore
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
     // url trumps storage & default
     Object.entries(colorsInUrl || {})
       .filter(([, colorValue]) => !!colorValue)
+      // @ts-ignore
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
     return defaultState;
   });
 
+  /** @type {CssContextValue} */
   const cssStateValue = useMemo(
     () => {
       const newColors = {
@@ -131,7 +145,3 @@ function CssContextProvider({ children }) {
     </CssContext.Provider>
   );
 }
-CssContextProvider.propTypes = propTypes;
-CssContextProvider.defaultProps = defaultProps;
-
-export default CssContextProvider;

@@ -1,14 +1,14 @@
-// @ts-check
-import React from 'react';
+import { createContext } from 'react';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContext} ComboBoxContext */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContext} ComboBoxContext */
 
-export const ComboBoxContext = /** @type {typeof React.createContext<ComboBoxContext>} */ (React.createContext)([
+export const ComboBoxContext = /** @type {typeof createContext<ComboBoxContext>} */ (createContext)([
   {
     filterValue: '',
     optionValueFocused: null,
     isFilterValueDirty: false,
     isOptionsExpanded: false,
+    isValueClearedOnSelection: false,
     onChange: () => { },
     options: [],
     optionsFiltered: [],

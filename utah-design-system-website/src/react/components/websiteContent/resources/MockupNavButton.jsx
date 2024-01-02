@@ -1,17 +1,12 @@
 import { Icons } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
-const propTypes = {
-  pageLinks: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-  })).isRequired,
-};
-const defaultProps = {};
-
-function MockupNavButton({ pageLinks }) {
+/**
+ * @param {object} props
+ * @param {{title: string, url: string}[]} props.pageLinks
+ * @returns {import('react').JSX.Element}
+ */
+export function MockupNavButton({ pageLinks }) {
   return (
     <div className="flex flex-wrap gap justify-center mb-spacing">
       {
@@ -22,15 +17,10 @@ function MockupNavButton({ pageLinks }) {
             to={pageLink.url}
           >
             View {pageLink.title} Page
-            <span className="button--icon button--icon-right">{Icons.IconArrowRight()}</span>
+            <span className="button--icon button--icon-right"><Icons.IconArrowRight /></span>
           </Link>
         ))
       }
     </div>
   );
 }
-
-MockupNavButton.propTypes = propTypes;
-MockupNavButton.defaultProps = defaultProps;
-
-export default MockupNavButton;

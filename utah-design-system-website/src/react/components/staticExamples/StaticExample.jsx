@@ -1,21 +1,15 @@
 import { joinClassNames, stringToId } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 
-const propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  quickTips: PropTypes.node,
-  renderedExample: PropTypes.node.isRequired,
-  title: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  id: null,
-  quickTips: null,
-  title: null,
-};
-
-function StaticExample({
+/**
+ * @param {object} props
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {import('react').ReactNode} [props.quickTips]
+ * @param {import('react').ReactNode} props.renderedExample
+ * @param {string} [props.title]
+ * @returns {import('react').JSX.Element}
+ */
+export function StaticExample({
   className,
   id,
   quickTips,
@@ -40,8 +34,3 @@ function StaticExample({
     </div>
   );
 }
-
-StaticExample.propTypes = propTypes;
-StaticExample.defaultProps = defaultProps;
-
-export default StaticExample;

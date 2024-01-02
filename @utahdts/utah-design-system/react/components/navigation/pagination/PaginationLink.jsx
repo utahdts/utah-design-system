@@ -1,25 +1,16 @@
-import PropTypes from 'prop-types';
-import joinClassNames from '../../../util/joinClassNames';
+import { joinClassNames } from '../../../util/joinClassNames';
 
-const propTypes = {
-  // className to put on this element
-  className: PropTypes.string,
-  // the currently selected page
-  currentPageIndex: PropTypes.number.isRequired,
-  // the actual value shown on the page
-  label: PropTypes.string.isRequired,
-  // total number of pages
-  numberOfPages: PropTypes.number.isRequired,
-  // controlled component: page # changed
-  onChange: PropTypes.func.isRequired,
-  // index of this page out of all the pages (3 means it's the 4th page, 0 means first page)
-  pageIndex: PropTypes.number.isRequired,
-};
-const defaultProps = {
-  className: null,
-};
-
-function PaginationLink({
+/**
+ * @param {object} props
+ * @param {string} [props.className] className to put on this element
+ * @param {number} props.currentPageIndex the currently selected page
+ * @param {string} props.label the actual value shown on the page
+ * @param {number} props.numberOfPages total number of pages
+ * @param {(newPageIndex: number) => void} props.onChange controlled component: page # changed
+ * @param {number} props.pageIndex index of this page out of all the pages (3 means it's the 4th page, 0 means first page)
+ * @returns {import('react').JSX.Element}
+ */
+export function PaginationLink({
   className,
   currentPageIndex,
   onChange,
@@ -48,8 +39,3 @@ function PaginationLink({
     </li>
   );
 }
-
-PaginationLink.propTypes = propTypes;
-PaginationLink.defaultProps = defaultProps;
-
-export default PaginationLink;

@@ -1,11 +1,9 @@
-// @ts-check
-
 /** @typedef {import('src/@types/jsDocTypes.d').Events} Events */
 
 /**
  * @enum {Events}
  */
-export default {
+export const events = {
   // Fired when the utah header is first loaded (setUtahHeaderSettings does not trigger this)
   HEADER_LOADED: /** @type {Events} */ ('utahHeaderLoaded'),
 

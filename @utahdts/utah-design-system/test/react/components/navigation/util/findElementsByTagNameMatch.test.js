@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import findElementsByTagNameMatch from '../../../../../react/components/navigation/util/findElementsByTagNameMatch';
+import { findElementsByTagNameMatch } from '../../../../../react/components/navigation/util/findElementsByTagNameMatch';
 
 const h2a = { id: 'h2a', tagName: 'h2' };
 const h2b = { id: 'h2b', tagName: 'h2' };

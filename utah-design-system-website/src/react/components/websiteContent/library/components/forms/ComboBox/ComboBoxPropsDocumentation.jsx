@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Table,
   TableBody,
@@ -9,10 +8,8 @@ import {
   TableRow,
   TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
-export default function ComboBoxPropsDocumentation() {
+export function ComboBoxPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>

@@ -1,15 +1,13 @@
-// @ts-check
-import React from 'react';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
-/** @typedef {import('../../../../../../../typedefs.d').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: ComboBoxExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function ComboBoxExampleCodeReact({
+export function ComboBoxExampleCodeReact({
   state: {
     props: {
       className,
@@ -39,11 +37,11 @@ export default function ComboBoxExampleCodeReact({
       <ExampleCodeReactProp displayProp={`value="${value}"`} indentLevel={1} />
       &gt;
       <br />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Arches National Park" value="arches" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Bryce Canyon National Park" value="bryce" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Canyonlands National Park" value="canyonlands" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Capitol Reef National Park" value="capitol-reef" />'} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<SelectOption label="Zion National Park" value="zion" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<ComboBoxOption label="Arches National Park" value="arches" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<ComboBoxOption label="Bryce Canyon National Park" value="bryce" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<ComboBoxOption label="Canyonlands National Park" value="canyonlands" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<ComboBoxOption label="Capitol Reef National Park" value="capitol-reef" />'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={'<ComboBoxOption label="Zion National Park" value="zion" />'} indentLevel={1} />
       &lt;/ComboBox&gt;
     </>
   );

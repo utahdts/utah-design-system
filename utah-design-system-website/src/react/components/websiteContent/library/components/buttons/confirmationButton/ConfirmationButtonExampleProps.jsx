@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -7,21 +6,20 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: ConfirmationButtonExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {ConfirmationButtonExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {import('react').JSX.Element}
  */
 export function ConfirmationButtonExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

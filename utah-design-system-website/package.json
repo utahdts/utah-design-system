@@ -1,22 +1,28 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "1.12.1",
+  "version": "1.13.0",
   "type": "module",
   "scripts": {
     "dev": "vite --mode development-local",
     "build": "vite build --mode production-website",
+    "buildw": "vite build --watch --mode production-website",
+    "eslint": "npx eslint",
+    "eslintw": "npx eslint-watch -w",
     "preview": "vite preview",
     "publishLibrary": "npm publish --access public",
     "test": "vitest",
+    "testw": "vitest",
     "testc": "vitest run --coverage",
+    "tsc": "tsc",
+    "tscw": "tsc --watch --skipLibCheck",
     "watch": "vite watch",
     "testOnce": "vitest run"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
-    "@utahdts/utah-design-system": "1.12.1",
-    "@utahdts/utah-design-system-header": "1.12.1",
+    "@utahdts/utah-design-system": "1.13.0",
+    "@utahdts/utah-design-system-header": "1.13.0",
     "js-beautify": "1.14.11",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
@@ -31,11 +37,16 @@
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.17",
     "@vitejs/plugin-react": "4.2.1",
+    "@types/tinycolor2": "1.4.6",
     "jsdom": "23.0.1",
     "sass": "1.69.5",
     "vite": "5.0.8",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-mkcert": "1.17.1",
     "vitest": "1.0.4"
-  }
+  },
+  "eslint.workingDirectories": [
+    "./src",
+    "./test"
+  ]
 }

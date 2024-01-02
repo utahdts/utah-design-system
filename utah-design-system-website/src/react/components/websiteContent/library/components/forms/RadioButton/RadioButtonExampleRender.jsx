@@ -1,15 +1,13 @@
-// @ts-check
 import { RadioButton, RadioButtonGroup } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: RadioButtonExamplePropsShape}>} props.setState
  * @param {{props: RadioButtonExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
 export function RadioButtonExampleRender({
   setState,

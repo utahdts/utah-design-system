@@ -1,21 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
 
-const propTypes = {
-  className: PropTypes.string,
-};
-const defaultProps = {
-  className: undefined,
-};
-
-function LinkIcon({ className }) {
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @returns {import('react').JSX.Element}
+ */
+export function LinkIcon({ className }) {
   return (
     <span className={joinClassNames(['utds-icon-before-chevron-right', className])} aria-hidden="true" />
   );
 }
-
-LinkIcon.propTypes = propTypes;
-LinkIcon.defaultProps = defaultProps;
-
-export default LinkIcon;

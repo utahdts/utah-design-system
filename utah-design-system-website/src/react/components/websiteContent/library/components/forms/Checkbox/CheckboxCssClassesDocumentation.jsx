@@ -1,5 +1,3 @@
-// @ts-check
-import React from 'react';
 import {
   Table,
   TableBody,
@@ -11,7 +9,6 @@ import {
   TableWrapper,
 } from '@utahdts/utah-design-system';
 
-/** @returns {JSX.Element} */
 export function CheckboxCssClassesDocumentation() {
   return (
     <TableWrapper>

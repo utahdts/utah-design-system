@@ -1,19 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import timeInputDefault from '../../../../../../../static/images/screenshots/components/time-input/timeInputDefault.jpg';
 import timeInputSelect from '../../../../../../../static/images/screenshots/components/time-input/timeInputSelect.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
 
-const propTypes = {};
-const defaultProps = {};
-
-function TimeInputDocumentation() {
+export function TimeInputDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Time Input</h1>
@@ -174,8 +167,3 @@ function TimeInputDocumentation() {
     </div>
   );
 }
-
-TimeInputDocumentation.propTypes = propTypes;
-TimeInputDocumentation.defaultProps = defaultProps;
-
-export default TimeInputDocumentation;

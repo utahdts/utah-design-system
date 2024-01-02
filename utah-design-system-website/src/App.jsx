@@ -1,37 +1,33 @@
-// @ts-check
 import {
   FormContextProvider,
   joinClassNames,
   useUtahHeaderContext
+  // @ts-ignore
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
-import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import './css/index.scss';
-import ColorPopup from './react/components/color/ColorPopup';
-import DemoAppStyle from './react/components/demo/DemoAppStyle';
-import DesignSystemFooterMainContent from './react/components/header/DesignSystemFooterMainContent';
-import DesignSystemFooterSocialMedia from './react/components/header/DesignSystemFooterSocialMedia';
-import Routing from './react/components/routing/Routing';
-import useAppContext from './react/context/AppContext/useAppContext';
-import useCssContext from './react/context/cssContext/useCssContext';
-import CSS_CLASS_NAMES from './react/enums/cssClassNames';
-import CSS_STATE_KEYS from './react/enums/cssStateKeys';
+import { ColorPopup } from './react/components/color/ColorPopup';
+import { DemoAppStyle } from './react/components/demo/DemoAppStyle';
+import { DesignSystemFooterMainContent } from './react/components/header/DesignSystemFooterMainContent';
+import { DesignSystemFooterSocialMedia } from './react/components/header/DesignSystemFooterSocialMedia';
+import { Routing } from './react/components/routing/Routing';
+import { useAppContext } from './react/context/AppContext/useAppContext';
+import { useCssContext } from './react/context/cssContext/useCssContext';
+import { CSS_CLASS_NAMES } from './react/enums/cssClassNames';
+import { CSS_STATE_KEYS } from './react/enums/cssStateKeys';
 
-/** @typedef {import('../../@utahdts/utah-design-system/react/jsDocTypes').FormContextState} FormContextState */
-
-const propTypes = {};
-const defaultProps = {};
+/** @typedef {import('@utahdts/utah-design-system-types').FormContextValue<Record<string, any>>} FormContextValue */
 
 /**
- * @returns {JSX.Element} the App!
+ * @returns {import('react').JSX.Element} the App!
  */
-function App() {
+export function App() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
   const { cssState } = useCssContext();
-  const [state, setState] = /** @type {typeof useImmer<FormContextState>} */ (useImmer)({});
+  const [state, setState] = useImmer({});
   const { settings: utahHeaderSettings, setSettings: setUtahHeaderSettings } = useUtahHeaderContext();
   const isActionItemsAddedRef = useRef(false);
 
@@ -59,6 +55,7 @@ function App() {
         });
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [utahHeaderSettings]
   );
 
@@ -69,8 +66,11 @@ function App() {
         className={
           joinClassNames([
             'utah-design-system',
+            // @ts-ignore
             cssState?.[CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.PRIMARY_COLOR_IS_LIGHT : '',
+            // @ts-ignore
             cssState?.[CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.SECONDARY_COLOR_IS_LIGHT : '',
+            // @ts-ignore
             cssState?.[CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.ACCENT_COLOR_IS_LIGHT : '',
           ])
         }
@@ -91,8 +91,3 @@ function App() {
     </FormContextProvider>
   );
 }
-
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
-
-export default App;

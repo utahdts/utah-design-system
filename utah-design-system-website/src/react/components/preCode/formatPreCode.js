@@ -1,6 +1,10 @@
-import identity from 'lodash/identity';
+import { identity } from 'lodash';
 
-export default function formatPreCode(codeRaw) {
+/**
+ * @param {string} codeRaw
+ * @returns {string}
+ */
+export function formatPreCode(codeRaw) {
   // pull out first and last \n so there are not empty lines
   const withOutLinePadding = (codeRaw || '').replace(/(^\n)|(\n\s*$)/g, '');
 
@@ -8,11 +12,11 @@ export default function formatPreCode(codeRaw) {
   const lines = withOutLinePadding.split(/\n/);
 
   // get the starting blank spaces for each line; want to remove indentation
-  const linePaddings = lines.filter(identity).map((line) => line.match(/(^\s*)/)[0]);
+  const linePaddings = lines.filter(identity).map((line) => line.match(/(^\s*)/)?.[0]);
 
   // what was the smallest padding found?
   const smallestPadding = linePaddings.reduce(
-    (shortestLength, paddedLine) => Math.min(shortestLength, paddedLine.length),
+    (shortestLength, paddedLine) => Math.min(shortestLength, paddedLine?.length || 0),
     Infinity
   );
   const paddingRemovalSize = Number.isFinite(smallestPadding) ? smallestPadding : 0;

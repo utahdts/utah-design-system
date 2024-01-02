@@ -1,16 +1,14 @@
-// @ts-check
-import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLTableRowElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {import('react').MouseEventHandler<HTMLTableRowElement>} [props.onClick]
  * @param {import('react').MouseEventHandler<HTMLTableRowElement>} [props.onDoubleClick]
- * @returns {JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function TableRow({
   children,

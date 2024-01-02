@@ -14,15 +14,11 @@ import {
   TabPanel,
   TabPanels
 } from '@utahdts/utah-design-system';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import badgesMockup from '../../../../../../../static/images/mockups/Badges.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function BadgesDocumentation() {
+export function BadgesDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Badges</h1>
@@ -174,8 +170,3 @@ function BadgesDocumentation() {
     </div>
   );
 }
-
-BadgesDocumentation.propTypes = propTypes;
-BadgesDocumentation.defaultProps = defaultProps;
-
-export default BadgesDocumentation;

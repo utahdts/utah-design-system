@@ -1,19 +1,11 @@
-// @ts-check
-import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
-/** @typedef {import('../../../jsDocTypes').AriaLiveType} AriaLiveType */
-
-const propTypes = {
-  ariaLiveType: PropTypes.oneOf(['assertive', 'polite']).isRequired,
-  messages: PropTypes.arrayOf(PropTypes.node).isRequired,
-};
-const defaultProps = {};
+/** @typedef {import('@utahdts/utah-design-system').AriaLiveType} AriaLiveType */
 
 /**
  * @typedef MessageObject {
  *  @property {string} id
- *  @property {string} message
+ *  @property {import('react').ReactNode} message
  * }
  */
 
@@ -28,12 +20,12 @@ function setupDefaultLists(numberOfLists) {
 const NUMBER_REGIONS = 100;
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {AriaLiveType} props.ariaLiveType
- * @param {string[]} props.messages
- * @returns {JSX.Element}
+ * @param {import('react').ReactNode[]} props.messages
+ * @returns {import('react').JSX.Element}
  */
-function AriaLiveMessages({ ariaLiveType, messages }) {
+export function AriaLiveMessages({ ariaLiveType, messages }) {
   const messagesLists = useMemo(
     () => (
       // divide out messages in to equally chunked lists
@@ -43,7 +35,7 @@ function AriaLiveMessages({ ariaLiveType, messages }) {
       messages.reduce(
         (lists, message, i) => {
           // give messages an ID for their react key
-          lists[i % NUMBER_REGIONS].push({ id: `${i}-${message}`, message });
+          lists[i % NUMBER_REGIONS]?.push({ id: `${i}-${message}`, message });
           return lists;
         },
         setupDefaultLists(NUMBER_REGIONS)
@@ -77,8 +69,3 @@ function AriaLiveMessages({ ariaLiveType, messages }) {
     </div>
   );
 }
-
-AriaLiveMessages.propTypes = propTypes;
-AriaLiveMessages.defaultProps = defaultProps;
-
-export default AriaLiveMessages;

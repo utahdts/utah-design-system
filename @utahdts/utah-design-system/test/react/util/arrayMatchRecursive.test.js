@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import arrayMatchRecursive from '../../../react/util/arrayMatchRecursive';
+import { arrayMatchRecursive } from '../../../react/util/arrayMatchRecursive';
 
 test('arrayMatchRecursive', () => {
   const arrayField = 'children';

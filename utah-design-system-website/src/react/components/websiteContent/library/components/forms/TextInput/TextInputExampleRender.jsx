@@ -1,18 +1,16 @@
-// @ts-check
 import { TextInput } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').TextInputExamplePropsShape} TextInputExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TextInputExamplePropsShape} TextInputExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {React.RefObject} props.innerRef
+ * @param {object} props
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: TextInputExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {TextInputExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function TextInputExampleRender({
+export function TextInputExampleRender({
   innerRef,
   setState,
   state: {

@@ -1,14 +1,12 @@
-// @ts-check
-import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
- * @param {React.ReactNode} [props.children]
+ * @param {object} props
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
- * @returns {JSX.Element}
+ * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @returns {import('react').JSX.Element}
  */
 export function TableFilterNone({
   children,

@@ -1,15 +1,12 @@
-import PropTypes from 'prop-types';
-import SandboxIndent from './SandboxIndent';
+import { SandboxIndent } from './SandboxIndent';
 
-const propTypes = {
-  displayProp: PropTypes.string,
-  indentLevel: PropTypes.number.isRequired,
-};
-const defaultProps = {
-  displayProp: null,
-};
-
-function ExampleCodeReactProp({ displayProp, indentLevel }) {
+/**
+ * @param {object} props
+ * @param {string | null} [props.displayProp]
+ * @param {number} props.indentLevel
+ * @returns {import('react').JSX.Element | null}
+ */
+export function ExampleCodeReactProp({ displayProp, indentLevel }) {
   return (
     displayProp
       ? (
@@ -24,8 +21,3 @@ function ExampleCodeReactProp({ displayProp, indentLevel }) {
       : null
   );
 }
-
-ExampleCodeReactProp.propTypes = propTypes;
-ExampleCodeReactProp.defaultProps = defaultProps;
-
-export default ExampleCodeReactProp;

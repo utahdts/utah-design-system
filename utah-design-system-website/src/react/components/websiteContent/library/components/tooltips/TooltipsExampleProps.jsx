@@ -1,4 +1,3 @@
-// @ts-check
 import {
   ExternalLink,
   Form,
@@ -8,19 +7,17 @@ import {
   TextInput,
   popupPlacement
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../typedefs.d').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 /** @typedef {import('use-immer').Updater<TooltipsExamplePropsShape>} UpdaterTooltipsExampleProps */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {any} props.setState
- * @param {Object} props.state
- * @param {TooltipsExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {import('react').JSX.Element}
  */
-export default function TooltipsExampleProps({ setState, state }) {
+export function TooltipsExampleProps({ setState, state }) {
   return (
     <Form
       state={state}

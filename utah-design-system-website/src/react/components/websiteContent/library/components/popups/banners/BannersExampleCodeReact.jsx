@@ -1,10 +1,15 @@
-// @ts-check
-import React from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
-export default function BannersExampleCodeReact({
+/** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
+
+/**
+ * @param {object} props
+ * @param {{props: BannerExamplePropsShape}} props.state
+ * @returns {import('react').JSX.Element}
+ */
+export function BannersExampleCodeReact({
   state: {
     props: {
       className,
@@ -48,7 +53,7 @@ export default function BannersExampleCodeReact({
       <SandboxIndent indentLevel={1} />
       &lt;/BannerMessage&gt;
       <br />
-      &lt;/Button&gt;
+      &lt;/Banner&gt;
     </>
   );
 }

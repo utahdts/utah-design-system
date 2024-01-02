@@ -1,18 +1,16 @@
-// @ts-check
 import { TextArea } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TextAreaExamplePropsShape} TextAreaExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {React.RefObject} props.innerRef
+ * @param {object} props
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: TextAreaExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props.state
  * @param {TextAreaExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function TextAreaExampleRender({
+export function TextAreaExampleRender({
   setState,
   state: {
     props: {
@@ -39,9 +37,14 @@ export default function TextAreaExampleRender({
         innerRef={innerRef}
         isClearable={isClearable}
         isDisabled={isDisabled}
-        onChange={(e) => setState((draftState) => {
-          draftState.props.value = e.target.value;
-        })}
+        onChange={
+          /** @param {import('react').BaseSyntheticEvent} e */
+          (e) => {
+            setState((draftState) => {
+              draftState.props.value = e.target.value;
+            });
+          }
+        }
         onClear={
           isClearable
             ? (

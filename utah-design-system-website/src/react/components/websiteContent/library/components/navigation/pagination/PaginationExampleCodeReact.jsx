@@ -1,13 +1,19 @@
-// @ts-check
-import React from 'react';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
-export default function PaginationExampleCodeReact({
+/** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
+
+/**
+ * @param {object} props
+ * @param {object} props.state
+ * @param {PaginationExamplePropsShape} props.state.props
+ * @returns {import('react').JSX.Element}
+ */
+export function PaginationExampleCodeReact({
   state: {
     props: {
       className,
       id,
-      pageSize,
+      itemsPerPage,
       totalNumberItems,
       value,
       wrapInElement,
@@ -20,7 +26,7 @@ export default function PaginationExampleCodeReact({
       <br />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`pageSize="${pageSize}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`itemsPerPage="${itemsPerPage}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`totalNumberItems="${totalNumberItems}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`value="${value}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`wrapInElement="${wrapInElement}"`} indentLevel={1} />

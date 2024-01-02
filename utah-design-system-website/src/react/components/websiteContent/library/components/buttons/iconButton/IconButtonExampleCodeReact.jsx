@@ -1,16 +1,14 @@
-// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import React from 'react';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
-/** @typedef {import('../../../../../../propTypesShapes/IconButtonExamplePropsShape').IconButtonExampleProps} IconButtonExampleProps */
+/** @typedef {import('utah-design-system-website').IconButtonExampleProps} IconButtonExampleProps */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: IconButtonExampleProps}} props.state
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function IconButtonExampleCode({
+export function IconButtonExampleCodeReact({
   state: {
     props: {
       appearance,

@@ -1,16 +1,14 @@
-// @ts-check
-import React from 'react';
-import ExampleCodeReactCode from '../../../../../sandbox/ExampleCodeReactCode';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactCode } from '../../../../../sandbox/ExampleCodeReactCode';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
-/** @typedef {import('../../../../../../../typedefs.d').PopupsExamplePropsShape} PopupsExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: PopupsExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function PopupsExampleCode({
+export function PopupsExampleCodeReact({
   state: {
     props: {
       hasCloseButton,

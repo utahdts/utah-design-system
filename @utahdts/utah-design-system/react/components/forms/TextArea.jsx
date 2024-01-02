@@ -1,21 +1,18 @@
-// @ts-check
-import React, { useCallback, useRef } from 'react';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import useRememberCursorPosition from '../../hooks/useRememberCursorPosition';
-import joinClassNames from '../../util/joinClassNames';
-import IconButton from '../buttons/IconButton';
-import ErrorMessage from './ErrorMessage';
-import useFormContextInput from './FormContext/useFormContextInput';
-import RequiredStar from './RequiredStar';
-
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
+import { useCallback, useRef } from 'react';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition';
+import { joinClassNames } from '../../util/joinClassNames';
+import { IconButton } from '../buttons/IconButton';
+import { ErrorMessage } from './ErrorMessage';
+import { useFormContextInput } from './FormContext/useFormContextInput';
+import { RequiredStar } from './RequiredStar';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
@@ -23,15 +20,15 @@ import RequiredStar from './RequiredStar';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {EventAction} [props.onChange]
- * @param {EventAction} [props.onClear]
+ * @param {import('react').ChangeEventHandler} [props.onChange]
+ * @param {import('react').UIEventHandler} [props.onClear]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
-export default function TextArea({
+export function TextArea({
   className,
   defaultValue,
   errorMessage,
@@ -72,21 +69,30 @@ export default function TextArea({
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
-  const clearInput = useCallback((e) => {
-    currentOnClear?.(e);
-    addAssertiveMessage(`${label} input was cleared`);
-    inputRef.current?.focus();
-  }, [addAssertiveMessage, currentOnClear, label]);
+  const clearInput = useCallback(
+    /** @param {import('react').UIEvent} e */
+    (e) => {
+      currentOnClear?.(e);
+      addAssertiveMessage(`${label} input was cleared`);
+      inputRef.current?.focus();
+    },
+    [addAssertiveMessage, currentOnClear, label]
+  );
 
-  const checkKeyPressed = useCallback((e) => {
-    if (e.key === 'Escape' && showClearIcon) {
-      clearInput(e);
-    } else {
-      currentOnFormKeyUp(e);
-    }
-  }, [clearInput, currentOnFormKeyUp, showClearIcon]);
+  const checkKeyPressed = useCallback(
+    /** @param {import('react').KeyboardEvent} e */
+    (e) => {
+      if (e.key === 'Escape' && showClearIcon) {
+        clearInput(e);
+      } else {
+        currentOnFormKeyUp(e);
+      }
+    },
+    [clearInput, currentOnFormKeyUp, showClearIcon]
+  );
 
   const onChangeCallback = useCallback(
+    /** @param {import('react').ChangeEvent<HTMLElement>} e */
     (e) => {
       onChangeSetCursorPosition(e);
       currentOnChange?.(e);

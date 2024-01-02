@@ -1,24 +1,19 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   CharacterCount,
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import CharacterCountCssClassesDocumentation from './CharacterCountCssClassesDocumentation';
-import CharacterCountExampleCodeReact from './CharacterCountExampleCodeReact';
-import CharacterCountExampleProps from './CharacterCountExampleProps';
-import CharacterCountExampleRender from './CharacterCountExampleRender';
-import CharacterCountPropsDocumentation from './CharacterCountPropsDocumentation';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { CharacterCountCssClassesDocumentation } from './CharacterCountCssClassesDocumentation';
+import { CharacterCountExampleCodeReact } from './CharacterCountExampleCodeReact';
+import { CharacterCountExampleProps } from './CharacterCountExampleProps';
+import { CharacterCountExampleRender } from './CharacterCountExampleRender';
+import { CharacterCountPropsDocumentation } from './CharacterCountPropsDocumentation';
 
-const propTypes = {};
-const defaultProps = {};
-
-function CharacterCountDocumentation() {
+export function CharacterCountDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Character Count</h1>
@@ -135,8 +130,3 @@ function CharacterCountDocumentation() {
     </div>
   );
 }
-
-CharacterCountDocumentation.propTypes = propTypes;
-CharacterCountDocumentation.defaultProps = defaultProps;
-
-export default CharacterCountDocumentation;

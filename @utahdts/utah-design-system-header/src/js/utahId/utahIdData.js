@@ -1,7 +1,6 @@
-// @ts-check
-import utahIdUrls from '../enumerations/utahIdUrls';
+import { utahIdUrls } from '../enumerations/utahIdUrls';
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
-import getUtahHeaderSettings from '../settings/getUtahHeaderSettings';
+import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 /**
  * @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData
  * @typedef {import('src/@types/jsDocTypes.d').UtahIdFetchStyle} UtahIdFetchStyle
@@ -49,7 +48,6 @@ const utahIdData = {
 
 /**
  * when auth status changes, call this to notify the world including the Sign In button
- *
  * @param {UtahIdData} newUtahIdData the current information to store
  */
 function maybeTriggerAuthEvent(newUtahIdData) {
