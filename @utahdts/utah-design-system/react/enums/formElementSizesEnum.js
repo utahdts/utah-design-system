@@ -1,7 +1,6 @@
-// @ts-check
-/** @typedef {import('../jsDocTypes').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 /** @enum {FormElementSizes} */
-export default {
+export const formElementSizesEnum = {
   SMALL3X: /** @type {FormElementSizes} */ ('small3x'),
   SMALL2X: /** @type {FormElementSizes} */ ('small2x'),
   SMALL1X: /** @type {FormElementSizes} */ ('small1x'),

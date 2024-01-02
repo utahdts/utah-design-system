@@ -1,5 +1,4 @@
-// @ts-check
-import trim from 'lodash/trim';
+import { trim } from 'lodash';
 import React, {
   useCallback,
   useEffect,
@@ -11,10 +10,10 @@ import useFormContext from '../../FormContext/useFormContext';
 import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxContext } from './ComboBoxContext';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
-/** @typedef { import('../../../../jsDocTypes').ComboBoxOption} ComboBoxOption */
-/** @typedef {import('../../../../jsDocTypes').Event} Event */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxOption} ComboBoxOption */
+/** @typedef { import('../../../../jsDocTypes').Event} Event */
 /** @typedef { import('../../../../jsDocTypes').EventAction} EventAction */
 
 /**
@@ -28,7 +27,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} props.comboBoxId
  * @param {string} [props.defaultValue]
@@ -38,7 +37,7 @@ import { ComboBoxContext } from './ComboBoxContext';
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxContextProvider({
   children,

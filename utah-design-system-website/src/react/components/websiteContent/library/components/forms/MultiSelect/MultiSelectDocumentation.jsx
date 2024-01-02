@@ -1,14 +1,18 @@
-// @ts-check
+/* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
-// @ts-ignore
 import { MultiSelect, MultiSelectOption, MultiSelectOptionGroup } from '@utahdts/utah-design-system';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import MultiSelectExampleCodeReact from './MultiSelectExampleCodeReact';
-import MultiSelectExampleProps from './MultiSelectExampleProps';
-import MultiSelectExampleRender from './MultiSelectExampleRender';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { MultiSelectExampleCodeReact } from './MultiSelectExampleCodeReact';
+import { MultiSelectExampleProps } from './MultiSelectExampleProps';
+import { MultiSelectExampleRender } from './MultiSelectExampleRender';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { LightBox } from '../../../../../lightbox/LightBox';
+// @ts-check
+import multiSelectScreenshot from '../../../../../../../static/images/screenshots/components/multi-select/multiSelectScreenshot.jpg';
 
 export function MultiSelectDocumentation() {
   return (
@@ -18,7 +22,10 @@ export function MultiSelectDocumentation() {
         A multi-select allows you to search and choose multiple options from an option menu. A <Link to={pageUrls.comboBox}>combo box</Link> lets
         you search options to select a single item, while a <Link to={pageUrls.select}>select</Link> lets you pick a single option from a list.
       </p>
-
+      <div className="home-page__color-card home-page__card-wide mb-spacing-l">
+        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Under Development</h3>
+        <p>The Multi-select is currently under development. Things may not look right until this work is completed.</p>
+      </div>
       <hr />
       <h2 id="section-example">Example</h2>
       <SandboxExample

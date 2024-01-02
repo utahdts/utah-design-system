@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable max-len */
 import {
   Icons,
@@ -10,18 +9,17 @@ import {
   TabPanels,
   formElementSizesEnum,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import SwitchCssClassesDocumentation from './SwitchCssClassesDocumentation';
-import SwitchExampleCodeReact from './SwitchExampleCodeReact';
-import SwitchExampleProps from './SwitchExampleProps';
-import SwitchExampleRender from './SwitchExampleRender';
-import SwitchPropsDocumentation from './SwitchPropsDocumentation';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SwitchCssClassesDocumentation } from './SwitchCssClassesDocumentation';
+import { SwitchExampleCodeReact } from './SwitchExampleCodeReact';
+import { SwitchExampleProps } from './SwitchExampleProps';
+import { SwitchExampleRender } from './SwitchExampleRender';
+import { SwitchPropsDocumentation } from './SwitchPropsDocumentation';
 
-export default function SwitchDocumentation() {
+export function SwitchDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Switch</h1>
@@ -116,7 +114,7 @@ export default function SwitchDocumentation() {
             <Switch
               label="With Icon"
               id="switch-icon"
-              sliderChildren={Icons.IconCheck()}
+              sliderChildren={<Icons.IconCheck />}
             />
           </div>
         )}

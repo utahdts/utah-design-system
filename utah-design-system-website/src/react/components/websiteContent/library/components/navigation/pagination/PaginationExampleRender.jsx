@@ -1,17 +1,16 @@
-// @ts-check
 import { Pagination } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').PaginationExamplePropsShape} PaginationExamplePropsShape */
+/** @typedef {import('utah-design-system-website').PaginationExamplePropsShape} PaginationExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: PaginationExamplePropsShape}>} props.setState
  * @param {{props: PaginationExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element | null}
+ * @param {React.RefObject<HTMLElement | null>} props.innerRef
+ * @returns {React.JSX.Element | null}
  */
-export default function PaginationExampleRender({
+export function PaginationExampleRender({
   setState,
   state: {
     props: {

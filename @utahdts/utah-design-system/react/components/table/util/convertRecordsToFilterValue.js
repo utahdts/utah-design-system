@@ -1,20 +1,19 @@
-// @ts-check
-import valueAtPath from '../../../util/state/valueAtPath';
-import toSafeString from '../../../util/toSafeString';
+import { valueAtPath } from '../../../util/state/valueAtPath';
+import { toSafeString } from '../../../util/toSafeString';
 
 /**
- * @typedef {import('../../../jsDocTypes').TableFilterValue} TableFilterValue
- * @typedef {import('../../../jsDocTypes').TableRecord} TableRecord
- * @typedef {import('../../../jsDocTypes').TableRecordForFiltering} TableRecordForFiltering
+ * @typedef {import('@utahdts/utah-design-system').TableFilterValue} TableFilterValue
+ * @typedef {import('@utahdts/utah-design-system').TableRecord} TableRecord
+ * @typedef {import('@utahdts/utah-design-system').TableRecordForFiltering} TableRecordForFiltering
  */
 
 /**
  * convert a table record in to a filtering record that has the record and each filterable field formatted for filtering
  * @param {TableRecord[]} records the data records in a table that are being filtered
- * @param {Object.<string, TableFilterValue>} filterValues The current filter values and settings
+ * @param {Record<string, TableFilterValue>} filterValues The current filter values and settings
  * @returns {TableRecordForFiltering[]}
  */
-export default function convertRecordsToFilterValue(records, filterValues) {
+export function convertRecordsToFilterValue(records, filterValues) {
   return records.map((record) => ({
     record,
     filterFields: (

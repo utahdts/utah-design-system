@@ -1,21 +1,19 @@
-// @ts-check
 import React, { useCallback, useRef } from 'react';
-import useAriaMessaging from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import joinClassNames from '../../util/joinClassNames';
-import IconButton from '../buttons/IconButton';
-import ErrorMessage from './ErrorMessage';
-import useFormContextInput from './FormContext/useFormContextInput';
-import RequiredStar from './RequiredStar';
-import SelectOption from './SelectOption';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { joinClassNames } from '../../util/joinClassNames';
+import { IconButton } from '../buttons/IconButton';
+import { ErrorMessage } from './ErrorMessage';
+import { useFormContextInput } from './FormContext/useFormContextInput';
+import { RequiredStar } from './RequiredStar';
+import { SelectOption } from './SelectOption';
 
-/** @typedef {import('../../jsDocTypes').EventAction} EventAction */
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} [props.children] the options as children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id id of the input; the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
@@ -23,15 +21,15 @@ import SelectOption from './SelectOption';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {EventAction} [props.onChange] e => ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
- * @param {EventAction} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
+ * @param {React.ChangeEventHandler} [props.onChange] e => ...; can be omitted to be uncontrolled OR if changes are sent through form's onChange
+ * @param {React.UIEventHandler} [props.onClear] e => ... do something when the field should be cleared (not needed if inside a <Form> context)
  * @param {(() => void)} [props.onSubmit] when enter key pressed in field, submit the form
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function Select({
+export function Select({
   children,
   className,
   defaultValue,
@@ -70,6 +68,7 @@ export default function Select({
   const { addAssertiveMessage } = useAriaMessaging();
 
   const clearInput = useCallback(
+    /** @param {React.MouseEvent} e */
     (e) => {
       currentOnClear?.(e);
       addAssertiveMessage(`${label} input was cleared`);
@@ -80,7 +79,11 @@ export default function Select({
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
-  const onChangeCallback = useCallback((e) => { currentOnChange?.(e); }, [currentOnChange]);
+  const onChangeCallback = useCallback(
+    /** @param {React.ChangeEvent} e */
+    (e) => { currentOnChange?.(e); },
+    [currentOnChange]
+  );
 
   return (
     <div className={joinClassNames('input-wrapper input-wrapper--select', wrapperClassName)} ref={innerRef}>
@@ -98,8 +101,10 @@ export default function Select({
           name={name || id}
           onChange={currentValue !== undefined ? onChangeCallback : undefined}
           onKeyUp={useCallback(
+            /** @param {React.KeyboardEvent} e */
             (e) => {
               if (e.key === 'Escape' && showClearIcon) {
+                // @ts-ignore
                 clearInput(e);
               } else {
                 currentOnFormKeyUp(e);

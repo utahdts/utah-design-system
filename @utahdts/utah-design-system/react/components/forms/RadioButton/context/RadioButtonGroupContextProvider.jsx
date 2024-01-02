@@ -1,22 +1,20 @@
-// @ts-check
 import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import useFormContext from '../../FormContext/useFormContext';
-import RadioButtonGroupContext from './RadioButtonGroupContext';
+import { useFormContext } from '../../FormContext/useFormContext';
+import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 
-/** @typedef { import('../../../../jsDocTypes').RadioButtonGroupContext} RadioButtonGroupContext */
-/** @typedef { import('../../../../jsDocTypes').RadioButtonGroupContextValue} RadioButtonGroupContextValue */
+/** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContextValue} RadioButtonGroupContextValue */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.defaultValue]
  * @param {string} props.name
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function RadioButtonGroupContextProvider({
+export function RadioButtonGroupContextProvider({
   children,
   defaultValue,
   name,

@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
 
-const propTypes = {
-  color1: PropTypes.string.isRequired,
-  color2: PropTypes.string.isRequired,
-};
-const defaultProps = {};
 
-function ColorCompare({ color1, color2 }) {
+/**
+ * @param {object} props
+ * @param {string} props.color1
+ * @param {string} props.color2
+ * @returns {React.JSX.Element}
+ */
+export function ColorCompare({ color1, color2 }) {
   const contrast = Number(tinycolor.readability(color1, color2)).toFixed(2);
 
   return (
@@ -22,8 +21,3 @@ function ColorCompare({ color1, color2 }) {
     </div>
   );
 }
-
-ColorCompare.propTypes = propTypes;
-ColorCompare.defaultProps = defaultProps;
-
-export default ColorCompare;

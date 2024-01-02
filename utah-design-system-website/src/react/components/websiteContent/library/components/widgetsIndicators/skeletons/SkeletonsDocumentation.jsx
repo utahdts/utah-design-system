@@ -1,18 +1,14 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import skeletonShapes from '../../../../../../../static/images/mockups/Skeleton.jpg';
 import skeletonFullScreenshot from '../../../../../../../static/images/mockups/skeletonFullPage.jpg';
 import skeletonLazyScreenshot from '../../../../../../../static/images/mockups/skeletonLazyLoad.jpg';
 import skeletonTableScreenshot from '../../../../../../../static/images/mockups/skeletonTable.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function SkeletonsDocumentation() {
+export function SkeletonsDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Skeletons</h1>
@@ -167,8 +163,3 @@ function SkeletonsDocumentation() {
     </div>
   );
 }
-
-SkeletonsDocumentation.propTypes = propTypes;
-SkeletonsDocumentation.defaultProps = defaultProps;
-
-export default SkeletonsDocumentation;

@@ -1,35 +1,32 @@
-// @ts-check
 import React, { useCallback, useState } from 'react';
-import formElementSizesEnum from '../../../enums/formElementSizesEnum';
-import joinClassNames from '../../../util/joinClassNames';
-import Spinner from '../../widgetsIndicators/Spinner';
-import handleEvent from '../../../util/handleEvent';
 import { handleKeyPress } from '../../../../index';
+import { formElementSizesEnum } from '../../../enums/formElementSizesEnum';
+import { handleEvent } from '../../../util/handleEvent';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { Spinner } from '../../widgetsIndicators/Spinner';
 import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonContextProvider';
 
-/** @typedef {import('../../../jsDocTypes.js').EventAction} EventAction */
-/** @typedef {import('../../../jsDocTypes.js').FormElementSizes} FormElementSizes */
-
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ButtonTypes} ButtonTypes */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').ComponentColors} ComponentColors */
-/** @typedef {import('@utahdts/utah-design-system/react/jsDocTypes').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {ButtonAppearance} [props.appearance]
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
  * @param {ComponentColors} [props.color]
  * @param {ComponentColors} [props.confirmationColor]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLButtonElement>} [props.innerRef]
  * @param {boolean} [props.isBusy]
  * @param {boolean} [props.isDisabled]
  * @param {string} [props.id]
- * @param {EventAction} props.onClick
+ * @param {React.MouseEventHandler} props.onClick
  * @param {FormElementSizes} [props.size]
  * @param {ButtonTypes} [props.type]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ConfirmationButton({
   appearance,

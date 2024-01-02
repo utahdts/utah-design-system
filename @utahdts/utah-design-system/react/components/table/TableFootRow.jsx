@@ -1,44 +1,24 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
-import joinClassNames from '../../util/joinClassNames';
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  innerRef: RefShape,
-  id: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  innerRef: null,
-  id: null,
-};
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {string | null} props.className
- * @param {React.RefObject | null} props.innerRef
- * @param {string | null} props.id
- * @returns {JSX.Element}
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {React.RefObject<HTMLTableRowElement>} [props.innerRef]
+ * @returns {React.JSX.Element}
  */
-function TableFootRow({
+export function TableFootRow({
   children,
-  className = null,
-  innerRef = null,
-  id = null,
+  className,
+  id,
+  innerRef,
   ...rest
 }) {
   return (
-    <tr className={joinClassNames('table-foot__row', className)} id={id ?? undefined} ref={innerRef} {...rest}>
+    <tr className={joinClassNames('table-foot__row', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tr>
   );
 }
-
-TableFootRow.propTypes = propTypes;
-TableFootRow.defaultProps = defaultProps;
-
-export default TableFootRow;

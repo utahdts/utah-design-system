@@ -1,66 +1,31 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { usePopper } from 'react-popper';
-import popupPlacement from '../../enums/popupPlacement';
-import usePopupDelay from '../../hooks/usePopupDelay';
-import useRefAlways from '../../hooks/useRefAlways';
-import RefShape from '../../propTypesShapes/RefShape';
-import joinClassNames from '../../util/joinClassNames';
+import { popupPlacement } from '../../enums/popupPlacement';
+import { usePopupDelay } from '../../hooks/usePopupDelay';
+import { useRefAlways } from '../../hooks/useRefAlways';
+import { joinClassNames } from '../../util/joinClassNames';
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
-
-const propTypes = {
-  // The content of the tool tip
-  children: PropTypes.node.isRequired,
-
-  // CSS class to apply to the popup
-  className: PropTypes.string,
-
-  // ref of the popup wrapper
-  innerRef: RefShape,
-
-  // controlled value for telling if tool tip is visible
-  isPopperVisible: PropTypes.bool,
-
-  // default offset is [0, 5] (see popper documentation for details)
-  offset: PropTypes.arrayOf(PropTypes.number),
-
-  // where to put the tooltip in reference to the referenceElement
-  placement: PropTypes.oneOf(Object.values(popupPlacement)),
-
-  // the referenceElement from which the tool tip will toggle (required, but first render will most likely be null because it's from a ref)
-  referenceElement: PropTypes.instanceOf(Element),
-};
-
-const defaultProps = {
-  className: null,
-  innerRef: null,
-  isPopperVisible: null,
-  offset: [0, 5],
-  placement: popupPlacement.BOTTOM,
-  referenceElement: null,
-};
 
 /**
  * A ToolTip is only in charge of positioning and rendering a tooltip.
  * Pass in a "referenceElement" to have "zero-config" for onMouseEnter and onMouseLeave triggering
  * Pass in a isPopperVisible and setIsPopperVisible to have it be a controlled component
- * @param {Object} props
- * @param {React.ReactNode} props.children
- * @param {string} [props.className]
- * @param {React.MutableRefObject | null} [props.innerRef]
- * @param {boolean | null} props.isPopperVisible
- * @param {[number, number]} [props.offset]
- * @param {PopupPlacement} [props.placement]
- * @param {HTMLElement | null} props.referenceElement
- * @returns {JSX.Element}
+ * @param {object} props
+ * @param {React.ReactNode} props.children The content of the tool tip
+ * @param {string} [props.className] CSS class to apply to the popup
+ * @param {React.MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
+ * @param {boolean} [props.isPopperVisible] controlled value for telling if tool tip is visible
+ * @param {[number, number]} [props.offset] default offset is [0, 5] (see popper documentation for details)
+ * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
+ * @param {HTMLElement | null} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
+ * @returns {React.JSX.Element}
  */
-function Tooltip({
+export function Tooltip({
   children,
   className,
-  innerRef: draftInnerRef = null,
-  isPopperVisible = null,
+  innerRef: draftInnerRef,
+  isPopperVisible,
   offset = [0, 5],
   placement = popupPlacement.BOTTOM,
   referenceElement: draftReferenceElement,
@@ -165,8 +130,3 @@ function Tooltip({
     </div>
   );
 }
-
-Tooltip.propTypes = propTypes;
-Tooltip.defaultProps = defaultProps;
-
-export default Tooltip;

@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "1.11.2",
+  "version": "1.12.1",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -30,6 +30,7 @@
   ],
   "scripts": {
     "build": "vite build",
+    "buildw": "vite build --watch",
     "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
     "buildTypesTsc": "npx tsc",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
@@ -37,15 +38,19 @@
     "cleanDist": "rimraf ./dist",
     "cleanNodeModules": "rimraf ./node_modules",
     "cleanPackageLock": "rimraf package-lock.json",
+    "eslint": "npx eslint",
+    "eslintw": "npx eslint-watch -w",
     "npmi": "npm i",
     "preview": "vite preview",
     "publishHeader": "npm publish --access public",
     "test-publish": "npm publish --dry-run",
     "test": "vitest",
+    "testw": "vitest",
     "testc": "vitest run --coverage",
     "testOnce": "vitest run",
     "testui": "vitest --ui",
-    "tsc": "tsc --watch",
+    "tsc": "tsc",
+    "tscw": "tsc --watch --skipLibCheck",
     "watch": "vite build --watch"
   },
   "repository": {
@@ -68,14 +73,14 @@
     "@popperjs/core": "2.11.8"
   },
   "devDependencies": {
-    "@vitest/ui": "0.34.6",
-    "jsdom": "23.0.0",
+    "@vitest/ui": "1.0.4",
+    "jsdom": "23.0.1",
     "replace": "1.2.2",
     "sass": "1.69.5",
     "tslib": "2.6.2",
-    "typescript": "5.3.2",
-    "vite": "5.0.3",
-    "vitest": "0.34.6"
+    "typescript": "5.3.3",
+    "vite": "5.0.8",
+    "vitest": "1.0.4"
   },
   "type": "module"
 }

@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import copyObjectWithoutFields from '../../src/react/util/copyObjectWithoutFields';
+import { copyObjectWithoutFields } from '../../src/react/util/copyObjectWithoutFields';
 
 const KEY_A = 'a';
 const KEY_B = 'b';

@@ -1,26 +1,25 @@
-// @ts-check
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
-import TextInput from '../forms/TextInput';
-import useTableFilterRegistration from './hooks/useTableFilterRegistration';
-import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
+import { joinClassNames } from '../../util/joinClassNames';
+import { TextInput } from '../forms/TextInput';
+import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
+import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {boolean} [props.exactMatch]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {((e: Event) => void)} [props.onChange]
+ * @param {((e: React.ChangeEvent) => (string | void | undefined))} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function TableFilterTextInput({
+export function TableFilterTextInput({
   className,
   defaultValue,
-  exactMatch = false,
+  exactMatch,
   innerRef,
   id,
   onChange,
@@ -34,7 +33,8 @@ export default function TableFilterTextInput({
     setValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    defaultOnChange: (e) => e.target.value,
+    // @ts-ignore
+    defaultOnChange: (e) => e.target?.value,
     defaultValue,
     onChange,
     value,

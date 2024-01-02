@@ -1,14 +1,13 @@
-// @ts-check
 import { useRef } from 'react';
 
 /**
  * always sets ref to the given value
  * @template UseRefAlwaysT
  * @param {UseRefAlwaysT} value
- * @return {React.MutableRefObject<UseRefAlwaysT>}
+ * @returns {import('react').MutableRefObject<UseRefAlwaysT>}
  */
-export default (value) => {
+export function useRefAlways(value) {
   const ref = useRef(value);
   ref.current = value;
   return ref;
-};
+}

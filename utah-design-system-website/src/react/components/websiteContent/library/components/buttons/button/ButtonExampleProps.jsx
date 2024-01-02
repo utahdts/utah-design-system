@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -9,20 +8,19 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: ButtonExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {ButtonExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
-export default function ButtonExampleProps({ setState, state }) {
+export function ButtonExampleProps({ setState, state }) {
   return (
     <Form
-      // onSubmit(({ state, validationErrors }) => ... do whatever ...)
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

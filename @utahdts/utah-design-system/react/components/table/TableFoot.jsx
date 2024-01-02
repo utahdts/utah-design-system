@@ -1,44 +1,24 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
-import joinClassNames from '../../util/joinClassNames';
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  innerRef: RefShape,
-  id: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  innerRef: null,
-  id: null,
-};
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {string | null} props.className
- * @param {React.RefObject | null} props.innerRef
- * @param {string | null} props.id
- * @returns {JSX.Element}
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {React.RefObject<HTMLTableSectionElement>} [props.innerRef]
+ * @returns {React.JSX.Element}
  */
-function TableFoot({
+export function TableFoot({
   children,
-  className = null,
-  innerRef = null,
-  id = null,
+  className,
+  id,
+  innerRef,
   ...rest
 }) {
   return (
-    <tfoot className={joinClassNames('table-foot', className)} id={id ?? undefined} ref={innerRef} {...rest}>
+    <tfoot className={joinClassNames('table-foot', className)} id={id} ref={innerRef} {...rest}>
       {children}
     </tfoot>
   );
 }
-
-TableFoot.propTypes = propTypes;
-TableFoot.defaultProps = defaultProps;
-
-export default TableFoot;

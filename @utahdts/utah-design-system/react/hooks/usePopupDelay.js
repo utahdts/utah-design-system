@@ -1,4 +1,3 @@
-// @ts-check
 const NO_POP_UP_TIMEOUT_MS = 350;
 const POP_UP_TIMEOUT_MS = 350;
 
@@ -58,7 +57,7 @@ const POPUP_DELAY = new PopupDelay();
  * plus this doesn't have to be a context because changing the isImmediatePopup state doesn't need to trigger a rerender (locally nor globally)
  * @returns {{startNoPopupTimer: () => void, startPopupTimer: (callback: () => void) => void}}
  */
-export default function usePopupDelay() {
+export function usePopupDelay() {
   // even using useMemo would have created a new object for each usage of this hook.
   // By using a const variable, all components using this hook will get the same object (no need for a context)
   // again, this doesn't require rerendering on changes, so no need for context nor state

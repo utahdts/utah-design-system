@@ -15,7 +15,7 @@
 
 /**
  * ChildrenMenuType
- * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuType
+ * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuTypes
  */
 
 /**
@@ -65,8 +65,7 @@
  *  @property {EventAction} [actionFunction] - onClick function
  *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  *  @property {MenuItem[]} [actionMenu] - children menus
- *
- *  @property {ChildrenMenuType} [childrenMenuType] - default is "flyout"
+ *  @property {ChildrenMenuTypes} [childrenMenuType] - default is "flyout"
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {boolean} [isAlternatePath] - there are more than one menu paths to this menu item, and this one is no the "source of truth"
@@ -115,7 +114,6 @@
  *  @property {EventAction} [actionFunction] - onClick function
  *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  *  @property {MenuItem[]} [actionMenu] - children menus
- *
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {boolean} [isAlternatePath] - there are more than one menu paths to this menu item, and this one is no the "source of truth"
@@ -159,7 +157,7 @@
 
 /**
  * @typedef RenderPopupMenuOptions {
- *   @property {ChildrenMenuType} childrenMenuType
+ *   @property {ChildrenMenuTypes} childrenMenuType
  *   - flyout: children in new popup
  *   - inline: expandable children
  *   - mega-menu: always expanded children
@@ -181,7 +179,6 @@
  *  @property {EventAction} [actionFunction] - func: onClick callback
  *  @property {PopupMenu} [actionPopupMenu] - Object[]: array of MenuItems
  *  @property {function (): HTMLElement | string} [actionDom] - ChildNode: content in a popup.
- *
  *  @property {string} [className] - CSS classes for the action item
  *  @property {Badge} [badge] - the badge to show in the action item's badge icon
  *  @property {HTMLElement | string} icon - DOM or DOM string of icon to show
@@ -216,7 +213,6 @@
 
 /**
  * // User fields from the UtahId authority
- * @memberof @utahdts/utah-design-system-header
  * @typedef UserInfo {
  *  @property {boolean} authenticated - the current information is ratified with the authority
  *  @property {boolean | null | undefined} [disabled]
@@ -266,8 +262,10 @@
 
 /**
  * @typedef FooterSettings {
- *  @property {string | null | undefined} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
+ *  @property {string | null} [copyrightYear] - the year to show next to the copy right symbol in the footer (default is none)
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the footer be inserted? (defaults to the bottom of the body)
+ *  @property {string | null} [linkPrivacyPolicy] - a custom link to a privacy policy
+ *  @property {string | null} [linkTermsOfUse] - a custom link to a terms of use
  *  @property {boolean} [showHorizontalRule] - true to have a dividing horizontal rule placed at the top of the footer for dividing footer content
  * }
  */
@@ -291,5 +289,4 @@
  * }
  */
 
-/** @exports @utahdts/utah-design-system-header */
 export default false;

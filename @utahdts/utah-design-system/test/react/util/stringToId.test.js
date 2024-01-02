@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import stringToId from '../../../react/util/stringToId';
+import { stringToId } from '../../../react/util/stringToId';
 
 test('stringToId', () => {
   expect(stringToId('1000')).toBe('1000');

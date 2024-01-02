@@ -1,16 +1,13 @@
-// @ts-check
-/** @typedef {import('../jsDocTypes').EventAction} EventAction */
-/** @typedef {import('../jsDocTypes').EventActionBoolean} EventActionBoolean */
-
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 
 /**
+ * @template KeyboardEventElementT
  * @param {string} targetKey which key to watch for (ie 'Enter') https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values
- * @param {EventAction} func the function to call when the given key is pressed
+ * @param {React.KeyboardEventHandler<KeyboardEventElementT>} func the function to call when the given key is pressed
  * @param {boolean} [stopPropagation]
- * @returns {EventActionBoolean} function that checks for the keypress and fires function when pressed
+ * @returns {(event: React.KeyboardEvent<KeyboardEventElementT>) => boolean} function that checks for the keypress and fires function when pressed
  */
-export default function useOnKeyUp(targetKey, func, stopPropagation) {
+export function useOnKeyUp(targetKey, func, stopPropagation) {
   return useCallback(
     (e) => {
       const isMatchingKey = e.key === targetKey;

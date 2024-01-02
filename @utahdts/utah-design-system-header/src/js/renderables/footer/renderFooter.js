@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import footerHTML from './html/Footer.html?raw';
@@ -6,12 +5,12 @@ import footerHTML from './html/Footer.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import newTabAccessibilityHTML from '../_html/NewTabAccessibility.html?raw';
 
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import checkForError from '../../misc/checkForError';
-import notNull from '../../misc/notNull';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import renderFooterCopyrightYear from './renderFooterCopyrightYear';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { checkForError } from '../../misc/checkForError';
+import { notNull } from '../../misc/notNull';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { renderFooterCopyrightYear } from './renderFooterCopyrightYear';
 
 /** @typedef {import('src/@types/jsDocTypes.d').DomLocationTarget} DomLocationTarget */
 /** @typedef {import('src/@types/jsDocTypes.d').Settings} Settings */
@@ -43,7 +42,7 @@ const previousFooterSettings = {
 /**
  * @returns {Element | null}
  */
-export default function renderFooter() {
+export function renderFooter() {
   const settings = getUtahHeaderSettings();
   const previousFooter = document.querySelector(getCssClassSelector(domConstants.FOOTER));
   let footer = previousFooter;
@@ -100,6 +99,20 @@ export default function renderFooter() {
         const footerHr = document.querySelector(getCssClassSelector(domConstants.FOOTER_HORIZONTAL_DIVIDER));
         checkForError(!footerHr, 'renderFooter: cannot remove horizontal rule; not found');
         footerHr?.remove();
+      }
+
+      // add custom privacy policy link
+      if (settings?.footer?.linkPrivacyPolicy) {
+        const privacyLink = document.getElementById(domConstants.FOOTER_LINK_PRIVACY_ID);
+        checkForError(!privacyLink, 'renderFooter: cannot find privacy policy link');
+        privacyLink?.setAttribute('href', settings.footer.linkPrivacyPolicy);
+      }
+
+      // add custom terms of use link
+      if (settings?.footer?.linkTermsOfUse) {
+        const termsLink = document.getElementById(domConstants.FOOTER_LINK_TERMS_ID);
+        checkForError(!termsLink, 'renderFooter: cannot find terms of use link');
+        termsLink?.setAttribute('href', settings.footer.linkTermsOfUse);
       }
 
       // make links external links

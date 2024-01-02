@@ -2,7 +2,7 @@
   "compileOnSave": true,
   "compilerOptions": {
     /* Basic Options */
-    "target": "es6", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "target": "ES2022", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
     "module": "ES2022", /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
     "lib": [
       "es2022",
@@ -63,11 +63,13 @@
     "esModuleInterop": true, // fixes some issues TS originally had with the ES6 spec where TypeScript treats CommonJS/AMD/UMD modules similar to ES6 module
     "noUncheckedIndexedAccess": true, // accessing index must always check for undefined
     "resolveJsonModule": true,
+    "skipLibCheck": true,
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "test/**/*"
   ],
   "exclude": [
-    "node_modules/**/*"
+    "**/node_modules/**/*"
   ]
 }

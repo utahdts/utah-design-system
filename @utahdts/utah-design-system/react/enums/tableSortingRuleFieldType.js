@@ -1,8 +1,7 @@
-// @ts-check
-/** @typedef {import('../jsDocTypes').TableSortingRuleFieldType} TableSortingRuleFieldType */
+/** @typedef {import('@utahdts/utah-design-system').TableSortingRuleFieldType} TableSortingRuleFieldType */
 
 /** @enum {TableSortingRuleFieldType} */
-export default {
+export const tableSortingRuleFieldType = {
   // compares dates as Date() objects
   // dates represented by an ISO string should use the STRING enum value
   DATE: /** @type {TableSortingRuleFieldType} */ ('date'),

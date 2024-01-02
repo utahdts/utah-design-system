@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react';
 import { joinClassNames } from '@utahdts/utah-design-system';
+import { useEffect, useState } from 'react';
 
-const propTypes = {};
-const defaultProps = {};
-
-function Search() {
+export function Search() {
   const [query, setQuery] = useState('');
 
   const insertScript = () => {
@@ -12,7 +9,7 @@ function Search() {
     script.src = 'https://cse.google.com/cse.js?cx=3369fa755d1f64303';
     script.id = 'google-search';
     if (!document.getElementById('google-search')) {
-      document.documentElement.firstChild.appendChild(script);
+      document.documentElement.firstChild?.appendChild(script);
     }
   };
 
@@ -41,15 +38,10 @@ function Search() {
             <button type="submit" className="search-modal__button button button--solid button--primary-color">Search Now</button>
           </div>
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-          <div aria-hidden tabIndex="0" className="search-modal__hidden-last-focusable visually-hidden">end of search form</div>
+          <div aria-hidden tabIndex={0} className="search-modal__hidden-last-focusable visually-hidden">end of search form</div>
         </form>
         <div className="gcse-searchresults-only" />
       </div>
     </div>
   );
 }
-
-Search.propTypes = propTypes;
-Search.defaultProps = defaultProps;
-
-export default Search;

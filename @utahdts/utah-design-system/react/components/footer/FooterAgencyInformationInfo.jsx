@@ -1,41 +1,18 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
 
-/** @typedef {import('../../jsDocTypes').Address} Address */
-
-const AddressShape = PropTypes.shape({
-  city: PropTypes.string.isRequired,
-  state: PropTypes.string.isRequired,
-  streetAddress1: PropTypes.string.isRequired,
-  streetAddress2: PropTypes.string,
-  zipCode: PropTypes.string.isRequired,
-});
-
-const propTypes = {
-  agencyTitleFirstLine: PropTypes.string.isRequired,
-  agencyTitleSecondLine: PropTypes.string.isRequired,
-  address: AddressShape.isRequired,
-  email: PropTypes.string.isRequired,
-  logo: PropTypes.node.isRequired,
-  phone: PropTypes.string,
-};
-const defaultProps = {
-  phone: null,
-};
+/** @typedef {import('@utahdts/utah-design-system').Address} Address */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.agencyTitleFirstLine ie Utah Department of (smaller font above main title)
  * @param {string} props.agencyTitleSecondLine ie Government Operations (larger font below firstLine)
  * @param {Address} props.address
  * @param {string} props.email
  * @param {React.ReactNode} props.logo
- * @param {string} props.phone
- * @returns {JSX.Element}
+ * @param {string} [props.phone]
+ * @returns {React.JSX.Element}
  */
-function FooterAgencyInformationInfo({
+export function FooterAgencyInformationInfo({
   agencyTitleFirstLine,
   agencyTitleSecondLine,
   address,
@@ -88,8 +65,3 @@ function FooterAgencyInformationInfo({
     </>
   );
 }
-
-FooterAgencyInformationInfo.propTypes = propTypes;
-FooterAgencyInformationInfo.defaultProps = defaultProps;
-
-export default FooterAgencyInformationInfo;

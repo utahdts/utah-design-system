@@ -1,26 +1,31 @@
 import React from 'react';
-import joinClassNames from '../../util/joinClassNames';
-import ErrorMessage from './ErrorMessage';
-import useFormContextInput from './FormContext/useFormContextInput';
-import RequiredStar from './RequiredStar';
+import { joinClassNames } from '../../util/joinClassNames';
+import { ErrorMessage } from './ErrorMessage';
+import { useFormContextInput } from './FormContext/useFormContextInput';
+import { RequiredStar } from './RequiredStar';
 
 /**
- * @param {Object} props
+ * @template FormEventT
+ * @typedef {import('react').FormEvent<FormEventT>} FormEvent
+ */
+
+/**
+ * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLInputElement>} [props.innerRef]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {EventAction} [props.onChange] e => {}; can be omitted to be uncontrolled OR if changes are sent through form's onChange
+ * @param {React.ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {(() => void)} [props.onSubmit]
  * @param {boolean} [props.value]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Checkbox({
   className,
@@ -59,7 +64,7 @@ export function Checkbox({
           {isRequired ? <RequiredStar /> : null}
         </label>
         <input
-          aria-describedby={errorMessage ? `${id}-error` : null}
+          aria-describedby={errorMessage ? `${id}-error` : undefined}
           checked={currentValue}
           className={className}
           disabled={isDisabled}

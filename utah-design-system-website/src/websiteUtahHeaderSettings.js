@@ -1,19 +1,15 @@
-// @ts-check
 // @ts-ignore
 import { sizes } from '@utahdts/utah-design-system-header';
-// @ts-ignore
 import logoPng from './static/images/designSystemCircleGray.png';
 
-/**
- * @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput
-*/
+/** @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput */
 
 /**
  * These are the base default settings for the Design System Website
  * see Routing.jsx for where the mainMenu gets added
  * @type {SettingsInput} base settings of the header
  */
-export default {
+export const websiteUtahHeaderSettings = {
   footer: {
     showHorizontalRule: true,
     domLocationTarget: {

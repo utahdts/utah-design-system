@@ -1,16 +1,14 @@
-// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import React from 'react';
-import ExampleCodeReactProp from '../../../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../../sandbox/SandboxIndent';
 
-/** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {Object} props.state
+ * @param {object} props
+ * @param {object} props.state
  * @param {TagExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ClickableTagExampleCodeReact({
   state: {

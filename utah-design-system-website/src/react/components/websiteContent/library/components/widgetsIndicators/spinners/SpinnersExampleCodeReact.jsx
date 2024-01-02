@@ -1,15 +1,13 @@
-// @ts-check
-import React from 'react';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
-/** @typedef {import('../../../../../../../typedefs.d').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: SpinnersExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function SpinnersExampleCodeReact({
+export function SpinnersExampleCodeReact({
   state: {
     props: {
       className,

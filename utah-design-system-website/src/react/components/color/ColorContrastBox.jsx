@@ -1,20 +1,18 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 
-const propTypes = {
-  color1: PropTypes.string.isRequired,
-  color1IsLight: PropTypes.bool.isRequired,
-  color1ShowHex: PropTypes.bool.isRequired,
-  color1Title: PropTypes.string.isRequired,
-
-  color2: PropTypes.string.isRequired,
-  color2IsLight: PropTypes.bool.isRequired,
-  color2ShowHex: PropTypes.bool.isRequired,
-  color2Title: PropTypes.string.isRequired,
-};
-const defaultProps = {};
-
-function ColorContrastBox({
+/**
+ * @param {object} props
+ * @param {string} props.color1
+ * @param {boolean} props.color1IsLight
+ * @param {boolean} props.color1ShowHex
+ * @param {string} props.color1Title
+ * @param {string} props.color2
+ * @param {boolean} props.color2IsLight
+ * @param {boolean} props.color2ShowHex
+ * @param {string} props.color2Title
+ * @returns {React.JSX.Element}
+ */
+export function ColorContrastBox({
   color1,
   color1IsLight,
   color1ShowHex,
@@ -44,8 +42,3 @@ function ColorContrastBox({
     </div>
   );
 }
-
-ColorContrastBox.propTypes = propTypes;
-ColorContrastBox.defaultProps = defaultProps;
-
-export default ColorContrastBox;

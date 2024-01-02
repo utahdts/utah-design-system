@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   Select,
@@ -8,14 +7,13 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').RadioButtonExamplePropsShape} RadioButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: RadioButtonExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {RadioButtonExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {{props: RadioButtonExamplePropsShape}} props.state
+ * @returns {React.JSX.Element}
  */
 export function RadioButtonExampleProps({ setState, state }) {
   return (

@@ -1,59 +1,34 @@
-// @ts-check
-import isFunction from 'lodash/isFunction';
-import PropTypes from 'prop-types';
+import { isFunction } from 'lodash';
 import React, { useContext } from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
-import valueAtPath from '../../util/state/valueAtPath';
-import TableBodyDataRowContext from './TableBodyDataRowContext';
-import TableCell from './TableCell';
+import { valueAtPath } from '../../util/state/valueAtPath';
+import { TableBodyDataRowContext } from './TableBodyDataRowContext';
+import { TableCell } from './TableCell';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
+ * @typedef {import('@utahdts/utah-design-system').TableBodyDataRowContextValue<TableDataT>} TableBodyDataRowContextValue
  */
-
-const propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  className: PropTypes.string,
-  id: PropTypes.string,
-  innerRef: RefShape,
-  // ({ e, record, recordIndex, records }) => { ... do something ... }
-  onClick: PropTypes.func,
-  // ({ e, record, recordIndex, records }) => { ... do something ... }
-  onDoubleClick: PropTypes.func,
-  // the field path in the record to the data to render in the <td>; ie 'person.contact.address.city'
-  recordFieldPath: PropTypes.string,
-};
-const defaultProps = {
-  children: null,
-  className: null,
-  id: null,
-  innerRef: null,
-  onClick: null,
-  onDoubleClick: null,
-  recordFieldPath: null,
-};
 
 /**
  * @template TableDataT
- * @param {Object} props
- * @param {React.ReactNode | null | ((record: TableBodyDataRowContextValue<TableDataT>) => JSX.Element)} [props.children]
- * @param {string | null} [props.className]
- * @param {string | null} [props.id]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void) | null} [props.onClick]
- * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: Event})) => void) | null} [props.onDoubleClick]
- * @param {string | null} [props.recordFieldPath]
- * @returns {JSX.Element}
+ * @param {object} props
+ * @param {React.ReactNode | ((record: TableBodyDataRowContextValue<TableDataT>) => React.JSX.Element)} [props.children]
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onClick]
+ * @param {((param: (TableBodyDataRowContextValue<TableDataT> & {e: React.MouseEvent, record: TableDataT})) => void)} [props.onDoubleClick]
+ * @param {string} [props.recordFieldPath] the field path in the record to the data to render in the <td>; ie 'person.contact.address.city'
+ * @returns {React.JSX.Element}
  */
-function TableBodyDataCellTemplate({
-  children = null,
-  className = null,
-  id = null,
-  innerRef = null,
-  onClick = null,
-  onDoubleClick = null,
-  recordFieldPath = null,
+export function TableBodyDataCellTemplate({
+  children,
+  className,
+  id,
+  innerRef,
+  onClick,
+  onDoubleClick,
+  recordFieldPath,
   ...rest
 }) {
   // record, recordIndex, records
@@ -88,8 +63,3 @@ function TableBodyDataCellTemplate({
     </TableCell>
   );
 }
-
-TableBodyDataCellTemplate.propTypes = propTypes;
-TableBodyDataCellTemplate.defaultProps = defaultProps;
-
-export default TableBodyDataCellTemplate;

@@ -2,16 +2,15 @@
 // eslint-disable-next-line import/no-unresolved
 import SkipLinkHtml from './html/SkipLink.html?raw';
 
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 
 /**
  * Renders the skip link if the setting `skipLinkUrl` is set.
- *
  * @returns {Element | null}
  */
-export default function SkipLink() {
+export function SkipLink() {
   const { skipLinkUrl } = getUtahHeaderSettings();
   let skipLink;
 

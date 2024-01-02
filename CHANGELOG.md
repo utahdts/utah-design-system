@@ -5,8 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.12.1] 12/18/2023
+## Added
+- Header: Main Menu - self menu items
+- Table Sandbox: default to paginating
+
+## Security
+- Upgrade vite dependency
+
+# [1.12.0] 12/13/2023
+## Added
+- Table Pagination component that syncs table filtering and sorting
+- Global Banners
+- Header menu option actionUrl.skipHandleEvent
+- Footer option for customizing Privacy and Terms links
+
+## Fixed
+- Table overflow horizontal scroll bar
+
 # [1.11.2] 11/30/2023
-## Fix
+## Fixed
 - Fix Tag documentation page errors
 
 # [1.11.1] 11/29/2023
@@ -27,16 +45,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Release partial work for Combo Box
 
 # [1.9.3] 11/06/2023
-## Fix
+## Fixed
 - Fix css bugs for Utah Header in WordPress environment
 - Fix css z-index for lightbox
 
 # [1.9.2] 11/01/2023
-## Fix
+## Fixed
 - Fix css mega-menu width
 
 # [1.9.1] 10/31/2023
-## Fix
+## Fixed
 - Fix css z-index for main menu
 
 # [1.9.0] 10/31/2023
@@ -46,7 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Changed
 - Enhanced the accessibility page and checklist
 
-## Fix
+## Fixed
 - Prevent overflowing header content when scroll bars are visible
 - Update mega menu to better match mockups
 - Update utah header and menu css to fix bugs in WordPress site
@@ -78,7 +96,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Visibility
   - Visibility Off
 
-## Fix
+## Fixed
 - Update vertical menu style for dropdown menus and mobile menu.
 
 # [1.6.1] 10/03/2023

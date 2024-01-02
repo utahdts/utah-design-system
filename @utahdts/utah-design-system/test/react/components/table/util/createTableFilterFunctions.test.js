@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import createTableFilterFunctions from '../../../../../react/components/table/util/createTableFilterFunctions';
+import { createTableFilterFunctions } from '../../../../../react/components/table/util/createTableFilterFunctions';
 
 describe('createTableFilterFunctions', () => {
   const filterValues = {

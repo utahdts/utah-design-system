@@ -1,34 +1,19 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React, { useContext, useEffect } from 'react';
-import TableContext from './util/TableContext';
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  defaultValue: PropTypes.string,
-  // ({ recordFieldPath }) => { ... do something ... }
-  onChange: PropTypes.func,
-  value: PropTypes.string,
-};
-const defaultProps = {
-  defaultValue: null,
-  onChange: null,
-  value: undefined,
-};
+import { TableContext } from './util/TableContext';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {string | null} [props.defaultValue]
- * @param {((e) => void) | null} [props.onChange]
- * @param {string | null} [props.value]
- * @returns {JSX.Element}
+ * @param {string} [props.defaultValue]
+ * @param {((param: {recordFieldPath: string}) => void)} [props.onChange]
+ * @param {string} [props.value]
+ * @returns {React.JSX.Element}
  */
-function TableSortingRules({
+export function TableSortingRules({
   children,
-  defaultValue = null,
-  onChange = null,
-  value = null,
+  defaultValue,
+  onChange,
+  value,
 }) {
   const { setState, state } = useContext(TableContext) || {};
   useEffect(
@@ -73,8 +58,3 @@ function TableSortingRules({
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 }
-
-TableSortingRules.propTypes = propTypes;
-TableSortingRules.defaultProps = defaultProps;
-
-export default TableSortingRules;

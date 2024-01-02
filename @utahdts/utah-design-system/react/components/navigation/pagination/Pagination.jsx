@@ -1,84 +1,60 @@
-import PropTypes from 'prop-types';
-import {
+import React, {
   useCallback, useEffect, useMemo, useRef
 } from 'react';
+import { useImmer } from 'use-immer';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import useComponentState from '../../../hooks/forms/useComponentState';
-import joinClassNames from '../../../util/joinClassNames';
-import IconButton from '../../buttons/IconButton';
-import PaginationLink from './PaginationLink';
-import determinePaginationLinks from './util/determinePaginationLinks';
-import RefShape from '../../../propTypesShapes/RefShape';
-import useAriaMessaging from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-
-const propTypes = {
-  // ariaLabel is used by accessibility to describe the purpose of the pagination
-  ariaLabel: PropTypes.string,
-  // can add your own className to the pagination
-  className: PropTypes.string,
-  // starting page number (for uncontrolled - what good is an uncontrolled Pagination element?)
-  defaultValue: PropTypes.number,
-  // id to put on the pagination element
-  id: PropTypes.string,
-  innerRef: RefShape,
-  // (newPageIndex) => { ... do something ... }; controlled component: page # changed
-  onChange: PropTypes.func,
-  // how many items on each "page"
-  pageSize: PropTypes.number.isRequired,
-  // how many total items there are in the full data set
-  totalNumberItems: PropTypes.number.isRequired,
-  // controlled component: value is the current page number (0 based-index)
-  value: PropTypes.number,
-  // if wrapping in `nav`, make sure to provide the ariaLabel
-  wrapInElement: PropTypes.oneOf(['div', 'nav']),
-};
-const defaultProps = {
-  ariaLabel: null,
-  className: null,
-  defaultValue: 0,
-  id: null,
-  innerRef: null,
-  onChange: null,
-  value: 0,
-  wrapInElement: 'div',
-};
+import { useRefAlways } from '../../../hooks/useRefAlways';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
+import { PaginationLink } from './PaginationLink';
+import { determinePaginationLinks } from './util/determinePaginationLinks';
 
 /**
- * @param {Object} props
- * @param {string} [props.ariaLabel]
- * @param {string} [props.className]
- * @param {number} [props.defaultValue]
- * @param {string} props.id
- * @param {React.RefObject} props.innerRef
- * @param {(newValue: number) => void} [props.onChange]
- * @param {number} props.pageSize
- * @param {number} props.totalNumberItems
- * @param {number} [props.value]
- * @param {Object} [props.wrapInElement]
- * @returns {JSX.Element}
+ * @param {object} props
+ * @param {string} [props.ariaLabel] ariaLabel is used by accessibility to describe the purpose of the pagination
+ * @param {string} [props.className] can add your own className to the pagination
+ * @param {number} [props.defaultValue] starting page number (for uncontrolled - what good is an uncontrolled Pagination element?)
+ * @param {string} [props.id] id to put on the pagination element
+ * @param {React.RefObject<HTMLElement | null>} [props.innerRef]
+ * @param {(newValue: number) => void} [props.onChange] controlled component: page # changed
+ * @param {number} props.pageSize how many items on each "page"
+ * @param {number} props.totalNumberItems how many total items there are in the full data set
+ * @param {number} [props.value] controlled component: value is the current page number (0 based-index)
+ * @param {'div' | 'nav'} [props.wrapInElement] if wrapping in `nav`, make sure to provide the ariaLabel
+ * @returns {React.JSX.Element}
  */
-function Pagination({
+export function Pagination({
   ariaLabel,
   className,
-  defaultValue,
+  defaultValue = 0,
   id,
   innerRef,
   onChange,
   pageSize,
   totalNumberItems,
-  value,
-  wrapInElement,
+  value = 0,
+  wrapInElement = 'div',
   ...rest
 }) {
+  const [currentValue, setCurrentValue] = useImmer(value === undefined ? defaultValue : value);
+  const valueUse = value === undefined ? currentValue : value;
+
+  const valueRef = useRefAlways(valueUse ?? 0);
   const {
     onChange: currentOnChange,
     value: currentPageIndex,
     valueRef: currentPageIndexRef,
-  } = useComponentState({
-    defaultValue,
-    onChange,
-    value,
-  });
+  } = useMemo(
+    () => ({
+      onChange: onChange || setCurrentValue,
+      value: valueUse ?? 0,
+      valueRef,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [onChange, valueUse]
+  );
+
   const { addPoliteMessage } = useAriaMessaging();
   const numberOfPages = Math.ceil(totalNumberItems / pageSize);
   const oldIndex = useRef(currentPageIndex);
@@ -87,14 +63,15 @@ function Pagination({
   useEffect(
     () => {
       // if 0 records then 0 pages and 0 value is OK (0-based page index)
-      if ((numberOfPages || currentPageIndex) && currentPageIndex >= numberOfPages) {
+      if ((numberOfPages || currentPageIndex) && (currentPageIndex ?? NaN) >= numberOfPages) {
         currentOnChange(numberOfPages - 1);
       }
       if (currentPageIndex !== oldIndex.current) {
         oldIndex.current = currentPageIndex;
-        addPoliteMessage(`You are now on page ${currentPageIndex + 1}`);
+        addPoliteMessage(`You are now on page ${(currentPageIndex || 0) + 1}`);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentOnChange, currentPageIndex, numberOfPages]
   );
 
@@ -104,6 +81,8 @@ function Pagination({
   );
   const WrapInElement = wrapInElement || 'div';
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    // @ts-ignore
     // eslint-disable-next-line react/jsx-props-no-spreading
     <WrapInElement ref={innerRef} className={joinClassNames('pagination', className)} id={id} aria-label={ariaLabel} {...rest}>
       <ul>
@@ -132,7 +111,7 @@ function Pagination({
                 <PaginationLink
                   key={`pagination-link__${paginationLink.pageIndex}__${paginationLink.title}`}
                   currentPageIndex={currentPageIndex}
-                  label={paginationLink.label}
+                  label={paginationLink.label ?? ''}
                   onChange={currentOnChange}
                   pageIndex={paginationLink.pageIndex}
                   numberOfPages={numberOfPages}
@@ -153,8 +132,3 @@ function Pagination({
     </WrapInElement>
   );
 }
-
-Pagination.propTypes = propTypes;
-Pagination.defaultProps = defaultProps;
-
-export default Pagination;

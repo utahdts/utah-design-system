@@ -1,15 +1,14 @@
-// @ts-check
 import { useRefAlways } from '@utahdts/utah-design-system';
 import { useState } from 'react';
-import useInterval from './useInterval';
+import { useInterval } from './useInterval';
 
 /**
  * This ONLY works if line wrapping is turned off because it counts line endings. Otherwise, soft wraps throw off the
  * current line #.
- * @param {React.MutableRefObject<HTMLInputElement>} textAreaRef the textarea for which to track the current cursor position
+ * @param {import('react').MutableRefObject<HTMLTextAreaElement | null>} textAreaRef the textarea for which to track the current cursor position
  * @returns {{ column: number, position: number, row: number }}
  */
-export default function useTextAreaCaretRowColumn(textAreaRef) {
+export function useTextAreaCaretRowColumn(textAreaRef) {
   const [rowColumn, setRowColumn] = useState(
     /** @type {{ column: number, position: number, row: number }} */({ column: NaN, position: NaN, row: NaN })
   );

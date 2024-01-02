@@ -1,20 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import LightBox from '../../../../../lightbox/LightBox';
 import statusIndicatorScreenshot from '../../../../../../../static/images/screenshots/components/statusIndicator/StatusIndicator.png';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-const propTypes = {};
-const defaultProps = {};
-
-function StatusIndicatorDocumentation() {
+export function StatusIndicatorDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Status Indicator</h1>
@@ -81,8 +73,3 @@ function StatusIndicatorDocumentation() {
     </div>
   );
 }
-
-StatusIndicatorDocumentation.propTypes = propTypes;
-StatusIndicatorDocumentation.defaultProps = defaultProps;
-
-export default StatusIndicatorDocumentation;

@@ -1,11 +1,10 @@
-// @ts-check
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import valueOrFunctionValue from '../../misc/valueOrFunctionValue';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
 import { hideMobileMenu, showMobileMenu } from './util/showHideHamburgerElements';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
-*/
+ */
 
 /**
  * @param {HTMLElement} mobileMenuWrapper
@@ -60,7 +59,7 @@ export function showContentItem(mobileContentWrapper, mobileMenuContentItem) {
  * @param {(e: MouseEvent) => boolean} [options.onClickHandler] - returns true: no further action will be taken (for UtahID), false: behave normally
  * @param {boolean} options.shouldOnClickCloseMenu - when menu is open and the element is triggered, should the menu close
  */
-export default function mobileMenuInteractionHandler(
+export function mobileMenuInteractionHandler(
   interactiveElement,
   mobileMenuContentItem,
   actionItemWrapper,

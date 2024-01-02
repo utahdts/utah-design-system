@@ -1,17 +1,16 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import {
   ConfirmationButton, ConfirmationChildren, InitialChildren,
   useBanner
 } from '@utahdts/utah-design-system';
+import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ConfirmationButtonExamplePropsShape} ConfirmationButtonExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {import('use-immer').Updater<{props: ConfirmationButtonExamplePropsShape}>} props.setState
+ * @param {object} props
  * @param {{props: ConfirmationButtonExamplePropsShape}} props.state
- * @param {React.RefObject} props.innerRef
- * @returns {JSX.Element}
+ * @param {React.RefObject<HTMLButtonElement>} props.innerRef
+ * @returns {React.JSX.Element}
  */
 export function ConfirmationButtonExampleRender({
   state: {
@@ -31,7 +30,7 @@ export function ConfirmationButtonExampleRender({
   },
   innerRef,
 }) {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   return (
     <ConfirmationButton
       appearance={appearance}
@@ -42,7 +41,7 @@ export function ConfirmationButtonExampleRender({
       innerRef={innerRef}
       isBusy={isBusy}
       isDisabled={isDisabled}
-      onClick={() => showBanner({ message: 'You have clicked the button.' })}
+      onClick={() => addBanner({ message: 'You have clicked the button.' })}
       size={size}
       type={type}
     >

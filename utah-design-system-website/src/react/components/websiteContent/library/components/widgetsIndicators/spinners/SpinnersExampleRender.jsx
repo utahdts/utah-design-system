@@ -1,4 +1,3 @@
-// @ts-check
 import { Spinner } from '@utahdts/utah-design-system';
 import React from 'react';
 
@@ -10,17 +9,16 @@ function stringToNumber(str) {
   return str ? Number(str) || 0 : undefined;
 }
 
-/** @typedef {import('../../../../../../../typedefs.d').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SpinnersExamplePropsShape} SpinnersExamplePropsShape */
 
 /**
- * @param {Object} props
- * @param {React.RefObject} props.innerRef
- * @param {import('use-immer').Updater<{props: SpinnersExamplePropsShape}>} props.setState
- * @param {Object} props.state
+ * @param {object} props
+ * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @param {object} props.state
  * @param {SpinnersExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function SpinnersExampleRender({
+export function SpinnersExampleRender({
   state: {
     props: {
       className,

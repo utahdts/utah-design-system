@@ -1,5 +1,5 @@
 @use 'font';
-@use '../../../utah-design-system/css/3-generic/normalize.css';
+// We need to pull in only what the header needs this pulls in all the css :-(
 @use '../../../utah-design-system/css/index.scss';
 @use 'citizen-experience';
 @use 'action-items';

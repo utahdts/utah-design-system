@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import UtahIdButtonHtml from './html/UtahIdButton.html?raw';
@@ -6,24 +5,24 @@ import UtahIdButtonHtml from './html/UtahIdButton.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import UtahIdWrapperHtml from './html/UtahIdWrapper.html?raw';
 
-import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import utahIdUrls from '../../enumerations/utahIdUrls';
-import popupFocusHandler from '../../misc/popupFocusHandler';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import renderMenuWithTitle from '../menu/renderMenuWithTitle';
-import renderPopup from '../popup/renderPopup';
+import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { utahIdUrls } from '../../enumerations/utahIdUrls';
+import { popupFocusHandler } from '../../misc/popupFocusHandler';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { renderMenuWithTitle } from '../menu/renderMenuWithTitle';
+import { renderPopup } from '../popup/renderPopup';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem
  * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
  * @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData
-*/
+ */
 
-/** @type UtahIdData | null */
+/** @type {UtahIdData | null} */
 let utahIdData = null;
 
 /**
@@ -125,7 +124,7 @@ export function renderUtahIdMenu(shouldAddMenuTitle) {
       title: '--divider--',
     });
   }
-  /** @type MenuItem[] */
+  /** @type {MenuItem[]} */
   const popupMenuItems = [
     ...customUtahIdMenuItems,
     {

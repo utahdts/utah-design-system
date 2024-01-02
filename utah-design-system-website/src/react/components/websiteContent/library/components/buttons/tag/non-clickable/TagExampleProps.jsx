@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   formElementSizesEnum,
@@ -9,19 +8,19 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {TagExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
 export function TagExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
+      // @ts-ignore
       setState={setState}
       state={state}
     >

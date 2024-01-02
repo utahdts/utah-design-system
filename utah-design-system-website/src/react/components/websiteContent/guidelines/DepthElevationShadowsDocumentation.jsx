@@ -1,17 +1,10 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../routing/pageUrls';
-import PreCodeForCodeString from '../../preCode/PreCodeForCodeString';
 import elevationExample from '../../../../static/images/screenshots/spacing/guidelines/elevation-best-practice.webp';
+import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../routing/pageUrls';
 
-const propTypes = {};
-const defaultProps = {};
-
-function DepthElevationShadowsDocumentation() {
+export function DepthElevationShadowsDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Depth, Elevation, & Shadows</h1>
@@ -125,8 +118,3 @@ function DepthElevationShadowsDocumentation() {
     </div>
   );
 }
-
-DepthElevationShadowsDocumentation.propTypes = propTypes;
-DepthElevationShadowsDocumentation.defaultProps = defaultProps;
-
-export default DepthElevationShadowsDocumentation;

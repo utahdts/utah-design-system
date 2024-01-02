@@ -1,11 +1,8 @@
-// @ts-check
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-/** @returns {JSX.Element} */
-export default function SelectCssClassesDocumentation() {
+export function SelectCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x table--full-width">

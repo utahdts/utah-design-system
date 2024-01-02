@@ -1,49 +1,28 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
-import joinClassNames from '../../util/joinClassNames';
-import TextInput from '../forms/TextInput';
-import useCurrentValuesFromStateContext from './useCurrentValuesFromStateContext';
-
-const propTypes = {
-  className: PropTypes.string,
-  defaultValue: PropTypes.string,
-  innerRef: RefShape,
-  id: PropTypes.string,
-  onChange: PropTypes.func,
-  recordFieldPath: PropTypes.string.isRequired,
-  value: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  defaultValue: null,
-  innerRef: null,
-  id: null,
-  onChange: null,
-  value: null,
-};
+import { joinClassNames } from '../../util/joinClassNames';
+import { TextInput } from '../forms/TextInput';
+import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
  * @template TableDataT
- * @param {Object} props
- * @param {string | null} [props.className]
- * @param {TableDataT | null} [props.defaultValue]
- * @param {React.RefObject | null} [props.innerRef]
- * @param {string | null} [props.id]
- * @param {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} [props.onChange]
+ * @param {object} props
+ * @param {string} [props.className]
+ * @param {TableDataT} [props.defaultValue]
+ * @param {React.RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {string} [props.id]
+ * @param {(e: React.ChangeEvent) => TableDataT} [props.onChange]
  * @param {string} props.recordFieldPath
- * @param {TableDataT | null} [props.value]
- * @returns {JSX.Element}
+ * @param {TableDataT} [props.value]
+ * @returns {React.JSX.Element}
  */
-function TableFilterDate({
-  className = null,
-  defaultValue = null,
-  innerRef = null,
-  id = null,
-  onChange = null,
+export function TableFilterDate({
+  className,
+  defaultValue,
+  innerRef,
+  id,
+  onChange,
   recordFieldPath,
-  value = null,
+  value,
   ...rest
 }) {
   const {
@@ -70,8 +49,3 @@ function TableFilterDate({
     </th>
   );
 }
-
-TableFilterDate.propTypes = propTypes;
-TableFilterDate.defaultProps = defaultProps;
-
-export default TableFilterDate;

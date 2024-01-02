@@ -1,17 +1,15 @@
-// @ts-check
 import { formElementSizesEnum } from '@utahdts/utah-design-system';
-import React from 'react';
-import ExampleCodeReactProp from '../../../../../sandbox/ExampleCodeReactProp';
-import SandboxIndent from '../../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
-/** @typedef {import('../../../../../../../typedefs.d').ButtonExamplePropsShape} ButtonExamplePropsShape */
+/** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {{props: ButtonExamplePropsShape}} props.state
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-export default function ButtonExampleCode({
+export function ButtonExampleCodeReact({
   state: {
     props: {
       appearance,

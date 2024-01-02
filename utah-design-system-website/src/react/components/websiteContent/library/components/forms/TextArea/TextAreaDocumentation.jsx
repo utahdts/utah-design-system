@@ -1,20 +1,18 @@
-// @ts-check
 import {
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import PreCodeForCodeString from '../../../../../preCode/PreCodeForCodeString';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
-import TextAreaCssClassesDocumentation from './TextAreaCssClassesDocumentation';
-import TextAreaExampleCodeReact from './TextAreaExampleCodeReact';
-import TextAreaExampleProps from './TextAreaExampleProps';
-import TextAreaExampleRender from './TextAreaExampleRender';
-import TextAreaPropsDocumentation from './TextAreaPropsDocumentation';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { TextAreaCssClassesDocumentation } from './TextAreaCssClassesDocumentation';
+import { TextAreaExampleCodeReact } from './TextAreaExampleCodeReact';
+import { TextAreaExampleProps } from './TextAreaExampleProps';
+import { TextAreaExampleRender } from './TextAreaExampleRender';
+import { TextAreaPropsDocumentation } from './TextAreaPropsDocumentation';
 
-export default function TextAreaDocumentation() {
+export function TextAreaDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Text Area</h1>

@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import convertRecordsToFilterValue from '../../../../../react/components/table/util/convertRecordsToFilterValue';
+import { convertRecordsToFilterValue } from '../../../../../react/components/table/util/convertRecordsToFilterValue';
 
 describe('convertRecordsToFilterValue', () => {
   const filterValues = {

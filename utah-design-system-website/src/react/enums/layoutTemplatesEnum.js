@@ -1,7 +1,6 @@
-// @ts-check
-/** @typedef {import('../../typedefs.d').LayoutTemplate} LayoutTemplate */
+/** @typedef {import('utah-design-system-website').LayoutTemplate} LayoutTemplate */
 /** @enum {LayoutTemplate} */
-export default {
+export const layoutTemplatesEnum = {
   // 3 column with secondary menu
   DOCUMENTATION_TEMPLATE: /** @type {LayoutTemplate} */ ('documentation-template'),
 

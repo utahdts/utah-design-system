@@ -1,20 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import StaticExample from '../../../../../staticExamples/StaticExample';
 import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
 import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
 import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
-import LightBox from '../../../../../lightbox/LightBox';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { ModalsExampleProps } from './ModalsExampleProps';
+import { ModalsExampleRender } from './ModalsExampleRender';
+import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
 
-const propTypes = {};
-const defaultProps = {};
-
-function ModalsDocumentation() {
+export function ModalsDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Modals</h1>
@@ -27,6 +24,20 @@ function ModalsDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          title: 'Modal Title',
+          content: 'Modal Content',
+          size: 'modal--small',
+          showCloseButton: true,
+          closeOnEsc: true,
+        }}
+        CODE_EXAMPLE={ModalsExampleCodeReact}
+        PROPS_EXAMPLE={ModalsExampleProps}
+        RENDER_EXAMPLE={ModalsExampleRender}
+      />
+
       <StaticExample
         title="Complex Modal"
         renderedExample={(
@@ -123,8 +134,3 @@ function ModalsDocumentation() {
     </div>
   );
 }
-
-ModalsDocumentation.propTypes = propTypes;
-ModalsDocumentation.defaultProps = defaultProps;
-
-export default ModalsDocumentation;

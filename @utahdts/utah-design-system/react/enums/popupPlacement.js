@@ -1,5 +1,3 @@
-// @ts-check
-
 // !! This file exists twice !! //
 // this file also is in the header!
 // see the header twin file for an explanation
@@ -7,7 +5,7 @@
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
 /** @enum {PopupPlacement} */
-export default {
+export const popupPlacement = {
   AUTO: /** @type {PopupPlacement} */ ('auto'),
   AUTO_START: /** @type {PopupPlacement} */ ('auto-start'),
   AUTO_END: /** @type {PopupPlacement} */ ('auto-end'),

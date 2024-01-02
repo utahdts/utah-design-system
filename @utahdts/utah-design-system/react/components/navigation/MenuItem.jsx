@@ -1,29 +1,36 @@
-import { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
-import useStateEffect from '../../hooks/useStateEffect';
-import MenuItemShape from '../../propTypesShapes/MenuItemShape';
-import joinClassNames from '../../util/joinClassNames';
-import IconButton from '../buttons/IconButton';
-import Icons from '../icons/Icons';
+import { joinClassNames } from '../../util/joinClassNames';
+import { IconButton } from '../buttons/IconButton';
+import { Icons } from '../icons/Icons';
 
-const propTypes = {
-  currentMenuItem: MenuItemShape,
-  menuItem: MenuItemShape.isRequired,
-};
-const defaultProps = {
-  currentMenuItem: null,
-};
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
-function MenuItem({ currentMenuItem, menuItem }) {
+/**
+ * @param {object} props
+ * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
+ * @param {WebsiteMainMenuItem} props.menuItem
+ * @returns {React.JSX.Element}
+ */
+export function MenuItem({ currentMenuItem, menuItem }) {
   const { pathname } = useLocation();
   // check if any of this menuItem's children are the currently open page/menuItem and if so, then keep this menuItem's children list open
-  const [isChildrenOpen, setIsChildrenOpen] = useStateEffect({
-    calculateValueFn: (isChildrenOpenPreviously) => isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link),
-    dependencyList: [currentMenuItem, menuItem, pathname],
-  });
+  const [isChildrenOpen, setIsChildrenOpen] = useImmer(() => (
+    !!currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')
+  ));
 
-  const navLinkRef = useRef(null);
+  useEffect(
+    () => {
+      setIsChildrenOpen((isChildrenOpenPreviously) => !!(isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [currentMenuItem, menuItem, pathname]
+  );
+
+  const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
 
   useLayoutEffect(
     () => {
@@ -62,7 +69,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
             : (
               <NavLink
                 className={(navData) => joinClassNames(
-                  (currentMenuItem?.parentLinks?.includes(menuItem.link) || navData.isActive)
+                  (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
                   && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
                 )}
                 end
@@ -87,7 +94,7 @@ function MenuItem({ currentMenuItem, menuItem }) {
                   isChildrenOpen && 'menu-item__chevron--open'
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                icon={Icons.IconChevron()}
+                icon={<Icons.IconChevron />}
                 title="Expand sub-menu"
               />
             )
@@ -114,8 +121,3 @@ function MenuItem({ currentMenuItem, menuItem }) {
     </li>
   );
 }
-
-MenuItem.propTypes = propTypes;
-MenuItem.defaultProps = defaultProps;
-
-export default MenuItem;

@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * @param {string | string[]} domConstants - the class or classes to which to prefix a period, multiples will be combined as a single selector
  * ie: `.class1.class2` instead of `.class1 .class2`
@@ -12,7 +11,7 @@ export function getCssClassSelector(domConstants) {
  * An enum for CSS classes used in the utah.gov header
  * @enum {string}
  */
-export default {
+export const domConstants = {
   // Global Information
   UTAH_DESIGN_SYSTEM: 'utah-design-system',
   HEADER: 'utds-header',
@@ -52,6 +51,8 @@ export default {
 
   FOOTER_COPYRIGHT_YEAR: 'utds-footer__copyright-year',
   FOOTER_HORIZONTAL_DIVIDER: 'utds-footer__horizontal-divider',
+  FOOTER_LINK_PRIVACY_ID: 'utds-footer-privacy-link',
+  FOOTER_LINK_TERMS_ID: 'utds-footer-terms-link',
   FOOTER_LINKS: 'utds-footer__links',
 
   LOGO: 'utds-logo-wrapper',

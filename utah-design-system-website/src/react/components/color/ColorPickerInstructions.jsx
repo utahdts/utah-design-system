@@ -1,11 +1,10 @@
-/* eslint-disable max-len */
 import { Icons } from '@utahdts/utah-design-system';
-import colorPickerInstuctionsImage from '../../../static/images/screenshots/colorPicker/colorPickerInstructions.webp';
+import colorPickerInstructionsImage from '../../../static/images/screenshots/colorPicker/colorPickerInstructions.webp';
 
-function ColorPickerInstructions() {
+export function ColorPickerInstructions() {
   return (
     <div className="color-picker-instructions">
-      <img src={colorPickerInstuctionsImage} alt="screenshot of color picker" className="color-picker-instructions__image" />
+      <img src={colorPickerInstructionsImage} alt="screenshot of color picker" className="color-picker-instructions__image" />
       <div className="color-picker-instructions__text">
         <ol className="mt-spacing">
           <li>
@@ -24,13 +23,16 @@ function ColorPickerInstructions() {
           <li>
             <strong>The contrast color</strong> is indicated here as a solid box with the hex color value.
           </li>
+          {/* @ts-ignore */}
           <li type="disc">
             Use the <strong>&quot;Contrast&quot; tab</strong> to compare any colors you have picked (as well as a set of neutral colors)
             to see their contrast values and WCAG rating (AA, AAA, or not passing).
           </li>
+          {/* @ts-ignore */}
           <li type="disc">
             <Icons.IconReset /><strong>Reset</strong> the color pickers to the default.
           </li>
+          {/* @ts-ignore */}
           <li type="disc">
             <Icons.IconShare /><strong>Share</strong> your colors with others.
             When you click this button a share link will be copied to your clipboard.
@@ -40,5 +42,3 @@ function ColorPickerInstructions() {
     </div>
   );
 }
-
-export default ColorPickerInstructions;

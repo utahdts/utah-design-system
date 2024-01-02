@@ -1,13 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
 import {
   Button,
   events,
   ExternalLink,
-  formElementSizesEnum,
   ICON_BUTTON_APPEARANCE,
   IconButton,
   Switch,
@@ -28,29 +23,25 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
-import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
-import useTextAreaCaretRowColumn from '../../../../../hooks/useTextAreaCaretRowColumn';
-import CopyButton from '../../../../copy/CopyButton';
-import LightBox from '../../../../lightbox/LightBox';
-import pageUrls from '../../../../routing/pageUrls';
-import StaticExample from '../../../../staticExamples/StaticExample';
-import formatHeaderSettingsForCopy from './formatHeaderSettingsForCopy';
-import useInteractiveHeaderState from './useInteractiveHeaderState';
-import UtahHeaderInteractivePresetSelector from './UtahHeaderInteractivePresetSelector';
-import utahHeaderPresets from './utahHeaderPresets';
-
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
-import PreCodeForCodeString from '../../../../preCode/PreCodeForCodeString';
-import MainMenuSettingsAndCode from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
+import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
+import { useTextAreaCaretRowColumn } from '../../../../../hooks/useTextAreaCaretRowColumn';
+import { CopyButton } from '../../../../copy/CopyButton';
+import { LightBox } from '../../../../lightbox/LightBox';
+import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
+import { pageUrls } from '../../../../routing/pageUrls';
+import { StaticExample } from '../../../../staticExamples/StaticExample';
+import { MainMenuSettingsAndCode } from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
+import { formatHeaderSettingsForCopy } from './formatHeaderSettingsForCopy';
+import { useInteractiveHeaderState } from './useInteractiveHeaderState';
+import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
+import { utahHeaderPresets } from './utahHeaderPresets';
 
-const propTypes = {};
-const defaultProps = {};
-
-function UtahHeaderDocumentation() {
-  const interactiveTextAreaRef = useRef(/** @type {HTMLInputElement} */(null));
+export function UtahHeaderDocumentation() {
+  const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
   const {
     headerString,
     setHeaderString,
@@ -65,7 +56,9 @@ function UtahHeaderDocumentation() {
   useEffect(
     () => {
       // when string is changed externally (reset, apply), update the text area
-      interactiveTextAreaRef.current.value = headerString;
+      if (interactiveTextAreaRef.current) {
+        interactiveTextAreaRef.current.value = headerString;
+      }
     },
     [headerString]
   );
@@ -75,9 +68,11 @@ function UtahHeaderDocumentation() {
   const isDirtyIntervalRef = useRef(NaN);
   useEffect(
     () => {
-      isDirtyIntervalRef.current = setInterval(() => {
-        setIsDirty(parseError || !headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
-      }, 500);
+      if (interactiveTextAreaRef.current) {
+        isDirtyIntervalRef.current = window.setInterval(() => {
+          setIsDirty(!!parseError || !headerIsOn || headerString !== interactiveTextAreaRef.current?.value);
+        }, 500);
+      }
 
       return () => clearInterval(isDirtyIntervalRef.current);
     },
@@ -104,7 +99,7 @@ function UtahHeaderDocumentation() {
           labelOn="Header Config On"
           labelOff="Header Config Off"
           onChange={useCallback(() => setHeaderIsOn((wasHeaderOn) => !wasHeaderOn), [setHeaderIsOn])}
-          size={formElementSizesEnum.LARGE}
+          size="large"
           value={headerIsOn}
           width={140}
         />
@@ -121,7 +116,7 @@ function UtahHeaderDocumentation() {
               />
               <CopyButton
                 copyRef={interactiveTextAreaRef}
-                onCopy={useCallback((textToCopy) => formatHeaderSettingsForCopy(textToCopy), [])}
+                onCopy={formatHeaderSettingsForCopy}
               />
               <div className="sandbox-example__code-info">
                 <span>Pos {position}, </span>
@@ -154,8 +149,10 @@ function UtahHeaderDocumentation() {
                       // set the new settings object as the new settings state and
                       // apply just the preset.settingsSnippet fields to the settings
                       setHeaderSettings((draftHeaderObject) => {
+                        // @ts-ignore
                         Object.entries(selectedOption.settingsSnippet)
                           .forEach(([settingKey, settingValue]) => {
+                            // @ts-ignore
                             draftHeaderObject[settingKey] = settingValue;
                           });
                       })
@@ -173,7 +170,7 @@ function UtahHeaderDocumentation() {
                 color="primary"
                 id="apply-interactive-utah-header"
                 isDisabled={!isDirty}
-                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current.value), [setHeaderString])}
+                onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current?.value ?? ''), [setHeaderString])}
               >
                 Apply
               </Button>
@@ -198,7 +195,7 @@ function UtahHeaderDocumentation() {
         quickTips={(
           <ul>
             <li>The Utah identification is required on all headers.</li>
-            <li>The <code>Utah, an official website</code> helps the user to know that they are visiting an official State website.</li>
+            <li>The <code>Utah, an official website</code> helps the user to know that they are visiting an official state website.</li>
             <li>At the moment, the color of the identification can be changed to match the primary or secondary color of the site.</li>
             <li>Depending on the height of the header use one of the above sizes (eg <code>SMALL</code>, <code>MEDIUM</code>, or <code>LARGE</code>).
               <ul>
@@ -215,6 +212,7 @@ function UtahHeaderDocumentation() {
         renderedExample={(
           <div style={{ height: '50px' }}>
             <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="utds-title-wrapper" href="#">
                 <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={agencyBrand} /></div>
                 <div className="utds-title-wrapper__title">Agency/Division Title </div>
@@ -820,7 +818,7 @@ function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                title: 'My fantastic State of Utah site',
+                title: 'My fantastic state of Utah site',
               }
             )
           `}
@@ -1146,7 +1144,7 @@ function UtahHeaderDocumentation() {
               <TableCell>
                 <span className="prop__description">
                   The Utah footer is the required bar at the bottom of the page with information and links
-                  for the State of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
+                  for the state of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
                   for the footer.
                 </span>
               </TableCell>
@@ -1329,6 +1327,7 @@ function UtahHeaderDocumentation() {
             </TableRow>
 
             <TableRow>
+              {/* @ts-ignore */}
               <TableCell colSpan="100">
                 <span className="prop__section-title">UtahId Events</span>
               </TableCell>
@@ -1383,6 +1382,7 @@ function UtahHeaderDocumentation() {
             </TableRow>
 
             <TableRow>
+              {/* @ts-ignore */}
               <TableCell colSpan="100">
                 <span className="prop__section-title">UtahId Custom Menu Items</span>
               </TableCell>
@@ -1407,8 +1407,8 @@ function UtahHeaderDocumentation() {
 
       <h4 id="section-auth-config" className="mt-spacing">utahId</h4>
       <div>
-        By default, the State of Utah Header checks Utah ID for the current logged in user. Instead, your application can take control of this
-        process and provide the current user information to the Utah Header, in which case the State of Utah Header will not look up current
+        By default, the state of Utah Header checks Utah ID for the current logged in user. Instead, your application can take control of this
+        process and provide the current user information to the Utah Header, in which case the state of Utah Header will not look up current
         user information and will rely solely on your application for current user information.
         <br />
         <br />
@@ -1465,7 +1465,7 @@ function UtahHeaderDocumentation() {
           `}
         />
         This example shows an unauthenticated user. This is a case where your application may have a cached user who is not yet verified. The
-        State of Utah Header will not trust this user information and will show the UtahID Sign In button.
+        state of Utah Header will not trust this user information and will show the UtahID Sign In button.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
@@ -1482,9 +1482,9 @@ function UtahHeaderDocumentation() {
             )
           `}
         />
-        By setting the currentUser to null, this example shows how the application tells the State of Utah Header that the application is
+        By setting the currentUser to null, this example shows how the application tells the state of Utah Header that the application is
         controlling the user authentication process and that there is not a currently logged in user. In contrast, setting currentUser to undefined
-        will indicate to the State of Utah Header to perform its default behavior to fetch the current user information from Utah ID.
+        will indicate to the state of Utah Header to perform its default behavior to fetch the current user information from Utah ID.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
@@ -1676,8 +1676,3 @@ function UtahHeaderDocumentation() {
     </div>
   );
 }
-
-UtahHeaderDocumentation.propTypes = propTypes;
-UtahHeaderDocumentation.defaultProps = defaultProps;
-
-export default UtahHeaderDocumentation;

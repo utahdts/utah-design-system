@@ -1,12 +1,11 @@
 // @ts-check
-import { isFunction } from 'lodash';
-import identity from 'lodash/identity';
+import { isFunction, identity } from 'lodash';
 import React, { useCallback, useRef } from 'react';
-import useOnKeyUp from '../../../../util/useOnKeyUp';
-import IconButton from '../../../buttons/IconButton';
-import useFormContext from '../../FormContext/useFormContext';
-import useMultiSelectContext from '../../MultiSelect/context/useMultiSelectContext';
-import TextInput from '../../TextInput';
+import { useOnKeyUp } from '../../../../util/useOnKeyUp';
+import { IconButton } from '../../../buttons/IconButton';
+import { useFormContext } from '../../FormContext/useFormContext';
+import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
+import { TextInput } from '../../TextInput';
 import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
@@ -19,7 +18,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} [props.className]
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
@@ -38,7 +37,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function ComboBoxTextInput({
   comboBoxListId,

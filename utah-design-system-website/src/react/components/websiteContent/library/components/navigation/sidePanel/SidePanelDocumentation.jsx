@@ -1,20 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-indent */
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import LightBox from '../../../../../lightbox/LightBox';
 import sidePanelMockup from '../../../../../../../static/images/mockups/SidePanelNav.jpg';
 import sidePanelMobile from '../../../../../../../static/images/mockups/SidePanelNavMobileClosed.jpg';
 import sidePanelMobileOpen from '../../../../../../../static/images/mockups/SidePanelNavMobileOpen.jpg';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { LightBox } from '../../../../../lightbox/LightBox';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-function SidePanelDocumentation() {
+export function SidePanelDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Side Panel</h1>
@@ -89,8 +82,3 @@ function SidePanelDocumentation() {
     </div>
   );
 }
-
-SidePanelDocumentation.propTypes = propTypes;
-SidePanelDocumentation.defaultProps = defaultProps;
-
-export default SidePanelDocumentation;

@@ -1,21 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { IconButton, joinClassNames } from '@utahdts/utah-design-system';
 import { useImmer } from 'use-immer';
-import useKeyEventGlobal from '../../hooks/useKeyEventGlobal';
+import { useKeyEventGlobal } from '../../hooks/useKeyEventGlobal';
 
-const propTypes = {
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  hideAlt: PropTypes.bool,
-  image: PropTypes.node.isRequired,
-};
-const defaultProps = {
-  className: null,
-  hideAlt: false,
-};
-
-function LightBox({
+/**
+ * @param {object} props
+ * @param {string} props.alt
+ * @param {string} [props.className]
+ * @param {boolean} [props.hideAlt]
+ * @param {React.ReactNode} props.image
+ * @returns {React.JSX.Element}
+ */
+export function LightBox({
   alt,
   className,
   hideAlt,
@@ -45,6 +40,7 @@ function LightBox({
           });
         }}
       >
+        {/* @ts-ignore */}
         <img src={image} alt={alt} />
         {hideAlt ? null : <span className="lightbox__button-text hcenter">{alt}</span>}
       </button>
@@ -64,6 +60,7 @@ function LightBox({
               });
             }}
           >
+            {/* @ts-ignore */}
             <img src={image} alt={alt} />
             <div className="lightbox__popup-text">{alt}</div>
           </div>
@@ -84,8 +81,3 @@ function LightBox({
     </>
   );
 }
-
-LightBox.propTypes = propTypes;
-LightBox.defaultProps = defaultProps;
-
-export default LightBox;

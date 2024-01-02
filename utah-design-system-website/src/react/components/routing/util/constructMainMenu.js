@@ -1,5 +1,4 @@
-// @ts-check
-import deleteKeysFromObject from '../../../util/deleteKeysFromObject';
+import { deleteKeysFromObject } from '../../../util/deleteKeysFromObject';
 import {
   menuGuidelinesSecondary,
   menuLibraryComponentsSecondary,
@@ -8,15 +7,16 @@ import {
   menuMain,
   menuResourcesSecondary,
 } from '../menus';
-import pageUrls from '../pageUrls';
+import { pageUrls } from '../pageUrls';
 
 /** @typedef {import('@utahdts/utah-design-system-header').EventAction} EventAction */
 /** @typedef {import('@utahdts/utah-design-system-header').MainMenu} MainMenu */
 /** @typedef {import('@utahdts/utah-design-system-header').MainMenuItem} MainMenuItem */
 /** @typedef {import('@utahdts/utah-design-system-header').MenuItem} MenuItem */
-/** @typedef {import('../../../../typedefs.d').PageUrl} PageUrl */
-/** @typedef {import('../../../../typedefs.d').WebsiteMainMenu} WebsiteMainMenu */
-/** @typedef {import('../../../../typedefs.d').WebsiteMainMenuItem} WebsiteMainMenuItem */
+
+/** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 /**
  * @param {string} url
@@ -40,6 +40,7 @@ function actionFunctionForUrl(url, navigate) {
 
 /**
  * @param {WebsiteMainMenuItem[]} websiteMainMenuItems
+ * @param {import('react-router-dom').NavigateFunction} navigate
  * @returns {MenuItem[]}
  */
 function constructMenuItems(websiteMainMenuItems, navigate) {
@@ -101,7 +102,7 @@ function assignSelectedFromHierarchy(parentMenus, draftMenuItem, currentMenuItem
  * @param {import('react-router-dom').NavigateFunction} navigate
  * @returns {MainMenu}
  */
-export default function constructMainMenu(currentMenuItem, navigate) {
+export function constructMainMenu(currentMenuItem, navigate) {
   // create top level main menu
   /** @type {MainMenu} */
   const mainMenu = {
@@ -129,6 +130,7 @@ export default function constructMainMenu(currentMenuItem, navigate) {
   /** @type {{[key: string]: MainMenuItem}} */
   const mainMenusByLink = mainMenu.menuItems.reduce(
     (draftMainMenusMap, mainMenuItem) => {
+      // @ts-ignore
       draftMainMenusMap[mainMenuItem.actionFunctionUrl?.url || 'missing-action-url'] = mainMenuItem;
       return draftMainMenusMap;
     },
@@ -136,8 +138,10 @@ export default function constructMainMenu(currentMenuItem, navigate) {
   );
 
   // add children to each top level menu
+  // @ts-ignore
   mainMenusByLink[pageUrls.guidelines].actionMenu = constructMenuItems(menuGuidelinesSecondary.menuItems, navigate);
   const librarySubMenuInitial = constructMenuItems(menuLibrarySecondary.menuItems, navigate);
+  // @ts-ignore
   mainMenusByLink[pageUrls.library].actionMenu = librarySubMenuInitial.concat([
     {
       actionMenu: constructMenuItems(menuLibraryComponentsSecondary.menuItems, navigate),
@@ -148,6 +152,7 @@ export default function constructMainMenu(currentMenuItem, navigate) {
       title: 'Patterns',
     },
   ]);
+  // @ts-ignore
   mainMenusByLink[pageUrls.resources].actionMenu = constructMenuItems(menuResourcesSecondary.menuItems, navigate);
 
   // recursive step through children; if child selected then select all its parents too

@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import MainMenuItem from './html/MainMenuItem.html?raw';
@@ -9,16 +8,16 @@ import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 
-import childrenMenuTypes from '../../enumerations/childrenMenuTypes';
-import domConstants, { getCssClassSelector } from '../../enumerations/domConstants';
-import notNull from '../../misc/notNull';
-import popupFocusHandler from '../../misc/popupFocusHandler';
-import renderDOMSingle from '../../misc/renderDOMSingle';
-import uuidv4 from '../../misc/uuidv4';
-import getUtahHeaderSettings from '../../settings/getUtahHeaderSettings';
-import renderPopupMenu from '../popupMenu/renderPopupMenu';
+import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { notNull } from '../../misc/notNull';
+import { popupFocusHandler } from '../../misc/popupFocusHandler';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import { uuidv4 } from '../../misc/uuidv4';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import { renderPopupMenu } from '../popupMenu/renderPopupMenu';
 import { setupSearchModal, showSearchModal } from '../search/searchModal';
-import hookupTooltip from '../tooltip/hookupTooltip';
+import { hookupTooltip } from '../tooltip/hookupTooltip';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
 
 /**
@@ -28,7 +27,7 @@ import { renderUtahIdForMobile } from '../utahId/UtahId';
 /**
  * @returns {{mainMenuWrapper: HTMLElement, utahIdPopup: HTMLElement | null}}
  */
-export default function renderMainMenu() {
+export function renderMainMenu() {
   const settings = getUtahHeaderSettings();
   /** @type {HTMLElement} */
   const mainMenuWrapper = renderDOMSingle(MainMenuWrapper);
@@ -76,6 +75,9 @@ export default function renderMainMenu() {
         `renderMainMenu(): button title not found for ${menuItem.title}`
       );
       mainMenuItemButtonTitle.setAttribute('id', `${domConstants.MENU_ITEM__BUTTON_TITLE}__${menuItem.title}-${uuidv4()}`);
+      if (menuItem.className) {
+        mainMenuItemButtonTitle.classList.add(menuItem.className);
+      }
 
       const mainMenuItemLinkTitle = notNull(
         /** @type {HTMLElement} */(
@@ -84,6 +86,9 @@ export default function renderMainMenu() {
         `renderMainMenu(): link title not found for ${menuItem.title}`
       );
       mainMenuItemLinkTitle.setAttribute('id', `${domConstants.MENU_ITEM__LINK_TITLE}__${menuItem.title}-${uuidv4()}`);
+      if (menuItem.className) {
+        mainMenuItemLinkTitle.classList.add(menuItem.className);
+      }
 
       let menuItemTitleElement;
       if (menuItem.actionFunctionUrl || menuItem.actionUrl) {
@@ -108,11 +113,27 @@ export default function renderMainMenu() {
         // render children menu items
         menuItemTitleSpanElement.innerHTML = menuItem.title;
 
+        const menuItems = [...menuItem.actionMenu];
+        // if have both an action url and menu items, show a page link since the menu can't be both clicked to open
+        // the sub menu AND clicked to got to the link
+        if (
+          menuItem.actionFunction
+          || menuItem.actionUrl
+          || menuItem.actionFunctionUrl
+        ) {
+          // add `(page)` menu item to top of children menu
+          menuItems.unshift({
+            actionFunction: menuItem.actionFunction,
+            actionFunctionUrl: menuItem.actionFunctionUrl,
+            actionUrl: menuItem.actionUrl,
+            className: menuItem.className,
+            icon: menuItem.icon,
+            title: `${menuItem.title} (page)`,
+          });
+        }
+
         /** @type {PopupMenu} */
-        const popupMenu = {
-          menuItems: menuItem.actionMenu,
-          title: menuItem.title,
-        };
+        const popupMenu = { menuItems, title: menuItem.title };
         const subMenuPopup = renderPopupMenu(
           popupMenu,
           menuItemTitleElement,
@@ -148,25 +169,34 @@ export default function renderMainMenu() {
       if (menuItem.actionFunction) {
         // custom function when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
-        menuItemTitleElement.onclick = menuItem.actionFunction;
+        // if have children, then the action is moved to the `(page)` menu item and not here
+        if (!menuItem.actionMenu) {
+          menuItemTitleElement.onclick = menuItem.actionFunction;
+        }
       } else if (menuItem.actionFunctionUrl) {
         menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
 
-        menuItemTitleElement.onclick = (e) => {
-          if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
-            e.stopPropagation();
-            e.preventDefault();
-          }
-          menuItem.actionFunctionUrl?.actionFunction(e);
-        };
+        // if have children, then the action is moved to the `(page)` menu item and not here
+        if (!menuItem.actionMenu) {
+          menuItemTitleElement.onclick = (e) => {
+            if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
+              e.stopPropagation();
+              e.preventDefault();
+            }
+            menuItem.actionFunctionUrl?.actionFunction(e);
+          };
+        }
       } else if (menuItem.actionUrl) {
         // go to url when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
       }
 
-      if (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) {
+      if (
+        !menuItem.actionMenu
+        && (menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab)
+      ) {
         menuItemTitleElement.setAttribute('target', '_blank');
         menuItemTitleElement.appendChild(renderDOMSingle(NewTabAccessibility));
       }

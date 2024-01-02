@@ -1,0 +1,195 @@
+@use "../../../1-settings/settings-index";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/spacing";
+@use "../../../7-utilities/animation";
+
+#{class-vars.$base-class} {
+  .banner {
+    &__wrapper {
+      display: inline-flex;
+      border-radius: var(--radius-small);
+      background: white;
+      box-shadow: var(--elevation-small-borderless);
+      margin: var(--spacing);
+
+      &:not(.banner--inline) {
+        position: fixed;
+        z-index: 3000;
+      }
+
+      &.banner {
+        &--bottom-left, &--top-left {
+          animation: left-in 1s;
+        }
+
+        &--bottom-right, &--top-right {
+          animation: right-in 1s;
+        }
+
+        &--bottom, &--top {
+          animation: fade-in .5s;
+        }
+
+        &--bottom {
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &--bottom-left {
+          bottom: 0;
+          left: 0;
+        }
+
+        &--bottom-right {
+          bottom: 0;
+          right: 0;
+        }
+
+        &--top {
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &--top-left {
+          top: 0;
+          left: 0;
+        }
+
+        &--top-right {
+          top: 0;
+          right: 0;
+        }
+
+        &--info, &--warning, &--danger, &--success, &--dark {
+          color: white;
+          .banner__close-button button, a {
+            color: white;
+          }
+        }
+
+        &--info {
+          background-color: var(--info-color);
+        }
+        &--warning {
+          background-color: var(--warning-color);
+        }
+        &--danger {
+          background-color: var(--danger-color);
+        }
+        &--success {
+          background-color: var(--success-color);
+        }
+        &--dark {
+          background-color: var(--gray-color);
+        }
+
+        &--small {
+          max-width: 320px;
+        }
+        &--medium {
+          max-width: 640px;
+        }
+        &--large {
+          max-width: 960px;
+        }
+      }
+    }
+
+    &__message {
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-s) var(--spacing-xs) var(--spacing-s) var(--spacing);
+    }
+
+    &__icon {
+      padding: var(--spacing-s);
+      background-color: rgba(0, 0, 0, 0.3);
+      display: flex;
+      border-radius: var(--radius-small) 0 0 var(--radius-small);
+
+      span {
+        color: white;
+
+        &[class*=utds-icon-before-]::before {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &__close-button {
+      padding: var(--spacing-xs);
+    }
+  }
+
+  &.banner-global__wrapper {
+    z-index: 4000;
+    position: fixed;
+
+    .banner-global{
+      &__zone{
+        position: fixed;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      &__bottom {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+      }
+
+      &__bottom-left {
+        bottom: 0;
+        left: 0;
+        flex-direction: column;
+      }
+
+      &__bottom-right {
+        bottom: 0;
+        right: 0;
+        flex-direction: column;
+      }
+
+      &__top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &__top-left {
+        top: 0;
+        left: 0;
+      }
+
+      &__top-right {
+        top: 0;
+        right: 0;
+      }
+
+      &__bottom, &__top {
+        .banner__wrapper {
+          align-self: baseline;
+        }
+      }
+
+      &__top-right, &__bottom-right {
+        .banner__wrapper {
+          align-self: flex-end;
+        }
+      }
+
+      &__top-left, &__bottom-left {
+        .banner__wrapper {
+          align-self: flex-start;
+        }
+      }
+    }
+
+    .banner__wrapper {
+      position: relative;
+    }
+  }
+}

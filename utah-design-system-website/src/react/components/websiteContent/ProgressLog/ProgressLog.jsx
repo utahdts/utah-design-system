@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import {
   ExternalLink,
   Table,
@@ -10,16 +9,21 @@ import {
   TableRow,
   TableWrapper,
 } from '@utahdts/utah-design-system';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../routing/pageUrls';
-import ProgressLogCheckboxChecked from './ProgressLogCheckboxChecked';
-import ProgressLogCheckboxUnchecked from './ProgressLogCheckboxUnchecked';
-import ProgressLogVersionRow from './ProgressLogVersionRow';
+import { pageUrls } from '../../routing/pageUrls';
+import { ProgressLogCheckboxChecked } from './ProgressLogCheckboxChecked';
+import { ProgressLogCheckboxUnchecked } from './ProgressLogCheckboxUnchecked';
+import { ProgressLogVersionRow } from './ProgressLogVersionRow';
 
-const propTypes = {};
-const defaultProps = {};
-
+/**
+ * @param {object} props
+ * @param {string} props.title
+ * @param {string} props.toUrl
+ * @param {boolean} [props.isDefinitionChecked]
+ * @param {boolean} [props.isCssChecked]
+ * @param {boolean} [props.isComponentExampleChecked]
+ * @returns {React.JSX.Element}
+ */
 function ProgressLogTableRow({
   title,
   toUrl,
@@ -36,20 +40,8 @@ function ProgressLogTableRow({
     </TableRow>
   );
 }
-ProgressLogTableRow.propTypes = {
-  isDefinitionChecked: PropTypes.bool,
-  isCssChecked: PropTypes.bool,
-  isComponentExampleChecked: PropTypes.bool,
-  title: PropTypes.string.isRequired,
-  toUrl: PropTypes.string.isRequired,
-};
-ProgressLogTableRow.defaultProps = {
-  isDefinitionChecked: false,
-  isCssChecked: false,
-  isComponentExampleChecked: false,
-};
 
-function ProgressLog() {
+export function ProgressLog() {
   return (
     <>
       <h2 id="h2-release-notes">Release Notes</h2>
@@ -60,6 +52,7 @@ function ProgressLog() {
       <div className="my-spacing-xl flex justify-center">
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/releases"
+          // @ts-ignore
           className="button button--primary-color button--small"
         >
           View GitHub Releases and Notes
@@ -171,8 +164,3 @@ function ProgressLog() {
     </>
   );
 }
-
-ProgressLog.propTypes = propTypes;
-ProgressLog.defaultProps = defaultProps;
-
-export default ProgressLog;

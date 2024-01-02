@@ -1,6 +1,5 @@
-// @ts-check
 import { describe, expect, test } from 'vitest';
-import valueFromRanges from '../../src/react/util/valueFromRanges';
+import { valueFromRanges } from '../../src/react/util/valueFromRanges';
 
 const TOP = 'TOP';
 const MIDDLE = 'MIDDLE';

@@ -1,18 +1,17 @@
-// @ts-check
-import {
+import React, {
   useCallback,
   useContext,
   useEffect,
   useMemo,
 } from 'react';
 import { useImmer } from 'use-immer';
-import setValueAtPath from '../../util/state/setValueAtPath';
-import valueAtPath from '../../util/state/valueAtPath';
-import TableContext from './util/TableContext';
+import { setValueAtPath } from '../../util/state/setValueAtPath';
+import { valueAtPath } from '../../util/state/valueAtPath';
+import { TableContext } from './util/TableContext';
 
 /**
  * @template TableDataT
- * @typedef {import('../../jsDocTypes').RecordOnChangeFunc<TableDataT>} RecordOnChangeFunc
+ * @typedef {import('@utahdts/utah-design-system').RecordOnChangeFunc<TableDataT>} RecordOnChangeFunc
  */
 
 /**
@@ -20,17 +19,20 @@ import TableContext from './util/TableContext';
  * This function takes these values in to account and provides a current value and onChange event
  * The passed in values trump those of the parent context. A local state is used if neither passed in nor
  * context have a value.
- *
  * @template TableDataT
- * @param {Object} param the path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
+ * @param {object} param the path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
  * @param {string} param.contextStatePath path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
- * @param {(e) => TableDataT} param.defaultOnChange
+ * @param {(e: React.ChangeEvent) => TableDataT} param.defaultOnChange
  * @param {TableDataT | null} param.defaultValue starting value for this component (controlled and uncontrolled)
- * @param {((e) => void)} [param.onChange]
+ * @param {(e: React.ChangeEvent) => TableDataT} [param.onChange]
  * @param {TableDataT | null} param.value the current value of this item
- * @returns {{ currentOnChange: (e) => TableDataT, currentValue: TableDataT | null, setValue: (TableDataT) => void }}
+ * @returns {{
+ *   currentOnChange: (e: React.ChangeEvent) => TableDataT
+ *   currentValue: (TableDataT | null)
+ *   setValue: (newValue: TableDataT) => void
+ * }}
  */
-export default function useCurrentValuesFromStateContext({
+export function useCurrentValuesFromStateContext({
   // the path in the state object of the context to the data being used
   contextStatePath,
   // if onChange is not found on context nor passed in, then use this onChange to get the value
@@ -61,8 +63,10 @@ export default function useCurrentValuesFromStateContext({
   );
 
   const setValue = useCallback(
+    /** @param {TableDataT} newValue */
     (newValue) => {
       if (onChange) {
+        // @ts-ignore this may be a bug? by sending a value instead of an event
         onChange(newValue);
       } else {
         setStateContext((draftStateContext) => {

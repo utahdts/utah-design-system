@@ -1,10 +1,9 @@
-// @ts-check
 import { useContext } from 'react';
 import { ComboBoxContext } from './ComboBoxContext';
 
-/** @typedef { import('../../../../jsDocTypes').ComboBoxContext} ComboBoxContextType */
+/** @typedef { import('@utahdts/utah-design-system').ComboBoxContext} ComboBoxContextType */
 
-/** @return {ComboBoxContextType} */
+/** @returns {ComboBoxContextType} */
 export function useComboBoxContext() {
   return useContext(ComboBoxContext);
 }

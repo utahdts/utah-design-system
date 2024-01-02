@@ -1,30 +1,15 @@
-// @ts-check
-import PropTypes from 'prop-types';
 import React from 'react';
-import RefShape from '../../propTypesShapes/RefShape';
-import joinClassNames from '../../util/joinClassNames';
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  innerRef: RefShape,
-  id: PropTypes.string,
-};
-const defaultProps = {
-  className: null,
-  innerRef: null,
-  id: null,
-};
+import { joinClassNames } from '../../util/joinClassNames';
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {React.ReactNode} props.children
  * @param {string} [props.className]
- * @param {React.RefObject} [props.innerRef]
+ * @param {React.RefObject<HTMLTableElement>} [props.innerRef]
  * @param {string} [props.id]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
-function Table({
+export function Table({
   children,
   className,
   id,
@@ -37,8 +22,3 @@ function Table({
     </table>
   );
 }
-
-Table.propTypes = propTypes;
-Table.defaultProps = defaultProps;
-
-export default Table;

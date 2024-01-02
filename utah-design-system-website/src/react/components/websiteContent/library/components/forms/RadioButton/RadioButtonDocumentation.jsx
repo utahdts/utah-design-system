@@ -1,20 +1,14 @@
-// @ts-check
 /* eslint-disable max-len */
 import { RadioButton } from '@utahdts/utah-design-system';
-import React from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
 import { RadioButtonExampleProps } from './RadioButtonExampleProps';
 import { RadioButtonExampleRender } from './RadioButtonExampleRender';
 
-/* eslint-disable react/jsx-one-expression-per-line */
-const propTypes = {};
-const defaultProps = {};
-
-function RadioButtonDocumentation() {
+export function RadioButtonDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Radio Button</h1>
@@ -132,8 +126,3 @@ function RadioButtonDocumentation() {
     </div>
   );
 }
-
-RadioButtonDocumentation.propTypes = propTypes;
-RadioButtonDocumentation.defaultProps = defaultProps;
-
-export default RadioButtonDocumentation;

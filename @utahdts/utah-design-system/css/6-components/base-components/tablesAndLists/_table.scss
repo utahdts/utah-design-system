@@ -2,7 +2,7 @@
 
 #{class-vars.$base-class} {
   .table__wrapper {
-    overflow-x: scroll;
+    overflow-x: auto;
   }
   table {
     border-collapse: collapse;

@@ -1,17 +1,15 @@
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import handleEvent from '../../../util/handleEvent';
-import joinClassNames from '../../../util/joinClassNames';
-import TabGroupContext from './TabGroupContext';
+import { handleEvent } from '../../../util/handleEvent';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { TabGroupContext } from './TabGroupContext';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  // a tab id must be provided for accessibility and selecting tab
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-};
-const defaultProps = {};
-
-function Tab({ children, id }) {
+/**
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} props.id
+ * @returns {React.JSX.Element}
+ */
+export function Tab({ children, id }) {
   const {
     selectedTabId,
     setSelectedTabId,
@@ -37,7 +35,7 @@ function Tab({ children, id }) {
         id={`tab-${tabGroupId}-${id}`}
         onClick={handleEvent(() => setSelectedTabId(id))}
         role="tab"
-        tabIndex="-1"
+        tabIndex={-1}
         type="button"
       >
         {children}
@@ -46,8 +44,3 @@ function Tab({ children, id }) {
     </div>
   );
 }
-
-Tab.propTypes = propTypes;
-Tab.defaultProps = defaultProps;
-
-export default Tab;

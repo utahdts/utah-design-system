@@ -1,14 +1,13 @@
-// @ts-check
 import {
   Accordion,
   ClickableTag,
   formElementSizesEnum, Icons, Tab, TabGroup, TabList, TabPanel, TabPanels, Tag, useBanner
 } from '@utahdts/utah-design-system';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import pageUrls from '../../../../../routing/pageUrls';
-import SandboxExample from '../../../../../sandbox/SandboxExample';
-import StaticExample from '../../../../../staticExamples/StaticExample';
+import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { ClickableTagCssClassesDocumentation } from './clickable/ClickableTagCssClassesDocumentation';
 import { ClickableTagExampleCodeReact } from './clickable/ClickableTagExampleCodeReact';
 import { ClickableTagExampleProps } from './clickable/ClickableTagExampleProps';
@@ -20,11 +19,10 @@ import { TagExampleProps } from './non-clickable/TagExampleProps';
 import { TagExampleRender } from './non-clickable/TagExampleRender';
 import { TagPropsDocumentation } from './non-clickable/TagPropsDocumentation';
 
-/** @typedef {import('../../../../../../../typedefs.d').TagExamplePropsShape} TagExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
-/** @returns {JSX.Element} */
 export function TagsDocumentation() {
-  const showBanner = useBanner();
+  const { addBanner } = useBanner();
   /** @type {TagExamplePropsShape} */
   const defaultSandboxProps = useMemo(
     () => ({
@@ -132,8 +130,8 @@ export function TagsDocumentation() {
               <Tag iconRight={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}>Right</Tag>
             </div>
             <div className="flex gap-s">
-              <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconSlack()} className="tag--primary-color">Slack</Tag>
-              <Tag size={formElementSizesEnum.LARGE} iconLeft={Icons.IconGitHub()} className="tag--primary-color">GitHub</Tag>
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={<Icons.IconSlack />} className="tag--primary-color">Slack</Tag>
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={<Icons.IconGitHub />} className="tag--primary-color">GitHub</Tag>
             </div>
           </div>
         )}
@@ -154,11 +152,11 @@ export function TagsDocumentation() {
           <div className="flex flex-col full-width">
             <p className="mb-spacing-s">The Mighty 5:</p>
             <div className="flex gap-s mb-spacing-xs">
-              <ClickableTag className="tag--primary-color" isSelected onClick={() => showBanner({ message: 'tag clicked' })}>Zion</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Arches</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Bryce</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Canyonlands</ClickableTag>
-              <ClickableTag onClick={() => showBanner({ message: 'tag clicked' })}>Capitol Reef</ClickableTag>
+              <ClickableTag className="tag--primary-color" isSelected onClick={() => addBanner({ message: 'Tag clicked' })}>Zion</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Arches</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Bryce</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Canyonlands</ClickableTag>
+              <ClickableTag onClick={() => addBanner({ message: 'Tag clicked' })}>Capitol Reef</ClickableTag>
             </div>
           </div>
         )}

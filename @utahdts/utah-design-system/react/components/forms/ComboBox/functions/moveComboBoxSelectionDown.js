@@ -1,8 +1,7 @@
-// @ts-check
 import { isOptionGroupVisible } from './isOptionGroupVisible';
 
-/** @typedef {import('../../../../jsDocTypes').ComboBoxContextValue} ComboBoxContextValue */
-/** @typedef {import('../../../../jsDocTypes').MultiSelectContextValue} MultiSelectContextValue */
+/** @typedef {import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
+/** @typedef {import('@utahdts/utah-design-system').MultiSelectContextValue} MultiSelectContextValue */
 
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext

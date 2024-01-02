@@ -1,9 +1,9 @@
-import domConstants, { getCssClassSelector } from '../enumerations/domConstants';
-import notNull from '../misc/notNull';
+import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
+import { notNull } from '../misc/notNull';
 import { showActionItem } from '../renderables/mobile/mobileMenuInteractionHandler';
-import getHamburgerElements from '../renderables/mobile/util/getHamburgerElements';
+import { getHamburgerElements } from '../renderables/mobile/util/getHamburgerElements';
 
-export default function hookupMobileActionItemKeyboarding() {
+export function hookupMobileActionItemKeyboarding() {
   // fetch all the icon buttons from the mobile menu action items, should be in order
   const allActionItemButtonsSTUPID = document.querySelectorAll(`
       ${getCssClassSelector(domConstants.MOBILE_MENU__ACTION_BAR)}

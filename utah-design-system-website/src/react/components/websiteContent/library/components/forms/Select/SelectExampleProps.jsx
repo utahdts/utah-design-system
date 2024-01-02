@@ -1,4 +1,3 @@
-// @ts-check
 import {
   Form,
   Select,
@@ -8,19 +7,19 @@ import {
 } from '@utahdts/utah-design-system';
 import React from 'react';
 
-/** @typedef {import('../../../../../../../typedefs.d').SelectExamplePropsShape} SelectExamplePropsShape */
+/** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {import('use-immer').Updater<{props: SelectExamplePropsShape}>} props.setState
- * @param {Object} props.state
- * @param {SelectExamplePropsShape} props.state.props
- * @returns {JSX.Element}
+ * @param {object} props.state
+ * @returns {React.JSX.Element}
  */
-export default function SelectExampleProps({ setState, state }) {
+export function SelectExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
+      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

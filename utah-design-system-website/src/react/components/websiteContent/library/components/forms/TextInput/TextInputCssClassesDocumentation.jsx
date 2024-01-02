@@ -1,10 +1,8 @@
-// @ts-check
 import {
   Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
-function TextInputCssClassesDocumentation() {
+export function TextInputCssClassesDocumentation() {
   return (
     <TableWrapper>
       <Table className="table--lines-x">
@@ -27,5 +25,3 @@ function TextInputCssClassesDocumentation() {
     </TableWrapper>
   );
 }
-
-export default TextInputCssClassesDocumentation;
