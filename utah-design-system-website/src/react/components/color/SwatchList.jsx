@@ -96,7 +96,7 @@ export function SwatchList({ colorFamily, onColorSelected }) {
             const isSelected = selectedColor?.key === cssState.selectedColorPicker;
             return (
               <li
-                key={`color-family__swatch-${swatch}`}
+                key={`color-family__swatch-${JSON.stringify(swatch)}`}
                 className={joinClassNames(
                   isSelectedGroup ? `selected-group selected${selectedColor.key}` : null,
                   isSelected ? 'selected' : null,

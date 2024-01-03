@@ -74,6 +74,7 @@ import { StatusIndicatorDocumentation } from '../websiteContent/library/componen
 import { StepIndicatorDocumentation } from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import { UtahFooterDocumentation } from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import { UtahHeaderDocumentation } from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
+import { AccessibilityTesting } from '../websiteContent/resources/AccessibilityTesting/AccessibilityTesting';
 import { GettingStarted } from '../websiteContent/resources/GettingStarted';
 import { GettingStartedDesigner } from '../websiteContent/resources/GettingStartedDesigner';
 import { GettingStartedDeveloper } from '../websiteContent/resources/GettingStartedDeveloper';
@@ -171,6 +172,13 @@ export const pages = {
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility Checklist & Testing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  accessibilityTestingPage: /** @type {Page} */ ({
+    content: AccessibilityTesting,
+    link: pageUrls.accessibilityTesting,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Accessibility Testing',
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
   }),
   colorGuidelines: /** @type {Page} */ ({
     content: ColorGuidelinesDocumentation,
