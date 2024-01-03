@@ -1,9 +1,47 @@
-import {
-  Button, ComboBox, ComboBoxOption, useBanner
-} from '@utahdts/utah-design-system';
+import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
+import { sortBy } from 'lodash';
+import { useMemo } from 'react';
+import { examplePresidentsData } from '../../library/components/table/exampleTables/examplePresidentsData';
+
+/** @typedef {{category: string, symbol: string, year: number}} StateSymbol */
+
+/**
+ * @typedef PresidentBirthplace {
+ *  @property {string} county
+ *  @property {string} state
+ * }
+ */
+
+/**
+ * @typedef President {
+ *  @property {string} id
+ *  @property {string} name
+ *  @property {string} inauguration
+ *  @property {number} nthPresident
+ *  @property {string} funFacts
+ *  @property {PresidentBirthplace} birthplace
+ *  @property {string} politicalParty
+ * }
+ */
 
 export function AccessibilityTestingComboBox() {
-  const { addBanner } = useBanner();
+  const presidentsByParty = useMemo(
+    () => (
+      sortBy(examplePresidentsData, (president) => [president.politicalParty, president.name])
+        .reduce(
+          (draftGroupedPresidents, president) => {
+            if (!draftGroupedPresidents[president.politicalParty]) {
+              draftGroupedPresidents[president.politicalParty] = /** @type {President[]} */ ([]);
+            }
+            draftGroupedPresidents[president.politicalParty]?.push(president);
+            return draftGroupedPresidents;
+          },
+          /** @type {Record<string, President[]>} */({})
+        )
+    ),
+    []
+  );
+
   return (
     <>
       <h2>Como Box</h2>
@@ -34,26 +72,80 @@ export function AccessibilityTestingComboBox() {
         </div>
       </div>
 
-      {/* // option that uses combo box option groups */}
-      {/*  * @param {React.ReactNode} [props.children]
- * @param {string} [props.className]
- * @param {string} [props.identifiesWithOptionGroupId] some things like group labels are focusable in the list, but not filterable, this is their `id`
- * @param {boolean} [props.isDisabled]
- * @param {boolean} [props.isStatic] static options are always visible and not filterable
- * @param {string} props.label
- * @param {string} props.value
- */}
-
       <h3>Scenario: Combo Box #2 - Long List</h3>
       <div className="accessibility-scenario">
-        <p className="lead-in">The button is disabled. It should not receive focus nor be clickable.</p>
+        <p className="lead-in">
+          There are many options for selection in this Combo Box so that it is probably preferable to filter the possible options
+          to narrow down to the desired option.
+        </p>
         <div className="accessibility-scenario__component">
-          <Button
-            isDisabled
-            onClick={() => addBanner({ message: 'Button clicked in scenario Button-1' })}
-          >
-            You can not click this button
-          </Button>
+          <div className="accessibility-scenario__component">
+            <ComboBox
+              id="combo-box-test-scenario-2"
+              label="Choose a president"
+            >
+              {
+                examplePresidentsData.map((president) => (
+                  <ComboBoxOption key={`president-${president.id}`} label={president.name} value={president.id} />
+                ))
+              }
+            </ComboBox>
+          </div>
+        </div>
+      </div>
+
+      <h3>Scenario: Combo Box #3 - Grouped Options</h3>
+      <div className="accessibility-scenario">
+        <p className="lead-in">
+          The possible options in this Combo Box are in groups. The group title is not selectable but the items
+          in each group are selectable.
+        </p>
+        <div className="accessibility-scenario__component">
+          <div className="accessibility-scenario__component">
+            <ComboBox
+              id="combo-box-test-scenario-3"
+              label="Choose a President"
+            >
+              {
+                Object.entries(presidentsByParty)
+                  .map(([politicalParty, presidents]) => (
+                    <ComboBoxOptionGroup key={`president-group__${politicalParty}`} label={politicalParty}>
+                      {
+                        presidents.map((president) => (
+                          <ComboBoxOption key={`president-${president.id}`} label={president.name} value={president.id} />
+                        ))
+                      }
+                    </ComboBoxOptionGroup>
+                  ))
+              }
+            </ComboBox>
+          </div>
+        </div>
+      </div>
+
+      <h3>Scenario: Combo Box #4 - Static & Disabled Options</h3>
+      <div className="accessibility-scenario">
+        <p className="lead-in">
+          Static options are options that are not filterable nor selectable and are always displayed. Like a &quot;no more results&quot; message.
+          Disabled options are not selectable but are filterable.
+          In the following example, &quot;Goblin Valley&quot; is &quot;disabled&quot; and &quot;Utah is
+          always an adventure&quot; is &quot;static&quot;.
+        </p>
+        <div className="accessibility-scenario__component">
+          <div className="accessibility-scenario__component">
+            <ComboBox
+              id="combo-box-test-scenario-1"
+              label="Choose a mighty 5"
+            >
+              <ComboBoxOption label="Arches National Park" value="arches" />
+              <ComboBoxOption label="Bryce Canyon National Park" value="bryce" />
+              <ComboBoxOption label="Utah is always an adventure" value="adventure" isStatic />
+              <ComboBoxOption label="Canyonlands National Park" value="canyonlands" />
+              <ComboBoxOption label="Capitol Reef National Park" value="capitol-reef" />
+              <ComboBoxOption label="Goblin Valley" value="goblinvalley" isDisabled />
+              <ComboBoxOption label="Zion National Park" value="zion" />
+            </ComboBox>
+          </div>
         </div>
       </div>
     </>
