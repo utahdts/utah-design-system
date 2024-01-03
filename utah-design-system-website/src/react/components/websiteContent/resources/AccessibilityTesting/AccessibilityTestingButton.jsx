@@ -5,7 +5,7 @@ export function AccessibilityTestingButton() {
   return (
     <>
       <h2>Button</h2>
-      <h3>Scenario: Button #1 - Clickable Button</h3>
+      <h3>Button Scenario #1 - Clickable Button</h3>
       <div className="accessibility-scenario">
         <p className="lead-in">A button should be clickable and announce its title.</p>
         <div className="accessibility-scenario__component">
@@ -17,7 +17,7 @@ export function AccessibilityTestingButton() {
         </div>
       </div>
 
-      <h3>Scenario: Button #2 - Disabled Button</h3>
+      <h3>Button Scenario #2 - Disabled Button</h3>
       <div className="accessibility-scenario">
         <p className="lead-in">The button is disabled. It should not receive focus nor be clickable.</p>
         <div className="accessibility-scenario__component">

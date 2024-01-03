@@ -45,7 +45,7 @@ export function AccessibilityTestingComboBox() {
   return (
     <>
       <h2>Como Box</h2>
-      <h3>Scenario: Combo Box #1 - Short List</h3>
+      <h3>Combo Box Scenario #1 - Short List</h3>
       <div className="accessibility-scenario">
         <p className="lead-in">
           The number of options for selection in this Combo Box is relatively short so that selecting items by using the arrow keys is plausible.
@@ -72,7 +72,7 @@ export function AccessibilityTestingComboBox() {
         </div>
       </div>
 
-      <h3>Scenario: Combo Box #2 - Long List</h3>
+      <h3>Combo Box Scenario #2 - Long List</h3>
       <div className="accessibility-scenario">
         <p className="lead-in">
           There are many options for selection in this Combo Box so that it is probably preferable to filter the possible options
@@ -94,7 +94,7 @@ export function AccessibilityTestingComboBox() {
         </div>
       </div>
 
-      <h3>Scenario: Combo Box #3 - Grouped Options</h3>
+      <h3>Combo Box Scenario #3 - Grouped Options</h3>
       <div className="accessibility-scenario">
         <p className="lead-in">
           The possible options in this Combo Box are in groups. The group title is not selectable but the items
@@ -123,7 +123,7 @@ export function AccessibilityTestingComboBox() {
         </div>
       </div>
 
-      <h3>Scenario: Combo Box #4 - Static & Disabled Options</h3>
+      <h3>Combo Box Scenario #4 - Static &amp; Disabled Options</h3>
       <div className="accessibility-scenario">
         <p className="lead-in">
           Static options are options that are not filterable nor selectable and are always displayed. Like a &quot;no more results&quot; message.
@@ -134,7 +134,7 @@ export function AccessibilityTestingComboBox() {
         <div className="accessibility-scenario__component">
           <div className="accessibility-scenario__component">
             <ComboBox
-              id="combo-box-test-scenario-1"
+              id="combo-box-test-scenario-4"
               label="Choose a mighty 5"
             >
               <ComboBoxOption label="Arches National Park" value="arches" />
@@ -145,6 +145,28 @@ export function AccessibilityTestingComboBox() {
               <ComboBoxOption label="Goblin Valley" value="goblinvalley" isDisabled />
               <ComboBoxOption label="Zion National Park" value="zion" />
             </ComboBox>
+          </div>
+        </div>
+
+        <h3>Combo Box Scenario #5 - Disabled</h3>
+        <div className="accessibility-scenario">
+          <p className="lead-in">
+            This combo box is disabled and should have no interactivity.
+          </p>
+          <div className="accessibility-scenario__component">
+            <div className="accessibility-scenario__component">
+              <ComboBox
+                id="combo-box-test-scenario-5"
+                label="Choose a mighty 5"
+                isDisabled
+              >
+                <ComboBoxOption label="Arches National Park" value="arches" />
+                <ComboBoxOption label="Bryce Canyon National Park" value="bryce" />
+                <ComboBoxOption label="Canyonlands National Park" value="canyonlands" />
+                <ComboBoxOption label="Capitol Reef National Park" value="capitol-reef" />
+                <ComboBoxOption label="Zion National Park" value="zion" />
+              </ComboBox>
+            </div>
           </div>
         </div>
       </div>
