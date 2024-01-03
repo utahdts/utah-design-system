@@ -11,9 +11,9 @@
     .content-width {
       max-width: calc(var(--content-width-narrow) + (2 * var(--spacing-2xl)));
       padding: 0 var(--spacing-2xl);
-      box-sizing: border-box;    }
+      box-sizing: border-box;
+    }
   }
-
 }
 
 @media screen and (max-width: #{media-size-vars.$media-size-mobile}) {
