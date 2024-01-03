@@ -100,4 +100,5 @@ export const pageUrls = {
   uxBestPractices: /** @type {PageUrl} */ ('/guidelinesStandards/uxBestPractices'),
   validation: /** @type {PageUrl} */ ('/guidelinesStandards/formValidation'),
   verticalMenu: /** @type {PageUrl} */ ('/library/components/navigationLinks/verticalMenu'),
+  wordPressHeaderPlugin: /** @type {PageUrl} */ ('/resources/wordPressHeaderPlugin'),
 };

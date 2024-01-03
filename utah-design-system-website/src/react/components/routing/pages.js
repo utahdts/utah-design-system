@@ -79,6 +79,7 @@ import { GettingStarted } from '../websiteContent/resources/GettingStarted';
 import { GettingStartedDesigner } from '../websiteContent/resources/GettingStartedDesigner';
 import { GettingStartedDeveloper } from '../websiteContent/resources/GettingStartedDeveloper';
 import { IconsDocumentation } from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
+import { WordPressHeaderPlugin } from '../websiteContent/resources/WordPressHeaderPlugin';
 import { Mockups } from '../websiteContent/resources/Mockups';
 import { ResourcesLanding } from '../websiteContent/resources/ResourcesLanding';
 import { Showcase } from '../websiteContent/resources/Showcase/Showcase';
@@ -361,6 +362,13 @@ export const pages = {
     link: pageUrls.gettingStartedDeveloper,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Getting Started - Developer',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  wordPressHeaderPlugin: /** @type {Page} */ ({
+    content: WordPressHeaderPlugin,
+    link: pageUrls.wordPressHeaderPlugin,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'WordPress Header Plugin',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   github: /** @type {Page} */ ({
