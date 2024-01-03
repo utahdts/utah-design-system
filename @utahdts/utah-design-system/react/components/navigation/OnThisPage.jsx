@@ -1,12 +1,11 @@
-import React from 'react';
 import { OnThisPageHeadersLevel } from './OnThisPageHeadersLevel';
 import { findElementsByTagNameMatch } from './util/findElementsByTagNameMatch';
 import { groupElementsByHeaderLevel } from './util/groupElementsByHeaderLevel';
 
 /**
  * @param {object} props
- * @param {React.MutableRefObject<HTMLElement | null>} props.contentRef
- * @returns {React.JSX.Element}
+ * @param {import('react').MutableRefObject<HTMLElement | null>} props.contentRef
+ * @returns {import('react').JSX.Element}
  */
 export function OnThisPage({ contentRef }) {
   const headers = findElementsByTagNameMatch(contentRef.current);

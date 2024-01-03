@@ -1,9 +1,7 @@
-import React from 'react';
-
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @returns {React.JSX.Element}
+ * @param {import('react').ReactNode} props.children
+ * @returns {import('react').JSX.Element}
  */
 export function FooterAgencyInformation({ children }) {
   return (

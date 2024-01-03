@@ -7,7 +7,7 @@ import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 /**
  * @param {object} props
  * @param {{props: BannerExamplePropsShape}} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function BannersExampleCodeReact({
   state: {
@@ -53,7 +53,7 @@ export function BannersExampleCodeReact({
       <SandboxIndent indentLevel={1} />
       &lt;/BannerMessage&gt;
       <br />
-      &lt;/Button&gt;
+      &lt;/Banner&gt;
     </>
   );
 }

@@ -47,7 +47,7 @@ export function ValidationDocumentation() {
       <ul className="mb-spacing">
         <li>
           <strong>HTML5.</strong> Avoid using default validation. Each browser handles validation differently. We want
-          the experience to be consistent for all users within the State of Utah ecosystem.
+          the experience to be consistent for all users within the state of Utah ecosystem.
         </li>
         <li>
           <strong>Required.</strong> If an input is required, should include a red asterisk <code>*</code> in the label.

@@ -8,7 +8,7 @@ import { COLOR_RATINGS } from './COLOR_RATINGS';
  * @param {ColorRating} props.contrastRating
  * @param {number} props.contrastValue
  * @param {string} props.title
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ContrastValueBox({
   contrastRating,

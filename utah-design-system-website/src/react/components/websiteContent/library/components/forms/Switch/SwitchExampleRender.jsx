@@ -4,11 +4,11 @@ import { Icons, Switch } from '@utahdts/utah-design-system';
 
 /**
  * @param {object} props
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
  * @param {import('use-immer').Updater<{props: SwitchExamplePropsShape}>} props.setState
  * @param {object} props.state
  * @param {SwitchExamplePropsShape} props.state.props
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function SwitchExampleRender({
   setState,

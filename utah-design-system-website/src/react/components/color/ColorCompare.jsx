@@ -5,7 +5,7 @@ import tinycolor from 'tinycolor2';
  * @param {object} props
  * @param {string} props.color1
  * @param {string} props.color2
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ColorCompare({ color1, color2 }) {
   const contrast = Number(tinycolor.readability(color1, color2)).toFixed(2);

@@ -5,7 +5,7 @@ import React from 'react';
 
 /**
  * @param {{state: {props: IconButtonExampleProps}, innerRef: React.MutableRefObject<HTMLButtonElement>}} props
- * @returns {React.ReactElement}
+ * @returns {import('react').ReactElement}
  */
 export function IconButtonExampleRender({
   state: {

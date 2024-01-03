@@ -130,9 +130,9 @@ describe('findRecursive', () => {
     // @ts-ignore
     expect(findRecursive({}, ['children'], (o) => o.id === 25)).toBe(false);
     // @ts-ignore
-    expect(findRecursive(undefined, ['children'], (o) => o.id === 25)).toBe(false);
+    expect(findRecursive(undefined, ['children'], (o) => o?.id === 25)).toBe(false);
     // @ts-ignore
-    expect(findRecursive(null, ['children'], (o) => o.id === 25)).toBe(false);
+    expect(findRecursive(null, ['children'], (o) => o?.id === 25)).toBe(false);
     // @ts-ignore
     expect(findRecursive(3, ['children'], (o) => o.id === 25)).toBe(false);
     // @ts-ignore

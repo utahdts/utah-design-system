@@ -22,7 +22,7 @@ import { ProgressLogVersionRow } from './ProgressLogVersionRow';
  * @param {boolean} [props.isDefinitionChecked]
  * @param {boolean} [props.isCssChecked]
  * @param {boolean} [props.isComponentExampleChecked]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 function ProgressLogTableRow({
   title,

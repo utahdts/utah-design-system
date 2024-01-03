@@ -27,7 +27,7 @@ export function UtahFooterDocumentation() {
       <p className="lead-in">
         The footer is a landmark at bottom of the website, below the main body of content. It provides a short summary of the
         site&apos;s main content, should a user arrive at the end of the page without finding what they are looking for. It contains
-        information regarding social media resources, agency contact and help information, services that are commonly requested, and <strong>required</strong> legal information pertaining to State of Utah websites.
+        information regarding social media resources, agency contact and help information, services that are commonly requested, and <strong>required</strong> legal information pertaining to state of Utah websites.
       </p>
       <hr />
       <h2 id="section-examples" className="mb-spacing">Examples</h2>
@@ -44,8 +44,8 @@ export function UtahFooterDocumentation() {
               corresponding social media account.
             </li>
             <li>
-              To create continuity between State of Utah websites, it is highly encouraged to keep the placement of social media icon buttons and
-              quick contact links above the footer. This will help users gain confidence that the website is indeed a State website and quickly
+              To create continuity between state of Utah websites, it is highly encouraged to keep the placement of social media icon buttons and
+              quick contact links above the footer. This will help users gain confidence that the website is indeed a state website and quickly
               find the social media links they are looking for.
             </li>
           </ul>
@@ -67,7 +67,7 @@ export function UtahFooterDocumentation() {
         renderedExample={<LightBox image={requiredFooter} alt="Required Footer" />}
         quickTips={(
           <ul>
-            <li>This bar reiterates that this is an official website of the State of Utah. It contains specific required links for all State of Utah websites.</li>
+            <li>This bar reiterates that this is an official website of the state of Utah. It contains specific required links for all state of Utah websites.</li>
           </ul>
         )}
       />
@@ -226,7 +226,7 @@ export function UtahFooterDocumentation() {
                 <span className="prop__description">
                   There are three main sections to the footer. See the <Link to={pageUrls.mockups}>mocks</Link> for a visual example. The top bar of the
                   footer is for social media. The next big section is for custom links and content. These top two sections are optional.
-                  The bottom bar of State of Utah information and links is required. Set this <code>showHorizontalRule</code> setting to true
+                  The bottom bar of state of Utah information and links is required. Set this <code>showHorizontalRule</code> setting to true
                   in order to have a horizontal separator drawn between the bottom footer bar and the main content.
                 </span>
               </TableCell>

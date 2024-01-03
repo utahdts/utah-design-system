@@ -8,6 +8,13 @@
  */
 
 /**
+ * react.Ref<T> is immutable! this version is mutable and follows the same semantics
+ * @template MutableRefT
+ * @typedef {import('react').RefCallback<MutableRefT> | import('react').MutableRefObject<MutableRefT> | null} MutableRef
+ */
+
+// ========== Enums ========== //
+/**
  * AriaLiveType
  * @typedef {'assertive' | 'polite'} AriaLiveType
  */
@@ -68,6 +75,50 @@
  * @typedef {'div' | 'nav'} WrapInElement
  */
 
+/** @typedef {MouseEvent | TouchEvent | KeyboardEvent} Event */
+
+// TODO: replace EventAction with import('react').MouseEventHandler<HTMLButtonElement>
+/** @typedef {((e: Event) => void)} EventAction */
+/** @typedef {((e: Event) => boolean)} EventActionBoolean */
+
+// ========== Table stuff ========== //
+/** @typedef {string} RecordFieldPath */
+
+/**
+ * @template TableDataT
+ * @typedef {(param: { recordFieldPath: string, value: TableDataT }) => TableDataT} RecordOnChangeFunc
+ */
+
+/**
+ * @template TableDataT
+ * @typedef TableBodyDataRowContextValue {
+ *  @property {TableDataT | null} record
+ * }
+ */
+
+/**
+ * @template TableDataT
+ * @typedef TableContextState {
+ *  @property {boolean} currentSortingOrderIsDefault
+ *  @property {TableContextStateFilterValues<TableDataT>} filterValues
+ *  @property {TablePaginationType} [pagination]
+ *  @property {Record<string, TableSortingRuleType<TableDataT>>} sortingRules
+ *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
+ *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
+ *  @property {RecordFieldPath | null} tableSortingFieldPath
+ *  @property {RecordFieldPath[] | null} tableSortingFieldPaths
+ * }
+ */
+
+/**
+ * @typedef TableContextStateFilterValue {
+ *  @property {any} value
+ *  @property {boolean} exactMatch
+ *  @property {any} [otherFilterSpecificSettings]
+ * }
+ */
+/** @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
+
 /** @typedef {(value: string) => boolean} TableFilterFunction */
 
 /**
@@ -98,96 +149,7 @@
 /**
  * @typedef TablePaginationType {
  *  @property {number} currentPageIndex what page to start on
- *  @property {number} pageSize how many items per page
- * }
- */
-
-/**
- * @typedef Address {
- *  @property {string} city
- *  @property {string} state ie UT (usually not fully spelled out)
- *  @property {string} streetAddress1
- *  @property {string} [streetAddress2]
- *  @property {string} zipCode
- * }
- */
-
-/**
- * @typedef MenuItem {
- *  @property {string} link
- *  @property {string} pageTitle
- *  @property {string[]} parentLinks
- * }
- */
-
-/**
- * @template FormStateT
- * @typedef FormContextValue {
- *  @property {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {React.ChangeEventHandler<HTMLElement>} onSubmit submit the form
- *  @property {import('use-immer').Updater<FormStateT>} setState current values of all the form elements
- *  @property {FormStateT} state current values of all the form elements
- * }
- */
-
-/**
- * @template FormContextT
- * @template ValueT
- * @template HTMLElementT
- * @typedef useFormContextInputResult {
- *  @property {React.ChangeEventHandler<HTMLElementT>} [onChange]
- *  @property {React.UIEventHandler<HTMLElementT>} [onClear]
- *  @property {React.ChangeEventHandler<HTMLElementT>} [onSubmit]
- *  @property {ValueT} [value]
- *  @property {React.KeyboardEventHandler} onFormKeyUp
- *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
- *  @property {FormContextT} [state]
- * }
- */
-
-/**
- * @typedef UtahDesignSystemContextBannerWithId {
- *  @property {string} [className]
- *  @property {number} [duration]
- *  @property {string} id
- *  @property {React.ReactNode} [icon]
- *  @property {React.ReactNode} message
- *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
- *  @property {BannerPlacement} [position]
- *  @property {'small' | 'medium' | 'large'} [size]
- * }
- */
-
-/**
- * @typedef UtahDesignSystemContextBanner {
- *  @property {string} [className]
- *  @property {number} [duration]
- *  @property {string} [id]
- *  @property {React.ReactNode} [icon]
- *  @property {React.ReactNode} message
- *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
- *  @property {BannerPlacement} [position]
- *  @property {'small' | 'medium' | 'large'} [size]
- * }
- */
-
-/**
- * @typedef UtahDesignSystemDefaultSettings {
- *  @property {number} [bannerDuration]
- * }
- */
-
-/**
- * @typedef UtahDesignSystemContextAria {
- *  @property {string[]} assertiveMessages
- *  @property {string[]} politeMessages
- * }
- */
-
-/**
- * @typedef UtahDesignSystemContextValue {
- *  @property {UtahDesignSystemContextAria} ariaLive
- *  @property {UtahDesignSystemContextBannerWithId[]} banners
+ *  @property {number} itemsPerPage how many items per page
  * }
  */
 
@@ -199,6 +161,52 @@
  * }
  */
 
+/**
+ * @template FormContextT
+ * @template ValueT
+ * @template HTMLElementT
+ * @typedef useFormContextInputResult {
+ *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onChange]
+ *  @property {import('react').UIEventHandler<HTMLElementT>} [onClear]
+ *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onSubmit]
+ *  @property {ValueT} [value]
+ *  @property {import('react').KeyboardEventHandler} onFormKeyUp
+ *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
+ *  @property {FormContextT} [state]
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextBannerWithId {
+ *  @property {string} [className]
+ *  @property {number} [duration]
+ *  @property {string} id
+ *  @property {import('react').ReactNode} [icon]
+ *  @property {import('react').ReactNode} message
+ *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
+ *  @property {BannerPlacement} [position]
+ *  @property {'small' | 'medium' | 'large'} [size]
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextBanner {
+ *  @property {string} [className]
+ *  @property {number} [duration]
+ *  @property {string} [id]
+ *  @property {import('react').ReactNode} [icon]
+ *  @property {import('react').ReactNode} message
+ *  @property {(e: React.MouseEvent | undefined) => void} [onClose]
+ *  @property {BannerPlacement} [position]
+ *  @property {'small' | 'medium' | 'large'} [size]
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemDefaultSettings {
+ *  @property {number} [bannerDuration]
+ * }
+ */
 /**
  * @template TableDataT
  * @typedef {(param: { fieldValueA: any, fieldValueB: any, recordA: TableDataT, recordAIndex: number, recordB: TableDataT, recordBIndex: number, records: TableDataT[] }) => number} TableSortingFunc
@@ -217,20 +225,6 @@
  */
 
 /**
- * @typedef TableContextStateFilterValue {
- *  @property {any} value
- *  @property {boolean} exactMatch
- *  @property {any} [otherFilterSpecificSettings]
- * }
- */
-/** @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
-
-/**
- * @template TableDataT
- * @typedef {(param: { recordFieldPath: string, value: TableDataT }) => TableDataT} RecordOnChangeFunc
- */
-
-/**
  * @template TableDataT
  * @typedef TableContextStateFilterValues {
  *  @property {Record<string, any> | null} defaultValue
@@ -238,18 +232,15 @@
  *  @property {TableContextStateFilterValueObject} value
  * }
  */
-/** @typedef {string} RecordFieldPath */
+
+// ========== Objects ========== //
 /**
- * @template TableDataT
- * @typedef TableContextState {
- *  @property {boolean} currentSortingOrderIsDefault
- *  @property {TableContextStateFilterValues<TableDataT>} filterValues
- *  @property {TablePaginationType} [pagination]
- *  @property {Record<string, TableSortingRuleType<TableDataT>>} sortingRules
- *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
- *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
- *  @property {RecordFieldPath | null} tableSortingFieldPath
- *  @property {RecordFieldPath[] | null} tableSortingFieldPaths
+ * @typedef Address {
+ *  @property {string} city
+ *  @property {string} state ie UT (usually not fully spelled out)
+ *  @property {string} streetAddress1
+ *  @property {string} [streetAddress2]
+ *  @property {string} zipCode
  * }
  */
 
@@ -267,15 +258,9 @@
  */
 
 /**
- * @template TableDataT
- * @typedef TableBodyDataRowContextValue {
- *  @property {(TableDataT & Record<string, any>) | null} record
- * }
- */
-
-/**
  * @typedef ComboBoxOptionType {
  *  @property {boolean} [isGroupLabel] some options like group titles are in the list so they can focus but are not filtered nor selectable
+ *  @property {boolean} [isHidden] multi-select will "hide" options that have been selected (tags)
  *  @property {string} labelLowerCase
  *  @property {string} label
  *  @property {string} [optionGroupId]
@@ -284,13 +269,15 @@
  */
 
 /**
- * @typedef RadioButtonGroupContextValue {
- *  @property {(newValue: string) => void} onChange the onChange to call when the value changes
- *  @property {string} name name of the radio button inputs to group them together
- *  @property {string | null} value currently selected radio button's value
+ * These are items that don't get updated with state
+ * @typedef ComboBoxContextNonStateRef {
+ *  @property {HTMLInputElement | null} textInput the textInput used for this combo box
  * }
  */
-/** @typedef {import('use-immer').ImmerHook<RadioButtonGroupContextValue | undefined>} RadioButtonGroupContext */
+
+/**
+ * @typedef {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<ComboBoxContextNonStateRef>]} ComboBoxContext
+ */
 
 /**
 /**
@@ -304,6 +291,7 @@
  *  @property {string} filterValue the value the user is entering on which to filter the options to find a match
  *  @property {boolean} isFilterValueDirty when filter is changed it becomes dirty
  *  @property {boolean} isOptionsExpanded is the options list visible/expanded
+ *  @property {boolean} isValueClearedOnSelection after selection, is the value cleared so it appears to not be selected (multi-select uses this)
  *  @property {string | null} optionValueFocused which option currently has focus; useful for handling text input on blur
  *  @property {string | null} optionValueFocusedId which option DOM element has focus
  *  @property {string | null} optionValueHighlighted the option matching the filter or user has arrowed
@@ -317,6 +305,7 @@
  *  -- events --
  *  @property {(newValue: string) => void} onChange
  *  @property {() => void} [onClear]
+ *  @property {(e: Event, currentFilterValue: string) => boolean} [onKeyUp] return true if the key press was handled by this handler
  *  @property {() => void} [onSubmit]
  *
  *  -- options manipulation --
@@ -326,14 +315,71 @@
  */
 
 /**
- * These are items that don't get updated with state
- * @typedef ComboBoxContextNonStateRef {
- *  @property {HTMLInputElement | null} textInput the textInput used for this combo box
+ * @template FormStateT
+ * @typedef FormContextValue {
+ *  @property {(param: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
+ *  @property {(e?: Event) => void} [onSubmit] submit the form
+ *  @property {FormStateT} [state] current values of all the form elements
+ *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
  * }
  */
 
 /**
- * @typedef {[ComboBoxContextValue, import('use-immer').Updater<ComboBoxContextValue>, import('react').MutableRefObject<ComboBoxContextNonStateRef>]} ComboBoxContext
+ * @typedef MenuItem {
+ *  @property {string} link
+ *  @property {string} pageTitle
+ *  @property {string[]} parentLinks
+ * }
+ */
+
+/**
+ * @typedef MultiSelectContextNonStateRef {
+ *  @property {HTMLElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
+ *  @property {(HTMLDivElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
+ *  @property {HTMLInputElement | null} textInput the textInput used for this multi select's combo box
+ * }
+ */
+
+/** @typedef {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef> | null]} MultiSelectContext */
+
+/**
+ * @typedef MultiSelectContextValue {
+ *  @property {boolean} clearButtonHasFocus (1 of 3) multi select has focus if any of the three have focus
+ *  @property {ComboBoxOptionType[]} comboBoxOptions the known options in the comboBox context nested in the multi-select context
+ *  @property {number} focusedValueTagIndex the index of the tag currently having focus; (2 of 3) multi select has focus if any of the three have focus
+ *  @property {boolean} isOptionsExpanded ComboBoxContext updates this value to match
+ *  @property {string} multiSelectId
+ *  @property {((newValues: string[]) => void)} onChange
+ *  @property {(() => void)} onClear
+ *  @property {Record<string, string>} optionTagClassNames key is the option's `value`; value is the tag className associated with this option to put on its tag (helpful for coloring of tags)
+ *  @property {string[]} selectedValues the values selected in the multi-select to show as tags
+ *  @property {((selectedValue: string, selectedOption: ComboBoxOptionType) => React.JSX.Element) | null} tagTemplate is there a custom template for tags instead of rendering default tags
+ *  @property {boolean} textInputHasFocus (3 of 3) multi select has focus if any of the three have focus
+ * }
+ */
+/** @typedef {(selectedValue: string) => React.JSX.Element} MultiSelectTagTemplate */
+
+/** @typedef {import('use-immer').ImmerHook<RadioButtonGroupContextValue | undefined>} RadioButtonGroupContext */
+/**
+ * @typedef RadioButtonGroupContextValue {
+ *  @property {(newValue: string) => void} onChange the onChange to call when the value changes
+ *  @property {string} name name of the radio button inputs to group them together
+ *  @property {string | null} value currently selected radio button's value
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextAria {
+ *  @property {string[]} assertiveMessages
+ *  @property {string[]} politeMessages
+ * }
+ */
+
+/**
+ * @typedef UtahDesignSystemContextValue {
+ *  @property {UtahDesignSystemContextAria} ariaLive
+ *  @property {UtahDesignSystemContextBannerWithId[]} banners
+ * }
  */
 
 /**

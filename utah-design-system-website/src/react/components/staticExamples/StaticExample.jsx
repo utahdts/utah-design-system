@@ -4,10 +4,10 @@ import { joinClassNames, stringToId } from '@utahdts/utah-design-system';
  * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {React.ReactNode} [props.quickTips]
- * @param {React.ReactNode} props.renderedExample
+ * @param {import('react').ReactNode} [props.quickTips]
+ * @param {import('react').ReactNode} props.renderedExample
  * @param {string} [props.title]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function StaticExample({
   className,

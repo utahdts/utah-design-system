@@ -23,8 +23,7 @@ BEM standard: Block, Element, Modifier
 // mixins, functions
 @include meta.load-css("2-tools/tools-index");
 
-// css resets, etc.// @include meta.load-css("./3-generic/normalize.css");
-
+// css resets, etc.
 @include meta.load-css("3-generic/generic-index");
 
 // elemental html: h1, h2, h3, ul, li, etc.

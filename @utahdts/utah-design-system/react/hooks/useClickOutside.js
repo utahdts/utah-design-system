@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 // Improved version of https://usehooks.com/useOnClickOutside/
 /**
- * @param {React.RefObject<HTMLElement>} ref
- * @param {React.KeyboardEventHandler} handler
+ * @param {import('react').RefObject<HTMLElement>} ref
+ * @param {import('react').KeyboardEventHandler} handler
  * @param {boolean} isDisabled
  */
 export function useClickOutside(ref, handler, isDisabled = false) {

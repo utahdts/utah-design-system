@@ -11,7 +11,7 @@ import { formatPreCode } from './formatPreCode';
  * @param {string} [props.maxHeight]
  * @param {object} [props.propsForPre]
  * @param {boolean} [props.showBackgroundColor]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function PreCodeForCodeString({
   codeRaw,

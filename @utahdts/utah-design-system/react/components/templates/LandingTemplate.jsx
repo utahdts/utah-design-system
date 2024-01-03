@@ -4,7 +4,7 @@ import { MainContent } from './MainContent';
 /**
  * @param {object} props
  * @param {() => React.JSX.Element} props.content
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function LandingTemplate({ content: Content }) {
   return (

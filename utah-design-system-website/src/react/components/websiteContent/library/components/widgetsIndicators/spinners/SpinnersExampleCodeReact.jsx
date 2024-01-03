@@ -5,7 +5,7 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 /**
  * @param {object} props
  * @param {{props: SpinnersExamplePropsShape}} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function SpinnersExampleCodeReact({
   state: {

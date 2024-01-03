@@ -1,11 +1,14 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import modal1 from '../../../../../../../static/images/mockups/Modal1.jpg';
-import modal2 from '../../../../../../../static/images/mockups/Modal2.jpg';
-import modal3 from '../../../../../../../static/images/mockups/Modal3.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { ModalsExampleCodeReact } from './ModalsExampleCodeReact';
+import { ModalsExampleProps } from './ModalsExampleProps';
+import { ModalsExampleRender } from './ModalsExampleRender';
+import { LargeModal } from './examples/LargeModal';
+import { ModalWithForm } from './examples/ModalWithForm';
+import { SimpleModal } from './examples/SimpleModal';
 
 export function ModalsDocumentation() {
   return (
@@ -20,14 +23,28 @@ export function ModalsDocumentation() {
 
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          title: 'Modal Title',
+          content: 'Modal Content',
+          size: 'modal--small',
+          showCloseButton: true,
+          closeOnEsc: true,
+        }}
+        CODE_EXAMPLE={ModalsExampleCodeReact}
+        PROPS_EXAMPLE={ModalsExampleProps}
+        RENDER_EXAMPLE={ModalsExampleRender}
+      />
+
       <StaticExample
         title="Complex Modal"
         renderedExample={(
-          <>
-            <LightBox image={modal1} alt="Modals" className="flex-4up-gap" />
-            <LightBox image={modal2} alt="Large Modals" className="flex-4up-gap" />
-            <LightBox image={modal3} alt="Modal with Form" className="flex-4up-gap" />
-          </>
+          <div className="flex flex-col items-center">
+            <SimpleModal />
+            <LargeModal />
+            <ModalWithForm />
+          </div>
         )}
         quickTips={(
           <ul>

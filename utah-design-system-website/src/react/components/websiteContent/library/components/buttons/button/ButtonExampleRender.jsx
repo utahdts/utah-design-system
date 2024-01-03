@@ -3,15 +3,14 @@ import {
   Icons,
   useBanner
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
 /**
  * @param {object} props
  * @param {{props: ButtonExamplePropsShape}} props.state
- * @param {React.RefObject<HTMLButtonElement>} props.innerRef
- * @returns {React.JSX.Element}
+ * @param {import('react').RefObject<HTMLButtonElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
 export function ButtonExampleRender({
   state: {

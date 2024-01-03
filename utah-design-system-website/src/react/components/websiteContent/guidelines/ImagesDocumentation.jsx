@@ -17,6 +17,7 @@ export function ImagesDocumentation() {
         clarifying complex processes that may be challenging to convey with words to the user.
       </p>
 
+      <hr />
       <h2 id="section-incorporating-multiple-mediums" className="mb-spacing">Incorporating multiple mediums</h2>
       <p>
         Illustration, photography, and icons can co-exist by creating visual interest, communicating intent, and building

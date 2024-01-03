@@ -17,10 +17,10 @@ import { isLightColor } from '../../util/color/isLightColor';
  * @param {boolean} [props.isSelected]
  * @param {string} props.label
  * @param {(newColor: string) => void} props.onChange
- * @param {React.MouseEventHandler<HTMLDivElement>} props.onClick
+ * @param {import('react').MouseEventHandler<HTMLDivElement>} props.onClick
  * @param {string} props.title
  * @param {string} props.value
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ColorPicker({
   className,
@@ -69,7 +69,7 @@ export function ColorPicker({
           label={label}
           labelClassName="visually-hidden"
           onChange={useCallback(
-            /** @param {React.BaseSyntheticEvent} e */
+            /** @param {import('react').BaseSyntheticEvent} e */
             (e) => { onChange(e.target.value); },
             [onChange]
           )}

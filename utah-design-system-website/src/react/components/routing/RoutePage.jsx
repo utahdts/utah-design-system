@@ -5,9 +5,9 @@ import { useLocation } from 'react-router-dom';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {Page} props.page
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function RoutePage({ children, page }) {
   const location = useLocation();

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
@@ -13,7 +13,7 @@ import { Icons } from '../icons/Icons';
  * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {WebsiteMainMenuItem} props.menuItem
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function MenuItem({ currentMenuItem, menuItem }) {
   const { pathname } = useLocation();

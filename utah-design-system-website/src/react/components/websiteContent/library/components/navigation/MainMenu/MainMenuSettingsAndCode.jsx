@@ -32,7 +32,7 @@ export function MainMenuSettingsAndCode() {
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  The Utah Header&apos;s Main Menu allows common site navigation across all State of Utah content.
+                  The Utah Header&apos;s Main Menu allows common site navigation across all state of Utah content.
                   Use the Utah Header Main Menu configuration to create your site&apos;s navigation.
                 </span>
               </TableCell>

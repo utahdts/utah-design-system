@@ -12,7 +12,7 @@ import { useFormContext } from './FormContext/useFormContext';
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
- * @param {React.Ref<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
@@ -21,10 +21,10 @@ import { useFormContext } from './FormContext/useFormContext';
  * @param {string} [props.name]
  * @param {((e: React.KeyboardEvent) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
- * @param {React.ReactNode} [props.sliderChildren]
+ * @param {import('react').ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]
  * @param {number} [props.width]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Switch({
   className,
@@ -74,7 +74,7 @@ export function Switch({
   const currentValue = valueAtPath({ object: state ?? null, path: id }) ?? internalState;
 
   const internalOnChange = useCallback(
-    /** @param {React.KeyboardEvent} e */
+    /** @param {import('react').KeyboardEvent} e */
     (e) => {
       if (setState) {
         setState(

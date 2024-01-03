@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import { useFormContext } from '../../FormContext/useFormContext';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
@@ -7,12 +7,12 @@ import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.defaultValue]
  * @param {string} props.name
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {string} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function RadioButtonGroupContextProvider({
   children,

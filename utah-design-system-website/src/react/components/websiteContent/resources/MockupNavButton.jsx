@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 /**
  * @param {object} props
  * @param {{title: string, url: string}[]} props.pageLinks
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function MockupNavButton({ pageLinks }) {
   return (

@@ -6,7 +6,6 @@ import {
   Switch
 } from '@utahdts/utah-design-system';
 import { startCase } from 'lodash';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
@@ -14,7 +13,7 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: PopupsExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function PopupsExampleProps({ setState, state }) {
   return (

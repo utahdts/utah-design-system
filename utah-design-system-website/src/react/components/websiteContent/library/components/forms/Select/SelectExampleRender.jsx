@@ -1,5 +1,4 @@
 import { Select, SelectOption } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').SelectExamplePropsShape} SelectExamplePropsShape */
 
@@ -7,8 +6,8 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: SelectExamplePropsShape}>} props.setState
  * @param {{props: SelectExamplePropsShape}} props.state
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {React.JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
 export function SelectExampleRender({
   setState,
@@ -36,7 +35,7 @@ export function SelectExampleRender({
         isClearable={isClearable}
         isDisabled={isDisabled}
         onChange={
-          /** @param {React.BaseSyntheticEvent} e */
+          /** @param {import('react').BaseSyntheticEvent} e */
           (e) => {
             setState((draftState) => {
               draftState.props.value = e.target.value;

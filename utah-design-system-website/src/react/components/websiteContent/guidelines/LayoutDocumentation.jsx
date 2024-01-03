@@ -22,7 +22,7 @@ export function LayoutDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Layout</h1>
       <p className="lead-in">
-        The State of Utah Design System is meant for State agencies, developers, and other designers to create a
+        The state of Utah Design System is meant for state agencies, developers, and other designers to create a
         unified experience for the citizens of Utah.
       </p>
       <p>
@@ -79,7 +79,7 @@ export function LayoutDocumentation() {
 
       <h3 id="section-css" className="mb-spacing">CSS</h3>
       <p>
-        The State of Utah Design System is offering some ready-to-use css. The following CSS variables provide a <code>base width</code> for your main content.
+        The state of Utah Design System is offering some ready-to-use css. The following CSS variables provide a <code>base width</code> for your main content.
       </p>
       <TableWrapper>
         <Table className="table table--lines-x table--alt">
@@ -135,7 +135,7 @@ export function LayoutDocumentation() {
         </Table>
       </TableWrapper>
       <p>
-        The State of Utah Design System also offers a set of variables to attain a similar result. These variables are all based on the width of
+        The state of Utah Design System also offers a set of variables to attain a similar result. These variables are all based on the width of
         the main content (<code>1224px</code> by default).
       </p>
       <TableWrapper>

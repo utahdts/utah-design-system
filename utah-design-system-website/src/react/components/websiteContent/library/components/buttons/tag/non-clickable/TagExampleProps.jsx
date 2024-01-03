@@ -6,7 +6,6 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import React from 'react';
 
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
@@ -14,7 +13,7 @@ import React from 'react';
  * @param {object} props
  * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
  * @param {object} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TagExampleProps({ setState, state }) {
   return (

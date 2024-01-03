@@ -1,4 +1,4 @@
-import React, {
+import {
   useCallback,
   useEffect,
   useMemo,
@@ -15,7 +15,7 @@ import { useBanner } from '../hooks/useBanner';
  * @param {object} props
  * @param {UtahDesignSystemContextBannerWithId[]} props.banners
  * @param {number} [props.bannerDuration]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function BannersGlobal({ banners, bannerDuration }) {
   const { removeBanner } = useBanner();
@@ -23,7 +23,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
   const [zones, setZones] = useImmer(/** @type {Record<string, UtahDesignSystemContextBannerWithId[]>} */({}));
   const currentOnClose = useCallback(
     /**
-     * @param {React.MouseEvent | undefined} e
+     * @param {import('react').MouseEvent | undefined} e
      * @param {UtahDesignSystemContextBannerWithId} banner
      */
     (e, banner) => {

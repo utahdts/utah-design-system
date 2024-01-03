@@ -21,7 +21,7 @@ export function useMousePositionTracker({ shouldBeginDrag }) {
   // start drag
   useFriendlyDocumentEvent(
     'onmousedown',
-    /** @param {React.MouseEvent} e */
+    /** @param {import('react').MouseEvent} e */
     (e) => {
       if (!shouldBeginDrag || shouldBeginDrag(e)) {
         e.stopPropagation();
@@ -36,7 +36,7 @@ export function useMousePositionTracker({ shouldBeginDrag }) {
   // do drag
   useFriendlyDocumentEvent(
     'onmouseup',
-    /** @param {React.MouseEvent} e */
+    /** @param {import('react').MouseEvent} e */
     (e) => {
       if (isDraggingRef.current) {
         e.stopPropagation();
@@ -51,7 +51,7 @@ export function useMousePositionTracker({ shouldBeginDrag }) {
   // end drag
   useFriendlyDocumentEvent(
     'onmousemove',
-    /** @param {React.MouseEvent} e */
+    /** @param {import('react').MouseEvent} e */
     (e) => {
       if (isDraggingRef.current) {
         e.stopPropagation();

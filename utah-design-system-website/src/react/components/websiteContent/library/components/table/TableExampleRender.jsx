@@ -16,7 +16,6 @@ import {
   joinClassNames,
   tableSortingRuleFieldType
 } from '@utahdts/utah-design-system';
-import React from 'react';
 import { stateSymbols } from '../../../../../consts/stateSymbols';
 
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
@@ -24,8 +23,8 @@ import { stateSymbols } from '../../../../../consts/stateSymbols';
 /**
  * @param {object} props
  * @param {{props: TableExamplePropsShape}} props.state
- * @param {React.RefObject<HTMLDivElement>} props.innerRef
- * @returns {React.JSX.Element}
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @returns {import('react').JSX.Element}
  */
 export function TableExampleRender({
   state: {
@@ -115,7 +114,7 @@ export function TableExampleRender({
               <TablePagination
                 className="mt-spacing"
                 id="table-example-render-pagination-id"
-                pageSize={5}
+                itemsPerPage={5}
               />
             </div>
           )

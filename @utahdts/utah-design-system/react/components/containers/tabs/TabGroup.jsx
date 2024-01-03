@@ -1,4 +1,4 @@
-import React, { useId, useMemo } from 'react';
+import { useId, useMemo } from 'react';
 import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './TabGroupContext';
@@ -7,12 +7,12 @@ import { TabGroupContext } from './TabGroupContext';
 
 /**
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {(newTabId: string) => void} [props.onChange]
  * @param {string} [props.value]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function TabGroup({
   children,

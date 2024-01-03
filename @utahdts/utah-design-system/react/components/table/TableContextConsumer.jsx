@@ -10,7 +10,7 @@ import { useTableContext } from './hooks/useTableContext';
  * @template TableDataT
  * @param {object} props
  * @param {(tableContext: TableContextValue<TableDataT>) => (React.JSX.Element | null)} props.children
- * @returns {React.JSX.Element | null}
+ * @returns {import('react').JSX.Element | null}
  */
 export function TableContextConsumer({ children }) {
   return children(useTableContext());

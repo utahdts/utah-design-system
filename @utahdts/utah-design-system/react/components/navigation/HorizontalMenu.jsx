@@ -1,4 +1,3 @@
-import React from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { MenuItem } from './MenuItem';
 
@@ -13,7 +12,7 @@ import { MenuItem } from './MenuItem';
  * @param {WebsiteMainMenu} props.menu
  * @param {string} [props.titleTagClassName]
  * @param {'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'} [props.titleTagName]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function HorizontalMenu({
   className,

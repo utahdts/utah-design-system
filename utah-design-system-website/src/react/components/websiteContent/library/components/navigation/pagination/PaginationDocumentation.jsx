@@ -26,7 +26,7 @@ export function PaginationDocumentation() {
         defaultProps={{
           className: '',
           id: 'pagination-sandbox-example-id',
-          pageSize: '10',
+          itemsPerPage: '10',
           totalNumberItems: '87',
           value: '0',
           wrapInElement: 'div',
@@ -39,7 +39,7 @@ export function PaginationDocumentation() {
         title="Pagination"
         renderedExample={(
           <div className="flex flex-col items-center">
-            <h4 className="mb-spacing-xs">Symbols of the State of Utah</h4>
+            <h4 className="mb-spacing-xs">Symbols of the state of Utah</h4>
             <ul style={{ height: '115px', width: '90%' }}>
               {
                 stateSymbols
@@ -52,7 +52,7 @@ export function PaginationDocumentation() {
             <div className="flex items-center flex-col">
               <Pagination
                 onChange={(newPageNumber) => setDemoPaginationIndex(newPageNumber)}
-                pageSize={STATIC_EXAMPLE_PAGE_SIZE}
+                itemsPerPage={STATIC_EXAMPLE_PAGE_SIZE}
                 totalNumberItems={stateSymbols.length}
                 value={demoPaginationIndex}
               />

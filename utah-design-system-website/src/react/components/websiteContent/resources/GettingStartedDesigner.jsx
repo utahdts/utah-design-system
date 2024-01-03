@@ -10,7 +10,7 @@ import { LightBox } from '../../lightbox/LightBox';
 export function GettingStartedDesigner() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
 
-  /** @param {React.MouseEvent} e */
+  /** @param {import('react').MouseEvent} e */
   function toggleColorPickerPopup(e) {
     e.preventDefault();
     e.stopPropagation();

@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.13.0] 1/2/2024
+## Added
+- Multi-select component
+- JsDoc typing across the project
+- Data Privacy documentation page
+- Modals component
+
+## Changed
+- Scope normalize into `.utah-design-system`
+
+## Fixed
+- Fix wordpress CSS issues
+- Handle Combo Box arrow clicking
+
 # [1.12.1] 12/18/2023
 ## Added
 - Header: Main Menu - self menu items

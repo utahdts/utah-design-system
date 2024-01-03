@@ -8,13 +8,13 @@ import { FormContextProvider } from './FormContext/FormContextProvider';
 /**
  * @template FormContextStateT
  * @param {object} props
- * @param {React.ReactNode} props.children
+ * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
  * @param {(e?: React.ChangeEvent) => void} [props.onSubmit]
  * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
  * @param {FormContextStateT} [props.state]
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function Form({
   children,

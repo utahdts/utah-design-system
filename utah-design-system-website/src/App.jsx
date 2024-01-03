@@ -5,9 +5,8 @@ import {
   // @ts-ignore
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
-import '@utahdts/utah-design-system/css/3-generic/normalize.css';
 import '@utahdts/utah-design-system/css/index.scss';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import './css/index.scss';
 import { ColorPopup } from './react/components/color/ColorPopup';
@@ -23,7 +22,7 @@ import { CSS_STATE_KEYS } from './react/enums/cssStateKeys';
 /** @typedef {import('@utahdts/utah-design-system-types').FormContextValue<Record<string, any>>} FormContextValue */
 
 /**
- * @returns {React.JSX.Element} the App!
+ * @returns {import('react').JSX.Element} the App!
  */
 export function App() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();

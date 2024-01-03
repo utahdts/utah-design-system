@@ -13,7 +13,7 @@ import {
  * @param {object} props
  * @param {import('use-immer').Updater<{props: TagExamplePropsShape}>} props.setState
  * @param {{props: TagExamplePropsShape}} props.state
- * @returns {React.JSX.Element}
+ * @returns {import('react').JSX.Element}
  */
 export function ClickableTagExampleProps({ setState, state }) {
   return (
