@@ -13,13 +13,6 @@
       padding: 0 var(--spacing-2xl);
       box-sizing: border-box;
     }
-
-    &__content {
-      flex: 1 1 auto;
-      max-width: var(--documentation-width);
-      min-width: 0;
-      padding: var(--documentation-padding);
-    }
   }
 }
 

@@ -2,6 +2,7 @@ import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-des
 import { sortBy } from 'lodash';
 import { useMemo } from 'react';
 import { examplePresidentsData } from '../../library/components/table/exampleTables/examplePresidentsData';
+import { AccessibilityTestingScenario } from './AccessibilityTestingScenario';
 
 /** @typedef {{category: string, symbol: string, year: number}} StateSymbol */
 
@@ -44,9 +45,8 @@ export function AccessibilityTestingComboBox() {
 
   return (
     <>
-      <h2>Como Box</h2>
-      <h3>Combo Box Scenario #1 - Short List</h3>
-      <div className="accessibility-scenario">
+      <h2 className="mt-spacing">Combo Box</h2>
+      <AccessibilityTestingScenario title="Combo Box Scenario #1 - Short List">
         <p className="lead-in">
           The number of options for selection in this Combo Box is relatively short so that selecting items by using the arrow keys is plausible.
           Use the Down arrow key to jump to the list of options.
@@ -54,6 +54,7 @@ export function AccessibilityTestingComboBox() {
           Use the Enter/Return key to make a selection.
           Press the Backspace key to delete the current selection.
         </p>
+        Checklist:
         <ul aria-label="test criteria">
           <li>Popup List of options announces the correct # of items as the list is filtered</li>
           <li>Use arrow keys to navigate combo box options</li>
@@ -70,10 +71,9 @@ export function AccessibilityTestingComboBox() {
             <ComboBoxOption label="Zion National Park" value="zion" />
           </ComboBox>
         </div>
-      </div>
+      </AccessibilityTestingScenario>
 
-      <h3>Combo Box Scenario #2 - Long List</h3>
-      <div className="accessibility-scenario">
+      <AccessibilityTestingScenario title="Combo Box Scenario #2 - Long List">
         <p className="lead-in">
           There are many options for selection in this Combo Box so that it is probably preferable to filter the possible options
           to narrow down to the desired option.
@@ -92,10 +92,9 @@ export function AccessibilityTestingComboBox() {
             </ComboBox>
           </div>
         </div>
-      </div>
+      </AccessibilityTestingScenario>
 
-      <h3>Combo Box Scenario #3 - Grouped Options</h3>
-      <div className="accessibility-scenario">
+      <AccessibilityTestingScenario title="Combo Box Scenario #3 - Grouped Options">
         <p className="lead-in">
           The possible options in this Combo Box are in groups. The group title is not selectable but the items
           in each group are selectable.
@@ -121,10 +120,9 @@ export function AccessibilityTestingComboBox() {
             </ComboBox>
           </div>
         </div>
-      </div>
+      </AccessibilityTestingScenario>
 
-      <h3>Combo Box Scenario #4 - Static &amp; Disabled Options</h3>
-      <div className="accessibility-scenario">
+      <AccessibilityTestingScenario title="Combo Box Scenario #4 - Static &amp; Disabled Options">
         <p className="lead-in">
           Static options are options that are not filterable nor selectable and are always displayed. Like a &quot;no more results&quot; message.
           Disabled options are not selectable but are filterable.
@@ -135,7 +133,7 @@ export function AccessibilityTestingComboBox() {
           <div className="accessibility-scenario__component">
             <ComboBox
               id="combo-box-test-scenario-4"
-              label="Choose a mighty 5"
+              label="Choose from the following"
             >
               <ComboBoxOption label="Arches National Park" value="arches" />
               <ComboBoxOption label="Bryce Canyon National Park" value="bryce" />
@@ -147,29 +145,28 @@ export function AccessibilityTestingComboBox() {
             </ComboBox>
           </div>
         </div>
+      </AccessibilityTestingScenario>
 
-        <h3>Combo Box Scenario #5 - Disabled</h3>
-        <div className="accessibility-scenario">
-          <p className="lead-in">
-            This combo box is disabled and should have no interactivity.
-          </p>
+      <AccessibilityTestingScenario title="Combo Box Scenario #5 - Disabled">
+        <p className="lead-in">
+          This combo box is disabled and should have no interactivity.
+        </p>
+        <div className="accessibility-scenario__component">
           <div className="accessibility-scenario__component">
-            <div className="accessibility-scenario__component">
-              <ComboBox
-                id="combo-box-test-scenario-5"
-                label="Choose a mighty 5"
-                isDisabled
-              >
-                <ComboBoxOption label="Arches National Park" value="arches" />
-                <ComboBoxOption label="Bryce Canyon National Park" value="bryce" />
-                <ComboBoxOption label="Canyonlands National Park" value="canyonlands" />
-                <ComboBoxOption label="Capitol Reef National Park" value="capitol-reef" />
-                <ComboBoxOption label="Zion National Park" value="zion" />
-              </ComboBox>
-            </div>
+            <ComboBox
+              id="combo-box-test-scenario-5"
+              label="Choose a mighty 5"
+              isDisabled
+            >
+              <ComboBoxOption label="Arches National Park" value="arches" />
+              <ComboBoxOption label="Bryce Canyon National Park" value="bryce" />
+              <ComboBoxOption label="Canyonlands National Park" value="canyonlands" />
+              <ComboBoxOption label="Capitol Reef National Park" value="capitol-reef" />
+              <ComboBoxOption label="Zion National Park" value="zion" />
+            </ComboBox>
           </div>
         </div>
-      </div>
+      </AccessibilityTestingScenario>
     </>
   );
 }
