@@ -23,7 +23,7 @@ export function AccessibilityTestingButton() {
         <div className="accessibility-scenario__component">
           <Button
             isDisabled
-            onClick={() => addBanner({ message: 'Button clicked in scenario Button-1' })}
+            onClick={() => addBanner({ message: 'Button clicked in scenario Button-2' })}
           >
             You can not click this button
           </Button>
