@@ -1,12 +1,8 @@
 /* eslint-disable max-len */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import tableAlternatingScreenshot from '../../../../../../static/images/screenshots/components/table/tableAlternating.png';
-import tableBorderedScreenshot from '../../../../../../static/images/screenshots/components/table/tableBordered.png';
-import tableFiltersScreenshot from '../../../../../../static/images/screenshots/components/table/tableFilters.png';
 import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
 import tableMobileStacked from '../../../../../../static/images/screenshots/components/table/tableMobileStacked.jpg';
-import tablePlainScreenshot from '../../../../../../static/images/screenshots/components/table/tablePlain.png';
 import { LightBox } from '../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../sandbox/SandboxExample';
@@ -20,6 +16,7 @@ import { TableDocumentationFooterExample } from './exampleTables/TableDocumentat
 import { TableDocumentationPaginationTableExample } from './exampleTables/TableDocumentationPaginationTableExample';
 import { TableDocumentationSimpleTableExample } from './exampleTables/TableDocumentationSimpleTableExample';
 import { TableDocumentationSortingTableExample } from './exampleTables/TableDocumentationSortingTableExample';
+import { TableDocumentationSortingSmall } from './exampleTables/TableDocumentationSortingSmall';
 
 export function TableDocumentation() {
   return (
@@ -56,8 +53,8 @@ export function TableDocumentation() {
 
       <h2 id="section-static-examples">Static Examples</h2>
       <StaticExample
-        title="Plain table (mockup)"
-        renderedExample={<LightBox image={tablePlainScreenshot} alt="Plain Table" />}
+        title="Plain table"
+        renderedExample={<TableDocumentationSortingSmall />}
         quickTips={(
           <ul>
             <li>A table with minimal lines to help the user focus on the available information.</li>
@@ -66,8 +63,8 @@ export function TableDocumentation() {
       />
 
       <StaticExample
-        title="Table with vertical lines (mockup)"
-        renderedExample={<LightBox image={tableBorderedScreenshot} alt="Table with Vertical Lines" />}
+        title="Table with vertical lines"
+        renderedExample={<TableDocumentationSortingSmall className="table--alt table--lines-y" />}
         quickTips={(
           <ul>
             <li>A table with vertical lines will help users scan columns of data more easily when the table has larger amounts of data.</li>
@@ -76,8 +73,8 @@ export function TableDocumentation() {
       />
 
       <StaticExample
-        title="Table with alternating row colors (mockup)"
-        renderedExample={<LightBox image={tableAlternatingScreenshot} alt="Alternating Rows Table" />}
+        title="Table with alternating row colors"
+        renderedExample={<TableDocumentationSortingSmall className="table--alt" />}
         quickTips={(
           <ul>
             <li>Alternating row colors can help sighted users scan data in a table. Using only alternating row colors is not an acceptable solution for dividing rows since the contrast ratio is too low for those with low vision. You should combine alternating row background colors with borders to address minimum contrast ratios.</li>
@@ -86,8 +83,8 @@ export function TableDocumentation() {
       />
 
       <StaticExample
-        title="Table with filters (mockup)"
-        renderedExample={<LightBox image={tableFiltersScreenshot} alt="Table with Filters" />}
+        title="Table with filters"
+        renderedExample={<TableDocumentationSortingSmall className="table--alt" isFiltersShown />}
         quickTips={(
           <ul>
             <li>A table with column filters allows the user to quickly find information in the table. Consider using filters when the table data is larger than the viewport or over 10 rows long.</li>
