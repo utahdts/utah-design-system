@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -11,10 +11,10 @@
     "// ====== pure tasks ====== //": "",
     "buildHeader": "npm run build -workspace=@utahdts/utah-design-system-header",
     "buildLibrary": "npm run build -workspace=@utahdts/utah-design-system",
-    "buildWebsite": "npm run build -workspace utah-design-system-website",
+    "buildWebsite": "npm run build -workspace=utah-design-system-website",
     "buildwHeader": "npm run buildw -workspace=@utahdts/utah-design-system-header",
     "buildwLibrary": "npm run buildw -workspace=@utahdts/utah-design-system",
-    "buildwWebsite": "npm run buildw -workspace utah-design-system-website",
+    "buildwWebsite": "npm run buildw -workspace=utah-design-system-website",
     "buildTypesHeader": "npm run buildTypes -workspace=@utahdts/utah-design-system-header",
     "cleanCoverage": "rimraf ./@utahdts/utah-design-system/coverage",
     "cleanSitemap": "rimraf ./utah-design-system-website/public/sitemap.txt",
