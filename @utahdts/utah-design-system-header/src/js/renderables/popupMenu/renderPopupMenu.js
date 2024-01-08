@@ -84,14 +84,8 @@ function renderChevron() {
 }
 
 function onClickBlur() {
-  console.log('blurring...');
-  setTimeout(
-    () => {
-      // @ts-ignore
-      document.activeElement?.blur();
-    },
-    0
-  );
+  // blur currently active element usually because it has been triggered as a menu item and the menu should stay closed UDS-1432
+  setTimeout(() => { /** @type {HTMLElement} */ (document.activeElement)?.blur(); }, 0);
 }
 
 /**
