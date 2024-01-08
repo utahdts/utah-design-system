@@ -83,6 +83,11 @@ function renderChevron() {
   return chevron;
 }
 
+function onClickBlur() {
+  // blur currently active element usually because it has been triggered as a menu item and the menu should stay closed UDS-1432
+  setTimeout(() => { /** @type {HTMLElement} */ (document.activeElement)?.blur(); }, 0);
+}
+
 /**
  * @param {Element} menuUl
  * @param {MenuItem} popupMenuItem
@@ -119,6 +124,9 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   if (!titleSpanLink) {
     throw new Error('renderPopupMenuItem: titleSpanLink not found');
   }
+
+  menuAHref.onclick = onClickBlur;
+  menuButton.onclick = onClickBlur;
 
   const actionMenu = popupMenuItem.actionMenu && [...popupMenuItem.actionMenu];
   // add "(page)" menu item if menu item is an actionMenu && a link
@@ -234,7 +242,10 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     menuDivider.remove();
   } else if (popupMenuItem.actionFunction) {
     // === on click custom action, so hookup onclick === //
-    menuButton.onclick = popupMenuItem.actionFunction;
+    menuButton.onclick = (e) => {
+      popupMenuItem.actionFunction?.(e);
+      onClickBlur();
+    };
     menuAHref.remove();
     menuDivider.remove();
     plainTitle.remove();
@@ -252,6 +263,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
         e.preventDefault();
       }
       popupMenuItem.actionFunctionUrl?.actionFunction(e);
+      onClickBlur();
     };
     menuButton.remove();
     menuDivider.remove();
