@@ -44,12 +44,12 @@ export function DateInputExampleRender({
         label={label ?? ''}
         name={name}
         placeholder={placeholder}
-        onChange={(e) => setState((draftState) => {
-          draftState.props.value = e.target.value;
+        onChange={(newValue) => setState((draftState) => {
+          draftState.props.value = newValue;
           setStateFormContext?.(
             (draftStateFormContext) => {
               // @ts-ignore
-              draftStateFormContext['props.value'] = e.target.value;
+              draftStateFormContext['props.value'] = newValue;
             }
           );
         })}

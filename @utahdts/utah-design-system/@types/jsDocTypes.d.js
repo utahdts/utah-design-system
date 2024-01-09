@@ -111,6 +111,19 @@
  */
 
 /**
+ * @template TableDataT
+ * @typedef TableContextValue {
+ *  @property {TableDataT[]} allData
+ *  @property {TableDataT[]} filteredData
+ *  @property {(sortingRule: TableSortingRuleType<TableDataT>) => void} registerSortingRule
+ *  @property {(recordFieldPath: string) => void} unregisterSortingRule
+ *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
+ *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
+ *  @property {TableContextState<TableDataT>} state
+ * }
+ */
+
+/**
  * @typedef TableContextStateFilterValue {
  *  @property {any} value
  *  @property {boolean} exactMatch
@@ -245,17 +258,17 @@
  */
 
 /**
- * @template TableDataT
- * @typedef TableContextValue {
- *  @property {TableDataT[]} allData
- *  @property {TableDataT[]} filteredData
- *  @property {(sortingRule: TableSortingRuleType<TableDataT>) => void} registerSortingRule
- *  @property {(recordFieldPath: string) => void} unregisterSortingRule
- *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
- *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
- *  @property {TableContextState<TableDataT>} state
+ * @typedef CalendarGridValue {
+ *  @property {boolean} isCurrentDate
+ *  @property {boolean} isPreviousMonth
+ *  @property {boolean} isNextMonth
+ *  @property {Date} date
  * }
  */
+
+/** @typedef {[CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, ]} CalendarGridWeek */
+
+/** @typedef {CalendarGridWeek[]} CalendarGridMonth 5 or 6 weeks */
 
 /**
  * @typedef ComboBoxOptionType {

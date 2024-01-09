@@ -22,6 +22,7 @@ export { FooterAgencyInformation } from './react/components/footer/FooterAgencyI
 export { FooterAgencyInformationColumn } from './react/components/footer/FooterAgencyInformationColumn';
 export { FooterAgencyInformationInfo } from './react/components/footer/FooterAgencyInformationInfo';
 export { FooterSocialMediaBar } from './react/components/footer/FooterSocialMediaBar';
+export { CalendarInput } from './react/components/forms/CalendarInput/CalendarInput';
 export { CharacterCount } from './react/components/forms/CharacterCount';
 export { Checkbox } from './react/components/forms/Checkbox';
 export { ComboBox } from './react/components/forms/ComboBox/ComboBox';

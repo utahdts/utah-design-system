@@ -1,7 +1,13 @@
+import { useEffect, useRef } from 'react';
+import { usePopper } from 'react-popper';
+import { useImmer } from 'use-immer';
+import { popupPlacement } from '../../enums/popupPlacement';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Icons } from '../icons/Icons';
-import { useFormContextInput } from './FormContext/useFormContextInput';
+import { CalendarInput } from './CalendarInput/CalendarInput';
+import { useFormContextInputValue } from './FormContext/useFormContextInputValue';
 import { TextInput } from './TextInput';
+import { Button } from '../../..';
 
 /**
  * @template FormEventT
@@ -21,8 +27,8 @@ import { TextInput } from './TextInput';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name] defaults to id if not provided
- * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
- * @param {import('react').MouseEventHandler<HTMLInputElement>} [props.onClear]
+ * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
+ * @param {() => void} [props.onClear]
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
@@ -47,18 +53,39 @@ export function DateInput({
   wrapperClassName,
   ...rest
 }) {
+  const [isCalendarPopupOpen, setIsCalendarPopupOpen] = useImmer(false);
+  const popperReferenceElementRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const calendarRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const { styles, attributes, update } = usePopper(
+    popperReferenceElementRef.current,
+    calendarRef.current,
+    {
+      placement: popupPlacement.BOTTOM,
+      modifiers: [
+        { name: 'offset', options: { offset: [0, 4] } },
+      ],
+    }
+  );
   const {
     onChange: currentOnChange,
-    onFormKeyUp: currentOnFormKeyUp,
     onClear: currentOnClear,
     value: currentValue,
-  } = useFormContextInput({
-    defaultValue,
+  } = useFormContextInputValue({
     id,
+    defaultValue,
     onChange,
     onClear,
     value,
   });
+
+  useEffect(
+    () => {
+      if (update) {
+        update();
+      }
+    },
+    [isCalendarPopupOpen, currentValue, update]
+  );
 
   return (
     <div
@@ -71,28 +98,61 @@ export function DateInput({
             className={className}
             errorMessage={errorMessage}
             id={id}
+            innerRef={popperReferenceElementRef}
             isClearable={isClearable}
             isDisabled={isDisabled}
             isRequired={isRequired}
             label={label}
             labelClassName={labelClassName}
             name={name}
-            onChange={currentOnChange}
+            onChange={(e) => currentOnChange(e.target.value)}
             onClear={currentOnClear}
             // TODO: down arrow should open calendar picker
-            onKeyUp={currentOnFormKeyUp}
+            onKeyUp={() => { }}
             placeholder={placeholder}
             value={currentValue}
             // @ts-ignore
-            onClick={() => {
-              console.log('should pop open the calendar picker');
-            }}
+            onClick={() => setIsCalendarPopupOpen(true)}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
           />
           {/* TODO: calendar icon goes here */}
           <Icons.IconSadFace />
         </div>
+        <CalendarInput
+          label={label}
+          labelClassName="visually-hidden"
+          isClearable={isClearable}
+          isDisabled={isDisabled}
+          onChange={(newValue) => {
+            currentOnChange(newValue);
+            setIsCalendarPopupOpen(false);
+          }}
+          onClear={currentOnClear}
+          id={`${id}__calendar-input`}
+          innerRef={calendarRef}
+          value={currentValue}
+          wrapperClassName={isCalendarPopupOpen ? '' : 'visually-hidden'}
+          // @ts-ignore
+          style={{
+            ...styles.popper,
+            minWidth: popperReferenceElementRef.current?.scrollWidth,
+          }}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...attributes.popper}
+        />
+        {
+          isCalendarPopupOpen
+            ? (
+              <Button
+                onClick={() => setIsCalendarPopupOpen(false)}
+                type="button"
+              >
+                <Icons.IconDangerous />
+              </Button>
+            )
+            : null
+        }
       </div>
     </div>
   );
