@@ -150,6 +150,21 @@
  * }
  */
 
+/**
+ * @typedef DateInputExamplePropsShape {
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} name
+ *  @property {string} placeholder
+ *  @property {string} value
+ * }
+ */
+
 /** @typedef {Record<CSS_VARIABLES_KEYS, string>} CssContextState */
 
 /**

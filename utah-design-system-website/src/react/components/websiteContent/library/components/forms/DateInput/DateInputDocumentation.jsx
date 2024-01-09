@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import dateInputScreenshot from '../../../../../../../static/images/screenshots/components/dateInput/dateInput.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { DateInputExampleCodeReact } from './DateInputExampleCodeReact';
+import { DateInputExampleProps } from './DateInputExampleProps';
+import { DateInputExampleRender } from './DateInputExampleRender';
 
 export function DateInputDocumentation() {
   return (
@@ -11,7 +15,24 @@ export function DateInputDocumentation() {
       <h1 id="h1-top">Date Input</h1>
       <p className="lead-in">The Date Input is a specialized input field that can present a date picker popup to the user.</p>
       <hr />
-      <h2 id="example">Example</h2>
+      <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          errorMessage: '',
+          id: 'date-input-example-id',
+          isClearable: false,
+          isDisabled: false,
+          label: 'Enter a value',
+          name: '',
+          placeholder: '',
+          isRequired: false,
+          value: '',
+        }}
+        CODE_EXAMPLE={DateInputExampleCodeReact}
+        PROPS_EXAMPLE={DateInputExampleProps}
+        RENDER_EXAMPLE={DateInputExampleRender}
+      />
       <StaticExample
         title="Date Input Examples"
         renderedExample={<LightBox image={dateInputScreenshot} alt="Date Input" className="flex-3up-gap" />}
