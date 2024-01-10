@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { CalendarInput } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
+import { useImmer } from 'use-immer';
 import dateInputScreenshot from '../../../../../../../static/images/screenshots/components/dateInput/dateInput.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
@@ -11,6 +12,7 @@ import { DateInputExampleProps } from './DateInputExampleProps';
 import { DateInputExampleRender } from './DateInputExampleRender';
 
 export function DateInputDocumentation() {
+  const [calendarDate, setCalendarDate] = useImmer(/** @type {string | null} */(null));
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Date Input</h1>
@@ -23,10 +25,9 @@ export function DateInputDocumentation() {
           label="test calendar"
           labelClassName="visually-hidden"
           isDisabled={false}
-          onChange={(newValue) => {
-            console.log(newValue);
-          }}
+          onChange={setCalendarDate}
           id="test-calendar-input"
+          value={calendarDate}
         />
       </div>
 

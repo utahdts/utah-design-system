@@ -31,7 +31,7 @@ import { calendarGrid } from './calendarGrid';
  * @param {string} [props.labelClassName]
  * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {boolean} [props.showTodayButton]
- * @param {string} [props.value] expects value to be in format of MM/DD/YYYY
+ * @param {string | null} [props.value] expects value to be in format of MM/DD/YYYY
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
  */
@@ -129,7 +129,7 @@ export function CalendarInput({
           <div>{calendarMonthDate.getFullYear()}</div>
           <div>
             <IconButton
-              icon={<Icons.IconArrowLeft />}
+              icon={<Icons.IconArrowRight />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { years: 1 }))}
               title="Next Year"
