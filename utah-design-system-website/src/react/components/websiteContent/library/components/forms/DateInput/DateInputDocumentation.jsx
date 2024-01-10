@@ -27,6 +27,7 @@ export function DateInputDocumentation() {
           isDisabled={false}
           onChange={setCalendarDate}
           id="test-calendar-input"
+          showTodayButton
           value={calendarDate}
         />
       </div>
