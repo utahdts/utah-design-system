@@ -166,7 +166,8 @@ export function CalendarInput({
                         cellGridValue.isFocusDate && 'calendar-input__cell--focused',
                         cellGridValue.isNextMonth && 'calendar-input__cell--next-month',
                         cellGridValue.isPreviousMonth && 'calendar-input__cell--previous-month',
-                        cellGridValue.isSelectedDate && 'calendar-input__cell--selected'
+                        cellGridValue.isSelectedDate && 'calendar-input__cell--selected',
+                        cellGridValue.isTodayDate && 'calendar-input__cell--today'
                       )}
                       isDisabled={isDisabled}
                       key={`calendar-input__cell__${cellGridValue.date.getTime()}`}

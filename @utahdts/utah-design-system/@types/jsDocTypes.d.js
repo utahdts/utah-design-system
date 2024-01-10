@@ -259,11 +259,12 @@
 
 /**
  * @typedef CalendarGridValue {
- *  @property {boolean} isFocusDate
- *  @property {boolean} isSelectedDate
- *  @property {boolean} isPreviousMonth
- *  @property {boolean} isNextMonth
- *  @property {Date} date
+ *  @property {boolean} isFocusDate matches the date that is currently focused in the UI
+ *  @property {boolean} isNextMonth the date belongs to the next month on the calendar
+ *  @property {boolean} isPreviousMonth the date belongs to the previous month on the calendar
+ *  @property {boolean} isSelectedDate matches the value selected by the user
+ *  @property {boolean} isTodayDate matches today's date
+ *  @property {Date} date date object for this date
  * }
  */
 

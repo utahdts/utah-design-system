@@ -27,9 +27,10 @@ function constructCalendarGridValue(infoDate, focusDate, selectedDate) {
   return {
     date: infoDate,
     isFocusDate: dateIsEqualYMD(infoDate, focusDate),
-    isSelectedDate: dateIsEqualYMD(infoDate, selectedDate),
     isNextMonth: add(focusDate, { months: 1 }).getMonth() === infoDate.getMonth(),
     isPreviousMonth: add(focusDate, { months: -1 }).getMonth() === infoDate.getMonth(),
+    isSelectedDate: dateIsEqualYMD(infoDate, selectedDate),
+    isTodayDate: dateIsEqualYMD(infoDate, new Date()),
   };
 }
 
