@@ -4,7 +4,7 @@ import {
   parse
 } from 'date-fns';
 import { useEffect, useMemo, useState } from 'react';
-import { Button } from '../../../..';
+import { Button, IconButton } from '../../../..';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { Icons } from '../../icons/Icons';
 import { ErrorMessage } from '../ErrorMessage';
@@ -24,14 +24,13 @@ import { calendarGrid } from './calendarGrid';
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
- * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isHidden] a dateInput will hide its calendar popup when not in use
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
- * @param {() => void} [props.onClear]
+ * @param {boolean} [props.showTodayButton]
  * @param {string} [props.value] expects value to be in format of MM/DD/YYYY
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
@@ -42,31 +41,31 @@ export function CalendarInput({
   errorMessage,
   id,
   innerRef,
-  isClearable,
   isDisabled,
   isHidden,
   isRequired,
   label,
   labelClassName,
   onChange,
-  onClear,
+  showTodayButton,
   value,
   wrapperClassName,
   ...rest
 }) {
   const {
     onChange: currentOnChange,
-    onClear: currentOnClear,
     value: currentValue,
   } = useFormContextInputValue({
     id,
     defaultValue,
     onChange,
-    onClear,
     value,
   });
 
+  // currentValueDate is the currently selected date
   const currentValueDate = currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : null;
+
+  // currentValueDateInternal is the currently focused date (not necessarily the selected/value date)
   const [currentValueDateInternal, setCurrentValueDateInternal] = useState(currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : new Date());
 
   // if new value passed in, move to that month
@@ -80,7 +79,7 @@ export function CalendarInput({
   );
 
   const calendarMonthDate = currentValueDateInternal ?? new Date();
-  const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal), [currentValueDateInternal]);
+  const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal, currentValueDate), [currentValueDateInternal]);
 
   return (
     <div
@@ -95,75 +94,50 @@ export function CalendarInput({
       <div className="calendar-input__controls">
         <div className="calendar-input__controls-month">
           <div>
-            <Button
+            <IconButton
+              icon={<Icons.IconArrowLeft />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { months: -1 }))}
-              type="button"
+              title="Previous Month"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
-            >
-              <Icons.IconArrowLeft />
-            </Button>
-
+            />
           </div>
           <div>{format(calendarMonthDate, 'MMMM')}</div>
           <div>
-            <Button
+            <IconButton
+              icon={<Icons.IconArrowRight />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { months: 1 }))}
-              type="button"
+              title="Next Month"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
-            >
-              <Icons.IconArrowRight />
-            </Button>
-
+            />
           </div>
         </div>
         <div className="calendar-input__controls-year">
           <div>
-            <Button
+            <IconButton
+              icon={<Icons.IconArrowLeft />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { years: -1 }))}
-              type="button"
+              title="Last Year"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
-            >
-              <Icons.IconArrowLeft />
-            </Button>
-
+            />
           </div>
           <div>{calendarMonthDate.getFullYear()}</div>
           <div>
-            <Button
+            <IconButton
+              icon={<Icons.IconArrowLeft />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { years: 1 }))}
-              type="button"
+              title="Next Year"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
-            >
-              <Icons.IconArrowRight />
-            </Button>
-
+            />
           </div>
         </div>
-        {/* <div className="calendar-input__controls-buttons">
-          {
-            isClearable
-              ? (
-                <Button
-                  isDisabled={isDisabled}
-                  onClick={currentOnClear}
-                  type="button"
-                  // @ts-ignore
-                  tabIndex={isHidden ? -1 : 0}
-                >
-                  <Icons.IconDangerous />
-                </Button>
-              )
-              : null
-          }
-        </div> */}
       </div>
       <div className="calendar-input__grid" id={id}>
         <div className="calendar-input__row" role="row">
@@ -187,7 +161,13 @@ export function CalendarInput({
                 {
                   weekGridValues.map((cellGridValue) => (
                     <Button
-                      className="calendar-input__cell"
+                      className={joinClassNames(
+                        'calendar-input__cell',
+                        cellGridValue.isFocusDate && 'calendar-input__cell--focused',
+                        cellGridValue.isNextMonth && 'calendar-input__cell--next-month',
+                        cellGridValue.isPreviousMonth && 'calendar-input__cell--previous-month',
+                        cellGridValue.isSelectedDate && 'calendar-input__cell--selected'
+                      )}
                       isDisabled={isDisabled}
                       key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
                       onClick={() => {
@@ -196,7 +176,7 @@ export function CalendarInput({
                       type="button"
                       // @ts-ignore
                       role="gridcell"
-                      tabIndex={(isHidden || !cellGridValue.isCurrentDate) ? -1 : 0}
+                      tabIndex={(isHidden || !cellGridValue.isSelectedDate) ? -1 : 0}
                     >
                       {cellGridValue.date.getDate()}
                     </Button>
@@ -207,6 +187,20 @@ export function CalendarInput({
           )
         }
       </div>
+      {
+        showTodayButton
+          ? (
+            <div className="calendar-input__today" id={id}>
+              <button
+                onClick={() => currentOnChange(format(new Date(), 'MM/dd/yyyy'))}
+                type="button"
+              >
+                Today
+              </button>
+            </div>
+          )
+          : null
+      }
       <ErrorMessage errorMessage={errorMessage} id={id} />
     </div>
   );

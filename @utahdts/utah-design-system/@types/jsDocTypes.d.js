@@ -259,7 +259,8 @@
 
 /**
  * @typedef CalendarGridValue {
- *  @property {boolean} isCurrentDate
+ *  @property {boolean} isFocusDate
+ *  @property {boolean} isSelectedDate
  *  @property {boolean} isPreviousMonth
  *  @property {boolean} isNextMonth
  *  @property {Date} date

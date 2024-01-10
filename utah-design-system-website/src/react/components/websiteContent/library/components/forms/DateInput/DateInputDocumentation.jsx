@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { CalendarInput } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import dateInputScreenshot from '../../../../../../../static/images/screenshots/components/dateInput/dateInput.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
@@ -8,7 +9,6 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { DateInputExampleCodeReact } from './DateInputExampleCodeReact';
 import { DateInputExampleProps } from './DateInputExampleProps';
 import { DateInputExampleRender } from './DateInputExampleRender';
-import { CalendarInput } from '@utahdts/utah-design-system';
 
 export function DateInputDocumentation() {
   return (
@@ -22,12 +22,10 @@ export function DateInputDocumentation() {
         <CalendarInput
           label="test calendar"
           labelClassName="visually-hidden"
-          isClearable
           isDisabled={false}
           onChange={(newValue) => {
             console.log(newValue);
           }}
-          onClear={() => console.log('onClear')}
           id="test-calendar-input"
         />
       </div>

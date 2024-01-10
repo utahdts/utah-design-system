@@ -134,14 +134,12 @@ export function DateInput({
         <CalendarInput
           label={label}
           labelClassName="visually-hidden"
-          isClearable={isClearable}
           isDisabled={isDisabled}
           isHidden={!isCalendarPopupOpen}
           onChange={(newValue) => {
             currentOnChange(newValue);
             setIsCalendarPopupOpen(false);
           }}
-          onClear={currentOnClear}
           id={`${id}__calendar-input`}
           innerRef={calendarRef}
           value={currentValue}
