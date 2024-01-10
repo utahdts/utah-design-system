@@ -26,6 +26,7 @@ import { calendarGrid } from './calendarGrid';
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isHidden] a dateInput will hide its calendar popup when not in use
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
@@ -43,6 +44,7 @@ export function CalendarInput({
   innerRef,
   isClearable,
   isDisabled,
+  isHidden,
   isRequired,
   label,
   labelClassName,
@@ -67,14 +69,14 @@ export function CalendarInput({
   const currentValueDate = currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : null;
   const [currentValueDateInternal, setCurrentValueDateInternal] = useState(currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : new Date());
 
+  // if new value passed in, move to that month
   useEffect(
     () => {
       if (currentValueDateInternal?.getTime() !== currentValueDate?.getTime()) {
-        // if new value passed in, move 'view' to that month
         setCurrentValueDateInternal(currentValueDate ?? new Date());
       }
     },
-    [currentValueDate]
+    [currentValueDate?.getTime()]
   );
 
   const calendarMonthDate = currentValueDateInternal ?? new Date();
@@ -97,6 +99,8 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { months: -1 }))}
               type="button"
+              // @ts-ignore
+              tabIndex={isHidden ? -1 : 0}
             >
               <Icons.IconArrowLeft />
             </Button>
@@ -108,6 +112,8 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { months: 1 }))}
               type="button"
+              // @ts-ignore
+              tabIndex={isHidden ? -1 : 0}
             >
               <Icons.IconArrowRight />
             </Button>
@@ -120,6 +126,8 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { years: -1 }))}
               type="button"
+              // @ts-ignore
+              tabIndex={isHidden ? -1 : 0}
             >
               <Icons.IconArrowLeft />
             </Button>
@@ -131,6 +139,8 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { years: 1 }))}
               type="button"
+              // @ts-ignore
+              tabIndex={isHidden ? -1 : 0}
             >
               <Icons.IconArrowRight />
             </Button>
@@ -145,6 +155,8 @@ export function CalendarInput({
                   isDisabled={isDisabled}
                   onClick={currentOnClear}
                   type="button"
+                  // @ts-ignore
+                  tabIndex={isHidden ? -1 : 0}
                 >
                   <Icons.IconDangerous />
                 </Button>
@@ -184,6 +196,7 @@ export function CalendarInput({
                       type="button"
                       // @ts-ignore
                       role="gridcell"
+                      tabIndex={(isHidden || !cellGridValue.isCurrentDate) ? -1 : 0}
                     >
                       {cellGridValue.date.getDate()}
                     </Button>
