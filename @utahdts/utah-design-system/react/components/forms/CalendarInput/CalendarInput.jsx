@@ -137,7 +137,7 @@ export function CalendarInput({
 
           </div>
         </div>
-        <div className="calendar-input__controls-buttons">
+        {/* <div className="calendar-input__controls-buttons">
           {
             isClearable
               ? (
@@ -151,17 +151,17 @@ export function CalendarInput({
               )
               : null
           }
-        </div>
+        </div> */}
       </div>
-      <div className="input-wrapper--calendar-input-table calendar-input__table" id={id}>
+      <div className="calendar-input__grid" id={id}>
         <div className="calendar-input__row" role="row">
-          <span className="calendar-input__cell" role="gridcell">Sun</span>
-          <span className="calendar-input__cell" role="gridcell">Mon</span>
-          <span className="calendar-input__cell" role="gridcell">Tue</span>
-          <span className="calendar-input__cell" role="gridcell">Wed</span>
-          <span className="calendar-input__cell" role="gridcell">Thu</span>
-          <span className="calendar-input__cell" role="gridcell">Fri</span>
-          <span className="calendar-input__cell" role="gridcell">Sat</span>
+          <span className="calendar-input__cell-header" role="gridcell">Su</span>
+          <span className="calendar-input__cell-header" role="gridcell">Mo</span>
+          <span className="calendar-input__cell-header" role="gridcell">Tu</span>
+          <span className="calendar-input__cell-header" role="gridcell">We</span>
+          <span className="calendar-input__cell-header" role="gridcell">Th</span>
+          <span className="calendar-input__cell-header" role="gridcell">Fr</span>
+          <span className="calendar-input__cell-header" role="gridcell">Sa</span>
         </div>
         {
           calendarGridValues.map(

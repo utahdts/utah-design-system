@@ -8,6 +8,7 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { DateInputExampleCodeReact } from './DateInputExampleCodeReact';
 import { DateInputExampleProps } from './DateInputExampleProps';
 import { DateInputExampleRender } from './DateInputExampleRender';
+import { CalendarInput } from '@utahdts/utah-design-system';
 
 export function DateInputDocumentation() {
   return (
@@ -16,6 +17,21 @@ export function DateInputDocumentation() {
       <p className="lead-in">The Date Input is a specialized input field that can present a date picker popup to the user.</p>
       <hr />
       <h2 id="section-example">Example</h2>
+
+      <div style={{ width: '200px' }}>
+        <CalendarInput
+          label="test calendar"
+          labelClassName="visually-hidden"
+          isClearable
+          isDisabled={false}
+          onChange={(newValue) => {
+            console.log(newValue);
+          }}
+          onClear={() => console.log('onClear')}
+          id="test-calendar-input"
+        />
+      </div>
+
       <SandboxExample
         defaultProps={{
           className: '',
@@ -33,6 +49,7 @@ export function DateInputDocumentation() {
         PROPS_EXAMPLE={DateInputExampleProps}
         RENDER_EXAMPLE={DateInputExampleRender}
       />
+
       <StaticExample
         title="Date Input Examples"
         renderedExample={<LightBox image={dateInputScreenshot} alt="Date Input" className="flex-3up-gap" />}
