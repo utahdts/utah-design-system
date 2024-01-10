@@ -15,7 +15,7 @@ function constructCalendarGridValue(infoDate, currentDate) {
     isCurrentDate: (
       infoDate.getFullYear() === currentDate.getFullYear()
       && infoDate.getMonth() === currentDate.getMonth()
-      && infoDate.getDay() === currentDate.getDay()
+      && infoDate.getDate() === currentDate.getDate()
     ),
     isNextMonth: add(currentDate, { months: 1 }).getMonth() === infoDate.getMonth(),
     isPreviousMonth: add(currentDate, { months: -1 }).getMonth() === infoDate.getMonth(),

@@ -112,6 +112,18 @@ export function DateInput({
             placeholder={placeholder}
             value={currentValue}
             // @ts-ignore
+            onBlur={() => {
+              // give time for new item to be come focused
+              setTimeout(
+                () => {
+                  // if still active inside the wrapper, don't close the popup
+                  if (!document.activeElement?.closest('.input-wrapper--date-input')) {
+                    setIsCalendarPopupOpen(false);
+                  }
+                },
+                0
+              );
+            }}
             onClick={() => setIsCalendarPopupOpen(true)}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
@@ -124,6 +136,7 @@ export function DateInput({
           labelClassName="visually-hidden"
           isClearable={isClearable}
           isDisabled={isDisabled}
+          isHidden={!isCalendarPopupOpen}
           onChange={(newValue) => {
             currentOnChange(newValue);
             setIsCalendarPopupOpen(false);
