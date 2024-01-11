@@ -133,10 +133,10 @@ export function DateInput({
         wrapperInternalRef.current = ref;
       }}
     >
-      <div className="input-wrapper--date-input-inner">
+      <div className="date-input__inner-wrapper">
         <div>
           <TextInput
-            className={className}
+            className={joinClassNames(className, 'date-input')}
             errorMessage={errorMessage}
             id={id}
             innerRef={popperReferenceElementRef}
@@ -154,7 +154,7 @@ export function DateInput({
             rightContent={(
               <IconButton
                 aria-hidden="true"
-                className="date-input-input__chevron icon-button--borderless icon-button--small1x"
+                className="utds-icon-before-doc-square date-input__calendar-icon"
                 icon={<span className="utds-icon-before-chevron-up" aria-hidden="true" />}
                 isDisabled={isDisabled}
                 onClick={(e) => {

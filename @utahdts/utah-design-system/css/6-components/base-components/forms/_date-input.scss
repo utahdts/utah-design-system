@@ -1,0 +1,37 @@
+@use "../../../1-settings/class-vars";
+@use "../../../2-tools/tools-index";
+
+#{class-vars.$base-class} {
+  .date-input {
+    &[type="text"] {
+      padding: 0 var(--spacing-xl) 0 var(--spacing-xs);
+      &.text-input--clear-icon-visible {
+        padding: 0 var(--spacing-4xl) 0 var(--spacing-xs);
+      }
+    }
+    &__calendar-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: var(--spacing-xs);
+      font-weight: var(--font-weight-normal);
+      [class*="utds-icon-before-"]::before {
+        font-size: 0.9rem;
+      }
+      &--is-disabled {
+        color: var(--form-ele-disabled-color);
+      }
+    }
+    &__inner-wrapper {
+      .text-input__clear-button {
+        right: var(--spacing-xl);
+      }
+      .input-wrapper--text-input {
+        margin: 0;
+      }
+      .tooltip__wrapper {
+        z-index: 2001;
+      }
+    }
+  }
+}
