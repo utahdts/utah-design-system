@@ -96,10 +96,10 @@ export function DateInput({
       className={joinClassNames('input-wrapper input-wrapper--date-input', wrapperClassName)}
       ref={innerRef}
     >
-      <div className="input-wrapper--date-input-inner">
+      <div className="date-input__inner-wrapper">
         <div>
           <TextInput
-            className={className}
+            className={joinClassNames(className, 'date-input')}
             errorMessage={errorMessage}
             id={id}
             innerRef={popperReferenceElementRef}
@@ -115,7 +115,7 @@ export function DateInput({
             onKeyUp={() => { }}
             placeholder={placeholder}
             value={currentValue}
-            rightContent={<Icons.IconSadFace />}
+            rightContent={<span className="utds-icon-before-doc-square date-input__calendar-icon" aria-hidden="true" />}
             // @ts-ignore
             onBlur={() => {
               // give time for new item to be come focused
