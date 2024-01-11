@@ -154,8 +154,8 @@ export function DateInput({
             rightContent={(
               <IconButton
                 aria-hidden="true"
-                className="utds-icon-before-doc-square date-input__calendar-icon"
-                icon={<span className="utds-icon-before-chevron-up" aria-hidden="true" />}
+                className="date-input-input__calendar icon-button--borderless icon-button--small1x"
+                icon={<span className="utds-icon-before-doc-square date-input__calendar-icon" aria-hidden="true" />}
                 isDisabled={isDisabled}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -163,7 +163,7 @@ export function DateInput({
                 }}
                 title="Open popup calendar"
                 // @ts-ignore
-                // prevent the chevron from closing and reopening the popup
+                // prevent closing and reopening the popup
                 onMouseDown={(e) => e.preventDefault()}
               />
             )}
@@ -213,18 +213,6 @@ export function DateInput({
                 {...attributes.popper}
               />
             )
-        }
-        {
-          (!hasNoCalendarPopup && isCalendarPopupOpen)
-            ? (
-              <Button
-                onClick={() => setIsCalendarPopupOpen(false)}
-                type="button"
-              >
-                <Icons.IconDangerous />
-              </Button>
-            )
-            : null
         }
       </div>
     </div>
