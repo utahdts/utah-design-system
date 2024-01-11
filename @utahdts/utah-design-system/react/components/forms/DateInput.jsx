@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import { useImmer } from 'use-immer';
 import { popupPlacement } from '../../enums/popupPlacement';
@@ -9,6 +9,8 @@ import { Icons } from '../icons/Icons';
 import { CalendarInput } from './CalendarInput/CalendarInput';
 import { useFormContextInputValue } from './FormContext/useFormContextInputValue';
 import { TextInput } from './TextInput';
+import { useOnKeyUp } from '../../util/useOnKeyUp';
+import { IconButton } from '../buttons/IconButton';
 
 /**
  * @template FormEventT
@@ -112,6 +114,15 @@ export function DateInput({
     { isDisabled: !isCalendarPopupOpen }
   );
 
+  const onDownArrowPress = useOnKeyUp(
+    'ArrowDown',
+    useCallback(
+      () => setIsCalendarPopupOpen(true),
+      []
+    ),
+    true
+  );
+
   return (
     <div
       className={joinClassNames('input-wrapper input-wrapper--date-input', wrapperClassName)}
@@ -137,11 +148,25 @@ export function DateInput({
             name={name}
             onChange={(e) => currentOnChange(e.target.value)}
             onClear={currentOnClear}
-            // TODO: down arrow should open calendar picker
-            onKeyUp={() => { }}
+            onKeyUp={onDownArrowPress}
             placeholder={placeholder}
             value={currentValue}
-            rightContent={<Icons.IconSadFace />}
+            rightContent={(
+              <IconButton
+                aria-hidden="true"
+                className="date-input-input__chevron icon-button--borderless icon-button--small1x"
+                icon={<span className="utds-icon-before-chevron-up" aria-hidden="true" />}
+                isDisabled={isDisabled}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsCalendarPopupOpen(true);
+                }}
+                title="Open popup calendar"
+                // @ts-ignore
+                // prevent the chevron from closing and reopening the popup
+                onMouseDown={(e) => e.preventDefault()}
+              />
+            )}
             // @ts-ignore
             onBlur={() => {
               // give time for new item to be come focused
@@ -175,6 +200,7 @@ export function DateInput({
                 }}
                 id={`${id}__calendar-input`}
                 innerRef={calendarRef}
+                shouldSetFocusOnMount
                 showTodayButton={showCalendarTodayButton}
                 value={currentValue}
                 wrapperClassName={isCalendarPopupOpen ? '' : 'visually-hidden'}

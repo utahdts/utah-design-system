@@ -3,7 +3,12 @@ import {
   format,
   parse
 } from 'date-fns';
-import { useEffect, useMemo, useState } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
 import { Button, IconButton } from '../../../..';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { ErrorMessage } from '../ErrorMessage';
@@ -29,6 +34,7 @@ import { calendarGrid } from './calendarGrid';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
+ * @param {boolean} [props.shouldSetFocusOnMount] if rendered in a popup, then set focus to first focusable element when first shown
  * @param {boolean} [props.showTodayButton]
  * @param {string | null} [props.value] expects value to be in format of MM/DD/YYYY
  * @param {string} [props.wrapperClassName]
@@ -46,11 +52,13 @@ export function CalendarInput({
   label,
   labelClassName,
   onChange,
+  shouldSetFocusOnMount,
   showTodayButton,
   value,
   wrapperClassName,
   ...rest
 }) {
+  const firstFocusableElementRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const {
     onChange: currentOnChange,
     value: currentValue,
@@ -77,6 +85,16 @@ export function CalendarInput({
     [currentValueDate?.getTime()]
   );
 
+  // focus on first element when popped open
+  useEffect(
+    () => {
+      if (shouldSetFocusOnMount && !isHidden) {
+        firstFocusableElementRef.current?.focus();
+      }
+    },
+    [shouldSetFocusOnMount, isHidden]
+  );
+
   const calendarMonthDate = currentValueDateInternal ?? new Date();
   const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal, currentValueDate), [currentValueDateInternal]);
 
@@ -96,6 +114,7 @@ export function CalendarInput({
             <IconButton
               className="icon-button--small1x icon-button--borderless"
               icon={<span className="utds-icon-before-chevron-left" aria-hidden="true" />}
+              innerRef={firstFocusableElementRef}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: -1 }))}
               title="Previous Month"
