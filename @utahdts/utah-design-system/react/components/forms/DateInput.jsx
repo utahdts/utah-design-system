@@ -111,6 +111,7 @@ export function DateInput({
             onKeyUp={() => { }}
             placeholder={placeholder}
             value={currentValue}
+            rightContent={<Icons.IconSadFace />}
             // @ts-ignore
             onBlur={() => {
               // give time for new item to be come focused
@@ -128,8 +129,6 @@ export function DateInput({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
           />
-          {/* TODO: calendar icon goes here */}
-          <Icons.IconSadFace />
         </div>
         <CalendarInput
           label={label}
