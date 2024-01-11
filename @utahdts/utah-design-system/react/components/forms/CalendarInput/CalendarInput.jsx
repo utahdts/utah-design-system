@@ -4,6 +4,7 @@ import {
   parse
 } from 'date-fns';
 import {
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -15,6 +16,7 @@ import { ErrorMessage } from '../ErrorMessage';
 import { useFormContextInputValue } from '../FormContext/useFormContextInputValue';
 import { RequiredStar } from '../RequiredStar';
 import { calendarGrid } from './calendarGrid';
+import { useOnKeyUp } from '../../../util/useOnKeyUp';
 
 /**
  * @template FormEventT
@@ -97,6 +99,15 @@ export function CalendarInput({
 
   const calendarMonthDate = currentValueDateInternal ?? new Date();
   const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal, currentValueDate), [currentValueDateInternal]);
+
+  const onDownArrowPress = useOnKeyUp(
+    'ArrowDown',
+    useCallback(
+      () => setCurrentValueDateInternal((date) => date && add(date, { weeks: 1 })),
+      []
+    ),
+    true
+  );
 
   return (
     <div
@@ -198,6 +209,7 @@ export function CalendarInput({
                       }}
                       type="button"
                       // @ts-ignore
+                      onKeyUp={cellGridValue.isFocusDate ? onDownArrowPress : undefined}
                       role="gridcell"
                       tabIndex={(isHidden || !cellGridValue.isSelectedDate) ? -1 : 0}
                     >
