@@ -66,7 +66,7 @@ export function CalendarInput({
   const currentValueDate = currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : null;
 
   // currentValueDateInternal is the currently focused date (not necessarily the selected/value date)
-  const [currentValueDateInternal, setCurrentValueDateInternal] = useState(currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : new Date());
+  const [currentValueDateInternal, setCurrentValueDateInternal] = useState(/** @type {Date | null} */(null));
 
   // if new value passed in, move to that month
   useEffect(
@@ -97,7 +97,7 @@ export function CalendarInput({
             <IconButton
               icon={<Icons.IconArrowLeft />}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { months: -1 }))}
+              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: -1 }))}
               title="Previous Month"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
@@ -108,7 +108,7 @@ export function CalendarInput({
             <IconButton
               icon={<Icons.IconArrowRight />}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { months: 1 }))}
+              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: 1 }))}
               title="Next Month"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
@@ -120,7 +120,7 @@ export function CalendarInput({
             <IconButton
               icon={<Icons.IconArrowLeft />}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { years: -1 }))}
+              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { years: -1 }))}
               title="Last Year"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
@@ -131,7 +131,7 @@ export function CalendarInput({
             <IconButton
               icon={<Icons.IconArrowRight />}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate, { years: 1 }))}
+              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { years: 1 }))}
               title="Next Year"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
