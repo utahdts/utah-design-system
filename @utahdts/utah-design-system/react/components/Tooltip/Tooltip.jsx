@@ -62,7 +62,7 @@ export function Tooltip({
   useEffect(
     () => {
       // parent is not controlling visibility, so hookup visibility to the `referenceElement`
-      if (draftReferenceElement && isPopperVisible === null) {
+      if (draftReferenceElement && isPopperVisible === undefined) {
         if (draftReferenceElement.onmouseenter) {
           throw new Error('ToolTip: onMouseEnter previously set');
         }
