@@ -4,13 +4,11 @@ import { useImmer } from 'use-immer';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { useInterval } from '../../hooks/useInterval';
 import { joinClassNames } from '../../util/joinClassNames';
-import { Button } from '../buttons/Button';
-import { Icons } from '../icons/Icons';
+import { useOnKeyUp } from '../../util/useOnKeyUp';
+import { IconButton } from '../buttons/IconButton';
 import { CalendarInput } from './CalendarInput/CalendarInput';
 import { useFormContextInputValue } from './FormContext/useFormContextInputValue';
 import { TextInput } from './TextInput';
-import { useOnKeyUp } from '../../util/useOnKeyUp';
-import { IconButton } from '../buttons/IconButton';
 
 /**
  * @template FormEventT
