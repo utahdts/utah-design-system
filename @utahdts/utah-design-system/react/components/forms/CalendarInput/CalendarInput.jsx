@@ -197,7 +197,10 @@ export function CalendarInput({
             <div className="calendar-input__today" id={id}>
               <button
                 className="button--small"
-                onClick={() => currentOnChange(format(new Date(), 'MM/dd/yyyy'))}
+                onClick={() => {
+                  setCurrentValueDateInternal(new Date());
+                  currentOnChange(format(new Date(), 'MM/dd/yyyy'));
+                }}
                 type="button"
               >
                 Today
