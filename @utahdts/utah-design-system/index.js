@@ -106,6 +106,7 @@ export { popupPlacement } from './react/enums/popupPlacement';
 export { tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { useImmerRef } from './react/hooks/useImmerRef';
+export { useInterval } from './react/hooks/useInterval';
 export { useMountingTracker } from './react/hooks/useMountingTracker';
 export { usePopupDelay } from './react/hooks/usePopupDelay';
 export { useRefAlways } from './react/hooks/useRefAlways';

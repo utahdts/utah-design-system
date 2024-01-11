@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import { useImmer } from 'use-immer';
-import { Button } from '../../..';
 import { popupPlacement } from '../../enums/popupPlacement';
+import { useInterval } from '../../hooks/useInterval';
 import { joinClassNames } from '../../util/joinClassNames';
+import { Button } from '../buttons/Button';
 import { Icons } from '../icons/Icons';
 import { CalendarInput } from './CalendarInput/CalendarInput';
 import { useFormContextInputValue } from './FormContext/useFormContextInputValue';
@@ -15,13 +16,21 @@ import { TextInput } from './TextInput';
  */
 
 /**
+ * @param {HTMLDivElement | null} myWrapper
+ * @returns {boolean}
+ */
+function isActiveElementInsideCalendarInput(myWrapper) {
+  return document.activeElement?.closest('.input-wrapper--date-input') === myWrapper;
+}
+
+/**
  * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {boolean} [props.hasNoCalendarPopup] if true, the calendar popup does not open so that entry is only keyboard textual
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
- * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
+ * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -42,7 +51,7 @@ export function DateInput({
   errorMessage,
   hasNoCalendarPopup,
   id,
-  innerRef,
+  innerRef: draftInnerRef,
   isClearable,
   isDisabled,
   isRequired,
@@ -57,6 +66,7 @@ export function DateInput({
   wrapperClassName,
   ...rest
 }) {
+  const wrapperInternalRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [isCalendarPopupOpen, setIsCalendarPopupOpen] = useImmer(false);
   const popperReferenceElementRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const calendarRef = useRef(/** @type {HTMLDivElement | null} */(null));
@@ -91,10 +101,26 @@ export function DateInput({
     [isCalendarPopupOpen, currentValue, update]
   );
 
+  // check if no longer have focus when open
+  useInterval(
+    () => {
+      if (!isActiveElementInsideCalendarInput(wrapperInternalRef.current)) {
+        setIsCalendarPopupOpen(false);
+      }
+    },
+    250,
+    { isDisabled: !isCalendarPopupOpen }
+  );
+
   return (
     <div
       className={joinClassNames('input-wrapper input-wrapper--date-input', wrapperClassName)}
-      ref={innerRef}
+      ref={(ref) => {
+        if (draftInnerRef) {
+          draftInnerRef.current = ref;
+        }
+        wrapperInternalRef.current = ref;
+      }}
     >
       <div className="input-wrapper--date-input-inner">
         <div>
@@ -122,7 +148,7 @@ export function DateInput({
               setTimeout(
                 () => {
                   // if still active inside the wrapper, don't close the popup
-                  if (!document.activeElement?.closest('.input-wrapper--date-input')) {
+                  if (!isActiveElementInsideCalendarInput(wrapperInternalRef.current)) {
                     setIsCalendarPopupOpen(false);
                   }
                 },
