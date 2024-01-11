@@ -6,22 +6,40 @@ import {
 import {
   useCallback,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState
 } from 'react';
 import { Button, IconButton } from '../../../..';
 import { joinClassNames } from '../../../util/joinClassNames';
+import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { ErrorMessage } from '../ErrorMessage';
 import { useFormContextInputValue } from '../FormContext/useFormContextInputValue';
 import { RequiredStar } from '../RequiredStar';
 import { calendarGrid } from './calendarGrid';
-import { useOnKeyUp } from '../../../util/useOnKeyUp';
 
 /**
  * @template FormEventT
  * @typedef {import('react').FormEvent<FormEventT>} FormEvent
  */
+
+/**
+ * @param {string} calendarInputId
+ * @param {Date | null} newDate
+ */
+function moveCurrentValueFocus(calendarInputId, newDate) {
+  // focus on the next date; delay so that the new month view draws before it focuses
+  setTimeout(
+    () => {
+      if (newDate) {
+        const formattedDate = format(newDate, 'MM/dd/yyyy');
+        document.getElementById(`${calendarInputId}__${formattedDate}`)?.focus();
+      }
+    },
+    0
+  );
+}
 
 /**
  * @param {object} props
@@ -60,6 +78,7 @@ export function CalendarInput({
   wrapperClassName,
   ...rest
 }) {
+  const calendarInputId = useId();
   const firstFocusableElementRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const {
     onChange: currentOnChange,
@@ -103,7 +122,58 @@ export function CalendarInput({
   const onDownArrowPress = useOnKeyUp(
     'ArrowDown',
     useCallback(
-      () => setCurrentValueDateInternal((date) => date && add(date, { weeks: 1 })),
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { weeks: 1 });
+          moveCurrentValueFocus(calendarInputId, nextDate);
+          return nextDate;
+        });
+      },
+      []
+    ),
+    true
+  );
+
+  const onUpArrowPress = useOnKeyUp(
+    'ArrowUp',
+    useCallback(
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { weeks: -1 });
+          moveCurrentValueFocus(calendarInputId, nextDate);
+          return nextDate;
+        });
+      },
+      []
+    ),
+    true
+  );
+
+  const onLeftArrowPress = useOnKeyUp(
+    'ArrowLeft',
+    useCallback(
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { days: -1 });
+          moveCurrentValueFocus(calendarInputId, nextDate);
+          return nextDate;
+        });
+      },
+      []
+    ),
+    true
+  );
+
+  const onRightArrowPress = useOnKeyUp(
+    'ArrowRight',
+    useCallback(
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { days: 1 });
+          moveCurrentValueFocus(calendarInputId, nextDate);
+          return nextDate;
+        });
+      },
       []
     ),
     true
@@ -192,30 +262,56 @@ export function CalendarInput({
                 role="row"
               >
                 {
-                  weekGridValues.map((cellGridValue) => (
-                    <Button
-                      className={joinClassNames(
-                        'calendar-input__cell',
-                        cellGridValue.isFocusDate && 'calendar-input__cell--focused',
-                        cellGridValue.isNextMonth && 'calendar-input__cell--next-month',
-                        cellGridValue.isPreviousMonth && 'calendar-input__cell--previous-month',
-                        cellGridValue.isSelectedDate && 'calendar-input__cell--selected',
-                        cellGridValue.isTodayDate && 'calendar-input__cell--today'
-                      )}
-                      isDisabled={isDisabled}
-                      key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
-                      onClick={() => {
-                        currentOnChange?.(format(cellGridValue.date, 'MM/dd/yyyy'));
-                      }}
-                      type="button"
-                      // @ts-ignore
-                      onKeyUp={cellGridValue.isFocusDate ? onDownArrowPress : undefined}
-                      role="gridcell"
-                      tabIndex={(isHidden || !cellGridValue.isSelectedDate) ? -1 : 0}
-                    >
-                      {cellGridValue.date.getDate()}
-                    </Button>
-                  ))
+                  weekGridValues.map((cellGridValue) => {
+                    const formattedDate = format(cellGridValue.date, 'MM/dd/yyyy');
+                    return (
+                      <Button
+                        className={joinClassNames(
+                          'calendar-input__cell',
+                          cellGridValue.isFocusDate && 'calendar-input__cell--focused',
+                          cellGridValue.isNextMonth && 'calendar-input__cell--next-month',
+                          cellGridValue.isPreviousMonth && 'calendar-input__cell--previous-month',
+                          cellGridValue.isSelectedDate && 'calendar-input__cell--selected',
+                          cellGridValue.isTodayDate && 'calendar-input__cell--today'
+                        )}
+                        id={`${calendarInputId}__${formattedDate}`}
+                        isDisabled={isDisabled}
+                        key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
+                        onClick={() => {
+                          currentOnChange?.(formattedDate);
+                        }}
+                        type="button"
+                        // @ts-ignore
+                        onKeyDown={(e) => {
+                          if (
+                            [
+                              'ArrowDown',
+                              'ArrowUp',
+                              'ArrowLeft',
+                              'ArrowRight',
+                            ]
+                              .includes(e.key)
+                          ) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                          }
+                        }}
+                        onKeyUp={
+                          /** @param {import('react').KeyboardEvent<HTMLButtonElement>} e */
+                          (e) => {
+                            onDownArrowPress(e);
+                            onUpArrowPress(e);
+                            onLeftArrowPress(e);
+                            onRightArrowPress(e);
+                          }
+                        }
+                        role="gridcell"
+                        tabIndex={(isHidden || !cellGridValue.isSelectedDate) ? -1 : 0}
+                      >
+                        {cellGridValue.date.getDate()}
+                      </Button>
+                    );
+                  })
                 }
               </div>
             )

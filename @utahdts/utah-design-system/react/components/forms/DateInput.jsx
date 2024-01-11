@@ -157,12 +157,20 @@ export function DateInput({
                 isDisabled={isDisabled}
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsCalendarPopupOpen(true);
+                  setIsCalendarPopupOpen((isOpen) => {
+                    if (isOpen) {
+                      const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                      // @ts-ignore
+                      textInput?.focus();
+                    }
+                    return !isOpen;
+                  });
                 }}
                 title="Open popup calendar"
                 // @ts-ignore
                 // prevent closing and reopening the popup
                 onMouseDown={(e) => e.preventDefault()}
+                onFocus={() => setIsCalendarPopupOpen(false)}
               />
             )}
             // @ts-ignore
