@@ -6,7 +6,6 @@ import {
 import { useEffect, useMemo, useState } from 'react';
 import { Button, IconButton } from '../../../..';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { Icons } from '../../icons/Icons';
 import { ErrorMessage } from '../ErrorMessage';
 import { useFormContextInputValue } from '../FormContext/useFormContextInputValue';
 import { RequiredStar } from '../RequiredStar';
@@ -95,7 +94,8 @@ export function CalendarInput({
         <div className="calendar-input__controls-month">
           <div>
             <IconButton
-              icon={<Icons.IconArrowLeft />}
+              className="icon-button--small1x icon-button--borderless"
+              icon={<span className="utds-icon-before-chevron-left" aria-hidden="true" />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: -1 }))}
               title="Previous Month"
@@ -103,10 +103,11 @@ export function CalendarInput({
               tabIndex={isHidden ? -1 : 0}
             />
           </div>
-          <div>{format(calendarMonthDate, 'MMMM')}</div>
+          <div className="calendar-input__month">{format(calendarMonthDate, 'MMMM')}</div>
           <div>
             <IconButton
-              icon={<Icons.IconArrowRight />}
+              className="icon-button--small1x icon-button--borderless"
+              icon={<span className="utds-icon-before-chevron-right" aria-hidden="true" />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: 1 }))}
               title="Next Month"
@@ -118,7 +119,8 @@ export function CalendarInput({
         <div className="calendar-input__controls-year">
           <div>
             <IconButton
-              icon={<Icons.IconArrowLeft />}
+              className="icon-button--small1x icon-button--borderless"
+              icon={<span className="utds-icon-before-chevron-left" aria-hidden="true" />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { years: -1 }))}
               title="Last Year"
@@ -126,10 +128,11 @@ export function CalendarInput({
               tabIndex={isHidden ? -1 : 0}
             />
           </div>
-          <div>{calendarMonthDate.getFullYear()}</div>
+          <div className="calendar-input__year">{calendarMonthDate.getFullYear()}</div>
           <div>
             <IconButton
-              icon={<Icons.IconArrowRight />}
+              className="icon-button--small1x icon-button--borderless"
+              icon={<span className="utds-icon-before-chevron-right" aria-hidden="true" />}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { years: 1 }))}
               title="Next Year"
@@ -193,6 +196,7 @@ export function CalendarInput({
           ? (
             <div className="calendar-input__today" id={id}>
               <button
+                className="button--small"
                 onClick={() => currentOnChange(format(new Date(), 'MM/dd/yyyy'))}
                 type="button"
               >
