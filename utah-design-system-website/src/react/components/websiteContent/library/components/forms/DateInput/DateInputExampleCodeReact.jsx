@@ -12,6 +12,7 @@ export function DateInputExampleCodeReact({
     props: {
       className,
       errorMessage,
+      hasCalendarPopup,
       id,
       isClearable,
       isDisabled,
@@ -19,6 +20,7 @@ export function DateInputExampleCodeReact({
       label,
       name,
       placeholder,
+      showCalendarTodayButton,
       value,
     },
   },
@@ -29,6 +31,7 @@ export function DateInputExampleCodeReact({
       <br />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={hasCalendarPopup ? null : 'hasNoCalendarPopup'} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'isClearable' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
@@ -37,6 +40,7 @@ export function DateInputExampleCodeReact({
       <ExampleCodeReactProp displayProp={name ? `name="${name}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'onClear={(e) => { /* ... do something w/ e ... */ }' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={placeholder ? `placeholder="${placeholder}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={showCalendarTodayButton ? 'showCalendarTodayButton' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`value="${value}"`} indentLevel={1} />
       /&gt;
     </>

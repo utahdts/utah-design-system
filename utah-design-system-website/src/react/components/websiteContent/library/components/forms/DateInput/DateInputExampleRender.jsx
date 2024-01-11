@@ -18,6 +18,7 @@ export function DateInputExampleRender({
     props: {
       className,
       errorMessage,
+      hasCalendarPopup,
       id,
       isClearable,
       isDisabled,
@@ -25,6 +26,7 @@ export function DateInputExampleRender({
       label,
       name,
       placeholder,
+      showCalendarTodayButton,
       value,
     },
   },
@@ -36,6 +38,7 @@ export function DateInputExampleRender({
       <DateInput
         className={className}
         errorMessage={errorMessage}
+        hasNoCalendarPopup={!hasCalendarPopup}
         id={id || 'date-input-example-render-id'}
         innerRef={innerRef}
         isClearable={isClearable}
@@ -54,6 +57,7 @@ export function DateInputExampleRender({
           );
         })}
         onClear={isClearable ? (() => setState((draftState) => { draftState.props.value = ''; })) : undefined}
+        showCalendarTodayButton={showCalendarTodayButton}
         value={value}
       />
     </div>

@@ -36,6 +36,7 @@ export function DateInputDocumentation() {
         defaultProps={{
           className: '',
           errorMessage: '',
+          hasCalendarPopup: true,
           id: 'date-input-example-id',
           isClearable: false,
           isDisabled: false,
@@ -43,6 +44,7 @@ export function DateInputDocumentation() {
           name: '',
           placeholder: '',
           isRequired: false,
+          showCalendarTodayButton: true,
           value: '',
         }}
         CODE_EXAMPLE={DateInputExampleCodeReact}
