@@ -13,10 +13,10 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      right: var(--spacing-xs);
+      right: var(--spacing-2xs);
       font-weight: var(--font-weight-normal);
       [class*="utds-icon-before-"]::before {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
       }
       &--is-disabled {
         color: var(--form-ele-disabled-color);
