@@ -26,6 +26,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
 /**
  * @param {object} props
  * @param {string} [props.className]
+ * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date; used for CalendarInput
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {boolean} [props.hasNoCalendarPopup] if true, the calendar popup does not open so that entry is only keyboard textual
@@ -47,6 +48,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  */
 export function DateInput({
   className,
+  dateFormat,
   defaultValue,
   errorMessage,
   hasNoCalendarPopup,
@@ -196,6 +198,7 @@ export function DateInput({
             ? null
             : (
               <CalendarInput
+                dateFormat={dateFormat}
                 label={label}
                 labelClassName="visually-hidden"
                 isDisabled={isDisabled}

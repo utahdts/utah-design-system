@@ -27,13 +27,14 @@ import { calendarGrid } from './calendarGrid';
 /**
  * @param {string} calendarInputId
  * @param {Date | null} newDate
+ * @param {string} dateFormat
  */
-function moveCurrentValueFocus(calendarInputId, newDate) {
+function moveCurrentValueFocus(calendarInputId, newDate, dateFormat) {
   // focus on the next date; delay so that the new month view draws before it focuses
   setTimeout(
     () => {
       if (newDate) {
-        const formattedDate = format(newDate, 'MM/dd/yyyy');
+        const formattedDate = format(newDate, dateFormat);
         document.getElementById(`${calendarInputId}__${formattedDate}`)?.focus();
       }
     },
@@ -44,7 +45,8 @@ function moveCurrentValueFocus(calendarInputId, newDate) {
 /**
  * @param {object} props
  * @param {string} [props.className]
- * @param {string} [props.defaultValue] expects value to be in format of MM/DD/YYYY
+ * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date
+ * @param {string} [props.defaultValue] expects value to be in format of props.dateFormat
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
@@ -56,12 +58,13 @@ function moveCurrentValueFocus(calendarInputId, newDate) {
  * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {boolean} [props.shouldSetFocusOnMount] if rendered in a popup, then set focus to first focusable element when first shown
  * @param {boolean} [props.showTodayButton]
- * @param {string | null} [props.value] expects value to be in format of MM/DD/YYYY
+ * @param {string | null} [props.value] expects value to be in format of props.dateFormat
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
  */
 export function CalendarInput({
   className,
+  dateFormat = 'MM/dd/yyyy',
   defaultValue,
   errorMessage,
   id,
@@ -91,7 +94,7 @@ export function CalendarInput({
   });
 
   // currentValueDate is the currently selected date
-  const currentValueDate = currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : null;
+  const currentValueDate = currentValue ? parse(currentValue, dateFormat, new Date()) : null;
 
   // currentValueDateInternal is the currently focused date (not necessarily the selected/value date)
   const [currentValueDateInternal, setCurrentValueDateInternal] = useState(/** @type {Date | null} */(null));
@@ -125,7 +128,7 @@ export function CalendarInput({
       () => {
         setCurrentValueDateInternal((date) => {
           const nextDate = date && add(date, { weeks: 1 });
-          moveCurrentValueFocus(calendarInputId, nextDate);
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
       },
@@ -140,7 +143,7 @@ export function CalendarInput({
       () => {
         setCurrentValueDateInternal((date) => {
           const nextDate = date && add(date, { weeks: -1 });
-          moveCurrentValueFocus(calendarInputId, nextDate);
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
       },
@@ -155,7 +158,7 @@ export function CalendarInput({
       () => {
         setCurrentValueDateInternal((date) => {
           const nextDate = date && add(date, { days: -1 });
-          moveCurrentValueFocus(calendarInputId, nextDate);
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
       },
@@ -170,7 +173,7 @@ export function CalendarInput({
       () => {
         setCurrentValueDateInternal((date) => {
           const nextDate = date && add(date, { days: 1 });
-          moveCurrentValueFocus(calendarInputId, nextDate);
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
       },
@@ -263,7 +266,7 @@ export function CalendarInput({
               >
                 {
                   weekGridValues.map((cellGridValue) => {
-                    const formattedDate = format(cellGridValue.date, 'MM/dd/yyyy');
+                    const formattedDate = format(cellGridValue.date, dateFormat);
                     return (
                       <Button
                         className={joinClassNames(
@@ -326,7 +329,7 @@ export function CalendarInput({
                 className="button--small"
                 onClick={() => {
                   setCurrentValueDateInternal(new Date());
-                  currentOnChange(format(new Date(), 'MM/dd/yyyy'));
+                  currentOnChange(format(new Date(), dateFormat));
                 }}
                 type="button"
               >
