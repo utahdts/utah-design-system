@@ -33,5 +33,19 @@
         z-index: 2001;
       }
     }
+    &__popup {
+      background: white;
+      border-radius: var(--radius-small);
+      border: 1px solid var(--gray-3-1-contrast);
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      z-index: 2000;
+      overflow: hidden;
+
+      .input-wrapper--calendar-input {
+        margin: 0;
+      }
+    }
   }
 }

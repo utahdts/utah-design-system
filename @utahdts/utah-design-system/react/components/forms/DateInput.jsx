@@ -187,29 +187,30 @@ export function DateInput({
           hasNoCalendarPopup
             ? null
             : (
-              <CalendarInput
-                label={label}
-                labelClassName="visually-hidden"
-                isDisabled={isDisabled}
-                isHidden={!isCalendarPopupOpen}
-                onChange={(newValue) => {
-                  currentOnChange(newValue);
-                  setIsCalendarPopupOpen(false);
-                }}
-                id={`${id}__calendar-input`}
-                innerRef={calendarRef}
-                shouldSetFocusOnMount
-                showTodayButton={showCalendarTodayButton}
-                value={currentValue}
-                wrapperClassName={isCalendarPopupOpen ? '' : 'visually-hidden'}
-                // @ts-ignore
+              <div
+                className={joinClassNames('date-input__popup', isCalendarPopupOpen ? '' : 'visually-hidden')}
+                ref={calendarRef}
                 style={{
                   ...styles.popper,
-                  minWidth: popperReferenceElementRef.current?.scrollWidth,
+                  minWidth: popperReferenceElementRef.current?.offsetWidth,
                 }}
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...attributes.popper}
-              />
+              >
+                <CalendarInput
+                  label={label}
+                  labelClassName="visually-hidden"
+                  isDisabled={isDisabled}
+                  isHidden={!isCalendarPopupOpen}
+                  onChange={(newValue) => {
+                    currentOnChange(newValue);
+                    setIsCalendarPopupOpen(false);
+                  }}
+                  id={`${id}__calendar-input`}
+                  shouldSetFocusOnMount
+                  showTodayButton={showCalendarTodayButton}
+                  value={currentValue}
+                />
+              </div>
             )
         }
       </div>
