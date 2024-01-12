@@ -13,6 +13,14 @@
         background: var(--form-ele-color-light);
       }
 
+      &--disabled {
+        background: var(--disabled-gray);
+
+        .button {
+          background: var(--disabled-gray);
+        }
+      }
+
       input[type="file"] {
         position: absolute;
         width: 100%;
@@ -21,10 +29,19 @@
         top: 0;
         text-indent: -9999px;
         cursor: pointer;
+        transition: box-shadow var(--timing-xquick) ease-in-out;
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+
+        &:hover {
+          box-shadow: var(--hover-gray-color) 0 0 0 5px;
+        }
       }
     }
     &__instructions {
-      padding: var(--spacing);
+      padding: var(--spacing-l) var(--spacing);
     }
 
     &__single-file {
