@@ -26,6 +26,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
 /**
  * @param {object} props
  * @param {string} [props.className]
+ * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date; used for CalendarInput
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {boolean} [props.hasNoCalendarPopup] if true, the calendar popup does not open so that entry is only keyboard textual
@@ -47,6 +48,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  */
 export function DateInput({
   className,
+  dateFormat,
   defaultValue,
   errorMessage,
   hasNoCalendarPopup,
@@ -157,12 +159,20 @@ export function DateInput({
                 isDisabled={isDisabled}
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsCalendarPopupOpen(true);
+                  setIsCalendarPopupOpen((isOpen) => {
+                    if (isOpen) {
+                      const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                      // @ts-ignore
+                      textInput?.focus();
+                    }
+                    return !isOpen;
+                  });
                 }}
                 title="Open popup calendar"
                 // @ts-ignore
                 // prevent closing and reopening the popup
                 onMouseDown={(e) => e.preventDefault()}
+                onFocus={() => setIsCalendarPopupOpen(false)}
               />
             )}
             // @ts-ignore
@@ -197,6 +207,7 @@ export function DateInput({
                 {...attributes.popper}
               >
                 <CalendarInput
+                  dateFormat={dateFormat}
                   label={label}
                   labelClassName="visually-hidden"
                   isDisabled={isDisabled}

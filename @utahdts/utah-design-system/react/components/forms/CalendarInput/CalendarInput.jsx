@@ -4,13 +4,16 @@ import {
   parse
 } from 'date-fns';
 import {
+  useCallback,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState
 } from 'react';
 import { Button, IconButton } from '../../../..';
 import { joinClassNames } from '../../../util/joinClassNames';
+import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { ErrorMessage } from '../ErrorMessage';
 import { useFormContextInputValue } from '../FormContext/useFormContextInputValue';
 import { RequiredStar } from '../RequiredStar';
@@ -22,9 +25,28 @@ import { calendarGrid } from './calendarGrid';
  */
 
 /**
+ * @param {string} calendarInputId
+ * @param {Date | null} newDate
+ * @param {string} dateFormat
+ */
+function moveCurrentValueFocus(calendarInputId, newDate, dateFormat) {
+  // focus on the next date; delay so that the new month view draws before it focuses
+  setTimeout(
+    () => {
+      if (newDate) {
+        const formattedDate = format(newDate, dateFormat);
+        document.getElementById(`${calendarInputId}__${formattedDate}`)?.focus();
+      }
+    },
+    0
+  );
+}
+
+/**
  * @param {object} props
  * @param {string} [props.className]
- * @param {string} [props.defaultValue] expects value to be in format of MM/DD/YYYY
+ * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date
+ * @param {string} [props.defaultValue] expects value to be in format of props.dateFormat
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
@@ -36,12 +58,13 @@ import { calendarGrid } from './calendarGrid';
  * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {boolean} [props.shouldSetFocusOnMount] if rendered in a popup, then set focus to first focusable element when first shown
  * @param {boolean} [props.showTodayButton]
- * @param {string | null} [props.value] expects value to be in format of MM/DD/YYYY
+ * @param {string | null} [props.value] expects value to be in format of props.dateFormat
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
  */
 export function CalendarInput({
   className,
+  dateFormat = 'MM/dd/yyyy',
   defaultValue,
   errorMessage,
   id,
@@ -58,6 +81,7 @@ export function CalendarInput({
   wrapperClassName,
   ...rest
 }) {
+  const calendarInputId = useId();
   const firstFocusableElementRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const {
     onChange: currentOnChange,
@@ -70,7 +94,7 @@ export function CalendarInput({
   });
 
   // currentValueDate is the currently selected date
-  const currentValueDate = currentValue ? parse(currentValue, 'MM/dd/yyyy', new Date()) : null;
+  const currentValueDate = currentValue ? parse(currentValue, dateFormat, new Date()) : null;
 
   // currentValueDateInternal is the currently focused date (not necessarily the selected/value date)
   const [currentValueDateInternal, setCurrentValueDateInternal] = useState(/** @type {Date | null} */(null));
@@ -97,6 +121,66 @@ export function CalendarInput({
 
   const calendarMonthDate = currentValueDateInternal ?? new Date();
   const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal, currentValueDate), [currentValueDateInternal]);
+
+  const onDownArrowPress = useOnKeyUp(
+    'ArrowDown',
+    useCallback(
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { weeks: 1 });
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
+          return nextDate;
+        });
+      },
+      []
+    ),
+    true
+  );
+
+  const onUpArrowPress = useOnKeyUp(
+    'ArrowUp',
+    useCallback(
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { weeks: -1 });
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
+          return nextDate;
+        });
+      },
+      []
+    ),
+    true
+  );
+
+  const onLeftArrowPress = useOnKeyUp(
+    'ArrowLeft',
+    useCallback(
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { days: -1 });
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
+          return nextDate;
+        });
+      },
+      []
+    ),
+    true
+  );
+
+  const onRightArrowPress = useOnKeyUp(
+    'ArrowRight',
+    useCallback(
+      () => {
+        setCurrentValueDateInternal((date) => {
+          const nextDate = date && add(date, { days: 1 });
+          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
+          return nextDate;
+        });
+      },
+      []
+    ),
+    true
+  );
 
   return (
     <div
@@ -181,29 +265,56 @@ export function CalendarInput({
                 role="row"
               >
                 {
-                  weekGridValues.map((cellGridValue) => (
-                    <Button
-                      className={joinClassNames(
-                        'calendar-input__cell',
-                        cellGridValue.isFocusDate && 'calendar-input__cell--focused',
-                        cellGridValue.isNextMonth && 'calendar-input__cell--next-month',
-                        cellGridValue.isPreviousMonth && 'calendar-input__cell--previous-month',
-                        cellGridValue.isSelectedDate && 'calendar-input__cell--selected',
-                        cellGridValue.isTodayDate && 'calendar-input__cell--today'
-                      )}
-                      isDisabled={isDisabled}
-                      key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
-                      onClick={() => {
-                        currentOnChange?.(format(cellGridValue.date, 'MM/dd/yyyy'));
-                      }}
-                      type="button"
-                      // @ts-ignore
-                      role="gridcell"
-                      tabIndex={(isHidden || !cellGridValue.isSelectedDate) ? -1 : 0}
-                    >
-                      {cellGridValue.date.getDate()}
-                    </Button>
-                  ))
+                  weekGridValues.map((cellGridValue) => {
+                    const formattedDate = format(cellGridValue.date, dateFormat);
+                    return (
+                      <Button
+                        className={joinClassNames(
+                          'calendar-input__cell',
+                          cellGridValue.isFocusDate && 'calendar-input__cell--focused',
+                          cellGridValue.isNextMonth && 'calendar-input__cell--next-month',
+                          cellGridValue.isPreviousMonth && 'calendar-input__cell--previous-month',
+                          cellGridValue.isSelectedDate && 'calendar-input__cell--selected',
+                          cellGridValue.isTodayDate && 'calendar-input__cell--today'
+                        )}
+                        id={`${calendarInputId}__${formattedDate}`}
+                        isDisabled={isDisabled}
+                        key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
+                        onClick={() => {
+                          currentOnChange?.(formattedDate);
+                        }}
+                        type="button"
+                        // @ts-ignore
+                        onKeyDown={(e) => {
+                          if (
+                            [
+                              'ArrowDown',
+                              'ArrowUp',
+                              'ArrowLeft',
+                              'ArrowRight',
+                            ]
+                              .includes(e.key)
+                          ) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                          }
+                        }}
+                        onKeyUp={
+                          /** @param {import('react').KeyboardEvent<HTMLButtonElement>} e */
+                          (e) => {
+                            onDownArrowPress(e);
+                            onUpArrowPress(e);
+                            onLeftArrowPress(e);
+                            onRightArrowPress(e);
+                          }
+                        }
+                        role="gridcell"
+                        tabIndex={(isHidden || !cellGridValue.isSelectedDate) ? -1 : 0}
+                      >
+                        {cellGridValue.date.getDate()}
+                      </Button>
+                    );
+                  })
                 }
               </div>
             )
@@ -218,7 +329,7 @@ export function CalendarInput({
                 className="button--small"
                 onClick={() => {
                   setCurrentValueDateInternal(new Date());
-                  currentOnChange(format(new Date(), 'MM/dd/yyyy'));
+                  currentOnChange(format(new Date(), dateFormat));
                 }}
                 type="button"
               >
