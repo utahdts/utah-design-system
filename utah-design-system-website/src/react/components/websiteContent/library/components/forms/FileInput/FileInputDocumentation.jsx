@@ -5,6 +5,10 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import fileInputMulti from '../../../../../../../static/images/screenshots/components/form-elements/fileInputMulti.jpg';
 import fileInputSingle from '../../../../../../../static/images/screenshots/components/form-elements/fileInputSingle.jpg';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { FileInputExampleCodeReact } from './FileInputExampleCodeReact';
+import { FileInputExampleProps } from './FileInputExampleProps';
+import { FileInputExampleRender } from './FileInputExampleRender';
 
 export function FileInputDocumentation() {
   return (
@@ -13,6 +17,23 @@ export function FileInputDocumentation() {
       <p className="lead-in">A file input allows a user to upload and/or attach one or more files.</p>
       <hr />
       <h2 id="example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          acceptedFileTypes: '',
+          className: '',
+          errorMessage: '',
+          hint: '',
+          id: 'file-input-example',
+          isDisabled: false,
+          isRequired: false,
+          label: 'Choose your file',
+          name: '',
+        }}
+        RENDER_EXAMPLE={FileInputExampleRender}
+        PROPS_EXAMPLE={FileInputExampleProps}
+        CODE_EXAMPLE={FileInputExampleCodeReact}
+      />
+
       <StaticExample
         title="File Input Single"
         renderedExample={<LightBox image={fileInputSingle} alt="File Input Single" className="flex-3up-gap" />}

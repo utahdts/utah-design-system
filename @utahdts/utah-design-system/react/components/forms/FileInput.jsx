@@ -8,7 +8,7 @@ import { ErrorMessage } from './ErrorMessage';
 
 /**
  * @param {object} props
- * @param {string} [props.accept]
+ * @param {string} [props.acceptedFileTypes]
  * @param {string} [props.className]
  * @param {string} [props.errorMessage]
  * @param {string} [props.hint]
@@ -22,7 +22,7 @@ import { ErrorMessage } from './ErrorMessage';
  * @returns {import('react').JSX.Element}
  */
 export function FileInput({
-  accept,
+  acceptedFileTypes,
   className,
   errorMessage,
   hint,
@@ -92,11 +92,11 @@ export function FileInput({
           )
           : (
             <div className="file-input__instructions">
-              <span className="button button--small">Drag file here or click to upload.</span>
+              <span className="button button--small">Drag file here or click to upload</span>
             </div>
           )}
         <input
-          accept={accept}
+          accept={acceptedFileTypes}
           aria-describedby={errorMessage ? `${id}-error` : undefined}
           className={className}
           disabled={isDisabled}

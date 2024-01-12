@@ -150,6 +150,20 @@
  * }
  */
 
+/**
+ * @typedef FileInputExamplePropsShape {
+ *  @property {string} acceptedFileTypes
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} hint
+ *  @property {string} id
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} name
+ * }
+ */
+
 /** @typedef {Record<CSS_VARIABLES_KEYS, string>} CssContextState */
 
 /**
