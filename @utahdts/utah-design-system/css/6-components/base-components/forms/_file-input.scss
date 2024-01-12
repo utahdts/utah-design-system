@@ -58,6 +58,12 @@
       }
     }
 
+    &__link {
+      z-index: 2;
+      display: inline-block;
+      position: relative;
+    }
+
     &__file-list {
       display: flex;
 

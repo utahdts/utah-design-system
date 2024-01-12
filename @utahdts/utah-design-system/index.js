@@ -26,6 +26,7 @@ export { InitialChildren } from './react/components/buttons/ConfirmationButton/I
 export { DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
 export { ExternalLink } from './react/components/navigation/ExternalLink';
 export { FileInput } from './react/components/forms/FileInput';
+export { FileTemplate } from './react/components/forms/FileInput/FileTemplate';
 export { FooterAgencyInformation } from './react/components/footer/FooterAgencyInformation';
 export { FooterAgencyInformationColumn } from './react/components/footer/FooterAgencyInformationColumn';
 export { FooterAgencyInformationInfo } from './react/components/footer/FooterAgencyInformationInfo';
@@ -47,6 +48,7 @@ export { Modal } from './react/components/popups/Modal/Modal';
 export { ModalContent } from './react/components/popups/Modal/ModalContent';
 export { ModalTitle } from './react/components/popups/Modal/ModalTitle';
 export { ModalFooter } from './react/components/popups/Modal/ModalFooter';
+export { MultipleFileInput } from './react/components/forms/FileInput/MultipleFileInput';
 export { MultiSelect } from './react/components/forms/MultiSelect/MultiSelect';
 export { MultiSelectOption } from './react/components/forms/MultiSelect/MultiSelectOption';
 export { MultiSelectOptionGroup } from './react/components/forms/MultiSelect/MultiSelectOptionGroup';
