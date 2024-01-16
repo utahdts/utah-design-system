@@ -30,6 +30,7 @@
         text-indent: -9999px;
         cursor: pointer;
         transition: box-shadow var(--timing-xquick) ease-in-out;
+        z-index: 1;
 
         &:disabled {
           cursor: not-allowed;
@@ -42,11 +43,17 @@
     }
     &__instructions {
       padding: var(--spacing-l) var(--spacing);
+      pointer-events: none;
+      position: relative;
+      z-index: 3;
     }
 
     &__single-file {
       background-color: #{color-swatches.$azul-16};
+      pointer-events: none;
+      position: relative;
       text-align: left;
+      z-index: 3;
 
       > div {
         padding: var(--spacing-s) var(--spacing);
@@ -59,7 +66,7 @@
     }
 
     &__link {
-      z-index: 2;
+      z-index: 3;
       display: inline-block;
       position: relative;
     }
@@ -71,6 +78,16 @@
         background: white;
         margin-right: var(--spacing);
       }
+    }
+
+    &__safari {
+      background: white;
+      height: 100%;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
     }
   }
 }

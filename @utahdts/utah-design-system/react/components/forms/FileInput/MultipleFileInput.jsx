@@ -93,6 +93,7 @@ export function MultipleFileInput({
         isDisabled ? 'file-input__box--disabled' : ''
       )}
       >
+        <div className="file-input__safari" />
         <div className="file-input__instructions">
           <span className="button button--small">Drag files here or click to upload</span>
         </div>

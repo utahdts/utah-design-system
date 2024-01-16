@@ -75,6 +75,7 @@ export function FileInput({
         isDisabled ? 'file-input__box--disabled' : ''
       )}
       >
+        <div className="file-input__safari" />
         {file.length
           ? (
             <div className="file-input__single-file">
