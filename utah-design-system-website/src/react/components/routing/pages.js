@@ -3,7 +3,6 @@ import { menusEnum } from '../../enums/menusEnum';
 import { Demo } from '../demo/Demo';
 import { HomeLanding } from '../websiteContent/HomeLanding';
 import { PlaceHolderDocumentation } from '../websiteContent/PlaceHolderDocumentation';
-import { ProgressLogPage } from '../websiteContent/ProgressLog/ProgressLogPage';
 import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
@@ -404,13 +403,6 @@ export const pages = {
     link: pageUrls.showcase,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Showcase',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  progressLog: /** @type {Page} */ ({
-    content: ProgressLogPage,
-    link: pageUrls.progressLog,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Progress Log',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 

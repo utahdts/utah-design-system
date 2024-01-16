@@ -73,14 +73,14 @@
     "@popperjs/core": "2.11.8"
   },
   "devDependencies": {
-    "@vitest/ui": "1.1.1",
-    "jsdom": "23.0.1",
+    "@vitest/ui": "1.2.0",
+    "jsdom": "23.2.0",
     "replace": "1.2.2",
-    "sass": "1.69.6",
+    "sass": "1.69.7",
     "tslib": "2.6.2",
     "typescript": "5.3.3",
-    "vite": "5.0.10",
-    "vitest": "1.1.1"
+    "vite": "5.0.11",
+    "vitest": "1.2.0"
   },
   "type": "module"
 }
