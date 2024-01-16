@@ -1,10 +1,10 @@
 import { useImmer } from 'use-immer';
 import { useCallback, useEffect } from 'react';
-import { RequiredStar } from './RequiredStar';
-import { joinClassNames } from '../../util/joinClassNames';
-import { Tag } from '../buttons/Tag';
-import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import { ErrorMessage } from './ErrorMessage';
+import { RequiredStar } from '../RequiredStar';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { Tag } from '../../buttons/Tag';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { ErrorMessage } from '../ErrorMessage';
 
 /**
  * @param {object} props
