@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # [1.X.X] 1/16/2024
 ## Removed
 - Progress Log page (view GitHub release notes instead)
+- 
+
+# [1.14.1] 1/16/2024
+## Fixed
+- Header WordPress Plugin download link
 
 # [1.14.0] 1/16/2024
 ## Added
