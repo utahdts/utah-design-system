@@ -12,7 +12,7 @@ export function formatPreCode(codeRaw) {
   const lines = withOutLinePadding.split(/\n/);
 
   // get the starting blank spaces for each line; want to remove indentation
-  const linePaddings = lines.filter(identity).map((line) => line.match(/(^\s*)/)?.[0]);
+  const linePaddings = lines.filter(identity).map((line) => /(^\s*)/.exec(line)?.[0]);
 
   // what was the smallest padding found?
   const smallestPadding = linePaddings.reduce(

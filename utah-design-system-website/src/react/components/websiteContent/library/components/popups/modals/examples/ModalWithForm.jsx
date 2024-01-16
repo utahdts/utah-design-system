@@ -4,11 +4,11 @@ import {
 import { useCallback, useState } from 'react';
 
 export function ModalWithForm() {
-  const [showModal, setModal] = useState(false);
-  const closeModal = useCallback(() => setModal(false), []);
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = useCallback(() => setShowModal(false), []);
   return (
     <>
-      <Button onClick={() => setModal(true)}>
+      <Button onClick={() => setShowModal(true)}>
         Modal with Form
       </Button>
       {showModal

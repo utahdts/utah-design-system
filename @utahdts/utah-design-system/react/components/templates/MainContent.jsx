@@ -1,6 +1,8 @@
 // The MainContent component renders a <main> tag.
 // Use primarily to provide a target for the skip link.
 /**
+ * The MainContent component renders a <main> tag.
+ * Use primarily to provide a target for the skip link.
  * @param {object} props
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]

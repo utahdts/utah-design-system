@@ -178,9 +178,6 @@ export function ComboBoxOption({
                 draftContext.isFilterValueDirty = false;
                 draftContext.isOptionsExpanded = false;
                 draftContext.optionValueHighlighted = null;
-                // TODO: onChange does this? so not needed here?
-                // draftContext.filterValue = label;
-                // draftContext.optionValueSelected = value;
                 setTimeout(
                   () => {
                     // move cursor to end after clicking an option so it can be edited

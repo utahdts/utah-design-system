@@ -59,12 +59,9 @@ export function Modal({
           lastTabElement?.focus();
           e.preventDefault();
         }
-      } else {
-        // eslint-disable-next-line no-lonely-if
-        if (document.activeElement === lastTabElement) {
-          firstTabElement?.focus();
-          e.preventDefault();
-        }
+      } else if (document.activeElement === lastTabElement) {
+        firstTabElement?.focus();
+        e.preventDefault();
       }
     }
   }, [firstTabElement, lastTabElement]);

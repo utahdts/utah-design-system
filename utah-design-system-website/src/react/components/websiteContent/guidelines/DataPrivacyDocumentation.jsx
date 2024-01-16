@@ -12,9 +12,10 @@ export function DataPrivacyDocumentation() {
       <hr />
       <h2 id="section-areas-to-consider" className="mt-spacing mb-spacing">Areas to Consider</h2>
       <p className="mb-spacing">
-        In the state of Utah, agencies utilize privacy policies and terms of use to establish clear guidelines
+        In the state of Utah, agencies utilize <code>privacy policies</code> and <code>terms of use</code> to establish clear guidelines
         and expectations for individuals interacting with their online platforms and services.
-        <br />
+      </p>
+      <p>
         These documents play a crucial role in safeguarding the privacy of users by outlining how personal information
         is collected, used, and protected.
       </p>
@@ -23,6 +24,8 @@ export function DataPrivacyDocumentation() {
         and accountable digital environment for individuals engaging with government services online.
       </p>
       <p>For more information, please refer to the state of Utah <ExternalLink href="https://www.utah.gov/support/privacypolicy.html">Privacy Policy</ExternalLink>.</p>
+
+      <h2 id="footer-links">Customize footer links</h2>
       <p>
         Note: The Utah Footer offers a way for developers to customize the <NavLink to={`${pageUrls.utahFooter}#section-config-custom-links`}>privacy policy and/or terms of use links</NavLink>.
       </p>
