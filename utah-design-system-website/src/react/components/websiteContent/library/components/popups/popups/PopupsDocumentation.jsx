@@ -50,7 +50,7 @@ export function PopupsDocumentation() {
     // set the focus on the button or text input depending on visibility
     if (popupsState.editorExample === false) {
       document.getElementById('button-for-editor-example')?.focus();
-    } else {
+    } else if (popupsState.editorExample) {
       document.getElementById('editor-example-textarea')?.focus();
     }
   }, [popupsState.editorExample]);

@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "1.13.3",
+  "version": "1.14.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -64,7 +64,7 @@
     "utah header",
     "components"
   ],
-  "license": "State of Utah - TOT",
+  "license": "state of Utah - TOT",
   "bugs": {
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
@@ -73,14 +73,14 @@
     "@popperjs/core": "2.11.8"
   },
   "devDependencies": {
-    "@vitest/ui": "1.0.4",
+    "@vitest/ui": "1.1.1",
     "jsdom": "23.0.1",
     "replace": "1.2.2",
-    "sass": "1.69.5",
+    "sass": "1.69.6",
     "tslib": "2.6.2",
     "typescript": "5.3.3",
-    "vite": "5.0.8",
-    "vitest": "1.0.4"
+    "vite": "5.0.10",
+    "vitest": "1.1.1"
   },
   "type": "module"
 }

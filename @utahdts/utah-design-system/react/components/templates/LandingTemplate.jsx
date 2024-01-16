@@ -1,4 +1,5 @@
 import React from 'react';
+import { MainContent } from './MainContent';
 
 /**
  * @param {object} props
@@ -6,5 +7,9 @@ import React from 'react';
  * @returns {import('react').JSX.Element}
  */
 export function LandingTemplate({ content: Content }) {
-  return (<Content />);
+  return (
+    <MainContent className="landing-page-template__content">
+      <Content />
+    </MainContent>
+  );
 }

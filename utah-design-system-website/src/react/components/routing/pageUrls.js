@@ -5,6 +5,7 @@
 export const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibility'),
   accessibilityChecklist: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityChecklistTesting'),
+  accessibilityTesting: /** @type {PageUrl} */ ('/resources/accessibilityTesting'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
   backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
@@ -99,4 +100,5 @@ export const pageUrls = {
   uxBestPractices: /** @type {PageUrl} */ ('/guidelinesStandards/uxBestPractices'),
   validation: /** @type {PageUrl} */ ('/guidelinesStandards/formValidation'),
   verticalMenu: /** @type {PageUrl} */ ('/library/components/navigationLinks/verticalMenu'),
+  wordPressHeaderPlugin: /** @type {PageUrl} */ ('/resources/wordPressHeaderPlugin'),
 };

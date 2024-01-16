@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "1.13.3",
+  "version": "1.14.0",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -59,13 +59,13 @@
     "components"
   ],
   "author": "DTS Digital Experience <dtsui@utah.gov>",
-  "license": "State of Utah - TOT",
+  "license": "state of Utah - TOT",
   "bugs": {
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.13.3",
+    "@utahdts/utah-design-system-header": "1.14.0",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
@@ -76,17 +76,17 @@
   },
   "devDependencies": {
     "@types/lodash": "4.14.202",
-    "@types/react": "18.2.45",
-    "@types/react-dom": "18.2.17",
+    "@types/react": "18.2.46",
+    "@types/react-dom": "18.2.18",
     "@types/uuid": "9.0.7",
     "@vitejs/plugin-react": "4.2.1",
-    "@vitest/coverage-istanbul": "1.0.4",
-    "@vitest/ui": "1.0.4",
+    "@vitest/coverage-istanbul": "1.1.1",
+    "@vitest/ui": "1.1.1",
     "jsdom": "23.0.1",
-    "sass": "1.69.5",
+    "sass": "1.69.6",
     "typescript": "5.3.3",
-    "vite": "5.0.8",
-    "vitest": "1.0.4"
+    "vite": "5.0.10",
+    "vitest": "1.1.1"
   },
   "type": "module"
 }
