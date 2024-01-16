@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - WordPress Header Plugin page
 - Table Documentation minified tables examples
 
+# [1.13.3] 1/11/2024
+## Fixed
+- Use flex-start for multi-select
+
 # [1.13.2] 1/11/2024
 ## Fixed
 - Restore tooltip popup to IconButtons
