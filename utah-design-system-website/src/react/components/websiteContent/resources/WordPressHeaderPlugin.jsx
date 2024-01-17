@@ -15,7 +15,7 @@ export function WordPressHeaderPlugin() {
       </p>
       <h2 id="download-and-installation">Download and installation</h2>
       <p>Use the link below to download the latest version of the plugin.</p>
-      <div className="flex justify-center mt-spacing"><a href="https://cdn.utah.gov/dts-ds-custom-header-plugin/ds-wp-custom-header-LATEST.zip" className="button button--primary-color button--solid">Download Utah Header Plugin</a></div>
+      <div className="flex justify-center mt-spacing"><a href="https://drive.google.com/file/d/1BjLm6KZkPx0T6GvXnBm9hdvzIUuLsoCC/view?usp=sharing" className="button button--primary-color button--solid">Download Utah Header Plugin</a></div>
       <h3 id="installation-instructions" className="mt-spacing">Installation instructions</h3>
       <ol>
         <li>On the WordPress plugins admin page click the &quot;Add New&quot; button.</li>
@@ -159,11 +159,11 @@ export function WordPressHeaderPlugin() {
       <h2 id="header-colors">Header Colors</h2>
       <p>
         You can customize the header colors by adding the following css to your website. Modify the <code style={{ whiteSpace: 'nowrap' }}>--primary-color</code> or
-        the <code style={{ whiteSpace: 'nowrap' }}>--header-primary-color</code> to change the colors in the header.
+        the <code style={{ whiteSpace: 'nowrap' }}>--header-primary-color</code> to change the colors in the header.{' '}
         <strong>
           The color must meet a minimum of <code>4.5:1</code> contrast
           ratio or greater since this color is used to render text and other interactive elements in the header.
-        </strong> {' '}
+        </strong>{' '}
         The color variables must be scoped under <code>.utah-design-system</code>. See example below:
       </p>
 

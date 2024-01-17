@@ -96,8 +96,8 @@ function testMenuItemIsA(menuItemElement, href, functionContainsContents) {
   expect(menuItem1ChildrenMenuItemTitle?.href).toContain(href);
   if (functionContainsContents) {
     expect(menuItem1ChildrenMenuItemTitle?.onclick?.toString()).toContain(functionContainsContents);
-  } else {
-    expect(menuItem1ChildrenMenuItemTitle?.onclick).toBeNull();
+  } else if (menuItem1ChildrenMenuItemTitle?.onclick) {
+    expect(menuItem1ChildrenMenuItemTitle.onclick.toString()).toContain(' (document.activeElement)?.blur()');
   }
 }
 
@@ -412,7 +412,7 @@ describe('renderMenu: parentWithLinkAndChildren - child menu has children & acti
     expect(menuItem1ChildrenMenuItems?.[2]?.classList && Array.from(menuItem1ChildrenMenuItems?.[2]?.classList)).contains('menu-item-1.1.1');
 
     testMenuItemIsA(menuItem1ChildrenMenuItems?.[0], '#menu-item-1.1');
-    testMenuItemIsButton(menuItem1ChildrenMenuItems?.[1]?.querySelector('button'), ACTION_FUNCTION_STRING);
+    testMenuItemIsButton(menuItem1ChildrenMenuItems?.[1]?.querySelector('button'), 'onClickBlur()');
     testMenuItemIsA(menuItem1ChildrenMenuItems?.[2], '#menu-item-1.1.1');
   });
 
