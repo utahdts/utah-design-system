@@ -11,7 +11,7 @@ import {
   useRef,
   useState
 } from 'react';
-import { Button, IconButton } from '../../../..';
+import { Button, IconButton, useAriaMessaging } from '../../../..';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { ErrorMessage } from '../ErrorMessage';
@@ -83,6 +83,7 @@ export function CalendarInput({
   wrapperClassName,
   ...rest
 }) {
+  const { addPoliteMessage } = useAriaMessaging();
   const calendarInputId = useId();
   const firstFocusableElementRef = useRef(/** @type {any | null} */(null));
   const {
@@ -201,7 +202,7 @@ export function CalendarInput({
               shouldSetFocusOnMount
                 ? (
                   <div
-                    aria-label="You are in a calendar date picker. Press tab to interact."
+                    aria-label="You are in a calendar date picker. Press tab to interact. Use arrow keys on days to navigate."
                     className="calendar-input__first-focusable-element"
                     ref={firstFocusableElementRef}
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
@@ -217,7 +218,13 @@ export function CalendarInput({
               icon={<span className="utds-icon-before-chevron-left" aria-hidden="true" />}
               innerRef={shouldSetFocusOnMount ? undefined : firstFocusableElementRef}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: -1 }))}
+              onClick={() => (
+                setCurrentValueDateInternal((draftDate) => {
+                  const newDate = add(draftDate ?? new Date(), { months: -1 });
+                  addPoliteMessage(`Month has changed to ${format(newDate, 'MMMM yyyy')}`);
+                  return newDate;
+                })
+              )}
               title="Previous Month"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
@@ -229,7 +236,13 @@ export function CalendarInput({
               className="icon-button--small1x icon-button--borderless"
               icon={<span className="utds-icon-before-chevron-right" aria-hidden="true" />}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: 1 }))}
+              onClick={() => (
+                setCurrentValueDateInternal((draftDate) => {
+                  const newDate = add(draftDate ?? new Date(), { months: 1 });
+                  addPoliteMessage(`Month has changed to ${format(newDate, 'MMMM yyyy')}`);
+                  return newDate;
+                })
+              )}
               title="Next Month"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
@@ -242,7 +255,13 @@ export function CalendarInput({
               className="icon-button--small1x icon-button--borderless"
               icon={<span className="utds-icon-before-chevron-left" aria-hidden="true" />}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { years: -1 }))}
+              onClick={() => (
+                setCurrentValueDateInternal((draftDate) => {
+                  const newDate = add(draftDate ?? new Date(), { years: -1 });
+                  addPoliteMessage(`Year has changed to ${newDate.getFullYear()}`);
+                  return newDate;
+                })
+              )}
               title="Last Year"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
@@ -254,7 +273,13 @@ export function CalendarInput({
               className="icon-button--small1x icon-button--borderless"
               icon={<span className="utds-icon-before-chevron-right" aria-hidden="true" />}
               isDisabled={isDisabled}
-              onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { years: 1 }))}
+              onClick={() => (
+                setCurrentValueDateInternal((draftDate) => {
+                  const newDate = add(draftDate ?? new Date(), { years: 1 });
+                  addPoliteMessage(`Year has changed to ${newDate.getFullYear()}`);
+                  return newDate;
+                })
+              )}
               title="Next Year"
               // @ts-ignore
               tabIndex={isHidden ? -1 : 0}
@@ -286,6 +311,7 @@ export function CalendarInput({
                     const formattedDate = format(cellGridValue.date, dateFormat);
                     return (
                       <Button
+                        aria-label={format(cellGridValue.date, 'EEEE MMMM do yyyy')}
                         className={joinClassNames(
                           'calendar-input__cell',
                           cellGridValue.isFocusDate && 'calendar-input__cell--focused',
@@ -328,7 +354,7 @@ export function CalendarInput({
                         role="gridcell"
                         tabIndex={(isHidden || !cellGridValue.isFocusDate) ? -1 : 0}
                       >
-                        {cellGridValue.date.getDate()}
+                        <span aria-hidden>{cellGridValue.date.getDate()}</span>
                       </Button>
                     );
                   })
