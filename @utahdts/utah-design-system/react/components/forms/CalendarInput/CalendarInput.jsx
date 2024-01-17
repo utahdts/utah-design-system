@@ -19,6 +19,8 @@ import { useFormContextInputValue } from '../FormContext/useFormContextInputValu
 import { RequiredStar } from '../RequiredStar';
 import { calendarGrid } from './calendarGrid';
 
+/** @typedef {import('@utahdts/utah-design-system').CalendarGridValue} CalendarGridValue */
+
 /**
  * @template FormEventT
  * @typedef {import('react').FormEvent<FormEventT>} FormEvent
@@ -82,7 +84,7 @@ export function CalendarInput({
   ...rest
 }) {
   const calendarInputId = useId();
-  const firstFocusableElementRef = useRef(/** @type {HTMLButtonElement | null} */(null));
+  const firstFocusableElementRef = useRef(/** @type {any | null} */(null));
   const {
     onChange: currentOnChange,
     value: currentValue,
@@ -120,14 +122,14 @@ export function CalendarInput({
   );
 
   const calendarMonthDate = currentValueDateInternal ?? new Date();
-  const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal, currentValueDate), [currentValueDateInternal]);
+  const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal, currentValueDate), [currentValueDateInternal, value]);
 
   const onDownArrowPress = useOnKeyUp(
     'ArrowDown',
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = date && add(date, { weeks: 1 });
+          const nextDate = add(date ?? new Date(), { weeks: 1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -142,7 +144,7 @@ export function CalendarInput({
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = date && add(date, { weeks: -1 });
+          const nextDate = add(date ?? new Date(), { weeks: -1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -157,7 +159,7 @@ export function CalendarInput({
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = date && add(date, { days: -1 });
+          const nextDate = add(date ?? new Date(), { days: -1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -172,7 +174,7 @@ export function CalendarInput({
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = date && add(date, { days: 1 });
+          const nextDate = add(date ?? new Date(), { days: 1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -195,10 +197,25 @@ export function CalendarInput({
       <div className="calendar-input__controls">
         <div className="calendar-input__controls-month">
           <div>
+            {
+              shouldSetFocusOnMount
+                ? (
+                  <div
+                    aria-label="You are in a calendar date picker. Press tab to interact."
+                    className="calendar-input__first-focusable-element"
+                    ref={firstFocusableElementRef}
+                    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                    tabIndex={0}
+                  >
+                    {/* First focusable item w/o tooltip */}
+                  </div>
+                )
+                : null
+            }
             <IconButton
               className="icon-button--small1x icon-button--borderless"
               icon={<span className="utds-icon-before-chevron-left" aria-hidden="true" />}
-              innerRef={firstFocusableElementRef}
+              innerRef={shouldSetFocusOnMount ? undefined : firstFocusableElementRef}
               isDisabled={isDisabled}
               onClick={() => setCurrentValueDateInternal((draftDate) => add(draftDate ?? new Date(), { months: -1 }))}
               title="Previous Month"
@@ -309,7 +326,7 @@ export function CalendarInput({
                           }
                         }
                         role="gridcell"
-                        tabIndex={(isHidden || !cellGridValue.isSelectedDate) ? -1 : 0}
+                        tabIndex={(isHidden || !cellGridValue.isFocusDate) ? -1 : 0}
                       >
                         {cellGridValue.date.getDate()}
                       </Button>

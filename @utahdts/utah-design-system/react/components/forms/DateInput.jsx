@@ -215,6 +215,9 @@ export function DateInput({
                   onChange={(newValue) => {
                     currentOnChange(newValue);
                     setIsCalendarPopupOpen(false);
+                    const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                    // @ts-ignore
+                    textInput?.focus();
                   }}
                   id={`${id}__calendar-input`}
                   shouldSetFocusOnMount

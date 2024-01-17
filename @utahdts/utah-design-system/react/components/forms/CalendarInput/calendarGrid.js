@@ -39,7 +39,7 @@ function dateIsEqualYMD(dateA, dateB) {
 function constructCalendarGridValue(infoDate, focusDate, selectedDate, viewedMonthDate) {
   return {
     date: infoDate,
-    isFocusDate: dateIsEqualYMD(infoDate, focusDate),
+    isFocusDate: dateIsEqualYMD(infoDate, focusDate ?? selectedDate ?? new Date()),
     isNextMonth: add(viewedMonthDate, { months: 1 }).getMonth() === infoDate.getMonth(),
     isPreviousMonth: add(viewedMonthDate, { months: -1 }).getMonth() === infoDate.getMonth(),
     isSelectedDate: dateIsEqualYMD(infoDate, selectedDate),
