@@ -29,6 +29,11 @@
       justify-self: center;
       background: none;
 
+      &--focused {
+        background: var(--form-ele-color-light);
+        color: var(--gray-dark-color);
+      }
+
       &--selected {
         background: var(--form-ele-color);
         color: white;
@@ -46,7 +51,7 @@
 
     &__controls {
       background: var(--gray-light-color);
-      padding: var(--spacing-3xs) 0 ;
+      padding: var(--spacing-2xs) 0 ;
       &-month, &-year {
         display: flex;
         align-items: center;
