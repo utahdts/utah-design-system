@@ -48,7 +48,6 @@ export { Modal } from './react/components/popups/Modal/Modal';
 export { ModalContent } from './react/components/popups/Modal/ModalContent';
 export { ModalTitle } from './react/components/popups/Modal/ModalTitle';
 export { ModalFooter } from './react/components/popups/Modal/ModalFooter';
-export { MultipleFileInput } from './react/components/forms/FileInput/MultipleFileInput';
 export { MultiSelect } from './react/components/forms/MultiSelect/MultiSelect';
 export { MultiSelectOption } from './react/components/forms/MultiSelect/MultiSelectOption';
 export { MultiSelectOptionGroup } from './react/components/forms/MultiSelect/MultiSelectOptionGroup';

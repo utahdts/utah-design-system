@@ -20,6 +20,7 @@ export function FileInputExampleRender({
       isDisabled,
       isRequired,
       label,
+      multiple,
       name,
     },
   },
@@ -36,6 +37,7 @@ export function FileInputExampleRender({
       isDisabled={isDisabled}
       isRequired={isRequired}
       label={label}
+      multiple={multiple}
       name={name}
     />
   );

@@ -23,6 +23,7 @@ export function FileInputExampleProps({ setState, state }) {
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
       <Switch id="props.isDisabled" label="Disabled" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />
+      <Switch id="props.multiple" label="Multiple" width={20} />
       <TextInput id="props.label" label="Label" className="input--height-small1x" />
       <TextInput id="props.name" label="Name" className="input--height-small1x" />
     </Form>

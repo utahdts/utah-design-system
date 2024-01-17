@@ -160,6 +160,7 @@
  *  @property {boolean} isDisabled
  *  @property {boolean} isRequired
  *  @property {string} label
+ *  @property {boolean} multiple
  *  @property {string} name
  * }
  */

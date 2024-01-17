@@ -233,6 +233,23 @@
  * }
  */
 
+// ========== File Input ========== //
+/**
+ * @typedef {[FileContextValue]} FileContext
+ */
+
+/**
+ * @typedef FileContextValue {
+ *  @property {File | null} file
+ *  @property {(file) => void} removeFile
+ * }
+ */
+
+/**
+ * @template FileInputTemplate
+ * @typedef {FileContextValue} FileTemplateContextValue
+ */
+
 // ========== Objects ========== //
 /**
  * @typedef Address {

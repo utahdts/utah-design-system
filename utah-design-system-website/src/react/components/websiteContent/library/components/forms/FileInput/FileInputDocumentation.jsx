@@ -27,6 +27,7 @@ export function FileInputDocumentation() {
           isDisabled: false,
           isRequired: false,
           label: 'Choose your file',
+          multiple: false,
           name: '',
         }}
         RENDER_EXAMPLE={FileInputExampleRender}
