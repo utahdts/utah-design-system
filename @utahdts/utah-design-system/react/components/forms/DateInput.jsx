@@ -156,7 +156,7 @@ export function DateInput({
               <IconButton
                 aria-hidden="true"
                 className="date-input-input__calendar icon-button--borderless icon-button--small date-input__calendar-icon"
-                icon={<span className="utds-icon-before-doc-square " aria-hidden="true" />}
+                icon={<span className="utds-icon-before-calendar " aria-hidden="true" />}
                 isDisabled={isDisabled}
                 onClick={(e) => {
                   e.stopPropagation();

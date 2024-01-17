@@ -57,6 +57,9 @@
         font-size: .8rem;
         color: var(--form-ele-color);
       }
+      [class*="utds-icon-before-double-arrow"]:before {
+        font-size: .9rem;
+      }
     }
     &__month {
       min-width: 85px;

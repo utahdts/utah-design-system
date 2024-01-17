@@ -253,7 +253,7 @@ export function CalendarInput({
           <div>
             <IconButton
               className="icon-button--small1x icon-button--borderless"
-              icon={<span className="utds-icon-before-chevron-left" aria-hidden="true" />}
+              icon={<span className="utds-icon-before-double-arrow-left" aria-hidden="true" />}
               isDisabled={isDisabled}
               onClick={() => (
                 setCurrentValueDateInternal((draftDate) => {
@@ -271,7 +271,7 @@ export function CalendarInput({
           <div>
             <IconButton
               className="icon-button--small1x icon-button--borderless"
-              icon={<span className="utds-icon-before-chevron-right" aria-hidden="true" />}
+              icon={<span className="utds-icon-before-double-arrow-right" aria-hidden="true" />}
               isDisabled={isDisabled}
               onClick={() => (
                 setCurrentValueDateInternal((draftDate) => {
