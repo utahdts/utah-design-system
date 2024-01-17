@@ -136,6 +136,7 @@ export function DateInput({
       <div className="date-input__inner-wrapper">
         <div>
           <TextInput
+            aria-label={hasNoCalendarPopup ? undefined : 'Press down arrow to open a calendar picker'}
             className={joinClassNames(className, 'date-input')}
             errorMessage={errorMessage}
             id={id}
