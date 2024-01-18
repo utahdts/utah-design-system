@@ -1,10 +1,7 @@
-/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
+import { FileInput } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-import fileInputMulti from '../../../../../../../static/images/screenshots/components/form-elements/fileInputMulti.jpg';
-import fileInputSingle from '../../../../../../../static/images/screenshots/components/form-elements/fileInputSingle.jpg';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { FileInputExampleCodeReact } from './FileInputExampleCodeReact';
 import { FileInputExampleProps } from './FileInputExampleProps';
@@ -37,12 +34,12 @@ export function FileInputDocumentation() {
 
       <StaticExample
         title="File Input Single"
-        renderedExample={<LightBox image={fileInputSingle} alt="File Input Single" className="flex-3up-gap" />}
+        renderedExample={<FileInput id="single-upload-example" label="Upload a single file" />}
       />
 
       <StaticExample
         title="File Input Multi-select"
-        renderedExample={<LightBox image={fileInputMulti} alt="File Input Multi-select" className="flex-3up-gap" />}
+        renderedExample={<FileInput id="multiple-upload-example" label="Upload one or more files" multiple />}
       />
 
       <h2 className="mb-spacing" id="section-description-guidance">Description and Guidance</h2>
@@ -111,7 +108,10 @@ export function FileInputDocumentation() {
           the <code>spacebar</code> or <code>enter</code> key should prompt the user to select a file.
         </li>
         <li>The file input should receive focus when the user presses the <code>tab</code> key.</li>
-        <li>Do not only accept files via drag and drop. You must provide a focusable element (button or file input) that the user can trigger using only the keyboard.</li>
+        <li>
+          Do not only accept files via drag and drop.
+          You must provide a focusable element (button or file input) that the user can trigger using only the keyboard.
+        </li>
       </ul>
 
       <h4>Screen Readers</h4>
