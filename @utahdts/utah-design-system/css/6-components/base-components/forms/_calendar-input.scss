@@ -83,4 +83,9 @@
       background: var(--gray-light-color);
     }
   }
+  .date-input__popup {
+    .calendar-input__grid:not(:has(+ .calendar-input__today)) {
+      border-bottom: 0;
+    }
+  }
 }
