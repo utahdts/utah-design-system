@@ -47,6 +47,10 @@
         @include tools-index.form-ele-focus-appearance;
       }
 
+      &--next-month, &--previous-month {
+        color: var(--gray-3-1-contrast);
+      }
+
     }
 
     &__controls {
