@@ -1,6 +1,7 @@
 import {
   add,
   format,
+  isValid,
   parse
 } from 'date-fns';
 import {
@@ -106,7 +107,7 @@ export function CalendarInput({
   useEffect(
     () => {
       if (currentValueDateInternal?.getTime() !== currentValueDate?.getTime()) {
-        setCurrentValueDateInternal(currentValueDate ?? new Date());
+        setCurrentValueDateInternal((currentValueDate && isValid(currentValueDate)) ? currentValueDate : new Date());
       }
     },
     [currentValueDate?.getTime()]
@@ -122,7 +123,7 @@ export function CalendarInput({
     [shouldSetFocusOnMount, isHidden]
   );
 
-  const calendarMonthDate = currentValueDateInternal ?? new Date();
+  const calendarMonthDate = (currentValueDateInternal && isValid(currentValueDateInternal)) ? currentValueDateInternal : new Date();
   const calendarGridValues = useMemo(() => calendarGrid(currentValueDateInternal, currentValueDate), [currentValueDateInternal, value]);
 
   const onDownArrowPress = useOnKeyUp(
@@ -130,7 +131,7 @@ export function CalendarInput({
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = add(date ?? new Date(), { weeks: 1 });
+          const nextDate = add((date && isValid(date)) ? date : new Date(), { weeks: 1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -145,7 +146,7 @@ export function CalendarInput({
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = add(date ?? new Date(), { weeks: -1 });
+          const nextDate = add((date && isValid(date)) ? date : new Date(), { weeks: -1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -160,7 +161,7 @@ export function CalendarInput({
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = add(date ?? new Date(), { days: -1 });
+          const nextDate = add((date && isValid(date)) ? date : new Date(), { days: -1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -175,7 +176,7 @@ export function CalendarInput({
     useCallback(
       () => {
         setCurrentValueDateInternal((date) => {
-          const nextDate = add(date ?? new Date(), { days: 1 });
+          const nextDate = add((date && isValid(date)) ? date : new Date(), { days: 1 });
           moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
           return nextDate;
         });
@@ -220,7 +221,7 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => (
                 setCurrentValueDateInternal((draftDate) => {
-                  const newDate = add(draftDate ?? new Date(), { months: -1 });
+                  const newDate = add((draftDate && isValid(draftDate)) ? draftDate : new Date(), { months: -1 });
                   addPoliteMessage(`Month has changed to ${format(newDate, 'MMMM yyyy')}`);
                   return newDate;
                 })
@@ -238,7 +239,7 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => (
                 setCurrentValueDateInternal((draftDate) => {
-                  const newDate = add(draftDate ?? new Date(), { months: 1 });
+                  const newDate = add((draftDate && isValid(draftDate)) ? draftDate : new Date(), { months: 1 });
                   addPoliteMessage(`Month has changed to ${format(newDate, 'MMMM yyyy')}`);
                   return newDate;
                 })
@@ -257,7 +258,7 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => (
                 setCurrentValueDateInternal((draftDate) => {
-                  const newDate = add(draftDate ?? new Date(), { years: -1 });
+                  const newDate = add((draftDate && isValid(draftDate)) ? draftDate : new Date(), { years: -1 });
                   addPoliteMessage(`Year has changed to ${newDate.getFullYear()}`);
                   return newDate;
                 })
@@ -275,7 +276,7 @@ export function CalendarInput({
               isDisabled={isDisabled}
               onClick={() => (
                 setCurrentValueDateInternal((draftDate) => {
-                  const newDate = add(draftDate ?? new Date(), { years: 1 });
+                  const newDate = add((draftDate && isValid(draftDate)) ? draftDate : new Date(), { years: 1 });
                   addPoliteMessage(`Year has changed to ${newDate.getFullYear()}`);
                   return newDate;
                 })

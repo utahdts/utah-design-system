@@ -1,4 +1,4 @@
-import { add, format } from 'date-fns';
+import { add, format, isValid } from 'date-fns';
 
 /** @typedef {import('@utahdts/utah-design-system').CalendarGridValue} CalendarGridValue */
 /** @typedef {import('@utahdts/utah-design-system').CalendarGridMonth} CalendarGridMonth */
@@ -39,7 +39,7 @@ function dateIsEqualYMD(dateA, dateB) {
 function constructCalendarGridValue(infoDate, focusDate, selectedDate, viewedMonthDate) {
   return {
     date: infoDate,
-    isFocusDate: dateIsEqualYMD(infoDate, focusDate ?? selectedDate ?? new Date()),
+    isFocusDate: dateIsEqualYMD(infoDate, [focusDate, selectedDate].find((testDate) => testDate && isValid(testDate)) ?? new Date()),
     isNextMonth: add(viewedMonthDate, { months: 1 }).getMonth() === infoDate.getMonth(),
     isPreviousMonth: add(viewedMonthDate, { months: -1 }).getMonth() === infoDate.getMonth(),
     isSelectedDate: dateIsEqualYMD(infoDate, selectedDate),
@@ -59,7 +59,7 @@ export function calendarGrid(focusDate, selectedDate) {
   if (Number.isNaN(selectedDate)) {
     throw new Error('calendarGrid: selectedDate is invalid');
   }
-  const viewedMonthDate = focusDate ?? new Date();
+  const viewedMonthDate = (focusDate && isValid(focusDate)) ? focusDate : new Date();
   const firstOfMonth = new Date(viewedMonthDate.getFullYear(), viewedMonthDate.getMonth(), 1);
   const startDayOfWeek = Number(format(firstOfMonth, 'e'));
 
