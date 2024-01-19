@@ -78,7 +78,7 @@ export function renderMobileActionItem(actionItem) {
     iconButton.setAttribute('id', iconButtonId);
 
     actionItemContent = renderDOMSingle(ActionItemMenuContentHtml);
-    const actionItemContentTitle = actionItemContent.querySelector(getCssClassSelector(domConstants.POPUP_MENU_WRAPPER__WRAPPER_TITLE));
+    const actionItemContentTitle = actionItemContent.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU_WRAPPER__WRAPPER_TITLE));
     if (!actionItemContentTitle) {
       throw new Error('renderMobileActionItem: actionItemContentTitle not found');
     }
