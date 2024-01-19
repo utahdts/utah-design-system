@@ -245,11 +245,6 @@
  * }
  */
 
-/**
- * @template FileInputTemplate
- * @typedef {FileContextValue} FileTemplateContextValue
- */
-
 // ========== Objects ========== //
 /**
  * @typedef Address {
