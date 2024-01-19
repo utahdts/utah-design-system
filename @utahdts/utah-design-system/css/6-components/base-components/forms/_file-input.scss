@@ -71,7 +71,6 @@
       .tag__wrapper {
         background: white;
         pointer-events: all;
-        z-index: 5;
 
         &:not(:last-child) {
           margin: 0 var(--spacing) var(--spacing) 0;
