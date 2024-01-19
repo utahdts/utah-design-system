@@ -47,7 +47,7 @@ export function renderFooter() {
   const previousFooter = document.querySelector(getCssClassSelector(domConstants.FOOTER));
   let footer = previousFooter;
 
-  if (settings.footer === null) {
+  if (!settings.footer) {
     previousFooter?.remove();
   } else {
     const settingsChanged = (

@@ -3,7 +3,6 @@ import { menusEnum } from '../../enums/menusEnum';
 import { Demo } from '../demo/Demo';
 import { HomeLanding } from '../websiteContent/HomeLanding';
 import { PlaceHolderDocumentation } from '../websiteContent/PlaceHolderDocumentation';
-import { ProgressLogPage } from '../websiteContent/ProgressLog/ProgressLogPage';
 import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
@@ -74,10 +73,12 @@ import { StatusIndicatorDocumentation } from '../websiteContent/library/componen
 import { StepIndicatorDocumentation } from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import { UtahFooterDocumentation } from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import { UtahHeaderDocumentation } from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
+import { AccessibilityTesting } from '../websiteContent/resources/AccessibilityTesting/AccessibilityTesting';
 import { GettingStarted } from '../websiteContent/resources/GettingStarted';
 import { GettingStartedDesigner } from '../websiteContent/resources/GettingStartedDesigner';
 import { GettingStartedDeveloper } from '../websiteContent/resources/GettingStartedDeveloper';
 import { IconsDocumentation } from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
+import { WordPressHeaderPlugin } from '../websiteContent/resources/WordPressHeaderPlugin';
 import { Mockups } from '../websiteContent/resources/Mockups';
 import { ResourcesLanding } from '../websiteContent/resources/ResourcesLanding';
 import { Showcase } from '../websiteContent/resources/Showcase/Showcase';
@@ -171,6 +172,13 @@ export const pages = {
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility Checklist & Testing',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  accessibilityTestingPage: /** @type {Page} */ ({
+    content: AccessibilityTesting,
+    link: pageUrls.accessibilityTesting,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Accessibility Testing',
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
   }),
   colorGuidelines: /** @type {Page} */ ({
     content: ColorGuidelinesDocumentation,
@@ -355,6 +363,13 @@ export const pages = {
     pageTitle: 'Getting Started - Developer',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
+  wordPressHeaderPlugin: /** @type {Page} */ ({
+    content: WordPressHeaderPlugin,
+    link: pageUrls.wordPressHeaderPlugin,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'WordPress Header Plugin',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
   github: /** @type {Page} */ ({
     content: PlaceHolderDocumentation,
     link: pageUrls.github,
@@ -388,13 +403,6 @@ export const pages = {
     link: pageUrls.showcase,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Showcase',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  progressLog: /** @type {Page} */ ({
-    content: ProgressLogPage,
-    link: pageUrls.progressLog,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Progress Log',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 

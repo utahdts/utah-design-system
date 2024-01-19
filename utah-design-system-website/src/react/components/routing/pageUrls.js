@@ -5,6 +5,7 @@
 export const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibility'),
   accessibilityChecklist: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityChecklistTesting'),
+  accessibilityTesting: /** @type {PageUrl} */ ('/resources/accessibilityTesting'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
   backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
@@ -70,7 +71,6 @@ export const pageUrls = {
   principles: /** @type {PageUrl} */ ('/guidelinesStandards/principles'),
   processList: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/processList'),
   progressBars: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/progressBar'),
-  progressLog: /** @type {PageUrl} */ ('/resources/progressLog'),
   radioButton: /** @type {PageUrl} */ ('/library/components/forms/radioButton'),
   resources: /** @type {PageUrl} */ ('/resources'),
   search: /** @type {PageUrl} */ ('/search'),
@@ -99,4 +99,5 @@ export const pageUrls = {
   uxBestPractices: /** @type {PageUrl} */ ('/guidelinesStandards/uxBestPractices'),
   validation: /** @type {PageUrl} */ ('/guidelinesStandards/formValidation'),
   verticalMenu: /** @type {PageUrl} */ ('/library/components/navigationLinks/verticalMenu'),
+  wordPressHeaderPlugin: /** @type {PageUrl} */ ('/resources/wordPressHeaderPlugin'),
 };

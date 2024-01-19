@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "1.13.0",
+  "version": "1.14.1",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -11,10 +11,10 @@
     "// ====== pure tasks ====== //": "",
     "buildHeader": "npm run build -workspace=@utahdts/utah-design-system-header",
     "buildLibrary": "npm run build -workspace=@utahdts/utah-design-system",
-    "buildWebsite": "npm run build -workspace utah-design-system-website",
+    "buildWebsite": "npm run build -workspace=utah-design-system-website",
     "buildwHeader": "npm run buildw -workspace=@utahdts/utah-design-system-header",
     "buildwLibrary": "npm run buildw -workspace=@utahdts/utah-design-system",
-    "buildwWebsite": "npm run buildw -workspace utah-design-system-website",
+    "buildwWebsite": "npm run buildw -workspace=utah-design-system-website",
     "buildTypesHeader": "npm run buildTypes -workspace=@utahdts/utah-design-system-header",
     "cleanCoverage": "rimraf ./@utahdts/utah-design-system/coverage",
     "cleanSitemap": "rimraf ./utah-design-system-website/public/sitemap.txt",
@@ -71,11 +71,11 @@
   },
   "devDependencies": {
     "@types/js-beautify": "1.14.3",
-    "@vitest/coverage-istanbul": "1.1.1",
+    "@vitest/coverage-istanbul": "1.2.0",
     "eslint": "8.56.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsdoc": "48.0.1",
+    "eslint-plugin-jsdoc": "48.0.2",
     "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
@@ -83,7 +83,7 @@
     "npm-run-all": "4.1.5",
     "rimraf": "5.0.5",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "1.1.1"
+    "vitest": "1.2.0"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
