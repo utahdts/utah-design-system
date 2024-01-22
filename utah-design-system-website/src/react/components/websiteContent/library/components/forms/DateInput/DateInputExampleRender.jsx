@@ -35,7 +35,7 @@ export function DateInputExampleRender({
 }) {
   const { setState: setStateFormContext } = useFormContext();
   return (
-    <div style={{ width: '80%' }}>
+    <div style={{ width: '40%' }}>
       <DateInput
         className={className}
         dateFormat={dateFormat}
