@@ -20,29 +20,25 @@ import { useFormContextInputValue } from '../FormContext/useFormContextInputValu
 import { RequiredStar } from '../RequiredStar';
 import { calendarGrid } from './calendarGrid';
 
-/** @typedef {import('@utahdts/utah-design-system').CalendarGridValue} CalendarGridValue */
-
-/**
- * @template FormEventT
- * @typedef {import('react').FormEvent<FormEventT>} FormEvent
- */
-
 /**
  * @param {string} calendarInputId
- * @param {Date | null} newDate
+ * @param {Date | null} oldDate
  * @param {string} dateFormat
+ * @param {import('date-fns').Duration} duration
+ * @returns {Date | null}
  */
-function moveCurrentValueFocus(calendarInputId, newDate, dateFormat) {
-  // focus on the next date; delay so that the new month view draws before it focuses
+function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
+  const newDate = add((oldDate && isValid(oldDate)) ? oldDate : new Date(), duration);
+
+  // focus on the next date; delay so that the new month's view draws before it tries to focus on the new date
   setTimeout(
     () => {
-      if (newDate) {
-        const formattedDate = format(newDate, dateFormat);
-        document.getElementById(`${calendarInputId}__${formattedDate}`)?.focus();
-      }
+      document.getElementById(`${calendarInputId}__${format(newDate, dateFormat)}`)?.focus();
     },
     0
   );
+
+  return newDate;
 }
 
 /**
@@ -128,61 +124,25 @@ export function CalendarInput({
 
   const onDownArrowPress = useOnKeyUp(
     'ArrowDown',
-    useCallback(
-      () => {
-        setCurrentValueDateInternal((date) => {
-          const nextDate = add((date && isValid(date)) ? date : new Date(), { weeks: 1 });
-          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
-          return nextDate;
-        });
-      },
-      []
-    ),
+    useCallback(() => setCurrentValueDateInternal((date) => moveCurrentValueFocus(calendarInputId, date, dateFormat, { weeks: 1 })), []),
     true
   );
 
   const onUpArrowPress = useOnKeyUp(
     'ArrowUp',
-    useCallback(
-      () => {
-        setCurrentValueDateInternal((date) => {
-          const nextDate = add((date && isValid(date)) ? date : new Date(), { weeks: -1 });
-          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
-          return nextDate;
-        });
-      },
-      []
-    ),
+    useCallback(() => setCurrentValueDateInternal((date) => moveCurrentValueFocus(calendarInputId, date, dateFormat, { weeks: -1 })), []),
     true
   );
 
   const onLeftArrowPress = useOnKeyUp(
     'ArrowLeft',
-    useCallback(
-      () => {
-        setCurrentValueDateInternal((date) => {
-          const nextDate = add((date && isValid(date)) ? date : new Date(), { days: -1 });
-          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
-          return nextDate;
-        });
-      },
-      []
-    ),
+    useCallback(() => setCurrentValueDateInternal((date) => moveCurrentValueFocus(calendarInputId, date, dateFormat, { days: -1 })), []),
     true
   );
 
   const onRightArrowPress = useOnKeyUp(
     'ArrowRight',
-    useCallback(
-      () => {
-        setCurrentValueDateInternal((date) => {
-          const nextDate = add((date && isValid(date)) ? date : new Date(), { days: 1 });
-          moveCurrentValueFocus(calendarInputId, nextDate, dateFormat);
-          return nextDate;
-        });
-      },
-      []
-    ),
+    useCallback(() => setCurrentValueDateInternal((date) => moveCurrentValueFocus(calendarInputId, date, dateFormat, { days: 1 })), []),
     true
   );
 
