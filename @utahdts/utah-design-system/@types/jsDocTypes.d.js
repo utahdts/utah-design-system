@@ -268,9 +268,9 @@
  * }
  */
 
-/** @typedef {[CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, ]} CalendarGridWeek */
+/** @typedef {[CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue ]} CalendarGridWeek */
 
-/** @typedef {CalendarGridWeek[]} CalendarGridMonth 5 or 6 weeks */
+/** @typedef {CalendarGridWeek[]} CalendarGridMonth 4, 5, or 6 weeks */
 
 /**
  * @typedef ComboBoxOptionType {
