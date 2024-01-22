@@ -153,6 +153,7 @@
 /**
  * @typedef DateInputExamplePropsShape {
  *  @property {string} className
+ *  @property {string} dateFormat
  *  @property {string} errorMessage
  *  @property {boolean} hasCalendarPopup
  *  @property {string} id

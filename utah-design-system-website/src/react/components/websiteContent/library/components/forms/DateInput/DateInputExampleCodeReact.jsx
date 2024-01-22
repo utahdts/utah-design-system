@@ -11,6 +11,7 @@ export function DateInputExampleCodeReact({
   state: {
     props: {
       className,
+      dateFormat,
       errorMessage,
       hasCalendarPopup,
       id,
@@ -30,6 +31,7 @@ export function DateInputExampleCodeReact({
       &lt;DateInput
       <br />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`dateFormat="${dateFormat}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={hasCalendarPopup ? null : 'hasNoCalendarPopup'} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />

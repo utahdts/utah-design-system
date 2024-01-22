@@ -35,6 +35,7 @@ export function DateInputDocumentation() {
       <SandboxExample
         defaultProps={{
           className: '',
+          dateFormat: 'MM/dd/yyyy',
           errorMessage: '',
           hasCalendarPopup: true,
           id: 'date-input-example-id',

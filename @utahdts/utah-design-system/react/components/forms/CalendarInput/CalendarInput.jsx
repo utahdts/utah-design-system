@@ -48,7 +48,7 @@ function moveCurrentValueFocus(calendarInputId, newDate, dateFormat) {
 /**
  * @param {object} props
  * @param {string} [props.className]
- * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date
+ * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date https://date-fns.org/v3.2.0/docs/format
  * @param {string} [props.defaultValue] expects value to be in format of props.dateFormat
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1

@@ -17,6 +17,7 @@ export function DateInputExampleRender({
   state: {
     props: {
       className,
+      dateFormat,
       errorMessage,
       hasCalendarPopup,
       id,
@@ -37,6 +38,7 @@ export function DateInputExampleRender({
     <div style={{ width: '80%' }}>
       <DateInput
         className={className}
+        dateFormat={dateFormat}
         errorMessage={errorMessage}
         hasNoCalendarPopup={!hasCalendarPopup}
         id={id || 'date-input-example-render-id'}
