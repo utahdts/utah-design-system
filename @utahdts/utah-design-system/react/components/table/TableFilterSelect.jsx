@@ -13,6 +13,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {boolean} [props.exactMatch]
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
+ * @param {string} props.label
  * @param {((e: React.ChangeEvent) => TableDataT)} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string | number} [props.value]
@@ -25,6 +26,7 @@ export function TableFilterSelect({
   exactMatch,
   innerRef,
   id,
+  label,
   onChange,
   recordFieldPath,
   value,
@@ -53,7 +55,7 @@ export function TableFilterSelect({
     <th className={joinClassNames('table-header__cell table-header__cell--filter-select', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       <Select
         id={`table-filter-select-${recordFieldPath}`}
-        label={`filter ${recordFieldPath}`}
+        label={label}
         onChange={currentOnChange}
         value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading

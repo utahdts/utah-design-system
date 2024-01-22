@@ -15,6 +15,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {boolean} [props.exactMatch]
  * @param {string} [props.id]
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {string} props.label
  * @param {(() => {})} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
@@ -26,6 +27,7 @@ export function TableFilterSelectAllOptions({
   exactMatch,
   id,
   innerRef,
+  label,
   onChange,
   recordFieldPath,
   value,
@@ -76,7 +78,7 @@ export function TableFilterSelectAllOptions({
     >
       <Select
         id={`table-filter-select-${recordFieldPath}`}
-        label={`filter ${recordFieldPath}`}
+        label={label}
         onChange={currentOnChange}
         value={currentValue}
         // eslint-disable-next-line react/jsx-props-no-spreading

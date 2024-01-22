@@ -11,6 +11,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {boolean} [props.exactMatch]
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
+ * @param {string} props.label
  * @param {((e: React.ChangeEvent) => (string | void | undefined))} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
@@ -22,6 +23,7 @@ export function TableFilterTextInput({
   exactMatch,
   innerRef,
   id,
+  label,
   onChange,
   recordFieldPath,
   value,
@@ -46,7 +48,7 @@ export function TableFilterTextInput({
     <th className={joinClassNames('table-header__cell table-header__cell--filter-text-input', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
         id={`table-filter-text-input-${recordFieldPath}`}
-        label={`filter ${recordFieldPath}`}
+        label={label}
         onChange={currentOnChange}
         onClear={() => setValue('')}
         value={currentValue}

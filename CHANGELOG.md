@@ -8,7 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # [1.X.X] 1/16/2024
 ## Removed
 - Progress Log page (view GitHub release notes instead)
-- 
+
+## Added
+- Make `label` a required prop for Table Filters
 
 # [1.14.1] 1/16/2024
 ## Fixed

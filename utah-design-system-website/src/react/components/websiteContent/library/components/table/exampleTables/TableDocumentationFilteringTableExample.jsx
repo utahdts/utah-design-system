@@ -48,7 +48,7 @@ export function TableDocumentationFilteringTableExample() {
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
-                <TableFilterTextInput recordFieldPath="name" />
+                <TableFilterTextInput label="Name" recordFieldPath="name" />
 
                 {/* Skip a column by using the "None" filter component */}
                 <TableFilterNone />
@@ -58,10 +58,10 @@ export function TableDocumentationFilteringTableExample() {
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions recordFieldPath="politicalParty" />
+                <TableFilterSelectAllOptions label="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate recordFieldPath="inauguration" />
+                <TableFilterDate label="Inauguration" recordFieldPath="inauguration" />
 
                 {/*
                   "Controlled" filter; parent knows the value!
