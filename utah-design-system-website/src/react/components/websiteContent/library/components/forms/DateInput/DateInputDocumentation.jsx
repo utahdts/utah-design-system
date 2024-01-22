@@ -1,9 +1,7 @@
 /* eslint-disable max-len */
-import { CalendarInput } from '@utahdts/utah-design-system';
+import { CalendarInput, DateInput } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
-import dateInputScreenshot from '../../../../../../../static/images/screenshots/components/dateInput/dateInput.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
@@ -19,19 +17,6 @@ export function DateInputDocumentation() {
       <p className="lead-in">The Date Input is a specialized input field that can present a date picker popup to the user.</p>
       <hr />
       <h2 id="section-example">Example</h2>
-
-      <div style={{ width: '200px' }}>
-        <CalendarInput
-          label="test calendar"
-          labelClassName="visually-hidden"
-          isDisabled={false}
-          onChange={setCalendarDate}
-          id="test-calendar-input"
-          showTodayButton
-          value={calendarDate}
-        />
-      </div>
-
       <SandboxExample
         defaultProps={{
           className: '',
@@ -41,10 +26,10 @@ export function DateInputDocumentation() {
           id: 'date-input-example-id',
           isClearable: false,
           isDisabled: false,
-          label: 'Enter a value',
+          isRequired: false,
+          label: 'Enter a date',
           name: '',
           placeholder: '',
-          isRequired: false,
           showCalendarTodayButton: true,
           value: '',
         }}
@@ -54,8 +39,15 @@ export function DateInputDocumentation() {
       />
 
       <StaticExample
-        title="Date Input Examples"
-        renderedExample={<LightBox image={dateInputScreenshot} alt="Date Input" className="flex-3up-gap" />}
+        title="Date Input w/ Popup"
+        renderedExample={(
+          <DateInput
+            id="date-input-with-popup"
+            isDisabled={false}
+            label="Date Input w/ Calendar Popup"
+            labelClassName="visually-hidden"
+          />
+        )}
         quickTips={(
           <ul>
             <li>A Date Input can also have a Calendar Icon Button.</li>
@@ -63,6 +55,38 @@ export function DateInputDocumentation() {
             <li>You can navigate the popup using the keyboard. (see below)</li>
             <li>Optionally, include a today button to quickly navigate to today&apos;s date</li>
           </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Date Input w/o Popup"
+        renderedExample={(
+          <div style={{ width: '200px' }}>
+            <DateInput
+              hasCalendarPopup={false}
+              id="date-input-without-popup"
+              isDisabled={false}
+              label="Date Input w/o Calendar Popup"
+              labelClassName="visually-hidden"
+            />
+          </div>
+        )}
+      />
+
+      <StaticExample
+        title="Calendar Input"
+        renderedExample={(
+          <div style={{ width: '200px' }}>
+            <CalendarInput
+              id="test-calendar-input"
+              isDisabled={false}
+              label="Inline Calendar Input"
+              labelClassName="visually-hidden"
+              onChange={setCalendarDate}
+              showTodayButton
+              value={calendarDate}
+            />
+          </div>
         )}
       />
 

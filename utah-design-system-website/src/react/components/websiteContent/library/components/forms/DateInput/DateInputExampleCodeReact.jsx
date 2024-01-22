@@ -33,7 +33,7 @@ export function DateInputExampleCodeReact({
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`dateFormat="${dateFormat}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={hasCalendarPopup ? null : 'hasNoCalendarPopup'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={hasCalendarPopup ? null : 'hasCalendarPopup={false}'} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'isClearable' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />

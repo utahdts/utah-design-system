@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { useImmer } from 'use-immer';
 import { valueAtPath } from '../../../util/state/valueAtPath';
 import { useFormContext } from './useFormContext';
 
@@ -36,6 +37,7 @@ export function useFormContextInputValue({
   onClear,
   value,
 }) {
+  const [internalState, setInternalState] = useImmer(defaultValue);
   const {
     onChange: contextOnChange,
     setState,
@@ -59,29 +61,40 @@ export function useFormContextInputValue({
 
   const valueUse = useMemo(
     () => {
+      // USE: passed in value
       let retValue = value;
+
+      // USE: form context value
       if (retValue === undefined) {
         retValue = valueAtPath({ object: state ?? null, path: id });
       }
+
+      // USE: defaultValue (uncontrolled/internal)
       if (retValue === undefined) {
         // if an onChange is provided then it's meant to be controlled, so start with this value
         // if an onChange was not provided then the defaultValue is a starting value of an uncontrolled component; don't use it as a controlled value
-        retValue = onChange === undefined ? undefined : defaultValue;
+        retValue = onChange === undefined ? internalState : defaultValue;
       }
+
+      // USE: ???
       if (retValue === undefined) {
         // allow uncontrolled if not in a form context
         retValue = onChange ? (/** @type {ValueT} */ ('')) : undefined;
       }
       return retValue;
     },
-    [defaultValue, id, onChange, state, value]
+    [defaultValue, id, internalState, onChange, state, value]
   );
 
   // weird typing things going on here so that a ts-ignore wasn't necessary so that other errors aren't accidentally hidden. worth it? meh...?
   return useMemo(
     () => ({
       // indirect generic "magic" functions for passing to event attributes in inputs
-      onChange: /** @type {any} */ (onChange ?? (contextOnChange && internalOnChange)),
+      onChange: /** @type {any} */ (
+        onChange
+        ?? (contextOnChange && internalOnChange)
+        ?? setInternalState
+      ),
       onClear: /** @type {any} */ (onClear ?? (contextOnChange && internalOnClear)),
 
       // direct access to form internals to do whatever you want, though be careful to allow

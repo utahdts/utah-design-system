@@ -149,28 +149,32 @@ export function DateInput({
             placeholder={placeholder}
             value={currentValue}
             rightContent={(
-              <IconButton
-                aria-hidden="true"
-                className="date-input-input__calendar icon-button--borderless icon-button--small date-input__calendar-icon"
-                icon={<span className="utds-icon-before-calendar " aria-hidden="true" />}
-                isDisabled={isDisabled}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsCalendarPopupOpen((isOpen) => {
-                    if (isOpen) {
-                      const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
-                      // @ts-ignore
-                      textInput?.focus();
-                    }
-                    return !isOpen;
-                  });
-                }}
-                title="Open popup calendar"
-                // prevent closing and reopening the popup
-                // @ts-ignore
-                onMouseDown={(e) => e.preventDefault()}
-                onFocus={() => setIsCalendarPopupOpen(false)}
-              />
+              hasCalendarPopup
+                ? (
+                  <IconButton
+                    aria-hidden="true"
+                    className="date-input-input__calendar icon-button--borderless icon-button--small date-input__calendar-icon"
+                    icon={<span className="utds-icon-before-calendar " aria-hidden="true" />}
+                    isDisabled={isDisabled}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsCalendarPopupOpen((isOpen) => {
+                        if (isOpen) {
+                          const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                          // @ts-ignore
+                          textInput?.focus();
+                        }
+                        return !isOpen;
+                      });
+                    }}
+                    title="Open popup calendar"
+                    // prevent closing and reopening the popup
+                    // @ts-ignore
+                    onMouseDown={(e) => e.preventDefault()}
+                    onFocus={() => setIsCalendarPopupOpen(false)}
+                  />
+                )
+                : <span className="utds-icon-before-calendar " aria-hidden="true" />
             )}
             // @ts-ignore
             onBlur={() => {

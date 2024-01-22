@@ -40,7 +40,7 @@ export function DateInputExampleRender({
         className={className}
         dateFormat={dateFormat}
         errorMessage={errorMessage}
-        hasNoCalendarPopup={!hasCalendarPopup}
+        hasCalendarPopup={hasCalendarPopup}
         id={id || 'date-input-example-render-id'}
         innerRef={innerRef}
         isClearable={isClearable}

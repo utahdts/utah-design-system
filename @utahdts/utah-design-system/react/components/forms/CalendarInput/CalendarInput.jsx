@@ -20,6 +20,7 @@ import { useFormContextInputValue } from '../FormContext/useFormContextInputValu
 import { RequiredStar } from '../RequiredStar';
 import { calendarGrid } from './calendarGrid';
 
+let oldMoveCurrentValueFocusTimeoutId = NaN;
 /**
  * @param {string} calendarInputId
  * @param {Date | null} oldDate
@@ -30,8 +31,9 @@ import { calendarGrid } from './calendarGrid';
 function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
   const newDate = add((oldDate && isValid(oldDate)) ? oldDate : new Date(), duration);
 
+  clearTimeout(oldMoveCurrentValueFocusTimeoutId);
   // focus on the next date; delay so that the new month's view draws before it tries to focus on the new date
-  setTimeout(
+  oldMoveCurrentValueFocusTimeoutId = window.setTimeout(
     () => {
       document.getElementById(`${calendarInputId}__${format(newDate, dateFormat)}`)?.focus();
     },
