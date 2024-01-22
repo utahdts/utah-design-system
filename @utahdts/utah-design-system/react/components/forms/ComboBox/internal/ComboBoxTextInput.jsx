@@ -18,6 +18,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry]
  * @param {string} [props.className]
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
@@ -39,6 +40,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @returns {import('react').JSX.Element}
  */
 export function ComboBoxTextInput({
+  allowCustomEntry,
   comboBoxListId,
   errorMessage,
   id,
@@ -61,6 +63,7 @@ export function ComboBoxTextInput({
       isOptionsExpanded,
       onClear: onClearComboBoxContext,
       onKeyUp: onKeyUpFromContext,
+      onChange,
       options,
       optionValueFocusedId,
       optionValueSelected,
@@ -89,6 +92,27 @@ export function ComboBoxTextInput({
         }
       },
       [multiSelectContext, options, setComboBoxContext]
+    )
+  );
+  const onEnterPress = useOnKeyUp(
+    'Enter',
+    useCallback(
+      /** @param {React.KeyboardEvent<HTMLInputElement>} e */
+      (e) => {
+        // redundant to check the allowCustomEntry flag, but lends to better readability
+        if (allowCustomEntry) {
+          /** @type {HTMLInputElement} */
+          // @ts-ignore
+          const { target } = e;
+          onChange(target.value);
+
+          // close expanded options after selection since normally have to press enter on the Select Option and it closes popup
+          setComboBoxContext((draftContext) => {
+            draftContext.isOptionsExpanded = false;
+          });
+        }
+      },
+      [allowCustomEntry, multiSelectContext, options, setComboBoxContext]
     )
   );
   const clearIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
@@ -146,7 +170,7 @@ export function ComboBoxTextInput({
                     && !document.activeElement?.classList.contains('multi-select__chevron')
                   ) {
                     const selectedOption = options.find((option) => option.value === optionValueSelected);
-                    draftContext.filterValue = selectedOption?.label ?? '';
+                    draftContext.filterValue = selectedOption?.label ?? optionValueSelected ?? '';
                     draftContext.isFilterValueDirty = false;
                     draftContext.isOptionsExpanded = false;
                   }
@@ -202,6 +226,7 @@ export function ComboBoxTextInput({
               onCancelKeyPress(e),
               onUpArrowPress(e),
               onDownArrowPress(e),
+              allowCustomEntry && onEnterPress(e),
             ].some(identity)) {
               if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
                 setComboBoxContext((draftContext) => {

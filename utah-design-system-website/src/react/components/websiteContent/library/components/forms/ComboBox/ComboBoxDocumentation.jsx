@@ -20,6 +20,7 @@ export function ComboBoxDocumentation() {
       <h2 id="section-example">Example</h2>
       <SandboxExample
         defaultProps={{
+          allowCustomEntry: false,
           className: '',
           errorMessage: '',
           id: 'combo-box-example-id',

@@ -12,6 +12,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry] can the user type in their own items to add to the list?
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
@@ -39,6 +40,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @returns {import('react').JSX.Element}
  */
 export function ComboBox({
+  allowCustomEntry,
   children,
   className,
   defaultValue,
@@ -72,6 +74,7 @@ export function ComboBox({
     <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
       {tagChildren}
       <ComboBoxTextInput
+        allowCustomEntry={allowCustomEntry}
         comboBoxListId={comboBoxListId}
         errorMessage={errorMessage}
         id={id}
@@ -90,6 +93,7 @@ export function ComboBox({
         {...rest}
       />
       <CombBoxListBox
+        allowCustomEntry={allowCustomEntry}
         id={comboBoxListId}
         ariaLabelledById={id}
         popperReferenceElement={popperContentRef ?? contentRef.current ?? null}

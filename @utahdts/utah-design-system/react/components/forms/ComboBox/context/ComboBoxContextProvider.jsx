@@ -136,13 +136,15 @@ export function ComboBoxContextProvider({
         filterValue,
         isFilterValueDirty,
         options,
+        optionValueSelected,
       } = comboBoxImmer[0];
       if (isFilterValueDirty) {
         const filterValueLowerCase = trim(filterValue).toLocaleLowerCase();
+        const isSelectedValueNew = filterValue === optionValueSelected && !options.find((option) => option.value === optionValueSelected);
 
         // filter options to just ones including filterValue
         const filteredOptions = options.filter(
-          (option) => option.isGroupLabel || (!filterValueLowerCase || option.labelLowerCase.includes(filterValueLowerCase))
+          (option) => option.isGroupLabel || (!filterValueLowerCase || isSelectedValueNew || option.labelLowerCase.includes(filterValueLowerCase))
         );
 
         // let children know the selected filter value has changed
@@ -158,8 +160,7 @@ export function ComboBoxContextProvider({
         });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [comboBoxImmer[0].filterValue, comboBoxImmer[0].options, setComboBoxState]
+    [comboBoxImmer[0].filterValue, comboBoxImmer[0].optionValueSelected, comboBoxImmer[0].options, setComboBoxState]
   );
 
   // eslint-disable-next-line max-len

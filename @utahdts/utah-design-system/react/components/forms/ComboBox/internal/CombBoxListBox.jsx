@@ -11,6 +11,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry] if allowing custom entry, add the custom item if the list is empty
  * @param {string} props.ariaLabelledById
  * @param {import('react').ReactNode | null} [props.children]
  * @param {HTMLElement | null} props.popperReferenceElement
@@ -18,6 +19,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
  * @returns {import('react').JSX.Element}
  */
 export function CombBoxListBox({
+  allowCustomEntry,
   ariaLabelledById,
   children,
   id,
@@ -27,10 +29,13 @@ export function CombBoxListBox({
   const { addPoliteMessage } = useAriaMessaging();
   const [
     {
+      filterValue,
       isOptionsExpanded,
+      options,
       optionsFiltered,
       optionsFilteredWithoutGroupLabels,
       optionValueFocused,
+      optionValueSelected,
     }, ,
     comboBoxContextNonStateRef,
   ] = useComboBoxContext();
@@ -102,6 +107,8 @@ export function CombBoxListBox({
     [isOptionsExpanded, optionsFilteredWithoutGroupLabels]
   );
 
+  const isValueSelectedAnOption = options.find((option) => option.value === optionValueSelected);
+
   return (
     <ul
       id={id}
@@ -120,7 +127,30 @@ export function CombBoxListBox({
       {...attributes.popper}
     >
       {children}
-      {optionsFilteredWithoutGroupLabels.length ? null : <ComboBoxOption isStatic isDisabled label="" value="">No results found</ComboBoxOption>}
+      {
+        // not custom and no possible options (all filtered out)
+        (!optionsFilteredWithoutGroupLabels.length && !allowCustomEntry)
+          ? <ComboBoxOption isStatic isDisabled label="" value="">No results found</ComboBoxOption>
+          : null
+      }
+      {
+        // no possible options but allowing custom entry and haven't selected a value yet
+        (!optionsFilteredWithoutGroupLabels.length && allowCustomEntry && optionValueSelected !== filterValue)
+          ? <ComboBoxOption isStatic isDisabled label="" value="">Press enter to add custom item</ComboBoxOption>
+          : null
+      }
+      {
+        // no possible options, but allowing custom entry and have selected a value
+        // note that this `isStatic` to prevent rendering loop issues with registering/unRegistering this custom option
+        (
+          allowCustomEntry
+          && optionValueSelected
+          && !isValueSelectedAnOption
+          && filterValue === optionValueSelected
+        )
+          ? <ComboBoxOption isStatic label={optionValueSelected} value={optionValueSelected}>{optionValueSelected}</ComboBoxOption>
+          : null
+      }
     </ul>
   );
 }

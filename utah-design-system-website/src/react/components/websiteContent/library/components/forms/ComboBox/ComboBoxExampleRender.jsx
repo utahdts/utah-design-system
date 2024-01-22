@@ -17,6 +17,7 @@ export function ComboBoxExampleRender({
   setState,
   state: {
     props: {
+      allowCustomEntry,
       className,
       errorMessage,
       id,
@@ -33,6 +34,7 @@ export function ComboBoxExampleRender({
   return (
     <div style={{ width: '80%' }}>
       <ComboBox
+        allowCustomEntry={allowCustomEntry}
         className={className}
         errorMessage={errorMessage}
         id={id || 'combo-box-example-render-id'}
