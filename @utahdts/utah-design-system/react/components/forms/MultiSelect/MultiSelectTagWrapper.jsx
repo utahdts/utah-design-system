@@ -66,7 +66,8 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
               addPoliteMessage,
               selectedValueIndex,
               selectedOption,
-              multiSelectContextNonStateRef
+              multiSelectContextNonStateRef,
+              multiSelectContext.onChange
             );
           });
         } else if (e.code === 'ArrowLeft') {

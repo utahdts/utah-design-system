@@ -49,7 +49,8 @@ export function MultiSelectTags({ isDisabled }) {
                           addPoliteMessage,
                           selectedValueIndex,
                           selectedOption,
-                          multiSelectContextNonStateRef
+                          multiSelectContextNonStateRef,
+                          multiSelectContext.onChange
                         );
                       })
                     )
