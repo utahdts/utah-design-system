@@ -77,17 +77,17 @@ export function useFormContextInputValue({
     [defaultValue, id, onChange, state, value]
   );
 
-  // @ts-ignore
+  // weird typing things going on here so that a ts-ignore wasn't necessary so that other errors aren't accidentally hidden. worth it? meh...?
   return useMemo(
     () => ({
       // indirect generic "magic" functions for passing to event attributes in inputs
-      onChange: onChange ?? (contextOnChange && internalOnChange),
-      onClear: onClear ?? (contextOnChange && internalOnClear),
+      onChange: /** @type {any} */ (onChange ?? (contextOnChange && internalOnChange)),
+      onClear: /** @type {any} */ (onClear ?? (contextOnChange && internalOnClear)),
 
       // direct access to form internals to do whatever you want, though be careful to allow
       // your input's passed in props to trump the form's props
-      setState,
-      state,
+      setState: /** @type {any} */ (setState ?? setState),
+      state: /** @type {any} */ (state ?? state),
       value: valueUse,
     }),
     [

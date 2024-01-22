@@ -11,11 +11,6 @@ import { useFormContextInputValue } from './FormContext/useFormContextInputValue
 import { TextInput } from './TextInput';
 
 /**
- * @template FormEventT
- * @typedef {import('react').FormEvent<FormEventT>} FormEvent
- */
-
-/**
  * @param {HTMLDivElement | null} myWrapper
  * @returns {boolean}
  */
@@ -29,7 +24,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date; used for CalendarInput
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {boolean} [props.hasNoCalendarPopup] if true, the calendar popup does not open so that entry is only keyboard textual
+ * @param {boolean} [props.hasCalendarPopup] defaults to true so that the calendar popup opens; otherwise entry is only textual keyboard
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
@@ -51,7 +46,7 @@ export function DateInput({
   dateFormat,
   defaultValue,
   errorMessage,
-  hasNoCalendarPopup,
+  hasCalendarPopup = true,
   id,
   innerRef: draftInnerRef,
   isClearable,
@@ -94,6 +89,7 @@ export function DateInput({
     value,
   });
 
+  // update popper location on changes
   useEffect(
     () => {
       if (update) {
@@ -136,7 +132,7 @@ export function DateInput({
       <div className="date-input__inner-wrapper">
         <div>
           <TextInput
-            aria-label={hasNoCalendarPopup ? undefined : 'Press down arrow to open a calendar picker'}
+            aria-label={hasCalendarPopup ? 'Press down arrow to open a calendar picker' : undefined}
             className={joinClassNames(className, 'date-input')}
             errorMessage={errorMessage}
             id={id}
@@ -170,15 +166,15 @@ export function DateInput({
                   });
                 }}
                 title="Open popup calendar"
-                // @ts-ignore
                 // prevent closing and reopening the popup
+                // @ts-ignore
                 onMouseDown={(e) => e.preventDefault()}
                 onFocus={() => setIsCalendarPopupOpen(false)}
               />
             )}
             // @ts-ignore
             onBlur={() => {
-              // give time for new item to be come focused
+              // give time for new item to become focused
               setTimeout(
                 () => {
                   // if still active inside the wrapper, don't close the popup
@@ -195,9 +191,8 @@ export function DateInput({
           />
         </div>
         {
-          hasNoCalendarPopup
-            ? null
-            : (
+          hasCalendarPopup
+            ? (
               <div
                 className={joinClassNames('date-input__popup', isCalendarPopupOpen ? '' : 'visually-hidden')}
                 ref={calendarRef}
@@ -227,6 +222,7 @@ export function DateInput({
                 />
               </div>
             )
+            : null
         }
       </div>
     </div>
