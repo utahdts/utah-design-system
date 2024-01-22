@@ -8,7 +8,7 @@ import { add, format, isValid } from 'date-fns';
  * @param {Date} dateB
  * @returns {number} negative, 0, or positive indicative of sort order
  */
-function compareDateYM(dateA, dateB) {
+function dateIsEqualYM(dateA, dateB) {
   return (
     (dateA.getFullYear() - dateB.getFullYear())
     || (dateA.getMonth() - dateB.getMonth())
@@ -71,7 +71,7 @@ export function calendarGrid(focusDate, selectedDate) {
     let loopDate = add(firstOfMonth, { days: -1 * startDayOfWeek + 1 });
     (
       // work all the way through the viewed month dates
-      compareDateYM(loopDate, viewedMonthDate) <= 0
+      dateIsEqualYM(loopDate, viewedMonthDate) <= 0
       // make sure the last row is filled
       || calendarGridMonth[calendarGridMonth.length - 1]?.length !== 7
     );
