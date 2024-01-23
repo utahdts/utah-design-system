@@ -79,7 +79,7 @@ export function TextAreaPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 This prop will add an icon button allowing the user to clear the input.<br />
                 The button appears after the user enters a value.
@@ -95,7 +95,7 @@ export function TextAreaPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 Used to disable the input. This will set the <code>disabled</code> attribute.
               </TableCell>
@@ -110,7 +110,7 @@ export function TextAreaPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 Used to make the input a required field. This will set the <code>required</code> attribute and display an asterisk next to its label.
               </TableCell>

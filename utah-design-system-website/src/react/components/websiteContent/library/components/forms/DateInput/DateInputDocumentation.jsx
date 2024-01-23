@@ -1,13 +1,15 @@
 /* eslint-disable max-len */
-import { CalendarInput, DateInput } from '@utahdts/utah-design-system';
+import { CalendarInput, DateInput, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { DateInputCssClassesDocumentation } from './DateInputCssClassesDocumentation';
 import { DateInputExampleCodeReact } from './DateInputExampleCodeReact';
 import { DateInputExampleProps } from './DateInputExampleProps';
 import { DateInputExampleRender } from './DateInputExampleRender';
+import { DateInputPropsDocumentation } from './DateInputPropsDocumentation';
 
 export function DateInputDocumentation() {
   const [calendarDate, setCalendarDate] = useImmer(/** @type {string | null} */(null));
@@ -146,6 +148,24 @@ export function DateInputDocumentation() {
         <li>Visually, day names headers are abbreviated. Screen reader users will be provided the full names using the <code>abbr</code> attribute. e.g. <code>&lt;td abbr=&quot;Wednesday&quot;&gt;We&lt;/td&gt;</code></li>
         <li>Use an <code>aria-live</code> region for the Month - Year. When the user changes the month or year it will read to them the current month being displayed.</li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="component-props-css">
+          <TabList>
+            <Tab id="component-props-css">CSS</Tab>
+            <Tab id="component-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="component-props-css">
+              <DateInputCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react">
+              <DateInputPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
