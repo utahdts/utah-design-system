@@ -1,7 +1,6 @@
 import {
   Form,
-  Select,
-  SelectOption,
+  PlainText,
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
@@ -11,7 +10,7 @@ import {
 /**
  * @param {object} props
  * @param {import('use-immer').Updater<{props: ComboBoxExamplePropsShape}>} props.setState
- * @param {object} props.state
+ * @param {{props: ComboBoxExamplePropsShape}} props.state
  * @returns {import('react').JSX.Element}
  */
 export function ComboBoxExampleProps({ setState, state }) {
@@ -30,13 +29,7 @@ export function ComboBoxExampleProps({ setState, state }) {
       <Switch id="props.isDisabled" label="Disabled" width={20} />
       <Switch id="props.isRequired" label="Required" width={20} />
       <TextInput id="props.label" label="Label" className="input--height-small1x" />
-      <Select id="props.value" label="Value" className="input--height-small1x" placeholder={'Choose favorite "Mighty 5"'}>
-        <SelectOption label="Arches National Park" value="arches" />
-        <SelectOption label="Bryce Canyon National Park" value="bryce" />
-        <SelectOption label="Canyonlands National Park" value="canyonlands" />
-        <SelectOption label="Capitol Reef National Park" value="capitol-reef" />
-        <SelectOption label="Zion National Park" value="zion" />
-      </Select>
+      <PlainText label="Value" value={state.props.value || '-- Nothing Selected --'} />
     </Form>
   );
 }

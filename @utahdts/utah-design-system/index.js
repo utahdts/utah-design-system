@@ -55,6 +55,7 @@ export { Pagination } from './react/components/navigation/pagination/Pagination'
 export { Popup } from './react/components/popups/Popup';
 export { popupPlacement } from './react/enums/popupPlacement';
 export { rectContainsPoint } from './react/util/rectContainsPoint';
+export { PlainText } from './react/components/forms/PlainText';
 export { RadioButton } from './react/components/forms/RadioButton/RadioButton';
 export { RadioButtonGroup } from './react/components/forms/RadioButton/RadioButtonGroup';
 export { SegmentedButton } from './react/components/buttons/SegmentedButton';

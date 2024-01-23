@@ -33,6 +33,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} [props.name]
  * @param {import('react').UIEventHandler} [props.onBlur]
  * @param {EventAction} [props.onClear]
+ * @param {(customValue: string) => void} [props.onCustomEntry]
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
@@ -50,6 +51,7 @@ export function ComboBoxTextInput({
   isDisabled,
   onBlur,
   onClear,
+  onCustomEntry,
   onKeyUp,
   onSubmit,
   placeholder,
@@ -99,12 +101,22 @@ export function ComboBoxTextInput({
     useCallback(
       /** @param {React.KeyboardEvent<HTMLInputElement>} e */
       (e) => {
+        /** @type {HTMLInputElement} */
+        // @ts-ignore
+        const { target } = e;
+        const currentTextInputValue = /** @type {string} */ (target.value);
+        const currentTextInputValueLowerCase = currentTextInputValue.toLowerCase();
+
+        // if already have entered this custom item or if it matches an existing option, don't add it again.
+        const matchingOption = options.find((option) => option.labelLowerCase === currentTextInputValueLowerCase);
+
         // redundant to check the allowCustomEntry flag, but lends to better readability
-        if (allowCustomEntry) {
-          /** @type {HTMLInputElement} */
-          // @ts-ignore
-          const { target } = e;
-          onChange(target.value);
+        if (!matchingOption && allowCustomEntry) {
+          // let caller know a new option has been added
+          onCustomEntry?.(currentTextInputValue);
+
+          // let caller know the new option is also selected
+          onChange(currentTextInputValue);
 
           // close expanded options after selection since normally have to press enter on the Select Option and it closes popup
           setComboBoxContext((draftContext) => {

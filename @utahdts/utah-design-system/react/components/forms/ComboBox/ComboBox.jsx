@@ -30,6 +30,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.name]
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {() => void} [props.onClear]
+ * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
@@ -55,6 +56,7 @@ export function ComboBox({
   labelClassName,
   name,
   onChange,
+  onCustomEntry,
   onClear,
   onKeyUp,
   onSubmit,
@@ -88,6 +90,7 @@ export function ComboBox({
         label={label}
         labelClassName={labelClassName}
         name={name}
+        onCustomEntry={onCustomEntry}
         placeholder={placeholder}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}

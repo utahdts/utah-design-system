@@ -11,7 +11,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
 /**
  * @param {object} props
- * @param {boolean} [props.allowCustomEntry] if allowing custom entry, add the custom item if the list is empty
+ * @param {boolean} [props.allowCustomEntry] if allowing custom entry, add the custom item if the list is empty; Must be a controlled component
  * @param {string} props.ariaLabelledById
  * @param {import('react').ReactNode | null} [props.children]
  * @param {HTMLElement | null} props.popperReferenceElement
@@ -31,12 +31,11 @@ export function CombBoxListBox({
     {
       filterValue,
       isOptionsExpanded,
-      options,
       optionsFiltered,
       optionsFilteredWithoutGroupLabels,
       optionValueFocused,
       optionValueSelected,
-    }, ,
+    }, /* array element `setState` is not used here */,
     comboBoxContextNonStateRef,
   ] = useComboBoxContext();
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
@@ -107,8 +106,6 @@ export function CombBoxListBox({
     [isOptionsExpanded, optionsFilteredWithoutGroupLabels]
   );
 
-  const isValueSelectedAnOption = options.find((option) => option.value === optionValueSelected);
-
   return (
     <ul
       id={id}
@@ -139,18 +136,7 @@ export function CombBoxListBox({
           ? <ComboBoxOption isStatic isDisabled label="" value="">Press enter to add custom item</ComboBoxOption>
           : null
       }
-      {
-        // no possible options, but allowing custom entry and have selected a value
-        // note that this `isStatic` to prevent rendering loop issues with registering/unRegistering this custom option
-        (
-          allowCustomEntry
-          && optionValueSelected
-          && !isValueSelectedAnOption
-          && filterValue === optionValueSelected
-        )
-          ? <ComboBoxOption isStatic label={optionValueSelected} value={optionValueSelected}>{optionValueSelected}</ComboBoxOption>
-          : null
-      }
+      {/* Note: a custom entered option (allowCustomEntry) is not rendered here. The controlling component must create the ComboBoxOption for it. */}
     </ul>
   );
 }
