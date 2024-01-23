@@ -28,7 +28,7 @@
   ],
   "peerDependencies": {
     "react": "18.x",
-    "react-router-dom": "^6.17.0"
+    "react-router-dom": "6.21.2"
   },
   "scripts": {
     "build": "vite build",
@@ -66,27 +66,28 @@
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
     "@utahdts/utah-design-system-header": "1.14.1",
+    "date-fns": "3.2.0",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
     "react-popper": "2.3.0",
-    "react-router-dom": "^6.17.0",
+    "react-router-dom": "6.21.2",
     "use-immer": "0.9.0",
     "uuid": "9.0.1"
   },
   "devDependencies": {
     "@types/lodash": "4.14.202",
-    "@types/react": "18.2.46",
+    "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
     "@types/uuid": "9.0.7",
     "@vitejs/plugin-react": "4.2.1",
-    "@vitest/coverage-istanbul": "1.1.1",
-    "@vitest/ui": "1.1.1",
-    "jsdom": "23.0.1",
-    "sass": "1.69.6",
+    "@vitest/coverage-istanbul": "1.2.0",
+    "@vitest/ui": "1.2.0",
+    "jsdom": "23.2.0",
+    "sass": "1.69.7",
     "typescript": "5.3.3",
-    "vite": "5.0.10",
-    "vitest": "1.1.1"
+    "vite": "5.0.11",
+    "vitest": "1.2.0"
   },
   "type": "module"
 }
