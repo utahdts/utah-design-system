@@ -45,6 +45,7 @@ export function FileInput({
   value,
 }) {
   const { addPoliteMessage } = useAriaMessaging();
+  const lf = new Intl.ListFormat('en');
   const [isDragged, setDragged] = useImmer(false);
   const [files, setFiles] = useImmer(value || []);
   const inputRef = useRef(null);
@@ -74,9 +75,38 @@ export function FileInput({
     }
   }, []);
 
+  /**
+   * @type {(function(): import('react').ReactNode)|*}
+   */
+  const renderContent = useCallback(() => {
+    [...files].map((/** @type {File} */ file) => {
+      let content;
+      if (children && isFunction(children)) {
+        content = (
+        // @ts-ignore
+        // eslint-disable-next-line react/jsx-no-constructed-context-values
+          <FileContext.Provider value={{ file, removeFile }} key={file.name}>
+            {children}
+          </FileContext.Provider>
+        );
+      } else {
+        content = (
+          <Tag
+            clearMessage={`Remove file: ${file.name}.`}
+            key={file.name}
+            onClear={() => removeFile(file)}
+          >
+            {file.name}
+          </Tag>
+        );
+      }
+      return content;
+    });
+  }, []);
+
   useEffect(() => {
     if (files.length) {
-      addPoliteMessage(`You have selected the file: ${[...files].map((item) => item.name).join(', ')}.`);
+      addPoliteMessage(`You have selected the file${files.length > 1 ? 's' : ''}: ${lf.format([...files].map((item) => item.name))}.`);
     } else {
       addPoliteMessage('No file selected.');
     }
@@ -93,15 +123,17 @@ export function FileInput({
         {label}
         {isRequired ? <RequiredStar /> : null}
       </label>
-      {hint
-        ? (
-          <div className="info-box file-input__info-box mt-spacing-xs">
-            <div className="info-box__content">
-              {hint}
+      {
+        hint
+          ? (
+            <div className="info-box file-input__info-box mt-spacing-xs">
+              <div className="info-box__content">
+                {hint}
+              </div>
             </div>
-          </div>
-        )
-        : null}
+          )
+          : null
+      }
       <div className={joinClassNames(
         'file-input__box mt-spacing-s',
         isDragged ? 'file-input__box--dragged' : '',
@@ -109,13 +141,15 @@ export function FileInput({
       )}
       >
         <div className="file-input__safari" />
-        {!files.length
-          ? (
-            <div className="file-input__instructions">
-              <span className="button button--small">Drag file{multiple ? 's' : ''} here or click to upload</span>
-            </div>
-          )
-          : ''}
+        {
+          !files.length
+            ? (
+              <div className="file-input__instructions">
+                <span>Drag {multiple ? 'files' : 'a file'} here or click to upload</span>
+              </div>
+            )
+            : ''
+        }
         <input
           accept={acceptedFileTypes}
           aria-describedby={errorMessage ? `${id}-error` : undefined}
@@ -131,39 +165,22 @@ export function FileInput({
           ref={inputRef}
           type="file"
         />
-        {files.length
-          ? (
-            <div className="file-input__file-selected">
-              <div className="flex justify-between items-center">
-                <span className="font-bold mr-spacing">{files.length} file{files.length > 1 ? 's' : ''} selected</span>
-                <span className="button button--small">Change file{files.length > 1 ? 's' : ''}</span>
+        {
+          files.length
+            ? (
+              <div className="file-input__file-selected">
+                <div className="flex justify-between items-center">
+                  <span className="font-bold mr-spacing">{files.length} file{files.length > 1 ? 's' : ''} selected</span>
+                  <span className="button button--small">Change file{files.length > 1 ? 's' : ''}</span>
+                </div>
+                <hr />
+                <div className="file-input__file-list flex-wrap">
+                  {renderContent()}
+                </div>
               </div>
-              <hr />
-              <div className="file-input__file-list flex-wrap">
-                {[...files].map((/** @type {File} */ file) => {
-                  if (children && isFunction(children)) {
-                    return (
-                    // @ts-ignore
-                    // eslint-disable-next-line react/jsx-no-constructed-context-values
-                      <FileContext.Provider value={{ file, removeFile }} key={file.name}>
-                        {children}
-                      </FileContext.Provider>
-                    );
-                  }
-                  return (
-                    <Tag
-                      clearMessage={`Remove file: ${file.name}.`}
-                      key={file.name}
-                      onClear={() => removeFile(file)}
-                    >
-                      {file.name}
-                    </Tag>
-                  );
-                })}
-              </div>
-            </div>
-          )
-          : ''}
+            )
+            : ''
+        }
       </div>
       <ErrorMessage errorMessage={errorMessage} id={id} />
     </div>
