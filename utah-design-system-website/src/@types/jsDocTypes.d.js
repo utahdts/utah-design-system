@@ -150,24 +150,6 @@
  * }
  */
 
-/**
- * @typedef DateInputExamplePropsShape {
- *  @property {string} className
- *  @property {string} dateFormat
- *  @property {string} errorMessage
- *  @property {boolean} hasCalendarPopup
- *  @property {string} id
- *  @property {boolean} isClearable
- *  @property {boolean} isDisabled
- *  @property {boolean} isRequired
- *  @property {string} label
- *  @property {string} name
- *  @property {string} placeholder
- *  @property {boolean} showCalendarTodayButton
- *  @property {string} value
- * }
- */
-
 /** @typedef {Record<CSS_VARIABLES_KEYS, string>} CssContextState */
 
 /**

@@ -14,10 +14,10 @@ jobs:
     
     steps:
       - name: Checkout 🛎️🧳🎫🤑
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: NPM Install 🔧
         run: |
@@ -33,7 +33,7 @@ jobs:
 
       - id: auth
         name: 🗝️ Authenticate to Google Cloud
-        uses: google-github-actions/auth@v2
+        uses: google-github-actions/auth@v1
         with:
           access_token_scopes: 'email, openid, https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/firebase'
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_PROD }}

@@ -100,10 +100,6 @@ export function ComboBoxContextProvider({
         } else {
           draftContext.options.push(newOption);
         }
-        // `optionValueSelected` may be for an option that has not yet been registered
-        // check if the newly registered option is a match for `optionValueSelected`
-        const selectedOption = draftContext.options.find((option) => option.value === draftContext.optionValueSelected);
-        draftContext.filterValue = selectedOption?.label ?? '';
       });
     },
     optionValueFocusedId: null,

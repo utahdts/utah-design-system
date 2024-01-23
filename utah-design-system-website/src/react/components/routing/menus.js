@@ -288,6 +288,12 @@ export const menuResourcesSecondary = {
     },
 
     {
+      link: pages.progressLog.link,
+      title: pages.progressLog.pageTitle,
+      parentLinks: [pages.resources.link],
+    },
+
+    {
       link: pages.wordPressHeaderPlugin.link,
       title: pages.wordPressHeaderPlugin.pageTitle,
       parentLinks: [pages.wordPressHeaderPlugin.link],

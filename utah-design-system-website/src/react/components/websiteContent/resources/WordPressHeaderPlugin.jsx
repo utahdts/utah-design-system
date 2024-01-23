@@ -159,11 +159,11 @@ export function WordPressHeaderPlugin() {
       <h2 id="header-colors">Header Colors</h2>
       <p>
         You can customize the header colors by adding the following css to your website. Modify the <code style={{ whiteSpace: 'nowrap' }}>--primary-color</code> or
-        the <code style={{ whiteSpace: 'nowrap' }}>--header-primary-color</code> to change the colors in the header.{' '}
+        the <code style={{ whiteSpace: 'nowrap' }}>--header-primary-color</code> to change the colors in the header.
         <strong>
           The color must meet a minimum of <code>4.5:1</code> contrast
           ratio or greater since this color is used to render text and other interactive elements in the header.
-        </strong>{' '}
+        </strong> {' '}
         The color variables must be scoped under <code>.utah-design-system</code>. See example below:
       </p>
 

@@ -1,5 +1,6 @@
-import { useInterval, useRefAlways } from '@utahdts/utah-design-system';
+import { useRefAlways } from '@utahdts/utah-design-system';
 import { useState } from 'react';
+import { useInterval } from './useInterval';
 
 /**
  * This ONLY works if line wrapping is turned off because it counts line endings. Otherwise, soft wraps throw off the

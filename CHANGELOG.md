@@ -5,13 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [1.X.X] 1/16/2024
-## Removed
-- Progress Log page (view GitHub release notes instead)
-
-## Fixed
-- Show defaultValue starting value in ComboBox/MultiSelect 
-
 # [1.14.1] 1/16/2024
 ## Fixed
 - Header WordPress Plugin download link
