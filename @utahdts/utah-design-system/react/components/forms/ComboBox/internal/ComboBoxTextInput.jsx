@@ -9,7 +9,6 @@ import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
-import { joinClassNames } from '../../../../util/joinClassNames';
 
 /** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /**
@@ -40,7 +39,6 @@ import { joinClassNames } from '../../../../util/joinClassNames';
  * @returns {import('react').JSX.Element}
  */
 export function ComboBoxTextInput({
-  className,
   comboBoxListId,
   errorMessage,
   id,
@@ -108,7 +106,7 @@ export function ComboBoxTextInput({
         aria-expanded={isOptionsExpanded}
         aria-haspopup="listbox"
         aria-owns={comboBoxListId}
-        className={joinClassNames('combo-box-input', className)}
+        className="combo-box-input"
         clearIconRef={clearIconRef}
         id={id}
         innerRef={(ref) => {

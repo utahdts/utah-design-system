@@ -71,6 +71,7 @@ export const pageUrls = {
   principles: /** @type {PageUrl} */ ('/guidelinesStandards/principles'),
   processList: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/processList'),
   progressBars: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/progressBar'),
+  progressLog: /** @type {PageUrl} */ ('/resources/progressLog'),
   radioButton: /** @type {PageUrl} */ ('/library/components/forms/radioButton'),
   resources: /** @type {PageUrl} */ ('/resources'),
   search: /** @type {PageUrl} */ ('/search'),

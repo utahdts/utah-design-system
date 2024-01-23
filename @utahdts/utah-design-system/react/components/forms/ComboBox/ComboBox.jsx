@@ -34,7 +34,6 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.placeholder]
  * @param {HTMLElement | null} [props.popperContentRef] for multi-select the popup relates to the multi-select wrapper, not the input
  * @param {import('react').ReactNode} [props.tagChildren]
- * @param {string} [props.textInputClassName] className to put on the TextInput
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
@@ -62,7 +61,6 @@ export function ComboBox({
   isValueClearedOnSelection,
   isWrapperSkipped,
   tagChildren,
-  textInputClassName,
   value,
   wrapperClassName,
   ...rest
@@ -74,7 +72,6 @@ export function ComboBox({
     <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
       {tagChildren}
       <ComboBoxTextInput
-        className={textInputClassName}
         comboBoxListId={comboBoxListId}
         errorMessage={errorMessage}
         id={id}
