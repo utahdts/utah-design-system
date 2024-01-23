@@ -1,5 +1,7 @@
 import {
   Form,
+  Select,
+  SelectOption,
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
@@ -23,26 +25,22 @@ export function DateInputExampleProps({ setState, state }) {
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
       <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <Switch id="props.hasCalendarPopup" label="Has Popup" width={20} />
-      <div>
-        DateFormat: {state.props.dateFormat}
-      </div>
-      {/* Put ComboBox back in once it's fixed: UDS-1448
-      <ComboBox id="props.dateFormat" label="Format" textInputClassName="input--height-small1x">
+      <Select id="props.dateFormat" label="Format" className="input--height-small1x">
         {
           [
-            'yyyy/MM/dd',
             'MM/dd/yyyy',
             'MM-dd-yyyy',
+            'yyyy/MM/dd',
             'ddMMyyyy',
           ].map((dateFormat) => (
-            <ComboBoxOption
+            <SelectOption
               key={`date-example-props__date-format__${dateFormat}`}
-              label={`${dateFormat} (${format(new Date(), dateFormat)})`}
+              label={dateFormat}
               value={dateFormat}
             />
           ))
         }
-      </ComboBox> */}
+      </Select>
       <TextInput id="props.id" label="ID" className="input--height-small1x" />
       <Switch id="props.isClearable" label="Clearable" width={20} />
       <Switch id="props.isDisabled" label="Disabled" width={20} />
