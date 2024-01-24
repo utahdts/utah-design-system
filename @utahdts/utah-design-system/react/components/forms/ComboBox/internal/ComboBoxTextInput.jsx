@@ -11,6 +11,7 @@ import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
+import { joinClassNames } from '../../../../util/joinClassNames';
 
 /** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /**
@@ -44,6 +45,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  */
 export function ComboBoxTextInput({
   allowCustomEntry,
+  className,
   comboBoxListId,
   errorMessage,
   id,
@@ -147,7 +149,7 @@ export function ComboBoxTextInput({
         aria-expanded={isOptionsExpanded}
         aria-haspopup="listbox"
         aria-owns={comboBoxListId}
-        className="combo-box-input"
+        className={joinClassNames('combo-box-input', className)}
         clearIconRef={clearIconRef}
         id={id}
         innerRef={(ref) => {

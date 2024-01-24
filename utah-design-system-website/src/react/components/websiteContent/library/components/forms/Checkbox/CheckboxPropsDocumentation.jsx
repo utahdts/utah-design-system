@@ -83,7 +83,7 @@ export function CheckboxPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 Used to disable the input. This will set the <code>disabled</code> attribute.
               </TableCell>
@@ -98,7 +98,7 @@ export function CheckboxPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 Used to make the input a required field. This will set the <code>required</code> attribute and display an asterisk next to its label.
               </TableCell>
