@@ -1,5 +1,7 @@
 import { identity, isFunction } from 'lodash';
 import { useCallback, useRef } from 'react';
+import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { useTimeout } from '../../../../hooks/useTimeout';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { IconButton } from '../../../buttons/IconButton';
 import { useFormContext } from '../../FormContext/useFormContext';
@@ -132,6 +134,9 @@ export function ComboBoxTextInput({
   // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
   const onKeyUpPreviousValue = useRef('');
 
+  const announceNewValueTimeout = useTimeout(1000, true);
+  const { addPoliteMessage } = useAriaMessaging();
+
   const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
   return (
     <div>
@@ -193,8 +198,12 @@ export function ComboBoxTextInput({
           );
         }}
         onChange={(e) => {
+          const newValue = e.target.value;
+          if (allowCustomEntry) {
+            announceNewValueTimeout(() => addPoliteMessage(`Press Enter to add ${newValue} to the combo box list`));
+          }
           setComboBoxContext((draftContext) => {
-            draftContext.filterValue = e.target.value;
+            draftContext.filterValue = newValue;
             draftContext.isFilterValueDirty = true;
           });
         }}

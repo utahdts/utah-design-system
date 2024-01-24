@@ -120,5 +120,7 @@ export { UtahHeaderContext } from './react/contexts/utahHeaderContext/UtahHeader
 export { UtahHeaderContextProvider } from './react/contexts/utahHeaderContext/UtahHeaderContextProvider';
 export { valueAtPath } from './react/util/state/valueAtPath';
 export { VerticalMenu } from './react/components/navigation/VerticalMenu';
+export { useInterval } from './react/hooks/useInterval';
+export { useTimeout } from './react/hooks/useTimeout';
 
 export const { version } = packageJson;
