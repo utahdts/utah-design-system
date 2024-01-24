@@ -12,7 +12,7 @@ import { domConstants, getCssClassSelector } from '../../enumerations/domConstan
  */
 export function renderMenuWithTitle(menu, title) {
   const menuWithTitle = renderDOMSingle(MenuWithTitle);
-  const menuTitleDiv = menuWithTitle.querySelector(getCssClassSelector(domConstants.POPUP_MENU_WRAPPER__WRAPPER_TITLE));
+  const menuTitleDiv = menuWithTitle.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU_WRAPPER__WRAPPER_TITLE));
   if (!menuTitleDiv) {
     throw new Error('renderMenuWithTitle: menuTitleDiv not found');
   }
