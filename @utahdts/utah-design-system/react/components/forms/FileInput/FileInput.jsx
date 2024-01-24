@@ -24,10 +24,11 @@ import { FileContext } from './context/FileContext';
  * @param {string} [props.name]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
- * @param {import('react').ChangeEventHandler} [props.onChange]
+ * @param {(files: FileList, event: import('react').ChangeEvent<HTMLInputElement>) => void} [props.onChange]
  * @param {FileList} [props.value]
  * @returns {import('react').JSX.Element}
  */
+
 export function FileInput({
   acceptedFileTypes,
   children,
@@ -50,14 +51,11 @@ export function FileInput({
   const [files, setFiles] = useImmer(value || []);
   const inputRef = useRef(null);
 
-  const currentOnChange = useCallback(() => {
-    if (onChange) {
-      // @ts-ignore
-      onChange(inputRef.current.files);
-    } else {
-      // @ts-ignore
-      setFiles(inputRef.current.files);
-    }
+  const currentOnChange = useCallback((/** @type {import('react').ChangeEvent<HTMLInputElement>} */ event) => {
+    // @ts-ignore
+    onChange?.(inputRef.current.files, event);
+    // @ts-ignore
+    setFiles(inputRef.current.files);
   }, []);
 
   const removeFile = useCallback((/** @type {File} */ file) => {
@@ -78,31 +76,28 @@ export function FileInput({
   /**
    * @type {(function(): import('react').ReactNode)|*}
    */
-  const renderContent = useCallback(() => {
-    [...files].map((/** @type {File} */ file) => {
-      let content;
-      if (children && isFunction(children)) {
-        content = (
-        // @ts-ignore
+  const renderContent = useCallback(() => [...files].map((/** @type {File} */ file) => {
+    let content;
+    if (children && isFunction(children)) {
+      content = (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
-          <FileContext.Provider value={{ file, removeFile }} key={file.name}>
-            {children}
-          </FileContext.Provider>
-        );
-      } else {
-        content = (
-          <Tag
-            clearMessage={`Remove file: ${file.name}.`}
-            key={file.name}
-            onClear={() => removeFile(file)}
-          >
-            {file.name}
-          </Tag>
-        );
-      }
-      return content;
-    });
-  }, []);
+        <FileContext.Provider value={{ file, removeFile }} key={file.name}>
+          {children}
+        </FileContext.Provider>
+      );
+    } else {
+      content = (
+        <Tag
+          clearMessage={`Remove file: ${file.name}.`}
+          key={file.name}
+          onClear={() => removeFile(file)}
+        >
+          {file.name}
+        </Tag>
+      );
+    }
+    return content;
+  }), [files, children]);
 
   useEffect(() => {
     if (files.length) {
@@ -111,11 +106,6 @@ export function FileInput({
       addPoliteMessage('No file selected.');
     }
   }, [files]);
-
-  useEffect(() => {
-    // Track files when controlled
-    if (onChange) { setFiles(value || []); }
-  }, [value, onChange]);
 
   return (
     <div className="input-wrapper" ref={innerRef}>

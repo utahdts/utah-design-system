@@ -235,13 +235,13 @@
 
 // ========== File Input ========== //
 /**
- * @typedef {[FileContextValue]} FileContext
+ * @typedef {FileContextValue} FileContext
  */
 
 /**
  * @typedef FileContextValue {
  *  @property {File | null} file
- *  @property {(file) => void} removeFile
+ *  @property {(file:File) => void} removeFile
  * }
  */
 
