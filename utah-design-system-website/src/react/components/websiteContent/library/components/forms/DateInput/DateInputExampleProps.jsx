@@ -25,7 +25,7 @@ export function DateInputExampleProps({ setState, state }) {
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
       <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <Switch id="props.hasCalendarPopup" label="Has Popup" width={20} />
-      <Select id="props.dateFormat" label="Format" className="input--height-small1x">
+      <Select id="props.dateFormat" label="Calendar Input Format" className="input--height-small1x">
         {
           [
             'MM/dd/yyyy',

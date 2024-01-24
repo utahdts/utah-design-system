@@ -17,10 +17,18 @@
       font-weight: var(--font-weight-normal);
       [class*="utds-icon-before-"]::before {
         font-size: 1.1rem;
+        margin: 0;
       }
       &--is-disabled {
         color: var(--form-ele-disabled-color);
       }
+    }
+    &__icon-static {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: var(--form-ele-small);
+      min-width: var(--form-ele-small);
     }
     &__inner-wrapper {
       .text-input__clear-button {

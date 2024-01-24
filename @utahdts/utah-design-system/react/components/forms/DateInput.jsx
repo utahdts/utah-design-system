@@ -153,7 +153,7 @@ export function DateInput({
                 ? (
                   <IconButton
                     aria-hidden="true"
-                    className="date-input-input__calendar icon-button--borderless icon-button--small date-input__calendar-icon"
+                    className="date-input__calendar-icon icon-button--borderless icon-button--small"
                     icon={<span className="utds-icon-before-calendar " aria-hidden="true" />}
                     isDisabled={isDisabled}
                     onClick={(e) => {
@@ -174,7 +174,11 @@ export function DateInput({
                     onFocus={() => setIsCalendarPopupOpen(false)}
                   />
                 )
-                : <span className="utds-icon-before-calendar " aria-hidden="true" />
+                : (
+                  <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}>
+                    <span className="utds-icon-before-calendar " aria-hidden="true" />
+                  </div>
+                )
             )}
             // @ts-ignore
             onBlur={() => {
