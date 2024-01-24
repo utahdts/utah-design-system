@@ -78,7 +78,7 @@ export function DateInputDocumentation() {
       <StaticExample
         title="Calendar Input"
         renderedExample={(
-          <div style={{ width: '200px' }}>
+          <div style={{ width: '200px', border: '1px solid var(--gray-color)' }}>
             <CalendarInput
               id="test-calendar-input"
               isDisabled={false}
