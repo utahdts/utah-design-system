@@ -108,7 +108,7 @@ export function FileInput({
   }, [files]);
 
   return (
-    <div className="input-wrapper" ref={innerRef}>
+    <div className={joinClassNames('input-wrapper', className)} ref={innerRef}>
       <label htmlFor={id}>
         {label}
         {isRequired ? <RequiredStar /> : null}
@@ -143,7 +143,6 @@ export function FileInput({
         <input
           accept={acceptedFileTypes}
           aria-describedby={errorMessage ? `${id}-error` : undefined}
-          className={className}
           disabled={isDisabled}
           id={id}
           multiple={multiple}

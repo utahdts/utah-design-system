@@ -13,12 +13,8 @@
         background: var(--form-ele-color-light);
       }
 
-      &--disabled {
+      &--disabled > div {
         background: var(--disabled-gray);
-
-        .button {
-          background: var(--disabled-gray);
-        }
       }
 
       input[type="file"] {

@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
-import { FileInput } from '@utahdts/utah-design-system';
+import {
+  FileInput, Tab, TabGroup, TabList, TabPanel, TabPanels
+} from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { FileInputExampleCodeReact } from './FileInputExampleCodeReact';
 import { FileInputExampleProps } from './FileInputExampleProps';
 import { FileInputExampleRender } from './FileInputExampleRender';
+import { FileInputCssClassesDocumentation } from './FileInputCssClassesDocumentation';
+import { FileInputPropsDocumentation } from './FileInputPropsDocumentation';
 
 export function FileInputDocumentation() {
   return (
@@ -34,12 +38,12 @@ export function FileInputDocumentation() {
 
       <StaticExample
         title="File Input Single"
-        renderedExample={<FileInput id="single-upload-example" label="Upload a single file" />}
+        renderedExample={<div style={{ width: '80%' }}><FileInput id="single-upload-example" label="Upload a single file" /></div>}
       />
 
       <StaticExample
         title="File Input Multi-select"
-        renderedExample={<FileInput id="multiple-upload-example" label="Upload one or more files" multiple />}
+        renderedExample={<div style={{ width: '80%' }}><FileInput id="multiple-upload-example" label="Upload one or more files" multiple /></div>}
       />
 
       <h2 className="mb-spacing" id="section-description-guidance">Description and Guidance</h2>
@@ -126,6 +130,24 @@ export function FileInputDocumentation() {
           to the user on a button element that clearly describes what action they are about to take.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <FileInputCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <FileInputPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
