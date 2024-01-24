@@ -10,7 +10,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import { pageUrls } from '../../../../../routing/pageUrls.js';
+import { pageUrls } from '../../../../../routing/pageUrls';
 
 export function FileInputPropsDocumentation() {
   return (
