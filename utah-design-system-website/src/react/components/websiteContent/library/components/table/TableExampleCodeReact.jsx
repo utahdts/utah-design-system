@@ -44,14 +44,14 @@ export function TableExampleCodeReact({
               &lt;TableSortingRules defaultValue=&quot;category&quot;&gt;
               <br />
               <SandboxIndent indentLevel={4} />
-              &lt;TableSortingRule recordFieldPath=&quot;category&quot; /&gt;
+              &lt;TableSortingRule a11yLabel=&quot;Category&quot; recordFieldPath=&quot;category&quot; /&gt;
               <br />
               <SandboxIndent indentLevel={4} />
-              &lt;TableSortingRule recordFieldPath=&quot;symbol&quot; /&gt;
+              &lt;TableSortingRule a11yLabel=&quot;Symbol&quot; recordFieldPath=&quot;symbol&quot; /&gt;
               <br />
               <SandboxIndent indentLevel={4} />
               {/* eslint-disable-next-line max-len */}
-              &lt;TableSortingRule recordFieldPath=&quot;year&quot; fieldType=&#123;tableSortingRuleFieldType.NUMBER&#125; defaultIsAscending=&#123;false&#125; /&gt;
+              &lt;TableSortingRule a11yLabel=&quot;Year&quot; recordFieldPath=&quot;year&quot; fieldType=&#123;tableSortingRuleFieldType.NUMBER&#125; defaultIsAscending=&#123;false&#125; /&gt;
               <br />
               <SandboxIndent indentLevel={3} />
               &lt;/TableSortingRules&gt;
@@ -68,13 +68,13 @@ export function TableExampleCodeReact({
               &lt;TableFilters&gt;
               <br />
               <SandboxIndent indentLevel={4} />
-              &lt;TableFilterTextInput recordFieldPath=&quot;category&quot; /&gt;
+              &lt;TableFilterTextInput a11yLabel=&quot;Category&quot; recordFieldPath=&quot;category&quot; /&gt;
               <br />
               <SandboxIndent indentLevel={4} />
-              &lt;TableFilterTextInput recordFieldPath=&quot;symbol&quot; /&gt;
+              &lt;TableFilterTextInput a11yLabel=&quot;Symbol&quot; recordFieldPath=&quot;symbol&quot; /&gt;
               <br />
               <SandboxIndent indentLevel={4} />
-              &lt;TableFilterTextInput recordFieldPath=&quot;year&quot; /&gt;
+              &lt;TableFilterTextInput a11yLabel=&quot;Year&quot; recordFieldPath=&quot;year&quot; /&gt;
               <br />
               <SandboxIndent indentLevel={3} />
               &lt;/TableFilters&gt;

@@ -65,14 +65,10 @@ export function TableDocumentationSortingSmall({ className, isFiltersShown }) {
             isFiltersShown
               ? (
                 <TableFilters>
-                  <TableFilterTextInput
-                    recordFieldPath="np"
-                    // @ts-ignore
-                    label="Filter National Park"
-                  />
-                  <TableFilterTextInput label="Year" recordFieldPath="year" />
-                  <TableFilterTextInput label="City" recordFieldPath="city" />
-                  <TableFilterTextInput label="Size" recordFieldPath="size" />
+                  <TableFilterTextInput a11yLabel="National Park" recordFieldPath="np" />
+                  <TableFilterTextInput a11yLabel="Year Created" recordFieldPath="year" />
+                  <TableFilterTextInput a11yLabel="Nearest City" recordFieldPath="city" />
+                  <TableFilterTextInput a11yLabel="Size" recordFieldPath="size" />
                 </TableFilters>
               )
               : null

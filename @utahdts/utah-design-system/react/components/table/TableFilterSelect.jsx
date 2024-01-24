@@ -3,6 +3,7 @@ import { joinClassNames } from '../../util/joinClassNames';
 import { Select } from '../forms/Select';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
+import { useTableContext } from './hooks/useTableContext';
 
 /**
  * @template TableDataT
@@ -13,7 +14,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {boolean} [props.exactMatch]
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
- * @param {string} props.label
+ * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {((e: React.ChangeEvent) => TableDataT)} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string | number} [props.value]
@@ -26,7 +27,7 @@ export function TableFilterSelect({
   exactMatch,
   innerRef,
   id,
-  label,
+  a11yLabel,
   onChange,
   recordFieldPath,
   value,
@@ -51,11 +52,12 @@ export function TableFilterSelect({
 
   useTableFilterRegistration(recordFieldPath, !!exactMatch);
 
+  const { state: { tableId } } = useTableContext();
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-select', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       <Select
-        id={`table-filter-select-${recordFieldPath}`}
-        label={label}
+        id={`${tableId}__table-filter-select-${recordFieldPath}`}
+        label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}
         value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading

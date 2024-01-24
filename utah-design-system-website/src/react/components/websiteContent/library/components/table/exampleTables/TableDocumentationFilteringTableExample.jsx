@@ -48,7 +48,7 @@ export function TableDocumentationFilteringTableExample() {
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
-                <TableFilterTextInput label="Name" recordFieldPath="name" />
+                <TableFilterTextInput a11yLabel="Name" recordFieldPath="name" />
 
                 {/* Skip a column by using the "None" filter component */}
                 <TableFilterNone />
@@ -58,10 +58,10 @@ export function TableDocumentationFilteringTableExample() {
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions label="Party" recordFieldPath="politicalParty" />
+                <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate label="Inauguration" recordFieldPath="inauguration" />
+                <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
 
                 {/*
                   "Controlled" filter; parent knows the value!
@@ -71,8 +71,15 @@ export function TableDocumentationFilteringTableExample() {
                   `filterValues` when the passed in value changes so that filtering still occurs automatically. But... maybe you
                   really want to just use a TableFilterCustom instead if that's the case.
                 */}
-                {/* @ts-ignore */}
-                <TableFilterTextInput recordFieldPath="funFacts" value={funFactsFilter} onChange={(e) => setFunFactsFilter(e.target?.value)} />
+                <TableFilterTextInput
+                  a11yLabel="Fun Facts"
+                  onChange={(e) => (
+                    // @ts-ignore
+                    setFunFactsFilter(e.target?.value)
+                  )}
+                  recordFieldPath="funFacts"
+                  value={funFactsFilter}
+                />
 
                 <TableFilterCustom>
                   {
