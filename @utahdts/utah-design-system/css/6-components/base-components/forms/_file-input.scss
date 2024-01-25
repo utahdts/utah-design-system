@@ -1,5 +1,6 @@
 @use "../../../1-settings/class-vars";
 @use "../../../1-settings/color-swatches";
+@use "../../../2-tools/tools-index";
 
 #{class-vars.$base-class} {
   .file-input {
@@ -32,9 +33,8 @@
           cursor: not-allowed;
         }
 
-        &:hover {
-          box-shadow: var(--hover-gray-color) 0 0 0 5px;
-        }
+        @include tools-index.form-ele-hover-medium;
+        @include tools-index.form-ele-focus;
       }
     }
     &__instructions {

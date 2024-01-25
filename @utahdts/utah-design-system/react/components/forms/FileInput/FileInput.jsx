@@ -71,7 +71,7 @@ export function FileInput({
       inputRef.current.files = dataTransfer.files;
       currentOnChange();
     }
-  }, []);
+  }, [currentOnChange]);
 
   /**
    * @type {(function(): import('react').ReactNode)|*}
@@ -116,8 +116,8 @@ export function FileInput({
       {
         hint
           ? (
-            <div className="info-box file-input__info-box mt-spacing-xs">
-              <div className="info-box__content">
+            <div className="info-box file-input__info-box my-spacing-xs">
+              <div className="info-box__content" id={`${id}-hint`}>
                 {hint}
               </div>
             </div>
@@ -125,7 +125,7 @@ export function FileInput({
           : null
       }
       <div className={joinClassNames(
-        'file-input__box mt-spacing-s',
+        'file-input__box',
         isDragged ? 'file-input__box--dragged' : '',
         isDisabled ? 'file-input__box--disabled' : ''
       )}
@@ -142,7 +142,7 @@ export function FileInput({
         }
         <input
           accept={acceptedFileTypes}
-          aria-describedby={errorMessage ? `${id}-error` : undefined}
+          aria-describedby={errorMessage ? `${id}-error` : `${id}-hint`}
           disabled={isDisabled}
           id={id}
           multiple={multiple}
@@ -160,7 +160,7 @@ export function FileInput({
               <div className="file-input__file-selected">
                 <div className="flex justify-between items-center">
                   <span className="font-bold mr-spacing">{files.length} file{files.length > 1 ? 's' : ''} selected</span>
-                  <span className="button button--small">Change file{files.length > 1 ? 's' : ''}</span>
+                  <span>Change file{files.length > 1 ? 's' : ''}</span>
                 </div>
                 <hr />
                 <div className="file-input__file-list flex-wrap">

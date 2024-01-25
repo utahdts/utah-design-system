@@ -1,4 +1,6 @@
-import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
+import {
+  ExternalLink, Form, Switch, TextInput
+} from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').FileInputExamplePropsShape} FileInputExamplePropsShape */
 
@@ -16,7 +18,10 @@ export function FileInputExampleProps({ setState, state }) {
       setState={setState}
       className="form--stacked"
     >
-      <TextInput id="props.acceptedFileTypes" label="Files Accepted" className="input--height-small1x" />
+      <div className="mb-spacing">
+        <TextInput id="props.acceptedFileTypes" label="Files Accepted" className="input--height-small1x" wrapperClassName="mb-auto" />
+        <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept">Learn more</ExternalLink>
+      </div>
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
       <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <TextInput id="props.hint" label="Hint" className="input--height-small1x" />
