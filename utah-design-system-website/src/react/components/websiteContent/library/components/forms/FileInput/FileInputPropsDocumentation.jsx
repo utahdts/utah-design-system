@@ -31,13 +31,14 @@ export function FileInputPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Defines the file types the file input should accept.
+                Defines the file types the file input should accept.<br />
+                <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept">Learn more</ExternalLink>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell><code className="primary-color">children</code></TableCell>
-              <TableCell><code>react node</code></TableCell>
+              <TableCell><code>React.ReactNode</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
                 Used to customize the list of files. Accepts two props:
@@ -188,7 +189,7 @@ export function FileInputPropsDocumentation() {
               </TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Used to set the input <code>HTMLInputElement.files</code> property.
+                Used to set the input <code>HTMLInputElement.files</code> property.<br />
                 <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#getting_information_on_selected_files">Learn more.</ExternalLink>
               </TableCell>
             </TableRow>
