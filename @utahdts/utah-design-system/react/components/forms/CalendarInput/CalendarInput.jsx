@@ -169,7 +169,7 @@ export function CalendarInput({
                     className="calendar-input__first-focusable-element"
                     ref={firstFocusableElementRef}
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                    tabIndex={0}
+                    tabIndex={isHidden ? -1 : 0}
                   >
                     {/* First focusable item w/o tooltip */}
                   </div>
@@ -337,6 +337,7 @@ export function CalendarInput({
                   setCurrentValueDateInternal(new Date());
                   currentOnChange(format(new Date(), dateFormat));
                 }}
+                tabIndex={isHidden ? -1 : 0}
                 type="button"
               >
                 Today
