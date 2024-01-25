@@ -1,16 +1,6 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableHeadRow,
-  TableRow,
-  TableWrapper
-} from '@utahdts/utah-design-system';
+import { ExternalLink, Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeadRow, TableRow, TableWrapper } from '@utahdts/utah-design-system';
 
-/** @returns {import('react').JSX.Element} */
-export default function MultiSelectPropsDocumentation() {
+export function DateInputPropsDocumentation() {
   return (
     <div className="documentation-content--small-text">
       <TableWrapper>
@@ -32,8 +22,23 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>This css class will be added to the select.</TableCell>
+              <TableCell>This css class will be added to the text input.</TableCell>
             </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">dateFormat</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>string</code>
+                </div>
+              </TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                Uses the <ExternalLink href="https://date-fns.org/v3.3.1/docs/format">date-fns</ExternalLink> library
+                format specifiers. ie <code>MM/dd/yyyy</code>
+              </TableCell>
+            </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">defaultValue</code></TableCell>
               <TableCell>
@@ -42,8 +47,9 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>The select will start with this value selected for an uncontrolled component.</TableCell>
+              <TableCell>The DateInput will start with this value for an uncontrolled component.</TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">errorMessage</code></TableCell>
               <TableCell>
@@ -54,6 +60,20 @@ export default function MultiSelectPropsDocumentation() {
               <TableCell>null</TableCell>
               <TableCell>Message to be displayed when an error occurs.</TableCell>
             </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">hasCalendarPopup</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
+              <TableCell>true</TableCell>
+              <TableCell>Triggering the calendar icon will pop open a CalenderInput from which a date may be selected.</TableCell>
+            </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">id</code></TableCell>
               <TableCell>
@@ -64,8 +84,9 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>(required)</TableCell>
-              <TableCell>An id to put on the input element.</TableCell>
+              <TableCell>An id to put on the input element. Also will be used as the path to the value in a FormContext.</TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">innerRef</code></TableCell>
               <TableCell>
@@ -75,10 +96,11 @@ export default function MultiSelectPropsDocumentation() {
               </TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered <code>select</code> element&apos;s wrapper element allowing the parent component to interact
-                directly with the actual DOM elements.
+                This ref will be attached to the rendered <code>text input</code> element&apos;s wrapper element allowing the
+                parent component to interact directly with the actual DOM elements.
               </TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">isClearable</code></TableCell>
               <TableCell>
@@ -90,10 +112,11 @@ export default function MultiSelectPropsDocumentation() {
               </TableCell>
               <TableCell>false</TableCell>
               <TableCell>
-                When isClearable is true, an icon button will be displayed to allow the user to set the select&apos;s value
+                When isClearable is true, an icon button will be displayed to allow the user to set the value
                 back to blank.
               </TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">isDisabled</code></TableCell>
               <TableCell>
@@ -105,10 +128,11 @@ export default function MultiSelectPropsDocumentation() {
               </TableCell>
               <TableCell>false</TableCell>
               <TableCell>
-                When isDisabled is true, the select will become unclickable and its appearance will change
-                to be more subdued so that the user can tell the select is unusable.
+                When isDisabled is true, the date input will become unclickable and its appearance will change
+                to be more subdued so that the user can tell the date input is unusable.
               </TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">isRequired</code></TableCell>
               <TableCell>
@@ -120,9 +144,11 @@ export default function MultiSelectPropsDocumentation() {
               </TableCell>
               <TableCell>false</TableCell>
               <TableCell>
-                Used to make the select a required field. This will set the <code>required</code> attribute and display an asterisk next to its label.
+                Used to make the date input a required field. This will set the <code>required</code> attribute and
+                display an asterisk next to its label.
               </TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">label</code></TableCell>
               <TableCell>
@@ -131,8 +157,9 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>(required)</TableCell>
-              <TableCell>Label to be displayed next to the select.</TableCell>
+              <TableCell>Label to be displayed next to the date input.</TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">labelClassName</code></TableCell>
               <TableCell>
@@ -143,15 +170,17 @@ export default function MultiSelectPropsDocumentation() {
               <TableCell>null</TableCell>
               <TableCell>The css class to add to the <code>label</code> element.</TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">name</code></TableCell>
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This will be used for the <code>name</code> attribute of the <code>&lt;select&gt;</code> element.
+                This will be used for the <code>name</code> attribute of the text input element.
                 Defaults to the id prop.
               </TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">onChange</code></TableCell>
               <TableCell>
@@ -160,32 +189,38 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>The function to call when one of a select&apos;s options is selected.</TableCell>
+              <TableCell>The function to call when a date is entered.</TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">onClear</code></TableCell>
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
-              <TableCell>
-                Function to call when the user clears the input.
-              </TableCell>
+              <TableCell>Function to call when the user clears the input.</TableCell>
             </TableRow>
-            <TableRow>
-              <TableCell><code className="primary-color">onSubmit</code></TableCell>
-              <TableCell>
-                <div className="props-code-wrapper">
-                  <code>function</code>
-                </div>
-              </TableCell>
-              <TableCell>null</TableCell>
-              <TableCell>The function to call when the enter key is pressed.</TableCell>
-            </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">placeholder</code></TableCell>
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
-              <TableCell>An extra select option will be placed at the top of the list so that the user first sees this item in the select.</TableCell>
+              <TableCell>Placeholder text to show in the text input.</TableCell>
             </TableRow>
+
+            <TableRow>
+              <TableCell><code className="primary-color">showCalendarTodayButton</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
+              <TableCell>true</TableCell>
+              <TableCell>
+                Controls whether the popup calendar input shows a &quot;Today&quot; button at the bottom to go to the current date.
+              </TableCell>
+            </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">value</code></TableCell>
               <TableCell>
@@ -194,8 +229,14 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>The selected option&apos;s value. All values in an HTML <code>select</code> are strings.</TableCell>
+              <TableCell>
+                A string representing the current date value. If it is not formatted to match
+                the <code>dateFormat</code> property the date used in the calendar input will start with no
+                selected date. If the provided value is a valid date then the date input will show the
+                given date as the current selected value in the calendar input.
+              </TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">wrapperClassName</code></TableCell>
               <TableCell>
@@ -204,8 +245,9 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>A class to add to the wrapper class around the <code>select</code> element.</TableCell>
+              <TableCell>A class to add to the wrapper class around the date input.</TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell><code className="primary-color">...rest</code></TableCell>
               <TableCell>
@@ -214,7 +256,7 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>Additional props you wish to pass to the <code>select</code>.</TableCell>
+              <TableCell>Additional props you wish to pass to the text input.</TableCell>
             </TableRow>
           </TableBody>
         </Table>

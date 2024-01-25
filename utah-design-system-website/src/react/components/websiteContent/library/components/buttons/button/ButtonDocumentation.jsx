@@ -609,7 +609,7 @@ export function ButtonDocumentation() {
                             <code>false</code>
                           </div>
                         </TableCell>
-                        <TableCell><code>false</code></TableCell>
+                        <TableCell>false</TableCell>
                         <TableCell>
                           When <span className="font-semi-bold">isBusy</span> is true, a spinner will be shown in the button.
                           This is useful for showing the user that an action
@@ -626,7 +626,7 @@ export function ButtonDocumentation() {
                             <code>false</code>
                           </div>
                         </TableCell>
-                        <TableCell><code>false</code></TableCell>
+                        <TableCell>false</TableCell>
                         <TableCell>
                           When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
                           and its appearance will change to be more subdued

@@ -23,6 +23,7 @@
     "@popperjs/core": "2.11.8",
     "@utahdts/utah-design-system": "1.14.2",
     "@utahdts/utah-design-system-header": "1.14.2",
+    "date-fns": "3.2.0",
     "js-beautify": "1.14.11",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
@@ -36,8 +37,8 @@
   "devDependencies": {
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
-    "@vitejs/plugin-react": "4.2.1",
     "@types/tinycolor2": "1.4.6",
+    "@vitejs/plugin-react": "4.2.1",
     "jsdom": "23.2.0",
     "sass": "1.69.7",
     "vite": "5.0.11",

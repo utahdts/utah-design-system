@@ -1,20 +1,55 @@
 /* eslint-disable max-len */
+import { CalendarInput, DateInput, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import dateInputScreenshot from '../../../../../../../static/images/screenshots/components/dateInput/dateInput.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
+import { useImmer } from 'use-immer';
 import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { DateInputCssClassesDocumentation } from './DateInputCssClassesDocumentation';
+import { DateInputExampleCodeReact } from './DateInputExampleCodeReact';
+import { DateInputExampleProps } from './DateInputExampleProps';
+import { DateInputExampleRender } from './DateInputExampleRender';
+import { DateInputPropsDocumentation } from './DateInputPropsDocumentation';
 
 export function DateInputDocumentation() {
+  const [calendarDate, setCalendarDate] = useImmer(/** @type {string | null} */(null));
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Date Input</h1>
       <p className="lead-in">The Date Input is a specialized input field that can present a date picker popup to the user.</p>
       <hr />
-      <h2 id="example">Example</h2>
+      <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          dateFormat: 'MM/dd/yyyy',
+          errorMessage: '',
+          hasCalendarPopup: true,
+          id: 'date-input-example-id',
+          isClearable: false,
+          isDisabled: false,
+          isRequired: false,
+          label: 'Enter a date',
+          name: '',
+          placeholder: '',
+          showCalendarTodayButton: true,
+          value: '',
+        }}
+        CODE_EXAMPLE={DateInputExampleCodeReact}
+        PROPS_EXAMPLE={DateInputExampleProps}
+        RENDER_EXAMPLE={DateInputExampleRender}
+      />
+
       <StaticExample
-        title="Date Input Examples"
-        renderedExample={<LightBox image={dateInputScreenshot} alt="Date Input" className="flex-3up-gap" />}
+        title="Date Input w/ Popup"
+        renderedExample={(
+          <DateInput
+            id="date-input-with-popup"
+            isDisabled={false}
+            label="Date Input w/ Calendar Popup"
+            labelClassName="visually-hidden"
+          />
+        )}
         quickTips={(
           <ul>
             <li>A Date Input can also have a Calendar Icon Button.</li>
@@ -22,6 +57,38 @@ export function DateInputDocumentation() {
             <li>You can navigate the popup using the keyboard. (see below)</li>
             <li>Optionally, include a today button to quickly navigate to today&apos;s date</li>
           </ul>
+        )}
+      />
+
+      <StaticExample
+        title="Date Input w/o Popup"
+        renderedExample={(
+          <div style={{ width: '200px' }}>
+            <DateInput
+              hasCalendarPopup={false}
+              id="date-input-without-popup"
+              isDisabled={false}
+              label="Date Input w/o Calendar Popup"
+              labelClassName="visually-hidden"
+            />
+          </div>
+        )}
+      />
+
+      <StaticExample
+        title="Calendar Input"
+        renderedExample={(
+          <div style={{ width: '200px', border: '1px solid var(--gray-color)' }}>
+            <CalendarInput
+              id="test-calendar-input"
+              isDisabled={false}
+              label="Inline Calendar Input"
+              labelClassName="visually-hidden"
+              onChange={setCalendarDate}
+              showTodayButton
+              value={calendarDate}
+            />
+          </div>
         )}
       />
 
@@ -81,6 +148,24 @@ export function DateInputDocumentation() {
         <li>Visually, day names headers are abbreviated. Screen reader users will be provided the full names using the <code>abbr</code> attribute. e.g. <code>&lt;td abbr=&quot;Wednesday&quot;&gt;We&lt;/td&gt;</code></li>
         <li>Use an <code>aria-live</code> region for the Month - Year. When the user changes the month or year it will read to them the current month being displayed.</li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="component-props-css">
+          <TabList>
+            <Tab id="component-props-css">CSS</Tab>
+            <Tab id="component-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="component-props-css">
+              <DateInputCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react">
+              <DateInputPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
