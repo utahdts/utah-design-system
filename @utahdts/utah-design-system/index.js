@@ -25,8 +25,7 @@ export { ConfirmationChildren } from './react/components/buttons/ConfirmationBut
 export { InitialChildren } from './react/components/buttons/ConfirmationButton/InitialChildren';
 export { DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
 export { ExternalLink } from './react/components/navigation/ExternalLink';
-export { FileInput } from './react/components/forms/FileInput/FileInput';
-export { FileTemplate } from './react/components/forms/FileInput/FileTemplate';
+export { FileInput } from './react/components/forms/FileInput';
 export { FooterAgencyInformation } from './react/components/footer/FooterAgencyInformation';
 export { FooterAgencyInformationColumn } from './react/components/footer/FooterAgencyInformationColumn';
 export { FooterAgencyInformationInfo } from './react/components/footer/FooterAgencyInformationInfo';

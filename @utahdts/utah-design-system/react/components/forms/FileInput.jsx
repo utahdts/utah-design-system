@@ -3,28 +3,27 @@ import {
   useCallback, useEffect, useRef
 } from 'react';
 import { isEqual, isFunction } from 'lodash';
-import { RequiredStar } from '../RequiredStar';
-import { joinClassNames } from '../../../util/joinClassNames';
-import { Tag } from '../../buttons/Tag';
-import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import { ErrorMessage } from '../ErrorMessage';
-import { FileContext } from './context/FileContext';
+import { RequiredStar } from './RequiredStar';
+import { joinClassNames } from '../../util/joinClassNames';
+import { Tag } from '../buttons/Tag';
+import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
+import { ErrorMessage } from './ErrorMessage';
 
 /**
  * @param {object} props
- * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.acceptedFileTypes]
+ * @param {(file: File, removeFile: (file: File) => void) => React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.errorMessage]
  * @param {string} [props.hint]
  * @param {string} props.id
  * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
+ * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {boolean} [props.multiple]
  * @param {string} [props.name]
- * @param {boolean} [props.isDisabled]
- * @param {boolean} [props.isRequired]
- * @param {(files: FileList, event: import('react').ChangeEvent<HTMLInputElement>) => void} [props.onChange]
+ * @param {(files: FileList | null, event: import('react').ChangeEvent<HTMLInputElement>) => void} [props.onChange]
  * @param {FileList} [props.value]
  * @returns {import('react').JSX.Element}
  */
@@ -48,59 +47,29 @@ export function FileInput({
   const { addPoliteMessage } = useAriaMessaging();
   const lf = new Intl.ListFormat('en');
   const [isDragged, setDragged] = useImmer(false);
-  const [files, setFiles] = useImmer(value || []);
-  const inputRef = useRef(null);
+  const [files, setFiles] = useImmer(value || null);
+  const inputRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
   const currentOnChange = useCallback((/** @type {import('react').ChangeEvent<HTMLInputElement>} */ event) => {
-    // @ts-ignore
-    onChange?.(inputRef.current.files, event);
-    // @ts-ignore
-    setFiles(inputRef.current.files);
+    onChange?.(inputRef.current?.files || null, event);
+    setFiles(inputRef.current?.files || null);
   }, []);
 
   const removeFile = useCallback((/** @type {File} */ file) => {
-    // @ts-ignore
-    const currentFiles = [...inputRef.current.files];
+    const currentFiles = [...inputRef.current?.files || []];
     const fileIndex = currentFiles.findIndex((item) => isEqual(file, item));
     if (fileIndex !== -1) {
       currentFiles.splice(fileIndex, 1);
       // Create new FileList
       const dataTransfer = new DataTransfer();
       currentFiles.forEach((item) => dataTransfer.items.add(item));
-      // @ts-ignore
-      inputRef.current.files = dataTransfer.files;
+      if (inputRef.current) inputRef.current.files = dataTransfer.files;
       currentOnChange();
     }
   }, [currentOnChange]);
 
-  /**
-   * @type {(function(): import('react').ReactNode)|*}
-   */
-  const renderContent = useCallback(() => [...files].map((/** @type {File} */ file) => {
-    let content;
-    if (children && isFunction(children)) {
-      content = (
-        // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <FileContext.Provider value={{ file, removeFile }} key={file.name}>
-          {children}
-        </FileContext.Provider>
-      );
-    } else {
-      content = (
-        <Tag
-          clearMessage={`Remove file: ${file.name}.`}
-          key={file.name}
-          onClear={() => removeFile(file)}
-        >
-          {file.name}
-        </Tag>
-      );
-    }
-    return content;
-  }), [files, children]);
-
   useEffect(() => {
-    if (files.length) {
+    if (files?.length) {
       addPoliteMessage(`You have selected the file${files.length > 1 ? 's' : ''}: ${lf.format([...files].map((item) => item.name))}.`);
     } else {
       addPoliteMessage('No file selected.');
@@ -132,7 +101,7 @@ export function FileInput({
       >
         <div className="file-input__safari" />
         {
-          !files.length
+          !files?.length
             ? (
               <div className="file-input__instructions">
                 <span>Drag {multiple ? 'files' : 'a file'} here or click to upload</span>
@@ -155,7 +124,7 @@ export function FileInput({
           type="file"
         />
         {
-          files.length
+          files?.length
             ? (
               <div className="file-input__file-selected">
                 <div className="flex justify-between items-center">
@@ -164,7 +133,19 @@ export function FileInput({
                 </div>
                 <hr />
                 <div className="file-input__file-list flex-wrap">
-                  {renderContent()}
+                  {[...files].map((/** @type {File} */ file) => (
+                    isFunction(children)
+                      ? <div key={file.name}>{children(file, removeFile)}</div>
+                      : (
+                        <Tag
+                          clearMessage={`Remove file: ${file.name}.`}
+                          key={file.name}
+                          onClear={() => removeFile(file)}
+                        >
+                          {file.name}
+                        </Tag>
+                      )
+                  ))}
                 </div>
               </div>
             )
