@@ -17,6 +17,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
+ * @param {(isOptionsExpanded: boolean) => string} [props.iconClassForIconButton] Can provide a custom icon to show for the popup icon
  * @param {string} props.id
  * @param {MutableRef<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
@@ -47,6 +48,7 @@ export function ComboBox({
   className,
   defaultValue,
   errorMessage,
+  iconClassForIconButton,
   id,
   innerRef: draftInnerRef,
   isClearable,
@@ -82,6 +84,7 @@ export function ComboBox({
         className={textInputClassName}
         comboBoxListId={comboBoxListId}
         errorMessage={errorMessage}
+        iconClassForIconButton={iconClassForIconButton}
         id={id}
         innerRef={(ref) => {
           contentRef.current = ref;
