@@ -130,7 +130,6 @@ export function ComboBoxContextProvider({
         });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value]
   );
 
@@ -163,7 +162,6 @@ export function ComboBoxContextProvider({
         });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].filterValue, comboBoxImmer[0].options, setComboBoxState]
   );
 
@@ -184,7 +182,6 @@ export function ComboBoxContextProvider({
         draftContext.comboBoxOptions = comboBoxImmer[0].options;
       });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].options]
   );
   useEffect(
@@ -193,7 +190,6 @@ export function ComboBoxContextProvider({
         draftContext.isOptionsExpanded = comboBoxImmer[0].isOptionsExpanded;
       });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].isOptionsExpanded]
   );
 

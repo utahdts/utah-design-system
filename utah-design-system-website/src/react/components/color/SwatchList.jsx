@@ -58,7 +58,6 @@ export function SwatchList({ colorFamily, onColorSelected }) {
         setLastSelectedColorPicker(cssState.selectedColorPicker);
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [lastSelectedColorPicker, cssState.selectedColorPicker, changedColorKeys]
   );
 

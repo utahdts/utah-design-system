@@ -40,7 +40,6 @@ export function TableSortingRules({
         }
       };
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [!setState, !state]
   );
 
@@ -51,7 +50,6 @@ export function TableSortingRules({
         setState((draftState) => { draftState.tableSortingFieldPath = value; });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value, !setState, !state]
   );
 

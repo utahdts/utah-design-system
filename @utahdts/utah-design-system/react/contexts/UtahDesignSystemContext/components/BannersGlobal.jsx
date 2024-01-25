@@ -66,7 +66,6 @@ export function BannersGlobal({ banners, bannerDuration }) {
       // Cleaning timers
       Object.keys(timers).forEach((key) => clearTimeout(timers[key]));
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
