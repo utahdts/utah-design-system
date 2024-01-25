@@ -60,12 +60,11 @@ export function TableFilterSelectAllOptions({
           (a, b) => (a > b ? 1 : 0),
         ]))
     ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [allData]
   );
 
   // keep the default settings object from being recreated every render so that it does not trigger filter registration
-  useTableFilterRegistration(recordFieldPath, !!exactMatch);
+  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
 
   return (
     <th

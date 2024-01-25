@@ -3,6 +3,7 @@ import { joinClassNames } from '../../util/joinClassNames';
 import { TextInput } from '../forms/TextInput';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
+import { useTableContext } from './hooks/useTableContext';
 
 /**
  * @param {object} props
@@ -39,13 +40,14 @@ export function TableFilterTextInput({
     onChange,
     value,
   });
+  const { state: { tableWrapperId } } = useTableContext();
 
-  useTableFilterRegistration(recordFieldPath, !!exactMatch);
+  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
 
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-text-input', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
-        id={`table-filter-text-input-${recordFieldPath}`}
+        id={`${tableWrapperId}__table-filter-text-input-${recordFieldPath}`}
         label={`filter ${recordFieldPath}`}
         onChange={currentOnChange}
         onClear={() => setValue('')}

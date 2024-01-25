@@ -47,7 +47,7 @@ export function TableFilterSelect({
     value,
   });
 
-  useTableFilterRegistration(recordFieldPath, !!exactMatch);
+  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
 
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-select', className)} id={id ?? undefined} ref={innerRef} {...rest}>

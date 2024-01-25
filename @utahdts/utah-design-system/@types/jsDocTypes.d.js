@@ -107,6 +107,7 @@
  *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
  *  @property {RecordFieldPath | null} tableSortingFieldPath
  *  @property {RecordFieldPath[] | null} tableSortingFieldPaths
+ *  @property {string} tableWrapperId each table gets its own unique id helpful when there are multiple tables
  * }
  */
 

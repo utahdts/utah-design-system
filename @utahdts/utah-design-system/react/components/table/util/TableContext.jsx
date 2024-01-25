@@ -32,5 +32,6 @@ export const TableContext = /** @type {typeof createContext<TableContextValue>} 
     tableSortingOnChange: null,
     tableSortingFieldPath: null,
     tableSortingFieldPaths: null,
+    tableWrapperId: 'default-context-table-wrapper-id',
   },
 });
