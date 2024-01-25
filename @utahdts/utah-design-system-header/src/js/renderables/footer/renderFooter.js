@@ -47,7 +47,8 @@ export function renderFooter() {
   const previousFooter = document.querySelector(getCssClassSelector(domConstants.FOOTER));
   let footer = previousFooter;
 
-  if (!settings.footer) {
+  // `null` means to not show footer. `undefined` means to still show footer.
+  if (settings.footer === null) {
     previousFooter?.remove();
   } else {
     const settingsChanged = (
