@@ -10,30 +10,30 @@ Grid variables
   --grid-fixed-form: calc(var(--grid-fixed) / 2.3);
   --grid-fixed-third: calc(var(--grid-fixed) / 3);
   --grid-fixed-fourth: calc(var(--grid-fixed) / 4);
-}
 
-.grid-wrapper {
-  display: flex;
-  justify-content: center;
-}
-.grid-fixed {
-  max-width: var(--grid-fixed);
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-l);
+  .grid-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .grid-fixed {
+    max-width: var(--grid-fixed);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-l);
 
-  &--2col {
-    grid-template-columns: 1fr 1fr;
-  }
-  &--3col {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  &--4col {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+    &--2col {
+      grid-template-columns: 1fr 1fr;
+    }
+    &--3col {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    &--4col {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
-  .grid-column-span-2 {
-    grid-column: span 2;
+    .grid-column-span-2 {
+      grid-column: span 2;
+    }
   }
 }
