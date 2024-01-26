@@ -70,6 +70,27 @@ export function ComboBoxDocumentation() {
         )}
       />
 
+      <StaticExample
+        title="ComboBox with disabled options example"
+        renderedExample={(
+          <ComboBox id="combo-box-documentation-static-example-2" label="Choose the best IDE">
+            <ComboBoxOption label="Eclipse" value="eclipse">Eclipse</ComboBoxOption>
+            <ComboBoxOption label="IntelliJ" value="intellij">IntelliJ</ComboBoxOption>
+            <ComboBoxOption label="Visual Studio" value="visual-studio">Visual Studio</ComboBoxOption>
+            <ComboBoxOption label="VS Code" value="vs-code">VS Code</ComboBoxOption>
+            <ComboBoxOption label="Xcode" value="Xcode">Xcode</ComboBoxOption>
+            <ComboBoxOption label="Atom" value="Atom" isDisabled>Atom</ComboBoxOption>
+            <ComboBoxOption label="Dreamweaver" value="Dreamweaver" isDisabled>Dreamweaver</ComboBoxOption>
+            <ComboBoxOption label="NotePad" value="NotePad" isDisabled>NotePad</ComboBoxOption>
+          </ComboBox>
+        )}
+        quickTips={(
+          <ul>
+            <li>Disabled options are not selectable.</li>
+          </ul>
+        )}
+      />
+
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
