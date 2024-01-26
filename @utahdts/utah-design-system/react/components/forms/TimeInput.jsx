@@ -99,6 +99,15 @@ export function TimeInput({
     [timeRangeBegin, timeRangeEnd, timeRangeIncrement]
   );
 
+  const clockIcon = useMemo(
+    () => (
+      <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}>
+        <span className="utds-icon-before-clock" aria-hidden="true" />
+      </div>
+    ),
+    [isDisabled]
+  );
+
   return (
     <div className={joinClassNames('time-input-wrapper', 'time-input-wrapper--time-input', wrapperClassName)} ref={innerRef}>
       <div className={joinClassNames('time-input__inner-wrapper', className)}>
@@ -108,6 +117,7 @@ export function TimeInput({
               <ComboBox
                 // COMMON PROPS: make sure these match with TextInput
                 errorMessage={errorMessage}
+                iconCallback={() => clockIcon}
                 id={id}
                 isClearable={isClearable}
                 isDisabled={isDisabled}
@@ -115,12 +125,11 @@ export function TimeInput({
                 label={label}
                 labelClassName={labelClassName}
                 name={name || id}
-                onClear={currentOnClear}
+                onClear={isClearable ? currentOnClear : undefined}
                 placeholder={placeholder}
                 value={currentValue}
                 // END COMMON PROPS
                 allowCustomEntry={allowCustomEntry}
-                iconClassForIconButton={(isOptionsExpanded) => (isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down')}
                 onChange={currentOnChange}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...rest}
@@ -147,13 +156,9 @@ export function TimeInput({
                 label={label}
                 labelClassName={labelClassName}
                 name={name || id}
-                onClear={currentOnClear}
+                onClear={isClearable ? currentOnClear : undefined}
                 placeholder={placeholder}
-                rightContent={(
-                  <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}>
-                    <span className="utds-icon-before-calendar " aria-hidden="true" />
-                  </div>
-                )}
+                rightContent={clockIcon}
                 value={currentValue}
                 // END COMMON PROPS
                 onChange={(e) => currentOnChange(e.target.value)}
