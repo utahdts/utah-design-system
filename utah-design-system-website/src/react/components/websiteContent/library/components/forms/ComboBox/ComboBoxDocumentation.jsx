@@ -1,5 +1,13 @@
 /* eslint-disable max-len */
-import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
+import {
+  ComboBox,
+  ComboBoxOption,
+  ComboBoxOptionGroup,
+  Tab,
+  TabGroup,
+  TabList, TabPanel,
+  TabPanels
+} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -7,6 +15,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { ComboBoxExampleCodeReact } from './ComboBoxExampleCodeReact';
 import { ComboBoxExampleProps } from './ComboBoxExampleProps';
 import { ComboBoxExampleRender } from './ComboBoxExampleRender';
+import { ComboBoxCssClassesDocumentation } from './ComboBoxCssClassesDocumentation';
+import { ComboBoxPropsDocumentation } from './ComboBoxPropsDocumentation';
 
 export function ComboBoxDocumentation() {
   return (
@@ -149,6 +159,24 @@ export function ComboBoxDocumentation() {
           the <Link to={pageUrls.accessibility}>accessibility requirements that apply to all form controls</Link>.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="component-props-css">
+          <TabList>
+            <Tab id="component-props-css">CSS</Tab>
+            <Tab id="component-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="component-props-css">
+              <ComboBoxCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react">
+              <ComboBoxPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
