@@ -1,4 +1,4 @@
-import { TimeInput, useFormContext } from '@utahdts/utah-design-system';
+import { TimeInput } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').TimeInputExamplePropsShape} TimeInputExamplePropsShape */
 
@@ -33,7 +33,6 @@ export function TimeInputExampleRender({
   },
   innerRef,
 }) {
-  const { setState: setStateFormContext } = useFormContext();
   return (
     <div style={{ width: '80%' }}>
       <TimeInput
@@ -41,7 +40,7 @@ export function TimeInputExampleRender({
         className={className}
         errorMessage={errorMessage}
         hasTimePopup={hasTimePopup}
-        id={id || 'time-input-example-render-id'}
+        id={id || 'time-input-example-id'}
         innerRef={innerRef}
         isClearable={isClearable}
         isDisabled={isDisabled}
@@ -50,14 +49,10 @@ export function TimeInputExampleRender({
         name={name}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;
-          setStateFormContext?.(
-            (draftStateFormContext) => {
-              // @ts-ignore
-              draftStateFormContext['props.value'] = newValue;
-            }
-          );
         })}
-        onClear={() => setState((draftState) => { draftState.props.value = ''; })}
+        onClear={() => {
+          setState((draftState) => { draftState.props.value = ''; });
+        }}
         placeholder={placeholder}
         timeFormat={timeFormat}
         timeRangeIncrement={Number(timeRangeIncrement) || 15}
