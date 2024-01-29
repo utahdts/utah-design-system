@@ -3,6 +3,7 @@ import {
   ComboBoxOption,
   useFormContext
 } from '@utahdts/utah-design-system';
+import { useImmer } from 'use-immer';
 
 /** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
@@ -17,6 +18,7 @@ export function ComboBoxExampleRender({
   setState,
   state: {
     props: {
+      allowCustomEntry,
       className,
       errorMessage,
       id,
@@ -30,9 +32,17 @@ export function ComboBoxExampleRender({
   innerRef,
 }) {
   const { setState: setStateFormContext } = useFormContext();
+  const [options, setOptions] = useImmer(() => [
+    { label: 'Arches National Park', value: 'arches' },
+    { label: 'Bryce Canyon National Park', value: 'bryce' },
+    { label: 'Canyonlands National Park', value: 'canyonlands' },
+    { label: 'Capitol Reef National Park', value: 'capitol-reef' },
+    { label: 'Zion National Park', value: 'zion' },
+  ]);
   return (
     <div style={{ width: '80%' }}>
       <ComboBox
+        allowCustomEntry={allowCustomEntry}
         className={className}
         errorMessage={errorMessage}
         id={id || 'combo-box-example-render-id'}
@@ -51,13 +61,16 @@ export function ComboBoxExampleRender({
           );
         })}
         onClear={() => setState((draftState) => { draftState.props.value = ''; })}
+        onCustomEntry={(customValue) => setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }))}
         value={value}
+        // @ts-ignore
+        autoComplete="off"
       >
-        <ComboBoxOption label="Arches National Park" value="arches" />
-        <ComboBoxOption label="Bryce Canyon National Park" value="bryce" />
-        <ComboBoxOption label="Canyonlands National Park" value="canyonlands" />
-        <ComboBoxOption label="Capitol Reef National Park" value="capitol-reef" />
-        <ComboBoxOption label="Zion National Park" value="zion" />
+        {
+          options.map((option) => (
+            <ComboBoxOption key={`combo-box-example-render__option__${option.value}`} label={option.label} value={option.value} />
+          ))
+        }
       </ComboBox>
     </div>
   );

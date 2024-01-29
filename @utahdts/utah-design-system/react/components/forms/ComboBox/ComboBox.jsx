@@ -12,6 +12,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry] can the user type in their own items to add to the list?
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
@@ -29,6 +30,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.name]
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {() => void} [props.onClear]
+ * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
@@ -40,6 +42,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @returns {import('react').JSX.Element}
  */
 export function ComboBox({
+  allowCustomEntry,
   children,
   className,
   defaultValue,
@@ -54,6 +57,7 @@ export function ComboBox({
   labelClassName,
   name,
   onChange,
+  onCustomEntry,
   onClear,
   onKeyUp,
   onSubmit,
@@ -74,6 +78,7 @@ export function ComboBox({
     <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
       {tagChildren}
       <ComboBoxTextInput
+        allowCustomEntry={allowCustomEntry}
         className={textInputClassName}
         comboBoxListId={comboBoxListId}
         errorMessage={errorMessage}
@@ -88,11 +93,13 @@ export function ComboBox({
         label={label}
         labelClassName={labelClassName}
         name={name}
+        onCustomEntry={onCustomEntry}
         placeholder={placeholder}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
       <CombBoxListBox
+        allowCustomEntry={allowCustomEntry}
         id={comboBoxListId}
         ariaLabelledById={id}
         popperReferenceElement={popperContentRef ?? contentRef.current ?? null}

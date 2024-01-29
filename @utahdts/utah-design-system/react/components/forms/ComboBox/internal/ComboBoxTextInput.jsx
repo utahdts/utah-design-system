@@ -1,5 +1,6 @@
 import { identity, isFunction } from 'lodash';
 import { useCallback, useRef } from 'react';
+import { joinClassNames } from '../../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { IconButton } from '../../../buttons/IconButton';
 import { useFormContext } from '../../FormContext/useFormContext';
@@ -9,7 +10,6 @@ import { useComboBoxContext } from '../context/useComboBoxContext';
 import { clearComboBoxSelection } from '../functions/clearComboBoxSelection';
 import { moveComboBoxSelectionDown } from '../functions/moveComboBoxSelectionDown';
 import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
-import { joinClassNames } from '../../../../util/joinClassNames';
 
 /** @typedef {import('@utahdts/utah-design-system').EventAction} EventAction */
 /**
@@ -19,6 +19,7 @@ import { joinClassNames } from '../../../../util/joinClassNames';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry]
  * @param {string} [props.className]
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
@@ -33,6 +34,7 @@ import { joinClassNames } from '../../../../util/joinClassNames';
  * @param {string} [props.name]
  * @param {import('react').UIEventHandler} [props.onBlur]
  * @param {EventAction} [props.onClear]
+ * @param {(customValue: string) => void} [props.onCustomEntry]
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
  * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
@@ -40,6 +42,7 @@ import { joinClassNames } from '../../../../util/joinClassNames';
  * @returns {import('react').JSX.Element}
  */
 export function ComboBoxTextInput({
+  allowCustomEntry,
   className,
   comboBoxListId,
   errorMessage,
@@ -50,6 +53,7 @@ export function ComboBoxTextInput({
   isDisabled,
   onBlur,
   onClear,
+  onCustomEntry,
   onKeyUp,
   onSubmit,
   placeholder,
@@ -63,6 +67,7 @@ export function ComboBoxTextInput({
       isOptionsExpanded,
       onClear: onClearComboBoxContext,
       onKeyUp: onKeyUpFromContext,
+      onChange,
       options,
       optionValueFocusedId,
       optionValueSelected,
@@ -91,6 +96,37 @@ export function ComboBoxTextInput({
         }
       },
       [multiSelectContext, options, setComboBoxContext]
+    )
+  );
+  const onEnterPress = useOnKeyUp(
+    'Enter',
+    useCallback(
+      /** @param {React.KeyboardEvent<HTMLInputElement>} e */
+      (e) => {
+        /** @type {HTMLInputElement} */
+        // @ts-ignore
+        const { target } = e;
+        const currentTextInputValue = /** @type {string} */ (target.value);
+        const currentTextInputValueLowerCase = currentTextInputValue.toLowerCase();
+
+        // if already have entered this custom item or if it matches an existing option, don't add it again.
+        const matchingOption = options.find((option) => option.labelLowerCase === currentTextInputValueLowerCase);
+
+        // redundant to check the allowCustomEntry flag, but lends to better readability
+        if (!matchingOption && allowCustomEntry) {
+          // let caller know a new option has been added
+          onCustomEntry?.(currentTextInputValue);
+
+          // let caller know the new option is also selected
+          onChange(currentTextInputValue);
+
+          // close expanded options after selection since normally have to press enter on the Select Option and it closes popup
+          setComboBoxContext((draftContext) => {
+            draftContext.isOptionsExpanded = false;
+          });
+        }
+      },
+      [allowCustomEntry, multiSelectContext, options, setComboBoxContext]
     )
   );
   const clearIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
@@ -148,7 +184,7 @@ export function ComboBoxTextInput({
                     && !document.activeElement?.classList.contains('multi-select__chevron')
                   ) {
                     const selectedOption = options.find((option) => option.value === optionValueSelected);
-                    draftContext.filterValue = selectedOption?.label ?? '';
+                    draftContext.filterValue = selectedOption?.label ?? optionValueSelected ?? '';
                     draftContext.isFilterValueDirty = false;
                     draftContext.isOptionsExpanded = false;
                   }
@@ -159,8 +195,9 @@ export function ComboBoxTextInput({
           );
         }}
         onChange={(e) => {
+          const newValue = e.target.value;
           setComboBoxContext((draftContext) => {
-            draftContext.filterValue = e.target.value;
+            draftContext.filterValue = newValue;
             draftContext.isFilterValueDirty = true;
           });
         }}
@@ -204,6 +241,7 @@ export function ComboBoxTextInput({
               onCancelKeyPress(e),
               onUpArrowPress(e),
               onDownArrowPress(e),
+              allowCustomEntry && onEnterPress(e),
             ].some(identity)) {
               if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
                 setComboBoxContext((draftContext) => {
