@@ -9,6 +9,7 @@ import { useImmer } from 'use-immer';
 import { useFormContext } from '../../FormContext/useFormContext';
 import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxContext } from './ComboBoxContext';
+import { valueAtPath } from '../../../../util/state/valueAtPath';
 
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
@@ -47,7 +48,7 @@ export function ComboBoxContextProvider({
   onSubmit,
   value,
 }) {
-  const { onChange: onChangeFormContext } = useFormContext();
+  const { onChange: onChangeFormContext, state } = useFormContext();
   const [, setMultiSelectContext] = useMultiSelectContext();
 
   const comboBoxImmerRef = useRef(/** @type {import('use-immer').ImmerHook<ComboBoxContextValue> | null} */(null));
@@ -100,11 +101,15 @@ export function ComboBoxContextProvider({
         } else {
           draftContext.options.push(newOption);
         }
+        // `optionValueSelected` may be for an option that has not yet been registered
+        // check if the newly registered option is a match for `optionValueSelected`
+        const selectedOption = draftContext.options.find((option) => option.value === draftContext.optionValueSelected);
+        draftContext.filterValue = selectedOption?.label ?? '';
       });
     },
     optionValueFocusedId: null,
     optionValueHighlighted: null,
-    optionValueSelected: defaultValue ?? value ?? null,
+    optionValueSelected: defaultValue ?? value ?? valueAtPath({ object: state, path: comboBoxId }) ?? null,
     unregisterOption: (optionValue) => {
       comboBoxImmer[1]((draftContext) => {
         draftContext.options = draftContext.options.filter((option) => option.value !== optionValue);
@@ -125,7 +130,6 @@ export function ComboBoxContextProvider({
         });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value]
   );
 
@@ -158,7 +162,6 @@ export function ComboBoxContextProvider({
         });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].filterValue, comboBoxImmer[0].options, setComboBoxState]
   );
 
@@ -179,7 +182,6 @@ export function ComboBoxContextProvider({
         draftContext.comboBoxOptions = comboBoxImmer[0].options;
       });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].options]
   );
   useEffect(
@@ -188,7 +190,6 @@ export function ComboBoxContextProvider({
         draftContext.isOptionsExpanded = comboBoxImmer[0].isOptionsExpanded;
       });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [comboBoxImmer[0].isOptionsExpanded]
   );
 

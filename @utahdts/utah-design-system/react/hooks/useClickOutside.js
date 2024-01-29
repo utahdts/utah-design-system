@@ -49,7 +49,6 @@ export function useClickOutside(ref, handler, isDisabled = false) {
 
       return retVal;
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [ref.current, handler, isDisabled]
   );
 }

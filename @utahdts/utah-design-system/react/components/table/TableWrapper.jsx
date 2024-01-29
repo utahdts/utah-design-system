@@ -71,7 +71,6 @@ export function TableWrapper({
   ...rest
 }) {
   const internalId = useId();
-
   /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('@utahdts/utah-design-system').TableContextState<TableDataT>>]} */
   const [state, setState] = useImmer(
     /** @returns {TableContextState<TableDataT>} */

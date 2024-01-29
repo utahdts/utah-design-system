@@ -130,7 +130,6 @@ export function renderUtahIdMenu(shouldAddMenuTitle) {
     {
       actionUrl: onProfile ? undefined : { url: utahIdUrls.PROFILE, openInNewTab: true },
       actionFunction: onProfile || undefined,
-      className: 'external-link',
       title: 'UtahID Profile',
     },
     {

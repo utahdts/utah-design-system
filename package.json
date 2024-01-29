@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "1.14.1",
+  "version": "1.14.2",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -47,6 +47,7 @@
     "testLibrary": "npm run testOnce -workspace=@utahdts/utah-design-system",
     "testWebsite": "npm run testOnce -workspace=utah-design-system-website",
     "testwHeader": "npm run testw -workspace=@utahdts/utah-design-system-header",
+    "testwWebsite": "npm run test -workspace=utah-design-system-website",
     "test:ci": "npm run test:ci -workspace=@utahdts/utah-design-system",
     "// ======= combo tasks ====== //": "",
     "build": "run-s buildHeader buildLibrary buildWebsite",

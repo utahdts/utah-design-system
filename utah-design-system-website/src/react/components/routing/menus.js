@@ -53,6 +53,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.formGeneralDocumentation.link,
+      title: pages.formGeneralDocumentation.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       // "form validation"
       link: pages.validation.link,
       title: pages.validation.pageTitle,
