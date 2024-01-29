@@ -1,4 +1,4 @@
-import { useId, useRef } from 'react';
+import { useId, useState } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
 import { CombBoxListBox } from './internal/CombBoxListBox';
@@ -73,8 +73,9 @@ export function ComboBox({
   wrapperClassName,
   ...rest
 }) {
-  const comboBoxListId = useId();
-  const contentRef = useRef(/** @type {HTMLInputElement | null} */(null));
+  const comboBoxListId = `${id}__${useId()}`;
+  // useState (instead of useRef) so changes update ComboBoxListBox
+  const [contentRefState, setContentRefState] = useState(/** @type {HTMLInputElement | null} */(null));
 
   const child = (
     <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
@@ -87,7 +88,7 @@ export function ComboBox({
         iconCallback={iconCallback}
         id={id}
         innerRef={(ref) => {
-          contentRef.current = ref;
+          setContentRefState(ref);
         }}
         isClearable={isClearable}
         isShowingClearableIcon={isShowingClearableIcon}
@@ -105,7 +106,7 @@ export function ComboBox({
         allowCustomEntry={allowCustomEntry}
         id={comboBoxListId}
         ariaLabelledById={id}
-        popperReferenceElement={popperContentRef ?? contentRef.current ?? null}
+        popperReferenceElement={popperContentRef ?? contentRefState ?? null}
       >
         {children}
       </CombBoxListBox>
