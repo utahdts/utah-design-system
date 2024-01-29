@@ -5,6 +5,7 @@ import { useImmer } from 'use-immer';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { CalendarInputPropsDocumentation } from './CalendarInputPropsDocumentation';
 import { DateInputCssClassesDocumentation } from './DateInputCssClassesDocumentation';
 import { DateInputExampleCodeReact } from './DateInputExampleCodeReact';
 import { DateInputExampleProps } from './DateInputExampleProps';
@@ -78,7 +79,7 @@ export function DateInputDocumentation() {
       <StaticExample
         title="Calendar Input"
         renderedExample={(
-          <div style={{ width: '200px' }}>
+          <div style={{ width: '200px', border: '1px solid var(--gray-color)' }}>
             <CalendarInput
               id="test-calendar-input"
               isDisabled={false}
@@ -154,14 +155,18 @@ export function DateInputDocumentation() {
         <TabGroup defaultValue="component-props-css">
           <TabList>
             <Tab id="component-props-css">CSS</Tab>
-            <Tab id="component-props-react">React</Tab>
+            <Tab id="component-props-react-date-input">React (Date Input)</Tab>
+            <Tab id="component-props-react-calendar-input">React (Calendar Input)</Tab>
           </TabList>
           <TabPanels>
             <TabPanel tabId="component-props-css">
               <DateInputCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="component-props-react">
+            <TabPanel tabId="component-props-react-date-input">
               <DateInputPropsDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react-calendar-input">
+              <CalendarInputPropsDocumentation />
             </TabPanel>
           </TabPanels>
         </TabGroup>

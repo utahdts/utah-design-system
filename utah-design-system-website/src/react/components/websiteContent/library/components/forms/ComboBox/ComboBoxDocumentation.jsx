@@ -1,5 +1,13 @@
 /* eslint-disable max-len */
-import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
+import {
+  ComboBox,
+  ComboBoxOption,
+  ComboBoxOptionGroup,
+  Tab,
+  TabGroup,
+  TabList, TabPanel,
+  TabPanels
+} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -7,6 +15,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { ComboBoxExampleCodeReact } from './ComboBoxExampleCodeReact';
 import { ComboBoxExampleProps } from './ComboBoxExampleProps';
 import { ComboBoxExampleRender } from './ComboBoxExampleRender';
+import { ComboBoxCssClassesDocumentation } from './ComboBoxCssClassesDocumentation';
+import { ComboBoxPropsDocumentation } from './ComboBoxPropsDocumentation';
 
 export function ComboBoxDocumentation() {
   return (
@@ -57,6 +67,27 @@ export function ComboBoxDocumentation() {
             <li>A combo box allows the user to select from a list of options.</li>
             <li>The user can search the list of options by typing in the field.</li>
             <li>The list of available options is narrowed by the search.</li>
+          </ul>
+        )}
+      />
+
+      <StaticExample
+        title="ComboBox with disabled options example"
+        renderedExample={(
+          <ComboBox id="combo-box-documentation-static-example-2" label="Choose the best IDE">
+            <ComboBoxOption label="Eclipse" value="eclipse">Eclipse</ComboBoxOption>
+            <ComboBoxOption label="IntelliJ" value="intellij">IntelliJ</ComboBoxOption>
+            <ComboBoxOption label="Visual Studio" value="visual-studio">Visual Studio</ComboBoxOption>
+            <ComboBoxOption label="VS Code" value="vs-code">VS Code</ComboBoxOption>
+            <ComboBoxOption label="Xcode" value="Xcode">Xcode</ComboBoxOption>
+            <ComboBoxOption label="Atom" value="Atom" isDisabled>Atom</ComboBoxOption>
+            <ComboBoxOption label="Dreamweaver" value="Dreamweaver" isDisabled>Dreamweaver</ComboBoxOption>
+            <ComboBoxOption label="NotePad" value="NotePad" isDisabled>NotePad</ComboBoxOption>
+          </ComboBox>
+        )}
+        quickTips={(
+          <ul>
+            <li>Disabled options are not selectable.</li>
           </ul>
         )}
       />
@@ -150,6 +181,24 @@ export function ComboBoxDocumentation() {
           the <Link to={pageUrls.accessibility}>accessibility requirements that apply to all form controls</Link>.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="component-props-css">
+          <TabList>
+            <Tab id="component-props-css">CSS</Tab>
+            <Tab id="component-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="component-props-css">
+              <ComboBoxCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react">
+              <ComboBoxPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

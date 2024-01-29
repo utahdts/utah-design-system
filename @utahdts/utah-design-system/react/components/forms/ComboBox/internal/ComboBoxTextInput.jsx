@@ -1,7 +1,5 @@
 import { identity, isFunction } from 'lodash';
 import { useCallback, useRef } from 'react';
-import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import { useTimeout } from '../../../../hooks/useTimeout';
 import { joinClassNames } from '../../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { IconButton } from '../../../buttons/IconButton';
@@ -138,168 +136,164 @@ export function ComboBoxTextInput({
   // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
   const onKeyUpPreviousValue = useRef('');
 
-  const announceNewValueTimeout = useTimeout(1000, true);
-  const { addPoliteMessage } = useAriaMessaging();
-
   const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
   return (
-    <TextInput
-      aria-activedescendant={optionValueFocusedId}
-      aria-autocomplete="list"
-      aria-controls={comboBoxListId}
-      aria-expanded={isOptionsExpanded}
-      aria-haspopup="listbox"
-      aria-owns={comboBoxListId}
-      className={joinClassNames('combo-box-input', className)}
-      clearIconRef={clearIconRef}
-      id={id}
-      innerRef={(ref) => {
-        const input = ref?.querySelector('input') ?? null;
-        textInputRef.current = input;
-        comboBoxContextNonStateRef.current.textInput = input;
-        if (multiSelectContextRefs) {
-          multiSelectContextRefs.current.textInput = input;
-        }
-        if (draftInnerRef) {
-          if (isFunction(draftInnerRef)) {
-            draftInnerRef(input);
-          } else {
-            draftInnerRef.current = input;
+    <div>
+      <TextInput
+        aria-activedescendant={optionValueFocusedId}
+        aria-autocomplete="list"
+        aria-controls={comboBoxListId}
+        aria-expanded={isOptionsExpanded}
+        aria-haspopup="listbox"
+        aria-owns={comboBoxListId}
+        className={joinClassNames('combo-box-input', className)}
+        clearIconRef={clearIconRef}
+        id={id}
+        innerRef={(ref) => {
+          const input = ref?.querySelector('input') ?? null;
+          textInputRef.current = input;
+          comboBoxContextNonStateRef.current.textInput = input;
+          if (multiSelectContextRefs) {
+            multiSelectContextRefs.current.textInput = input;
           }
-        }
-      }}
-      isClearable={isClearable}
-      isDisabled={isDisabled}
-      isShowingClearableIcon={isShowingClearableIcon}
-      errorMessage={errorMessage}
-      // @ts-ignore
-      onBlur={(e) => {
-        onBlur?.(e);
-        onKeyUpPreviousValue.current = filterValue;
-        // wait for combo box option to register that it has focus
-        setTimeout(
-          () => {
-            // clicking the "x" clear icon button takes focus away from the text input and on to the x-button
-            // without checking if the clear button has focus, this was trumping the clear button's onclick
-            if (clearIconRef.current !== document.activeElement) {
-              setComboBoxContext((draftContext) => {
-                // ul is focused, with no option focused, if clicking on the scroll-bar for the ul (ul has max-height and auto overflow)
-                if (
-                  !draftContext.optionValueFocused
-                  && !document.activeElement?.classList.contains('combo-box-input__list-box')
-                  && !document.activeElement?.classList.contains('multi-select__chevron')
-                ) {
-                  const selectedOption = options.find((option) => option.value === optionValueSelected);
-                  draftContext.filterValue = selectedOption?.label ?? optionValueSelected ?? '';
-                  draftContext.isFilterValueDirty = false;
-                  draftContext.isOptionsExpanded = false;
-                }
-              });
+          if (draftInnerRef) {
+            if (isFunction(draftInnerRef)) {
+              draftInnerRef(input);
+            } else {
+              draftInnerRef.current = input;
             }
-          },
-          1
-        );
-      }}
-      onChange={(e) => {
-        const newValue = e.target.value;
-        if (allowCustomEntry) {
-          announceNewValueTimeout(() => addPoliteMessage(`Press Enter to add ${newValue} to the combo box list`));
-        }
-        setComboBoxContext((draftContext) => {
-          draftContext.filterValue = newValue;
-          draftContext.isFilterValueDirty = true;
-        });
-      }}
-      onClear={
-        isClearable
-          ? (
-            (e) => {
-              if (onClear) {
-                // @ts-ignore
-                onClear(e);
-              } else if (onClearComboBoxContext) {
-                onClearComboBoxContext();
+          }
+        }}
+        isClearable={isClearable}
+        isDisabled={isDisabled}
+        isShowingClearableIcon={isShowingClearableIcon}
+        errorMessage={errorMessage}
+        // @ts-ignore
+        onBlur={(e) => {
+          onBlur?.(e);
+          onKeyUpPreviousValue.current = filterValue;
+          // wait for combo box option to register that it has focus
+          setTimeout(
+            () => {
+              // clicking the "x" clear icon button takes focus away from the text input and on to the x-button
+              // without checking if the clear button has focus, this was trumping the clear button's onclick
+              if (clearIconRef.current !== document.activeElement) {
                 setComboBoxContext((draftContext) => {
-                  draftContext.filterValue = '';
-                  draftContext.isFilterValueDirty = false;
+                  // ul is focused, with no option focused, if clicking on the scroll-bar for the ul (ul has max-height and auto overflow)
+                  if (
+                    !draftContext.optionValueFocused
+                    && !document.activeElement?.classList.contains('combo-box-input__list-box')
+                    && !document.activeElement?.classList.contains('multi-select__chevron')
+                  ) {
+                    const selectedOption = options.find((option) => option.value === optionValueSelected);
+                    draftContext.filterValue = selectedOption?.label ?? optionValueSelected ?? '';
+                    draftContext.isFilterValueDirty = false;
+                    draftContext.isOptionsExpanded = false;
+                  }
                 });
-              } else {
+              }
+            },
+            1
+          );
+        }}
+        onChange={(e) => {
+          const newValue = e.target.value;
+          setComboBoxContext((draftContext) => {
+            draftContext.filterValue = newValue;
+            draftContext.isFilterValueDirty = true;
+          });
+        }}
+        onClear={
+          isClearable
+            ? (
+              (e) => {
+                if (onClear) {
+                  // @ts-ignore
+                  onClear(e);
+                } else if (onClearComboBoxContext) {
+                  onClearComboBoxContext();
+                  setComboBoxContext((draftContext) => {
+                    draftContext.filterValue = '';
+                    draftContext.isFilterValueDirty = false;
+                  });
+                } else {
+                  setComboBoxContext((draftContext) => {
+                    draftContext.filterValue = '';
+                    draftContext.isFilterValueDirty = false;
+                    draftContext.isOptionsExpanded = false;
+                    draftContext.optionValueHighlighted = null;
+                    draftContext.optionValueSelected = null;
+                  });
+                }
+              }
+            )
+            : undefined
+        }
+        onClick={() => {
+          setComboBoxContext((draftContext) => {
+            draftContext.isOptionsExpanded = true;
+          });
+        }}
+        // @ts-ignore
+        onKeyDown={(e) => e.stopPropagation()}
+        onKeyUp={(e) => {
+          // @ts-ignore
+          if (!onKeyUp?.(e, onKeyUpPreviousValue.current) && !onKeyUpFromContext?.(e, onKeyUpPreviousValue.current)) {
+            if (![
+              onCancelKeyPress(e),
+              onUpArrowPress(e),
+              onDownArrowPress(e),
+              allowCustomEntry && onEnterPress(e),
+            ].some(identity)) {
+              if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
                 setComboBoxContext((draftContext) => {
-                  draftContext.filterValue = '';
-                  draftContext.isFilterValueDirty = false;
-                  draftContext.isOptionsExpanded = false;
-                  draftContext.optionValueHighlighted = null;
-                  draftContext.optionValueSelected = null;
+                  if (draftContext.filterValue) {
+                    // if key wasn't one of the others, expand the options
+                    draftContext.isOptionsExpanded = true;
+                  } else {
+                    draftContext.isFilterValueDirty = false;
+                  }
                 });
               }
             }
-          )
-          : undefined
-      }
-      onClick={() => {
-        setComboBoxContext((draftContext) => {
-          draftContext.isOptionsExpanded = true;
-        });
-      }}
-      // @ts-ignore
-      onKeyDown={(e) => e.stopPropagation()}
-      onKeyUp={(e) => {
+          }
+          onKeyUpPreviousValue.current = filterValue;
+        }}
         // @ts-ignore
-        if (!onKeyUp?.(e, onKeyUpPreviousValue.current) && !onKeyUpFromContext?.(e, onKeyUpPreviousValue.current)) {
-          if (![
-            onCancelKeyPress(e),
-            onUpArrowPress(e),
-            onDownArrowPress(e),
-            allowCustomEntry && onEnterPress(e),
-          ].some(identity)) {
-            if (!['Alt', 'Control', 'Meta', 'Tab', 'Shift', 'ShiftLeft', 'ShiftRight'].includes(e.key)) {
-              setComboBoxContext((draftContext) => {
-                if (draftContext.filterValue) {
-                  // if key wasn't one of the others, expand the options
-                  draftContext.isOptionsExpanded = true;
-                } else {
-                  draftContext.isFilterValueDirty = false;
-                }
-              });
+        onSubmit={onSubmit ?? onSubmitFormContext}
+        placeholder={placeholder}
+        rightContent={(
+          <IconButton
+            aria-hidden="true"
+            className="combo-box-input__chevron icon-button--borderless icon-button--small1x"
+            icon={
+              iconCallback?.(isOptionsExpanded)
+              ?? (
+                <span
+                  aria-hidden="true"
+                  className={isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'}
+                />
+              )
             }
-          }
-        }
-        onKeyUpPreviousValue.current = filterValue;
-      }}
-      // @ts-ignore
-      onSubmit={onSubmit ?? onSubmitFormContext}
-      placeholder={placeholder}
-      rightContent={(
-        <IconButton
-          aria-hidden="true"
-          className="combo-box-input__chevron icon-button--borderless icon-button--small1x"
-          icon={
-            iconCallback?.(isOptionsExpanded)
-            ?? (
-              <span
-                aria-hidden="true"
-                className={isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'}
-              />
-            )
-          }
-          isDisabled={isDisabled}
-          onClick={(e) => {
-            e.stopPropagation();
-            setComboBoxContext((draftContext) => {
-              draftContext.isOptionsExpanded = !draftContext.isOptionsExpanded;
-              textInputRef.current?.focus();
-            });
-          }}
-          title="Toggle popup menu"
-          // @ts-ignore
-          // prevent the chevron from closing and reopening the popup
-          onMouseDown={(e) => e.preventDefault()}
-        />
-      )}
-      role="combobox"
-      value={filterValue}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...rest}
-    />
+            isDisabled={isDisabled}
+            onClick={(e) => {
+              e.stopPropagation();
+              setComboBoxContext((draftContext) => {
+                draftContext.isOptionsExpanded = !draftContext.isOptionsExpanded;
+                textInputRef.current?.focus();
+              });
+            }}
+            title="Toggle popup menu"
+            // @ts-ignore
+            // prevent the chevron from closing and reopening the popup
+            onMouseDown={(e) => e.preventDefault()}
+          />
+        )}
+        role="combobox"
+        value={filterValue}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...rest}
+      />
+    </div>
   );
 }

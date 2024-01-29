@@ -27,7 +27,6 @@ export function MultiSelectTagTemplate({ children }) {
         draftContext.tagTemplate = null;
       });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 

@@ -63,6 +63,8 @@ export function ComboBoxExampleRender({
         onClear={() => setState((draftState) => { draftState.props.value = ''; })}
         onCustomEntry={(customValue) => setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }))}
         value={value}
+        // @ts-ignore
+        autoComplete="off"
       >
         {
           options.map((option) => (

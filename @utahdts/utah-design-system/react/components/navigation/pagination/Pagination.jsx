@@ -51,7 +51,6 @@ export function Pagination({
       value: valueUse ?? 0,
       valueRef,
     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [onChange, valueUse]
   );
 
@@ -71,7 +70,6 @@ export function Pagination({
         addPoliteMessage(`You are now on page ${(currentPageIndex || 0) + 1}`);
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentOnChange, currentPageIndex, numberOfPages]
   );
 

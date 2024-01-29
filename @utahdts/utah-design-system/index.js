@@ -9,7 +9,6 @@ export { ConfirmationButton } from './react/components/buttons/ConfirmationButto
 export { ConfirmationChildren } from './react/components/buttons/ConfirmationButton/ConfirmationChildren';
 export { InitialChildren } from './react/components/buttons/ConfirmationButton/InitialChildren';
 export { IconButton } from './react/components/buttons/IconButton';
-export { SegmentedButton } from './react/components/buttons/SegmentedButton';
 export { Tag } from './react/components/buttons/Tag';
 export { Accordion } from './react/components/containers/accordion/Accordion';
 export { Tab } from './react/components/containers/tabs/Tab';
@@ -29,6 +28,7 @@ export { ComboBox } from './react/components/forms/ComboBox/ComboBox';
 export { ComboBoxOption } from './react/components/forms/ComboBox/ComboBoxOption';
 export { ComboBoxOptionGroup } from './react/components/forms/ComboBox/ComboBoxOptionGroup';
 export { DateInput } from './react/components/forms/DateInput';
+export { FileInput } from './react/components/forms/FileInput';
 export { Form } from './react/components/forms/Form';
 export { FormContext } from './react/components/forms/FormContext/FormContext';
 export { FormContextProvider } from './react/components/forms/FormContext/FormContextProvider';

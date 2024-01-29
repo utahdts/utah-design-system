@@ -73,6 +73,8 @@ export function CombBoxListBox({
 
   useEffect(
     () => {
+      const message = [];
+
       // only announce if text input or an option for this combo box has focus
       if (optionValueFocused || document.activeElement === comboBoxContextNonStateRef.current.textInput) {
         // arrow key announcement only happens the first time the options pop open
@@ -94,16 +96,22 @@ export function CombBoxListBox({
             )
           ).length;
           // the options have "groups": '8 results available in 2 groups'
-          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available in ${numGroups} group${numGroups === 1 ? '' : 's'}.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+          message.push(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available in ${numGroups} group${numGroups === 1 ? '' : 's'}.`);
         } else {
           // there are no groups: '8 results available'
-          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+          message.push(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available.`);
         }
+        if (allowCustomEntry && filterValue) {
+          message.push(`Press Enter to add ${filterValue} to the combo box list.`);
+        }
+        if (sayArrowKeyAnnouncement) {
+          message.push('Use the down arrow key to begin selecting.');
+        }
+        addPoliteMessageDebounced(message.join(' '));
       }
     },
     // do not include `optionValueFocused` in the dependency list
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [isOptionsExpanded, optionsFilteredWithoutGroupLabels]
+    [isOptionsExpanded, optionsFilteredWithoutGroupLabels, filterValue]
   );
 
   return (

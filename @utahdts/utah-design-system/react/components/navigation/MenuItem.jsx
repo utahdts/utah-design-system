@@ -26,7 +26,6 @@ export function MenuItem({ currentMenuItem, menuItem }) {
     () => {
       setIsChildrenOpen((isChildrenOpenPreviously) => !!(isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')));
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentMenuItem, menuItem, pathname]
   );
 

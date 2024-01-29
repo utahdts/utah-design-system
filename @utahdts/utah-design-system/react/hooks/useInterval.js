@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useRefAlways } from './useRefAlways';
 
 /**
@@ -15,15 +15,15 @@ import { useRefAlways } from './useRefAlways';
 export function useInterval(callback, delay, options) {
   // put callback in ref so that when it changes the interval doesn't have to restart
   const savedCallbackRef = useRefAlways(callback);
-  const intervalIdRef = useRef(NaN);
 
   // Set up the interval
   useEffect(
     () => {
+      let intervalId = NaN;
       if (!Number.isNaN(delay) && !options?.isDisabled) {
-        intervalIdRef.current = setInterval(savedCallbackRef.current, delay);
+        intervalId = setInterval(savedCallbackRef.current, delay);
       }
-      return () => clearInterval(intervalIdRef.current);
+      return () => clearInterval(intervalId);
     },
     [delay, options?.isDisabled]
   );

@@ -9,8 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Removed
 - Progress Log page (view GitHub release notes instead)
 
+## Added
+- Make `label` a required prop for Table Filters
+
+# [1.14.2] 1/23/2024
 ## Fixed
-- Show defaultValue starting value in ComboBox/MultiSelect 
+- Show defaultValue starting value in ComboBox/MultiSelect
+
 
 # [1.14.1] 1/16/2024
 ## Fixed

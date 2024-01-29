@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "1.14.1",
+  "version": "1.14.2",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -59,13 +59,13 @@
     "components"
   ],
   "author": "DTS Digital Experience <dtsui@utah.gov>",
-  "license": "state of Utah - TOT",
+  "license": "State of Utah - TOT",
   "bugs": {
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.14.1",
+    "@utahdts/utah-design-system-header": "1.14.2",
     "date-fns": "3.2.0",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",

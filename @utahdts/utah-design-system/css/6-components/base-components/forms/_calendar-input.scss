@@ -87,6 +87,7 @@
       background: var(--gray-light-color);
     }
   }
+  // if the calendar input doesn't have a today button don't draw a border on the bottom of the grid.
   .date-input__popup {
     .calendar-input__grid:not(:has(+ .calendar-input__today)) {
       border-bottom: 0;

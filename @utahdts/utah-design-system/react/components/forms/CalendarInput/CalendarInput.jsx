@@ -12,9 +12,11 @@ import {
   useRef,
   useState
 } from 'react';
-import { Button, IconButton, useAriaMessaging } from '../../../..';
+import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../util/useOnKeyUp';
+import { Button } from '../../buttons/Button';
+import { IconButton } from '../../buttons/IconButton';
 import { ErrorMessage } from '../ErrorMessage';
 import { useFormContextInputValue } from '../FormContext/useFormContextInputValue';
 import { RequiredStar } from '../RequiredStar';
@@ -169,7 +171,7 @@ export function CalendarInput({
                     className="calendar-input__first-focusable-element"
                     ref={firstFocusableElementRef}
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                    tabIndex={0}
+                    tabIndex={isHidden ? -1 : 0}
                   >
                     {/* First focusable item w/o tooltip */}
                   </div>
@@ -337,6 +339,7 @@ export function CalendarInput({
                   setCurrentValueDateInternal(new Date());
                   currentOnChange(format(new Date(), dateFormat));
                 }}
+                tabIndex={isHidden ? -1 : 0}
                 type="button"
               >
                 Today
