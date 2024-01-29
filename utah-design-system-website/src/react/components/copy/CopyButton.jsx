@@ -38,7 +38,6 @@ export function CopyButton({ copyRef, onCopy }) {
         clearTimeout(delay);
       };
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [state.showFeedback]
   );
 

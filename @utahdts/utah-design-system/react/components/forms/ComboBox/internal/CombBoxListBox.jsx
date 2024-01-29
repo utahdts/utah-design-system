@@ -111,7 +111,6 @@ export function CombBoxListBox({
       }
     },
     // do not include `optionValueFocused` in the dependency list
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isOptionsExpanded, optionsFilteredWithoutGroupLabels, filterValue]
   );
 

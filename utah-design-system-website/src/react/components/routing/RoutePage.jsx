@@ -27,7 +27,6 @@ export function RoutePage({ children, page }) {
         document.title = `${page.pageTitle} - Utah Design System`;
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [location.hash, location.pathname]
   );
   // eslint-disable-next-line react/jsx-no-useless-fragment

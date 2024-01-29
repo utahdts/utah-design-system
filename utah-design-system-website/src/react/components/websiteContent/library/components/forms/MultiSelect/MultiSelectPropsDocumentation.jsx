@@ -75,7 +75,7 @@ export default function MultiSelectPropsDocumentation() {
               </TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered <code>select</code> element&apos; wrapper element allowing the parent component to interact
+                This ref will be attached to the rendered <code>select</code> element&apos;s wrapper element allowing the parent component to interact
                 directly with the actual DOM elements.
               </TableCell>
             </TableRow>
@@ -118,7 +118,7 @@ export default function MultiSelectPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 Used to make the select a required field. This will set the <code>required</code> attribute and display an asterisk next to its label.
               </TableCell>
@@ -194,7 +194,7 @@ export default function MultiSelectPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>The selected option&apos; value. All values in an HTML <code>select</code> are strings.</TableCell>
+              <TableCell>The selected option&apos;s value. All values in an HTML <code>select</code> are strings.</TableCell>
             </TableRow>
             <TableRow>
               <TableCell><code className="primary-color">wrapperClassName</code></TableCell>

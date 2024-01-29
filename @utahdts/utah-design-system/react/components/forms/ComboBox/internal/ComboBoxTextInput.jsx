@@ -1,7 +1,6 @@
 import { identity, isFunction } from 'lodash';
 import { useCallback, useRef } from 'react';
-import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
-import { useTimeout } from '../../../../hooks/useTimeout';
+import { joinClassNames } from '../../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { IconButton } from '../../../buttons/IconButton';
 import { useFormContext } from '../../FormContext/useFormContext';
@@ -44,6 +43,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  */
 export function ComboBoxTextInput({
   allowCustomEntry,
+  className,
   comboBoxListId,
   errorMessage,
   id,
@@ -134,9 +134,6 @@ export function ComboBoxTextInput({
   // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
   const onKeyUpPreviousValue = useRef('');
 
-  const announceNewValueTimeout = useTimeout(1000, true);
-  const { addPoliteMessage } = useAriaMessaging();
-
   const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
   return (
     <div>
@@ -147,7 +144,7 @@ export function ComboBoxTextInput({
         aria-expanded={isOptionsExpanded}
         aria-haspopup="listbox"
         aria-owns={comboBoxListId}
-        className="combo-box-input"
+        className={joinClassNames('combo-box-input', className)}
         clearIconRef={clearIconRef}
         id={id}
         innerRef={(ref) => {

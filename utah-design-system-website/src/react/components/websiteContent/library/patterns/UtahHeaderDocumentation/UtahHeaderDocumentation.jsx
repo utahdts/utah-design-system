@@ -1009,7 +1009,7 @@ export function UtahHeaderDocumentation() {
               </TableCell>
               <TableCell>
                 <span className="prop__description">
-                  To provide clarity, the action item&apos; title may be displayed next to the action item. Unclear action
+                  To provide clarity, the action item&apos;s title may be displayed next to the action item. Unclear action
                   items may be a clue to use a different icon, so usage of this feature should be thoughtfully considered.
                 </span>
               </TableCell>

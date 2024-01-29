@@ -1,40 +1,30 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { useRefAlways } from './useRefAlways';
 
-// https://overreacted.io/making-setinterval-declarative-with-react-hooks/
-// "Feel free to copy paste it in your project or put it on npm."
+/**
+ * @typedef UseIntervalOptions {
+ *  @property {boolean} [isDisabled] even though have delay and callback, still don't fire the interval
+ * }
+ */
+
 /**
  * @param {() => void} callback function to call after delay expires
  * @param {number} delay how long to wait before firing callback
+ * @param {UseIntervalOptions} [options]
  */
-export function useInterval(callback, delay) {
-  const savedCallback = useRef(/** @type {(() => void) | null} */(null));
+export function useInterval(callback, delay, options) {
+  // put callback in ref so that when it changes the interval doesn't have to restart
+  const savedCallbackRef = useRefAlways(callback);
 
-  // Remember the latest callback.
+  // Set up the interval
   useEffect(
     () => {
-      savedCallback.current = callback;
-    },
-    [callback]
-  );
-
-  // Set up the interval.
-  useEffect(
-    () => {
-      /** @type {(() => void) | undefined} */
-      let returnValue;
-      if (!Number.isNaN(delay)) {
-        const id = setInterval(
-          () => {
-            if (savedCallback.current) {
-              savedCallback.current();
-            }
-          },
-          delay
-        );
-        returnValue = () => clearInterval(id);
+      let intervalId = NaN;
+      if (!Number.isNaN(delay) && !options?.isDisabled) {
+        intervalId = setInterval(savedCallbackRef.current, delay);
       }
-      return returnValue;
+      return () => clearInterval(intervalId);
     },
-    [delay]
+    [delay, options?.isDisabled]
   );
 }

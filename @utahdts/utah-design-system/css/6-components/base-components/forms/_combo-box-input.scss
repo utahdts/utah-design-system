@@ -59,6 +59,12 @@
         background: var(--hover-gray-color);
         color: black;
       }
+      &--disabled {
+        &:hover {
+          color: var(--gray-3-1-contrast);
+        }
+        color: var(--gray-3-1-contrast);
+      }
       @include tools-index.form-ele-focus;
       &:focus-visible {
         outline-offset: -2px;

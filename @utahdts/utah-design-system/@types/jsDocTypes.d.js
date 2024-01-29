@@ -104,9 +104,23 @@
  *  @property {TablePaginationType} [pagination]
  *  @property {Record<string, TableSortingRuleType<TableDataT>>} sortingRules
  *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
+ *  @property {string} tableId this helps avoid `id` collisions in things like TableFilters
  *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
  *  @property {RecordFieldPath | null} tableSortingFieldPath
  *  @property {RecordFieldPath[] | null} tableSortingFieldPaths
+ * }
+ */
+
+/**
+ * @template TableDataT
+ * @typedef TableContextValue {
+ *  @property {TableDataT[]} allData
+ *  @property {TableDataT[]} filteredData
+ *  @property {(sortingRule: TableSortingRuleType<TableDataT>) => void} registerSortingRule
+ *  @property {(recordFieldPath: string) => void} unregisterSortingRule
+ *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
+ *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
+ *  @property {TableContextState<TableDataT>} state
  * }
  */
 
@@ -245,17 +259,19 @@
  */
 
 /**
- * @template TableDataT
- * @typedef TableContextValue {
- *  @property {TableDataT[]} allData
- *  @property {TableDataT[]} filteredData
- *  @property {(sortingRule: TableSortingRuleType<TableDataT>) => void} registerSortingRule
- *  @property {(recordFieldPath: string) => void} unregisterSortingRule
- *  @property {(allData: TableDataT[], filteredData: TableDataT[]) => void} setBodyData
- *  @property {import('use-immer').Updater<TableContextState<TableDataT>>} setState
- *  @property {TableContextState<TableDataT>} state
+ * @typedef CalendarGridValue {
+ *  @property {Date} date current "date" object for this month grid (current month fills out around this date)
+ *  @property {boolean} isFocusDate matches the date that is currently focused in the UI
+ *  @property {boolean} isNextMonth the date belongs to the next month on the calendar
+ *  @property {boolean} isPreviousMonth the date belongs to the previous month on the calendar
+ *  @property {boolean} isSelectedDate matches the value selected by the user
+ *  @property {boolean} isTodayDate matches today's date
  * }
  */
+
+/** @typedef {[CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue ]} CalendarGridWeek */
+
+/** @typedef {CalendarGridWeek[]} CalendarGridMonth 4, 5, or 6 weeks */
 
 /**
  * @typedef ComboBoxOptionType {
