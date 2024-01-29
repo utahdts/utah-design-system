@@ -252,6 +252,7 @@ export const pages = {
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Form General Guidance',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+    legacyLinks: ['guidelinesStandards/formGuidelines'],
   }),
   shape: /** @type {Page} */ ({
     content: ShapesDocumentation,

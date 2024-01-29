@@ -42,8 +42,6 @@ export function TableFilterTextInput({
     onChange,
     value,
   });
-  const { state: { tableWrapperId } } = useTableContext();
-
   useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
   const { state: { tableId } } = useTableContext();
 
