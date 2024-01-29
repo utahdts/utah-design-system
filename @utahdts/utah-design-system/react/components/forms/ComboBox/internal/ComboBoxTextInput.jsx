@@ -199,9 +199,6 @@ export function ComboBoxTextInput({
         }}
         onChange={(e) => {
           const newValue = e.target.value;
-          if (allowCustomEntry) {
-            announceNewValueTimeout(() => addPoliteMessage(`Press Enter to add ${newValue} to the combo box list`));
-          }
           setComboBoxContext((draftContext) => {
             draftContext.filterValue = newValue;
             draftContext.isFilterValueDirty = true;
