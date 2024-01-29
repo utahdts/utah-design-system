@@ -1,4 +1,9 @@
-import { useEffect, useId, useMemo, useRef } from 'react';
+import {
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+} from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { tableSortingRuleFieldType } from '../../enums/tableSortingRuleFieldType';
@@ -65,7 +70,7 @@ export function TableWrapper({
   id,
   ...rest
 }) {
-  const tableWrapperId = useId();
+  const internalId = useId();
   /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('@utahdts/utah-design-system').TableContextState<TableDataT>>]} */
   const [state, setState] = useImmer(
     /** @returns {TableContextState<TableDataT>} */
@@ -88,6 +93,8 @@ export function TableWrapper({
 
       tableData: { allData: [], filteredData: [] },
 
+      tableId: id ?? internalId,
+
       // (func) when table sorting changes, this callback will be called: from <TableSortingRules>
       tableSortingOnChange: null,
       // (string | [string]) the current recordFieldPath name for the current header being sorted
@@ -97,7 +104,6 @@ export function TableWrapper({
       tableSortingFieldPath: null,
       // a TableHeadCell can provide tableSortingFieldPaths to customize which sorters to use in which order
       tableSortingFieldPaths: null,
-      tableWrapperId,
     })
   );
   const stateRef = useRefAlways(state);

@@ -1,15 +1,11 @@
 /* eslint-disable max-len */
 import {
-  ExternalLink,
-  LinkCallback,
+  ExternalLink
 } from '@utahdts/utah-design-system';
-import { useCallback } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { useAppContext } from '../../../context/AppContext/useAppContext';
+import { NavLink } from 'react-router-dom';
 import { pageUrls } from '../../routing/pageUrls';
 
 export function FormGeneralDocumentation() {
-  const { setAppState } = useAppContext();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Form General Documentation</h1>

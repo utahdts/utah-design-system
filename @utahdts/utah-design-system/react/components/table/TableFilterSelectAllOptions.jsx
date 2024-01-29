@@ -15,6 +15,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {boolean} [props.exactMatch]
  * @param {string} [props.id]
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
+ * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {(() => {})} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
@@ -26,6 +27,7 @@ export function TableFilterSelectAllOptions({
   exactMatch,
   id,
   innerRef,
+  a11yLabel,
   onChange,
   recordFieldPath,
   value,
@@ -47,7 +49,7 @@ export function TableFilterSelectAllOptions({
     onChange,
     value,
   });
-  const { allData } = useTableContext();
+  const { allData, state: { tableId } } = useTableContext();
   const dataOptions = useMemo(
     () => (
       // get all possible values from each datum's `recordFieldPath`
@@ -74,8 +76,8 @@ export function TableFilterSelectAllOptions({
       {...rest}
     >
       <Select
-        id={`table-filter-select-${recordFieldPath}`}
-        label={`filter ${recordFieldPath}`}
+        id={`${tableId}__table-filter-select-${recordFieldPath}`}
+        label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}
         value={currentValue}
         // eslint-disable-next-line react/jsx-props-no-spreading

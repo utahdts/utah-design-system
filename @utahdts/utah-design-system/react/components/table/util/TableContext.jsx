@@ -29,9 +29,9 @@ export const TableContext = /** @type {typeof createContext<TableContextValue>} 
     sortingRules: {},
 
     tableData: { allData: [], filteredData: [] },
+    tableId: 'table-outside-context-id',
     tableSortingOnChange: null,
     tableSortingFieldPath: null,
     tableSortingFieldPaths: null,
-    tableWrapperId: 'default-context-table-wrapper-id',
   },
 });

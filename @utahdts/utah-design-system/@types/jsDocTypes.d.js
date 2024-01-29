@@ -104,10 +104,10 @@
  *  @property {TablePaginationType} [pagination]
  *  @property {Record<string, TableSortingRuleType<TableDataT>>} sortingRules
  *  @property {{ allData: TableDataT[], filteredData: TableDataT[] }} tableData
+ *  @property {string} tableId this helps avoid `id` collisions in things like TableFilters
  *  @property {((param: { recordFieldPath: RecordFieldPath }) => void) | null} tableSortingOnChange
  *  @property {RecordFieldPath | null} tableSortingFieldPath
  *  @property {RecordFieldPath[] | null} tableSortingFieldPaths
- *  @property {string} tableWrapperId each table gets its own unique id helpful when there are multiple tables
  * }
  */
 
