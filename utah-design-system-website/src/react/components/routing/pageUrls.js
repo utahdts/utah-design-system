@@ -38,6 +38,7 @@ export const pageUrls = {
   errorPage404: /** @type {PageUrl} */ ('/errors/404'),
   fileInput: /** @type {PageUrl} */ ('/library/components/forms/fileInput'),
   forms: /** @type {PageUrl} */ ('/library/components/forms'),
+  formGuidelines: /** @type {PageUrl} */ ('/guidelinesStandards/formGuidelines'),
   gettingStarted: /** @type {PageUrl} */ ('/gettingStarted'),
   gettingStartedDesigner: /** @type {PageUrl} */ ('/resources/gettingStartedDesigner'),
   gettingStartedDeveloper: /** @type {PageUrl} */ ('/resources/gettingStartedDeveloper'),

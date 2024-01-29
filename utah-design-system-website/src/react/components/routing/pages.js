@@ -10,6 +10,7 @@ import { ColorGuidelinesDocumentation } from '../websiteContent/guidelines/Color
 import { DataPrivacyDocumentation } from '../websiteContent/guidelines/DataPrivacyDocumentation';
 import { DataVisualizationsDocumentation } from '../websiteContent/guidelines/DataVisualizationsDocumentation';
 import { DepthElevationShadowsDocumentation } from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
+import { FormGeneralDocumentation } from '../websiteContent/guidelines/FormGeneralDocumentation';
 import { GuidelinesLanding } from '../websiteContent/guidelines/GuidelinesLanding';
 import { ImagesDocumentation } from '../websiteContent/guidelines/ImagesDocumentation';
 import { LayoutDocumentation } from '../websiteContent/guidelines/LayoutDocumentation';
@@ -243,6 +244,13 @@ export const pages = {
     link: pageUrls.depthElevationShadows,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Depth / Elevation / Shadows',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  formGeneralDocumentation: /** @type {Page} */ ({
+    content: FormGeneralDocumentation,
+    link: pageUrls.formGuidelines,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form General Guidance',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   shape: /** @type {Page} */ ({
