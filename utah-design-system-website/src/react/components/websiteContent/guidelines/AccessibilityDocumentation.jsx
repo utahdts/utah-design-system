@@ -659,6 +659,24 @@ export function AccessibilityDocumentation() {
         </li>
       </ul>
 
+      <hr />
+      <h2 id="section-form-accessibility" className="text-center mt-spacing">Form Accessibility</h2>
+      <div className="text-center">
+        <p className="mb-auto">
+          To learn about form accessibility please visit the link below.
+        </p>
+        <div className="flex justify-center mt-spacing mb-spacing-xl">
+          <Link
+            to={pageUrls.formGuidelines}
+            className="button button--primary-color button--solid"
+          >
+            Form Accessibility Guidelines{' '}
+            <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+          </Link>
+        </div>
+      </div>
+      <hr className="mb-spacing" />
+
       <h2 id="section-pdfs" className="mt-spacing">PDF Accessibility</h2>
       <p>
         When PDFs are embedded or displayed on a web page for viewing, it is crucial to recognize that they should adhere to the same accessibility guidelines
