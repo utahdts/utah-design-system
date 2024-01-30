@@ -20,10 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Progress Log page (view GitHub release notes instead)
 - Example for create-react-app
 
-# [1.14.2] 1/23/2024
+# [1.14.3] 1/25/2024
+## Fixed
+- Turn default footer showing back on
+
+# [1.14.2] 1/16/2024
 ## Fixed
 - Show defaultValue starting value in ComboBox/MultiSelect
-
 
 # [1.14.1] 1/16/2024
 ## Fixed
