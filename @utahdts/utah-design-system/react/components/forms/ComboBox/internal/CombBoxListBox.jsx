@@ -105,7 +105,9 @@ export function CombBoxListBox({
         if (allowCustomEntry && filterValue && !options.some((option) => option.labelLowerCase === filterValue.toLocaleLowerCase())) {
           message.push(`Press Enter to add ${filterValue} to the combo box list.`);
         }
-        message.push('Use the down arrow key to begin selecting.');
+        if (!isOptionsExpanded) {
+          message.push('Use the down arrow key to begin selecting.');
+        }
         addPoliteMessageDebounced(message.join(' '));
       }
     },
