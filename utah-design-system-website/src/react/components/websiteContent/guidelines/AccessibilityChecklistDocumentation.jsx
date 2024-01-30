@@ -86,12 +86,16 @@ export function AccessibilityChecklistDocumentation() {
           </ul>
         </li>
         <li>
-          Forms
+          <Link to={pageUrls.formGuidelines}>Forms</Link>
           <ul>
+            <li>Use a simple vertical form layout when possible to reduce the cognitive load on users.</li>
             <li>Form inputs and controls have a descriptive label and are visible to the user.</li>
             <li>The label is tied directly to the form input to aid those using assistive technology.</li>
             <li>Provide visible focus indicators for all form elements.</li>
             <li>Use native elements first before using ARIA.</li>
+            <li>When native elements such as <code>&lt;label&gt;</code> are not sufficient.</li>
+            <li>Group form elements together, where needed, using the <code>fieldset</code> element.</li>
+            <li>Focus should follow a natural flow. Don&apos;t change the focus index to alter the tabbing order.</li>
           </ul>
         </li>
         <li>

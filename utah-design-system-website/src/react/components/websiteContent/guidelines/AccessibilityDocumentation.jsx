@@ -18,8 +18,6 @@ import badAltAudio from '../../../../static/audio/BadAlt.mp3';
 import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
 import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
 import accessibilityZoomGood from '../../../../static/images/accessibility-zoom-good.png';
-import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.jpg';
-import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.jpg';
 import badColorRepImg from '../../../../static/images/screenshots/examples/BadColorRepresentation.png';
 import badTextOverImg from '../../../../static/images/screenshots/examples/BadTextOverImage.png';
 import captionsImg from '../../../../static/images/screenshots/examples/Captions.jpg';
@@ -658,109 +656,6 @@ export function AccessibilityDocumentation() {
               }
             `}
           />
-        </li>
-      </ul>
-
-      <h2 id="section-forms" className="mt-spacing">Form Accessibility</h2>
-      <ul>
-        <li>
-          <p>
-            <strong>Use a simple vertical layout.</strong> By arranging form elements vertically, each field is presented one below the other, creating a
-            natural flow and making it easier for users to understand the order in which they need to provide their inputs. This layout helps improve
-            usability and accessibility by reducing the cognitive load. It aligns with the way users typically read and process information from top to bottom,
-            and allows for efficient scanning and completion of form fields, reducing potential confusion and errors.
-          </p>
-          <p>
-            The following images depict different forms with the arrows indicating different tab orders. Horizontally arranged forms can create an undesirable user experience.
-            Depending on the user, they are going to expect the cursor to land in a particular place. If it doesn&apos;t go where they expect, it increases
-            the cognitive load trying to figure out where the cursor will actually land.
-          </p>
-          <StaticExample
-            renderedExample={(
-              <>
-                <LightBox image={formFlowHorizontal} alt="Form Flow Horizontal" className="flex-2up-gap" />
-                <LightBox image={formFlowVertical} alt="Form Flow Vertical" className="flex-3up-gap" />
-              </>
-            )}
-            className="mb-auto"
-          />
-        </li>
-        <li>
-          <strong>Use native html elements before using role and other aria attributes.</strong> Native HTML elements are designed to be accessible by default.
-          They have built-in semantics that convey meaning to both users and assistive technologies. By using native elements, you provide a solid foundation for
-          creating accessible web content without relying on additional ARIA attributes.
-          <br />
-          <blockquote>
-            <strong><em>The first rule of ARIA: Before you use ARIA, use native HTML elements and attributes first!</em></strong>
-          </blockquote>
-        </li>
-        <li>
-          <strong>Provide visible focus indicators.</strong> Native html elements have default focus behavior that activates when the user clicks or tabs into it. If
-          you customize a form element, the focus boundary requires a <code>3:1</code> contrast ratio to its background. Test to make sure that there is a visible focus state
-          on each element, to guide the user through the form.
-          <StaticExample
-            renderedExample={(
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/DKfsAFhknAU"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            )}
-            className="mb-auto mt-spacing-s"
-          />
-        </li>
-        <li>
-          <strong>Tie a label to each form element.</strong> Use the form element <code>&lt;label&gt;</code> or <code>&lt;legend&gt;</code> depending on the form element
-          being used, to associate the label and the form element. This enables the user to click anywhere on the label to activate or focus on the input, thus expanding
-          the surface area of the form element.
-          <PreCodeForCodeString
-            showBackgroundColor
-            codeRaw={`
-              <div>
-                <label for="input1">My Label</label>
-                <input type="text" id="input1" … />
-              </div>
-            `}
-          />
-          <PreCodeForCodeString
-            showBackgroundColor
-            codeRaw={`
-              <label>
-                <span>My Label<span>
-                <input type="text" … />
-              <label>
-            `}
-          />
-        </li>
-        <li>
-          <strong>Group related form controls.</strong> The <code>&lt;fieldset&gt;</code> element is useful when you have a logical grouping of form controls that belong together, such
-          as a group of <Link to={pageUrls.radioButton}>radio buttons</Link>, <Link to={pageUrls.checkbox}>checkboxes</Link>, or related input fields. It is typically used
-          in combination with a single <code>&lt;legend&gt;</code> element, which provides a caption or description for the group of <Link to={pageUrls.forms}>form elements</Link>.
-          <PreCodeForCodeString
-            showBackgroundColor
-            codeRaw={`
-            <fieldset>
-              <legend>Choose your monster's features:</legend>
-              <div>
-                <input type="checkbox" id="scales" name="scales" checked>
-                <label for="scales">Scales</label>
-              </div>
-              <div>
-                <input type="checkbox" id="horns" name="horns">
-                <label for="horns">Horns</label>
-              </div>
-            </fieldset>
-            `}
-          />
-        </li>
-        <li>
-          <strong>Don&apos;t control element order.</strong> Ensure that the form controls are presented in the <code>HTML</code> exactly as they are displayed on the screen,
-          without relying on <code>CSS</code> to rearrange them. This preserves the order in which form elements are narrated by screen readers, as they follow the sequence
-          specified in the <code>HTML</code>. Also, do not alter the <code>tabindex</code> of the form element to control the tab order.
         </li>
       </ul>
 
