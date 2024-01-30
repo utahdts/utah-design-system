@@ -9,7 +9,6 @@ import { StaticExample } from '../../staticExamples/StaticExample';
 import { LightBox } from '../../lightbox/LightBox';
 import formFlowHorizontal from '../../../../static/images/screenshots/components/form-elements/formFlowHorizontal.png';
 import formFlowVertical from '../../../../static/images/screenshots/components/form-elements/formFlowVertical.png';
-// @ts-ignore
 import formFocus from '../../../../static/images/screenshots/components/form-elements/focus-form-elements.gif';
 
 export function FormGeneralDocumentation() {
