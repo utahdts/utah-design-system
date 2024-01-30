@@ -123,6 +123,7 @@
 
 /**
  * @typedef ComboBoxExamplePropsShape {
+ *  @property {boolean} allowCustomEntry
  *  @property {string} className
  *  @property {string} errorMessage
  *  @property {string} id
@@ -147,6 +148,39 @@
  *  @property {FormElementSizes} size
  *  @property {string} title
  *  @property {ButtonTypes} type
+ * }
+ */
+
+/**
+ * @typedef DateInputExamplePropsShape {
+ *  @property {string} className
+ *  @property {string} dateFormat
+ *  @property {string} errorMessage
+ *  @property {boolean} hasCalendarPopup
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} name
+ *  @property {string} placeholder
+ *  @property {boolean} showCalendarTodayButton
+ *  @property {string} value
+ * }
+ */
+
+/**
+ * @typedef FileInputExamplePropsShape {
+ *  @property {string} acceptedFileTypes
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {string} hint
+ *  @property {string} id
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {boolean} multiple
+ *  @property {string} name
  * }
  */
 

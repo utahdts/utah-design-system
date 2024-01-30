@@ -1,4 +1,11 @@
-import { MultiSelect, MultiSelectOption, MultiSelectOptionGroup } from '@utahdts/utah-design-system';
+import {
+  MultiSelect,
+  MultiSelectOption,
+  MultiSelectOptionGroup,
+  Tab,
+  TabGroup,
+  TabList, TabPanel, TabPanels
+} from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -6,6 +13,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { MultiSelectExampleCodeReact } from './MultiSelectExampleCodeReact';
 import { MultiSelectExampleProps } from './MultiSelectExampleProps';
 import { MultiSelectExampleRender } from './MultiSelectExampleRender';
+import MultiSelectCssClassesDocumentation from './MultiSelectBoxCssClassesDocumentation';
+import MultiSelectPropsDocumentation from './MultiSelectPropsDocumentation';
 
 export function MultiSelectDocumentation() {
   return (
@@ -35,17 +44,19 @@ export function MultiSelectDocumentation() {
       <StaticExample
         title="Multi-Select Example"
         renderedExample={(
-          <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
-            <MultiSelectOption label="Basilisk" value="basilisk" />
-            <MultiSelectOption label="Blemmyae" value="blemmyae" />
-            <MultiSelectOption label="Cardinal" value="cardinal" />
-            <MultiSelectOption label="Dragon" value="dragon" />
-            <MultiSelectOption label="Griffin" value="griffin" />
-            <MultiSelectOption label="Kraken" value="kraken" />
-            <MultiSelectOption label="Manticore" value="manticore" />
-            <MultiSelectOption label="Roc" value="roc" />
-            <MultiSelectOption label="Unicorn" value="unicorn" />
-          </MultiSelect>
+          <div style={{ width: '60%' }}>
+            <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
+              <MultiSelectOption label="Basilisk" value="basilisk" />
+              <MultiSelectOption label="Blemmyae" value="blemmyae" />
+              <MultiSelectOption label="Cardinal" value="cardinal" />
+              <MultiSelectOption label="Dragon" value="dragon" />
+              <MultiSelectOption label="Griffin" value="griffin" />
+              <MultiSelectOption label="Kraken" value="kraken" />
+              <MultiSelectOption label="Manticore" value="manticore" />
+              <MultiSelectOption label="Roc" value="roc" />
+              <MultiSelectOption label="Unicorn" value="unicorn" />
+            </MultiSelect>
+          </div>
         )}
         quickTips={(
           <ul>
@@ -61,23 +72,25 @@ export function MultiSelectDocumentation() {
       <StaticExample
         title="Multi-Select With Option Groups Example"
         renderedExample={(
-          <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
-            <MultiSelectOptionGroup label="Lizard-Like">
-              <MultiSelectOption label="Basilisk" tagClassName="tag--primary-color" value="basilisk" />
-              <MultiSelectOption label="Dragon" tagClassName="tag--primary-color" value="dragon" />
-              <MultiSelectOption label="Kraken" tagClassName="tag--primary-color" value="kraken" />
-            </MultiSelectOptionGroup>
-            <MultiSelectOptionGroup label="Airborne Animal">
-              <MultiSelectOption label="Cardinal" tagClassName="tag--secondary-color" value="cardinal" />
-              <MultiSelectOption label="Griffin" tagClassName="tag--secondary-color" value="griffin" />
-              <MultiSelectOption label="Roc" tagClassName="tag--secondary-color" value="roc" />
-            </MultiSelectOptionGroup>
-            <MultiSelectOptionGroup label="Ground Animal">
-              <MultiSelectOption label="Blemmyae" tagClassName="tag--info-color" value="blemmyae" />
-              <MultiSelectOption label="Manticore" tagClassName="tag--info-color" value="manticore" />
-              <MultiSelectOption label="Unicorn" tagClassName="tag--info-color" value="unicorn" />
-            </MultiSelectOptionGroup>
-          </MultiSelect>
+          <div style={{ width: '60%' }}>
+            <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
+              <MultiSelectOptionGroup label="Lizard-Like">
+                <MultiSelectOption label="Basilisk" value="basilisk" />
+                <MultiSelectOption label="Dragon" value="dragon" />
+                <MultiSelectOption label="Kraken" value="kraken" />
+              </MultiSelectOptionGroup>
+              <MultiSelectOptionGroup label="Airborne Animal">
+                <MultiSelectOption label="Cardinal" value="cardinal" />
+                <MultiSelectOption label="Griffin" value="griffin" />
+                <MultiSelectOption label="Roc" value="roc" />
+              </MultiSelectOptionGroup>
+              <MultiSelectOptionGroup label="Ground Animal">
+                <MultiSelectOption label="Blemmyae" value="blemmyae" />
+                <MultiSelectOption label="Manticore" value="manticore" />
+                <MultiSelectOption label="Unicorn" value="unicorn" />
+              </MultiSelectOptionGroup>
+            </MultiSelect>
+          </div>
         )}
       />
 
@@ -182,6 +195,24 @@ export function MultiSelectDocumentation() {
           If you customize this component, ensure that it continues to meet the accessibility requirements.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="component-props-css">
+          <TabList>
+            <Tab id="component-props-css">CSS</Tab>
+            <Tab id="component-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="component-props-css">
+              <MultiSelectCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="component-props-react">
+              <MultiSelectPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

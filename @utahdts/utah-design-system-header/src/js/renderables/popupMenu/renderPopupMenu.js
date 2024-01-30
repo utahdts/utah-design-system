@@ -40,11 +40,11 @@ function toggleChildMenuExpansion(element) {
   parent.querySelectorAll(':scope > ul')
     .forEach((childUl) => {
       // toggle chevron direction class
-      const button = childUl.closest('li')?.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE));
+      const button = childUl.closest('li')?.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU__BUTTON_TITLE));
       if (!button) {
         throw new Error('toggleChildMenuExpansion: button not found');
       }
-      const chevron = button.querySelector(`:scope > ${getCssClassSelector(domConstants.POPUP_MENU__CHEVRON)}`);
+      const chevron = button.querySelector(`:scope > ${getCssClassSelector(domConstants.VERTICAL_MENU__CHEVRON)}`);
       if (!chevron) {
         throw new Error('toggleChildMenuExpansion: chevron not found');
       }
@@ -96,31 +96,31 @@ function onClickBlur() {
  */
 function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   const menuItemWrapper = renderDOMSingle(PopupMenuItemHtml);
-  const menuItemTitleWrapper = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__TITLE));
+  const menuItemTitleWrapper = menuItemWrapper.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU__TITLE));
   if (!menuItemTitleWrapper) {
     throw new Error('renderPopupMenuItem: menuItemTitleWrapper not found');
   }
-  const menuButton = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__BUTTON_TITLE)));
+  const menuButton = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU__BUTTON_TITLE)));
   if (!menuButton) {
     throw new Error('renderPopupMenuItem: menuButton not found');
   }
-  const menuAHref = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__LINK_TITLE)));
+  const menuAHref = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU__LINK_TITLE)));
   if (!menuAHref) {
     throw new Error('renderPopupMenuItem: aHref not found');
   }
-  const plainTitle = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__PLAIN_TITLE)));
+  const plainTitle = /** @type {HTMLElement | null} */ (menuItemWrapper.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU__PLAIN_TITLE)));
   if (!plainTitle) {
     throw new Error('renderPopupMenuItem: plainTitle not found');
   }
-  const menuDivider = menuItemWrapper.querySelector(getCssClassSelector(domConstants.POPUP_MENU__DIVIDER));
+  const menuDivider = menuItemWrapper.querySelector(getCssClassSelector(domConstants.VERTICAL_MENU__DIVIDER));
   if (!menuDivider) {
     throw new Error('renderPopupMenuItem: menuDivider not found');
   }
-  const titleSpanButton = menuItemWrapper.querySelector(`button ${getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT)}`);
+  const titleSpanButton = menuItemWrapper.querySelector(`button ${getCssClassSelector(domConstants.VERTICAL_MENU__LINK_TEXT)}`);
   if (!titleSpanButton) {
     throw new Error('renderPopupMenuItem: titleSpanButton not found');
   }
-  const titleSpanLink = menuItemWrapper.querySelector(`a ${getCssClassSelector(domConstants.POPUP_MENU__LINK_TEXT)}`);
+  const titleSpanLink = menuItemWrapper.querySelector(`a ${getCssClassSelector(domConstants.VERTICAL_MENU__LINK_TEXT)}`);
   if (!titleSpanLink) {
     throw new Error('renderPopupMenuItem: titleSpanLink not found');
   }

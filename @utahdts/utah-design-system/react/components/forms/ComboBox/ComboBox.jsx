@@ -12,6 +12,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry] can the user type in their own items to add to the list?
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
@@ -29,16 +30,19 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.name]
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {() => void} [props.onClear]
+ * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {HTMLElement | null} [props.popperContentRef] for multi-select the popup relates to the multi-select wrapper, not the input
  * @param {import('react').ReactNode} [props.tagChildren]
+ * @param {string} [props.textInputClassName] className to put on the TextInput
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
  */
 export function ComboBox({
+  allowCustomEntry,
   children,
   className,
   defaultValue,
@@ -53,6 +57,7 @@ export function ComboBox({
   labelClassName,
   name,
   onChange,
+  onCustomEntry,
   onClear,
   onKeyUp,
   onSubmit,
@@ -61,6 +66,7 @@ export function ComboBox({
   isValueClearedOnSelection,
   isWrapperSkipped,
   tagChildren,
+  textInputClassName,
   value,
   wrapperClassName,
   ...rest
@@ -72,6 +78,8 @@ export function ComboBox({
     <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
       {tagChildren}
       <ComboBoxTextInput
+        allowCustomEntry={allowCustomEntry}
+        className={textInputClassName}
         comboBoxListId={comboBoxListId}
         errorMessage={errorMessage}
         id={id}
@@ -85,11 +93,13 @@ export function ComboBox({
         label={label}
         labelClassName={labelClassName}
         name={name}
+        onCustomEntry={onCustomEntry}
         placeholder={placeholder}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
       <CombBoxListBox
+        allowCustomEntry={allowCustomEntry}
         id={comboBoxListId}
         ariaLabelledById={id}
         popperReferenceElement={popperContentRef ?? contentRef.current ?? null}

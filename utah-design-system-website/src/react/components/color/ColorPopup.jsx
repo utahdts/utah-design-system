@@ -71,7 +71,6 @@ export function ColorPopup({ onClose }) {
         }
       ));
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [cssState.selectedColorPicker]
   );
 

@@ -71,7 +71,6 @@ export function useInteractiveHeaderState() {
       }
       setHeaderIsOn(headerIsOnMaybeFunc);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [headerIsOn]
   );
 
@@ -102,7 +101,6 @@ export function useInteractiveHeaderState() {
       // store to local storage when changed
       localStorage.setItem(localStorageKeys.INTERACTIVE_HEADER_SETTINGS, stringifyHeaderSettings(headerSettings));
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [headerIsOn, headerSettings]
   );
 
@@ -150,7 +148,6 @@ export function useInteractiveHeaderState() {
         setParseError(null);
       },
     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [headerIsOn, headerSettings, parseError, setHeaderIsOnSafely, setHeaderSettings]
   );
 }

@@ -10,6 +10,7 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 export function ComboBoxExampleCodeReact({
   state: {
     props: {
+      allowCustomEntry,
       className,
       errorMessage,
       id,
@@ -25,6 +26,7 @@ export function ComboBoxExampleCodeReact({
     <>
       &lt;ComboBox
       <br />
+      <ExampleCodeReactProp displayProp={allowCustomEntry ? 'allowCustomEntry' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />

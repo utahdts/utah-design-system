@@ -51,7 +51,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
-                <TableFilterTextInput recordFieldPath="name" />
+                <TableFilterTextInput a11yLabel="Name" recordFieldPath="name" />
 
                 {/* Skip a column by using the "None" filter component */}
                 <TableFilterNone />
@@ -61,10 +61,10 @@ export function TableDocumentationFilteringPaginationTableExample() {
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions recordFieldPath="politicalParty" />
+                <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate recordFieldPath="inauguration" />
+                <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
               </TableFilters>
               <TableHeadRow>
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>

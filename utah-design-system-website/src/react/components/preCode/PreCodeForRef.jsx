@@ -50,7 +50,6 @@ export function PreCodeForRef({
       setInnerHtml(cleanHTML);
     },
     // only update when the properties change so as not to get an infinite loop
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     deps
   );
 

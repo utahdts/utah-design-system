@@ -74,7 +74,6 @@ export function CssContextProvider({ children }) {
         setAppState((draftAppState) => { draftAppState.isColorPickerShown = true; });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentQueryParameters, setSearchParams]
   );
 

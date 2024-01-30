@@ -1,0 +1,96 @@
+@use "../../../1-settings/class-vars";
+@use "../../../2-tools/tools-index";
+
+#{class-vars.$base-class} {
+  .calendar-input {
+    &__grid {
+      display: grid;
+      grid-auto-rows: 1fr;
+      gap: 2px;
+      border-top: 1px solid var(--gray-3-1-contrast);
+      border-bottom: 1px solid var(--gray-3-1-contrast);
+      background: white;
+    }
+    &__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      gap: 2px;
+    }
+    &__cell-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__cell {
+      border: none;
+      padding: 0;
+      min-height: 26px;
+      min-width: 26px;
+      justify-self: center;
+      background: none;
+
+      &--focused {
+        background: var(--form-ele-color-light);
+        color: var(--gray-dark-color);
+      }
+
+      &--selected {
+        background: var(--form-ele-color);
+        color: white;
+      }
+
+      &--today {
+        border: 2px solid var(--form-ele-color-light);
+      }
+
+      &:focus {
+        @include tools-index.form-ele-focus-appearance;
+      }
+
+      &--next-month, &--previous-month {
+        color: var(--gray-3-1-contrast);
+      }
+
+    }
+
+    &__controls {
+      background: var(--gray-light-color);
+      padding: var(--spacing-2xs) 0 ;
+      &-month, &-year {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      [class*="utds-icon-before-"]:before {
+        font-size: .8rem;
+        color: var(--form-ele-color);
+      }
+      [class*="utds-icon-before-double-arrow"]:before {
+        font-size: .9rem;
+      }
+    }
+    &__month {
+      min-width: 85px;
+      text-align: center;
+    }
+    &__year {
+      min-width: 45px;
+      text-align: center;
+    }
+
+    &__today {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-xs) 0;
+      background: var(--gray-light-color);
+    }
+  }
+  // if the calendar input doesn't have a today button don't draw a border on the bottom of the grid.
+  .date-input__popup {
+    .calendar-input__grid:not(:has(+ .calendar-input__today)) {
+      border-bottom: 0;
+    }
+  }
+}

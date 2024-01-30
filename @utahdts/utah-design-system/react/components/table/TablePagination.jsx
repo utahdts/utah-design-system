@@ -42,7 +42,6 @@ export function TablePagination({
         });
       };
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [itemsPerPage]
   );
 

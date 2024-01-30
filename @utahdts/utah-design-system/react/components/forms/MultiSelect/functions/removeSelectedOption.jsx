@@ -3,15 +3,19 @@
 /** @typedef {import('@utahdts/utah-design-system').MultiSelectContextNonStateRef} MultiSelectContextNonStateRef */
 
 /**
+ * Ick, so many parameters...
  * @param {MultiSelectContextValue} draftContext the context for updating state
  * @param {(message: string) => void} addPoliteMessage accessibility announcer
  * @param {number} selectedValueIndex the index of the tag being deleted
  * @param {ComboBoxOptionType} selectedOption the option being removed
  * @param {import('react').MutableRefObject<MultiSelectContextNonStateRef> | null} multiSelectContextNonStateRef
+ * @param {(newValues: string[]) => void} onChange
  */
-export function removeSelectedOption(draftContext, addPoliteMessage, selectedValueIndex, selectedOption, multiSelectContextNonStateRef) {
+export function removeSelectedOption(draftContext, addPoliteMessage, selectedValueIndex, selectedOption, multiSelectContextNonStateRef, onChange) {
   // remove from selected values
   draftContext.selectedValues.splice(selectedValueIndex, 1);
+
+  onChange(JSON.parse(JSON.stringify(draftContext.selectedValues)));
 
   addPoliteMessage(`Removed ${selectedOption?.label}`);
 
