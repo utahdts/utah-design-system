@@ -7,18 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [1.15.0] 1/30/2024
 ## Added
-- Make `a11yLabel` a required prop for Table Filters
-- Allow custom item entry in ComboBox
-- Add props at bottom of ComboBox and MultiSelect Documentation pages
-- Add DateInput component
-- Add FileInput component
+- DateInput component
+- FileInput component
+- Form Guidance page
 
 ## Changed
+- Add props at bottom of ComboBox and MultiSelect Documentation pages
+- Allow custom item entry in ComboBox
+- Make `a11yLabel` a required prop for Table Filters
+- New showcase sites
 - Update mocks to match DateInput component
 
 ## Removed
-- Progress Log page (view GitHub release notes instead)
 - Example for create-react-app
+- Progress Log page (view GitHub release notes instead)
 
 # [1.14.3] 1/25/2024
 ## Fixed
