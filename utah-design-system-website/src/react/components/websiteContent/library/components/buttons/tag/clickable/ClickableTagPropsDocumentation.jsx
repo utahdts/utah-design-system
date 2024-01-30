@@ -90,7 +90,7 @@ export function ClickableTagPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 Used to disable the tag if interactive, or the clear button if used.
               </TableCell>

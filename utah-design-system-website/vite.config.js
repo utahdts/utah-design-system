@@ -7,6 +7,7 @@ import mkcert from 'vite-plugin-mkcert';
 export default defineConfig(({ command, mode, ssrBuild }) => {
   // throw new Error(`website mode: '${mode}'`);
   return {
+    assetsInclude: ['**/*.gif'],
     css: {
       devSourcemap: true,
     },

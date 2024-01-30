@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.15.0] 1/30/2024
+## Added
+- Make `a11yLabel` a required prop for Table Filters
+- Allow custom item entry in ComboBox
+- Add props at bottom of ComboBox and MultiSelect Documentation pages
+- Add DateInput component
+- Add FileInput component
+
+## Changed
+- Update mocks to match DateInput component
+
+## Removed
+- Progress Log page (view GitHub release notes instead)
+- Example for create-react-app
+
 # [1.14.3] 1/25/2024
 ## Fixed
 - Turn default footer showing back on

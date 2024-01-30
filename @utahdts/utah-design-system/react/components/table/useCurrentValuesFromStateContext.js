@@ -3,6 +3,7 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
 } from 'react';
 import { useImmer } from 'use-immer';
 import { setValueAtPath } from '../../util/state/setValueAtPath';
@@ -44,6 +45,7 @@ export function useCurrentValuesFromStateContext({
   // the value the child component was given
   value,
 }) {
+  const defaultValueRef = useRef(defaultValue);
   const { setState: setStateContext, state: stateContext } = useContext(TableContext) || {};
   const [stateLocal, setStateLocal] = useImmer(defaultValue);
 
@@ -56,10 +58,10 @@ export function useCurrentValuesFromStateContext({
         setStateContext((draftStateContext) => {
           setValueAtPath({ object: draftStateContext, path: fullContextStatePath, value: defaultValue });
         });
+        stateContext?.filterValues?.onChange?.({ recordFieldPath: fullContextStatePath, value: defaultValue });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [defaultValue, fullContextStatePath, setStateContext, !setStateContext]
+    []
   );
 
   const setValue = useCallback(
@@ -77,6 +79,24 @@ export function useCurrentValuesFromStateContext({
     },
     [fullContextStatePath, onChange, setStateContext]
   );
+
+  let currentValue = (
+    // passed in value (controlled)
+    value
+    // context's value (context controlled)
+    ?? valueAtPath({ object: stateContext, path: fullContextStatePath })
+    // pull from local state (which defaults to defaultValue)
+    ?? stateLocal
+  );
+  if (currentValue && currentValue !== defaultValue) {
+    // there is a currentValue without looking at defaultValue so defaultValue should never be used ever again
+    // this is a hack. couldn't figure out why TableFilterTextInput was making its defaultValue a blank string.
+    // @ts-ignore
+    defaultValueRef.current = '';
+  }
+  if (currentValue === null || currentValue === undefined) {
+    currentValue = defaultValueRef.current;
+  }
 
   return useMemo(
     () => ({
@@ -104,14 +124,7 @@ export function useCurrentValuesFromStateContext({
           setStateLocal(defaultOnChange(e));
         })
       ),
-      currentValue: (
-        // passed in value (controlled)
-        value
-        // context's value (context controlled)
-        ?? valueAtPath({ object: stateContext, path: fullContextStatePath })
-        // pull from local state (which defaults to defaultValue)
-        ?? stateLocal
-      ),
+      currentValue,
       setValue,
     }),
     [

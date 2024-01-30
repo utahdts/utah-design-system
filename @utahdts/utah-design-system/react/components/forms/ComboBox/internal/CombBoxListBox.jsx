@@ -11,6 +11,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry] if allowing custom entry, add the custom item if the list is empty; Must be a controlled component
  * @param {string} props.ariaLabelledById
  * @param {import('react').ReactNode | null} [props.children]
  * @param {HTMLElement | null} props.popperReferenceElement
@@ -18,6 +19,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
  * @returns {import('react').JSX.Element}
  */
 export function CombBoxListBox({
+  allowCustomEntry,
   ariaLabelledById,
   children,
   id,
@@ -27,11 +29,14 @@ export function CombBoxListBox({
   const { addPoliteMessage } = useAriaMessaging();
   const [
     {
+      filterValue,
       isOptionsExpanded,
+      options,
       optionsFiltered,
       optionsFilteredWithoutGroupLabels,
       optionValueFocused,
-    }, ,
+      optionValueSelected,
+    }, /* array element `setState` is not used here */,
     comboBoxContextNonStateRef,
   ] = useComboBoxContext();
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
@@ -69,6 +74,8 @@ export function CombBoxListBox({
 
   useEffect(
     () => {
+      const message = [];
+
       // only announce if text input or an option for this combo box has focus
       if (optionValueFocused || document.activeElement === comboBoxContextNonStateRef.current.textInput) {
         // arrow key announcement only happens the first time the options pop open
@@ -90,16 +97,22 @@ export function CombBoxListBox({
             )
           ).length;
           // the options have "groups": '8 results available in 2 groups'
-          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available in ${numGroups} group${numGroups === 1 ? '' : 's'}.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+          message.push(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available in ${numGroups} group${numGroups === 1 ? '' : 's'}.`);
         } else {
           // there are no groups: '8 results available'
-          addPoliteMessageDebounced(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available.${sayArrowKeyAnnouncement ? ' Use the down arrow key to begin selecting.' : ''}`);
+          message.push(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available.`);
         }
+        if (allowCustomEntry && filterValue && !options.some((option) => option.labelLowerCase === filterValue.toLocaleLowerCase())) {
+          message.push(`Press Enter to add ${filterValue} to the combo box list.`);
+        }
+        if (!isOptionsExpanded) {
+          message.push('Use the down arrow key to begin selecting.');
+        }
+        addPoliteMessageDebounced(message.join(' '));
       }
     },
     // do not include `optionValueFocused` in the dependency list
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [isOptionsExpanded, optionsFilteredWithoutGroupLabels]
+    [isOptionsExpanded, optionsFilteredWithoutGroupLabels, filterValue]
   );
 
   return (
@@ -120,7 +133,19 @@ export function CombBoxListBox({
       {...attributes.popper}
     >
       {children}
-      {optionsFilteredWithoutGroupLabels.length ? null : <ComboBoxOption isStatic isDisabled label="" value="">No results found</ComboBoxOption>}
+      {
+        // not custom and no possible options (all filtered out)
+        (!optionsFilteredWithoutGroupLabels.length && !allowCustomEntry)
+          ? <ComboBoxOption isStatic isDisabled label="" value="">No results found</ComboBoxOption>
+          : null
+      }
+      {
+        // no possible options but allowing custom entry and haven't selected a value yet
+        (!optionsFilteredWithoutGroupLabels.length && allowCustomEntry && optionValueSelected !== filterValue)
+          ? <ComboBoxOption isStatic isDisabled label="" value="">Press enter to add custom item</ComboBoxOption>
+          : null
+      }
+      {/* Note: a custom entered option (allowCustomEntry) is not rendered here. The controlling component must create the ComboBoxOption for it. */}
     </ul>
   );
 }

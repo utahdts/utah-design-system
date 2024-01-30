@@ -3,7 +3,6 @@ import { menusEnum } from '../../enums/menusEnum';
 import { Demo } from '../demo/Demo';
 import { HomeLanding } from '../websiteContent/HomeLanding';
 import { PlaceHolderDocumentation } from '../websiteContent/PlaceHolderDocumentation';
-import { ProgressLogPage } from '../websiteContent/ProgressLog/ProgressLogPage';
 import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
@@ -11,6 +10,7 @@ import { ColorGuidelinesDocumentation } from '../websiteContent/guidelines/Color
 import { DataPrivacyDocumentation } from '../websiteContent/guidelines/DataPrivacyDocumentation';
 import { DataVisualizationsDocumentation } from '../websiteContent/guidelines/DataVisualizationsDocumentation';
 import { DepthElevationShadowsDocumentation } from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
+import { FormGeneralDocumentation } from '../websiteContent/guidelines/FormGeneralDocumentation';
 import { GuidelinesLanding } from '../websiteContent/guidelines/GuidelinesLanding';
 import { ImagesDocumentation } from '../websiteContent/guidelines/ImagesDocumentation';
 import { LayoutDocumentation } from '../websiteContent/guidelines/LayoutDocumentation';
@@ -246,6 +246,14 @@ export const pages = {
     pageTitle: 'Depth / Elevation / Shadows',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
+  formGeneralDocumentation: /** @type {Page} */ ({
+    content: FormGeneralDocumentation,
+    link: pageUrls.formGuidelines,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form General Guidance',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+    legacyLinks: ['guidelinesStandards/formGuidelines'],
+  }),
   shape: /** @type {Page} */ ({
     content: ShapesDocumentation,
     link: pageUrls.shape,
@@ -404,13 +412,6 @@ export const pages = {
     link: pageUrls.showcase,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'Showcase',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  progressLog: /** @type {Page} */ ({
-    content: ProgressLogPage,
-    link: pageUrls.progressLog,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Progress Log',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 

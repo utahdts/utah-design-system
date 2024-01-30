@@ -62,9 +62,9 @@ export function TableExampleRender({
             isFiltering
               ? (
                 <TableFilters>
-                  <TableFilterTextInput recordFieldPath="category" />
-                  <TableFilterTextInput recordFieldPath="symbol" />
-                  <TableFilterTextInput recordFieldPath="year" />
+                  <TableFilterTextInput a11yLabel="Category" recordFieldPath="category" />
+                  <TableFilterTextInput a11yLabel="Symbol" recordFieldPath="symbol" />
+                  <TableFilterTextInput a11yLabel="Year" recordFieldPath="year" />
                 </TableFilters>
               )
               : null

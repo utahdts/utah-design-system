@@ -617,7 +617,7 @@ export function IconButtonDocumentation() {
                           <code>false</code>
                         </div>
                       </TableCell>
-                      <TableCell><code>false</code></TableCell>
+                      <TableCell>false</TableCell>
                       <TableCell>
                         When <span className="font-semi-bold">isDisabled</span> is true, the button will become unclickable
                         and its appearance will change to be more subdued
@@ -634,7 +634,7 @@ export function IconButtonDocumentation() {
                           <code>false</code>
                         </div>
                       </TableCell>
-                      <TableCell><code>false</code></TableCell>
+                      <TableCell>false</TableCell>
                       <TableCell>
                         Will toggle the visibility of the title of the icon button.
                       </TableCell>

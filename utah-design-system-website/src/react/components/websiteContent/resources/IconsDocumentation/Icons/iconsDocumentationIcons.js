@@ -224,4 +224,34 @@ export const iconsDocumentationIcons = [
     title: 'trash',
     letter: 's',
   },
+  {
+    cssClass: 'calendar',
+    title: 'calendar',
+    letter: 't',
+  },
+  {
+    cssClass: 'clock',
+    title: 'clock',
+    letter: 'u',
+  },
+  {
+    cssClass: 'double-arrow-up',
+    title: 'double-arrow-up',
+    letter: 'v',
+  },
+  {
+    cssClass: 'double-arrow-right',
+    title: 'double-arrow-right',
+    letter: 'w',
+  },
+  {
+    cssClass: 'double-arrow-down',
+    title: 'double-arrow-down',
+    letter: 'x',
+  },
+  {
+    cssClass: 'double-arrow-left',
+    title: 'double-arrow-left',
+    letter: 'y',
+  },
 ];

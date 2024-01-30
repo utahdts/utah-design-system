@@ -24,6 +24,23 @@ export function ComboBoxPropsDocumentation() {
           </TableHead>
           <TableBody>
             <TableRow>
+              <TableCell><code className="primary-color">allowCustomEntry</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
+              <TableCell>false</TableCell>
+              <TableCell>
+                When true, the user can enter custom values instead of only being allowed to select from the provided list.
+                Parent component gets the new value through <code>onChange</code>.
+                Parent component can also use the <code>onCustomEntry</code> to be notified of custom entry.
+                It is the parent&apos;s responsibility to add the new custom item to the list of options if desired.
+              </TableCell>
+            </TableRow>
+            <TableRow>
               <TableCell><code className="primary-color">className</code></TableCell>
               <TableCell>
                 <div className="props-code-wrapper">
@@ -74,7 +91,7 @@ export function ComboBoxPropsDocumentation() {
               </TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This ref will be attached to the rendered <code>select</code> element&apos; wrapper element allowing the parent component to interact
+                This ref will be attached to the rendered <code>select</code> element&apos;s wrapper element allowing the parent component to interact
                 directly with the actual DOM elements.
               </TableCell>
             </TableRow>
@@ -117,7 +134,7 @@ export function ComboBoxPropsDocumentation() {
                   <code>false</code>
                 </div>
               </TableCell>
-              <TableCell><code>false</code></TableCell>
+              <TableCell>false</TableCell>
               <TableCell>
                 Used to make the select a required field. This will set the <code>required</code> attribute and display an asterisk next to its label.
               </TableCell>
@@ -170,6 +187,18 @@ export function ComboBoxPropsDocumentation() {
               </TableCell>
             </TableRow>
             <TableRow>
+              <TableCell><code className="primary-color">onCustomEntry</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>function</code>
+                </div>
+              </TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                The provided function is called when the user enters a custom value. See <code>allowCustomEntry</code> for more details.
+              </TableCell>
+            </TableRow>
+            <TableRow>
               <TableCell><code className="primary-color">onSubmit</code></TableCell>
               <TableCell>
                 <div className="props-code-wrapper">
@@ -193,7 +222,7 @@ export function ComboBoxPropsDocumentation() {
                 </div>
               </TableCell>
               <TableCell>null</TableCell>
-              <TableCell>The selected option&apos; value. All values in an HTML <code>select</code> are strings.</TableCell>
+              <TableCell>The selected option&apos;s value. All values in an HTML <code>select</code> are strings.</TableCell>
             </TableRow>
             <TableRow>
               <TableCell><code className="primary-color">wrapperClassName</code></TableCell>

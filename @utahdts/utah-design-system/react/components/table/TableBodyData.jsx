@@ -99,7 +99,6 @@ export function TableBodyData({
         previousFilterValues.current = filterValues.value;
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       currentSortingOrderIsDefault,
       filterValues,
