@@ -45,6 +45,7 @@ export function LogoTitle() {
       throw new Error('LogoTitle: logo set but has no settings');
     }
     settingsLogoElement.setAttribute('role', 'presentation');
+    settingsLogoElement.setAttribute('alt', '');
     logoWrapper.appendChild(settingsLogoElement);
   } else {
     logoTitleWrapper.removeChild(logoWrapper);
