@@ -73,7 +73,7 @@ export function TimeInputDocumentation() {
             </li>
             <li>
               Placeholders can be used to denote the time format to use. Be aware that placeholders, by default, do not meet
-              the minimum contrast requirements of <code>4.5:1</code>. Additionally, placeholder do not convey meaning to screen readers.
+              the minimum contrast requirements of <code>4.5:1</code>. Additionally, placeholder may not convey meaning to screen readers.
             </li>
           </ul>
         )}
