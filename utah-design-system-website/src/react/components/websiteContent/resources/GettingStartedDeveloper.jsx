@@ -164,7 +164,7 @@ export function GettingStartedDeveloper() {
           />
         </li>
         <li>
-          Import the header (js/css) in to the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system">examples/utah-header/vite</ExternalLink>)<br />
+          Import the header (js/css) in to the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">examples/utah-header/vite/main.js</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
@@ -176,7 +176,7 @@ export function GettingStartedDeveloper() {
           />
         </li>
         <li>
-          Load header settings to show the header in the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system">examples/utah-header/vite</ExternalLink>)<br />
+          Load header settings to show the header in the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">examples/utah-header/vite/main.js</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 setUtahHeaderSettings({
