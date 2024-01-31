@@ -1,6 +1,7 @@
 import {
   MultiSelect,
   MultiSelectOption,
+  useAriaMessaging,
   useFormContext
 } from '@utahdts/utah-design-system';
 import { useImmer } from 'use-immer';
@@ -31,6 +32,7 @@ export function MultiSelectExampleRender({
   },
   innerRef,
 }) {
+  const { addPoliteMessage } = useAriaMessaging();
   const { setState: setStateFormContext } = useFormContext();
   const [options, setOptions] = useImmer(() => [
     { label: 'Arches National Park', value: 'arches' },
@@ -59,7 +61,12 @@ export function MultiSelectExampleRender({
             draftStateFormContext['props.values'] = newValue;
           });
         })}
-        onCustomEntry={(customValue) => setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }))}
+        onCustomEntry={
+          (customValue) => {
+            addPoliteMessage(`${customValue} has been added to the options list.`);
+            setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }));
+          }
+        }
         values={values}
       >
         {
