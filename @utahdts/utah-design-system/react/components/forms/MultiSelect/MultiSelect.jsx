@@ -3,6 +3,7 @@ import MultiSelectContextProvider from './context/MultiSelectContextProvider';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry] can the user type in their own items to add to the list?
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string[]} [props.defaultValues]
@@ -17,12 +18,14 @@ import MultiSelectContextProvider from './context/MultiSelectContextProvider';
  * @param {string} [props.name]
  * @param {((newValue: string[]) => void)} [props.onChange]
  * @param {() => void} [props.onClear]
+ * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {string} [props.placeholder]
  * @param {string[]} [props.values]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
  */
 export function MultiSelect({
+  allowCustomEntry,
   children,
   className,
   defaultValues,
@@ -37,6 +40,7 @@ export function MultiSelect({
   name,
   onChange,
   onClear,
+  onCustomEntry,
   placeholder,
   values,
   wrapperClassName,
@@ -51,6 +55,7 @@ export function MultiSelect({
       values={values}
     >
       <MultiSelectComboBox
+        allowCustomEntry={allowCustomEntry}
         className={className}
         errorMessage={errorMessage}
         innerRef={innerRef}
@@ -60,6 +65,7 @@ export function MultiSelect({
         label={label}
         labelClassName={labelClassName}
         name={name}
+        onCustomEntry={onCustomEntry}
         placeholder={placeholder}
         wrapperClassName={wrapperClassName}
         // eslint-disable-next-line react/jsx-props-no-spreading

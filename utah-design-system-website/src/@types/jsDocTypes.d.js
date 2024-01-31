@@ -218,6 +218,7 @@
 
 /**
  * @typedef MultiSelectExamplePropsShape {
+ *  @property {boolean} allowCustomEntry
  *  @property {string} className
  *  @property {string} errorMessage
  *  @property {string} id

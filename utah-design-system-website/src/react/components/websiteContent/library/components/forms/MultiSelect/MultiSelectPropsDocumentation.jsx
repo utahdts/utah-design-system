@@ -25,6 +25,23 @@ export default function MultiSelectPropsDocumentation() {
           </TableHead>
           <TableBody>
             <TableRow>
+              <TableCell><code className="primary-color">allowCustomEntry</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>true</code>
+                  <span> | </span>
+                  <code>false</code>
+                </div>
+              </TableCell>
+              <TableCell>false</TableCell>
+              <TableCell>
+                When true, the user can enter custom values instead of only being allowed to select from the provided list.
+                Parent component gets the new value through <code>onChange</code>.
+                Parent component can also use <code>onCustomEntry</code> to be notified of a new custom entered value.
+                It is the parent&apos;s responsibility to add the new custom item to the list of options if desired.
+              </TableCell>
+            </TableRow>
+            <TableRow>
               <TableCell><code className="primary-color">className</code></TableCell>
               <TableCell>
                 <div className="props-code-wrapper">
@@ -168,6 +185,18 @@ export default function MultiSelectPropsDocumentation() {
               <TableCell>null</TableCell>
               <TableCell>
                 Function to call when the user clears the input.
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code className="primary-color">onCustomEntry</code></TableCell>
+              <TableCell>
+                <div className="props-code-wrapper">
+                  <code>function</code>
+                </div>
+              </TableCell>
+              <TableCell>null</TableCell>
+              <TableCell>
+                The provided function is called when the user enters a custom value. See <code>allowCustomEntry</code> for more details.
               </TableCell>
             </TableRow>
             <TableRow>

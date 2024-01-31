@@ -10,6 +10,7 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 export function MultiSelectExampleCodeReact({
   state: {
     props: {
+      allowCustomEntry,
       className,
       errorMessage,
       id,
@@ -25,6 +26,7 @@ export function MultiSelectExampleCodeReact({
     <>
       &lt;MultiSelect
       <br />
+      <ExampleCodeReactProp displayProp={allowCustomEntry ? 'allowCustomEntry' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
@@ -42,6 +44,7 @@ export function MultiSelectExampleCodeReact({
       <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Canyonlands" value="canyonlands" />'} indentLevel={1} />
       <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Capitol Reef" value="capitol-reef" />'} indentLevel={1} />
       <ExampleCodeReactProp displayProp={'<MultiSelectOption label="Zion" value="zion" />'} indentLevel={1} />
+      {/* Note: custom options are not being included here */}
       &lt;/MultiSelect&gt;
     </>
   );

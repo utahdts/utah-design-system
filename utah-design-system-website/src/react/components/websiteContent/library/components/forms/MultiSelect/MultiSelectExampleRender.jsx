@@ -3,6 +3,7 @@ import {
   MultiSelectOption,
   useFormContext
 } from '@utahdts/utah-design-system';
+import { useImmer } from 'use-immer';
 
 /** @typedef {import('utah-design-system-website').MultiSelectExamplePropsShape} MultiSelectExamplePropsShape */
 
@@ -17,6 +18,7 @@ export function MultiSelectExampleRender({
   setState,
   state: {
     props: {
+      allowCustomEntry,
       className,
       errorMessage,
       id,
@@ -30,9 +32,18 @@ export function MultiSelectExampleRender({
   innerRef,
 }) {
   const { setState: setStateFormContext } = useFormContext();
+  const [options, setOptions] = useImmer(() => [
+    { label: 'Arches National Park', value: 'arches' },
+    { label: 'Bryce Canyon National Park', value: 'bryce' },
+    { label: 'Canyonlands National Park', value: 'canyonlands' },
+    { label: 'Capitol Reef National Park', value: 'capitol-reef' },
+    { label: 'Zion National Park', value: 'zion' },
+  ]);
+
   return (
     <div style={{ width: '80%' }}>
       <MultiSelect
+        allowCustomEntry={allowCustomEntry}
         className={className}
         errorMessage={errorMessage}
         id={id || 'multi-select-example-render-id'}
@@ -48,13 +59,14 @@ export function MultiSelectExampleRender({
             draftStateFormContext['props.values'] = newValue;
           });
         })}
+        onCustomEntry={(customValue) => setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }))}
         values={values}
       >
-        <MultiSelectOption label="Arches" value="arches" />
-        <MultiSelectOption label="Bryce Canyon" value="bryce" />
-        <MultiSelectOption label="Canyonlands" value="canyonlands" />
-        <MultiSelectOption label="Capitol Reef" value="capitol-reef" />
-        <MultiSelectOption label="Zion" value="zion" />
+        {
+          options.map((option) => (
+            <MultiSelectOption key={`multi-select-example-render__option__${option.value}`} label={option.label} value={option.value} />
+          ))
+        }
       </MultiSelect>
     </div>
   );

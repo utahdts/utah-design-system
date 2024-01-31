@@ -36,7 +36,7 @@ export function ComboBoxPropsDocumentation() {
               <TableCell>
                 When true, the user can enter custom values instead of only being allowed to select from the provided list.
                 Parent component gets the new value through <code>onChange</code>.
-                Parent component can also use the <code>onCustomEntry</code> to be notified of custom entry.
+                Parent component can also use <code>onCustomEntry</code> to be notified of a new custom entered value.
                 It is the parent&apos;s responsibility to add the new custom item to the list of options if desired.
               </TableCell>
             </TableRow>
