@@ -95,7 +95,10 @@ export function useFormContextInputValue({
         ?? (contextOnChange && internalOnChange)
         ?? setInternalState
       ),
-      onClear: /** @type {any} */ (onClear ?? (contextOnChange && internalOnClear)),
+      onClear: () => {
+        (onClear ?? internalOnClear)();
+        setInternalState(/** @type {ValueT} */(''));
+      },
 
       // direct access to form internals to do whatever you want, though be careful to allow
       // your input's passed in props to trump the form's props

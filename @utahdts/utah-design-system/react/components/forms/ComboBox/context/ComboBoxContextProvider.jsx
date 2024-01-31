@@ -195,6 +195,16 @@ export function ComboBoxContextProvider({
     [comboBoxImmer[0].isOptionsExpanded]
   );
 
+  // update onClear on change
+  useEffect(
+    () => {
+      comboBoxImmer[1]((draftContext) => {
+        draftContext.onClear = onClear;
+      });
+    },
+    [onClear]
+  );
+
   return (
     <ComboBoxContext.Provider value={providerValue}>
       {children}

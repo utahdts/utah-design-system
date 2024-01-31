@@ -65,7 +65,7 @@ export function TextArea({
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
-  const { addAssertiveMessage } = useAriaMessaging();
+  const { addPoliteMessage } = useAriaMessaging();
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);
 
@@ -73,10 +73,10 @@ export function TextArea({
     /** @param {import('react').UIEvent} e */
     (e) => {
       currentOnClear?.(e);
-      addAssertiveMessage(`${label} input was cleared`);
+      addPoliteMessage(`${label} input was cleared`);
       inputRef.current?.focus();
     },
-    [addAssertiveMessage, currentOnClear, label]
+    [addPoliteMessage, currentOnClear, label]
   );
 
   const checkKeyPressed = useCallback(

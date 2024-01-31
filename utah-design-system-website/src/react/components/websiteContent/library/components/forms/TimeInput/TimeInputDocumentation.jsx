@@ -1,10 +1,14 @@
 /* eslint-disable max-len */
+import { Tab, TabGroup, TabList, TabPanel, TabPanels, TimeInput } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import timeInputDefault from '../../../../../../../static/images/screenshots/components/time-input/timeInputDefault.jpg';
-import timeInputSelect from '../../../../../../../static/images/screenshots/components/time-input/timeInputSelect.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
+import { TimeInputCssClassesDocumentation } from './TimeInputCssClassesDocumentation';
+import { TimeInputExampleCodeReact } from './TimeInputExampleCodeReact';
+import { TimeInputExampleProps } from './TimeInputExampleProps';
+import { TimeInputExampleRender } from './TimeInputExampleRender';
+import { TimeInputPropsDocumentation } from './TimeInputPropsDocumentation';
 
 export function TimeInputDocumentation() {
   return (
@@ -16,9 +20,42 @@ export function TimeInputDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          allowCustomEntry: false,
+          className: '',
+          timeFormat: 'h:mm a',
+          errorMessage: '',
+          hasTimePopup: true,
+          id: 'time-input-example-id',
+          isClearable: false,
+          isDisabled: false,
+          isRequired: false,
+          label: 'Enter a time',
+          name: '',
+          placeholder: 'h:mm a',
+          timeRangeBegin: '',
+          timeRangeEnd: '',
+          timeRangeIncrement: '15',
+          value: '',
+        }}
+        CODE_EXAMPLE={TimeInputExampleCodeReact}
+        PROPS_EXAMPLE={TimeInputExampleProps}
+        RENDER_EXAMPLE={TimeInputExampleRender}
+      />
+
       <StaticExample
         title="Default time input"
-        renderedExample={<LightBox image={timeInputDefault} alt="Time Input" className="flex-3up-gap" />}
+        renderedExample={(
+          <div style={{ width: '220px' }}>
+            <TimeInput
+              id="time-input-documentation__example-1"
+              label="What time is your appointment?"
+              // @ts-ignore
+              autoComplete="off"
+            />
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>
@@ -36,7 +73,7 @@ export function TimeInputDocumentation() {
             </li>
             <li>
               Placeholders can be used to denote the time format to use. Be aware that placeholders, by default, do not meet
-              the minimum contrast requirements of <code>4.5:1</code>.
+              the minimum contrast requirements of <code>4.5:1</code>. Additionally, placeholder may not convey meaning to screen readers.
             </li>
           </ul>
         )}
@@ -49,7 +86,24 @@ export function TimeInputDocumentation() {
       <StaticExample
         id="static-example__select-time-input"
         title="Select time input"
-        renderedExample={<LightBox image={timeInputSelect} alt="Select Time Input" className="flex-3up-gap" />}
+        renderedExample={(
+          <div style={{ width: '150px' }}>
+            <TimeInput
+              allowCustomEntry
+              defaultValue="09:16"
+              id="time-input-documentation__example-2"
+              isClearable
+              label="When is bedtime?"
+              placeholder="24H:MM"
+              timeFormat="HH:mm"
+              timeRangeBegin="09:03"
+              timeRangeEnd="14:25"
+              timeRangeIncrement={13}
+              // @ts-ignore
+              autoComplete="off"
+            />
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>
@@ -164,6 +218,24 @@ export function TimeInputDocumentation() {
           For the select time input, follow accessibility guidelines for the <Link to={pageUrls.select}>select input</Link>.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <TimeInputCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <TimeInputPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
