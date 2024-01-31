@@ -110,7 +110,6 @@ export function TimeInput({
               // COMMON PROPS: make sure these match with TextInput
               className={className}
               errorMessage={errorMessage}
-              iconCallback={() => clockIcon}
               id={id}
               isClearable={isClearable}
               isDisabled={isDisabled}
@@ -123,6 +122,7 @@ export function TimeInput({
               value={currentValue}
               // END COMMON PROPS
               allowCustomEntry={allowCustomEntry}
+              iconCallback={() => clockIcon}
               onChange={currentOnChange}
               // eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}
@@ -152,10 +152,10 @@ export function TimeInput({
               name={name || id}
               onClear={isClearable ? currentOnClear : undefined}
               placeholder={placeholder}
-              rightContent={clockIcon}
               value={currentValue}
               // END COMMON PROPS
               onChange={(e) => currentOnChange(e.target.value)}
+              rightContent={clockIcon}
               // eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}
             />
