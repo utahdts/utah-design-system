@@ -101,7 +101,7 @@ export function TimeInput({
 
   const clockIcon = useMemo(
     () => (
-      <span className={joinClassNames('utds-icon-before-clock', isDisabled && 'time-input__clock-icon--is-disabled', !hasTimePopup && 'time-input__clock-icon--static')} aria-hidden="true" />
+      <span className={joinClassNames('utds-icon-before-clock', 'time-input__clock-icon', isDisabled && 'time-input__clock-icon--is-disabled', !hasTimePopup && 'time-input__clock-icon--static')} aria-hidden="true" />
     ),
     [isDisabled, hasTimePopup]
   );
