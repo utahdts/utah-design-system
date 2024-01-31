@@ -7,15 +7,6 @@ import { useFormContextInputValue } from './FormContext/useFormContextInputValue
 import { TextInput } from './TextInput';
 
 /**
- * @param {Date | null} date
- * @param {Date} dateDefault
- * @returns {Date}
- */
-function defaultDate(date, dateDefault) {
-  return (date && isValid(date)) ? date : dateDefault;
-}
-
-/**
  * @param {object} props
  * @param {boolean} [props.allowCustomEntry] can the user type in their own time that is not in the popup combobox list
  * @param {string} [props.className]
@@ -82,8 +73,12 @@ export function TimeInput({
     () => {
       const defaultStartDate = new Date(new Date().setHours(0, 0, 0, 0));
       const defaultEndDate = new Date(new Date().setHours(23, 59, 0, 0));
-      const optionsBeginDate = defaultDate((timeRangeBegin && parse(timeRangeBegin, timeFormat, new Date())) || null, defaultStartDate);
-      const optionsEndDate = defaultDate((timeRangeEnd && parse(timeRangeEnd, timeFormat, new Date())) || null, defaultEndDate);
+
+      let optionsBeginDate = (timeRangeBegin && parse(timeRangeBegin, timeFormat, new Date())) || null;
+      optionsBeginDate = (optionsBeginDate && isValid(optionsBeginDate)) ? optionsBeginDate : defaultStartDate;
+
+      let optionsEndDate = (timeRangeEnd && parse(timeRangeEnd, timeFormat, new Date())) || null;
+      optionsEndDate = (optionsEndDate && isValid(optionsEndDate)) ? optionsEndDate : defaultEndDate;
 
       const timeOptionsRet = [];
       for (
