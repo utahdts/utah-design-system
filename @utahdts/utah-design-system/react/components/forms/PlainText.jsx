@@ -43,7 +43,8 @@ export function PlainText({
       }
       <div className="plain-text__inner-wrapper">
         <div className={joinClassNames(className)} id={id} {...rest}>
-          {currentValue}
+          {/* empty div doesn't take up space. the UI was jumping up and down when there wasn't a value. if there is nothing then put something */}
+          {currentValue || <>&nbsp;</>}
         </div>
       </div>
     </div>
