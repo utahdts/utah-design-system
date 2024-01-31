@@ -31,7 +31,7 @@ export function PlainText({
   const internalId = useId();
   const { value: currentValue } = useFormContextInput({ id: id || internalId, value });
   return (
-    <div className={joinClassNames('plain-text-wrapper', 'plain-text-wrapper--plain-text', wrapperClassName)} ref={innerRef}>
+    <div className={joinClassNames('input-wrapper', 'input-wrapper--plain-text', wrapperClassName)} ref={innerRef}>
       {
         isLabelSkipped
           ? null
