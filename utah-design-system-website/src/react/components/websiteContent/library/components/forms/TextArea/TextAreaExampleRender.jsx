@@ -59,6 +59,8 @@ export function TextAreaExampleRender({
         placeholder={placeholder}
         isRequired={isRequired}
         value={value}
+        // @ts-ignore
+        autoComplete="off"
       />
     </div>
   );

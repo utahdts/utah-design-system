@@ -49,6 +49,8 @@ export function MultiSelectExampleRender({
           });
         })}
         values={values}
+        // @ts-ignore
+        autoComplete="off"
       >
         <MultiSelectOption label="Arches" value="arches" />
         <MultiSelectOption label="Bryce Canyon" value="bryce" />
