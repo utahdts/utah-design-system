@@ -70,7 +70,7 @@ export function TimeInputExampleProps({ setState, state }) {
       </Select>
       <TextInput id="props.timeRangeBegin" label={`Range Begin (${state.props.timeFormat})`} className="input--height-small1x" />
       <TextInput id="props.timeRangeEnd" label={`Range End (${state.props.timeFormat})`} className="input--height-small1x" />
-      <PlainText id="props.value" label="Value" />
+      <PlainText id="props.value" label="Value" value={state.props.value || '-- Nothing Selected --'} />
     </Form>
   );
 }

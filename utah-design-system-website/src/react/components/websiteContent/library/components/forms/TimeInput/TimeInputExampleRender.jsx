@@ -34,7 +34,7 @@ export function TimeInputExampleRender({
   innerRef,
 }) {
   return (
-    <div style={{ width: '80%' }}>
+    <div style={{ width: '160px' }}>
       <TimeInput
         allowCustomEntry={allowCustomEntry}
         className={className}
@@ -59,6 +59,8 @@ export function TimeInputExampleRender({
         timeRangeBegin={timeRangeBegin}
         timeRangeEnd={timeRangeEnd}
         value={value}
+        // @ts-ignore
+        autoComplete="off"
       />
     </div>
   );

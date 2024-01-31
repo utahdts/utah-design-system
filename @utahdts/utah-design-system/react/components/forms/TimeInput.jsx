@@ -101,73 +101,71 @@ export function TimeInput({
 
   const clockIcon = useMemo(
     () => (
-      <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}>
-        <span className="utds-icon-before-clock" aria-hidden="true" />
-      </div>
+      <span className={joinClassNames('utds-icon-before-clock', isDisabled && 'time-input__clock-icon--is-disabled', !hasTimePopup && 'time-input__clock-icon--static')} aria-hidden="true" />
     ),
-    [isDisabled]
+    [isDisabled, hasTimePopup]
   );
 
   return (
-    <div className={joinClassNames('time-input-wrapper', 'time-input-wrapper--time-input', wrapperClassName)} ref={innerRef}>
-      <div className={joinClassNames('time-input__inner-wrapper', className)}>
-        {
-          hasTimePopup
-            ? (
-              <ComboBox
-                // COMMON PROPS: make sure these match with TextInput
-                errorMessage={errorMessage}
-                iconCallback={() => clockIcon}
-                id={id}
-                isClearable={isClearable}
-                isDisabled={isDisabled}
-                isRequired={isRequired}
-                label={label}
-                labelClassName={labelClassName}
-                name={name || id}
-                onClear={isClearable ? currentOnClear : undefined}
-                placeholder={placeholder}
-                value={currentValue}
-                // END COMMON PROPS
-                allowCustomEntry={allowCustomEntry}
-                onChange={currentOnChange}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...rest}
-              >
-                {
-                  timeOptions.map((timeOption) => (
-                    <ComboBoxOption
-                      key={`time-input__${id}__${timeOption}`}
-                      label={timeOption}
-                      value={timeOption}
-                    />
-                  ))
-                }
-              </ComboBox>
-            )
-            : (
-              <TextInput
-                // COMMON PROPS: make sure these match with ComboBox
-                errorMessage={errorMessage}
-                id={id}
-                isClearable={isClearable}
-                isDisabled={isDisabled}
-                isRequired={isRequired}
-                label={label}
-                labelClassName={labelClassName}
-                name={name || id}
-                onClear={isClearable ? currentOnClear : undefined}
-                placeholder={placeholder}
-                rightContent={clockIcon}
-                value={currentValue}
-                // END COMMON PROPS
-                onChange={(e) => currentOnChange(e.target.value)}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...rest}
-              />
-            )
-        }
-      </div>
+    <div className={joinClassNames('time-input__wrapper', wrapperClassName)} ref={innerRef}>
+      {
+        hasTimePopup
+          ? (
+            <ComboBox
+              // COMMON PROPS: make sure these match with TextInput
+              className={className}
+              errorMessage={errorMessage}
+              iconCallback={() => clockIcon}
+              id={id}
+              isClearable={isClearable}
+              isDisabled={isDisabled}
+              isRequired={isRequired}
+              label={label}
+              labelClassName={labelClassName}
+              name={name || id}
+              onClear={isClearable ? currentOnClear : undefined}
+              placeholder={placeholder}
+              value={currentValue}
+              // END COMMON PROPS
+              allowCustomEntry={allowCustomEntry}
+              onChange={currentOnChange}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...rest}
+            >
+              {
+                timeOptions.map((timeOption) => (
+                  <ComboBoxOption
+                    key={`time-input__${id}__${timeOption}`}
+                    label={timeOption}
+                    value={timeOption}
+                  />
+                ))
+              }
+            </ComboBox>
+          )
+          : (
+            <TextInput
+              // COMMON PROPS: make sure these match with ComboBox
+              className={className}
+              errorMessage={errorMessage}
+              id={id}
+              isClearable={isClearable}
+              isDisabled={isDisabled}
+              isRequired={isRequired}
+              label={label}
+              labelClassName={labelClassName}
+              name={name || id}
+              onClear={isClearable ? currentOnClear : undefined}
+              placeholder={placeholder}
+              rightContent={clockIcon}
+              value={currentValue}
+              // END COMMON PROPS
+              onChange={(e) => currentOnChange(e.target.value)}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...rest}
+            />
+          )
+      }
     </div>
   );
 }

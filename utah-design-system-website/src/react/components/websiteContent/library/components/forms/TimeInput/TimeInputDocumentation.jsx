@@ -46,7 +46,16 @@ export function TimeInputDocumentation() {
 
       <StaticExample
         title="Default time input"
-        renderedExample={<TimeInput id="time-input-documentation__example-1" label="What time is your appointment?" />}
+        renderedExample={(
+          <div style={{ width: '220px' }}>
+            <TimeInput
+              id="time-input-documentation__example-1"
+              label="What time is your appointment?"
+              // @ts-ignore
+              autoComplete="off"
+            />
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>
@@ -64,7 +73,7 @@ export function TimeInputDocumentation() {
             </li>
             <li>
               Placeholders can be used to denote the time format to use. Be aware that placeholders, by default, do not meet
-              the minimum contrast requirements of <code>4.5:1</code>.
+              the minimum contrast requirements of <code>4.5:1</code>. Additionally, placeholder do not convey meaning to screen readers.
             </li>
           </ul>
         )}
@@ -78,18 +87,22 @@ export function TimeInputDocumentation() {
         id="static-example__select-time-input"
         title="Select time input"
         renderedExample={(
-          <TimeInput
-            allowCustomEntry
-            defaultValue="09:16"
-            id="time-input-documentation__example-2"
-            isClearable
-            label="When is bedtime?"
-            placeholder="24H:MM"
-            timeFormat="HH:mm"
-            timeRangeBegin="09:03"
-            timeRangeEnd="14:25"
-            timeRangeIncrement={13}
-          />
+          <div style={{ width: '150px' }}>
+            <TimeInput
+              allowCustomEntry
+              defaultValue="09:16"
+              id="time-input-documentation__example-2"
+              isClearable
+              label="When is bedtime?"
+              placeholder="24H:MM"
+              timeFormat="HH:mm"
+              timeRangeBegin="09:03"
+              timeRangeEnd="14:25"
+              timeRangeIncrement={13}
+              // @ts-ignore
+              autoComplete="off"
+            />
+          </div>
         )}
         quickTips={(
           <ul>
