@@ -31,6 +31,7 @@ export function CombBoxListBox({
     {
       filterValue,
       isOptionsExpanded,
+      options,
       optionsFiltered,
       optionsFilteredWithoutGroupLabels,
       optionValueFocused,
@@ -101,10 +102,10 @@ export function CombBoxListBox({
           // there are no groups: '8 results available'
           message.push(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available.`);
         }
-        if (allowCustomEntry && filterValue) {
+        if (allowCustomEntry && filterValue && !options.some((option) => option.labelLowerCase === filterValue.toLocaleLowerCase())) {
           message.push(`Press Enter to add ${filterValue} to the combo box list.`);
         }
-        if (sayArrowKeyAnnouncement) {
+        if (!isOptionsExpanded) {
           message.push('Use the down arrow key to begin selecting.');
         }
         addPoliteMessageDebounced(message.join(' '));

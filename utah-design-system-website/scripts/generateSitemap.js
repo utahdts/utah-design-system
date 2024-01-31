@@ -21,7 +21,8 @@
  */
 import fs from 'fs';
 import { EOL } from 'node:os';
-import { pageUrls } from '../src/react/components/routing/pageUrls';
+// eslint-disable-next-line import/extensions
+import { pageUrls } from '../src/react/components/routing/pageUrls.js';
 
 // use absolute urls, so will need to check branch during deploy
 // BUT only submit for the prod site, so no need to use multiple urls
