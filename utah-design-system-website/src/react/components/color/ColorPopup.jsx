@@ -9,9 +9,11 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-  useBanner
+  useBanner,
+  useGlobalKeyEvent
 } from '@utahdts/utah-design-system';
 import { useCallback, useRef, useState } from 'react';
+import tinycolor from 'tinycolor2';
 import { useImmer } from 'use-immer';
 import { cssContextDefaultColors } from '../../context/cssContext/cssContextDefaultColors';
 import { useCssContext } from '../../context/cssContext/useCssContext';
@@ -73,6 +75,8 @@ export function ColorPopup({ onClose }) {
     },
     [cssState.selectedColorPicker]
   );
+
+  const showRandomizingIcon = useGlobalKeyEvent({ whichKeyCode: 'Alt' });
 
   return (
     <div className="color-picker-popup__backdrop">
@@ -136,20 +140,27 @@ export function ColorPopup({ onClose }) {
                 .catch((e) => console.error(e));
             }}
           />
-          {/* for testing, can randomly get a new set of colors easily (maybe an easter egg?) */}
-          {/*
-          <div className="color-picker-popup__buttons">
-            <IconButton
-              icon={Icons.IconArrowRight()}
-              title="Randomize color picker"
-              onClick={() => (
-                setCssState((draftCssState) => (
-                  Object.keys(cssContextDefaultColors).forEach((key) => { draftCssState[key] = `#${tinycolor.random().toHex()}`; })
-                ))
-              )}
-            />
-          </div>
-          */}
+          {
+            showRandomizingIcon
+              ? (
+                <div className="color-picker-popup__buttons">
+                  <IconButton
+                    icon={<Icons.IconDangerous />}
+                    title="Randomize color picker"
+                    className="icon-button--borderless"
+                    onClick={() => (
+                      setCssState((draftCssState) => (
+                        Object.keys(cssContextDefaultColors).forEach((key) => {
+                          // @ts-ignore
+                          draftCssState[key] = `#${tinycolor.random().toHex()}`;
+                        })
+                      ))
+                    )}
+                  />
+                </div>
+              )
+              : null
+          }
           {
             onClose
               ? (
