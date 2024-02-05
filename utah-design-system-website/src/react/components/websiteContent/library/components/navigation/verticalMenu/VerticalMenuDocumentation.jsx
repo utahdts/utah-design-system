@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
+import { childrenMenuTypes } from '@utahdts/utah-design-system';
 import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
 import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';
 import verticalMenuRightSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuRightSidebar.jpg';
@@ -7,8 +8,13 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { VerticalMenuExampleRender } from './VerticalMenuExampleRender';
+import { VerticalMenuExampleProps } from './VerticalMenuExampleProps';
+import { VerticalMenuExampleCodeReact } from './VerticalMenuExampleCodeReact';
 
 export function VerticalMenuDocumentation() {
+  // @ts-ignore
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Vertical Menu</h1>
@@ -16,10 +22,19 @@ export function VerticalMenuDocumentation() {
         A vertical menu is a collection of links that aid in the navigation of a website or a list of interactive items that are arranged vertically.
         Typically, the vertical menu is located on the left or right side of the webpage, but can also be displayed in a popup.<br /><br />
         View more information about <Link to={pageUrls.sidePanelNavigation}>Side Panel</Link> or <Link to={pageUrls.popups}>Popups</Link>.
-
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          // @ts-ignore
+          childrenMenuType: childrenMenuTypes.INLINE,
+        }}
+        RENDER_EXAMPLE={VerticalMenuExampleRender}
+        PROPS_EXAMPLE={VerticalMenuExampleProps}
+        CODE_EXAMPLE={VerticalMenuExampleCodeReact}
+        componentClassName="sandbox-example__component--outline"
+      />
       <StaticExample
         title="Vertical Menu Located Within the Side Panel"
         renderedExample={<LightBox image={verticalMenuLeftSidebarScreenshot} alt="Vertical Menu Sidebar" className="flex-3up-gap" />}

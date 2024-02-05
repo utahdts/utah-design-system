@@ -381,6 +381,12 @@
  */
 
 /**
+ * @typedef VerticalMenuExamplePropsShape {
+ *  @property {'inline' | 'flyout' | 'plain'} childrenMenuType
+ * }
+ */
+
+/**
  * @typedef {{[key in WebsiteMainMenuKey]: WebsiteMainMenu}} WebsiteAllMenus
  */
 

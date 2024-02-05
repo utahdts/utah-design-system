@@ -49,7 +49,7 @@ export function MenuItemFlyout({
                     type="button"
                     title={menuItem.children ? 'Expand sub-menu' : ''}
                   >
-                    {menuItem.title}
+                    <span className="vertical-menu__link-text">{menuItem.title}</span>
                     {menuItem.children ? <span className="utds-icon-before-chevron-right vertical-menu__chevron is-closed" aria-hidden="true" /> : null}
                   </button>
                 )
