@@ -40,6 +40,11 @@
  */
 
 /**
+ * MenuTypes
+ * @typedef { 'vertical' | 'horizontal' } MenuTypes
+ */
+
+/**
  * IconButtonAppearance
  * @typedef {'solid' | 'outlined' | 'borderless'} IconButtonAppearance
  */
@@ -406,6 +411,7 @@
  *  @property {string} title
  *  @property {string[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {'inline' | 'flyout' | 'mega-menu' | 'plain' | null} [childrenMenuType]
  *  @property {boolean} [isSelected]
  *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }

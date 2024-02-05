@@ -5,17 +5,24 @@ import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { Icons } from '../icons/Icons';
+import { menuTypes } from '../../enums/menuTypes';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
+/** @typedef {import('@utahdts/utah-design-system').MenuTypes} MenuTypes  */
 
 /**
  * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {WebsiteMainMenuItem} props.menuItem
+ * @param {MenuTypes} [props.menuType]
  * @returns {import('react').JSX.Element}
  */
-export function MenuItem({ currentMenuItem, menuItem }) {
+export function MenuItem({
+  currentMenuItem,
+  menuItem,
+  menuType,
+}) {
   const { pathname } = useLocation();
   // check if any of this menuItem's children are the currently open page/menuItem and if so, then keep this menuItem's children list open
   const [isChildrenOpen, setIsChildrenOpen] = useImmer(() => (
@@ -49,7 +56,7 @@ export function MenuItem({ currentMenuItem, menuItem }) {
   }
 
   return (
-    <li className="menu-item">
+    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'}>
       <span className="menu-item__title">
         {/* === menu item title === */}
         {
@@ -68,6 +75,7 @@ export function MenuItem({ currentMenuItem, menuItem }) {
             : (
               <NavLink
                 className={(navData) => joinClassNames(
+                  'menu-item__link-title',
                   (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
                   && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
                 )}
@@ -106,11 +114,19 @@ export function MenuItem({ currentMenuItem, menuItem }) {
       {
         menuItem.children
           ? (
-            <ul className={joinClassNames('menu-item__sub-menu', isChildrenOpen ? 'menu-item__sub-menu--open' : '')} role="menu">
+            <ul
+              role="menu"
+              className={joinClassNames(
+                'menu-item__sub-menu',
+                menuType === menuTypes.VERTICAL ? 'vertical-menu' : '',
+                isChildrenOpen ? 'menu-item__sub-menu--open' : ''
+              )}
+            >
               {menuItem.children?.map((menuItemChild) => (
                 <MenuItem
                   key={`menu-item__child__${menuItemChild.link}-${menuItemChild.title}}`}
                   menuItem={menuItemChild}
+                  menuType={menuType}
                 />
               ))}
             </ul>
