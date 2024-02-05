@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { childrenMenuTypes } from '@utahdts/utah-design-system';
-import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
+import { childrenMenuTypes, Popup, popupPlacement, VerticalMenu } from '@utahdts/utah-design-system';
+import { useImmer } from 'use-immer';
+import { useRef } from 'react';
 import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';
 import verticalMenuRightSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuRightSidebar.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
@@ -14,7 +15,8 @@ import { VerticalMenuExampleProps } from './VerticalMenuExampleProps';
 import { VerticalMenuExampleCodeReact } from './VerticalMenuExampleCodeReact';
 
 export function VerticalMenuDocumentation() {
-  // @ts-ignore
+  const buttonRef = useRef(null);
+  const [showPopup, setShowPopup] = useImmer(false);
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Vertical Menu</h1>
@@ -75,7 +77,64 @@ export function VerticalMenuDocumentation() {
       />
       <StaticExample
         title="Vertical Menu Located Within a Popup"
-        renderedExample={<LightBox image={popupMenusScreenshot} alt="Vertical Menu - On this page" className="flex-3up-gap" />}
+        renderedExample={(
+          <div>
+            <button
+              aria-controls="id-for-example1"
+              aria-expanded={showPopup}
+              aria-haspopup="dialog"
+              id="button-for-example1"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setShowPopup(!showPopup);
+              }}
+              ref={buttonRef}
+              type="button"
+            >
+              Toggle Menu
+            </button>
+            <Popup
+              ariaLabelledBy="button-for-example1"
+              id="id-for-example-menu-popup"
+              isVisible={showPopup}
+              onVisibleChange={(_e, isVisible) => setShowPopup(isVisible)}
+              placement={popupPlacement.BOTTOM}
+              referenceElement={buttonRef}
+              role="dialog"
+            >
+              <VerticalMenu menus={[
+                {
+                  header: '',
+                  id: 'static-vertical-menu',
+                  menuItems: [
+                    {
+                      id: 'menu-in-popup-A',
+                      title: 'Popup Menu Item',
+                      children: [
+                        { title: 'Sub-menu Item A', id: 'AA' },
+                        { title: 'Sub-menu Item B', id: 'BB' },
+                        { title: 'Sub-menu Item C', id: 'CC' },
+                      ],
+                      childrenMenuType: childrenMenuTypes.FLYOUT,
+                    },
+                    {
+                      id: 'menu-in-popup-B',
+                      title: 'Another Menu Item',
+                      childrenMenuType: childrenMenuTypes.FLYOUT,
+                    },
+                    {
+                      id: 'menu-in-popup-C',
+                      title: 'Last Menu Item',
+                      childrenMenuType: childrenMenuTypes.FLYOUT,
+                    },
+                  ],
+                },
+              ]}
+              />
+            </Popup>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>The vertical menu is displayed as content in a popup.</li>
