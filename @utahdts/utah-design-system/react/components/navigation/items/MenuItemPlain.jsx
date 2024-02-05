@@ -20,7 +20,6 @@ export function MenuItemPlain({
   menuType,
 }) {
   const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
-  // vertical-menu__link-title
   return (
     <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'}>
       <span className={menuType === menuTypes.VERTICAL ? 'vertical-menu__title' : 'menu-item__title'}>

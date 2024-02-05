@@ -19,14 +19,13 @@ export function VerticalMenuExampleRender({
   innerRef,
 }) {
   const [menus, setMenu] = useImmer([
-    // @ts-ignore
     {
-      header: 'Components',
+      header: 'Menu Header',
       id: 'vertical-menu-sandbox',
       menuItems: [
         {
           id: 'components__text-layout',
-          title: 'Text & Layout',
+          title: 'Menu Item',
           children: [
             { title: 'Item A',
               id: 'A',

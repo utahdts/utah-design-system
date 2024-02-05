@@ -247,7 +247,6 @@ export const menuLibraryPatternsSecondary = {
 export const menuLibrarySecondary = {
   header: 'Library',
   id: 'library-menu',
-  titleTagClassName: 'menu-side-panel__header',
   menuItems: [
     {
       title: 'Utah Header',
