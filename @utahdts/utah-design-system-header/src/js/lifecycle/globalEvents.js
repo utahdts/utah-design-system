@@ -22,9 +22,11 @@ export function unloadGlobalEvents() {
 }
 
 export function hideAllMenus() {
-  const popups = document.querySelectorAll(
-    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`
-  );
+  const popupsSelectors = [
+    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.HEADER)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`,
+    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.MAIN_MENU)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`,
+  ];
+  const popups = document.querySelectorAll(popupsSelectors.join(','));
   Array.from(popups)
     .filter((popup) => !popup.classList.contains(domConstants.POPUP__HIDDEN))
     .forEach((popup) => {
