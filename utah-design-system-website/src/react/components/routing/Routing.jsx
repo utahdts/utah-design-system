@@ -74,11 +74,11 @@ export function Routing() {
                 content={page.content}
                 contentRef={contentRef}
                 sidePanelLeftContent={menuSecondary && (
-                <VerticalMenu
-                  className="menu-side-panel"
-                  currentMenuItem={currentMenuItem}
-                  menus={menuSecondary ?? null}
-                />
+                  <VerticalMenu
+                    className="menu-side-panel"
+                    currentMenuItem={currentMenuItem}
+                    menus={menuSecondary ?? null}
+                  />
                 )}
                 sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />

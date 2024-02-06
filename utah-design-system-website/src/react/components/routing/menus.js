@@ -1,4 +1,4 @@
-import { childrenMenuTypes } from '@utahdts/utah-design-system';
+import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { calculateMenuItemsParents } from '../../util/menuItems/calculateMenuItemsParents';
 import { pages } from './pages';
 

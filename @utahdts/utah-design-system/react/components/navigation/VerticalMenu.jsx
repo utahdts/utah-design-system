@@ -1,8 +1,8 @@
+import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { joinClassNames } from '../../util/joinClassNames';
 import { MenuItem } from './MenuItem';
 import { MenuItemPlain } from './items/MenuItemPlain';
 import { MenuItemFlyout } from './items/MenuItemFlyout';
-import { childrenMenuTypes } from '../../enums/childrenMenuTypes';
 import { menuTypes } from '../../enums/menuTypes';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */

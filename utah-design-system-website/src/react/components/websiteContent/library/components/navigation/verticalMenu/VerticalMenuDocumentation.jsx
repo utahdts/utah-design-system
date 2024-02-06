@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { childrenMenuTypes, Popup, popupPlacement, VerticalMenu } from '@utahdts/utah-design-system';
+import { Popup, popupPlacement, VerticalMenu } from '@utahdts/utah-design-system';
+import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { useImmer } from 'use-immer';
 import { useRef } from 'react';
 import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';

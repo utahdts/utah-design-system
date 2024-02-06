@@ -101,7 +101,6 @@ export { UtahHeaderContextProvider } from './react/contexts/utahHeaderContext/Ut
 export { useUtahHeaderContext } from './react/contexts/utahHeaderContext/useUtahHeaderContext';
 export { BANNER_PLACEMENT } from './react/enums/bannerPlacement';
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
-export { childrenMenuTypes } from './react/enums/childrenMenuTypes';
 export { componentColors } from './react/enums/componentColors';
 export { formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { menuTypes } from './react/enums/menuTypes';

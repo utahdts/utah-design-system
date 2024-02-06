@@ -12,7 +12,7 @@
 /** @typedef {import('@utahdts/utah-design-system-types').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system-types').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system-types').WrapInElement} WrapInElement */
-/** @typedef {import('@utahdts/utah-design-system-header').childrenMenuType} ChildrenMenuTypes */
+/** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 

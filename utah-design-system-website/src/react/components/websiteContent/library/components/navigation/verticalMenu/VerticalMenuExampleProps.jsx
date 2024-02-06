@@ -1,4 +1,5 @@
-import { Form, childrenMenuTypes, Select, SelectOption } from '@utahdts/utah-design-system';
+import { Form, Select, SelectOption } from '@utahdts/utah-design-system';
+import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 
 /** @typedef {import('utah-design-system-website').VerticalMenuExamplePropsShape} VerticalMenuExamplePropsShape */
 
