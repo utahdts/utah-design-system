@@ -27,12 +27,14 @@ export function VerticalMenuExampleRender({
           id: 'components__text-layout',
           title: 'Menu Item',
           children: [
-            { title: 'Item A',
+            {
+              title: 'Item A',
               id: 'A',
               children: [
                 { title: 'Sub-item A', id: 'G' },
                 { title: 'Sub-item B', id: 'H' },
-              ] },
+              ],
+            },
             { title: 'Item B', id: 'B' },
             { title: 'Item C', id: 'C' },
             { title: 'Item D', id: 'D' },

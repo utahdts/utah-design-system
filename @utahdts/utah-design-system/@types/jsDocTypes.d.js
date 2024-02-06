@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
 /** @typedef {import('react')} React */
+/** @typedef {import ('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /**
  * @template ImmerHookT
@@ -411,7 +412,7 @@
  *  @property {string} title
  *  @property {string[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
- *  @property {'inline' | 'flyout' | 'mega-menu' | 'plain' | null} [childrenMenuType]
+ *  @property {ChildrenMenuTypes | null} [childrenMenuType]
  *  @property {boolean} [isSelected]
  *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }

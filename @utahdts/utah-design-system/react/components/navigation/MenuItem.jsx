@@ -21,7 +21,7 @@ import { menuTypes } from '../../enums/menuTypes';
 export function MenuItem({
   currentMenuItem,
   menuItem,
-  menuType,
+  menuType = menuTypes.VERTICAL,
 }) {
   const { pathname } = useLocation();
   // check if any of this menuItem's children are the currently open page/menuItem and if so, then keep this menuItem's children list open

@@ -37,52 +37,52 @@ export function MenuItemFlyout({
     <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={referenceElement}>
       <span className={menuType === menuTypes.VERTICAL ? 'vertical-menu__title' : 'menu-item__title'}>
         {
-              (!menuItem?.link || menuItem?.link?.includes('::'))
-                ? (
-                  <button
-                    aria-expanded={isChildrenOpen ? 'true' : 'false'}
-                    aria-controls={`menu-item-${menuItem.id}-${menuItem.link}-popup`}
-                    aria-haspopup="dialog"
-                    className="menu-item__button-title"
-                    id={`menu-item-${menuItem.id}-${menuItem.link}`}
-                    onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                    type="button"
-                    title={menuItem.children ? 'Expand sub-menu' : ''}
-                  >
-                    <span className={menuType === menuTypes.VERTICAL ? 'vertical-menu__link-text' : 'menu__link-text'}>{menuItem.title}</span>
-                    {menuItem.children ? <span className="utds-icon-before-chevron-right vertical-menu__chevron is-closed" aria-hidden="true" /> : null}
-                  </button>
-                )
-                : (
-                  <NavLink
-                    className={(navData) => joinClassNames(
-                      menuType === menuTypes.VERTICAL ? 'vertical-menu__link-title' : 'menu-item__link-title',
-                      (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
-                          && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
-                    )}
-                    end
-                    to={menuItem.link}
-                    ref={navLinkRef}
-                  >
-                    {menuItem.title}
-                  </NavLink>
-                )
+          (!menuItem?.link || menuItem?.link?.includes('::'))
+            ? (
+              <button
+                aria-expanded={isChildrenOpen ? 'true' : 'false'}
+                aria-controls={`menu-item-${menuItem.id}-${menuItem.link}-popup`}
+                aria-haspopup="dialog"
+                className="menu-item__button-title"
+                id={`menu-item-${menuItem.id}-${menuItem.link}`}
+                onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
+                type="button"
+                title={menuItem.children ? 'Expand sub-menu' : ''}
+              >
+                <span className={menuType === menuTypes.VERTICAL ? 'vertical-menu__link-text' : 'menu__link-text'}>{menuItem.title}</span>
+                {menuItem.children ? <span className="utds-icon-before-chevron-right vertical-menu__chevron is-closed" aria-hidden="true" /> : null}
+              </button>
+            )
+            : (
+              <NavLink
+                className={(navData) => joinClassNames(
+                  menuType === menuTypes.VERTICAL ? 'vertical-menu__link-title' : 'menu-item__link-title',
+                  (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
+                      && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
+                )}
+                end
+                to={menuItem.link}
+                ref={navLinkRef}
+              >
+                {menuItem.title}
+              </NavLink>
+            )
           }
         {
-            (menuItem.children && menuItem?.link)
-              ? (
-                <IconButton
-                  appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-                  aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
-                  aria-expanded={isChildrenOpen ? 'true' : 'false'}
-                  className="menu-item__chevron"
-                  onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                  icon={<Icons.IconChevron />}
-                  title="Expand sub-menu"
-                />
-              )
-              : null
-          }
+          (menuItem.children && menuItem?.link)
+            ? (
+              <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
+                aria-expanded={isChildrenOpen ? 'true' : 'false'}
+                className="menu-item__chevron"
+                onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
+                icon={<Icons.IconChevron />}
+                title="Expand sub-menu"
+              />
+            )
+            : null
+        }
         <span className="menu-chiclet" />
       </span>
       {
