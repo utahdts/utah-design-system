@@ -52,6 +52,8 @@
 
 /**
  * IconFunc
+ * if getting an error that props is mandatory, use Component syntax instead of functional:
+ * ie <Icons.IconEnvelope /> instead of {Icons.IconEnvelope()}
  * @typedef {(props: {className?: string, altText?: string}) => React.ReactNode} IconFunc
  */
 

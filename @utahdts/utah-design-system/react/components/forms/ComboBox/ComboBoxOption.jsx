@@ -155,6 +155,16 @@ export function ComboBoxOption({
     [optionValueFocused, value]
   );
 
+  // scroll in to view
+  useEffect(
+    () => {
+      if (isOptionsExpanded && isSelected) {
+        optionRef.current?.scrollIntoView({ block: 'nearest' });
+      }
+    },
+    [isOptionsExpanded, isSelected]
+  );
+
   return (
     isVisible
       ? (

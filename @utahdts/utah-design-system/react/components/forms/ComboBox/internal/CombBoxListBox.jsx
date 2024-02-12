@@ -53,10 +53,14 @@ export function CombBoxListBox({
     }
   );
 
+  const lastMessageRef = useRef(/** @type {string | null} */(null));
   const addPoliteMessageDebounced = useDebounceFunc(
     useCallback(
       (message) => {
-        addPoliteMessage(message);
+        if (lastMessageRef.current !== message) {
+          addPoliteMessage(message);
+          lastMessageRef.current = message;
+        }
       },
       [addPoliteMessage]
     ),
@@ -105,9 +109,7 @@ export function CombBoxListBox({
         if (allowCustomEntry && filterValue && !options.some((option) => option.labelLowerCase === filterValue.toLocaleLowerCase())) {
           message.push(`Press Enter to add ${filterValue} to the combo box list.`);
         }
-        if (!isOptionsExpanded) {
-          message.push('Use the down arrow key to begin selecting.');
-        }
+        message.push('Use the down arrow key to begin selecting.');
         addPoliteMessageDebounced(message.join(' '));
       }
     },

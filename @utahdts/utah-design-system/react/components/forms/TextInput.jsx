@@ -76,7 +76,7 @@ export function TextInput({
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
-  const { addAssertiveMessage } = useAriaMessaging();
+  const { addPoliteMessage } = useAriaMessaging();
 
   const showClearIcon = isShowingClearableIcon ?? !!((isClearable || onClear) && currentValue);
 
@@ -88,10 +88,10 @@ export function TextInput({
       } else if (inputRef.current) {
         inputRef.current.value = '';
       }
-      addAssertiveMessage(`${label} input was cleared`);
+      addPoliteMessage(`${label} input was cleared`);
       inputRef.current?.focus();
     },
-    [addAssertiveMessage, currentOnClear, label]
+    [addPoliteMessage, currentOnClear, label]
   );
 
   const checkKeyPressed = useCallback(

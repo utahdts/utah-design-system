@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { ariaLiveTypes } from '../../../enums/ariaLiveTypes';
 
 /** @typedef {import('@utahdts/utah-design-system').AriaLiveType} AriaLiveType */
 
@@ -17,7 +18,7 @@ function setupDefaultLists(numberOfLists) {
   return Array.from({ length: numberOfLists }).map(() => []);
 }
 
-const NUMBER_REGIONS = 100;
+const NUMBER_REGIONS = 30;
 
 /**
  * @param {object} props
@@ -44,8 +45,17 @@ export function AriaLiveMessages({ ariaLiveType, messages }) {
     [messages]
   );
 
+  /** @type {'alert' | 'log'} */
+  let role;
+  switch (ariaLiveType) {
+    case ariaLiveTypes.ASSERTIVE: role = 'alert'; break;
+    case ariaLiveTypes.POLITE: role = 'log'; break;
+    default:
+      throw new Error(`AriaLiveMessages: Unknown ariaLiveType (${ariaLiveType})`);
+  }
+
   return (
-    <div className="aria-live-regions visually-hidden" key={`aria-live-region-${ariaLiveType}`}>
+    <div className="aria-live-regions visually-hidden utah-design-system" key={`aria-live-region-${ariaLiveType}`}>
       {
         messagesLists
           // pull the last message off each list queue
@@ -56,13 +66,13 @@ export function AriaLiveMessages({ ariaLiveType, messages }) {
             messagesListMessage
               ? (
                 // eslint-disable-next-line react/no-array-index-key
-                <div aria-live={ariaLiveType} key={`${ariaLiveType}-messages-${i}`} role="alert">
+                <div aria-live={ariaLiveType} key={`${ariaLiveType}-messages-${i}`} role={role}>
                   {messagesListMessage.message}
                 </div>
               )
               : (
                 // eslint-disable-next-line react/no-array-index-key
-                <div aria-live={ariaLiveType} key={`${ariaLiveType}-messages-${i}`} role="alert" />
+                <div aria-live={ariaLiveType} key={`${ariaLiveType}-messages-${i}`} role={role} />
               )
           ))
       }

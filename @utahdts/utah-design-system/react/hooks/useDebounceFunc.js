@@ -30,7 +30,7 @@ export function useDebounceFunc(func, delay = 1000) {
           clearTimeout(timeoutRef.current);
           timeoutRef.current = window.setTimeout(
             () => {
-              func(lastVarArgsRef.current);
+              func(...(lastVarArgsRef.current || []));
               lastVarArgsRef.current = null;
               lastInvocationRef.current = NaN;
               resolve(varArgs);

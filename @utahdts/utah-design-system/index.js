@@ -45,6 +45,7 @@ export { SelectOption } from './react/components/forms/SelectOption';
 export { Switch } from './react/components/forms/Switch';
 export { TextArea } from './react/components/forms/TextArea';
 export { TextInput } from './react/components/forms/TextInput';
+export { TimeInput } from './react/components/forms/TimeInput';
 export { Icons } from './react/components/icons/Icons';
 export { ExternalLink } from './react/components/navigation/ExternalLink';
 export { HorizontalMenu } from './react/components/navigation/HorizontalMenu';

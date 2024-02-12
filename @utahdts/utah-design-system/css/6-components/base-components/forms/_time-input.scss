@@ -1,0 +1,28 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .time-input {
+    &__wrapper {
+      [class*="utds-icon-before-clock"]::before {
+        font-size: 1.1rem;
+      }
+      input[type=text].text-input--clear-icon-visible {
+        padding: 0 var(--spacing-4xl) 0 var(--spacing-xs);
+      }
+      .text-input__clear-button {
+        right: var(--spacing-xl);
+      }
+    }
+    &__clock-icon {
+      &--static {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 8px;
+      }
+      &--is-disabled {
+        color: var(--form-ele-disabled-color);
+      }
+    }
+  }
+}

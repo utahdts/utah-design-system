@@ -35,11 +35,14 @@
       pointer-events: none;
     }
     .utds-icon-before-x-icon::before {
-      font-size: .85rem;
-      line-height: .8;
+      font-size: 0.85rem;
+      line-height: 0.8;
     }
     .icon-share {
       width: 22px;
+    }
+    .icon-dangerous {
+      width: 28px;
     }
     .icon-reset {
       width: 28px;

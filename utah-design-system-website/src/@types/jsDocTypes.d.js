@@ -372,6 +372,27 @@
  */
 
 /**
+ * @typedef TimeInputExamplePropsShape {
+ *  @property {boolean} allowCustomEntry
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {boolean} hasTimePopup
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} name
+ *  @property {string} placeholder
+ *  @property {string} timeFormat
+ *  @property {string} timeRangeIncrement
+ *  @property {string} timeRangeBegin
+ *  @property {string} timeRangeEnd
+ *  @property {string} value
+ * }
+ */
+
+/**
  * @typedef TooltipsExamplePropsShape {
  *  @property {boolean} isPopperVisible
  *  @property {string} offsetDistance

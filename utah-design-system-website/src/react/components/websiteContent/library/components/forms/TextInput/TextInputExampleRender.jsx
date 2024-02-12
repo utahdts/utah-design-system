@@ -52,6 +52,8 @@ export function TextInputExampleRender({
         placeholder={placeholder}
         isRequired={isRequired}
         value={value}
+        // @ts-ignore
+        autoComplete="off"
       />
     </div>
   );
