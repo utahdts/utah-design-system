@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
 /** @typedef {import('react')} React */
+/** @typedef {import ('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /**
  * @template ImmerHookT
@@ -37,6 +38,11 @@
 /**
  * FormElementSizes
  * @typedef { 'small3x' | 'small2x' | 'small1x' | 'small' | 'medium' | 'large' | 'large1x' } FormElementSizes
+ */
+
+/**
+ * MenuTypes
+ * @typedef { 'vertical' | 'horizontal' } MenuTypes
  */
 
 /**
@@ -408,6 +414,7 @@
  *  @property {string} title
  *  @property {string[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {ChildrenMenuTypes | null} [childrenMenuType]
  *  @property {boolean} [isSelected]
  *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }

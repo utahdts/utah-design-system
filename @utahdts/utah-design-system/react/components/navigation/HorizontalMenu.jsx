@@ -1,5 +1,5 @@
 import { joinClassNames } from '../../util/joinClassNames';
-import { MenuItem } from './MenuItem';
+import { MenuItemInline } from './items/MenuItemInline';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
@@ -27,7 +27,7 @@ export function HorizontalMenu({
       <TitleTagName id={id} className={titleTagClassName}>Main Menu</TitleTagName>
       <ul>
         {menu?.menuItems?.map((menuItem) => (
-          <MenuItem menuItem={menuItem} key={`horizontal-menu__nav-link__${menuItem.link}-${menuItem.title}}`} currentMenuItem={currentMenuItem} />
+          <MenuItemInline menuItem={menuItem} key={`horizontal-menu__nav-link__${menuItem.link}-${menuItem.title}}`} currentMenuItem={currentMenuItem} />
         ))}
       </ul>
     </nav>

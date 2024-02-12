@@ -104,6 +104,7 @@ export { BANNER_PLACEMENT } from './react/enums/bannerPlacement';
 export { BUTTON_APPEARANCE, BUTTON_TYPES, ICON_BUTTON_APPEARANCE } from './react/enums/buttonEnums';
 export { componentColors } from './react/enums/componentColors';
 export { formElementSizesEnum } from './react/enums/formElementSizesEnum';
+export { menuTypes } from './react/enums/menuTypes';
 export { popupPlacement } from './react/enums/popupPlacement';
 export { tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';

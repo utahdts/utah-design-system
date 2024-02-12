@@ -14,8 +14,8 @@
  */
 
 /**
- * ChildrenMenuType
- * @typedef {('flyout' | 'inline' | 'mega-menu')} ChildrenMenuTypes
+ * ChildrenMenuTypes
+ * @typedef {('flyout' | 'inline' | 'mega-menu' | 'plain')} ChildrenMenuTypes
  */
 
 /**

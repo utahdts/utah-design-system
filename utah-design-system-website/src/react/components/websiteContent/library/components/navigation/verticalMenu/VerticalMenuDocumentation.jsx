@@ -1,14 +1,23 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import popupMenusScreenshot from '../../../../../../../static/images/mockups/MenusPopup.jpg';
+import { Popup, popupPlacement, VerticalMenu } from '@utahdts/utah-design-system';
+import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
+import { useImmer } from 'use-immer';
+import { useRef } from 'react';
 import verticalMenuLeftSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuLeftSidebar.jpg';
 import verticalMenuRightSidebarScreenshot from '../../../../../../../static/images/screenshots/components/vertical-menu/verticalMenuRightSidebar.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { VerticalMenuExampleRender } from './VerticalMenuExampleRender';
+import { VerticalMenuExampleProps } from './VerticalMenuExampleProps';
+import { VerticalMenuExampleCodeReact } from './VerticalMenuExampleCodeReact';
 
 export function VerticalMenuDocumentation() {
+  const buttonRef = useRef(null);
+  const [showPopup, setShowPopup] = useImmer(false);
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Vertical Menu</h1>
@@ -16,10 +25,19 @@ export function VerticalMenuDocumentation() {
         A vertical menu is a collection of links that aid in the navigation of a website or a list of interactive items that are arranged vertically.
         Typically, the vertical menu is located on the left or right side of the webpage, but can also be displayed in a popup.<br /><br />
         View more information about <Link to={pageUrls.sidePanelNavigation}>Side Panel</Link> or <Link to={pageUrls.popups}>Popups</Link>.
-
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          // @ts-ignore
+          childrenMenuType: childrenMenuTypes.INLINE,
+        }}
+        RENDER_EXAMPLE={VerticalMenuExampleRender}
+        PROPS_EXAMPLE={VerticalMenuExampleProps}
+        CODE_EXAMPLE={VerticalMenuExampleCodeReact}
+        componentClassName="sandbox-example__component--outline"
+      />
       <StaticExample
         title="Vertical Menu Located Within the Side Panel"
         renderedExample={<LightBox image={verticalMenuLeftSidebarScreenshot} alt="Vertical Menu Sidebar" className="flex-3up-gap" />}
@@ -60,7 +78,64 @@ export function VerticalMenuDocumentation() {
       />
       <StaticExample
         title="Vertical Menu Located Within a Popup"
-        renderedExample={<LightBox image={popupMenusScreenshot} alt="Vertical Menu - On this page" className="flex-3up-gap" />}
+        renderedExample={(
+          <div>
+            <button
+              aria-controls="id-for-example1"
+              aria-expanded={showPopup}
+              aria-haspopup="dialog"
+              id="button-for-example1"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setShowPopup(!showPopup);
+              }}
+              ref={buttonRef}
+              type="button"
+            >
+              Toggle Menu
+            </button>
+            <Popup
+              ariaLabelledBy="button-for-example1"
+              id="id-for-example-menu-popup"
+              isVisible={showPopup}
+              onVisibleChange={(_e, isVisible) => setShowPopup(isVisible)}
+              placement={popupPlacement.BOTTOM}
+              referenceElement={buttonRef}
+              role="dialog"
+            >
+              <VerticalMenu menus={[
+                {
+                  header: '',
+                  id: 'static-vertical-menu',
+                  menuItems: [
+                    {
+                      id: 'menu-in-popup-A',
+                      title: 'Popup Menu Item',
+                      children: [
+                        { title: 'Sub-menu Item A', id: 'AA' },
+                        { title: 'Sub-menu Item B', id: 'BB' },
+                        { title: 'Sub-menu Item C', id: 'CC' },
+                      ],
+                      childrenMenuType: childrenMenuTypes.FLYOUT,
+                    },
+                    {
+                      id: 'menu-in-popup-B',
+                      title: 'Another Menu Item',
+                      childrenMenuType: childrenMenuTypes.FLYOUT,
+                    },
+                    {
+                      id: 'menu-in-popup-C',
+                      title: 'Last Menu Item',
+                      childrenMenuType: childrenMenuTypes.FLYOUT,
+                    },
+                  ],
+                },
+              ]}
+              />
+            </Popup>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>The vertical menu is displayed as content in a popup.</li>
@@ -201,7 +276,7 @@ export function VerticalMenuDocumentation() {
       <a>Menu item 1</a>
     </li>
   </ul>
-</div`}
+</div>`}
       />
       <h5>Popup or Child Menus</h5>
       <PreCodeForCodeString
@@ -221,6 +296,43 @@ export function VerticalMenuDocumentation() {
   </ul
 </div>`}
       />
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <h5>Example of menu</h5>
+      <PreCodeForCodeString
+        className="gray-block"
+        codeRaw={`[{
+  header: 'Menu Header',
+  id: 'menu-header-id',
+  menuItems: [
+    {
+      id: 'menu-item-id',
+      title: 'Menu Item',
+      children: [
+        { 
+          title: 'Sub-menu Item',
+          id: 'sub-menu-item-id' 
+        },
+      ],
+      childrenMenuType: 'inline',
+    },
+  ],
+}]`}
+      />
+      <p>
+        <code>childrenMenuType</code> accepts four values:
+      </p>
+      <ul>
+        <li>
+          <code>inline</code>: sub-menus are hidden by default.<br />
+          Sub-menus can be opened/collapsed by clicking the menu item and/or its chevron.
+        </li>
+        <li>
+          <code>flyout</code>: sub-menus are hidden by default.<br />
+          Sub-menus can be shown/closed in a popup by clicking the menu item and/or its chevron.
+        </li>
+        <li><code>mega-menu</code>: not yet implemented.</li>
+        <li><code>plain</code>: sub-menus are shown at all time.</li>
+      </ul>
     </div>
   );
 }

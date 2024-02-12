@@ -12,6 +12,7 @@
 /** @typedef {import('@utahdts/utah-design-system-types').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system-types').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system-types').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
@@ -402,6 +403,12 @@
  */
 
 /**
+ * @typedef VerticalMenuExamplePropsShape {
+ *  @property {'inline' | 'flyout' | 'plain'} childrenMenuType
+ * }
+ */
+
+/**
  * @typedef {{[key in WebsiteMainMenuKey]: WebsiteMainMenu}} WebsiteAllMenus
  */
 
@@ -422,6 +429,7 @@
  *  @property {string} title
  *  @property {PageUrl[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {ChildrenMenuTypes | null} [childrenMenuType]
  *  @property {boolean} [isSelected]
  *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }

@@ -27,11 +27,12 @@
     }
     .menu-item {
       &__title {
-        a {
+        a[href].menu-item__link-title {
           flex: 1 0 auto;
           max-width: 100%;
           box-sizing: border-box;
           padding: var(--spacing-2xs) var(--spacing);
+          margin: 0;
           display: block;
           border-radius: var(--radius-circle);
           position: relative;
@@ -58,6 +59,10 @@
               border-radius: var(--radius-circle);
             }
           }
+        }
+
+        &-blank {
+          padding: var(--spacing-2xs) var(--spacing);
         }
       }
 
