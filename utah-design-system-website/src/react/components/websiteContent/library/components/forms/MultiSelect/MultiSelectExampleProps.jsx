@@ -19,6 +19,7 @@ export function MultiSelectExampleProps({ setState, state }) {
       setState={setState}
       className="form--stacked"
     >
+      <Switch id="props.allowCustomEntry" label="Custom Entry" width={20} />
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
       <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
       <TextInput id="props.id" label="ID" className="input--height-small1x" />

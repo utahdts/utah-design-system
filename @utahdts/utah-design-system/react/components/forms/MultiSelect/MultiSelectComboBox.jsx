@@ -18,6 +18,7 @@ import { useMultiSelectContext } from './context/useMultiSelectContext';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowCustomEntry] can the user type in their own items to add to the list?
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.errorMessage]
@@ -28,11 +29,13 @@ import { useMultiSelectContext } from './context/useMultiSelectContext';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
+ * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
  */
 export function MultiSelectComboBox({
+  allowCustomEntry,
   children,
   className,
   errorMessage,
@@ -43,6 +46,7 @@ export function MultiSelectComboBox({
   label,
   labelClassName,
   name,
+  onCustomEntry,
   placeholder,
   wrapperClassName,
   ...rest
@@ -110,6 +114,7 @@ export function MultiSelectComboBox({
         >
           <MultiSelectTags isDisabled={isDisabled} />
           <ComboBox
+            allowCustomEntry={allowCustomEntry}
             className="multi-select__combo-box"
             id={multiSelectContextValue.multiSelectId}
             isDisabled={isDisabled}
@@ -122,6 +127,7 @@ export function MultiSelectComboBox({
             onChange={(newValue) => {
               multiSelectContextValue.onChange(uniq(selectedValuesRef.current.concat(newValue)));
             }}
+            onCustomEntry={onCustomEntry}
             onKeyUp={(e, currentFilter) => {
               let eventIsHandled = false;
               // check that filter is blank and that there are options selected
