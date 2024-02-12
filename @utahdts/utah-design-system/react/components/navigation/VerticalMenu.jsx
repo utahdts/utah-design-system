@@ -1,6 +1,6 @@
 import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { joinClassNames } from '../../util/joinClassNames';
-import { MenuItem } from './MenuItem';
+import { MenuItemInline } from './items/MenuItemInline';
 import { MenuItemPlain } from './items/MenuItemPlain';
 import { MenuItemFlyout } from './items/MenuItemFlyout';
 import { menuTypes } from '../../enums/menuTypes';
@@ -36,7 +36,7 @@ export function VerticalMenu({ className, currentMenuItem, menus }) {
                   switch (menuItem.childrenMenuType) {
                     case childrenMenuTypes.INLINE:
                       result = (
-                        <MenuItem
+                        <MenuItemInline
                           menuType={menuTypes.VERTICAL}
                           currentMenuItem={currentMenuItem}
                           menuItem={menuItem}

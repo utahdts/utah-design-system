@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useImmer } from 'use-immer';
-import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
-import { joinClassNames } from '../../util/joinClassNames';
-import { IconButton } from '../buttons/IconButton';
-import { Icons } from '../icons/Icons';
-import { menuTypes } from '../../enums/menuTypes';
+import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
+import { Icons } from '../../icons/Icons';
+import { menuTypes } from '../../../enums/menuTypes';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
@@ -18,7 +18,7 @@ import { menuTypes } from '../../enums/menuTypes';
  * @param {MenuTypes} [props.menuType]
  * @returns {import('react').JSX.Element}
  */
-export function MenuItem({
+export function MenuItemInline({
   currentMenuItem,
   menuItem,
   menuType = menuTypes.VERTICAL,
@@ -123,7 +123,7 @@ export function MenuItem({
               )}
             >
               {menuItem.children?.map((menuItemChild) => (
-                <MenuItem
+                <MenuItemInline
                   key={`menu-item__child__${menuItemChild.link}-${menuItemChild.title}}`}
                   menuItem={menuItemChild}
                   menuType={menuType}

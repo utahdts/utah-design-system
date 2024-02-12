@@ -276,7 +276,7 @@ export function VerticalMenuDocumentation() {
       <a>Menu item 1</a>
     </li>
   </ul>
-</div`}
+</div>`}
       />
       <h5>Popup or Child Menus</h5>
       <PreCodeForCodeString
@@ -296,6 +296,43 @@ export function VerticalMenuDocumentation() {
   </ul
 </div>`}
       />
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <h5>Example of menu</h5>
+      <PreCodeForCodeString
+        className="gray-block"
+        codeRaw={`[{
+  header: 'Menu Header',
+  id: 'menu-header-id',
+  menuItems: [
+    {
+      id: 'menu-item-id',
+      title: 'Menu Item',
+      children: [
+        { 
+          title: 'Sub-menu Item',
+          id: 'sub-menu-item-id' 
+        },
+      ],
+      childrenMenuType: 'inline',
+    },
+  ],
+}]`}
+      />
+      <p>
+        <code>childrenMenuType</code> accepts four values:
+      </p>
+      <ul>
+        <li>
+          <code>inline</code>: sub-menus are hidden by default.<br />
+          Sub-menus can be opened/collapsed by clicking the menu item and/or its chevron.
+        </li>
+        <li>
+          <code>flyout</code>: sub-menus are hidden by default.<br />
+          Sub-menus can be shown/closed in a popup by clicking the menu item and/or its chevron.
+        </li>
+        <li><code>mega-menu</code>: not yet implemented.</li>
+        <li><code>plain</code>: sub-menus are shown at all time.</li>
+      </ul>
     </div>
   );
 }
