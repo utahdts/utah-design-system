@@ -63,7 +63,7 @@ export function MultiSelectExampleRender({
         })}
         onCustomEntry={
           (customValue) => {
-            addPoliteMessage(`${customValue} has been added to the options list.`);
+            addPoliteMessage('Item has been added.');
             setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }));
           }
         }
