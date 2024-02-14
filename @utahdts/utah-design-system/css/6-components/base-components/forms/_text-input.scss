@@ -3,7 +3,9 @@
 @use "../../../1-settings/class-vars";
 
 #{class-vars.$base-class} {
-  input[type="text"] {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
     color: var(--gray-color);
     min-height: var(--form-ele-medium);
     border-radius: var(--radius-small);
