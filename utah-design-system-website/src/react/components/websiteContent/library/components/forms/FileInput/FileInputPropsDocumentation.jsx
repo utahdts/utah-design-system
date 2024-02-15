@@ -41,9 +41,8 @@ export function FileInputPropsDocumentation() {
               <TableCell><code>React.ReactNode</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Used to customize the list of files. Accepts two props:
-                <code>file</code> and <code>removeFile()</code>.<br />
-                If not defined, will default to a <Link to={pageUrls.tags}><code>Tag</code></Link> component.
+                Used to customize the list of files. Accepts two props: <code>file</code> and <code>removeFile()</code>.<br /> If not defined,
+                will default to a <Link to={pageUrls.tags}><code>Tag</code></Link> component.
               </TableCell>
             </TableRow>
 

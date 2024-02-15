@@ -22,6 +22,9 @@
       &--is-disabled {
         color: var(--form-ele-disabled-color);
       }
+      &[disabled]:active {
+        transform: translateY(-50%);
+      }
     }
     &__inner-wrapper {
       .text-input__clear-button {
@@ -43,6 +46,8 @@
       margin: 0;
       padding: 0;
       z-index: 2000;
+      max-height: clamp(300px, 40vh, 40vh);
+      overflow: auto;
     }
     &__option {
       padding: var(--spacing-2xs) var(--spacing-s);

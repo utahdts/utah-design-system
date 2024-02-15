@@ -125,6 +125,14 @@
       {
         "ImportDeclaration": {
           "consistent": true
+        },
+        "ObjectExpression": {
+          "consistent": true,
+          "multiline": true
+        },
+        "ObjectPattern": {
+          "consistent": true,
+          "multiline": true
         }
       }
     ]

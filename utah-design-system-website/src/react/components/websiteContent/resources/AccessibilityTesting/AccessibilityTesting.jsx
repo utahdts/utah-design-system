@@ -1,6 +1,7 @@
 import { MainContent } from '@utahdts/utah-design-system';
 import { AccessibilityTestingButton } from './AccessibilityTestingButton';
 import { AccessibilityTestingComboBox } from './AccessibilityTestingComboBox';
+import { AccessibilityTestingMessages } from './AccessibilityTestingMessages';
 
 export function AccessibilityTesting() {
   return (
@@ -15,6 +16,7 @@ export function AccessibilityTesting() {
 
         <AccessibilityTestingButton />
         <AccessibilityTestingComboBox />
+        <AccessibilityTestingMessages />
       </div>
     </MainContent>
   );

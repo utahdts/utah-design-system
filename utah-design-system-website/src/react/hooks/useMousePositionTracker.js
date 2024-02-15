@@ -12,11 +12,11 @@ import { useStateRef } from './useStateRef';
 /**
  * @param {object} param
  * @param {(e: React.MouseEvent) => boolean} param.shouldBeginDrag helpful to check if click was in a region before dragging (e => {})
- * @returns {{ isDragging: boolean, mousePosition: MousePosition }}
+ * @returns {{ isDragging: boolean, mousePosition: MousePosition | null }}
  */
 export function useMousePositionTracker({ shouldBeginDrag }) {
   const [, setIsDragging, isDraggingRef] = useStateRef(false);
-  const [mousePosition, setMousePosition] = useState(/** @type {MousePosition} */({ x: NaN, y: NaN }));
+  const [mousePosition, setMousePosition] = useState(/** @type {MousePosition | null} */(null));
 
   // start drag
   useFriendlyDocumentEvent(
@@ -33,7 +33,7 @@ export function useMousePositionTracker({ shouldBeginDrag }) {
     }
   );
 
-  // do drag
+  // end drag
   useFriendlyDocumentEvent(
     'onmouseup',
     /** @param {import('react').MouseEvent} e */
@@ -42,13 +42,13 @@ export function useMousePositionTracker({ shouldBeginDrag }) {
         e.stopPropagation();
         e.preventDefault();
 
-        setMousePosition({ x: NaN, y: NaN });
+        setMousePosition(null);
         setIsDragging(false);
       }
     }
   );
 
-  // end drag
+  // do drag
   useFriendlyDocumentEvent(
     'onmousemove',
     /** @param {import('react').MouseEvent} e */

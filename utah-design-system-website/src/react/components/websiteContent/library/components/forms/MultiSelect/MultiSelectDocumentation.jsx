@@ -28,6 +28,7 @@ export function MultiSelectDocumentation() {
       <h2 id="section-example">Example</h2>
       <SandboxExample
         defaultProps={{
+          allowCustomEntry: false,
           className: '',
           errorMessage: '',
           id: 'multi-select-example-id',

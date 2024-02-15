@@ -9,15 +9,16 @@
       * single module named "@utahdts/utah-design-system-header"
       * just the exports from the `declare module "src/index" {` need put in the module
     * put the updated contents in the /artifacts/index.d.ts file
-  
-  Super painful to have to have this manual. But a better way is sure to surface at some point of time.
+
+  Super painful to have to do this manual. But a better way is sure to surface at some point of time.
 */
 declare module "@utahdts/utah-design-system-header" {
-  export type ChildrenMenuType = ('flyout' | 'inline' | 'mega-menu');
-  export enum childrenMenuType {
+  export type ChildrenMenuTypes = ('flyout' | 'inline' | 'mega-menu' | 'plain');
+  export enum childrenMenuTypes {
     FLYOUT = 'flyout',
     INLINE = 'inline',
     MEGA_MENU = 'mega-menu',
+    PLAIN = 'plain',
   }
 
   export type Events = 'utahHeaderLoaded' | 'utahHeaderUnloaded';
@@ -129,7 +130,7 @@ declare module "@utahdts/utah-design-system-header" {
     actionFunction?: EventAction | undefined;
     actionFunctionUrl?: MenuItemFunctionUrlAction | undefined;
     actionMenu?: MenuItem[] | undefined;
-    childrenMenuType?: ChildrenMenuType | undefined;
+    childrenMenuType?: ChildrenMenuTypes | undefined;
     className?: string | undefined;
     icon?: Element | undefined;
     isAlternatePath?: boolean | undefined;

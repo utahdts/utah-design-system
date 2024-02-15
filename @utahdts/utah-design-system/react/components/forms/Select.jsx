@@ -65,16 +65,16 @@ export function Select({
   });
   const selectInputRef = /** @type {typeof useRef<HTMLSelectElement>} */ (useRef)(null);
 
-  const { addAssertiveMessage } = useAriaMessaging();
+  const { addPoliteMessage } = useAriaMessaging();
 
   const clearInput = useCallback(
     /** @param {import('react').MouseEvent} e */
     (e) => {
       currentOnClear?.(e);
-      addAssertiveMessage(`${label} input was cleared`);
+      addPoliteMessage(`${label} input was cleared`);
       selectInputRef.current?.focus();
     },
-    [addAssertiveMessage, currentOnClear, label]
+    [addPoliteMessage, currentOnClear, label]
   );
 
   const showClearIcon = !!((isClearable || onClear) && currentValue);

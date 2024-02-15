@@ -31,7 +31,6 @@ export function GettingStartedDeveloper() {
           <a href="#example__universal-module-definition" className="">UMD Example (script tag src / require)</a>
           <a href="#example__es-module" className="">ES Module Example (ES import)</a>
           <div className="getting-started__toc-subtitle mt-spacing">Importing via NPM</div>
-          <a href="#example__create-react-app" className="">Create React App Example</a>
           <a href="#example__vite-plain-js-app" className="">Vite Plain Javascript App Example</a>
         </div>
         <div className="getting-started__toc-card">
@@ -141,86 +140,6 @@ export function GettingStartedDeveloper() {
           <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">@utahdts/utah-design-system-header</ExternalLink>
         </li>
       </ul>
-      <h4 id="example__create-react-app">Create React App Example</h4>
-      <p>
-        This option pulls the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</ExternalLink> from npm and imports it in to an application created with <ExternalLink href="https://create-react-app.dev/">Create React App</ExternalLink>.
-        Here were the steps used to create the application and integrate the header:
-      </p>
-      <ol>
-        <li>
-          Create a react app with <ExternalLink href="https://create-react-app.dev/docs/getting-started">Create React App</ExternalLink><br />
-          <PreCodeForCodeString
-            codeRaw="npx create-react-app cra-utah-header-example"
-            className="mt-spacing"
-            showBackgroundColor
-          />
-        </li>
-        <li>
-          Install the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</ExternalLink><br />
-          <PreCodeForCodeString
-            codeRaw="npm i @utahdts/utah-design-system-header"
-            className="mt-spacing"
-            showBackgroundColor
-          />
-        </li>
-        <li>
-          Import the header (js/css) in to the application code&apos;s App.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/examples/utah-header/create-react-app">examples/utah-header/create-react-app</ExternalLink>)<br />
-          <PreCodeForCodeString
-            codeRaw={`
-                import '@utahdts/utah-design-system-header/css';
-                import {setUtahHeaderSettings} from '@utahdts/utah-design-system-header';
-              `}
-            allowScrollOverflow
-            className="mt-spacing"
-            showBackgroundColor
-          />
-        </li>
-        <li>
-          Load header settings to show the header in the application code&apos;s App.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/examples/utah-header/create-react-app">examples/utah-header/create-react-app</ExternalLink>)<br />
-          <PreCodeForCodeString
-            codeRaw={`
-                import { useEffect } from 'React';
-                function App() {
-                  useEffect(
-                    () => {
-                      setUtahHeaderSettings({
-                        title: 'My Utah.gov Site (React)'
-                      });
-                    },
-                    []
-                  );
-
-                  // The CSS for the Utah Design System is scoped to the
-                  // 'utah-design-system' class
-                  return (
-                    <div className="App utah-design-system">
-                    ...
-                    </div>
-                  );
-                }
-              `}
-            className="mt-spacing"
-            showBackgroundColor
-          />
-        </li>
-        <li>
-          Run the application to see the header<br />
-          <PreCodeForCodeString
-            codeRaw="npm start"
-            className="mt-spacing"
-            showBackgroundColor
-          />
-        </li>
-      </ol>
-      <div className="flex justify-end mb-spacing-l">
-        <ExternalLink
-          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/create-react-app"
-          // @ts-ignore
-          className="button button--primary-color button--small"
-        >
-          View a detailed example on GitHub
-        </ExternalLink>
-      </div>
 
       <h4 id="example__vite-plain-js-app">Vite Plain Javascript App Example</h4>
       <p>
@@ -245,7 +164,7 @@ export function GettingStartedDeveloper() {
           />
         </li>
         <li>
-          Import the header (js/css) in to the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system">examples/utah-header/vite</ExternalLink>)<br />
+          Import the header (js/css) in to the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">examples/utah-header/vite/main.js</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
@@ -257,7 +176,7 @@ export function GettingStartedDeveloper() {
           />
         </li>
         <li>
-          Load header settings to show the header in the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system">examples/utah-header/vite</ExternalLink>)<br />
+          Load header settings to show the header in the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">examples/utah-header/vite/main.js</ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 setUtahHeaderSettings({
