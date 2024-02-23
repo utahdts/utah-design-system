@@ -42,9 +42,12 @@
           max-width: 100%;
           max-height: 100%;
         }
-        // this is making the image overflow the edge on mobile
         img {
-          max-width: none;
+          height: auto;
+          &[src*=".svg"] {
+            height: 100%;
+            max-width: 100%;
+          }
         }
       }
       &__title {
