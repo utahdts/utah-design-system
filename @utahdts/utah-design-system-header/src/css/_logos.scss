@@ -1,3 +1,5 @@
+@use "../../../utah-design-system//css/1-settings/media-size-vars";
+
 .utah-design-system {
   .utds {
     &-logo-wrapper {
@@ -41,7 +43,11 @@
           max-height: 100%;
         }
         img {
-          max-width: none;
+          height: auto;
+          &[src*=".svg"] {
+            height: 100%;
+            max-width: 100%;
+          }
         }
       }
       &__title {
@@ -102,6 +108,16 @@
   }
   a[href].utds-title-wrapper {
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: #{media-size-vars.$media-size-tablet-portrait}) {
+  .utah-design-system {
+    .utds {
+      &-title-wrapper {
+        font-size: var(--font-size-xl);
+      }
+    }
   }
 }
 

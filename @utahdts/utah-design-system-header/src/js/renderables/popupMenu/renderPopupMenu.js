@@ -125,9 +125,6 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     throw new Error('renderPopupMenuItem: titleSpanLink not found');
   }
 
-  menuAHref.onclick = onClickBlur;
-  menuButton.onclick = onClickBlur;
-
   const actionMenu = popupMenuItem.actionMenu && [...popupMenuItem.actionMenu];
   // add "(page)" menu item if menu item is an actionMenu && a link
   if (actionMenu && (
@@ -143,6 +140,11 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
       icon: popupMenuItem.icon,
       title: `${popupMenuItem.title} (page)`,
     });
+  }
+
+  if (!actionMenu?.length) {
+    menuAHref.onclick = onClickBlur;
+    menuButton.onclick = onClickBlur;
   }
 
   // three types of action: parent, custom function, link
