@@ -85,7 +85,10 @@ export function renderActionItem(actionItem) {
     const popupMenu = renderPopupMenu(
       (/** @type {PopupMenu} */ (actionItem.actionPopupMenu)),
       iconButton,
-      { childrenMenuType: childrenMenuTypes.INLINE }
+      {
+        childrenMenuType: childrenMenuTypes.INLINE,
+        parentMenuLinkSuffix: actionItem.actionPopupMenu.parentMenuLinkSuffix,
+      }
     );
     actionItemElement.appendChild(popupMenu);
 
