@@ -146,7 +146,7 @@ export function renderMainMenu() {
           }
         );
         mainMenuItem.appendChild(subMenuPopup);
-        popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true });
+        popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true, doNotClosePopupOnClick: true });
         /** @type {string} */
         let menuClass;
         switch (menuItem.childrenMenuType) {
