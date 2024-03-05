@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /** @module @utahdts/utah-design-system-header */
 
 // Types of Events: https://www.w3schools.com/jsref/obj_events.asp
@@ -79,6 +80,7 @@
  * @typedef MainMenu {
  *  @property {MainMenuItem[]} menuItems
  *  @property {string} title
+ *  @property {string | ((menuItem: MainMenuItem | MenuItem) => string)} [parentMenuLinkSuffix] - when a menu item is a link AND has children, a child item is created for the link with this suffix added to its title
  * }
  */
 
@@ -127,15 +129,16 @@
  * @typedef PopupMenu {
  *  @property {string} [className] - className to put on the popupMenu
  *  @property {MenuItem[]} menuItems - the menu items to show in the menu
+ *  @property {string | ((menuItem: MainMenuItem | MenuItem) => string)} [parentMenuLinkSuffix] See MainMenu for explanation
  *  @property {string} title - the title of the menu
  * }
  */
 
 /**
  * @typedef MediaSizes {
- *   @property {number} mobile - mobile sized render area
- *   @property {number} tabletLandscape - table landscape sized render area
- *   @property {number} tabletPortrait - table portrait sized render area
+ *  @property {number} mobile - mobile sized render area
+ *  @property {number} tabletLandscape - table landscape sized render area
+ *  @property {number} tabletPortrait - table portrait sized render area
  * }
  */
 
@@ -146,6 +149,7 @@
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
  *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
+ *  @property {boolean} [doNotClosePopupOnClick] main menu items should not close popup when it's clicked
  * }
  */
 
@@ -157,13 +161,14 @@
 
 /**
  * @typedef RenderPopupMenuOptions {
- *   @property {ChildrenMenuTypes} childrenMenuType
+ *  @property {ChildrenMenuTypes} childrenMenuType
  *   - flyout: children in new popup
  *   - inline: expandable children
  *   - mega-menu: always expanded children
- *   @property {boolean} [removePopupArrow] allows removing the popup border arrow for flyouts
+ *  @property {string | ((menuItem: MainMenuItem | MenuItem) => string)} [parentMenuLinkSuffix] See MainMenu for explanation
+ *  @property {boolean} [removePopupArrow] allows removing the popup border arrow for flyouts
  * }
- */
+*/
 
 /**
  * @typedef Badge {

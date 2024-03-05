@@ -8,6 +8,7 @@ export function renderMobileMenuHomeMenu() {
     (settings.mainMenu && settings.mainMenu?.menuItems) || undefined,
     {
       childrenMenuType: childrenMenuTypes.INLINE,
+      parentMenuLinkSuffix: typeof settings.mainMenu === 'object' ? settings.mainMenu.parentMenuLinkSuffix : undefined,
       removePopupArrow: true,
     }
   );

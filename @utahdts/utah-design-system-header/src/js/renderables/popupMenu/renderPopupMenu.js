@@ -20,6 +20,7 @@ import { popupFocusHandler } from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 import { renderPopup } from '../popup/renderPopup';
+import { suffixForMenuItemTitle } from '../mainMenu/suffixForMenuItemTitle';
 
 /**
  * @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem
@@ -126,7 +127,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   }
 
   const actionMenu = popupMenuItem.actionMenu && [...popupMenuItem.actionMenu];
-  // add "(page)" menu item if menu item is an actionMenu && a link
+  // add `parentMenuLinkSuffix` menu item if menu item is an actionMenu && a link
   if (actionMenu && (
     popupMenuItem.actionFunction
     || popupMenuItem.actionUrl
@@ -138,7 +139,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
       actionUrl: popupMenuItem.actionUrl,
       className: popupMenuItem.className,
       icon: popupMenuItem.icon,
-      title: `${popupMenuItem.title} (page)`,
+      title: `${popupMenuItem.title}${suffixForMenuItemTitle(popupMenuItem, options.parentMenuLinkSuffix)}`,
     });
   }
 

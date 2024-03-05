@@ -204,6 +204,26 @@ export function MainMenuSettingsAndCode() {
 
             <TableRow>
               <TableCell>
+                <span className="prop__name"><a href="#section-mainMenu">mainMenu.parentMenuLinkSuffix</a></span><br />
+                <span className="prop__types">string | (menuItem) =&gt; string</span>
+                <br />
+                Default: <code>Overview</code>
+              </TableCell>
+              <TableCell>
+                <span className="prop__description">
+                  A menu item that has children menu items and it itself is also a link causes issues with
+                  mobile touch only devices since those devices don&apos;t have a `hover` for opening the children.
+                  They rely on a click to open the menu which would also trigger the link. Therefore, the menu item
+                  has its link added to the top of its children and no longer is a link itself but only opens its
+                  children. The created child men item has a title of the parent&apos;s title with the
+                  word &apos;Overview&apos; appended to it. This <code>parentMenuLinkSuffix</code> property
+                  allows overriding the suffix added to the auto created child menu item.
+                </span>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
                 <span className="prop__name"><a href="#section-mainMenu">mainMenu.title</a></span><br />
                 <span className="prop__types">string</span>
               </TableCell>
