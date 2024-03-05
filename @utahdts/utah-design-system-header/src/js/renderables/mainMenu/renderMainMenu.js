@@ -46,7 +46,7 @@ export function renderMainMenu() {
   mainMenuNav.setAttribute('aria-labelledby', mainMenuId);
   titleTag.setAttribute('id', mainMenuId);
   if (settings.mainMenu) {
-    titleTag.innerHTML = settings.mainMenu.title;
+    titleTag.innerHTML = settings.mainMenu.title || 'Main Menu';
   } else {
     mainMenuNav.remove();
     mainMenuNav = null;
