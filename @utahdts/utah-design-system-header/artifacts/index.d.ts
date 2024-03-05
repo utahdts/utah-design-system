@@ -21,24 +21,6 @@ declare module "@utahdts/utah-design-system-header" {
   export type PopupPlacement = 'auto' | 'auto-start' | 'auto-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' | 'top' | 'top-start' | 'top-end';
   export type Size = 'SMALL' | 'MEDIUM' | 'LARGE';
   export type UtahIdFetchStyle = 'Automatic' | 'None' | 'Provided';
-  export type MainMenuItem = {
-    actionUrl?: MenuItemUrlAction | undefined;
-    actionFunction?: EventAction | undefined;
-    actionFunctionUrl?: MenuItemFunctionUrlAction | undefined;
-    actionMenu?: MenuItem[] | undefined;
-    childrenMenuType?: ChildrenMenuTypes | undefined;
-    className?: string | undefined;
-    icon?: Element | undefined;
-    isAlternatePath?: boolean | undefined;
-    isDivider?: boolean | undefined;
-    isSelected?: boolean | undefined;
-    title: string;
-  };
-  export type MainMenu = {
-    menuItems: MainMenuItem[];
-    title: string;
-    parentMenuLinkSuffix?: string | ((menuItem: MainMenuItem | MenuItem) => string) | undefined;
-  };
   export type MenuItemUrlAction = {
     url: string;
     openInNewTab?: boolean | undefined;
@@ -66,11 +48,6 @@ declare module "@utahdts/utah-design-system-header" {
     menuItems: MenuItem[];
     parentMenuLinkSuffix?: string | ((menuItem: MainMenuItem | MenuItem) => string) | undefined;
     title: string;
-  };
-  export type MediaSizes = {
-    mobile: number;
-    tabletLandscape: number;
-    tabletPortrait: number;
   };
   export type PopupFocusHandlerOptions = {
     isPerformPopup?: (() => boolean) | undefined;
@@ -109,18 +86,6 @@ declare module "@utahdts/utah-design-system-header" {
     elementFunction?: (() => HTMLElement) | undefined;
   };
 
-  export type FooterSettings = {
-    copyrightYear?: string | null | undefined;
-    domLocationTarget?: DomLocationTarget | undefined;
-    showHorizontalRule?: boolean | undefined;
-  };
-
-  export type Logo = {
-    element?: HTMLElement | (() => HTMLElement) | undefined;
-    htmlString?: string | (() => string) | undefined;
-    imageUrl?: string | (() => string) | undefined;
-  };
-
   export type MainMenuItem = {
     actionUrl?: MenuItemUrlAction | undefined;
     actionFunction?: EventAction | undefined;
@@ -150,7 +115,6 @@ declare module "@utahdts/utah-design-system-header" {
     globalOnKeydown: (e: KeyboardEvent) => void;
     globalOnKeyup: (e: KeyboardEvent) => void;
   };
-  export type SettingsInput = Partial<Settings>;
   export type UserInfo = {
     authenticated: boolean;
     disabled?: boolean | null | undefined;
