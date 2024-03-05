@@ -14,6 +14,9 @@
 
   03/04/2024 method (modules that show errors):
     * replace `declare module "src/@types/jsDocTypes.d"` with `declare module "@utahdts/utah-design-system-header"`
+    * General gist is to combine everything in to the one module
+      * Remove duplicates
+      * Remove imports from jsDcoTypes since they're already include
     * delete erroring module: `declare module "src/index" {`
     * for childrenMenuTypes
       * move in to main module block
@@ -41,12 +44,30 @@ declare module "@utahdts/utah-design-system-header" {
   export type ChildNode = Element;
   export type EventAction = ((arg0: MouseEvent | TouchEvent | KeyboardEvent) => void);
   export type AriaHasPopupType = 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree';
-  export type ChildrenMenuTypes = ('flyout' | 'inline' | 'mega-menu' | 'plain');
+  export type ChildrenMenuTypes = ('flyout' | 'inline' | 'mega-menu');
   export type Environments = 'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest';
   export type Events = 'utahHeaderLoaded' | 'utahHeaderUnloaded';
   export type PopupPlacement = 'auto' | 'auto-start' | 'auto-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' | 'top' | 'top-start' | 'top-end';
   export type Size = 'SMALL' | 'MEDIUM' | 'LARGE';
   export type UtahIdFetchStyle = 'Automatic' | 'None' | 'Provided';
+  export type MainMenuItem = {
+    actionUrl?: MenuItemUrlAction | undefined;
+    actionFunction?: EventAction | undefined;
+    actionFunctionUrl?: MenuItemFunctionUrlAction | undefined;
+    actionMenu?: MenuItem[] | undefined;
+    childrenMenuType?: ChildrenMenuTypes | undefined;
+    className?: string | undefined;
+    icon?: Element | undefined;
+    isAlternatePath?: boolean | undefined;
+    isDivider?: boolean | undefined;
+    isSelected?: boolean | undefined;
+    title: string;
+  };
+  export type MainMenu = {
+    menuItems: MainMenuItem[];
+    title: string;
+    parentMenuLinkSuffix?: string | ((menuItem: MainMenuItem | MenuItem) => string) | undefined;
+  };
   export type MenuItemUrlAction = {
     url: string;
     openInNewTab?: boolean | undefined;
@@ -74,6 +95,11 @@ declare module "@utahdts/utah-design-system-header" {
     menuItems: MenuItem[];
     parentMenuLinkSuffix?: string | ((menuItem: MainMenuItem | MenuItem) => string) | undefined;
     title: string;
+  };
+  export type MediaSizes = {
+    mobile: number;
+    tabletLandscape: number;
+    tabletPortrait: number;
   };
   export type PopupFocusHandlerOptions = {
     isPerformPopup?: (() => boolean) | undefined;
@@ -112,36 +138,12 @@ declare module "@utahdts/utah-design-system-header" {
     element?: HTMLElement | undefined;
     elementFunction?: (() => HTMLElement) | undefined;
   };
-
-  export type MainMenuItem = {
-    actionUrl?: MenuItemUrlAction | undefined;
-    actionFunction?: EventAction | undefined;
-    actionFunctionUrl?: MenuItemFunctionUrlAction | undefined;
-    actionMenu?: MenuItem[] | undefined;
-    childrenMenuType?: ChildrenMenuTypes | undefined;
-    className?: string | undefined;
-    icon?: Element | undefined;
-    isAlternatePath?: boolean | undefined;
-    isDivider?: boolean | undefined;
-    isSelected?: boolean | undefined;
-    title: string;
-  };
-
-  export type MainMenu = {
-    menuItems: MainMenuItem[];
-    title: string;
-  };
-
-  export type MediaSizes = {
-    mobile: number;
-    tabletLandscape: number;
-    tabletPortrait: number;
-  };
   export type GlobalEventType = {
     globalOnClick: (e: MouseEvent) => void;
     globalOnKeydown: (e: KeyboardEvent) => void;
     globalOnKeyup: (e: KeyboardEvent) => void;
   };
+  export type SettingsInput = Partial<Settings>;
   export type UserInfo = {
     authenticated: boolean;
     disabled?: boolean | null | undefined;
@@ -197,176 +199,174 @@ declare module "@utahdts/utah-design-system-header" {
   };
   export type childrenMenuTypes = ChildrenMenuTypes;
   export namespace childrenMenuTypes {
-    let FLYOUT: ChildrenMenuTypes;
-    let INLINE: ChildrenMenuTypes;
-    let MEGA_MENU: ChildrenMenuTypes;
-    let PLAIN: ChildrenMenuTypes;
+    let FLYOUT: import("src/@types/jsDocTypes.d").ChildrenMenuTypes;
+    let INLINE: import("src/@types/jsDocTypes.d").ChildrenMenuTypes;
+    let MEGA_MENU: import("src/@types/jsDocTypes.d").ChildrenMenuTypes;
   }
   export namespace PopupPlacement {
-    let AUTO: PopupPlacement;
-    let AUTO_START: PopupPlacement;
-    let AUTO_END: PopupPlacement;
-    let BOTTOM: PopupPlacement;
-    let BOTTOM_START: PopupPlacement;
-    let BOTTOM_END: PopupPlacement;
-    let LEFT: PopupPlacement;
-    let LEFT_START: PopupPlacement;
-    let LEFT_END: PopupPlacement;
-    let RIGHT: PopupPlacement;
-    let RIGHT_START: PopupPlacement;
-    let RIGHT_END: PopupPlacement;
-    let TOP: PopupPlacement;
-    let TOP_START: PopupPlacement;
-    let TOP_END: PopupPlacement;
+    let AUTO: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let AUTO_START: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let AUTO_END: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let BOTTOM: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let BOTTOM_START: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let BOTTOM_END: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let LEFT: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let LEFT_START: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let LEFT_END: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let RIGHT: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let RIGHT_START: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let RIGHT_END: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let TOP: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let TOP_START: import("src/@types/jsDocTypes.d").PopupPlacement;
+    let TOP_END: import("src/@types/jsDocTypes.d").PopupPlacement;
   }
   export namespace events {
-    let HEADER_LOADED: Events;
-    let HEADER_UNLOADED: Events;
+    let HEADER_LOADED: import("src/@types/jsDocTypes.d").Events;
+    let HEADER_UNLOADED: import("src/@types/jsDocTypes.d").Events;
   }
   export type sizes = Size;
   export namespace sizes {
-    let SMALL: Size;
-    let MEDIUM: Size;
-    let LARGE: Size;
-    export function getCssClassSelector(domConstants: string | string[]): string;
-    export type domConstants = string;
-    export namespace domConstants {
-      let UTAH_DESIGN_SYSTEM: string;
-      let HEADER: string;
-      let FOOTER: string;
-      let ICON_BUTTON: string;
-      let CSS_HEADER_MEDIA_TAG_ID: string;
-      let IS_CLOSED: string;
-      let IS_OPEN: string;
-      let VISUALLY_HIDDEN: string;
-      let MEDIA_SIZE__MOBILE__PLACEHOLDER: string;
-      let MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER: string;
-      let MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER: string;
-      let ACTION_ITEM: string;
-      let ACTION_ITEM__ICON_BUTTON: string;
-      let ACTION_ITEM__ICON_BUTTON_TITLE: string;
-      let ACTION_ITEM__TITLE: string;
-      let ACTION_ITEMS__WRAPPER: string;
-      let BADGE__LABEL: string;
-      let BADGE__VALUE: string;
-      let BADGE_WRAPPER: string;
-      let BADGE_WRAPPER__SMALL: string;
-      let BADGE_WRAPPER__ACTION_ITEM: string;
-      let CITIZEN_EXPERIENCE: string;
-      let CITIZEN_EXPERIENCE_MOBILE: string;
-      let FOOTER_COPYRIGHT_YEAR: string;
-      let FOOTER_HORIZONTAL_DIVIDER: string;
-      let FOOTER_LINK_PRIVACY_ID: string;
-      let FOOTER_LINK_TERMS_ID: string;
-      let FOOTER_LINKS: string;
-      let LOGO: string;
-      let LOGO_OFFICIAL_CLOSE_BUTTON: string;
-      let LOGO_OFFICIAL_WRAPPER: string;
-      let LOGO_SVG: string;
-      let LOGO_VERT_LINE: string;
-      let MAIN_MENU: string;
-      let MAIN_MENU__HAMBURGER: string;
-      let MAIN_MENU__HAMBURGER_ID: string;
-      let MAIN_MENU__HAMBURGER_ICON_ID: string;
-      let MAIN_MENU__MENU_TOP: string;
-      let MAIN_MENU__NAV: string;
-      let MAIN_MENU__OUTER: string;
-      let MAIN_MENU__REMOVED: string;
-      let MAIN_MENU__SEARCH: string;
-      let MAIN_MENU__TITLE: string;
-      let MENU_ITEM: string;
-      let MENU_ITEM__ARROW: string;
-      let MENU_ITEM__BUTTON_TITLE: string;
-      let MENU_ITEM__LINK_TITLE: string;
-      let MENU_ITEM__LINK_TITLE_SPAN: string;
-      let MENU_ITEM__SELECTED: string;
-      let MENU_ITEM__SELECTED_PARENT: string;
-      let MENU_ITEM__TITLE: string;
-      let MENU_ITEM__FLY_OUT: string;
-      let MENU_ITEM__INLINE: string;
-      let MENU_ITEM__MEGA_MENU: string;
-      let DESKTOP__HIDDEN: string;
-      let MOBILE__HIDDEN: string;
-      let MOBILE__UTAH_ID: string;
-      let MOBILE__VIP_ACTION_ITEMS__LEFT: string;
-      let MOBILE__VIP_ACTION_ITEMS__RIGHT: string;
-      let ACTION_ITEM__SELECTED: string;
-      let MOBILE_MENU: string;
-      let MOBILE_MENU__ACTION_BAR: string;
-      let MOBILE_MENU__BACKDROP: string;
-      let MOBILE_MENU__CONTENT: string;
-      let MOBILE_MENU__CONTENT_ITEM: string;
-      let MOBILE_MENU__LAST_FOCUSABLE: string;
-      let MOBILE_MENU__WRAPPER: string;
-      let MOBILE_MENU_ACTON_BAR__HOME_ID: string;
-      let MOBILE_MENU_ACTON_BAR__PROFILE_ID: string;
-      let MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER: string;
-      let VERTICAL_MENU: string;
-      let VERTICAL_MENU__BUTTON_TITLE: string;
-      let VERTICAL_MENU__CHEVRON: string;
-      let VERTICAL_MENU__DIVIDER: string;
-      let VERTICAL_MENU__LINK_TEXT: string;
-      let VERTICAL_MENU__LINK_TITLE: string;
-      let VERTICAL_MENU__PLAIN_TITLE: string;
-      let VERTICAL_MENU__TITLE: string;
-      let VERTICAL_MENU_WRAPPER__WRAPPER: string;
-      let VERTICAL_MENU_WRAPPER__WRAPPER_TITLE: string;
-      let POPUP__HIDDEN: string;
-      let POPUP__VISIBLE: string;
-      let POPUP__WRAPPER: string;
-      let EXTERNAL_LINK: string;
-      let EXTERNAL_LINK__NEW_TAB: string;
-      let POPUP_ARROW: string;
-      let POPUP_CONTENT_WRAPPER: string;
-      let POPUP_WRAPPER: string;
-      let SEARCH__SEARCH_BACKDROP: string;
-      let SEARCH__SEARCH_CLOSE_BUTTON: string;
-      let SEARCH__SEARCH_BUTTON: string;
-      let SEARCH__SEARCH_BUTTON_WRAPPER: string;
-      let SEARCH__SEARCH_INPUT: string;
-      let SEARCH__SEARCH_MODAL: string;
-      let SIZE__LARGE: string;
-      let SIZE__MEDIUM: string;
-      let SKIP_LINK_LINK: string;
-      let SKIP_LINK_WRAPPER: string;
-      let TITLE: string;
-      let TITLE__LOGO: string;
-      let TITLE__TITLE: string;
-      let TOOLTIP: string;
-      let TOOLTIP__CONTENT: string;
-      let TOOLTIP__WRAPPER: string;
-      let TOOLTIP__WRAPPER__HIDDEN: string;
-      let TOOLTIP__WRAPPER__VISIBLE: string;
-      let UTAH_ID: string;
-      let UTAH_ID__BUTTON: string;
-    }
+    let SMALL: import("src/@types/jsDocTypes.d").Size;
+    let MEDIUM: import("src/@types/jsDocTypes.d").Size;
+    let LARGE: import("src/@types/jsDocTypes.d").Size;
+  }
+  export function getCssClassSelector(domConstants: string | string[]): string;
+  export type domConstants = string;
+  export namespace domConstants {
+    let UTAH_DESIGN_SYSTEM: string;
+    let HEADER: string;
+    let FOOTER: string;
+    let ICON_BUTTON: string;
+    let CSS_HEADER_MEDIA_TAG_ID: string;
+    let IS_CLOSED: string;
+    let IS_OPEN: string;
+    let VISUALLY_HIDDEN: string;
+    let MEDIA_SIZE__MOBILE__PLACEHOLDER: string;
+    let MEDIA_SIZE__TABLET_LANDSCAPE__PLACEHOLDER: string;
+    let MEDIA_SIZE__TABLET_PORTRAIT__PLACEHOLDER: string;
+    let ACTION_ITEM: string;
+    let ACTION_ITEM__ICON_BUTTON: string;
+    let ACTION_ITEM__ICON_BUTTON_TITLE: string;
+    let ACTION_ITEM__TITLE: string;
+    let ACTION_ITEMS__WRAPPER: string;
+    let BADGE__LABEL: string;
+    let BADGE__VALUE: string;
+    let BADGE_WRAPPER: string;
+    let BADGE_WRAPPER__SMALL: string;
+    let BADGE_WRAPPER__ACTION_ITEM: string;
+    let CITIZEN_EXPERIENCE: string;
+    let CITIZEN_EXPERIENCE_MOBILE: string;
+    let FOOTER_COPYRIGHT_YEAR: string;
+    let FOOTER_HORIZONTAL_DIVIDER: string;
+    let FOOTER_LINK_PRIVACY_ID: string;
+    let FOOTER_LINK_TERMS_ID: string;
+    let FOOTER_LINKS: string;
+    let LOGO: string;
+    let LOGO_OFFICIAL_CLOSE_BUTTON: string;
+    let LOGO_OFFICIAL_WRAPPER: string;
+    let LOGO_SVG: string;
+    let LOGO_VERT_LINE: string;
+    let MAIN_MENU: string;
+    let MAIN_MENU__HAMBURGER: string;
+    let MAIN_MENU__HAMBURGER_ID: string;
+    let MAIN_MENU__HAMBURGER_ICON_ID: string;
+    let MAIN_MENU__MENU_TOP: string;
+    let MAIN_MENU__NAV: string;
+    let MAIN_MENU__OUTER: string;
+    let MAIN_MENU__REMOVED: string;
+    let MAIN_MENU__SEARCH: string;
+    let MAIN_MENU__TITLE: string;
+    let MENU_ITEM: string;
+    let MENU_ITEM__ARROW: string;
+    let MENU_ITEM__BUTTON_TITLE: string;
+    let MENU_ITEM__LINK_TITLE: string;
+    let MENU_ITEM__LINK_TITLE_SPAN: string;
+    let MENU_ITEM__SELECTED: string;
+    let MENU_ITEM__SELECTED_PARENT: string;
+    let MENU_ITEM__TITLE: string;
+    let MENU_ITEM__FLY_OUT: string;
+    let MENU_ITEM__INLINE: string;
+    let MENU_ITEM__MEGA_MENU: string;
+    let DESKTOP__HIDDEN: string;
+    let MOBILE__HIDDEN: string;
+    let MOBILE__UTAH_ID: string;
+    let MOBILE__VIP_ACTION_ITEMS__LEFT: string;
+    let MOBILE__VIP_ACTION_ITEMS__RIGHT: string;
+    let ACTION_ITEM__SELECTED: string;
+    let MOBILE_MENU: string;
+    let MOBILE_MENU__ACTION_BAR: string;
+    let MOBILE_MENU__BACKDROP: string;
+    let MOBILE_MENU__CONTENT: string;
+    let MOBILE_MENU__CONTENT_ITEM: string;
+    let MOBILE_MENU__LAST_FOCUSABLE: string;
+    let MOBILE_MENU__WRAPPER: string;
+    let MOBILE_MENU_ACTON_BAR__HOME_ID: string;
+    let MOBILE_MENU_ACTON_BAR__PROFILE_ID: string;
+    let MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER: string;
+    let VERTICAL_MENU: string;
+    let VERTICAL_MENU__BUTTON_TITLE: string;
+    let VERTICAL_MENU__CHEVRON: string;
+    let VERTICAL_MENU__DIVIDER: string;
+    let VERTICAL_MENU__LINK_TEXT: string;
+    let VERTICAL_MENU__LINK_TITLE: string;
+    let VERTICAL_MENU__PLAIN_TITLE: string;
+    let VERTICAL_MENU__TITLE: string;
+    let VERTICAL_MENU_WRAPPER__WRAPPER: string;
+    let VERTICAL_MENU_WRAPPER__WRAPPER_TITLE: string;
+    let POPUP__HIDDEN: string;
+    let POPUP__VISIBLE: string;
+    let POPUP__WRAPPER: string;
+    let EXTERNAL_LINK: string;
+    let EXTERNAL_LINK__NEW_TAB: string;
+    let POPUP_ARROW: string;
+    let POPUP_CONTENT_WRAPPER: string;
+    let POPUP_WRAPPER: string;
+    let SEARCH__SEARCH_BACKDROP: string;
+    let SEARCH__SEARCH_CLOSE_BUTTON: string;
+    let SEARCH__SEARCH_BUTTON: string;
+    let SEARCH__SEARCH_BUTTON_WRAPPER: string;
+    let SEARCH__SEARCH_INPUT: string;
+    let SEARCH__SEARCH_MODAL: string;
+    let SIZE__LARGE: string;
+    let SIZE__MEDIUM: string;
+    let SKIP_LINK_LINK: string;
+    let SKIP_LINK_WRAPPER: string;
+    let TITLE: string;
+    let TITLE__LOGO: string;
+    let TITLE__TITLE: string;
+    let TOOLTIP: string;
+    let TOOLTIP__CONTENT: string;
+    let TOOLTIP__WRAPPER: string;
+    let TOOLTIP__WRAPPER__HIDDEN: string;
+    let TOOLTIP__WRAPPER__VISIBLE: string;
+    let UTAH_ID: string;
+    let UTAH_ID__BUTTON: string;
   }
   export function checkForError(isError: boolean, errorMessage: string): void;
   export function notNull<T>(value: T, errorMessage: string): NonNullable<T>;
   export function isString(s: any): boolean;
   export function renderDOMSingle(str: string | HTMLElement): HTMLElement;
-
+  export const defaultSettings: Settings;
   export const settingsKeeper: SettingsKeeper;
   class SettingsKeeper {
     settings: {
-      actionItems?: ActionItem[] | undefined;
-      domLocationTarget?: DomLocationTarget | undefined;
-      footer?: FooterSettings | null | undefined;
-      logo?: Logo | undefined;
-      mainMenu?: false | MainMenu | undefined;
-      mediaSizes: MediaSizes;
+      actionItems?: import("src/@types/jsDocTypes.d").ActionItem[] | undefined;
+      domLocationTarget?: import("src/@types/jsDocTypes.d").DomLocationTarget | undefined;
+      footer?: import("src/@types/jsDocTypes.d").FooterSettings | null | undefined;
+      logo?: import("src/@types/jsDocTypes.d").Logo | undefined;
+      mainMenu?: false | import("src/@types/jsDocTypes.d").MainMenu | undefined;
+      mediaSizes: import("src/@types/jsDocTypes.d").MediaSizes;
       onSearch?: false | ((search: string) => void) | undefined;
       showTitle: boolean;
       size: string;
       skipLinkUrl?: string | undefined;
       title: string;
       titleURL: string;
-      utahId?: boolean | UtahIDSettings | undefined;
+      utahId?: boolean | import("src/@types/jsDocTypes.d").UtahIDSettings | undefined;
     };
     setSettings(settings: SettingsInput): void;
     getSettings(): Settings;
   }
-  export { };
   export function getUtahHeaderSettings(): Settings;
   export function uuidv4(): string;
   export function addMobileMenuContentItem(mobileMenuContentItem: HTMLElement): HTMLElement;
@@ -399,7 +399,7 @@ declare module "@utahdts/utah-design-system-header" {
   }
   export function isTouchDevice(): boolean;
   export function popupFocusHandler(wrapper: HTMLElement, button: HTMLElement, popup: HTMLElement, ariaHasPopup: AriaHasPopupType, options: PopupFocusHandlerOptions | undefined): void;
-  export function renderPopup(labelledByElement: Element, options?: RenderPopupOptions | undefined): HTMLElement;
+  export function renderPopup(labelledByElement: Element, options?: import("src/@types/jsDocTypes.d").RenderPopupOptions | undefined): HTMLElement;
   export function suffixForMenuItemTitle(menuItem: MenuItem | MainMenuItem, parentMenuLinkSuffix?: string | ((menuItem: MainMenuItem | MenuItem) => string) | undefined): string;
   export function renderMenu(menuItems: MenuItem[] | undefined, options: RenderPopupMenuOptions): HTMLElement;
   export function renderPopupMenu(popupMenu: PopupMenu, labelledByElement: Element, options: RenderPopupMenuOptions): HTMLElement;
@@ -459,14 +459,15 @@ declare module "@utahdts/utah-design-system-header" {
   export function loadHeader(): void;
   export function removeHeader(shouldTriggerUnloadEvent: boolean): void;
   export function setUtahHeaderSettings(newSettings: SettingsInput): Settings;
-  export function setUtahFooterSettings(footerSettings?: FooterSettings | undefined): FooterSettings | undefined;
+  export function setUtahFooterSettings(footerSettings?: import("src/@types/jsDocTypes.d").FooterSettings | undefined): FooterSettings | undefined;
+  export type environments = Environments;
   export namespace environments {
-    let NONE: Environments;
-    let PROD: Environments;
-    let AT: Environments;
-    let DEV: Environments;
-    let CUSTOM: Environments;
-    let UNITTEST: Environments;
+    let NONE: import("src/@types/jsDocTypes.d").Environments;
+    let PROD: import("src/@types/jsDocTypes.d").Environments;
+    let AT: import("src/@types/jsDocTypes.d").Environments;
+    let DEV: import("src/@types/jsDocTypes.d").Environments;
+    let CUSTOM: import("src/@types/jsDocTypes.d").Environments;
+    let UNITTEST: import("src/@types/jsDocTypes.d").Environments;
   }
   export function toHash(thing: object | string): number;
   export function httpRequest({ url, method, headers, timeout, onResolve, onReject, }: {
@@ -517,6 +518,7 @@ declare module "@utahdts/utah-design-system-header" {
   export function isSearchInMobileMainMenu(): boolean;
   export function isMobileHomeActionItemInMobileContent(): boolean;
   export function isMobileHamburgerInMainMenu(): boolean;
+  export function isMobileHamburgerInCitizenExperience(): boolean;
   export function dataOfAllDataTypes({ includes, excludes }?: {
     includes?: string[] | undefined;
     excludes?: string[] | undefined;
