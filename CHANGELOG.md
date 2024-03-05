@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Fixed
 - Make sure footer is 100% width
 - Prevent closing popups for main menu clicking
+- Default Main Menu title to be "Main Menu"
 
 ## Added
 - Add menus option for `parentMenuLinkSuffix`
