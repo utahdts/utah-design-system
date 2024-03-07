@@ -359,7 +359,7 @@
 /**
  * @typedef MultiSelectContextNonStateRef {
  *  @property {HTMLElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
- *  @property {(HTMLDivElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
+ *  @property {(HTMLLIElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
  *  @property {HTMLInputElement | null} textInput the textInput used for this multi select's combo box
  * }
  */
