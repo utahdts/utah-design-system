@@ -31,7 +31,7 @@ export function MenuItemFlyout({
   const { styles, attributes } = usePopper(referenceElement.current, popperRef.current, { placement: 'right-start' });
 
   const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
-  useClickOutside(popperRef, () => setIsChildrenOpen(false), !isChildrenOpen);
+  useClickOutside([popperRef], () => setIsChildrenOpen(false), !isChildrenOpen);
 
   return (
     <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={referenceElement}>
@@ -58,7 +58,7 @@ export function MenuItemFlyout({
                 className={(navData) => joinClassNames(
                   menuType === menuTypes.VERTICAL ? 'vertical-menu__link-title' : 'menu-item__link-title',
                   (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
-                      && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
+                  && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
                 )}
                 end
                 to={menuItem.link}
@@ -67,7 +67,7 @@ export function MenuItemFlyout({
                 {menuItem.title}
               </NavLink>
             )
-          }
+        }
         {
           (menuItem.children && menuItem?.link)
             ? (
@@ -113,7 +113,7 @@ export function MenuItemFlyout({
             </div>
           )
           : null
-    }
+      }
     </li>
   );
 }
