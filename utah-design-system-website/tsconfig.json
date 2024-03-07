@@ -41,9 +41,7 @@
     "baseUrl": "./", /* Base directory to resolve non-absolute module names. */
     "paths": {
       "@utahdts/utah-design-system": [
-        "../@utahdts/utah-design-system/@types/jsDocTypes.d.js"
-      ],
-      "@utahdts/utah-design-system-types": [
+        // maybe this should point to the artifacts/index.d.ts file in the design system library instead?
         "../@utahdts/utah-design-system/@types/jsDocTypes.d.js"
       ],
       "utah-design-system-website": [

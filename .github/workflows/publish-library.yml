@@ -18,6 +18,9 @@ jobs:
       - name: NPM Build 🔨
         run: |
           npm run buildLibrary
+      - name: Build Types 🪚
+        run: |
+          npm run buildTypesLibrary
       - name: NPM Publish 🏠
         run: |
           npm run publishLibrary

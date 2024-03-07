@@ -5,13 +5,13 @@
  * @typedef {import('use-immer').Updater<UpdaterT>} Updater
  */
 
-/** @typedef {import('@utahdts/utah-design-system-types').BannerPlacement} BannerPlacement */
-/** @typedef {import('@utahdts/utah-design-system-types').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system-types').ButtonTypes} ButtonTypes */
-/** @typedef {import('@utahdts/utah-design-system-types').ComponentColors} ComponentColors */
-/** @typedef {import('@utahdts/utah-design-system-types').FormElementSizes} FormElementSizes */
-/** @typedef {import('@utahdts/utah-design-system-types').IconButtonAppearance} IconButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system-types').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 /** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
