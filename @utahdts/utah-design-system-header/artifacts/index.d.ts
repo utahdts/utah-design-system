@@ -37,6 +37,7 @@
       * even those not in error so they are in the global module
         * uuidv4
       * remove things like `export type AriaHasPopupType = import("src/@types/jsDocTypes.d").AriaHasPopupType;`
+    * import("@utahdts/... <=== imports aren't needed since all types are already in this file so remove the import
 */
 declare module "@utahdts/utah-design-system-header" {
   const _default: false;
@@ -44,7 +45,7 @@ declare module "@utahdts/utah-design-system-header" {
   export type ChildNode = Element;
   export type EventAction = ((arg0: MouseEvent | TouchEvent | KeyboardEvent) => void);
   export type AriaHasPopupType = 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree';
-  export type ChildrenMenuTypes = ('flyout' | 'inline' | 'mega-menu');
+  export type ChildrenMenuTypes = ('flyout' | 'inline' | 'mega-menu' | 'plain');
   export type Environments = 'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest';
   export type Events = 'utahHeaderLoaded' | 'utahHeaderUnloaded';
   export type PopupPlacement = 'auto' | 'auto-start' | 'auto-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' | 'top' | 'top-start' | 'top-end';
@@ -197,38 +198,39 @@ declare module "@utahdts/utah-design-system-header" {
     titleURL: string;
     utahId?: boolean | UtahIDSettings | undefined;
   };
-  export type childrenMenuTypes = ChildrenMenuTypes;
   export namespace childrenMenuTypes {
-    let FLYOUT: import("@utahdts/utah-design-system-header").ChildrenMenuTypes;
-    let INLINE: import("@utahdts/utah-design-system-header").ChildrenMenuTypes;
-    let MEGA_MENU: import("@utahdts/utah-design-system-header").ChildrenMenuTypes;
+    let FLYOUT: ChildrenMenuTypes;
+    let INLINE: ChildrenMenuTypes;
+    let MEGA_MENU: ChildrenMenuTypes;
+    let PLAIN: ChildrenMenuTypes;
   }
   export namespace PopupPlacement {
-    let AUTO: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let AUTO_START: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let AUTO_END: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let BOTTOM: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let BOTTOM_START: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let BOTTOM_END: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let LEFT: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let LEFT_START: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let LEFT_END: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let RIGHT: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let RIGHT_START: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let RIGHT_END: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let TOP: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let TOP_START: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let TOP_END: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let AUTO: PopupPlacement;
+    let AUTO_START: PopupPlacement;
+    let AUTO_END: PopupPlacement;
+    let BOTTOM: PopupPlacement;
+    let BOTTOM_START: PopupPlacement;
+    let BOTTOM_END: PopupPlacement;
+    let LEFT: PopupPlacement;
+    let LEFT_START: PopupPlacement;
+    let LEFT_END: PopupPlacement;
+    let RIGHT: PopupPlacement;
+    let RIGHT_START: PopupPlacement;
+    let RIGHT_END: PopupPlacement;
+    let TOP: PopupPlacement;
+    let TOP_START: PopupPlacement;
+    let TOP_END: PopupPlacement;
   }
+  export type events = Events;
   export namespace events {
-    let HEADER_LOADED: import("@utahdts/utah-design-system-header").Events;
-    let HEADER_UNLOADED: import("@utahdts/utah-design-system-header").Events;
+    let HEADER_LOADED: Events;
+    let HEADER_UNLOADED: Events;
   }
   export type sizes = Size;
   export namespace sizes {
-    let SMALL: import("@utahdts/utah-design-system-header").Size;
-    let MEDIUM: import("@utahdts/utah-design-system-header").Size;
-    let LARGE: import("@utahdts/utah-design-system-header").Size;
+    let SMALL: Size;
+    let MEDIUM: Size;
+    let LARGE: Size;
   }
   export function getCssClassSelector(domConstants: string | string[]): string;
   export type domConstants = string;
@@ -350,19 +352,19 @@ declare module "@utahdts/utah-design-system-header" {
   export const settingsKeeper: SettingsKeeper;
   class SettingsKeeper {
     settings: {
-      actionItems?: import("@utahdts/utah-design-system-header").ActionItem[] | undefined;
-      domLocationTarget?: import("@utahdts/utah-design-system-header").DomLocationTarget | undefined;
-      footer?: import("@utahdts/utah-design-system-header").FooterSettings | null | undefined;
-      logo?: import("@utahdts/utah-design-system-header").Logo | undefined;
-      mainMenu?: false | import("@utahdts/utah-design-system-header").MainMenu | undefined;
-      mediaSizes: import("@utahdts/utah-design-system-header").MediaSizes;
+      actionItems?: ActionItem[] | undefined;
+      domLocationTarget?: DomLocationTarget | undefined;
+      footer?: FooterSettings | null | undefined;
+      logo?: Logo | undefined;
+      mainMenu?: false | MainMenu | undefined;
+      mediaSizes: MediaSizes;
       onSearch?: false | ((search: string) => void) | undefined;
       showTitle: boolean;
       size: string;
       skipLinkUrl?: string | undefined;
       title: string;
       titleURL: string;
-      utahId?: boolean | import("@utahdts/utah-design-system-header").UtahIDSettings | undefined;
+      utahId?: boolean | UtahIDSettings | undefined;
     };
     setSettings(settings: SettingsInput): void;
     getSettings(): Settings;
@@ -399,7 +401,7 @@ declare module "@utahdts/utah-design-system-header" {
   }
   export function isTouchDevice(): boolean;
   export function popupFocusHandler(wrapper: HTMLElement, button: HTMLElement, popup: HTMLElement, ariaHasPopup: AriaHasPopupType, options: PopupFocusHandlerOptions | undefined): void;
-  export function renderPopup(labelledByElement: Element, options?: import("@utahdts/utah-design-system-header").RenderPopupOptions | undefined): HTMLElement;
+  export function renderPopup(labelledByElement: Element, options?: RenderPopupOptions | undefined): HTMLElement;
   export function suffixForMenuItemTitle(menuItem: MenuItem | MainMenuItem, parentMenuLinkSuffix?: string | ((menuItem: MainMenuItem | MenuItem) => string) | undefined): string;
   export function renderMenu(menuItems: MenuItem[] | undefined, options: RenderPopupMenuOptions): HTMLElement;
   export function renderPopupMenu(popupMenu: PopupMenu, labelledByElement: Element, options: RenderPopupMenuOptions): HTMLElement;
@@ -459,15 +461,15 @@ declare module "@utahdts/utah-design-system-header" {
   export function loadHeader(): void;
   export function removeHeader(shouldTriggerUnloadEvent: boolean): void;
   export function setUtahHeaderSettings(newSettings: SettingsInput): Settings;
-  export function setUtahFooterSettings(footerSettings?: import("@utahdts/utah-design-system-header").FooterSettings | undefined): FooterSettings | undefined;
+  export function setUtahFooterSettings(footerSettings?: FooterSettings | undefined): FooterSettings | undefined;
   export type environments = Environments;
   export namespace environments {
-    let NONE: import("@utahdts/utah-design-system-header").Environments;
-    let PROD: import("@utahdts/utah-design-system-header").Environments;
-    let AT: import("@utahdts/utah-design-system-header").Environments;
-    let DEV: import("@utahdts/utah-design-system-header").Environments;
-    let CUSTOM: import("@utahdts/utah-design-system-header").Environments;
-    let UNITTEST: import("@utahdts/utah-design-system-header").Environments;
+    let NONE: Environments;
+    let PROD: Environments;
+    let AT: Environments;
+    let DEV: Environments;
+    let CUSTOM: Environments;
+    let UNITTEST: Environments;
   }
   export function toHash(thing: object | string): number;
   export function httpRequest({ url, method, headers, timeout, onResolve, onReject, }: {
