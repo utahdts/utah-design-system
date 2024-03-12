@@ -33,7 +33,8 @@ export function AccordionDocumentation() {
         CODE_EXAMPLE={AccordionExampleCodeReact}
         componentClassName="sandbox-example__component--outline"
       />
-      <h4>Javascript Example</h4>
+      <h2 id="vanilla-example">Vanilla Example</h2>
+      <h4>HTML</h4>
       <PreCodeForCodeString
         showBackgroundColor
         codeRaw={(`
@@ -48,6 +49,12 @@ export function AccordionDocumentation() {
   </button>
   <div class="accordion__content accordion__content--open">This is some content.</div>
 </div>
+            `)}
+      />
+      <h4>Javascript</h4>
+      <PreCodeForCodeString
+        showBackgroundColor
+        codeRaw={(`
 <script>
   function toggleAccordion(button) {
     const accordionContent = button.nextElementSibling;
@@ -66,6 +73,8 @@ export function AccordionDocumentation() {
 </script>
             `)}
       />
+
+      <hr />
 
       <h3>Closed</h3>
       <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4} id="closed-accordion">
