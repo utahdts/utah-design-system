@@ -423,6 +423,7 @@ export function DemoContent() {
       <div className="flex flex-col items-center full-width">
         <div className="content-width">
           <Accordion
+            id="accordion-example-a"
             className="mb-spacing-l"
             headerClassName="primary-color-background white-color"
             headerContent="Title of this section"
@@ -457,6 +458,7 @@ export function DemoContent() {
             </div>
           </Accordion>
           <Accordion
+            id="accordion-example-b"
             className="mb-spacing-l"
             headerClassName="button button--secondary-color button--solid"
             headerContent="Title of this section 2"

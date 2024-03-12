@@ -48,6 +48,7 @@ export function TableDocumentationPaginationTableExample() {
         </li>
       </ul>
       <Accordion
+        id="table-example-pagination"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"

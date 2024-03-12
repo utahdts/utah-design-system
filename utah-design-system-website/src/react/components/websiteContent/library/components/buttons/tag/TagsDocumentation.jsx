@@ -272,6 +272,7 @@ export function TagsDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <Accordion
+        id="standard-tag"
         contentClassName="accordion__content--bordered mb-spacing-xl"
         headerContent={<span>Standard tag</span>}
         headerClassName="button--primary-color button--solid"
@@ -297,6 +298,7 @@ export function TagsDocumentation() {
       </Accordion>
 
       <Accordion
+        id="clickable-tag"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Clickable tag</span>}
         headerClassName="button--primary-color button--solid"

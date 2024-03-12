@@ -17,12 +17,12 @@ export function AccordionDocumentation() {
 
       <h2 id="section-example">Examples</h2>
       <h3>Closed</h3>
-      <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4}>
+      <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4} id="closed-accordion">
         This is some content.
       </Accordion>
 
       <h3 className="mt-spacing">Open</h3>
-      <Accordion headerContent={<span>An Open Accordion</span>} headerClassName="button--primary-color button--solid" isOpen headingLevel={4}>
+      <Accordion headerContent={<span>An Open Accordion</span>} headerClassName="button--primary-color button--solid" isOpen headingLevel={4} id="opened-accordion">
         <img src={coralPinkSandDunes} alt="Recreation vehicle at the sand dunes" style={{ float: 'right', marginLeft: 'var(--spacing)' }} />
         <p>
           The geology of the sand dunes is an intriguing subject. The sand comes from Navajo sandstone from the geologic period call Middle Jurassic.
