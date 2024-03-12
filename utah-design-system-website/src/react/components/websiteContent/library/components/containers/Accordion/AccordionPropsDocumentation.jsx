@@ -47,7 +47,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the content.
+                This css class will be added to the content container - <code>&lt;div&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -65,7 +65,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the accordion header.
+                This css class will be added to the accordion header - <code>&lt;button&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -85,7 +85,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                An id to put on the main &lt;div&gt; element. This will also be used for
+                An id to put on the main <code>&lt;div&gt;</code> element. This will also be used for
                 accessibility purposes - will set the <code>aria-controls</code> attribute of the header.
               </TableCell>
             </TableRow>
