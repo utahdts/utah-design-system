@@ -26,6 +26,8 @@ export function AccordionDocumentation() {
         defaultProps={{
           children: 'Accordion content',
           className: '',
+          contentClassName: '',
+          headerClassName: '',
           headerContent: 'Header content',
           headingLevel: 2,
           isOpen: true,

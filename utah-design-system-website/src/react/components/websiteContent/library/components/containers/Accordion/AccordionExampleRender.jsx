@@ -1,4 +1,4 @@
-import { Accordion } from '@utahdts/utah-design-system';
+import { Accordion, joinClassNames } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').AccordionExamplePropsShape} AccordionExamplePropsShape */
 /**
@@ -13,6 +13,8 @@ export function AccordionExampleRender({
     props: {
       children,
       className,
+      contentClassName,
+      headerClassName,
       headerContent,
       headingLevel,
       isOpen,
@@ -24,8 +26,9 @@ export function AccordionExampleRender({
     <div ref={innerRef} className="full-width">
       <Accordion
         className={className}
+        contentClassName={contentClassName}
         headerContent={<span>{headerContent}</span>}
-        headerClassName="button--primary-color button--solid"
+        headerClassName={joinClassNames('button--primary-color button--solid', headerClassName)}
         headingLevel={headingLevel}
         id="sandbox-accordion"
         isOpen={isOpen}

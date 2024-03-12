@@ -13,6 +13,8 @@ export function AccordionExampleCodeReact({
     props: {
       children,
       className,
+      contentClassName,
+      headerClassName,
       headerContent,
       headingLevel,
       isOpen,
@@ -24,6 +26,8 @@ export function AccordionExampleCodeReact({
       &lt;Accordion
       <br />
       <ExampleCodeReactProp displayProp={`className="${className}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`contentClassName="${contentClassName}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`headerClassName="${headerClassName}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`headerContent={<span>${headerContent}</span>}`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={'headerClassName="button--primary-color button--solid"'} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`headingLevel={${headingLevel}}`} indentLevel={1} />
