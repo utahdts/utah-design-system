@@ -33,6 +33,39 @@ export function AccordionDocumentation() {
         CODE_EXAMPLE={AccordionExampleCodeReact}
         componentClassName="sandbox-example__component--outline"
       />
+      <h4>Javascript Example</h4>
+      <PreCodeForCodeString
+        showBackgroundColor
+        codeRaw={(`
+<div class="accordion">
+  <button 
+    class="accordion__header button--primary-color button--solid accordion__header--open"
+    type="button" 
+    onclick="toggleAccordion(this)"
+  >
+    <h4><span>An Accordion</span></h4>
+    <span class="utds-icon-before-circle-chevron-up icon-button__icon"></span>
+  </button>
+  <div class="accordion__content accordion__content--open">This is some content.</div>
+</div>
+<script>
+  function toggleAccordion(button) {
+    const accordionContent = button.nextElementSibling;
+    accordionContent.classList.toggle('accordion__content--open');
+    button.classList.toggle('accordion__header--open');
+        
+    const icon = button.querySelector('.icon-button__icon');
+    if (button.classList.contains('accordion__header--open')) {
+      icon.classList.remove('utds-icon-before-circle-chevron-down');
+      icon.classList.add('utds-icon-before-circle-chevron-up');
+    } else {
+      icon.classList.remove('utds-icon-before-circle-chevron-up');
+      icon.classList.add('utds-icon-before-circle-chevron-down');
+    }
+  }                
+</script>
+            `)}
+      />
 
       <h3>Closed</h3>
       <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4} id="closed-accordion">
