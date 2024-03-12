@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { Accordion } from '@utahdts/utah-design-system';
+import { Accordion, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import coralPinkSandDunes from '../../../../../../../static/images/screenshots/examples/CoralPinkSandDunes.jpg';
@@ -8,6 +8,8 @@ import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { AccordionExampleRender } from './AccordionExampleRender';
 import { AccordionExampleProps } from './AccordionExampleProps';
 import { AccordionExampleCodeReact } from './AccordionExampleCodeReact';
+import { AccordionCssClassesDocumentation } from './AccordionCssClassesDocumentation';
+import { AccordionPropsDocumentation } from './AccordionPropsDocumentation';
 
 export function AccordionDocumentation() {
   return (
@@ -239,6 +241,24 @@ export function AccordionDocumentation() {
           container will have its <code>hidden</code> attribute set by the component, depending on its corresponding <Link to={pageUrls.button}>button&apos;s</Link> <code>aria-expanded</code> attribute.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <AccordionCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <AccordionPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }
