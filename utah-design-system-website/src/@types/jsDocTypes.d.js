@@ -54,6 +54,16 @@
  */
 
 /**
+ * @typedef AccordionExamplePropsShape {
+ * @property {string} children
+ * @property {string} className
+ * @property {string} headerContent
+ * @property {number} headingLevel
+ * @property {boolean} isOpen
+ * }
+ */
+
+/**
  * @typedef AppContextValue {
  *  @property {Record<string, WebsiteMainMenu>} allMenus
  *  @property {Record<string, Page>} pages

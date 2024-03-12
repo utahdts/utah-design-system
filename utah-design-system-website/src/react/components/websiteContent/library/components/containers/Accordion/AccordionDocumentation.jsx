@@ -4,6 +4,10 @@ import { Accordion } from '@utahdts/utah-design-system';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import coralPinkSandDunes from '../../../../../../../static/images/screenshots/examples/CoralPinkSandDunes.jpg';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { AccordionExampleRender } from './AccordionExampleRender';
+import { AccordionExampleProps } from './AccordionExampleProps';
+import { AccordionExampleCodeReact } from './AccordionExampleCodeReact';
 
 export function AccordionDocumentation() {
   return (
@@ -15,7 +19,21 @@ export function AccordionDocumentation() {
 
       <hr />
 
-      <h2 id="section-example">Examples</h2>
+      <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          children: 'Accordion content',
+          className: '',
+          headerContent: 'Header content',
+          headingLevel: 2,
+          isOpen: true,
+        }}
+        RENDER_EXAMPLE={AccordionExampleRender}
+        PROPS_EXAMPLE={AccordionExampleProps}
+        CODE_EXAMPLE={AccordionExampleCodeReact}
+        componentClassName="sandbox-example__component--outline"
+      />
+
       <h3>Closed</h3>
       <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4} id="closed-accordion">
         This is some content.
