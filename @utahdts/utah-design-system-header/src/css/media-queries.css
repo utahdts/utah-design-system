@@ -2,7 +2,7 @@
 
 @media screen and (max-width: media-size__tablet-landscape__PLACEHOLDER) {
   /* put your media query here for tablet landscape */
-  .utah-design-system .search-modal__input {
+  .utah-design-system .search-modal__input[type=text] {
     width: 75vw;
   }
 }
@@ -46,14 +46,18 @@
     display: flex;
   }
 
-  .utah-design-system .search-modal__input {
-    width: 75vw;
+  .utah-design-system .search-modal__input[type=text] {
+    width: 80vw;
     padding: var(--spacing) var(--spacing) var(--spacing) var(--spacing-3xl);
   }
   .utah-design-system .search-modal__button-wrapper {
     right: unset;
     left: 50%;
     transform: translateX(-50%) translateY(110%);
+  }
+  .utah-design-system .search-modal__button.button--solid.button--primary-color {
+    border-color: white;
+    width: max-content;
   }
 
   .utah-design-system .utds-official-website-popup__content {
