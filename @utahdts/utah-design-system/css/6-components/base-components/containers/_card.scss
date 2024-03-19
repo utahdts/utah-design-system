@@ -1,0 +1,43 @@
+@use "../../../1-settings/class-vars";
+
+/*
+############     _action-card.scss      ############
+*/
+#{class-vars.$base-class} {
+  .card {
+    background: white;
+    border: 1px solid var(--gray-color);
+
+    &__title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      box-sizing: border-box;
+    }
+
+    &--solid {
+      border: none;
+    }
+
+    &__image {
+      object-fit: cover;
+      max-height: 175px;
+      width: 100%;
+    }
+
+    &__icon {
+      font-size: var(--font-size-4xl);
+      font-weight: 100;
+      margin-bottom: var(--spacing-s);
+      line-height: 1;
+    }
+
+    &--horizontal {
+      display: flex;
+
+      .card__image {
+        max-height: 100%;
+        max-width: 33%;
+      }
+    }
+  }
+}
