@@ -21,7 +21,7 @@ export function CheckboxCssClassesDocumentation() {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell><code>.input-wrapper--checkbox</code></TableCell>
+            <TableCell><code>input-wrapper--checkbox</code></TableCell>
             <TableCell>This class is the overall wrapper class for the checkbox.</TableCell>
           </TableRow>
         </TableBody>

@@ -485,31 +485,31 @@ export function PopupsDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code>.popup__wrapper</code></TableCell>
+                      <TableCell><code>popup__wrapper</code></TableCell>
                       <TableCell>The outer wrapper of a popup.</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell><code>.popup__wrapper--hidden</code></TableCell>
+                      <TableCell><code>popup__wrapper--hidden</code></TableCell>
                       <TableCell>The hidden state of the popup.</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell><code>.popup__wrapper--visible</code></TableCell>
+                      <TableCell><code>popup__wrapper--visible</code></TableCell>
                       <TableCell>The visible state of the popup.</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell><code>.popup__content</code></TableCell>
+                      <TableCell><code>popup__content</code></TableCell>
                       <TableCell>The content of the popup.</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell><code>.popup__arrow</code></TableCell>
+                      <TableCell><code>popup__arrow</code></TableCell>
                       <TableCell>The arrow for the popup.</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell><code>.popup__close-button</code></TableCell>
+                      <TableCell><code>popup__close-button</code></TableCell>
                       <TableCell>The class for the close button (icon button).</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell><code>.popup__wrapper--close-button-absolute</code></TableCell>
+                      <TableCell><code>popup__wrapper--close-button-absolute</code></TableCell>
                       <TableCell>Will position the close button absolutely instead of floating it.</TableCell>
                     </TableRow>
                   </TableBody>
