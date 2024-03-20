@@ -14,7 +14,25 @@ export function Tab({ children, id }) {
     selectedTabId,
     setSelectedTabId,
     tabGroupId,
+    navigateNext,
+    navigatePrevious,
   } = useContext(TabGroupContext);
+
+  const onKeyChange = (/** @type {import('react').KeyboardEvent} */ event) => {
+    event.preventDefault();
+    switch (event.key) {
+      case 'ArrowLeft':
+        navigatePrevious();
+        break;
+
+      case 'ArrowRight':
+        navigateNext();
+        break;
+
+      default:
+        break;
+    }
+  };
 
   return (
     <div
@@ -22,6 +40,7 @@ export function Tab({ children, id }) {
         (selectedTabId === id) && 'tab-group__tab--selected',
         'tab-group__tab'
       )}
+      role="presentation"
     >
       <button
         // `aria-controls` must match the TabPanel's `id`
@@ -34,13 +53,13 @@ export function Tab({ children, id }) {
         // `id` must match the TabPanel's `aria-labelledby`
         id={`tab-${tabGroupId}-${id}`}
         onClick={handleEvent(() => setSelectedTabId(id))}
+        onKeyDown={onKeyChange}
         role="tab"
-        tabIndex={-1}
+        tabIndex={selectedTabId === id ? 0 : -1}
         type="button"
       >
         {children}
       </button>
-
     </div>
   );
 }

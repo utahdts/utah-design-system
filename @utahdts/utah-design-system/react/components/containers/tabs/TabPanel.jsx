@@ -18,7 +18,7 @@ export function TabPanel({ children, className, tabId }) {
       aria-labelledby={`tab-${tabGroupId}-${tabId}`}
       className={joinClassNames(
         className,
-        selectedTabId === tabId && 'tab-group__panel--selected',
+        selectedTabId !== tabId && 'visually-hidden',
         'tab-group__panel'
       )}
       // `id` must match the related Tab's `aria-controls`
