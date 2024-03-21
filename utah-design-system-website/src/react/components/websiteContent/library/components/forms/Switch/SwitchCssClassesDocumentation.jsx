@@ -14,11 +14,11 @@ export function SwitchCssClassesDocumentation() {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell><code>.switch--small</code></TableCell>
+            <TableCell><code>switch--small</code></TableCell>
             <TableCell>CSS class modifier for a small switch.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>.switch--large</code></TableCell>
+            <TableCell><code>switch--large</code></TableCell>
             <TableCell>CSS class modifier for a large switch.</TableCell>
           </TableRow>
         </TableBody>

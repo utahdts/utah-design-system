@@ -22,19 +22,19 @@ export function DemoContent() {
 
       <div className="grid-wrapper px-spacing-ls mt-spacing-l">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
-          <div className="card primary-color-background text-on-primary-color">
+          <div className="card card--solid primary-color-background text-on-primary-color">
             <span className="utds-icon-before-gear card__icon" aria-hidden="true" />
             <div className="card__title mb-spacing text-center">A to Z</div>
             <div className="card__text mb-spacing-l">Find what you need here</div>
             <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
           </div>
-          <div className="card primary-color-background text-on-primary-color">
+          <div className="card card--solid primary-color-background text-on-primary-color">
             <span className="utds-icon-before-account card__icon" aria-hidden="true" />
             <div className="card__title mb-spacing">Providers</div>
             <div className="card__text mb-spacing-l mx-spacing text-center">Apply for a license, get a contract, or look up a policy</div>
             <button type="button" className={`button--secondary-color button--solid mb-spacing-l action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR] })}`}>Find Services</button>
           </div>
-          <div className="card primary-color-background text-on-primary-color">
+          <div className="card card--solid primary-color-background text-on-primary-color">
             <span className="utds-icon-before-verified card__icon" aria-hidden="true" />
             <div className="card__title mb-spacing">Services</div>
             <div className="card__text mb-spacing-l text-center">Programs and services we provide</div>
@@ -46,7 +46,7 @@ export function DemoContent() {
       <div className="grid-wrapper px-spacing-ls">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
 
-          <div className="card card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
+          <div className="card card--solid card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Utah State Tax Commission</div>
             <hr className="primary-color-background" />
             <ul>
@@ -78,7 +78,7 @@ export function DemoContent() {
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
 
-          <div className="card card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
+          <div className="card card--solid card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Cultural &amp; Community Engagement</div>
             <hr className="primary-color-background" />
             <ul>
@@ -110,7 +110,7 @@ export function DemoContent() {
             <button type="button" className={`mb-spacing-l mx-spacing-l button--primary-color button--solid action-button ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT], foregroundColor: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR] })}`} style={{ alignSelf: 'flex-end' }}>View More</button>
           </div>
 
-          <div className="card card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
+          <div className="card card--solid card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Department of Health &amp; Human Services </div>
             <hr className="primary-color-background" />
             <ul>
@@ -147,7 +147,7 @@ export function DemoContent() {
 
       <div className="grid-wrapper px-spacing-ls">
         <div className="grid-fixed grid-fixed--3col mb-spacing-l">
-          <div className="card card--align-flex-start gray-color-background dark-background-color white-color p-spacing-l grid-column-span-2">
+          <div className="card card--solid card--align-flex-start gray-color-background dark-background-color white-color p-spacing-l grid-column-span-2">
             <div className="card__title mb-spacing">Card Title Goes Here</div>
             <p>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
@@ -169,9 +169,11 @@ export function DemoContent() {
               <button type="button" className={`button button--accent-color button--solid ml-auto ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Default Button</button>
             </div>
           </div>
-          <div className="card card-image justify-between">
+          <div className="card card--solid card-image justify-between">
             <div className="card__title card__title--full secondary-color-background text-on-secondary-color p-spacing text-center">Program Name</div>
-            <button type="button" className="button mb-spacing-l">Learn More</button>
+            <div className="flex flex-col items-center full-width justify-end full-height">
+              <button type="button" className="button mb-spacing-l">Learn More</button>
+            </div>
           </div>
         </div>
       </div>

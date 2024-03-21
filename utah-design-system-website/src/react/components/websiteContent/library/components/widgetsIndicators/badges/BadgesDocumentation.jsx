@@ -123,7 +123,7 @@ export function BadgesDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code>.badge</code></TableCell>
+                      <TableCell><code>badge</code></TableCell>
                       <TableCell>The base css class for a badge.</TableCell>
                     </TableRow>
                   </TableBody>
