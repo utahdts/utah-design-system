@@ -52,5 +52,39 @@
         display: block;
       }
     }
+    &--vertical {
+      display: flex;
+      .tab-group__list {
+        flex-direction: column;
+        margin-right: var(--spacing-l);
+        justify-content: flex-start;
+        padding-top: var(--spacing);
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 1px;
+          height: calc(100% - var(--spacing));
+          background: var(--gray-color);
+        }
+      }
+      .tab-group__tab {
+        flex: 0;
+        &:after {
+          z-index: 2;
+          width: 1px;
+          height: 100%;
+        }
+        &--selected:after {
+          bottom: 0;
+          left: -2px;
+          width: 5px;
+          height: 100%;
+        }
+      }
+    }
   }
 }

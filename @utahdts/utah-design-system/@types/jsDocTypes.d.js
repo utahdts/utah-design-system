@@ -182,6 +182,7 @@
  *  @property {(tabId: string) => void} setSelectedTabId
  *  @property {() => void} navigateNext
  *  @property {() => void} navigatePrevious
+ *  @property {boolean} isVertical
  * }
  */
 

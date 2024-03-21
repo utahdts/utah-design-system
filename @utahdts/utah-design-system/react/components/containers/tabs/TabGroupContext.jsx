@@ -8,4 +8,5 @@ export const TabGroupContext = /** @type {typeof createContext<TabGroupContextVa
   tabGroupId: '',
   navigateNext: () => { },
   navigatePrevious: () => { },
+  isVertical: false,
 });

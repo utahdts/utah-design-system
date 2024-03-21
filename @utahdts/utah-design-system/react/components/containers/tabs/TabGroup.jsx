@@ -10,6 +10,7 @@ import { TabGroupContext } from './TabGroupContext';
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
+ * @param {boolean} [props.isVertical]
  * @param {(newTabId: string) => void} [props.onChange]
  * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
@@ -18,6 +19,7 @@ export function TabGroup({
   children,
   className,
   defaultValue,
+  isVertical,
   onChange,
   value,
 }) {
@@ -64,6 +66,7 @@ export function TabGroup({
           navigateTab(tabGroupState?.tabs?.[tabGroupState.tabs.length - 1] || null);
         }
       },
+      isVertical: !!isVertical,
     }),
     [onChange, setTabGroupState, tabGroupState, value]
   );
@@ -79,7 +82,7 @@ export function TabGroup({
 
   return (
     <TabGroupContext.Provider value={contextValue}>
-      <div className={joinClassNames('tab-group', className)} id={`tab-group-${tabGroupState.tabGroupId}`} ref={tabGroupRef}>
+      <div className={joinClassNames('tab-group', className, isVertical && 'tab-group--vertical')} id={`tab-group-${tabGroupState.tabGroupId}`} ref={tabGroupRef}>
         {children}
       </div>
     </TabGroupContext.Provider>

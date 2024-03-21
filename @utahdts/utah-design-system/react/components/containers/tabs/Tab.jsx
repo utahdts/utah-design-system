@@ -16,17 +16,26 @@ export function Tab({ children, id }) {
     tabGroupId,
     navigateNext,
     navigatePrevious,
+    isVertical,
   } = useContext(TabGroupContext);
 
   const onKeyChange = (/** @type {import('react').KeyboardEvent} */ event) => {
     event.preventDefault();
     switch (event.key) {
       case 'ArrowLeft':
-        navigatePrevious();
+        if (!isVertical) navigatePrevious();
         break;
 
       case 'ArrowRight':
-        navigateNext();
+        if (!isVertical) navigateNext();
+        break;
+
+      case 'ArrowUp':
+        if (isVertical) navigatePrevious();
+        break;
+
+      case 'ArrowDown':
+        if (isVertical) navigateNext();
         break;
 
       default:
