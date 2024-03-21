@@ -7,6 +7,7 @@ export default defineConfig(() => ({
     coverage: {
       all: true,
       exclude: [
+        'artifacts/index.d.ts',
         '**/Icons.jsx',
         '**/propTypesShapes/**',
         'index.js',
