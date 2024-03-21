@@ -53,10 +53,14 @@ export function CombBoxListBox({
     }
   );
 
+  const lastMessageRef = useRef(/** @type {string | null} */(null));
   const addPoliteMessageDebounced = useDebounceFunc(
     useCallback(
       (message) => {
-        addPoliteMessage(message);
+        if (lastMessageRef.current !== message) {
+          addPoliteMessage(message);
+          lastMessageRef.current = message;
+        }
       },
       [addPoliteMessage]
     ),
@@ -84,18 +88,18 @@ export function CombBoxListBox({
           // after first invocation, no longer announce about the arrow keys.
           announcedArrowKeysRef.current = true;
         }
-        if (optionsFiltered.length !== optionsFilteredWithoutGroupLabels.length) {
-          const numGroups = optionsFiltered.filter(
-            (option) => (
-              option.isGroupLabel
-              && isOptionGroupVisible(
-                option.isGroupLabel ? option.optionGroupId ?? null : null,
-                option.label,
-                optionsFiltered,
-                selectedValues
-              )
+        const numGroups = optionsFiltered.filter(
+          (option) => (
+            option.isGroupLabel
+            && isOptionGroupVisible(
+              option.isGroupLabel ? option.optionGroupId ?? null : null,
+              option.label,
+              optionsFiltered,
+              selectedValues
             )
-          ).length;
+          )
+        ).length;
+        if (numGroups) {
           // the options have "groups": '8 results available in 2 groups'
           message.push(`${optionsFilteredWithoutGroupLabels.length} result${optionsFilteredWithoutGroupLabels.length === 1 ? '' : 's'} available in ${numGroups} group${numGroups === 1 ? '' : 's'}.`);
         } else {
@@ -105,9 +109,7 @@ export function CombBoxListBox({
         if (allowCustomEntry && filterValue && !options.some((option) => option.labelLowerCase === filterValue.toLocaleLowerCase())) {
           message.push(`Press Enter to add ${filterValue} to the combo box list.`);
         }
-        if (!isOptionsExpanded) {
-          message.push('Use the down arrow key to begin selecting.');
-        }
+        message.push('Use the down arrow key to begin selecting.');
         addPoliteMessageDebounced(message.join(' '));
       }
     },

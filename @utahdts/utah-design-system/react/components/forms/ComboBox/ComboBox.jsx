@@ -1,4 +1,4 @@
-import { useId, useRef } from 'react';
+import { useId, useState } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { ComboBoxContextProvider } from './context/ComboBoxContextProvider';
 import { CombBoxListBox } from './internal/CombBoxListBox';
@@ -17,6 +17,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {string} [props.className]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
+ * @param {(isOptionsExpanded: boolean) => React.ReactNode} [props.iconCallback] Can provide a custom icon to show for the popup icon
  * @param {string} props.id
  * @param {MutableRef<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
@@ -47,6 +48,7 @@ export function ComboBox({
   className,
   defaultValue,
   errorMessage,
+  iconCallback,
   id,
   innerRef: draftInnerRef,
   isClearable,
@@ -71,8 +73,9 @@ export function ComboBox({
   wrapperClassName,
   ...rest
 }) {
-  const comboBoxListId = useId();
-  const contentRef = useRef(/** @type {HTMLInputElement | null} */(null));
+  const comboBoxListId = `${id}__${useId()}`;
+  // useState (instead of useRef) so changes update ComboBoxListBox
+  const [contentRefState, setContentRefState] = useState(/** @type {HTMLInputElement | null} */(null));
 
   const child = (
     <div className={joinClassNames('combo-box-input__inner-wrapper', className)}>
@@ -82,9 +85,10 @@ export function ComboBox({
         className={textInputClassName}
         comboBoxListId={comboBoxListId}
         errorMessage={errorMessage}
+        iconCallback={iconCallback}
         id={id}
         innerRef={(ref) => {
-          contentRef.current = ref;
+          setContentRefState(ref);
         }}
         isClearable={isClearable}
         isShowingClearableIcon={isShowingClearableIcon}
@@ -102,7 +106,7 @@ export function ComboBox({
         allowCustomEntry={allowCustomEntry}
         id={comboBoxListId}
         ariaLabelledById={id}
-        popperReferenceElement={popperContentRef ?? contentRef.current ?? null}
+        popperReferenceElement={popperContentRef ?? contentRefState ?? null}
       >
         {children}
       </CombBoxListBox>

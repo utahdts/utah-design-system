@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.15.4] 3/5/2024
+## Fixed
+- Make sure footer is 100% width
+- Prevent closing popups for main menu clicking
+- Default Main Menu title to be "Main Menu"
+
+## Added
+- Add menus option for `parentMenuLinkSuffix`
+
+# [1.15.3] 2/26/2024
+## Fixed
+- Fix menus not popping open on a touch device
+- Fix overflowing utah header logo
+- Fix overflowing utah header text
+
+# [1.15.2] 2/14/2024
+## Fixed
+- Add styles for other types of text inputs
+
+# [1.15.1] 1/31/2024
+## Fixed
+- Aria messages were visible on the screen
+
 # [1.15.0] 1/30/2024
 ## Added
 - DateInput component

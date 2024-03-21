@@ -82,7 +82,8 @@ export function Popup({
     (e) => { onVisibleChange(e, false); },
     [onVisibleChange]
   );
-  useClickOutside(popperRef, onVisibleChangeCallback, !isVisible);
+
+  useClickOutside([popperRef, referenceElement], onVisibleChangeCallback, !isVisible);
 
   return (
     <div

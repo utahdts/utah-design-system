@@ -123,11 +123,13 @@ export function VerticalMenuDocumentation() {
                       id: 'menu-in-popup-B',
                       title: 'Another Menu Item',
                       childrenMenuType: childrenMenuTypes.FLYOUT,
+                      link: 'https://utah.gov',
                     },
                     {
                       id: 'menu-in-popup-C',
                       title: 'Last Menu Item',
                       childrenMenuType: childrenMenuTypes.FLYOUT,
+                      link: 'https://utah.gov',
                     },
                   ],
                 },

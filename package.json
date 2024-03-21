@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "1.15.0",
+  "version": "1.15.4",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -16,6 +16,7 @@
     "buildwLibrary": "npm run buildw -workspace=@utahdts/utah-design-system",
     "buildwWebsite": "npm run buildw -workspace=utah-design-system-website",
     "buildTypesHeader": "npm run buildTypes -workspace=@utahdts/utah-design-system-header",
+    "buildTypesLibrary": "npm run buildTypes -workspace=@utahdts/utah-design-system",
     "cleanCoverage": "rimraf ./@utahdts/utah-design-system/coverage",
     "cleanSitemap": "rimraf ./utah-design-system-website/public/sitemap.txt",
     "cleanDist": "rimraf ./utah-design-system-website/dist & rimraf ./@utahdts/utah-design-system/dist & rimraf ./@utahdts/utah-design-system-header/dist",
@@ -42,7 +43,7 @@
     "// ======= test tasks ====== //": "",
     "circular": "npx madge --circular .",
     "circularg": "npx madge --circular --image circular.svg .",
-    "test": "run-s build buildTypesHeader testHeader testLibrary testWebsite",
+    "test": "run-s build buildTypesHeader buildTypesLibrary testHeader testLibrary testWebsite",
     "testHeader": "npm run testOnce -workspace=@utahdts/utah-design-system-header",
     "testLibrary": "npm run testOnce -workspace=@utahdts/utah-design-system",
     "testWebsite": "npm run testOnce -workspace=utah-design-system-website",
@@ -72,11 +73,11 @@
   },
   "devDependencies": {
     "@types/js-beautify": "1.14.3",
-    "@vitest/coverage-istanbul": "1.2.0",
-    "eslint": "8.56.0",
+    "@vitest/coverage-istanbul": "1.3.1",
+    "eslint": "8.57.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsdoc": "48.0.2",
+    "eslint-plugin-jsdoc": "48.2.0",
     "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
@@ -84,7 +85,7 @@
     "npm-run-all": "4.1.5",
     "rimraf": "5.0.5",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "1.2.0"
+    "vitest": "1.3.1"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",

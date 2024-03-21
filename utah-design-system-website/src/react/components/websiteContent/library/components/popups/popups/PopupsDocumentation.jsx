@@ -14,16 +14,15 @@ import {
   TableHeadCell,
   TableHeadRow, TableRow,
   TableWrapper,
+  VerticalMenu,
   componentColors,
   formElementSizesEnum,
   popupPlacement
 } from '@utahdts/utah-design-system';
+import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
-import popupMenu from '../../../../../../../static/images/screenshots/components/popups/popupMenu.png';
-import popupMenuFlyout from '../../../../../../../static/images/screenshots/components/popups/popupMenuFlyout.png';
-import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -36,13 +35,69 @@ import { PopupsExampleCodeReact } from './PopupsExampleCodeReact';
 import { PopupsExampleProps } from './PopupsExampleProps';
 import { PopupsExampleRender } from './PopupsExampleRender';
 
+// https://www.abc4.com/news/digital-exclusives/attention-new-utahns-seven-unique-utah-foods-to-know/
+const example3Menu = [
+  {
+    // custom titleTagName so the default 'h2' doesn't get picked up by "On this page"
+    titleTagName: 'div',
+    header: 'Utah Foods',
+    id: 'vertical-menu-example-3',
+    menuItems: [
+      { title: 'Dutch Oven', id: 'example3-dutch-oven', link: 'example3-dutch-oven' },
+      { title: 'Fry Sauce', id: 'example3-fry-sauce', link: 'example3-fry-sauce' },
+      { title: 'Funeral Potatoes', id: 'example3-funeral-potatoes', link: 'example3-funeral-potatoes' },
+      { title: 'Green Jell-O', id: 'example3-jell-o', link: 'example3-jell-o' },
+      { title: 'Ice Cream Shakes', id: 'example3-ice-cream-shake', link: 'example3-ice-cream-shake' },
+      { title: 'Pastrami Burgers', id: 'example3-pastrami-burgers', link: 'example3-pastrami-burgers' },
+      { title: 'Specialty Sodas', id: 'example3-specialty-soda', link: 'example3-specialty-soda' },
+      { title: 'Utah Honey', id: 'example3-honey', link: 'example3-honey' },
+    ],
+  },
+];
+const example4Menu = [
+  {
+    // custom titleTagName so the default 'h2' doesn't get picked up by "On this page"
+    titleTagName: 'div',
+    header: 'Utah Foods',
+    id: 'vertical-menu-example-3',
+    menuItems: [
+      {
+        title: 'Main Dish',
+        id: 'example4-main-dish',
+        children: [
+          { title: 'Dutch Oven', id: 'example4-dutch-oven', link: 'example4-dutch-oven' },
+          { title: 'Funeral Potatoes', id: 'example4-funeral-potatoes', link: 'example4-funeral-potatoes' },
+          { title: 'Green Jell-O', id: 'example4-jell-o', link: 'example4-jell-o' },
+          { title: 'Pastrami Burgers', id: 'example4-pastrami-burgers', link: 'example4-pastrami-burgers' },
+        ],
+        childrenMenuType: childrenMenuTypes.FLYOUT,
+      },
+      {
+        title: 'Side Dish',
+        id: 'example4-side-dish',
+        children: [
+          { title: 'Fry Sauce', id: 'example4-fry-sauce', link: 'example4-fry-sauce' },
+          { title: 'Ice Cream Shakes', id: 'example4-ice-cream-shake', link: 'example4-ice-cream-shake' },
+          { title: 'Specialty Sodas', id: 'example4-specialty-soda', link: 'example4-specialty-soda' },
+          { title: 'Utah Honey', id: 'example4-honey', link: 'example4-honey' },
+        ],
+        childrenMenuType: childrenMenuTypes.FLYOUT,
+      },
+    ],
+  },
+];
+
 export function PopupsDocumentation() {
   const buttonRef = useRef(null);
   const button2Ref = useRef(null);
+  const button3Ref = useRef(null);
+  const button4Ref = useRef(null);
   const buttonEditorRef = useRef(null);
   const [popupsState, setPopupsState] = useImmer({
     example1: false,
     example2: false,
+    example3: false,
+    example4: false,
     editorExample: /** @type {boolean | null} */ (null),
   });
 
@@ -157,7 +212,37 @@ export function PopupsDocumentation() {
       />
       <StaticExample
         title="Popup Menu"
-        renderedExample={<LightBox image={popupMenu} alt="Popup Menu" className="flex-3up-gap" />}
+        renderedExample={(
+          <div>
+            <button
+              aria-controls="popups-example-render-popup"
+              aria-expanded={!!popupsState.example3}
+              aria-haspopup="dialog"
+              id="popups-example-render-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setPopupsState((draftState) => { draftState.example3 = !draftState.example3; });
+              }}
+              ref={button3Ref}
+              type="button"
+            >
+              Open Plain Menu...
+            </button>
+            {/* @ts-ignore */}
+            <Popup
+              ariaLabelledBy="popups-example-render-button"
+              id="popups-example-render-popup"
+              isVisible={!!popupsState.example3}
+              // eslint-disable-next-line no-param-reassign
+              onVisibleChange={(_e, newIsVisible) => setPopupsState((draftState) => { draftState.example3 = newIsVisible; })}
+              referenceElement={button3Ref}
+              role="dialog"
+            >
+              <VerticalMenu menus={example3Menu} />
+            </Popup>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>A menu popup has a list of items, and possibly icon buttons, that the user can select.</li>
@@ -173,7 +258,37 @@ export function PopupsDocumentation() {
       />
       <StaticExample
         title="Popup Menu with Flyout Popups"
-        renderedExample={<LightBox image={popupMenuFlyout} alt="Popup Menu with Flyout Popups" className="flex-3up-gap" />}
+        renderedExample={(
+          <div>
+            <button
+              aria-controls="popups-example-render-popup"
+              aria-expanded={!!popupsState.example4}
+              aria-haspopup="dialog"
+              id="popups-example-render-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setPopupsState((draftState) => { draftState.example4 = !draftState.example4; });
+              }}
+              ref={button4Ref}
+              type="button"
+            >
+              Open Flyout Menu...
+            </button>
+            {/* @ts-ignore */}
+            <Popup
+              ariaLabelledBy="popups-example-render-button"
+              id="popups-example-render-popup"
+              isVisible={!!popupsState.example4}
+              // eslint-disable-next-line no-param-reassign
+              onVisibleChange={(_e, newIsVisible) => setPopupsState((draftState) => { draftState.example4 = newIsVisible; })}
+              referenceElement={button4Ref}
+              role="dialog"
+            >
+              <VerticalMenu menus={example4Menu} />
+            </Popup>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>

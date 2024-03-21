@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 /**
  * @template KeyboardEventHandlerT
  * @param {object} params
- * @param {string} params.whichKeyCode
+ * @param {string} params.whichKeyCode https://www.w3.org/TR/uievents-key/#named-key-attribute-values
  * @param {import('react').KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyDown]
  * @param {import('react').KeyboardEventHandler<KeyboardEventHandlerT>} [params.onKeyUp]
  * @returns {boolean}

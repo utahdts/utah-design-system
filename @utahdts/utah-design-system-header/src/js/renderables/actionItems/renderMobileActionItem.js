@@ -84,7 +84,13 @@ export function renderMobileActionItem(actionItem) {
     }
     actionItemContentTitle.appendChild(document.createTextNode(actionItem.actionPopupMenu.title));
 
-    const actionItemMenu = renderMenu(actionItem.actionPopupMenu.menuItems, { childrenMenuType: childrenMenuTypes.INLINE });
+    const actionItemMenu = renderMenu(
+      actionItem.actionPopupMenu.menuItems,
+      {
+        childrenMenuType: childrenMenuTypes.INLINE,
+        parentMenuLinkSuffix: actionItem.actionPopupMenu.parentMenuLinkSuffix,
+      }
+    );
     actionItemContent.appendChild(actionItemMenu);
   } else {
     // eslint-disable-next-line no-console

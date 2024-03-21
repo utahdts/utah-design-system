@@ -36,8 +36,9 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
   );
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-    <div
+    // This was a div, but then the aria-label wouldn't work
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/role-supports-aria-props
+    <li
       className={
         joinClassNames(
           'multi-select__tag-wrapper',
@@ -89,10 +90,10 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
       }}
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
-      role="option"
+      aria-label={`${selectedOption.label}, press delete to remove.`}
       aria-selected="true"
     >
       {children}
-    </div>
+    </li>
   );
 }

@@ -5,13 +5,13 @@
  * @typedef {import('use-immer').Updater<UpdaterT>} Updater
  */
 
-/** @typedef {import('@utahdts/utah-design-system-types').BannerPlacement} BannerPlacement */
-/** @typedef {import('@utahdts/utah-design-system-types').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system-types').ButtonTypes} ButtonTypes */
-/** @typedef {import('@utahdts/utah-design-system-types').ComponentColors} ComponentColors */
-/** @typedef {import('@utahdts/utah-design-system-types').FormElementSizes} FormElementSizes */
-/** @typedef {import('@utahdts/utah-design-system-types').IconButtonAppearance} IconButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system-types').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 /** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -231,6 +231,7 @@
 
 /**
  * @typedef MultiSelectExamplePropsShape {
+ *  @property {boolean} allowCustomEntry
  *  @property {string} className
  *  @property {string} errorMessage
  *  @property {string} id
@@ -379,6 +380,27 @@
  *  @property {boolean} isRequired
  *  @property {string} label
  *  @property {string} placeholder
+ *  @property {string} value
+ * }
+ */
+
+/**
+ * @typedef TimeInputExamplePropsShape {
+ *  @property {boolean} allowCustomEntry
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {boolean} hasTimePopup
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} name
+ *  @property {string} placeholder
+ *  @property {string} timeFormat
+ *  @property {string} timeRangeIncrement
+ *  @property {string} timeRangeBegin
+ *  @property {string} timeRangeEnd
  *  @property {string} value
  * }
  */

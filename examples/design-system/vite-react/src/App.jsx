@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
+export function App() {
   const [count, setCount] = useState(0)
 
   return (
@@ -28,8 +28,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <p>
+        Utah Design System: If this page is gold then the Utah Design System's css was correctly imported.
+      </p>
     </>
   )
 }
-
-export App

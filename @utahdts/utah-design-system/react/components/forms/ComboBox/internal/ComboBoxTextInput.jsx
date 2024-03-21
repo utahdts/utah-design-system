@@ -23,6 +23,7 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {string} [props.className]
  * @param {string} props.comboBoxListId
  * @param {string} [props.errorMessage]
+ * @param {(isOptionsExpanded: boolean) => React.ReactNode} [props.iconCallback] Can provide a custom icon to show for the popup icon
  * @param {string} props.id
  * @param {MutableRef<HTMLInputElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
@@ -46,6 +47,7 @@ export function ComboBoxTextInput({
   className,
   comboBoxListId,
   errorMessage,
+  iconCallback,
   id,
   innerRef: draftInnerRef,
   isClearable,
@@ -264,7 +266,15 @@ export function ComboBoxTextInput({
           <IconButton
             aria-hidden="true"
             className="combo-box-input__chevron icon-button--borderless icon-button--small1x"
-            icon={<span className={isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'} aria-hidden="true" />}
+            icon={
+              iconCallback?.(isOptionsExpanded)
+              ?? (
+                <span
+                  aria-hidden="true"
+                  className={isOptionsExpanded ? 'utds-icon-before-chevron-up' : 'utds-icon-before-chevron-down'}
+                />
+              )
+            }
             isDisabled={isDisabled}
             onClick={(e) => {
               e.stopPropagation();

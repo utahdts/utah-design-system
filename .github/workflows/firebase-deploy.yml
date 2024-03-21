@@ -48,15 +48,3 @@ jobs:
           firebase deploy --only hosting:utah-design-system --project ${{ secrets.PROJECT_ID_PROD }}
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-
-#      - name: 🔔 Publish deployment worknote
-#        uses: utahdts/dts-servicenow-worknote-action@dxp_workflow
-#        with:
-#          repo-token: ${{ secrets.GITHUB_TOKEN }}
-#          username: ${{ secrets.SN_USERNAME }}
-#          password: ${{ secrets.SN_PASSWORD }}
-#          instance-name: ${{ secrets.SN_INSTANCE }}
-#          table-name: ${{ secrets.SN_TABLE }}
-#          system-id: ${{ secrets.SN_SYS_ID }}
-#          check-approvals: false
-#          environment: 'dev'

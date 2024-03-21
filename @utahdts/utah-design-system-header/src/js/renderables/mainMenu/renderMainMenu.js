@@ -19,10 +19,10 @@ import { renderPopupMenu } from '../popupMenu/renderPopupMenu';
 import { setupSearchModal, showSearchModal } from '../search/searchModal';
 import { hookupTooltip } from '../tooltip/hookupTooltip';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
+import { suffixForMenuItemTitle } from './suffixForMenuItemTitle';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
- */
+/** @typedef {import('src/@types/jsDocTypes.d').MainMenu} MainMenu */
+/** @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu */
 
 /**
  * @returns {{mainMenuWrapper: HTMLElement, utahIdPopup: HTMLElement | null}}
@@ -46,7 +46,7 @@ export function renderMainMenu() {
   mainMenuNav.setAttribute('aria-labelledby', mainMenuId);
   titleTag.setAttribute('id', mainMenuId);
   if (settings.mainMenu) {
-    titleTag.innerHTML = settings.mainMenu.title;
+    titleTag.innerHTML = settings.mainMenu.title || 'Main Menu';
   } else {
     mainMenuNav.remove();
     mainMenuNav = null;
@@ -110,6 +110,9 @@ export function renderMainMenu() {
       }
 
       if (menuItem.actionMenu) {
+        // eslint-disable-next-line prefer-destructuring
+        const mainMenu = /** @type {MainMenu} */ (settings.mainMenu);
+
         // render children menu items
         menuItemTitleSpanElement.innerHTML = menuItem.title;
 
@@ -121,14 +124,14 @@ export function renderMainMenu() {
           || menuItem.actionUrl
           || menuItem.actionFunctionUrl
         ) {
-          // add `(page)` menu item to top of children menu
+          // add `parentMenuLinkSuffix` menu item to top of children menu
           menuItems.unshift({
             actionFunction: menuItem.actionFunction,
             actionFunctionUrl: menuItem.actionFunctionUrl,
             actionUrl: menuItem.actionUrl,
             className: menuItem.className,
             icon: menuItem.icon,
-            title: `${menuItem.title} (page)`,
+            title: `${menuItem.title}${suffixForMenuItemTitle(menuItem, mainMenu.parentMenuLinkSuffix)}`,
           });
         }
 
@@ -139,10 +142,11 @@ export function renderMainMenu() {
           menuItemTitleElement,
           {
             childrenMenuType: menuItem.childrenMenuType || childrenMenuTypes.FLYOUT,
+            parentMenuLinkSuffix: mainMenu.parentMenuLinkSuffix,
           }
         );
         mainMenuItem.appendChild(subMenuPopup);
-        popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true });
+        popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true, doNotClosePopupOnClick: true });
         /** @type {string} */
         let menuClass;
         switch (menuItem.childrenMenuType) {
@@ -169,7 +173,7 @@ export function renderMainMenu() {
       if (menuItem.actionFunction) {
         // custom function when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
-        // if have children, then the action is moved to the `(page)` menu item and not here
+        // if have children, then the action is moved to the `parentMenuLinkSuffix` menu item and not here
         if (!menuItem.actionMenu) {
           menuItemTitleElement.onclick = menuItem.actionFunction;
         }
@@ -177,7 +181,7 @@ export function renderMainMenu() {
         menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
 
-        // if have children, then the action is moved to the `(page)` menu item and not here
+        // if have children, then the action is moved to the `parentMenuLinkSuffix` menu item and not here
         if (!menuItem.actionMenu) {
           menuItemTitleElement.onclick = (e) => {
             if (!menuItem.actionFunctionUrl?.skipHandleEvent) {
