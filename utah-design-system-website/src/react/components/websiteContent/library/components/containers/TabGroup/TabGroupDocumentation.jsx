@@ -1,9 +1,6 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import tabsHorizontalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsHorizontalScreenshot.jpg';
-import tabsOverflowScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsOverflowScreenshot.jpg';
-import tabsVerticalScreenshot from '../../../../../../../static/images/screenshots/components/tab-group/tabsVerticalScreenshot.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
+import { ExternalLink, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
@@ -19,12 +16,26 @@ export function TabGroupDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Tab Group"
+        className="static-example--blank"
         renderedExample={(
-          <>
-            <LightBox image={tabsHorizontalScreenshot} alt="Horizontal Tabs" className="flex-3up-gap" />
-            <LightBox image={tabsVerticalScreenshot} alt="Vertical Tabs" className="flex-3up-gap" />
-            <LightBox image={tabsOverflowScreenshot} alt="Tabs Overflow" className="flex-3up-gap" />
-          </>
+          <div className="static-example--outline">
+            <TabGroup defaultValue="button-css">
+              <TabList>
+                <Tab id="button-css">CSS</Tab>
+                <Tab id="button-react">React</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel tabId="button-css">
+                  Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.<br />
+                  <ExternalLink href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS">Learn more</ExternalLink>
+                </TabPanel>
+                <TabPanel tabId="button-react">
+                  React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.<br />
+                  <ExternalLink href="https://react.dev/">Learn more</ExternalLink>
+                </TabPanel>
+              </TabPanels>
+            </TabGroup>
+          </div>
         )}
         quickTips={(
           <div>
@@ -34,6 +45,31 @@ export function TabGroupDocumentation() {
               <li>Tabs (controls)</li>
               <li>A panel displaying the active tab (content)</li>
             </ul>
+          </div>
+        )}
+      />
+
+      <StaticExample
+        title="Vertical Tab Group"
+        className="static-example--blank"
+        renderedExample={(
+          <div className="static-example--outline">
+            <TabGroup defaultValue="vertical-button-css" isVertical>
+              <TabList>
+                <Tab id="vertical-button-css">CSS</Tab>
+                <Tab id="vertical-button-react">React</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel tabId="vertical-button-css">
+                  Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.<br />
+                  <ExternalLink href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS">Learn more</ExternalLink>
+                </TabPanel>
+                <TabPanel tabId="vertical-button-react">
+                  React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.<br />
+                  <ExternalLink href="https://react.dev/">Learn more</ExternalLink>
+                </TabPanel>
+              </TabPanels>
+            </TabGroup>
           </div>
         )}
       />
