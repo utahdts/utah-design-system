@@ -4,6 +4,10 @@ import { ExternalLink, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utah
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { TabGroupExampleRender } from './TabGroupExampleRender';
+import { TabGroupExampleProps } from './TabGroupExampleProps';
+import { TabGroupExampleCodeReact } from './TabGroupExampleCodeReact';
 
 export function TabGroupDocumentation() {
   return (
@@ -14,6 +18,19 @@ export function TabGroupDocumentation() {
       <hr />
 
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        componentClassName="sandbox-example__component--outline"
+        defaultProps={{
+          tabA: 'Tab A',
+          tabB: 'Tab B',
+          panelA: 'Here is the first panel.',
+          panelB: 'Here is the second panel.',
+          isVertical: false,
+        }}
+        RENDER_EXAMPLE={TabGroupExampleRender}
+        PROPS_EXAMPLE={TabGroupExampleProps}
+        CODE_EXAMPLE={TabGroupExampleCodeReact}
+      />
       <StaticExample
         title="Tab Group"
         className="static-example--blank"
