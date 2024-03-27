@@ -38,6 +38,7 @@ export function TableDocumentationFilteringTableExample() {
       <p className="mb-spacing-xs">This table allows filtering its data through the use of the inputs in the <code>&lt;thead&gt;</code> element.</p>
       <p className="mb-spacing-xs">This example does not include any additional styling. This demonstrates what a table component looks like out-of-the-box.</p>
       <Accordion
+        id="table-example-filtering"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"

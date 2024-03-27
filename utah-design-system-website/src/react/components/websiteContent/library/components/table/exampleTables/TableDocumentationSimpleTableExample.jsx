@@ -37,6 +37,7 @@ export function TableDocumentationSimpleTableExample() {
         </li>
       </ul>
       <Accordion
+        id="table-example-simple"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"

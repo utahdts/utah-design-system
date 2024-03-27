@@ -47,6 +47,7 @@ export function TableDocumentationSortingTableExample() {
         </li>
       </ul>
       <Accordion
+        id="table-example-sorting"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"

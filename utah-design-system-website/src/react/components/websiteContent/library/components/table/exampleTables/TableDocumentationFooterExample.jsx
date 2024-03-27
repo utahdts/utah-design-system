@@ -50,6 +50,7 @@ export function TableDocumentationFooterExample() {
         </li>
       </ul>
       <Accordion
+        id="footer-table-example"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"
