@@ -8,6 +8,8 @@ import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { TabGroupExampleRender } from './TabGroupExampleRender';
 import { TabGroupExampleProps } from './TabGroupExampleProps';
 import { TabGroupExampleCodeReact } from './TabGroupExampleCodeReact';
+import { TabGroupCssClassesDocumentation } from './TabGroupCssClassesDocumentation';
+import { TabGroupPropsDocumentation } from './TabGroupPropsDocumentation';
 
 export function TabGroupDocumentation() {
   return (
@@ -43,11 +45,14 @@ export function TabGroupDocumentation() {
               </TabList>
               <TabPanels>
                 <TabPanel tabId="button-css">
-                  Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.<br />
+                  Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup
+                  language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.<br />
                   <ExternalLink href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS">Learn more</ExternalLink>
                 </TabPanel>
                 <TabPanel tabId="button-react">
-                  React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.<br />
+                  React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by
+                  Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered
+                  applications with frameworks like Next.js.<br />
                   <ExternalLink href="https://react.dev/">Learn more</ExternalLink>
                 </TabPanel>
               </TabPanels>
@@ -78,11 +83,14 @@ export function TabGroupDocumentation() {
               </TabList>
               <TabPanels>
                 <TabPanel tabId="vertical-button-css">
-                  Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.<br />
+                  Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup
+                  language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.<br />
                   <ExternalLink href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS">Learn more</ExternalLink>
                 </TabPanel>
                 <TabPanel tabId="vertical-button-react">
-                  React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.<br />
+                  React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by
+                  Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered
+                  applications with frameworks like Next.js.<br />
                   <ExternalLink href="https://react.dev/">Learn more</ExternalLink>
                 </TabPanel>
               </TabPanels>
@@ -100,15 +108,21 @@ export function TabGroupDocumentation() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Too many tabs.</strong> If a tab group has too many tabs, consider reducing the amount of content, using an <Link to={pageUrls.accordion}>accordion</Link> or
+          <strong>Too many tabs.</strong> If a tab group has too many tabs, consider reducing the amount of content, using an <Link
+            to={pageUrls.accordion}
+          >accordion
+          </Link> or
           simply displaying the content on the page.
         </li>
         <li>
-          <strong>Navigation.</strong> Do not use a tab group as navigation. Instead, consider using a <Link to={pageUrls.sidePanelNavigation}>side panel</Link> or
+          <strong>Navigation.</strong> Do not use a tab group as navigation. Instead, consider using a <Link to={pageUrls.sidePanelNavigation}>side
+            panel
+                                                                                                       </Link> or
           a <Link to={pageUrls.stepIndicator}>step indicator</Link>.
         </li>
         <li>
-          <strong>Comparison.</strong> If the user needs to compare content between tabs, consider displaying the content on the page. A tab group only displays
+          <strong>Comparison.</strong> If the user needs to compare content between tabs, consider displaying the content on the page. A tab group
+          only displays
           one panel at a time, making comparing difficult.
         </li>
         <li>
@@ -129,7 +143,8 @@ export function TabGroupDocumentation() {
           user associate tabs to their panel.
         </li>
         <li>
-          <strong>Mobile.</strong> For mobile users, consider using an overflow for the tab list. Make sure to use an indicator, such as an arrow or chevron, to
+          <strong>Mobile.</strong> For mobile users, consider using an overflow for the tab list. Make sure to use an indicator, such as an arrow or
+          chevron, to
           show the user that some content is hidden.
         </li>
         <li>
@@ -158,7 +173,8 @@ export function TabGroupDocumentation() {
           Once the focus is on a tab, using the <code>left</code> and <code>right</code> arrow keys will navigate to the previous or next tab.
         </li>
         <li>
-          If the tab group is vertically aligned, using the <code>up</code> and <code>down</code> arrow keys will navigate to the previous or next tab.
+          If the tab group is vertically aligned, using the <code>up</code> and <code>down</code> arrow keys will navigate to the previous or next
+          tab.
         </li>
         <li>
           It is recommended that tabs activate automatically following focus. If not, hitting the <code>spacebar</code> or <code>enter</code> should
@@ -169,12 +185,16 @@ export function TabGroupDocumentation() {
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
         <li>The tab list should include <code>role=&quot;tablist&quot;</code>.</li>
-        <li>Each tab should be a <code>&lt;button&gt;</code> element and  include <code>role=&quot;tab&quot;</code>.</li>
+        <li>Each tab should be a <code>&lt;button&gt;</code> element and include <code>role=&quot;tab&quot;</code>.</li>
         <li>Each tab panel content area should include <code>role=&quot;tabpanel&quot;</code>.</li>
-        <li>If the tab group has a label, the tab list should include <code>aria-labelledby</code> referencing the label element. Otherwise, use <code>aria-label</code>.</li>
+        <li>If the tab group has a label, the tab list should include <code>aria-labelledby</code> referencing the label element. Otherwise,
+          use <code>aria-label</code>.
+        </li>
         <li>If the tab list is vertical, give the tab group <code>aria-orientation=&quot;vertical&quot;</code>.</li>
         <li>Each tab should include <code>aria-controls</code> referring to their respective tab panel.</li>
-        <li>The active tab should include <code>aria-selected=&quot;true&quot;</code> while the other tabs have <code>aria-selected=&quot;false&quot;</code>.</li>
+        <li>The active tab should include <code>aria-selected=&quot;true&quot;</code> while the other tabs
+          have <code>aria-selected=&quot;false&quot;</code>.
+        </li>
         <li>The inactive tab buttons should have <code>tab-index=&quot;-1&quot;.</code></li>
         <li>Each tab panel should include <code>aria-labelledby</code> set to its respective tab.</li>
       </ul>
@@ -227,6 +247,23 @@ export function TabGroupDocumentation() {
           </div>
         `}
       />
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <TabGroupCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <TabGroupPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

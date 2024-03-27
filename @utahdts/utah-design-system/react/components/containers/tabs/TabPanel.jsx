@@ -6,7 +6,7 @@ import { TabGroupContext } from './TabGroupContext';
  * @param {object} props
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @param {string} [props.tabId]
+ * @param {string} props.tabId
  * @returns {import('react').JSX.Element}
  */
 export function TabPanel({ children, className, tabId }) {
