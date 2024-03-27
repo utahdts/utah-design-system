@@ -28,7 +28,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>React Node</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
-                The content of the accordion. But, you can have it
+                The content of the accordion. You can have it
                 be any element to be rendered inside the element.
               </TableCell>
             </TableRow>
@@ -38,7 +38,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the container. This will be added to the main <code>&lt;div&gt;</code> element.
+                This css class will be added to the main container. This will be added to the main <code>&lt;div&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -47,7 +47,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the content container - <code>&lt;div&gt;</code> element.
+                This css class will be added to the content wrapper <code>&lt;div&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -56,7 +56,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>number</code></TableCell>
               <TableCell>2</TableCell>
               <TableCell>
-                Dictate the heading level of the accordion header.
+                Dictates the heading level of the accordion header.
               </TableCell>
             </TableRow>
 
@@ -65,7 +65,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>string</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                This css class will be added to the accordion header - <code>&lt;button&gt;</code> element.
+                This css class will be added to the accordion header <code>&lt;button&gt;</code> element.
               </TableCell>
             </TableRow>
 
@@ -74,9 +74,9 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>React Node</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                The content of the header. But, you can have it
+                The content of the header. You can have it
                 be any element to be rendered inside the element.<br />
-                <b>Note</b>: the content will be rendered inside a heading, adjust accordingly.
+                <b>Note</b>: the content will be rendered inside a heading; adjust accordingly.
               </TableCell>
             </TableRow>
 
@@ -86,7 +86,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><em>required</em></TableCell>
               <TableCell>
                 An id to put on the main <code>&lt;div&gt;</code> element. This will also be used for
-                accessibility purposes - will set the <code>aria-controls</code> attribute of the header.
+                accessibility purposes to set the <code>aria-controls</code> attribute of the header.
               </TableCell>
             </TableRow>
 
@@ -101,8 +101,8 @@ export function AccordionPropsDocumentation() {
               </TableCell>
               <TableCell>false</TableCell>
               <TableCell>
-                This props will determine if the accordion should be rendered close or opened.
-                Can be used to pragmatically control the component.
+                This prop will determine if the accordion should be rendered closed or opened.
+                Can be used to programmatically control the component.
               </TableCell>
             </TableRow>
 
@@ -111,7 +111,7 @@ export function AccordionPropsDocumentation() {
               <TableCell><code>function</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
-                Function to call when the accordion header is clicked. Will return a <code>boolean</code> value.
+                Function to call when the accordion header is clicked. Is passed a <code>boolean</code> value.
               </TableCell>
             </TableRow>
           </TableBody>

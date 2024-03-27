@@ -55,13 +55,13 @@
 
 /**
  * @typedef AccordionExamplePropsShape {
- * @property {string} children
- * @property {string} className
- * @property {string} contentClassName
- * @property {string} headerClassName
- * @property {string} headerContent
- * @property {number} headingLevel
- * @property {boolean} isOpen
+ *  @property {string} children
+ *  @property {string} className
+ *  @property {string} contentClassName
+ *  @property {string} headerClassName
+ *  @property {string} headerContent
+ *  @property {number} headingLevel
+ *  @property {boolean} isOpen
  * }
  */
 

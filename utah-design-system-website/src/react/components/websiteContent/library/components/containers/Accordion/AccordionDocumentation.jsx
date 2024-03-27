@@ -37,8 +37,8 @@ export function AccordionDocumentation() {
         CODE_EXAMPLE={AccordionExampleCodeReact}
         componentClassName="sandbox-example__component--outline"
       />
-      <h2 id="vanilla-example">Vanilla Example</h2>
-      <h4>HTML</h4>
+      <h2 id="section-vanilla-example">Vanilla Example</h2>
+      <h3 id="html-example">HTML</h3>
       <PreCodeForCodeString
         showBackgroundColor
         codeRaw={(`
@@ -55,7 +55,7 @@ export function AccordionDocumentation() {
 </div>
             `)}
       />
-      <h4>Javascript</h4>
+      <h3 id="javascript-example">Javascript</h3>
       <PreCodeForCodeString
         showBackgroundColor
         codeRaw={(`
@@ -103,8 +103,8 @@ export function AccordionDocumentation() {
         </p>
       </Accordion>
 
-      <h2 className="my-spacing" id="guidance">Guidance</h2>
-      <h3>When to use</h3>
+      <h2 className="my-spacing" id="section-guidance">Guidance</h2>
+      <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
         <li><strong>Limited content.</strong> If users will only need a few specific pieces of content to be displayed at one time within a page.</li>
         <li><strong>Small space.</strong> If you have only a small space to display a lot of content.</li>
@@ -112,7 +112,7 @@ export function AccordionDocumentation() {
         <li><strong>To help users focus.</strong> Allowing a user to hide controls and content so they can better focus on their task.</li>
       </ul>
 
-      <h3>When to use something else</h3>
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
           <strong>If users need to see most or all of the information on a page.</strong> Use well-formatted text instead.
