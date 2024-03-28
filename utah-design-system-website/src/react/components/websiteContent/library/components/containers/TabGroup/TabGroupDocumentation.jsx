@@ -108,16 +108,13 @@ export function TabGroupDocumentation() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Too many tabs.</strong> If a tab group has too many tabs, consider reducing the amount of content, using an <Link
-            to={pageUrls.accordion}
-          >accordion
-          </Link> or
+          <strong>Too many tabs.</strong> If a tab group has too many tabs, consider reducing the amount of content, using
+          an <Link to={pageUrls.accordion}>accordion</Link> or
           simply displaying the content on the page.
         </li>
         <li>
-          <strong>Navigation.</strong> Do not use a tab group as navigation. Instead, consider using a <Link to={pageUrls.sidePanelNavigation}>side
-            panel
-                                                                                                       </Link> or
+          <strong>Navigation.</strong> Do not use a tab group as navigation. Instead, consider using
+          a <Link to={pageUrls.sidePanelNavigation}>side panel</Link> or
           a <Link to={pageUrls.stepIndicator}>step indicator</Link>.
         </li>
         <li>
