@@ -180,6 +180,9 @@
  *  @property {string} tabGroupId
  *  @property {string} selectedTabId
  *  @property {(tabId: string) => void} setSelectedTabId
+ *  @property {() => void} navigateNext
+ *  @property {() => void} navigatePrevious
+ *  @property {boolean} isVertical
  * }
  */
 

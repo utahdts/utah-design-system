@@ -5,7 +5,7 @@
  */
 export function TabPanels({ children }) {
   return (
-    <div className="tab-group__panels">
+    <div className="tab-group__panels" role="presentation">
       {children}
     </div>
   );
