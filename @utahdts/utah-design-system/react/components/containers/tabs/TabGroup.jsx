@@ -37,7 +37,14 @@ export function TabGroup({
       tab?.click();
     }
   }, []);
-  const findCurrentTabIndex = useCallback(() => (tabGroupState.tabs.findIndex((/** @type {HTMLButtonElement | null} */ tab) => tab?.id === generateTabId(tabGroupState.tabGroupId, tabGroupState.selectedTabId))), [tabGroupState]);
+  const findCurrentTabIndex = useCallback(
+    () => (
+      tabGroupState.tabs
+        .findIndex((/** @type {HTMLButtonElement | null} */ tab) => (
+          tab?.id === generateTabId(tabGroupState.tabGroupId, tabGroupState.selectedTabId)))
+    ),
+    [tabGroupState]
+  );
 
   /** @type {TabGroupContextValue} */
   const contextValue = useMemo(
