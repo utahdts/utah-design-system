@@ -1,6 +1,7 @@
 import { handleEvent } from '../../../util/handleEvent';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useTabGroupContext } from './context/useTabGroupContext';
+import { tabId } from './functions/tabId';
 
 /**
  * @param {object} props
@@ -67,7 +68,7 @@ export function Tab({ children, id }) {
           'tab-group__tab-button'
         )}
         // `id` must match the TabPanel's `aria-labelledby`
-        id={`tab-${tabGroupId}-${id}`}
+        id={tabId(tabGroupId, id)}
         onClick={handleEvent(() => setSelectedTabId(id))}
         onKeyDown={onKeyChange}
         role="tab"

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useId, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './context/TabGroupContext';
+import { tabId } from './functions/tabId.js';
 
 /** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */
 
@@ -26,7 +27,7 @@ export function TabGroup({
   const tabGroupId = useId();
   const tabGroupRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [tabGroupState, setTabGroupState] = useImmer(() => ({
-    selectedTabId: defaultValue,
+    selectedTabId: defaultValue || '',
     tabGroupId,
     tabs: /** @type {NodeList | []} */ [],
   }));
@@ -36,7 +37,7 @@ export function TabGroup({
       tab?.click();
     }
   }, []);
-  const findCurrentTabIndex = useCallback(() => (tabGroupState.tabs.findIndex((/** @type {HTMLButtonElement | null} */ tab) => tab?.id === `tab-${tabGroupState.tabGroupId}-${tabGroupState.selectedTabId}`)), [tabGroupState]);
+  const findCurrentTabIndex = useCallback(() => (tabGroupState.tabs.findIndex((/** @type {HTMLButtonElement | null} */ tab) => tab?.id === tabId(tabGroupState.tabGroupId, tabGroupState.selectedTabId))), [tabGroupState]);
 
   /** @type {TabGroupContextValue} */
   const contextValue = useMemo(
