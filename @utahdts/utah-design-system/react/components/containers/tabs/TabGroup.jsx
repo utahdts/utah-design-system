@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './context/TabGroupContext';
-import { tabId } from './functions/tabId.js';
+import { generateTabId } from './functions/generateTabId';
 
 /** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */
 
@@ -37,7 +37,7 @@ export function TabGroup({
       tab?.click();
     }
   }, []);
-  const findCurrentTabIndex = useCallback(() => (tabGroupState.tabs.findIndex((/** @type {HTMLButtonElement | null} */ tab) => tab?.id === tabId(tabGroupState.tabGroupId, tabGroupState.selectedTabId))), [tabGroupState]);
+  const findCurrentTabIndex = useCallback(() => (tabGroupState.tabs.findIndex((/** @type {HTMLButtonElement | null} */ tab) => tab?.id === generateTabId(tabGroupState.tabGroupId, tabGroupState.selectedTabId))), [tabGroupState]);
 
   /** @type {TabGroupContextValue} */
   const contextValue = useMemo(

@@ -3,6 +3,6 @@
  * @param {string} tabId
  * @returns {string}
  */
-export function tabId(tabGroupId, tabId) {
+export function generateTabId(tabGroupId, tabId) {
   return `tab-${tabGroupId}-${tabId}`;
 }
