@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useId, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { TabGroupContext } from './context/TabGroupContext';
 
 /** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */
 
@@ -50,25 +50,19 @@ export function TabGroup({
           setTabGroupState((draftState) => { draftState.selectedTabId = tabId; });
         }
       },
-      navigateNext: () => {
+      navigateNext() {
         const index = findCurrentTabIndex();
-        if (index !== (tabGroupState.tabs.length - 1)) {
-          navigateTab(tabGroupState?.tabs?.[index + 1] || null);
-        } else {
-          navigateTab(tabGroupState?.tabs?.[0] || null);
-        }
+        const nextIndex = (index + 1) % tabGroupState.tabs.length;
+        navigateTab(tabGroupState?.tabs?.[nextIndex] || null);
       },
-      navigatePrevious: () => {
+      navigatePrevious() {
         const index = findCurrentTabIndex();
-        if (index !== 0) {
-          navigateTab(tabGroupState?.tabs?.[index - 1] || null);
-        } else {
-          navigateTab(tabGroupState?.tabs?.[tabGroupState.tabs.length - 1] || null);
-        }
+        const nextIndex = (index + tabGroupState.tabs.length - 1) % tabGroupState.tabs.length;
+        navigateTab(tabGroupState?.tabs?.[nextIndex] || null);
       },
       isVertical: !!isVertical,
     }),
-    [onChange, setTabGroupState, tabGroupState, value]
+    [tabGroupState]
   );
 
   useEffect(() => {
@@ -82,7 +76,11 @@ export function TabGroup({
 
   return (
     <TabGroupContext.Provider value={contextValue}>
-      <div className={joinClassNames('tab-group', className, isVertical && 'tab-group--vertical')} id={`tab-group-${tabGroupState.tabGroupId}`} ref={tabGroupRef}>
+      <div
+        className={joinClassNames('tab-group', className, isVertical && 'tab-group--vertical')}
+        id={`tab-group-${tabGroupState.tabGroupId}`}
+        ref={tabGroupRef}
+      >
         {children}
       </div>
     </TabGroupContext.Provider>

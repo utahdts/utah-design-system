@@ -12,11 +12,11 @@ import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactPro
 export function TabGroupExampleCodeReact({
   state: {
     props: {
-      tabA,
-      tabB,
+      isVertical,
       panelA,
       panelB,
-      isVertical,
+      tabA,
+      tabB,
     },
   },
 }) {
@@ -25,14 +25,14 @@ export function TabGroupExampleCodeReact({
       &lt;TabGroup
       <ExampleCodeReactProp displayProp={` isVertical="${isVertical}">`} indentLevel={0} />
       <ExampleCodeReactProp displayProp="<TabList>" indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`<Tab id="button-A">${tabA}</Tab>`} indentLevel={2} />
-      <ExampleCodeReactProp displayProp={`<Tab id="button-B">${tabB}</Tab>`} indentLevel={2} />
+      <ExampleCodeReactProp displayProp={`<Tab id="tab-A">${tabA}</Tab>`} indentLevel={2} />
+      <ExampleCodeReactProp displayProp={`<Tab id="tab-B">${tabB}</Tab>`} indentLevel={2} />
       <ExampleCodeReactProp displayProp="</TabList>" indentLevel={1} />
       <ExampleCodeReactProp displayProp="<TabPanels>" indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<TabPanel tabId="button-A">'} indentLevel={2} />
+      <ExampleCodeReactProp displayProp={'<TabPanel tabId="tab-A">'} indentLevel={2} />
       <ExampleCodeReactProp displayProp={panelA} indentLevel={3} />
       <ExampleCodeReactProp displayProp="</TabPanel>" indentLevel={2} />
-      <ExampleCodeReactProp displayProp={'<TabPanel tabId="button-B">'} indentLevel={2} />
+      <ExampleCodeReactProp displayProp={'<TabPanel tabId="tab-B">'} indentLevel={2} />
       <ExampleCodeReactProp displayProp={panelB} indentLevel={3} />
       <ExampleCodeReactProp displayProp="</TabPanel>" indentLevel={2} />
       <ExampleCodeReactProp displayProp="</TabPanels>" indentLevel={1} />

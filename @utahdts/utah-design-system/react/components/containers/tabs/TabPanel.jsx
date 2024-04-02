@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { useTabGroupContext } from './context/useTabGroupContext';
 
 /**
  * @param {object} props
@@ -10,7 +9,7 @@ import { TabGroupContext } from './TabGroupContext';
  * @returns {import('react').JSX.Element}
  */
 export function TabPanel({ children, className, tabId }) {
-  const { selectedTabId, tabGroupId } = useContext(TabGroupContext);
+  const { selectedTabId, tabGroupId } = useTabGroupContext();
 
   return (
     <div

@@ -1,7 +1,6 @@
-import { useContext } from 'react';
 import { handleEvent } from '../../../util/handleEvent';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { useTabGroupContext } from './context/useTabGroupContext';
 
 /**
  * @param {object} props
@@ -17,25 +16,33 @@ export function Tab({ children, id }) {
     navigateNext,
     navigatePrevious,
     isVertical,
-  } = useContext(TabGroupContext);
+  } = useTabGroupContext();
 
   const onKeyChange = (/** @type {import('react').KeyboardEvent} */ event) => {
     event.preventDefault();
     switch (event.key) {
       case 'ArrowLeft':
-        if (!isVertical) navigatePrevious();
+        if (!isVertical) {
+          navigatePrevious();
+        }
         break;
 
       case 'ArrowRight':
-        if (!isVertical) navigateNext();
+        if (!isVertical) {
+          navigateNext();
+        }
         break;
 
       case 'ArrowUp':
-        if (isVertical) navigatePrevious();
+        if (isVertical) {
+          navigatePrevious();
+        }
         break;
 
       case 'ArrowDown':
-        if (isVertical) navigateNext();
+        if (isVertical) {
+          navigateNext();
+        }
         break;
 
       default:

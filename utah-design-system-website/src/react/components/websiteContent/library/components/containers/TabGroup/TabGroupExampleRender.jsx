@@ -12,27 +12,27 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-desig
 export function TabGroupExampleRender({
   state: {
     props: {
-      tabA,
-      tabB,
       panelA,
       panelB,
       isVertical,
+      tabA,
+      tabB,
     },
   },
   innerRef,
 }) {
   return (
     <div style={{ width: '80%' }} ref={innerRef}>
-      <TabGroup defaultValue="button-A" isVertical={isVertical}>
+      <TabGroup defaultValue="tab-A" isVertical={isVertical}>
         <TabList>
-          <Tab id="button-A">{tabA}</Tab>
-          <Tab id="button-B">{tabB}</Tab>
+          <Tab id="tab-A">{tabA}</Tab>
+          <Tab id="tab-B">{tabB}</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel tabId="button-A">
+          <TabPanel tabId="tab-A">
             {panelA}
           </TabPanel>
-          <TabPanel tabId="button-B">
+          <TabPanel tabId="tab-B">
             {panelB}
           </TabPanel>
         </TabPanels>

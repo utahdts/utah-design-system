@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { useTabGroupContext } from './context/useTabGroupContext';
 
 /**
  * @param {object} props
@@ -10,7 +9,7 @@ import { TabGroupContext } from './TabGroupContext';
  * @returns {import('react').JSX.Element}
  */
 export function TabGroupTitle({ children, className, tagName: TagName = 'div' }) {
-  const { tabGroupId } = useContext(TabGroupContext);
+  const { tabGroupId } = useTabGroupContext();
   return (
     // @ts-ignore
     <TagName id={`tab-group-${tabGroupId}`} className={joinClassNames('tag-group__title', className)}>

@@ -41,7 +41,7 @@ export function TabGroupPropsDocumentation() {
               </TableRow>
               <TableRow>
                 <TableCell><code className="primary-color">defaultValue</code></TableCell>
-                <TableCell><code>number</code></TableCell>
+                <TableCell><code>string</code></TableCell>
                 <TableCell>null</TableCell>
                 <TableCell>
                   Which tab should be selected by default.<br />
@@ -64,7 +64,19 @@ export function TabGroupPropsDocumentation() {
                   </div>
                 </TableCell>
                 <TableCell>null</TableCell>
-                <TableCell>The function to call when a tab is clicked.</TableCell>
+                <TableCell>
+                  The function to call when a tab is clicked.<br />
+                  The selected tab <code>id</code> is passed as the value.
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code className="primary-color">value</code></TableCell>
+                <TableCell><code>string</code></TableCell>
+                <TableCell>null</TableCell>
+                <TableCell>
+                  This props will determine which tab should be shown.<br />
+                  Can be used to programmatically control the component.
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -109,7 +121,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><code>string</code></TableCell>
                 <TableCell><code>div</code></TableCell>
                 <TableCell>
-                  What HTML element should the title be.
+                  The HTML element used to wrap around the title.
                 </TableCell>
               </TableRow>
             </TableBody>
@@ -218,7 +230,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><em>required</em></TableCell>
                 <TableCell>
                   The content of the panels.<br />
-                  Includes <code>Panel</code>.
+                  Includes <code>TabPanel</code>.
                 </TableCell>
               </TableRow>
             </TableBody>
@@ -265,7 +277,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><em>required</em></TableCell>
                 <TableCell>
                   The corresponding tab id.<br />
-                  Must be matching the <code>Tab</code> <code>id</code> prop.
+                  Must match the <code>id</code> prop of its corresponding <code>Tab</code>.
                 </TableCell>
               </TableRow>
             </TableBody>

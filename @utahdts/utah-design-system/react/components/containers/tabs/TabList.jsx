@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { useTabGroupContext } from './context/useTabGroupContext';
 
 /**
  * @param {object} props
@@ -12,7 +11,7 @@ export function TabList({
   children,
   className,
 }) {
-  const { tabGroupId, isVertical } = useContext(TabGroupContext);
+  const { tabGroupId, isVertical } = useTabGroupContext();
 
   return (
     <div

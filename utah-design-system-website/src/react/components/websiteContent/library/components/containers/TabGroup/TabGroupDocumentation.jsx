@@ -23,11 +23,11 @@ export function TabGroupDocumentation() {
       <SandboxExample
         componentClassName="sandbox-example__component--outline"
         defaultProps={{
-          tabA: 'Tab A',
-          tabB: 'Tab B',
+          isVertical: false,
           panelA: 'Here is the first panel.',
           panelB: 'Here is the second panel.',
-          isVertical: false,
+          tabA: 'Tab A',
+          tabB: 'Tab B',
         }}
         RENDER_EXAMPLE={TabGroupExampleRender}
         PROPS_EXAMPLE={TabGroupExampleProps}
