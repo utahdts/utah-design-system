@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { handleEvent } from '../../../util/handleEvent';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { useTabGroupContext } from './context/useTabGroupContext';
@@ -10,13 +11,16 @@ import { generateTabId } from './functions/generateTabId';
  * @returns {import('react').JSX.Element}
  */
 export function Tab({ children, id }) {
+  const tabRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const {
+    isVertical,
+    navigateNext,
+    navigatePrevious,
+    registerTab,
     selectedTabId,
     setSelectedTabId,
     tabGroupId,
-    navigateNext,
-    navigatePrevious,
-    isVertical,
+    unRegisterTab,
   } = useTabGroupContext();
 
   const onKeyChange = (/** @type {import('react').KeyboardEvent} */ event) => {
@@ -51,6 +55,21 @@ export function Tab({ children, id }) {
     }
   };
 
+  useEffect(() => {
+    if (tabRef) {
+      registerTab(tabRef);
+    }
+  }, []);
+
+  useEffect(
+    () => (
+      () => {
+        unRegisterTab(tabRef);
+      }
+    ),
+    []
+  );
+
   return (
     <div
       className={joinClassNames(
@@ -71,6 +90,7 @@ export function Tab({ children, id }) {
         id={generateTabId(tabGroupId, id)}
         onClick={handleEvent(() => setSelectedTabId(id))}
         onKeyDown={onKeyChange}
+        ref={tabRef}
         role="tab"
         tabIndex={selectedTabId === id ? 0 : -1}
         type="button"

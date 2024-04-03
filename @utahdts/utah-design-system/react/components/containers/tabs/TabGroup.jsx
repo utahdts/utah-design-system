@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useMemo, useRef } from 'react';
+import { useCallback, useId, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './context/TabGroupContext';
@@ -46,18 +46,33 @@ export function TabGroup({
     [tabGroupState]
   );
 
+  const registerTab = useCallback(
+    (/** @type {React.RefObject<HTMLButtonElement> | null} */ tab) => {
+      setTabGroupState((draftState) => {
+        const checkTab = draftState.tabs.find((/** @type {HTMLButtonElement | null} */ tabSearch) => tabSearch?.id === tab?.current?.id);
+        if (checkTab) {
+          Object.assign(checkTab, tab?.current);
+        } else {
+          // @ts-ignore
+          draftState.tabs.push(tab?.current);
+        }
+      });
+    },
+    [tabGroupState, setTabGroupState]
+  );
+  const unRegisterTab = useCallback(
+    (/** @type {React.RefObject<HTMLButtonElement> | null} */ tab) => {
+      setTabGroupState((draftState) => {
+        draftState.tabs = draftState.tabs.filter((/** @type {HTMLButtonElement | null} */ filterTab) => filterTab?.id !== tab?.current?.id);
+      });
+    },
+    []
+  );
+
   /** @type {TabGroupContextValue} */
   const contextValue = useMemo(
     () => ({
-      tabGroupId: tabGroupState.tabGroupId,
-      selectedTabId: value || tabGroupState.selectedTabId || '',
-      setSelectedTabId: (tabId) => {
-        if (onChange) {
-          onChange(tabId);
-        } else {
-          setTabGroupState((draftState) => { draftState.selectedTabId = tabId; });
-        }
-      },
+      isVertical: !!isVertical,
       navigateNext() {
         const index = findCurrentTabIndex();
         const nextIndex = (index + 1) % tabGroupState.tabs.length;
@@ -68,19 +83,20 @@ export function TabGroup({
         const nextIndex = (index + tabGroupState.tabs.length - 1) % tabGroupState.tabs.length;
         navigateTab(tabGroupState?.tabs?.[nextIndex] || null);
       },
-      isVertical: !!isVertical,
+      registerTab,
+      selectedTabId: value || tabGroupState.selectedTabId || '',
+      setSelectedTabId(tabId) {
+        if (onChange) {
+          onChange(tabId);
+        } else {
+          setTabGroupState((draftState) => { draftState.selectedTabId = tabId; });
+        }
+      },
+      tabGroupId: tabGroupState.tabGroupId,
+      unRegisterTab,
     }),
     [tabGroupState]
   );
-
-  useEffect(() => {
-    if (tabGroupRef?.current) {
-      setTabGroupState((draftState) => {
-        // @ts-ignore
-        draftState.tabs = [...tabGroupRef?.current?.querySelectorAll('button[role=tab]') || []];
-      });
-    }
-  }, []);
 
   return (
     <TabGroupContext.Provider value={contextValue}>
