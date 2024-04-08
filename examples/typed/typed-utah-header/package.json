@@ -12,7 +12,7 @@
     "tscw": "tsc --watch --skipLibCheck"
   },
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.15.4",
+    "@utahdts/utah-design-system-header": "1.15.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
