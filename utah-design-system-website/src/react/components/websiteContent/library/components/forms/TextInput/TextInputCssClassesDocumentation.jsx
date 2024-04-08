@@ -14,7 +14,7 @@ export function TextInputCssClassesDocumentation() {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell><code>text-input--clear-icon-visible</code></TableCell>
+            <TableCell><code>.text-input--clear-icon-visible</code></TableCell>
             <TableCell>
               This class is used conjointly with the <code>isClearable</code> property.
               It adds extra padding to the right side to accommodate the clear icon.

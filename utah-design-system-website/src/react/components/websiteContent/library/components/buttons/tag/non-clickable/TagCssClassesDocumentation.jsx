@@ -14,27 +14,27 @@ export function TagCssClassesDocumentation() {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell><code>tag</code></TableCell>
+            <TableCell><code>.tag</code></TableCell>
             <TableCell>This class is the tag.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>tag__wrapper</code></TableCell>
+            <TableCell><code>.tag__wrapper</code></TableCell>
             <TableCell>This class is the overall wrapper for the tag.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>tag--clearable</code></TableCell>
+            <TableCell><code>.tag--clearable</code></TableCell>
             <TableCell>This class is the used then the tag includes a clear button.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>tag--icon</code></TableCell>
+            <TableCell><code>.tag--icon</code></TableCell>
             <TableCell>This class is the optional icon.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>tag--icon-left</code>, <code>tag--icon-right</code></TableCell>
+            <TableCell><code>.tag--icon-left</code>, <code>.tag--icon-right</code></TableCell>
             <TableCell>These classes are the optional icon position.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>tag--small</code>, <code>tag--medium</code>, <code>tag--large</code></TableCell>
+            <TableCell><code>.tag--small</code>, <code>.tag--medium</code>, <code>.tag--large</code></TableCell>
             <TableCell>These classed are used to set the tag size.</TableCell>
           </TableRow>
         </TableBody>

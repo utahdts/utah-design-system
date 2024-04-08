@@ -91,7 +91,10 @@ export function CardDocumentation() {
         title="Action Cards"
         renderedExample={(
           <div className="flex flex-col gap">
-            <div className="action-card action-card--primary-color action-card--solid">
+            <Link
+              to={pageUrls.gettingStarted}
+              className="action-card action-card--primary-color action-card--solid"
+            >
               <div className="action-card__title">
                 <h3>Getting Started</h3>
                 <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
@@ -99,8 +102,11 @@ export function CardDocumentation() {
               <div className="action-card__body">
                 Learn how to implement the Design System.
               </div>
-            </div>
-            <div className="action-card action-card--primary-color white-color-background">
+            </Link>
+            <Link
+              to={pageUrls.utahHeader}
+              className="action-card action-card--primary-color white-color-background"
+            >
               <div className="action-card__title">
                 <h3>Utah Header and Footer</h3>
                 <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
@@ -108,9 +114,9 @@ export function CardDocumentation() {
               <div className="action-card__body">
                 Start using the official header and footer.
               </div>
-            </div>
+            </Link>
           </div>
-        )}
+          )}
         quickTips={(
           <ul>
             <li>
@@ -125,20 +131,23 @@ export function CardDocumentation() {
       <PreCodeForCodeString
         className="gray-block mt-spacing"
         codeRaw={`
-          <div class="action-card action-card--primary-color action-card--solid">
+          <a 
+            class="action-card action-card--primary-color action-card--solid" 
+            href="/gettingStarted"
+          >
             <div class="action-card__title">
-              <h3>Getting Started</h3>
-              <span class="button--icon button--icon-right">
-                <span 
-                  class="utds-icon-before-arrow-right"
-                  aria-hidden="true"
-                  /></span>
-              </span>
+                <h3>Getting Started</h3>
+                <span class="button--icon button--icon-right">
+                  <span
+                    class="utds-icon-before-arrow-right" 
+                    aria-hidden="true">
+                  </span>
+                </span>
             </div>
             <div class="action-card__body">
-              Learn how to implement the Design System.
+                Learn how to implement the Design System.
             </div>
-          </div>
+          </a>
         `}
       />
 
