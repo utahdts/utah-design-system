@@ -33,7 +33,7 @@ import { AccordionDocumentation } from '../websiteContent/library/components/con
 import { CardDocumentation } from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import { CodeBlockDocumentation } from '../websiteContent/library/components/containers/CodeBlock/CodeBlockDocumentation';
 import { DrawerDocumentation } from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
-import { InfoBoxDocumentation } from '../websiteContent/library/components/containers/InfoBox/InfoBoxDocumentation';
+import { InfoBoxDocumentation } from '../websiteContent/library/components/forms/InfoBox/InfoBoxDocumentation';
 import { TabGroupDocumentation } from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import { CharacterCountDocumentation } from '../websiteContent/library/components/forms/CharacterCount/CharacterCountDocumentation';
 import { CheckboxDocumentation } from '../websiteContent/library/components/forms/Checkbox/CheckboxDocumentation';
