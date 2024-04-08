@@ -40,6 +40,7 @@ export function AccordionDocumentation() {
       <h2 id="section-vanilla-example">Vanilla Example</h2>
       <h3 id="html-example">HTML</h3>
       <PreCodeForCodeString
+        allowScrollOverflow
         showBackgroundColor
         codeRaw={(`
 <div class="accordion">
@@ -57,6 +58,7 @@ export function AccordionDocumentation() {
       />
       <h3 id="javascript-example">Javascript</h3>
       <PreCodeForCodeString
+        allowScrollOverflow
         showBackgroundColor
         codeRaw={(`
 <script>
