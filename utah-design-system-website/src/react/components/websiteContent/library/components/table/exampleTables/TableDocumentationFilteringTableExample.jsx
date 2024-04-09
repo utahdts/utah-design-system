@@ -11,7 +11,7 @@ import {
   TableFilterCustom,
   TableFilterDate,
   TableFilterNone,
-  TableFilterSelectAllOptions,
+  TableFilterComboBoxAllOptions,
   TableFilterTextInput,
   TableFilters,
   TableHead,
@@ -59,7 +59,7 @@ export function TableDocumentationFilteringTableExample() {
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
+                <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
                 <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
