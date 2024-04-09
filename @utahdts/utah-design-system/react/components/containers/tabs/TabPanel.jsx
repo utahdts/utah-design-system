@@ -23,7 +23,7 @@ export function TabPanel({ children, className, tabId }) {
       // `id` must match the related Tab's `aria-controls`
       id={`tabpanel-${tabGroupId}-${tabId}`}
       role="tabpanel"
-      tabIndex={0}
+      tabIndex={selectedTabId === tabId ? 0 : -1}
     >
       {children}
     </div>

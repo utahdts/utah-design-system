@@ -95,7 +95,7 @@ export function TabGroup({
       tabGroupId: tabGroupState.tabGroupId,
       unRegisterTab,
     }),
-    [tabGroupState]
+    [tabGroupState, isVertical]
   );
 
   return (

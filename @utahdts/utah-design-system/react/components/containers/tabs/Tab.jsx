@@ -24,7 +24,9 @@ export function Tab({ children, id }) {
   } = useTabGroupContext();
 
   const onKeyChange = (/** @type {import('react').KeyboardEvent} */ event) => {
-    event.preventDefault();
+    if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) {
+      event.preventDefault();
+    }
     switch (event.key) {
       case 'ArrowLeft':
         if (!isVertical) {
