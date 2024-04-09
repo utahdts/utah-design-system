@@ -1,7 +1,8 @@
-import { useContext } from 'react';
+import { useEffect, useRef } from 'react';
 import { handleEvent } from '../../../util/handleEvent';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { useTabGroupContext } from './context/useTabGroupContext';
+import { generateTabId } from './functions/generateTabId';
 
 /**
  * @param {object} props
@@ -10,11 +11,66 @@ import { TabGroupContext } from './TabGroupContext';
  * @returns {import('react').JSX.Element}
  */
 export function Tab({ children, id }) {
+  const tabRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const {
+    isVertical,
+    navigateNext,
+    navigatePrevious,
+    registerTab,
     selectedTabId,
     setSelectedTabId,
     tabGroupId,
-  } = useContext(TabGroupContext);
+    unRegisterTab,
+  } = useTabGroupContext();
+
+  const onKeyChange = (/** @type {import('react').KeyboardEvent} */ event) => {
+    if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) {
+      event.preventDefault();
+    }
+    switch (event.key) {
+      case 'ArrowLeft':
+        if (!isVertical) {
+          navigatePrevious();
+        }
+        break;
+
+      case 'ArrowRight':
+        if (!isVertical) {
+          navigateNext();
+        }
+        break;
+
+      case 'ArrowUp':
+        if (isVertical) {
+          navigatePrevious();
+        }
+        break;
+
+      case 'ArrowDown':
+        if (isVertical) {
+          navigateNext();
+        }
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    if (tabRef) {
+      registerTab(tabRef);
+    }
+  }, []);
+
+  useEffect(
+    () => (
+      () => {
+        unRegisterTab(tabRef);
+      }
+    ),
+    []
+  );
 
   return (
     <div
@@ -22,6 +78,7 @@ export function Tab({ children, id }) {
         (selectedTabId === id) && 'tab-group__tab--selected',
         'tab-group__tab'
       )}
+      role="presentation"
     >
       <button
         // `aria-controls` must match the TabPanel's `id`
@@ -32,15 +89,16 @@ export function Tab({ children, id }) {
           'tab-group__tab-button'
         )}
         // `id` must match the TabPanel's `aria-labelledby`
-        id={`tab-${tabGroupId}-${id}`}
+        id={generateTabId(tabGroupId, id)}
         onClick={handleEvent(() => setSelectedTabId(id))}
+        onKeyDown={onKeyChange}
+        ref={tabRef}
         role="tab"
-        tabIndex={-1}
+        tabIndex={selectedTabId === id ? 0 : -1}
         type="button"
       >
         {children}
       </button>
-
     </div>
   );
 }

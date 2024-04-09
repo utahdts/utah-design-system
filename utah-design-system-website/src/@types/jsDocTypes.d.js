@@ -327,6 +327,16 @@
  */
 
 /**
+ * @typedef TabGroupPropsShape {
+ *  @property {string} tabA
+ *  @property {string} tabB
+ *  @property {string} panelA
+ *  @property {string} panelB
+ *  @property {boolean} isVertical
+ * }
+ */
+
+/**
  * @typedef TableExamplePropsShape {
  *  @property {string} className
  *  @property {string} id
