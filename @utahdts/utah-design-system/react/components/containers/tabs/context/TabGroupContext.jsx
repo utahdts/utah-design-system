@@ -6,7 +6,9 @@ export const TabGroupContext = /** @type {typeof createContext<TabGroupContextVa
   isVertical: false,
   navigateNext: () => { },
   navigatePrevious: () => { },
+  registerTab: () => { },
   selectedTabId: '',
   setSelectedTabId: () => { },
   tabGroupId: '',
+  unRegisterTab: () => { },
 });

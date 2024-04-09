@@ -180,10 +180,10 @@
  *  @property {boolean} isVertical
  *  @property {() => void} navigateNext
  *  @property {() => void} navigatePrevious
- *  @property {string} tabGroupId
  *  @property {(tab: React.RefObject<HTMLButtonElement> | null) => void} registerTab
  *  @property {string} selectedTabId
  *  @property {(tabId: string) => void} setSelectedTabId
+ *  @property {string} tabGroupId
  *  @property {(tab: React.RefObject<HTMLButtonElement> | null | null) => void} unRegisterTab
  * }
  */
