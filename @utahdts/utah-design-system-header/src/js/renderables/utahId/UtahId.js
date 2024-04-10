@@ -16,11 +16,9 @@ import { renderMenuWithTitle } from '../menu/renderMenuWithTitle';
 import { renderPopup } from '../popup/renderPopup';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem
- * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
- * @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData
- */
+/** @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem */
+/** @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu */
+/** @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData */
 
 /** @type {UtahIdData | null} */
 let utahIdData = null;

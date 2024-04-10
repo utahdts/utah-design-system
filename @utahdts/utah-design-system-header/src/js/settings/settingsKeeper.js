@@ -1,10 +1,8 @@
 import { defaultSettings } from './defaultSettings';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings
- * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
- * @typedef {import('src/@types/jsDocTypes.d').SettingsInput} SettingsInput
- */
+/** @typedef {import('src/@types/jsDocTypes.d').FooterSettings} FooterSettings */
+/** @typedef {import('src/@types/jsDocTypes.d').Settings} Settings */
+/** @typedef {import('src/@types/jsDocTypes.d').SettingsInput} SettingsInput */
 
 /**
  * @param {Settings} settingsToValidate

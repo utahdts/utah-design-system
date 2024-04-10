@@ -22,11 +22,9 @@ import { uuidv4 } from '../../misc/uuidv4';
 import { renderPopup } from '../popup/renderPopup';
 import { suffixForMenuItemTitle } from '../mainMenu/suffixForMenuItemTitle';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem
- * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
- * @typedef {import('src/@types/jsDocTypes.d').RenderPopupMenuOptions} RenderPopupMenuOptions
- */
+/** @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem */
+/** @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu */
+/** @typedef {import('src/@types/jsDocTypes.d').RenderPopupMenuOptions} RenderPopupMenuOptions */
 
 /**
  * @param {HTMLElement} element the ul or child of a ul that has uls inside of it that need open/closed

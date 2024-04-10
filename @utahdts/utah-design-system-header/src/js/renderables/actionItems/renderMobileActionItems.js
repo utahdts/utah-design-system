@@ -4,10 +4,8 @@ import { addMobileMenuContentItem } from '../mobile/addMobileMenuContentItem';
 import { mobileMenuInteractionHandler } from '../mobile/mobileMenuInteractionHandler';
 import { renderMobileActionItem } from './renderMobileActionItem';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem
- * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
- */
+/** @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem */
+/** @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType */
 
 export function renderMobileActionItems() {
   const homeActionItem = document.getElementById(domConstants.MOBILE_MENU_ACTON_BAR__HOME_ID);
