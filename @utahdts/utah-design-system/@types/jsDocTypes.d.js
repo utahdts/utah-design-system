@@ -133,13 +133,22 @@
  */
 
 /**
- * @typedef TableContextStateFilterValue {
- *  @property {any} value
- *  @property {boolean} exactMatch
- *  @property {any} [otherFilterSpecificSettings]
+ * @typedef TableContextStateFilterValueOptions {
+ *  @property {boolean} [exactMatch]
+ *  @property {string} [dateRangeDateFormat] the format of the date used in the date range
+ *  @property {boolean} [isDateRange] the filter is a date range! ie '2022-10-03~~separator~~2023-01-22'  where begin and end dates are optional but separator is mandatory
  * }
  */
-/** @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
+/**
+ * @typedef TableContextStateFilterValue {
+ *  @property {string | number} value
+ *  @property {TableContextStateFilterValueOptions} options
+ * }
+ */
+/**
+ * key is recordFieldPath, value is the current filter value
+ * @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject
+ */
 
 /** @typedef {(value: string) => boolean} TableFilterFunction */
 
@@ -148,14 +157,6 @@
  * to describe how they function.
  * @typedef TableFilterOptions {
  *  @property {boolean} exactMatch - The entered filter value is match exactly with the record data (cased to lower)
- * }
- */
-
-/**
- * The filter's current value in the TableContext
- * @typedef TableFilterValue {
- *  @property {boolean} exactMatch
- *  @property {string} value
  * }
  */
 
@@ -256,7 +257,7 @@
  * @typedef TableContextStateFilterValues {
  *  @property {Record<string, any> | null} defaultValue
  *  @property {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} onChange
- *  @property {TableContextStateFilterValueObject} value
+ *  @property {TableContextStateFilterValueObject} value key=filterPath value=TableContextStateFilterValue
  * }
  */
 

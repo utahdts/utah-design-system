@@ -81,11 +81,8 @@ export function TableWrapper({
       // [recordFieldPath]: filterValue <== the current filtering values from <TableFilter... /> components
       filterValues: {
         // context level values from a <TableFilters /> component (<TableFilter... /> child components would override/chain these values)
-        // defaultValue - object of [recordFieldPath]:value pairs for filtering inputs
         defaultValue: null,
-        // onChange to call for any filter change
         onChange: null,
-        // value - object of [recordFieldPath]:{value, exactMatch, otherFilterSpecificSettings} for filtering inputs
         value: {},
       },
       // these are the sorting rules to which a <TableHeadCell> connects assumes order is add order

@@ -66,7 +66,7 @@ export function TableFilterSelectAllOptions({
   );
 
   // keep the default settings object from being recreated every render so that it does not trigger filter registration
-  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch });
 
   return (
     <th

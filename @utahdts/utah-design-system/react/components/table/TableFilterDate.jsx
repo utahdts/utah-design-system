@@ -1,24 +1,28 @@
-import React from 'react';
+import { useRef } from 'react';
+import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TextInput } from '../forms/TextInput';
+import { TableFilterDatePopup } from './TableFilterDatePopup';
 import { useTableContext } from './hooks/useTableContext';
+import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
- * @template TableDataT
  * @param {object} props
  * @param {string} [props.className]
- * @param {TableDataT} [props.defaultValue]
+ * @param {string} [props.dateFormat]
+ * @param {string} [props.defaultValue]
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
- * @param {string} [props.id]
+ * @param {string} props.id
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
- * @param {(e: React.ChangeEvent) => TableDataT} [props.onChange]
+ * @param {(newValue: string) => void} [props.onChange]
  * @param {string} props.recordFieldPath
- * @param {TableDataT} [props.value]
+ * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
  */
 export function TableFilterDate({
   className,
+  dateFormat,
   defaultValue,
   innerRef,
   id,
@@ -28,27 +32,88 @@ export function TableFilterDate({
   value,
   ...rest
 }) {
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch: false });
+  const { state: { tableId } } = useTableContext();
+  const popperContentRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const [state, setState] = useImmer({ isPopupOpen: false });
+
   const {
     currentOnChange,
     currentValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    // @ts-ignore
-    defaultOnChange: (e) => e.target?.value,
-    defaultValue,
+    defaultOnChange: (
+      /**
+       * @param {string} newValue
+       * @returns {string}
+       */
+      (newValue) => newValue
+    ),
+    defaultValue: defaultValue ?? null,
     onChange,
-    value,
+    value: value ?? null,
   });
-  const { state: { tableId } } = useTableContext();
+
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
         id={`${tableId}__table-filter-date-${recordFieldPath}`}
         label={`Filter ${a11yLabel}`}
-        onChange={currentOnChange}
-        value={currentValue?.toString()}
+        isClearable
+        onChange={() => { /* ignore on change for the "readonly" filter field; have to edit through popup */ }}
+        onClear={() => { currentOnChange(''); }}
+        rightContent={(
+          <div className={joinClassNames('date-input__calendar-icon date-input__icon-static')}>
+            <span className="utds-icon-before-calendar " aria-hidden="true" />
+          </div>
+        )}
+        // TODO: use constant for separator
+        value={(!currentValue || currentValue === '~~separator~~') ? '' : currentValue.replace(/~~separator~~/, '-')}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
+        // @ts-ignore
+        onBlur={
+          () => {
+            setTimeout(
+              () => {
+                // see if an element in the popup now has focus and if so leave the popup open
+                if (!document.activeElement?.closest('.table-filter-date__popup')) {
+                  setState((draftState) => { draftState.isPopupOpen = false; });
+                }
+              },
+              1
+            );
+          }
+        }
+        onFocus={
+          () => {
+            setState((draftState) => {
+              draftState.isPopupOpen = false;
+            });
+          }
+        }
+        onClick={
+          () => {
+            setState((draftState) => {
+              draftState.isPopupOpen = true;
+            });
+          }
+        }
+        onKeyUp={
+          (e) => {
+            if (e.key === 'ArrowDown') {
+              setState((draftState) => { draftState.isPopupOpen = true; });
+            }
+          }
+        }
+      />
+      <TableFilterDatePopup
+        dateFormat={dateFormat}
+        isPopupOpen={state.isPopupOpen}
+        onChange={(newvalue) => console.log('date filter change', newvalue) || currentOnChange(newvalue)}
+        popperReferenceElement={popperContentRef}
+        tableFilterDateId={id}
+        value={currentValue || ''}
       />
     </th>
   );

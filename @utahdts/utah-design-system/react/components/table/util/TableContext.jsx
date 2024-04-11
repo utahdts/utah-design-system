@@ -18,12 +18,9 @@ export const TableContext = /** @type {typeof createContext<TableContextValue>} 
   state: {
     currentSortingOrderIsDefault: true,
     filterValues: {
-      // context level values from a <TableFilters /> component (<TableFilter... /> child components would override/chain these values)
-      // defaultValue - object of [recordFieldPath]:value pairs for filtering inputs
+      // context level values from a <TableFilters /> component; <TableFilter... /> child components will override these values
       defaultValue: null,
-      // onChange to call for any filter change
       onChange: null,
-      // value - object of [recordFieldPath]:{value, exactMatch, otherFilterSpecificSettings} for filtering inputs
       value: {},
     },
     sortingRules: {},

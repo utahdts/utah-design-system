@@ -39,6 +39,7 @@ export function TableBodyData({
     },
     setBodyData,
   } = useTableContext();
+  console.log('🚀 ~ filterValues:', filterValues);
   const previousFilterValues = useRef(filterValues.value);
   const [paginatedRecords, setPaginatedRecords] = useImmer(/** @type {{record: any, recordIndex: number, records: any}[]} */([]));
 
@@ -56,6 +57,7 @@ export function TableBodyData({
       }
 
       const filterRules = createTableFilterFunctions(filterValues.value);
+      console.log('🚀 ~ filterRules:', filterRules);
 
       // convert record values to test to a "safeString" so that it can be compared with the filter rule
       const recordsToFilter = convertRecordsToFilterValue(newRecordsForContext, filterValues.value);

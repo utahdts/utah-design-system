@@ -50,7 +50,7 @@ export function TableFilterSelect({
     value,
   });
 
-  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch });
 
   const { state: { tableId } } = useTableContext();
   return (
