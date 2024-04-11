@@ -22,7 +22,6 @@ import { Tooltip } from '../Tooltip/Tooltip';
  * @param {'small1x' | 'small' | 'medium' | 'large' | 'large1x'} [props.size]
  * @param {string} props.title A title is used for accessibility purposes to describe the button for screen readers
  * @param {string | null} [props.tooltipText]
- * @param props.children
  * @returns {import('react').JSX.Element}
  */
 export function IconButton({
