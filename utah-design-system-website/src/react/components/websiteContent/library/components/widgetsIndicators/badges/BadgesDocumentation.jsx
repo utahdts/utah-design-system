@@ -1,5 +1,8 @@
 /* eslint-disable max-len */
 import {
+  Badge,
+  Button,
+  IconButton,
   Tab,
   TabGroup,
   Table,
@@ -12,13 +15,13 @@ import {
   TableWrapper,
   TabList,
   TabPanel,
-  TabPanels
+  TabPanels,
+  useBanner,
 } from '@utahdts/utah-design-system';
-import badgesMockup from '../../../../../../../static/images/mockups/Badges.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
 export function BadgesDocumentation() {
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Badges</h1>
@@ -28,7 +31,33 @@ export function BadgesDocumentation() {
       <StaticExample
         title="Badges (Large and Small)"
         renderedExample={(
-          <LightBox image={badgesMockup} alt="Badges" className="flex-3up-gap" />
+          <>
+            <Button
+              onClick={() => addBanner({ message: 'You have clicked the button.' })}
+              className="button--solid"
+            >
+              Button
+              <Badge title="unread messages">99+</Badge>
+            </Button>
+            <IconButton
+              appearance="outlined"
+              color="none"
+              icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
+              onClick={() => addBanner({ message: 'You have clicked the button.' })}
+              title="Alerts"
+            >
+              <Badge title="new alerts">2</Badge>
+            </IconButton>
+            <IconButton
+              appearance="borderless"
+              color="none"
+              icon={(<span className="utds-icon-before-hamburger" aria-hidden="true" />)}
+              onClick={() => addBanner({ message: 'You have clicked the button.' })}
+              title="Menu"
+            >
+              <Badge title="some items need attention" />
+            </IconButton>
+          </>
         )}
         quickTips={(
           <ul>
@@ -145,18 +174,22 @@ export function BadgesDocumentation() {
                     </TableHead>
                     <TableBody>
                       <TableRow>
-                        <TableCell><code className="primary-color">appearance</code></TableCell>
+                        <TableCell><code className="primary-color">children</code></TableCell>
+                        <TableCell><code>react node</code></TableCell>
+                        <TableCell><em>required</em></TableCell>
                         <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>&apos;solid&apos;</code>
-                            <span> | </span>
-                            <code>&apos;outlined&apos;</code>
-                          </div>
+                          Most often, children is the content of the badge.
+                          Please refer to the <a href="#section-usability">usability guidance</a>.
                         </TableCell>
-                        <TableCell>&apos;outlined&apos;</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell><code className="primary-color">className</code></TableCell>
                         <TableCell>
-                          Determines how the button will be formatted. Solid buttons have a solid fill color and denote emphasis
-                          to the user. Outlined buttons have an outline but no fill causing them to be less emphasized.
+                          <code>string</code>
+                        </TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>
+                          This css class will be added to the badge.
                         </TableCell>
                       </TableRow>
                     </TableBody>

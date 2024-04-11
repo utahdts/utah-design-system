@@ -91,6 +91,7 @@ export { TableWrapper } from './react/components/table/TableWrapper';
 export { DocumentationTemplate } from './react/components/templates/DocumentationTemplate';
 export { LandingTemplate } from './react/components/templates/LandingTemplate';
 export { MainContent } from './react/components/templates/MainContent';
+export { Badge } from './react/components/widgetsIndicators/Badge';
 export { Spinner } from './react/components/widgetsIndicators/Spinner';
 export { UtahDesignSystemContext } from './react/contexts/UtahDesignSystemContext/UtahDesignSystemContext';
 export { UtahDesignSystemContextProvider } from './react/contexts/UtahDesignSystemContext/UtahDesignSystemContextProvider';

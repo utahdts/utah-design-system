@@ -1,0 +1,20 @@
+@use "../../../1-settings/color-swatches";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/font-stuff";
+
+#{class-vars.$base-class} {
+  .badge {
+    background: var(--red-color);
+    border-radius: var(--spacing);
+    padding: var(--spacing-3xs) var(--spacing-2xs);
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(-50%);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-2xs);
+    min-height: var(--spacing-xs);
+    min-width: var(--spacing-2xs);
+  }
+}
