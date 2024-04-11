@@ -19,6 +19,10 @@ import {
   useBanner,
 } from '@utahdts/utah-design-system';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { BadgesExampleRender } from './BadgesExampleRender';
+import { BadgesExampleProps } from './BadgesExampleProps';
+import { BadgesExampleCodeReact } from './BadgesExampleCodeReact';
 
 export function BadgesDocumentation() {
   const { addBanner } = useBanner();
@@ -28,6 +32,16 @@ export function BadgesDocumentation() {
       <p className="lead-in">Badges convey dynamic information, such as counts or status. A badge can include labels or numbers.</p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          children: '99',
+          className: '',
+          title: 'new messages',
+        }}
+        RENDER_EXAMPLE={BadgesExampleRender}
+        PROPS_EXAMPLE={BadgesExampleProps}
+        CODE_EXAMPLE={BadgesExampleCodeReact}
+      />
       <StaticExample
         title="Badges (Large and Small)"
         renderedExample={(
@@ -143,7 +157,7 @@ export function BadgesDocumentation() {
           <TabPanels>
             <TabPanel tabId="badge-props-css">
               <TableWrapper>
-                <Table className="table--lines-x">
+                <Table className="table--lines-x table--full-width">
                   <TableHead>
                     <TableHeadRow>
                       <TableHeadCell className="text-left css-classes">CSS Classes</TableHeadCell>
@@ -152,7 +166,7 @@ export function BadgesDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code>badge</code></TableCell>
+                      <TableCell><code>.badge</code></TableCell>
                       <TableCell>The base css class for a badge.</TableCell>
                     </TableRow>
                   </TableBody>
@@ -163,7 +177,7 @@ export function BadgesDocumentation() {
             <TabPanel tabId="badge-props-react">
               <div className="documentation-content--small-text">
                 <TableWrapper>
-                  <Table className="table--lines-x">
+                  <Table className="table--lines-x table--full-width">
                     <TableHead>
                       <TableHeadRow>
                         <TableHeadCell className="text-left">Property</TableHeadCell>
@@ -176,9 +190,9 @@ export function BadgesDocumentation() {
                       <TableRow>
                         <TableCell><code className="primary-color">children</code></TableCell>
                         <TableCell><code>react node</code></TableCell>
-                        <TableCell><em>required</em></TableCell>
+                        <TableCell>null</TableCell>
                         <TableCell>
-                          Most often, children is the content of the badge.
+                          Most often, <code>children</code> is the content of the badge.<br />
                           Please refer to the <a href="#section-usability">usability guidance</a>.
                         </TableCell>
                       </TableRow>
@@ -190,6 +204,17 @@ export function BadgesDocumentation() {
                         <TableCell>null</TableCell>
                         <TableCell>
                           This css class will be added to the badge.
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell><code className="primary-color">title</code></TableCell>
+                        <TableCell>
+                          <code>string</code>
+                        </TableCell>
+                        <TableCell><em>required</em></TableCell>
+                        <TableCell>
+                          A title is required for accessibility.<br />
+                          Please refer to the <a href="#section-accessibility">accessibility guidance</a>.
                         </TableCell>
                       </TableRow>
                     </TableBody>

@@ -1,6 +1,6 @@
 import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
 
-/** @typedef {import('utah-design-system-website').TabGroupExamplePropsShape} TabGroupExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TabGroupPropsShape} TabGroupExamplePropsShape */
 
 /**
  * @param {object} props

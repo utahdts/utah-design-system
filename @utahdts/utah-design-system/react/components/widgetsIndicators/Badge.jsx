@@ -2,15 +2,15 @@ import { joinClassNames } from '../../util/joinClassNames';
 
 /**
  * @param {object} props
- * @param {string} props.title
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
+ * @param {string} props.title
  * @returns {import('react').JSX.Element}
  */
 export function Badge({
-  title,
   children,
   className,
+  title,
 }) {
   return (
     <div className={joinClassNames('badge', className)}>
