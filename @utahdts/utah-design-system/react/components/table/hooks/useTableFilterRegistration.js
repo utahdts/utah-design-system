@@ -27,7 +27,6 @@ export function useTableFilterRegistration(recordFieldPath, defaultValue, filter
       // remove this filter from the context
       return (
         () => {
-          console.log('destroying... ', recordFieldPath);
           setState((draftState) => {
             delete draftState.filterValues.value[recordFieldPath];
           });

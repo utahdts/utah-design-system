@@ -939,7 +939,7 @@ declare module "@utahdts/utah-design-system" {
     currentValue: TableDataT | null;
     setValue: (newValue: TableDataT) => void;
   };
-  export function TableFilterDate<TableDataT>({ className, defaultValue, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export function TableFilterDateRange<TableDataT>({ className, defaultValue, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
     defaultValue?: TableDataT | undefined;
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;

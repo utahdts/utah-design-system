@@ -9,7 +9,7 @@ import {
   TableBodyDataRowTemplate,
   TableContextConsumer,
   TableFilterCustom,
-  TableFilterDate,
+  TableFilterDateRange,
   TableFilterNone,
   TableFilterSelectAllOptions,
   TableFilterTextInput,
@@ -62,7 +62,12 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate a11yLabel="Inauguration" id="inauguration" recordFieldPath="inauguration" />
+                <TableFilterDateRange
+                  a11yLabel="Inauguration"
+                  dateFormat="yyyy-MM-dd"
+                  id="table-filtering-inauguration"
+                  recordFieldPath="inauguration"
+                />
 
                 {/*
                   "Controlled" filter; parent knows the value!

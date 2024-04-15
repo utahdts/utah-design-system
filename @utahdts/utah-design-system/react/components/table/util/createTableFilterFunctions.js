@@ -28,7 +28,6 @@ export function createTableFilterFunctions(filterValues) {
             const filterTestValue = typeof filterDataValue === 'number' ? filterDataValue : filterDataValue?.toLocaleLowerCase() || '';
             testFunc = (value) => !filterData.value || value === filterTestValue;
           } else if (filterData.options.isDateRange) {
-            console.log('🚀 ~ filtering data range! ~ filterData:', filterData);
             // == Date Range == //
             if (typeof filterData.value === 'number') {
               throw new Error(`Table Filter: value is a number for a date Range. Date Range filtering must be a string value in the format of '{beginDate}~~separator~~{endDate}': "${filterKey}"=>${filterData.value}`);
@@ -43,7 +42,7 @@ export function createTableFilterFunctions(filterValues) {
               return (
                 !!valueDate
                 && (!beginDateDate || valueDate.getTime() >= beginDateDate.getTime())
-                && (!endDateDate || valueDate.getTime() >= endDateDate.getTime())
+                && (!endDateDate || valueDate.getTime() <= endDateDate.getTime())
               );
             };
           } else {

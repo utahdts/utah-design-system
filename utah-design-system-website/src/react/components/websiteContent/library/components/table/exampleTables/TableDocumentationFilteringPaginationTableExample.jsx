@@ -5,7 +5,12 @@ import {
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
-  TableFilterDate, TableFilterNone, TableFilterSelectAllOptions, TableFilterTextInput, TableFilters, TableHead,
+  TableFilterDateRange,
+  TableFilterNone,
+  TableFilterSelectAllOptions,
+  TableFilterTextInput,
+  TableFilters,
+  TableHead,
   TableHeadCell,
   TableHeadRow,
   TablePagination,
@@ -65,7 +70,12 @@ export function TableDocumentationFilteringPaginationTableExample() {
                 <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
+                <TableFilterDateRange
+                  a11yLabel="Inauguration"
+                  dateFormat="yyyy-MM-dd"
+                  id="table-filtering-pagination-inauguration"
+                  recordFieldPath="inauguration"
+                />
               </TableFilters>
               <TableHeadRow>
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>

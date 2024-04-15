@@ -70,7 +70,7 @@ export { TableBodyDataRowTemplate } from './react/components/table/TableBodyData
 export { TableCell } from './react/components/table/TableCell';
 export { TableContextConsumer } from './react/components/table/TableContextConsumer';
 export { TableFilterCustom } from './react/components/table/TableFilterCustom';
-export { TableFilterDate } from './react/components/table/TableFilterDate';
+export { TableFilterDateRange } from './react/components/table/TableFilterDateRange';
 export { TableFilterNone } from './react/components/table/TableFilterNone';
 export { TableFilterSelect } from './react/components/table/TableFilterSelect';
 export { TableFilterSelectAllOptions } from './react/components/table/TableFilterSelectAllOptions';

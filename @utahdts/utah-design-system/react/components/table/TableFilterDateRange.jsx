@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useImmer } from 'use-immer';
+import { useInterval } from '../../hooks/useInterval';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TextInput } from '../forms/TextInput';
 import { TableFilterDatePopup } from './TableFilterDatePopup';
@@ -20,7 +21,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
  */
-export function TableFilterDate({
+export function TableFilterDateRange({
   className,
   dateFormat,
   defaultValue,
@@ -32,7 +33,7 @@ export function TableFilterDate({
   value,
   ...rest
 }) {
-  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch: false });
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch: false, isDateRange: true, dateRangeDateFormat: dateFormat });
   const { state: { tableId } } = useTableContext();
   const popperContentRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [state, setState] = useImmer({ isPopupOpen: false });
@@ -54,6 +55,17 @@ export function TableFilterDate({
     value: value ?? null,
   });
 
+  // close popup when lost focus
+  useInterval(
+    () => {
+      if (!document.activeElement?.closest('.table-header__cell--filter-date')) {
+        setState((draftState) => { draftState.isPopupOpen = false; });
+      }
+    },
+    250,
+    { isDisabled: !state.isPopupOpen }
+  );
+
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
@@ -68,7 +80,7 @@ export function TableFilterDate({
           </div>
         )}
         // TODO: use constant for separator
-        value={(!currentValue || currentValue === '~~separator~~') ? '' : currentValue.replace(/~~separator~~/, '-')}
+        value={(!currentValue || currentValue === '~~separator~~') ? '' : currentValue.replace(/~~separator~~/, '->')}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
         // @ts-ignore
@@ -110,7 +122,7 @@ export function TableFilterDate({
       <TableFilterDatePopup
         dateFormat={dateFormat}
         isPopupOpen={state.isPopupOpen}
-        onChange={(newvalue) => console.log('date filter change', newvalue) || currentOnChange(newvalue)}
+        onChange={currentOnChange}
         popperReferenceElement={popperContentRef}
         tableFilterDateId={id}
         value={currentValue || ''}
