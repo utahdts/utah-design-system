@@ -2,6 +2,7 @@ import { createPopper } from '@popperjs/core';
 import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
 import { PopupPlacement } from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
+import { allowAriaExpanded } from './allowAriaExpanded';
 import { checkForError } from './checkForError';
 import { isTouchDevice } from './isTouchDevice';
 import { showHideElement } from './showHideElement';
@@ -72,7 +73,9 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
   const TIMEOUT_MS_MEDIUM = 150;
   const TIMEOUT_MS_SHORT = 50;
 
-  button.setAttribute('aria-expanded', 'false');
+  if (allowAriaExpanded(button)) {
+    button.setAttribute('aria-expanded', 'false');
+  }
   button.setAttribute('aria-haspopup', ariaHasPopup);
 
   /*
@@ -101,7 +104,9 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
             ],
           });
           showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          button.setAttribute('aria-expanded', 'true');
+          if (allowAriaExpanded(button)) {
+            button.setAttribute('aria-expanded', 'true');
+          }
 
           // hide all tooltips
           document.querySelectorAll(getCssClassSelector(domConstants.TOOLTIP__WRAPPER))
@@ -128,7 +133,9 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
       delayHideTimeoutId = window.setTimeout(
         () => {
           showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          button.setAttribute('aria-expanded', 'false');
+          if (allowAriaExpanded(button)) {
+            button.setAttribute('aria-expanded', 'false');
+          }
         },
         delayMS
       );
