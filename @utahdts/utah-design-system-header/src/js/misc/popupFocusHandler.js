@@ -195,8 +195,10 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
 
         // if !wasAlreadyOpen but aria-expanded is "true" then the 'focusin' opened it (tabbed to it?)
         if (wasAlreadyOpen && button.getAttribute('aria-expanded') === 'true') {
-          hidePopup(TIMEOUT_MS_SHORT);
-          /** @type {HTMLElement | null} */(document.activeElement)?.blur();
+          if (!options?.doNotClosePopupOnClick) {
+            hidePopup(TIMEOUT_MS_SHORT);
+            /** @type {HTMLElement | null} */(document.activeElement)?.blur();
+          }
         } else {
           if (isTouchDevice()) {
             hideAllMenus();

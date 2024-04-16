@@ -17,6 +17,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TimeInput component
 - Vertical Menu sandbox in documentation
 
+# [1.15.5] 3/19/2024
+## Fixed
+- Fix the width of the search box on mobile.
+- Fix the accessibility of the search button on mobile.
+
+# [1.15.4] 3/5/2024
+## Fixed
+- Make sure footer is 100% width
+- Prevent closing popups for main menu clicking
+- Default Main Menu title to be "Main Menu"
+
+## Added
+- Add menus option for `parentMenuLinkSuffix`
+
 # [1.15.3] 2/26/2024
 ## Fixed
 - Fix menus not popping open on a touch device
