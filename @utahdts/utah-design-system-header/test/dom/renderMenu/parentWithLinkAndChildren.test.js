@@ -359,7 +359,7 @@ describe('renderMenu: parentWithLinkAndChildren - child menu has children & acti
     const menuItem1ChildrenMenuItems = testMainMenuHasChildrenCount(menuItem1ChildrenMenu, 3);
     expect(document.querySelector('.menu-item-1')).toBeTruthy();
 
-    // 1.1 has two menu items, one for the title and one for the (page) entry
+    // 1.1 has two menu items, one for the title and one for the `parentMenuLinkSuffix` entry
     expect(menuItem1ChildrenMenuItems?.[0]?.classList && Array.from(menuItem1ChildrenMenuItems?.[0]?.classList)).contains('menu-item-1.1');
     expect(menuItem1ChildrenMenuItems?.[1]?.classList && Array.from(menuItem1ChildrenMenuItems?.[1]?.classList)).contains('menu-item-1.1');
     expect(menuItem1ChildrenMenuItems?.[2]?.classList && Array.from(menuItem1ChildrenMenuItems?.[2]?.classList)).contains('menu-item-1.1.1');
@@ -406,7 +406,7 @@ describe('renderMenu: parentWithLinkAndChildren - child menu has children & acti
     const menuItem1ChildrenMenuItems = testMainMenuHasChildrenCount(menuItem1ChildrenMenu, 3);
     expect(document.querySelector('.menu-item-1')).toBeTruthy();
 
-    // 1.1 has two menu items, one for the title and one for the (page) entry
+    // 1.1 has two menu items, one for the title and one for the (parentMenuLinkSuffix) entry
     expect(menuItem1ChildrenMenuItems?.[0]?.classList && Array.from(menuItem1ChildrenMenuItems?.[0]?.classList)).contains('menu-item-1.1');
     expect(menuItem1ChildrenMenuItems?.[1]?.classList && Array.from(menuItem1ChildrenMenuItems?.[1]?.classList)).contains('menu-item-1.1');
     expect(menuItem1ChildrenMenuItems?.[2]?.classList && Array.from(menuItem1ChildrenMenuItems?.[2]?.classList)).contains('menu-item-1.1.1');
@@ -456,7 +456,7 @@ describe('renderMenu: parentWithLinkAndChildren - child menu has children & acti
     const menuItem1ChildrenMenuItems = testMainMenuHasChildrenCount(menuItem1ChildrenMenu, 3);
     expect(document.querySelector('.menu-item-1')).toBeTruthy();
 
-    // 1.1 has two menu items, one for the title and one for the (page) entry
+    // 1.1 has two menu items, one for the title and one for the (parentMenuLinkSuffix) entry
     expect(menuItem1ChildrenMenuItems?.[0]?.classList && Array.from(menuItem1ChildrenMenuItems?.[0]?.classList)).contains('menu-item-1.1');
     expect(menuItem1ChildrenMenuItems?.[1]?.classList && Array.from(menuItem1ChildrenMenuItems?.[1]?.classList)).contains('menu-item-1.1');
     expect(menuItem1ChildrenMenuItems?.[2]?.classList && Array.from(menuItem1ChildrenMenuItems?.[2]?.classList)).contains('menu-item-1.1.1');
@@ -464,5 +464,119 @@ describe('renderMenu: parentWithLinkAndChildren - child menu has children & acti
     testMenuItemIsA(menuItem1ChildrenMenuItems?.[0], '#menu-item-1.1', ACTION_FUNCTION_URL_STRING);
     testMenuItemIsA(menuItem1ChildrenMenuItems?.[1], '#menu-item-1.1', ACTION_FUNCTION_URL_STRING);
     testMenuItemIsA(menuItem1ChildrenMenuItems?.[2], '#menu-item-1.1.1');
+  });
+
+  test('child menu has children & action function url w/ custom suffix', () => {
+    /** @type {MainMenu} */
+    const mainMenu = {
+      menuItems: [
+        {
+          title: 'menu-item-1',
+          actionMenu: [
+            {
+              title: 'menu-item-1.1',
+              className: 'menu-item-1.1',
+              actionFunctionUrl: {
+                actionFunction: ACTION_FUNCTION,
+                url: '#menu-item-1.1',
+              },
+              actionMenu: [
+                {
+                  title: 'menu-item-1.1.1',
+                  actionUrl: { url: '#menu-item-1.1.1' },
+                  className: 'menu-item-1.1.1',
+                },
+              ],
+            },
+          ],
+          className: 'menu-item-1',
+        },
+      ],
+      parentMenuLinkSuffix: 'just-a-test',
+      title: 'main-menu',
+    };
+
+    setUtahHeaderSettings({ mainMenu, actionItems: undefined });
+    loadHeader();
+
+    // main menu construction
+    testHasMainMenuExists();
+    testMainMenuItemIsButton(DONT_TOUCH);
+
+    // has child
+    const menuItem1ChildrenMenu = testMainMenuHasChildren();
+    const menuItem1ChildrenMenuItems = testMainMenuHasChildrenCount(menuItem1ChildrenMenu, 3);
+    expect(document.querySelector('.menu-item-1')).toBeTruthy();
+
+    // 1.1 has two menu items, one for the title and one for the (parentMenuLinkSuffix) entry
+    expect(menuItem1ChildrenMenuItems?.[0]?.classList && Array.from(menuItem1ChildrenMenuItems?.[0]?.classList)).contains('menu-item-1.1');
+    expect(menuItem1ChildrenMenuItems?.[1]?.classList && Array.from(menuItem1ChildrenMenuItems?.[1]?.classList)).contains('menu-item-1.1');
+    expect(menuItem1ChildrenMenuItems?.[2]?.classList && Array.from(menuItem1ChildrenMenuItems?.[2]?.classList)).contains('menu-item-1.1.1');
+
+    testMenuItemIsA(menuItem1ChildrenMenuItems?.[0], '#menu-item-1.1', ACTION_FUNCTION_URL_STRING);
+    testMenuItemIsA(menuItem1ChildrenMenuItems?.[1], '#menu-item-1.1', ACTION_FUNCTION_URL_STRING);
+    testMenuItemIsA(menuItem1ChildrenMenuItems?.[2], '#menu-item-1.1.1');
+
+    // menu-item-1.1 href has title w/ suffix
+    const createdChildMenuItem = document.querySelector('.vertical-menu__item.menu-item-1\\.1 > ul > li:first-child a span');
+    expect(createdChildMenuItem).toBeTruthy();
+    expect(createdChildMenuItem?.innerHTML).toBe('menu-item-1.1 just-a-test');
+  });
+
+  test('child menu has children & action function url w/ custom suffix func', () => {
+    /** @type {MainMenu} */
+    const mainMenu = {
+      menuItems: [
+        {
+          title: 'menu-item-1',
+          actionMenu: [
+            {
+              title: 'menu-item-1.1',
+              className: 'menu-item-1.1',
+              actionFunctionUrl: {
+                actionFunction: ACTION_FUNCTION,
+                url: '#menu-item-1.1',
+              },
+              actionMenu: [
+                {
+                  title: 'menu-item-1.1.1',
+                  actionUrl: { url: '#menu-item-1.1.1' },
+                  className: 'menu-item-1.1.1',
+                },
+              ],
+            },
+          ],
+          className: 'menu-item-1',
+        },
+      ],
+      parentMenuLinkSuffix: (menuItem) => `${menuItem.title}-just-a-test`,
+      title: 'main-menu',
+    };
+
+    setUtahHeaderSettings({ mainMenu, actionItems: undefined });
+    loadHeader();
+
+    // main menu construction
+    testHasMainMenuExists();
+    testMainMenuItemIsButton(DONT_TOUCH);
+
+    // has child
+    const menuItem1ChildrenMenu = testMainMenuHasChildren();
+    const menuItem1ChildrenMenuItems = testMainMenuHasChildrenCount(menuItem1ChildrenMenu, 3);
+    expect(document.querySelector('.menu-item-1')).toBeTruthy();
+
+    // 1.1 has two menu items, one for the title and one for the (parentMenuLinkSuffix) entry
+    expect(menuItem1ChildrenMenuItems?.[0]?.classList && Array.from(menuItem1ChildrenMenuItems?.[0]?.classList)).contains('menu-item-1.1');
+    expect(menuItem1ChildrenMenuItems?.[1]?.classList && Array.from(menuItem1ChildrenMenuItems?.[1]?.classList)).contains('menu-item-1.1');
+    expect(menuItem1ChildrenMenuItems?.[2]?.classList && Array.from(menuItem1ChildrenMenuItems?.[2]?.classList)).contains('menu-item-1.1.1');
+
+    testMenuItemIsA(menuItem1ChildrenMenuItems?.[0], '#menu-item-1.1', ACTION_FUNCTION_URL_STRING);
+    testMenuItemIsA(menuItem1ChildrenMenuItems?.[1], '#menu-item-1.1', ACTION_FUNCTION_URL_STRING);
+    testMenuItemIsA(menuItem1ChildrenMenuItems?.[2], '#menu-item-1.1.1');
+
+    // menu-item-1.1 href has title w/ suffix
+    const createdChildMenuItem = document.querySelector('.vertical-menu__item.menu-item-1\\.1 > ul > li:first-child a span');
+    expect(createdChildMenuItem).toBeTruthy();
+    expect(createdChildMenuItem?.innerHTML).toBe('menu-item-1.1 menu-item-1.1-just-a-test');
   });
 });
