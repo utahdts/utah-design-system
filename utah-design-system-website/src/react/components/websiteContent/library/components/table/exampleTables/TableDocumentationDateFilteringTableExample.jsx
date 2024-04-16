@@ -11,9 +11,12 @@ import {
   TableHead,
   TableHeadCell,
   TableHeadRow,
-  TableWrapper
+  TableSortingRule,
+  TableSortingRules,
+  TableWrapper,
+  tableSortingRuleFieldType
 } from '@utahdts/utah-design-system';
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 
 /**
@@ -136,7 +139,7 @@ const exampleData = [
   },
   {
     jeNeSaisQuoi: 95,
-    name: 'Thingumajig',
+    name: 'Thingamajig',
     inspectionDate: randomDate(),
   },
   {
@@ -181,11 +184,24 @@ export function TableDocumentationDateFilteringTableExample() {
                 <TableFilterTextInput a11yLabel="Name" recordFieldPath="name" />
                 <TableFilterTextInput a11yLabel="Je Ne Sais Quoi" recordFieldPath="jeNeSaisQuoi" />
                 <TableFilterDateRange
-                  a11yLabel="inspectionDate"
+                  a11yLabel="Inspection Date"
                   id="table-filtering-inspectionDate"
                   recordFieldPath="inspectionDate"
                 />
               </TableFilters>
+
+              <TableSortingRules defaultValue="name">
+                <TableSortingRule a11yLabel="Name" recordFieldPath="name" />
+                <TableSortingRule a11yLabel="Je Ne Sais Quoi" recordFieldPath="jeNeSaisQuoi" fieldType={tableSortingRuleFieldType.NUMBER} />
+                <TableSortingRule
+                  a11yLabel="Inspection Date"
+                  recordFieldPath="inspectionDate"
+                  // parsing each date string on each comparison is a little "clunky". TableFilterDateRange uses string data because
+                  // table filters convert everything to string.
+                  customSort={({ fieldValueA, fieldValueB }) => parse(fieldValueA, 'MM/dd/yyyy', new Date()).getTime() - parse(fieldValueB, 'MM/dd/yyyy', new Date()).getTime()}
+                />
+              </TableSortingRules>
+
               <TableHeadRow>
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
                 <TableHeadCell recordFieldPath="jeNeSaisQuoi">Je Ne Sais Quoi</TableHeadCell>

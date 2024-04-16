@@ -925,7 +925,7 @@ declare module "@utahdts/utah-design-system" {
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
   }): React.JSX.Element;
   export type SetterFunc = (setter: (param: TableContextStateFilterValueObject) => void) => void;
-  export function TableFilterDatePopup({ dateFormat, isPopupOpen, onChange, popperReferenceElement, tableFilterDateId, value, }: {
+  export function TableFilterDateRangePopup({ dateFormat, isPopupOpen, onChange, popperReferenceElement, tableFilterDateId, value, }: {
     dateFormat?: string | undefined;
     isPopupOpen: boolean;
     onChange: (newValue: string) => void;
