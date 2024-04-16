@@ -2,12 +2,13 @@ import { useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useInterval } from '../../hooks/useInterval';
 import { joinClassNames } from '../../util/joinClassNames';
-import { TextInput } from '../forms/TextInput';
+import { Button } from '../buttons/Button';
 import { TableFilterDateRangePopup } from './TableFilterDateRangePopup';
 import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { tableConstants } from './tableConstants';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
+import { IconButton } from '../buttons/IconButton';
 
 /**
  * @param {object} props
@@ -66,21 +67,16 @@ export function TableFilterDateRange({
     250,
     { isDisabled: !state.isPopupOpen }
   );
+  const popupId = `${id}-popup`;
 
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
-      <TextInput
+      <Button
+        aria-controls={popupId}
+        aria-expanded={state.isPopupOpen}
+        aria-haspopup="dialog"
         id={`${tableId}__table-filter-date-${recordFieldPath}`}
         label={`Filter ${a11yLabel}`}
-        isClearable
-        onChange={() => { /* ignore on change for the "readonly" filter field; have to edit through popup */ }}
-        onClear={() => { currentOnChange(''); }}
-        rightContent={(
-          <div className={joinClassNames('date-input__calendar-icon date-input__icon-static')}>
-            <span className="utds-icon-before-calendar " aria-hidden="true" />
-          </div>
-        )}
-        value={(!currentValue || currentValue === tableConstants.dateFilterSeparator) ? '' : currentValue.replace(tableConstants.dateFilterSeparator, ' -> ')}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
         // @ts-ignore
@@ -111,16 +107,32 @@ export function TableFilterDateRange({
             });
           }
         }
-        onKeyUp={
-          (e) => {
-            if (e.key === 'ArrowDown') {
-              setState((draftState) => { draftState.isPopupOpen = true; });
-            }
-          }
-        }
-      />
+      >
+        {(!currentValue || currentValue === tableConstants.dateFilterSeparator) ? '' : currentValue.replace(tableConstants.dateFilterSeparator, ' -> ')}
+      </Button>
+
+      {/* Clear icon */}
+      {
+        (currentValue && currentValue !== tableConstants.dateFilterSeparator)
+          ? (
+            <IconButton
+              className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}
+              icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+              onClick={() => currentOnChange('')}
+              title="Clear filter"
+            />
+          )
+          : null
+      }
+
+      {/* Calendar icon inside the button */}
+      <div className={joinClassNames('date-input__calendar-icon date-input__icon-static')}>
+        <span className="utds-icon-before-calendar " aria-hidden="true" />
+      </div>
+
       <TableFilterDateRangePopup
         dateFormat={dateFormat}
+        id={popupId}
         isPopupOpen={state.isPopupOpen}
         onChange={currentOnChange}
         setIsPopupOpen={(newIsPopupOpen) => setState((draftState) => { draftState.isPopupOpen = newIsPopupOpen; })}

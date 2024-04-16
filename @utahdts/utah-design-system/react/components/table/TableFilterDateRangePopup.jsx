@@ -30,6 +30,7 @@ function formatNewValue(whichInput, newValue, currentBeginDate, currentEndDate) 
 /**
  * @param {object} props
  * @param {string} [props.dateFormat]
+ * @param {string} props.id
  * @param {boolean} props.isPopupOpen
  * @param {(newValue: string) => void} props.onChange
  * @param {import('react').RefObject<HTMLDivElement>} props.popperReferenceElement
@@ -40,6 +41,7 @@ function formatNewValue(whichInput, newValue, currentBeginDate, currentEndDate) 
  */
 export function TableFilterDateRangePopup({
   dateFormat,
+  id,
   isPopupOpen,
   onChange,
   popperReferenceElement,
@@ -74,7 +76,8 @@ export function TableFilterDateRangePopup({
         'table-filter-date__popup',
         !isPopupOpen && 'visually-hidden'
       )}
-      id={`${tableFilterDateId}-popup`}
+      hasCloseButton
+      id={id}
       isVisible={isPopupOpen}
       onVisibleChange={(_, isVisible) => setIsPopupOpen(isVisible)}
       referenceElement={popperReferenceElement}
