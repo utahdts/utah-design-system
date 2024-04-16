@@ -3,11 +3,11 @@ import { useImmer } from 'use-immer';
 import { useInterval } from '../../hooks/useInterval';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TextInput } from '../forms/TextInput';
-import { TableFilterDatePopup } from './TableFilterDatePopup';
+import { TableFilterDateRangePopup } from './TableFilterDateRangePopup';
 import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
-import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 import { tableConstants } from './tableConstants';
+import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
 
 /**
  * @param {object} props
@@ -119,10 +119,11 @@ export function TableFilterDateRange({
           }
         }
       />
-      <TableFilterDatePopup
+      <TableFilterDateRangePopup
         dateFormat={dateFormat}
         isPopupOpen={state.isPopupOpen}
         onChange={currentOnChange}
+        setIsPopupOpen={(newIsPopupOpen) => setState((draftState) => { draftState.isPopupOpen = newIsPopupOpen; })}
         popperReferenceElement={popperContentRef}
         tableFilterDateId={id}
         value={currentValue || ''}

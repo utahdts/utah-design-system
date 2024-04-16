@@ -35,6 +35,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @param {string} [props.name] defaults to id if not provided
  * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {() => void} [props.onClear]
+ * @param {(e: React.KeyboardEvent<HTMLInputElement>) => void} [props.onKeyUp]
  * @param {string} [props.placeholder]
  * @param {boolean} [props.showCalendarTodayButton] on teh calendar popup, should the `today` button be shown
  * @param {string} [props.value]
@@ -57,6 +58,7 @@ export function DateInput({
   name,
   onChange,
   onClear,
+  onKeyUp,
   placeholder,
   showCalendarTodayButton,
   value,
@@ -145,7 +147,10 @@ export function DateInput({
             name={name}
             onChange={(e) => currentOnChange(e.target.value)}
             onClear={currentOnClear}
-            onKeyUp={onDownArrowPress}
+            onKeyUp={(e) => {
+              onDownArrowPress(e);
+              onKeyUp?.(e);
+            }}
             placeholder={placeholder}
             value={currentValue}
             rightContent={(
