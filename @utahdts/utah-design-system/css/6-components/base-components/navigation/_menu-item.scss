@@ -43,5 +43,40 @@
         display: block;
       }
     }
+
+    &__plain {
+      .menu-item__title {
+        a[href] {
+          border-radius: var(--radius-circle);
+          border: none;
+          box-shadow: none;
+          box-sizing: border-box;
+          color: var(--gray-color);
+          display: flex;
+          font-size: var(--font-size-xs);
+          justify-content: flex-start;
+          line-height: 1.7;
+          margin: 0;
+          min-height: unset;
+          padding: var(--spacing-2xs) var(--spacing);
+          text-align: left;
+          text-decoration: none;
+          width: 100%;
+          position: relative;
+
+          &:hover {
+            background: var(--hover-gray-color);
+            color: var(--primary-color);
+            box-shadow: none;
+          }
+          &:active {
+            transform: none;
+          }
+        }
+        &-blank {
+          font-size: var(--font-size-xs);
+        }
+      }
+    }
   }
 }

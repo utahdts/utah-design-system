@@ -1,3 +1,4 @@
+import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { calculateMenuItemsParents } from '../../util/menuItems/calculateMenuItemsParents';
 import { pages } from './pages';
 
@@ -114,6 +115,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.headings.link, title: pages.headings.pageTitle },
         { link: pages.lists.link, title: pages.lists.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
       id: 'components__buttons-tags',
@@ -127,6 +129,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.tags.link, title: pages.tags.pageTitle },
         { link: pages.iconBar.link, title: pages.iconBar.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
       id: 'components__containers',
@@ -138,6 +141,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.drawers.link, title: pages.drawers.pageTitle },
         { link: pages.tabs.link, title: pages.tabs.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
       id: 'components__forms',
@@ -158,6 +162,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.textArea.link, title: pages.textArea.pageTitle },
         { link: pages.timeInput.link, title: pages.timeInput.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
       id: 'components__navigation-links',
@@ -175,6 +180,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.sidePanelNavigation.link, title: pages.sidePanelNavigation.pageTitle },
         { link: pages.verticalMenu.link, title: pages.verticalMenu.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
       id: 'components__popups',
@@ -186,6 +192,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.popups.link, title: pages.popups.pageTitle },
         { link: pages.tooltips.link, title: pages.tooltips.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
       id: 'components__sliders-carousels',
@@ -194,6 +201,7 @@ export const menuLibraryComponentsSecondary = {
       children: [
         { link: pages.carousel.link, title: pages.carousel.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
       id: 'components__table',
@@ -214,6 +222,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.stepIndicator.link, title: pages.stepIndicator.pageTitle },
         { link: pages.statusIndicator.link, title: pages.statusIndicator.pageTitle },
       ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
   ],
 };

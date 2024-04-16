@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
 /** @typedef {import('react')} React */
+/** @typedef {import ('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /**
  * @template ImmerHookT
@@ -40,12 +41,19 @@
  */
 
 /**
+ * MenuTypes
+ * @typedef { 'vertical' | 'horizontal' } MenuTypes
+ */
+
+/**
  * IconButtonAppearance
  * @typedef {'solid' | 'outlined' | 'borderless'} IconButtonAppearance
  */
 
 /**
  * IconFunc
+ * if getting an error that props is mandatory, use Component syntax instead of functional:
+ * ie <Icons.IconEnvelope /> instead of {Icons.IconEnvelope()}
  * @typedef {(props: {className?: string, altText?: string}) => React.ReactNode} IconFunc
  */
 
@@ -406,6 +414,7 @@
  *  @property {string} title
  *  @property {string[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {ChildrenMenuTypes | null} [childrenMenuType]
  *  @property {boolean} [isSelected]
  *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }

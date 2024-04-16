@@ -1,6 +1,7 @@
 import {
   ComboBox,
   ComboBoxOption,
+  useAriaMessaging,
   useFormContext
 } from '@utahdts/utah-design-system';
 import { useImmer } from 'use-immer';
@@ -31,6 +32,7 @@ export function ComboBoxExampleRender({
   },
   innerRef,
 }) {
+  const { addPoliteMessage } = useAriaMessaging();
   const { setState: setStateFormContext } = useFormContext();
   const [options, setOptions] = useImmer(() => [
     { label: 'Arches National Park', value: 'arches' },
@@ -61,7 +63,12 @@ export function ComboBoxExampleRender({
           );
         })}
         onClear={() => setState((draftState) => { draftState.props.value = ''; })}
-        onCustomEntry={(customValue) => setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }))}
+        onCustomEntry={
+          (customValue) => {
+            addPoliteMessage('Item has been added.');
+            setOptions((oldOptions) => oldOptions.concat({ label: customValue, value: customValue }));
+          }
+        }
         value={value}
         // @ts-ignore
         autoComplete="off"

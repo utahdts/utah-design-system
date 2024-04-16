@@ -12,6 +12,7 @@
 /** @typedef {import('@utahdts/utah-design-system-types').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system-types').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system-types').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
 
@@ -218,6 +219,7 @@
 
 /**
  * @typedef MultiSelectExamplePropsShape {
+ *  @property {boolean} allowCustomEntry
  *  @property {string} className
  *  @property {string} errorMessage
  *  @property {string} id
@@ -371,12 +373,39 @@
  */
 
 /**
+ * @typedef TimeInputExamplePropsShape {
+ *  @property {boolean} allowCustomEntry
+ *  @property {string} className
+ *  @property {string} errorMessage
+ *  @property {boolean} hasTimePopup
+ *  @property {string} id
+ *  @property {boolean} isClearable
+ *  @property {boolean} isDisabled
+ *  @property {boolean} isRequired
+ *  @property {string} label
+ *  @property {string} name
+ *  @property {string} placeholder
+ *  @property {string} timeFormat
+ *  @property {string} timeRangeIncrement
+ *  @property {string} timeRangeBegin
+ *  @property {string} timeRangeEnd
+ *  @property {string} value
+ * }
+ */
+
+/**
  * @typedef TooltipsExamplePropsShape {
  *  @property {boolean} isPopperVisible
  *  @property {string} offsetDistance
  *  @property {string} offsetSkidding
  *  @property {PopupPlacement} placement
  *  @property {string} popupText
+ * }
+ */
+
+/**
+ * @typedef VerticalMenuExamplePropsShape {
+ *  @property {'inline' | 'flyout' | 'plain'} childrenMenuType
  * }
  */
 
@@ -401,6 +430,7 @@
  *  @property {string} title
  *  @property {PageUrl[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
+ *  @property {ChildrenMenuTypes | null} [childrenMenuType]
  *  @property {boolean} [isSelected]
  *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }

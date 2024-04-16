@@ -141,6 +141,7 @@ export function Showcase() {
             agency={site.agency}
             id={site.id}
             image={site.image}
+            key={`${site.title}__${site.url}`}
             title={site.title}
             url={site.url}
           />

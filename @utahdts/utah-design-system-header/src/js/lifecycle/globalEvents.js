@@ -1,4 +1,5 @@
 import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
+import { allowAriaExpanded } from '../misc/allowAriaExpanded';
 import { showHideElement } from '../misc/showHideElement';
 
 /** @typedef {import('src/@types/jsDocTypes.d').GlobalEventType} GlobalEventType */
@@ -22,9 +23,11 @@ export function unloadGlobalEvents() {
 }
 
 export function hideAllMenus() {
-  const popups = document.querySelectorAll(
-    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`
-  );
+  const popupsSelectors = [
+    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.HEADER)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`,
+    `${getCssClassSelector(domConstants.UTAH_DESIGN_SYSTEM)} ${getCssClassSelector(domConstants.MAIN_MENU)} ${getCssClassSelector(domConstants.POPUP_WRAPPER)}`,
+  ];
+  const popups = document.querySelectorAll(popupsSelectors.join(','));
   Array.from(popups)
     .filter((popup) => !popup.classList.contains(domConstants.POPUP__HIDDEN))
     .forEach((popup) => {
@@ -32,7 +35,7 @@ export function hideAllMenus() {
       const popupId = popup.getAttribute('id');
       if (popupId) {
         const controllingElement = document.querySelector(`[aria-controls="${popupId}"]`);
-        if (controllingElement) {
+        if (controllingElement && allowAriaExpanded(controllingElement)) {
           controllingElement.setAttribute('aria-expanded', 'false');
         }
       }
