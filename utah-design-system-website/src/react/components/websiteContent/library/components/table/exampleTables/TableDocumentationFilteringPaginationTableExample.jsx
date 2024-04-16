@@ -72,7 +72,6 @@ export function TableDocumentationFilteringPaginationTableExample() {
                 {/* Date range filtering popup */}
                 <TableFilterDateRange
                   a11yLabel="Inauguration"
-                  dateFormat="yyyy-MM-dd"
                   id="table-filtering-pagination-inauguration"
                   recordFieldPath="inauguration"
                 />
@@ -81,7 +80,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
                 <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
                 <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
-                <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
+                <TableHeadCell recordFieldPath="inauguration">Inauguration</TableHeadCell>
               </TableHeadRow>
             </TableHead>
             <TableBody>

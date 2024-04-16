@@ -23,7 +23,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  */
 export function TableFilterDateRange({
   className,
-  dateFormat,
+  dateFormat = 'MM/dd/yyyyy',
   defaultValue,
   innerRef,
   id,
