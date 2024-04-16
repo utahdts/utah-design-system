@@ -4,6 +4,7 @@
  */
 
 import { parse } from 'date-fns';
+import { tableConstants } from '../tableConstants';
 
 /**
  * convert each filter in to a function that will validate that filter rule (value, exactMatch, etc)
@@ -32,9 +33,8 @@ export function createTableFilterFunctions(filterValues) {
             if (typeof filterData.value === 'number') {
               throw new Error(`Table Filter: value is a number for a date Range. Date Range filtering must be a string value in the format of '{beginDate}~~separator~~{endDate}': "${filterKey}"=>${filterData.value}`);
             }
-            // TODO: make these constants
             const dateFormat = filterData.options.dateRangeDateFormat || 'MM/dd/yyyyy';
-            const [beginDate, endDate] = filterData.value.split('~~separator~~');
+            const [beginDate, endDate] = filterData.value.split(tableConstants.dateFilterSeparator);
             const beginDateDate = beginDate ? parse(beginDate, dateFormat, new Date()) : null;
             const endDateDate = endDate ? parse(endDate, dateFormat, new Date()) : null;
             testFunc = (value) => {

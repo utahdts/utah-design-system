@@ -5,6 +5,7 @@ import { popupPlacement } from '../../enums/popupPlacement';
 import { joinClassNames } from '../../util/joinClassNames';
 import { CalendarInput } from '../forms/CalendarInput/CalendarInput';
 import { DateInput } from '../forms/DateInput';
+import { tableConstants } from './tableConstants';
 
 /** @typedef { 'BEGIN' | 'END' } BeginEndDate */
 /** @enum {BeginEndDate} */
@@ -23,8 +24,7 @@ const BeginEndDates = {
 function formatNewValue(whichInput, newValue, currentBeginDate, currentEndDate) {
   const beginDateStr = whichInput === BeginEndDates.BEGIN ? newValue : (currentBeginDate || '');
   const endDateStr = whichInput === BeginEndDates.END ? newValue : (currentEndDate || '');
-  // TODO use separator constant
-  return `${beginDateStr}~~separator~~${endDateStr}`;
+  return `${beginDateStr}${tableConstants.dateFilterSeparator}${endDateStr}`;
 }
 
 /**
@@ -80,8 +80,7 @@ export function TableFilterDatePopup({
     [isPopupOpen]
   );
 
-  // TODO: use separator constant
-  const [beginDateStr, endDateStr] = (value || '').split('~~separator~~');
+  const [beginDateStr, endDateStr] = (value || '').split(tableConstants.dateFilterSeparator);
 
   return (
     <div

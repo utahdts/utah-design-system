@@ -15,8 +15,8 @@ import { TableContext } from './util/TableContext';
  * @typedef {import('@utahdts/utah-design-system').RecordOnChangeFunc<TableDataT>} RecordOnChangeFunc
  */
 
-// TODO: rename this function to match its purpose solely for TableFilters
 /**
+ * used only by !!! Table Filters !!! (TableContext) This is not a general FormContext hook
  * An input can be controlled, uncontrolled, default value, or controlled by a parent context
  * This function takes these values in to account and provides a current value and onChange event
  * The passed in values trump those of the parent context. A local state is used if neither passed in nor

@@ -7,6 +7,7 @@ import { TableFilterDatePopup } from './TableFilterDatePopup';
 import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
+import { tableConstants } from './tableConstants';
 
 /**
  * @param {object} props
@@ -79,8 +80,7 @@ export function TableFilterDateRange({
             <span className="utds-icon-before-calendar " aria-hidden="true" />
           </div>
         )}
-        // TODO: use constant for separator
-        value={(!currentValue || currentValue === '~~separator~~') ? '' : currentValue.replace(/~~separator~~/, '->')}
+        value={(!currentValue || currentValue === tableConstants.dateFilterSeparator) ? '' : currentValue.replace(tableConstants.dateFilterSeparator, ' -> ')}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
         // @ts-ignore
