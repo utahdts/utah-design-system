@@ -17,6 +17,7 @@ import { TableDocumentationPaginationTableExample } from './exampleTables/TableD
 import { TableDocumentationSimpleTableExample } from './exampleTables/TableDocumentationSimpleTableExample';
 import { TableDocumentationSortingTableExample } from './exampleTables/TableDocumentationSortingTableExample';
 import { TableDocumentationSortingSmall } from './exampleTables/TableDocumentationSortingSmall';
+import { TableDocumentationDateFilteringTableExample } from './exampleTables/TableDocumentationDateFilteringTableExample';
 
 export function TableDocumentation() {
   return (
@@ -177,6 +178,7 @@ export function TableDocumentation() {
       <TableDocumentationPaginationTableExample />
       <TableDocumentationSortingTableExample />
       <TableDocumentationFilteringPaginationTableExample />
+      <TableDocumentationDateFilteringTableExample />
     </div>
   );
 }
