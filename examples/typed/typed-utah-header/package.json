@@ -10,12 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.15.3",
+    "@utahdts/utah-design-system-header": "1.16.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.48",
+    "@types/react": "18.2.79",
     "@types/react-dom": "18.2.18",
     "@typescript-eslint/eslint-plugin": "6.7.0",
     "@typescript-eslint/parser": "6.7.0",
