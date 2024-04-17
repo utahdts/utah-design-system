@@ -110,6 +110,25 @@ export function TableFilterDateRangePopup({
         // @ts-ignore
         onFocus={() => setCurrentInput(BeginEndDates.END)}
       />
+      <div className="table-filter-date-popup__selected-date-chiclets">
+        <div
+          className={joinClassNames(
+            'table-filter-date-popup__selected-date-chiclet',
+            currentInput === BeginEndDates.BEGIN
+              ? 'table-filter-date-popup__selected-date-chiclet--selected'
+              : 'table-filter-date-popup__selected-date-chiclet--not-selected'
+          )}
+        />
+        <div
+          className={joinClassNames(
+            'table-filter-date-popup__selected-date-chiclet',
+            currentInput === BeginEndDates.END
+              ? 'table-filter-date-popup__selected-date-chiclet--selected'
+              : 'table-filter-date-popup__selected-date-chiclet--not-selected'
+          )}
+        />
+      </div>
+      <hr />
       <CalendarInput
         className="table-filter-date-popup__calendar"
         dateFormat={dateFormat}
