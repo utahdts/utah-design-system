@@ -43,7 +43,7 @@ export function authChangedEventHandler(newUtahIdData) {
       utahIdButton.innerHTML = '';
 
       // make button behave appropriately for logged in user status
-      if (utahIdData?.userInfo && utahIdData.userInfo?.authenticated) {
+      if (utahIdData?.userInfo?.authenticated) {
         // text in the button for screen readers
         const utahIDText = document.createElement('span');
         utahIDText.appendChild(document.createTextNode('UtahID Account:'));
