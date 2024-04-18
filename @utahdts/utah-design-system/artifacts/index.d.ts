@@ -47,7 +47,7 @@ declare module "@utahdts/utah-design-system" {
     children: React.ReactNode;
     className?: string | undefined;
     id?: string | undefined;
-    innerRef?: import("react").RefObject<HTMLButtonElement> | undefined;
+    innerRef?: import("react").RefObject<HTMLDivElement> | undefined;
     iconLeft?: React.ReactNode;
     iconRight?: React.ReactNode;
     isDisabled?: boolean | undefined;
@@ -259,7 +259,7 @@ declare module "@utahdts/utah-design-system" {
     className?: string | undefined;
     defaultValue?: boolean | undefined;
     errorMessage?: string | undefined;
-    innerRef?: import("react").RefObject<HTMLInputElement> | undefined;
+    innerRef?: import("react").RefObject<HTMLDivElement> | undefined;
     id: string;
     isDisabled?: boolean | undefined;
     isRequired?: boolean | undefined;
@@ -559,7 +559,7 @@ declare module "@utahdts/utah-design-system" {
   export function RadioButton({ className, defaultIsChecked, id, isDisabled, innerRef, label, labelClassName, name, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     defaultIsChecked?: boolean | undefined;
-    innerRef?: import("react").RefObject<HTMLInputElement> | undefined;
+    innerRef?: import("react").RefObject<HTMLDivElement> | undefined;
     id: string;
     isDisabled?: boolean | undefined;
     label: string;
