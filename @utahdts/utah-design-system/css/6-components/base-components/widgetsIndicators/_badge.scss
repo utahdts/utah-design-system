@@ -16,5 +16,9 @@
     font-size: var(--font-size-2xs);
     min-height: var(--spacing-xs);
     min-width: var(--spacing-2xs);
+
+    &:not(.badge--blank) {
+      min-width: 0.685rem;
+    }
   }
 }

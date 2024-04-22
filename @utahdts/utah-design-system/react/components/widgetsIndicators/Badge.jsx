@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash';
 import { joinClassNames } from '../../util/joinClassNames';
 
 /**
@@ -16,7 +17,7 @@ export function Badge({
   ...rest
 }) {
   return (
-    <div className={joinClassNames('badge', className)} ref={innerRef} {...rest}>
+    <div className={joinClassNames('badge', className, isEmpty(children) ? 'badge--blank' : '')} ref={innerRef} {...rest}>
       {children}
       <span className="visually-hidden">{title}</span>
     </div>
