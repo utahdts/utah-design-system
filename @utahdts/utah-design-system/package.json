@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "1.15.5",
+  "version": "1.16.0",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -28,7 +28,7 @@
   ],
   "peerDependencies": {
     "react": "18.x",
-    "react-router-dom": "6.22.1"
+    "react-router-dom": "6.22.3"
   },
   "scripts": {
     "build": "vite build",
@@ -65,29 +65,29 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.15.5",
-    "date-fns": "3.3.1",
+    "@utahdts/utah-design-system-header": "1.16.0",
+    "date-fns": "3.6.0",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
     "react-popper": "2.3.0",
-    "react-router-dom": "6.22.1",
+    "react-router-dom": "6.22.3",
     "use-immer": "0.9.0",
     "uuid": "9.0.1"
   },
   "devDependencies": {
-    "@types/lodash": "4.14.202",
-    "@types/react": "18.2.60",
-    "@types/react-dom": "18.2.19",
+    "@types/lodash": "4.17.0",
+    "@types/react": "18.2.79",
+    "@types/react-dom": "18.2.25",
     "@types/uuid": "9.0.8",
     "@vitejs/plugin-react": "4.2.1",
-    "@vitest/coverage-istanbul": "1.3.1",
-    "@vitest/ui": "1.3.1",
+    "@vitest/coverage-istanbul": "1.5.0",
+    "@vitest/ui": "1.5.0",
     "jsdom": "24.0.0",
-    "sass": "1.71.1",
-    "typescript": "5.3.3",
-    "vite": "5.1.4",
-    "vitest": "1.3.1"
+    "sass": "1.75.0",
+    "typescript": "5.4.5",
+    "vite": "5.2.9",
+    "vitest": "1.5.0"
   },
   "type": "module"
 }

@@ -1,3 +1,45 @@
+/*
+  Tried to auto generate this file from the JSDoc, but it becomes very ugly.
+  Tried to massage the generated output, but it broke.
+  This file appears to work, but requires manual creation.
+
+  To Create:
+    * run `npm run buildTypesTsc`
+    * edit the file created in dist/index.d.ts
+      * single module named "@utahdts/utah-design-system-header"
+      * just the exports from the `declare module "src/index" {` need put in the module
+    * put the updated contents in the /artifacts/index.d.ts file
+    * mangle it down to one `module`
+    * run `npm run tsc` from root to make sure it doesn't cause errors
+
+  Super painful to have to do this manual. But a better way is sure to surface at some point of time.
+
+  03/04/2024 method (modules that show errors):
+    * replace `declare module "src/@types/jsDocTypes.d"` with `declare module "@utahdts/utah-design-system-header"`
+    * General gist is to combine everything in to the one module
+      * Remove duplicates
+      * Remove imports from jsDcoTypes since they're already include
+    * delete erroring module: `declare module "src/index" {`
+    * for childrenMenuTypes
+      * move in to main module block
+      * update path to start with ../ so that it gets a correct path
+    * repeat for the other erroring modules
+      * PopupPlacement
+      * events
+      * sizes
+    * delete `declare module "src/js/settings/defaultSettings" {`
+    * merge in function modules:
+      * `declare module "src/js/misc/checkForError" {`
+      * `declare module "src/js/misc/notNull" {`
+      * `declare module "src/js/misc/isString" {`
+      * `declare module "src/js/misc/renderDOMSingle" {`
+    * move SettingsKeeper in to main module and cleanup
+    * merge in more function modules:
+      * `declare module "src/js/settings/getUtahHeaderSettings" {`
+      * even those not in error so they are in the global module
+        * uuidv4
+      * remove things like `export type AriaHasPopupType = import("src/@types/jsDocTypes.d").AriaHasPopupType;`
+*/
 declare module "@utahdts/utah-design-system-header" {
   const _default: false;
   export default _default;
@@ -157,6 +199,7 @@ declare module "@utahdts/utah-design-system-header" {
     titleURL: string;
     utahId?: boolean | UtahIDSettings | undefined;
   };
+  export type childrenMenuTypes = ChildrenMenuTypes;
   export namespace childrenMenuTypes {
     let FLYOUT: ChildrenMenuTypes;
     let INLINE: ChildrenMenuTypes;
@@ -180,12 +223,10 @@ declare module "@utahdts/utah-design-system-header" {
     let TOP_START: PopupPlacement;
     let TOP_END: PopupPlacement;
   }
-  export type events = Events;
   export namespace events {
     let HEADER_LOADED: Events;
     let HEADER_UNLOADED: Events;
   }
-  export type sizes = Size;
   export namespace sizes {
     let SMALL: Size;
     let MEDIUM: Size;
@@ -347,6 +388,7 @@ declare module "@utahdts/utah-design-system-header" {
     onClickHandler?: ((e: MouseEvent) => boolean) | undefined;
     shouldOnClickCloseMenu: boolean;
   }): void;
+  export function allowAriaExpanded(element: Element): boolean;
   export function findRecursive<T>(object: T | T[], recursiveFields: string[], isMatchFunc: (o: T) => boolean): boolean;
   export function showHideElement(element: Element, isShown: boolean, visibleClass: string, hiddenClass: string): void;
   export function unloadGlobalEvents(): void;
@@ -372,11 +414,6 @@ declare module "@utahdts/utah-design-system-header" {
   export function renderMobileActionItems(): void;
   export function renderFooterCopyrightYear(footerElement: Element, copyrightYear: string | null | undefined): void;
   export function renderFooter(): Element | null;
-  export type PreviousFooterSettings = {
-    copyrightYear: string | null | undefined;
-    domLocationTarget: DomLocationTarget;
-    showHorizontalRule: boolean | undefined;
-  };
   export function hookupTooltip(element: HTMLElement, dom: Node): void;
   export function renderActionItem(actionItem: ActionItem): Element;
   export function ActionItems(): Element | null;
@@ -422,14 +459,6 @@ declare module "@utahdts/utah-design-system-header" {
   export function setUtahHeaderSettings(newSettings: SettingsInput): Settings;
   export function setUtahFooterSettings(footerSettings?: FooterSettings | undefined): FooterSettings | undefined;
   export type environments = Environments;
-  export namespace environments {
-    let NONE: Environments;
-    let PROD: Environments;
-    let AT: Environments;
-    let DEV: Environments;
-    let CUSTOM: Environments;
-    let UNITTEST: Environments;
-  }
   export function toHash(thing: object | string): number;
   export function httpRequest({ url, method, headers, timeout, onResolve, onReject, }: {
     url: string;

@@ -329,7 +329,7 @@
  */
 
 /**
- * @typedef TabGroupPropsShape {
+ * @typedef TabGroupExamplePropsShape {
  *  @property {string} tabA
  *  @property {string} tabB
  *  @property {string} panelA
