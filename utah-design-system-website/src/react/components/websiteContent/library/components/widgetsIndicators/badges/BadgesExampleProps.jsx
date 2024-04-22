@@ -5,7 +5,7 @@ import { Form, TextArea, TextInput } from '@utahdts/utah-design-system';
 /**
  * @param {object} props
  * @param {import('use-immer').Updater<{props: BadgesExamplePropsShape}>} props.setState
- * @param {object} props.state
+ * @param {{props: BadgesExamplePropsShape}} props.state
  * @returns {import('react').JSX.Element}
  */
 
@@ -13,7 +13,6 @@ export function BadgesExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
-      // @ts-ignore
       setState={setState}
       state={state}
     >
