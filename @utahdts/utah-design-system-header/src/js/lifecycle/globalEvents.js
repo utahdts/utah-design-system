@@ -1,4 +1,5 @@
 import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
+import { allowAriaExpanded } from '../misc/allowAriaExpanded';
 import { showHideElement } from '../misc/showHideElement';
 
 /** @typedef {import('src/@types/jsDocTypes.d').GlobalEventType} GlobalEventType */
@@ -34,7 +35,7 @@ export function hideAllMenus() {
       const popupId = popup.getAttribute('id');
       if (popupId) {
         const controllingElement = document.querySelector(`[aria-controls="${popupId}"]`);
-        if (controllingElement) {
+        if (controllingElement && allowAriaExpanded(controllingElement)) {
           controllingElement.setAttribute('aria-expanded', 'false');
         }
       }

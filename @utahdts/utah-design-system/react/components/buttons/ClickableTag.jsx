@@ -9,7 +9,7 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {import('react').ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className] modify your tag via className like 'tag--primary' and other modifiers found in the tag.scss
  * @param {string} [props.id] the tag id
- * @param {import('react').RefObject<HTMLButtonElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
  * @param {import('react').ReactNode} [props.iconLeft] an icon for the left side
  * @param {import('react').ReactNode} [props.iconRight] an icon for the right side
  * @param {boolean} [props.isDisabled] tag isDisabled state
@@ -32,7 +32,7 @@ export function ClickableTag({
   ...rest
 }) {
   return (
-    <div className="tag__wrapper">
+    <div className="tag__wrapper" ref={innerRef}>
       <button
         aria-pressed={isSelected}
         className={joinClassNames(
@@ -45,7 +45,6 @@ export function ClickableTag({
         disabled={isDisabled}
         id={id}
         onClick={onClick && handleEvent((e) => onClick?.(e))}
-        ref={innerRef}
         type="button"
         {...rest}
       >

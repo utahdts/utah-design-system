@@ -13,7 +13,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.className]
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {import('react').RefObject<HTMLInputElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
@@ -56,7 +56,7 @@ export function Checkbox({
   });
 
   return (
-    <div className={joinClassNames('input-wrapper input-wrapper--checkbox', wrapperClassName)}>
+    <div className={joinClassNames('input-wrapper input-wrapper--checkbox', wrapperClassName)} ref={innerRef}>
       <div className="input-wrapper--checkbox-inner">
         <label htmlFor={id} className={labelClassName ?? undefined}>
           {label}
@@ -71,7 +71,6 @@ export function Checkbox({
           name={name || id}
           onChange={currentOnChange}
           onKeyUp={currentOnFormKeyUp}
-          ref={innerRef}
           required={isRequired}
           type="checkbox"
           {...rest}
