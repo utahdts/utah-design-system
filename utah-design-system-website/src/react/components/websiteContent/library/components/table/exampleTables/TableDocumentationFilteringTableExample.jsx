@@ -55,7 +55,7 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterNone />
 
                 {/*
-                  Present a select input of the possible values from which to filter;
+                  Present a combo box input of the possible values from which to filter;
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}

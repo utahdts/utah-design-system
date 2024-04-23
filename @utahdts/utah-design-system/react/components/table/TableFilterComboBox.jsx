@@ -1,4 +1,3 @@
-import React from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
@@ -6,7 +5,6 @@ import { useTableContext } from './hooks/useTableContext';
 import { ComboBox } from '../forms/ComboBox/ComboBox';
 
 /**
- * @template TableDataT
  * @param {object} props
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
@@ -15,7 +13,7 @@ import { ComboBox } from '../forms/ComboBox/ComboBox';
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} [props.id]
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
- * @param {((e: React.ChangeEvent) => TableDataT)} [props.onChange]
+ * @param {(() => {})} [props.onChange]
  * @param {string} props.recordFieldPath
  * @param {string | number} [props.value]
  * @returns {import('react').JSX.Element}
@@ -36,14 +34,16 @@ export function TableFilterComboBox({
   const {
     currentOnChange,
     currentValue,
+    setValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
+    // @ts-ignore
     defaultOnChange: (
       /**
-       * @param {import('react').BaseSyntheticEvent} e
-       * @returns {any}
+       * @param {string} newValue
+       * @returns {string}
        */
-      (e) => e.target.value
+      (newValue) => newValue
     ),
     defaultValue,
     onChange,
@@ -57,9 +57,11 @@ export function TableFilterComboBox({
     <th className={joinClassNames('table-header__cell table-header__cell--filter-combo-box', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       <ComboBox
         id={`${tableId}__table-filter-combo-box-${recordFieldPath}`}
+        isClearable
         label={`Filter ${a11yLabel}`}
         // @ts-ignore
         onChange={currentOnChange}
+        onClear={() => setValue('')}
         value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
