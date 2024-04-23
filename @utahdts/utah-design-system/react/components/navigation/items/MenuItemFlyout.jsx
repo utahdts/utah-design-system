@@ -37,6 +37,14 @@ export function MenuItemFlyout({
   const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
   useClickOutside([popperRef], () => setIsChildrenOpen(false), !isChildrenOpen);
 
+  const isExpanded = () => {
+    let retVal;
+    if (!triggerOnHover) {
+      retVal = isChildrenOpen;
+    }
+    return retVal;
+  };
+
   useEffect(() => {
     if (triggerOnHover && buttonRef?.current && popperRef?.current && !buttonRef?.current.onclick) {
       popupFocusHandler(
@@ -61,7 +69,7 @@ export function MenuItemFlyout({
           (!menuItem?.link || menuItem?.link?.includes('::'))
             ? (
               <button
-                aria-expanded={triggerOnHover ? undefined : isChildrenOpen ? 'true' : 'false'}
+                aria-expanded={isExpanded()}
                 aria-controls={`menu-item-${menuItem.id}-${menuItem.link || 'link'}-popup`}
                 aria-haspopup="menu"
                 className="menu-item__button-title"
