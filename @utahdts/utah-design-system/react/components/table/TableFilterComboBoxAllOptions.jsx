@@ -36,8 +36,10 @@ export function TableFilterComboBoxAllOptions({
   const {
     currentOnChange,
     currentValue,
+    setValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
+    // @ts-ignore
     defaultOnChange: (
       /**
        * @param {string} newValue
@@ -77,9 +79,12 @@ export function TableFilterComboBoxAllOptions({
     >
       <ComboBox
         id={`${tableId}__table-filter-combo-box-${recordFieldPath}`}
+        isClearable
         label={`Filter ${a11yLabel}`}
+        // @ts-ignore
         onChange={currentOnChange}
-        value={currentValue}
+        onClear={() => setValue('')}
+        value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
