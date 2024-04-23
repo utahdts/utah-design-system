@@ -1,6 +1,6 @@
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
 
-/** @typedef {import('utah-design-system-website').TabGroupPropsShape} TabGroupExamplePropsShape */
+/** @typedef {import('utah-design-system-website').TabGroupExamplePropsShape} TabGroupExamplePropsShape */
 
 /**
  * @param {object} props
