@@ -8,8 +8,12 @@
       "development-local": "./index.js",
       "development": "./dist/utah-design-system.es.js",
       "production": "./dist/utah-design-system.es.js",
-      "import": "./dist/utah-design-system.es.js",
+      "import": {
+        "default": "./dist/utah-design-system.es.js",
+        "types": "./dist/index.d.ts"
+      },
       "require": "./dist/utah-design-system.umd.js",
+      "types": "./dist/src/index.d.ts",
       "default": [
         "./dist/utah-design-system.es.js",
         "./dist/utah-design-system.umd.js",
@@ -21,6 +25,7 @@
     "./css/index.scss": "./css/index.scss"
   },
   "main": "index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "css",
     "dist",
