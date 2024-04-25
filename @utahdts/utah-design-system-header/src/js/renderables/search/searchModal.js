@@ -136,6 +136,10 @@ export function setupSearchModal() {
   hiddenLastFocusableButton.addEventListener('focusin', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    closeButton.focus();
+
+    // if search isn't visible, don't loop focus back around (focus looping is for modal)
+    if (!searchModal.classList.contains(domConstants.VISUALLY_HIDDEN)) {
+      closeButton.focus();
+    }
   });
 }
