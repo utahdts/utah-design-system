@@ -25,7 +25,7 @@ export function SpinnerPropsDocumentation() {
           <TableBody>
             <TableRow>
               <TableCell><code className="primary-color">children</code></TableCell>
-              <TableCell><code>react node</code></TableCell>
+              <TableCell><code>React.ReactNode</code></TableCell>
               <TableCell>null</TableCell>
               <TableCell>
                 Most often, children is the percentage of progress. But, you can have it be any element to be rendered inside the spinner.

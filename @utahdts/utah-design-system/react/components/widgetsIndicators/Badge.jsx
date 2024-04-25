@@ -18,7 +18,7 @@ export function Badge({
 }) {
   return (
     <div className={joinClassNames('badge', className, isEmpty(children) ? 'badge--blank' : '')} ref={innerRef} {...rest}>
-      {children}
+      <span className="badge__value">{children}</span>
       <span className="visually-hidden">{title}</span>
     </div>
   );

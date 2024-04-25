@@ -4,21 +4,30 @@
 
 #{class-vars.$base-class} {
   .badge {
-    background: var(--red-color);
-    border-radius: var(--spacing);
-    padding: var(--spacing-3xs) var(--spacing-2xs);
+    background-color: var(--badge-color);
+    border-radius: var(--radius-circle);
+    box-sizing: border-box;
     color: white;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateY(-50%);
-    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-2xs);
+    font-weight: var(--font-weight-semi-bold);
+    line-height: var(--font-size-2xs);
     min-height: var(--spacing-xs);
     min-width: var(--spacing-2xs);
+    padding: var(--spacing-3xs) var(--spacing-2xs);
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-50%);
 
     &:not(.badge--blank) {
-      min-width: 0.685rem;
+      min-width: 1rem;
+      right: -2px;
+      top: -2px;
+    }
+
+    &--blank {
+      width: 9px;
+      height: 9px;
     }
   }
 }

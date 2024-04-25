@@ -521,7 +521,7 @@ export function ButtonDocumentation() {
 
                       <TableRow>
                         <TableCell><code className="primary-color">children</code></TableCell>
-                        <TableCell><code>react node</code></TableCell>
+                        <TableCell><code>React.ReactNode</code></TableCell>
                         <TableCell><em>required</em></TableCell>
                         <TableCell>
                           Most often, children is the title of button. But, you can have it be any element to be rendered inside the button.

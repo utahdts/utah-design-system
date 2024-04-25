@@ -189,7 +189,7 @@ export function BadgesDocumentation() {
                     <TableBody>
                       <TableRow>
                         <TableCell><code className="primary-color">children</code></TableCell>
-                        <TableCell><code>react node</code></TableCell>
+                        <TableCell><code>React.ReactNode</code></TableCell>
                         <TableCell>null</TableCell>
                         <TableCell>
                           Most often, <code>children</code> is the content of the badge.<br />
