@@ -168,7 +168,7 @@
  *  @property {string | ((menuItem: MainMenuItem | MenuItem) => string)} [parentMenuLinkSuffix] See MainMenu for explanation
  *  @property {boolean} [removePopupArrow] allows removing the popup border arrow for flyouts
  * }
-*/
+ */
 
 /**
  * @typedef Badge {
