@@ -83,7 +83,9 @@
 
 /**
  * @typedef BadgesExamplePropsShape {
- *  @property {string} onClick
+ *  @property {string} children
+ *  @property {string} className
+ *  @property {string} title
  * }
  */
 

@@ -25,7 +25,7 @@ export function AccordionPropsDocumentation() {
           <TableBody>
             <TableRow>
               <TableCell><code className="primary-color">children</code></TableCell>
-              <TableCell><code>React Node</code></TableCell>
+              <TableCell><code>React.ReactNode</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
                 The content of the accordion. You can have it

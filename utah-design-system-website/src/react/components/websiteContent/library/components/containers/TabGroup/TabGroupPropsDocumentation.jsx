@@ -22,7 +22,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><code className="primary-color">children</code></TableCell>
                 <TableCell>
                   <div className="props-code-wrapper">
-                    <code>node</code>
+                    <code>React.ReactNode</code>
                   </div>
                 </TableCell>
                 <TableCell><em>required</em></TableCell>
@@ -100,7 +100,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><code className="primary-color">children</code></TableCell>
                 <TableCell>
                   <div className="props-code-wrapper">
-                    <code>node</code>
+                    <code>React.ReactNode</code>
                   </div>
                 </TableCell>
                 <TableCell><em>required</em></TableCell>
@@ -146,7 +146,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><code className="primary-color">children</code></TableCell>
                 <TableCell>
                   <div className="props-code-wrapper">
-                    <code>node</code>
+                    <code>React.ReactNode</code>
                   </div>
                 </TableCell>
                 <TableCell><em>required</em></TableCell>
@@ -185,7 +185,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><code className="primary-color">children</code></TableCell>
                 <TableCell>
                   <div className="props-code-wrapper">
-                    <code>node</code>
+                    <code>React.ReactNode</code>
                   </div>
                 </TableCell>
                 <TableCell><em>required</em></TableCell>
@@ -224,7 +224,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><code className="primary-color">children</code></TableCell>
                 <TableCell>
                   <div className="props-code-wrapper">
-                    <code>node</code>
+                    <code>React.ReactNode</code>
                   </div>
                 </TableCell>
                 <TableCell><em>required</em></TableCell>
@@ -255,7 +255,7 @@ export function TabGroupPropsDocumentation() {
                 <TableCell><code className="primary-color">children</code></TableCell>
                 <TableCell>
                   <div className="props-code-wrapper">
-                    <code>node</code>
+                    <code>React.ReactNode</code>
                   </div>
                 </TableCell>
                 <TableCell><em>required</em></TableCell>
