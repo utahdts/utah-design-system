@@ -45,7 +45,7 @@ export function TableDocumentationFilteringTableExample() {
         headingLevel={4}
       >
         <TableWrapper>
-          <Table>
+          <Table className="table--min-height">
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
