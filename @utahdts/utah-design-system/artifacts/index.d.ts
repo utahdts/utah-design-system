@@ -938,6 +938,34 @@ declare module "@utahdts/utah-design-system" {
     currentValue: TableDataT | null;
     setValue: (newValue: TableDataT) => void;
   };
+  export function TableFilterComboBox({ children, className, defaultValue, exactMatch, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+    children?: React.ReactNode;
+    className?: string | undefined;
+    defaultValue?: string | number | undefined;
+    exactMatch?: boolean | undefined;
+    innerRef?: import("react").RefObject<HTMLTableCellElement> | undefined;
+    id?: string | undefined;
+    a11yLabel: string;
+    onChange?: (() => {}) | undefined;
+    recordFieldPath: string;
+    value?: string | number | undefined;
+  }): React.JSX.Element;
+  export function TableFilterComboBoxAllOptions({ className, defaultValue, exactMatch, id, innerRef, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+    className?: string | undefined;
+    defaultValue?: string | number | undefined;
+    exactMatch?: boolean | undefined;
+    id?: string | undefined;
+    innerRef?: import("react").RefObject<HTMLTableCellElement> | undefined;
+    a11yLabel: string;
+    onChange?: (() => {}) | undefined;
+    recordFieldPath: string;
+    value?: string | undefined;
+  }): React.JSX.Element;
+  export function TableFilterComboBoxOption({ className, label, value, ...rest }: {
+    className?: string | undefined;
+    label: string;
+    value: string;
+  }): React.JSX.Element;
   export function TableFilterDate<TableDataT>({ className, defaultValue, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
     defaultValue?: TableDataT | undefined;
