@@ -12,7 +12,7 @@
         "types": "./dist/index.d.ts"
       },
       "require": "./dist/utah-design-system-header.umd.js",
-      "types": "./dist/src/index.d.ts",
+      "types": "./dist/index.d.ts",
       "default": [
         "./dist/utah-design-system-header.es.js",
         "./dist/utah-design-system-header.umd.js",
@@ -31,7 +31,7 @@
   "scripts": {
     "build": "vite build",
     "buildw": "vite build --watch",
-    "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
+    "buildTypes": "mkdir -p dist && cp ./artifacts/index.d.ts ./dist/",
     "buildTypesTsc": "npx tsc",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
     "cleani": "run-s clean npmi",
