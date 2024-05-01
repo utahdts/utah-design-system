@@ -15,6 +15,7 @@
     position: relative;
     border: 1px solid var(--gray-color);
     transition: all var(--timing-quick) ease;
+    border-radius: 0;
 
     &:not(:last-of-type) {
       border-bottom: none;
