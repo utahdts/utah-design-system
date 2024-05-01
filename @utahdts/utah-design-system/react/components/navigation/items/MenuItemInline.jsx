@@ -2,10 +2,9 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
+import { menuTypes } from '../../../enums/menuTypes';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { IconButton } from '../../buttons/IconButton';
-import { Icons } from '../../icons/Icons';
-import { menuTypes } from '../../../enums/menuTypes';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */

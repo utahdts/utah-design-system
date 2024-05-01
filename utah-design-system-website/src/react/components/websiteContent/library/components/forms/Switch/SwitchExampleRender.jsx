@@ -1,4 +1,4 @@
-import { Icons, Switch } from '@utahdts/utah-design-system';
+import { Switch } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').SwitchExamplePropsShape} SwitchExamplePropsShape */
 

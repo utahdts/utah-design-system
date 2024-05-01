@@ -1,6 +1,4 @@
-import {
-  Button, Icons, Modal, ModalContent, ModalFooter, ModalTitle
-} from '@utahdts/utah-design-system';
+import { Button, Modal, ModalContent, ModalFooter, ModalTitle } from '@utahdts/utah-design-system';
 import { useCallback, useState } from 'react';
 
 export function LargeModal() {

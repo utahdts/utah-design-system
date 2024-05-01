@@ -1,13 +1,21 @@
 import {
   Accordion,
   ClickableTag,
-  formElementSizesEnum, Icons, Tab, TabGroup, TabList, TabPanel, TabPanels, Tag, useBanner
+  formElementSizesEnum,
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tag,
+  useBanner,
 } from '@utahdts/utah-design-system';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { IconsWebsite } from '../../../../IconsWebsite';
 import { ClickableTagCssClassesDocumentation } from './clickable/ClickableTagCssClassesDocumentation';
 import { ClickableTagExampleCodeReact } from './clickable/ClickableTagExampleCodeReact';
 import { ClickableTagExampleProps } from './clickable/ClickableTagExampleProps';
@@ -130,8 +138,8 @@ export function TagsDocumentation() {
               <Tag iconRight={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}>Right</Tag>
             </div>
             <div className="flex gap-s">
-              <Tag size={formElementSizesEnum.LARGE} iconLeft={<Icons.IconSlack />} className="tag--primary-color">Slack</Tag>
-              <Tag size={formElementSizesEnum.LARGE} iconLeft={<Icons.IconGitHub />} className="tag--primary-color">GitHub</Tag>
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={<IconsWebsite.IconSlack />} className="tag--primary-color">Slack</Tag>
+              <Tag size={formElementSizesEnum.LARGE} iconLeft={<IconsWebsite.IconGitHub />} className="tag--primary-color">GitHub</Tag>
             </div>
           </div>
         )}

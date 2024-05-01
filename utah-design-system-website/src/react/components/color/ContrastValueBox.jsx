@@ -1,4 +1,3 @@
-import { Icons } from '@utahdts/utah-design-system';
 import { COLOR_RATINGS } from './COLOR_RATINGS';
 
 /** @typedef {import('utah-design-system-website').ColorRating} ColorRating */
