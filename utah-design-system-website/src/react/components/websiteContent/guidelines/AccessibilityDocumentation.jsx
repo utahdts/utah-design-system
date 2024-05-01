@@ -3,7 +3,6 @@
 import {
   Button,
   ExternalLink,
-  Icons,
   Table,
   TableBody,
   TableCell,

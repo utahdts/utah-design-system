@@ -1,13 +1,11 @@
-/* eslint-disable max-len */
 import {
-  Icons,
   Switch,
   Tab,
   TabGroup,
   TabList,
   TabPanel,
   TabPanels,
-  formElementSizesEnum,
+  formElementSizesEnum
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
@@ -114,7 +112,7 @@ export function SwitchDocumentation() {
             <Switch
               label="With Icon"
               id="switch-icon"
-              sliderChildren={<Icons.IconCheck />}
+              sliderChildren={<span className="utds-icon-before-check" aria-hidden="true" />}
             />
           </div>
         )}
@@ -230,7 +228,8 @@ export function SwitchDocumentation() {
           native HTML elements or attributes first!
         </li>
         <li>
-          All form controls should have labels, including <Link to={pageUrls.radioButton}>radio buttons</Link>, <Link to={pageUrls.checkbox}>checkboxes</Link>, and
+          All form controls should have labels,
+          including <Link to={pageUrls.radioButton}>radio buttons</Link>, <Link to={pageUrls.checkbox}>checkboxes</Link>, and
           switches. In most cases, this is done by using the <code>&lt;label&gt;</code> element.
         </li>
         <li>
