@@ -41,7 +41,7 @@
     button.vertical-menu__button-title,
     a[href].vertical-menu__link-title,
     button.menu-item__button-title,
-    a[href].menu-item__link-title,{
+    a[href].menu-item__link-title {
       border-radius: var(--radius-circle);
       border: none;
       box-shadow: none;
@@ -75,7 +75,6 @@
         box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
         color: var(--primary-color);
       }
-
     }
     a.vertical-menu__link-title {
       &:hover {
@@ -93,8 +92,8 @@
       background-color: var(--gray-medium-light-color);
     }
     & .utds-icon-before-chevron-right {
-      font-size: .6rem;
-      line-height: .5;
+      font-size: 0.65rem;
+      line-height: 0.5;
       transform: rotate(0deg);
       transition: transform var(--timing-quick) ease;
       &::before {

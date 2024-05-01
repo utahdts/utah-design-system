@@ -8,7 +8,6 @@ export default defineConfig(() => ({
       all: true,
       exclude: [
         'artifacts/index.d.ts',
-        '**/Icons.jsx',
         '**/propTypesShapes/**',
         'index.js',
         'react/enums/**',

@@ -175,7 +175,7 @@ export function ColorPopup({ onClose }) {
                       setCopiedUrlTitle('Share URL');
                     }, 1500);
                   })
-                // eslint-disable-next-line no-console
+                  // eslint-disable-next-line no-console
                   .catch((e) => console.error(e));
               }}
             >
@@ -187,7 +187,7 @@ export function ColorPopup({ onClose }) {
               ? (
                 <div className="color-picker-popup__buttons">
                   <IconButton
-                    icon={<Icons.IconDangerous />}
+                    icon={<span className="utds-icon-before-visibility" aria-hidden="true" />}
                     title="Randomize color picker"
                     className="icon-button--borderless"
                     onClick={() => (

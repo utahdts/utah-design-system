@@ -21,7 +21,7 @@ export function LargeModal() {
           >
             <ModalTitle>
               <div className="flex items-center">
-                {Icons.IconDangerous({ className: 'mr-spacing-s icon-24' })}
+                <span className="utds-icon-before-warning mr-spacing-s" aria-hidden="true" />
                 <span>Are you sure?</span>
               </div>
             </ModalTitle>

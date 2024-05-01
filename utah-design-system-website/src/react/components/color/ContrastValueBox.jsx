@@ -28,7 +28,7 @@ export function ContrastValueBox({
           {contrastRating === COLOR_RATINGS.BAD
             ? (
               <>
-                <Icons.IconDangerous />
+                <span className="utds-icon-before-error" aria-hidden="true" />
                 FAIL
               </>
             )

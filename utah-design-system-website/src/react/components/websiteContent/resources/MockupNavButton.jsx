@@ -1,4 +1,3 @@
-import { Icons } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 
 /**
@@ -17,7 +16,7 @@ export function MockupNavButton({ pageLinks }) {
             to={pageLink.url}
           >
             View {pageLink.title} Page
-            <span className="button--icon button--icon-right"><Icons.IconArrowRight /></span>
+            <span className="button--icon button--icon-right utds-icon-before-arrow-right" aria-hidden="true" />
           </Link>
         ))
       }

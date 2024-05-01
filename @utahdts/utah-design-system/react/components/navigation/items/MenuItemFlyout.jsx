@@ -1,14 +1,13 @@
-import { NavLink } from 'react-router-dom';
-import { useImmer } from 'use-immer';
+import { popupFocusHandler } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
-import { popupFocusHandler } from '@utahdts/utah-design-system-header';
-import { joinClassNames } from '../../../util/joinClassNames';
-import { IconButton } from '../../buttons/IconButton';
+import { NavLink } from 'react-router-dom';
+import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
-import { Icons } from '../../icons/Icons';
 import { menuTypes } from '../../../enums/menuTypes';
 import { useClickOutside } from '../../../hooks/useClickOutside';
+import { joinClassNames } from '../../../util/joinClassNames';
+import { IconButton } from '../../buttons/IconButton';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
@@ -99,7 +98,7 @@ export function MenuItemFlyout({
             )
         }
         {
-          (menuItem.children && menuItem?.link)
+          (menuItem.children && menuItem.link)
             ? (
               <IconButton
                 appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
@@ -107,7 +106,7 @@ export function MenuItemFlyout({
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
                 className="menu-item__chevron"
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                icon={<Icons.IconChevron />}
+                icon={<span className="utds-icon-before-chevron-right icon" aria-hidden="true" />}
                 title="Expand sub-menu"
               />
             )

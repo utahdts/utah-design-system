@@ -101,7 +101,7 @@ export function MenuItemInline({
                   isChildrenOpen && 'menu-item__chevron--open'
                 )}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
-                icon={<Icons.IconChevron />}
+                icon={<span className="utds-icon-after-chevron-right icon" aria-hidden="true" />}
                 title="Expand sub-menu"
               />
             )

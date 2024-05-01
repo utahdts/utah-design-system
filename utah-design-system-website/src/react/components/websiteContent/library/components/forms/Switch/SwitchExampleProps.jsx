@@ -49,8 +49,8 @@ export function SwitchExampleProps({ setState, state }) {
           <TextInput id="props.width" label="Width" className="input--height-small1x" />
 
           <Select id="props.icon" label="Icon (sliderChildren)" className="input--height-small1x">
-            <SelectOption label="Check" value="IconCheck" />
-            <SelectOption label="Light Mode" value="IconLightMode" />
+            <SelectOption label="Check" value="checkbox" />
+            <SelectOption label="Visibility" value="visibility" />
             <SelectOption label="None" value="none" />
           </Select>
         </Form>

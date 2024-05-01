@@ -674,21 +674,6 @@ declare module "@utahdts/utah-design-system" {
     value?: string | undefined;
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
-  export type Icons = IconFunc;
-  export namespace Icons {
-    let IconArrowLeft: IconFunc;
-    let IconArrowRight: IconFunc;
-    let IconChevron: IconFunc;
-    let IconCheck: IconFunc;
-    let IconLightMode: IconFunc;
-    let IconSlack: IconFunc;
-    let IconGitHub: IconFunc;
-    let IconEnvelope: IconFunc;
-    let IconShare: IconFunc;
-    let IconReset: IconFunc;
-    let IconDangerous: IconFunc;
-    let IconSadFace: IconFunc;
-  }
   export function ExternalLink({ children, href, ...rest }: {
     children: React.ReactNode;
     href: string;
@@ -1156,10 +1141,6 @@ declare module "@utahdts/utah-design-system" {
   export type FormElementSizes = 'small3x' | 'small2x' | 'small1x' | 'small' | 'medium' | 'large' | 'large1x';
   export type MenuTypes = 'vertical' | 'horizontal';
   export type IconButtonAppearance = 'solid' | 'outlined' | 'borderless';
-  export type IconFunc = (props: {
-    className?: string;
-    altText?: string;
-  }) => React.ReactNode;
   export type BannerPlacement = 'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right';
   export type TableSortingRuleFieldType = 'date' | 'number' | 'string';
   export type WrapInElement = 'div' | 'nav';
