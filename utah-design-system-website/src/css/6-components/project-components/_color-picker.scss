@@ -16,9 +16,14 @@
     border: 1px solid var(--gray-color);
     transition: all var(--timing-quick) ease;
     border-radius: 0;
+    padding: 0;
 
-    &:not(:last-of-type) {
-      border-bottom: none;
+    &__wrapper {
+      position: relative;
+
+      &:not(:last-of-type) .color-picker {
+        border-bottom: none;
+      }
     }
 
     .fixed-width-font {
@@ -36,10 +41,12 @@
     &__hex-color {
       display: flex;
       gap: var(--spacing-2xs);
+      height: 20px;
     }
     &__contrast {
       border: 1px solid currentColor;
       margin-top: -17px;
+      margin-left: -6px;
       line-height: 18px;
     }
     &__ratio {
@@ -80,10 +87,20 @@
       outline: none;
       padding: 0;
       text-align: center;
-      width: 75px;
+      width: 65px;
       border-radius: 0;
       &:hover {
         border: 1px solid white;
+      }
+    }
+
+    &__eye-dropper {
+      position: absolute;
+      top: 34px;
+      right: 5px;
+      z-index: 50;
+      svg {
+        width: 20px;
       }
     }
 
