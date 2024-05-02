@@ -1,12 +1,15 @@
 import {
   IconButton,
+  Popup,
   TextInput,
   handleKeyPress,
   joinClassNames,
   useGlobalKeyEvent
 } from '@utahdts/utah-design-system';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
+import { HexColorPicker } from 'react-colorful';
 import tinycolor from 'tinycolor2';
+import { useImmer } from 'use-immer';
 import { useAppContext } from '../../context/AppContext/useAppContext';
 import { isLightColor } from '../../util/color/isLightColor';
 import { IconsWebsite } from '../websiteContent/IconsWebsite';
@@ -35,6 +38,8 @@ export function ColorPicker({
   onClick,
   title,
 }) {
+  const [isColorPickerPopupVisible, setIsColorPickerPopupVisible] = useImmer(false);
+  const colorPickerIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const isLight = isLightColor(value);
   const textColor = isLight ? (colorGray || '#474747') : '#ffffff';
   const tinyColorValue = tinycolor(value).toHexString();
@@ -111,9 +116,24 @@ export function ColorPicker({
       <IconButton
         icon={<IconsWebsite.IconColorize />}
         className="color-picker__eye-dropper"
+        innerRef={colorPickerIconRef}
+        onClick={(e) => {
+          onClick(e);
+          setIsColorPickerPopupVisible(true);
+        }}
         size="small1x"
         title="Pick Color"
       />
+      <Popup
+        ariaLabelledBy="Pick Color"
+        id={`color-picker-popup__${label}`}
+        isVisible={isColorPickerPopupVisible}
+        onVisibleChange={(_, isVisible) => setIsColorPickerPopupVisible(isVisible)}
+        referenceElement={colorPickerIconRef}
+        role="dialog"
+      >
+        <HexColorPicker color={value} onChange={onChange} />
+      </Popup>
     </div>
   );
 }
