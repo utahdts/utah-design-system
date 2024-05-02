@@ -87,13 +87,11 @@ export function ColorPopup({ onClose }) {
     <div className="color-picker-popup__backdrop">
       <div
         className="color-picker-popup"
-        role="button"
         style={{
           position: mousePositionRef.current ? 'absolute' : undefined,
           left: mousePositionRef.current?.x ? `${mousePositionRef.current.x - mousePositionOffset.x}px` : undefined,
           top: mousePositionRef.current?.y ? `${mousePositionRef.current.y - mousePositionOffset.y}px` : undefined,
         }}
-        tabIndex={0}
       >
         <div className="color-picker-popup__title-bar" ref={draggableDivRef}>
           <button

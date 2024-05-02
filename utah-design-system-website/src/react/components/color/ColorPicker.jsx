@@ -17,7 +17,7 @@ import { isLightColor } from '../../util/color/isLightColor';
  * @param {boolean} [props.isSelected]
  * @param {string} props.label
  * @param {(newColor: string) => void} props.onChange
- * @param {import('react').MouseEventHandler<HTMLDivElement>} props.onClick
+ * @param {import('react').MouseEventHandler<HTMLButtonElement>} props.onClick
  * @param {string} props.title
  * @param {string} props.value
  * @returns {import('react').JSX.Element}
@@ -48,7 +48,7 @@ export function ColorPicker({
   );
 
   return (
-    <div
+    <button
       className={joinClassNames(
         'color-picker',
         isSelected && 'selected',
@@ -57,7 +57,7 @@ export function ColorPicker({
       )}
       onClick={onClick}
       onKeyUp={handleKeyPress('Enter', onClick)}
-      role="button"
+      type="button"
       style={{ color: textColor, background: tinyColorValue }}
       tabIndex={0}
     >
@@ -103,6 +103,6 @@ export function ColorPicker({
         <div className="fixed-width-font">{textColor}</div>
       </div>
 
-    </div>
+    </button>
   );
 }
