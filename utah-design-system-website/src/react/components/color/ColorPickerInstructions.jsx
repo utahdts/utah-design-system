@@ -1,4 +1,3 @@
-import { Icons } from '@utahdts/utah-design-system';
 import colorPickerInstructionsImage from '../../../static/images/screenshots/colorPicker/colorPickerInstructions.webp';
 
 export function ColorPickerInstructions() {
@@ -29,13 +28,18 @@ export function ColorPickerInstructions() {
             to see their contrast values and WCAG rating (AA, AAA, or not passing).
           </li>
           {/* @ts-ignore */}
-          <li type="disc">
-            <Icons.IconReset /><strong>Reset</strong> the color pickers to the default.
-          </li>
-          {/* @ts-ignore */}
-          <li type="disc">
-            <Icons.IconShare /><strong>Share</strong> your colors with others.
-            When you click this button a share link will be copied to your clipboard.
+          <li type="disc"><span className="utds-icon-before-more-vertical" aria-hidden="true" />Inside the kebab menu:
+            <ul>
+              {/* @ts-ignore */}
+              <li type="disc">
+                <span className="utds-icon-before-restart" aria-hidden="true" /><strong>Reset</strong> the color pickers to the default.
+              </li>
+              {/* @ts-ignore */}
+              <li type="disc">
+                <span className="utds-icon-before-share" aria-hidden="true" /><strong>Share</strong> your colors with others.
+                When you click this button a share link will be copied to your clipboard.
+              </li>
+            </ul>
           </li>
         </ol>
       </div>

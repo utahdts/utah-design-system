@@ -3,7 +3,6 @@ import {
   handleEvent,
   ICON_BUTTON_APPEARANCE,
   IconButton,
-  Icons,
   Popup,
   popupPlacement,
   rectContainsPoint,
@@ -154,7 +153,7 @@ export function ColorPopup({ onClose }) {
                 ))
               )}
             >
-              <Icons.IconReset className="mr-spacing-xs" /> Reset color picker
+              <span className="utds-icon-before-restart mr-spacing-xs" aria-hidden="true" /> Reset color picker
             </Button>
             <Button
               className="full-width mt-spacing-s"
@@ -177,7 +176,7 @@ export function ColorPopup({ onClose }) {
                   .catch((e) => console.error(e));
               }}
             >
-              <Icons.IconShare className="mr-spacing-xs" /> {copiedUrlTitle}
+              <span className="utds-icon-before-share mr-spacing-xs" aria-hidden="true" /> {copiedUrlTitle}
             </Button>
           </Popup>
           {

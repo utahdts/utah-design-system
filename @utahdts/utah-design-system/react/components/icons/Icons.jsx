@@ -1,7 +1,0 @@
-/** @typedef {import('@utahdts/utah-design-system').IconFunc} IconFunc */
-/** @enum {IconFunc} */
-export const Icons = {
-  IconEnvelope: /** @type {IconFunc} */ (({ className } = {}) => (<svg className={`icon-svg icon-envelope ${className || ''}`} viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM218 271.7L64.2 172.4C66 156.4 79.5 144 96 144H352c16.5 0 30 12.4 31.8 28.4L230 271.7c-1.8 1.2-3.9 1.8-6 1.8s-4.2-.6-6-1.8zm29.4 26.9L384 210.4V336c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V210.4l136.6 88.2c7 4.5 15.1 6.9 23.4 6.9s16.4-2.4 23.4-6.9z" /></svg>)),
-  IconShare: /** @type {IconFunc} */ (({ className } = {}) => (<svg className={`icon-svg icon-share ${className || ''}`} viewBox="0 -960 960 960"><path d="M263.717-48Q234-48 213-69.15T192-120v-432q0-29.7 21.15-50.85Q234.3-624 264-624h120v72H264v432h432v-432H576v-72h120q30 0 51 21.15T768-552v432q0 29.7-21.162 50.85Q725.676-48 695.96-48H263.717ZM444-336v-438l-57 57-51-51 144-144 144 144-51 51-57-57v438h-72Z" /></svg>)),
-  IconReset: /** @type {IconFunc} */ (({ className } = {}) => (<svg className={`icon-svg icon-reset ${className || ''}`} viewBox="0 -960 960 960"><path d="M444-144q-107-14-179.5-94.5T192-430q0-61 23-113.5t63-91.5l51 51q-30 29-47.5 69T264-430q0 81 51.5 140T444-217v73Zm72 0v-73q77-13 128.5-72.5T696-430q0-90-63-153t-153-63h-7l46 46-51 50-132-132 132-132 51 51-45 45h6q120 0 204 84t84 204q0 111-72.5 192T516-144Z" /></svg>)),
-};
