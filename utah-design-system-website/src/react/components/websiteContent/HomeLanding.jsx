@@ -35,7 +35,7 @@ export function HomeLanding() {
         <div className="home-page__card-grid">
           <div className="home-page__card home-page__card-wide">
             <div className="home-page__card-title">
-              <IconsWebsite.IconShieldCheck />
+              <IconsWebsite.IconShieldCheck isHidden />
               <h3>Trust and Perception</h3>
             </div>
             <p>
@@ -47,7 +47,7 @@ export function HomeLanding() {
           </div>
           <div className="home-page__card home-page__card-narrow">
             <div className="home-page__card-title">
-              <IconsWebsite.IconA11y />
+              <IconsWebsite.IconA11y isHidden />
               <h3>Accessibility</h3>
             </div>
             <p>
@@ -58,7 +58,7 @@ export function HomeLanding() {
           </div>
           <div className="home-page__card home-page__card-narrow">
             <div className="home-page__card-title">
-              <IconsWebsite.IconCollaboration />
+              <IconsWebsite.IconCollaboration isHidden />
               <h3>Collaboration</h3>
             </div>
             <p>
@@ -68,7 +68,7 @@ export function HomeLanding() {
           </div>
           <div className="home-page__card home-page__card-wide">
             <div className="home-page__card-title">
-              <IconsWebsite.IconStarHollow />
+              <IconsWebsite.IconStarHollow isHidden />
               <h3>Best Practices and Standards</h3>
             </div>
             <p>
@@ -79,7 +79,7 @@ export function HomeLanding() {
           </div>
           <div className="home-page__card home-page__card-wide">
             <div className="home-page__card-title">
-              <IconsWebsite.IconBadgeStar />
+              <IconsWebsite.IconBadgeStar isHidden />
               <h3>Efficiency and Scalability</h3>
             </div>
             <p>
@@ -90,7 +90,7 @@ export function HomeLanding() {
           </div>
           <div className="home-page__card home-page__card-narrow">
             <div className="home-page__card-title">
-              <IconsWebsite.IconHeartTag />
+              <IconsWebsite.IconHeartTag isHidden />
               <h3>Consistency</h3>
             </div>
             <p>
@@ -273,7 +273,7 @@ export function HomeLanding() {
 
       <div className="home-page__gray-section home-page__contact-section mt-spacing-xl">
         <div className="content-width">
-          <IconsWebsite.IconChatBubbles />
+          <IconsWebsite.IconChatBubbles isHidden />
           <h2 className="text-center mt-spacing-l">Don&apos;t be Shy!</h2>
           <p>
             Have a question? <a href="mailto:dts_ui@utah.gov">Contact us</a>. Got a suggestion? <a href="mailto:dts_ui@utah.gov">Contact us</a>.<br />
