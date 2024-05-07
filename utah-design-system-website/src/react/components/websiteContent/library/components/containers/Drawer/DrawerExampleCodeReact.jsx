@@ -1,7 +1,7 @@
 /** @typedef {import('utah-design-system-website').DrawerExamplePropsShape} DrawerExamplePropsShape */
 import { joinClassNames } from '@utahdts/utah-design-system';
-import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp.jsx';
-import { SandboxIndent } from '../../../../../sandbox/SandboxIndent.jsx';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
 /**
  * @param {object} props
