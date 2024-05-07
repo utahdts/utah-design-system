@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
+import { DRAWER_PLACEMENT } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-import drawerScreenshot from '../../../../../../../static/images/mockups/Drawer.jpg';
+import { SimpleDrawer } from './examples/SimpleDrawer';
 
 export function DrawerDocumentation() {
   return (
@@ -18,7 +18,12 @@ export function DrawerDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Drawer"
-        renderedExample={<LightBox image={drawerScreenshot} alt="Open Drawer Example" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col gap">
+            <SimpleDrawer title="Open Right Drawer" position={DRAWER_PLACEMENT.RIGHT} />
+            <SimpleDrawer title="Open Left Drawer" position={DRAWER_PLACEMENT.LEFT} />
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Typically located on the edge of the screen.</li>

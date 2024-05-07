@@ -1,0 +1,65 @@
+@use "../../../1-settings/class-vars";
+@use "../../../7-utilities/animation";
+
+/*
+############     _drawer.scss      ############
+*/
+#{class-vars.$base-class} {
+  .drawer {
+    &-wrapper {
+      height: 100vh;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 100vw;
+      z-index: 9999;
+    }
+
+    &__backdrop {
+      animation: 200ms ease-in-out 100ms fade-in both;
+      height: 100%;
+      width: 100%;
+    }
+
+    &__inner {
+      background: white;
+      display: inline-block;
+      height: 100%;
+      overflow-y: auto;
+      padding: var(--spacing);
+
+      &.right-aligned {
+        animation: 200ms ease-in-out 100ms right-in both;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      &.left-aligned {
+        animation: 200ms ease-in-out 100ms left-in both;
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+
+    &__title {
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-2xl);
+      padding: var(--spacing-xs) calc(var(--spacing) + 1.4rem) var(--spacing-xs) var(--spacing-l);
+    }
+
+    &__content, &__footer {
+      line-height: 1.6rem;
+      padding: var(--spacing-xs) var(--spacing-l);
+    }
+
+    &__close-button {
+      position: absolute !important;
+      top: var(--spacing-2xs);
+      right: var(--spacing-2xs);
+
+      .utds-icon-before-x-icon::before {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}

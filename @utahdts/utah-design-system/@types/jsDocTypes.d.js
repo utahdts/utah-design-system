@@ -56,6 +56,11 @@
  */
 
 /**
+ * DrawerPlacement
+ * @typedef {'right-aligned' | 'left-aligned'} DrawerPlacement
+ */
+
+/**
  * these match the popper's position options
  * PopupPlacement
  * @typedef {'auto' | 'auto-start' | 'auto-end' |

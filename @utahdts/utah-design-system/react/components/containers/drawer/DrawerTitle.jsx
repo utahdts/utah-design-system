@@ -7,14 +7,14 @@ import { joinClassNames } from '../../../util/joinClassNames';
  * @param {string} props.id
  * @returns {import('react').JSX.Element}
  */
-export function ModalFooter({
+export function DrawerTitle({
   children,
   className,
   id,
 }) {
   return (
     <div
-      className={joinClassNames('modal__footer', className)}
+      className={joinClassNames('drawer__title', className)}
       id={id}
     >
       {children}
