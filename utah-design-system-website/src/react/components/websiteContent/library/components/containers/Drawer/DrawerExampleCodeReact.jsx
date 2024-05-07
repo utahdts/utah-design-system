@@ -31,7 +31,7 @@ export function DrawerExampleCodeReact({
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;DrawerTitle id="drawer-example-title"&gt;
+      &lt;DrawerTitle id=&quot;drawer-example-title&quot;&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       <ExampleCodeReactProp displayProp={title} indentLevel={1} />
@@ -39,7 +39,7 @@ export function DrawerExampleCodeReact({
       &lt;/DrawerTitle&gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;DrawerContent id="drawer-example-content"&gt;
+      &lt;DrawerContent id=&quot;drawer-example-content&quot;&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       <ExampleCodeReactProp displayProp={content} indentLevel={1} />
@@ -47,7 +47,7 @@ export function DrawerExampleCodeReact({
       &lt;/DrawerContent&gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;DrawerFooter id="drawer-example-footer"&gt;
+      &lt;DrawerFooter id=&quot;drawer-example-footer&quot;&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       &lt;Button&gt;Cancel&lt;/Button&gt;

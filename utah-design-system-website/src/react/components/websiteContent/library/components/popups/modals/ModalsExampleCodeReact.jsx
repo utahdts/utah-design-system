@@ -33,7 +33,7 @@ export function ModalsExampleCodeReact({
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;ModalTitle id="modal-example-title"&gt;
+      &lt;ModalTitle id=&quot;modal-example-title&quot;&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       <ExampleCodeReactProp displayProp={title} indentLevel={1} />
@@ -41,7 +41,7 @@ export function ModalsExampleCodeReact({
       &lt;/ModalTitle&gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;ModalContent id="modal-example-title"&gt;
+      &lt;ModalContent id=&quot;modal-example-title&quot;&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       <ExampleCodeReactProp displayProp={content} indentLevel={1} />
@@ -49,7 +49,7 @@ export function ModalsExampleCodeReact({
       &lt;/ModalContent&gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;ModalFooter id="modal-example-title"&gt;
+      &lt;ModalFooter id=&quot;modal-example-title&quot;&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       &lt;Button&gt;Cancel&lt;/Button&gt;
