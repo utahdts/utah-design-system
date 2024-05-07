@@ -1,55 +1,53 @@
+/** @typedef {import('utah-design-system-website').DrawerExamplePropsShape} DrawerExamplePropsShape */
 import { joinClassNames } from '@utahdts/utah-design-system';
-import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
-import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
+import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp.jsx';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent.jsx';
 
-/** @typedef {import('utah-design-system-website').ModalExamplePropsShape} ModalExamplePropsShape */
 /**
  * @param {object} props
  * @param {object} props.state
- * @param {ModalExamplePropsShape} props.state.props
+ * @param {DrawerExamplePropsShape} props.state.props
  * @returns {import('react').JSX.Element}
  */
-export function ModalsExampleCodeReact({
+export function DrawerExampleCodeReact({
   state: {
     props: {
       className,
       title,
       content,
-      size,
+      position,
       showCloseButton,
-      closeOnEsc,
     },
   },
 }) {
   return (
     <>
-      &lt;Modal
+      &lt;Drawer
       <br />
-      <ExampleCodeReactProp displayProp='arialabelledby="modal-example-title"' indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, size)}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp='arialabelledby="drawer-example-title"' indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, position)}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp='id="modal-example"' indentLevel={1} />
       {showCloseButton ? <ExampleCodeReactProp displayProp="onClose={myFunction}" indentLevel={1} /> : ''}
-      {closeOnEsc ? <ExampleCodeReactProp displayProp="onEsc={myFunction}" indentLevel={1} /> : ''}
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;ModalTitle id="modal-example-title"&gt;
+      &lt;DrawerTitle id="drawer-example-title"&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       <ExampleCodeReactProp displayProp={title} indentLevel={1} />
       <SandboxIndent indentLevel={1} />
-      &lt;/ModalTitle&gt;
+      &lt;/DrawerTitle&gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;ModalContent id="modal-example-title"&gt;
+      &lt;DrawerContent id="drawer-example-content"&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       <ExampleCodeReactProp displayProp={content} indentLevel={1} />
       <SandboxIndent indentLevel={1} />
-      &lt;/ModalContent&gt;
+      &lt;/DrawerContent&gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;ModalFooter id="modal-example-title"&gt;
+      &lt;DrawerFooter id="drawer-example-footer"&gt;
       <br />
       <SandboxIndent indentLevel={2} />
       &lt;Button&gt;Cancel&lt;/Button&gt;
@@ -58,9 +56,9 @@ export function ModalsExampleCodeReact({
       &lt;Button&gt;Okay&lt;/Button&gt;
       <br />
       <SandboxIndent indentLevel={1} />
-      &lt;/ModalFooter&gt;
+      &lt;/DrawerFooter&gt;
       <br />
-      &lt;/Modal&gt;
+      &lt;/Drawer&gt;
     </>
   );
 }

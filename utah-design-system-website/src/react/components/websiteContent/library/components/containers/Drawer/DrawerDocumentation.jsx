@@ -4,6 +4,10 @@ import { DRAWER_PLACEMENT } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { SimpleDrawer } from './examples/SimpleDrawer';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { DrawerExampleCodeReact } from './DrawerExampleCodeReact';
+import { DrawerExampleProps } from './DrawerExampleProps';
+import { DrawerExampleRender } from './DrawerExampleRender';
 
 export function DrawerDocumentation() {
   return (
@@ -16,6 +20,19 @@ export function DrawerDocumentation() {
       <hr />
 
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          title: 'Drawer Title',
+          content: 'Drawer Content',
+          position: DRAWER_PLACEMENT.RIGHT,
+          showCloseButton: true,
+        }}
+        CODE_EXAMPLE={DrawerExampleCodeReact}
+        PROPS_EXAMPLE={DrawerExampleProps}
+        RENDER_EXAMPLE={DrawerExampleRender}
+      />
+
       <StaticExample
         title="Drawer"
         renderedExample={(

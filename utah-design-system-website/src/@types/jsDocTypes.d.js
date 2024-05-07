@@ -8,6 +8,7 @@
 /** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 /** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').DrawerPlacement} DrawerPlacement */
 /** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
@@ -181,6 +182,16 @@
  *  @property {string} placeholder
  *  @property {boolean} showCalendarTodayButton
  *  @property {string} value
+ * }
+ */
+
+/**
+ * @typedef DrawerExamplePropsShape {
+ * @property {string} className
+ * @property {string} title
+ * @property {string} content
+ * @property {DrawerPlacement} position
+ * @property {boolean} showCloseButton
  * }
  */
 
