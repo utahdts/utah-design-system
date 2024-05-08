@@ -26,7 +26,7 @@ export const websiteUtahHeaderSettings = {
   showTitle: true,
   size: sizes.MEDIUM,
   title: 'Utah Design System',
-  titleURL: '/',
+  titleUrl: '/',
   utahId: true,
   skipLinkUrl: '#main-content',
 };
