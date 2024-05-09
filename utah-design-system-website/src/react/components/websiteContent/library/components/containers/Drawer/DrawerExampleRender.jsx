@@ -14,10 +14,11 @@ export function DrawerExampleRender({
   state: {
     props: {
       className,
-      title,
+      closeOnEsc,
       content,
       position,
       showCloseButton,
+      title,
     },
   },
   innerRef,
@@ -37,6 +38,7 @@ export function DrawerExampleRender({
             className={className}
             id="drawer-example-render"
             onClose={showCloseButton ? closeDrawer : undefined}
+            onEscape={closeOnEsc ? closeDrawer : undefined}
             position={position}
           >
             <DrawerTitle id="drawer-example-render-title">{title}</DrawerTitle>

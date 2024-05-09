@@ -188,6 +188,7 @@
 /**
  * @typedef DrawerExamplePropsShape {
  * @property {string} className
+ * @property {boolean} closeOnEsc
  * @property {string} title
  * @property {string} content
  * @property {DrawerPlacement} position

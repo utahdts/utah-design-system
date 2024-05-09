@@ -22,6 +22,7 @@ export function DrawerExampleProps({ setState, state }) {
         <SelectOption label="Left" value={DRAWER_PLACEMENT.LEFT} />
       </Select>
       <Switch id="props.showCloseButton" label="Show close button" width={20} />
+      <Switch id="props.closeOnEsc" label="Close on escape" width={20} />
     </Form>
   );
 }

@@ -13,6 +13,7 @@ export function DrawerExampleCodeReact({
   state: {
     props: {
       className,
+      closeOnEsc,
       title,
       content,
       position,
@@ -28,6 +29,7 @@ export function DrawerExampleCodeReact({
       <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, position)}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp='id="modal-example"' indentLevel={1} />
       {showCloseButton ? <ExampleCodeReactProp displayProp="onClose={myFunction}" indentLevel={1} /> : ''}
+      {closeOnEsc ? <ExampleCodeReactProp displayProp="onEscape={myFunction}" indentLevel={1} /> : ''}
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />

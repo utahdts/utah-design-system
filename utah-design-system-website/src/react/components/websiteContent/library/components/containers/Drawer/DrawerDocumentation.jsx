@@ -25,6 +25,7 @@ export function DrawerDocumentation() {
       <SandboxExample
         defaultProps={{
           className: '',
+          closeOnEsc: true,
           title: 'Drawer Title',
           content: 'Drawer Content',
           position: DRAWER_PLACEMENT.RIGHT,
