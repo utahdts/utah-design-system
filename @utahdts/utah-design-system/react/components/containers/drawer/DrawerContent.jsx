@@ -7,14 +7,14 @@ import { joinClassNames } from '../../../util/joinClassNames';
  * @param {string} [props.id]
  * @returns {import('react').JSX.Element}
  */
-export function ModalContent({
+export function DrawerContent({
   children,
   className,
   id,
 }) {
   return (
     <div
-      className={joinClassNames('modal__content', className)}
+      className={joinClassNames('drawer__content', className)}
       id={id}
     >
       {children}

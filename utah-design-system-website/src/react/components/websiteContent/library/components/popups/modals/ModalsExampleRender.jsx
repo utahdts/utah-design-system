@@ -42,14 +42,15 @@ export function ModalsExampleRender({
       {showModal
         ? (
           <Modal
+            ariaLabelledBy="modal-example-render-title"
             className={joinClassNames(className, size)}
             id="modal-example-render"
             onClose={showCloseButton ? closeModal : undefined}
             onEscape={closeOnEsc ? closeModal : undefined}
           >
-            <ModalTitle>{title}</ModalTitle>
-            <ModalContent>{content}</ModalContent>
-            <ModalFooter className="flex float-right flex-wrap">
+            <ModalTitle id="modal-example-render-title">{title}</ModalTitle>
+            <ModalContent id="modal-example-render-content">{content}</ModalContent>
+            <ModalFooter className="flex float-right flex-wrap" id="modal-example-render-footer">
               <Button
                 className="mr-spacing"
                 onClick={closeModal}
@@ -70,12 +71,13 @@ export function ModalsExampleRender({
         <div className="modal-backdrop backdrop-dark" ref={innerRef}>
           <dialog
             aria-modal="true"
+            aria-labelledby="modal-example-title"
             className={joinClassNames('modal__wrapper', className, size)}
             id="modal-example"
           >
-            <ModalTitle>{title}</ModalTitle>
-            <ModalContent>{content}</ModalContent>
-            <ModalFooter className="flex float-right flex-wrap">
+            <ModalTitle id="modal-example-title">{title}</ModalTitle>
+            <ModalContent id="modal-example-content">{content}</ModalContent>
+            <ModalFooter className="flex float-right flex-wrap" id="modal-example-footer">
               <Button
                 className="mr-spacing"
                 onClick={() => undefined}
