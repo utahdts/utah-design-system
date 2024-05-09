@@ -28,8 +28,8 @@ export function Drawer({
   className,
   id,
   innerRef,
-  onEscape,
   onClose,
+  onEscape,
   position = DRAWER_PLACEMENT.RIGHT,
 }) {
   const ref = /** @type {typeof useRef<HTMLDialogElement | null>} */ (useRef)(null);
@@ -42,8 +42,7 @@ export function Drawer({
   const handleTab = useHandleTab(firstTabElement, lastTabElement);
 
   useEffect(() => {
-    if (ref) {
-      // @ts-ignore
+    if (ref.current) {
       const list = getFocusableElements(ref.current);
       if (list.length) {
         const firstElement = list[0];

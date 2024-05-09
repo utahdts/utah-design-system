@@ -10,7 +10,9 @@ export function useHandleEscape(onEscape) {
       if (e.code === 'Escape' || e.key === 'Escape') {
         e.preventDefault();
         e.stopPropagation();
-        if (onEscape) { onEscape(e); }
+        if (onEscape) {
+          onEscape(e);
+        }
       }
     },
     [onEscape]
