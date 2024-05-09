@@ -10,7 +10,7 @@ import { useHandleTab } from '../../../hooks/useHandleTab';
 
 /**
  * @param {object} props
- * @param {string} props.ariaLabelledBy
+ * @param {string} props.ariaLabelledBy Must match the id of the title of the modal
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id

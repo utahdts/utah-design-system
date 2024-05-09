@@ -12,7 +12,7 @@ import { DRAWER_PLACEMENT } from '../../../enums/drawerPlacement';
 /** @typedef {import('@utahdts/utah-design-system').DrawerPlacement} DrawerPlacement */
 /**
  * @param {object} props
- * @param {string} props.ariaLabelledBy
+ * @param {string} props.ariaLabelledBy Must match the id of the title of the drawer
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} props.id

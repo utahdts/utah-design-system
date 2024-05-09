@@ -53,7 +53,7 @@ export function SimpleDrawer({
             </DrawerFooter>
           </Drawer>
         )
-        : ''}
+        : null}
     </>
   );
 }
