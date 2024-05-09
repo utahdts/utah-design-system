@@ -67,15 +67,12 @@ export function DrawerDocumentation() {
       <h3>When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Main navigation.</strong> Drawers should not include a duplicate of the <Link to={pageUrls.mainMenu}>main menu</Link>.</li>
-        <li><strong>Confirmation.</strong> Avoid using side panels to confirm a user&apos;s action; instead, use a <Link
-          to={pageUrls.modals}
-        >modal
-        </Link> or a <Link to={pageUrls.confirmationButton}>confirmation button</Link>.
+        <li><strong>Confirmation.</strong> Avoid using side panels to confirm a user&apos;s action; instead, use a
+          <Link to={pageUrls.modals}>modal</Link>
+          or a <Link to={pageUrls.confirmationButton}>confirmation button</Link>.
         </li>
-        <li><strong>Keep it simple.</strong> Avoid putting complex content, like <Link to={pageUrls.accordion}>accordions</Link> or <Link
-          to={pageUrls.carousel}
-        >carousels
-        </Link>, in a drawer.
+        <li><strong>Keep it simple.</strong> Avoid putting complex content, like <Link to={pageUrls.accordion}>accordions</Link>
+          or <Link to={pageUrls.carousel}>carousels</Link>, in a drawer.
         </li>
       </ul>
 
