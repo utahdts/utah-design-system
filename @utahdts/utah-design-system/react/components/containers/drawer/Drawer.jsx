@@ -65,13 +65,14 @@ export function Drawer({
 
   return (
     <div className="drawer-wrapper" ref={innerRef}>
-      <div className="drawer__backdrop backdrop-dark">
+      <div className="drawer__backdrop backdrop-dark" onClick={onClose}>
         <dialog
           aria-labelledby={ariaLabelledBy}
           className={joinClassNames('drawer__inner', position, className)}
           id={id}
-          onKeyUp={handleEscape}
+          onClick={(e) => e.stopPropagation()}
           onKeyDown={handleTab}
+          onKeyUp={handleEscape}
           ref={ref}
         >
           {children}
