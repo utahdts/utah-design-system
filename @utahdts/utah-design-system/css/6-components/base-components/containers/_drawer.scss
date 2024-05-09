@@ -28,13 +28,13 @@
       overflow-y: auto;
       padding: var(--spacing);
 
-      &.right-aligned {
+      &.drawer--right {
         animation: 200ms ease-in-out 100ms right-in both;
         margin-left: auto;
         margin-right: 0;
       }
 
-      &.left-aligned {
+      &.drawer--left {
         animation: 200ms ease-in-out 100ms left-in both;
         margin-left: 0;
         margin-right: auto;

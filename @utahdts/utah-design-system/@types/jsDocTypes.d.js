@@ -57,7 +57,7 @@
 
 /**
  * DrawerPlacement
- * @typedef {'right-aligned' | 'left-aligned'} DrawerPlacement
+ * @typedef {'drawer--right' | 'drawer--left'} DrawerPlacement
  */
 
 /**

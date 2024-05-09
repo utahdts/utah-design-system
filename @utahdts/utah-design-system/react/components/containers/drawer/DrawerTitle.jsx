@@ -5,19 +5,22 @@ import { joinClassNames } from '../../../util/joinClassNames';
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} props.id
+ * @param {string} [props.tagName]
  * @returns {import('react').JSX.Element}
  */
 export function DrawerTitle({
   children,
   className,
   id,
+  tagName: TagName = 'div',
 }) {
   return (
-    <div
+    // @ts-ignore
+    <TagName
       className={joinClassNames('drawer__title', className)}
       id={id}
     >
       {children}
-    </div>
+    </TagName>
   );
 }

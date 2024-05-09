@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { DRAWER_PLACEMENT } from '@utahdts/utah-design-system';
+import { DRAWER_PLACEMENT, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { SimpleDrawer } from './examples/SimpleDrawer';
@@ -8,6 +8,8 @@ import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { DrawerExampleCodeReact } from './DrawerExampleCodeReact';
 import { DrawerExampleProps } from './DrawerExampleProps';
 import { DrawerExampleRender } from './DrawerExampleRender';
+import { DrawerCssClassesDocumentation } from './DrawerCssClassesDocumentation';
+import { DrawerPropsDocumentation } from './DrawerPropsDocumentation';
 
 export function DrawerDocumentation() {
   return (
@@ -54,28 +56,47 @@ export function DrawerDocumentation() {
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Additional actions.</strong> Drawers can be used to place secondary actions such as filters or settings for a page. Typically, those drawers overlay the content below the header.</li>
-        <li><strong>Global functionality.</strong> A drawer can be used to allow the user to access some site-wide settings and/or features. Typically, those drawers overlay the entire page.</li>
+        <li><strong>Additional actions.</strong> Drawers can be used to place secondary actions such as filters or settings for a page. Typically,
+          those drawers overlay the content below the header.
+        </li>
+        <li><strong>Global functionality.</strong> A drawer can be used to allow the user to access some site-wide settings and/or features.
+          Typically, those drawers overlay the entire page.
+        </li>
       </ul>
 
       <h3>When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Main navigation.</strong> Drawers should not include a duplicate of the <Link to={pageUrls.mainMenu}>main menu</Link>.</li>
-        <li><strong>Confirmation.</strong> Avoid using side panels to confirm a user&apos;s action; instead, use a <Link to={pageUrls.modals}>modal</Link> or a <Link to={pageUrls.confirmationButton}>confirmation button</Link>.</li>
-        <li><strong>Keep it simple.</strong> Avoid putting complex content, like <Link to={pageUrls.accordion}>accordions</Link> or <Link to={pageUrls.carousel}>carousels</Link>, in a drawer.</li>
+        <li><strong>Confirmation.</strong> Avoid using side panels to confirm a user&apos;s action; instead, use a <Link
+          to={pageUrls.modals}
+        >modal
+        </Link> or a <Link to={pageUrls.confirmationButton}>confirmation button</Link>.
+        </li>
+        <li><strong>Keep it simple.</strong> Avoid putting complex content, like <Link to={pageUrls.accordion}>accordions</Link> or <Link
+          to={pageUrls.carousel}
+        >carousels
+        </Link>, in a drawer.
+        </li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
         <li><strong>Position.</strong> Typically, drawers are positioned on the edge of the screen.</li>
         <li><strong>User&apos;s action.</strong> A drawer should appear after the user has performed some action.</li>
-        <li><strong>Title.</strong> Preferably, include a title at the top of a drawer. This gives the user some information about its content and sets expectations.</li>
+        <li><strong>Title.</strong> Preferably, include a title at the top of a drawer. This gives the user some information about its content and
+          sets expectations.
+        </li>
         <li>
-          <strong>Close a drawer.</strong> Generally, every drawer should include some way for the user to close it. It can be found in the form of a back arrow,
+          <strong>Close a drawer.</strong> Generally, every drawer should include some way for the user to close it. It can be found in the form of a
+          back arrow,
           an &quot;X&quot; <Link to={pageUrls.iconButton}>icon</Link> or a &quot;Close&quot; <Link to={pageUrls.button}>button</Link>.
         </li>
-        <li><strong>Elevation.</strong> A drawer lays on top of the current interface. This should be shown to the user by the use of shadows and/or a dark overlay.</li>
-        <li><strong>Context.</strong> A side panel can include a wide variety of elements. However, it should typically be tied to the main content of the current page. An exemption might be for global settings.</li>
+        <li><strong>Elevation.</strong> A drawer lays on top of the current interface. This should be shown to the user by the use of shadows and/or a
+          dark overlay.
+        </li>
+        <li><strong>Context.</strong> A side panel can include a wide variety of elements. However, it should typically be tied to the main content of
+          the current page. An exemption might be for global settings.
+        </li>
       </ul>
 
       <h3 id="section-accessibility">Accessibility</h3>
@@ -89,17 +110,41 @@ export function DrawerDocumentation() {
       <ul className="mb-spacing">
         <li>Upon opening, focus should be put on the first element within the drawer.</li>
         <li>Using the <code>tab</code> key, the user should only navigate through elements within the drawer.</li>
-        <li>If the drawer includes a close button, pressing the <code>esc</code> key should close the drawer. The close button should be the last focusable element.</li>
+        <li>If the drawer includes a close button, pressing the <code>esc</code> key should close the drawer. The close button should be the last
+          focusable element.
+        </li>
         <li>When closing the drawer, the focus should be put on the element that triggered it.</li>
       </ul>
 
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">
         <li>A drawer should include some aria attributes: the container should have <code>aria-labelledby</code> referring to its title.</li>
-        <li>If the drawer includes a close button, it should be placed at the end of the <code>html</code> code. That way the screen reader will appropriately read it after navigating through the drawer&apos;s content.</li>
-        <li>If the close button is only represented by an <Link to={pageUrls.iconButton}>icon</Link>, make sure it is accessible to screen readers by the use of the <code>aria-label</code> attribute. For example: &quot;Close drawer.&quot;</li>
+        <li>If the drawer includes a close button, it should be placed at the end of the <code>html</code> code. That way the screen reader will
+          appropriately read it after navigating through the drawer&apos;s content.
+        </li>
+        <li>If the close button is only represented by an <Link to={pageUrls.iconButton}>icon</Link>, make sure it is accessible to screen readers by
+          the use of the <code>aria-label</code> attribute. For example: &quot;Close drawer.&quot;
+        </li>
         <li>For all elements, please refer to their respective documentation.</li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <DrawerCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <DrawerPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

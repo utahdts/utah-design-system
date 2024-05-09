@@ -5,6 +5,6 @@
  * @enum {DrawerPlacement}
  */
 export const DRAWER_PLACEMENT = {
-  RIGHT: /** @type {DrawerPlacement} */ ('right-aligned'),
-  LEFT: /** @type {DrawerPlacement} */ ('left-aligned'),
+  RIGHT: /** @type {DrawerPlacement} */ ('drawer--right'),
+  LEFT: /** @type {DrawerPlacement} */ ('drawer--left'),
 };
