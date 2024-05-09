@@ -14,7 +14,11 @@ import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
  * @returns {Element}
  */
 export function LogoTitle() {
-  const logoTitleURL = getUtahHeaderSettings().titleURL;
+  const logoTitleURL = (
+    getUtahHeaderSettings().titleUrl
+    // @ts-ignore : backwards-compatibility - once upon a time, titleURL had been incorrectly cased...
+    || getUtahHeaderSettings().titleURL
+  );
   const logoTitleWrapper = !logoTitleURL ? renderDOMSingle(LogoTitleWrapper) : renderDOMSingle(LogoTitleWrapperLink);
   if (!logoTitleWrapper) {
     throw new Error('LogoTitle: titleWrapper is null');
