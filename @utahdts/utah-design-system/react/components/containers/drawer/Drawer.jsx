@@ -65,7 +65,9 @@ export function Drawer({
 
   return (
     <div className="drawer-wrapper" ref={innerRef}>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <div className="drawer__backdrop backdrop-dark" onClick={onClose}>
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
         <dialog
           aria-labelledby={ariaLabelledBy}
           className={joinClassNames('drawer__inner', position, className)}
