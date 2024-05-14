@@ -83,62 +83,66 @@ export function TableFilterDateRangePopup({
       referenceElement={popperReferenceElement}
       role="dialog"
     >
-      <DateInput
-        className="table-filter-date-popup__begin-date"
-        dateFormat={dateFormat}
-        hasCalendarPopup={false}
-        id={`${tableFilterDateId}__begin-date`}
-        innerRef={beginDateRef}
-        isClearable
-        label="Date Begin"
-        onChange={(newValue) => onChange(formatNewValue(BeginEndDates.BEGIN, newValue, beginDateStr, endDateStr))}
-        onClear={() => onChange(formatNewValue(BeginEndDates.BEGIN, '', beginDateStr, endDateStr))}
-        value={beginDateStr}
+      <div className="flex gap-xs full-width">
+        <DateInput
+          className="table-filter-date-popup__begin-date"
+          dateFormat={dateFormat}
+          hasCalendarPopup={false}
+          id={`${tableFilterDateId}__begin-date`}
+          innerRef={beginDateRef}
+          isClearable
+          label="Date Begin"
+          onChange={(newValue) => onChange(formatNewValue(BeginEndDates.BEGIN, newValue, beginDateStr, endDateStr))}
+          onClear={() => onChange(formatNewValue(BeginEndDates.BEGIN, '', beginDateStr, endDateStr))}
+          value={beginDateStr}
         // @ts-ignore
-        onFocus={() => setCurrentInput(BeginEndDates.BEGIN)}
-      />
-      <DateInput
-        className="table-filter-date-popup__end-date"
-        dateFormat={dateFormat}
-        hasCalendarPopup={false}
-        id={`${tableFilterDateId}__end-date`}
-        isClearable
-        label="Date End"
-        onChange={(newValue) => onChange(formatNewValue(BeginEndDates.END, newValue, beginDateStr, endDateStr))}
-        onClear={() => onChange(formatNewValue(BeginEndDates.END, '', beginDateStr, endDateStr))}
-        value={endDateStr}
-        // @ts-ignore
-        onFocus={() => setCurrentInput(BeginEndDates.END)}
-      />
-      <div className="table-filter-date-popup__selected-date-chiclets">
-        <div
-          className={joinClassNames(
-            'table-filter-date-popup__selected-date-chiclet',
-            currentInput === BeginEndDates.BEGIN
-              ? 'table-filter-date-popup__selected-date-chiclet--selected'
-              : 'table-filter-date-popup__selected-date-chiclet--not-selected'
-          )}
+          onFocus={() => setCurrentInput(BeginEndDates.BEGIN)}
         />
-        <div
-          className={joinClassNames(
-            'table-filter-date-popup__selected-date-chiclet',
-            currentInput === BeginEndDates.END
-              ? 'table-filter-date-popup__selected-date-chiclet--selected'
-              : 'table-filter-date-popup__selected-date-chiclet--not-selected'
-          )}
+        <DateInput
+          className="table-filter-date-popup__end-date"
+          dateFormat={dateFormat}
+          hasCalendarPopup={false}
+          id={`${tableFilterDateId}__end-date`}
+          isClearable
+          label="Date End"
+          onChange={(newValue) => onChange(formatNewValue(BeginEndDates.END, newValue, beginDateStr, endDateStr))}
+          onClear={() => onChange(formatNewValue(BeginEndDates.END, '', beginDateStr, endDateStr))}
+          value={endDateStr}
+        // @ts-ignore
+          onFocus={() => setCurrentInput(BeginEndDates.END)}
         />
       </div>
-      <hr />
-      <CalendarInput
-        className="table-filter-date-popup__calendar"
-        dateFormat={dateFormat}
-        id={`${tableFilterDateId}__calendar`}
-        label={`Calendar for table filter ${currentInput === BeginEndDates.BEGIN ? 'begin' : 'end'} date`}
-        labelClassName="visually-hidden"
-        onChange={(newValue) => onChange(formatNewValue(currentInput, newValue, beginDateStr, endDateStr))}
-        showTodayButton
-        value={(currentInput === BeginEndDates.BEGIN ? beginDateStr : endDateStr) ?? ''}
-      />
+      <div>
+        <div className="table-filter-date-popup__selected-date-chiclets">
+          <div
+            className={joinClassNames(
+              'table-filter-date-popup__selected-date-chiclet',
+              currentInput === BeginEndDates.BEGIN
+                ? 'table-filter-date-popup__selected-date-chiclet--selected'
+                : 'table-filter-date-popup__selected-date-chiclet--not-selected'
+            )}
+          />
+          <div
+            className={joinClassNames(
+              'table-filter-date-popup__selected-date-chiclet',
+              currentInput === BeginEndDates.END
+                ? 'table-filter-date-popup__selected-date-chiclet--selected'
+                : 'table-filter-date-popup__selected-date-chiclet--not-selected'
+            )}
+          />
+        </div>
+        <hr />
+        <CalendarInput
+          className="table-filter-date-popup__calendar"
+          dateFormat={dateFormat}
+          id={`${tableFilterDateId}__calendar`}
+          label={`Calendar for table filter ${currentInput === BeginEndDates.BEGIN ? 'begin' : 'end'} date`}
+          labelClassName="visually-hidden"
+          onChange={(newValue) => onChange(formatNewValue(currentInput, newValue, beginDateStr, endDateStr))}
+          showTodayButton
+          value={(currentInput === BeginEndDates.BEGIN ? beginDateStr : endDateStr) ?? ''}
+        />
+      </div>
     </Popup>
   );
 }

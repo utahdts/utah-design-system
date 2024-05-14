@@ -71,16 +71,17 @@ export function TableFilterDateRange({
 
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
-      <Button
-        aria-controls={popupId}
-        aria-expanded={state.isPopupOpen}
-        aria-haspopup="dialog"
-        id={`${tableId}__table-filter-date-${recordFieldPath}`}
-        label={`Filter ${a11yLabel}`}
+      <div ref={popperContentRef}>
+        <Button
+          aria-controls={popupId}
+          aria-expanded={state.isPopupOpen}
+          aria-haspopup="dialog"
+          id={`${tableId}__table-filter-date-${recordFieldPath}`}
+          label={`Filter ${a11yLabel}`}
         // eslint-disable-next-line react/jsx-props-no-spreading
-        {...rest}
+          {...rest}
         // @ts-ignore
-        onBlur={
+          onBlur={
           () => {
             setTimeout(
               () => {
@@ -93,26 +94,26 @@ export function TableFilterDateRange({
             );
           }
         }
-        onFocus={
+          onFocus={
           () => {
             setState((draftState) => {
               draftState.isPopupOpen = false;
             });
           }
         }
-        onClick={
+          onClick={
           () => {
             setState((draftState) => {
               draftState.isPopupOpen = true;
             });
           }
         }
-      >
-        {(!currentValue || currentValue === tableConstants.dateFilterSeparator) ? '' : currentValue.replace(tableConstants.dateFilterSeparator, ' -> ')}
-      </Button>
+        >
+          {(!currentValue || currentValue === tableConstants.dateFilterSeparator) ? '' : currentValue.replace(tableConstants.dateFilterSeparator, ' | ')}
+        </Button>
 
-      {/* Clear icon */}
-      {
+        {/* Clear icon */}
+        {
         (currentValue && currentValue !== tableConstants.dateFilterSeparator)
           ? (
             <IconButton
@@ -125,11 +126,11 @@ export function TableFilterDateRange({
           : null
       }
 
-      {/* Calendar icon inside the button */}
-      <div className={joinClassNames('date-input__calendar-icon date-input__icon-static')}>
-        <span className="utds-icon-before-calendar " aria-hidden="true" />
+        {/* Calendar icon inside the button */}
+        <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', currentValue && currentValue !== tableConstants.dateFilterSeparator ? 'visually-hidden' : '')}>
+          <span className="utds-icon-before-calendar " aria-hidden="true" />
+        </div>
       </div>
-
       <TableFilterDateRangePopup
         dateFormat={dateFormat}
         id={popupId}

@@ -225,6 +225,33 @@
             background-color: var(--gray-light-color);
             padding: var(--spacing-s) var(--spacing-2xs);
             &.table-header__cell--filter-date {
+              & > div:not(.table-filter-date__popup) {
+                button{
+                  &:not(.text-input__clear-button) {
+                    border-width: 1px;
+                    box-shadow: var(--hover-gray-color) 0 0 0 0;
+                    transition: box-shadow var(--timing-xquick) ease-in-out;
+                    white-space: nowrap;
+                    padding-left: var(--spacing-2xs);
+                    width: 100%;
+                    &:hover {
+                      box-shadow: var(--hover-gray-color) 0 0 0 5px;
+                      border-color: black;
+                      background: white;
+                      color: var(--gray-color);
+                    }
+
+                    & + .date-input__calendar-icon {
+                      pointer-events: none;
+                      margin-right: var(--spacing-2xs);
+                    }
+                  }
+                  &.text-input__clear-button {
+                    margin-top: var(--spacing-3xs);
+                  }
+                }
+              }
+
               .table-filter-date-popup__selected-date-chiclets {
                 display: flex;
                 flex-direction: row;
