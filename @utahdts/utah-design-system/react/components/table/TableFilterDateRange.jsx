@@ -25,7 +25,7 @@ import { IconButton } from '../buttons/IconButton';
  */
 export function TableFilterDateRange({
   className,
-  dateFormat = 'MM/dd/yyyyy',
+  dateFormat = 'MM/dd/yyyy',
   defaultValue,
   innerRef,
   id,
