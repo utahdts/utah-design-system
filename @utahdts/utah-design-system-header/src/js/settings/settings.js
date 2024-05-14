@@ -20,14 +20,17 @@ function doLoadHeader() {
 // The event needs to wait for the UMD library to load the global window.utahHeader
 // module. Use setInterval to wait for this script to finish running before firing
 // the `utahHeaderLoaded` event.
-let isSetUtahHeaderSettingsCalled = false;
 const MAX_EVENT_FIRES = 15000;
 let numberEventFires = 0;
 
 const intervalId = setInterval(
   () => {
     numberEventFires += 1;
-    if (numberEventFires >= MAX_EVENT_FIRES || isSetUtahHeaderSettingsCalled) {
+    if (
+      numberEventFires >= MAX_EVENT_FIRES
+      // @ts-ignore if lib is loaded more than once, it may have overriden the window header object
+      || window['@utahdts/utah-design-system-header']?.isSetUtahHeaderSettingsCalled
+    ) {
       clearInterval(intervalId);
     } else {
       // please, developer, call setUtahHeaderSettings() as soon as you receive this event... the header
@@ -48,7 +51,11 @@ export function setUtahHeaderSettings(newSettings) {
   // this is only a shallow copy, so merging nested settings does not happen.
   settingsKeeper.setSettings(newSettings);
 
-  isSetUtahHeaderSettingsCalled = true;
+  // @ts-ignore if lib is loaded more than once, it may have overriden the window header object, so store `isSet` status in window object
+  if (window['@utahdts/utah-design-system-header']) {
+    // @ts-ignore
+    window['@utahdts/utah-design-system-header'].isSetUtahHeaderSettingsCalled = true;
+  }
 
   if (document?.body) {
     doLoadHeader();
