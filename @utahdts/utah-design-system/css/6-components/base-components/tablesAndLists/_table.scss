@@ -252,6 +252,14 @@
                 }
               }
 
+              .table-filter-date__popup {
+                .popup__close-button {
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                }
+              }
+
               .table-filter-date-popup__selected-date-chiclets {
                 display: flex;
                 flex-direction: row;
