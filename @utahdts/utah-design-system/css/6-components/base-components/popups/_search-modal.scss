@@ -5,9 +5,9 @@
 
 #{class-vars.$base-class} {
   .search-modal {
-    &__form {
+    form.search-modal__form {
       position: fixed;
-      top: 25%;
+      top: 40vh;
       z-index: 4010;
     }
     &__input[type=text] {
