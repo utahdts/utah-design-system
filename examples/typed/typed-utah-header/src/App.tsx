@@ -5,7 +5,7 @@ import './App.css';
 import '@utahdts/utah-design-system-header/css';
 import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 
-function App() {
+export function App() {
   const [count, setCount] = useState(0);
 
   useEffect(
@@ -43,5 +43,3 @@ function App() {
     </>
   );
 }
-
-export App;

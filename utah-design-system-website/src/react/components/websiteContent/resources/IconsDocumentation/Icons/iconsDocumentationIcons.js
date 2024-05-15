@@ -254,4 +254,44 @@ export const iconsDocumentationIcons = [
     title: 'double-arrow-left',
     letter: 'y',
   },
+  {
+    cssClass: 'filter',
+    title: 'filter',
+    letter: 'z',
+  },
+  {
+    cssClass: 'restart',
+    title: 'restart',
+    letter: '{',
+  },
+  {
+    cssClass: 'sync',
+    title: 'sync',
+    letter: '|',
+  },
+  {
+    cssClass: 'refresh',
+    title: 'refresh',
+    letter: '}',
+  },
+  {
+    cssClass: 'light-mode',
+    title: 'light-mode',
+    letter: '~',
+  },
+  {
+    cssClass: 'dark-mode',
+    title: 'dark-mode',
+    letter: '0',
+  },
+  {
+    cssClass: 'mail',
+    title: 'mail',
+    letter: '1',
+  },
+  {
+    cssClass: 'share',
+    title: 'share',
+    letter: '2',
+  },
 ];

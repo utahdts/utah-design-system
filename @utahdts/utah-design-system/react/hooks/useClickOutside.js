@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 
 // Improved version of https://usehooks.com/useOnClickOutside/
 /**
- * @param {import('react').RefObject<HTMLElement>} ref
- * @param {import('react').KeyboardEventHandler} handler
+ * @param {import('react').RefObject<HTMLElement | null>[]} refs in the case of popups, they have the popup content AND the reference element
+ * @param {import('react').EventHandler<any>} handler
  * @param {boolean} isDisabled
  */
-export function useClickOutside(ref, handler, isDisabled = false) {
+export function useClickOutside(refs, handler, isDisabled = false) {
   useEffect(
     () => {
       let retVal;
@@ -16,14 +16,14 @@ export function useClickOutside(ref, handler, isDisabled = false) {
 
         /** @type {(e: Event) => void} */
         const listener = (event) => {
-          if (
+          if (refs.some((ref) => (
             // Do nothing if `mousedown` or `touchstart` started inside ref element
             (!startedInside && startedWhenMounted)
 
             // Do nothing if clicking ref's element or descendent elements
             // @ts-ignore
             && (ref.current && !ref.current.contains(event.target))
-          ) {
+          ))) {
             // @ts-ignore
             handler(event);
           }
@@ -31,9 +31,12 @@ export function useClickOutside(ref, handler, isDisabled = false) {
 
         /** @type {(e: Event) => void} */
         const validateEventStart = (event) => {
-          startedWhenMounted = !!ref.current;
+          startedWhenMounted = refs.some((ref) => !!ref.current);
           // @ts-ignore
-          startedInside = !!ref.current?.contains?.(event.target);
+          startedInside = refs.some((ref) => (ref.current === event.target) || !!ref.current?.contains?.(event.target));
+          if (!startedInside) {
+            handler(event);
+          }
         };
 
         document.addEventListener('mousedown', validateEventStart);
@@ -49,6 +52,6 @@ export function useClickOutside(ref, handler, isDisabled = false) {
 
       return retVal;
     },
-    [ref.current, handler, isDisabled]
+    [handler, isDisabled, ...refs]
   );
 }

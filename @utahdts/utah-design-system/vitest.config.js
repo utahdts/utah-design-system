@@ -7,7 +7,7 @@ export default defineConfig(() => ({
     coverage: {
       all: true,
       exclude: [
-        '**/Icons.jsx',
+        'artifacts/index.d.ts',
         '**/propTypesShapes/**',
         'index.js',
         'react/enums/**',

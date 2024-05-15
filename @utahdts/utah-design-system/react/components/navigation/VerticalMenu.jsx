@@ -13,9 +13,15 @@ import { menuTypes } from '../../enums/menuTypes';
  * @param {string} [props.className]
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
  * @param {WebsiteMainMenu[]} props.menus
+ * @param {boolean} [props.triggerOnHover]
  * @returns {import('react').JSX.Element}
  */
-export function VerticalMenu({ className, currentMenuItem, menus }) {
+export function VerticalMenu({
+  className,
+  currentMenuItem,
+  menus,
+  triggerOnHover = true,
+}) {
   return (
     <>
       {
@@ -51,6 +57,7 @@ export function VerticalMenu({ className, currentMenuItem, menus }) {
                           currentMenuItem={currentMenuItem}
                           menuItem={menuItem}
                           key={`vertical-menu__menu-item__${menuItem.link}-${menuItem.title}}`}
+                          triggerOnHover={triggerOnHover}
                         />
                       );
                       break;

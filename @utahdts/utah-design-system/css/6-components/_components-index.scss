@@ -7,6 +7,8 @@ component specific, BEM (Block, Element, Modifier)
 /* ---- Base Components ---- */
 @use "base-components/containers/accordion";
 @use "base-components/containers/action-card";
+@use "base-components/containers/card";
+@use "base-components/containers/drawer";
 @use "base-components/containers/tab-group";
 @use "base-components/buttons/button";
 @use "base-components/buttons/icon-button";
@@ -46,7 +48,8 @@ component specific, BEM (Block, Element, Modifier)
 @use "base-components/text/block-quote";
 @use "base-components/text/pre-code";
 @use "base-components/forms/input";
-@use "base-components/widgetsInicators/spinner";
+@use "base-components/widgetsIndicators/badge";
+@use "base-components/widgetsIndicators/spinner";
 @use "base-components/tablesAndLists/table";
 @use "base-components/templates/on-this-page";
 

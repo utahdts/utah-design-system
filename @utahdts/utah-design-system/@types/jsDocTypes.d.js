@@ -51,15 +51,13 @@
  */
 
 /**
- * IconFunc
- * if getting an error that props is mandatory, use Component syntax instead of functional:
- * ie <Icons.IconEnvelope /> instead of {Icons.IconEnvelope()}
- * @typedef {(props: {className?: string, altText?: string}) => React.ReactNode} IconFunc
+ * BannerPlacement
+ * @typedef {'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right'} BannerPlacement
  */
 
 /**
- * BannerPlacement
- * @typedef {'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right'} BannerPlacement
+ * DrawerPlacement
+ * @typedef {'drawer--right' | 'drawer--left'} DrawerPlacement
  */
 
 /**
@@ -177,9 +175,14 @@
 
 /**
  * @typedef TabGroupContextValue {
- *  @property {string} tabGroupId
+ *  @property {boolean} isVertical
+ *  @property {() => void} navigateNext
+ *  @property {() => void} navigatePrevious
+ *  @property {(tab: React.RefObject<HTMLButtonElement> | null) => void} registerTab
  *  @property {string} selectedTabId
  *  @property {(tabId: string) => void} setSelectedTabId
+ *  @property {string} tabGroupId
+ *  @property {(tab: React.RefObject<HTMLButtonElement> | null | null) => void} unRegisterTab
  * }
  */
 
@@ -359,7 +362,7 @@
 /**
  * @typedef MultiSelectContextNonStateRef {
  *  @property {HTMLElement | null} comboBoxDivElement the text input of the multi select (for forcing focused)
- *  @property {(HTMLDivElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
+ *  @property {(HTMLLIElement | null)[]} selectedOptionTagRefs refs to the selected tags elements
  *  @property {HTMLInputElement | null} textInput the textInput used for this multi select's combo box
  * }
  */

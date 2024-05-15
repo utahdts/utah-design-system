@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import { LightBox } from '../../../../../lightbox/LightBox';
-import basicCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/basicCards.jpg';
-import actionCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/actionCards.jpg';
-import verticalCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/verticalCards.jpg';
-import horizontalCardsScreenshot from '../../../../../../../static/images/screenshots/components/cards/horizontalCards.jpg';
+import delicateArch from '../../../../../../../static/images/delicate-arch-tom-gainor-unsplash.webp';
+import nightPark from '../../../../../../../static/images/brad-switzer-park-unsplash.webp';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
+import { CardCssClassesDocumentation } from './CardCssClassesDocumentation';
 
 export function CardDocumentation() {
   return (
@@ -19,9 +19,38 @@ export function CardDocumentation() {
       <hr />
 
       <h2 id="section-example">Examples</h2>
+
       <StaticExample
         title="Basic Cards"
-        renderedExample={<LightBox image={basicCardsScreenshot} alt="Basic Cards" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex gap">
+            <div className="card p-spacing-xl" style={{ width: '66%' }}>
+              <div className="card__title">Title</div>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit
+                voluptatem accusantium doloremque laudantium,
+                totam rem aperiam, eaque ipsa quae ab illo inventore
+                veritatis et quasi architecto beatae vitae dicta sunt
+                explicabo voluptatem accusantium doloremque.
+              </p>
+              <div className="flex justify-end">
+                <button type="button" className="button">Contact Us</button>
+                <button type="button" className="button button--solid ml-spacing">
+                  See More
+                  <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+                </button>
+              </div>
+            </div>
+            <div
+              className="card card--solid primary-color-background text-on-primary-color flex flex-col items-center p-spacing-xl justify-between"
+              style={{ width: '33%' }}
+            >
+              <span className="utds-icon-before-gear card__icon" aria-hidden="true" />
+              <div className="card__title mb-spacing">A to Z</div>
+              <div className="card__text mb-spacing-l">Find what you need here.</div>
+              <button type="button" className="button--primary-color">Go</button>
+            </div>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>Cards are rectangles that house other smaller elements on a page and are recognized as a single unit of information.</li>
@@ -33,10 +62,61 @@ export function CardDocumentation() {
           </ul>
         )}
       />
+      <PreCodeForCodeString
+        className="gray-block mt-spacing"
+        codeRaw={`
+          <div class="card p-spacing-xl">
+            <div class="card__title">Title</div>
+            <p>Sed ut perspiciatis unde omnis iste natus error.</p>
+            <div class="flex justify-end">
+              <button type="button" class="button">Contact Us</button>
+              <button 
+                type="button" 
+                class="button button--solid ml-spacing"
+              >
+                See More
+                <span class="button--icon button--icon-right">
+                  <span
+                    class="utds-icon-before-arrow-right"
+                    aria-hidden="true"
+                  ></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        `}
+      />
 
       <StaticExample
         title="Action Cards"
-        renderedExample={<LightBox image={actionCardsScreenshot} alt="Action Cards" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col gap">
+            <Link
+              to={pageUrls.gettingStarted}
+              className="action-card action-card--primary-color action-card--solid"
+            >
+              <div className="action-card__title">
+                <h3>Getting Started</h3>
+                <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+              </div>
+              <div className="action-card__body">
+                Learn how to implement the Design System.
+              </div>
+            </Link>
+            <Link
+              to={pageUrls.utahHeader}
+              className="action-card action-card--primary-color white-color-background"
+            >
+              <div className="action-card__title">
+                <h3>Utah Header and Footer</h3>
+                <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+              </div>
+              <div className="action-card__body">
+                Start using the official header and footer.
+              </div>
+            </Link>
+          </div>
+          )}
         quickTips={(
           <ul>
             <li>
@@ -48,10 +128,93 @@ export function CardDocumentation() {
           </ul>
         )}
       />
+      <PreCodeForCodeString
+        className="gray-block mt-spacing"
+        codeRaw={`
+          <a 
+            class="action-card action-card--primary-color action-card--solid" 
+            href="/gettingStarted"
+          >
+            <div class="action-card__title">
+                <h3>Getting Started</h3>
+                <span class="button--icon button--icon-right">
+                  <span
+                    class="utds-icon-before-arrow-right" 
+                    aria-hidden="true">
+                  </span>
+                </span>
+            </div>
+            <div class="action-card__body">
+                Learn how to implement the Design System.
+            </div>
+          </a>
+        `}
+      />
 
       <StaticExample
         title="Vertical Cards"
-        renderedExample={<LightBox image={verticalCardsScreenshot} alt="Vertical Cards" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="flex flex-col gap items-center">
+            <div className="card">
+              <img src={delicateArch} alt="Delicate Arch" className="card__image" />
+              <div className=" p-spacing-xl">
+                <div className="card__title">The Mighty 5</div>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit
+                  voluptatem accusantium doloremque laudantium,
+                  totam rem aperiam, eaque ipsa quae ab illo inventore
+                  veritatis et quasi architecto beatae vitae dicta sunt
+                  explicabo voluptatem accusantium doloremque.
+                </p>
+                <div className="flex justify-end">
+                  <button type="button" className="button">Contact Us</button>
+                  <button type="button" className="button button--solid ml-spacing">
+                    See More
+                    <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="card gray-color-background white-color">
+              <div>
+                <img src={nightPark} alt="Delicate Arch" className="card__image" />
+              </div>
+              <div className=" p-spacing-xl">
+                <div className="card__title">Dark Sky Parks in Utah</div>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit
+                  voluptatem accusantium doloremque laudantium,
+                  totam rem aperiam, eaque ipsa quae ab illo inventore
+                  veritatis et quasi architecto beatae vitae dicta sunt
+                  explicabo voluptatem accusantium doloremque.
+                </p>
+                <div className="flex justify-end">
+                  <button type="button" className="button">Contact Us</button>
+                  <button type="button" className="button ml-spacing">
+                    See More
+                    <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="card flex items-center flex-col">
+              <div className="card__title p-spacing-l">Dark Sky Parks in Utah</div>
+              <div
+                className="flex flex-col items-center full-width justify-end"
+                style={{
+                  backgroundImage: `url(${nightPark})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  minHeight: 225,
+                }}
+              >
+                <button type="button" className="button mb-spacing-xl">
+                  See More
+                  <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>
@@ -64,10 +227,53 @@ export function CardDocumentation() {
           </ul>
         )}
       />
+      <PreCodeForCodeString
+        className="gray-block mt-spacing"
+        codeRaw={`
+          <div class="card">
+            <img src="/my-image.png" alt="My image" class="card__image" />
+            <div class="p-spacing-xl">
+              <div class="card__title">Title</div>
+              <p>Sed ut perspiciatis unde omnis iste natus.</p>
+              <div class="flex justify-end">
+                <button type="button" class="button">Contact Us</button>
+                <button type="button" class="button button--solid ml-spacing">
+                  See More
+                  <span class="button--icon button--icon-right">
+                    <span
+                      class="utds-icon-before-arrow-right"
+                      aria-hidden="true"></span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `}
+      />
 
       <StaticExample
         title="Horizontal Cards"
-        renderedExample={<LightBox image={horizontalCardsScreenshot} alt="Horizontal Cards" className="flex-3up-gap" />}
+        renderedExample={(
+          <div className="card card--horizontal">
+            <img src={nightPark} alt="Delicate Arch" className="card__image" />
+            <div className=" p-spacing-xl">
+              <div className="card__title">Dark Sky Parks in Utah</div>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit
+                voluptatem accusantium doloremque laudantium,
+                totam rem aperiam, eaque ipsa quae ab illo inventore
+                veritatis et quasi architecto beatae vitae dicta sunt
+                explicabo voluptatem accusantium doloremque.
+              </p>
+              <div className="flex justify-end">
+                <button type="button" className="button">Contact Us</button>
+                <button type="button" className="button ml-spacing">
+                  See More
+                  <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         quickTips={(
           <ul>
             <li>
@@ -80,6 +286,30 @@ export function CardDocumentation() {
           </ul>
         )}
       />
+      <PreCodeForCodeString
+        className="gray-block mt-spacing"
+        codeRaw={`
+        <div class="card card--horizontal">
+          <img src="/my-image.png" alt="My image" class="card__image" />
+          <div class="p-spacing-xl">
+            <div class="card__title">Title</div>
+            <p>Sed ut perspiciatis unde omnis iste natus error.</p>
+            <div class="flex justify-end">
+              <button type="button" class="button">Contact Us</button>
+              <button type="button" class="button ml-spacing">
+                See More
+                <span class="button--icon button--icon-right">
+                  <span
+                    class="utds-icon-before-arrow-right"
+                    aria-hidden="true"></span>
+                  </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        `}
+      />
+
       <p>Please see <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.iconButton}>icon buttons</Link>, or <Link to={pageUrls.links}>links</Link> for reference.</p>
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
@@ -169,6 +399,20 @@ export function CardDocumentation() {
         <li>Use appropriate HTML tags such as <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;button&gt;</code>, and <code>&lt;a&gt;</code> for the card content.</li>
       </ul>
       <p>For accessibility guidelines on <Link to={pageUrls.button}>buttons</Link> and <Link to={pageUrls.links}>links</Link> please refer to the documentation.</p>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <CardCssClassesDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

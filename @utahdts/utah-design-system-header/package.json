@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "1.16.3",
+  "version": "1.17.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -12,7 +12,7 @@
         "types": "./dist/index.d.ts"
       },
       "require": "./dist/utah-design-system-header.umd.js",
-      "types": "./dist/src/index.d.ts",
+      "types": "./dist/index.d.ts",
       "default": [
         "./dist/utah-design-system-header.es.js",
         "./dist/utah-design-system-header.umd.js",
@@ -31,7 +31,7 @@
   "scripts": {
     "build": "vite build",
     "buildw": "vite build --watch",
-    "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
+    "buildTypes": "mkdir -p dist && cp ./artifacts/index.d.ts ./dist/",
     "buildTypesTsc": "npx tsc",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
     "cleani": "run-s clean npmi",
@@ -73,14 +73,14 @@
     "@popperjs/core": "2.11.8"
   },
   "devDependencies": {
-    "@vitest/ui": "1.2.2",
+    "@vitest/ui": "1.5.3",
     "jsdom": "24.0.0",
     "replace": "1.2.2",
-    "sass": "1.70.0",
+    "sass": "1.75.0",
     "tslib": "2.6.2",
-    "typescript": "5.3.3",
-    "vite": "5.0.12",
-    "vitest": "1.2.2"
+    "typescript": "5.4.5",
+    "vite": "5.2.10",
+    "vitest": "1.5.3"
   },
   "type": "module"
 }

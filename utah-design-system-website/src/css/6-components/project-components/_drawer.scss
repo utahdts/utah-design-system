@@ -1,0 +1,9 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .drawer {
+    &__inner {
+      max-width: 450px;
+    }
+  }
+}

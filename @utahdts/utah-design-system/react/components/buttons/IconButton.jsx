@@ -10,6 +10,7 @@ import { Tooltip } from '../Tooltip/Tooltip';
 /**
  * @param {object} props
  * @param {IconButtonAppearance} [props.appearance]
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {'primary' | 'secondary' | 'accent' | 'none'} [props.color]
  * @param {import('react').ReactNode} props.icon
@@ -25,6 +26,7 @@ import { Tooltip } from '../Tooltip/Tooltip';
  */
 export function IconButton({
   appearance = ICON_BUTTON_APPEARANCE.OUTLINED,
+  children,
   className,
   color = componentColors.NONE,
   icon,
@@ -65,6 +67,7 @@ export function IconButton({
       >
         {icon}
         <span className={isTitleVisible ? undefined : 'visually-hidden'}>{title}</span>
+        {children}
       </button>
       {referenceElement ? <Tooltip referenceElement={referenceElement}>{tooltipText ?? title}</Tooltip> : null}
     </>

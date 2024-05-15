@@ -264,8 +264,8 @@ export function TimeInputPropsDocumentation() {
               <TableCell>
                 Can specify at what time to end populating options for the popup.
                 Uses the time format given in the <code>timeFormat</code> prop.
-                The <code>timeRangeEnd</code> value will be included if it is a match for a step determined by
-                <code>timeRangeBegin</code> and <code>timeRangeIncrement</code>.
+                The <code>timeRangeEnd</code> value will be included if it is a match for a step determined
+                by <code>timeRangeBegin</code> and <code>timeRangeIncrement</code>.
               </TableCell>
             </TableRow>
 

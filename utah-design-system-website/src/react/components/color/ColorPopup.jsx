@@ -1,8 +1,10 @@
 import {
+  Button,
   handleEvent,
   ICON_BUTTON_APPEARANCE,
   IconButton,
-  Icons,
+  Popup,
+  popupPlacement,
   rectContainsPoint,
   Tab,
   TabGroup,
@@ -35,6 +37,8 @@ import { SwatchList } from './SwatchList';
  */
 export function ColorPopup({ onClose }) {
   const [isOpen, setIsOpen] = useImmer(true);
+  const [moreOptions, setMoreOptions] = useImmer(false);
+  const moreRef = useRef(null);
   const { cssState, setCssState } = useCssContext();
   const [mousePositionOffset, setMousePositionOffset] = useImmer({ x: 0, y: 0 });
   const draggableDivRef = useRef(/** @type {HTMLDivElement | null} */(null));
@@ -82,13 +86,11 @@ export function ColorPopup({ onClose }) {
     <div className="color-picker-popup__backdrop">
       <div
         className="color-picker-popup"
-        role="button"
         style={{
           position: mousePositionRef.current ? 'absolute' : undefined,
           left: mousePositionRef.current?.x ? `${mousePositionRef.current.x - mousePositionOffset.x}px` : undefined,
           top: mousePositionRef.current?.y ? `${mousePositionRef.current.y - mousePositionOffset.y}px` : undefined,
         }}
-        tabIndex={0}
       >
         <div className="color-picker-popup__title-bar" ref={draggableDivRef}>
           <button
@@ -106,46 +108,83 @@ export function ColorPopup({ onClose }) {
               </span>
             </div>
           </button>
-          <IconButton
-            icon={<Icons.IconReset />}
-            className="icon-button--borderless"
-            title="Reset color picker"
-            onClick={() => (
-              // @ts-ignore
-              setCssState((draftCssState) => (
-                // @ts-ignore
-                Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
-              ))
-            )}
-          />
+          <div />
           <div className="color-picker-popup__title">Color Picker</div>
+
           <IconButton
-            icon={<Icons.IconShare />}
-            title={copiedUrlTitle}
+            aria-controls="popup-more-option"
+            aria-expanded={moreOptions}
+            aria-haspopup="dialog"
             className="icon-button--borderless"
-            onClick={() => {
-              const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
-              navigator.clipboard.writeText(returnUrl)
-                .then(() => {
-                  addBanner({
-                    message: <div>Colors copied to clipboard ready to share!<br />{returnUrl}</div>,
-                    position: 'top-right',
-                  });
-                  setCopiedUrlTitle('Share URL copied to to clipboard');
-                  setTimeout(() => {
-                    setCopiedUrlTitle('Share URL');
-                  }, 1500);
-                })
-                // eslint-disable-next-line no-console
-                .catch((e) => console.error(e));
-            }}
+            icon={(
+              <div>
+                <span
+                  className="utds-icon-before-more-vertical"
+                  aria-hidden="true"
+                />
+                <span className="visually-hidden">
+                  more vertical
+                </span>
+              </div>
+            )}
+            id="button-more-option"
+            innerRef={moreRef}
+            onClick={() => setMoreOptions(!moreOptions)}
+            title="See more options"
           />
+          <Popup
+            ariaLabelledBy="button-more-option"
+            id="popup-more-option"
+            isVisible={moreOptions}
+            referenceElement={moreRef}
+            role="dialog"
+            onVisibleChange={(_e, isVisible) => {
+              setMoreOptions(isVisible);
+            }}
+            placement={popupPlacement.BOTTOM}
+          >
+            <Button
+              className="full-width"
+              onClick={() => (
+                // @ts-ignore
+                setCssState((draftCssState) => (
+                  // @ts-ignore
+                  Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
+                ))
+              )}
+            >
+              <span className="utds-icon-before-restart mr-spacing-xs" aria-hidden="true" /> Reset color picker
+            </Button>
+            <Button
+              className="full-width mt-spacing-s"
+              onClick={() => {
+                const returnUrl = `${window.location.origin + pageUrls.demoPage}?${colorsToUrlParams(cssState)}`;
+                navigator.clipboard.writeText(returnUrl)
+                  .then(() => {
+                    addBanner({
+                      className: 'banner--dark',
+                      duration: 7500,
+                      message: <div>Colors copied to clipboard and ready to share!<br />{`${returnUrl.substring(0, 50)}...`}</div>,
+                      position: 'top-right',
+                    });
+                    setCopiedUrlTitle('Share URL copied to to clipboard');
+                    setTimeout(() => {
+                      setCopiedUrlTitle('Share URL');
+                    }, 1500);
+                  })
+                  // eslint-disable-next-line no-console
+                  .catch((e) => console.error(e));
+              }}
+            >
+              <span className="utds-icon-before-share mr-spacing-xs" aria-hidden="true" /> {copiedUrlTitle}
+            </Button>
+          </Popup>
           {
             showRandomizingIcon
               ? (
                 <div className="color-picker-popup__buttons">
                   <IconButton
-                    icon={<Icons.IconDangerous />}
+                    icon={<span className="utds-icon-before-visibility" aria-hidden="true" />}
                     title="Randomize color picker"
                     className="icon-button--borderless"
                     onClick={() => (

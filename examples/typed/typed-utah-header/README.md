@@ -42,6 +42,13 @@ npm i
 npm run dev
 ```
 
+## Test type safety
+```bash
+cd examples/typed/typed-utah-header
+npm i
+npm run tsc
+```
+
 ## How This App Was Created
 ```bash
 npm create vite@latest
