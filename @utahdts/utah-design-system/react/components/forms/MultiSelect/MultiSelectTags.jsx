@@ -16,7 +16,7 @@ export function MultiSelectTags({ isDisabled }) {
   const { addPoliteMessage } = useAriaMessaging();
 
   return (
-    <ul className="multi-select-tags">
+    <ul className="multi-select-tags flex flex-wrap gap-xs">
       {
         multiSelectContext.selectedValues.map((selectedValue, selectedValueIndex) => {
           // option may not exist yet if the multi-select's `values` are a "defaultValue" and the options have not yet registered
