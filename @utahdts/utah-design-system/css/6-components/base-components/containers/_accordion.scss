@@ -29,6 +29,10 @@
       }
     }
 
+    .accordion__header h1 {
+      margin: 0;
+    }
+
     &__content {
         background: var(--gray-light-color);
         padding: 0;

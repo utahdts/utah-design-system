@@ -2,14 +2,18 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "1.16.3",
+  "version": "1.17.0",
   "exports": {
     ".": {
       "development-local": "./index.js",
       "development": "./dist/utah-design-system.es.js",
       "production": "./dist/utah-design-system.es.js",
-      "import": "./dist/utah-design-system.es.js",
+      "import": {
+        "default": "./dist/utah-design-system.es.js",
+        "types": "./dist/index.d.ts"
+      },
       "require": "./dist/utah-design-system.umd.js",
+      "types": "./dist/index.d.ts",
       "default": [
         "./dist/utah-design-system.es.js",
         "./dist/utah-design-system.umd.js",
@@ -21,6 +25,7 @@
     "./css/index.scss": "./css/index.scss"
   },
   "main": "index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "css",
     "dist",
@@ -28,12 +33,12 @@
   ],
   "peerDependencies": {
     "react": "18.x",
-    "react-router-dom": "6.21.3"
+    "react-router-dom": "6.23.0"
   },
   "scripts": {
     "build": "vite build",
     "buildw": "vite build --watch",
-    "buildTypes": "cp ./artifacts/index.d.ts ./dist/",
+    "buildTypes": "mkdir -p dist && cp ./artifacts/index.d.ts ./dist/",
     "buildTypesTsc": "npx tsc",
     "eslint": "npx eslint",
     "eslintw": "npx eslint-watch -w",
@@ -65,29 +70,29 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
   "dependencies": {
-    "@utahdts/utah-design-system-header": "1.16.3",
-    "date-fns": "3.3.1",
+    "@utahdts/utah-design-system-header": "1.17.0",
+    "date-fns": "3.6.0",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "18.x",
     "react-popper": "2.3.0",
-    "react-router-dom": "6.21.3",
+    "react-router-dom": "6.23.0",
     "use-immer": "0.9.0",
     "uuid": "9.0.1"
   },
   "devDependencies": {
-    "@types/lodash": "4.14.202",
-    "@types/react": "18.2.79",
-    "@types/react-dom": "18.2.18",
+    "@types/lodash": "4.17.0",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
     "@types/uuid": "9.0.8",
     "@vitejs/plugin-react": "4.2.1",
-    "@vitest/coverage-istanbul": "1.2.2",
-    "@vitest/ui": "1.2.2",
+    "@vitest/coverage-istanbul": "1.5.3",
+    "@vitest/ui": "1.5.3",
     "jsdom": "24.0.0",
-    "sass": "1.70.0",
-    "typescript": "5.3.3",
-    "vite": "5.0.12",
-    "vitest": "1.2.2"
+    "sass": "1.75.0",
+    "typescript": "5.4.5",
+    "vite": "5.2.10",
+    "vitest": "1.5.3"
   },
   "type": "module"
 }

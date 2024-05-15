@@ -31,7 +31,7 @@ export function VerticalMenuDocumentation() {
       <SandboxExample
         defaultProps={{
           // @ts-ignore
-          childrenMenuType: childrenMenuTypes.INLINE,
+          childrenMenuType: childrenMenuTypes.FLYOUT,
         }}
         RENDER_EXAMPLE={VerticalMenuExampleRender}
         PROPS_EXAMPLE={VerticalMenuExampleProps}
@@ -123,11 +123,13 @@ export function VerticalMenuDocumentation() {
                       id: 'menu-in-popup-B',
                       title: 'Another Menu Item',
                       childrenMenuType: childrenMenuTypes.FLYOUT,
+                      link: 'https://utah.gov',
                     },
                     {
                       id: 'menu-in-popup-C',
                       title: 'Last Menu Item',
                       childrenMenuType: childrenMenuTypes.FLYOUT,
+                      link: 'https://utah.gov',
                     },
                   ],
                 },

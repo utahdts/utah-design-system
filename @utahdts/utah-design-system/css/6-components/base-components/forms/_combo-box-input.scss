@@ -51,6 +51,7 @@
     }
     &__option {
       padding: var(--spacing-2xs) var(--spacing-s);
+      font-weight: var(--font-weight-normal);
       &:hover {
         background: var(--hover-gray-color);
         cursor: default;

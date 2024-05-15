@@ -289,7 +289,7 @@
  *  @property {string} size - size has to be one of the `Size` types
  *  @property {string} [skipLinkUrl] - the URL that the skip link will go to
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
- *  @property {string} titleURL - when the agency title is triggered, the browser navigates to this url
+ *  @property {string} titleUrl - when the agency title is triggered, the browser navigates to this url
  *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
  * }
  */

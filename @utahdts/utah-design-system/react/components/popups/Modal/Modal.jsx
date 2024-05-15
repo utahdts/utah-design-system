@@ -1,27 +1,16 @@
-import {
-  useCallback, useEffect, useRef
-} from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { IconButton } from '../../buttons/IconButton';
-
-/**
- * Based on the list from https://api.jqueryui.com/tabbable-selector/
- * Used to get a list of focusable elements within a modal component
- * @param {HTMLDialogElement} element
- * @returns {HTMLElement[]}
- */
-function getFocusableElements(element) {
-  // @ts-ignore
-  return [
-    ...element.querySelectorAll('a[href], area[href], button, input, textarea, select, object, [tabindex]:not([tabindex="-1"])'),
-  ].filter((item) => !item.hasAttribute('disabled'));
-}
+import { getFocusableElements } from '../../../util/getFocusableElements';
+import { useHandleEscape } from '../../../hooks/useHandleEscape';
+import { useHandleTab } from '../../../hooks/useHandleTab';
 
 /**
  * @param {object} props
+ * @param {string} props.ariaLabelledBy Must match the id of the title of the modal
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id
@@ -31,6 +20,7 @@ function getFocusableElements(element) {
  * @returns {import('react').JSX.Element}
  */
 export function Modal({
+  ariaLabelledBy,
   children,
   className,
   id,
@@ -44,27 +34,8 @@ export function Modal({
   const [lastTabElement, setLastTabElement] = useImmer(/** @type {HTMLElement | undefined} */(undefined));
   const { addAssertiveMessage } = useAriaMessaging();
 
-  const handleEscape = useCallback((/** @type {import('react').KeyboardEvent<HTMLDialogElement>} */ e) => {
-    if (e.code === 'Escape' || e.key === 'Escape') {
-      e.preventDefault();
-      e.stopPropagation();
-      if (onEscape) { onEscape(e); }
-    }
-  }, [onEscape]);
-
-  const handleTab = useCallback((/** @type {import('react').KeyboardEvent<HTMLDialogElement>} */ e) => {
-    if (e.code === 'Tab' || e.key === 'Tab') {
-      if (e.shiftKey) {
-        if (document.activeElement === firstTabElement) {
-          lastTabElement?.focus();
-          e.preventDefault();
-        }
-      } else if (document.activeElement === lastTabElement) {
-        firstTabElement?.focus();
-        e.preventDefault();
-      }
-    }
-  }, [firstTabElement, lastTabElement]);
+  const handleEscape = useHandleEscape(onEscape);
+  const handleTab = useHandleTab(firstTabElement, lastTabElement);
 
   useEffect(() => {
     if (ref) {
@@ -95,6 +66,7 @@ export function Modal({
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <dialog
         aria-modal="true"
+        aria-labelledby={ariaLabelledBy}
         className={joinClassNames('modal__wrapper', className)}
         id={id}
         onClick={(e) => e.stopPropagation()}

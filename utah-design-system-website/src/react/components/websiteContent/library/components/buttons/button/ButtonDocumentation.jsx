@@ -2,7 +2,7 @@
 import {
   Button,
   formElementSizesEnum,
-  Icons, Tab,
+  Tab,
   TabGroup,
   Table,
   TableBody,
@@ -15,7 +15,7 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-  useBanner,
+  useBanner
 } from '@utahdts/utah-design-system';
 import { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -190,7 +190,7 @@ export function ButtonDocumentation() {
             <Button
               appearance="outlined"
               color="primary"
-              iconLeft={<Icons.IconCheck />}
+              iconLeft={<span className="utds-icon-before-check" aria-hidden="true" />}
               onClick={useCallback(() => addBanner({ message: '`Left Icon` button clicked' }), [addBanner])}
             >
               Button
@@ -198,7 +198,7 @@ export function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              iconRight={<Icons.IconArrowRight />}
+              iconRight={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}
               onClick={useCallback(() => addBanner({ message: '`See More` button clicked' }), [addBanner])}
             >
               See More
@@ -237,7 +237,7 @@ export function ButtonDocumentation() {
             <Button
               appearance="solid"
               color="primary"
-              onClick={useCallback(() => addBanner({ message: 'Mdium button clicked' }), [addBanner])}
+              onClick={useCallback(() => addBanner({ message: 'Medium button clicked' }), [addBanner])}
               size={formElementSizesEnum.MEDIUM}
             >
               Medium
@@ -415,9 +415,9 @@ export function ButtonDocumentation() {
           <ul>
             <li>
               Use the button style if it also includes a visual indicator such as an arrow icon.
-              For example <code>Read More <Icons.IconArrowRight /></code>.
+              For example <code>Read More <span className="utds-icon-before-arrow-right icon" aria-hidden="true" /></code>.
             </li>
-            <li>Use the button style for a call to action. For example, <code>Register Now <Icons.IconArrowRight /></code>.</li>
+            <li>Use the button style for a call to action. For example, <code>Register Now <span className="utds-icon-before-arrow-right icon" aria-hidden="true" /></code>.</li>
           </ul>
         </li>
       </ul>
@@ -521,7 +521,7 @@ export function ButtonDocumentation() {
 
                       <TableRow>
                         <TableCell><code className="primary-color">children</code></TableCell>
-                        <TableCell><code>react node</code></TableCell>
+                        <TableCell><code>React.ReactNode</code></TableCell>
                         <TableCell><em>required</em></TableCell>
                         <TableCell>
                           Most often, children is the title of button. But, you can have it be any element to be rendered inside the button.

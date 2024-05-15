@@ -1,9 +1,15 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { Accordion } from '@utahdts/utah-design-system';
+import { Accordion, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import coralPinkSandDunes from '../../../../../../../static/images/screenshots/examples/CoralPinkSandDunes.jpg';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { AccordionExampleRender } from './AccordionExampleRender';
+import { AccordionExampleProps } from './AccordionExampleProps';
+import { AccordionExampleCodeReact } from './AccordionExampleCodeReact';
+import { AccordionCssClassesDocumentation } from './AccordionCssClassesDocumentation';
+import { AccordionPropsDocumentation } from './AccordionPropsDocumentation';
 
 export function AccordionDocumentation() {
   return (
@@ -15,14 +21,74 @@ export function AccordionDocumentation() {
 
       <hr />
 
-      <h2 id="section-example">Examples</h2>
+      <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          children: 'Accordion content',
+          className: '',
+          contentClassName: '',
+          headerClassName: '',
+          headerContent: 'Header content',
+          headingLevel: 2,
+          isOpen: true,
+        }}
+        RENDER_EXAMPLE={AccordionExampleRender}
+        PROPS_EXAMPLE={AccordionExampleProps}
+        CODE_EXAMPLE={AccordionExampleCodeReact}
+        componentClassName="sandbox-example__component--outline"
+      />
+      <h2 id="section-vanilla-example">Vanilla Example</h2>
+      <h3 id="html-example">HTML</h3>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={(`
+<div class="accordion">
+  <button 
+    class="accordion__header button--primary-color button--solid accordion__header--open"
+    type="button" 
+    onclick="toggleAccordion(this)"
+  >
+    <h4><span>An Accordion</span></h4>
+    <span class="utds-icon-before-circle-chevron-up icon-button__icon"></span>
+  </button>
+  <div class="accordion__content accordion__content--open">This is some content.</div>
+</div>
+            `)}
+      />
+      <h3 id="javascript-example">Javascript</h3>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={(`
+<script>
+  function toggleAccordion(button) {
+    const accordionContent = button.nextElementSibling;
+    accordionContent.classList.toggle('accordion__content--open');
+    button.classList.toggle('accordion__header--open');
+        
+    const icon = button.querySelector('.icon-button__icon');
+    if (button.classList.contains('accordion__header--open')) {
+      icon.classList.remove('utds-icon-before-circle-chevron-down');
+      icon.classList.add('utds-icon-before-circle-chevron-up');
+    } else {
+      icon.classList.remove('utds-icon-before-circle-chevron-up');
+      icon.classList.add('utds-icon-before-circle-chevron-down');
+    }
+  }                
+</script>
+            `)}
+      />
+
+      <hr />
+
       <h3>Closed</h3>
-      <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4}>
+      <Accordion headerContent={<span>A Closed Accordion</span>} headerClassName="button--primary-color button--solid" headingLevel={4} id="closed-accordion">
         This is some content.
       </Accordion>
 
       <h3 className="mt-spacing">Open</h3>
-      <Accordion headerContent={<span>An Open Accordion</span>} headerClassName="button--primary-color button--solid" isOpen headingLevel={4}>
+      <Accordion headerContent={<span>An Open Accordion</span>} headerClassName="button--primary-color button--solid" isOpen headingLevel={4} id="opened-accordion">
         <img src={coralPinkSandDunes} alt="Recreation vehicle at the sand dunes" style={{ float: 'right', marginLeft: 'var(--spacing)' }} />
         <p>
           The geology of the sand dunes is an intriguing subject. The sand comes from Navajo sandstone from the geologic period call Middle Jurassic.
@@ -39,8 +105,8 @@ export function AccordionDocumentation() {
         </p>
       </Accordion>
 
-      <h2 className="my-spacing" id="guidance">Guidance</h2>
-      <h3>When to use</h3>
+      <h2 className="my-spacing" id="section-guidance">Guidance</h2>
+      <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
         <li><strong>Limited content.</strong> If users will only need a few specific pieces of content to be displayed at one time within a page.</li>
         <li><strong>Small space.</strong> If you have only a small space to display a lot of content.</li>
@@ -48,7 +114,7 @@ export function AccordionDocumentation() {
         <li><strong>To help users focus.</strong> Allowing a user to hide controls and content so they can better focus on their task.</li>
       </ul>
 
-      <h3>When to use something else</h3>
+      <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
           <strong>If users need to see most or all of the information on a page.</strong> Use well-formatted text instead.
@@ -179,6 +245,24 @@ export function AccordionDocumentation() {
           container will have its <code>hidden</code> attribute set by the component, depending on its corresponding <Link to={pageUrls.button}>button&apos;s</Link> <code>aria-expanded</code> attribute.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="button-props-css">
+          <TabList>
+            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="button-props-css">
+              <AccordionCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="button-props-react">
+              <AccordionPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

@@ -1,16 +1,15 @@
-import { useContext } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { useTabGroupContext } from './context/useTabGroupContext';
 
 /**
  * @param {object} props
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
- * @param {string} [props.tabId]
+ * @param {string} props.tabId
  * @returns {import('react').JSX.Element}
  */
 export function TabPanel({ children, className, tabId }) {
-  const { selectedTabId, tabGroupId } = useContext(TabGroupContext);
+  const { selectedTabId, tabGroupId } = useTabGroupContext();
 
   return (
     <div
@@ -18,13 +17,13 @@ export function TabPanel({ children, className, tabId }) {
       aria-labelledby={`tab-${tabGroupId}-${tabId}`}
       className={joinClassNames(
         className,
-        selectedTabId === tabId && 'tab-group__panel--selected',
+        selectedTabId !== tabId && 'visually-hidden',
         'tab-group__panel'
       )}
       // `id` must match the related Tab's `aria-controls`
       id={`tabpanel-${tabGroupId}-${tabId}`}
       role="tabpanel"
-      tabIndex={0}
+      tabIndex={selectedTabId === tabId ? 0 : -1}
     >
       {children}
     </div>

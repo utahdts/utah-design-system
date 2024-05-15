@@ -11,6 +11,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       eslintPlugin(),
     ],
     build: {
+      emptyOutDir: false,
       minify: false,
       sourceMap: 'inline',
       lib: {

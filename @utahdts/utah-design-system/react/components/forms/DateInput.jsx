@@ -144,7 +144,7 @@ export function DateInput({
             labelClassName={labelClassName}
             name={name}
             onChange={(e) => currentOnChange(e.target.value)}
-            onClear={currentOnClear}
+            onClear={isClearable ? currentOnClear : undefined}
             onKeyUp={onDownArrowPress}
             placeholder={placeholder}
             value={currentValue}

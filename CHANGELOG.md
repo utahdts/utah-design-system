@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.17.0] 5/14/2024
+## Fixed
+- (BREAKING!) Move innerRef to wrapper for ClickableTag, Checkbox, and RadioButton
+- Close popups when clicked outside
+- Make sure footer is 100% width
+- Only announce multi-select groups if there are groups
+- Prevent closing popups for main menu clicking
+- Prevent header font from being overriden
+- Toggle open utah Id mobile menu on mobile
+
+## Added
+- Add color picker popup for Color Picker
+- Add Drawer component
+- Add new icons: Filter
+- Add option parentMenuLinkSuffix for menus
+- Add TableFilterComboBox types
+- Announce that multi-select tags are deletable
+- Trigger flyout menus on hover
+- Update Accordion component & documentation
+- Update Badge component & documentation
+- Update Cards component & documentation
+- Update header types including 'plain' menu type
+- Update Tab Group component & documentation
+- Use real static examples for PopupsDocumentation
+
 # [1.16.3] 5/13/2024
 ## Fixed
 - Position of search input css not high enough on the page

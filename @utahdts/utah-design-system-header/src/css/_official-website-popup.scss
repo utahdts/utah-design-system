@@ -27,6 +27,7 @@
     &__heading {
       font-size: var(--font-size-xl);
       font-weight: var(--font-weight-semi-bold);
+      font-family: var(--normal-font-family);
       padding: 0 var(--spacing-xl) 0 0;
       line-height: 1;
       margin-bottom: var(--spacing-s);
@@ -35,6 +36,7 @@
     &__content {
       display: flex;
       gap: var(--spacing-2xl);
+      font-family: var(--normal-font-family);
     }
     &__col {
       max-width: 400px;

@@ -8,7 +8,7 @@ const MATCH_BASIC_FIELDS = [
   '"showTitle": true',
   '"size": "MEDIUM"',
   '"title": "Utah Design System"',
-  '"titleURL": "/"',
+  '"titleUrl": "/"',
   '"mediaSizes": {',
   '"mobile": 640,',
   '"tabletPortrait": 768,',
@@ -30,7 +30,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleURL: '/',
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -52,7 +52,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleURL: '/',
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -90,7 +90,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleURL: '/',
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -122,7 +122,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleURL: '/',
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -153,7 +153,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleURL: '/',
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -197,7 +197,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleURL: '/',
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',

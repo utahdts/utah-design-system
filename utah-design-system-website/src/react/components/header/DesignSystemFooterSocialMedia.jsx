@@ -1,9 +1,7 @@
-import {
-  FooterSocialMediaBar,
-  Icons,
-} from '@utahdts/utah-design-system';
+import { FooterSocialMediaBar } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/index.scss';
+import { IconsWebsite } from '../websiteContent/IconsWebsite';
 
 export function DesignSystemFooterSocialMedia() {
   return (
@@ -14,7 +12,7 @@ export function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        <Icons.IconEnvelope />
+        <span className="utds-icon-before-mail" aria-hidden="true" />
         <span className="visually-hidden">Email us, opens in a new tab</span>
       </a>
       <a
@@ -23,7 +21,7 @@ export function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        <Icons.IconSlack />
+        <IconsWebsite.IconSlack />
         <span className="visually-hidden">Utah Design System Slack, opens in a new tab</span>
       </a>
       <a
@@ -32,7 +30,7 @@ export function DesignSystemFooterSocialMedia() {
         target="_blank"
         rel="noreferrer"
       >
-        <Icons.IconGitHub />
+        <IconsWebsite.IconGitHub />
         <span className="visually-hidden">Utah Design System Git Hub, opens in a new tab</span>
       </a>
     </FooterSocialMediaBar>

@@ -2,7 +2,6 @@
 
 #{class-vars.$base-class} {
   .menu-item {
-
     &__title {
       display: flex;
       flex-direction: row;
@@ -28,13 +27,12 @@
       }
     }
     &__chevron {
-      transform: rotate(-90deg);
-      svg {
-        width: 10px;
-        height: 10px;
+      [class*="utds-icon-after-"]::after {
+        font-size: 0.65rem;
+        line-height: 0.5;
       }
       &--open {
-        transform: rotate(0deg);
+        transform: rotate(90deg);
       }
     }
     &__sub-menu {

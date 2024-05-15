@@ -11,7 +11,7 @@ import {
   TableFilterCustom,
   TableFilterDate,
   TableFilterNone,
-  TableFilterSelectAllOptions,
+  TableFilterComboBoxAllOptions,
   TableFilterTextInput,
   TableFilters,
   TableHead,
@@ -38,13 +38,14 @@ export function TableDocumentationFilteringTableExample() {
       <p className="mb-spacing-xs">This table allows filtering its data through the use of the inputs in the <code>&lt;thead&gt;</code> element.</p>
       <p className="mb-spacing-xs">This example does not include any additional styling. This demonstrates what a table component looks like out-of-the-box.</p>
       <Accordion
+        id="table-example-filtering"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"
         headingLevel={4}
       >
         <TableWrapper>
-          <Table>
+          <Table className="table--min-height">
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
@@ -54,11 +55,11 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterNone />
 
                 {/*
-                  Present a select input of the possible values from which to filter;
+                  Present a combo box input of the possible values from which to filter;
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
+                <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
                 <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />

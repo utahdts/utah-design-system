@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
-import { TabGroupContext } from './TabGroupContext';
+import { useTabGroupContext } from './context/useTabGroupContext';
 
 /**
  * @param {object} props
@@ -8,14 +7,18 @@ import { TabGroupContext } from './TabGroupContext';
  * @param {string} [props.className]
  * @returns {import('react').JSX.Element}
  */
-export function TabList({ children, className }) {
-  const { tabGroupId } = useContext(TabGroupContext);
+export function TabList({
+  children,
+  className,
+}) {
+  const { tabGroupId, isVertical } = useTabGroupContext();
 
   return (
     <div
       className={joinClassNames(className, 'tab-group__list')}
       role="tablist"
       aria-labelledby={`tab-group-${tabGroupId}`}
+      aria-orientation={isVertical ? 'vertical' : 'horizontal'}
     >
       {children}
     </div>

@@ -35,6 +35,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
         also keeping in sync with the filtering of the data.
       </p>
       <Accordion
+        id="table-example-filtering-pagination"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"

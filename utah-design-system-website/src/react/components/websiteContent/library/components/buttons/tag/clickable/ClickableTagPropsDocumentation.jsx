@@ -25,7 +25,7 @@ export function ClickableTagPropsDocumentation() {
           <TableBody>
             <TableRow>
               <TableCell><code className="primary-color">children</code></TableCell>
-              <TableCell><code>react node</code></TableCell>
+              <TableCell><code>React.ReactNode</code></TableCell>
               <TableCell><em>required</em></TableCell>
               <TableCell>
                 Most often, children is the title of the tag. But, you can have it

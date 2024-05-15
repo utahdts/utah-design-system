@@ -5,13 +5,14 @@
  * @typedef {import('use-immer').Updater<UpdaterT>} Updater
  */
 
-/** @typedef {import('@utahdts/utah-design-system-types').BannerPlacement} BannerPlacement */
-/** @typedef {import('@utahdts/utah-design-system-types').ButtonAppearance} ButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system-types').ButtonTypes} ButtonTypes */
-/** @typedef {import('@utahdts/utah-design-system-types').ComponentColors} ComponentColors */
-/** @typedef {import('@utahdts/utah-design-system-types').FormElementSizes} FormElementSizes */
-/** @typedef {import('@utahdts/utah-design-system-types').IconButtonAppearance} IconButtonAppearance */
-/** @typedef {import('@utahdts/utah-design-system-types').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').DrawerPlacement} DrawerPlacement */
+/** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
+/** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
+/** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
+/** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
 /** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -54,6 +55,18 @@
  */
 
 /**
+ * @typedef AccordionExamplePropsShape {
+ *  @property {string} children
+ *  @property {string} className
+ *  @property {string} contentClassName
+ *  @property {string} headerClassName
+ *  @property {string} headerContent
+ *  @property {number} headingLevel
+ *  @property {boolean} isOpen
+ * }
+ */
+
+/**
  * @typedef AppContextValue {
  *  @property {Record<string, WebsiteMainMenu>} allMenus
  *  @property {Record<string, Page>} pages
@@ -71,7 +84,9 @@
 
 /**
  * @typedef BadgesExamplePropsShape {
- *  @property {string} onClick
+ *  @property {string} children
+ *  @property {string} className
+ *  @property {string} title
  * }
  */
 
@@ -167,6 +182,17 @@
  *  @property {string} placeholder
  *  @property {boolean} showCalendarTodayButton
  *  @property {string} value
+ * }
+ */
+
+/**
+ * @typedef DrawerExamplePropsShape {
+ * @property {string} className
+ * @property {boolean} closeOnEsc
+ * @property {string} title
+ * @property {string} content
+ * @property {DrawerPlacement} position
+ * @property {boolean} showCloseButton
  * }
  */
 
@@ -311,6 +337,16 @@
  *  @property {string} size
  *  @property {boolean} value
  *  @property {string} width
+ * }
+ */
+
+/**
+ * @typedef TabGroupExamplePropsShape {
+ *  @property {string} tabA
+ *  @property {string} tabB
+ *  @property {string} panelA
+ *  @property {string} panelB
+ *  @property {boolean} isVertical
  * }
  */
 

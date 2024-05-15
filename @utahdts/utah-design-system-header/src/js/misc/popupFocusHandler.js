@@ -91,7 +91,7 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
     clearTimeout(delayPopupTimeoutId);
     clearTimeout(delayHideTimeoutId);
 
-    if (!options?.isPerformPopup || (options?.isPerformPopup && options.isPerformPopup())) {
+    if (!options?.isPerformPopup || options?.isPerformPopup()) {
       delayPopupTimeoutId = window.setTimeout(
         () => {
           createPopper(button, popup, {
