@@ -201,7 +201,7 @@ export function DrawerPropsDocumentation() {
               <TableRow>
                 <TableCell><code className="primary-color">id</code></TableCell>
                 <TableCell><code>string</code></TableCell>
-                <TableCell><em>required</em></TableCell>
+                <TableCell>null</TableCell>
                 <TableCell>
                   The <code>id</code> attribute of the content.<br />
                   Will be added to the <code>div</code> element.
@@ -248,7 +248,7 @@ export function DrawerPropsDocumentation() {
               <TableRow>
                 <TableCell><code className="primary-color">id</code></TableCell>
                 <TableCell><code>string</code></TableCell>
-                <TableCell><em>required</em></TableCell>
+                <TableCell>null</TableCell>
                 <TableCell>
                   The <code>id</code> attribute of the footer.<br />
                   Will be added to the <code>div</code> element.
