@@ -1,12 +1,21 @@
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
-import skeletonShapes from '../../../../../../../static/images/mockups/Skeleton.jpg';
-import skeletonFullScreenshot from '../../../../../../../static/images/mockups/skeletonFullPage.jpg';
+import { Link, NavLink } from 'react-router-dom';
+import {
+  Skeleton,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableHeadRow,
+  TableRow,
+  TableWrapper
+} from '@utahdts/utah-design-system';
 import skeletonLazyScreenshot from '../../../../../../../static/images/mockups/skeletonLazyLoad.jpg';
-import skeletonTableScreenshot from '../../../../../../../static/images/mockups/skeletonTable.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { IconsWebsite } from '../../../../IconsWebsite';
 
 export function SkeletonsDocumentation() {
   return (
@@ -24,7 +33,12 @@ export function SkeletonsDocumentation() {
       <StaticExample
         title="Skeleton Shapes"
         renderedExample={(
-          <LightBox image={skeletonShapes} alt="Skeleton Shapes" className="flex-3up-gap" />
+          <div className="flex flex-col items-start gap-xs">
+            <Skeleton className="skeleton--circle" />
+            <Skeleton className="skeleton--line" />
+            <Skeleton className="skeleton--line" />
+            <Skeleton className="skeleton--block" />
+          </div>
         )}
         quickTips={(
           <ul>
@@ -42,13 +56,41 @@ export function SkeletonsDocumentation() {
       <StaticExample
         title="Skeleton Variations"
         renderedExample={(
-          <LightBox image={skeletonFullScreenshot} alt="Skeleton" className="flex-3up-gap" />
+          <div className="flex gap">
+            <div>
+              <div className="flex flex-col items-center gap-xs white-color-background p-spacing radius-s">
+                <Skeleton className="skeleton--circle" />
+                <Skeleton className="skeleton--line" />
+                <Skeleton className="skeleton--line" />
+              </div>
+              <div className="border-top mt-spacing-s pt-spacing-s">
+                <span>
+                  <strong className="mr-spacing-s">Loading data</strong>
+                </span>
+              </div>
+            </div>
+            <div>
+              <div className="flex flex-col items-center gap-xs white-color-background p-spacing radius-s">
+                <div className="color-example_item color-example_item--primary-color flex items-center justify-center">
+                  {IconsWebsite.IconA11y({ className: 'white-text skeleton-icon-example', isHidden: true })}
+                </div>
+                <h4>Accessibility</h4>
+                <span>Learn more on the <NavLink to={pageUrls.accessibility}>accessibility overview page</NavLink>.</span>
+              </div>
+              <div className="border-top mt-spacing-s pt-spacing-s">
+                <span>
+                  <strong className="mr-spacing-s">Content filled</strong>
+                </span>
+              </div>
+            </div>
+          </div>
         )}
         quickTips={(
           <ul>
             <li>
               Skeleton container sizes and elements remain consistent across different users, even though the specific
-              text and icons in each content area may differ. This consistency helps prepare users for the content that will eventually fill in. To ensure the
+              text and icons in each content area may differ. This consistency helps prepare users for the content that will eventually fill in. To
+              ensure the
               best possible user experience, it&apos;s ideal for each content area to load at the same time.
             </li>
           </ul>
@@ -58,7 +100,28 @@ export function SkeletonsDocumentation() {
       <StaticExample
         title="Within a container"
         renderedExample={(
-          <LightBox image={skeletonTableScreenshot} alt="Skeleton Table" className="flex-3up-gap" />
+          <TableWrapper className="full-width">
+            <Table id="skeleton-table" className="table table--lines-x table--v-align-center table--full-width">
+              <TableHead>
+                <TableHeadRow>
+                  <TableHeadCell>Name</TableHeadCell>
+                  <TableHeadCell>Age</TableHeadCell>
+                  <TableHeadCell>City</TableHeadCell>
+                  <TableHeadCell>Animal</TableHeadCell>
+                </TableHeadRow>
+              </TableHead>
+              <TableBody>
+                {[...Array(5).keys()].map(() => (
+                  <TableRow>
+                    <TableCell><Skeleton className="skeleton--line auto-width" /></TableCell>
+                    <TableCell><Skeleton className="skeleton--line auto-width" /></TableCell>
+                    <TableCell><Skeleton className="skeleton--line auto-width" /></TableCell>
+                    <TableCell><Skeleton className="skeleton--line auto-width" /></TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableWrapper>
         )}
         quickTips={(
           <ul>

@@ -98,6 +98,7 @@ export { DocumentationTemplate } from './react/components/templates/Documentatio
 export { LandingTemplate } from './react/components/templates/LandingTemplate';
 export { MainContent } from './react/components/templates/MainContent';
 export { Badge } from './react/components/widgetsIndicators/Badge';
+export { Skeleton } from './react/components/widgetsIndicators/Skeleton';
 export { Spinner } from './react/components/widgetsIndicators/Spinner';
 export { UtahDesignSystemContext } from './react/contexts/UtahDesignSystemContext/UtahDesignSystemContext';
 export { UtahDesignSystemContextProvider } from './react/contexts/UtahDesignSystemContext/UtahDesignSystemContextProvider';
