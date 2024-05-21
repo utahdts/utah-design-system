@@ -64,7 +64,6 @@ export function TableDocumentationFilteringTableExample() {
                 {/* Date range filtering popup */}
                 <TableFilterDateRange
                   a11yLabel="Inauguration"
-                  dateFormat="d MMM yy"
                   id="table-filtering-inauguration"
                   recordFieldPath="inauguration"
                 />

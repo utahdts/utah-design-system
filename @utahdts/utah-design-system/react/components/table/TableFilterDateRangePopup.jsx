@@ -51,6 +51,7 @@ export function TableFilterDateRangePopup({
 }) {
   const beginDateRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [currentInput, setCurrentInput] = useImmer(/** @type {BeginEndDate} */(BeginEndDates.BEGIN));
+  const calendarInputRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
   useEffect(
     () => {
@@ -68,6 +69,20 @@ export function TableFilterDateRangePopup({
 
   // close popup anytime the escape key is pressed
   useGlobalKeyEvent({ whichKeyCode: 'Escape', onKeyUp: useCallback(() => setIsPopupOpen(false), []) });
+
+  const moveToCalendarInput = useCallback(
+    /** @param {React.KeyboardEvent<HTMLInputElement>} e */
+    (e) => {
+      // move to calendar input on key down
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        e.stopPropagation();
+        const focusOnThis = /** @type {HTMLElement | null} */ (calendarInputRef.current?.querySelector('.calendar-input__cell--focused'));
+        focusOnThis?.focus();
+      }
+    },
+    []
+  );
 
   return (
     <Popup
@@ -95,7 +110,8 @@ export function TableFilterDateRangePopup({
           onChange={(newValue) => onChange(formatNewValue(BeginEndDates.BEGIN, newValue, beginDateStr, endDateStr))}
           onClear={() => onChange(formatNewValue(BeginEndDates.BEGIN, '', beginDateStr, endDateStr))}
           value={beginDateStr}
-        // @ts-ignore
+          onKeyUp={moveToCalendarInput}
+          // @ts-ignore
           onFocus={() => setCurrentInput(BeginEndDates.BEGIN)}
         />
         <DateInput
@@ -107,8 +123,9 @@ export function TableFilterDateRangePopup({
           label="Date End"
           onChange={(newValue) => onChange(formatNewValue(BeginEndDates.END, newValue, beginDateStr, endDateStr))}
           onClear={() => onChange(formatNewValue(BeginEndDates.END, '', beginDateStr, endDateStr))}
+          onKeyUp={moveToCalendarInput}
           value={endDateStr}
-        // @ts-ignore
+          // @ts-ignore
           onFocus={() => setCurrentInput(BeginEndDates.END)}
         />
       </div>
@@ -136,6 +153,7 @@ export function TableFilterDateRangePopup({
           className="table-filter-date-popup__calendar"
           dateFormat={dateFormat}
           id={`${tableFilterDateId}__calendar`}
+          innerRef={calendarInputRef}
           label={`Calendar for table filter ${currentInput === BeginEndDates.BEGIN ? 'begin' : 'end'} date`}
           labelClassName="visually-hidden"
           onChange={(newValue) => onChange(formatNewValue(currentInput, newValue, beginDateStr, endDateStr))}

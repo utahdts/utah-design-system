@@ -279,6 +279,7 @@ export function CalendarInput({
                         aria-label={format(cellGridValue.date, 'EEEE MMMM do yyyy')}
                         className={joinClassNames(
                           'calendar-input__cell',
+                          // if `calendar-input__cell--focused` on change, make sure to check that the TableFilterDateRange down arrow still works
                           cellGridValue.isFocusDate && 'calendar-input__cell--focused',
                           cellGridValue.isNextMonth && 'calendar-input__cell--next-month',
                           cellGridValue.isPreviousMonth && 'calendar-input__cell--previous-month',
