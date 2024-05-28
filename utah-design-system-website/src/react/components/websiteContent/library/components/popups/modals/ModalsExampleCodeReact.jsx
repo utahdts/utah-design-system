@@ -25,11 +25,11 @@ export function ModalsExampleCodeReact({
     <>
       &lt;Modal
       <br />
-      <ExampleCodeReactProp displayProp='arialabelledby="modal-example-title"' indentLevel={1} />
+      <ExampleCodeReactProp displayProp='ariaLabeledBy="modal-example-title"' indentLevel={1} />
       <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, size)}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp='id="modal-example"' indentLevel={1} />
       {showCloseButton ? <ExampleCodeReactProp displayProp="onClose={myFunction}" indentLevel={1} /> : ''}
-      {closeOnEsc ? <ExampleCodeReactProp displayProp="onEsc={myFunction}" indentLevel={1} /> : ''}
+      {closeOnEsc ? <ExampleCodeReactProp displayProp="onEscape={myFunction}" indentLevel={1} /> : ''}
       &gt;
       <br />
       <SandboxIndent indentLevel={1} />
