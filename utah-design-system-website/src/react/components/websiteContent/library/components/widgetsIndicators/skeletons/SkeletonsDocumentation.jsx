@@ -206,10 +206,9 @@ export function SkeletonsDocumentation() {
         <li><strong>High traffic sites.</strong> Use on high-traffic pages.</li>
         <li><strong>More than .3 seconds to load the page.</strong> Use when data takes more than <code>300ms</code> to load on an average connection.
         </li>
-        <li><strong>Reducing cognitive load.</strong> Skeleton screens offer an alternative to the conventional <Link
-          to={pageUrls.spinners}
-        >spinner
-        </Link> approach. Instead of displaying an abstract widget, they generate anticipation by providing a preview
+        <li><strong>Reducing cognitive load.</strong> Skeleton screens offer an alternative to the conventional
+          <Link to={pageUrls.spinners}>spinner</Link> approach. Instead of displaying an abstract widget,
+          they generate anticipation by providing a preview
           of what&apos;s to come, ultimately reducing cognitive load.
         </li>
       </ul>
@@ -219,10 +218,8 @@ export function SkeletonsDocumentation() {
         <li><strong>Long-running processes.</strong> For tasks such as file conversions, uploads/downloads, exporting reports, or data importing,
           it&apos;s better to use <Link to={pageUrls.progressBars}>progress bars</Link> and/or text that detail each stage of the process.
         </li>
-        <li><strong>Fast processes.</strong> For fast processes that take less than <code>300ms</code>, a loading indicator (skeleton or <Link
-          to={pageUrls.spinners}
-        >spinner
-        </Link>) is not necessary.
+        <li><strong>Fast processes.</strong> For fast processes that take less than <code>300ms</code>, a loading indicator (skeleton or
+          <Link to={pageUrls.spinners}>spinner</Link>) is not necessary.
         </li>
         <li><strong>Clicking a button.</strong> When dealing with small, inline actions or feedback, such as clicking a button that may take some time
           to process, it&apos;s preferable to use a loading <Link to={pageUrls.spinners}>spinner</Link> instead of a skeleton.
