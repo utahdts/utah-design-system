@@ -1,5 +1,5 @@
 import { joinClassNames } from '../../util/joinClassNames';
-import { skeletonStyles } from '../../enums/skeletonStyles.js';
+import { skeletonStyles } from '../../enums/skeletonStyles';
 
 /**
  * @param {object} props
