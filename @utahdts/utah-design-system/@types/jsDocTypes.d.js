@@ -46,6 +46,11 @@
  */
 
 /**
+ * SkeletonStyles
+ * @typedef { 'skeleton--circle' | 'skeleton--line' | 'skeleton--block' } SkeletonStyles
+ */
+
+/**
  * IconButtonAppearance
  * @typedef {'solid' | 'outlined' | 'borderless'} IconButtonAppearance
  */

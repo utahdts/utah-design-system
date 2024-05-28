@@ -2,6 +2,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import {
   Skeleton,
+  skeletonStyles,
   Table,
   TableBody,
   TableCell,
@@ -16,6 +17,10 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { IconsWebsite } from '../../../../IconsWebsite';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample.jsx';
+import { SkeletonExampleCodeReact } from './SkeletonExampleCodeReact.jsx';
+import { SkeletonExampleProps } from './SkeletonExampleProps.jsx';
+import { SkeletonExampleRender } from './SkeletonExampleRender.jsx';
 
 export function SkeletonsDocumentation() {
   return (
@@ -29,6 +34,15 @@ export function SkeletonsDocumentation() {
       <hr />
 
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          className: '',
+          style: skeletonStyles.RECTANGULAR,
+        }}
+        CODE_EXAMPLE={SkeletonExampleCodeReact}
+        PROPS_EXAMPLE={SkeletonExampleProps}
+        RENDER_EXAMPLE={SkeletonExampleRender}
+      />
 
       <StaticExample
         title="Skeleton Shapes"
@@ -111,8 +125,8 @@ export function SkeletonsDocumentation() {
                 </TableHeadRow>
               </TableHead>
               <TableBody>
-                {[...Array(5).keys()].map(() => (
-                  <TableRow>
+                {[...Array(5).keys()].map((i) => (
+                  <TableRow key={`skeleton-key-${i}`}>
                     <TableCell><Skeleton className="skeleton--line auto-width" /></TableCell>
                     <TableCell><Skeleton className="skeleton--line auto-width" /></TableCell>
                     <TableCell><Skeleton className="skeleton--line auto-width" /></TableCell>

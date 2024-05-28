@@ -13,6 +13,7 @@
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').SkeletonStyles} SkeletonStyles */
 /** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -321,6 +322,13 @@
  *  @property {string} size
  *  @property {string} strokeWidth
  *  @property {string} value
+ * }
+ */
+
+/**
+ * @typedef SkeletonExamplePropsShape {
+ *  @property {string} className
+ *  @property {SkeletonStyles} style
  * }
  */
 
