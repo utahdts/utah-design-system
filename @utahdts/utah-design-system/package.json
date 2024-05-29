@@ -39,7 +39,7 @@
     "build": "vite build",
     "buildw": "vite build --watch",
     "buildTypes": "mkdir -p dist && cp ./artifacts/index.d.ts ./dist/",
-    "buildTypesTsc": "npx tsc",
+    "generateTypes": "npx tsc",
     "eslint": "npx eslint",
     "eslintw": "npx eslint-watch -w",
     "preview": "vite preview",

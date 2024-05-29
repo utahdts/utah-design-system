@@ -32,7 +32,7 @@
     "build": "vite build",
     "buildw": "vite build --watch",
     "buildTypes": "mkdir -p dist && cp ./artifacts/index.d.ts ./dist/",
-    "buildTypesTsc": "npx tsc",
+    "generateTypes": "npx tsc",
     "clean": "run-s cleanPackageLock cleanDist cleanNodeModules",
     "cleani": "run-s clean npmi",
     "cleanDist": "rimraf ./dist",

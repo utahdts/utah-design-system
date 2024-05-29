@@ -4,7 +4,7 @@
   This file appears to work, but requires manual creation.
 
   To Create:
-    * run `npm run buildTypesTsc`
+    * run `npm run generateTypes`
     * edit the file created in dist/index.d.ts
       * single module named "@utahdts/utah-design-system-header"
       * just the exports from the `declare module "src/index" {` need put in the module
