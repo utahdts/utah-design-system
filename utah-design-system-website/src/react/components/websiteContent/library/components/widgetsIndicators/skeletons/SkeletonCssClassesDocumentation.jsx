@@ -25,7 +25,7 @@ export function SkeletonCssClassesDocumentation() {
             <TableCell>The base css class for a skeleton.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code>.skeleton--block</code></TableCell>
+            <TableCell><code>.skeleton--rectangle</code></TableCell>
             <TableCell>CSS class modifier for a rectangular skeleton.</TableCell>
           </TableRow>
           <TableRow>

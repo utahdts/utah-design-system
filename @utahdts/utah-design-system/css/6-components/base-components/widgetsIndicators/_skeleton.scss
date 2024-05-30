@@ -9,7 +9,7 @@
     background-color: var(--gray-3-1-contrast);
     border-radius: var(--radius-small1x);
 
-    &--block {
+    &--rectangle {
       min-width: calc(2 * var(--spacing-6xl));
       min-height: var(--spacing-4xl);
     }

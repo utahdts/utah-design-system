@@ -115,7 +115,7 @@ export { DRAWER_PLACEMENT } from './react/enums/drawerPlacement';
 export { formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { menuTypes } from './react/enums/menuTypes';
 export { popupPlacement } from './react/enums/popupPlacement';
-export { skeletonStyles } from './react/enums/skeletonStyles';
+export { skeletonTypes } from './react/enums/skeletonTypes';
 export { tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { useHandleEscape } from './react/hooks/useHandleEscape';

@@ -15,7 +15,7 @@ import {
   TableHeadRow,
   TableRow,
   TableWrapper,
-  skeletonStyles,
+  skeletonTypes,
 } from '@utahdts/utah-design-system';
 import skeletonLazyScreenshot from '../../../../../../../static/images/mockups/skeletonLazyLoad.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';
@@ -44,7 +44,7 @@ export function SkeletonsDocumentation() {
       <SandboxExample
         defaultProps={{
           className: '',
-          style: skeletonStyles.RECTANGULAR,
+          type: skeletonTypes.RECTANGULAR,
         }}
         CODE_EXAMPLE={SkeletonExampleCodeReact}
         PROPS_EXAMPLE={SkeletonExampleProps}
@@ -58,7 +58,7 @@ export function SkeletonsDocumentation() {
             <Skeleton className="skeleton--circle" />
             <Skeleton className="skeleton--line" />
             <Skeleton className="skeleton--line" />
-            <Skeleton className="skeleton--block" />
+            <Skeleton className="skeleton--rectangle" />
           </div>
         )}
         quickTips={(

@@ -46,8 +46,8 @@
  */
 
 /**
- * SkeletonStyles
- * @typedef { 'skeleton--circle' | 'skeleton--line' | 'skeleton--block' } SkeletonStyles
+ * SkeletonTypes
+ * @typedef { 'skeleton--circle' | 'skeleton--line' | 'skeleton--rectangle' } SkeletonTypes
  */
 
 /**

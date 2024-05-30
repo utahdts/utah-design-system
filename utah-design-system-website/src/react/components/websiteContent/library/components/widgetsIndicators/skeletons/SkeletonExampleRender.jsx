@@ -12,7 +12,7 @@ export function SkeletonExampleRender({
   state: {
     props: {
       className,
-      style,
+      type,
     },
   },
   innerRef,
@@ -21,7 +21,7 @@ export function SkeletonExampleRender({
     <div>
       <Skeleton
         className={className}
-        style={style}
+        type={type}
         innerRef={innerRef}
       />
     </div>

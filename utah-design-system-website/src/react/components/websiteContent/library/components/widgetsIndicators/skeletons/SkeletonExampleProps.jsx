@@ -1,4 +1,4 @@
-import { Form, Select, SelectOption, skeletonStyles, TextInput } from '@utahdts/utah-design-system';
+import { Form, Select, SelectOption, skeletonTypes, TextInput } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').SkeletonExamplePropsShape} SkeletonExamplePropsShape */
 
@@ -17,10 +17,10 @@ export function SkeletonExampleProps({ setState, state }) {
       className="form--stacked"
     >
       <TextInput id="props.className" label="Class" className="input--height-small1x" />
-      <Select id="props.style" label="Style" className="input--height-small1x">
-        <SelectOption label="Rectangular" value={skeletonStyles.RECTANGULAR} />
-        <SelectOption label="Circular" value={skeletonStyles.CIRCULAR} />
-        <SelectOption label="Linear" value={skeletonStyles.LINEAR} />
+      <Select id="props.type" label="Type" className="input--height-small1x">
+        <SelectOption label="Rectangular" value={skeletonTypes.RECTANGULAR} />
+        <SelectOption label="Circular" value={skeletonTypes.CIRCULAR} />
+        <SelectOption label="Linear" value={skeletonTypes.LINEAR} />
       </Select>
     </Form>
   );

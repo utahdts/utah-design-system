@@ -46,14 +46,14 @@ export function SkeletonPropsDocumentation() {
               <TableCell><code className="primary-color">style</code></TableCell>
               <TableCell>
                 <div className="props-code-wrapper">
-                  <code>skeleton--block</code>
+                  <code>skeleton--rectangle</code>
                   <span> | </span>
                   <code>skeleton--line</code>
                   <span> | </span>
                   <code>skeleton--circle</code>
                 </div>
               </TableCell>
-              <TableCell><code>skeleton--block</code></TableCell>
+              <TableCell><code>skeleton--rectangle</code></TableCell>
               <TableCell>
                 Determines how the skeleton component should be displayed.
               </TableCell>

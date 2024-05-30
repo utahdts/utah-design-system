@@ -11,15 +11,20 @@ export function SkeletonExampleCodeReact({
   state: {
     props: {
       className,
-      style,
+      type,
     },
   },
 }) {
   return (
     <>
       &lt;Skeleton
+      {
+        className
+          ? <br />
+          : null
+      }
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`style="${style}" />`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`type="${type}" />`} indentLevel={1} />
     </>
   );
 }
