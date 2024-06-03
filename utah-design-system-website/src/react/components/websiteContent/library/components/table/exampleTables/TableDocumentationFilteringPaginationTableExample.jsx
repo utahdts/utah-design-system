@@ -5,12 +5,17 @@ import {
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
-  TableFilterDate, TableFilterNone, TableFilterSelectAllOptions, TableFilterTextInput, TableFilters, TableHead,
+  TableFilterDate,
+  TableFilterNone,
+  TableFilterTextInput,
+  TableFilters,
+  TableHead,
   TableHeadCell,
   TableHeadRow,
   TablePagination,
   TableWrapper,
-  TextInput
+  TextInput,
+  TableFilterComboBoxAllOptions
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
@@ -48,7 +53,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
           value={`${itemsPerPage}`}
         />
         <TableWrapper>
-          <Table className="table table--full-width table--alt table--lines-x">
+          <Table className="table table--full-width table--alt table--lines-x table--min-height">
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
@@ -62,7 +67,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
+                <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
                 <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
