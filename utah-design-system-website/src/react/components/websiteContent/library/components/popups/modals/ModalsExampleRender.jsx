@@ -42,7 +42,7 @@ export function ModalsExampleRender({
       {showModal
         ? (
           <Modal
-            ariaLabeledBy="modal-example-render-title"
+            ariaLabelledBy="modal-example-render-title"
             className={joinClassNames(className, size)}
             id="modal-example-render"
             onClose={showCloseButton ? closeModal : undefined}

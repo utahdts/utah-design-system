@@ -12,7 +12,7 @@ export function LargeModal() {
       {showModal
         ? (
           <Modal
-            ariaLabeledBy="modal-large-title"
+            ariaLabelledBy="modal-large-title"
             className="modal--large modal--primary"
             id="saimple-modal"
             onClose={closeModal}

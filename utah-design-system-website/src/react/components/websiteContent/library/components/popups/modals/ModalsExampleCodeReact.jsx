@@ -25,7 +25,7 @@ export function ModalsExampleCodeReact({
     <>
       &lt;Modal
       <br />
-      <ExampleCodeReactProp displayProp='ariaLabeledBy="modal-example-title"' indentLevel={1} />
+      <ExampleCodeReactProp displayProp='ariaLabelledBy="modal-example-title"' indentLevel={1} />
       <ExampleCodeReactProp displayProp={`className="${joinClassNames(className, size)}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp='id="modal-example"' indentLevel={1} />
       {showCloseButton ? <ExampleCodeReactProp displayProp="onClose={myFunction}" indentLevel={1} /> : ''}

@@ -14,7 +14,7 @@ export function SimpleModal() {
       {showModal
         ? (
           <Modal
-            ariaLabeledBy="simple-modal-title"
+            ariaLabelledBy="simple-modal-title"
             id="simple-modal"
             onClose={closeModal}
             onEscape={closeModal}

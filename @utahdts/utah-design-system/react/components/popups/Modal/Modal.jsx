@@ -10,7 +10,7 @@ import { useHandleTab } from '../../../hooks/useHandleTab';
 
 /**
  * @param {object} props
- * @param {string} props.ariaLabeledBy Must match the id of the title of the modal
+ * @param {string} props.ariaLabelledBy Must match the id of the title of the modal
  * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} props.id
@@ -20,7 +20,7 @@ import { useHandleTab } from '../../../hooks/useHandleTab';
  * @returns {import('react').JSX.Element}
  */
 export function Modal({
-  ariaLabeledBy,
+  ariaLabelledBy,
   children,
   className,
   id,
@@ -66,7 +66,7 @@ export function Modal({
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <dialog
         aria-modal="true"
-        aria-labelledby={ariaLabeledBy}
+        aria-labelledby={ariaLabelledBy}
         className={joinClassNames('modal__wrapper', className)}
         id={id}
         onClick={(e) => e.stopPropagation()}

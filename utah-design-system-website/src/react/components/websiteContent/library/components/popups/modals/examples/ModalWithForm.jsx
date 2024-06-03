@@ -14,7 +14,7 @@ export function ModalWithForm() {
       {showModal
         ? (
           <Modal
-            ariaLabeledBy="modal-with-form-title"
+            ariaLabelledBy="modal-with-form-title"
             className="modal--small modal--primary"
             id="saimple-modal"
             onClose={closeModal}

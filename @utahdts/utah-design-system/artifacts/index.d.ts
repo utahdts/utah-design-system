@@ -825,8 +825,8 @@ declare module "@utahdts/utah-design-system" {
     children: React.ReactNode;
     className?: string | undefined;
   }): React.JSX.Element;
-  export function Modal({ ariaLabeledBy, children, className, id, innerRef, onEscape, onClose, }: {
-    ariaLabeledBy: string;
+  export function Modal({ ariaLabelledBy, children, className, id, innerRef, onEscape, onClose, }: {
+    ariaLabelledBy: string;
     children?: React.ReactNode;
     className?: string | undefined;
     id: string;
