@@ -75,9 +75,7 @@
       .switch__slider {
         height: var(--form-ele-small1x);
         width: var(--form-ele-small1x);
-      }
 
-      .switch__slider {
         [class*="utds-icon-after-"]::after,
         [class*="utds-icon-before-"]::before {
           font-size: 1rem;
