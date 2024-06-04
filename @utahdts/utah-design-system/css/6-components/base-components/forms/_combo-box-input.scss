@@ -48,6 +48,7 @@
       z-index: 2000;
       max-height: clamp(300px, 40vh, 40vh);
       overflow: auto;
+      width: max-content;
     }
     &__option {
       padding: var(--spacing-2xs) var(--spacing-s);
