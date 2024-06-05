@@ -18,11 +18,10 @@ export function SkeletonExampleRender({
   innerRef,
 }) {
   return (
-    <div>
+    <div ref={innerRef} aria-busy="true">
       <Skeleton
         className={className}
         type={type}
-        innerRef={innerRef}
       />
     </div>
   );

@@ -101,7 +101,7 @@ export function SkeletonsDocumentation() {
                   })}
                 </div>
                 <h4>Accessibility</h4>
-                <span>Learn more on the <NavLink to={pageUrls.accessibility}>accessibility overview page</NavLink>.</span>
+                <span><NavLink to={pageUrls.accessibility}>Accessibility overview page</NavLink>.</span>
               </div>
               <div className="border-top mt-spacing-s pt-spacing-s">
                 <span>
