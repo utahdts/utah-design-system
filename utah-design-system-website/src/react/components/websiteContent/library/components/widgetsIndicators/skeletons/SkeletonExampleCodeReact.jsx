@@ -1,5 +1,5 @@
 import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
-import { SandboxIndent } from '../../../../../sandbox/SandboxIndent.jsx';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
 /** @typedef {import('utah-design-system-website').SkeletonExamplePropsShape} SkeletonExamplePropsShape */
 
