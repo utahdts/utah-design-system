@@ -249,6 +249,13 @@
                   &.text-input__clear-button {
                     margin-top: var(--spacing-3xs);
                   }
+
+                  .date-input__icon-static {
+                    &::before {
+                      font-size: .75rem;
+                      margin: 0;
+                    }
+                  }
                 }
               }
 

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useInterval } from '../../hooks/useInterval';
 import { joinClassNames } from '../../util/joinClassNames';
@@ -69,6 +69,26 @@ export function TableFilterDateRange({
   );
   const popupId = `${id}-popup`;
 
+  const renderValue = useCallback(() => {
+    const regex = new RegExp(`(\\d\\d\\/\\d\\d\\/\\d\\d\\d\\d)?${tableConstants.dateFilterSeparator}(\\d\\d\\/\\d\\d\\/\\d\\d\\d\\d)?`, 'g');
+    const result = regex.exec(currentValue || '');
+    return (!result ? '' : (
+      <>
+        {result[1]}
+        <div>
+          <span
+            className="utds-icon-before-arrow-right date-input__icon-static"
+            aria-hidden="true"
+          />
+          <span className="visually-hidden">
+            to
+          </span>
+        </div>
+        {result[2]}
+      </>
+    ));
+  }, [currentValue]);
+
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
       <div ref={popperContentRef}>
@@ -109,7 +129,7 @@ export function TableFilterDateRange({
           }
         }
         >
-          {(!currentValue || currentValue === tableConstants.dateFilterSeparator) ? '' : currentValue.replace(tableConstants.dateFilterSeparator, ' | ')}
+          {renderValue()}
         </Button>
 
         {/* Clear icon */}
