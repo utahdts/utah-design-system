@@ -1,5 +1,6 @@
 import { ExampleCodeReactCode } from '../../../../../sandbox/ExampleCodeReactCode';
 import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
@@ -59,7 +60,30 @@ export function PopupsExampleCodeReact({
       <ExampleCodeReactProp displayProp="onVisibleChange={useCallback((_e, newIsVisible) => setIsVisible(newIsVisible))}" indentLevel={1} />
       <ExampleCodeReactProp displayProp={`placement="${placement}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp="referenceElement={buttonRef}" indentLevel={1} />
-      /&gt;
+      &gt;
+      <br />
+      <SandboxIndent indentLevel={1} />
+      <span className="example-code-react__comment">&#47;&#47; Popup content</span>
+      <br />
+      <SandboxIndent indentLevel={1} />
+      &lt;div&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;div className=&quot;font-size-l mb-spacing-xs&quot;&gt;
+      <br />
+      <SandboxIndent indentLevel={3} />
+      &lt;strong&gt;Example Popup&lt;/strong&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;/div&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;div&gt;This is an example of a popup with content.&lt;/div&gt;
+      <br />
+      <SandboxIndent indentLevel={1} />
+      &lt;/div&gt;
+      <br />
+      &lt;/Popup&gt;
     </>
   );
 }
