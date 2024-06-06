@@ -1,4 +1,5 @@
 import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent.jsx';
 
 /** @typedef {import('utah-design-system-website').SkeletonExamplePropsShape} SkeletonExamplePropsShape */
 
@@ -17,14 +18,28 @@ export function SkeletonExampleCodeReact({
 }) {
   return (
     <>
+      &lt;div aria-busy=&quot;true&quot;&gt;
+      <br />
+      <SandboxIndent indentLevel={1} />
       &lt;Skeleton
       {
+          className
+            ? (
+              <>
+                <br />
+                <SandboxIndent indentLevel={2} />
+              </>
+            )
+            : null
+        }
+      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      {
         className
-          ? <br />
+          ? <SandboxIndent indentLevel={2} />
           : null
       }
-      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`type="${type}" />`} indentLevel={1} />
+      &lt;/div&gt;
     </>
   );
 }

@@ -54,7 +54,7 @@ export function SkeletonsDocumentation() {
       <StaticExample
         title="Skeleton Shapes"
         renderedExample={(
-          <div className="flex flex-col items-start gap-xs">
+          <div className="flex flex-col items-start gap-xs" aria-busy="true">
             <Skeleton className="skeleton--circle" />
             <Skeleton className="skeleton--line" />
             <Skeleton className="skeleton--line" />
@@ -81,7 +81,7 @@ export function SkeletonsDocumentation() {
         renderedExample={(
           <div className="flex gap">
             <div>
-              <div className="flex flex-col items-center gap-xs white-color-background p-spacing radius-s">
+              <div className="flex flex-col items-center gap-xs white-color-background p-spacing radius-s" aria-busy="true">
                 <Skeleton className="skeleton--circle" />
                 <Skeleton className="skeleton--line" />
                 <Skeleton className="skeleton--line" />
@@ -127,7 +127,7 @@ export function SkeletonsDocumentation() {
         title="Within a container"
         renderedExample={(
           <TableWrapper className="full-width">
-            <Table id="skeleton-table" className="table table--lines-x table--v-align-center table--full-width">
+            <Table id="skeleton-table" className="table table--lines-x table--v-align-center table--full-width" aria-busy="true">
               <TableHead>
                 <TableHeadRow>
                   <TableHeadCell>Name</TableHeadCell>
@@ -245,6 +245,10 @@ export function SkeletonsDocumentation() {
         </li>
         <li><strong>Style.</strong> Be subtle with your design because it&apos;s not a real interactive interface. (In other words, keep it basic and
           gray.)
+        </li>
+        <li>
+          <strong>CSS.</strong> You might need to alter a skeleton with and height with CSS to fit your needs.
+          The Utah Design System component is not intended as a standard size.
         </li>
       </ul>
 
