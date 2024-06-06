@@ -178,7 +178,7 @@ export function TableDocumentationDateFilteringTableExample() {
         headingLevel={4}
       >
         <TableWrapper>
-          <Table>
+          <Table className="table--full-width">
             <TableHead>
               <TableFilters>
                 <TableFilterTextInput a11yLabel="Name" recordFieldPath="name" />
