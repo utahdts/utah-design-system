@@ -286,7 +286,9 @@
             border-bottom-right-radius: var(--radius-medium);
             padding: var(--spacing-s) var(--spacing-s) var(--spacing-s) var(--spacing-2xs);
 
-            & > div:not(.table-filter-date__popup) button:not(.text-input__clear-button) + .date-input__calendar-icon {
+            & > div:not(.table-filter-date__popup) button:not(.text-input__clear-button) + .date-input__calendar-icon,
+            & > div:not(.table-filter-date__popup) button.text-input__clear-button {
+              margin-top: 0;
               margin-right: calc(var(--spacing-s) + var(--spacing-2xs));
             }
           }
