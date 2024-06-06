@@ -70,7 +70,7 @@ export function TableFilterDateRange({
   const popupId = `${id}-popup`;
 
   const renderValue = useCallback(() => {
-    const regex = new RegExp(`(\\d\\d\\/\\d\\d\\/\\d\\d\\d\\d)?${tableConstants.dateFilterSeparator}(\\d\\d\\/\\d\\d\\/\\d\\d\\d\\d)?`, 'g');
+    const regex = new RegExp(`(.+)?${tableConstants.dateFilterSeparator}(.+)?`, 'g');
     const result = regex.exec(currentValue || '');
     return (!result ? '' : (
       <>
