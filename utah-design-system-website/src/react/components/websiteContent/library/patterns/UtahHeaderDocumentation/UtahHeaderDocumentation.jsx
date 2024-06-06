@@ -979,8 +979,6 @@ export function UtahHeaderDocumentation() {
               </TableCell>
             </TableRow>
 
-            {/* -- Commenting out this entire section until we decide if we want to keep it
-
             <TableRow>
               <TableCell>
                 <span className="prop__name"><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></span><br />
@@ -999,8 +997,6 @@ export function UtahHeaderDocumentation() {
                 </span>
               </TableCell>
             </TableRow>
-
-            */}
 
             <TableRow>
               <TableCell>

@@ -51,6 +51,11 @@
  */
 
 /**
+ * DocumentationTypes
+ * @typedef {'CSS' | 'Props'} DocumentationTypes
+ */
+
+/**
  * WebsiteMainMenuKey
  * @typedef { 'menuMain' | 'menuGuidelinesSecondary' | 'menuLibraryComponentsSecondary' | 'menuLibraryPatternsSecondary' | 'menuResourcesSecondary' } WebsiteMainMenuKey
  */
