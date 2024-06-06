@@ -98,6 +98,7 @@ export { DocumentationTemplate } from './react/components/templates/Documentatio
 export { LandingTemplate } from './react/components/templates/LandingTemplate';
 export { MainContent } from './react/components/templates/MainContent';
 export { Badge } from './react/components/widgetsIndicators/Badge';
+export { Skeleton } from './react/components/widgetsIndicators/Skeleton';
 export { Spinner } from './react/components/widgetsIndicators/Spinner';
 export { UtahDesignSystemContext } from './react/contexts/UtahDesignSystemContext/UtahDesignSystemContext';
 export { UtahDesignSystemContextProvider } from './react/contexts/UtahDesignSystemContext/UtahDesignSystemContextProvider';
@@ -114,6 +115,7 @@ export { DRAWER_PLACEMENT } from './react/enums/drawerPlacement';
 export { formElementSizesEnum } from './react/enums/formElementSizesEnum';
 export { menuTypes } from './react/enums/menuTypes';
 export { popupPlacement } from './react/enums/popupPlacement';
+export { skeletonTypes } from './react/enums/skeletonTypes';
 export { tableSortingRuleFieldType } from './react/enums/tableSortingRuleFieldType';
 export { useGlobalKeyEvent } from './react/hooks/useGlobalKeyEvent';
 export { useHandleEscape } from './react/hooks/useHandleEscape';

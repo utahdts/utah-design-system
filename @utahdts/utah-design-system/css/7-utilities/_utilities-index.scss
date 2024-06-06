@@ -18,6 +18,14 @@ utility classes, atomic css
     height: 100%;
   }
 
+  .auto-width {
+    min-width: auto;
+  }
+
+  .auto-height {
+    min-height: auto;
+  }
+
   .visually-hidden, &.visually-hidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -139,4 +147,11 @@ utility classes, atomic css
   .whitespace-no-wrap {
     white-space: nowrap;
   }
+
+  /* ----- Radius ---- */
+  .radius-xs { border-radius: var(--radius-small1x); }
+  .radius-s { border-radius: var(--radius-small); }
+  .radius { border-radius: var(--radius-medium); }
+  .radius-l { border-radius: var(--radius-large); }
+  .radius-circle { border-radius: var(--radius-circle); }
 }
