@@ -276,7 +276,6 @@ export function CalendarInput({
                     const formattedDate = format(cellGridValue.date, dateFormat);
                     return (
                       <Button
-                        aria-label={format(cellGridValue.date, 'EEEE MMMM do yyyy')}
                         className={joinClassNames(
                           'calendar-input__cell',
                           // if `calendar-input__cell--focused` on change, make sure to check that the TableFilterDateRange down arrow still works
@@ -320,7 +319,9 @@ export function CalendarInput({
                         role="gridcell"
                         tabIndex={(isHidden || !cellGridValue.isFocusDate) ? -1 : 0}
                       >
-                        <span aria-hidden>{cellGridValue.date.getDate()}</span>
+                        <span aria-label={format(cellGridValue.date, 'EEEE MMMM do yyyy')}>
+                          {cellGridValue.date.getDate()}
+                        </span>
                       </Button>
                     );
                   })
