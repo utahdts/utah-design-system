@@ -180,7 +180,15 @@ export function DateInput({
                   />
                 )
                 : (
-                  <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}>
+                  <div
+                    aria-hidden
+                    className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}
+                    onMouseDown={(e) => {
+                      // without the preventDefault, clicking the calendar was closing the popup instead of focusing in the text input
+                      e.preventDefault();
+                      popperReferenceElementRef.current?.querySelector('input')?.focus();
+                    }}
+                  >
                     <span className="utds-icon-before-calendar " aria-hidden="true" />
                   </div>
                 )
