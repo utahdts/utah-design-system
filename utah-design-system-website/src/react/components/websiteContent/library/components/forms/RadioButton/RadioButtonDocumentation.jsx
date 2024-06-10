@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { RadioButton } from '@utahdts/utah-design-system';
+import { RadioButton, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
@@ -7,6 +7,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { RadioButtonExampleCodeReact } from './RadioButtonExampleCodeReact';
 import { RadioButtonExampleProps } from './RadioButtonExampleProps';
 import { RadioButtonExampleRender } from './RadioButtonExampleRender';
+import { RadioButtonCssClassesDocumentation } from './RadioButtonCssClassesDocumentation';
+import { RadioButtonPropsDocumentation } from './RadioButtonPropsDocumentation';
 
 export function RadioButtonDocumentation() {
   return (
@@ -46,7 +48,7 @@ export function RadioButtonDocumentation() {
             <li>The user can only select one item at a time from a list of options.</li>
             <li>The selected item is shown with a colored background.</li>
             <li>The label is located to the right of the specific option.</li>
-            <li>The fieldset should be styled so that the focus is on the options provided. </li>
+            <li>The fieldset should be styled so that the focus is on the options provided.</li>
           </ul>
         )}
       />
@@ -105,7 +107,9 @@ export function RadioButtonDocumentation() {
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
         <li>The user should be able to navigate into and out of a radio button group using the <code>tab</code> key.</li>
-        <li>The user should be able to navigate and make their selection through the list of options using the <code>up</code> and <code>down</code> or <code>left</code> and <code>right</code> arrow keys. </li>
+        <li>The user should be able to navigate and make their selection through the list of options using
+          the <code>up</code> and <code>down</code> or <code>left</code> and <code>right</code> arrow keys.
+        </li>
       </ul>
 
       <h4>Screen Readers</h4>
@@ -123,6 +127,24 @@ export function RadioButtonDocumentation() {
           </ul>
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="radio-button-props-css">
+          <TabList>
+            <Tab id="radio-button-props-css">CSS</Tab>
+            <Tab id="radio-button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="radio-button-props-css">
+              <RadioButtonCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="radio-button-props-react">
+              <RadioButtonPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

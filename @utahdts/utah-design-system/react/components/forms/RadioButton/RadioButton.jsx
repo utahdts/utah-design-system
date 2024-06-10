@@ -5,7 +5,7 @@ import { useRadioButtonGroupContext } from './context/useRadioButtonGroupContext
 
 /**
  * wrap in a RadioButtonGroup to control a clump of RadioButtons. Can have a RadioButton without a RadioButtonGroup
- * but then it is always uncontrolled.
+ * ,but then it is always uncontrolled.
  * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultIsChecked] allows default checking if uncontrolled (not in RadioButtonGroup)
@@ -23,8 +23,8 @@ export function RadioButton({
   className,
   defaultIsChecked,
   id,
-  isDisabled,
   innerRef,
+  isDisabled,
   label,
   labelClassName,
   name,
