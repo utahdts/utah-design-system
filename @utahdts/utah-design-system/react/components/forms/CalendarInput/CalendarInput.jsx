@@ -319,7 +319,7 @@ export function CalendarInput({
                         role="gridcell"
                         tabIndex={(isHidden || !cellGridValue.isFocusDate) ? -1 : 0}
                       >
-                        <span aria-label={format(cellGridValue.date, 'EEEE MMMM do yyyy')}>
+                        <span aria-label={`${format(cellGridValue.date, 'EEEE MMMM do yyyy')}. Press return to select date.`}>
                           {cellGridValue.date.getDate()}
                         </span>
                       </Button>
