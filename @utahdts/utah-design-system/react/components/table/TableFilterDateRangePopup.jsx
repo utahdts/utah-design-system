@@ -101,6 +101,7 @@ export function TableFilterDateRangePopup({
     >
       <div className="flex gap-xs full-width">
         <DateInput
+          ariaLabel="Date Filter Date Begin."
           className="table-filter-date-popup__begin-date"
           dateFormat={dateFormat}
           hasCalendarPopup={false}
@@ -116,6 +117,7 @@ export function TableFilterDateRangePopup({
           onFocus={() => setCurrentInput(BeginEndDates.BEGIN)}
         />
         <DateInput
+          ariaLabel="Date Filter Date End."
           className="table-filter-date-popup__end-date"
           dateFormat={dateFormat}
           hasCalendarPopup={false}

@@ -20,6 +20,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
 
 /**
  * @param {object} props
+ * @param {string} [props.ariaLabel]
  * @param {string} [props.className]
  * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date; used for CalendarInput
  * @param {string} [props.defaultValue]
@@ -43,6 +44,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @returns {import('react').JSX.Element}
  */
 export function DateInput({
+  ariaLabel,
   className,
   dateFormat,
   defaultValue,
@@ -135,7 +137,7 @@ export function DateInput({
         <div>
           <TextInput
             // table date range filter date picker still goes to a calendar on down arrow press even if !hasCalendarPopup
-            aria-label="Press down arrow to open a calendar picker"
+            aria-label={joinClassNames(ariaLabel, 'Press down arrow to open a calendar picker')}
             className={joinClassNames(className, 'date-input')}
             errorMessage={errorMessage}
             id={id}
