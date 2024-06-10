@@ -134,7 +134,8 @@ export function DateInput({
       <div className="date-input__inner-wrapper">
         <div>
           <TextInput
-            aria-label={hasCalendarPopup ? 'Press down arrow to open a calendar picker' : undefined}
+            // table date range filter date picker still goes to a calendar on down arrow press even if !hasCalendarPopup
+            aria-label="Press down arrow to open a calendar picker"
             className={joinClassNames(className, 'date-input')}
             errorMessage={errorMessage}
             id={id}
