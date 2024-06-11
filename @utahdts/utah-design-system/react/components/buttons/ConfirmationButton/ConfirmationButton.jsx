@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { handleKeyPress } from '../../../../index';
+import { BUTTON_APPEARANCE, BUTTON_TYPES, componentColors, handleKeyPress } from '../../../../index';
 import { formElementSizesEnum } from '../../../enums/formElementSizesEnum';
 import { handleEvent } from '../../../util/handleEvent';
 import { joinClassNames } from '../../../util/joinClassNames';
@@ -29,18 +29,18 @@ import { ConfirmationButtonContextProvider } from './context/ConfirmationButtonC
  * @returns {import('react').JSX.Element}
  */
 export function ConfirmationButton({
-  appearance,
+  appearance = BUTTON_APPEARANCE.OUTLINED,
   children,
   className,
-  color,
+  color = componentColors.NONE,
   confirmationColor,
+  id,
   innerRef,
   isBusy,
   isDisabled,
-  id,
   onClick,
-  size,
-  type,
+  size = 'medium',
+  type = BUTTON_TYPES.BUTTON,
   ...rest
 }) {
   const [isClicked, setIsClicked] = useState(false);
