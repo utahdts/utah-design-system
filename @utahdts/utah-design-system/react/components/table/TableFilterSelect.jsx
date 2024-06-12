@@ -21,13 +21,13 @@ import { useTableContext } from './hooks/useTableContext';
  * @returns {import('react').JSX.Element}
  */
 export function TableFilterSelect({
+  a11yLabel,
   children,
   className,
   defaultValue,
   exactMatch,
-  innerRef,
   id,
-  a11yLabel,
+  innerRef,
   onChange,
   recordFieldPath,
   value,

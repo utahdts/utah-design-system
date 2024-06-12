@@ -18,11 +18,12 @@ import {
   TableHeadCell,
   TableHeadRow,
   TableWrapper,
-  componentColors
+  componentColors, ExternalLink
 } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 import { examplePresidentsData } from './examplePresidentsData';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString.jsx';
 
 export function TableDocumentationFilteringTableExample() {
   const [funFactsFilter, setFunFactsFilter] = useState('');
@@ -39,6 +40,7 @@ export function TableDocumentationFilteringTableExample() {
       <p className="mb-spacing-xs">This example does not include any additional styling. This demonstrates what a table component looks like out-of-the-box.</p>
       <Accordion
         id="table-example-filtering"
+        className="mb-spacing"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"
@@ -153,6 +155,25 @@ export function TableDocumentationFilteringTableExample() {
           </Table>
         </TableWrapper>
       </Accordion>
+      <span>
+        <strong>Note:</strong> The table component does not inherently display a message when no results are found.{' '}
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx">
+          See code on GitHub
+        </ExternalLink>.
+      </span>
+      <PreCodeForCodeString
+        showBackgroundColor
+        codeRaw={`
+                  <tr>
+                    <td class="table__no-results-td" colSpan="100">
+                      <span class="table__no-results-text">
+                        Your filter returned no results.
+                      </span>
+                    </td>
+                  </tr>
+                `}
+        className="mt-spacing"
+      />
     </div>
   );
 }

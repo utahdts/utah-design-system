@@ -19,12 +19,12 @@ import { useTableContext } from './hooks/useTableContext';
  * @returns {import('react').JSX.Element}
  */
 export function TableFilterTextInput({
+  a11yLabel,
   className,
   defaultValue,
   exactMatch,
-  innerRef,
   id,
-  a11yLabel,
+  innerRef,
   onChange,
   recordFieldPath,
   value,

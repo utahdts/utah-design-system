@@ -18,11 +18,11 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @returns {import('react').JSX.Element}
  */
 export function TableFilterDate({
+  a11yLabel,
   className,
   defaultValue,
-  innerRef,
   id,
-  a11yLabel,
+  innerRef,
   onChange,
   recordFieldPath,
   value,

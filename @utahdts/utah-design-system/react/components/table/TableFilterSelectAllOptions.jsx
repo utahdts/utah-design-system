@@ -22,12 +22,12 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @returns {import('react').JSX.Element}
  */
 export function TableFilterSelectAllOptions({
+  a11yLabel,
   className,
   defaultValue,
   exactMatch,
   id,
   innerRef,
-  a11yLabel,
   onChange,
   recordFieldPath,
   value,

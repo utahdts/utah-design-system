@@ -22,12 +22,12 @@ import { ComboBoxOption } from '../forms/ComboBox/ComboBoxOption';
  * @returns {import('react').JSX.Element}
  */
 export function TableFilterComboBoxAllOptions({
+  a11yLabel,
   className,
   defaultValue,
   exactMatch,
   id,
   innerRef,
-  a11yLabel,
   onChange,
   recordFieldPath,
   value,

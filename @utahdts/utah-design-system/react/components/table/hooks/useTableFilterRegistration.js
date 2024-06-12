@@ -6,7 +6,7 @@ import { useTableContext } from './useTableContext';
  */
 
 /**
- * each TableFilterX component needs to setup and register its basic information. The context has context
+ * each TableFilterX component needs to set up and register its basic information. The context has context
  * global level filter settings, but each filter has its own settings, like `exactMatch`. This hook sets
  * up context filter information for a filter
  * @template TableDataT
