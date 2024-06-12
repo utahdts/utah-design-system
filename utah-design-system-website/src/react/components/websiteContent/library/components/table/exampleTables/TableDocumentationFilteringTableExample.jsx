@@ -23,7 +23,7 @@ import {
 import { useState } from 'react';
 import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 import { examplePresidentsData } from './examplePresidentsData';
-import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString.jsx';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function TableDocumentationFilteringTableExample() {
   const [funFactsFilter, setFunFactsFilter] = useState('');

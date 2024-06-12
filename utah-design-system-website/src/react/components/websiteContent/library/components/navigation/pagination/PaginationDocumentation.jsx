@@ -10,8 +10,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { PaginationExampleCodeReact } from './PaginationExampleCodeReact';
 import { PaginationExampleProps } from './PaginationExampleProps';
 import { PaginationExampleRender } from './PaginationExampleRender';
-import { PaginationCssClassesDocumentation } from './PaginationCssClassesDocumentation.jsx';
-import { PaginationPropsDocumentation } from './PaginationPropsDocumentation.jsx';
+import { PaginationCssClassesDocumentation } from './PaginationCssClassesDocumentation';
+import { PaginationPropsDocumentation } from './PaginationPropsDocumentation';
 
 const STATIC_EXAMPLE_PAGE_SIZE = 4;
 

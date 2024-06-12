@@ -124,10 +124,8 @@ export function TableDocumentation() {
       </ul>
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>Non-tabular data.</strong> Depending on the type of content, consider using other presentation formats, such as <Link
-          to={pageUrls.lists}
-        >lists
-        </Link> (&lt;ol&gt;, &lt;ul&gt;, etc).
+        <li><strong>Non-tabular data.</strong> Depending on the type of content, consider using other presentation formats, such as
+          <Link to={pageUrls.lists}>lists</Link> (&lt;ol&gt;, &lt;ul&gt;, etc).
         </li>
         <li><strong>Robust data visualization.</strong> If you need to display more complex relationships or data visualizations, consider a bar
           graph, infographic, or other type of chart.
@@ -135,15 +133,12 @@ export function TableDocumentation() {
         <li><strong>Page layout.</strong> Don&apos;t use tables in place of a css grid for web page layout.</li>
         <li><strong>Table structure.</strong> Table content should follow a consistent structure using headers and logical columns and rows.</li>
         <li><strong>Long-form content.</strong> Table cell content should be brief and scannable. If you find yourself drafting multiple bullet points
-          or paragraphs within a single table cell, the content is likely better off under conventional page headers or in an <Link
-            to={pageUrls.accordion}
-          >accordion
-          </Link>.
+          or paragraphs within a single table cell, the content is likely better off under conventional page headers or in an
+          <Link to={pageUrls.accordion}>accordion</Link>.
         </li>
-        <li><strong>Groups of items with different structures.</strong> Consider a <Link to={pageUrls.lists}>list</Link> or <Link
-          to={pageUrls.card}
-        >cards
-        </Link> for content items that don&apos;t follow a consistent pattern.
+        <li><strong>Groups of items with different structures.</strong> Consider a <Link to={pageUrls.lists}>list</Link> or
+          <Link to={pageUrls.card}>cards
+          </Link> for content items that don&apos;t follow a consistent pattern.
         </li>
       </ul>
 
@@ -153,9 +148,8 @@ export function TableDocumentation() {
           information more easily.
         </li>
         <li><strong>Always use a header row.</strong> Use plain language and short labels to define the type of information that can be found in each
-          column or row. For more complex table structures, review the <ExternalLink href="https://www.w3.org/WAI/tutorials/tables/">WCAG
-            accessibility recommendations for tables
-          </ExternalLink>.
+          column or row. For more complex table structures, review the
+          <ExternalLink href="https://www.w3.org/WAI/tutorials/tables/">WCAG accessibility recommendations for tables</ExternalLink>.
         </li>
         <li><strong>Predictably format columns.</strong> Take care not to vary units or formatting within the same column. Instead, normalize values
           so they can be easily compared. For example, if most of the rows in a table show a count in days, don&apos;t have some rows that count by
@@ -163,10 +157,9 @@ export function TableDocumentation() {
         </li>
         <li><strong>Right-align numerical data.</strong> Align numbers that represent a sum to the right in the table cells.</li>
         <li><strong>Use a monospace font for numerical data.</strong> For even better readability of dense, numerical data, consider formatting
-          numbers that convey amounts, such as percentages, currency, or tallies, in a monospace font. See <Link
-            to={pageUrls.typography}
-          >typography
-          </Link>. (There&apos;s no need to apply monospace formatting or alignment to phone numbers, zip codes,
+          numbers that convey amounts, such as percentages, currency, or tallies, in a monospace font. See
+          <Link to={pageUrls.typography}>typography</Link>.
+          (There&apos;s no need to apply monospace formatting or alignment to phone numbers, zip codes,
           dates, or other number content that can&apos;t be totaled.)
         </li>
         <li><strong>Attribute table data in a caption.</strong> If your table includes information from a specific source or contains frequently
@@ -238,10 +231,10 @@ export function TableDocumentation() {
           sortable column headers and their toggle sort buttons. These labels should updated to reflect each column&apos;s current sort state
           (ascending, descending, or unsorted) whenever sort changes.
         </li>
-        <li><strong>Aria-sort
-          attribute.
-        </strong> Use <code>aria-sort=&quot;ascending&quot;</code> and <code>aria-sort=&quot;descending&quot;</code> to convey the sort
-          direction.
+        <li>
+          <strong>Aria-sort attribute.</strong> Use
+          <code>aria-sort=&quot;ascending&quot;</code> and <code>aria-sort=&quot;descending&quot;</code>
+          to convey the sort direction.
         </li>
         <li><strong>Scope header rows.</strong> Each header cell should have <code>scope=&quot;col&quot;</code> or <code>scope=&quot;row&quot;</code>.
         </li>

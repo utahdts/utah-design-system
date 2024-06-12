@@ -2,7 +2,7 @@ import { ExternalLink, TableCell, TableRow } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { SettingsDocumentation } from '../../documentation/SettingsDocumentation';
 import { documentationTypes } from '../../../../../enums/documentationTypes';
-import { pageUrls } from '../../../../routing/pageUrls.js';
+import { pageUrls } from '../../../../routing/pageUrls';
 
 export function TablePropsDocumentation() {
   return (
@@ -335,7 +335,7 @@ export function TablePropsDocumentation() {
             <TableCell><em>required</em></TableCell>
             <TableCell>
               This should be an accessibility readable field name.
-              'Filter' will be prepended to it.
+              `&apos;Filter`&apos; will be prepended to it.
             </TableCell>
           </TableRow>
           <TableRow>
@@ -450,7 +450,7 @@ export function TablePropsDocumentation() {
             <TableCell><em>required</em></TableCell>
             <TableCell>
               This should be an accessibility readable field name.
-              'Filter' will be prepended to it.
+              `&apos;Filter`&apos; will be prepended to it.
             </TableCell>
           </TableRow>
           <TableRow>
@@ -662,7 +662,7 @@ export function TablePropsDocumentation() {
             <TableCell><em>required</em></TableCell>
             <TableCell>
               This should be an accessibility readable field name.
-              'Filter' will be prepended to it.
+              `&apos;Filter`&apos; will be prepended to it.
             </TableCell>
           </TableRow>
           <TableRow>
@@ -741,7 +741,7 @@ export function TablePropsDocumentation() {
             <TableCell><code>React.ReactNode</code></TableCell>
             <TableCell>null</TableCell>
             <TableCell>
-              Typically empty, but can be anything you'd like.
+              Typically empty, but can be anything you`&apos;d like.
             </TableCell>
           </TableRow>
           <TableRow>
@@ -791,7 +791,7 @@ export function TablePropsDocumentation() {
             <TableCell><em>required</em></TableCell>
             <TableCell>
               This should be an accessibility readable field name.
-              'Filter' will be prepended to it.
+              `&apos;Filter`&apos; will be prepended to it.
             </TableCell>
           </TableRow>
           <TableRow>
@@ -906,7 +906,7 @@ export function TablePropsDocumentation() {
             <TableCell><em>required</em></TableCell>
             <TableCell>
               This should be an accessibility readable field name.
-              'Filter' will be prepended to it.
+              `&apos;Filter`&apos; will be prepended to it.
             </TableCell>
           </TableRow>
           <TableRow>
@@ -1050,7 +1050,7 @@ export function TablePropsDocumentation() {
             <TableCell><em>required</em></TableCell>
             <TableCell>
               This should be an accessibility readable field name.
-              'Filter' will be prepended to it.
+              `&apos;Filter`&apos; will be prepended to it.
             </TableCell>
           </TableRow>
           <TableRow>
@@ -1678,7 +1678,7 @@ export function TablePropsDocumentation() {
               Should match with a <code>recordFieldPath</code> for a <code>TableHeadCell</code> in the table
               OR as one of the <code>tableSortingFieldPaths</code> in a <code>TableHeadCell</code>.<br />
               If your records need a calculated field, it is suggested to calculate the value and store it on the record
-              and set this path to the calculated value's path.
+              and set this path to the calculated value`&apos;s path.
             </TableCell>
           </TableRow>
         </SettingsDocumentation>

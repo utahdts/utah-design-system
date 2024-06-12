@@ -130,10 +130,8 @@ export function ConfirmationButtonDocumentation() {
         <li>
           <strong>If the action isn&apos;t destructive or easily reversible.</strong> Confirmation buttons should be reserved for actions that carry
           significant consequences or cannot
-          be easily undone. If the action is easily reversible, use a standard <Link to={pageUrls.button}>button</Link> or a <Link
-            to={pageUrls.banners}
-          >banner
-          </Link>.
+          be easily undone. If the action is easily reversible, use a standard <Link to={pageUrls.button}>button</Link>
+          or a <Link to={pageUrls.banners}>banner</Link>.
         </li>
         <li>
           <strong>Modal confirmation.</strong> Alternatively you may use a <Link to={pageUrls.modals}>modal</Link> dialog to confirm the user&apos;s

@@ -125,10 +125,8 @@ export function TooltipsDocumentation() {
           you&apos;re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.
         </li>
         <li>Never include any kind of error messages in a tooltip.</li>
-        <li>Tooltips have slightly different guidelines to Popups and Modals. For more information, see <Link
-          to={pageUrls.popups}
-        >Popup
-        </Link> and <Link to={pageUrls.modals}>Modals</Link> guidelines.
+        <li>Tooltips have slightly different guidelines to Popups and Modals. For more information, see
+          <Link to={pageUrls.popups}>Popup</Link> and <Link to={pageUrls.modals}>Modals</Link> guidelines.
         </li>
         <li>If the information is crucial for a user to proceed, consider using a modal or inline notification instead.</li>
         <li>The anatomy of a tooltip is made up of a container, description and arrow.
