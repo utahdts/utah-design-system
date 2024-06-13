@@ -6,19 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # [1.17.0] 5/14/2024
+## Breaking Change
+- Icons.jsx has been removed in favor of using css icons.
+  - `<Icons.IconEnvelope />`
+  - becomes ==>
+  - `<span className="utds-icon-before-mail" aria-hidden="true" />`
+- Icons found in Icons.jsx that were still needed were moved out of the library into the website portion of the project since they were specific to the website and not used as a library resource.
+
+- Move innerRef to wrapper for ClickableTag, Checkbox, and RadioButton. Existing innerRef usage will need to target the desired element inside of the wrapper instead of using the element directly from the ref.
+
 ## Fixed
-- (BREAKING!) Move innerRef to wrapper for ClickableTag, Checkbox, and RadioButton
 - Close popups when clicked outside
 - Make sure footer is 100% width
 - Only announce multi-select groups if there are groups
 - Prevent closing popups for main menu clicking
-- Prevent header font from being overriden
+- Prevent header font from being overridden
 - Toggle open utah Id mobile menu on mobile
 
 ## Added
 - Add color picker popup for Color Picker
 - Add Drawer component
-- Add new icons: Filter
+- Add new icons: Filter, Restart, Sync, Refresh, Light Mode, Dark Mode, Mail, Share
 - Add option parentMenuLinkSuffix for menus
 - Add TableFilterComboBox types
 - Announce that multi-select tags are deletable
