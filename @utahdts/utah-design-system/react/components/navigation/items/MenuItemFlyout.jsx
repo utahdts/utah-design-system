@@ -1,22 +1,23 @@
 import { popupFocusHandler } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
-import { NavLink } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { menuTypes } from '../../../enums/menuTypes';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { IconButton } from '../../buttons/IconButton';
+import { MenuItemNavLink } from './MenuItemNavLink';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 /** @typedef {import('@utahdts/utah-design-system').MenuTypes} MenuTypes  */
+/** @typedef {import('@utahdts/utah-design-system').VerticalMenuMenuItemAdditions} VerticalMenuMenuItemAdditions  */
 
 /**
  * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
- * @param {WebsiteMainMenuItem} props.menuItem
+ * @param {WebsiteMainMenuItem & VerticalMenuMenuItemAdditions} props.menuItem
  * @param {MenuTypes} [props.menuType]
  * @param {boolean} [props.triggerOnHover]
  * @returns {import('react').JSX.Element}
@@ -33,7 +34,6 @@ export function MenuItemFlyout({
   const popperRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const { styles, attributes } = usePopper(wrapperElement.current, popperRef.current, { placement: 'right-start' });
 
-  const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
   useClickOutside([popperRef], () => setIsChildrenOpen(false), !isChildrenOpen);
 
   const isExpanded = () => {
@@ -65,7 +65,7 @@ export function MenuItemFlyout({
     <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={wrapperElement}>
       <span className={menuType === menuTypes.VERTICAL ? 'vertical-menu__title' : 'menu-item__title'}>
         {
-          (!menuItem?.link || menuItem?.link?.includes('::'))
+          ((!menuItem?.link && !menuItem.actionFunction && !menuItem.actionFunctionUrl && !menuItem.actionUrl) || menuItem?.link?.includes('::'))
             ? (
               <button
                 aria-expanded={isExpanded()}
@@ -83,18 +83,11 @@ export function MenuItemFlyout({
               </button>
             )
             : (
-              <NavLink
-                className={(navData) => joinClassNames(
-                  menuType === menuTypes.VERTICAL ? 'vertical-menu__link-title' : 'menu-item__link-title',
-                  (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
-                  && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
-                )}
-                end
-                to={menuItem.link}
-                ref={navLinkRef}
-              >
-                {menuItem.title}
-              </NavLink>
+              <MenuItemNavLink
+                currentMenuItem={currentMenuItem}
+                menuItem={menuItem}
+                menuType={menuType}
+              />
             )
         }
         {

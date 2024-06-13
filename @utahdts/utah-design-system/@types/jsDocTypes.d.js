@@ -2,6 +2,8 @@
 
 /** @typedef {import('react')} React */
 /** @typedef {import ('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
+/** @typedef {import('@utahdts/utah-design-system-header').MenuItemFunctionUrlAction} MenuItemFunctionUrlAction */
+/** @typedef {import('@utahdts/utah-design-system-header').MenuItemUrlAction} MenuItemUrlAction */
 
 /**
  * @template ImmerHookT
@@ -411,6 +413,15 @@
  * @typedef UtahDesignSystemContextValue {
  *  @property {UtahDesignSystemContextAria} ariaLive
  *  @property {UtahDesignSystemContextBannerWithId[]} banners
+ * }
+ */
+
+/**
+ * Vertical menu links need more options than just a string url
+ * @typedef VerticalMenuMenuItemAdditions {
+ *  @property {MenuItemUrlAction} [actionUrl] - link url
+ *  @property {EventAction} [actionFunction] - onClick function
+ *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  * }
  */
 
