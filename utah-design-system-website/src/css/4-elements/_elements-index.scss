@@ -3,10 +3,15 @@
 elemental html: h1, h2, h3, ul, li, etc.
 */
 @use "../../../../@utahdts/utah-design-system/css/1-settings/color-swatches";
+@use "../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
 
 html {
   scroll-behavior: smooth;
 }
 body {
   background: color-swatches.$neutral-gray-04;
+}
+
+#{class-vars.$base-class} {
+  background-color: white;
 }
