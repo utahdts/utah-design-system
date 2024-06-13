@@ -79,7 +79,7 @@
     "eslint": "8.57.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsdoc": "48.2.6",
+    "eslint-plugin-jsdoc": "48.2.9",
     "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-react": "7.34.2",
     "eslint-plugin-react-hooks": "4.6.2",
@@ -93,6 +93,6 @@
     "@popperjs/core": "2.11.8",
     "immer": "10.1.1",
     "lodash": "4.17.21",
-    "use-immer": "0.9.0"
+    "use-immer": "0.10.0"
   }
 }
