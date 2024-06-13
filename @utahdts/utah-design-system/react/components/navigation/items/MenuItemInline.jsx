@@ -1,19 +1,20 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { menuTypes } from '../../../enums/menuTypes';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { IconButton } from '../../buttons/IconButton';
+import { MenuItemNavLink } from './MenuItemNavLink';
 
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('@utahdts/utah-design-system').WebsiteMainMenuItem} WebsiteMainMenuItem */
 /** @typedef {import('@utahdts/utah-design-system').MenuTypes} MenuTypes  */
+/** @typedef {import('@utahdts/utah-design-system').VerticalMenuMenuItemAdditions} VerticalMenuMenuItemAdditions  */
 
 /**
  * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
- * @param {WebsiteMainMenuItem} props.menuItem
+ * @param {WebsiteMainMenuItem & VerticalMenuMenuItemAdditions} props.menuItem
  * @param {MenuTypes} [props.menuType]
  * @returns {import('react').JSX.Element}
  */
@@ -22,7 +23,6 @@ export function MenuItemInline({
   menuItem,
   menuType = menuTypes.VERTICAL,
 }) {
-  const { pathname } = useLocation();
   // check if any of this menuItem's children are the currently open page/menuItem and if so, then keep this menuItem's children list open
   const [isChildrenOpen, setIsChildrenOpen] = useImmer(() => (
     !!currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')
@@ -32,7 +32,7 @@ export function MenuItemInline({
     () => {
       setIsChildrenOpen((isChildrenOpenPreviously) => !!(isChildrenOpenPreviously || currentMenuItem?.parentLinks?.includes(menuItem.link ?? '')));
     },
-    [currentMenuItem, menuItem, pathname]
+    [currentMenuItem, menuItem]
   );
 
   const navLinkRef = useRef(/** @type {HTMLAnchorElement | null} */(null));
@@ -59,7 +59,7 @@ export function MenuItemInline({
       <span className="menu-item__title">
         {/* === menu item title === */}
         {
-          (!menuItem?.link || menuItem?.link?.includes('::'))
+          ((!menuItem?.link && !menuItem.actionFunction && !menuItem.actionFunctionUrl && !menuItem.actionUrl) || menuItem?.link?.includes('::'))
             ? (
               <button
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
@@ -72,18 +72,12 @@ export function MenuItemInline({
               </button>
             )
             : (
-              <NavLink
-                className={(navData) => joinClassNames(
-                  'menu-item__link-title',
-                  (currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') || navData.isActive)
-                  && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
-                )}
-                end
-                to={menuItem.link}
-                ref={navLinkRef}
-              >
-                {menuItem.title}
-              </NavLink>
+              <MenuItemNavLink
+                currentMenuItem={currentMenuItem}
+                innerRef={navLinkRef}
+                menuItem={menuItem}
+                menuType={menuType}
+              />
             )
         }
 

@@ -714,7 +714,7 @@ declare module "@utahdts/utah-design-system" {
   }
   export function MenuItemInline({ currentMenuItem, menuItem, menuType, }: {
     currentMenuItem?: WebsiteMainMenu | WebsiteMainMenuItem | undefined;
-    menuItem: WebsiteMainMenuItem;
+    menuItem: WebsiteMainMenuItem & VerticalMenuMenuItemAdditions;
     menuType?: MenuTypes | undefined;
   }): React.JSX.Element;
   export function HorizontalMenu({ className, currentMenuItem, id, menu, titleTagClassName, titleTagName: TitleTagName, }: {
@@ -748,13 +748,13 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export function MenuItemPlain({ currentMenuItem, menuItem, menuType, }: {
     currentMenuItem?: WebsiteMainMenu | WebsiteMainMenuItem | undefined;
-    menuItem: WebsiteMainMenuItem;
+    menuItem: WebsiteMainMenuItem & VerticalMenuMenuItemAdditions;
     menuType?: MenuTypes | undefined;
   }): React.JSX.Element;
   export function useClickOutside(refs: React.RefObject<HTMLElement | null>[], handler: React.EventHandler<any>, isDisabled?: boolean): void;
   export function MenuItemFlyout({ currentMenuItem, menuItem, menuType, triggerOnHover, }: {
     currentMenuItem?: WebsiteMainMenu | WebsiteMainMenuItem | undefined;
-    menuItem: WebsiteMainMenuItem;
+    menuItem: WebsiteMainMenuItem & VerticalMenuMenuItemAdditions;
     menuType?: MenuTypes | undefined;
     triggerOnHover?: boolean | undefined;
   }): React.JSX.Element;
@@ -1454,6 +1454,12 @@ declare module "@utahdts/utah-design-system" {
     isSelected?: boolean | undefined;
     isAlternatePath?: boolean | undefined;
   };
+  export type VerticalMenuMenuItemAdditions = {
+    actionUrl?: import("@utahdts/utah-design-system-header").MenuItemUrlAction
+    actionFunction?: EventAction
+    actionFunctionUrl?: import("@utahdts/utah-design-system-header").MenuItemFunctionUrlAction
+  }
+
   export type WebsiteMainMenu = {
     children?: WebsiteMainMenuItem[] | undefined;
     header: string;
