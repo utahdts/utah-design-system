@@ -5,6 +5,7 @@ import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { SettingsDocumentation } from '../../../documentation/SettingsDocumentation';
 import { documentationTypes } from '../../../../../../enums/documentationTypes';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function InfoBoxDocumentation() {
   return (
@@ -31,6 +32,15 @@ export function InfoBoxDocumentation() {
             <li>Non-interactive.</li>
           </ul>
         )}
+      />
+
+      <PreCodeForCodeString
+        className="gray-block mb-spacing-l"
+        codeRaw={`<div class="info-box">
+    <div class="info-box__content">
+        Here is some useful information.
+    </div>
+</div>`}
       />
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
