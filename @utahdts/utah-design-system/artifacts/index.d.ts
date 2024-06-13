@@ -1172,7 +1172,7 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export function UtahDesignSystemContextProvider({ children, defaultSettings }: {
     children: React.ReactNode;
-    defaultSettings: UtahDesignSystemDefaultSettings;
+    defaultSettings?: UtahDesignSystemDefaultSettings;
   }): React.JSX.Element;
   export const UtahHeaderContext: React.Context<{
     settings: import("@utahdts/utah-design-system-header").Settings;
