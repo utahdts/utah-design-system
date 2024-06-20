@@ -46,7 +46,7 @@ export function TableFilterDate({
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
         id={`${tableId}__table-filter-date-${recordFieldPath}`}
-        label={`${a11yLabel}`}
+        label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}
         placeholder={placeholder ?? 'Filter'}
         value={currentValue?.toString()}

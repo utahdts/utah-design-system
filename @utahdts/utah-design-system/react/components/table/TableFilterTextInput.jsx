@@ -51,7 +51,7 @@ export function TableFilterTextInput({
     <th className={joinClassNames('table-header__cell table-header__cell--filter-text-input', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
         id={`${tableId}__table-filter-text-input-${recordFieldPath}`}
-        label={a11yLabel || recordFieldPath}
+        label={`Filter ${a11yLabel || recordFieldPath}`}
         onChange={currentOnChange}
         onClear={() => setValue('')}
         placeholder={placeholder ?? 'Filter'}

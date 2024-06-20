@@ -79,7 +79,7 @@ export function TableFilterSelectAllOptions({
     >
       <Select
         id={`${tableId}__table-filter-select-${recordFieldPath}`}
-        label={a11yLabel}
+        label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}
         placeholder={placeholder ?? 'Filter'}
         value={currentValue}
