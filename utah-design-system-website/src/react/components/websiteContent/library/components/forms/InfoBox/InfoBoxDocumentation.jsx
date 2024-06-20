@@ -52,7 +52,7 @@ export function InfoBoxDocumentation() {
       <h3>When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Dynamic.</strong> Avoid using an info box as a way to display information in response to a user&apos;s action. Instead use a <Link to={pageUrls.banners}>banner</Link>.</li>
-        <li><strong>Reminders.</strong> Rather than an info box, you can use a <Link to={pageUrls.callout}>callout</Link> as a way to summarize the talking point of related content.</li>
+        <li><strong>Reminders.</strong> Rather than an info box, you can use a callout as a way to summarize the talking point of related content.</li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>

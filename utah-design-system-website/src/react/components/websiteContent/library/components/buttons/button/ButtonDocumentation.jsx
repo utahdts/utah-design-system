@@ -167,8 +167,7 @@ export function ButtonDocumentation() {
               <ul>
                 <li>The emphasized button will appear on the right.</li>
                 <li>One or more unemphasized buttons will appear on the left.</li>
-                <li>If you wish to use more than 3 buttons in proximity consider
-                  using a <NavLink to={pageUrls.buttonGroup} className="utds-icon-after-ext-link">Button Group</NavLink>.
+                <li>If you wish to use more than 3 buttons in proximity, consider grouping them depending on their context.
                 </li>
               </ul>
             </li>

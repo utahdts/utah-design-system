@@ -101,7 +101,7 @@ export function StepIndicatorDocumentation() {
         </li>
         <li>
           <strong>Stepping forward and backward.</strong> To facilitate navigation, it is recommended to provide separate controls for stepping
-          forward and backward through a form. Utilize navigation elements such as a <Link to={pageUrls.buttonGroup}>button group</Link> to allow
+          forward and backward through a form. Utilize navigation elements to allow
           users to navigate through the form easily.
         </li>
         <li>
