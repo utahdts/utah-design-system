@@ -19,6 +19,7 @@ import { TableDocumentationSortingTableExample } from './exampleTables/TableDocu
 import { TableDocumentationSortingSmall } from './exampleTables/TableDocumentationSortingSmall';
 import { TableCssClassesDocumentation } from './TableCssClassesDocumentation';
 import { TablePropsDocumentation } from './TablePropsDocumentation';
+import { TableDocumentationDateFilteringTableExample } from './exampleTables/TableDocumentationDateFilteringTableExample';
 
 export function TableDocumentation() {
   return (
@@ -258,6 +259,7 @@ export function TableDocumentation() {
       <TableDocumentationPaginationTableExample />
       <TableDocumentationSortingTableExample />
       <TableDocumentationFilteringPaginationTableExample />
+      <TableDocumentationDateFilteringTableExample />
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">

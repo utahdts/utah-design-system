@@ -21,6 +21,7 @@ import { IconButton } from '../buttons/IconButton';
  * @param {[number, number]} [props.offset] [x, y] offset of popped content from
  * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }
  * @param {PopupPlacement} [props.placement] The Popper Placement
+ * @param {any[]} [props.popperUpdateDependencies] useEffect dependencies for updating popper placement
  * @param {import('react').RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
  * @param {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} props.role popup must tell its role for accessibility
  * @returns {import('react').JSX.Element}
@@ -36,6 +37,7 @@ export function Popup({
   offset = [0, 10],
   onVisibleChange,
   placement = popupPlacement.AUTO,
+  popperUpdateDependencies,
   referenceElement,
   role,
   ...rest
@@ -69,7 +71,7 @@ export function Popup({
         update().catch((e) => console.error(e));
       }
     },
-    [isVisible, update]
+    [isVisible, update, ...(popperUpdateDependencies || [])]
   );
 
   useGlobalKeyEvent({

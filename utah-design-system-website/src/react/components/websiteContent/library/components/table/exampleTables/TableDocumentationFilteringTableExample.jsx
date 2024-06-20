@@ -9,7 +9,7 @@ import {
   TableBodyDataRowTemplate,
   TableContextConsumer,
   TableFilterCustom,
-  TableFilterDate,
+  TableFilterDateRange,
   TableFilterNone,
   TableFilterComboBoxAllOptions,
   TableFilterTextInput,
@@ -64,7 +64,11 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
+                <TableFilterDateRange
+                  a11yLabel="Inauguration"
+                  id="table-filtering-inauguration"
+                  recordFieldPath="inauguration"
+                />
 
                 {/*
                   "Controlled" filter; parent knows the value!
@@ -95,12 +99,14 @@ export function TableDocumentationFilteringTableExample() {
                           setFilterValues((draftState) => {
                             // filter values must be a string
                             // the field (ie birthplace.state) can be a dot path in to the record
-                            // @ts-ignore
-                            draftState['birthplace.state'] = draftState['birthplace.state'] ? '' : { value: 'Virginia' };
+                            draftState['birthplace.state'] = {
+                              options: {},
+                              value: draftState['birthplace.state']?.value ? '' : 'Virginia',
+                            };
                           });
                         }}
                       >
-                        {filterValues['birthplace.state'] ? 'Only Virginia' : 'All States'}
+                        {filterValues['birthplace.state']?.value ? 'Only Virginia' : 'All States'}
                       </Button>
                     )
                   }
@@ -110,7 +116,7 @@ export function TableDocumentationFilteringTableExample() {
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
                 <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
                 <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
-                <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
+                <TableHeadCell recordFieldPath="inauguration">Inauguration</TableHeadCell>
                 <TableHeadCell recordFieldPath="funFacts">Fun Facts</TableHeadCell>
                 <TableHeadCell recordFieldPath="birthplace">Birth Place</TableHeadCell>
               </TableHeadRow>

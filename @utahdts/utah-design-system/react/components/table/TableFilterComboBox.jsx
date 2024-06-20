@@ -1,8 +1,8 @@
 import { joinClassNames } from '../../util/joinClassNames';
+import { ComboBox } from '../forms/ComboBox/ComboBox';
+import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
-import { useTableContext } from './hooks/useTableContext';
-import { ComboBox } from '../forms/ComboBox/ComboBox';
 
 /**
  * @param {object} props
@@ -14,6 +14,7 @@ import { ComboBox } from '../forms/ComboBox/ComboBox';
  * @param {string} [props.id]
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {(() => {})} [props.onChange]
+ * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {string | number} [props.value]
  * @returns {import('react').JSX.Element}
@@ -27,6 +28,7 @@ export function TableFilterComboBox({
   id,
   innerRef,
   onChange,
+  placeholder,
   recordFieldPath,
   value,
   ...rest
@@ -50,7 +52,7 @@ export function TableFilterComboBox({
     value,
   });
 
-  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch: !!exactMatch });
 
   const { state: { tableId } } = useTableContext();
   return (
@@ -62,6 +64,7 @@ export function TableFilterComboBox({
         // @ts-ignore
         onChange={currentOnChange}
         onClear={() => setValue('')}
+        placeholder={placeholder ?? 'Filter'}
         value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}

@@ -1,8 +1,6 @@
 import { sizes } from '../enumerations/sizes';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').Settings} Settings
- */
+/** @typedef {import('src/@types/jsDocTypes.d').Settings} Settings */
 
 /**
  * !~! Do not use defaultSettings directly !~!

@@ -76,7 +76,7 @@ export { TableFilterComboBoxAllOptions } from './react/components/table/TableFil
 export { TableFilterComboBoxOption } from './react/components/table/TableFilterComboBoxOption';
 export { TableContextConsumer } from './react/components/table/TableContextConsumer';
 export { TableFilterCustom } from './react/components/table/TableFilterCustom';
-export { TableFilterDate } from './react/components/table/TableFilterDate';
+export { TableFilterDateRange } from './react/components/table/TableFilterDateRange';
 export { TableFilterNone } from './react/components/table/TableFilterNone';
 export { TableFilterSelect } from './react/components/table/TableFilterSelect';
 export { TableFilterSelectAllOptions } from './react/components/table/TableFilterSelectAllOptions';

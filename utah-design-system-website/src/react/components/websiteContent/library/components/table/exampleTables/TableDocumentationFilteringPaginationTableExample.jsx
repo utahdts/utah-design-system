@@ -6,7 +6,7 @@ import {
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
   TableFilterComboBoxAllOptions,
-  TableFilterDate,
+  TableFilterDateRange,
   TableFilterNone,
   TableFilterTextInput,
   TableFilters,
@@ -15,7 +15,7 @@ import {
   TableHeadRow,
   TablePagination,
   TableWrapper,
-  TextInput,
+  TextInput
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';
@@ -70,13 +70,17 @@ export function TableDocumentationFilteringPaginationTableExample() {
                 <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
+                <TableFilterDateRange
+                  a11yLabel="Inauguration"
+                  id="table-filtering-pagination-inauguration"
+                  recordFieldPath="inauguration"
+                />
               </TableFilters>
               <TableHeadRow>
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
                 <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
                 <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
-                <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
+                <TableHeadCell recordFieldPath="inauguration">Inauguration</TableHeadCell>
               </TableHeadRow>
             </TableHead>
             <TableBody>

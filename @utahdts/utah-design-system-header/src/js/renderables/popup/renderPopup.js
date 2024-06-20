@@ -6,9 +6,7 @@ import { domConstants, getCssClassSelector } from '../../enumerations/domConstan
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').RenderPopupOptions} RenderPopupOptions
- */
+/** @typedef {import('src/@types/jsDocTypes.d').RenderPopupOptions} RenderPopupOptions */
 
 /**
  * @param {Element} labelledByElement - the triggering component (must have an `id`)

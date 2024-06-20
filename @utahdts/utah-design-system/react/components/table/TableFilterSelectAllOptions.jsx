@@ -17,6 +17,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {(() => {})} [props.onChange]
+ * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
@@ -29,6 +30,7 @@ export function TableFilterSelectAllOptions({
   id,
   innerRef,
   onChange,
+  placeholder,
   recordFieldPath,
   value,
   ...rest
@@ -66,7 +68,7 @@ export function TableFilterSelectAllOptions({
   );
 
   // keep the default settings object from being recreated every render so that it does not trigger filter registration
-  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch });
 
   return (
     <th
@@ -79,6 +81,7 @@ export function TableFilterSelectAllOptions({
         id={`${tableId}__table-filter-select-${recordFieldPath}`}
         label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}
+        placeholder={placeholder ?? 'Filter'}
         value={currentValue}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}

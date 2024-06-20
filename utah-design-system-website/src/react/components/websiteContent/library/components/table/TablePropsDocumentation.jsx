@@ -1,8 +1,8 @@
 import { ExternalLink, TableCell, TableRow } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
-import { SettingsDocumentation } from '../../documentation/SettingsDocumentation';
 import { documentationTypes } from '../../../../../enums/documentationTypes';
 import { pageUrls } from '../../../../routing/pageUrls';
+import { SettingsDocumentation } from '../../documentation/SettingsDocumentation';
 
 export function TablePropsDocumentation() {
   return (
@@ -1005,40 +1005,42 @@ export function TablePropsDocumentation() {
 
       <h3><code>TableFilterSelectOption</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <TableRow>
-          <TableCell><code className="primary-color">className</code></TableCell>
-          <TableCell><code>string</code></TableCell>
-          <TableCell>null</TableCell>
-          <TableCell>
-            This CSS class will be added to the <code>SelectOption</code>.
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell><code className="primary-color">label</code></TableCell>
-          <TableCell><code>string</code></TableCell>
-          <TableCell><em>required</em></TableCell>
-          <TableCell>
-            This label used for the <code>SelectOption</code>.
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell><code className="primary-color">value</code></TableCell>
-          <TableCell><code>string</code></TableCell>
-          <TableCell><em>required</em></TableCell>
-          <TableCell>
-            This value of the <code>SelectOption</code>.
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell><code className="primary-color">...rest</code></TableCell>
-          <TableCell>
-            <div className="props-code-wrapper">
-              <code>...any</code>
-            </div>
-          </TableCell>
-          <TableCell>null</TableCell>
-          <TableCell>Additional props you wish to pass to the <code>SelectOption</code>.</TableCell>
-        </TableRow>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell><code className="primary-color">className</code></TableCell>
+            <TableCell><code>string</code></TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              This CSS class will be added to the <code>SelectOption</code>.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code className="primary-color">label</code></TableCell>
+            <TableCell><code>string</code></TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>
+              This label used for the <code>SelectOption</code>.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code className="primary-color">value</code></TableCell>
+            <TableCell><code>string</code></TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>
+              This value of the <code>SelectOption</code>.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code className="primary-color">...rest</code></TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>...any</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>Additional props you wish to pass to the <code>SelectOption</code>.</TableCell>
+          </TableRow>
+        </SettingsDocumentation>
       </div>
 
       <h3><code>TableFilterTextInput</code></h3>

@@ -2,9 +2,7 @@ import { domConstants, getCssClassSelector } from '../../enumerations/domConstan
 import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
 import { hideMobileMenu, showMobileMenu } from './util/showHideHamburgerElements';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType
- */
+/** @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType */
 
 /**
  * @param {HTMLElement} mobileMenuWrapper
