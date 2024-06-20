@@ -13,6 +13,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {string} [props.id]
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {(e: React.ChangeEvent) => TableDataT} [props.onChange]
+ * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {TableDataT} [props.value]
  * @returns {import('react').JSX.Element}
@@ -24,6 +25,7 @@ export function TableFilterDate({
   id,
   innerRef,
   onChange,
+  placeholder,
   recordFieldPath,
   value,
   ...rest
@@ -44,8 +46,9 @@ export function TableFilterDate({
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
       <TextInput
         id={`${tableId}__table-filter-date-${recordFieldPath}`}
-        label={`Filter ${a11yLabel}`}
+        label={`${a11yLabel}`}
         onChange={currentOnChange}
+        placeholder={placeholder ?? 'Filter'}
         value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}

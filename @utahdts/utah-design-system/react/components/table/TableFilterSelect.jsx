@@ -1,9 +1,9 @@
 import React from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Select } from '../forms/Select';
+import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
-import { useTableContext } from './hooks/useTableContext';
 
 /**
  * @template TableDataT
@@ -16,6 +16,7 @@ import { useTableContext } from './hooks/useTableContext';
  * @param {string} [props.id]
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {((e: React.ChangeEvent) => TableDataT)} [props.onChange]
+ * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {string | number} [props.value]
  * @returns {import('react').JSX.Element}
@@ -29,6 +30,7 @@ export function TableFilterSelect({
   id,
   innerRef,
   onChange,
+  placeholder,
   recordFieldPath,
   value,
   ...rest
@@ -57,8 +59,9 @@ export function TableFilterSelect({
     <th className={joinClassNames('table-header__cell table-header__cell--filter-select', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       <Select
         id={`${tableId}__table-filter-select-${recordFieldPath}`}
-        label={`Filter ${a11yLabel}`}
+        label={a11yLabel}
         onChange={currentOnChange}
+        placeholder={placeholder ?? 'Filter'}
         value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}

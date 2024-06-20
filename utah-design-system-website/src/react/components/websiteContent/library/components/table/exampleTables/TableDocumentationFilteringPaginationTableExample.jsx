@@ -6,15 +6,7 @@ import {
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
   TableFilterComboBoxAllOptions,
-  TableFilterDate,
   TableFilterDateRange,
-  TableFilterNone,
-  TableFilterSelectAllOptions,
-  TableFilterTextInput,
-  TableFilters,
-  TableHead,
-  TableFilterComboBoxAllOptions,
-  TableFilterDate,
   TableFilterNone,
   TableFilterTextInput,
   TableFilters,
@@ -23,7 +15,7 @@ import {
   TableHeadRow,
   TablePagination,
   TableWrapper,
-  TextInput,
+  TextInput
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { useImmer } from 'use-immer';

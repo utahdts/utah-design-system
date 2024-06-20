@@ -1,14 +1,15 @@
-import { useCallback, useRef } from 'react';
+import { useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useInterval } from '../../hooks/useInterval';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Button } from '../buttons/Button';
+import { IconButton } from '../buttons/IconButton';
+import { TableFilterDateRangeButtonTitle } from './TableFilterDateRangeButtonTitle';
 import { TableFilterDateRangePopup } from './TableFilterDateRangePopup';
 import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { tableConstants } from './tableConstants';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
-import { IconButton } from '../buttons/IconButton';
 
 /**
  * @param {object} props
@@ -19,6 +20,7 @@ import { IconButton } from '../buttons/IconButton';
  * @param {string} props.id
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {(newValue: string) => void} [props.onChange]
+ * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
@@ -31,6 +33,7 @@ export function TableFilterDateRange({
   id,
   a11yLabel,
   onChange,
+  placeholder,
   recordFieldPath,
   value,
   ...rest
@@ -69,26 +72,6 @@ export function TableFilterDateRange({
   );
   const popupId = `${id}-popup`;
 
-  const renderValue = useCallback(() => {
-    const regex = new RegExp(`(.+)?${tableConstants.dateFilterSeparator}(.+)?`, 'g');
-    const result = regex.exec(currentValue || '');
-    return (!result ? '' : (
-      <>
-        {result[1]}
-        <div>
-          <span
-            className="utds-icon-before-arrow-right date-input__icon-static"
-            aria-hidden="true"
-          />
-          <span className="visually-hidden">
-            to
-          </span>
-        </div>
-        {result[2]}
-      </>
-    ));
-  }, [currentValue]);
-
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
       <div ref={popperContentRef}>
@@ -98,53 +81,53 @@ export function TableFilterDateRange({
           aria-haspopup="dialog"
           id={`${tableId}__table-filter-date-${recordFieldPath}`}
           label={`Filter ${a11yLabel}`}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}
-        // @ts-ignore
+          // @ts-ignore
           onBlur={
-          () => {
-            setTimeout(
-              () => {
-                // see if an element in the popup now has focus and if so leave the popup open
-                if (!document.activeElement?.closest('.table-filter-date__popup')) {
-                  setState((draftState) => { draftState.isPopupOpen = false; });
-                }
-              },
-              1
-            );
+            () => {
+              setTimeout(
+                () => {
+                  // see if an element in the popup now has focus and if so leave the popup open
+                  if (!document.activeElement?.closest('.table-filter-date__popup')) {
+                    setState((draftState) => { draftState.isPopupOpen = false; });
+                  }
+                },
+                1
+              );
+            }
           }
-        }
           onFocus={
-          () => {
-            setState((draftState) => {
-              draftState.isPopupOpen = false;
-            });
+            () => {
+              setState((draftState) => {
+                draftState.isPopupOpen = false;
+              });
+            }
           }
-        }
           onClick={
-          () => {
-            setState((draftState) => {
-              draftState.isPopupOpen = true;
-            });
+            () => {
+              setState((draftState) => {
+                draftState.isPopupOpen = true;
+              });
+            }
           }
-        }
         >
-          {renderValue()}
+          <TableFilterDateRangeButtonTitle currentValue={currentValue} placeholder={placeholder} />
         </Button>
 
         {/* Clear icon */}
         {
-        (currentValue && currentValue !== tableConstants.dateFilterSeparator)
-          ? (
-            <IconButton
-              className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}
-              icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
-              onClick={() => currentOnChange('')}
-              title="Clear filter"
-            />
-          )
-          : null
-      }
+          (currentValue && currentValue !== tableConstants.dateFilterSeparator)
+            ? (
+              <IconButton
+                className={joinClassNames('text-input__clear-button icon-button--borderless icon-button--small1x')}
+                icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                onClick={() => currentOnChange('')}
+                title="Clear filter"
+              />
+            )
+            : null
+        }
 
         {/* Calendar icon inside the button */}
         <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', currentValue && currentValue !== tableConstants.dateFilterSeparator ? 'visually-hidden' : '')}>

@@ -2,11 +2,11 @@ import { identity, uniq } from 'lodash';
 import { useMemo } from 'react';
 import { chainSorters } from '../../util/chainSorters';
 import { joinClassNames } from '../../util/joinClassNames';
+import { ComboBox } from '../forms/ComboBox/ComboBox';
+import { ComboBoxOption } from '../forms/ComboBox/ComboBoxOption';
 import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
-import { ComboBox } from '../forms/ComboBox/ComboBox';
-import { ComboBoxOption } from '../forms/ComboBox/ComboBoxOption';
 
 /**
  * @param {object} props
@@ -17,6 +17,7 @@ import { ComboBoxOption } from '../forms/ComboBox/ComboBoxOption';
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {(() => {})} [props.onChange]
+ * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
@@ -29,6 +30,7 @@ export function TableFilterComboBoxAllOptions({
   id,
   innerRef,
   onChange,
+  placeholder,
   recordFieldPath,
   value,
   ...rest
@@ -68,7 +70,7 @@ export function TableFilterComboBoxAllOptions({
   );
 
   // keep the default settings object from being recreated every render so that it does not trigger filter registration
-  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch: !!exactMatch });
 
   return (
     <th
@@ -80,10 +82,11 @@ export function TableFilterComboBoxAllOptions({
       <ComboBox
         id={`${tableId}__table-filter-combo-box-${recordFieldPath}`}
         isClearable
-        label={`Filter ${a11yLabel}`}
+        label={a11yLabel}
         // @ts-ignore
         onChange={currentOnChange}
         onClear={() => setValue('')}
+        placeholder={placeholder ?? 'Filter'}
         value={currentValue?.toString()}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
