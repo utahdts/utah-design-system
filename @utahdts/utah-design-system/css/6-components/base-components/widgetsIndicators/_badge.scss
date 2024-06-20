@@ -1,0 +1,33 @@
+@use "../../../1-settings/color-swatches";
+@use "../../../1-settings/class-vars";
+@use "../../../1-settings/font-stuff";
+
+#{class-vars.$base-class} {
+  .badge {
+    background-color: var(--badge-color);
+    border-radius: var(--radius-circle);
+    box-sizing: border-box;
+    color: white;
+    font-size: var(--font-size-2xs);
+    font-weight: var(--font-weight-semi-bold);
+    line-height: var(--font-size-2xs);
+    min-height: var(--spacing-xs);
+    min-width: var(--spacing-2xs);
+    padding: var(--spacing-3xs) var(--spacing-2xs);
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-50%);
+
+    &:not(.badge--blank) {
+      min-width: 1rem;
+      right: -2px;
+      top: -2px;
+    }
+
+    &--blank {
+      width: 9px;
+      height: 9px;
+    }
+  }
+}

@@ -5,11 +5,11 @@ import { useRadioButtonGroupContext } from './context/useRadioButtonGroupContext
 
 /**
  * wrap in a RadioButtonGroup to control a clump of RadioButtons. Can have a RadioButton without a RadioButtonGroup
- * but then it is always uncontrolled.
+ * ,but then it is always uncontrolled.
  * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultIsChecked] allows default checking if uncontrolled (not in RadioButtonGroup)
- * @param {import('react').RefObject<HTMLInputElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
  * @param {string} props.id
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
@@ -23,8 +23,8 @@ export function RadioButton({
   className,
   defaultIsChecked,
   id,
-  isDisabled,
   innerRef,
+  isDisabled,
   label,
   labelClassName,
   name,
@@ -76,7 +76,7 @@ export function RadioButton({
   );
 
   return (
-    <div className={joinClassNames('input-wrapper input-wrapper--radio', wrapperClassName)}>
+    <div className={joinClassNames('input-wrapper input-wrapper--radio', wrapperClassName)} ref={innerRef}>
       <label htmlFor={id} className={labelClassName ?? undefined}>
         {label}
       </label>
@@ -88,7 +88,6 @@ export function RadioButton({
         id={id}
         name={contextValues?.name ?? name}
         onChange={isControlled ? onChange : undefined}
-        ref={innerRef}
         type="radio"
         {...rest}
       />

@@ -1,0 +1,7 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .simple-drawer {
+    max-width: 450px;
+  }
+}

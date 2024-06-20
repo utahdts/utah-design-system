@@ -91,7 +91,7 @@ export function TimeInput({
 
       return timeOptionsRet;
     },
-    [timeRangeBegin, timeRangeEnd, timeRangeIncrement]
+    [timeRangeBegin, timeRangeEnd, timeRangeIncrement, timeFormat]
   );
 
   const clockIcon = useMemo(

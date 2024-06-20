@@ -39,6 +39,15 @@ class SettingsKeeper {
   getSettings() {
     return this.settings;
   }
+
+  /**
+   * Mainly for testing purposes? since tests will want a fresh slate every time, and calling
+   * setUtahHeaderSettings() does a merge of the settings, this puts settings back to blank
+   * starting settings
+   */
+  clearSettings() {
+    this.settings = { ...defaultSettings };
+  }
 }
 
 export const settingsKeeper = new SettingsKeeper();

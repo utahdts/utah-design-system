@@ -22,10 +22,10 @@ import { TableContext } from './util/TableContext';
 export function TableHeadCell({
   children,
   className,
-  recordFieldPath,
-  innerRef,
   id,
+  innerRef,
   onClick,
+  recordFieldPath,
   scope,
   tableSortingFieldPaths,
   ...rest

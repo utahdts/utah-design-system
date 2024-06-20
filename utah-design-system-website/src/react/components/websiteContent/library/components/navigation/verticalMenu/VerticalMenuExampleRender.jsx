@@ -1,6 +1,7 @@
 import { VerticalMenu } from '@utahdts/utah-design-system';
 import { useImmer } from 'use-immer';
 import { useEffect } from 'react';
+import { pageUrls } from '../../../../../routing/pageUrls';
 
 /** @typedef {import('utah-design-system-website').VerticalMenuExamplePropsShape} VerticalMenuExamplePropsShape */
 
@@ -20,26 +21,39 @@ export function VerticalMenuExampleRender({
 }) {
   const [menus, setMenu] = useImmer([
     {
-      header: 'Menu Header',
+      header: 'Components',
       id: 'vertical-menu-sandbox',
       menuItems: [
         {
-          id: 'components__text-layout',
-          title: 'Menu Item',
+          id: 'vertical-menu-navigation',
+          title: 'Navigation & Links',
           children: [
             {
-              title: 'Item A',
-              id: 'A',
+              title: 'Back to Top',
+              link: pageUrls.backTopTop,
+              id: 'vertical-menu-back-to-top-item',
+            },
+            {
+              title: 'Vertical Menu',
+              id: 'vertical-menu-component-item',
               children: [
-                { title: 'Sub-item A', id: 'G' },
-                { title: 'Sub-item B', id: 'H' },
+                {
+                  title: 'Example',
+                  id: 'vertical-menu-example-sub-item',
+                  link: '#section-example',
+                },
               ],
             },
-            { title: 'Item B', id: 'B' },
-            { title: 'Item C', id: 'C' },
-            { title: 'Item D', id: 'D' },
-            { title: 'Item E', id: 'E' },
-            { title: 'Item F', id: 'F' },
+            {
+              title: 'Side Panel',
+              id: 'vertical-menu-side-panel-item',
+              link: pageUrls.sidePanelNavigation,
+            },
+            {
+              title: 'Skip Link',
+              id: 'vertical-menu-skip-link-item',
+              link: pageUrls.skipLink,
+            },
           ],
           childrenMenuType,
         },

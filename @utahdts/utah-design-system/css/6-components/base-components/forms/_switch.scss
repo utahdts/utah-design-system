@@ -3,7 +3,7 @@
 @use "../../../1-settings/class-vars";
 
 #{class-vars.$base-class} {
-  input[type=checkbox].switch {
+  input[type="checkbox"].switch {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -50,15 +50,19 @@
         min-height: var(--form-ele-small4x);
       }
 
-      .switch__slider {
-        height: var(--form-ele-small4x);
-        width: var(--form-ele-small4x);
-      }
-
       .switch__inner-label {
         font-size: var(--font-size-xs);
         height: var(--form-ele-small4x);
         line-height: var(--form-ele-small4x);
+      }
+      .switch__slider {
+        height: var(--form-ele-small4x);
+        width: var(--form-ele-small4x);
+
+        [class*="utds-icon-after-"]::after,
+        [class*="utds-icon-before-"]::before {
+          font-size: 0.5rem;
+        }
       }
     }
     &--large {
@@ -69,6 +73,11 @@
       .switch__slider {
         height: var(--form-ele-small1x);
         width: var(--form-ele-small1x);
+
+        [class*="utds-icon-after-"]::after,
+        [class*="utds-icon-before-"]::before {
+          font-size: 1rem;
+        }
       }
     }
     &__slider {
@@ -89,8 +98,22 @@
       }
       svg {
         fill: var(--gray-color);
-        width: .65rem;
-        height: .65rem;
+        width: 0.65rem;
+        height: 0.65rem;
+      }
+      [class*="utds-icon-after-"],
+      [class*="utds-icon-before-"] {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      [class*="utds-icon-after-"]::after,
+      [class*="utds-icon-before-"]::before {
+        font-size: 0.7rem;
+        line-height: 0;
+        color: var(--form-ele-color);
+        margin: 0;
       }
     }
     &__inner-label {
@@ -99,7 +122,8 @@
       height: var(--form-ele-small3x);
       font-size: var(--font-size-s);
       line-height: var(--font-size-s);
-      &-on, &-off {
+      &-on,
+      &-off {
         width: calc(100% - var(--form-ele-2small1x));
         position: absolute;
         right: 2px;
@@ -132,56 +156,5 @@
         padding: var(--spacing-3xs) var(--spacing-xs);
       }
     }
-  }
-
-  .switch-old {
-    display: block;
-    box-sizing: border-box;
-    border: none;
-    background: none;
-    padding: 0;
-    position: relative;
-    min-height: 20px;
-  }
-
-  .switch-old:focus,
-  .switch-old:hover {
-    outline: none;
-  }
-
-  .switch-old:focus::before,
-  .switch-old:hover::before {
-    box-shadow: 0 0 0.5em color-swatches.$warm-gray-02;
-  }
-
-  .switch-old::before,
-  .switch-old::after {
-    content: "";
-    position: absolute;
-    height: 16px;
-    transition: all 0.25s ease;
-  }
-
-  .switch-old::before {
-    left: 0;
-    top: 0.2em;
-    width: 32px;
-    border: 1px solid color-swatches.$warm-gray-08;
-    background: color-swatches.$warm-gray-08;
-    border-radius: 16px;
-    background-color: color-swatches.$aspen-green-08;
-    border-color: color-swatches.$aspen-green-08;
-  }
-
-  .switch-old::after {
-    top: 4px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    width: 14px;
-    height: 14px;
-    border: 1px solid color-swatches.$warm-gray-08;
-    left: 16px;
-    border-color: color-swatches.$aspen-green-08;
-    color: color-swatches.$aspen-green-08;
   }
 }

@@ -11,18 +11,19 @@ import {
   TableFilterCustom,
   TableFilterDateRange,
   TableFilterNone,
-  TableFilterSelectAllOptions,
+  TableFilterComboBoxAllOptions,
   TableFilterTextInput,
   TableFilters,
   TableHead,
   TableHeadCell,
   TableHeadRow,
   TableWrapper,
-  componentColors
+  componentColors, ExternalLink
 } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 import { examplePresidentsData } from './examplePresidentsData';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function TableDocumentationFilteringTableExample() {
   const [funFactsFilter, setFunFactsFilter] = useState('');
@@ -39,13 +40,14 @@ export function TableDocumentationFilteringTableExample() {
       <p className="mb-spacing-xs">This example does not include any additional styling. This demonstrates what a table component looks like out-of-the-box.</p>
       <Accordion
         id="table-example-filtering"
+        className="mb-spacing"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"
         headingLevel={4}
       >
         <TableWrapper>
-          <Table>
+          <Table className="table--min-height">
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
@@ -55,11 +57,11 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterNone />
 
                 {/*
-                  Present a select input of the possible values from which to filter;
+                  Present a combo box input of the possible values from which to filter;
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
+                <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
                 <TableFilterDateRange
@@ -159,6 +161,25 @@ export function TableDocumentationFilteringTableExample() {
           </Table>
         </TableWrapper>
       </Accordion>
+      <span>
+        <strong>Note:</strong> The table component does not inherently display a message when no results are found.{' '}
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx">
+          See code on GitHub
+        </ExternalLink>.
+      </span>
+      <PreCodeForCodeString
+        showBackgroundColor
+        codeRaw={`
+                  <tr>
+                    <td class="table__no-results-td" colSpan="100">
+                      <span class="table__no-results-text">
+                        Your filter returned no results.
+                      </span>
+                    </td>
+                  </tr>
+                `}
+        className="mt-spacing"
+      />
     </div>
   );
 }

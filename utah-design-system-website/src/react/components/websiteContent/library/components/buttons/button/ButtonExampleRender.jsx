@@ -1,8 +1,4 @@
-import {
-  Button,
-  Icons,
-  useBanner
-} from '@utahdts/utah-design-system';
+import { Button, joinClassNames, useBanner } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').ButtonExamplePropsShape} ButtonExamplePropsShape */
 
@@ -40,15 +36,22 @@ export function ButtonExampleRender({
         (
           (iconLeft === 'none') || !iconLeft)
           ? null
-          // @ts-ignore
-          : Icons[iconLeft]()
+          : (
+            <span
+              className={joinClassNames(iconLeft === 'IconChevron' ? 'utds-icon-after-chevron-down' : 'utds-icon-after-arrow-left', 'icon')}
+              aria-hidden="true"
+            />
+          )
       }
       iconRight={
-        (
-          (iconRight === 'none') || !iconRight)
+        ((iconRight === 'none') || !iconRight)
           ? null
-          // @ts-ignore
-          : Icons[iconRight]()
+          : (
+            <span
+              className={joinClassNames(iconRight === 'IconChevron' ? 'utds-icon-after-chevron-down' : 'utds-icon-after-arrow-right', 'icon')}
+              aria-hidden="true"
+            />
+          )
       }
       id={id}
       innerRef={innerRef}

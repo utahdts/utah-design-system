@@ -3,7 +3,6 @@
 import {
   Button,
   ExternalLink,
-  Icons,
   Table,
   TableBody,
   TableCell,
@@ -29,6 +28,7 @@ import { LightBox } from '../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';
 import { StaticExample } from '../../staticExamples/StaticExample';
+import { IconsWebsite } from '../IconsWebsite';
 
 export function AccessibilityDocumentation() {
   const goodAltAudioVtt = new URL('../../../../static/audio/vtt/GoodAlt.vtt', import.meta.url).href;
@@ -702,7 +702,7 @@ export function AccessibilityDocumentation() {
               <TableCell>Adobe Illustrator</TableCell>
               <TableCell>&nbsp;</TableCell>
               <TableCell className="text-center">
-                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <IconsWebsite.IconSadFace className="icon-24" altText="sad face" />
                 {/* <span className="visually-hidden">Sad Face</span> */}
               </TableCell>
             </TableRow>
@@ -725,7 +725,7 @@ export function AccessibilityDocumentation() {
               <TableCell>Canva</TableCell>
               <TableCell>&nbsp;</TableCell>
               <TableCell className="text-center">
-                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <IconsWebsite.IconSadFace className="icon-24" altText="sad face" />
                 <span className="visually-hidden">Sad Face</span>
               </TableCell>
             </TableRow>
@@ -733,7 +733,7 @@ export function AccessibilityDocumentation() {
               <TableCell>Google Docs</TableCell>
               <TableCell>&nbsp;</TableCell>
               <TableCell className="text-center">
-                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <IconsWebsite.IconSadFace className="icon-24" altText="sad face" />
                 <span className="visually-hidden">Sad Face</span>
               </TableCell>
             </TableRow>
@@ -741,7 +741,7 @@ export function AccessibilityDocumentation() {
               <TableCell>Google Slides</TableCell>
               <TableCell>&nbsp;</TableCell>
               <TableCell className="text-center">
-                <Icons.IconSadFace className="icon-24" altText="sad face" />
+                <IconsWebsite.IconSadFace className="icon-24" altText="sad face" />
                 <span className="visually-hidden">Sad Face</span>
               </TableCell>
             </TableRow>

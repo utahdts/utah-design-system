@@ -21,10 +21,18 @@
         padding: var(--spacing-xs);
         border-radius: var(--radius-circle);
         transition: all var(--timing-fast) ease-in-out;
+        text-decoration: none;
         svg {
           fill: white;
           height: 30px;
           width: 30px;
+        }
+        [class*="utds-icon-before-"]::after,
+        [class*="utds-icon-before-"]::before {
+          font-size: 1.6rem;
+          color: white;
+          margin: 0;
+          padding: 2.5px;
         }
         &:hover {
           box-shadow: none;

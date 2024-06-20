@@ -4,7 +4,7 @@
   This file appears to work, but requires manual creation.
 
   To Create:
-    * run `npm run buildTypesTsc`
+    * run `npm run generateTypes`
     * edit the file created in dist/index.d.ts
       * single module named "@utahdts/utah-design-system-header"
       * just the exports from the `declare module "src/index" {` need put in the module
@@ -196,7 +196,7 @@ declare module "@utahdts/utah-design-system-header" {
     size: string;
     skipLinkUrl?: string | undefined;
     title: string;
-    titleURL: string;
+    titleUrl: string;
     utahId?: boolean | UtahIDSettings | undefined;
   };
   export type childrenMenuTypes = ChildrenMenuTypes;
@@ -363,7 +363,7 @@ declare module "@utahdts/utah-design-system-header" {
       size: string;
       skipLinkUrl?: string | undefined;
       title: string;
-      titleURL: string;
+      titleUrl: string;
       utahId?: boolean | UtahIDSettings | undefined;
     };
     setSettings(settings: SettingsInput): void;

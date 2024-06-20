@@ -1,4 +1,3 @@
-import { Icons } from '@utahdts/utah-design-system';
 import { COLOR_RATINGS } from './COLOR_RATINGS';
 
 /** @typedef {import('utah-design-system-website').ColorRating} ColorRating */
@@ -28,7 +27,7 @@ export function ContrastValueBox({
           {contrastRating === COLOR_RATINGS.BAD
             ? (
               <>
-                <Icons.IconDangerous />
+                <span className="utds-icon-before-error" aria-hidden="true" />
                 FAIL
               </>
             )

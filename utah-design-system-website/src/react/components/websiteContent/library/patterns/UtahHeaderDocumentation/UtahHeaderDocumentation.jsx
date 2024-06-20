@@ -580,7 +580,7 @@ export function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-titleURL">titleURL</a></span><br />
+                <span className="prop__name"><a href="#section-config-titleUrl">titleUrl</a></span><br />
                 <span className="prop__types">string</span><br />
                 Default: <code>/</code>
               </TableCell>
@@ -825,7 +825,7 @@ export function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h4 id="section-config-titleURL">titleURL</h4>
+      <h4 id="section-config-titleUrl">titleUrl</h4>
       <div>
         <PreCodeForCodeString
           className="gray-block mt-spacing"
@@ -979,8 +979,6 @@ export function UtahHeaderDocumentation() {
               </TableCell>
             </TableRow>
 
-            {/* -- Commenting out this entire section until we decide if we want to keep it
-
             <TableRow>
               <TableCell>
                 <span className="prop__name"><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></span><br />
@@ -999,8 +997,6 @@ export function UtahHeaderDocumentation() {
                 </span>
               </TableCell>
             </TableRow>
-
-            */}
 
             <TableRow>
               <TableCell>

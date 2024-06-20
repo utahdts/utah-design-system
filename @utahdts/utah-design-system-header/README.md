@@ -39,7 +39,6 @@ npm i @utahdts/utah-design-system-header
 We have several examples on how to implement the Design System Header:
 - [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html)
 - [ES Module](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html)
-- [Create React App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/create-react-app)
 - [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite)
 - [Vite Typed React App](https://github.com/utahdts/utah-design-system/tree/main/examples/typed/typed-utah-header)
 

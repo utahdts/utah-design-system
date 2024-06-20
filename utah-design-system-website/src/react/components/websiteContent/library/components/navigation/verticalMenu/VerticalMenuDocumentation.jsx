@@ -31,7 +31,7 @@ export function VerticalMenuDocumentation() {
       <SandboxExample
         defaultProps={{
           // @ts-ignore
-          childrenMenuType: childrenMenuTypes.INLINE,
+          childrenMenuType: childrenMenuTypes.FLYOUT,
         }}
         RENDER_EXAMPLE={VerticalMenuExampleRender}
         PROPS_EXAMPLE={VerticalMenuExampleProps}

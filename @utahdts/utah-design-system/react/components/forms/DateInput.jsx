@@ -149,7 +149,7 @@ export function DateInput({
             labelClassName={labelClassName}
             name={name}
             onChange={(e) => currentOnChange(e.target.value)}
-            onClear={currentOnClear}
+            onClear={isClearable ? currentOnClear : undefined}
             onKeyUp={(e) => {
               onDownArrowPress(e);
               onKeyUp?.(e);

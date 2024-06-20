@@ -1,4 +1,4 @@
-import { Icons, Switch } from '@utahdts/utah-design-system';
+import { Switch } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').SwitchExamplePropsShape} SwitchExamplePropsShape */
 
@@ -45,8 +45,7 @@ export function SwitchExampleRender({
       sliderChildren={
         ((icon === 'none') || !icon)
           ? null
-          // @ts-ignore
-          : Icons[icon]()
+          : <span className={icon === 'visibility' ? 'utds-icon-before-visibility' : 'utds-icon-before-check'} aria-hidden="true" />
       }
       value={value}
       width={Number(width) || 80}

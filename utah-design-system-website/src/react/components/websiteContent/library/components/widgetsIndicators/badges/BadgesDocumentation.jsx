@@ -1,5 +1,8 @@
 /* eslint-disable max-len */
 import {
+  Badge,
+  Button,
+  IconButton,
   Tab,
   TabGroup,
   Table,
@@ -12,23 +15,63 @@ import {
   TableWrapper,
   TabList,
   TabPanel,
-  TabPanels
+  TabPanels,
+  useBanner,
 } from '@utahdts/utah-design-system';
-import badgesMockup from '../../../../../../../static/images/mockups/Badges.jpg';
-import { LightBox } from '../../../../../lightbox/LightBox';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SandboxExample } from '../../../../../sandbox/SandboxExample';
+import { BadgesExampleRender } from './BadgesExampleRender';
+import { BadgesExampleProps } from './BadgesExampleProps';
+import { BadgesExampleCodeReact } from './BadgesExampleCodeReact';
 
 export function BadgesDocumentation() {
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Badges</h1>
       <p className="lead-in">Badges convey dynamic information, such as counts or status. A badge can include labels or numbers.</p>
       <hr />
       <h2 id="section-example">Example</h2>
+      <SandboxExample
+        defaultProps={{
+          children: '99',
+          className: '',
+          title: 'new messages',
+        }}
+        RENDER_EXAMPLE={BadgesExampleRender}
+        PROPS_EXAMPLE={BadgesExampleProps}
+        CODE_EXAMPLE={BadgesExampleCodeReact}
+      />
       <StaticExample
         title="Badges (Large and Small)"
         renderedExample={(
-          <LightBox image={badgesMockup} alt="Badges" className="flex-3up-gap" />
+          <>
+            <Button
+              onClick={() => addBanner({ message: 'You have clicked the button.' })}
+              className="button--solid"
+            >
+              Button
+              <Badge title="unread messages">99+</Badge>
+            </Button>
+            <IconButton
+              appearance="outlined"
+              color="none"
+              icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
+              onClick={() => addBanner({ message: 'You have clicked the button.' })}
+              title="Alerts"
+            >
+              <Badge title="new alerts">2</Badge>
+            </IconButton>
+            <IconButton
+              appearance="borderless"
+              color="none"
+              icon={(<span className="utds-icon-before-hamburger" aria-hidden="true" />)}
+              onClick={() => addBanner({ message: 'You have clicked the button.' })}
+              title="Menu"
+            >
+              <Badge title="some items need attention" />
+            </IconButton>
+          </>
         )}
         quickTips={(
           <ul>
@@ -114,7 +157,7 @@ export function BadgesDocumentation() {
           <TabPanels>
             <TabPanel tabId="badge-props-css">
               <TableWrapper>
-                <Table className="table--lines-x">
+                <Table className="table--lines-x table--full-width">
                   <TableHead>
                     <TableHeadRow>
                       <TableHeadCell className="text-left css-classes">CSS Classes</TableHeadCell>
@@ -123,7 +166,7 @@ export function BadgesDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell><code>badge</code></TableCell>
+                      <TableCell><code>.badge</code></TableCell>
                       <TableCell>The base css class for a badge.</TableCell>
                     </TableRow>
                   </TableBody>
@@ -134,7 +177,7 @@ export function BadgesDocumentation() {
             <TabPanel tabId="badge-props-react">
               <div className="documentation-content--small-text">
                 <TableWrapper>
-                  <Table className="table--lines-x">
+                  <Table className="table--lines-x table--full-width">
                     <TableHead>
                       <TableHeadRow>
                         <TableHeadCell className="text-left">Property</TableHeadCell>
@@ -145,18 +188,33 @@ export function BadgesDocumentation() {
                     </TableHead>
                     <TableBody>
                       <TableRow>
-                        <TableCell><code className="primary-color">appearance</code></TableCell>
+                        <TableCell><code className="primary-color">children</code></TableCell>
+                        <TableCell><code>React.ReactNode</code></TableCell>
+                        <TableCell>null</TableCell>
                         <TableCell>
-                          <div className="props-code-wrapper">
-                            <code>&apos;solid&apos;</code>
-                            <span> | </span>
-                            <code>&apos;outlined&apos;</code>
-                          </div>
+                          Most often, <code>children</code> is the content of the badge.<br />
+                          Please refer to the <a href="#section-usability">usability guidance</a>.
                         </TableCell>
-                        <TableCell>&apos;outlined&apos;</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell><code className="primary-color">className</code></TableCell>
                         <TableCell>
-                          Determines how the button will be formatted. Solid buttons have a solid fill color and denote emphasis
-                          to the user. Outlined buttons have an outline but no fill causing them to be less emphasized.
+                          <code>string</code>
+                        </TableCell>
+                        <TableCell>null</TableCell>
+                        <TableCell>
+                          This css class will be added to the badge.
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell><code className="primary-color">title</code></TableCell>
+                        <TableCell>
+                          <code>string</code>
+                        </TableCell>
+                        <TableCell><em>required</em></TableCell>
+                        <TableCell>
+                          A title is required for accessibility.<br />
+                          Please refer to the <a href="#section-accessibility">accessibility guidance</a>.
                         </TableCell>
                       </TableRow>
                     </TableBody>

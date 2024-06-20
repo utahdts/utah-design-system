@@ -4,7 +4,7 @@ import { useTableContext } from './useTableContext';
 /** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValueOptions} TableContextStateFilterValueOptions */
 
 /**
- * each TableFilterX component needs to setup and register its basic information. The context has context
+ * each TableFilterX component needs to set up and register its basic information. The context has context
  * global level filter settings, but each filter has its own settings, like `exactMatch`. This hook sets
  * up context filter information for a filter
  * @param {string} recordFieldPath path to the field in the record on which this filter applies

@@ -66,8 +66,8 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
 export function TableWrapper({
   children,
   className,
-  innerRef,
   id,
+  innerRef,
   ...rest
 }) {
   const internalId = useId();

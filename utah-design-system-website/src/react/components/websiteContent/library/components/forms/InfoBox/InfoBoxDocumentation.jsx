@@ -1,7 +1,11 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
+import { Tab, TabGroup, TableCell, TableRow, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { SettingsDocumentation } from '../../../documentation/SettingsDocumentation';
+import { documentationTypes } from '../../../../../../enums/documentationTypes';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function InfoBoxDocumentation() {
   return (
@@ -16,7 +20,11 @@ export function InfoBoxDocumentation() {
       <h2 id="section-example">Examples</h2>
       <StaticExample
         title="Info Box"
-        renderedExample={<div className="info-box"><div className="info-box__content">Here is some useful information.</div></div>}
+        renderedExample={(
+          <div className="info-box">
+            <div className="info-box__content">Here is some useful information.</div>
+          </div>
+)}
         quickTips={(
           <ul>
             <li>Concise text giving information.</li>
@@ -24,6 +32,15 @@ export function InfoBoxDocumentation() {
             <li>Non-interactive.</li>
           </ul>
         )}
+      />
+
+      <PreCodeForCodeString
+        className="gray-block mb-spacing-l"
+        codeRaw={`<div class="info-box">
+    <div class="info-box__content">
+        Here is some useful information.
+    </div>
+</div>`}
       />
 
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
@@ -61,6 +78,36 @@ export function InfoBoxDocumentation() {
       <ul className="mb-spacing">
         <li>N/A</li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="info-box-props-css">
+          <TabList>
+            <Tab id="info-box-props-css">CSS</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="info-box-props-css">
+              <SettingsDocumentation type={documentationTypes.CSS}>
+                <TableRow>
+                  <TableCell><code>.info-box</code></TableCell>
+                  <TableCell>Css class for the main info box wrapper.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><code>.info-box__content</code></TableCell>
+                  <TableCell>Css class for the content of an info box.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><code>.info-box__secondary</code></TableCell>
+                  <TableCell>
+                    Css class to change the &quot;chiclet&quot; color to the secondary color.<br />
+                    See <Link to={`${pageUrls.colorGuidelines}#section-secondary-colors`}>color guidelines overview</Link>.
+                  </TableCell>
+                </TableRow>
+              </SettingsDocumentation>
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

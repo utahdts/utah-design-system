@@ -1,21 +1,20 @@
 declare module "@utahdts/utah-design-system" {
-  export type popupPlacement = PopupPlacement;
   export namespace popupPlacement {
-    let AUTO: PopupPlacement;
-    let AUTO_START: PopupPlacement;
-    let AUTO_END: PopupPlacement;
-    let BOTTOM: PopupPlacement;
-    let BOTTOM_START: PopupPlacement;
-    let BOTTOM_END: PopupPlacement;
-    let LEFT: PopupPlacement;
-    let LEFT_START: PopupPlacement;
-    let LEFT_END: PopupPlacement;
-    let RIGHT: PopupPlacement;
-    let RIGHT_START: PopupPlacement;
-    let RIGHT_END: PopupPlacement;
-    let TOP: PopupPlacement;
-    let TOP_START: PopupPlacement;
-    let TOP_END: PopupPlacement;
+    let AUTO: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let AUTO_START: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let AUTO_END: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let BOTTOM: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let BOTTOM_START: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let BOTTOM_END: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let LEFT: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let LEFT_START: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let LEFT_END: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let RIGHT: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let RIGHT_START: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let RIGHT_END: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let TOP: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let TOP_START: import("@utahdts/utah-design-system-header").PopupPlacement;
+    let TOP_END: import("@utahdts/utah-design-system-header").PopupPlacement;
   }
   export function usePopupDelay(): {
     startNoPopupTimer: () => void;
@@ -29,10 +28,9 @@ declare module "@utahdts/utah-design-system" {
     innerRef?: React.MutableRefObject<HTMLDivElement | null> | undefined;
     isPopperVisible?: boolean | undefined;
     offset?: [number, number] | undefined;
-    placement?: PopupPlacement | undefined;
+    placement?: import("@utahdts/utah-design-system-header").PopupPlacement | undefined;
     referenceElement: HTMLElement | null;
-  }): React.JSX.Element;
-  export type formElementSizesEnum = FormElementSizes;
+  }): JSX.Element;
   export namespace formElementSizesEnum {
     let SMALL3X: FormElementSizes;
     let SMALL2X: FormElementSizes;
@@ -42,11 +40,12 @@ declare module "@utahdts/utah-design-system" {
     let LARGE: FormElementSizes;
     let LARGE1X: FormElementSizes;
   }
+  export function handleEvent(func: React.MouseEventHandler<HTMLButtonElement>): React.MouseEventHandler<HTMLButtonElement>;
   export function ClickableTag({ children, className, id, innerRef, iconLeft, iconRight, isDisabled, isSelected, onClick, size, ...rest }: {
     children: React.ReactNode;
     className?: string | undefined;
     id?: string | undefined;
-    innerRef?: React.RefObject<HTMLButtonElement> | undefined;
+    innerRef?: React.RefObject<HTMLDivElement> | undefined;
     iconLeft?: React.ReactNode;
     iconRight?: React.ReactNode;
     isDisabled?: boolean | undefined;
@@ -89,15 +88,15 @@ declare module "@utahdts/utah-design-system" {
   export function InitialChildren({ children, }: {
     children: React.ReactNode;
   }): React.JSX.Element | null;
-  export type componentColors = ComponentColors;
   export namespace componentColors {
     let PRIMARY: ComponentColors;
     let SECONDARY: ComponentColors;
     let ACCENT: ComponentColors;
     let NONE: ComponentColors;
   }
-  export function IconButton({ appearance, className, color, icon, id, innerRef: draftInnerRef, isDisabled, isTitleVisible, onClick, size, title, tooltipText, ...rest }: {
+  export function IconButton({ appearance, children, className, color, icon, id, innerRef: draftInnerRef, isDisabled, isTitleVisible, onClick, size, title, tooltipText, ...rest }: {
     appearance?: IconButtonAppearance | undefined;
+    children?: React.ReactNode;
     className?: string | undefined;
     color?: "accent" | "none" | "primary" | "secondary" | undefined;
     icon: React.ReactNode;
@@ -133,6 +132,47 @@ declare module "@utahdts/utah-design-system" {
     id: string;
     isOpen?: boolean | undefined;
     onToggle?: ((previousIsOpen: boolean) => void) | undefined;
+  }): React.JSX.Element;
+  export const UtahDesignSystemContext: React.Context<ImmerHookUtahDesignSystemContext>;
+  export function useUtahDesignSystemContext(): import("use-immer").ImmerHook<UtahDesignSystemContextValue>;
+  export type ImmerHookUtahDesignSystemContext = import("use-immer").ImmerHook<UtahDesignSystemContextValue>;
+  export function useAriaMessaging(): {
+    addAssertiveMessage: (message: string) => void;
+    addPoliteMessage: (message: string) => void;
+  };
+  export function getFocusableElements(element: HTMLDialogElement): HTMLElement[];
+  export function useHandleEscape(onEscape?: React.KeyboardEventHandler<Element> | undefined): (...args: any[]) => void;
+  export function useHandleTab(firstTabElement: HTMLElement | undefined, lastTabElement: HTMLElement | undefined): (...args: any[]) => void;
+  export type DRAWER_PLACEMENT = DrawerPlacement;
+  export namespace DRAWER_PLACEMENT {
+    let RIGHT: DrawerPlacement;
+    let LEFT: DrawerPlacement;
+  }
+  export function Drawer({ ariaLabelledBy, children, className, id, innerRef, onClose, onEscape, position, }: {
+    ariaLabelledBy: string;
+    children: React.ReactNode;
+    className?: string | undefined;
+    id: string;
+    innerRef?: React.Ref<HTMLDivElement> | undefined;
+    onEscape?: React.KeyboardEventHandler<Element> | undefined;
+    onClose?: React.MouseEventHandler<Element> | undefined;
+    position?: DrawerPlacement | undefined;
+  }): JSX.Element;
+  export function DrawerContent({ children, className, id, }: {
+    children: React.ReactNode;
+    className?: string | undefined;
+    id?: string | undefined;
+  }): React.JSX.Element;
+  export function DrawerFooter({ children, className, id, }: {
+    children: React.ReactNode;
+    className?: string | undefined;
+    id?: string | undefined;
+  }): React.JSX.Element;
+  export function DrawerTitle({ children, className, id, tagName: TagName, }: {
+    children: React.ReactNode;
+    className?: string | undefined;
+    id: string;
+    tagName?: string | undefined;
   }): React.JSX.Element;
   export const TabGroupContext: React.Context<TabGroupContextValue>;
   export function useTabGroupContext(): TabGroupContextValue;
@@ -184,13 +224,6 @@ declare module "@utahdts/utah-design-system" {
     children: React.ReactNode;
     title: string | null;
   }): React.JSX.Element;
-  export type ImmerHookUtahDesignSystemContext = import("use-immer").ImmerHook<UtahDesignSystemContextValue>;
-  export const UtahDesignSystemContext: import("react").Context<ImmerHookUtahDesignSystemContext>;
-  export function useUtahDesignSystemContext(): import("use-immer").ImmerHook<UtahDesignSystemContextValue>;
-  export function useAriaMessaging(): {
-    addAssertiveMessage: (message: string) => void;
-    addPoliteMessage: (message: string) => void;
-  };
   export function useOnKeyUp<KeyboardEventElementT>(targetKey: string, func: React.KeyboardEventHandler<KeyboardEventElementT>, stopPropagation?: boolean | undefined): (event: React.KeyboardEvent<KeyboardEventElementT>) => boolean;
   export function ErrorMessage({ errorMessage, id }: {
     errorMessage?: string | undefined;
@@ -200,8 +233,7 @@ declare module "@utahdts/utah-design-system" {
     object: ObjectT | null;
     path: string;
   }): ValueT;
-  export const FormContext: React.Context<FormContextValue<any>>;
-  export function useFormContext<FormContextT>(): import("react/components/forms/FormContext/FormContext").FormContextValue<FormContextT>;
+  export function useFormContext(): FormContextValue<any>;
   export function useFormContextInputValue<FormContextT, ValueT>({ defaultValue, id, onChange, onClear, value, }: {
     defaultValue?: ValueT | undefined;
     id: string;
@@ -252,11 +284,12 @@ declare module "@utahdts/utah-design-system" {
     onSubmit?: React.ChangeEventHandler<HTMLElementT> | undefined;
     value?: ValueT | undefined;
   }): useFormContextInputResult<FormContextT, ValueT, HTMLElementT>;
+  export type FormEvent<FormEventT> = React.FormEvent<FormEventT>;
   export function Checkbox({ className, defaultValue, errorMessage, innerRef, id, isDisabled, isRequired, label, labelClassName, name, onChange, onSubmit, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     defaultValue?: boolean | undefined;
     errorMessage?: string | undefined;
-    innerRef?: React.RefObject<HTMLInputElement> | undefined;
+    innerRef?: React.RefObject<HTMLDivElement> | undefined;
     id: string;
     isDisabled?: boolean | undefined;
     isRequired?: boolean | undefined;
@@ -270,6 +303,7 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export const MultiSelectContext: React.Context<MultiSelectContext>;
   export function useMultiSelectContext(): MultiSelectContext;
+  export type MultiSelectContextType = MultiSelectContext;
   export const ComboBoxContext: React.Context<ComboBoxContext>;
   export function ComboBoxContextProvider({ children, comboBoxId, defaultValue, isValueClearedOnSelection, onChange, onClear, onKeyUp, onSubmit, value, }: {
     children: React.ReactNode;
@@ -282,8 +316,10 @@ declare module "@utahdts/utah-design-system" {
     onSubmit?: (() => void) | undefined;
     value?: string | undefined;
   }): React.JSX.Element;
+  export type MutableRefObject<MutableRefObjectT> = React.MutableRefObject<MutableRefObjectT>;
+  export type Updater<UpdaterT> = import("use-immer").Updater<UpdaterT>;
   export function useDebounceFunc(func: (...args: any[]) => void, delay?: number | undefined): (...args: any[]) => Promise<any[]>;
-  export function useComboBoxContext(): ComboBoxContext;
+  export type ComboBoxContextType = ComboBoxContext;
   export const ComboBoxOptionGroupContext: React.Context<string>;
   export function useComboBoxOptionGroupContext(): ComboBoxOptionGroupContextValue;
   export function isOptionGroupVisible(optionGroupId: string | null, optionLabel: string, optionsFiltered: ComboBoxOptionType[], selectedValues: string[]): boolean;
@@ -548,12 +584,12 @@ declare module "@utahdts/utah-design-system" {
     value?: React.ReactNode;
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
-  export const RadioButtonGroupContext: React.Context<RadioButtonGroupContext>;
   export function useRadioButtonGroupContext(): RadioButtonGroupContext;
+  export type RadioButtonGroupContextType = RadioButtonGroupContext;
   export function RadioButton({ className, defaultIsChecked, id, isDisabled, innerRef, label, labelClassName, name, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     defaultIsChecked?: boolean | undefined;
-    innerRef?: React.RefObject<HTMLInputElement> | undefined;
+    innerRef?: React.RefObject<HTMLDivElement> | undefined;
     id: string;
     isDisabled?: boolean | undefined;
     label: string;
@@ -668,26 +704,10 @@ declare module "@utahdts/utah-design-system" {
     value?: string | undefined;
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
-  export type Icons = IconFunc;
-  export namespace Icons {
-    let IconArrowLeft: IconFunc;
-    let IconArrowRight: IconFunc;
-    let IconChevron: IconFunc;
-    let IconCheck: IconFunc;
-    let IconLightMode: IconFunc;
-    let IconSlack: IconFunc;
-    let IconGitHub: IconFunc;
-    let IconEnvelope: IconFunc;
-    let IconShare: IconFunc;
-    let IconReset: IconFunc;
-    let IconDangerous: IconFunc;
-    let IconSadFace: IconFunc;
-  }
   export function ExternalLink({ children, href, ...rest }: {
     children: React.ReactNode;
     href: string;
   }): React.JSX.Element;
-  export type menuTypes = MenuTypes;
   export namespace menuTypes {
     let VERTICAL: MenuTypes;
     let HORIZONTAL: MenuTypes;
@@ -732,15 +752,17 @@ declare module "@utahdts/utah-design-system" {
     menuType?: MenuTypes | undefined;
   }): React.JSX.Element;
   export function useClickOutside(refs: React.RefObject<HTMLElement | null>[], handler: React.EventHandler<any>, isDisabled?: boolean): void;
-  export function MenuItemFlyout({ currentMenuItem, menuItem, menuType, }: {
+  export function MenuItemFlyout({ currentMenuItem, menuItem, menuType, triggerOnHover, }: {
     currentMenuItem?: WebsiteMainMenu | WebsiteMainMenuItem | undefined;
     menuItem: WebsiteMainMenuItem;
     menuType?: MenuTypes | undefined;
+    triggerOnHover?: boolean | undefined;
   }): React.JSX.Element;
-  export function VerticalMenu({ className, currentMenuItem, menus }: {
+  export function VerticalMenu({ className, currentMenuItem, menus, triggerOnHover, }: {
     className?: string | undefined;
     currentMenuItem?: WebsiteMainMenu | WebsiteMainMenuItem | undefined;
     menus: WebsiteMainMenu[];
+    triggerOnHover?: boolean | undefined;
   }): React.JSX.Element;
   export function PaginationLink({ className, currentPageIndex, onChange, numberOfPages, label, pageIndex, ...rest }: {
     className?: string | undefined;
@@ -803,7 +825,8 @@ declare module "@utahdts/utah-design-system" {
     children: React.ReactNode;
     className?: string | undefined;
   }): React.JSX.Element;
-  export function Modal({ children, className, id, innerRef, onEscape, onClose, }: {
+  export function Modal({ ariaLabelledBy, children, className, id, innerRef, onEscape, onClose, }: {
+    ariaLabelledBy: string;
     children?: React.ReactNode;
     className?: string | undefined;
     id: string;
@@ -811,17 +834,20 @@ declare module "@utahdts/utah-design-system" {
     onEscape?: React.KeyboardEventHandler<Element> | undefined;
     onClose?: React.MouseEventHandler<Element> | undefined;
   }): React.JSX.Element;
-  export function ModalContent({ children, className, }: {
+  export function ModalContent({ children, className, id, }: {
     children: React.ReactNode;
     className?: string | undefined;
+    id?: string | undefined;
   }): React.JSX.Element;
-  export function ModalFooter({ children, className, }: {
+  export function ModalFooter({ children, className, id, }: {
     children: React.ReactNode;
     className?: string | undefined;
+    id?: string | undefined;
   }): React.JSX.Element;
-  export function ModalTitle({ children, className, }: {
+  export function ModalTitle({ children, className, id, }: {
     children: React.ReactNode;
     className?: string | undefined;
+    id: string;
   }): React.JSX.Element;
   export function useGlobalKeyEvent<KeyboardEventHandlerT>({ whichKeyCode, onKeyDown, onKeyUp }: {
     whichKeyCode: string;
@@ -830,7 +856,7 @@ declare module "@utahdts/utah-design-system" {
   }): boolean;
   export function Popup({ ariaLabelledBy, children, className, hasCloseButton, id, innerRef: draftInnerRef, isVisible, offset, onVisibleChange, placement, referenceElement, role, ...rest }: {
     ariaLabelledBy: string;
-    children: import('react').ReactNode;
+    children: React.ReactNode;
     className?: string | undefined;
     hasCloseButton?: boolean | undefined;
     id: string;
@@ -838,11 +864,10 @@ declare module "@utahdts/utah-design-system" {
     isVisible: boolean;
     offset?: [number, number] | undefined;
     onVisibleChange: (e: React.UIEvent, isVisible: boolean) => void;
-    placement?: PopupPlacement | undefined;
-    referenceElement: import('react').RefObject<HTMLElement | null>;
+    placement?: import("@utahdts/utah-design-system-header").PopupPlacement | undefined;
+    referenceElement: React.RefObject<HTMLElement | null>;
     role: 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree';
   }): React.JSX.Element;
-  import React from "react";
   export function Table({ children, className, id, innerRef, ...rest }: {
     children: React.ReactNode;
     className?: string | undefined;
@@ -861,11 +886,8 @@ declare module "@utahdts/utah-design-system" {
   export const TableContext: React.Context<TableContextValue<any>>;
   export function useTableContext(): TableContextValue<any>;
   export function toSafeString(value: string | number | null | undefined): string;
-  export function convertRecordsToFilterValue(records: TableRecord[], filterValues: Record<string, TableContextStateFilterValue>): TableRecordForFiltering[];
-  export namespace tableConstants {
-    let dateFilterSeparator: string;
-  }
-  export function createTableFilterFunctions(filterValues: Record<string, TableContextStateFilterValue>): Record<string, TableFilterFunction>;
+  export function convertRecordsToFilterValue(records: TableRecord[], filterValues: Record<string, TableFilterValue>): TableRecordForFiltering[];
+  export function createTableFilterFunctions(filterValues: Record<string, TableFilterValue>): Record<string, TableFilterFunction>;
   export function filterTableRecords(records: TableRecordForFiltering[], filterRules: Record<string, TableFilterFunction>): TableRecord[];
   export function TableBodyData<RecordT>({ children, recordIdField, records, }: {
     children: import('react').ReactNode;
@@ -912,6 +934,46 @@ declare module "@utahdts/utah-design-system" {
       e: React.MouseEvent;
     }) => void) | undefined;
   }): React.JSX.Element;
+  export function useTableFilterRegistration<TableDataT>(recordFieldPath: string, exactMatch: boolean, defaultValue: TableDataT): void;
+  export function useCurrentValuesFromStateContext<TableDataT>({ contextStatePath, defaultOnChange, defaultValue, onChange, value, }: {
+    contextStatePath: string;
+    defaultOnChange: (e: React.ChangeEvent) => TableDataT;
+    defaultValue: TableDataT | null;
+    onChange?: ((e: React.ChangeEvent) => TableDataT) | undefined;
+    value: TableDataT | null;
+  }): {
+    currentOnChange: (e: React.ChangeEvent) => TableDataT;
+    currentValue: TableDataT | null;
+    setValue: (newValue: TableDataT) => void;
+  };
+  export function TableFilterComboBox({ children, className, defaultValue, exactMatch, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+    children?: React.ReactNode;
+    className?: string | undefined;
+    defaultValue?: string | number | undefined;
+    exactMatch?: boolean | undefined;
+    innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
+    id?: string | undefined;
+    a11yLabel: string;
+    onChange?: (() => {}) | undefined;
+    recordFieldPath: string;
+    value?: string | number | undefined;
+  }): React.JSX.Element;
+  export function TableFilterComboBoxAllOptions({ className, defaultValue, exactMatch, id, innerRef, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+    className?: string | undefined;
+    defaultValue?: string | number | undefined;
+    exactMatch?: boolean | undefined;
+    id?: string | undefined;
+    innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
+    a11yLabel: string;
+    onChange?: (() => {}) | undefined;
+    recordFieldPath: string;
+    value?: string | undefined;
+  }): React.JSX.Element;
+  export function TableFilterComboBoxOption({ className, label, value, ...rest }: {
+    className?: string | undefined;
+    label: string;
+    value: string;
+  }): React.JSX.Element;
   export function TableContextConsumer<TableDataT>({ children }: {
     children: (tableContext: TableContextValue<TableDataT>) => (React.JSX.Element | null);
   }): React.JSX.Element | null;
@@ -924,38 +986,16 @@ declare module "@utahdts/utah-design-system" {
     id?: string | undefined;
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
   }): React.JSX.Element;
-  export type SetterFunc = (setter: (param: TableContextStateFilterValueObject) => void) => void;
-  export function TableFilterDateRangePopup({ dateFormat, isPopupOpen, onChange, popperReferenceElement, tableFilterDateId, value, }: {
-    dateFormat?: string | undefined;
-    isPopupOpen: boolean;
-    onChange: (newValue: string) => void;
-    popperReferenceElement: import('react').RefObject<HTMLDivElement>;
-    tableFilterDateId: string;
-    value: string;
-  }): React.JSX.Element;
-  export type BeginEndDate = 'BEGIN' | 'END';
-  export function useTableFilterRegistration(recordFieldPath: string, defaultValue: string | number | undefined | null, filterOptions: TableContextStateFilterValueOptions): void;
-  export function useCurrentValuesFromStateContext<ChangeEventT, TableDataT>({ contextStatePath, defaultOnChange, defaultValue, onChange, value, }: {
-    contextStatePath: string;
-    defaultOnChange: (e: ChangeEventT) => TableDataT;
-    defaultValue: TableDataT | null;
-    onChange?: ((e: ChangeEventT) => void) | undefined;
-    value: TableDataT | null;
-  }): {
-    currentOnChange: (e: ChangeEventT) => TableDataT;
-    currentValue: TableDataT | null;
-    setValue: (newValue: TableDataT) => void;
-  };
-  export function TableFilterDateRange({ className, dateFormat, defaultValue, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export type SetterFunc = (setter: ((param: TableContextStateFilterValueObject) => void)) => void;
+  export function TableFilterDate<TableDataT>({ className, defaultValue, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
-    dateFormat?: string | undefined;
-    defaultValue?: string | undefined;
+    defaultValue?: TableDataT | undefined;
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
-    id: string;
+    id?: string | undefined;
     a11yLabel: string;
-    onChange?: ((newValue: string) => void) | undefined;
+    onChange?: ((e: React.ChangeEvent) => TableDataT) | undefined;
     recordFieldPath: string;
-    value?: string | undefined;
+    value?: TableDataT | undefined;
   }): React.JSX.Element;
   export function TableFilterNone({ children, className, id, innerRef, ...rest }: {
     children?: React.ReactNode;
@@ -1078,7 +1118,6 @@ declare module "@utahdts/utah-design-system" {
     }) => void) | undefined;
     value?: string | undefined;
   }): React.JSX.Element;
-  export type tableSortingRuleFieldType = TableSortingRuleFieldType;
   export namespace tableSortingRuleFieldType {
     let DATE: TableSortingRuleFieldType;
     let NUMBER: TableSortingRuleFieldType;
@@ -1105,7 +1144,12 @@ declare module "@utahdts/utah-design-system" {
   export function LandingTemplate({ content: Content }: {
     content: () => React.JSX.Element;
   }): React.JSX.Element;
-  export type ariaLiveTypes = AriaLiveType;
+  export function Badge({ children, className, innerRef, title, ...rest }: {
+    children?: React.ReactNode;
+    className?: string | undefined;
+    innerRef?: React.RefObject<HTMLDivElement> | undefined;
+    title: string;
+  }): React.JSX.Element;
   export namespace ariaLiveTypes {
     let ASSERTIVE: AriaLiveType;
     let POLITE: AriaLiveType;
@@ -1128,7 +1172,7 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export function UtahDesignSystemContextProvider({ children, defaultSettings }: {
     children: React.ReactNode;
-    defaultSettings: UtahDesignSystemDefaultSettings;
+    defaultSettings?: UtahDesignSystemDefaultSettings;
   }): React.JSX.Element;
   export const UtahHeaderContext: React.Context<{
     settings: import("@utahdts/utah-design-system-header").Settings;
@@ -1141,9 +1185,9 @@ declare module "@utahdts/utah-design-system" {
     defaultSettings?: Partial<import("@utahdts/utah-design-system-header").Settings> | undefined;
   }): React.JSX.Element;
   export function useUtahHeaderContext(): {
-    settings: Settings;
-    setSettings: import("use-immer").Updater<Settings>;
-    settingsRef: React.RefObject<Settings>;
+    settings: import('@utahdts/utah-design-system-header').Settings;
+    setSettings: import("use-immer").Updater<import('@utahdts/utah-design-system-header').Settings>;
+    settingsRef: React.RefObject<import('@utahdts/utah-design-system-header').Settings>;
   };
   export function useMountingTracker(title: string): void;
   export function useRefLazy<T>(lazyValue: T | (() => T)): React.MutableRefObject<T>;
@@ -1165,17 +1209,14 @@ declare module "@utahdts/utah-design-system" {
   export type FormElementSizes = 'small3x' | 'small2x' | 'small1x' | 'small' | 'medium' | 'large' | 'large1x';
   export type MenuTypes = 'vertical' | 'horizontal';
   export type IconButtonAppearance = 'solid' | 'outlined' | 'borderless';
-  export type IconFunc = (props: {
-    className?: string;
-    altText?: string;
-  }) => React.ReactNode;
   export type BannerPlacement = 'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right';
+  export type DrawerPlacement = 'drawer--right' | 'drawer--left';
   export type PopupPlacement = 'auto' | 'auto-start' | 'auto-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' | 'top' | 'top-start' | 'top-end';
   export type TableSortingRuleFieldType = 'date' | 'number' | 'string';
   export type WrapInElement = 'div' | 'nav';
   export type Event = MouseEvent | TouchEvent | KeyboardEvent;
-  export type EventAction = (e: Event) => void;
-  export type EventActionBoolean = (e: Event) => boolean;
+  export type EventAction = ((e: Event) => void);
+  export type EventActionBoolean = ((e: Event) => boolean);
   export type RecordFieldPath = string;
   export type RecordOnChangeFunc<TableDataT> = (param: {
     recordFieldPath: string;
@@ -1209,19 +1250,19 @@ declare module "@utahdts/utah-design-system" {
     setState: import('use-immer').Updater<TableContextState<TableDataT>>;
     state: TableContextState<TableDataT>;
   };
-  export type TableContextStateFilterValueOptions = {
-    exactMatch?: boolean | undefined;
-    dateRangeDateFormat?: string | undefined;
-    isDateRange?: boolean | undefined;
-  };
   export type TableContextStateFilterValue = {
-    value: string | number;
-    options: TableContextStateFilterValueOptions;
+    value: any;
+    exactMatch: boolean;
+    otherFilterSpecificSettings?: any;
   };
   export type TableContextStateFilterValueObject = Record<string, TableContextStateFilterValue>;
   export type TableFilterFunction = (value: string) => boolean;
   export type TableFilterOptions = {
     exactMatch: boolean;
+  };
+  export type TableFilterValue = {
+    exactMatch: boolean;
+    value: string;
   };
   export type TableRecord = Record<string, any>;
   export type TableRecordForFiltering = {
@@ -1381,7 +1422,7 @@ declare module "@utahdts/utah-design-system" {
     focusedValueTagIndex: number;
     isOptionsExpanded: boolean;
     multiSelectId: string;
-    onChange: (newValues: string[]) => void;
+    onChange: ((newValues: string[]) => void);
     onClear: (() => void);
     optionTagClassNames: Record<string, string>;
     selectedValues: string[];
@@ -1464,7 +1505,6 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export function SegmentedButton(): null;
   export function useDebugDidIChange<FieldT>(field: FieldT, fieldName: string): void;
-  export function useDebugDidIChanges(fields: Record<string, any> | undefined | null, description?: string | undefined): void;
   export function arrayMatchRecursive({ object, arrayField, isMatchFunc }: {
     object: Record<string, any>;
     arrayField: string;

@@ -5,7 +5,7 @@ import { ClickableTag, useBanner } from '@utahdts/utah-design-system';
 /**
  * @param {object} props
  * @param {{props: TagExamplePropsShape}} props.state
- * @param {import('react').RefObject<HTMLButtonElement>} props.innerRef
+ * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
  * @returns {import('react').JSX.Element}
  */
 export function ClickableTagExampleRender({

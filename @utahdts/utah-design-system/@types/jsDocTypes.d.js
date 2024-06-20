@@ -46,20 +46,23 @@
  */
 
 /**
+ * SkeletonTypes
+ * @typedef { 'skeleton--circle' | 'skeleton--line' | 'skeleton--rectangle' } SkeletonTypes
+ */
+
+/**
  * IconButtonAppearance
  * @typedef {'solid' | 'outlined' | 'borderless'} IconButtonAppearance
  */
 
 /**
- * IconFunc
- * if getting an error that props is mandatory, use Component syntax instead of functional:
- * ie <Icons.IconEnvelope /> instead of {Icons.IconEnvelope()}
- * @typedef {(props: {className?: string, altText?: string}) => React.ReactNode} IconFunc
+ * BannerPlacement
+ * @typedef {'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right'} BannerPlacement
  */
 
 /**
- * BannerPlacement
- * @typedef {'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right'} BannerPlacement
+ * DrawerPlacement
+ * @typedef {'drawer--right' | 'drawer--left'} DrawerPlacement
  */
 
 /**

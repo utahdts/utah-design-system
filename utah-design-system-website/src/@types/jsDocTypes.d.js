@@ -8,10 +8,12 @@
 /** @typedef {import('@utahdts/utah-design-system').BannerPlacement} BannerPlacement */
 /** @typedef {import('@utahdts/utah-design-system').ButtonAppearance} ButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').ButtonTypes} ButtonTypes */
+/** @typedef {import('@utahdts/utah-design-system').DrawerPlacement} DrawerPlacement */
 /** @typedef {import('@utahdts/utah-design-system').ComponentColors} ComponentColors */
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').skeletonTypes} skeletonTypes */
 /** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -49,6 +51,11 @@
  */
 
 /**
+ * DocumentationTypes
+ * @typedef {'CSS' | 'Props'} DocumentationTypes
+ */
+
+/**
  * WebsiteMainMenuKey
  * @typedef { 'menuMain' | 'menuGuidelinesSecondary' | 'menuLibraryComponentsSecondary' | 'menuLibraryPatternsSecondary' | 'menuResourcesSecondary' } WebsiteMainMenuKey
  */
@@ -83,7 +90,9 @@
 
 /**
  * @typedef BadgesExamplePropsShape {
- *  @property {string} onClick
+ *  @property {string} children
+ *  @property {string} className
+ *  @property {string} title
  * }
  */
 
@@ -179,6 +188,17 @@
  *  @property {string} placeholder
  *  @property {boolean} showCalendarTodayButton
  *  @property {string} value
+ * }
+ */
+
+/**
+ * @typedef DrawerExamplePropsShape {
+ * @property {string} className
+ * @property {boolean} closeOnEsc
+ * @property {string} title
+ * @property {string} content
+ * @property {DrawerPlacement} position
+ * @property {boolean} showCloseButton
  * }
  */
 
@@ -307,6 +327,13 @@
  *  @property {string} size
  *  @property {string} strokeWidth
  *  @property {string} value
+ * }
+ */
+
+/**
+ * @typedef SkeletonExamplePropsShape {
+ *  @property {string} className
+ *  @property {skeletonTypes} type
  * }
  */
 

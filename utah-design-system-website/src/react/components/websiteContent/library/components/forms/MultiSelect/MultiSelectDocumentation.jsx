@@ -13,8 +13,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { MultiSelectExampleCodeReact } from './MultiSelectExampleCodeReact';
 import { MultiSelectExampleProps } from './MultiSelectExampleProps';
 import { MultiSelectExampleRender } from './MultiSelectExampleRender';
-import MultiSelectCssClassesDocumentation from './MultiSelectBoxCssClassesDocumentation';
-import MultiSelectPropsDocumentation from './MultiSelectPropsDocumentation';
+import { MultiSelectCssClassesDocumentation } from './MultiSelectBoxCssClassesDocumentation';
+import { ComboBoxPropsDocumentation } from '../ComboBox/ComboBoxPropsDocumentation';
 
 export function MultiSelectDocumentation() {
   return (
@@ -209,7 +209,7 @@ export function MultiSelectDocumentation() {
               <MultiSelectCssClassesDocumentation />
             </TabPanel>
             <TabPanel tabId="component-props-react">
-              <MultiSelectPropsDocumentation />
+              <ComboBoxPropsDocumentation />
             </TabPanel>
           </TabPanels>
         </TabGroup>

@@ -12,7 +12,6 @@ If you are using something not listed here, please let us know how you integrate
 ## Utah Header
 - [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html)
 - [ES Module](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html)
-- [Create React App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/create-react-app)
 - [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite)
 
 For more information on the Utah Header, please visit the [documentation page](https://designsystem.utah.gov/library/utahHeader).

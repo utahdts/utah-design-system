@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -15,11 +15,13 @@
     "buildwHeader": "npm run buildw -workspace=@utahdts/utah-design-system-header",
     "buildwLibrary": "npm run buildw -workspace=@utahdts/utah-design-system",
     "buildwWebsite": "npm run buildw -workspace=utah-design-system-website",
+    "buildTypes": "run-s buildTypesHeader buildTypesLibrary",
     "buildTypesHeader": "npm run buildTypes -workspace=@utahdts/utah-design-system-header",
     "buildTypesLibrary": "npm run buildTypes -workspace=@utahdts/utah-design-system",
     "cleanCoverage": "rimraf ./@utahdts/utah-design-system/coverage",
     "cleanSitemap": "rimraf ./utah-design-system-website/public/sitemap.txt",
     "cleanDist": "rimraf ./utah-design-system-website/dist & rimraf ./@utahdts/utah-design-system/dist & rimraf ./@utahdts/utah-design-system-header/dist",
+    "cleanExampleTypedUtahHeader": "rimraf ./examples/typed/typed-utah-header/dist",
     "cleanExampleUtahHeaderCreateReactApp": "rimraf ./examples/utah-header/create-react-app/node_modules & rimraf ./examples/utah-header/create-react-app/package-lock.json",
     "cleanExampleDesignSystemViteReact": "rimraf ./examples/design-system/vite-react/node_modules & rimraf ./examples/design-system/vite-react/package-lock.json",
     "cleanTypedTypedUtahHeader": "rimraf ./examples/typed/typed-utah-header/node_modules & rimraf ./examples/typed/typed-utah-header/package-lock.json",
@@ -51,10 +53,10 @@
     "testwWebsite": "npm run test -workspace=utah-design-system-website",
     "test:ci": "npm run test:ci -workspace=@utahdts/utah-design-system",
     "// ======= combo tasks ====== //": "",
-    "build": "run-s buildHeader buildLibrary buildWebsite",
+    "build": "run-s buildTypes buildHeader buildLibrary buildWebsite",
     "buildtest": "run-s build test:ci",
     "clean": "run-s cleanexamples cleanPackageLock cleanCoverage cleanDist cleanSitemap cleanNodeModules",
-    "cleanexamples": "run-s cleanExampleUtahHeaderCreateReactApp cleanExampleUtahHeaderVite cleanExampleDesignSystemViteReact cleanTypedTypedUtahHeader",
+    "cleanexamples": "run-s cleanExampleTypedUtahHeader cleanExampleUtahHeaderCreateReactApp cleanExampleUtahHeaderVite cleanExampleDesignSystemViteReact cleanTypedTypedUtahHeader",
     "cleanbuild": "run-s cleani build",
     "cleani": "run-s clean npmi",
     "dev": "npm run websiteDev",
@@ -73,24 +75,24 @@
   },
   "devDependencies": {
     "@types/js-beautify": "1.14.3",
-    "@vitest/coverage-istanbul": "1.3.1",
+    "@vitest/coverage-istanbul": "1.6.0",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsdoc": "48.2.0",
+    "eslint-plugin-jsdoc": "48.2.9",
     "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-react": "7.33.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-react-refresh": "0.4.5",
+    "eslint-plugin-react": "7.34.2",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "eslint-plugin-react-refresh": "0.4.7",
     "npm-run-all": "4.1.5",
-    "rimraf": "5.0.5",
+    "rimraf": "5.0.7",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "1.3.1"
+    "vitest": "1.6.0"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
-    "immer": "10.0.3",
+    "immer": "10.1.1",
     "lodash": "4.17.21",
-    "use-immer": "0.9.0"
+    "use-immer": "0.10.0"
   }
 }

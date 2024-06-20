@@ -14,17 +14,18 @@ export function SimpleModal() {
       {showModal
         ? (
           <Modal
+            ariaLabelledBy="simple-modal-title"
             id="simple-modal"
             onClose={closeModal}
             onEscape={closeModal}
           >
-            <ModalTitle>
+            <ModalTitle id="simple-modal-title">
               Are you sure?
             </ModalTitle>
-            <ModalContent>
+            <ModalContent id="simple-modal-content">
               You cannot undo this action.
             </ModalContent>
-            <ModalFooter className="flex float-right flex-wrap">
+            <ModalFooter className="flex float-right flex-wrap" id="simple-modal-footer">
               <Button onClick={closeModal} className="mr-spacing">Cancel</Button>
               <Button onClick={closeModal} className="button--solid button--primary-color">Okay</Button>
             </ModalFooter>

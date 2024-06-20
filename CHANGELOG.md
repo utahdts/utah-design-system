@@ -5,6 +5,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.17.0] 5/14/2024
+## Breaking Change
+- Icons.jsx has been removed in favor of using css icons.
+  - `<Icons.IconEnvelope />`
+  - becomes ==>
+  - `<span className="utds-icon-before-mail" aria-hidden="true" />`
+- Icons found in Icons.jsx that were still needed were moved out of the library into the website portion of the project since they were specific to the website and not used as a library resource.
+
+- Move innerRef to wrapper for ClickableTag, Checkbox, and RadioButton. Existing innerRef usage will need to target the desired element inside of the wrapper instead of using the element directly from the ref.
+
+## Fixed
+- Close popups when clicked outside
+- Make sure footer is 100% width
+- Only announce multi-select groups if there are groups
+- Prevent closing popups for main menu clicking
+- Prevent header font from being overridden
+- Toggle open utah Id mobile menu on mobile
+
+## Added
+- Add color picker popup for Color Picker
+- Add Drawer component
+- Add new icons: Filter, Restart, Sync, Refresh, Light Mode, Dark Mode, Mail, Share
+- Add option parentMenuLinkSuffix for menus
+- Add TableFilterComboBox types
+- Announce that multi-select tags are deletable
+- Trigger flyout menus on hover
+- Update Accordion component & documentation
+- Update Badge component & documentation
+- Update Cards component & documentation
+- Update header types including 'plain' menu type
+- Update Tab Group component & documentation
+- Use real static examples for PopupsDocumentation
+
+# [1.16.3] 5/13/2024
+## Fixed
+- Position of search input css not high enough on the page
+
+# [1.16.2] 5/13/2024
+## Fixed
+- Account for multiple library loads in header's loading setInterval
+
+# [1.16.1] 4/25/2024
+## Fixed
+- Prevent infinite looping when tabbing hidden search modal
+
 # [1.16.0] 4/16/2024
 ## Fixed
 - Allow color picker to be dragged around screen
