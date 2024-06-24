@@ -21,7 +21,7 @@ export function DemoContent() {
       </div>
 
       <div className="grid-wrapper px-spacing-ls mt-spacing-l">
-        <div className="grid-fixed grid-fixed--3col mb-spacing-l">
+        <div className="grid-fixed grid-fixed--3col mb-spacing-l cards">
           <div className="card card--solid primary-color-background text-on-primary-color">
             <span className="utds-icon-before-gear card__icon" aria-hidden="true" />
             <div className="card__title mb-spacing text-center">A to Z</div>
@@ -44,7 +44,7 @@ export function DemoContent() {
       </div>
 
       <div className="grid-wrapper px-spacing-ls">
-        <div className="grid-fixed grid-fixed--3col mb-spacing-l">
+        <div className="grid-fixed grid-fixed--3col mb-spacing-l cards">
 
           <div className="card card--solid card--align-flex-start primary-color-light-background text-on-primary-color-light primary-color">
             <div className="card__title mx-spacing-l mb-spacing mt-spacing-l">Utah State Tax Commission</div>
@@ -146,7 +146,7 @@ export function DemoContent() {
       </div>
 
       <div className="grid-wrapper px-spacing-ls">
-        <div className="grid-fixed grid-fixed--3col mb-spacing-l">
+        <div className="grid-fixed grid-fixed--3col mb-spacing-l cards">
           <div className="card card--solid card--align-flex-start gray-color-background dark-background-color white-color p-spacing-l grid-column-span-2">
             <div className="card__title mb-spacing">Card Title Goes Here</div>
             <p>
@@ -163,10 +163,10 @@ export function DemoContent() {
               aliquam quaerat boluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
               corporis suscipit laboriosam.
             </p>
-            <div className="flex flex-row self-stretch gap">
+            <div className="flex flex-row self-stretch gap flex-wrap">
               <button type="button" className={`button button--accent-color ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Button One</button>
               <button type="button" className={`button button--accent-color ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Button Two</button>
-              <button type="button" className={`button button--accent-color button--solid ml-auto ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Default Button</button>
+              <button type="button" className={`button button--accent-color button--solid ${getBorderClass({ backgroundColor: cssState[CSS_VARIABLES_KEYS.GRAY_COLOR], foregroundColor: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] })}`}>Default Button</button>
             </div>
           </div>
           <div className="card card--solid card-image justify-between">
@@ -179,7 +179,7 @@ export function DemoContent() {
       </div>
 
       <div className="grid-wrapper px-spacing-ls">
-        <div className="grid-fixed grid-fixed--2col mb-spacing-l">
+        <div className="grid-fixed grid-fixed--2col mb-spacing-l cards">
           <div className="gray-color-background dark-background-color p-spacing-l">
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }} className="mb-spacing">
               <button type="button" className="button ">This is a default button</button>
@@ -219,49 +219,51 @@ export function DemoContent() {
         </div>
       </div>
 
-      <div className="heading-section secondary-color-light-background p-spacing-l">
-        <h1>Heading 1 - This is a heading</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h2>Heading 2 - This is a heading</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h3>Heading 3 - This is a heading</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h4>Heading 4 - This is a heading</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h5>Heading 5 - This is a heading</h5>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h6>Heading 6 - This is a heading</h6>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+      <div className="heading-section secondary-color-light-background p-spacing-l flex justify-center">
+        <div className="content-width">
+          <h1>Heading 1 - This is a heading</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h2>Heading 2 - This is a heading</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h3>Heading 3 - This is a heading</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h4>Heading 4 - This is a heading</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h5>Heading 5 - This is a heading</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h6>Heading 6 - This is a heading</h6>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
       </div>
 
       {/*
@@ -298,34 +300,36 @@ export function DemoContent() {
       </div>
     </div> */}
 
-      <div className="fonts-demo primary-color-background">
-        <div className="text-on-primary-color">
-          <div className="font-size-2xs">font-size-2xs .8125rem 13px</div>
-          <div className="font-size-xs ">font-size-xs  .875rem 14px</div>
-          <div className="font-size-s  ">font-size-s   .9375rem 15px</div>
-          <div className="font-size    ">font-size     1rem 16px</div>
-          <div className="font-size-l  ">font-size-l   1.25rem 20px</div>
-          <div className="font-size-xl ">font-size-xl  1.5rem 24px</div>
-          <div className="font-size-2xl">font-size-2xl 1.75rem 28px</div>
-          <div className="font-size-3xl">font-size-3xl 2rem 32px</div>
-          <div className="font-size-4xl">font-size-4xl 2.5rem 40px</div>
-          <div className="font-size-5xl">font-size-5xl 3rem 48px</div>
-          <div className="font-size-6xl">font-size-6xl 3.5rem 56px</div>
-          <div className="font-size-7xl">font-size-7xl 4.5rem 72px</div>
-        </div>
-        <div className="text-on-primary-color font-bold">
-          <div className="font-size-2xs">font-size-2xs .8125rem 13px</div>
-          <div className="font-size-xs ">font-size-xs  .875rem 14px</div>
-          <div className="font-size-s  ">font-size-s   .9375rem 15px</div>
-          <div className="font-size    ">font-size     1rem 16px</div>
-          <div className="font-size-l  ">font-size-l   1.25rem 20px</div>
-          <div className="font-size-xl ">font-size-xl  1.5rem 24px</div>
-          <div className="font-size-2xl">font-size-2xl 1.75rem 28px</div>
-          <div className="font-size-3xl">font-size-3xl 2rem 32px</div>
-          <div className="font-size-4xl">font-size-4xl 2.5rem 40px</div>
-          <div className="font-size-5xl">font-size-5xl 3rem 48px</div>
-          <div className="font-size-6xl">font-size-6xl 3.5rem 56px</div>
-          <div className="font-size-7xl">font-size-7xl 4.5rem 72px</div>
+      <div className="fonts-demo primary-color-background flex-wrap justify-center">
+        <div className="content-width">
+          <div className="text-on-primary-color">
+            <div className="font-size-2xs">font-size-2xs .8125rem 13px</div>
+            <div className="font-size-xs ">font-size-xs  .875rem 14px</div>
+            <div className="font-size-s  ">font-size-s   .9375rem 15px</div>
+            <div className="font-size    ">font-size     1rem 16px</div>
+            <div className="font-size-l  ">font-size-l   1.25rem 20px</div>
+            <div className="font-size-xl ">font-size-xl  1.5rem 24px</div>
+            <div className="font-size-2xl">font-size-2xl 1.75rem 28px</div>
+            <div className="font-size-3xl">font-size-3xl 2rem 32px</div>
+            <div className="font-size-4xl">font-size-4xl 2.5rem 40px</div>
+            <div className="font-size-5xl">font-size-5xl 3rem 48px</div>
+            <div className="font-size-6xl">font-size-6xl 3.5rem 56px</div>
+            <div className="font-size-7xl">font-size-7xl 4.5rem 72px</div>
+          </div>
+          <div className="text-on-primary-color font-bold">
+            <div className="font-size-2xs">font-size-2xs .8125rem 13px</div>
+            <div className="font-size-xs ">font-size-xs  .875rem 14px</div>
+            <div className="font-size-s  ">font-size-s   .9375rem 15px</div>
+            <div className="font-size    ">font-size     1rem 16px</div>
+            <div className="font-size-l  ">font-size-l   1.25rem 20px</div>
+            <div className="font-size-xl ">font-size-xl  1.5rem 24px</div>
+            <div className="font-size-2xl">font-size-2xl 1.75rem 28px</div>
+            <div className="font-size-3xl">font-size-3xl 2rem 32px</div>
+            <div className="font-size-4xl">font-size-4xl 2.5rem 40px</div>
+            <div className="font-size-5xl">font-size-5xl 3rem 48px</div>
+            <div className="font-size-6xl">font-size-6xl 3.5rem 56px</div>
+            <div className="font-size-7xl">font-size-7xl 4.5rem 72px</div>
+          </div>
         </div>
       </div>
 
@@ -428,9 +432,9 @@ export function DemoContent() {
             id="accordion-example-a"
             className="mb-spacing-l"
             headerClassName="primary-color-background white-color"
-            headerContent="Title of this section"
+            headerContent="Title of this first section"
           >
-            <div className="flex flex-row">
+            <div className="flex flex-row flex-wrap grid-fixed">
               <div>
                 <p>
                   Lorem ipsum dolor sit amet. Ut enim tempore sed autem aspernatur eum minus fugit
@@ -456,14 +460,14 @@ export function DemoContent() {
                   Qui laborum quam qui natus dolorum et fugit fuga?
                 </p>
               </div>
-              <img src={traxImageUrl} alt="trax" className="ml-spacing" />
+              <img src={traxImageUrl} alt="UTA Trax" />
             </div>
           </Accordion>
           <Accordion
             id="accordion-example-b"
             className="mb-spacing-l"
             headerClassName="button button--secondary-color button--solid"
-            headerContent="Title of this section 2"
+            headerContent="Title of this second section"
           >
             <div className="flex flex-row gap">
               <p>
