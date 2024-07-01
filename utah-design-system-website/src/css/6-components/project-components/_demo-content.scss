@@ -83,34 +83,40 @@
     &__image {
       width: 100%;
       height: 100%;
-      background: url("../static/images/doctor-showing-medical-results.jpg") no-repeat left/75%;
+      background: url("../static/images/delicate-arch.jpg") no-repeat left/100%;
+      background-size: cover;
     }
 
-    $hero-slant-width: 268px;
-    &__slant-color {
-      height: 400px;
-      fill: var(--primary-color);
-      position: absolute;
-      left: calc(50% - ($hero-slant-width / 2));
-      top: 0;
-    }
     &__title-wrapper {
       position: absolute;
-      left: calc(50% + ($hero-slant-width / 2));
-      top: 0;
-      width: calc(50% - ($hero-slant-width / 2));
-      height: 100%;
+      bottom: 0;
+      width: 100%;
+      height: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: stretch;
-      padding: var(--spacing-l);
       box-sizing: border-box;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
     &__title {
       font-size: var(--font-size-6xl);
       font-weight: var(--font-weight-semi-bold);
-      text-align: right;
+      text-align: center;
+      z-index: 1;
+      padding: var(--spacing-l) 0;
+
+      &-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-color);
+        opacity: .75;
+        border-radius: 6px 6px 0 0;
+      }
     }
     &__title-h-divider {
       width: 100%;
@@ -214,120 +220,94 @@
       margin-top: auto;
     }
     &s.grid-fixed {
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      max-width: 800px;
+      grid-template-columns: repeat(2, minmax(375px, 1fr));
     }
   }
 
-  .card-image {
-    background: url("../static/images/mom-baby.jpg") no-repeat center/cover;
-  }
+  .activities {
+    position: relative;
+    margin-bottom: 200px;
 
-  .fonts-demo {
-    padding: var(--spacing-l);
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-l);
-  }
-
-  .hero-section {
-    height: 375px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    &__title {
-      background: var(--secondary-color);
-      color: white;
+    &__image {
+      height: 375px;
       width: 100%;
-      max-width: var(--grid-fixed);
-      font-size: var(--font-size-3xl);
-      font-weight: var(--font-weight-bold);
-      padding: var(--spacing);
-      box-sizing: border-box;
-      @at-root #{class-vars.$secondary-color-is-light}#{&} {
-        color: var(--gray-color);
-      }
+      background: url("../static/images/antelope.jpg") no-repeat center/cover;
     }
-    &--baby {
-      background: url("../static/images/baby.jpg") no-repeat left/cover;
+
+    &__content {
+      background-color: var(--gray-medium-light-color);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+      position: absolute;
+      top: var(--spacing-6xl);
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: var(--content-width-narrow);
+    }
+
+    .white-color-background {
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .icon-map {
+      fill: var(--primary-color);
     }
   }
 
-  .secondary-color-bar {
-    background: var(--secondary-color);
-    height: var(--spacing);
-    width: 100%;
+  .events, .permits, .visit {
+    &__content {
+      max-width: var(--content-width-narrow);
+    }
   }
 
-  .demo-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: var(--grid-fixed);
-    width: 100%;
-    background-color: var(--gray-light-color);
-    &__wrapper {
-      display: flex;
-      justify-content: center;
+  .permits {
+    background-color: var(--primary-color);
+    &__image {
+      border-radius: 99999px;
+      background: url("../static/images/hiker.jpg") no-repeat center/cover;
+      width: 350px;
+      height: 350px;
+      border: 2px solid white;
     }
-    &__section {
-      width: var(--grid-fixed-form);
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing);
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        height: 100%;
-        border-left: 2px solid var(--secondary-color);
-      }
-
-      &-title {
-        position: relative;
-        display: flex;
-        align-items: center;
-        font-size: var(--font-size-xl);
-        font-weight: var(--font-weight-semi-bold);
-        width: 100%;
-
-        &-number {
-          border: 2px solid;
-          border-radius: var(--radius-circle);
-          width: var(--spacing-2xl);
-          height: var(--spacing-2xl);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          background: white;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 999;
-        }
-        &-name {
-          margin-left: var(--spacing-xl);
-          text-transform: uppercase;
-        }
-      }
-
-      &-inputs {
-        margin: 0 0 var(--spacing-l) var(--spacing-xl);
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing);
-      }
+    p, h2, label, legend {
+      color: white;
     }
-
-    .input-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-3xs);
+    input {
+      border: none;
     }
+  }
+
+  .visit {
+    ul, li {
+      list-style: none;
+      padding: 0;
+    }
+    ul{
+      padding-left: var(--spacing);
+    }
+    svg {
+      fill: var(--primary-color);
+    }
+  }
+
+  .faq, .news {
+    & > div > div:first-child {
+      max-width: var(--content-width-narrow);
+    }
+  }
+
+  h2 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: var(--font-size-3xl);
+  }
+
+  .accordion__header h2 {
+    color: white
   }
 
   .social-bar {
@@ -419,84 +399,52 @@
     }
   }
 
-  #accordion-example-a {
-    .grid-fixed {
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  @media screen and (max-width: 875px) {
+    .content-width {
+      width: auto;
     }
   }
 
-  @media screen and (max-width: 1400px) {
-    .hero {
-      &__image {
-        background-size: auto 100%;
-        background-position: left center;
-      }
+  @media screen and (max-width: 860px) {
+    .faq, .news {
+      padding: 0 var(--spacing-xl);
     }
   }
 
-  @media screen and (max-width: 1140px) {
-    .hero {
-      &__title {
-        font-size: var(--font-size-5xl);
-      }
+  @media screen and (max-width: 800px) {
+    .cards.grid-fixed {
+      padding: 0 var(--spacing);
+      grid-template-columns: repeat(1, minmax(375px, 1fr));
     }
   }
 
-  @media screen and (max-width: 900px) {
-    .hero {
-      &__title {
-        font-size: var(--font-size-4xl);
-      }
+  @media screen and (max-width: 750px) {
+    .permits__content > div:first-child {
+      flex-direction: column;
+    }
+
+    .news .flex.gap {
+      flex-direction: column;
+      padding: var(--spacing);
     }
   }
 
-  @media screen and (max-width: 768px) {
-    .hero {
-      &__title-wrapper {
-        left: calc(25% + 134px);
-        width: calc(75% - 134px);
-      }
-      &__slant-color {
-        left: calc(25% - 134px);
+  @media screen and (max-width: 545px) {
+    .activities__content > div:first-child {
+      flex-direction: column;
+    }
+    .activities {
+      margin-bottom: 400px;
+      .white-color-background {
+        border-radius: 0 0 6px 6px;
       }
     }
-  }
+    .visit__content > .flex {
+      flex-direction: column;
+      gap: var(--spacing);
 
-  @media screen and (max-width: 700px) {
-    .demo-form {
-      padding: var(--spacing-2xl);
-      &__section {
-        width: 100%;
-      }
-    }
-    #accordion-example-a {
-      .grid-fixed {
-        > div, > img {
-          width: calc(100% - var(--spacing-5xl));
-        }
-      }
-    }
-  }
+      .flex {
 
-  @media screen and (max-width: 575px) {
-    .hero {
-      &__title {
-        font-size: var(--font-size-3xl);
-      }
-    }
-  }
-
-  @media screen and (max-width: 465px) {
-    .hero {
-      &__title-wrapper {
-        left: 0;
-        width: 100%;
-      }
-      &__title {
-        font-size: var(--font-size-2xl);
-      }
-      &__sub-title {
-        font-size: var(--font-size-l);
       }
     }
   }
