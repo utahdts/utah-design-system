@@ -356,15 +356,14 @@ export function DemoContent() {
             <h2 className="mb-spacing">News</h2>
           </div>
           <div className="flex gap">
-            <div className="card">
+            <div className="card flex-1">
               <img src={jeep} alt="Delicate Arch" className="card__image" />
               <div className=" p-spacing-xl">
                 <div className="card__title">Driving through Arches</div>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusantium doloremque laudantium,
-                  totam rem aperiam, eaque ipsa quae ab illo inventore
-                  veritatis et quasi architecto beatae vitae dicta sunt
-                  explicabo voluptatem accusantium doloremque.
+                <p>
+                  Embarking on an off-road adventure is an exhilarating way to explore rugged terrains and untouched landscapes.
+                  This comprehensive guide will equip you with essential tips and techniques for driving off-road, ensuring you
+                  navigate safely and confidently through the wildest trails.
                 </p>
                 <div className="flex justify-end">
                   <button type="button" className="button button--primary-color button--solid ml-spacing">
@@ -374,15 +373,14 @@ export function DemoContent() {
                 </div>
               </div>
             </div>
-            <div className="card">
+            <div className="card flex-1">
               <img src={camping} alt="Delicate Arch" className="card__image" />
               <div className=" p-spacing-xl">
                 <div className="card__title">Camping tips</div>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusantium doloremque laudantium,
-                  totam rem aperiam, eaque ipsa quae ab illo inventore
-                  veritatis et quasi architecto beatae vitae dicta sunt
-                  explicabo voluptatem accusantium doloremque.
+                <p>
+                  Camping in the great outdoors is an adventure that brings you closer to nature, offering a unique opportunity to disconnect
+                  and unwind. Whether you&apos;re a seasoned camper or a beginner, these essential tips will help you make the most of your
+                  camping experience, ensuring safety, comfort, and unforgettable memories under the stars.
                 </p>
                 <div className="flex justify-end">
                   <button type="button" className="button button--primary-color button--solid ml-spacing">
