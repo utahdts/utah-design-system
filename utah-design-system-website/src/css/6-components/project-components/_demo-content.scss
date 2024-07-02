@@ -39,7 +39,7 @@
 .text-on-primary-color {
   color: white;
   #{class-vars.$base-class}#{class-vars.$primary-color-is-light} & {
-    color: var(--gray-on-primary-color);
+    color: var(--gray-on-primary-color) !important;
   }
 }
 .text-on-primary-color-light {
@@ -225,6 +225,12 @@
     }
   }
 
+  .action-card {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .activities {
     position: relative;
     margin-bottom: 200px;
@@ -273,7 +279,7 @@
       height: 350px;
       border: 2px solid white;
     }
-    p, h2, label, legend {
+    p, .permits__content h2, label, legend {
       color: white;
     }
     input {
@@ -300,14 +306,10 @@
     }
   }
 
-  h2 {
+  *:not(.accordion__header) > h2 {
     color: var(--primary-color);
     text-transform: uppercase;
     font-size: var(--font-size-3xl);
-  }
-
-  .accordion__header h2 {
-    color: white
   }
 
   .social-bar {

@@ -52,7 +52,7 @@ export function DemoContent() {
 
       <div className="grid-wrapper px-spacing-ls">
         <div className="grid-fixed grid-fixed--2col mb-spacing-xl cards">
-          <span className="action-card action-card--primary-color action-card--solid">
+          <span className="action-card action-card--primary-color action-card--solid text-on-primary-color">
             <div className="action-card__title">
               <h3>PLAN YOUR VISIT</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
@@ -184,31 +184,32 @@ export function DemoContent() {
       </div>
 
       <div className="permits mb-spacing-xl">
-        <div className="permits__content content-width m-auto p-spacing-xl">
+        <div className="permits__content content-width m-auto p-spacing-xl text-on-primary-color">
           <div className="flex">
             <div className="flex-1">
-              <h2 className="mb-spacing">Order a permit</h2>
-              <p>
+              <h2 className="mb-spacing text-on-primary-color">Order a permit</h2>
+              <p className="text-on-primary-color">
                 Certain areas of Arches National Park require a reservation to manage visitor impact and
                 preserve the natural environment. Please fill out the form below to check availability.
               </p>
               <div className="form--stacked">
-                <ComboBox id="hike" label="Hike" placeholder="Select a hike" isClearable>
+                <ComboBox id="hike" label="Hike" placeholder="Select a hike" isClearable labelClassName="text-on-primary-color">
                   <ComboBoxOption label="Delicate Arch Trail" value="delicate-arch">Delicate Arch</ComboBoxOption>
                   <ComboBoxOption label="Devils Garden Trail" value="devils-garden">Devils Garden</ComboBoxOption>
                   <ComboBoxOption label="Fiery Furnace" value="fiery-furnace">Fiery Furnace</ComboBoxOption>
                   <ComboBoxOption label="Tower Arch Trail" value="tower-arch">Tower Arch</ComboBoxOption>
                 </ComboBox>
-                <TextInput id="number-visitor" label="Number of visitors" />
+                <TextInput id="number-visitor" label="Number of visitors" labelClassName="text-on-primary-color" />
                 <DateInput
+                  labelClassName="text-on-primary-color"
                   id="date-input-with-popup"
                   isDisabled={false}
                   label="Date"
                 />
                 <fieldset>
-                  <legend>Will you be requiring a guide?</legend>
-                  <RadioButton name="guide-required" id="yes" label="Yes" value="yes" />
-                  <RadioButton name="guide-required" id="no" label="No" value="no" />
+                  <legend className="text-on-primary-color">Will you be requiring a guide?</legend>
+                  <RadioButton name="guide-required" id="yes" label="Yes" value="yes" labelClassName="text-on-primary-color" />
+                  <RadioButton name="guide-required" id="no" label="No" value="no" labelClassName="text-on-primary-color" />
                 </fieldset>
                 <Button
                   appearance="outlined"
@@ -319,7 +320,7 @@ export function DemoContent() {
           <Accordion
             id="accordion-example-a"
             className="mb-spacing-l"
-            headerClassName="primary-color-background white-color"
+            headerClassName="primary-color-background white-color text-on-primary-color"
             headerContent="Is Arches National Park open all year?"
           >
             <p className="my-auto">
@@ -366,7 +367,7 @@ export function DemoContent() {
                   navigate safely and confidently through the wildest trails.
                 </p>
                 <div className="flex justify-end">
-                  <button type="button" className="button button--primary-color button--solid ml-spacing">
+                  <button type="button" className="button button--primary-color button--solid ml-spacing text-on-primary-color">
                     <span>See More</span>
                     <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
                   </button>
@@ -383,7 +384,7 @@ export function DemoContent() {
                   camping experience, ensuring safety, comfort, and unforgettable memories under the stars.
                 </p>
                 <div className="flex justify-end">
-                  <button type="button" className="button button--primary-color button--solid ml-spacing">
+                  <button type="button" className="button button--primary-color button--solid ml-spacing text-on-primary-color">
                     <span>See More</span>
                     <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
                   </button>
