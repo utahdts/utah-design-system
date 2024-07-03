@@ -76,10 +76,10 @@
     "@vitest/ui": "1.6.0",
     "jsdom": "24.1.0",
     "replace": "1.2.2",
-    "sass": "1.77.5",
+    "sass": "1.77.6",
     "tslib": "2.6.3",
-    "typescript": "5.4.5",
-    "vite": "5.2.13",
+    "typescript": "5.5.3",
+    "vite": "5.3.3",
     "vitest": "1.6.0"
   },
   "type": "module"
