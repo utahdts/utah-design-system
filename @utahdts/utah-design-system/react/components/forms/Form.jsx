@@ -1,6 +1,5 @@
-import React, { useMemo } from 'react';
+import React, { useId, useMemo } from 'react';
 import { useImmer } from 'use-immer';
-import { v4 as uuidv4 } from 'uuid';
 import { joinClassNames } from '../../util/joinClassNames';
 import { setValueAtPath } from '../../util/state/setValueAtPath';
 import { FormContextProvider } from './FormContext/FormContextProvider';
@@ -29,7 +28,7 @@ export function Form({
     // eslint-disable-next-line no-console
     console.error('a <Form> component must either be controlled (pass in both state and setsTate) or be uncontrolled (pass in neither state nor setState)');
   }
-  const formId = useMemo(() => uuidv4(), []);
+  const formId = useId();
 
   // internal state is only used if state/setState not passed in
   const internalState = useImmer(() => /** @type {FormContextStateT} */({}));
