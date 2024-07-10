@@ -42,7 +42,7 @@
     color: var(--gray-on-primary-color) !important;
   }
 }
-.text-on-primary-color-light {
+.text-on-primary-color-light, .date-input__popup {
   color: var(--gray-color);
   a {
     color: var(--primary-color);

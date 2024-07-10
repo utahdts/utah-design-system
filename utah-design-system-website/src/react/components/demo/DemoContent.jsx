@@ -193,7 +193,7 @@ export function DemoContent() {
                 preserve the natural environment. Please fill out the form below to check availability.
               </p>
               <div className="form--stacked">
-                <ComboBox id="hike" label="Hike" placeholder="Select a hike" isClearable labelClassName="text-on-primary-color">
+                <ComboBox id="hike" label="Hike" placeholder="Select a hike" isClearable labelClassName="text-on-primary-color" className="text-on-primary-color-light">
                   <ComboBoxOption label="Delicate Arch Trail" value="delicate-arch">Delicate Arch</ComboBoxOption>
                   <ComboBoxOption label="Devils Garden Trail" value="devils-garden">Devils Garden</ComboBoxOption>
                   <ComboBoxOption label="Fiery Furnace" value="fiery-furnace">Fiery Furnace</ComboBoxOption>
