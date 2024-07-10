@@ -221,6 +221,7 @@
     }
     &s.grid-fixed {
       max-width: 800px;
+      gap: var(--spacing);
       grid-template-columns: repeat(2, minmax(375px, 1fr));
     }
   }
@@ -228,6 +229,9 @@
   .action-card {
     &:hover {
       cursor: pointer;
+    }
+    h3 {
+      text-transform: capitalize;
     }
   }
 
@@ -242,7 +246,7 @@
     }
 
     &__content {
-      background-color: var(--gray-medium-light-color);
+      background-color: var(--gray-light-color);
       border-radius: 6px;
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
       position: absolute;

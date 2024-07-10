@@ -7,6 +7,7 @@ import {
   TableSortingRule,
   TableSortingRules, TableWrapper, TextInput
 } from '@utahdts/utah-design-system';
+import { useEffect } from 'react';
 import jeep from '../../../static/images/jeep.jpg';
 import camping from '../../../static/images/camping.jpg';
 
@@ -32,6 +33,23 @@ export function DemoContent() {
     dateSort: new Date(event.date),
   }));
 
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex,nofollow';
+    const link = document.createElement('link');
+    link.rel = 'canonical';
+    link.href = 'https://www.nps.gov/arch/index.htm';
+
+    document.head.appendChild(meta);
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(meta);
+      document.head.removeChild(link);
+    };
+  }, []);
+
   return (
     <div className="demo-content">
       <div className="hero">
@@ -54,7 +72,7 @@ export function DemoContent() {
         <div className="grid-fixed grid-fixed--2col mb-spacing-xl cards">
           <span className="action-card action-card--primary-color action-card--solid text-on-primary-color">
             <div className="action-card__title">
-              <h3>PLAN YOUR VISIT</h3>
+              <h3>Plan Your Visit</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
             </div>
             <div className="action-card__body">
@@ -63,7 +81,7 @@ export function DemoContent() {
           </span>
           <span className="action-card action-card--primary-color white-color-background">
             <div className="action-card__title">
-              <h3>ABOUT ARCHES</h3>
+              <h3>About Arches</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
             </div>
             <div className="action-card__body">
@@ -72,7 +90,7 @@ export function DemoContent() {
           </span>
           <span className="action-card action-card--primary-color white-color-background">
             <div className="action-card__title">
-              <h3>VOLUNTEERING</h3>
+              <h3>Volunteering</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
             </div>
             <div className="action-card__body">
@@ -81,7 +99,7 @@ export function DemoContent() {
           </span>
           <span className="action-card action-card--primary-color white-color-background">
             <div className="action-card__title">
-              <h3>CONTACT</h3>
+              <h3>Contact</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
             </div>
             <div className="action-card__body">
@@ -193,7 +211,14 @@ export function DemoContent() {
                 preserve the natural environment. Please fill out the form below to check availability.
               </p>
               <div className="form--stacked">
-                <ComboBox id="hike" label="Hike" placeholder="Select a hike" isClearable labelClassName="text-on-primary-color" className="text-on-primary-color-light">
+                <ComboBox
+                  id="hike"
+                  label="Hike"
+                  placeholder="Select a hike"
+                  isClearable
+                  labelClassName="text-on-primary-color"
+                  className="text-on-primary-color-light"
+                >
                   <ComboBoxOption label="Delicate Arch Trail" value="delicate-arch">Delicate Arch</ComboBoxOption>
                   <ComboBoxOption label="Devils Garden Trail" value="devils-garden">Devils Garden</ComboBoxOption>
                   <ComboBoxOption label="Fiery Furnace" value="fiery-furnace">Fiery Furnace</ComboBoxOption>
@@ -229,7 +254,7 @@ export function DemoContent() {
       </div>
 
       <div className="visit">
-        <div className="visit__content content-width m-auto p-spacing-xl">
+        <div className="content-width m-auto p-spacing-xl">
           <h2 className="mb-spacing">Visit Us</h2>
           <div className="flex justify-between">
             <div className="flex">
@@ -314,7 +339,7 @@ export function DemoContent() {
 
       <div className="faq">
         <div className="m-auto content-width">
-          <div className="mx-auto">
+          <div>
             <h2 className="mb-spacing">FAQ</h2>
           </div>
           <Accordion
@@ -353,7 +378,7 @@ export function DemoContent() {
 
       <div className="news">
         <div className="content-width m-auto pb-spacing-xl">
-          <div className="mx-auto">
+          <div>
             <h2 className="mb-spacing">News</h2>
           </div>
           <div className="flex gap">
