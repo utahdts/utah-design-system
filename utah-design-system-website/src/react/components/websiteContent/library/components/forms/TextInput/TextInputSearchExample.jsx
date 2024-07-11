@@ -1,13 +1,13 @@
-import { joinClassNames } from '@utahdts/utah-design-system';
+import { joinClassNames, useBanner } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 
 export function TextInputSearchExample() {
   const [query, setQuery] = useState('');
+  const { addBanner } = useBanner();
   const search = /** @type {import('react').FormEventHandler} */ (
     (e) => {
       e.preventDefault();
-      // eslint-disable-next-line no-console
-      console.log('You are searching!');
+      addBanner({ message: 'You have are searching!' });
     }
   );
 

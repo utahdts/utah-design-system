@@ -146,15 +146,6 @@ export function TextAreaPropsDocumentation() {
       </TableRow>
 
       <TableRow>
-        <TableCell><code className="primary-color">onSubmit</code></TableCell>
-        <TableCell><code>function</code></TableCell>
-        <TableCell>null</TableCell>
-        <TableCell>
-          Function to call when the user hits enter while the input has focus.
-        </TableCell>
-      </TableRow>
-
-      <TableRow>
         <TableCell><code className="primary-color">placeholder</code></TableCell>
         <TableCell><code>string</code></TableCell>
         <TableCell>null</TableCell>

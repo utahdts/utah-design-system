@@ -135,16 +135,6 @@ export function SwitchPropsDocumentation() {
         <TableCell>The function to call when the switch is triggered.</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell><code className="primary-color">onSubmit</code></TableCell>
-        <TableCell>
-          <div className="props-code-wrapper">
-            <code>function</code>
-          </div>
-        </TableCell>
-        <TableCell>null</TableCell>
-        <TableCell>The function to call when the enter key is pressed.</TableCell>
-      </TableRow>
-      <TableRow>
         <TableCell><code className="primary-color">size</code></TableCell>
         <TableCell>
           <div className="props-code-wrapper">
