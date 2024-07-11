@@ -1,5 +1,5 @@
 import { identity, isFunction } from 'lodash';
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { joinClassNames } from '../../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { IconButton } from '../../../buttons/IconButton';
@@ -135,6 +135,18 @@ export function ComboBoxTextInput({
 
   // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
   const onKeyUpPreviousValue = useRef('');
+
+  useEffect(
+    () => {
+      // had something selected, and no longer have something selected, so clear filter value so that the input shows no value
+      if (!optionValueSelected) {
+        setComboBoxContext((draftContext) => {
+          draftContext.filterValue = '';
+        });
+      }
+    },
+    [optionValueSelected]
+  );
 
   const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
   return (
