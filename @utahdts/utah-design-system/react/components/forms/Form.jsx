@@ -10,7 +10,6 @@ import { FormContextProvider } from './FormContext/FormContextProvider';
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
- * @param {(e?: React.ChangeEvent) => void} [props.onSubmit]
  * @param {import('use-immer').Updater<FormContextStateT>} [props.setState]
  * @param {FormContextStateT} [props.state]
  * @returns {import('react').JSX.Element}
@@ -19,7 +18,6 @@ export function Form({
   children,
   className,
   onChange,
-  onSubmit,
   setState,
   state,
   ...rest
@@ -59,7 +57,6 @@ export function Form({
   return (
     <FormContextProvider
       onChange={onChangeUse}
-      onSubmit={onSubmit}
       setState={stateUse[1]}
       state={stateUse[0]}
     >

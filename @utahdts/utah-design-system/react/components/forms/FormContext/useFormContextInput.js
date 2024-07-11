@@ -1,6 +1,5 @@
 import { useCallback, useMemo } from 'react';
 import { valueAtPath } from '../../../util/state/valueAtPath';
-import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { useFormContext } from './useFormContext';
 
 /**
@@ -29,7 +28,6 @@ import { useFormContext } from './useFormContext';
  * @param {import('react').ChangeEventHandler<HTMLElementT>} [param.onChange] when component changes, call this (e) => void
  * @param {import('react').KeyboardEventHandler<HTMLElementT>} [param.onKeyUp] when component changes, call this (e) => void
  * @param {import('react').UIEventHandler<HTMLElementT>} [param.onClear] when component "clears", call this (e) => void
- * @param {import('react').ChangeEventHandler<HTMLElementT>} [param.onSubmit] call on enter key pressed, or other (e) => void event
  * @param {ValueT} [param.value] current value of the component
  * @returns {useFormContextInputResult<FormContextT, ValueT, HTMLElementT>} parameters w/ default form context values
  */
@@ -39,12 +37,10 @@ export function useFormContextInput({
   onChange,
   onClear,
   onKeyUp,
-  onSubmit,
   value,
 }) {
   const {
     onChange: contextOnChange,
-    onSubmit: contextOnSubmit,
     setState,
     state,
   } = useFormContext();
@@ -68,10 +64,6 @@ export function useFormContextInput({
     ),
     [contextOnChange, id]
   );
-
-  const currentOnSubmit = onSubmit ?? contextOnSubmit;
-  // @ts-ignore
-  const internalOnKeyUp = useOnKeyUp('Enter', (e) => currentOnSubmit?.(e));
 
   const internalOnClear = useCallback(
     /** @param {import('react').UIEvent<HTMLElementT>} e */
@@ -106,8 +98,6 @@ export function useFormContextInput({
       // indirect generic "magic" functions for passing to event attributes in inputs
       onChange: onChange ?? (contextOnChange && internalOnChange),
       onClear: onClear ?? (contextOnChange && internalOnClear),
-      onSubmit: onSubmit ?? currentOnSubmit,
-      onFormKeyUp: onKeyUp ?? internalOnKeyUp,
 
       // direct access to form internals to do whatever you want, though be careful to allow
       // your input's passed in props to trump the form's props
@@ -117,14 +107,11 @@ export function useFormContextInput({
     }),
     [
       contextOnChange,
-      currentOnSubmit,
       internalOnChange,
       internalOnClear,
-      internalOnKeyUp,
       onChange,
       onClear,
       onKeyUp,
-      onSubmit,
       setState,
       state,
       valueUse,

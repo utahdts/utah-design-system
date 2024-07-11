@@ -33,7 +33,6 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {() => void} [props.onClear]
  * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
- * @param {() => void} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {HTMLElement | null} [props.popperContentRef] for multi-select the popup relates to the multi-select wrapper, not the input
  * @param {import('react').ReactNode} [props.tagChildren]
@@ -62,7 +61,6 @@ export function ComboBox({
   onCustomEntry,
   onClear,
   onKeyUp,
-  onSubmit,
   placeholder,
   popperContentRef,
   isValueClearedOnSelection,
@@ -122,7 +120,6 @@ export function ComboBox({
       onClear={onClear}
       // @ts-ignore
       onKeyUp={onKeyUp}
-      onSubmit={onSubmit}
       value={value}
     >
       {

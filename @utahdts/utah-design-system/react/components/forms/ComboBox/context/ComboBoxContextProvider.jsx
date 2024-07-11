@@ -33,7 +33,6 @@ import { valueAtPath } from '../../../../util/state/valueAtPath';
  * @param {((newValue: string) => void)} [props.onChange]
  * @param {(() => void)} [props.onClear]
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
- * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
  */
@@ -45,7 +44,6 @@ export function ComboBoxContextProvider({
   onChange,
   onClear,
   onKeyUp,
-  onSubmit,
   value,
 }) {
   const { onChange: onChangeFormContext, state } = useFormContext();
@@ -89,7 +87,6 @@ export function ComboBoxContextProvider({
     onChange: onChangeFormValue,
     onClear,
     onKeyUp,
-    onSubmit,
     options: [],
     optionsFiltered: [],
     optionsFilteredWithoutGroupLabels: [],

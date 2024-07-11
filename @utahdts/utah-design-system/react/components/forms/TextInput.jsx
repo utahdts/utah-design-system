@@ -26,7 +26,6 @@ import { RequiredStar } from './RequiredStar';
  * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] can be omitted to be uncontrolled OR controlled by form
  * @param {import('react').KeyboardEventHandler<HTMLInputElement>} [props.onKeyUp]
  * @param {import('react').UIEventHandler<HTMLInputElement>} [props.onClear] (not needed if inside a <Form> context)
- * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onSubmit] when enter key pressed in field, this callback may be called
  * @param {string} [props.placeholder]
  * @param {import('react').ReactNode} [props.rightContent] custom content to put to the right of the text input
  * @param {string} [props.value]
@@ -51,7 +50,6 @@ export function TextInput({
   onChange,
   onClear,
   onKeyUp,
-  onSubmit,
   placeholder,
   rightContent,
   value,
@@ -69,7 +67,6 @@ export function TextInput({
     onChange,
     onKeyUp,
     onClear,
-    onSubmit,
     value,
   });
   const inputRef = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);

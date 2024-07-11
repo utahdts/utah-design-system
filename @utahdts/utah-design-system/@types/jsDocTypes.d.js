@@ -199,7 +199,6 @@
  * @typedef useFormContextInputResult {
  *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onChange]
  *  @property {import('react').UIEventHandler<HTMLElementT>} [onClear]
- *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onSubmit]
  *  @property {ValueT} [value]
  *  @property {import('react').KeyboardEventHandler} onFormKeyUp
  *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
@@ -339,7 +338,6 @@
  *  @property {(newValue: string) => void} onChange
  *  @property {() => void} [onClear]
  *  @property {(e: Event, currentFilterValue: string) => boolean} [onKeyUp] return true if the key press was handled by this handler
- *  @property {() => void} [onSubmit]
  *
  *  -- options manipulation --
  *  @property {(option: ComboBoxOptionType) => void} registerOption add a new option
@@ -351,7 +349,6 @@
  * @template FormStateT
  * @typedef FormContextValue {
  *  @property {(param: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {(e?: Event) => void} [onSubmit] submit the form
  *  @property {FormStateT} [state] current values of all the form elements
  *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
  * }

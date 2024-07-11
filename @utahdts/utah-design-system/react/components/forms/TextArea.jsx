@@ -22,7 +22,6 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.name]
  * @param {import('react').ChangeEventHandler} [props.onChange]
  * @param {import('react').UIEventHandler} [props.onClear]
- * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
@@ -42,7 +41,6 @@ export function TextArea({
   name,
   onChange,
   onClear,
-  onSubmit,
   placeholder,
   value,
   wrapperClassName,
@@ -58,7 +56,6 @@ export function TextArea({
     id,
     onChange,
     onClear,
-    onSubmit,
     value,
   });
   const inputRef = /** @type {typeof useRef<HTMLTextAreaElement | null>} */ (useRef)(null);
