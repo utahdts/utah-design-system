@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import { useFormContext } from '../../FormContext/useFormContext';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
+import { valueAtPath } from '../../../../util/state/valueAtPath';
 
 /** @typedef { import('@utahdts/utah-design-system').RadioButtonGroupContextValue} RadioButtonGroupContextValue */
 
@@ -21,7 +22,7 @@ export function RadioButtonGroupContextProvider({
   onChange,
   value,
 }) {
-  const { onChange: onChangeFormContext } = useFormContext();
+  const { onChange: onChangeFormContext, state: formState } = useFormContext();
 
   const radioButtonGroupImmer = /** @type {typeof useImmer<RadioButtonGroupContextValue | undefined>} */ (useImmer)({
     name,
@@ -57,6 +58,21 @@ export function RadioButtonGroupContextProvider({
       }
     },
     [value]
+  );
+
+  // form value changed
+  const formStateValue = valueAtPath({ object: formState, path: name });
+  useEffect(
+    () => {
+      if (formStateValue !== undefined) {
+        setRadioButtonGroupState((draftState) => {
+          if (draftState) {
+            draftState.value = formStateValue;
+          }
+        });
+      }
+    },
+    [formStateValue]
   );
 
   return (
