@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 export function Search() {
   const [query, setQuery] = useState('');
+  const [observer, setObserver] = useState(/** @type {MutationObserver | null} */null);
 
   const insertScript = () => {
     const script = document.createElement('script');
@@ -19,9 +20,56 @@ export function Search() {
     if (param) { setQuery(param); }
   };
 
+  const checkSkipLink = () => {
+    const link = document.getElementById('skip-link');
+    if (link) {
+      setSkipLink(link);
+    } else {
+      // Create observer to watch for new nodes
+      const obs = new MutationObserver(() => {
+        const link = document.getElementById('skip-link');
+        if (link) {
+          setSkipLink(link);
+        }
+      });
+      // @ts-ignore
+      if (!observer) setObserver(obs);
+    }
+  };
+
+  const setSkipLink = (/** @type {HTMLElement} */ link) => {
+    // Update skip link
+    link.onclick = (e) => {
+      e.preventDefault();
+      // Focus on search input
+      const content = document.getElementById('searchInput');
+      content?.focus();
+    };
+    // Disconnect observer when done
+    // @ts-ignore
+    if (observer) observer.disconnect();
+  };
+
+  useEffect(() => {
+    if (observer) {
+      // @ts-ignore
+      observer.observe(document, { subtree: true, childList: true });
+    }
+  }, [observer]);
+
   useEffect(() => {
     insertScript();
     getSearchTerm();
+    checkSkipLink();
+  }, []);
+
+  useEffect(() => () => {
+    // Disconnect observer on unmount
+    // @ts-ignore
+    if (observer) observer.disconnect();
+    // Reset link behavior
+    const link = document.getElementById('skip-link');
+    if (link) link.onclick = () => null;
   }, []);
 
   return (
