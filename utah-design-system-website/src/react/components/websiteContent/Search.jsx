@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import { joinClassNames } from '@utahdts/utah-design-system';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
