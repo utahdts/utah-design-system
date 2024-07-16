@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
-import validationScreenshot from '../../../../../../../static/images/screenshots/patterns/form-validation/formValidation.png';
 import { DemoForm } from '../../../../../demo/DemoForm';
-import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
 // TODO: Maybe this should be replaced by useBanner() now that real banners are implemented?
 /** @param {string} role */
@@ -28,13 +25,6 @@ export function ValidationDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
-      {/* TODO: Can remove this image once the DemoForm is formatted and approved? */}
-      <StaticExample
-        renderedExample={<LightBox image={validationScreenshot} alt="Form Validation" className="flex-3up-gap" />}
-        title=""
-      />
-
-      {/* TODO: should demo form be in a sandbox? */}
       <DemoForm />
 
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
