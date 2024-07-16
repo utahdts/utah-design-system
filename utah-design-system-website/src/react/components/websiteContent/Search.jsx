@@ -1,8 +1,17 @@
 import { joinClassNames } from '@utahdts/utah-design-system';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export function Search() {
   const [query, setQuery] = useState('');
+  const config = { childList: true, subtree: true };
+  const contentRef = useRef(null);
+  /**
+   * @type {MutationObserver | null}
+   */
+  let observer = null;
+  // Adding an invisible character to
+  // check if the link is not overwritten by the Utah Header
+  const linkText = 'Skip to main content‎';
 
   const insertScript = () => {
     const script = document.createElement('script');
@@ -19,13 +28,51 @@ export function Search() {
     if (param) { setQuery(param); }
   };
 
+  const skipOnClick = useCallback((/** @type {MouseEvent} */ e) => {
+    e.preventDefault();
+    // @ts-ignore
+    contentRef?.current?.focus();
+  }, []);
+
+  const observeMutation = () => {
+    const link = document.getElementById('skip-link');
+    if (link && link.innerText !== linkText) {
+      link.innerText = linkText;
+      link.addEventListener('click', skipOnClick);
+      observer?.disconnect();
+      // Make sure the header does not overwrite it
+      // Check one more time
+      checkSkipLink();
+    }
+  };
+
+  const checkSkipLink = () => {
+    const link = document.getElementById('skip-link');
+    if (link && link.innerText !== linkText) {
+      link.innerText = linkText;
+      link.addEventListener('click', skipOnClick);
+    } else {
+      // No link found, start observing for changes in the DOM
+      observer = new MutationObserver(observeMutation);
+      observer.observe(document, config);
+    }
+  };
+
   useEffect(() => {
     insertScript();
     getSearchTerm();
+    checkSkipLink();
+  }, []);
+
+  useEffect(() => () => {
+    // Cleanup on unmount
+    observer?.disconnect();
+    const link = document.getElementById('skip-link');
+    if (link) { link.remove(); }
   }, []);
 
   return (
-    <div className="landing-page-template search-page">
+    <div className="landing-page-template search-page" tabIndex={0} ref={contentRef}>
       <div className="content-width mb-spacing-l">
         <h1 className="mt-spacing">
           Search Results
