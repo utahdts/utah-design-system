@@ -4,6 +4,7 @@ import backToTopScreenshot from '../../../../../../../static/images/screenshots/
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function BackToTopDocumentation() {
   return (
@@ -12,7 +13,7 @@ export function BackToTopDocumentation() {
       <p className="lead-in">
         The back-to-top button/link lets a user go back to the top of a page without having to scroll. This additional element of navigation is helpful to users with mobility issues. It also provides more comfort on both desktop and mobile devices.
       </p>
-
+      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Examples</h2>

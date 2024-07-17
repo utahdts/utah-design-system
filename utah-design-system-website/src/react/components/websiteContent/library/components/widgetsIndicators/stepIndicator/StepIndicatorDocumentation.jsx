@@ -4,6 +4,7 @@ import stepIndicatorScreenshot from '../../../../../../../static/images/mockups/
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function StepIndicatorDocumentation() {
   return (
@@ -12,6 +13,7 @@ export function StepIndicatorDocumentation() {
       <p className="lead-in">
         A step indicator is a visual representation of a user&apos;s progress through a lengthy, multi-step process, by breaking it up into multiple logical steps.
       </p>
+      <Disclaimer />
       <hr />
       <h2 id="section-example">Example</h2>
       <StaticExample

@@ -7,12 +7,15 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function IconBarDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Icon Bar</h1>
       <p className="lead-in">An icon bar (sometimes called a toolbar or an action bar) is a group of icon buttons that perform some related actions. They usually relate to the current screen.</p>
+
+      <Disclaimer />
 
       <hr />
 

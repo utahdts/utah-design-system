@@ -8,13 +8,14 @@ import progressBarScreenshotStates from '../../../../../../../static/images/scre
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function ProgressBarDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Progress Bar</h1>
       <p className="lead-in">A progress bar provides users with a visual indicator as to the wait time and progress involved with system processes like uploads, downloads, installations, etc.</p>
-
+      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Examples</h2>

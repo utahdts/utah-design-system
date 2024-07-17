@@ -6,6 +6,7 @@ import sidePanelMobileOpen from '../../../../../../../static/images/mockups/Side
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function SidePanelDocumentation() {
   return (
@@ -14,6 +15,7 @@ export function SidePanelDocumentation() {
       <p className="lead-in">
         A side panel is a place to put secondary content on a page. It can include things such as <Link to={pageUrls.verticalMenu}>menus</Link>, <Link to={pageUrls.links}>links</Link> or <Link to={pageUrls.card}>cards</Link>.
       </p>
+      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Examples</h2>
