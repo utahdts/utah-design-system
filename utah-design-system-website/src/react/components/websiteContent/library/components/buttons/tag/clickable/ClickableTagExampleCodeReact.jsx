@@ -1,4 +1,4 @@
-import { formElementSizesEnum } from '@utahdts/utah-design-system';
+import { formElementSizesEnum, joinClassNames } from '@utahdts/utah-design-system';
 import { ExampleCodeReactProp } from '../../../../../../sandbox/ExampleCodeReactProp';
 import { SandboxIndent } from '../../../../../../sandbox/SandboxIndent';
 
@@ -15,6 +15,7 @@ export function ClickableTagExampleCodeReact({
     props: {
       clickable: {
         className,
+        color,
         iconLeft,
         iconRight,
         id,
@@ -32,7 +33,7 @@ export function ClickableTagExampleCodeReact({
     <>
       &lt;ClickableTag
       <br />
-      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={className || color ? `className="${joinClassNames(className, color)}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconLeft !== 'none' && iconLeft) ? `iconLeft={Icons.${iconLeft}()}` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={(iconRight !== 'none' && iconRight) ? `iconRight={Icons.${iconRight}()}` : null} indentLevel={1} />

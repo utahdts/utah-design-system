@@ -33,6 +33,14 @@ export function ClickableTagCssClassesDocumentation() {
         <TableCell><code>.tag--small</code>, <code>.tag--medium</code>, <code>.tag--large</code></TableCell>
         <TableCell>These classed are used to set the tag size.</TableCell>
       </TableRow>
+      <TableRow>
+        <TableCell>
+          <code>.tag--primary-color</code>, <code>.tag--primary-color-light</code>,
+          <code>.tag--secondary-color</code>, <code>.tag--secondary-color-light</code>,
+          <code>.tag--accent-color</code>, <code>.tag--accent-color-light</code>,
+        </TableCell>
+        <TableCell>These classed are used to set the tag color.</TableCell>
+      </TableRow>
     </SettingsDocumentation>
   );
 }

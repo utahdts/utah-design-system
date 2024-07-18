@@ -36,6 +36,7 @@ export function TagsDocumentation() {
     () => ({
       clickable: {
         className: '',
+        color: '',
         iconLeft: 'none',
         iconRight: 'none',
         id: '',
@@ -46,6 +47,7 @@ export function TagsDocumentation() {
       },
       nonClickable: {
         className: '',
+        color: '',
         iconLeft: 'none',
         iconRight: 'none',
         id: '',

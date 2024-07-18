@@ -376,6 +376,7 @@
 /**
  * @typedef TagExampleBasePropsShape
  *  @property {string} className
+ *  @property {string} color
  *  @property {boolean} isDisabled
  *  @property {string} iconLeft
  *  @property {string} iconRight
