@@ -40,6 +40,7 @@ We have several examples on how to implement the Design System Header:
 - [Universal Module Definition (UMD)](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html)
 - [ES Module](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html)
 - [Vite Plain JS App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite)
+- [Angular App](https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/angular)
 - [Vite Typed React App](https://github.com/utahdts/utah-design-system/tree/main/examples/typed/typed-utah-header)
 
 For more information on the Utah Header, please visit the [header documentation page](https://designsystem.utah.gov/library/utahHeader) on the Utah Design System.
