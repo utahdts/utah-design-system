@@ -97,7 +97,7 @@ export function TextInput({
       if (e.key === 'Escape' && showClearIcon) {
         clearInput(e);
       } else {
-        currentOnFormKeyUp(e);
+        currentOnFormKeyUp?.(e);
       }
     },
     [clearInput, currentOnFormKeyUp, showClearIcon]
