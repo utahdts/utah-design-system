@@ -104,7 +104,7 @@ export function Select({
                 // @ts-ignore
                 clearInput(e);
               } else {
-                currentOnFormKeyUp(e);
+                currentOnFormKeyUp?.(e);
               }
             },
             [clearInput, currentOnFormKeyUp, showClearIcon]

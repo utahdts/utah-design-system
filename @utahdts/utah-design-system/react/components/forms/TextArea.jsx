@@ -82,7 +82,7 @@ export function TextArea({
       if (e.key === 'Escape' && showClearIcon) {
         clearInput(e);
       } else {
-        currentOnFormKeyUp(e);
+        currentOnFormKeyUp?.(e);
       }
     },
     [clearInput, currentOnFormKeyUp, showClearIcon]
