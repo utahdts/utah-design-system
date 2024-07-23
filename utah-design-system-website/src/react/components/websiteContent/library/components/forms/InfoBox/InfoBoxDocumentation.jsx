@@ -97,10 +97,34 @@ export function InfoBoxDocumentation() {
                   <TableCell>Css class for the content of an info box.</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell><code>.info-box__secondary</code></TableCell>
+                  <TableCell><code>.info-box__gray</code></TableCell>
+                  <TableCell>Css class to change background of an info box.</TableCell>
+                </TableRow>
+                <TableRow>
                   <TableCell>
-                    Css class to change the &quot;chiclet&quot; color to the secondary color.<br />
-                    See <Link to={`${pageUrls.colorGuidelines}#section-secondary-colors`}>color guidelines overview</Link>.
+                    <div className="props-code-wrapper">
+                      <code>.info-box__primary</code>
+                      <code>.info-box__secondary</code>
+                      <code>.info-box__accent</code>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    Css classes to change the &quot;chiclet&quot; color to the primary, secondary or accent color.<br />
+                    See <Link to={`${pageUrls.colorGuidelines}#section-color-palette`}>color guidelines overview</Link>.
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <div className="props-code-wrapper">
+                      <code>.info-box__info</code>
+                      <code>.info-box__danger</code>
+                      <code>.info-box__warning</code>
+                      <code>.info-box__success</code>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    Css classes to change the &quot;chiclet&quot; color to a status color.<br />
+                    See <Link to={`${pageUrls.colorGuidelines}#section-status-colors`}>color guidelines overview</Link>.
                   </TableCell>
                 </TableRow>
               </SettingsDocumentation>
