@@ -13,6 +13,7 @@
 /** @typedef {import('@utahdts/utah-design-system').FormElementSizes} FormElementSizes */
 /** @typedef {import('@utahdts/utah-design-system').IconButtonAppearance} IconButtonAppearance */
 /** @typedef {import('@utahdts/utah-design-system').WrapInElement} WrapInElement */
+/** @typedef {import('@utahdts/utah-design-system').skeletonTypes} skeletonTypes */
 /** @typedef {import('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -47,6 +48,11 @@
 /**
  * NamedMenus
  * @typedef {'main-menu' | 'secondary-menu-guidelines' | 'secondary-menu-library' | 'secondary-menu-resources'} NamedMenus
+ */
+
+/**
+ * DocumentationTypes
+ * @typedef {'CSS' | 'Props'} DocumentationTypes
  */
 
 /**
@@ -325,6 +331,13 @@
  */
 
 /**
+ * @typedef SkeletonExamplePropsShape {
+ *  @property {string} className
+ *  @property {skeletonTypes} type
+ * }
+ */
+
+/**
  * @typedef SwitchExamplePropsShape {
  *  @property {string} className
  *  @property {string} errorMessage
@@ -363,6 +376,7 @@
 /**
  * @typedef TagExampleBasePropsShape
  *  @property {string} className
+ *  @property {string} color
  *  @property {boolean} isDisabled
  *  @property {string} iconLeft
  *  @property {string} iconRight

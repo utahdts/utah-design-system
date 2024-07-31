@@ -5,7 +5,12 @@ import {
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
-  TableFilterDate, TableFilterNone, TableFilterSelectAllOptions, TableFilterTextInput, TableFilters, TableHead,
+  TableFilterComboBoxAllOptions,
+  TableFilterDateRange,
+  TableFilterNone,
+  TableFilterTextInput,
+  TableFilters,
+  TableHead,
   TableHeadCell,
   TableHeadRow,
   TablePagination,
@@ -48,7 +53,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
           value={`${itemsPerPage}`}
         />
         <TableWrapper>
-          <Table className="table table--full-width table--alt table--lines-x">
+          <Table className="table table--full-width table--alt table--lines-x table--min-height">
             <TableHead>
               <TableFilters>
                 {/* Example of an "uncontrolled" filter; filtering works, but parent component does not know the current filter value */}
@@ -62,16 +67,20 @@ export function TableDocumentationFilteringPaginationTableExample() {
                   Loads all the possible values from the data for the give recordFieldPath and creates options for the
                   found values.
                 */}
-                <TableFilterSelectAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
+                <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
+                <TableFilterDateRange
+                  a11yLabel="Inauguration"
+                  id="table-filtering-pagination-inauguration"
+                  recordFieldPath="inauguration"
+                />
               </TableFilters>
               <TableHeadRow>
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
                 <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
                 <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
-                <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
+                <TableHeadCell recordFieldPath="inauguration">Inauguration</TableHeadCell>
               </TableHeadRow>
             </TableHead>
             <TableBody>

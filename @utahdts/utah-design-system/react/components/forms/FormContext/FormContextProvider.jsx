@@ -27,7 +27,6 @@ import { FormContext } from './FormContext';
  * @param {object} props
  * @param {import('react').ReactNode} props.children
  * @param {(param: {e?: React.ChangeEvent, fieldPath: string, value: any}) => void} [props.onChange]
- * @param {import('react').ChangeEventHandler<HTMLElement>} [props.onSubmit] called when the form is somehow submitted by a child element
  * @param {FormContextValueUpdater<FormContextStateT>} props.setState setter for setting the `state`
  * @param {FormContextStateT} props.state known by the caller; every field in it with its type
  * @returns {import('react').JSX.Element}
@@ -35,7 +34,6 @@ import { FormContext } from './FormContext';
 export function FormContextProvider({
   children,
   onChange,
-  onSubmit = () => { }, // onSubmit is going to be removed anyways...
   setState,
   state,
 }) {
@@ -52,11 +50,10 @@ export function FormContextProvider({
   const contextValue = useMemo(
     () => ({
       onChange,
-      onSubmit,
       setState,
       state,
     }),
-    [onChange, onSubmit, setState, state]
+    [onChange, setState, state]
   );
 
   return (

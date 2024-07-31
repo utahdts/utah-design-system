@@ -98,7 +98,6 @@ export function TableDocumentationSortingTableExample() {
                 <TableHeadCell recordFieldPath="nthPresident" className="text-left">No.</TableHeadCell>
                 <TableHeadCell recordFieldPath="politicalParty" className="text-left">Party</TableHeadCell>
                 <TableHeadCell recordFieldPath="inauguration" className="text-left">Inauguration</TableHeadCell>
-                {/* <TableHeadCell recordFieldPath="funFacts" className="text-left">Fun Facts</TableHeadCell> */}
                 <TableHeadCell recordFieldPath="birthplace" tableSortingFieldPaths={['birthplace.state', 'birthplace.county']} className="text-left">Birth Place</TableHeadCell>
                 <TableHeadCell />
               </TableHeadRow>
@@ -111,7 +110,6 @@ export function TableDocumentationSortingTableExample() {
                   <TableBodyDataCellTemplate recordFieldPath="nthPresident" />
                   <TableBodyDataCellTemplate recordFieldPath="politicalParty" />
                   <TableBodyDataCellTemplate recordFieldPath="inauguration" />
-                  {/* <TableBodyDataCellTemplate recordFieldPath="funFacts" /> */}
                   <TableBodyDataCellTemplate recordFieldPath="birthPlace">
                     {({ record }) => <>{[record.birthplace.county, record.birthplace.state].join(', ')}</>}
                   </TableBodyDataCellTemplate>

@@ -1,7 +1,7 @@
 import {
   Banner,
   BannerIcon,
-  BannerMessage,
+  BannerMessage, Tab, TabGroup, TabList, TabPanel, TabPanels,
   useBanner
 } from '@utahdts/utah-design-system';
 import { useCallback } from 'react';
@@ -14,6 +14,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { BannersExampleCodeReact } from './BannersExampleCodeReact';
 import { BannersExampleProps } from './BannersExampleProps';
 import { BannersExampleRender } from './BannersExampleRender';
+import { BannersPropsDocumentation } from './BannersPropsDocumentation';
+import { BannersCssClassesDocumentation } from './BannersCssClassesDocumentation';
 
 export function BannersDocumentation() {
   const { addBanner } = useBanner();
@@ -255,7 +257,8 @@ export function BannersDocumentation() {
         quickTips={(
           <ul>
             <li>
-              A landmark banner is persistent across all sites and is visible on every page. These should only be used in association with landmark elements. E.g.{' '}
+              A landmark banner is persistent across all sites and is visible on every page. These should only be used in association with landmark
+              elements. E.g.{' '}
               <Link to={pageUrls.utahHeader}>Header</Link>, <Link to={pageUrls.utahHeader}>main menu</Link>
               , or <Link to={pageUrls.verticalMenu}>side menu</Link> etc.
             </li>
@@ -383,6 +386,24 @@ export function BannersDocumentation() {
           other <code>aria-live</code> setting should be avoided as it can be extremely annoying and disruptive.
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="radio-button-props-css">
+          <TabList>
+            <Tab id="radio-button-props-css">CSS</Tab>
+            <Tab id="radio-button-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="radio-button-props-css">
+              <BannersCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="radio-button-props-react">
+              <BannersPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

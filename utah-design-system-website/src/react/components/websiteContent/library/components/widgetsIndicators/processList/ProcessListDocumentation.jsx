@@ -4,13 +4,14 @@ import processListScreenshot from '../../../../../../../static/images/screenshot
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function ProcessListDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Process List</h1>
       <p className="lead-in">A process list displays a series of essential instructions or stages in a clear and organized manner.</p>
-
+      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Example</h2>

@@ -11,8 +11,8 @@ import { joinClassNames } from '../../util/joinClassNames';
 export function TableHead({
   children,
   className,
-  innerRef,
   id,
+  innerRef,
   ...rest
 }) {
   return (

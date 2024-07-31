@@ -52,7 +52,7 @@ export function GettingStartedDesigner() {
         Follow this link to view the <a href={pageUrls.mockups}>Component Mockups</a>.
       </p>
       <LightBox alt="Utah Design System Mockups" image={xdScreenshot} />
-      <div className="flex justify-center mt-spacing"><a href="https://dts.utah.gov/wp-content/uploads/UtahDesignSystem.xd_.zip" className="button button--primary-color button--solid">Download Adobe XD Document</a></div>
+      <div className="flex justify-center mt-spacing"><a href="https://drive.google.com/file/d/10012RL32cpTdtens59D4MNyZgxhGQVEP/view?usp=sharing" className="button button--primary-color button--solid">Download Adobe XD Document</a></div>
       <p className="text-center"><em>75 MB</em></p>
       {/* <Link
         to={pageUrls.mockups}

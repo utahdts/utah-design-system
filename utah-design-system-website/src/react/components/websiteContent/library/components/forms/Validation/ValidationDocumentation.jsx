@@ -1,11 +1,9 @@
-/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import validationScreenshot from '../../../../../../../static/images/screenshots/patterns/form-validation/formValidation.png';
-import { LightBox } from '../../../../../lightbox/LightBox';
+import { DemoForm } from '../../../../../demo/DemoForm';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
-import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
+// TODO: Maybe this should be replaced by useBanner() now that real banners are implemented?
 /** @param {string} role */
 function addBanner(role) {
   const banner = document.createElement('span');
@@ -27,10 +25,7 @@ export function ValidationDocumentation() {
       </p>
       <hr />
       <h2 id="section-example">Example</h2>
-      <StaticExample
-        renderedExample={<LightBox image={validationScreenshot} alt="Form Validation" className="flex-3up-gap" />}
-        title=""
-      />
+      <DemoForm />
 
       <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
@@ -82,7 +77,8 @@ export function ValidationDocumentation() {
         </li>
         <li>
           <strong>Reasonable.</strong> If extra characters are added to an input and do not make the answer ambiguous, simply ignore them
-          and clean the data before storage. For example a phone number could be entered in different ways: 385-229-0540, 385 229 0540, 3852290540, (385) 229-0540.
+          and clean the data before storage. For example a phone number could be entered in different ways: 385-229-0540, 385 229 0540,
+          3852290540, (385) 229-0540.
           The best user experience would be to clean the data on blur so that the user has a chance to correct it.
         </li>
       </ul>
@@ -92,7 +88,10 @@ export function ValidationDocumentation() {
       <ul className="mb-spacing">
         <li>Text within an error message must maintain a <code>4.5:1</code> contrast ratio.</li>
         <li>For more information about links accessibility, consult the <Link to={pageUrls.links}>Links</Link> documentation.</li>
-        <li>For more information about a specific <Link to={pageUrls.forms}>form</Link> input or <Link to={pageUrls.banners}>banners</Link>, please refer to their documentation.</li>
+        <li>
+          For more information about a specific <Link to={pageUrls.forms}>form</Link> input or <Link to={pageUrls.banners}>banners</Link>, please
+          refer to their documentation.
+        </li>
       </ul>
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
@@ -119,7 +118,10 @@ export function ValidationDocumentation() {
                 `}
               />
             </li>
-            <li>It is recommended if you are following the pattern above that you do <strong>not</strong> include the <code>required</code> html attribute.</li>
+            <li>
+              It is recommended if you are following the pattern above that you do <strong>not</strong> include
+              the <code>required</code> html attribute.
+            </li>
           </ul>
         </li>
 
@@ -161,7 +163,8 @@ export function ValidationDocumentation() {
         </li>
         <li>
           The error summary container should include <code>role=&quot;alert&quot;</code> This will provide a screen reader with an
-          audible alert sound followed by the text contained in the banner. (Turn on your screen reader and click the button below to test this.)<br />
+          audible alert sound followed by the text contained in the banner. (Turn on your screen reader and
+          click the button below to test this.)<br />
           <button className="button" onClick={() => addBanner('alert')} type="button">Show Banner (Screen Reader Test)</button>
           <div>
             <code id="banner-target" />

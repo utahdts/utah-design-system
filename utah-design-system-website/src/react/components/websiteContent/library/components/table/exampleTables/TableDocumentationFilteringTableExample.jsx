@@ -9,7 +9,7 @@ import {
   TableBodyDataRowTemplate,
   TableContextConsumer,
   TableFilterCustom,
-  TableFilterDate,
+  TableFilterDateRange,
   TableFilterNone,
   TableFilterComboBoxAllOptions,
   TableFilterTextInput,
@@ -18,11 +18,12 @@ import {
   TableHeadCell,
   TableHeadRow,
   TableWrapper,
-  componentColors
+  componentColors, ExternalLink
 } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 import { examplePresidentsData } from './examplePresidentsData';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function TableDocumentationFilteringTableExample() {
   const [funFactsFilter, setFunFactsFilter] = useState('');
@@ -39,6 +40,7 @@ export function TableDocumentationFilteringTableExample() {
       <p className="mb-spacing-xs">This example does not include any additional styling. This demonstrates what a table component looks like out-of-the-box.</p>
       <Accordion
         id="table-example-filtering"
+        className="mb-spacing"
         contentClassName="accordion__content--bordered"
         headerContent={<span>Table Preview</span>}
         headerClassName="button--primary-color button--solid"
@@ -62,7 +64,11 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterComboBoxAllOptions a11yLabel="Party" recordFieldPath="politicalParty" />
 
                 {/* Date range filtering popup */}
-                <TableFilterDate a11yLabel="Inauguration" recordFieldPath="inauguration" />
+                <TableFilterDateRange
+                  a11yLabel="Inauguration"
+                  id="table-filtering-inauguration"
+                  recordFieldPath="inauguration"
+                />
 
                 {/*
                   "Controlled" filter; parent knows the value!
@@ -93,12 +99,14 @@ export function TableDocumentationFilteringTableExample() {
                           setFilterValues((draftState) => {
                             // filter values must be a string
                             // the field (ie birthplace.state) can be a dot path in to the record
-                            // @ts-ignore
-                            draftState['birthplace.state'] = draftState['birthplace.state'] ? '' : { value: 'Virginia' };
+                            draftState['birthplace.state'] = {
+                              options: {},
+                              value: draftState['birthplace.state']?.value ? '' : 'Virginia',
+                            };
                           });
                         }}
                       >
-                        {filterValues['birthplace.state'] ? 'Only Virginia' : 'All States'}
+                        {filterValues['birthplace.state']?.value ? 'Only Virginia' : 'All States'}
                       </Button>
                     )
                   }
@@ -108,7 +116,7 @@ export function TableDocumentationFilteringTableExample() {
                 <TableHeadCell recordFieldPath="name">Name</TableHeadCell>
                 <TableHeadCell recordFieldPath="nthPresident">No.</TableHeadCell>
                 <TableHeadCell recordFieldPath="politicalParty">Party</TableHeadCell>
-                <TableHeadCell recordFieldPath="inauguration">Inauguration (String)</TableHeadCell>
+                <TableHeadCell recordFieldPath="inauguration">Inauguration</TableHeadCell>
                 <TableHeadCell recordFieldPath="funFacts">Fun Facts</TableHeadCell>
                 <TableHeadCell recordFieldPath="birthplace">Birth Place</TableHeadCell>
               </TableHeadRow>
@@ -153,6 +161,25 @@ export function TableDocumentationFilteringTableExample() {
           </Table>
         </TableWrapper>
       </Accordion>
+      <span>
+        <strong>Note:</strong> The table component does not inherently display a message when no results are found.{' '}
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website/src/react/components/websiteContent/library/components/table/exampleTables/TableDocumentationFilteringTableExample.jsx">
+          See code on GitHub
+        </ExternalLink>.
+      </span>
+      <PreCodeForCodeString
+        showBackgroundColor
+        codeRaw={`
+                  <tr>
+                    <td class="table__no-results-td" colSpan="100">
+                      <span class="table__no-results-text">
+                        Your filter returned no results.
+                      </span>
+                    </td>
+                  </tr>
+                `}
+        className="mt-spacing"
+      />
     </div>
   );
 }

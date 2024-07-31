@@ -20,6 +20,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
 
 /**
  * @param {object} props
+ * @param {string} [props.ariaLabel]
  * @param {string} [props.className]
  * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date; used for CalendarInput
  * @param {string} [props.defaultValue]
@@ -35,6 +36,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @param {string} [props.name] defaults to id if not provided
  * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
  * @param {() => void} [props.onClear]
+ * @param {(e: React.KeyboardEvent<HTMLInputElement>) => void} [props.onKeyUp]
  * @param {string} [props.placeholder]
  * @param {boolean} [props.showCalendarTodayButton] on teh calendar popup, should the `today` button be shown
  * @param {string} [props.value]
@@ -42,6 +44,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @returns {import('react').JSX.Element}
  */
 export function DateInput({
+  ariaLabel,
   className,
   dateFormat,
   defaultValue,
@@ -57,6 +60,7 @@ export function DateInput({
   name,
   onChange,
   onClear,
+  onKeyUp,
   placeholder,
   showCalendarTodayButton,
   value,
@@ -132,7 +136,8 @@ export function DateInput({
       <div className="date-input__inner-wrapper">
         <div>
           <TextInput
-            aria-label={hasCalendarPopup ? 'Press down arrow to open a calendar picker' : undefined}
+            // table date range filter date picker still goes to a calendar on down arrow press even if !hasCalendarPopup
+            aria-label={joinClassNames(ariaLabel, 'Press down arrow to open a calendar picker')}
             className={joinClassNames(className, 'date-input')}
             errorMessage={errorMessage}
             id={id}
@@ -145,7 +150,10 @@ export function DateInput({
             name={name}
             onChange={(e) => currentOnChange(e.target.value)}
             onClear={isClearable ? currentOnClear : undefined}
-            onKeyUp={onDownArrowPress}
+            onKeyUp={(e) => {
+              onDownArrowPress(e);
+              onKeyUp?.(e);
+            }}
             placeholder={placeholder}
             value={currentValue}
             rightContent={(
@@ -175,7 +183,15 @@ export function DateInput({
                   />
                 )
                 : (
-                  <div className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}>
+                  <div
+                    aria-hidden
+                    className={joinClassNames('date-input__calendar-icon date-input__icon-static', isDisabled && 'date-input__calendar-icon--is-disabled')}
+                    onMouseDown={(e) => {
+                      // without the preventDefault, clicking the calendar was closing the popup instead of focusing in the text input
+                      e.preventDefault();
+                      popperReferenceElementRef.current?.querySelector('input')?.focus();
+                    }}
+                  >
                     <span className="utds-icon-before-calendar " aria-hidden="true" />
                   </div>
                 )

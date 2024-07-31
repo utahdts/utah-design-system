@@ -191,6 +191,16 @@ export function AccessibilityChecklistDocumentation() {
             <li><ExternalLink href="https://www.deque.com/axe/">Axe® Accessibility Testing Tools</ExternalLink> - free and paid versions available</li>
           </ul>
         </li>
+        <li>
+          U.S. Web Design System (USWDS)
+          <ul>
+            <li>
+              The USWDS provides useful documentation regarding accessibility for components.
+              (e.g., <ExternalLink href="https://designsystem.digital.gov/components/button/accessibility-tests/">Button accessibility tests</ExternalLink>
+              , <ExternalLink href="https://designsystem.digital.gov/components/table/accessibility-tests/">Table accessibility tests</ExternalLink>)
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   );

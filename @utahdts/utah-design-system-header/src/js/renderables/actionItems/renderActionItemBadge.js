@@ -4,9 +4,7 @@ import { renderDOMSingle } from '../../misc/renderDOMSingle';
 // eslint-disable-next-line import/no-unresolved
 import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').Badge} Badge
- */
+/** @typedef {import('src/@types/jsDocTypes.d').Badge} Badge */
 
 /**
  * renders a badge on an action item

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Pagination } from '@utahdts/utah-design-system';
+import { Pagination, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { stateSymbols } from '../../../../../../consts/stateSymbols';
@@ -10,6 +10,8 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { PaginationExampleCodeReact } from './PaginationExampleCodeReact';
 import { PaginationExampleProps } from './PaginationExampleProps';
 import { PaginationExampleRender } from './PaginationExampleRender';
+import { PaginationCssClassesDocumentation } from './PaginationCssClassesDocumentation';
+import { PaginationPropsDocumentation } from './PaginationPropsDocumentation';
 
 const STATIC_EXAMPLE_PAGE_SIZE = 4;
 
@@ -40,7 +42,11 @@ export function PaginationDocumentation() {
         renderedExample={(
           <div className="flex flex-col items-center">
             <h4 className="mb-spacing-xs">Symbols of the state of Utah</h4>
-            <ul style={{ height: '115px', width: '90%' }}>
+            <ul style={{
+              height: '115px',
+              width: '90%',
+            }}
+            >
               {
                 stateSymbols
                   .slice(demoPaginationIndex * STATIC_EXAMPLE_PAGE_SIZE, demoPaginationIndex * STATIC_EXAMPLE_PAGE_SIZE + STATIC_EXAMPLE_PAGE_SIZE)
@@ -77,22 +83,41 @@ export function PaginationDocumentation() {
       <h2 id="section-guidance" className="mb-spacing">Description and Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
-        <li><strong>Break down large amounts of data into smaller sets.</strong> Use a pagination when a page or set of data displays a significant amount of information. This improves user comprehension and makes it less overwhelming for them.</li>
+        <li>
+          <strong>Break down large amounts of data into smaller sets.</strong>
+          Use a pagination when a page or set of data displays a significant amount of information.
+          This improves user comprehension and makes it less overwhelming for them.
+        </li>
       </ul>
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Small data set.</strong> Avoid using a pagination when the set of data is less than 4 pages long.</li>
-        <li><strong>Context.</strong> If a large collection of content is sequenced in a meaningful way, use a <Link to={pageUrls.stepIndicator}>Step Indicator</Link> or a <Link to={pageUrls.sidePanelNavigation}>Side Panel</Link> instead.</li>
-        <li><strong>Replace user work flow.</strong> Pagination can be inherently frustrating for the user, since much of the data is hidden. Showing large collections of data may sometimes be a sign of too generic of interface design. Discovering powerful user experiences and workflows that target smaller chunks of data may be a possible replacement for a pagination. Also consider mobile data bandwidth limitations when loading large chunks of data.</li>
+        <li>
+          <strong>Context.</strong> If a large collection of content is sequenced in a meaningful way, use a
+          <Link to={pageUrls.stepIndicator}>Step Indicator</Link> or a
+          <Link to={pageUrls.sidePanelNavigation}>Side Panel</Link> instead.
+        </li>
+        <li><strong>Replace user work flow.</strong> Pagination can be inherently frustrating for the user, since much of the data is hidden. Showing
+          large collections of data may sometimes be a sign of too generic of interface design. Discovering powerful user experiences and workflows
+          that target smaller chunks of data may be a possible replacement for a pagination. Also consider mobile data bandwidth limitations when
+          loading large chunks of data.
+        </li>
       </ul>
 
       <h3 id="section-usability">Usability guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>The following links should always be displayed:</strong> first and last page, previous and next page. The first and last page links should be represented by their respective indexes. When the user is on the first page, the Previous link should be disabled. The same is true for the last page and the Next link.</li>
+        <li><strong>The following links should always be displayed:</strong> first and last page, previous and next page. The first and last page
+          links should be represented by their respective indexes. When the user is on the first page, the Previous link should be disabled. The same
+          is true for the last page and the Next link.
+        </li>
         <li><strong>Current indicator.</strong> The current page index should be highlighted.</li>
-        <li><strong>Single line.</strong> Typically, all links should be displayed as a continuous line. Consider reducing the number of links on mobile if necessary.</li>
-        <li><strong>Links limit.</strong> Avoid showing too many links to not overwhelm the user. Consider using a non-interactive item, such as an ellipsis, for hidden ranges.</li>
+        <li><strong>Single line.</strong> Typically, all links should be displayed as a continuous line. Consider reducing the number of links on
+          mobile if necessary.
+        </li>
+        <li><strong>Links limit.</strong> Avoid showing too many links to not overwhelm the user. Consider using a non-interactive item, such as an
+          ellipsis, for hidden ranges.
+        </li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
@@ -110,8 +135,12 @@ export function PaginationDocumentation() {
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">
-        <li>Generally, use a <code>&lt;nav&gt;</code> element to wrap the pagination. However, it should include a unique <code>aria-label=&quot;my pagination component&quot;</code> attribute describing its purpose. This creates an additional navigation landmark which sets it apart from the main navigation in the page.</li>
-        <li>Limit the number of <code>&lt;nav&gt;</code> elements on a page when the pagination is attached to secondary content such as multiple tables of data. Too many <code>&lt;nav&gt;</code> landmarks create confusion for screen reader users.</li>
+        <li>Generally, use a <code>&lt;nav&gt;</code> element to wrap the pagination. However, it should include a unique <code>aria-label=&quot;my pagination component&quot;</code> attribute describing its purpose. This creates an additional navigation landmark which sets it apart from
+          the main navigation in the page.
+        </li>
+        <li>Limit the number of <code>&lt;nav&gt;</code> elements on a page when the pagination is attached to secondary content such as multiple
+          tables of data. Too many <code>&lt;nav&gt;</code> landmarks create confusion for screen reader users.
+        </li>
         <li>Links should be an <code>&lt;a&gt;</code> element as part of an unordered list (<code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>).</li>
         <li>The current link should have <code>aria-current=&quot;page&quot;</code> attribute set.</li>
         <li>First and last page should be voiced by either including an aria-label or a visually hidden span in each link. For example
@@ -132,6 +161,24 @@ export function PaginationDocumentation() {
           />
         </li>
       </ul>
+
+      <h2 id="section-settings-props">Settings and Props</h2>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="pagination-props-css">
+          <TabList>
+            <Tab id="pagination-props-css">CSS</Tab>
+            <Tab id="pagination-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="pagination-props-css">
+              <PaginationCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="pagination-props-react">
+              <PaginationPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
     </div>
   );
 }

@@ -9,6 +9,57 @@ const NULL_COLOR_HEX = '_';
  * @param {object} cssState state from the css context... someday it will be typed
  * @returns {string}
  */
+export function colorsToCSS(cssState) {
+  /*
+  Desired Format:
+  `.utah-design-system {
+    --primary-color: #3c7b24;
+    --primary-color-dark: #2e4326;
+    --primary-color-light: #e1eadd;
+
+    --secondary-color: #0e80a7;
+    --secondary-color-dark: #205162;
+    --secondary-color-light: #edf5f8;
+
+    --accent-color: #ffb100;
+    --accent-color-dark: #745a1e;
+    --accent-color-light: #fff9ec;
+  }`
+
+  cssState object from react state:
+  {
+    "selectedColorPicker": "--primary-color-dark",
+    "--primary-color": "#126dc4",
+    "--primary-color-dark": "#1c2e40",
+    "--primary-color-light": "#eef4fa",
+    "--gray-on-primary-color": "#ffffff",
+    "--secondary-color": "#0e80a7",
+    "--secondary-color-dark": "#205162",
+    "--secondary-color-light": "#edf5f8",
+    "--gray-on-secondary-color": "#ffffff",
+    "--accent-color": "#ffb100",
+    "--accent-color-dark": "#745a1e",
+    "--accent-color-light": "#fff9ec",
+    "--gray-on-accent-color": "#474747",
+    "accent-color-is-light": true,
+    "primary-color-is-light": false,
+    "secondary-color-is-light": false
+}
+  */
+  return [
+    '.utah-design-system {',
+    Object.entries(cssState)
+      .filter(([key]) => /^--(primary|secondary|accent)/.exec(key))
+      .map(([key, value]) => `  ${key}: ${value};`)
+      .join('\n'),
+    '}',
+  ].join('\n');
+}
+
+/**
+ * @param {object} cssState state from the css context... someday it will be typed
+ * @returns {string}
+ */
 export function colorsToUrlParams(cssState) {
   const hexes = (
     Object.values(CSS_VARIABLES_KEYS)

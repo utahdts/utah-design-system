@@ -4,6 +4,7 @@ import stepIndicatorScreenshot from '../../../../../../../static/images/mockups/
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function StepIndicatorDocumentation() {
   return (
@@ -12,6 +13,7 @@ export function StepIndicatorDocumentation() {
       <p className="lead-in">
         A step indicator is a visual representation of a user&apos;s progress through a lengthy, multi-step process, by breaking it up into multiple logical steps.
       </p>
+      <Disclaimer />
       <hr />
       <h2 id="section-example">Example</h2>
       <StaticExample
@@ -101,7 +103,7 @@ export function StepIndicatorDocumentation() {
         </li>
         <li>
           <strong>Stepping forward and backward.</strong> To facilitate navigation, it is recommended to provide separate controls for stepping
-          forward and backward through a form. Utilize navigation elements such as a <Link to={pageUrls.buttonGroup}>button group</Link> to allow
+          forward and backward through a form. Utilize navigation elements to allow
           users to navigate through the form easily.
         </li>
         <li>

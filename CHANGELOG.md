@@ -5,20 +5,76 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [1.17.0] 5/14/2024
+# [1.18.0] 7/31/2024
+## Breaking Change
+- **[Breaking]** Remove onSubmit from React components
+
+## Added
+- Add ADA link to accessibility documentation
+- Add Angular example to Getting Started page
+- Add dark color to banners sandbox
+- Add unimplemented components disclaimer
+- Add documentation for `mobileMenuLocation`
+- Add documentation for Banners, ConfirmationButton, Modals, Pagination, RadioButton, Tooltips
+- Add example Form with validation on Form Guidelines page
+- Add example to InfoBox documentation
+- Add Info Box classes
+- Add placeholder to Table Filters
+- Add Skeleton component
+- Allow copying custom colors as CSS
+- Make UtahDesignSystemContext's defaultSettings optional
+- Show Popup Content in popups documentation
+
+## Changed
+- Remove Create React App from Readme
+- Replace uuidv4() with useId()
+- Update Demo page to use components
+- Update drawers documentation
+- Update official website popup image
+- Update Showcase page
+- Update skip link on search page
+- Update tag colors
+
+## Removed
+- Remove duplicate CSS selectors
+
 ## Fixed
-- (BREAKING!) Move innerRef to wrapper for ClickableTag, Checkbox, and RadioButton
+- Add min-width for ComboBox popups
+- Add role=separator and aria-orientation to Vertical separator in dividers documentation
+- Allow Popup custom popper dependency updates
+- Close multi select options on blur
+- Fix multi-select tag styling
+- Fix sandbox `ariaLabeledBy` spelling
+- Keep calendar open when date range filter calendar icon pressed
+- Limit drawer width from full screen
+- Prevent errors about currentOnFormKeyUp
+- Relink XD document on Getting Started page
+- Remove react-router from library
+- Tell user to press down arrow for date range filter
+- Update TimeInput options when format changes
+
+# [1.17.0] 5/14/2024
+## Breaking Change
+- Icons.jsx has been removed in favor of using css icons.
+  - `<Icons.IconEnvelope />`
+  - becomes ==>
+  - `<span className="utds-icon-before-mail" aria-hidden="true" />`
+- Icons found in Icons.jsx that were still needed were moved out of the library into the website portion of the project since they were specific to the website and not used as a library resource.
+
+- Move innerRef to wrapper for ClickableTag, Checkbox, and RadioButton. Existing innerRef usage will need to target the desired element inside of the wrapper instead of using the element directly from the ref.
+
+## Fixed
 - Close popups when clicked outside
 - Make sure footer is 100% width
 - Only announce multi-select groups if there are groups
 - Prevent closing popups for main menu clicking
-- Prevent header font from being overriden
+- Prevent header font from being overridden
 - Toggle open utah Id mobile menu on mobile
 
 ## Added
 - Add color picker popup for Color Picker
 - Add Drawer component
-- Add new icons: Filter
+- Add new icons: Filter, Restart, Sync, Refresh, Light Mode, Dark Mode, Mail, Share
 - Add option parentMenuLinkSuffix for menus
 - Add TableFilterComboBox types
 - Announce that multi-select tags are deletable
@@ -417,6 +473,7 @@ N/A
 
 # 👇 CHANGELOG template 👇
 # [version] date
+## Breaking Change
 ## Added
 ## Changed
 ## Deprecated

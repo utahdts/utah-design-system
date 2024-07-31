@@ -28,16 +28,17 @@ export function SimpleDrawer({
       {showDrawer
         ? (
           <Drawer
-            id="simple-modal"
+            className="simple-drawer"
+            id="simple-drawer"
             onClose={closeDrawer}
             onEscape={closeDrawer}
             position={position}
-            ariaLabelledBy="simple-modal-title"
+            ariaLabelledBy="simple-drawer-title"
           >
-            <DrawerTitle id="simple-modal-title">
+            <DrawerTitle id="simple-drawer-title">
               Drawer Title
             </DrawerTitle>
-            <DrawerContent id="simple-modal-content">
+            <DrawerContent id="simple-drawer-content">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus arcu sed turpis varius,
               vulputate convallis lacus pretium. Pellentesque quis lobortis leo, eget tristique tellus.
               Fusce tempus lacus sed lacus dignissim ullamcorper. Aenean tempor aliquam orci, in feugiat arcu
@@ -47,7 +48,7 @@ export function SimpleDrawer({
               Nunc rhoncus ligula in tellus venenatis pulvinar. Class aptent taciti sociosqu ad litora
               torquent per conubia nostra, per inceptos himenaeos.
             </DrawerContent>
-            <DrawerFooter className="flex justify-end" id="simple-modal-id">
+            <DrawerFooter className="flex justify-end" id="simple-drawer-id">
               <Button onClick={closeDrawer} className="mr-spacing">Cancel</Button>
               <Button onClick={closeDrawer} className="button--solid button--primary-color">Okay</Button>
             </DrawerFooter>
