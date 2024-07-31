@@ -21,7 +21,6 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
  * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
- * @param {(() => void)} [props.onSubmit]
  * @param {boolean} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
@@ -38,7 +37,6 @@ export function Checkbox({
   labelClassName,
   name,
   onChange,
-  onSubmit,
   value,
   wrapperClassName,
   ...rest
@@ -51,7 +49,6 @@ export function Checkbox({
     defaultValue,
     id,
     onChange,
-    onSubmit,
     value,
   });
 

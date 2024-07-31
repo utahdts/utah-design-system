@@ -6,6 +6,7 @@ import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import breadcrumbNormal from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbNormal.jpg';
 import breadcrumbCondensed from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbCondensed.jpg';
 import breadcrumbPopup from '../../../../../../../static/images/screenshots/components/breadcrumb/breadcrumbPopup.jpg';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function BreadcrumbDocumentation() {
   return (
@@ -15,7 +16,7 @@ export function BreadcrumbDocumentation() {
         Breadcrumbs are a type of secondary navigation element that can be particularly useful for helping users understand where they are within
         a website or application, and how to get back to previous pages or sections.
       </p>
-
+      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Examples</h2>

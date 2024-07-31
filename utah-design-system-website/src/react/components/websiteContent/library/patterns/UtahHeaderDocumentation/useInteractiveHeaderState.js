@@ -11,9 +11,7 @@ import { localStorageKeys } from '../../../../../enums/localStorageKeys';
 import { parseHeaderSettings } from './parseHeaderSettings';
 import { stringifyHeaderSettings } from './stringifyHeaderSettings';
 
-/**
- * @typedef {import('@utahdts/utah-design-system-header').Settings} Settings
- */
+/** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 /**
  * @typedef InteractiveHeaderState {

@@ -85,9 +85,7 @@ export function DrawerPropsDocumentation() {
             <TableCell><code className="primary-color">position</code></TableCell>
             <TableCell>
               <div className="props-code-wrapper">
-                <code>drawer--right</code>
-                |
-                <code>drawer--left</code>
+                <code>drawer--right</code>|<code>drawer--left</code>
               </div>
             </TableCell>
             <TableCell><code>drawer--right</code></TableCell>

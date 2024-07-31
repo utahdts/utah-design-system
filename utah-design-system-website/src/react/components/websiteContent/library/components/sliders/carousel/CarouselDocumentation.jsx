@@ -5,6 +5,7 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function CarouselDocumentation() {
   return (
@@ -13,7 +14,7 @@ export function CarouselDocumentation() {
       <p className="lead-in">
         A carousel is a set of slides that are rotating. Typically, each slide contains content in the form of headline, text, links and/or images.
       </p>
-
+      <Disclaimer />
       <hr />
 
       <h2 id="section-examples">Examples</h2>

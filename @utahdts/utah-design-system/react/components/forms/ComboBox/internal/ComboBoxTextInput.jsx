@@ -1,9 +1,8 @@
 import { identity, isFunction } from 'lodash';
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { joinClassNames } from '../../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';
 import { IconButton } from '../../../buttons/IconButton';
-import { useFormContext } from '../../FormContext/useFormContext';
 import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
 import { TextInput } from '../../TextInput';
 import { useComboBoxContext } from '../context/useComboBoxContext';
@@ -37,7 +36,6 @@ import { moveComboBoxSelectionUp } from '../functions/moveComboBoxSelectionUp';
  * @param {EventAction} [props.onClear]
  * @param {(customValue: string) => void} [props.onCustomEntry]
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp] return true if the key press was handled by this handler
- * @param {(() => void)} [props.onSubmit]
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
@@ -57,12 +55,10 @@ export function ComboBoxTextInput({
   onClear,
   onCustomEntry,
   onKeyUp,
-  onSubmit,
   placeholder,
   ...rest
 }) {
   const [multiSelectContext, , multiSelectContextRefs] = useMultiSelectContext();
-  const { onSubmit: onSubmitFormContext } = useFormContext();
   const [
     {
       filterValue,
@@ -135,6 +131,18 @@ export function ComboBoxTextInput({
 
   // for backSpacing, the onChange event fires BEFORE the onKeyUp event so the filterValue was getting the changed value and not the previous value
   const onKeyUpPreviousValue = useRef('');
+
+  useEffect(
+    () => {
+      // had something selected, and no longer have something selected, so clear filter value so that the input shows no value
+      if (!optionValueSelected) {
+        setComboBoxContext((draftContext) => {
+          draftContext.filterValue = '';
+        });
+      }
+    },
+    [optionValueSelected]
+  );
 
   const textInputRef = useRef(/** @type {HTMLInputElement | null} */(null));
   return (
@@ -259,8 +267,6 @@ export function ComboBoxTextInput({
           }
           onKeyUpPreviousValue.current = filterValue;
         }}
-        // @ts-ignore
-        onSubmit={onSubmit ?? onSubmitFormContext}
         placeholder={placeholder}
         rightContent={(
           <IconButton

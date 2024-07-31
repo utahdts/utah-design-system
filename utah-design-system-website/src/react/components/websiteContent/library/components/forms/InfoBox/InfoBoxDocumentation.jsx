@@ -5,6 +5,7 @@ import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import { SettingsDocumentation } from '../../../documentation/SettingsDocumentation';
 import { documentationTypes } from '../../../../../../enums/documentationTypes';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function InfoBoxDocumentation() {
   return (
@@ -33,6 +34,15 @@ export function InfoBoxDocumentation() {
         )}
       />
 
+      <PreCodeForCodeString
+        className="gray-block mb-spacing-l"
+        codeRaw={`<div class="info-box">
+    <div class="info-box__content">
+        Here is some useful information.
+    </div>
+</div>`}
+      />
+
       <h2 className="mb-spacing" id="guidance">Guidance</h2>
       <h3>When to use</h3>
       <ul className="mb-spacing">
@@ -42,7 +52,7 @@ export function InfoBoxDocumentation() {
       <h3>When to use something else</h3>
       <ul className="mb-spacing">
         <li><strong>Dynamic.</strong> Avoid using an info box as a way to display information in response to a user&apos;s action. Instead use a <Link to={pageUrls.banners}>banner</Link>.</li>
-        <li><strong>Reminders.</strong> Rather than an info box, you can use a <Link to={pageUrls.callout}>callout</Link> as a way to summarize the talking point of related content.</li>
+        <li><strong>Reminders.</strong> Rather than an info box, you can use a callout as a way to summarize the talking point of related content.</li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
@@ -87,10 +97,34 @@ export function InfoBoxDocumentation() {
                   <TableCell>Css class for the content of an info box.</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell><code>.info-box__secondary</code></TableCell>
+                  <TableCell><code>.info-box__gray</code></TableCell>
+                  <TableCell>Css class to change background of an info box.</TableCell>
+                </TableRow>
+                <TableRow>
                   <TableCell>
-                    Css class to change the &quot;chiclet&quot; color to the secondary color.<br />
-                    See <Link to={`${pageUrls.colorGuidelines}#section-secondary-colors`}>color guidelines overview</Link>.
+                    <div className="props-code-wrapper">
+                      <code>.info-box__primary</code>
+                      <code>.info-box__secondary</code>
+                      <code>.info-box__accent</code>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    Css classes to change the &quot;chiclet&quot; color to the primary, secondary or accent color.<br />
+                    See <Link to={`${pageUrls.colorGuidelines}#section-color-palette`}>color guidelines overview</Link>.
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <div className="props-code-wrapper">
+                      <code>.info-box__info</code>
+                      <code>.info-box__danger</code>
+                      <code>.info-box__warning</code>
+                      <code>.info-box__success</code>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    Css classes to change the &quot;chiclet&quot; color to a status color.<br />
+                    See <Link to={`${pageUrls.colorGuidelines}#section-status-colors`}>color guidelines overview</Link>.
                   </TableCell>
                 </TableRow>
               </SettingsDocumentation>

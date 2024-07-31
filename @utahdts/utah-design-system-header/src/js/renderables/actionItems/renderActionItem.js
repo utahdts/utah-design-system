@@ -12,10 +12,8 @@ import { renderPopupMenu } from '../popupMenu/renderPopupMenu';
 import { hookupTooltip } from '../tooltip/hookupTooltip';
 import { renderActionItemBadge } from './renderActionItemBadge';
 
-/**
- * @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem
- * @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu
- */
+/** @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem */
+/** @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu */
 
 /**
  * Renders an Action Item for the action bar area.

@@ -103,7 +103,7 @@ export function TooltipsDocumentation() {
       <ul className="mb-spacing">
         <li><strong>Redundant Text</strong>: Don&apos;t use tooltips to restate visible UI text.</li>
         <li><strong>Critical Information</strong>: To communicate critical information, including errors in forms or other interaction feedback.
-          Consider using <Link to={pageUrls.modals}>Modals</Link> or <Link to={pageUrls.notifications}>Notifications</Link>.
+          Consider using <Link to={pageUrls.modals}>Modals</Link>.
         </li>
         <li><strong>Avoid Links and Buttons</strong>: As tooltips only surface from a hover, never include links or buttons in the copy. If your
           tooltip requires either of these, consider putting your content in a <Link to={pageUrls.popups}>Popup</Link>.

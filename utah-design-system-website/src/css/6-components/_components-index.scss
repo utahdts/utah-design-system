@@ -18,6 +18,7 @@ component specific, BEM (Block, Element, Modifier)
 @use "project-components/component-documentation";
 @use "project-components/copy-button";
 @use "project-components/demo-content";
+@use "project-components/demo-form";
 @use "project-components/depth-shadows-documentation";
 @use "project-components/documentation/home";
 @use "project-components/drawer";
@@ -37,6 +38,5 @@ component specific, BEM (Block, Element, Modifier)
 @use "project-components/spacing-documentation";
 @use "project-components/static-example";
 @use "project-components/table-documentation";
-@use "project-components/tag";
 @use "project-components/typography-documentation";
 @use "project-components/vertical-menu-documentation";

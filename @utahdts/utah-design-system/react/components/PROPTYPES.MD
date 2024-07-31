@@ -51,10 +51,7 @@ For input fields, `required` shows a '*' by the label. The Design System does no
 triggered when the value changes
 
 * `onClear`: ((e) => {})
-she be coupled with isClearable
-
-* `onSubmit`: ((e) => {})
-triggered when the enter key is pressed on the input
+should be coupled with isClearable
 
 * `placeholder`: (string)
 text to show in the input until a value is entered

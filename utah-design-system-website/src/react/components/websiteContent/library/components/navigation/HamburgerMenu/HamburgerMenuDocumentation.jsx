@@ -5,13 +5,14 @@ import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 import hamburgerClosedScreenshot from '../../../../../../../static/images/screenshots/components/hamburger-menu/hamburger-closed.jpg';
 import hamburgerOpenScreenshot from '../../../../../../../static/images/screenshots/components/hamburger-menu/hamburger-open.jpg';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function HamburgerMenuDocumentation() {
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Hamburger Menu</h1>
       <p className="lead-in">A &quot;hamburger menu&quot; is a single button that is often used to expand and collapse a set of navigation links.</p>
-
+      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Examples</h2>

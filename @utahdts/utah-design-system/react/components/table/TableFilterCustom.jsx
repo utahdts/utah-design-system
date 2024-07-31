@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';
 
-/** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValue} TableContextStateFilterValue */
 /** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
 
 /** @typedef {(setter: ((param: TableContextStateFilterValueObject) => void)) => void} SetterFunc */

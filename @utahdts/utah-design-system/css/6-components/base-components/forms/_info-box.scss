@@ -4,7 +4,6 @@
   .info-box {
     display: flex;
     align-items: center;
-    min-height: var(--form-ele-medium);
     background: white;
     position: relative;
     border-radius: var(--radius-small);
@@ -25,12 +24,46 @@
     &__content {
       display: flex;
       align-items: center;
-      padding: 0 var(--spacing-s);
+      padding: var(--spacing-xs) var(--spacing-s);
+    }
+
+    &__gray {
+      background-color: var(--gray-light-color);
+    }
+
+    &__primary {
+      &::before {
+        background-color: var(--primary-color);
+      }
     }
 
     &__secondary {
       &::before {
         background-color: var(--secondary-color);
+      }
+    }
+
+    &__info {
+      &::before {
+        background-color: var(--info-color);
+      }
+    }
+
+    &__danger {
+      &::before {
+        background-color: var(--danger-color);
+      }
+    }
+
+    &__warning {
+      &::before {
+        background-color: var(--warning-color);
+      }
+    }
+
+    &__success {
+      &::before {
+        background-color: var(--success-color);
       }
     }
   }

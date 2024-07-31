@@ -27,7 +27,7 @@ import { pageUrls } from '../routing/pageUrls';
 import { ColorContrasts } from './ColorContrasts';
 import { ColorPicker } from './ColorPicker';
 import { ColorPickerInstructions } from './ColorPickerInstructions';
-import { colorsToUrlParams } from './colorPickerUrlParams';
+import { colorsToCSS, colorsToUrlParams } from './colorPickerUrlParams';
 import { SwatchList } from './SwatchList';
 
 /**
@@ -42,7 +42,8 @@ export function ColorPopup({ onClose }) {
   const { cssState, setCssState } = useCssContext();
   const [mousePositionOffset, setMousePositionOffset] = useImmer({ x: 0, y: 0 });
   const draggableDivRef = useRef(/** @type {HTMLDivElement | null} */(null));
-  const [copiedUrlTitle, setCopiedUrlTitle] = useState('Share colors');
+  const [copiedUrlTitle, setCopiedUrlTitle] = useState('Share colors URL');
+  const [copiedCSSTitle, setCopiedCSSTitle] = useState('Share colors CSS');
   const { addBanner } = useBanner();
 
   const { mousePosition } = useMousePositionTracker({
@@ -169,7 +170,7 @@ export function ColorPopup({ onClose }) {
                     });
                     setCopiedUrlTitle('Share URL copied to to clipboard');
                     setTimeout(() => {
-                      setCopiedUrlTitle('Share URL');
+                      setCopiedUrlTitle('Share colors URL');
                     }, 1500);
                   })
                   // eslint-disable-next-line no-console
@@ -177,6 +178,29 @@ export function ColorPopup({ onClose }) {
               }}
             >
               <span className="utds-icon-before-share mr-spacing-xs" aria-hidden="true" /> {copiedUrlTitle}
+            </Button>
+            <Button
+              className="full-width mt-spacing-s"
+              onClick={() => {
+                const colorsCss = colorsToCSS(cssState);
+                navigator.clipboard.writeText(colorsCss)
+                  .then(() => {
+                    addBanner({
+                      className: 'banner--dark',
+                      duration: 7500,
+                      message: <div>Colors CSS copied to clipboard and ready to share!<br />{`${colorsCss.substring(0, 50)}...`}</div>,
+                      position: 'top-right',
+                    });
+                    setCopiedCSSTitle('CSS copied to to clipboard');
+                    setTimeout(() => {
+                      setCopiedCSSTitle('Share CSS');
+                    }, 1500);
+                  })
+                  // eslint-disable-next-line no-console
+                  .catch((e) => console.error(e));
+              }}
+            >
+              <span className="utds-icon-before-share mr-spacing-xs" aria-hidden="true" /> {copiedCSSTitle}
             </Button>
           </Popup>
           {

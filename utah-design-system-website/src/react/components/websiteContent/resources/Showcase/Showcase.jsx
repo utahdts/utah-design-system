@@ -1,19 +1,25 @@
-import { useMemo } from 'react';
 import { shuffle } from 'lodash';
+import { useMemo } from 'react';
 import absWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/abs-utah-gov.webp';
-import bewiseWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/bewise-utah-gov.webp';
+import archivesWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/archives.webp';
 import businessWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/business-utah-gov.webp';
 import chipWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/chip-utah-gov.webp';
 import dhhsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhhs-utah-gov.webp';
 import dhrmWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhrm-utah-gov.webp';
+import siacWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dps-siac.webp';
 import healthcarestatsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/healthcarestats-utah-gov.webp';
+import insuranceWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/insurance-department.webp';
+import kidsReadyToReadWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/kids-ready-to-read.webp';
+import landTrustsAdvocacyWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/land-trusts-advocacy.webp';
 import medicalcannabisWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/medicalcannabis-utah-gov.webp';
+import naturalResourcesWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/natural-resources.webp';
 import ogmWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/ogm-utah-gov.webp';
 import oneutahsummitWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/oneutahsummit-utah-gov.webp';
+import onlineLibraryWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/online-library.webp';
+import publicSafetyWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/public-safety.webp';
 import startupWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/startup-utah-gov.webp';
-import thrivingWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/thriving-utah-gov.webp';
+import utahsOwnWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/utahs-own.webp';
 import utahStateCapitolWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/utahstatecapitol-utah-gov.webp';
-import vitalRecordsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/vitalrecords-utah-gov.webp';
 import { ShowcaseExample } from './ShowcaseExample';
 
 export function Showcase() {
@@ -42,11 +48,32 @@ export function Showcase() {
         url: 'https://business.utah.gov',
       },
       {
+        agency: 'Governor\'s Office of Economic Opportunity',
+        id: 'startupstate',
+        image: startupWebsiteScreenshot,
+        title: 'Startup State',
+        url: 'https://startup.utah.gov',
+      },
+      {
+        agency: 'Governor\'s Office of Economic Opportunity',
+        id: 'oneutahsummit',
+        image: oneutahsummitWebsiteScreenshot,
+        title: 'One Utah Summit',
+        url: 'https://oneutahsummit.utah.gov',
+      },
+      {
         agency: 'Department of Natural Resources',
         id: 'ogm',
         image: ogmWebsiteScreenshot,
         title: 'Oil, Gas, and Mining',
         url: 'https://ogm.utah.gov',
+      },
+      {
+        agency: 'Department of Natural Resources',
+        id: 'natural-resources',
+        image: naturalResourcesWebsiteScreenshot,
+        title: 'Natural Resources',
+        url: 'https://naturalresources.utah.gov',
       },
       {
         agency: 'Department of Health and Human Services',
@@ -63,34 +90,6 @@ export function Showcase() {
         url: 'https://dhhs.utah.gov',
       },
       {
-        agency: 'Governors Office of Economic Opportunity',
-        id: 'oneutahsummit',
-        image: oneutahsummitWebsiteScreenshot,
-        title: 'One Utah Summit',
-        url: 'https://oneutahsummit.utah.gov',
-      },
-      {
-        agency: 'Department of Cultural and Community Engagement',
-        id: 'thriving',
-        image: thrivingWebsiteScreenshot,
-        title: 'Thriving Website',
-        url: 'https://thriving.utah.gov',
-      },
-      {
-        agency: 'Department of Government Operations',
-        id: 'dhrm',
-        image: dhrmWebsiteScreenshot,
-        title: 'DHRM Website',
-        url: 'https://dhrm.utah.gov',
-      },
-      {
-        agency: 'Department of Health and Human Services',
-        id: 'bewise',
-        image: bewiseWebsiteScreenshot,
-        title: 'BeWise Website',
-        url: 'https://bewise.utah.gov',
-      },
-      {
         agency: 'Department of Health and Human Services',
         id: 'healthcarestats',
         image: healthcarestatsWebsiteScreenshot,
@@ -105,18 +104,67 @@ export function Showcase() {
         url: 'https://medicalcannabis.utah.gov',
       },
       {
-        agency: 'Department of Health and Human Services',
-        id: 'vitalrecords',
-        image: vitalRecordsWebsiteScreenshot,
-        title: 'Office of Vital Records',
-        url: 'https://vitalrecords.utah.gov',
+        agency: 'Department of Cultural and Community Engagement',
+        id: 'online-library',
+        image: onlineLibraryWebsiteScreenshot,
+        title: 'Online Library Website',
+        url: 'https://onlinelibrary.utah.gov',
       },
       {
-        agency: 'Governors Office of Economic Opportunity',
-        id: 'startupstate',
-        image: startupWebsiteScreenshot,
-        title: 'Startup State',
-        url: 'https://startup.utah.gov',
+        agency: 'Department of Cultural and Community Engagement',
+        id: 'kids-ready-to-read',
+        image: kidsReadyToReadWebsiteScreenshot,
+        title: 'Kids Ready to Read Website',
+        url: 'https://kidsreadytoread.utah.gov',
+      },
+      {
+        agency: 'Department of Government Operations',
+        id: 'dhrm',
+        image: dhrmWebsiteScreenshot,
+        title: 'DHRM Website',
+        url: 'https://dhrm.utah.gov',
+      },
+      {
+        agency: 'Department of Government Operations',
+        id: 'archives',
+        image: archivesWebsiteScreenshot,
+        title: 'Archives Website',
+        url: 'https://archives.utah.gov',
+      },
+      {
+        agency: 'Department of Public Safety',
+        id: 'dps',
+        image: publicSafetyWebsiteScreenshot,
+        title: 'Public Safety Website',
+        url: 'https://dps.utah.gov',
+      },
+      {
+        agency: 'Department of Public Safety',
+        id: 'siac',
+        image: siacWebsiteScreenshot,
+        title: 'SIAC Website',
+        url: 'https://siac.utah.gov',
+      },
+      {
+        agency: 'Utah Insurance Department',
+        id: 'insurance',
+        image: insuranceWebsiteScreenshot,
+        title: 'Insurance Website',
+        url: 'https://insurance.utah.gov',
+      },
+      {
+        agency: 'Land Trusts Advocacy Office',
+        id: 'land-trusts-advocacy',
+        image: landTrustsAdvocacyWebsiteScreenshot,
+        title: 'Land Trusts Advocacy Website',
+        url: 'https://landtrustsadvocacy.utah.gov/',
+      },
+      {
+        agency: 'Department of Agriculture and Food',
+        id: 'utahs-own',
+        image: utahsOwnWebsiteScreenshot,
+        title: 'Utah\'s Own Website',
+        url: 'https://utahsown.org/',
       },
     ]),
     []
@@ -148,18 +196,6 @@ export function Showcase() {
         ))}
 
       </div>
-      <hr />
-      <h2 id="coming-soon">Coming Soon</h2>
-      <p>The following websites and applications that are currently in progress will be using the design system.</p>
-      <ul>
-        <li>Department of Public Safety</li>
-        <li>Board of Pardons</li>
-        <li>Utah Employee Gateway</li>
-        <li>Utah Environmental Quality Interactive Map</li>
-        <li>Department of Natural Resources</li>
-        <li>travel.utah.gov</li>
-        <li>UGRC High Resolution GPS Bill Pay App</li>
-      </ul>
     </div>
   );
 }

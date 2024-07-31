@@ -16,6 +16,8 @@ import { useMultiSelectContext } from './context/useMultiSelectContext';
  * @typedef {import('@utahdts/utah-design-system').MutableRef<MutableRefT>} MutableRef
  */
 
+/** @typedef {import ('react').UIEventHandler} UIEventHandler */
+
 /**
  * @param {object} props
  * @param {boolean} [props.allowCustomEntry] can the user type in their own items to add to the list?
@@ -29,6 +31,8 @@ import { useMultiSelectContext } from './context/useMultiSelectContext';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
+ * @param {UIEventHandler} [props.onBlur]
+ * @param {UIEventHandler} [props.onFocus]
  * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {string} [props.placeholder]
  * @param {string} [props.wrapperClassName]
@@ -46,7 +50,9 @@ export function MultiSelectComboBox({
   label,
   labelClassName,
   name,
+  onBlur,
   onCustomEntry,
+  onFocus,
   placeholder,
   wrapperClassName,
   ...rest
@@ -164,8 +170,30 @@ export function MultiSelectComboBox({
             wrapperClassName={wrapperClassName}
             // @ts-ignore
             isLabelSkipped // this gets spread down to the textInput so that there is only one label
-            onFocus={() => setTimeout(() => setMultiSelectContextValue((draftContext) => { draftContext.textInputHasFocus = true; }), 0)}
-            onBlur={() => setTimeout(() => setMultiSelectContextValue((draftContext) => { draftContext.textInputHasFocus = false; }), 0)}
+            onFocus={
+              /** @type {UIEventHandler} */ (
+                (e) => {
+                  onFocus?.(e);
+                  setTimeout(() => setMultiSelectContextValue((draftContext) => { draftContext.textInputHasFocus = true; }), 0);
+                }
+              )
+            }
+            onBlur={
+              /** @type {UIEventHandler} */ (
+                (e) => {
+                  onBlur?.(e);
+                  setTimeout(
+                    () => setMultiSelectContextValue((draftContext) => {
+                      draftContext.textInputHasFocus = false;
+                      if (!draftContext.clearButtonHasFocus) {
+                        draftContext.isOptionsExpanded = false;
+                      }
+                    }),
+                    0
+                  );
+                }
+              )
+            }
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
           >
@@ -192,6 +220,21 @@ export function MultiSelectComboBox({
               }
             }}
             title="Toggle popup menu"
+            // @ts-ignore
+            onBlur={() => {
+              // tabbing off of toggle icon while the popper options list was open was not closing the list
+              // because the list didn't get focus when it was opened by a click
+              setTimeout(
+                () => {
+                  const { activeElement } = document;
+                  // @ts-ignore
+                  multiSelectContextNonStateRef?.current.textInput?.focus();
+                  // @ts-ignore
+                  activeElement?.focus();
+                },
+                100
+              );
+            }}
             // @ts-ignore prevent the chevron from closing and reopening the popup
             onMouseDown={(e) => e.preventDefault()}
           />

@@ -35,7 +35,7 @@ export function CardDocumentation() {
               <div className="flex justify-end">
                 <button type="button" className="button">Contact Us</button>
                 <button type="button" className="button button--solid ml-spacing">
-                  See More
+                  <span>See More</span>
                   <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
                 </button>
               </div>
@@ -74,7 +74,7 @@ export function CardDocumentation() {
                 type="button" 
                 class="button button--solid ml-spacing"
               >
-                See More
+                <span>See More</span>
                 <span class="button--icon button--icon-right">
                   <span
                     class="utds-icon-before-arrow-right"
@@ -116,7 +116,7 @@ export function CardDocumentation() {
               </div>
             </Link>
           </div>
-          )}
+        )}
         quickTips={(
           <ul>
             <li>
@@ -168,7 +168,7 @@ export function CardDocumentation() {
                 <div className="flex justify-end">
                   <button type="button" className="button">Contact Us</button>
                   <button type="button" className="button button--solid ml-spacing">
-                    See More
+                    <span>See More</span>
                     <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
                   </button>
                 </div>
@@ -189,7 +189,7 @@ export function CardDocumentation() {
                 <div className="flex justify-end">
                   <button type="button" className="button">Contact Us</button>
                   <button type="button" className="button ml-spacing">
-                    See More
+                    <span>See More</span>
                     <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
                   </button>
                 </div>
@@ -208,7 +208,7 @@ export function CardDocumentation() {
                 }}
               >
                 <button type="button" className="button mb-spacing-xl">
-                  See More
+                  <span>See More</span>
                   <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
                 </button>
               </div>
@@ -238,7 +238,7 @@ export function CardDocumentation() {
               <div class="flex justify-end">
                 <button type="button" class="button">Contact Us</button>
                 <button type="button" class="button button--solid ml-spacing">
-                  See More
+                  <span>See More</span>
                   <span class="button--icon button--icon-right">
                     <span
                       class="utds-icon-before-arrow-right"
@@ -267,7 +267,7 @@ export function CardDocumentation() {
               <div className="flex justify-end">
                 <button type="button" className="button">Contact Us</button>
                 <button type="button" className="button ml-spacing">
-                  See More
+                  <span>See More</span>
                   <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
                 </button>
               </div>
@@ -297,7 +297,7 @@ export function CardDocumentation() {
             <div class="flex justify-end">
               <button type="button" class="button">Contact Us</button>
               <button type="button" class="button ml-spacing">
-                See More
+                <span>See More</span>
                 <span class="button--icon button--icon-right">
                   <span
                     class="utds-icon-before-arrow-right"
