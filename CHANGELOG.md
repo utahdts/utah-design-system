@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Limit drawer width from full screen
 - Prevent errors about currentOnFormKeyUp
 - Relink XD document on Getting Started page
+- Remove react-router from library
 - Tell user to press down arrow for date range filter
 - Update TimeInput options when format changes
 
