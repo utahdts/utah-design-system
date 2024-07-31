@@ -1,6 +1,7 @@
 import { VerticalMenu } from '@utahdts/utah-design-system';
-import { useImmer } from 'use-immer';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useImmer } from 'use-immer';
 import { pageUrls } from '../../../../../routing/pageUrls';
 
 /** @typedef {import('utah-design-system-website').VerticalMenuExamplePropsShape} VerticalMenuExamplePropsShape */
@@ -19,6 +20,8 @@ export function VerticalMenuExampleRender({
   },
   innerRef,
 }) {
+  const navigate = useNavigate();
+
   const [menus, setMenu] = useImmer([
     {
       header: 'Components',
@@ -30,7 +33,7 @@ export function VerticalMenuExampleRender({
           children: [
             {
               title: 'Back to Top',
-              link: pageUrls.backTopTop,
+              actionFunction: () => navigate(pageUrls.backTopTop),
               id: 'vertical-menu-back-to-top-item',
             },
             {
@@ -47,12 +50,12 @@ export function VerticalMenuExampleRender({
             {
               title: 'Side Panel',
               id: 'vertical-menu-side-panel-item',
-              link: pageUrls.sidePanelNavigation,
+              actionFunction: () => navigate(pageUrls.sidePanelNavigation),
             },
             {
               title: 'Skip Link',
               id: 'vertical-menu-skip-link-item',
-              link: pageUrls.skipLink,
+              actionFunction: () => navigate(pageUrls.skipLink),
             },
           ],
           childrenMenuType,
