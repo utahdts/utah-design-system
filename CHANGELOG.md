@@ -5,6 +5,53 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.18.0] 7/31/2024
+## Breaking Change
+- **[Breaking]** Remove onSubmit from React components
+
+## Added
+- Add ADA link to accessibility documentation
+- Add Angular example to Getting Started page
+- Add dark color to banners sandbox
+- Add unimplemented components disclaimer
+- Add documentation for `mobileMenuLocation`
+- Add documentation for Banners, ConfirmationButton, Modals, Pagination, RadioButton, Tooltips
+- Add example Form with validation on Form Guidelines page
+- Add example to InfoBox documentation
+- Add Info Box classes
+- Add placeholder to Table Filters
+- Add Skeleton component
+- Allow copying custom colors as CSS
+- Make UtahDesignSystemContext's defaultSettings optional
+- Show Popup Content in popups documentation
+
+## Changed
+- Remove Create React App from Readme
+- Replace uuidv4() with useId()
+- Update Demo page to use components
+- Update drawers documentation
+- Update official website popup image
+- Update Showcase page
+- Update skip link on search page
+- Update tag colors
+
+## Removed
+- Remove duplicate CSS selectors
+
+## Fixed
+- Add min-width for ComboBox popups
+- Add role=separator and aria-orientation to Vertical separator in dividers documentation
+- Allow Popup custom popper dependency updates
+- Close multi select options on blur
+- Fix multi-select tag styling
+- Fix sandbox `ariaLabeledBy` spelling
+- Keep calendar open when date range filter calendar icon pressed
+- Limit drawer width from full screen
+- Prevent errors about currentOnFormKeyUp
+- Relink XD document on Getting Started page
+- Tell user to press down arrow for date range filter
+- Update TimeInput options when format changes
+
 # [1.17.0] 5/14/2024
 ## Breaking Change
 - Icons.jsx has been removed in favor of using css icons.
@@ -425,6 +472,7 @@ N/A
 
 # 👇 CHANGELOG template 👇
 # [version] date
+## Breaking Change
 ## Added
 ## Changed
 ## Deprecated
