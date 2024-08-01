@@ -27,7 +27,7 @@ export const pageUrls = {
   dateInput: /** @type {PageUrl} */ ('/library/components/forms/dateInput'),
   demoPage: /** @type {PageUrl} */ ('/resources/demoPage'),
   depthElevationShadows: /** @type {PageUrl} */ ('/guidelinesStandards/depthElevationShadows'),
-  digitalCredentials: /** @type {PageUrl} */ ('/guidelinesStandards/digitalCredentials'),
+  digitalCredentials: /** @type {PageUrl} */ ('/guidelinesStandards/verifiableDigitalCredentials'),
   dividers: /** @type {PageUrl} */ ('/library/components/textLayout/dividers'),
   drawers: /** @type {PageUrl} */ ('/library/components/containers/drawers'),
   fileInput: /** @type {PageUrl} */ ('/library/components/forms/fileInput'),
