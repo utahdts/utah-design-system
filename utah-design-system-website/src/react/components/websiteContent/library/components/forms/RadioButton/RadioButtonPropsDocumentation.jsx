@@ -57,10 +57,8 @@ export function RadioButtonPropsDocumentation() {
             <TableCell><code>string</code></TableCell>
             <TableCell><em>required</em></TableCell>
             <TableCell>
-              An id to put on the <code>&lt;fieldset&gt;</code> element.<br />
-              This will also be use as the <code>name</code>
-              attribute for any <code>RadioButton</code> contained.<br />
-              Is used by <code>RadioButtonGroupContextProvider</code>.
+              An id to put on the <code>&lt;fieldset&gt;</code> element.<br /> This will also be use as the <code>name</code>{' '}
+              attribute for any <code>RadioButton</code> contained.<br /> Is used by <code>RadioButtonGroupContextProvider</code>.
             </TableCell>
           </TableRow>
 

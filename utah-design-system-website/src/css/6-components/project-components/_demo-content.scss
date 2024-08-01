@@ -42,7 +42,8 @@
     color: var(--gray-on-primary-color) !important;
   }
 }
-.text-on-primary-color-light, .date-input__popup {
+.text-on-primary-color-light,
+.date-input__popup {
   color: var(--gray-color);
   a {
     color: var(--primary-color);
@@ -114,7 +115,7 @@
         width: 100%;
         height: 100%;
         background-color: var(--primary-color);
-        opacity: .75;
+        opacity: 0.75;
         border-radius: 6px 6px 0 0;
       }
     }
@@ -268,7 +269,9 @@
     }
   }
 
-  .events, .permits, .visit {
+  .events,
+  .permits,
+  .visit {
     &__content {
       max-width: var(--content-width-narrow);
     }
@@ -283,7 +286,10 @@
       height: 350px;
       border: 2px solid white;
     }
-    p, .permits__content h2, label, legend {
+    p,
+    .permits__content h2,
+    label,
+    legend {
       color: white;
     }
     input {
@@ -292,11 +298,12 @@
   }
 
   .visit {
-    ul, li {
+    ul,
+    li {
       list-style: none;
       padding: 0;
     }
-    ul{
+    ul {
       padding-left: var(--spacing);
     }
     svg {
@@ -304,7 +311,8 @@
     }
   }
 
-  .faq, .news {
+  .faq,
+  .news {
     & > div > div:first-child {
       max-width: var(--content-width-narrow);
     }
@@ -412,7 +420,8 @@
   }
 
   @media screen and (max-width: 860px) {
-    .faq, .news {
+    .faq,
+    .news {
       padding: 0 var(--spacing-xl);
     }
   }
@@ -448,10 +457,6 @@
     .visit__content > .flex {
       flex-direction: column;
       gap: var(--spacing);
-
-      .flex {
-
-      }
     }
   }
 }

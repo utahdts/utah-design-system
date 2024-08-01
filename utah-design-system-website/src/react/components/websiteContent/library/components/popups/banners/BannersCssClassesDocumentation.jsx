@@ -14,11 +14,11 @@ export function BannersCssClassesDocumentation() {
       <TableRow>
         <TableCell>
           <div className="props-code-wrapper">
-            <code>.banner--bottom</code> |
-            <code>.banner--bottom-right</code> |
-            <code>.banner--bottom-left</code> |
-            <code>.banner--top</code> |
-            <code>.banner--top-right</code> |
+            <code>.banner--bottom</code> |{' '}
+            <code>.banner--bottom-right</code> |{' '}
+            <code>.banner--bottom-left</code> |{' '}
+            <code>.banner--top</code> |{' '}
+            <code>.banner--top-right</code> |{' '}
             <code>.banner--top-left</code>
           </div>
         </TableCell>
@@ -27,10 +27,10 @@ export function BannersCssClassesDocumentation() {
       <TableRow>
         <TableCell>
           <div className="props-code-wrapper">
-            <code>.banner--info</code> |
-            <code>.banner--warning</code> |
-            <code>.banner--danger</code> |
-            <code>.banner--success</code> |
+            <code>.banner--info</code> |{' '}
+            <code>.banner--warning</code> |{' '}
+            <code>.banner--danger</code> |{' '}
+            <code>.banner--success</code> |{' '}
             <code>.banner--dark</code>
           </div>
         </TableCell>
@@ -42,8 +42,8 @@ export function BannersCssClassesDocumentation() {
       <TableRow>
         <TableCell>
           <div className="props-code-wrapper">
-            <code>.banner--small</code> |
-            <code>.banner--medium</code> |
+            <code>.banner--small</code> |{' '}
+            <code>.banner--medium</code> |{' '}
             <code>.banner--large</code>
           </div>
         </TableCell>
@@ -51,8 +51,8 @@ export function BannersCssClassesDocumentation() {
           CSS class modifiers to change the banner <code>max-width</code>.<br />
           Widths are:
           <div className="props-code-wrapper">
-            <code>320px</code> |
-            <code>640px</code> |
+            <code>320px</code> |{' '}
+            <code>640px</code> |{' '}
             <code>960px</code>.
           </div>
         </TableCell>
@@ -80,11 +80,11 @@ export function BannersCssClassesDocumentation() {
       <TableRow>
         <TableCell>
           <div className="props-code-wrapper">
-            <code>.banner-global__bottom</code> |
-            <code>.banner-global__bottom-right</code> |
-            <code>.banner-global__bottom-left</code> |
-            <code>.banner-global__top</code> |
-            <code>.banner-global__top-right</code> |
+            <code>.banner-global__bottom</code> |{' '}
+            <code>.banner-global__bottom-right</code> |{' '}
+            <code>.banner-global__bottom-left</code> |{' '}
+            <code>.banner-global__top</code> |{' '}
+            <code>.banner-global__top-right</code> |{' '}
             <code>.banner-global__top-left</code>
           </div>
         </TableCell>

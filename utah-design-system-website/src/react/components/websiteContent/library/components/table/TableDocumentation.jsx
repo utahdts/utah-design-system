@@ -234,8 +234,7 @@ export function TableDocumentation() {
         </li>
         <li>
           <strong>Aria-sort attribute.</strong> Use
-          <code>aria-sort=&quot;ascending&quot;</code> and <code>aria-sort=&quot;descending&quot;</code>
-          to convey the sort direction.
+          <code>aria-sort=&quot;ascending&quot;</code> and <code>aria-sort=&quot;descending&quot;</code> to convey the sort direction.
         </li>
         <li><strong>Scope header rows.</strong> Each header cell should have <code>scope=&quot;col&quot;</code> or <code>scope=&quot;row&quot;</code>.
         </li>
