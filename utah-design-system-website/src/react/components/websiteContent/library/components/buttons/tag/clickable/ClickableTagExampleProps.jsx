@@ -26,6 +26,16 @@ export function ClickableTagExampleProps({ setState, state }) {
 
       <Switch id="props.clickable.isDisabled" label="Disabled" width={20} />
 
+      <Select id="props.clickable.color" label="Color" className="input--height-small1x">
+        <SelectOption label="Default" value="" />
+        <SelectOption label="Primary" value="tag--primary-color" />
+        <SelectOption label="Primary light" value="tag--primary-color-light" />
+        <SelectOption label="Secondary" value="tag--secondary-color" />
+        <SelectOption label="Secondary light" value="tag--secondary-color-light" />
+        <SelectOption label="Accent" value="tag--accent-color" />
+        <SelectOption label="Accent light" value="tag--accent-color-light" />
+      </Select>
+
       <Select id="props.clickable.iconLeft" label="Icon Left" className="input--height-small1x">
         <SelectOption label="Checkmark" value="check" />
         <SelectOption label="Arrow" value="arrow-left" />

@@ -70,7 +70,7 @@ export function ComboBoxOption({
       () => {
         if (!isDisabled) {
           onChange(value);
-          setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, comboBoxContextNonStateRef.current.textInput, undefined));
+          setComboBoxContext((draftContext) => selectComboBoxSelection(draftContext, comboBoxContextNonStateRef.current.textInput));
         }
       },
       [isDisabled, onChange, value, setComboBoxContext, comboBoxContextNonStateRef]
@@ -190,7 +190,7 @@ export function ComboBoxOption({
                 draftContext.optionValueHighlighted = null;
                 setTimeout(
                   () => {
-                    // move cursor to end after clicking an option so it can be edited
+                    // move cursor to end after clicking an option, so it can be edited
                     // take the update of the selection out of the loop so the state updates before it moves the cursor
                     comboBoxContextNonStateRef.current.textInput?.setSelectionRange(label.length, label.length);
                   },

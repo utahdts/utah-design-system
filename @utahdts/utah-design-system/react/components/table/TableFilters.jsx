@@ -22,8 +22,8 @@ export function TableFilters({
   children,
   className,
   defaultValue,
-  innerRef,
   id,
+  innerRef,
   onChange,
   value,
   ...rest

@@ -9,6 +9,7 @@ import segmentedButtonIconOnly from '../../../../../../../static/images/screensh
 import segmentedButtonIconText from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonIconText.webp';
 import segmentedButtonOutlined from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonOutlined.webp';
 import segmentedButtonSizes from '../../../../../../../static/images/screenshots/components/segmented-button/segmentedButtonSizes.webp';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function SegmentedButtonDocumentation() {
   return (
@@ -18,6 +19,7 @@ export function SegmentedButtonDocumentation() {
         A segmented button is a compact grouping of options that permits users to select only one option from the provided set. It provides an efficient
         way for users to select options, switch views, or sort elements.
       </p>
+      <Disclaimer />
       <hr />
       <h2 id="section-example">Examples</h2>
       <StaticExample

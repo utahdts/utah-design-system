@@ -38,6 +38,7 @@ export function BannersExampleProps({ setState, state }) {
       </Select>
       <Select id="props.color" label="Color" className="input--height-small1x">
         <SelectOption label="Default" value="" />
+        <SelectOption label="Dark" value="banner--dark" />
         <SelectOption label="Success" value="banner--success" />
         <SelectOption label="Danger" value="banner--danger" />
         <SelectOption label="Info" value="banner--info" />

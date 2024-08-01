@@ -3,9 +3,8 @@
 /**
  * @param {import('immer').Draft<ComboBoxContextValue>} draftContext
  * @param {HTMLInputElement | null} textInput
- * @param {(() => void) | undefined} onSubmit
  */
-export function selectComboBoxSelection(draftContext, textInput, onSubmit) {
+export function selectComboBoxSelection(draftContext, textInput) {
   draftContext.optionValueFocused = null;
 
   if (draftContext.isValueClearedOnSelection) {
@@ -39,6 +38,5 @@ export function selectComboBoxSelection(draftContext, textInput, onSubmit) {
     }
   } else {
     textInput?.focus();
-    onSubmit?.();
   }
 }

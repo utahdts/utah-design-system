@@ -1,4 +1,4 @@
-import { Tag, useBanner } from '@utahdts/utah-design-system';
+import { joinClassNames, Tag, useBanner } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
@@ -13,6 +13,7 @@ export function TagExampleRender({
     props: {
       nonClickable: {
         className,
+        color,
         isClearable,
         isDisabled,
         iconLeft,
@@ -28,7 +29,7 @@ export function TagExampleRender({
   const { addBanner } = useBanner();
   return (
     <Tag
-      className={className}
+      className={joinClassNames(className, color)}
       iconLeft={((iconLeft === 'none') || !iconLeft) ? null : <span className={`utds-icon-before-${iconLeft}`} aria-hidden="true" />}
       iconRight={((iconRight === 'none') || !iconRight) ? null : <span className={`utds-icon-before-${iconRight}`} aria-hidden="true" />}
       id={id}

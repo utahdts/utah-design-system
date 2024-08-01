@@ -49,8 +49,7 @@ export function DesignSystemFooterMainContent() {
         <ul className="footer-agency-information__menu">
           <li><Link to={pageUrls.gettingStarted}>Getting Started</Link></li>
           <li><Link to={pageUrls.mockups}>Design Mocks</Link></li>
-          <li><Link to={pageUrls.github}>GitHub</Link></li>
-          <li><Link to={pageUrls.help}>Help</Link></li>
+          <li><ExternalLink href="https://github.com/utahdts/utah-design-system">GitHub</ExternalLink></li>
         </ul>
       </FooterAgencyInformationColumn>
 

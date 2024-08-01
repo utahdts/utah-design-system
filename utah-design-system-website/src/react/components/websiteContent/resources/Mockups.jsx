@@ -316,7 +316,6 @@ export function Mockups() {
       <MockupNavButton
         pageLinks={[
           { url: pageUrls.banners, title: 'Banners' },
-          { url: pageUrls.notifications, title: 'Notifications' },
         ]}
       />
 
@@ -473,7 +472,6 @@ export function Mockups() {
       </div>
       <MockupNavButton
         pageLinks={[
-          { url: pageUrls.callout, title: 'Call Outs' },
           { url: pageUrls.codeBlock, title: 'Code Blocks' },
           { url: pageUrls.headings, title: 'Headings' },
           { url: pageUrls.links, title: 'Links' },
@@ -511,7 +509,6 @@ export function Mockups() {
         <LightBox image={mapMobile6} alt="Map Mobile 6" className="flex-4up-gap" />
         <LightBox image={mapMobile7} alt="Map Mobile 7" className="flex-4up-gap" />
       </div>
-      <MockupNavButton pageLinks={[{ url: pageUrls.maps, title: 'Maps' }]} />
     </div>
   );
 }

@@ -23,7 +23,6 @@ import { SelectOption } from './SelectOption';
  * @param {string} [props.name]
  * @param {import('react').ChangeEventHandler} [props.onChange] can be omitted to be uncontrolled OR if changes are sent through form's onChange
  * @param {import('react').UIEventHandler} [props.onClear] do something when the field should be cleared (not needed if inside a <Form> context)
- * @param {(() => void)} [props.onSubmit] when enter key pressed in field, submit the form
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
@@ -44,7 +43,6 @@ export function Select({
   name,
   onChange,
   onClear,
-  onSubmit,
   placeholder,
   value,
   wrapperClassName,
@@ -60,7 +58,6 @@ export function Select({
     id,
     onChange,
     onClear,
-    onSubmit,
     value,
   });
   const selectInputRef = /** @type {typeof useRef<HTMLSelectElement>} */ (useRef)(null);
@@ -107,7 +104,7 @@ export function Select({
                 // @ts-ignore
                 clearInput(e);
               } else {
-                currentOnFormKeyUp(e);
+                currentOnFormKeyUp?.(e);
               }
             },
             [clearInput, currentOnFormKeyUp, showClearIcon]

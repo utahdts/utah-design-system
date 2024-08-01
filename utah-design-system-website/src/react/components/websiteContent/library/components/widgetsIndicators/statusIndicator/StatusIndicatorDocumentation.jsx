@@ -5,6 +5,7 @@ import { LightBox } from '../../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
+import { Disclaimer } from '../../../../Disclaimer';
 
 export function StatusIndicatorDocumentation() {
   return (
@@ -13,7 +14,7 @@ export function StatusIndicatorDocumentation() {
       <p className="lead-in">
         A status indicator is a non-interactive element that is used to show the status of a process. They can be a great way to identify the stage of a process at first glance, especially in long lists of data.
       </p>
-
+      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Examples</h2>

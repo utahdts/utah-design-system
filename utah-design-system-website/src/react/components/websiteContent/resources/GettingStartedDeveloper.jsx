@@ -14,12 +14,14 @@ export function GettingStartedDeveloper() {
 
       <div><strong>Help us make this page better.</strong></div>
       <p>
-        There is no limit to the technology stacks that can incorporate the Utah Header and Design System. We want to <ExternalLink href="mailto:dts_ui@utah.gov">hear from you</ExternalLink> about your stack, your
+        There is no limit to the technology stacks that can incorporate the Utah Header and Design System. We want
+        to <ExternalLink href="mailto:dts_ui@utah.gov">hear from you</ExternalLink> about your stack, your
         successes, and pain points. Please send us your experiences and/or code and stack. We would love to add it here!
       </p>
 
       <div className="home-page__color-card home-page__card-wide mb-spacing-l">
-        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Note</h3>
+        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Note
+        </h3>
         <p>The Utah Header library is fully developed and ready to be implemented in your project.</p>
         <p>Learn more about it on the <Link to={pageUrls.utahHeader}>Utah Header Documentation Page</Link>.</p>
       </div>
@@ -32,6 +34,7 @@ export function GettingStartedDeveloper() {
           <a href="#example__es-module" className="">ES Module Example (ES import)</a>
           <div className="getting-started__toc-subtitle mt-spacing">Importing via NPM</div>
           <a href="#example__vite-plain-js-app" className="">Vite Plain Javascript App Example</a>
+          <a href="#example__angular-app" className="">Angular Javascript App Example</a>
         </div>
         <div className="getting-started__toc-card">
           <div className="getting-started__toc-title mb-spacing">Using the Design System</div>
@@ -143,7 +146,12 @@ export function GettingStartedDeveloper() {
 
       <h4 id="example__vite-plain-js-app">Vite Plain Javascript App Example</h4>
       <p>
-        This option pulls the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Design System Header package</ExternalLink> from npm and imports it in to a plain JS application created with <ExternalLink href="https://vitejs.dev/guide/">Vite</ExternalLink>.
+        This option pulls the{' '}
+        <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">
+          Utah Design System Header package
+        </ExternalLink>{' '}
+        from npm and imports it in to a plain JS application created with{' '}
+        <ExternalLink href="https://vitejs.dev/guide/">Vite</ExternalLink>.<br />
         Here were the steps used to create the application and integrate the header:
       </p>
       <ol>
@@ -164,7 +172,10 @@ export function GettingStartedDeveloper() {
           />
         </li>
         <li>
-          Import the header (js/css) in to the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">examples/utah-header/vite/main.js</ExternalLink>)<br />
+          Import the header (js/css) in to the application code&apos;s main.js (see{' '}
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">
+            examples/utah-header/vite/main.js
+          </ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 import '@utahdts/utah-design-system-header/css';
@@ -176,7 +187,10 @@ export function GettingStartedDeveloper() {
           />
         </li>
         <li>
-          Load header settings to show the header in the application code&apos;s main.js (see <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">examples/utah-header/vite/main.js</ExternalLink>)<br />
+          Load header settings to show the header in the application code&apos;s main.js (see{' '}
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/vite/main.js">
+            examples/utah-header/vite/main.js
+          </ExternalLink>)<br />
           <PreCodeForCodeString
             codeRaw={`
                 setUtahHeaderSettings({
@@ -199,6 +213,93 @@ export function GettingStartedDeveloper() {
       <div className="flex justify-end mb-spacing-l">
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite"
+          // @ts-ignore
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub
+        </ExternalLink>
+      </div>
+
+      <h4 id="example__angular-app">Angular App Example</h4>
+      <p>
+        This option pulls the{' '}
+        <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">
+          Utah Design System Header package
+        </ExternalLink>
+        from npm and imports it in to a plain JS application created with{' '}
+        <ExternalLink href="https://angular.dev/">Angular</ExternalLink>.
+        Here were the steps used to create the application and integrate the header:
+      </p>
+      <ol>
+        <li>
+          Create a plain JS app with <ExternalLink href="https://angular.dev/">Angular</ExternalLink><br />
+          <PreCodeForCodeString
+            codeRaw="ng new angular-demo"
+            className="mt-spacing"
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Install the <ExternalLink href="https://www.npmjs.com/package/@utahdts/utah-design-system-header">Utah Header Dependency</ExternalLink><br />
+          <PreCodeForCodeString
+            codeRaw="npm i @utahdts/utah-design-system-header"
+            className="mt-spacing"
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Add to the{' '}
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/angular/angular.json">angular.json</ExternalLink>{' '}
+          file the css and js reference from the design system<br />
+          <PreCodeForCodeString
+            codeRaw={`
+                "styles": [
+                  "./node_modules/@utahdts/utah-design-system-header/dist/style.css",
+                  "src/styles.css"
+                ],
+                "scripts": [
+                  "./node_modules/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"
+                ]
+            `}
+            allowScrollOverflow
+            className="mt-spacing"
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Add the <code>.utah-design-system</code> class to your app.<br />
+        </li>
+        <li>
+          Load header settings to show the header in the application code&apos;s index.html (see{' '}
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/angular/src/index.html">
+            examples/utah-header/angular/src/index.html
+          </ExternalLink>)<br />
+          <PreCodeForCodeString
+            codeRaw={`
+                <script>
+                  document.addEventListener('utahHeaderLoaded', () => {
+                    window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({
+                      "title": "Angular Demo",
+                    });
+                  });
+                </script>
+              `}
+            className="mt-spacing"
+            showBackgroundColor
+          />
+        </li>
+        <li>
+          Run the application to see the header<br />
+          <PreCodeForCodeString
+            codeRaw="ng serve -o"
+            className="mt-spacing"
+            showBackgroundColor
+          />
+        </li>
+      </ol>
+      <div className="flex justify-end mb-spacing-l">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/angular"
           // @ts-ignore
           className="button button--primary-color button--small"
         >
@@ -263,7 +364,10 @@ export function GettingStartedDeveloper() {
         <li>Base Class <code>$base-class</code></li>
         <li>Light/Dark colors <code>$color-is-light</code></li>
         <li>
-          And more! See <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css">utah-design-system/@utahdts/utah-design-system/css</ExternalLink> for all the scss files.
+          And more! See{' '}
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css">
+            utah-design-system/@utahdts/utah-design-system/css
+          </ExternalLink> for all the scss files.
         </li>
       </ul>
 
@@ -285,7 +389,10 @@ export function GettingStartedDeveloper() {
         <li>Color <code>--gray-color</code> <code>--danger-color</code></li>
         <li>Timing <code>--timing-medium</code></li>
         <li>
-          And more! See <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss">utah-design-system/@utahdts/utah-design-system/css/1-settings/_settings-index.scss</ExternalLink> for all the variables.
+          And more! See{' '}
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss">
+            utah-design-system/@utahdts/utah-design-system/css/1-settings/_settings-index.scss
+          </ExternalLink> for all the variables.
         </li>
       </ul>
 

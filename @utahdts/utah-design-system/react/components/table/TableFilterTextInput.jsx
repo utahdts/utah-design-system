@@ -1,9 +1,9 @@
 import React from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TextInput } from '../forms/TextInput';
+import { useTableContext } from './hooks/useTableContext';
 import { useTableFilterRegistration } from './hooks/useTableFilterRegistration';
 import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateContext';
-import { useTableContext } from './hooks/useTableContext';
 
 /**
  * @param {object} props
@@ -14,18 +14,20 @@ import { useTableContext } from './hooks/useTableContext';
  * @param {string} [props.id]
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
  * @param {((e: React.ChangeEvent) => (string | void | undefined))} [props.onChange]
+ * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
  * @returns {import('react').JSX.Element}
  */
 export function TableFilterTextInput({
+  a11yLabel,
   className,
   defaultValue,
   exactMatch,
-  innerRef,
   id,
-  a11yLabel,
+  innerRef,
   onChange,
+  placeholder,
   recordFieldPath,
   value,
   ...rest
@@ -42,7 +44,7 @@ export function TableFilterTextInput({
     onChange,
     value,
   });
-  useTableFilterRegistration(recordFieldPath, !!exactMatch, defaultValue);
+  useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch });
   const { state: { tableId } } = useTableContext();
 
   return (
@@ -52,6 +54,7 @@ export function TableFilterTextInput({
         label={`Filter ${a11yLabel || recordFieldPath}`}
         onChange={currentOnChange}
         onClear={() => setValue('')}
+        placeholder={placeholder ?? 'Filter'}
         value={currentValue}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}

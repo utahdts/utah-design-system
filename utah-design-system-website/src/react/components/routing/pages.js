@@ -2,7 +2,6 @@ import { layoutTemplatesEnum } from '../../enums/layoutTemplatesEnum';
 import { menusEnum } from '../../enums/menusEnum';
 import { Demo } from '../demo/Demo';
 import { HomeLanding } from '../websiteContent/HomeLanding';
-import { PlaceHolderDocumentation } from '../websiteContent/PlaceHolderDocumentation';
 import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
@@ -94,9 +93,9 @@ import { pageUrls } from './pageUrls';
  *
  *  interface Page {
  *    content: React.FC,
- *    link: string | (() => string)),
+ *    link: string | (() => string),
  *    menuSecondary: PropTypes.oneOf(menusEnum.SECONDARY_MENU_...),
- *    pageTitle: string | (() => string)),
+ *    pageTitle: string | (() => string),
  *    template: PropTypes.oneOf(layoutTemplatesEnum),
  *  }
  *
@@ -188,34 +187,6 @@ export const pages = {
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
-  design: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.design,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Design',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  notifications: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.notifications,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Notifications',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  principles: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.principles,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Principles',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  uxBestPractices: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.uxBestPractices,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'UX Best Practices',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
   validation: /** @type {Page} */ ({
     content: ValidationDocumentation,
     link: pageUrls.validation,
@@ -259,20 +230,6 @@ export const pages = {
     link: pageUrls.shape,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Shape (rounded corners)',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  motionTiming: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.motionTiming,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Motion / Timing',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  colorFoundation: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.colorFoundation,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   images: /** @type {Page} */ ({
@@ -328,13 +285,6 @@ export const pages = {
   }),
 
   // === resources documentation components === //
-  contributeCommunity: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.contributeCommunity,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Contribute / Community',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
   demo: /** @type {Page} */ ({
     content: Demo,
     link: pageUrls.demoPage,
@@ -377,20 +327,6 @@ export const pages = {
     link: pageUrls.wordPressHeaderPlugin,
     menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
     pageTitle: 'WordPress Header Plugin',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  github: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.github,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'GitHub',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  help: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.help,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Help',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   icons: /** @type {Page} */ ({
@@ -499,14 +435,6 @@ export const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
-  buttonGroup: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.buttonGroup,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Button Group',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-
   confirmationButton: /** @type {Page} */ ({
     content: ConfirmationButtonDocumentation,
     link: pageUrls.confirmationButton,
@@ -611,20 +539,6 @@ export const pages = {
     pageTitle: 'Carousel',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
-  counter: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.counter,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Counter',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  maps: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.maps,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Maps',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
   processList: /** @type {Page} */ ({
     content: ProcessListDocumentation,
     link: pageUrls.processList,
@@ -670,8 +584,8 @@ export const pages = {
 
   // === forms === //
   forms: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.forms,
+    content: LibraryLanding,
+    link: pageUrls.library,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Forms',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
@@ -830,15 +744,6 @@ export const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
-  // === tooltips === //
-  callout: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.callout,
-    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
-    pageTitle: 'Call Out',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-
   iconBar: /** @type {Page} */ ({
     content: IconBarDocumentation,
     link: pageUrls.iconBar,
@@ -847,6 +752,7 @@ export const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
+  // === tooltips === //
   tooltips: /** @type {Page} */ ({
     content: TooltipsDocumentation,
     link: pageUrls.tooltips,
@@ -856,14 +762,6 @@ export const pages = {
   }),
 
   // templates
-  errorPage404: /** @type {Page} */ ({
-    content: PlaceHolderDocumentation,
-    link: pageUrls.errorPage404,
-    menuSecondary: undefined,
-    pageTitle: '404 Page',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-
   search: /** @type {Page} */ ({
     content: Search,
     link: pageUrls.search,

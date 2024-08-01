@@ -2,6 +2,8 @@
 
 /** @typedef {import('react')} React */
 /** @typedef {import ('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */
+/** @typedef {import('@utahdts/utah-design-system-header').MenuItemFunctionUrlAction} MenuItemFunctionUrlAction */
+/** @typedef {import('@utahdts/utah-design-system-header').MenuItemUrlAction} MenuItemUrlAction */
 
 /**
  * @template ImmerHookT
@@ -43,6 +45,11 @@
 /**
  * MenuTypes
  * @typedef { 'vertical' | 'horizontal' } MenuTypes
+ */
+
+/**
+ * SkeletonTypes
+ * @typedef { 'skeleton--circle' | 'skeleton--line' | 'skeleton--rectangle' } SkeletonTypes
  */
 
 /**
@@ -131,13 +138,22 @@
  */
 
 /**
- * @typedef TableContextStateFilterValue {
- *  @property {any} value
- *  @property {boolean} exactMatch
- *  @property {any} [otherFilterSpecificSettings]
+ * @typedef TableContextStateFilterValueOptions {
+ *  @property {boolean} [exactMatch]
+ *  @property {string} [dateRangeDateFormat] the format of the date used in the date range
+ *  @property {boolean} [isDateRange] the filter is a date range! ie '2022-10-03~~separator~~2023-01-22'  where begin and end dates are optional but separator is mandatory
  * }
  */
-/** @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject */
+/**
+ * @typedef TableContextStateFilterValue {
+ *  @property {string | number} value
+ *  @property {TableContextStateFilterValueOptions} options
+ * }
+ */
+/**
+ * key is recordFieldPath, value is the current filter value
+ * @typedef {Record<string, TableContextStateFilterValue>} TableContextStateFilterValueObject
+ */
 
 /** @typedef {(value: string) => boolean} TableFilterFunction */
 
@@ -146,14 +162,6 @@
  * to describe how they function.
  * @typedef TableFilterOptions {
  *  @property {boolean} exactMatch - The entered filter value is match exactly with the record data (cased to lower)
- * }
- */
-
-/**
- * The filter's current value in the TableContext
- * @typedef TableFilterValue {
- *  @property {boolean} exactMatch
- *  @property {string} value
  * }
  */
 
@@ -193,7 +201,6 @@
  * @typedef useFormContextInputResult {
  *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onChange]
  *  @property {import('react').UIEventHandler<HTMLElementT>} [onClear]
- *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onSubmit]
  *  @property {ValueT} [value]
  *  @property {import('react').KeyboardEventHandler} onFormKeyUp
  *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
@@ -254,7 +261,7 @@
  * @typedef TableContextStateFilterValues {
  *  @property {Record<string, any> | null} defaultValue
  *  @property {((param: { recordFieldPath: string, value: TableDataT }) => TableDataT) | null} onChange
- *  @property {TableContextStateFilterValueObject} value
+ *  @property {TableContextStateFilterValueObject} value key=filterPath value=TableContextStateFilterValue
  * }
  */
 
@@ -333,7 +340,6 @@
  *  @property {(newValue: string) => void} onChange
  *  @property {() => void} [onClear]
  *  @property {(e: Event, currentFilterValue: string) => boolean} [onKeyUp] return true if the key press was handled by this handler
- *  @property {() => void} [onSubmit]
  *
  *  -- options manipulation --
  *  @property {(option: ComboBoxOptionType) => void} registerOption add a new option
@@ -345,7 +351,6 @@
  * @template FormStateT
  * @typedef FormContextValue {
  *  @property {(param: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {(e?: Event) => void} [onSubmit] submit the form
  *  @property {FormStateT} [state] current values of all the form elements
  *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
  * }
@@ -406,6 +411,15 @@
  * @typedef UtahDesignSystemContextValue {
  *  @property {UtahDesignSystemContextAria} ariaLive
  *  @property {UtahDesignSystemContextBannerWithId[]} banners
+ * }
+ */
+
+/**
+ * Vertical menu links need more options than just a string url
+ * @typedef VerticalMenuMenuItemAdditions {
+ *  @property {MenuItemUrlAction} [actionUrl] - link url
+ *  @property {EventAction} [actionFunction] - onClick function
+ *  @property {MenuItemFunctionUrlAction} [actionFunctionUrl] - single page apps render an <a> but call browser push; you should handle cmd click
  * }
  */
 

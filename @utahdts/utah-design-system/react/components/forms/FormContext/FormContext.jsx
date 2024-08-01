@@ -8,7 +8,6 @@ import { createContext } from 'react';
 /** @template FormContextT */
 export const FormContext = /** @type {typeof createContext<FormContextValue<FormContextT>>} */(createContext)({
   onChange: () => { },
-  onSubmit: () => { },
   setState: () => { },
   state: /** @type {any} */ ({}),
 });

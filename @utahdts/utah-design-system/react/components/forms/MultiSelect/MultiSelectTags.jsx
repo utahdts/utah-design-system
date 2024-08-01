@@ -19,8 +19,13 @@ export function MultiSelectTags({ isDisabled }) {
     <ul className="multi-select-tags flex flex-wrap gap-xs">
       {
         multiSelectContext.selectedValues.map((selectedValue, selectedValueIndex) => {
+          const selectedValueLowerCase = selectedValue.toLowerCase();
           // option may not exist yet if the multi-select's `values` are a "defaultValue" and the options have not yet registered
-          const selectedOption = multiSelectContext.comboBoxOptions.find((option) => option.value === selectedValue);
+          const selectedOption = multiSelectContext.comboBoxOptions.find((option) => (
+            (option.value === selectedValue)
+            // not sure where/why the selected and/or the option's value gets lowercased :grimace:
+            || (option.value.toLowerCase() === selectedValueLowerCase)
+          ));
           return (
             selectedOption
               ? (

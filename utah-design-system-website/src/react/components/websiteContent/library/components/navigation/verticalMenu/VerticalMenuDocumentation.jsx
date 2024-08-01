@@ -174,8 +174,8 @@ export function VerticalMenuDocumentation() {
           On mobile devices, this could potentially make it difficult for users to access the content.
         </li>
         <li>
-          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in a <Link to={pageUrls.sidePanelNavigation}>side panel</Link>. A website that provides a single service may not require a full menu, but would do well with a button group,
-          or a horizontal navigation bar (main menu). View more information on <Link to={pageUrls.buttonGroup}>Button Groups</Link> or <Link to={pageUrls.sidePanelNavigation}>Navigation</Link>.
+          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in a <Link to={pageUrls.sidePanelNavigation}>side panel</Link>. A website that provides a single service may not require a full menu, but would do well with a group of button,
+          or a horizontal navigation bar (main menu). View more information on <Link to={pageUrls.button}>Button</Link> or <Link to={pageUrls.sidePanelNavigation}>Navigation</Link>.
         </li>
       </ul>
       <h3 id="section-usability-guidance">Usability Guidance</h3>

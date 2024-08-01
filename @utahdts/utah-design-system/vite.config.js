@@ -29,13 +29,12 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: ['react', 'react-router-dom', '@utahdts/utah-design-system-header'],
+        external: ['react', '@utahdts/utah-design-system-header'],
         output: {
           // Provide global variables to use in the UMD build
           // for externalized deps
           globals: {
-            react: 'React',
-            'react-router-dom': 'ReactRouterDom'
+            react: 'React'
           },
         },
       },

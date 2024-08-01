@@ -11,7 +11,7 @@ import { BannersGlobal } from './components/BannersGlobal';
  * provider that wraps the app at the top level
  * @param {object} props
  * @param {import('react').ReactNode} props.children
- * @param {UtahDesignSystemDefaultSettings} props.defaultSettings
+ * @param {UtahDesignSystemDefaultSettings} [props.defaultSettings]
  * @returns {import('react').JSX.Element}
  */
 export function UtahDesignSystemContextProvider({ children, defaultSettings }) {
@@ -28,7 +28,7 @@ export function UtahDesignSystemContextProvider({ children, defaultSettings }) {
       {children}
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.ASSERTIVE} messages={immerHook[0].ariaLive.assertiveMessages} />
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.POLITE} messages={immerHook[0].ariaLive.politeMessages} />
-      <BannersGlobal banners={immerHook[0].banners} bannerDuration={defaultSettings.bannerDuration} />
+      <BannersGlobal banners={immerHook[0].banners} bannerDuration={defaultSettings?.bannerDuration} />
     </UtahDesignSystemContext.Provider>
   );
 }
