@@ -5,9 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [1.18.0] 7/31/2024
+# [2.0.0] 7/31/2024
 ## Breaking Change
 - **[Breaking]** Remove onSubmit from React components
+- **[Breaking]** Remove white background from design system base class
+  - the `utah-design-system` css class no longer has a background of white
+  - To fix this issue apply a white color to the background of elements that have been affected by this change
 
 ## Added
 - Add ADA link to accessibility documentation
