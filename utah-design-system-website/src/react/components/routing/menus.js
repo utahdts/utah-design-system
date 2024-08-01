@@ -54,6 +54,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.digitalCredentials.link,
+      title: pages.digitalCredentials.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       link: pages.formGeneralDocumentation.link,
       title: pages.formGeneralDocumentation.pageTitle,
       parentLinks: [pages.guidelines.link],
