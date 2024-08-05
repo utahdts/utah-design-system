@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [2.0.1] 8/5/2024
 ## Fixed
-- Action item menus overflowing the viewport
+- Prevent action item menus overflowing the viewport
 
 # [2.0.0] 7/31/2024
 ## Breaking Change
