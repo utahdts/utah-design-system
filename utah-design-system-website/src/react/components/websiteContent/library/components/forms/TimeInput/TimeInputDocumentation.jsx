@@ -221,16 +221,16 @@ export function TimeInputDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
+        <TabGroup defaultValue="time-input-props-css">
           <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
+            <Tab id="time-input-props-css">CSS</Tab>
+            <Tab id="time-input-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="button-props-css">
+            <TabPanel tabId="time-input-props-css">
               <TimeInputCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="button-props-react">
+            <TabPanel tabId="time-input-props-react">
               <TimeInputPropsDocumentation />
             </TabPanel>
           </TabPanels>

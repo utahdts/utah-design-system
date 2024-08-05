@@ -246,16 +246,16 @@ export function TabGroupDocumentation() {
       />
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
+        <TabGroup defaultValue="tab-group-props-css">
           <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
+            <Tab id="tab-group-props-css">CSS</Tab>
+            <Tab id="tab-group-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="button-props-css">
+            <TabPanel tabId="tab-group-props-css">
               <TabGroupCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="button-props-react">
+            <TabPanel tabId="tab-group-props-react">
               <TabGroupPropsDocumentation />
             </TabPanel>
           </TabPanels>

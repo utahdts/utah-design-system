@@ -128,16 +128,16 @@ export function DrawerDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
+        <TabGroup defaultValue="drawer-props-css">
           <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
+            <Tab id="drawer-props-css">CSS</Tab>
+            <Tab id="drawer-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="button-props-css">
+            <TabPanel tabId="drawer-props-css">
               <DrawerCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="button-props-react">
+            <TabPanel tabId="drawer-props-react">
               <DrawerPropsDocumentation />
             </TabPanel>
           </TabPanels>

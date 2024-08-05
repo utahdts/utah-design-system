@@ -389,16 +389,16 @@ export function BannersDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="radio-button-props-css">
+        <TabGroup defaultValue="banners-props-css">
           <TabList>
-            <Tab id="radio-button-props-css">CSS</Tab>
-            <Tab id="radio-button-props-react">React</Tab>
+            <Tab id="banners-props-css">CSS</Tab>
+            <Tab id="banners-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="radio-button-props-css">
+            <TabPanel tabId="banners-props-css">
               <BannersCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="radio-button-props-react">
+            <TabPanel tabId="banners-props-react">
               <BannersPropsDocumentation />
             </TabPanel>
           </TabPanels>

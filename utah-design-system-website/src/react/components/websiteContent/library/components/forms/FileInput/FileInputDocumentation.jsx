@@ -133,16 +133,16 @@ export function FileInputDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
+        <TabGroup defaultValue="file-input-props-css">
           <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
+            <Tab id="file-input-props-css">CSS</Tab>
+            <Tab id="file-input-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="button-props-css">
+            <TabPanel tabId="file-input-props-css">
               <FileInputCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="button-props-react">
+            <TabPanel tabId="file-input-props-react">
               <FileInputPropsDocumentation />
             </TabPanel>
           </TabPanels>

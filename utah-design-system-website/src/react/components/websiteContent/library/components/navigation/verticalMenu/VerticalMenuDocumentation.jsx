@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { Popup, popupPlacement, VerticalMenu } from '@utahdts/utah-design-system';
+import { Popup, popupPlacement, Tab, TabGroup, TabList, TabPanel, TabPanels, VerticalMenu } from '@utahdts/utah-design-system';
 import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { useImmer } from 'use-immer';
 import { useRef } from 'react';
@@ -14,6 +14,8 @@ import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { VerticalMenuExampleRender } from './VerticalMenuExampleRender';
 import { VerticalMenuExampleProps } from './VerticalMenuExampleProps';
 import { VerticalMenuExampleCodeReact } from './VerticalMenuExampleCodeReact';
+import { VerticalMenuCssClassesDocumentation } from './VerticalMenuCssClassesDocumentation';
+import { VerticalMenuPropsDocumentation } from './VerticalMenuPropsDocumentation';
 
 export function VerticalMenuDocumentation() {
   const buttonRef = useRef(null);
@@ -45,7 +47,8 @@ export function VerticalMenuDocumentation() {
           <ul>
             <li>Displayed on the left hand side of the page.</li>
             <li>
-              Menu&apos;s in <Link to={pageUrls.sidePanelNavigation}>side panels</Link> are generally considered Landmark menus and should be labelled as such.
+              Menu&apos;s in <Link to={pageUrls.sidePanelNavigation}>side panels</Link> are generally considered Landmark menus and should be labelled
+              as such.
               View more information under <Link to={pageUrls.accessibility}>Accessibility</Link>.
             </li>
             <li>List items may have sub-menus that are indicated by a chevron located to the right of the text.</li>
@@ -68,7 +71,8 @@ export function VerticalMenuDocumentation() {
             <li>Items in this list link directly to content on the page.</li>
             <li>It is displayed on the right hand side of the page.</li>
             <li>
-              Menu&apos;s in On-Page navigation are generally considered Landmark menus and should be labelled as such. View more information under <Link to={pageUrls.accessibility}>Accessibility</Link>.
+              Menu&apos;s in On-Page navigation are generally considered Landmark menus and should be labelled as such. View more information
+              under <Link to={pageUrls.accessibility}>Accessibility</Link>.
             </li>
             <li>List items may have sub-menu items that are indicated by indentation levels.</li>
             <li>When an item is selected or has focus, it is visually indicated by bold, colored text.</li>
@@ -113,9 +117,18 @@ export function VerticalMenuDocumentation() {
                       id: 'menu-in-popup-A',
                       title: 'Popup Menu Item',
                       children: [
-                        { title: 'Sub-menu Item A', id: 'AA' },
-                        { title: 'Sub-menu Item B', id: 'BB' },
-                        { title: 'Sub-menu Item C', id: 'CC' },
+                        {
+                          title: 'Sub-menu Item A',
+                          id: 'AA',
+                        },
+                        {
+                          title: 'Sub-menu Item B',
+                          id: 'BB',
+                        },
+                        {
+                          title: 'Sub-menu Item C',
+                          id: 'CC',
+                        },
                       ],
                       childrenMenuType: childrenMenuTypes.FLYOUT,
                     },
@@ -174,8 +187,11 @@ export function VerticalMenuDocumentation() {
           On mobile devices, this could potentially make it difficult for users to access the content.
         </li>
         <li>
-          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in a <Link to={pageUrls.sidePanelNavigation}>side panel</Link>. A website that provides a single service may not require a full menu, but would do well with a group of button,
-          or a horizontal navigation bar (main menu). View more information on <Link to={pageUrls.button}>Button</Link> or <Link to={pageUrls.sidePanelNavigation}>Navigation</Link>.
+          <strong>If the website has few pages or is focused on a single task.</strong> Most sites do not need menus located in
+          a <Link to={pageUrls.sidePanelNavigation}>side panel</Link>.
+          A website that provides a single service may not require a full menu, but would do well with a group of button,
+          or a horizontal navigation bar (main menu). View more information
+          on <Link to={pageUrls.button}>Button</Link> or <Link to={pageUrls.sidePanelNavigation}>Navigation</Link>.
         </li>
       </ul>
       <h3 id="section-usability-guidance">Usability Guidance</h3>
@@ -229,10 +245,14 @@ export function VerticalMenuDocumentation() {
           <ul>
             <li>The role should be assigned to the controlling element.</li>
             <li>
-              The <code>role=&quot;navigation&quot;</code> identifies and conveys the structural information of the element on the page. And should be reserved for&nbsp;
-              landmark navigation (e.g. The main menu or side menu). You would generally not use <code>role=&quot;navigation&quot;</code> for popup menus.
+              The <code>role=&quot;navigation&quot;</code> identifies and conveys the structural information of the element on the page. And should be
+              reserved for&nbsp;
+              landmark navigation (e.g. The main menu or side menu). You would generally not use <code>role=&quot;navigation&quot;</code> for popup
+              menus.
             </li>
-            <li>The <code>role=&quot;menu&quot;</code> is added to a group of items that is presented as a menu. The list is not pertinent to the structure of the site.</li>
+            <li>The <code>role=&quot;menu&quot;</code> is added to a group of items that is presented as a menu. The list is not pertinent to the
+              structure of the site.
+            </li>
           </ul>
         </li>
         <li>
@@ -299,7 +319,23 @@ export function VerticalMenuDocumentation() {
 </div>`}
       />
       <h2 id="section-settings-props">Settings and Props</h2>
-      <h5>Example of menu</h5>
+      <div className="documentation-content--small-text">
+        <TabGroup defaultValue="menu-props-css">
+          <TabList>
+            <Tab id="menu-props-css">CSS</Tab>
+            <Tab id="menu-props-react">React</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId="menu-props-css">
+              <VerticalMenuCssClassesDocumentation />
+            </TabPanel>
+            <TabPanel tabId="menu-props-react">
+              <VerticalMenuPropsDocumentation />
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </div>
+      <h5 className="mt-spacing-l">Example of menu</h5>
       <PreCodeForCodeString
         className="gray-block"
         codeRaw={`[{

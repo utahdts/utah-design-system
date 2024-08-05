@@ -187,16 +187,16 @@ export function SpinnersDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
+        <TabGroup defaultValue="spinner-props-css">
           <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
+            <Tab id="spinner-props-css">CSS</Tab>
+            <Tab id="spinner-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="button-props-css">
+            <TabPanel tabId="spinner-props-css">
               <SpinnerCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="button-props-react">
+            <TabPanel tabId="spinner-props-react">
               <SpinnerPropsDocumentation />
             </TabPanel>
           </TabPanels>
