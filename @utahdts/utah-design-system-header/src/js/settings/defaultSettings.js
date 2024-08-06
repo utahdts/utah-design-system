@@ -24,6 +24,8 @@ export const defaultSettings = {
   size: sizes.MEDIUM,
   skipLinkUrl: '#main-content',
   title: 'My Utah.gov Site',
-  titleUrl: '/',
+  titleUrlAction: {
+    actionUrl: '/',
+  },
   utahId: false,
 };

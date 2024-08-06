@@ -6,7 +6,7 @@ import {
   useRef
 } from 'react';
 import { useImmer } from 'use-immer';
-import { websiteUtahHeaderSettings } from '../../../../../../websiteUtahHeaderSettings';
+import { useWebsiteUtahHeaderSettings } from '../../../../../../useWebsiteUtahHeaderSettings';
 import { localStorageKeys } from '../../../../../enums/localStorageKeys';
 import { parseHeaderSettings } from './parseHeaderSettings';
 import { stringifyHeaderSettings } from './stringifyHeaderSettings';
@@ -32,6 +32,7 @@ import { stringifyHeaderSettings } from './stringifyHeaderSettings';
  */
 export function useInteractiveHeaderState() {
   const originalHeader = useRef(getUtahHeaderSettings());
+  const websiteUtahHeaderSettings = useWebsiteUtahHeaderSettings();
 
   // a real Settings object is the core 'source-of-truth' off of which everything else spins
   const [headerSettings, setHeaderSettings] = useImmer(() => {

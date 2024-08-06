@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [x.x.x] x/x/xxxx
+## Deprecated
+- Deprecated header setting for `titleUrl`; replaced by `titleUrlAction` (see `@utahdts/utah-design-system-header/src/@types/jsDocTypes.d.js` for types)
+
+## Added
+- Changed header setting for `titleUrl` to be `titleUrlAction` for single page app functionality (see `@utahdts/utah-design-system-header/src/@types/jsDocTypes.d.js` for types)
+
 # [2.0.1] 8/5/2024
 ## Fixed
 - Prevent action item menus overflowing the viewport

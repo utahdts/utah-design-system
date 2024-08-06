@@ -41,7 +41,6 @@ You can see the header being used in the `index.html` file:
         "showTitle": true,
         "size": "MEDIUM",
         "title": "Utah Design System",
-        "titleUrl": "/",
         "utahId": true,
         "footer": null,
         "logo": {
