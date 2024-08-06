@@ -2,12 +2,42 @@ import { TableCell, TableRow } from '@utahdts/utah-design-system';
 import { documentationTypes } from '../../../../../../enums/documentationTypes';
 import { SettingsDocumentation } from '../../../documentation/SettingsDocumentation';
 
-export function SelectPropsDocumentation() {
+export function MultiSelectPropsDocumentation() {
   return (
     <>
-      <h3><code>Select</code></h3>
+      <h3><code>MultiSelect</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell><code className="primary-color">allowCustomEntry</code></TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>true</code>
+                <span> | </span>
+                <code>false</code>
+              </div>
+            </TableCell>
+            <TableCell>false</TableCell>
+            <TableCell>
+              When true, the user can enter custom values instead of only being allowed to select from the provided list.
+              Parent component gets the new value through <code>onChange</code>.
+              Parent component can also use <code>onCustomEntry</code> to be notified of a new custom entered value.
+              It is the parent&apos;s responsibility to add the new custom item to the list of options if desired.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code className="primary-color">children</code></TableCell>
+            <TableCell><code>React.ReactNode</code></TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Most often, children consists of:
+              <ul style={{ padding: 0, listStyle: 'none' }}>
+                <li><code>MultiSelectOption</code></li>
+                <li><code>MultiSelectOptionGroup</code></li>
+                <li><code>MultiSelectTagTemplate</code>.</li>
+              </ul>
+            </TableCell>
+          </TableRow>
           <TableRow>
             <TableCell><code className="primary-color">className</code></TableCell>
             <TableCell>
@@ -19,14 +49,14 @@ export function SelectPropsDocumentation() {
             <TableCell>This css class will be added to the select.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code className="primary-color">defaultValue</code></TableCell>
+            <TableCell><code className="primary-color">defaultValues</code></TableCell>
             <TableCell>
               <div className="props-code-wrapper">
-                <code>string</code>
+                <code>string[]</code>
               </div>
             </TableCell>
             <TableCell>null</TableCell>
-            <TableCell>The select will start with this value selected for an uncontrolled component.</TableCell>
+            <TableCell>The select will start with these values selected for an uncontrolled component.</TableCell>
           </TableRow>
           <TableRow>
             <TableCell><code className="primary-color">errorMessage</code></TableCell>
@@ -47,7 +77,7 @@ export function SelectPropsDocumentation() {
                 <code>number</code>
               </div>
             </TableCell>
-            <TableCell>(required)</TableCell>
+            <TableCell><em>required</em></TableCell>
             <TableCell>An id to put on the input element.</TableCell>
           </TableRow>
           <TableRow>
@@ -114,7 +144,7 @@ export function SelectPropsDocumentation() {
                 <code>string</code>
               </div>
             </TableCell>
-            <TableCell>(required)</TableCell>
+            <TableCell><em>required</em></TableCell>
             <TableCell>Label to be displayed next to the select.</TableCell>
           </TableRow>
           <TableRow>
@@ -155,20 +185,32 @@ export function SelectPropsDocumentation() {
             </TableCell>
           </TableRow>
           <TableRow>
+            <TableCell><code className="primary-color">onCustomEntry</code></TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>function</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The provided function is called when the user enters a custom value. See <code>allowCustomEntry</code> for more details.
+            </TableCell>
+          </TableRow>
+          <TableRow>
             <TableCell><code className="primary-color">placeholder</code></TableCell>
             <TableCell><code>string</code></TableCell>
             <TableCell>null</TableCell>
             <TableCell>An extra select option will be placed at the top of the list so that the user first sees this item in the select.</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell><code className="primary-color">value</code></TableCell>
+            <TableCell><code className="primary-color">values</code></TableCell>
             <TableCell>
               <div className="props-code-wrapper">
-                <code>string</code>
+                <code>string[]</code>
               </div>
             </TableCell>
             <TableCell>null</TableCell>
-            <TableCell>The selected option&apos;s value. All values in an HTML <code>select</code> are strings.</TableCell>
+            <TableCell>The selected values. All values in an HTML <code>select</code> are strings.</TableCell>
           </TableRow>
           <TableRow>
             <TableCell><code className="primary-color">wrapperClassName</code></TableCell>
@@ -193,31 +235,14 @@ export function SelectPropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>SelectOption</code></h3>
+      <h3><code>MultiSelectOption</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
-            <TableCell><code className="primary-color">className</code></TableCell>
-            <TableCell>
-              <div className="props-code-wrapper">
-                <code>string</code>
-              </div>
-            </TableCell>
+            <TableCell><code className="primary-color">children</code></TableCell>
+            <TableCell><code>React.ReactNode</code></TableCell>
             <TableCell>null</TableCell>
-            <TableCell>This css class will be added to the <code>option</code>.</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell><code className="primary-color">innerRef</code></TableCell>
-            <TableCell>
-              <div className="props-code-wrapper">
-                <code>MutableRefObject</code>
-              </div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              This ref will be attached to the rendered <code>option</code> element allowing the parent component to interact
-              directly with the actual DOM elements.
-            </TableCell>
+            <TableCell>Most often, children is a the label. Will overwrite the <code>label</code>.</TableCell>
           </TableRow>
           <TableRow>
             <TableCell><code className="primary-color">isDisabled</code></TableCell>
@@ -235,35 +260,84 @@ export function SelectPropsDocumentation() {
             </TableCell>
           </TableRow>
           <TableRow>
+            <TableCell><code className="primary-color">isStatic</code></TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>true</code>
+                <span> | </span>
+                <code>false</code>
+              </div>
+            </TableCell>
+            <TableCell>false</TableCell>
+            <TableCell>
+              When isStatic is true, the option will always be part of the result when filtered.
+            </TableCell>
+          </TableRow>
+          <TableRow>
             <TableCell><code className="primary-color">label</code></TableCell>
             <TableCell>
               <div className="props-code-wrapper">
                 <code>string</code>
               </div>
             </TableCell>
-            <TableCell>(required)</TableCell>
-            <TableCell>Label to be displayed within the <code>option</code>.</TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>The label to display.</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code className="primary-color">tagClassName</code></TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>This class will be put on the tag when this option is selected.</TableCell>
           </TableRow>
           <TableRow>
             <TableCell><code className="primary-color">value</code></TableCell>
             <TableCell>
               <div className="props-code-wrapper">
                 <code>string</code>
-                <code>number</code>
               </div>
             </TableCell>
-            <TableCell>null</TableCell>
+            <TableCell><em>required</em></TableCell>
             <TableCell>The option&apos;s value.</TableCell>
           </TableRow>
+        </SettingsDocumentation>
+      </div>
+
+      <h3><code>MultiSelectOptionGroup</code></h3>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
-            <TableCell><code className="primary-color">...rest</code></TableCell>
+            <TableCell><code className="primary-color">children</code></TableCell>
+            <TableCell><code>React.ReactNode</code></TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>Most often, children is a list of <code>MultiSelectOption</code>.</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code className="primary-color">label</code></TableCell>
             <TableCell>
               <div className="props-code-wrapper">
-                <code>...any</code>
+                <code>string</code>
               </div>
             </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>Additional props you wish to pass to the <code>option</code>.</TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>The label to display.</TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
+
+      <h3><code>MultiSelectTagTemplate</code></h3>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell><code className="primary-color">children</code></TableCell>
+            <TableCell>
+              <code>(selectedValue: string, selectedOption: ComboBoxOptionType) =&gt; React.ReactNode</code>
+            </TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>Most often, a selected option.</TableCell>
           </TableRow>
         </SettingsDocumentation>
       </div>
