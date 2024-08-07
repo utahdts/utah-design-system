@@ -7,10 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [x.x.x] x/x/xxxx
 ## Deprecated
-- Deprecated header setting for `titleUrl`; replaced by `titleUrlAction` (see `@utahdts/utah-design-system-header/src/@types/jsDocTypes.d.js` for types)
+- Deprecated header setting for `titleUrl`; replaced by `titleUrlAction` (see `https://designsystem.utah.gov/library/utahHeader#section-utahheader-basic-settings` for types)
 
 ## Added
-- Changed header setting for `titleUrl` to be `titleUrlAction` for single page app functionality (see `@utahdts/utah-design-system-header/src/@types/jsDocTypes.d.js` for types)
+- Changed header setting for `titleUrl` to be `titleUrlAction` for single page app functionality (see `https://designsystem.utah.gov/library/utahHeader#section-utahheader-basic-settings` for types)
 
 # [2.0.1] 8/5/2024
 ## Fixed
