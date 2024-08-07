@@ -6,14 +6,8 @@ import {
   ICON_BUTTON_APPEARANCE,
   IconButton,
   Switch,
-  Table,
-  TableBody,
   TableCell,
-  TableHead,
-  TableHeadCell,
-  TableHeadRow,
   TableRow,
-  TableWrapper
 } from '@utahdts/utah-design-system';
 import {
   useCallback,
@@ -39,6 +33,8 @@ import { formatHeaderSettingsForCopy } from './formatHeaderSettingsForCopy';
 import { useInteractiveHeaderState } from './useInteractiveHeaderState';
 import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
 import { utahHeaderPresets } from './utahHeaderPresets';
+import { documentationTypes } from '../../../../../enums/documentationTypes';
+import { SettingsDocumentation } from '../../documentation/SettingsDocumentation';
 
 export function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
@@ -401,196 +397,231 @@ export function UtahHeaderDocumentation() {
       {/* ----     Settings     --- */}
       <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
       <h4 id="section-auth-props">Config Props</h4>
-      <TableWrapper>
-        <Table className="table--lines-x">
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
-              <TableHeadCell className="text-left">Description</TableHeadCell>
-            </TableHeadRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget</a></span><br />
-                <span className="prop__types">DomLocationTarget</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  By default, the Utah Header is placed at the top of the page. This can be overridden by
-                  providing a DOM target in which the header will render.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.cssSelector</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Place the Utah Header in an element selected by a CSS class.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.element</a></span><br />
-                <span className="prop__types">HTMLElement</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Place the Utah Header in a specific DOM element.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-domLocationTarget">domLocationTarget.elementFunction</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  This function must return a DOM element in to which the Utah Header will be placed.
-                </span>
-              </TableCell>
-            </TableRow>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-domLocationTarget">domLocationTarget</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>DomLocationTarget</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              By default, the Utah Header is placed at the top of the page. This can be overridden by
+              providing a DOM target in which the header will render.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-domLocationTarget">domLocationTarget.cssSelector</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Place the Utah Header in an element selected by a CSS class.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-domLocationTarget">domLocationTarget.element</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>HTMLElement</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Place the Utah Header in a specific DOM element.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-domLocationTarget">domLocationTarget.elementFunction</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              This function must return a DOM element in to which the Utah Header will be placed.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-logo">logo</a></span><br />
-                <span className="prop__types">Logo</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-logo">logo</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>Logo</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-logo">logo.element</a></span><br />
-                <span className="prop__types">HTMLElement | function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  You can supply an HTMLElement, or a function that returns an HTMLElement, to be used as the logo image.
-                  The element will be moved to the header, so be careful to not supply an element that is used elsewhere.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-logo">logo.element</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>HTMLElement</code>
+                <span> | </span>
+                <code>function</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              You can supply an HTMLElement, or a function that returns an HTMLElement, to be used as the logo image.
+              The element will be moved to the header, so be careful to not supply an element that is used elsewhere.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-logo">logo.htmlString</a></span><br />
-                <span className="prop__types">string | function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  You can supply a string, or a function that returns a string, that contains HTML content to be rendered
-                  as the logo.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-logo">logo.htmlString</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>function</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              You can supply a string, or a function that returns a string, that contains HTML content to be rendered
+              as the logo.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-logo">logo.imageUrl</a></span><br />
-                <span className="prop__types">string | function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  You can supply a url, or a function that returns a url, that specifies the source location to
-                  use for the logo image.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-logo">logo.imageUrl</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>function</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              You can supply a url, or a function that returns a url, that specifies the source location to
+              use for the logo image.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-mediaSizes">mediaSizes</a></span><br />
-                <span className="prop__types">MediaSizes</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The header is responsive. You can custom configure the sizes (px) at which the header is responsive so as
-                  to better match your site&apos;s behavior. There are three responsive break points:
-                  <ul>
-                    <li><span className="prop__types">mobile</span> (smallest) (default - <code>640</code>)</li>
-                    <li><span className="prop__types">tabletPortrait</span> (medium) (default - <code>768</code>)</li>
-                    <li><span className="prop__types">tabletLandscape</span> (largest) (default - <code>1024</code>)</li>
-                  </ul>
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-mediaSizes">mediaSizes</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>MediaSizes</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The header is responsive. You can custom configure the sizes (px) at which the header is responsive so as
+              to better match your site&apos;s behavior. There are three responsive break points:
+              <ul>
+                <li><span className="prop__types">mobile</span> (smallest) (default - <code>640</code>)</li>
+                <li><span className="prop__types">tabletPortrait</span> (medium) (default - <code>768</code>)</li>
+                <li><span className="prop__types">tabletLandscape</span> (largest) (default - <code>1024</code>)</li>
+              </ul>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-onSearch">onSearch</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                The Utah Header main menu bar can have a search icon in it.
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-onSearch">onSearch</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The Utah Header main menu bar can have a search icon in it.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-showTitle">showTitle</a></span><br />
-                <span className="prop__types">boolean</span><br />
-                Default: <code>true</code>
-              </TableCell>
-              <TableCell>
-                A title is always required for accessibility reasons, but it is not required to be shown if you supply a logo.
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-showTitle">showTitle</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>boolean</code></div>
+            </TableCell>
+            <TableCell><code>true</code></TableCell>
+            <TableCell>
+              A title is always required for accessibility reasons, but it is not required to be shown if you supply a logo.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-size">size</a></span><br />
-                <span className="prop__types">SMALL | MEDIUM | LARGE</span><br />
-                Default: <code>MEDIUM</code>
-              </TableCell>
-              <TableCell>
-                The header can be sized to better match your application. The default and most preferred size is <code>MEDIUM</code>.
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-size">size</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>SMALL</code>
+                <span> | </span>
+                <code>MEDIUM</code>
+                <span> | </span>
+                <code>LARGE</code>
+              </div>
+            </TableCell>
+            <TableCell><code>MEDIUM</code></TableCell>
+            <TableCell>
+              The header can be sized to better match your application. The default and most preferred size is <code>MEDIUM</code>.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-size">skipLinkUrl</a></span><br />
-                <span className="prop__types">string</span><br />
-              </TableCell>
-              <TableCell>
-                Specifies where the Skip Link should go. It is generally best practice to include a skip link on every page. <Link to={pageUrls.skipLink}>Learn more about the Skip Link here.</Link>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-size">skipLinkUrl</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Specifies where the Skip Link should go. It is generally best practice to include a skip link on every
+              page. <Link to={pageUrls.skipLink}>Learn more about the Skip Link here</Link>.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-title">title</a></span><br />
-                <span className="prop__types">string</span> <span className="prop__optional">(required)</span>
-              </TableCell>
-              <TableCell>
-                The Utah Header requires a title for accessibility reasons. You can use the showTitle setting
-                to make it visible or not. You may hide the title only if you supply a <code>logo</code>.
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-title">title</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>
+              The Utah Header requires a title for accessibility reasons. You can use the showTitle setting
+              to make it visible or not. You may hide the title only if you supply a <code>logo</code>.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-titleUrl">titleUrl</a></span><br />
-                <span className="prop__types">string</span><br />
-                Default: <code>/</code>
-              </TableCell>
-              <TableCell>
-                When the logo and/or title are clicked, the browser will navigate to this URL.
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableWrapper>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-titleUrl">titleUrl</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell><code>/</code></TableCell>
+            <TableCell>
+              When the logo and/or title are clicked, the browser will navigate to this URL.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
 
       <h4 id="section-config-domLocationTarget" className="mt-spacing">domLocationTarget</h4>
       <div>
@@ -842,189 +873,206 @@ export function UtahHeaderDocumentation() {
 
       <h3 id="section-utahheader-actionItems" className="mb-spacing">Action Items</h3>
       <h4 id="section-auth-props">Config Props</h4>
-      <TableWrapper>
-        <Table className="table--lines-x">
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
-              <TableHeadCell className="text-left">Description</TableHeadCell>
-            </TableHeadRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems</a></span><br />
-                <span className="prop__types">ActionItem[]</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The header has an area just to the left of the UtahID button for icons buttons. These can icons can
-                  be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
-                  When the action item is triggered it can have one of the following behaviors:
-                  <ul>
-                    <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
-                    <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
-                    <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
-                  </ul>
-                </span>
-              </TableCell>
-            </TableRow>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>ActionItem[]</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The header has an area just to the left of the UtahID button for icons buttons. These can icons can
+              be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
+              When the action item is triggered it can have one of the following behaviors:
+              <ul>
+                <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
+                <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
+                <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
+              </ul>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionFunction</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The actionFunction specifies a callback function to call when an action item is triggered.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].actionFunction</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The actionFunction specifies a callback function to call when an action item is triggered.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionPopupMenu</a></span><br />
-                <span className="prop__types">PopupMenu</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A popup menu may be opened when the action item is triggered.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].actionPopupMenu</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>PopupMenu</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              A popup menu may be opened when the action item is triggered.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].actionDom</a></span><br />
-                <span className="prop__types">function | string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Custom content can be provided through a callback function. You are provided the trigger event (click), and must return
-                  the custom content to render (DOM Element) or a string representation of the html content.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].actionDom</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>function</code>
+                <span> | </span>
+                <code>string</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Custom content can be provided through a callback function. You are provided the trigger event (click), and must return
+              the custom content to render (DOM Element) or a string representation of the html content.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].className</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A custom css class can be added to the action item for your app to target with styling and/or functionality.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].className</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              A custom css class can be added to the action item for your app to target with styling and/or functionality.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge</a></span><br />
-                <span className="prop__types">Badge</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A badge is a little colored circle to the top right of the action item indicating an alert or notification.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].badge</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>Badge</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              A badge is a little colored circle to the top right of the action item indicating an alert or notification.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.className</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A class to put on the badge of the action item.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].badge.className</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              A class to put on the badge of the action item.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.label</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The label for the screen reader to read describing the badge.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].badge.label</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The label for the screen reader to read describing the badge.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].badge.value</a></span><br />
-                <span className="prop__types">number</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  A numeric value to show in the badge. String values tend to be too bulky or vague. See <Link to={pageUrls.badges}>Badges</Link> for more information.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].badge.value</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>number</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              A numeric value to show in the badge. String values tend to be too bulky or vague. See <Link to={pageUrls.badges}>Badges</Link> for more information.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].icon</a></span><br />
-                <span className="prop__types">HTMLElement | string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  An icon HTML element or a string represent an icon image to render as the action item.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].icon</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>HTMLElement</code>
+                <span> | </span>
+                <code>string</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              An icon HTML element or a string represent an icon image to render as the action item.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></span><br />
-                <span className="prop__types">left | none | right</span>
-                <br />
-                Default: <code>none</code>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The Utah Header is responsive. When viewing the Utah Header in narrow viewports, the action items
-                  are removed from the view. A hamburger menu icon is added to the main menu bar that will toggle open
-                  a dialog that shows the action items and main menu. To have your action items remain prominent on mobile
-                  sizes, you can specify a position relative to the UtahID button at which to show the action item. Showing
-                  action items this way on mobile should be used sparingly as it unbalances the Utah ID button and changes
-                  where users expect to find action items.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>left</code>
+                <span> | </span>
+                <code>none</code>
+                <span> | </span>
+                <code>right</code>
+              </div>
+            </TableCell>
+            <TableCell><code>none</code></TableCell>
+            <TableCell>
+              The Utah Header is responsive. When viewing the Utah Header in narrow viewports, the action items
+              are removed from the view. A hamburger menu icon is added to the main menu bar that will toggle open
+              a dialog that shows the action items and main menu. To have your action items remain prominent on mobile
+              sizes, you can specify a position relative to the UtahID button at which to show the action item. Showing
+              action items this way on mobile should be used sparingly as it unbalances the Utah ID button and changes
+              where users expect to find action items.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].showTitle</a></span><br />
-                <span className="prop__types">boolean</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  To provide clarity, the action item&apos;s title may be displayed next to the action item. Unclear action
-                  items may be a clue to use a different icon, so usage of this feature should be thoughtfully considered.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].showTitle</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>boolean</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              To provide clarity, the action item&apos;s title may be displayed next to the action item. Unclear action
+              items may be a clue to use a different icon, so usage of this feature should be thoughtfully considered.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-actionItems">actionItems[].title</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The title of the action item is required, even when not shown, for accessibility.
-                </span>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableWrapper>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-actionItems">actionItems[].title</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The title of the action item is required, even when not shown, for accessibility.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
 
       <h4 id="section-config-actionItems" className="mt-spacing">actionItems</h4>
       <div>
@@ -1123,283 +1171,322 @@ export function UtahHeaderDocumentation() {
 
       <h3 id="section-utahheader-footer" className="mb-spacing">Footer</h3>
       <h4 id="section-auth-props">Config Props</h4>
-      <TableWrapper>
-        <Table className="table--lines-x">
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
-              <TableHeadCell className="text-left">Description</TableHeadCell>
-            </TableHeadRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><Link to={pageUrls.utahFooter}>footer</Link></span><br />
-                <span className="prop__types">FooterSettings</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The Utah footer is the required bar at the bottom of the page with information and links
-                  for the state of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
-                  for the footer.
-                </span>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableWrapper>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><Link to={pageUrls.utahFooter}>footer</Link></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>FooterSettings</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The Utah footer is the required bar at the bottom of the page with information and links
+              for the state of Utah. See <Link to={pageUrls.utahFooter}>footer</Link> for configuration settings
+              for the footer.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
       <br />
 
       {/* ----     Utah ID     --- */}
       <h3 id="section-utahheader-utahid" className="mb-spacing">Utah ID</h3>
       <h4 id="section-auth-props">Config Props</h4>
-      <TableWrapper>
-        <Table className="table--lines-x">
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
-              <TableHeadCell className="text-left">Description</TableHeadCell>
-            </TableHeadRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-auth-config">utahId</a></span><br />
-                <span className="prop__types">UtahIdSettings | boolean</span><br />
-                Default: <code>true</code>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Controls the function of the Utah ID button in the Utah Header:
-                  <ul>
-                    <li>true - auto fetch mode</li>
-                    <li>false - turned off, no button</li>
-                    <li>UtahIdSettings - custom control of the UtahID button</li>
-                  </ul>
-                </span>
-              </TableCell>
-            </TableRow>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-config">utahId</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>UtahIdSettings</code>
+                <span> | </span>
+                <code>boolean</code>
+              </div>
+            </TableCell>
+            <TableCell><code>true</code></TableCell>
+            <TableCell>
+              Controls the function of the Utah ID button in the Utah Header:
+              <ul>
+                <li>true - auto fetch mode</li>
+                <li>false - turned off, no button</li>
+                <li>UtahIdSettings - custom control of the UtahID button</li>
+              </ul>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser</a></span><br />
-                <span className="prop__types">UserInfo | null | undefined</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  <ul>
-                    <li>UserInfo - details about the current user</li>
-                    <li>null - app controls the user, but there is no user</li>
-                    <li>undefined - app does not control the user</li>
-                  </ul>
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>UserInfo</code>
+                <span> | </span>
+                <code>null</code>
+                <span> | </span>
+                <code>undefined</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              <ul>
+                <li>UserInfo - details about the current user</li>
+                <li>null - app controls the user, but there is no user</li>
+                <li>undefined - app does not control the user</li>
+              </ul>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.authenticated</a></span><br />
-                <span className="prop__types">boolean</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  <ul>
-                    <li>true - the user is authenticated</li>
-                    <li>false - ignore any provided user information</li>
-                  </ul>
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.authenticated</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>boolean</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              <ul>
+                <li>true - the user is authenticated</li>
+                <li>false - ignore any provided user information</li>
+              </ul>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.disabled</a></span><br />
-                <span className="prop__types">boolean</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  <ul>
-                    <li>true - authority says the user is disabled</li>
-                    <li>false (default) - user is not disabled</li>
-                  </ul>
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.disabled</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>boolean</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              <ul>
+                <li>true - authority says the user is disabled</li>
+                <li>false (default) - user is not disabled</li>
+              </ul>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.env</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The Utah Id &quot;Environment&quot; generally tells if the Utah Id authority is dev/prod/test/etc.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.env</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The Utah Id &quot;Environment&quot; generally tells if the Utah Id authority is dev/prod/test/etc.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.first</a></span><br />
-                <span className="prop__types">string | null</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The first name of the logged in user.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.first</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The first name of the logged in user.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.last</a></span><br />
-                <span className="prop__types">string | null</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Last name of the logged in user.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.last</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Last name of the logged in user.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.mail</a></span><br />
-                <span className="prop__types">string[] | null</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Emails of the logged in user.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.mail</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string[]</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Emails of the logged in user.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.middle</a></span><br />
-                <span className="prop__types">string | null</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Middle name of the logged in user.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.middle</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Middle name of the logged in user.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.status</a></span><br />
-                <span className="prop__types">string | null</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Status of the logged in user.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.status</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Status of the logged in user.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.type</a></span><br />
-                <span className="prop__types">string | null</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Type of the logged in user.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.type</a></span><br />
+              <span className="prop__types">string | null</span>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Type of the logged in user.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.username</a></span><br />
-                <span className="prop__types">string | null</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Username of the logged in user.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-currentuser">utahId.currentUser.username</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Username of the logged in user.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              {/* @ts-ignore */}
-              <TableCell colSpan="100">
-                <span className="prop__section-title">UtahId Events</span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            {/* @ts-ignore */}
+            <TableCell colSpan="100">
+              <span className="prop__section-title">UtahId Events</span>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onauthchanged">utahId.onAuthChanged</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Callback triggered when the logged in user changes status.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-event-onauthchanged">utahId.onAuthChanged</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Callback triggered when the logged in user changes status.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onProfile">utahId.onProfile</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Callback triggered when the UtahID Profile menu item is triggered in the Utah ID menu for a logged in user. The default behavior of this menu item is to navigate the user to their UtahID Profile page.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-event-onProfile">utahId.onProfile</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Callback triggered when the UtahID Profile menu item is triggered in the Utah ID menu for a logged in user. The default behavior of this menu item is to navigate the user to their UtahID Profile page.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onSignIn">utahId.onSignIn</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Callback triggered when UtahID Sign In button is triggered.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-event-onSignIn">utahId.onSignIn</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Callback triggered when UtahID Sign In button is triggered.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-event-onSignOut">utahId.onSignOut</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Callback triggered when the UtahID button&apos;s Sign Out menu item is triggered.
-                </span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-event-onSignOut">utahId.onSignOut</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Callback triggered when the UtahID button&apos;s Sign Out menu item is triggered.
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              {/* @ts-ignore */}
-              <TableCell colSpan="100">
-                <span className="prop__section-title">UtahId Custom Menu Items</span>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            {/* @ts-ignore */}
+            <TableCell colSpan="100">
+              <span className="prop__section-title">UtahId Custom Menu Items</span>
+            </TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>
-                <span className="prop__description"><a href="#section-auth-menu-items">utahId.menuItems</a></span><br />
-                <span className="prop__types">MenuItem[]</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-                  to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for MenuItem</a>.
-                </span>
-              </TableCell>
-            </TableRow>
-
-          </TableBody>
-        </Table>
-      </TableWrapper>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-menu-items">utahId.menuItems</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>MenuItem[]</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
+              to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for MenuItem</a>.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
 
       <h4 id="section-auth-config" className="mt-spacing">utahId</h4>
       <div>
