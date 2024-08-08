@@ -296,7 +296,7 @@
  *  @property {string} [skipLinkUrl] - the URL that the skip link will go to
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
  *  @property {EventAction} [titleFunction] - a function to call when the title is clicked
- *  @property {string} titleUrl - the url to link to in the title
+ *  @property {string} [titleUrl] - the url to link to in the title
  *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
  *  === Deprecated Properties ===
  *  {string} [titleURL] - this property was replaced by titleUrl. (is backwards compatible)
