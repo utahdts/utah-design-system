@@ -30,14 +30,12 @@ export function useWebsiteUtahHeaderSettings() {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleUrlAction: {
-        actionUrl: '/',
-        actionFunction: (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          navigate('/');
-        },
+      titleFunction: (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        navigate('/');
       },
+      titleUrl: '/',
       utahId: true,
       skipLinkUrl: '#main-content',
     }),

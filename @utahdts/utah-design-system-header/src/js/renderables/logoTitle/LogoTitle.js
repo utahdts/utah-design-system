@@ -16,10 +16,7 @@ import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 export function LogoTitle() {
   const utahHeaderSettings = getUtahHeaderSettings();
   const logoTitleURL = (
-    // type says it can't be null, but for backwards-compatibility, it may be null
-    utahHeaderSettings.titleUrlAction?.actionUrl
-    // @ts-expect-error backwards-compatibility: used to could only be a string
-    || /** @type {string | undefined} */ (utahHeaderSettings.titleUrl)
+    utahHeaderSettings.titleUrl
     // @ts-expect-error backwards-compatibility: once upon a time, titleURL had been incorrectly cased...
     || /** @type {string | undefined} */ (utahHeaderSettings.titleURL)
   );
@@ -31,11 +28,11 @@ export function LogoTitle() {
     logoTitleWrapper.setAttribute('href', logoTitleURL);
   }
   // type says it can't be null, but for backwards-compatibility, it may be null
-  if (utahHeaderSettings.titleUrlAction?.actionFunction) {
+  if (utahHeaderSettings.titleFunction) {
     if (logoTitleWrapper.onclick) {
       throw new Error('LogoTitle: logoTitleWrapper already has an onclick');
     }
-    logoTitleWrapper.onclick = utahHeaderSettings.titleUrlAction.actionFunction;
+    logoTitleWrapper.onclick = utahHeaderSettings.titleFunction;
   }
 
   // Render Logo image

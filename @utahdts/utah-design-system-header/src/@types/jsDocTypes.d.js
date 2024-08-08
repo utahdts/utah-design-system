@@ -276,14 +276,9 @@
  */
 
 /**
- * A menu item in the menu, can have children
- * @typedef TitleUrlAction {
- *  // should be only one of the following three action types
- *  //   actionUrl: an <a> with a url for navigation
- *  //   actionFunction: a <button> that when triggered calls a function
- *  //   actionFunctionUrl: an <a> that when triggered calls a function (for Single Page Apps)
- *  @property {string} [actionUrl] - link url
- *  @property {EventAction} [actionFunction] - onClick function
+ * @typedef TitleUrl {
+ *  @property {string} [url]
+ *  @property {EventAction} [onClick]
  */
 
 /**
@@ -300,11 +295,11 @@
  *  @property {string} size - size has to be one of the `Size` types
  *  @property {string} [skipLinkUrl] - the URL that the skip link will go to
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
- *  @property {TitleUrlAction} [titleUrlAction]
+ *  @property {EventAction} [titleFunction] - a function to call when the title is clicked
+ *  @property {string} [titleUrl] - the url to link to in the title
  *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
  *  === Deprecated Properties ===
- *  {string} titleUrl - this property was replaced by titleUrlAction. (is backwards compatible)
- *  {string} titleURL - this property was replaced by titleUrl. (is backwards compatible)
+ *  {string} [titleURL] - this property was replaced by titleUrl. (is backwards compatible)
  * }
  */
 

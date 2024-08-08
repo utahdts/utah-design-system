@@ -8,8 +8,7 @@ const MATCH_BASIC_FIELDS = [
   '"showTitle": true',
   '"size": "MEDIUM"',
   '"title": "Utah Design System"',
-  '"titleUrlAction": {',
-  '"actionUrl": "/"',
+  '"titleUrl": "/"',
   '"mediaSizes": {',
   '"mobile": 640,',
   '"tabletPortrait": 768,',
@@ -31,7 +30,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleUrlAction: { actionUrl: '/' },
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -53,7 +52,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleUrlAction: { actionUrl: '/' },
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -91,7 +90,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleUrlAction: { actionUrl: '/' },
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -123,7 +122,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleUrlAction: { actionUrl: '/' },
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -154,7 +153,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleUrlAction: { actionUrl: '/' },
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',
@@ -198,7 +197,7 @@ describe('stringifyHeaderSettings', () => {
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
-      titleUrlAction: { actionUrl: '/' },
+      titleUrl: '/',
       mainMenu: {
         menuItems: [],
         title: 'test-menu',

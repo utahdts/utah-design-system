@@ -142,10 +142,6 @@ declare module "@utahdts/utah-design-system-header" {
     linkTermsOfUse?: string | null | undefined;
     showHorizontalRule?: boolean | undefined;
   };
-  export type TitleUrlAction = {
-    actionUrl?: string | undefined;
-    actionFunction?: EventAction | undefined;
-  };
   export type Settings = {
     actionItems?: ActionItem[] | undefined;
     domLocationTarget?: DomLocationTarget | undefined;
@@ -158,7 +154,8 @@ declare module "@utahdts/utah-design-system-header" {
     size: string;
     skipLinkUrl?: string | undefined;
     title: string;
-    titleUrlAction?: TitleUrlAction | undefined;
+    titleFunction?: EventAction | undefined;
+    titleUrl?: string | undefined;
     utahId?: boolean | UtahIDSettings | undefined;
   };
   export type childrenMenuTypes = ChildrenMenuTypes;
@@ -325,7 +322,8 @@ declare module "@utahdts/utah-design-system-header" {
       size: string;
       skipLinkUrl?: string | undefined;
       title: string;
-      titleUrlAction?: TitleUrlAction | undefined;
+      titleFunction?: EventAction | undefined;
+      titleUrl?: string | undefined;
       utahId?: boolean | UtahIDSettings | undefined;
     };
     setSettings(settings: SettingsInput): void;

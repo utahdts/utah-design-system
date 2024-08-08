@@ -580,31 +580,21 @@ export function UtahHeaderDocumentation() {
 
             <TableRow>
               <TableCell>
-                <span className="prop__name"><a href="#section-config-titleUrlAction">titleUrlAction</a></span><br />
-                <span className="prop__types">TitleUrlAction</span><br />
-              </TableCell>
-              <TableCell>
-                Use to provide a url, and/or a function to apply, when the title is clicked.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-titleUrlAction">titleUrlAction.titleUrl</a></span><br />
-                <span className="prop__types">string</span><br />
-              </TableCell>
-              <TableCell>
-                The url to show when the title is hovered. Will navigate to this url if <code>titleUrlAction</code> is not supplied.
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-titleUrlAction">titleUrlAction.titleUrlAction</a></span><br />
+                <span className="prop__name"><a href="#section-config-titleUrl">titleFunction</a></span><br />
                 <span className="prop__types">function</span><br />
               </TableCell>
               <TableCell>
-                This function fires when the title is clicked. It is passed the event, allowing things like <code>preventDefault</code> and <code>stopPropagation</code>.
+                Use to provide an onclick function for the page&apos;s title element.
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>
+                <span className="prop__name"><a href="#section-config-titleUrl">titleUrl</a></span><br />
+                <span className="prop__types">string</span><br />
+              </TableCell>
+              <TableCell>
+                Use to provide a url for the page&apos;s title element.
               </TableCell>
             </TableRow>
           </TableBody>
@@ -844,7 +834,7 @@ export function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h4 id="section-config-titleUrl">titleUrlAction</h4>
+      <h4 id="section-config-titleUrl">titleUrl</h4>
       <div>
         <PreCodeForCodeString
           className="gray-block mt-spacing"
@@ -853,7 +843,7 @@ export function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                titleUrlAction: { titleUrl: '/' },
+                titleUrl: '/',
               }
             )
 
@@ -861,10 +851,8 @@ export function UtahHeaderDocumentation() {
             setUtahHeaderSettings(
               {
                 ...other settings...,
-                titleUrlAction: { 
-                  titleUrl: '/', 
-                  actionFunction: () => { ... do something ... },
-                },
+                titleFunction: () => { ... do something ... },
+                titleUrl: '/', 
               }
             )
             `}
