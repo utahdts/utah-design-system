@@ -276,6 +276,12 @@
  */
 
 /**
+ * @typedef TitleUrl {
+ *  @property {string} [url]
+ *  @property {EventAction} [onClick]
+ */
+
+/**
  * // !! Make sure to update SettingsShape in the library if this changes !!
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
@@ -289,8 +295,11 @@
  *  @property {string} size - size has to be one of the `Size` types
  *  @property {string} [skipLinkUrl] - the URL that the skip link will go to
  *  @property {string} title - the title to place at the top of the page (can be hidden) but needs to be there for accessibility
- *  @property {string} titleUrl - when the agency title is triggered, the browser navigates to this url
+ *  @property {EventAction} [titleFunction] - a function to call when the title is clicked
+ *  @property {string} [titleUrl] - the url to link to in the title
  *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
+ *  === Deprecated Properties ===
+ *  {string} [titleURL] - this property was replaced by titleUrl. (is backwards compatible)
  * }
  */
 

@@ -38,7 +38,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @param {() => void} [props.onClear]
  * @param {(e: React.KeyboardEvent<HTMLInputElement>) => void} [props.onKeyUp]
  * @param {string} [props.placeholder]
- * @param {boolean} [props.showCalendarTodayButton] on teh calendar popup, should the `today` button be shown
+ * @param {boolean} [props.showCalendarTodayButton] on the calendar popup, should the `today` button be shown
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}

@@ -1,57 +1,15 @@
-/*
-  Tried to auto generate this file from the JSDoc, but it becomes very ugly.
-  Tried to massage the generated output, but it broke.
-  This file appears to work, but requires manual creation.
-
-  To Create:
-    * run `npm run generateTypes`
-    * edit the file created in dist/index.d.ts
-      * single module named "@utahdts/utah-design-system-header"
-      * just the exports from the `declare module "src/index" {` need put in the module
-    * put the updated contents in the /artifacts/index.d.ts file
-    * mangle it down to one `module`
-    * run `npm run tsc` from root to make sure it doesn't cause errors
-
-  Super painful to have to do this manual. But a better way is sure to surface at some point of time.
-
-  03/04/2024 method (modules that show errors):
-    * replace `declare module "src/@types/jsDocTypes.d"` with `declare module "@utahdts/utah-design-system-header"`
-    * General gist is to combine everything in to the one module
-      * Remove duplicates
-      * Remove imports from jsDcoTypes since they're already include
-    * delete erroring module: `declare module "src/index" {`
-    * for childrenMenuTypes
-      * move in to main module block
-      * update path to start with ../ so that it gets a correct path
-    * repeat for the other erroring modules
-      * PopupPlacement
-      * events
-      * sizes
-    * delete `declare module "src/js/settings/defaultSettings" {`
-    * merge in function modules:
-      * `declare module "src/js/misc/checkForError" {`
-      * `declare module "src/js/misc/notNull" {`
-      * `declare module "src/js/misc/isString" {`
-      * `declare module "src/js/misc/renderDOMSingle" {`
-    * move SettingsKeeper in to main module and cleanup
-    * merge in more function modules:
-      * `declare module "src/js/settings/getUtahHeaderSettings" {`
-      * even those not in error so they are in the global module
-        * uuidv4
-      * remove things like `export type AriaHasPopupType = import("src/@types/jsDocTypes.d").AriaHasPopupType;`
-*/
 declare module "@utahdts/utah-design-system-header" {
   const _default: false;
   export default _default;
   export type ChildNode = Element;
   export type EventAction = ((arg0: MouseEvent | TouchEvent | KeyboardEvent) => void);
-  export type AriaHasPopupType = 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree';
-  export type ChildrenMenuTypes = ('flyout' | 'inline' | 'mega-menu' | 'plain');
-  export type Environments = 'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest';
-  export type Events = 'utahHeaderLoaded' | 'utahHeaderUnloaded';
-  export type PopupPlacement = 'auto' | 'auto-start' | 'auto-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' | 'top' | 'top-start' | 'top-end';
-  export type Size = 'SMALL' | 'MEDIUM' | 'LARGE';
-  export type UtahIdFetchStyle = 'Automatic' | 'None' | 'Provided';
+  export type AriaHasPopupType = "dialog" | "grid" | "listbox" | "menu" | "tree";
+  export type ChildrenMenuTypes = ("flyout" | "inline" | "mega-menu" | "plain");
+  export type Environments = "none" | "a1" | "a2" | "a3" | "custom" | "unittest";
+  export type Events = "utahHeaderLoaded" | "utahHeaderUnloaded";
+  export type PopupPlacement = "auto" | "auto-start" | "auto-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end" | "top" | "top-start" | "top-end";
+  export type Size = "SMALL" | "MEDIUM" | "LARGE";
+  export type UtahIdFetchStyle = "Automatic" | "None" | "Provided";
   export type MainMenuItem = {
     actionUrl?: MenuItemUrlAction | undefined;
     actionFunction?: EventAction | undefined;
@@ -196,7 +154,8 @@ declare module "@utahdts/utah-design-system-header" {
     size: string;
     skipLinkUrl?: string | undefined;
     title: string;
-    titleUrl: string;
+    titleFunction?: EventAction | undefined;
+    titleUrl?: string | undefined;
     utahId?: boolean | UtahIDSettings | undefined;
   };
   export type childrenMenuTypes = ChildrenMenuTypes;
@@ -363,11 +322,13 @@ declare module "@utahdts/utah-design-system-header" {
       size: string;
       skipLinkUrl?: string | undefined;
       title: string;
-      titleUrl: string;
+      titleFunction?: EventAction | undefined;
+      titleUrl?: string | undefined;
       utahId?: boolean | UtahIDSettings | undefined;
     };
     setSettings(settings: SettingsInput): void;
     getSettings(): Settings;
+    clearSettings(): void;
   }
   export function getUtahHeaderSettings(): Settings;
   export function uuidv4(): string;

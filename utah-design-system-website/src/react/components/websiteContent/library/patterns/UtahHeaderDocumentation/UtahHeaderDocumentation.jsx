@@ -22,6 +22,7 @@ import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-syste
 // eslint-disable-next-line import/no-unresolved
 import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
+import { documentationTypes } from '../../../../../enums/documentationTypes';
 import { useTextAreaCaretRowColumn } from '../../../../../hooks/useTextAreaCaretRowColumn';
 import { CopyButton } from '../../../../copy/CopyButton';
 import { LightBox } from '../../../../lightbox/LightBox';
@@ -29,12 +30,11 @@ import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { StaticExample } from '../../../../staticExamples/StaticExample';
 import { MainMenuSettingsAndCode } from '../../components/navigation/MainMenu/MainMenuSettingsAndCode';
+import { SettingsDocumentation } from '../../documentation/SettingsDocumentation';
 import { formatHeaderSettingsForCopy } from './formatHeaderSettingsForCopy';
 import { useInteractiveHeaderState } from './useInteractiveHeaderState';
 import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
 import { utahHeaderPresets } from './utahHeaderPresets';
-import { documentationTypes } from '../../../../../enums/documentationTypes';
-import { SettingsDocumentation } from '../../documentation/SettingsDocumentation';
 
 export function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
@@ -610,6 +610,19 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
+              <code><a href="#section-config-titleUrl">titleFunction</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell><code>/</code></TableCell>
+            <TableCell>
+              Use to provide an onclick function for the page&apos;s title element.
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
               <code><a href="#section-config-titleUrl">titleUrl</a></code>
             </TableCell>
             <TableCell>
@@ -861,13 +874,23 @@ export function UtahHeaderDocumentation() {
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
+            To set the url for the title.
             setUtahHeaderSettings(
               {
                 ...other settings...,
                 titleUrl: '/',
               }
             )
-          `}
+
+            Or for a custom onclick action:
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                titleFunction: () => { ... do something ... },
+                titleUrl: '/', 
+              }
+            )
+            `}
         />
       </div>
 
