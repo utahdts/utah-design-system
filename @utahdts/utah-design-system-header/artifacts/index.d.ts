@@ -155,7 +155,7 @@ declare module "@utahdts/utah-design-system-header" {
     skipLinkUrl?: string | undefined;
     title: string;
     titleFunction?: EventAction | undefined;
-    titleUrl?: string | undefined;
+    titleUrl: string | undefined;
     utahId?: boolean | UtahIDSettings | undefined;
   };
   export type childrenMenuTypes = ChildrenMenuTypes;
@@ -323,7 +323,7 @@ declare module "@utahdts/utah-design-system-header" {
       skipLinkUrl?: string | undefined;
       title: string;
       titleFunction?: EventAction | undefined;
-      titleUrl?: string | undefined;
+      titleUrl: string | undefined;
       utahId?: boolean | UtahIDSettings | undefined;
     };
     setSettings(settings: SettingsInput): void;
