@@ -28,10 +28,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
     [class*='utds-icon-before-']:before {
       margin-right: 0;
     }
-    color: white;
     &.color-is-light {
       color: var(--gray-color);
     }
