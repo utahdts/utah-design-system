@@ -29,12 +29,12 @@
         transition: box-shadow var(--timing-xquick) ease-in-out;
         z-index: 1;
 
+        @include tools-index.form-ele-hover-medium;
+        @include tools-index.form-ele-focus;
+
         &:disabled {
           cursor: not-allowed;
         }
-
-        @include tools-index.form-ele-hover-medium;
-        @include tools-index.form-ele-focus;
       }
     }
     &__instructions {

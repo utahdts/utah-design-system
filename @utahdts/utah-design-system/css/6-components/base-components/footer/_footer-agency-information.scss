@@ -22,12 +22,12 @@
     }
 
     &__title {
-      &-image {
-        max-width: 300px;
-      }
       font-size: var(--font-size-l);
       font-weight: var(--font-weight-semi-bold);
       margin-top: var(--spacing);
+      &-image {
+        max-width: 300px;
+      }
 
     }
     &__address {
