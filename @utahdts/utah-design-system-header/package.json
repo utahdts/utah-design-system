@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
