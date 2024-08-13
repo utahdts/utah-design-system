@@ -120,7 +120,7 @@ export function dataOfAllDataTypes({ includes, excludes } = {}) {
   return (
     Object.keys(DATA_OF_ALL_DATATYPES)
       .filter((key) => (!includes || includes.includes(key)) && (!excludes?.includes(key)))
-      // @ts-ignore
+      // @ts-expect-error
       .map((dataTypeKey) => Object.values(DATA_OF_ALL_DATATYPES[dataTypeKey]))
       .flat()
   );

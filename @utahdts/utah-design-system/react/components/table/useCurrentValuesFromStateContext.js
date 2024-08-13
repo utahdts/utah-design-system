@@ -70,7 +70,7 @@ export function useCurrentValuesFromStateContext({
     /** @param {TableDataT} newValue */
     (newValue) => {
       if (onChange) {
-        // @ts-ignore this may be a bug? by sending a value instead of an event
+        // @ts-expect-error this may be a bug? by sending a value instead of an event
         onChange(newValue);
       } else {
         setStateContext((draftStateContext) => {
@@ -93,7 +93,7 @@ export function useCurrentValuesFromStateContext({
   if (currentValue && currentValue !== defaultValue) {
     // there is a currentValue without looking at defaultValue so defaultValue should never be used ever again
     // this is a hack. couldn't figure out why TableFilterTextInput was making its defaultValue a blank string.
-    // @ts-ignore
+    // @ts-expect-error
     defaultValueRef.current = '';
   }
   if (currentValue === null || currentValue === undefined) {

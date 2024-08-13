@@ -46,7 +46,7 @@ export function FormContextProvider({
   */
 
   /** @type {FormContextValue<FormContextStateT>} */
-  // @ts-ignore
+  // @ts-expect-error
   const contextValue = useMemo(
     () => ({
       onChange,
@@ -58,7 +58,7 @@ export function FormContextProvider({
 
   return (
     <FormContext.Provider
-      // @ts-ignore
+      // @ts-expect-error
       value={contextValue}
     >
       {children}

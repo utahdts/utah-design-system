@@ -53,7 +53,7 @@ export function CopyButton({ copyRef, onCopy }) {
               case 'INPUT':
               case 'SELECT':
               case 'TEXTAREA':
-                // @ts-ignore
+                // @ts-expect-error
                 copiedText = copyRef.current.value;
                 break;
               default:

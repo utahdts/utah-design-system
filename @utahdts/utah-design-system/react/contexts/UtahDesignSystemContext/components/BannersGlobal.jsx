@@ -44,7 +44,6 @@ export function BannersGlobal({ banners, bannerDuration }) {
     const uniqueZones = [...new Set(banners.map((banner) => banner.position))];
     uniqueZones.forEach((zone) => {
       if (zone) {
-        // @ts-ignore
         draftZones[zone] = [];
       }
     });
@@ -55,7 +54,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
           currentOnClose(undefined, banner);
         }, duration);
       }
-      // @ts-ignore
+      // @ts-expect-error
       draftZones[banner.position].push(banner);
     });
     setZones(draftZones);

@@ -23,7 +23,7 @@ import { pages } from './pages';
 import { constructMainMenu } from './util/constructMainMenu';
 
 export function Routing() {
-  // @ts-ignore
+  // @ts-expect-error
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef(/** @type {HTMLElement | null} */(null));
   const { setSettings = () => { } } = useUtahHeaderContext() || {};
@@ -32,7 +32,7 @@ export function Routing() {
   useEffect(
     () => {
       setSettings((draftSettings) => {
-        // @ts-ignore
+        // @ts-expect-error
         draftSettings.mainMenu = constructMainMenu(currentMenuItem, navigate);
       });
     },
@@ -77,7 +77,7 @@ export function Routing() {
                   <VerticalMenu
                     className="menu-side-panel"
                     currentMenuItem={currentMenuItem}
-                    // @ts-ignore
+                    // @ts-expect-error
                     menus={menuSecondary ?? null}
                   />
                 )}

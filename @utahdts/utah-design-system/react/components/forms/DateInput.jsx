@@ -169,7 +169,7 @@ export function DateInput({
                       setIsCalendarPopupOpen((isOpen) => {
                         if (isOpen) {
                           const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
-                          // @ts-ignore
+                          // @ts-expect-error
                           textInput?.focus();
                         }
                         return !isOpen;
@@ -177,7 +177,7 @@ export function DateInput({
                     }}
                     title="Open popup calendar"
                     // prevent closing and reopening the popup
-                    // @ts-ignore
+                    // @ts-expect-error
                     onMouseDown={(e) => e.preventDefault()}
                     onFocus={() => setIsCalendarPopupOpen(false)}
                   />
@@ -196,7 +196,7 @@ export function DateInput({
                   </div>
                 )
             )}
-            // @ts-ignore
+            // @ts-expect-error
             onBlur={() => {
               // give time for new item to become focused
               setTimeout(
@@ -236,7 +236,7 @@ export function DateInput({
                     currentOnChange(newValue);
                     setIsCalendarPopupOpen(false);
                     const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
-                    // @ts-ignore
+                    // @ts-expect-error
                     textInput?.focus();
                   }}
                   id={`${id}__calendar-input`}

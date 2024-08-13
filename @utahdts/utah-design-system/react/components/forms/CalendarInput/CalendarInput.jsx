@@ -191,7 +191,7 @@ export function CalendarInput({
                 })
               )}
               title="Previous Month"
-              // @ts-ignore
+              // @ts-expect-error
               tabIndex={isHidden ? -1 : 0}
             />
           </div>
@@ -209,7 +209,7 @@ export function CalendarInput({
                 })
               )}
               title="Next Month"
-              // @ts-ignore
+              // @ts-expect-error
               tabIndex={isHidden ? -1 : 0}
             />
           </div>
@@ -228,7 +228,7 @@ export function CalendarInput({
                 })
               )}
               title="Last Year"
-              // @ts-ignore
+              // @ts-expect-error
               tabIndex={isHidden ? -1 : 0}
             />
           </div>
@@ -246,7 +246,7 @@ export function CalendarInput({
                 })
               )}
               title="Next Year"
-              // @ts-ignore
+              // @ts-expect-error
               tabIndex={isHidden ? -1 : 0}
             />
           </div>
@@ -292,7 +292,7 @@ export function CalendarInput({
                           currentOnChange?.(formattedDate);
                         }}
                         type="button"
-                        // @ts-ignore
+                        // @ts-expect-error
                         onKeyDown={(e) => {
                           if (
                             [

@@ -19,7 +19,7 @@ export function TagExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
-      // @ts-ignore
+      // @ts-expect-error
       setState={setState}
       state={state}
     >

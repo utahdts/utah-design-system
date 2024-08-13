@@ -148,10 +148,8 @@ export function TableWrapper({
 
       // register a new rule for sorting, generally from a <TableSortingRule>
       registerSortingRule: (sortingRule) => setState((draftState) => {
-        // @ts-ignore
         draftState.sortingRules[sortingRule.recordFieldPath] = {
           ...sortingRule,
-          // @ts-ignore ignoring that TableDataT may not be the same as TableDataT
           sorter: (
             /**
              *
@@ -161,9 +159,7 @@ export function TableWrapper({
              * @returns {number}
              */
             (recordA, recordB, records) => {
-              // @ts-ignore
               const fieldValueA = valueAtPath({ object: recordA.record, path: sortingRule.recordFieldPath });
-              // @ts-ignore
               const fieldValueB = valueAtPath({ object: recordB.record, path: sortingRule.recordFieldPath });
 
               let result;
@@ -200,9 +196,9 @@ export function TableWrapper({
       setBodyData: (allData, filteredData) => {
         setState((draftState) => {
           draftState.tableData = {
-            // @ts-ignore
+            // @ts-expect-error
             allData: allData ?? [],
-            // @ts-ignore
+            // @ts-expect-error
             filteredData: filteredData || [],
           };
         });

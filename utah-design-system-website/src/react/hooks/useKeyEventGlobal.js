@@ -17,7 +17,7 @@ export function useKeyEventGlobal({ whichKeyCode, onKeyDown, onKeyUp }) {
       keydownFuncRef.current = (e) => {
         if (
           e.code === whichKeyCode
-          // @ts-ignore
+          // @ts-expect-error
           || e.keyCode === whichKeyCode
           || e.key === whichKeyCode
         ) {
@@ -34,15 +34,15 @@ export function useKeyEventGlobal({ whichKeyCode, onKeyDown, onKeyUp }) {
           }
         }
       };
-      // @ts-ignore
+      // @ts-expect-error
       document.addEventListener('keydown', keydownFuncRef.current);
-      // @ts-ignore
+      // @ts-expect-error
       document.addEventListener('keyup', keydownFuncRef.current);
 
       return () => {
-        // @ts-ignore
+        // @ts-expect-error
         document.removeEventListener('keydown', keydownFuncRef.current);
-        // @ts-ignore
+        // @ts-expect-error
         document.removeEventListener('keyup', keydownFuncRef.current);
         keydownFuncRef.current = null;
       };

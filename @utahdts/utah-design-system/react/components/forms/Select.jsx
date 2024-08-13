@@ -101,7 +101,7 @@ export function Select({
             /** @param {import('react').KeyboardEvent} e */
             (e) => {
               if (e.key === 'Escape' && showClearIcon) {
-                // @ts-ignore
+                // @ts-expect-error
                 clearInput(e);
               } else {
                 currentOnFormKeyUp?.(e);

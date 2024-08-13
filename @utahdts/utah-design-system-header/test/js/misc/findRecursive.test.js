@@ -127,28 +127,28 @@ describe('findRecursive', () => {
   });
 
   test('empty object', () => {
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive({}, ['children'], (o) => o.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive(undefined, ['children'], (o) => o?.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive(null, ['children'], (o) => o?.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive(3, ['children'], (o) => o.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive(NaN, ['children'], (o) => o.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive('what a weird test', ['children'], (o) => o.id === 25)).toBe(false);
   });
 
   test('no fields', () => {
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive({}, [], (o) => o.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive({}, null, (o) => o.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive({}, undefined, (o) => o.id === 25)).toBe(false);
-    // @ts-ignore
+    // @ts-expect-error
     expect(findRecursive({}, ['i am not a real field'], (o) => o.id === 25)).toBe(false);
   });
 });

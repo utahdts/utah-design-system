@@ -67,7 +67,7 @@ export function CssContextProvider({ children }) {
       // switch back to the colors in the url because they are still there causing the
       // user to have lost their color selection.
       if (currentQueryParameters.get('colors')) {
-        // @ts-ignore
+        // @ts-expect-error
         // eslint-disable-next-line no-unused-vars
         const { colors, ...paramsMinusColors } = currentQueryParameters;
         setSearchParams(paramsMinusColors);
@@ -84,7 +84,7 @@ export function CssContextProvider({ children }) {
     );
 
     /** @type {CssContextState} */
-    // @ts-ignore
+    // @ts-expect-error
     const defaultState = {
       selectedColorPicker: CSS_VARIABLES_KEYS.PRIMARY_COLOR,
       ...cssContextDefaultColors,
@@ -93,13 +93,13 @@ export function CssContextProvider({ children }) {
     // storage trumps defaults
     Object.entries(colorsInStorage || {})
       .filter(([, colorValue]) => !!colorValue)
-      // @ts-ignore
+      // @ts-expect-error
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
     // url trumps storage & default
     Object.entries(colorsInUrl || {})
       .filter(([, colorValue]) => !!colorValue)
-      // @ts-ignore
+      // @ts-expect-error
       .forEach(([colorKey, colorValue]) => { defaultState[colorKey] = colorValue; });
 
     return defaultState;

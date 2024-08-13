@@ -118,7 +118,7 @@ export function ComboBox({
       isValueClearedOnSelection={isValueClearedOnSelection}
       onChange={onChange}
       onClear={onClear}
-      // @ts-ignore
+      // @ts-expect-error
       onKeyUp={onKeyUp}
       value={value}
     >

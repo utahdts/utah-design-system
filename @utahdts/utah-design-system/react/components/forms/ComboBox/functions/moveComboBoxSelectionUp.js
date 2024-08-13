@@ -37,7 +37,7 @@ export function moveComboBoxSelectionUp(draftContext, textInput, multiSelectCont
       const newHighlightedValue = optionsToUse[currentSelectionIndex]?.value ?? null;
       draftContext.optionValueHighlighted = newHighlightedValue;
       draftContext.optionValueFocused = newHighlightedValue;
-      // @ts-ignore
+      // @ts-expect-error
       document.querySelector(`[value="${newHighlightedValue}"]`)?.[0]?.focus();
     } else {
       // if at top, then close the options list

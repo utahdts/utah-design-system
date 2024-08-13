@@ -53,7 +53,7 @@ export function DateInputExampleRender({
           draftState.props.value = newValue;
           setStateFormContext?.(
             (draftStateFormContext) => {
-              // @ts-ignore
+              // @ts-expect-error
               draftStateFormContext['props.value'] = newValue;
             }
           );

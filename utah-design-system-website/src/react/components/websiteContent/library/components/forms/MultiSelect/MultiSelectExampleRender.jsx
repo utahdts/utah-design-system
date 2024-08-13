@@ -57,7 +57,7 @@ export function MultiSelectExampleRender({
         onChange={(newValue) => setState((draftState) => {
           draftState.props.values = newValue;
           setStateFormContext?.((draftStateFormContext) => {
-            // @ts-ignore
+            // @ts-expect-error
             draftStateFormContext['props.values'] = newValue;
           });
         })}
@@ -68,7 +68,7 @@ export function MultiSelectExampleRender({
           }
         }
         values={values}
-        // @ts-ignore
+        // @ts-expect-error
         autoComplete="off"
       >
         {

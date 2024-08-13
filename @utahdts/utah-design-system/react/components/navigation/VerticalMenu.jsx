@@ -29,7 +29,7 @@ export function VerticalMenu({
           const TitleTagName = menu.titleTagName || 'h2';
           return (
             <nav className={className} key={`vertical-menu__${menu.id}`} aria-labelledby={menu.id}>
-              {/* @ts-ignore */}
+              {/* @ts-expect-error */}
               <TitleTagName
                 id={menu.id}
                 className={joinClassNames(menu.titleTagClassName, 'vertical-menu__header')}

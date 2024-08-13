@@ -1,7 +1,7 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import UtahIdButtonHtml from './html/UtahIdButton.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import UtahIdWrapperHtml from './html/UtahIdWrapper.html?raw';
 

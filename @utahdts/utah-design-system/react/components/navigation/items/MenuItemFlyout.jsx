@@ -47,7 +47,7 @@ export function MenuItemFlyout({
   useEffect(() => {
     if (triggerOnHover && buttonRef?.current && popperRef?.current && !buttonRef?.current.onclick) {
       popupFocusHandler(
-        // @ts-ignore
+        // @ts-expect-error
         wrapperElement.current,
         buttonRef.current,
         popperRef.current,

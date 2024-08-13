@@ -15,7 +15,7 @@ export function valueAtPath({ object, path }) {
       split(path, '.').reduce(
         (obj, field) => (
           (field && obj)
-            // @ts-ignore
+            // @ts-expect-error
             ? obj[field]
             : obj
         ),

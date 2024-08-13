@@ -82,7 +82,7 @@ export function ColorPicker({
               [onChange]
             )}
             value={value}
-            // @ts-ignore
+            // @ts-expect-error
             maxLength={7}
             style={{ borderColor: textColor }}
           />

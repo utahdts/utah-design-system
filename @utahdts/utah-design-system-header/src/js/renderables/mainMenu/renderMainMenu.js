@@ -1,10 +1,10 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import MainMenuItem from './html/MainMenuItem.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 

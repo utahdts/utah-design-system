@@ -76,11 +76,11 @@ function assignSelectedFromHierarchy(parentMenus, draftMenuItem, currentMenuItem
   draftMenuItem.isSelected = (
     draftMenuItem.isSelected
     || (
-      // @ts-ignore
+      // @ts-expect-error
       currentMenuItem?.link && (
-        // @ts-ignore
+        // @ts-expect-error
         currentMenuItem?.link === draftMenuItem.actionFunctionUrl?.url
-        // @ts-ignore
+        // @ts-expect-error
         || currentMenuItem?.link === draftMenuItem?.actionUrl?.url
       )
     )
@@ -115,11 +115,11 @@ export function constructMainMenu(currentMenuItem, navigate) {
         url: mainMenuItem.link || pageUrls.home,
       },
       isSelected: (
-        // @ts-ignore
+        // @ts-expect-error
         (mainMenuItem.link && (currentMenuItem?.link === mainMenuItem.link))
-        // @ts-ignore
+        // @ts-expect-error
         || (mainMenuItem?.actionFunctionUrl?.url && (currentMenuItem?.link === mainMenuItem?.actionFunctionUrl?.url))
-        // @ts-ignore
+        // @ts-expect-error
         || (mainMenuItem.link && currentMenuItem?.parentLinks?.includes(mainMenuItem.link))
       ),
       title: mainMenuItem.title,
@@ -130,7 +130,7 @@ export function constructMainMenu(currentMenuItem, navigate) {
   /** @type {{[key: string]: MainMenuItem}} */
   const mainMenusByLink = mainMenu.menuItems.reduce(
     (draftMainMenusMap, mainMenuItem) => {
-      // @ts-ignore
+      // @ts-expect-error
       draftMainMenusMap[mainMenuItem.actionFunctionUrl?.url || 'missing-action-url'] = mainMenuItem;
       return draftMainMenusMap;
     },
@@ -138,10 +138,10 @@ export function constructMainMenu(currentMenuItem, navigate) {
   );
 
   // add children to each top level menu
-  // @ts-ignore
+  // @ts-expect-error
   mainMenusByLink[pageUrls.guidelines].actionMenu = constructMenuItems(menuGuidelinesSecondary.menuItems, navigate);
   const librarySubMenuInitial = constructMenuItems(menuLibrarySecondary.menuItems, navigate);
-  // @ts-ignore
+  // @ts-expect-error
   mainMenusByLink[pageUrls.library].actionMenu = librarySubMenuInitial.concat([
     {
       actionMenu: constructMenuItems(menuLibraryComponentsSecondary.menuItems, navigate),
@@ -152,7 +152,7 @@ export function constructMainMenu(currentMenuItem, navigate) {
       title: 'Patterns',
     },
   ]);
-  // @ts-ignore
+  // @ts-expect-error
   mainMenusByLink[pageUrls.resources].actionMenu = constructMenuItems(menuResourcesSecondary.menuItems, navigate);
 
   // recursive step through children; if child selected then select all its parents too

@@ -32,7 +32,7 @@ export function VerticalMenuDocumentation() {
       <h2 id="section-example">Example</h2>
       <SandboxExample
         defaultProps={{
-          // @ts-ignore
+          // @ts-expect-error
           childrenMenuType: childrenMenuTypes.FLYOUT,
         }}
         RENDER_EXAMPLE={VerticalMenuExampleRender}

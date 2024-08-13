@@ -1,7 +1,7 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 

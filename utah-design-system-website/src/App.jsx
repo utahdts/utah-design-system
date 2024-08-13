@@ -2,7 +2,6 @@ import {
   FormContextProvider,
   joinClassNames,
   useUtahHeaderContext
-  // @ts-ignore
 } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/index.scss';
@@ -65,11 +64,11 @@ export function App() {
         className={
           joinClassNames([
             'utah-design-system',
-            // @ts-ignore
+            // @ts-expect-error
             cssState?.[CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.PRIMARY_COLOR_IS_LIGHT : '',
-            // @ts-ignore
+            // @ts-expect-error
             cssState?.[CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.SECONDARY_COLOR_IS_LIGHT : '',
-            // @ts-ignore
+            // @ts-expect-error
             cssState?.[CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.ACCENT_COLOR_IS_LIGHT : '',
           ])
         }

@@ -35,7 +35,7 @@ import { identity } from 'lodash';
  * @returns {WebsiteMainMenuItem} the menuItems now with parentLinks information
  */
 export function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
-  // @ts-ignore
+  // @ts-expect-error
   return (
     (menuItems || [])
       .map((menuItem) => {

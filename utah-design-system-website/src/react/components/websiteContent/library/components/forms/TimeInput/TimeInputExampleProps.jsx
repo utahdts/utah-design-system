@@ -19,7 +19,6 @@ export function TimeInputExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
-      // @ts-ignore
       setState={setState}
       className="form--stacked"
     >

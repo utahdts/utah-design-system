@@ -1,7 +1,7 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
 

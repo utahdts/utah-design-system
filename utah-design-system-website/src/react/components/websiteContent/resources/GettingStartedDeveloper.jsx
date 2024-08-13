@@ -96,7 +96,7 @@ export function GettingStartedDeveloper() {
       <div className="flex justify-end mb-spacing-l">
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/umd-html"
-          // @ts-ignore
+          // @ts-expect-error
           className="button button--primary-color button--small"
         >
           View a detailed example on GitHub
@@ -124,7 +124,7 @@ export function GettingStartedDeveloper() {
       <div className="flex justify-end mb-spacing-l">
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html"
-          // @ts-ignore
+          // @ts-expect-error
           className="button button--primary-color button--small"
         >
           View a detailed example on GitHub
@@ -213,7 +213,7 @@ export function GettingStartedDeveloper() {
       <div className="flex justify-end mb-spacing-l">
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/vite"
-          // @ts-ignore
+          // @ts-expect-error
           className="button button--primary-color button--small"
         >
           View a detailed example on GitHub
@@ -300,7 +300,7 @@ export function GettingStartedDeveloper() {
       <div className="flex justify-end mb-spacing-l">
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/angular"
-          // @ts-ignore
+          // @ts-expect-error
           className="button button--primary-color button--small"
         >
           View a detailed example on GitHub
@@ -463,7 +463,7 @@ export function GettingStartedDeveloper() {
       <div className="flex justify-end mb-spacing-l">
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/es-html"
-          // @ts-ignore
+          // @ts-expect-error
           className="button button--primary-color button--small"
         >
           View a detailed example on GitHub

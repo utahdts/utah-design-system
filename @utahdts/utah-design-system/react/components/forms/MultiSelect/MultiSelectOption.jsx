@@ -25,7 +25,7 @@ export function MultiSelectOption({
   useEffect(
     () => {
       setMultiSelectContext((draftContext) => {
-        // @ts-ignore
+        // @ts-expect-error
         draftContext.optionTagClassNames[value] = tagClassName;
       });
       return () => {

@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import SkipLinkHtml from './html/SkipLink.html?raw';
 

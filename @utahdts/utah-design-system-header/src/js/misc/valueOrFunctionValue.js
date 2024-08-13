@@ -6,7 +6,7 @@
 export function valueOrFunctionValue(valueOrFunction) {
   return (
     (typeof valueOrFunction === 'function')
-      // @ts-ignore
+      // @ts-expect-error
       ? valueOrFunction()
       : valueOrFunction
   );

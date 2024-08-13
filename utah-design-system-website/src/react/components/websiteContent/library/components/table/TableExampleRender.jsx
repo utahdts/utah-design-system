@@ -42,7 +42,7 @@ export function TableExampleRender({
     <TableWrapper
       id={id}
       innerRef={innerRef}
-      // @ts-ignore
+      // @ts-expect-error
       style={{ width: '100%' }}
     >
       <Table id={id} className={joinClassNames('table table--lines-x table--v-align-center table--full-width', className)}>
@@ -76,21 +76,21 @@ export function TableExampleRender({
                */}
             <TableHeadCell
               recordFieldPath="category"
-              // @ts-ignore
+              // @ts-expect-error
               style={{ width: '40%' }}
             >
               Category
             </TableHeadCell>
             <TableHeadCell
               recordFieldPath="symbol"
-              // @ts-ignore
+              // @ts-expect-error
               style={{ width: '40%' }}
             >
               Symbol
             </TableHeadCell>
             <TableHeadCell
               recordFieldPath="year"
-              // @ts-ignore
+              // @ts-expect-error
               style={{ width: '20%' }}
             >
               Year

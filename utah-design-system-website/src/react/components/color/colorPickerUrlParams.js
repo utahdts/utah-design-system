@@ -63,7 +63,7 @@ export function colorsToCSS(cssState) {
 export function colorsToUrlParams(cssState) {
   const hexes = (
     Object.values(CSS_VARIABLES_KEYS)
-      // @ts-ignore
+      // @ts-expect-error
       .map((colorKey) => /** @type {string | null} */(cssState[colorKey])?.substring(1) || NULL_COLOR_HEX)
       .map((colorHex) => {
         let retVal = colorHex;

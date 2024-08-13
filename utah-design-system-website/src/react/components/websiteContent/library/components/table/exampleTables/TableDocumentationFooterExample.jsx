@@ -108,7 +108,7 @@ export function TableDocumentationFooterExample() {
 
             <TableFoot>
               <TableFootRow>
-                {/* @ts-ignore */}
+                {/* @ts-expect-error */}
                 <TableFootCell colSpan={3}>
                   Average Duration
                 </TableFootCell>

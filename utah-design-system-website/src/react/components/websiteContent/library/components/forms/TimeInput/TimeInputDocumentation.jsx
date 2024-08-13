@@ -51,7 +51,7 @@ export function TimeInputDocumentation() {
             <TimeInput
               id="time-input-documentation__example-1"
               label="What time is your appointment?"
-              // @ts-ignore
+              // @ts-expect-error
               autoComplete="off"
             />
           </div>
@@ -99,7 +99,7 @@ export function TimeInputDocumentation() {
               timeRangeBegin="09:03"
               timeRangeEnd="14:25"
               timeRangeIncrement={13}
-              // @ts-ignore
+              // @ts-expect-error
               autoComplete="off"
             />
           </div>

@@ -157,7 +157,6 @@ export function PopupsDocumentation() {
             >
               Toggle Popup
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-example1"
               id="id-for-example1"
@@ -185,7 +184,6 @@ export function PopupsDocumentation() {
             >
               Toggle Popup Example 2
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-example-2"
               hasCloseButton
@@ -229,7 +227,6 @@ export function PopupsDocumentation() {
             >
               Open Plain Menu...
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="popups-example-render-button"
               id="popups-example-render-popup"
@@ -275,7 +272,6 @@ export function PopupsDocumentation() {
             >
               Open Flyout Menu...
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="popups-example-render-button"
               id="popups-example-render-popup"
@@ -319,7 +315,6 @@ export function PopupsDocumentation() {
             >
               Toggle Editor Popup Example
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-editor-example"
               className="popup__wrapper--close-button-absolute"

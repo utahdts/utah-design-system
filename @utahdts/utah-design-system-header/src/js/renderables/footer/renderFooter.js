@@ -1,7 +1,7 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import footerHTML from './html/Footer.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import newTabAccessibilityHTML from '../_html/NewTabAccessibility.html?raw';
 

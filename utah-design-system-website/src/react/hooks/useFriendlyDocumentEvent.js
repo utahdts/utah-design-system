@@ -16,21 +16,21 @@ export function useFriendlyDocumentEvent(eventName, eventHandler) {
   useEffect(
     () => {
       // check if there was already a handler for this event and if so "chain" it to the new event handler
-      // @ts-ignore
+      // @ts-expect-error
       if (document[eventName]) {
-        // @ts-ignore
+        // @ts-expect-error
         previousEventHandlerRef.current = document[eventName];
       }
 
       // set new event handler in to document
-      // @ts-ignore
+      // @ts-expect-error
       document[eventName] = (
         /** @param {import('react').MouseEvent} e */
         (e) => {
           const eventHandlerResult = eventHandler(e);
 
           // if eventHandler returns false then don't propagate event to previous handler
-          // @ts-ignore
+          // @ts-expect-error
           if (previousEventHandlerRef.current && eventHandlerResult !== false) {
             previousEventHandlerRef.current(e);
           }
@@ -39,7 +39,7 @@ export function useFriendlyDocumentEvent(eventName, eventHandler) {
 
       return (
         () => {
-          // @ts-ignore
+          // @ts-expect-error
           document[eventName] = previousEventHandlerRef.current;
           previousEventHandlerRef.current = null;
         }

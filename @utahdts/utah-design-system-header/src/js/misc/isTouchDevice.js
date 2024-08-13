@@ -3,7 +3,7 @@ export function isTouchDevice() {
   return (
     ('ontouchstart' in window)
     || (navigator.maxTouchPoints > 0)
-    // @ts-ignore
+    // @ts-expect-error
     || (navigator.msMaxTouchPoints > 0)
   );
 }

@@ -12,7 +12,7 @@ export function SpinnersExampleProps({ setState, state }) {
   return (
     <Form
       state={state}
-      // @ts-ignore
+      // @ts-expect-error
       setState={setState}
       className="form--stacked"
     >

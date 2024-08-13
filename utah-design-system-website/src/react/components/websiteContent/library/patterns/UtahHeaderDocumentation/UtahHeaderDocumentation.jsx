@@ -145,10 +145,10 @@ export function UtahHeaderDocumentation() {
                       // set the new settings object as the new settings state and
                       // apply just the preset.settingsSnippet fields to the settings
                       setHeaderSettings((draftHeaderObject) => {
-                        // @ts-ignore
+                        // @ts-expect-error
                         Object.entries(selectedOption.settingsSnippet)
                           .forEach(([settingKey, settingValue]) => {
-                            // @ts-ignore
+                            // @ts-expect-error
                             draftHeaderObject[settingKey] = settingValue;
                           });
                       })
@@ -1430,7 +1430,7 @@ export function UtahHeaderDocumentation() {
           </TableRow>
 
           <TableRow>
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */}
             <TableCell colSpan="100">
               <span className="prop__section-title">UtahId Events</span>
             </TableCell>
@@ -1489,7 +1489,7 @@ export function UtahHeaderDocumentation() {
           </TableRow>
 
           <TableRow>
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */}
             <TableCell colSpan="100">
               <span className="prop__section-title">UtahId Custom Menu Items</span>
             </TableCell>

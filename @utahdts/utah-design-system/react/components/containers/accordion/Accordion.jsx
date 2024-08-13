@@ -50,7 +50,7 @@ export function Accordion({
         aria-expanded={stateIsOpen}
         aria-controls={`${id}-accordion__content`}
       >
-        {/* @ts-ignore */}
+        {/* @ts-expect-error */}
         <HeadingTag>{headerContent}</HeadingTag>
         <span className={`utds-icon-before-circle-chevron-up icon-button__icon ${stateIsOpen ? '' : 'icon-button__icon--rotate180'}`} aria-hidden="true" />
       </button>

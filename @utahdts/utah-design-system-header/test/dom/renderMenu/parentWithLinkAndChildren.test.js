@@ -73,7 +73,6 @@ function testMainMenuHasNoChildren() {
  * @param {HTMLElement | null | undefined} element
  * @param {string} functionContainsContents
  */
-// @ts-ignore
 // eslint-disable-next-line no-unused-vars
 function testMenuItemIsButton(element, functionContainsContents) {
   expect(element).toBeTruthy();
@@ -92,7 +91,6 @@ function testMenuItemIsA(menuItemElement, href, functionContainsContents) {
   const menuItem1ChildrenMenuItemTitle = /** @type {HTMLAnchorElement | null} */ (menuItemElement?.querySelector('.vertical-menu__link-title'));
   expect(menuItem1ChildrenMenuItemTitle).toBeTruthy();
   expect(menuItem1ChildrenMenuItemTitle?.tagName).toBe(A);
-  // @ts-ignore
   expect(menuItem1ChildrenMenuItemTitle?.href).toContain(href);
   if (functionContainsContents) {
     expect(menuItem1ChildrenMenuItemTitle?.onclick?.toString()).toContain(functionContainsContents);

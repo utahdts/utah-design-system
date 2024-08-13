@@ -13,7 +13,7 @@ export function AccordionExampleProps({ setState, state }) {
   return (
     <Form
       className="form--stacked"
-      // @ts-ignore
+      // @ts-expect-error
       setState={setState}
       state={state}
     >

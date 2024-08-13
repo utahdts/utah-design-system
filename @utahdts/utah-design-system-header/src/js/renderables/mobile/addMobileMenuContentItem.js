@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import MobileMenuContentItemWrapper from './html/MobileMenuContentItemWrapper.html?raw';
 

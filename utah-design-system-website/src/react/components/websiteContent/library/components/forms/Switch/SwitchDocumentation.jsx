@@ -78,20 +78,20 @@ export function SwitchDocumentation() {
               errorMessage="You must comply!"
               label="Small"
               id="switch-small"
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.SMALL}
               width={20}
             />
             <Switch
               label="Medium"
               id="switch-medium"
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.MEDIUM}
             />
             <Switch
               label="Large"
               id="switch-large"
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.LARGE}
               width={30}
               defaultValue

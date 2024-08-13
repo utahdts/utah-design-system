@@ -15,7 +15,7 @@ export function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
   useEffect(
     () => {
       keydownFuncRef.current = (e) => {
-        // @ts-ignore
+        // @ts-expect-error
         if (e.code === whichKeyCode || e.keyCode === whichKeyCode || e.key === whichKeyCode) {
           if (e.type === 'keydown') {
             setKeyPressed(true);
@@ -30,16 +30,16 @@ export function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
           }
         }
       };
-      // @ts-ignore
+      // @ts-expect-error
       document.addEventListener('keydown', keydownFuncRef.current);
-      // @ts-ignore
+      // @ts-expect-error
       document.addEventListener('keyup', keydownFuncRef.current);
 
       return () => {
         if (keydownFuncRef.current) {
-          // @ts-ignore
+          // @ts-expect-error
           document.removeEventListener('keydown', keydownFuncRef.current);
-          // @ts-ignore
+          // @ts-expect-error
           document.removeEventListener('keyup', keydownFuncRef.current);
         }
         keydownFuncRef.current = null;

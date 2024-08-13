@@ -45,7 +45,7 @@ export function Form({
          */
         ({ fieldPath, value }) => {
           stateUse[1]((draftState) => {
-            // @ts-ignore
+            // @ts-expect-error
             setValueAtPath({ object: draftState, path: fieldPath, value });
           });
         }

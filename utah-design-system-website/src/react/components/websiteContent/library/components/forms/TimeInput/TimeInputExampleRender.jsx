@@ -59,7 +59,7 @@ export function TimeInputExampleRender({
         timeRangeBegin={timeRangeBegin}
         timeRangeEnd={timeRangeEnd}
         value={value}
-        // @ts-ignore
+        // @ts-expect-error
         autoComplete="off"
       />
     </div>

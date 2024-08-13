@@ -78,7 +78,7 @@ export function calendarGrid(focusDate, selectedDate) {
     loopDate = add(loopDate, { days: 1 })
   ) {
     if (calendarGridMonth.length === 0 || calendarGridMonth[calendarGridMonth.length - 1]?.length === 7) {
-      // @ts-ignore
+      // @ts-expect-error
       calendarGridMonth.push([]);
     }
     calendarGridMonth[calendarGridMonth.length - 1]?.push(constructCalendarGridValue(loopDate, focusDate, selectedDate, viewedMonthDate));

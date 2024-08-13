@@ -17,7 +17,7 @@ export function useRememberCursorPosition(ref, value) {
 
   useEffect(
     () => {
-      // @ts-ignore
+      // @ts-expect-error
       ref.current?.setSelectionRange(cursor, cursor);
     },
     [ref, cursor, value]
@@ -25,7 +25,7 @@ export function useRememberCursorPosition(ref, value) {
 
   return useCallback(
     (e) => {
-      // @ts-ignore
+      // @ts-expect-error
       setCursor(e.target.selectionStart ?? NaN);
     },
     [setCursor]

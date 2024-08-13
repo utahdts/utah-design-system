@@ -1,13 +1,13 @@
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuHtml from './html/PopupMenu.html?raw';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 

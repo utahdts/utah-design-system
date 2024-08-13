@@ -29,7 +29,7 @@ export function TabGroup({
   const [tabGroupState, setTabGroupState] = useImmer(() => ({
     selectedTabId: defaultValue || '',
     tabGroupId,
-    tabs: /** @type {NodeList | []} */ [],
+    tabs: /** @type {NodeList | []} */[],
   }));
   const navigateTab = useCallback((/** @type {HTMLButtonElement | null} */ tab) => {
     if (tab) {
@@ -53,7 +53,7 @@ export function TabGroup({
         if (checkTab) {
           Object.assign(checkTab, tab?.current);
         } else {
-          // @ts-ignore
+          // @ts-expect-error
           draftState.tabs.push(tab?.current);
         }
       });

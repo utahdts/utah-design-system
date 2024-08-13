@@ -9,7 +9,7 @@ export function objectsWithKey(object, key) {
   /** @type {Record<string, any>[]} */
   const foundObjects = [];
   if (object && typeof object === 'object') {
-    // @ts-ignore
+    // @ts-expect-error
     if (object[key] !== undefined) {
       foundObjects.push(object);
     }

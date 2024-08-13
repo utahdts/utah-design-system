@@ -102,7 +102,7 @@ export function ComboBoxTextInput({
       /** @param {React.KeyboardEvent<HTMLInputElement>} e */
       (e) => {
         /** @type {HTMLInputElement} */
-        // @ts-ignore
+        // @ts-expect-error
         const { target } = e;
         const currentTextInputValue = /** @type {string} */ (target.value);
         const currentTextInputValueLowerCase = currentTextInputValue.toLowerCase();
@@ -176,7 +176,7 @@ export function ComboBoxTextInput({
         isDisabled={isDisabled}
         isShowingClearableIcon={isShowingClearableIcon}
         errorMessage={errorMessage}
-        // @ts-ignore
+        // @ts-expect-error
         onBlur={(e) => {
           onBlur?.(e);
           onKeyUpPreviousValue.current = filterValue;
@@ -216,7 +216,7 @@ export function ComboBoxTextInput({
             ? (
               (e) => {
                 if (onClear) {
-                  // @ts-ignore
+                  // @ts-expect-error
                   onClear(e);
                 } else if (onClearComboBoxContext) {
                   onClearComboBoxContext();
@@ -242,10 +242,10 @@ export function ComboBoxTextInput({
             draftContext.isOptionsExpanded = true;
           });
         }}
-        // @ts-ignore
+        // @ts-expect-error
         onKeyDown={(e) => e.stopPropagation()}
         onKeyUp={(e) => {
-          // @ts-ignore
+          // @ts-expect-error
           if (!onKeyUp?.(e, onKeyUpPreviousValue.current) && !onKeyUpFromContext?.(e, onKeyUpPreviousValue.current)) {
             if (![
               onCancelKeyPress(e),
@@ -290,7 +290,7 @@ export function ComboBoxTextInput({
               });
             }}
             title="Toggle popup menu"
-            // @ts-ignore
+            // @ts-expect-error
             // prevent the chevron from closing and reopening the popup
             onMouseDown={(e) => e.preventDefault()}
           />

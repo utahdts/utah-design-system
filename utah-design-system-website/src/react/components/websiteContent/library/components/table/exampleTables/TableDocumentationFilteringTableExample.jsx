@@ -81,7 +81,7 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterTextInput
                   a11yLabel="Fun Facts"
                   onChange={(e) => (
-                    // @ts-ignore
+                    // @ts-expect-error
                     setFunFactsFilter(e.target?.value)
                   )}
                   recordFieldPath="funFacts"

@@ -65,7 +65,7 @@ export function VerticalMenuExampleRender({
   ]);
   useEffect(() => {
     setMenu((draftState) => {
-      // @ts-ignore
+      // @ts-expect-error
       draftState[0].menuItems[0].childrenMenuType = childrenMenuType;
     });
   }, [childrenMenuType]);

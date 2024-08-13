@@ -55,7 +55,7 @@ export function Switch({
       if (value !== undefined) {
         setState?.(
           /** @param {Record<string, any>} draftState */
-          // @ts-ignore
+          // @ts-expect-error
           (draftState) => {
             setValueAtPath({
               object: draftState,
@@ -78,18 +78,18 @@ export function Switch({
       if (setState) {
         setState(
           /** @param {Record<string, any>} draftState */
-          // @ts-ignore
+          // @ts-expect-error
           (draftState) => {
             setValueAtPath({
               object: draftState,
               path: id,
-              // @ts-ignore
+              // @ts-expect-error
               value: e.target.checked,
             });
           }
         );
       } else {
-        // @ts-ignore
+        // @ts-expect-error
         setInternalState(e.target.checked);
       }
     },
@@ -121,7 +121,7 @@ export function Switch({
           disabled={isDisabled}
           id={id}
           name={name || id}
-          // @ts-ignore
+          // @ts-expect-error
           onChange={currentOnChange}
           role="switch"
           type="checkbox"

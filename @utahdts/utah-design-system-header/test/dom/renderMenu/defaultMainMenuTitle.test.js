@@ -39,7 +39,7 @@ describe('renderMenu: main menu title', () => {
           className: 'menu-item-1',
         },
       ],
-      // @ts-ignore - purposefully setting to non-type valid value
+      // @ts-expect-error - purposefully setting to non-type valid value
       title: undefined,
     };
     setUtahHeaderSettings({ mainMenu });

@@ -133,7 +133,6 @@ export function TextInput({
           id={id}
           name={name || id}
           onChange={currentOnChange && onChangeCallback}
-          // @ts-ignore
           onKeyUp={onKeyUp || checkKeyPressed}
           placeholder={placeholder || undefined}
           ref={inputRef}
@@ -150,7 +149,7 @@ export function TextInput({
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
                 innerRef={clearIconRef}
                 isDisabled={isDisabled}
-                // @ts-ignore
+                // @ts-expect-error
                 onClick={clearInput}
                 title="Clear input"
               />

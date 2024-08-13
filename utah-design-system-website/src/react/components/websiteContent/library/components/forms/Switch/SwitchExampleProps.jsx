@@ -21,7 +21,7 @@ export function SwitchExampleProps({ setState, state }) {
       <div>
         <Form
           state={state}
-          // @ts-ignore
+          // @ts-expect-error
           setState={setState}
         >
           <TextInput id="props.className" label="Class" className="input--height-small1x" />

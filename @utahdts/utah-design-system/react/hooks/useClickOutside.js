@@ -21,10 +21,9 @@ export function useClickOutside(refs, handler, isDisabled = false) {
             (!startedInside && startedWhenMounted)
 
             // Do nothing if clicking ref's element or descendent elements
-            // @ts-ignore
+            // @ts-expect-error
             && (ref.current && !ref.current.contains(event.target))
           ))) {
-            // @ts-ignore
             handler(event);
           }
         };
@@ -32,7 +31,7 @@ export function useClickOutside(refs, handler, isDisabled = false) {
         /** @type {(e: Event) => void} */
         const validateEventStart = (event) => {
           startedWhenMounted = refs.some((ref) => !!ref.current);
-          // @ts-ignore
+          // @ts-expect-error
           startedInside = refs.some((ref) => (ref.current === event.target) || !!ref.current?.contains?.(event.target));
           if (!startedInside) {
             handler(event);

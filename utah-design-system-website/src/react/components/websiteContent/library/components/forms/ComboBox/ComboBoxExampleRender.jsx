@@ -57,7 +57,7 @@ export function ComboBoxExampleRender({
           draftState.props.value = newValue;
           setStateFormContext?.(
             (draftStateFormContext) => {
-              // @ts-ignore
+              // @ts-expect-error
               draftStateFormContext['props.value'] = newValue;
             }
           );
@@ -70,7 +70,7 @@ export function ComboBoxExampleRender({
           }
         }
         value={value}
-        // @ts-ignore
+        // @ts-expect-error
         autoComplete="off"
       >
         {

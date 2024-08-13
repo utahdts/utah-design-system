@@ -198,7 +198,7 @@ export function DemoForm() {
                 id="firstName"
                 isRequired
                 label="First Name"
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('firstName')}
               />
               <TextInput
@@ -206,14 +206,14 @@ export function DemoForm() {
                 id="lastName"
                 isRequired
                 label="Last Name"
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('lastName')}
               />
               <TextInput
                 errorMessage={formErrors.phoneNumber?.message}
                 id="phoneNumber"
                 label="Phone Number"
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('phoneNumber')}
               />
               <div className="info-box mb-spacing">
@@ -237,7 +237,7 @@ export function DemoForm() {
                   draftColors.sort((a, b) => a.name.localeCompare(b.name));
                 })}
                 values={formState.eyeColor}
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('eyeColor')}
               >
                 {
@@ -260,7 +260,7 @@ export function DemoForm() {
                 isRequired
                 id="radioBand"
                 label="What's your Radio Band jam?"
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('radioBand')}
               >
                 {
@@ -295,21 +295,21 @@ export function DemoForm() {
                 labelOff="Rock & Roll"
                 size="large"
                 width={150}
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('rockGenre')}
               />
               <TextArea
                 errorMessage={formErrors.comment?.message}
                 id="comment"
                 label="Comment"
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('comment')}
               />
               <CharacterCount
                 id="commentCount"
                 maxLength={100}
                 text={formState.comment}
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('commentCount')}
               />
               <Checkbox
@@ -317,7 +317,7 @@ export function DemoForm() {
                 id="approved"
                 isRequired
                 label="Do you approve?"
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('approved')}
               />
               {
@@ -331,7 +331,7 @@ export function DemoForm() {
                         isRequired
                         label="Approved Date"
                         showCalendarTodayButton
-                        // @ts-ignore
+                        // @ts-expect-error
                         onBlur={onBlurCurry('approvedDate')}
                       />
                       <TimeInput
@@ -341,7 +341,7 @@ export function DemoForm() {
                         isRequired
                         label="Approved Time"
                         timeRangeIncrement={30}
-                        // @ts-ignore
+                        // @ts-expect-error
                         onBlur={onBlurCurry('approvedTime')}
                       />
                     </>

@@ -50,7 +50,7 @@ export function RadioButton({
     currentValue = contextValues.value || '';
   } else if (formContextState && name) {
     // not in a ComboBoxGroup but is in a FormContext
-    // @ts-ignore
+    // @ts-expect-error
     currentValue = formContextState?.[name];
   } else {
     // not in a ComboBoxGroup and not in a FormContext
@@ -66,7 +66,7 @@ export function RadioButton({
       } else if (formContextSetState && name) {
         // controlled by form context
         formContextSetState((draftState) => {
-          // @ts-ignore
+          // @ts-expect-error
           draftState[name] = value;
         });
       }

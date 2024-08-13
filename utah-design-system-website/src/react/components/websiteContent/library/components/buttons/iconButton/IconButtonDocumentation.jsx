@@ -205,7 +205,7 @@ export function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the Small1X icon button')}
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.SMALL1X}
               title="Gear icon x-small button"
             />
@@ -215,7 +215,7 @@ export function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the small icon button')}
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.SMALL}
               title="Gear icon small button"
             />
@@ -224,7 +224,7 @@ export function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the medium icon button')}
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.MEDIUM}
               title="Gear icon medium button"
             />
@@ -234,7 +234,7 @@ export function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the large icon button')}
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.LARGE}
               title="Gear icon large button"
             />
@@ -244,7 +244,7 @@ export function IconButtonDocumentation() {
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               // eslint-disable-next-line no-alert
               onClick={() => alert('Triggered the Large1X icon button')}
-              // @ts-ignore
+              // @ts-expect-error
               size={formElementSizesEnum.LARGE1X}
               title="Gear icon x-large button"
             />

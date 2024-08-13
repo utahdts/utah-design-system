@@ -67,7 +67,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
     // add entry for menuItem
     const menuItemPath = `${basePath}/${cleanMenuItemTitlePath(menuItem.title)}`;
     if (pageUrl) {
-      // @ts-ignore
+      // @ts-expect-error
       pagePaths[pageUrlReverseLookup[pageUrl]] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
     }
 

@@ -1,6 +1,6 @@
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line import/no-unresolved
 import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
 

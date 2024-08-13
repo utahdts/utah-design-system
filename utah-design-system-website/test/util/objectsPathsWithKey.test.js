@@ -17,23 +17,23 @@ const objectWithKey = {
 
 describe('objectsPathsWithKeys', () => {
   test('non object values (BAD TYPES)', () => {
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(null, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(undefined, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(NaN, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(Infinity, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(3, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(true, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(false, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys(Symbol('not an object!'), ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error
     expect(objectsPathsWithKeys('not a string', ['test'])).toStrictEqual([]);
   });
 
