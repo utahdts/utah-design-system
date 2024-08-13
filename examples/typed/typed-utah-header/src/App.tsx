@@ -12,7 +12,18 @@ export function App() {
     () => {
       // setUtahHeaderSettings() is typed! YAY!
       setUtahHeaderSettings({
-        title: 'Typed Utah Header!'
+        title: 'Typed Utah Header!',
+        mainMenu: {
+          menuItems: [
+            {
+              actionUrl: {
+                url: "/"
+              },
+              title: "Home"
+            }
+          ],
+          title: "Utah Design System Main Menu"
+        },
       });
     },
     []

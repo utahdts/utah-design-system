@@ -30,6 +30,19 @@ document.querySelector('#app').innerHTML = `
   <style>body { display: block }</style>
 `;
 
-setUtahHeaderSettings({});
+setUtahHeaderSettings({
+  title: 'Utah Header running w/ vite!',
+  mainMenu: {
+    menuItems: [
+      {
+        actionUrl: {
+          url: "/"
+        },
+        title: "Home"
+      }
+    ],
+    title: "Utah Design System Main Menu"
+  },
+});
 
 setupCounter(document.querySelector('#counter'));
