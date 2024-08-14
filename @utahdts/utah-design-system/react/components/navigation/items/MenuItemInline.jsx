@@ -64,7 +64,7 @@ export function MenuItemInline({
               <button
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
                 className="menu-item__button-title"
-                id={`menu-item-${menuItem.id}-${menuItem.link}`}
+                id={`menu-item-${menuItem.id}-${menuItem.link || 'link'}`}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
                 type="button"
               >
