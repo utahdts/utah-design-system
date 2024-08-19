@@ -103,12 +103,14 @@ export function UtahHeaderDocumentation() {
       <div className="sandbox-example">
         <div className="sandbox-example__top">
           <div className="sandbox-example__component">
+            <label htmlFor="sandbox-example__code-editor" className="visually-hidden">Header Code Textarea</label>
             <div className="sandbox-example__code-editor-wrapper">
               <textarea
                 defaultValue={headerString}
                 className="sandbox-example__code-editor"
                 ref={interactiveTextAreaRef}
                 wrap="off"
+                id="sandbox-example__code-editor"
               />
               <CopyButton
                 copyRef={interactiveTextAreaRef}
@@ -167,6 +169,7 @@ export function UtahHeaderDocumentation() {
                 id="apply-interactive-utah-header"
                 isDisabled={!isDirty}
                 onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current?.value ?? ''), [setHeaderString])}
+                className="font-semi-bold"
               >
                 Apply
               </Button>
