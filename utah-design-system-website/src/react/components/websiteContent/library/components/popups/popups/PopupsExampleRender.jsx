@@ -58,7 +58,6 @@ export function PopupsExampleRender({
       >
         Toggle Popup
       </button>
-      {/* @ts-expect-error */}
       <Popup
         ariaLabelledBy="popups-example-render-button"
         id="popups-example-render-popup"
