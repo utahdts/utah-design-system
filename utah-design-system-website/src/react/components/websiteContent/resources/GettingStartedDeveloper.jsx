@@ -348,6 +348,17 @@ export function GettingStartedDeveloper() {
         `}
       />
       <p>
+        Use <code>^</code> to allow only patch and minor updates (non-breaking).
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={`
+          "@utahdts/utah-design-system": "^1.0.2"
+          # Will use releases from 1.0.2 to 2.0.0 (non-inclusive)
+        `}
+      />
+      <p>
         You can also request any version greater than a specific version, greater or equal to, less than, etc.<br />
         See the full list on the <ExternalLink href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies">npm documentation site</ExternalLink>.
       </p>
