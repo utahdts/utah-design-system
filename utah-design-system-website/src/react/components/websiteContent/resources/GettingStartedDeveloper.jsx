@@ -249,7 +249,10 @@ export function GettingStartedDeveloper() {
         </li>
         <li>
           Add to the{' '}
-          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/angular/angular.json">angular.json</ExternalLink>{' '}
+          <ExternalLink
+            href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/angular/angular.json"
+          >angular.json
+          </ExternalLink>{' '}
           file the css and js reference from the design system<br />
           <PreCodeForCodeString
             codeRaw={`
@@ -306,6 +309,61 @@ export function GettingStartedDeveloper() {
           View a detailed example on GitHub
         </ExternalLink>
       </div>
+
+      <h3 id="h3-header-versioning" className="mt-spacing">About versioning</h3>
+      <h4 id="h4-semantic-versioning">Semantic Versioning</h4>
+      <p className="mb-spacing-s">
+        Both the Utah Design System and the Utah Header
+        use <ExternalLink href="https://semver.org/">Semantic Versioning</ExternalLink>
+        , which is represented as <code>MAJOR.MINOR.PATCH</code>:
+      </p>
+      <ol>
+        <li>
+          <strong>Major</strong>.
+          This number represents a significant number of changes and may break compatibility with previous versions.
+          This could include adding new features, or removing existing ones.
+        </li>
+        <li>
+          <strong>Minor</strong>.
+          This number will change when new features are added, or improvements are made, while keeping everything backward-compatible.
+        </li>
+        <li>
+          <strong>Patch</strong>.
+          This last number indicates small changes such as bug fixes, minor tweaks, etc.
+        </li>
+      </ol>
+      <p className="mt-spacing-s">Keep that in mind when upgrading.</p>
+
+      <h4 id="h4-package-json">Package.json</h4>
+      <p>
+        While using npm to import and/or update the Utah Design System and Utah Header,
+        you have control over which version you would like to use.
+        You can specify an exact version in your <code>package.json</code> file:
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={`
+          "@utahdts/utah-design-system": "2.0.2"
+        `}
+      />
+      <p>
+        You can also request any version greater than a specific version, greater or equal to, less than, etc.<br />
+        See the full list on the <ExternalLink href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies">npm documentation site</ExternalLink>.
+      </p>
+
+      <h4 id="h4-unpkg-versioning">unpkg.com</h4>
+      <p>
+        While using <ExternalLink href="https://unpkg.com/">unpkg</ExternalLink>, you can specify which version of the
+        Utah Design System or Utah Header you want to load. If you omit the version, it will automatically serve the latest version.
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={`
+          https://unpkg.com/:package@:version/:file
+        `}
+      />
 
       <h2 id="h2-using-design-system" className="mt-spacing-l">Using the Design System</h2>
       <p>
@@ -390,7 +448,9 @@ export function GettingStartedDeveloper() {
         <li>Timing <code>--timing-medium</code></li>
         <li>
           And more! See{' '}
-          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss">
+          <ExternalLink
+            href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss"
+          >
             utah-design-system/@utahdts/utah-design-system/css/1-settings/_settings-index.scss
           </ExternalLink> for all the variables.
         </li>
