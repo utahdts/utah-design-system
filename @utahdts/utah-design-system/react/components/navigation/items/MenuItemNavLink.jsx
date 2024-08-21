@@ -43,7 +43,6 @@ export function MenuItemNavLink({
       }}
       ref={innerRef}
       rel="noreferrer"
-      role={(menuItem.link || menuItem.actionUrl?.url || menuItem.actionFunctionUrl?.url) ? 'menuitem' : ''}
       target={(menuItem.actionUrl?.openInNewTab || menuItem.actionFunctionUrl?.openInNewTab) ? '_blank' : undefined}
     >
       {menuItem.title}
