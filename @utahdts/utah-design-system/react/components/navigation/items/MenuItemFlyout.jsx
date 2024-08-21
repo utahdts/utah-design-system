@@ -62,7 +62,7 @@ export function MenuItemFlyout({
   }, [triggerOnHover, buttonRef, popperRef, buttonRef]);
 
   return (
-    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={wrapperElement} role="presentation">
+    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={wrapperElement}>
       <span className={menuType === menuTypes.VERTICAL ? 'vertical-menu__title' : 'menu-item__title'}>
         {
           ((!menuItem?.link && !menuItem.actionFunction && !menuItem.actionFunctionUrl && !menuItem.actionUrl) || menuItem?.link?.includes('::'))
@@ -122,7 +122,7 @@ export function MenuItemFlyout({
               {...attributes.popper}
             >
               <div className="popup__content flyout-menu">
-                <ul role="menu" className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
+                <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
                   {menuItem.children?.map((menuItemChild) => (
                     <MenuItemFlyout
                       key={`menu-item__child__${menuItemChild.link || 'link'}-${menuItemChild.title}}`}

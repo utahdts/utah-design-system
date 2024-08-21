@@ -55,7 +55,7 @@ export function MenuItemInline({
   }
 
   return (
-    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} role="presentation">
+    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'}>
       <span className="menu-item__title">
         {/* === menu item title === */}
         {
@@ -108,7 +108,6 @@ export function MenuItemInline({
         menuItem.children
           ? (
             <ul
-              role="menu"
               className={joinClassNames(
                 'menu-item__sub-menu',
                 menuType === menuTypes.VERTICAL ? 'vertical-menu' : '',

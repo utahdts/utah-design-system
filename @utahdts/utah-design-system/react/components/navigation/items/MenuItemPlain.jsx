@@ -19,7 +19,7 @@ export function MenuItemPlain({
   menuType,
 }) {
   return (
-    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} role="presentation">
+    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'}>
       <span className={menuType === menuTypes.VERTICAL ? 'vertical-menu__title' : 'menu-item__title'}>
         {
           ((!menuItem?.link && !menuItem.actionFunction && !menuItem.actionFunctionUrl && !menuItem.actionUrl) || menuItem?.link?.includes('::'))
@@ -37,7 +37,7 @@ export function MenuItemPlain({
       {
         menuItem.children?.length
           ? (
-            <ul role="menu" className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
+            <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
               {menuItem.children.map((menuItemChild) => (
                 <MenuItemPlain
                   key={`menu-item__child__${menuItemChild.link}-${menuItemChild.title}}`}
