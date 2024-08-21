@@ -8,6 +8,7 @@ import UtahLogoMediumHtml from './html/UtahLogoMedium.html?raw';
 // eslint-disable-next-line import/no-unresolved
 import UtahOfficialWebsiteHoverContentHtml from './html/UtahOfficialWebsiteHoverContent.html?raw';
 
+import packageJson from '../../../../package.json';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { sizes } from '../../enumerations/sizes';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
@@ -42,6 +43,15 @@ export function UtahLogo() {
 
   logoWrapper.setAttribute('id', uuidv4());
   hookupTooltip(logoWrapper, renderDOMSingle(UtahOfficialWebsiteHoverContentHtml));
+
+  if (!window.location.hostname || !['localhost', '127.0.0.1', '::1', '.local'].find((local) => window.location.hostname.includes(local))) {
+    const dataImage = document.createElement('img');
+    dataImage.alt = 'Utah Design System Data';
+    dataImage.classList.add('utah-logo-wrapper__data');
+    dataImage.classList.add('visually-hidden');
+    dataImage.src = `https://uds-data-a234spjofq-wm.a.run.app/${packageJson.version}.png`;
+    logoWrapper.appendChild(dataImage);
+  }
 
   return logoWrapper;
 }
