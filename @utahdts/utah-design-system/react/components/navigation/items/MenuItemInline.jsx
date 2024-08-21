@@ -55,7 +55,7 @@ export function MenuItemInline({
   }
 
   return (
-    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} role="menuitem">
+    <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} role="presentation">
       <span className="menu-item__title">
         {/* === menu item title === */}
         {
