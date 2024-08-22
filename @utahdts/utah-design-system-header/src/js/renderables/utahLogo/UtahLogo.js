@@ -46,9 +46,9 @@ export function UtahLogo() {
 
   if (!window.location.hostname || !['localhost', '127.0.0.1', '::1', '.local'].find((local) => window.location.hostname.includes(local))) {
     const dataImage = document.createElement('img');
-    dataImage.alt = 'Utah Design System Data';
     dataImage.classList.add('utah-logo-wrapper__data');
-    dataImage.classList.add('visually-hidden');
+    dataImage.classList.add('hidden');
+    dataImage.ariaHidden = 'true';
     dataImage.src = `https://uds-data-a234spjofq-wm.a.run.app/${packageJson.version}.png`;
     logoWrapper.appendChild(dataImage);
   }
