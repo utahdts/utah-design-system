@@ -64,7 +64,7 @@ export function MenuItemInline({
               <button
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
                 className="menu-item__button-title"
-                id={`menu-item-${menuItem.id}-${menuItem.link || 'link'}`}
+                id={encodeURI(`menu-item-${menuItem.id}-${menuItem.link || 'link'}`)}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
                 type="button"
               >
@@ -87,7 +87,7 @@ export function MenuItemInline({
             ? (
               <IconButton
                 appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-                aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
+                aria-labelledby={encodeURI(`menu-item-${menuItem.id}-${menuItem.link || 'link'}`)}
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
                 className={joinClassNames(
                   'menu-item__chevron',
@@ -108,7 +108,6 @@ export function MenuItemInline({
         menuItem.children
           ? (
             <ul
-              role="menu"
               className={joinClassNames(
                 'menu-item__sub-menu',
                 menuType === menuTypes.VERTICAL ? 'vertical-menu' : '',

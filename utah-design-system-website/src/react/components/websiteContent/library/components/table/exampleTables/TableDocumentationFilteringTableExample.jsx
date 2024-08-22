@@ -54,7 +54,7 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterTextInput a11yLabel="Name" recordFieldPath="name" />
 
                 {/* Skip a column by using the "None" filter component */}
-                <TableFilterNone />
+                <TableFilterNone><span className="visually-hidden">No filter available for this column</span></TableFilterNone>
 
                 {/*
                   Present a combo box input of the possible values from which to filter;

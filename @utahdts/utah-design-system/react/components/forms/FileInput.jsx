@@ -76,6 +76,13 @@ export function FileInput({
     }
   }, [files]);
 
+  let ariaDescribedBy = '';
+  if (errorMessage) {
+    ariaDescribedBy = `${id}-error`;
+  } else if (hint) {
+    ariaDescribedBy = `${id}-hint`;
+  }
+
   return (
     <div className={joinClassNames('input-wrapper', className)} ref={innerRef}>
       <label htmlFor={id}>
@@ -111,7 +118,7 @@ export function FileInput({
         }
         <input
           accept={acceptedFileTypes}
-          aria-describedby={errorMessage ? `${id}-error` : `${id}-hint`}
+          aria-describedby={ariaDescribedBy}
           disabled={isDisabled}
           id={id}
           multiple={multiple}

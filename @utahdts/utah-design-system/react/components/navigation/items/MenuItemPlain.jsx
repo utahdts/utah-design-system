@@ -37,7 +37,7 @@ export function MenuItemPlain({
       {
         menuItem.children?.length
           ? (
-            <ul role="menu" className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
+            <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
               {menuItem.children.map((menuItemChild) => (
                 <MenuItemPlain
                   key={`menu-item__child__${menuItemChild.link}-${menuItemChild.title}}`}

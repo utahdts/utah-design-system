@@ -112,6 +112,7 @@ export function VerticalMenuDocumentation() {
                 {
                   header: '',
                   id: 'static-vertical-menu',
+                  titleTagName: 'span',
                   menuItems: [
                     {
                       id: 'menu-in-popup-A',

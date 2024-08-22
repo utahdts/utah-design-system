@@ -36,7 +36,7 @@ export function VerticalMenu({
               >
                 {menu.header}
               </TitleTagName>
-              <ul key={`vertical-menu__list__${menu.id}`} role="menu" className="vertical-menu">
+              <ul key={`vertical-menu__list__${menu.id}`} className="vertical-menu">
                 {menu.menuItems.map((menuItem) => {
                   let result;
                   switch (menuItem.childrenMenuType) {

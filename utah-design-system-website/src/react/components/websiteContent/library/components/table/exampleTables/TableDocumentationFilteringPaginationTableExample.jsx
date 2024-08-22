@@ -47,7 +47,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
         headingLevel={4}
       >
         <TextInput
-          id="table-pagination__items-per-page"
+          id="table-pagination__items-per-page_filtering"
           label="Items Per Page"
           onChange={(e) => setItemsPerPage(Math.max(1, Number(e.target.value)) || DEFAULT_ITEMS_PER_PAGE)}
           value={`${itemsPerPage}`}
@@ -60,7 +60,7 @@ export function TableDocumentationFilteringPaginationTableExample() {
                 <TableFilterTextInput a11yLabel="Name" recordFieldPath="name" />
 
                 {/* Skip a column by using the "None" filter component */}
-                <TableFilterNone />
+                <TableFilterNone><span className="visually-hidden">No filter available for this column</span></TableFilterNone>
 
                 {/*
                   Present a select input of the possible values from which to filter;
