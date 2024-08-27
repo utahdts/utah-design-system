@@ -79,11 +79,17 @@ export function UtahHeaderDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Utah Header</h1>
       <p className="lead-in">
-        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. It also provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
+        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. It also
+        provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
       </p>
       <p className="lead-in">
-        The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and Title</strong>,{' '}
+        The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and
+          Title
+                                                                                                           </strong>,{' '}
         <strong>Action Items</strong>, <strong>Main Menu</strong>, and <strong>Search</strong>.
+      </p>
+      <p>
+        <strong>Note:</strong> Consider various screen sizes when implementing the Utah Header.
       </p>
       <hr />
       <div className="header-config__title">
@@ -150,7 +156,7 @@ export function UtahHeaderDocumentation() {
                         // @ts-expect-error
                         Object.entries(selectedOption.settingsSnippet)
                           .forEach(([settingKey, settingValue]) => {
-                            // @ts-expect-error
+                          // @ts-expect-error
                             draftHeaderObject[settingKey] = settingValue;
                           });
                       })
@@ -214,7 +220,7 @@ export function UtahHeaderDocumentation() {
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="utds-title-wrapper" href="#">
                 <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={agencyBrand} /></div>
-                <div className="utds-title-wrapper__title">Agency/Division Title </div>
+                <div className="utds-title-wrapper__title">Agency/Division Title</div>
               </a>
             </h1>
           </div>
@@ -223,7 +229,10 @@ export function UtahHeaderDocumentation() {
           <ul>
             <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
             <li>The title is always required even if it is not visible, so screen readers can identify the site.</li>
-            <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain a <code>4.5:1</code> contrast ratio against the background.</li>
+            <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and
+              title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain
+              a <code>4.5:1</code> contrast ratio against the background.
+            </li>
           </ul>
         )}
       />
@@ -268,12 +277,20 @@ export function UtahHeaderDocumentation() {
             <li>Action items are not required, but can be utilized based on need.</li>
             <li>Action items are icon buttons that can be used in combination with badges.</li>
             <li>
-              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation.
-              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an agency&#39;s divisions.
+              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9
+              dots. It is a popup menu that can contain additional navigation.
+              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an
+              agency&#39;s divisions.
             </li>
-            <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be linked to the Citizen Portal.</li>
-            <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
-            <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
+            <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be
+              linked to the Citizen Portal.
+            </li>
+            <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu
+              that provides help items relative to the site.
+            </li>
+            <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that
+              allows the user to configure settings relative to the site or application that they are logged into or viewing.
+            </li>
             <li>The UtahID Login is a button that allows the user to login to their UtahID account and Citizen Portal (in the future).</li>
             <li>Action items can have 2 different types of popups.
               <ul>
@@ -285,7 +302,11 @@ export function UtahHeaderDocumentation() {
         )}
       />
 
-      <p>View more information on <Link to={pageUrls.popups}>Popup Menus</Link>, <Link to={pageUrls.iconButton}>Icon Buttons</Link> and <Link to={pageUrls.badges}>Badges</Link>.</p>
+      <p>View more information on <Link to={pageUrls.popups}>Popup Menus</Link>, <Link to={pageUrls.iconButton}>Icon Buttons</Link> and <Link
+        to={pageUrls.badges}
+      >Badges
+      </Link>.
+      </p>
 
       <h3 id="section-main-menu">Main Menu</h3>
       <p>Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.</p>
@@ -312,7 +333,11 @@ export function UtahHeaderDocumentation() {
           </ul>
         )}
       />
-      <p>View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>, <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</p>
+      <p>View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>, <Link to={pageUrls.modals}>Modals</Link> and <Link
+        to={pageUrls.textInput}
+      >Text Input
+      </Link>.
+      </p>
 
       {/* ---- CODE EXAMPLES --- */}
       <h2 id="section-utahheader-code-examples" className="my-spacing">Code Examples</h2>
@@ -320,9 +345,11 @@ export function UtahHeaderDocumentation() {
       <h3 id="section-utahheader-events" className="mb-spacing">Utah Header Events</h3>
       <h4 id="section-loaded">{events.HEADER_LOADED}</h4>
       <div>
-        The Utah Header javascript library must load before your javascript code can interact with it. After the Utah Header javascript library loads, it
+        The Utah Header javascript library must load before your javascript code can interact with it. After the Utah Header javascript library loads,
+        it
         will wait for your code to call <code>setUtahHeaderSettings()</code> before showing the Utah Header. Your code should listen for
-        the <code>{events.HEADER_LOADED}</code> global document event. The Utah Header will intermittently emit this event until your code calls <code>setUtahHeaderSettings()</code>.
+        the <code>{events.HEADER_LOADED}</code> global document event. The Utah Header will intermittently emit this event until your code
+        calls <code>setUtahHeaderSettings()</code>.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
@@ -336,8 +363,10 @@ export function UtahHeaderDocumentation() {
 
       <h4 id="section-unloaded">{events.HEADER_UNLOADED}</h4>
       <div>
-        To change the content of the header, your code need only call <code>setUtahHeaderSettings()</code> with new settings. It is not advisable to unload the header. But
-        there may be use cases that require the header be unmounted and reloaded. When the Utah Header is unloaded it will emit a <code>{events.HEADER_UNLOADED}</code> global
+        To change the content of the header, your code need only call <code>setUtahHeaderSettings()</code> with new settings. It is not advisable to
+        unload the header. But
+        there may be use cases that require the header be unmounted and reloaded. When the Utah Header is unloaded it will emit
+        a <code>{events.HEADER_UNLOADED}</code> global
         document event.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
@@ -363,14 +392,22 @@ export function UtahHeaderDocumentation() {
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
-        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content consider using the search as a way for visitors to easily find information.</li>
+        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary
+          navigation.
+        </li>
+        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content
+          consider using the search as a way for visitors to easily find information.
+        </li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the citizens experience on all public state websites and applications.</li>
-        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
+        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the
+          citizens experience on all public state websites and applications.
+        </li>
+        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header.
+          This will allow the developer to view the header in real time prior to implementing.
+        </li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
@@ -385,8 +422,14 @@ export function UtahHeaderDocumentation() {
       </ul>
       <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
       <ul>
-        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.</li>
-        <li>For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
+        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus
+          and Flyout Menus
+        </Link>.
+        </li>
+        <li>For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text
+          Input
+        </Link>.
+        </li>
         <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
       </ul>
 
@@ -395,7 +438,12 @@ export function UtahHeaderDocumentation() {
       <p>
         Below you will find the configuration settings for the Utah Header.
       </p>
-      <p>You can also find all the <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js">configuration settings in the JSDoc file</ExternalLink>.</p>
+      <p>You can also find all the <ExternalLink
+        href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js"
+      >configuration
+        settings in the JSDoc file
+      </ExternalLink>.
+      </p>
 
       {/* ----     Settings     --- */}
       <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
@@ -911,7 +959,9 @@ export function UtahHeaderDocumentation() {
             <TableCell>null</TableCell>
             <TableCell>
               The header has an area just to the left of the UtahID button for icons buttons. These can icons can
-              be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
+              be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon
+                Buttons
+                                                                                                              </Link>.
               When the action item is triggered it can have one of the following behaviors:
               <ul>
                 <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
@@ -1026,7 +1076,8 @@ export function UtahHeaderDocumentation() {
             </TableCell>
             <TableCell>null</TableCell>
             <TableCell>
-              A numeric value to show in the badge. String values tend to be too bulky or vague. See <Link to={pageUrls.badges}>Badges</Link> for more information.
+              A numeric value to show in the badge. String values tend to be too bulky or vague. See <Link to={pageUrls.badges}>Badges</Link> for more
+              information.
             </TableCell>
           </TableRow>
 
@@ -1461,7 +1512,8 @@ export function UtahHeaderDocumentation() {
             </TableCell>
             <TableCell>null</TableCell>
             <TableCell>
-              Callback triggered when the UtahID Profile menu item is triggered in the Utah ID menu for a logged in user. The default behavior of this menu item is to navigate the user to their UtahID Profile page.
+              Callback triggered when the UtahID Profile menu item is triggered in the Utah ID menu for a logged in user. The default behavior of this
+              menu item is to navigate the user to their UtahID Profile page.
             </TableCell>
           </TableRow>
 
@@ -1508,7 +1560,9 @@ export function UtahHeaderDocumentation() {
             <TableCell>null</TableCell>
             <TableCell>
               Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-              to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for MenuItem</a>.
+              to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for
+                MenuItem
+                                                                                                   </a>.
             </TableCell>
           </TableRow>
         </SettingsDocumentation>
@@ -1553,8 +1607,16 @@ export function UtahHeaderDocumentation() {
       <div>
         UtahId returns information about the current User. The following end points are useful for getting started connecting to UtahId:
         <ul>
-          <li><strong>Discovery</strong>: <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration">https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration</ExternalLink></li>
-          <li><strong>UserInfo</strong>: <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/userinfo">https://login.dts.utah.gov:443/sso/oauth2/userinfo</ExternalLink></li>
+          <li><strong>Discovery</strong>: <ExternalLink
+            href="https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration"
+          >https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration
+          </ExternalLink>
+          </li>
+          <li><strong>UserInfo</strong>: <ExternalLink
+            href="https://login.dts.utah.gov:443/sso/oauth2/userinfo"
+          >https://login.dts.utah.gov:443/sso/oauth2/userinfo
+          </ExternalLink>
+          </li>
         </ul>
         This example shows how an application can provide an authenticated user to the Utah Header:
         <PreCodeForCodeString
@@ -1667,7 +1729,8 @@ export function UtahHeaderDocumentation() {
       <h4 id="section-auth-event-onProfile" className="mt-spacing">utahId.onProfile</h4>
       <div>
         This callback is called when the Utah ID button&apos;s UtahId Profile menu item is triggered for a logged in user.
-        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#section-auth-menu-items">custom menu item</a> to access
+        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#section-auth-menu-items">custom menu item</a> to
+        access
         your application&apos;s settings/account page.
         <PreCodeForCodeString
           allowScrollOverflow
