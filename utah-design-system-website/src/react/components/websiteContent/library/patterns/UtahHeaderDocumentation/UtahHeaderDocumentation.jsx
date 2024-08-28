@@ -83,10 +83,11 @@ export function UtahHeaderDocumentation() {
         provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
       </p>
       <p className="lead-in">
-        The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and
-          Title
-                                                                                                           </strong>,{' '}
-        <strong>Action Items</strong>, <strong>Main Menu</strong>, and <strong>Search</strong>.
+        The components contained within the header include the <strong>Utah, an official website</strong>,
+        <strong>Agency Icon and Title</strong>
+        , <strong>Action Items</strong>
+        , <strong>Main Menu</strong>
+        , and <strong>Search</strong>.
       </p>
       <p>
         <strong>Note:</strong> Consider various screen sizes when implementing the Utah Header.
@@ -302,10 +303,10 @@ export function UtahHeaderDocumentation() {
         )}
       />
 
-      <p>View more information on <Link to={pageUrls.popups}>Popup Menus</Link>, <Link to={pageUrls.iconButton}>Icon Buttons</Link> and <Link
-        to={pageUrls.badges}
-      >Badges
-      </Link>.
+      <p>
+        View more information on <Link to={pageUrls.popups}>Popup Menus</Link>
+        , <Link to={pageUrls.iconButton}>Icon Buttons</Link>
+        and <Link to={pageUrls.badges}>Badges</Link>.
       </p>
 
       <h3 id="section-main-menu">Main Menu</h3>
@@ -333,10 +334,10 @@ export function UtahHeaderDocumentation() {
           </ul>
         )}
       />
-      <p>View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>, <Link to={pageUrls.modals}>Modals</Link> and <Link
-        to={pageUrls.textInput}
-      >Text Input
-      </Link>.
+      <p>
+        View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>
+        , <Link to={pageUrls.modals}>Modals</Link>
+        and <Link to={pageUrls.textInput}>Text Input</Link>.
       </p>
 
       {/* ---- CODE EXAMPLES --- */}
@@ -422,13 +423,13 @@ export function UtahHeaderDocumentation() {
       </ul>
       <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
       <ul>
-        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus
-          and Flyout Menus
-        </Link>.
+        <li>
+          To ensure a good user experience when navigating the site, follow the accessibility guidance for
+          <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.
         </li>
-        <li>For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text
-          Input
-        </Link>.
+        <li>
+          For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link>
+          and <Link to={pageUrls.textInput}>Text Input</Link>.
         </li>
         <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
       </ul>
@@ -438,11 +439,9 @@ export function UtahHeaderDocumentation() {
       <p>
         Below you will find the configuration settings for the Utah Header.
       </p>
-      <p>You can also find all the <ExternalLink
-        href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js"
-      >configuration
-        settings in the JSDoc file
-      </ExternalLink>.
+      <p>
+        You can also find all the
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js">configuration settings in the JSDoc file</ExternalLink>.
       </p>
 
       {/* ----     Settings     --- */}
@@ -959,9 +958,8 @@ export function UtahHeaderDocumentation() {
             <TableCell>null</TableCell>
             <TableCell>
               The header has an area just to the left of the UtahID button for icons buttons. These can icons can
-              be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon
-                Buttons
-                                                                                                              </Link>.
+              be used for a myriad of purposes customized for your application. For Icon Button guidance,
+              see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
               When the action item is triggered it can have one of the following behaviors:
               <ul>
                 <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
@@ -1560,9 +1558,8 @@ export function UtahHeaderDocumentation() {
             <TableCell>null</TableCell>
             <TableCell>
               Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-              to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for
-                MenuItem
-                                                                                                   </a>.
+              to a user&apos;s account. Use an alternate navigation for non-account related links.
+              <a href="#section-menuitem-settings">See here for MenuItem</a>.
             </TableCell>
           </TableRow>
         </SettingsDocumentation>
@@ -1607,15 +1604,13 @@ export function UtahHeaderDocumentation() {
       <div>
         UtahId returns information about the current User. The following end points are useful for getting started connecting to UtahId:
         <ul>
-          <li><strong>Discovery</strong>: <ExternalLink
-            href="https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration"
-          >https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration
-          </ExternalLink>
+          <li>
+            <strong>Discovery</strong>:
+            <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration">https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration</ExternalLink>
           </li>
-          <li><strong>UserInfo</strong>: <ExternalLink
-            href="https://login.dts.utah.gov:443/sso/oauth2/userinfo"
-          >https://login.dts.utah.gov:443/sso/oauth2/userinfo
-          </ExternalLink>
+          <li>
+            <strong>UserInfo</strong>:
+            <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/userinfo">https://login.dts.utah.gov:443/sso/oauth2/userinfo</ExternalLink>
           </li>
         </ul>
         This example shows how an application can provide an authenticated user to the Utah Header:
