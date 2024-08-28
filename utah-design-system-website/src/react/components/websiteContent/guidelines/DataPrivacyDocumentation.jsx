@@ -6,7 +6,6 @@ import { pageUrls } from '../../routing/pageUrls';
 export function DataPrivacyDocumentation() {
   const [showModal, setShowModal] = useState(false);
   const closeModal = useCallback(() => setShowModal(false), [setShowModal]);
-  const openModal = useCallback(() => setShowModal(true), [setShowModal]);
 
   return (
     <div className="documentation-content">
