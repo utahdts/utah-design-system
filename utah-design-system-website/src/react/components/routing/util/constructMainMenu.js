@@ -8,6 +8,7 @@ import {
   menuResourcesSecondary,
 } from '../menus';
 import { pageUrls } from '../pageUrls';
+import { actionFunctionForUrl } from './actionFunctionForUrl';
 
 /** @typedef {import('@utahdts/utah-design-system-header').EventAction} EventAction */
 /** @typedef {import('@utahdts/utah-design-system-header').MainMenu} MainMenu */
@@ -17,26 +18,6 @@ import { pageUrls } from '../pageUrls';
 /** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
 /** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */
-
-/**
- * @param {string} url
- * @param {import('react-router-dom').NavigateFunction} navigate
- * @returns {EventAction}
- */
-function actionFunctionForUrl(url, navigate) {
-  return (
-    (e) => {
-      if (e.metaKey) {
-        window.open(url, '_blank');
-      } else {
-        e.preventDefault();
-        e.stopPropagation();
-        // mainMenuItem.link will be there... if not, not my problem
-        navigate(url);
-      }
-    }
-  );
-}
 
 /**
  * @param {WebsiteMainMenuItem[]} websiteMainMenuItems
