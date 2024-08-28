@@ -84,10 +84,10 @@ export function UtahHeaderDocumentation() {
       </p>
       <p className="lead-in">
         The components contained within the header include the <strong>Utah, an official website</strong>,
-        <strong>Agency Icon and Title</strong>
-        , <strong>Action Items</strong>
-        , <strong>Main Menu</strong>
-        , and <strong>Search</strong>.
+        <strong>Agency Icon and Title</strong>,{' '}
+        <strong>Action Items</strong>,{' '}
+        <strong>Main Menu</strong>,{' '}
+        and <strong>Search</strong>.
       </p>
       <p>
         <strong>Note:</strong> Consider various screen sizes when implementing the Utah Header.
@@ -157,7 +157,7 @@ export function UtahHeaderDocumentation() {
                         // @ts-expect-error
                         Object.entries(selectedOption.settingsSnippet)
                           .forEach(([settingKey, settingValue]) => {
-                          // @ts-expect-error
+                            // @ts-expect-error
                             draftHeaderObject[settingKey] = settingValue;
                           });
                       })
@@ -1558,7 +1558,7 @@ export function UtahHeaderDocumentation() {
             <TableCell>null</TableCell>
             <TableCell>
               Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-              to a user&apos;s account. Use an alternate navigation for non-account related links.
+              to a user&apos;s account. Use an alternate navigation for non-account related links.{' '}
               <a href="#section-menuitem-settings">See here for MenuItem</a>.
             </TableCell>
           </TableRow>
