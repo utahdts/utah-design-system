@@ -6,6 +6,13 @@ import { pageUrls } from '../../routing/pageUrls';
 export function DataPrivacyDocumentation() {
   const [showModal, setShowModal] = useState(false);
   const closeModal = useCallback(() => setShowModal(false), [setShowModal]);
+  const openModal = useCallback((/** @type {React.MouseEvent | undefined} */ event) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setShowModal(true);
+  }, []);
 
   return (
     <div className="documentation-content">
@@ -84,21 +91,16 @@ export function DataPrivacyDocumentation() {
             <div className="flex items-center justify-center mb-spacing-l">
               <span className="flex items-center">
                 <span className="utds-icon-before-policy" aria-hidden="true" />
-                <span className="visually-hidden">policy</span>
               </span>
               <a
                 href="#privacy"
-                onClick={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  setShowModal(!showModal);
-                }}
+                onClick={openModal}
               >
                 Notice of Collection / Data Privacy
               </a>
             </div>
             <h2>Example Form</h2>
-            <p>This is an example form where a user will need to fill out the following form in order to the next step in the process.</p>
+            <p>This is an example where a user will need to fill out the following form in order to cross the bridge to the next step.</p>
             <form autoComplete="off">
               <label htmlFor="name">What is your name?</label>
               <input type="text" id="first-name" className="mb-spacing" />
