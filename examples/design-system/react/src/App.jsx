@@ -68,9 +68,9 @@ export function App() {
           the <a href="https://designsystem.utah.gov" target="_blank">
           Utah Design System Website
           <span className="utds-new-tab-link-a11y">
-              <span className="visually-hidden">, opens in a new tab</span>
-              <span className="utds-icon-after-external-link" aria-hidden="true"></span>
-            </span>
+            <span className="visually-hidden">, opens in a new tab</span>
+            <span className="utds-icon-after-external-link" aria-hidden="true"></span>
+          </span>
         </a>.
         </p>
         <h2 className="text-center my-spacing">CSS</h2>
@@ -81,9 +81,9 @@ export function App() {
           the <a href="https://designsystem.utah.gov/resources/gettingStartedDeveloper#h3-css-color-overrides" target="_blank">
             Getting Started for Developers Page
             <span className="utds-new-tab-link-a11y">
-                <span className="visually-hidden">, opens in a new tab</span>
-                <span className="utds-icon-after-external-link" aria-hidden="true"></span>
-              </span>
+              <span className="visually-hidden">, opens in a new tab</span>
+              <span className="utds-icon-after-external-link" aria-hidden="true"></span>
+            </span>
           </a>
         </p>
         <h2 className="text-center my-spacing">Learn More</h2>
