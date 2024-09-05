@@ -34,6 +34,9 @@ export { ComboBoxOptionGroup } from './react/components/forms/ComboBox/ComboBoxO
 export { DateInput } from './react/components/forms/DateInput';
 export { FileInput } from './react/components/forms/FileInput';
 export { Form } from './react/components/forms/Form';
+export { FormContext } from './react/components/forms/FormContext/FormContext';
+export { FormContextProvider } from './react/components/forms/FormContext/FormContextProvider';
+export { useFormContext } from './react/components/forms/FormContext/useFormContext';
 export { MultiSelect } from './react/components/forms/MultiSelect/MultiSelect';
 export { MultiSelectOption } from './react/components/forms/MultiSelect/MultiSelectOption';
 export { MultiSelectOptionGroup } from './react/components/forms/MultiSelect/MultiSelectOptionGroup';

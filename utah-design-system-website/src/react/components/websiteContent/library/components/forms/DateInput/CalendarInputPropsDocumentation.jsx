@@ -63,7 +63,7 @@ export function CalendarInputPropsDocumentation() {
           </div>
         </TableCell>
         <TableCell>(required)</TableCell>
-        <TableCell>An id to put on the calendar element.</TableCell>
+        <TableCell>An id to put on the calendar element. Also will be used as the path to the value in a FormContext.</TableCell>
       </TableRow>
 
       <TableRow>

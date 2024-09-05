@@ -6,7 +6,6 @@ import {
   Switch,
   TextInput,
 } from '@utahdts/utah-design-system';
-import { useFormState } from '../../../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').TagExamplePropsShape} TagExamplePropsShape */
 
@@ -17,34 +16,18 @@ import { useFormState } from '../../../../../../../hooks/useFormState';
  * @returns {import('react').JSX.Element}
  */
 export function TagExampleProps({ setState, state }) {
-  const { onChange, valueFn } = useFormState(state, setState);
   return (
     <Form
       className="form--stacked"
+      // @ts-expect-error
+      setState={setState}
+      state={state}
     >
-      <TextInput
-        id="props.nonClickable.className"
-        className="input--height-small1x"
-        label="Class"
-        onChange={onChange}
-        value={valueFn('props.nonClickable.className')}
-      />
+      <TextInput id="props.nonClickable.className" label="Class" className="input--height-small1x" />
 
-      <Switch
-        id="props.nonClickable.isClearable"
-        label="Clearable"
-        // @ts-expect-error
-        onChange={onChange}
-        value={valueFn('props.nonClickable.isClearable')}
-      />
+      <Switch id="props.nonClickable.isClearable" label="Clearable" />
 
-      <Select
-        id="props.nonClickable.color"
-        className="input--height-small1x"
-        label="Color"
-        onChange={onChange}
-        value={valueFn('props.nonClickable.color')}
-      >
+      <Select id="props.nonClickable.color" label="Color" className="input--height-small1x">
         <SelectOption label="Default" value="" />
         <SelectOption label="Primary" value="tag--primary-color" />
         <SelectOption label="Primary light" value="tag--primary-color-light" />
@@ -54,66 +37,29 @@ export function TagExampleProps({ setState, state }) {
         <SelectOption label="Accent light" value="tag--accent-color-light" />
       </Select>
 
-      <Switch
-        id="props.nonClickable.isDisabled"
-        label="Disabled"
-        // @ts-expect-error
-        onChange={onChange}
-        value={valueFn('props.nonClickable.isDisabled')}
-        width={20}
-      />
+      <Switch id="props.nonClickable.isDisabled" label="Disabled" width={20} />
 
-      <Select
-        id="props.nonClickable.iconLeft"
-        className="input--height-small1x"
-        label="Icon Left"
-        onChange={onChange}
-        value={valueFn('props.nonClickable.iconLeft')}
-      >
+      <Select id="props.nonClickable.iconLeft" label="Icon Left" className="input--height-small1x">
         <SelectOption label="Checkmark" value="check" />
         <SelectOption label="Arrow" value="arrow-left" />
         <SelectOption label="None" value="none" />
       </Select>
 
-      <Select
-        id="props.nonClickable.iconRight"
-        className="input--height-small1x"
-        label="Icon Right"
-        onChange={onChange}
-        value={valueFn('props.nonClickable.iconRight')}
-      >
+      <Select id="props.nonClickable.iconRight" label="Icon Right" className="input--height-small1x">
         <SelectOption label="Checkmark" value="check" />
         <SelectOption label="Arrow" value="arrow-right" />
         <SelectOption label="None" value="none" />
       </Select>
 
-      <TextInput
-        id="props.nonClickable.id"
-        className="input--height-small1x"
-        label="ID"
-        onChange={onChange}
-        value={valueFn('props.nonClickable.id')}
-      />
+      <TextInput id="props.nonClickable.id" label="ID" className="input--height-small1x" />
 
-      <Select
-        id="props.nonClickable.size"
-        className="input--height-small1x"
-        label="Size"
-        onChange={onChange}
-        value={valueFn('props.nonClickable.size')}
-      >
+      <Select id="props.nonClickable.size" label="Size" className="input--height-small1x">
         <SelectOption label="Small" value={formElementSizesEnum.SMALL} />
         <SelectOption label="Medium" value={formElementSizesEnum.MEDIUM} />
         <SelectOption label="Large" value={formElementSizesEnum.LARGE} />
       </Select>
 
-      <TextInput
-        id="props.nonClickable.title"
-        className="input--height-small1x"
-        label="Title (children)"
-        onChange={onChange}
-        value={valueFn('props.nonClickable.title')}
-      />
+      <TextInput id="props.nonClickable.title" label="Title (children)" className="input--height-small1x" />
 
     </Form>
   );

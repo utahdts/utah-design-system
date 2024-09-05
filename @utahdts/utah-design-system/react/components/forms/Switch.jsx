@@ -1,7 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
 import { joinClassNames } from '../../util/joinClassNames';
+import { setValueAtPath } from '../../util/state/setValueAtPath';
+import { valueAtPath } from '../../util/state/valueAtPath';
 import { ErrorMessage } from './ErrorMessage';
+import { useFormContext } from './FormContext/useFormContext';
 
 /**
  * @param {object} props
@@ -16,7 +19,7 @@ import { ErrorMessage } from './ErrorMessage';
  * @param {string} [props.labelOn]
  * @param {string} [props.labelOff]
  * @param {string} [props.name]
- * @param {((e: React.KeyboardEvent) => void)} [props.onChange]
+ * @param {((e: React.KeyboardEvent) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
  * @param {import('react').ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]
@@ -43,25 +46,54 @@ export function Switch({
   ...rest
 }) {
   // there is no "uncontrolled" version of this component
-  const [currentValue, setCurrentValue] = useState(!!(defaultValue ?? value));
+  const { setState, state } = useFormContext();
+  const [internalState, setInternalState] = useState(!!(defaultValue ?? value));
 
   // switch example was passing in a value but it wasn't updating the UI
   useEffect(
     () => {
       if (value !== undefined) {
-        setCurrentValue(!!value);
+        setState?.(
+          /** @param {Record<string, any>} draftState */
+          // @ts-expect-error
+          (draftState) => {
+            setValueAtPath({
+              object: draftState,
+              path: id,
+              value,
+            });
+          }
+        );
+        setInternalState(!!value);
       }
     },
     [value]
   );
 
+  const currentValue = valueAtPath({ object: state ?? null, path: id }) ?? internalState;
+
   const internalOnChange = useCallback(
-    /** @param {import('react').KeyboardEvent<HTMLInputElement>} e */
+    /** @param {import('react').KeyboardEvent} e */
     (e) => {
-      // @ts-expect-error
-      setCurrentValue(e.target.checked);
+      if (setState) {
+        setState(
+          /** @param {Record<string, any>} draftState */
+          // @ts-expect-error
+          (draftState) => {
+            setValueAtPath({
+              object: draftState,
+              path: id,
+              // @ts-expect-error
+              value: e.target.checked,
+            });
+          }
+        );
+      } else {
+        // @ts-expect-error
+        setInternalState(e.target.checked);
+      }
     },
-    [id]
+    [id, setState]
   );
   const currentOnChange = onChange ?? internalOnChange;
 

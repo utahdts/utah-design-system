@@ -4,6 +4,7 @@ import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { ErrorMessage } from './ErrorMessage';
+import { useFormContextInput } from './FormContext/useFormContextInput';
 import { RequiredStar } from './RequiredStar';
 
 /**
@@ -22,9 +23,9 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] can be omitted to be uncontrolled
+ * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] can be omitted to be uncontrolled OR controlled by form
  * @param {import('react').KeyboardEventHandler<HTMLInputElement>} [props.onKeyUp]
- * @param {import('react').UIEventHandler<HTMLInputElement>} [props.onClear]
+ * @param {import('react').UIEventHandler<HTMLInputElement>} [props.onClear] (not needed if inside a <Form> context)
  * @param {string} [props.placeholder]
  * @param {import('react').ReactNode} [props.rightContent] custom content to put to the right of the text input
  * @param {string} [props.value]
@@ -55,26 +56,39 @@ export function TextInput({
   wrapperClassName,
   ...rest
 }) {
+  const {
+    onChange: currentOnChange,
+    onClear: currentOnClear,
+    onFormKeyUp: currentOnFormKeyUp,
+    value: currentValue,
+  } = useFormContextInput({
+    defaultValue,
+    id,
+    onChange,
+    onKeyUp,
+    onClear,
+    value,
+  });
   const inputRef = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
   const { addPoliteMessage } = useAriaMessaging();
 
-  const showClearIcon = isShowingClearableIcon ?? !!((isClearable || onClear) && value);
+  const showClearIcon = isShowingClearableIcon ?? !!((isClearable || onClear) && currentValue);
 
   const clearInput = useCallback(
     /** @param {import('react').UIEvent<HTMLInputElement>} e */
     (e) => {
-      if (onClear) {
-        onClear(e);
+      if (currentOnClear) {
+        currentOnClear(e);
       } else if (inputRef.current) {
         inputRef.current.value = '';
       }
       addPoliteMessage(`${label} input was cleared`);
       inputRef.current?.focus();
     },
-    [addPoliteMessage, onClear, label]
+    [addPoliteMessage, currentOnClear, label]
   );
 
   const checkKeyPressed = useCallback(
@@ -82,18 +96,20 @@ export function TextInput({
     (e) => {
       if (e.key === 'Escape' && showClearIcon) {
         clearInput(e);
+      } else {
+        currentOnFormKeyUp?.(e);
       }
     },
-    [clearInput, showClearIcon]
+    [clearInput, currentOnFormKeyUp, showClearIcon]
   );
 
   const onChangeCallback = useCallback(
     /** @param {import('react').ChangeEvent<HTMLInputElement>} e */
     (e) => {
       onChangeSetCursorPosition(e);
-      onChange?.(e);
+      currentOnChange?.(e);
     },
-    [onChangeSetCursorPosition, onChange]
+    [onChangeSetCursorPosition, currentOnChange]
   );
 
   return (
@@ -113,17 +129,16 @@ export function TextInput({
           aria-describedby={errorMessage ? `${id}-error` : undefined}
           aria-invalid={!!errorMessage}
           className={joinClassNames(className, showClearIcon ? 'text-input--clear-icon-visible' : null)}
-          defaultValue={defaultValue}
           disabled={isDisabled}
           id={id}
           name={name || id}
-          onChange={onChange && onChangeCallback}
+          onChange={currentOnChange && onChangeCallback}
           onKeyUp={onKeyUp || checkKeyPressed}
           placeholder={placeholder || undefined}
           ref={inputRef}
           required={isRequired}
           type="text"
-          value={value}
+          value={currentValue}
           {...rest}
         />
         {

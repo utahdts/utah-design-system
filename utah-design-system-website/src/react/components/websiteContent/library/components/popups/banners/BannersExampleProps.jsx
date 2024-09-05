@@ -4,7 +4,6 @@ import {
   SelectOption,
   TextInput
 } from '@utahdts/utah-design-system';
-import { useFormState } from '../../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').BannerExamplePropsShape} BannerExamplePropsShape */
 
@@ -15,41 +14,21 @@ import { useFormState } from '../../../../../../hooks/useFormState';
  * @returns {import('react').JSX.Element}
  */
 export function BannersExampleProps({ setState, state }) {
-  const { onChange, valueFn } = useFormState(state, setState);
   return (
-    <Form className="form--stacked">
-      <TextInput
-        id="props.className"
-        className="input--height-small1x"
-        label="Class"
-        onChange={onChange}
-        value={valueFn('props.className')}
-      />
-      <Select
-        id="props.icon"
-        className="input--height-small1x"
-        label="Icon"
-        onChange={onChange}
-        value={valueFn('props.icon')}
-      >
+    <Form
+      state={state}
+      // @ts-expect-error
+      setState={setState}
+      className="form--stacked"
+    >
+      <TextInput id="props.className" label="Class" className="input--height-small1x" />
+      <Select id="props.icon" label="Icon" className="input--height-small1x">
         <SelectOption label="None" value="none" />
         <SelectOption label="Checkmark" value="utds-icon-before-check" />
         <SelectOption label="Warning" value="utds-icon-before-warning" />
       </Select>
-      <TextInput
-        id="props.message"
-        className="input--height-small1x"
-        label="Message"
-        onChange={onChange}
-        value={valueFn('props.message')}
-      />
-      <Select
-        id="props.position"
-        className="input--height-small1x"
-        label="Position"
-        onChange={onChange}
-        value={valueFn('props.position')}
-      >
+      <TextInput id="props.message" label="Message" className="input--height-small1x" />
+      <Select id="props.position" label="Position" className="input--height-small1x">
         <SelectOption label="Top" value="top" />
         <SelectOption label="Top Right" value="top-right" />
         <SelectOption label="Top Left" value="top-left" />
@@ -57,26 +36,14 @@ export function BannersExampleProps({ setState, state }) {
         <SelectOption label="Bottom Right" value="bottom-right" />
         <SelectOption label="Bottom Left" value="bottom-left" />
       </Select>
-      <Select
-        id="props.color"
-        className="input--height-small1x"
-        label="Color"
-        onChange={onChange}
-        value={valueFn('props.color')}
-      >
+      <Select id="props.color" label="Color" className="input--height-small1x">
         <SelectOption label="Default" value="" />
         <SelectOption label="Dark" value="banner--dark" />
         <SelectOption label="Success" value="banner--success" />
         <SelectOption label="Danger" value="banner--danger" />
         <SelectOption label="Info" value="banner--info" />
       </Select>
-      <Select
-        id="props.size"
-        className="input--height-small1x"
-        label="Size"
-        onChange={onChange}
-        value={valueFn('props.size')}
-      >
+      <Select id="props.size" label="Size" className="input--height-small1x">
         <SelectOption label="Small" value="banner--small" />
         <SelectOption label="Medium" value="banner--medium" />
         <SelectOption label="Large" value="banner--large" />

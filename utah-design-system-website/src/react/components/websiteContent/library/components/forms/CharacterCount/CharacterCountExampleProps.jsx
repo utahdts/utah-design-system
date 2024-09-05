@@ -1,5 +1,7 @@
-import { Form, TextInput } from '@utahdts/utah-design-system';
-import { useFormState } from '../../../../../../hooks/useFormState';
+import {
+  Form,
+  TextInput
+} from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').CharacterCountExamplePropsShape} CharacterCountExamplePropsShape */
 
@@ -10,37 +12,17 @@ import { useFormState } from '../../../../../../hooks/useFormState';
  * @returns {import('react').JSX.Element}
  */
 export function CharacterCountExampleProps({ setState, state }) {
-  const { onChange, valueFn } = useFormState(state, setState);
   return (
-    <Form className="form--stacked">
-      <TextInput
-        id="props.className"
-        className="input--height-small1x"
-        label="Class"
-        onChange={onChange}
-        value={valueFn('props.className')}
-      />
-      <TextInput
-        id="props.id"
-        className="input--height-small1x"
-        label="ID"
-        onChange={onChange}
-        value={valueFn('props.id')}
-      />
-      <TextInput
-        id="props.maxLength"
-        className="input--height-small1x"
-        label="Limit"
-        onChange={onChange}
-        value={valueFn('props.maxLength')}
-      />
-      <TextInput
-        id="props.text"
-        className="input--height-small1x"
-        label="Text"
-        onChange={onChange}
-        value={valueFn('props.text')}
-      />
+    <Form
+      state={state}
+      // @ts-expect-error
+      setState={setState}
+      className="form--stacked"
+    >
+      <TextInput id="props.className" label="Class" className="input--height-small1x" />
+      <TextInput id="props.id" label="ID" className="input--height-small1x" />
+      <TextInput id="props.maxLength" label="Limit" className="input--height-small1x" />
+      <TextInput id="props.text" label="Text" className="input--height-small1x" />
     </Form>
   );
 }

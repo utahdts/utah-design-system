@@ -4,7 +4,6 @@ import {
   Switch,
   TextInput
 } from '@utahdts/utah-design-system';
-import { useFormState } from '../../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').ComboBoxExamplePropsShape} ComboBoxExamplePropsShape */
 
@@ -15,69 +14,20 @@ import { useFormState } from '../../../../../../hooks/useFormState';
  * @returns {import('react').JSX.Element}
  */
 export function ComboBoxExampleProps({ setState, state }) {
-  const { onChange, valueFn } = useFormState(state, setState);
   return (
-    <Form className="form--stacked">
-      <Switch
-        id="props.allowCustomEntry"
-        label="Custom Entry"
-        // @ts-expect-error
-        onChange={onChange}
-        value={valueFn('props.allowCustomEntry')}
-        width={20}
-      />
-      <TextInput
-        id="props.className"
-        className="input--height-small1x"
-        label="Class"
-        onChange={onChange}
-        value={valueFn('props.className')}
-      />
-      <TextInput
-        id="props.errorMessage"
-        className="input--height-small1x"
-        label="Error Message"
-        onChange={onChange}
-        value={valueFn('props.errorMessage')}
-      />
-      <TextInput
-        id="props.id"
-        className="input--height-small1x"
-        label="ID"
-        onChange={onChange}
-        value={valueFn('props.id')}
-      />
-      <Switch
-        id="props.isClearable"
-        label="Clearable"
-        // @ts-expect-error
-        onChange={onChange}
-        value={valueFn('props.isClearable')}
-        width={20}
-      />
-      <Switch
-        id="props.isDisabled"
-        label="Disabled"
-        // @ts-expect-error
-        onChange={onChange}
-        value={valueFn('props.isDisabled')}
-        width={20}
-      />
-      <Switch
-        id="props.isRequired"
-        label="Required"
-        // @ts-expect-error
-        onChange={onChange}
-        value={valueFn('props.isRequired')}
-        width={20}
-      />
-      <TextInput
-        id="props.label"
-        className="input--height-small1x"
-        label="Label"
-        onChange={onChange}
-        value={valueFn('props.label')}
-      />
+    <Form
+      state={state}
+      setState={setState}
+      className="form--stacked"
+    >
+      <Switch id="props.allowCustomEntry" label="Custom Entry" width={20} />
+      <TextInput id="props.className" label="Class" className="input--height-small1x" />
+      <TextInput id="props.errorMessage" label="Error Message" className="input--height-small1x" />
+      <TextInput id="props.id" label="ID" className="input--height-small1x" />
+      <Switch id="props.isClearable" label="Clearable" width={20} />
+      <Switch id="props.isDisabled" label="Disabled" width={20} />
+      <Switch id="props.isRequired" label="Required" width={20} />
+      <TextInput id="props.label" label="Label" className="input--height-small1x" />
       <PlainText label="Value" value={state.props.value || '-- Nothing Selected --'} />
     </Form>
   );

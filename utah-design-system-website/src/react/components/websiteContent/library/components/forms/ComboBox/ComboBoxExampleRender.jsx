@@ -1,7 +1,8 @@
 import {
   ComboBox,
   ComboBoxOption,
-  useAriaMessaging
+  useAriaMessaging,
+  useFormContext
 } from '@utahdts/utah-design-system';
 import { useImmer } from 'use-immer';
 
@@ -32,6 +33,7 @@ export function ComboBoxExampleRender({
   innerRef,
 }) {
   const { addPoliteMessage } = useAriaMessaging();
+  const { setState: setStateFormContext } = useFormContext();
   const [options, setOptions] = useImmer(() => [
     { label: 'Arches National Park', value: 'arches' },
     { label: 'Bryce Canyon National Park', value: 'bryce' },
@@ -53,6 +55,12 @@ export function ComboBoxExampleRender({
         label={label ?? ''}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;
+          setStateFormContext?.(
+            (draftStateFormContext) => {
+              // @ts-expect-error
+              draftStateFormContext['props.value'] = newValue;
+            }
+          );
         })}
         onClear={() => setState((draftState) => { draftState.props.value = ''; })}
         onCustomEntry={
