@@ -4,6 +4,7 @@ import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { ErrorMessage } from './ErrorMessage';
+import { useFormContextInput } from './FormContext/useFormContextInput';
 import { RequiredStar } from './RequiredStar';
 
 /**
@@ -45,22 +46,34 @@ export function TextArea({
   wrapperClassName,
   ...rest
 }) {
+  const {
+    onChange: currentOnChange,
+    onClear: currentOnClear,
+    onFormKeyUp: currentOnFormKeyUp,
+    value: currentValue,
+  } = useFormContextInput({
+    defaultValue,
+    id,
+    onChange,
+    onClear,
+    value,
+  });
   const inputRef = /** @type {typeof useRef<HTMLTextAreaElement | null>} */ (useRef)(null);
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
   const { addPoliteMessage } = useAriaMessaging();
 
-  const showClearIcon = !!((isClearable || onClear) && value);
+  const showClearIcon = !!((isClearable || onClear) && currentValue);
 
   const clearInput = useCallback(
     /** @param {import('react').UIEvent} e */
     (e) => {
-      onClear?.(e);
+      currentOnClear?.(e);
       addPoliteMessage(`${label} input was cleared`);
       inputRef.current?.focus();
     },
-    [addPoliteMessage, onClear, label]
+    [addPoliteMessage, currentOnClear, label]
   );
 
   const checkKeyPressed = useCallback(
@@ -68,18 +81,20 @@ export function TextArea({
     (e) => {
       if (e.key === 'Escape' && showClearIcon) {
         clearInput(e);
+      } else {
+        currentOnFormKeyUp?.(e);
       }
     },
-    [clearInput, showClearIcon]
+    [clearInput, currentOnFormKeyUp, showClearIcon]
   );
 
   const onChangeCallback = useCallback(
     /** @param {import('react').ChangeEvent<HTMLElement>} e */
     (e) => {
       onChangeSetCursorPosition(e);
-      onChange?.(e);
+      currentOnChange?.(e);
     },
-    [onChangeSetCursorPosition, onChange]
+    [onChangeSetCursorPosition, currentOnChange]
   );
 
   return (
@@ -93,16 +108,15 @@ export function TextArea({
           aria-describedby={errorMessage ? `${id}-error` : undefined}
           aria-invalid={!!errorMessage}
           className={joinClassNames(className, showClearIcon ? 'text-area--clear-icon-visible' : null)}
-          defaultValue={defaultValue}
           disabled={isDisabled}
           id={id}
           name={name || id}
-          onChange={value !== undefined ? onChangeCallback : undefined}
+          onChange={currentValue !== undefined ? onChangeCallback : undefined}
           onKeyUp={checkKeyPressed}
           placeholder={placeholder ?? undefined}
           ref={inputRef}
           required={isRequired}
-          value={value}
+          value={currentValue}
           {...rest}
         />
         {

@@ -75,7 +75,7 @@ export function DateInputPropsDocumentation() {
           </div>
         </TableCell>
         <TableCell>(required)</TableCell>
-        <TableCell>An id to put on the input element.</TableCell>
+        <TableCell>An id to put on the input element. Also will be used as the path to the value in a FormContext.</TableCell>
       </TableRow>
 
       <TableRow>

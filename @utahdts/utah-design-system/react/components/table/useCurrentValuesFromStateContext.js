@@ -16,7 +16,7 @@ import { TableContext } from './util/TableContext';
  */
 
 /**
- * used only by !!! Table Filters !!! (TableContext)
+ * used only by !!! Table Filters !!! (TableContext) This is not a general FormContext hook
  * An input can be controlled, uncontrolled, default value, or controlled by a parent context
  * This function takes these values in to account and provides a current value and onChange event
  * The passed in values trump those of the parent context. A local state is used if neither passed in nor
@@ -49,7 +49,7 @@ export function useCurrentValuesFromStateContext({
 }) {
   const defaultValueRef = useRef(defaultValue);
   const { setState: setStateContext, state: stateContext } = useContext(TableContext) || {};
-  const [stateLocal, setStateLocal] = useImmer(defaultValue ?? value);
+  const [stateLocal, setStateLocal] = useImmer(defaultValue);
 
   const fullContextStatePath = `filterValues.value.${contextStatePath}.value`;
 
@@ -126,8 +126,7 @@ export function useCurrentValuesFromStateContext({
           setStateLocal(defaultOnChange(e));
         })
       ),
-      // @ts-expect-error
-      currentValue: currentValue ?? '',
+      currentValue,
       setValue,
     }),
     [

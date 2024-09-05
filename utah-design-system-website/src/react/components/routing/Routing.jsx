@@ -104,6 +104,7 @@ export function Routing() {
                   <VerticalMenu
                     className="menu-side-panel"
                     currentMenuItem={currentMenuItem}
+                    // @ts-expect-error
                     menus={menuSecondary ?? null}
                   />
                 )}

@@ -6,7 +6,6 @@ import {
   Switch
 } from '@utahdts/utah-design-system';
 import { startCase } from 'lodash';
-import { useFormState } from '../../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').PopupsExamplePropsShape} PopupsExamplePropsShape */
 
@@ -17,16 +16,14 @@ import { useFormState } from '../../../../../../hooks/useFormState';
  * @returns {import('react').JSX.Element}
  */
 export function PopupsExampleProps({ setState, state }) {
-  const { onChange, valueFn } = useFormState(state, setState);
   return (
-    <Form className="form--stacked">
-      <Select
-        id="props.placement"
-        className="input--height-small1x"
-        label="Placement"
-        onChange={onChange}
-        value={valueFn('props.placement')}
-      >
+    <Form
+      className="form--stacked"
+      // @ts-expect-error
+      setState={setState}
+      state={state}
+    >
+      <Select id="props.placement" label="Placement" className="input--height-small1x">
         {
           Object.entries(popupPlacement)
             .map(([placementKey, placementValue]) => (
@@ -35,25 +32,12 @@ export function PopupsExampleProps({ setState, state }) {
         }
       </Select>
 
-      <Select
-        id="props.popupType"
-        className="input--height-small1x"
-        label="Event Type"
-        onChange={onChange}
-        value={valueFn('props.popupType')}
-      >
+      <Select id="props.popupType" label="Event Type" className="input--height-small1x">
         <SelectOption key="popups__interactive-prop__onClick" label="onClick" value="onClick" />
         <SelectOption key="popups__interactive-prop__onHover" label="onHover" value="onHover" />
       </Select>
 
-      <Switch
-        id="props.hasCloseButton"
-        label="Close Icon"
-        // @ts-expect-error
-        onChange={onChange}
-        value={valueFn('props.hasCloseButton')}
-        width={20}
-      />
+      <Switch id="props.hasCloseButton" label="Close Icon" width={20} />
     </Form>
   );
 }

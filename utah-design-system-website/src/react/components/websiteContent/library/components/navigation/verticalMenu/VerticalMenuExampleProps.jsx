@@ -1,6 +1,5 @@
 import { Form, Select, SelectOption } from '@utahdts/utah-design-system';
 import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
-import { useFormState } from '../../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').VerticalMenuExamplePropsShape} VerticalMenuExamplePropsShape */
 
@@ -12,16 +11,14 @@ import { useFormState } from '../../../../../../hooks/useFormState';
  */
 
 export function VerticalMenuExampleProps({ setState, state }) {
-  const { onChange, valueFn } = useFormState(state, setState);
   return (
-    <Form className="form--stacked">
-      <Select
-        id="props.childrenMenuType"
-        className="input--height-small1x"
-        label="Menu Type"
-        onChange={onChange}
-        value={valueFn('props.childrenMenuType')}
-      >
+    <Form
+      className="form--stacked"
+      // @ts-expect-error
+      setState={setState}
+      state={state}
+    >
+      <Select id="props.childrenMenuType" label="Menu Type" className="input--height-small1x">
         <SelectOption key="vertical-menu__interactive-prop__inline" label="Inline" value={childrenMenuTypes.INLINE} />
         <SelectOption key="vertical-menu__interactive-prop__flyout" label="Flyout" value={childrenMenuTypes.FLYOUT} />
         <SelectOption key="vertical-menu__interactive-prop__plain" label="Plain" value={childrenMenuTypes.PLAIN} />

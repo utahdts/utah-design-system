@@ -1,10 +1,11 @@
 import { useCallback } from 'react';
 import { joinClassNames } from '../../../util/joinClassNames';
+import { useFormContext } from '../FormContext/useFormContext';
 import { useRadioButtonGroupContext } from './context/useRadioButtonGroupContext';
 
 /**
- * wrap in a RadioButtonGroup to control a clump of RadioButtons. Can have a RadioButton without a RadioButtonGroup,
- * but then it is always uncontrolled.
+ * wrap in a RadioButtonGroup to control a clump of RadioButtons. Can have a RadioButton without a RadioButtonGroup
+ * ,but then it is always uncontrolled.
  * @param {object} props
  * @param {string} [props.className]
  * @param {boolean} [props.defaultIsChecked] allows default checking if uncontrolled (not in RadioButtonGroup)
@@ -31,9 +32,14 @@ export function RadioButton({
   wrapperClassName,
   ...rest
 }) {
+  const {
+    setState: formContextSetState,
+    state: formContextState,
+  } = useFormContext();
+
   const [contextValues] = useRadioButtonGroupContext();
 
-  if (!contextValues && !name) {
+  if (!contextValues && !formContextSetState && !name) {
     // eslint-disable-next-line no-console
     console.warn('RadioButton: in uncontrolled mode, a RadioButton must have a supplied `name` attribute');
   }
@@ -42,21 +48,31 @@ export function RadioButton({
   let currentValue;
   if (contextValues) {
     currentValue = contextValues.value || '';
+  } else if (formContextState && name) {
+    // not in a ComboBoxGroup but is in a FormContext
+    // @ts-expect-error
+    currentValue = formContextState?.[name];
   } else {
-    // not in a ComboBoxGroup
+    // not in a ComboBoxGroup and not in a FormContext
     currentValue = undefined;
   }
-  const isControlled = !!(contextValues);
+  const isControlled = !!(formContextState || contextValues);
 
   const onChange = useCallback(
     () => {
       // only ever triggered if the radio button becomes selected
       if (contextValues) {
         contextValues.onChange(value);
+      } else if (formContextSetState && name) {
+        // controlled by form context
+        formContextSetState((draftState) => {
+          // @ts-expect-error
+          draftState[name] = value;
+        });
       }
       // else - uncontrolled so don't do anything
     },
-    [contextValues, name, value]
+    [contextValues, formContextSetState, name, value]
   );
 
   return (
