@@ -2,31 +2,40 @@ import {
   Accordion,
   BUTTON_APPEARANCE,
   Button,
+  ExternalLink,
   Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
   TableContextConsumer,
+  TableFilterComboBoxAllOptions,
   TableFilterCustom,
   TableFilterDateRange,
   TableFilterNone,
-  TableFilterComboBoxAllOptions,
   TableFilterTextInput,
   TableFilters,
   TableHead,
   TableHeadCell,
   TableHeadRow,
   TableWrapper,
-  componentColors, ExternalLink
+  componentColors
 } from '@utahdts/utah-design-system';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 import { examplePresidentsData } from './examplePresidentsData';
-import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function TableDocumentationFilteringTableExample() {
   const [funFactsFilter, setFunFactsFilter] = useState('');
+
+  const tableData = useMemo(
+    () => {
+      const funFactsLower = funFactsFilter.toLowerCase();
+      return examplePresidentsData.filter((president) => !funFactsFilter || president.funFacts.toLowerCase().includes(funFactsLower));
+    },
+    [funFactsFilter]
+  );
 
   return (
     <div className="static-example mt-spacing-xl">
@@ -123,7 +132,7 @@ export function TableDocumentationFilteringTableExample() {
             </TableHead>
 
             <TableBody>
-              <TableBodyData records={examplePresidentsData} recordIdField="id">
+              <TableBodyData records={tableData} recordIdField="id">
                 <TableBodyDataRowTemplate>
                   <TableBodyDataCellTemplate recordFieldPath="name" />
                   <TableBodyDataCellTemplate recordFieldPath="nthPresident" />

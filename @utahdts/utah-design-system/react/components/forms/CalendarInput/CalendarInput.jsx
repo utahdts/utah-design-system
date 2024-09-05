@@ -18,7 +18,6 @@ import { useOnKeyUp } from '../../../util/useOnKeyUp';
 import { Button } from '../../buttons/Button';
 import { IconButton } from '../../buttons/IconButton';
 import { ErrorMessage } from '../ErrorMessage';
-import { useFormContextInputValue } from '../FormContext/useFormContextInputValue';
 import { RequiredStar } from '../RequiredStar';
 import { calendarGrid } from './calendarGrid';
 
@@ -49,7 +48,6 @@ function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
  * @param {object} props
  * @param {string} [props.className]
  * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date https://date-fns.org/v3.2.0/docs/format
- * @param {string} [props.defaultValue] expects value to be in format of props.dateFormat
  * @param {string} [props.errorMessage]
  * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
@@ -58,7 +56,7 @@ function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
- * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
+ * @param {(newValue: string) => void} props.onChange
  * @param {boolean} [props.shouldSetFocusOnMount] if rendered in a popup, then set focus to first focusable element when first shown
  * @param {boolean} [props.showTodayButton]
  * @param {string | null} [props.value] expects value to be in format of props.dateFormat
@@ -68,7 +66,6 @@ function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
 export function CalendarInput({
   className,
   dateFormat = 'MM/dd/yyyy',
-  defaultValue,
   errorMessage,
   id,
   innerRef,
@@ -87,18 +84,9 @@ export function CalendarInput({
   const { addPoliteMessage } = useAriaMessaging();
   const calendarInputId = useId();
   const firstFocusableElementRef = useRef(/** @type {any | null} */(null));
-  const {
-    onChange: currentOnChange,
-    value: currentValue,
-  } = useFormContextInputValue({
-    id,
-    defaultValue,
-    onChange,
-    value,
-  });
 
   // currentValueDate is the currently selected date
-  const currentValueDate = currentValue ? parse(currentValue, dateFormat, new Date()) : null;
+  const currentValueDate = value ? parse(value, dateFormat, new Date()) : null;
 
   // currentValueDateInternal is the currently focused date (not necessarily the selected/value date)
   const [currentValueDateInternal, setCurrentValueDateInternal] = useState(/** @type {Date | null} */(null));
@@ -288,9 +276,7 @@ export function CalendarInput({
                         id={`${calendarInputId}__${formattedDate}`}
                         isDisabled={isDisabled}
                         key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
-                        onClick={() => {
-                          currentOnChange?.(formattedDate);
-                        }}
+                        onClick={() => onChange?.(formattedDate)}
                         type="button"
                         // @ts-expect-error
                         onKeyDown={(e) => {
@@ -339,7 +325,7 @@ export function CalendarInput({
                 className="button--small"
                 onClick={() => {
                   setCurrentValueDateInternal(new Date());
-                  currentOnChange(format(new Date(), dateFormat));
+                  onChange?.(format(new Date(), dateFormat));
                 }}
                 tabIndex={isHidden ? -1 : 0}
                 type="button"
