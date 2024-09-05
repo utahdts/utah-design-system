@@ -7,7 +7,6 @@ import { joinClassNames } from '../../util/joinClassNames';
 import { useOnKeyUp } from '../../util/useOnKeyUp';
 import { IconButton } from '../buttons/IconButton';
 import { CalendarInput } from './CalendarInput/CalendarInput';
-import { useFormContextInputValue } from './FormContext/useFormContextInputValue';
 import { TextInput } from './TextInput';
 
 /**
@@ -34,7 +33,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name] defaults to id if not provided
- * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
+ * @param {(newValue: string) => void} [props.onChange] e => {}; can be omitted for uncontrolled
  * @param {() => void} [props.onClear]
  * @param {(e: React.KeyboardEvent<HTMLInputElement>) => void} [props.onKeyUp]
  * @param {string} [props.placeholder]
@@ -81,18 +80,6 @@ export function DateInput({
       ],
     }
   );
-  const {
-    onChange: currentOnChange,
-    onClear: currentOnClear,
-    value: currentValue,
-  } = useFormContextInputValue({
-    id,
-    defaultValue,
-    onChange,
-    onClear,
-    value,
-  });
-
   // update popper location on changes
   useEffect(
     () => {
@@ -100,7 +87,7 @@ export function DateInput({
         update();
       }
     },
-    [isCalendarPopupOpen, currentValue, update]
+    [isCalendarPopupOpen, value, update]
   );
 
   // check if no longer have focus when open
@@ -139,6 +126,7 @@ export function DateInput({
             // table date range filter date picker still goes to a calendar on down arrow press even if !hasCalendarPopup
             aria-label={joinClassNames(ariaLabel, 'Press down arrow to open a calendar picker')}
             className={joinClassNames(className, 'date-input')}
+            defaultValue={defaultValue}
             errorMessage={errorMessage}
             id={id}
             innerRef={popperReferenceElementRef}
@@ -148,14 +136,14 @@ export function DateInput({
             label={label}
             labelClassName={labelClassName}
             name={name}
-            onChange={(e) => currentOnChange(e.target.value)}
-            onClear={isClearable ? currentOnClear : undefined}
+            onChange={(e) => onChange?.(e.target.value)}
+            onClear={isClearable ? onClear : undefined}
             onKeyUp={(e) => {
               onDownArrowPress(e);
               onKeyUp?.(e);
             }}
             placeholder={placeholder}
-            value={currentValue}
+            value={value ?? ''}
             rightContent={(
               hasCalendarPopup
                 ? (
@@ -233,7 +221,7 @@ export function DateInput({
                   isDisabled={isDisabled}
                   isHidden={!isCalendarPopupOpen}
                   onChange={(newValue) => {
-                    currentOnChange(newValue);
+                    onChange?.(newValue);
                     setIsCalendarPopupOpen(false);
                     const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
                     // @ts-expect-error
@@ -242,7 +230,7 @@ export function DateInput({
                   id={`${id}__calendar-input`}
                   shouldSetFocusOnMount
                   showTodayButton={showCalendarTodayButton}
-                  value={currentValue}
+                  value={value}
                 />
               </div>
             )

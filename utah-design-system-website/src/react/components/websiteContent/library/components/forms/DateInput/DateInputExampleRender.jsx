@@ -1,7 +1,4 @@
-import {
-  DateInput,
-  useFormContext
-} from '@utahdts/utah-design-system';
+import { DateInput } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').DateInputExamplePropsShape} DateInputExamplePropsShape */
 
@@ -33,7 +30,6 @@ export function DateInputExampleRender({
   },
   innerRef,
 }) {
-  const { setState: setStateFormContext } = useFormContext();
   return (
     <div style={{ width: '40%' }}>
       <DateInput
@@ -51,12 +47,6 @@ export function DateInputExampleRender({
         placeholder={placeholder}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;
-          setStateFormContext?.(
-            (draftStateFormContext) => {
-              // @ts-expect-error
-              draftStateFormContext['props.value'] = newValue;
-            }
-          );
         })}
         onClear={isClearable ? (() => setState((draftState) => { draftState.props.value = ''; })) : undefined}
         showCalendarTodayButton={showCalendarTodayButton}

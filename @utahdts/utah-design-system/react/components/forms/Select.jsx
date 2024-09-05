@@ -3,7 +3,6 @@ import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/u
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { ErrorMessage } from './ErrorMessage';
-import { useFormContextInput } from './FormContext/useFormContextInput';
 import { RequiredStar } from './RequiredStar';
 import { SelectOption } from './SelectOption';
 
@@ -22,7 +21,7 @@ import { SelectOption } from './SelectOption';
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
  * @param {import('react').ChangeEventHandler} [props.onChange] can be omitted to be uncontrolled OR if changes are sent through form's onChange
- * @param {import('react').UIEventHandler} [props.onClear] do something when the field should be cleared (not needed if inside a <Form> context)
+ * @param {import('react').UIEventHandler} [props.onClear] do something when the field should be cleared
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
@@ -48,18 +47,6 @@ export function Select({
   wrapperClassName,
   ...rest
 }) {
-  const {
-    onChange: currentOnChange,
-    onClear: currentOnClear,
-    onFormKeyUp: currentOnFormKeyUp,
-    value: currentValue,
-  } = useFormContextInput({
-    defaultValue,
-    id,
-    onChange,
-    onClear,
-    value,
-  });
   const selectInputRef = /** @type {typeof useRef<HTMLSelectElement>} */ (useRef)(null);
 
   const { addPoliteMessage } = useAriaMessaging();
@@ -67,19 +54,19 @@ export function Select({
   const clearInput = useCallback(
     /** @param {import('react').MouseEvent} e */
     (e) => {
-      currentOnClear?.(e);
+      onClear?.(e);
       addPoliteMessage(`${label} input was cleared`);
       selectInputRef.current?.focus();
     },
-    [addPoliteMessage, currentOnClear, label]
+    [addPoliteMessage, onClear, label]
   );
 
-  const showClearIcon = !!((isClearable || onClear) && currentValue);
+  const showClearIcon = !!((isClearable || onClear) && value);
 
   const onChangeCallback = useCallback(
     /** @param {import('react').ChangeEvent} e */
-    (e) => { currentOnChange?.(e); },
-    [currentOnChange]
+    (e) => { onChange?.(e); },
+    [onChange]
   );
 
   return (
@@ -96,22 +83,20 @@ export function Select({
           disabled={isDisabled}
           id={id}
           name={name || id}
-          onChange={currentValue !== undefined ? onChangeCallback : undefined}
+          onChange={value !== undefined ? onChangeCallback : undefined}
           onKeyUp={useCallback(
             /** @param {import('react').KeyboardEvent} e */
             (e) => {
               if (e.key === 'Escape' && showClearIcon) {
                 // @ts-expect-error
                 clearInput(e);
-              } else {
-                currentOnFormKeyUp?.(e);
               }
             },
-            [clearInput, currentOnFormKeyUp, showClearIcon]
+            [clearInput, showClearIcon]
           )}
           ref={selectInputRef}
           required={isRequired ?? undefined}
-          value={currentValue}
+          value={value}
           {...rest}
         >
           {placeholder ? <SelectOption label={placeholder} value="" isDisabled /> : null}
