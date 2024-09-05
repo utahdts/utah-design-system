@@ -3,7 +3,6 @@ import { useMemo } from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { ComboBox } from './ComboBox/ComboBox';
 import { ComboBoxOption } from './ComboBox/ComboBoxOption';
-import { useFormContextInputValue } from './FormContext/useFormContextInputValue';
 import { TextInput } from './TextInput';
 
 /**
@@ -21,8 +20,8 @@ import { TextInput } from './TextInput';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {(newValue: string) => void} [props.onChange] can be omitted to be uncontrolled OR controlled by form
- * @param {() => void} [props.onClear] (not needed if inside a <Form> context)
+ * @param {(newValue: string) => void} [props.onChange] can be omitted to be uncontrolled
+ * @param {() => void} [props.onClear]
  * @param {string} [props.placeholder]
  * @param {string} [props.timeFormat] use `date-fns` modifiers for formatting the time options
  * @param {number} [props.timeRangeIncrement] for popup, what increment (in minutes) for the options given to the user
@@ -57,18 +56,6 @@ export function TimeInput({
   wrapperClassName,
   ...rest
 }) {
-  const {
-    onChange: currentOnChange,
-    onClear: currentOnClear,
-    value: currentValue,
-  } = useFormContextInputValue({
-    defaultValue,
-    id,
-    onChange,
-    onClear,
-    value,
-  });
-
   const timeOptions = useMemo(
     () => {
       const defaultStartDate = new Date(new Date().setHours(0, 0, 0, 0));
@@ -109,6 +96,7 @@ export function TimeInput({
             <ComboBox
               // COMMON PROPS: make sure these match with TextInput
               className={className}
+              defaultValue={defaultValue}
               errorMessage={errorMessage}
               id={id}
               isClearable={isClearable}
@@ -117,13 +105,13 @@ export function TimeInput({
               label={label}
               labelClassName={labelClassName}
               name={name || id}
-              onClear={isClearable ? currentOnClear : undefined}
+              onClear={isClearable ? onClear : undefined}
               placeholder={placeholder}
-              value={currentValue}
+              value={value}
               // END COMMON PROPS
               allowCustomEntry={allowCustomEntry}
               iconCallback={() => clockIcon}
-              onChange={currentOnChange}
+              onChange={onChange}
               // eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}
             >
@@ -142,6 +130,7 @@ export function TimeInput({
             <TextInput
               // COMMON PROPS: make sure these match with ComboBox
               className={className}
+              defaultValue={defaultValue}
               errorMessage={errorMessage}
               id={id}
               isClearable={isClearable}
@@ -150,11 +139,11 @@ export function TimeInput({
               label={label}
               labelClassName={labelClassName}
               name={name || id}
-              onClear={isClearable ? currentOnClear : undefined}
+              onClear={isClearable ? onClear : undefined}
               placeholder={placeholder}
-              value={currentValue}
+              value={value}
               // END COMMON PROPS
-              onChange={(e) => currentOnChange(e.target.value)}
+              onChange={(e) => onChange?.(e.target.value)}
               rightContent={clockIcon}
               // eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}

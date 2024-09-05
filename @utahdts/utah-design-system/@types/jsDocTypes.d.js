@@ -195,20 +195,6 @@
  */
 
 /**
- * @template FormContextT
- * @template ValueT
- * @template HTMLElementT
- * @typedef useFormContextInputResult {
- *  @property {import('react').ChangeEventHandler<HTMLElementT>} [onChange]
- *  @property {import('react').UIEventHandler<HTMLElementT>} [onClear]
- *  @property {ValueT} [value]
- *  @property {import('react').KeyboardEventHandler} onFormKeyUp
- *  @property {import('use-immer').Updater<FormContextT>} [setState] current values of all the form elements
- *  @property {FormContextT} [state]
- * }
- */
-
-/**
  * @typedef UtahDesignSystemContextBannerWithId {
  *  @property {string} [className]
  *  @property {number} [duration]
@@ -344,15 +330,6 @@
  *  -- options manipulation --
  *  @property {(option: ComboBoxOptionType) => void} registerOption add a new option
  *  @property {(value: string) => void} unregisterOption remove a known option by its value
- * }
- */
-
-/**
- * @template FormStateT
- * @typedef FormContextValue {
- *  @property {(param: {e?: Event, fieldPath: string, value: any}) => void} [onChange] a change triggered on a field; the field must always supply a new value
- *  @property {FormStateT} [state] current values of all the form elements
- *  @property {import('use-immer').Updater<FormStateT>} [setState] current values of all the form elements
  * }
  */
 

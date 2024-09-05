@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # [x.x.x] x/x/xxxx
+## Breaking Change
+- **[Breaking]** Remove FormContext
+  - Individual components inside a form now need individual onChange/value props
+  - `<Form state={state} setState={setState}><TextInput /></Form>`
+  - becomes ==>
+  - `<Form><TextInput onChange={(e) => {setState(...}} value={state.textInputValue} /></Form>`
+
 ## Added
 - Add header setting for `titleFunction` for single page apps
 

@@ -2,6 +2,7 @@ import { BUTTON_APPEARANCE, Button, CharacterCount, Checkbox, DateInput, Externa
 import { startCase } from 'lodash';
 import { useCallback } from 'react';
 import { useImmer } from 'use-immer';
+import { useFormState } from '../../hooks/useFormState';
 import { StaticExample } from '../staticExamples/StaticExample';
 
 /** @typedef {import('@utahdts/utah-design-system').UtahDesignSystemContextBanner} UtahDesignSystemContextBanner */
@@ -111,6 +112,8 @@ const defaultFormState = {
  */
 export function DemoForm() {
   const [formState, setFormState] = useImmer(defaultFormState);
+  const { onChange, valueFn } = useFormState(formState, setFormState);
+
   const [formErrors, setFormErrors] = useImmer(/** @type {Partial<FormErrors>} */({}));
   const [eyeColorOptions, setEyeColorOptions] = useImmer([
     { name: 'Amaranth', hex: '#e63356' },
@@ -152,7 +155,7 @@ export function DemoForm() {
     <>
       <StaticExample
         renderedExample={(
-          <Form setState={setFormState} state={formState}>
+          <Form>
             {
               formErrorsItems.length
                 ? (
@@ -198,6 +201,8 @@ export function DemoForm() {
                 id="firstName"
                 isRequired
                 label="First Name"
+                onChange={onChange}
+                value={valueFn('firstName')}
                 // @ts-expect-error
                 onBlur={onBlurCurry('firstName')}
               />
@@ -206,6 +211,8 @@ export function DemoForm() {
                 id="lastName"
                 isRequired
                 label="Last Name"
+                onChange={onChange}
+                value={valueFn('lastName')}
                 // @ts-expect-error
                 onBlur={onBlurCurry('lastName')}
               />
@@ -213,6 +220,8 @@ export function DemoForm() {
                 errorMessage={formErrors.phoneNumber?.message}
                 id="phoneNumber"
                 label="Phone Number"
+                onChange={onChange}
+                value={valueFn('phoneNumber')}
                 // @ts-expect-error
                 onBlur={onBlurCurry('phoneNumber')}
               />
@@ -260,6 +269,12 @@ export function DemoForm() {
                 isRequired
                 id="radioBand"
                 label="What's your Radio Band jam?"
+                onChange={(newValue) => {
+                  setFormState((draftState) => {
+                    draftState.radioBand = newValue;
+                  });
+                }}
+                value={valueFn('radioBand')}
                 // @ts-expect-error
                 onBlur={onBlurCurry('radioBand')}
               >
@@ -294,14 +309,17 @@ export function DemoForm() {
                 labelOn="!!! ROCK & ROLL !!!"
                 labelOff="Rock & Roll"
                 size="large"
+                value={valueFn('rockGenre')}
                 width={150}
                 // @ts-expect-error
+                onChange={onChange}
                 onBlur={onBlurCurry('rockGenre')}
               />
               <TextArea
                 errorMessage={formErrors.comment?.message}
                 id="comment"
                 label="Comment"
+                onChange={onChange}
                 // @ts-expect-error
                 onBlur={onBlurCurry('comment')}
               />
@@ -317,6 +335,8 @@ export function DemoForm() {
                 id="approved"
                 isRequired
                 label="Do you approve?"
+                onChange={onChange}
+                value={valueFn('approved')}
                 // @ts-expect-error
                 onBlur={onBlurCurry('approved')}
               />
@@ -331,6 +351,10 @@ export function DemoForm() {
                         isRequired
                         label="Approved Date"
                         showCalendarTodayButton
+                        value={valueFn('approvedDate')}
+                        onChange={(newValue) => setFormState((draftState) => {
+                          draftState.approvedDate = newValue;
+                        })}
                         // @ts-expect-error
                         onBlur={onBlurCurry('approvedDate')}
                       />
@@ -341,6 +365,10 @@ export function DemoForm() {
                         isRequired
                         label="Approved Time"
                         timeRangeIncrement={30}
+                        value={valueFn('approvedTime')}
+                        onChange={(newValue) => setFormState((draftState) => {
+                          draftState.approvedTime = newValue;
+                        })}
                         // @ts-expect-error
                         onBlur={onBlurCurry('approvedTime')}
                       />

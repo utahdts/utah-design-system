@@ -2,7 +2,6 @@ import {
   MultiSelect,
   MultiSelectOption,
   useAriaMessaging,
-  useFormContext
 } from '@utahdts/utah-design-system';
 import { useImmer } from 'use-immer';
 
@@ -33,7 +32,6 @@ export function MultiSelectExampleRender({
   innerRef,
 }) {
   const { addPoliteMessage } = useAriaMessaging();
-  const { setState: setStateFormContext } = useFormContext();
   const [options, setOptions] = useImmer(() => [
     { label: 'Arches National Park', value: 'arches' },
     { label: 'Bryce Canyon National Park', value: 'bryce' },
@@ -56,10 +54,6 @@ export function MultiSelectExampleRender({
         label={label ?? ''}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.values = newValue;
-          setStateFormContext?.((draftStateFormContext) => {
-            // @ts-expect-error
-            draftStateFormContext['props.values'] = newValue;
-          });
         })}
         onCustomEntry={
           (customValue) => {
