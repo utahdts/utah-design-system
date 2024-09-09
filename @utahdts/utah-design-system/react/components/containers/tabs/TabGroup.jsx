@@ -1,4 +1,4 @@
-import { useCallback, useId, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../../util/joinClassNames';
 import { TabGroupContext } from './context/TabGroupContext';
@@ -29,7 +29,7 @@ export function TabGroup({
   const [tabGroupState, setTabGroupState] = useImmer(() => ({
     selectedTabId: defaultValue || '',
     tabGroupId,
-    tabs: /** @type {NodeList | []} */ [],
+    tabs: /** @type {NodeList | []} */[],
   }));
   const navigateTab = useCallback((/** @type {HTMLButtonElement | null} */ tab) => {
     if (tab) {
@@ -67,6 +67,18 @@ export function TabGroup({
       });
     },
     []
+  );
+
+  // check if "controlled" component's value changed
+  useEffect(
+    () => {
+      if (value !== undefined) {
+        setTabGroupState((draftState) => {
+          draftState.selectedTabId = value;
+        });
+      }
+    },
+    [value]
   );
 
   /** @type {TabGroupContextValue} */
