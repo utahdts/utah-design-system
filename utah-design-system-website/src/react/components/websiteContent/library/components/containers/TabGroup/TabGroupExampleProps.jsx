@@ -1,4 +1,4 @@
-import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
+import { Form, Select, SelectOption, Switch, TextInput } from '@utahdts/utah-design-system';
 import { useFormState } from '../../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').TabGroupExamplePropsShape} TabGroupExamplePropsShape */
@@ -49,6 +49,15 @@ export function TabGroupExampleProps({ setState, state }) {
         value={valueFn('props.isVertical')}
         width={20}
       />
+      <Select
+        id="props.selectedTab"
+        label="Selected Tab"
+        onChange={onChange}
+        value={valueFn('props.selectedTab')}
+      >
+        <SelectOption label="Tab A" value="tab-A" />
+        <SelectOption label="Tab B" value="tab-B" />
+      </Select>
     </Form>
   );
 }

@@ -355,11 +355,12 @@
 
 /**
  * @typedef TabGroupExamplePropsShape {
- *  @property {string} tabA
- *  @property {string} tabB
+ *  @property {boolean} isVertical
  *  @property {string} panelA
  *  @property {string} panelB
- *  @property {boolean} isVertical
+ *  @property {string} selectedTab
+ *  @property {string} tabA
+ *  @property {string} tabB
  * }
  */
 
