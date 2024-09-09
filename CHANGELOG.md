@@ -9,9 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Added
 - Add header setting for `titleFunction` for single page apps
 
+# [2.0.3] 9/9/2024
+## Fixed
+- Make TabGroup respond to controlled changes
+
 # [2.0.2] 8/13/2024
 ## Fixed
-- Utah Header should have a white background color (just not on the main .utah-design-system css class).
+- Utah Header should have a white background color (just not on the main .utah-design-system css class)
 
 # [2.0.1] 8/5/2024
 ## Fixed

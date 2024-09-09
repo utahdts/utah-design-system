@@ -1,4 +1,4 @@
-import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
+import { Form, Select, SelectOption, Switch, TextInput } from '@utahdts/utah-design-system';
 
 /** @typedef {import('utah-design-system-website').TabGroupExamplePropsShape} TabGroupExamplePropsShape */
 
@@ -21,6 +21,10 @@ export function TabGroupExampleProps({ setState, state }) {
       <TextInput id="props.panelA" label="First Panel" className="input--height-small1x" />
       <TextInput id="props.panelB" label="Second Panel" className="input--height-small1x" />
       <Switch id="props.isVertical" label="Vertical" width={20} />
+      <Select id="props.selectedTab" label="Selected Tab">
+        <SelectOption label="Tab A" value="tab-A" />
+        <SelectOption label="Tab B" value="tab-B" />
+      </Select>
     </Form>
   );
 }
