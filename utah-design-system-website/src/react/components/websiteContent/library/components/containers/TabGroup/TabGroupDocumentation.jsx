@@ -26,6 +26,7 @@ export function TabGroupDocumentation() {
           isVertical: false,
           panelA: 'Here is the first panel.',
           panelB: 'Here is the second panel.',
+          selectedTab: 'tab-A',
           tabA: 'Tab A',
           tabB: 'Tab B',
         }}
