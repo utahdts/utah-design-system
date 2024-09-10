@@ -6,7 +6,7 @@ import { useFormState } from '../../../../../../hooks/useFormState';
 /**
  * @param {object} props
  * @param {import('use-immer').Updater<{props: TabGroupExamplePropsShape}>} props.setState
- * @param {object} props.state
+ * @param {{props: TabGroupExamplePropsShape}} props.state
  * @returns {import('react').JSX.Element}
  */
 export function TabGroupExampleProps({ setState, state }) {

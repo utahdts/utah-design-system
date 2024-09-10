@@ -66,6 +66,16 @@ export default function MultiSelectContextProvider({
     [values]
   );
 
+  // when values change internally (backspace to delete tag), call onchange
+  useEffect(
+    () => {
+      if (multiSelectImmer[0].selectedValues !== undefined) {
+        onChange?.(multiSelectImmer[0].selectedValues);
+      }
+    },
+    [multiSelectImmer[0].selectedValues]
+  );
+
   // eslint-disable-next-line max-len
   /** @type {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef>]} */
   const providerValue = useMemo(
