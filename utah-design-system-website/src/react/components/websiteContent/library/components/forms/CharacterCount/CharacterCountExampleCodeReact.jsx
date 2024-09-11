@@ -25,7 +25,7 @@ export function CharacterCountExampleCodeReact({
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={maxLength ? `maxLength="${maxLength}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`text={\`${text}\`}`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={text ? `text="${text}"` : null} indentLevel={1} />
       /&gt;
     </>
   );

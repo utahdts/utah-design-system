@@ -1,6 +1,5 @@
 import { joinClassNames } from '../../util/joinClassNames';
 import { ErrorMessage } from './ErrorMessage';
-import { useFormContextInput } from './FormContext/useFormContextInput';
 import { RequiredStar } from './RequiredStar';
 
 /**
@@ -20,7 +19,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled OR using form's onChange
+ * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] e => {}; can be omitted for uncontrolled
  * @param {boolean} [props.value]
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
@@ -41,17 +40,6 @@ export function Checkbox({
   wrapperClassName,
   ...rest
 }) {
-  const {
-    onChange: currentOnChange,
-    onFormKeyUp: currentOnFormKeyUp,
-    value: currentValue,
-  } = useFormContextInput({
-    defaultValue,
-    id,
-    onChange,
-    value,
-  });
-
   return (
     <div className={joinClassNames('input-wrapper input-wrapper--checkbox', wrapperClassName)} ref={innerRef}>
       <div className="input-wrapper--checkbox-inner">
@@ -61,13 +49,13 @@ export function Checkbox({
         </label>
         <input
           aria-describedby={errorMessage ? `${id}-error` : undefined}
-          checked={currentValue}
+          defaultChecked={defaultValue}
+          checked={value}
           className={className}
           disabled={isDisabled}
           id={id}
           name={name || id}
-          onChange={currentOnChange}
-          onKeyUp={currentOnFormKeyUp}
+          onChange={onChange}
           required={isRequired}
           type="checkbox"
           {...rest}

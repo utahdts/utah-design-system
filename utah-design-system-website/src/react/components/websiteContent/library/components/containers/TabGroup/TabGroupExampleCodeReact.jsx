@@ -15,6 +15,7 @@ export function TabGroupExampleCodeReact({
       isVertical,
       panelA,
       panelB,
+      selectedTab,
       tabA,
       tabB,
     },
@@ -23,7 +24,10 @@ export function TabGroupExampleCodeReact({
   return (
     <>
       &lt;TabGroup
-      <ExampleCodeReactProp displayProp={` isVertical="${isVertical}">`} indentLevel={0} />
+      <br />
+      <ExampleCodeReactProp displayProp={`isVertical="${isVertical}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={`selectedTab="${selectedTab}"`} indentLevel={1} />
+      <ExampleCodeReactProp displayProp=">" indentLevel={0} />
       <ExampleCodeReactProp displayProp="<TabList>" indentLevel={1} />
       <ExampleCodeReactProp displayProp={`<Tab id="tab-A">${tabA}</Tab>`} indentLevel={2} />
       <ExampleCodeReactProp displayProp={`<Tab id="tab-B">${tabB}</Tab>`} indentLevel={2} />

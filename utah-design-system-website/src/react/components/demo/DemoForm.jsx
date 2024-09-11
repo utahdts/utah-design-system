@@ -111,6 +111,7 @@ const defaultFormState = {
  */
 export function DemoForm() {
   const [formState, setFormState] = useImmer(defaultFormState);
+
   const [formErrors, setFormErrors] = useImmer(/** @type {Partial<FormErrors>} */({}));
   const [eyeColorOptions, setEyeColorOptions] = useImmer([
     { name: 'Amaranth', hex: '#e63356' },
@@ -152,7 +153,7 @@ export function DemoForm() {
     <>
       <StaticExample
         renderedExample={(
-          <Form setState={setFormState} state={formState}>
+          <Form>
             {
               formErrorsItems.length
                 ? (
@@ -198,6 +199,10 @@ export function DemoForm() {
                 id="firstName"
                 isRequired
                 label="First Name"
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.firstName = e.target.value;
+                })}
+                value={formState.firstName}
                 // @ts-expect-error
                 onBlur={onBlurCurry('firstName')}
               />
@@ -206,6 +211,10 @@ export function DemoForm() {
                 id="lastName"
                 isRequired
                 label="Last Name"
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.lastName = e.target.value;
+                })}
+                value={formState.lastName}
                 // @ts-expect-error
                 onBlur={onBlurCurry('lastName')}
               />
@@ -213,6 +222,10 @@ export function DemoForm() {
                 errorMessage={formErrors.phoneNumber?.message}
                 id="phoneNumber"
                 label="Phone Number"
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.phoneNumber = e.target.value;
+                })}
+                value={formState.phoneNumber}
                 // @ts-expect-error
                 onBlur={onBlurCurry('phoneNumber')}
               />
@@ -226,11 +239,9 @@ export function DemoForm() {
                 errorMessage={formErrors.eyeColor?.message}
                 id="eyeColor"
                 label="Eye Color"
-                onChange={(newValue) => {
-                  setFormState((draftState) => {
-                    draftState.eyeColor = newValue;
-                  });
-                }}
+                onChange={(newValues) => setFormState((draftState) => {
+                  draftState.eyeColor = newValues;
+                })}
                 onCustomEntry={(newValue) => setEyeColorOptions((draftColors) => {
                   const formattedColor = startCase(newValue);
                   draftColors.push({ name: formattedColor, hex: '' });
@@ -260,6 +271,10 @@ export function DemoForm() {
                 isRequired
                 id="radioBand"
                 label="What's your Radio Band jam?"
+                onChange={(newValue) => setFormState((draftState) => {
+                  draftState.radioBand = newValue;
+                })}
+                value={formState.radioBand}
                 // @ts-expect-error
                 onBlur={onBlurCurry('radioBand')}
               >
@@ -293,7 +308,12 @@ export function DemoForm() {
                 label="Music Genre"
                 labelOn="!!! ROCK & ROLL !!!"
                 labelOff="Rock & Roll"
+                onChange={(e) => setFormState((draftState) => {
+                  // @ts-expect-error
+                  draftState.rockGenre = e.target.value;
+                })}
                 size="large"
+                value={formState.rockGenre}
                 width={150}
                 // @ts-expect-error
                 onBlur={onBlurCurry('rockGenre')}
@@ -302,6 +322,11 @@ export function DemoForm() {
                 errorMessage={formErrors.comment?.message}
                 id="comment"
                 label="Comment"
+                onChange={(e) => setFormState((draftState) => {
+                  // @ts-expect-error
+                  draftState.comment = e.target.value;
+                })}
+                value={formState.comment}
                 // @ts-expect-error
                 onBlur={onBlurCurry('comment')}
               />
@@ -317,6 +342,10 @@ export function DemoForm() {
                 id="approved"
                 isRequired
                 label="Do you approve?"
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.approved = e.target.checked;
+                })}
+                value={formState.approved}
                 // @ts-expect-error
                 onBlur={onBlurCurry('approved')}
               />
@@ -330,7 +359,11 @@ export function DemoForm() {
                         isClearable
                         isRequired
                         label="Approved Date"
+                        onChange={(newValue) => setFormState((draftState) => {
+                          draftState.approvedDate = newValue;
+                        })}
                         showCalendarTodayButton
+                        value={formState.approvedDate}
                         // @ts-expect-error
                         onBlur={onBlurCurry('approvedDate')}
                       />
@@ -340,7 +373,11 @@ export function DemoForm() {
                         isClearable
                         isRequired
                         label="Approved Time"
+                        onChange={(newValue) => setFormState((draftState) => {
+                          draftState.approvedTime = newValue;
+                        })}
                         timeRangeIncrement={30}
+                        value={formState.approvedTime}
                         // @ts-expect-error
                         onBlur={onBlurCurry('approvedTime')}
                       />
