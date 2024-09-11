@@ -310,7 +310,7 @@ export function DemoForm() {
                 labelOff="Rock & Roll"
                 onChange={(e) => setFormState((draftState) => {
                   // @ts-expect-error
-                  draftState.rockGenre = e.target.value;
+                  draftState.rockGenre = e.target.checked;
                 })}
                 size="large"
                 value={formState.rockGenre}
