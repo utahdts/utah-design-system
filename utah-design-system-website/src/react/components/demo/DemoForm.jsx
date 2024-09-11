@@ -71,7 +71,7 @@ function validateForm(state, previousFormErrors, addBannerFn, fieldToValidate) {
   validateField(errors, state, 'firstName', (value) => !!value, 'Enter your first name', fieldToValidate);
   validateField(errors, state, 'lastName', (value) => !!value, 'Enter your last name', fieldToValidate);
   validateField(errors, state, 'radioBand', (value) => !!value, 'Select a Radio Band jam', fieldToValidate);
-  validateField(errors, state, 'rockGenre', (value) => value, 'The only valid rock genre is "!!! ROCK & ROLL !!!"', fieldToValidate);
+  validateField(errors, state, 'rockGenre', (value) => !!value, 'You must be sure', fieldToValidate);
   validateField(errors, state, 'phoneNumber', (value) => !value || !!/^\d{3}-\d{3}-\d{4}$/.exec(value), 'Phone number must be in the format of ###-###-####', fieldToValidate);
 
   if (!fieldToValidate) {
@@ -305,9 +305,9 @@ export function DemoForm() {
               <Switch
                 errorMessage={formErrors.rockGenre?.message}
                 id="rockGenre"
-                label="Music Genre"
-                labelOn="!!! ROCK & ROLL !!!"
-                labelOff="Rock & Roll"
+                label="Are you sure?"
+                labelOn="Not Sure"
+                labelOff="Sure"
                 onChange={(e) => setFormState((draftState) => {
                   onBlurCurry('rockGenre')();
                   // @ts-expect-error
@@ -315,7 +315,7 @@ export function DemoForm() {
                 })}
                 size="large"
                 value={formState.rockGenre}
-                width={150}
+                width={100}
               />
               <TextArea
                 errorMessage={formErrors.comment?.message}
