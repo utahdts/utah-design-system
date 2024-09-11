@@ -1,20 +1,4 @@
 @use 'font';
-// We need to pull in only what the header needs this pulls in all the css :-(
-// @use '../../../utah-design-system/css/index.scss';
-
-// optimized:
-// @use '../../../utah-design-system/css/1-settings/settings-index';
-// @use '../../../utah-design-system/css/3-generic/generic-index';
-// @use '../../../utah-design-system/css/4-elements/elements-index';
-// @use '../../../utah-design-system/css/6-components/base-components/navigation/skip-link';
-// @use '../../../utah-design-system/css/6-components/base-components/popups/tooltips';
-// @use '../../../utah-design-system/css/6-components/base-components/buttons/button';
-// @use '../../../utah-design-system/css/6-components/base-components/buttons/icon-button';
-// @use '../../../utah-design-system/css/6-components/base-components/navigation/main-menu';
-// @use '../../../utah-design-system/css/6-components/base-components/navigation/menu-item';
-// @use '../../../utah-design-system/css/6-components/base-components/navigation/mega-menu';
-// @use '../../../utah-design-system/css/7-utilities/utilities-index';
-
 @use 'citizen-experience';
 @use 'action-items';
 @use 'utah-header-wrapper';
