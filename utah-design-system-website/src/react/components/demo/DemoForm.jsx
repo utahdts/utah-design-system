@@ -309,14 +309,13 @@ export function DemoForm() {
                 labelOn="!!! ROCK & ROLL !!!"
                 labelOff="Rock & Roll"
                 onChange={(e) => setFormState((draftState) => {
+                  onBlurCurry('rockGenre')();
                   // @ts-expect-error
                   draftState.rockGenre = e.target.checked;
                 })}
                 size="large"
                 value={formState.rockGenre}
                 width={150}
-                // @ts-expect-error
-                onBlur={onBlurCurry('rockGenre')}
               />
               <TextArea
                 errorMessage={formErrors.comment?.message}
