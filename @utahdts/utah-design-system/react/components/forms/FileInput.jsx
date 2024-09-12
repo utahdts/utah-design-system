@@ -146,6 +146,7 @@ export function FileInput({
                       : (
                         <Tag
                           clearMessage={`Remove file: ${file.name}.`}
+                          isDisabled={isDisabled}
                           key={file.name}
                           onClear={() => removeFile(file)}
                         >

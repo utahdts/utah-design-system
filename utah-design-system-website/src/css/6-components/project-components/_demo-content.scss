@@ -278,22 +278,13 @@
   }
 
   .permits {
-    background-color: var(--primary-color);
+    background-color: var(--gray-light-color);
     &__image {
       border-radius: 99999px;
       background: url("../static/images/hiker.jpg") no-repeat center/cover;
       width: 350px;
       height: 350px;
-      border: 2px solid white;
-    }
-    p,
-    .permits__content h2,
-    label,
-    legend {
-      color: white;
-    }
-    input {
-      border: none;
+      border: 2px solid var(--primary-color);
     }
   }
 

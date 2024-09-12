@@ -6,10 +6,8 @@ import {
   useRef,
 } from 'react';
 import { useImmer } from 'use-immer';
-import { useFormContext } from '../../FormContext/useFormContext';
 import { useMultiSelectContext } from '../../MultiSelect/context/useMultiSelectContext';
 import { ComboBoxContext } from './ComboBoxContext';
-import { valueAtPath } from '../../../../util/state/valueAtPath';
 
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextNonStateRef} ComboBoxContextNonStateRef */
 /** @typedef { import('@utahdts/utah-design-system').ComboBoxContextValue} ComboBoxContextValue */
@@ -46,7 +44,6 @@ export function ComboBoxContextProvider({
   onKeyUp,
   value,
 }) {
-  const { onChange: onChangeFormContext, state } = useFormContext();
   const [, setMultiSelectContext] = useMultiSelectContext();
 
   const comboBoxImmerRef = useRef(/** @type {import('use-immer').ImmerHook<ComboBoxContextValue> | null} */(null));
@@ -65,12 +62,9 @@ export function ComboBoxContextProvider({
           draftContext.optionValueSelected = newValue;
           draftContext.filterValue = draftContext.options.find((option) => option.value === newValue)?.label || '';
         });
-
-        // let the form context know about the change, if there is a form context
-        onChangeFormContext?.({ fieldPath: comboBoxId, value: newValue });
       }
     },
-    [comboBoxId, onChange, onChangeFormContext]
+    [comboBoxId, onChange]
   );
 
   const comboBoxContextNonStateRef = useRef({
@@ -106,7 +100,7 @@ export function ComboBoxContextProvider({
     },
     optionValueFocusedId: null,
     optionValueHighlighted: null,
-    optionValueSelected: defaultValue ?? value ?? valueAtPath({ object: state, path: comboBoxId }) ?? null,
+    optionValueSelected: defaultValue ?? value ?? null,
     unregisterOption: (optionValue) => {
       comboBoxImmer[1]((draftContext) => {
         draftContext.options = draftContext.options.filter((option) => option.value !== optionValue);

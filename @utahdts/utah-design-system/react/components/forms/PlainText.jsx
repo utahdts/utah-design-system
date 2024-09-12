@@ -1,6 +1,4 @@
-import { useId } from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
-import { useFormContextInput } from './FormContext/useFormContextInput';
 
 /**
  * Sometimes you want a label that has static text next to it that looks and fits in to the
@@ -28,8 +26,6 @@ export function PlainText({
   wrapperClassName,
   ...rest
 }) {
-  const internalId = useId();
-  const { value: currentValue } = useFormContextInput({ id: id || internalId, value });
   return (
     <div className={joinClassNames('input-wrapper', 'input-wrapper--plain-text', wrapperClassName)} ref={innerRef}>
       {
@@ -44,7 +40,7 @@ export function PlainText({
       <div className="plain-text__inner-wrapper">
         <div className={joinClassNames(className)} id={id} {...rest}>
           {/* empty div doesn't take up space. the UI was jumping up and down when there wasn't a value. if there is nothing then put something */}
-          {currentValue || <>&nbsp;</>}
+          {value || <>&nbsp;</>}
         </div>
       </div>
     </div>

@@ -294,4 +294,19 @@ export const iconsDocumentationIcons = [
     title: 'share',
     letter: '2',
   },
+  {
+    cssClass: 'policy',
+    title: 'policy',
+    letter: '3',
+  },
+  {
+    cssClass: 'login',
+    title: 'login',
+    letter: '4',
+  },
+  {
+    cssClass: 'logout',
+    title: 'logout',
+    letter: '5',
+  },
 ];

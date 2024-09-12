@@ -1,6 +1,4 @@
 import { FooterSocialMediaBar } from '@utahdts/utah-design-system';
-import '@utahdts/utah-design-system-header/src/css/index.scss';
-import '@utahdts/utah-design-system/css/index.scss';
 import { IconsWebsite } from '../websiteContent/IconsWebsite';
 
 export function DesignSystemFooterSocialMedia() {
