@@ -157,7 +157,7 @@ export function UtahHeaderDocumentation() {
                         // @ts-expect-error
                         Object.entries(selectedOption.settingsSnippet)
                           .forEach(([settingKey, settingValue]) => {
-                            // @ts-expect-error
+                          // @ts-expect-error
                             draftHeaderObject[settingKey] = settingValue;
                           });
                       })
@@ -447,24 +447,16 @@ export function UtahHeaderDocumentation() {
       {/* ----     Settings     --- */}
       <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
       <h4 id="section-auth-props">Config Props</h4>
+      <h3><code><a href="#section-config-domLocationTarget">domLocationTarget</a></code></h3>
+      <span className="prop__types">DomLocationTarget</span>
+      <p>By default, the Utah Header is placed at the top of the page. This can be overridden by
+        providing a DOM target in which the header will render.
+      </p>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>DomLocationTarget</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              By default, the Utah Header is placed at the top of the page. This can be overridden by
-              providing a DOM target in which the header will render.
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget.cssSelector</a></code>
+              <code><a href="#section-config-domLocationTarget">cssSelector</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -476,7 +468,7 @@ export function UtahHeaderDocumentation() {
           </TableRow>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget.element</a></code>
+              <code><a href="#section-config-domLocationTarget">element</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>HTMLElement</code></div>
@@ -488,7 +480,7 @@ export function UtahHeaderDocumentation() {
           </TableRow>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget.elementFunction</a></code>
+              <code><a href="#section-config-domLocationTarget">elementFunction</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -498,23 +490,17 @@ export function UtahHeaderDocumentation() {
               This function must return a DOM element in to which the Utah Header will be placed.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
 
+        <h3><code><a href="#section-config-logo">logo</a></code></h3>
+        <span className="prop__types">Logo</span>
+        <p>
+          Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
+        </p>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-logo">logo</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>Logo</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-config-logo">logo.element</a></code>
+              <code><a href="#section-config-logo">element</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -529,10 +515,9 @@ export function UtahHeaderDocumentation() {
               The element will be moved to the header, so be careful to not supply an element that is used elsewhere.
             </TableCell>
           </TableRow>
-
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-logo">logo.htmlString</a></code>
+              <code><a href="#section-config-logo">htmlString</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -547,10 +532,9 @@ export function UtahHeaderDocumentation() {
               as the logo.
             </TableCell>
           </TableRow>
-
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-logo">logo.imageUrl</a></code>
+              <code><a href="#section-config-logo">imageUrl</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -565,7 +549,10 @@ export function UtahHeaderDocumentation() {
               use for the logo image.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
 
+        <h3><code>Others</code></h3>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
               <code><a href="#section-config-mediaSizes">mediaSizes</a></code>
@@ -946,32 +933,25 @@ export function UtahHeaderDocumentation() {
 
       <h3 id="section-utahheader-actionItems" className="mb-spacing">Action Items</h3>
       <h4 id="section-auth-props">Config Props</h4>
+      <h3><code>actionItems</code></h3>
+      <span className="prop__types">ActionItem[]</span>
+      <p>
+        The header has an area just to the left of the UtahID button for icons buttons. These can icons can
+        be used for a myriad of purposes customized for your application. For Icon Button guidance,
+        see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
+        When the action item is triggered it can have one of the following behaviors:
+        <ul>
+          <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
+          <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
+          <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
+        </ul>
+      </p>
+      <h3><code>actionItem</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>ActionItem[]</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              The header has an area just to the left of the UtahID button for icons buttons. These can icons can
-              be used for a myriad of purposes customized for your application. For Icon Button guidance,
-              see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
-              When the action item is triggered it can have one of the following behaviors:
-              <ul>
-                <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
-                <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
-                <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
-              </ul>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].actionFunction</a></code>
+              <code><a href="#section-config-actionItems">actionFunction</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -984,7 +964,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].actionPopupMenu</a></code>
+              <code><a href="#section-config-actionItems">actionPopupMenu</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>PopupMenu</code></div>
@@ -997,7 +977,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].actionDom</a></code>
+              <code><a href="#section-config-actionItems">actionDom</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1015,7 +995,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].className</a></code>
+              <code><a href="#section-config-actionItems">className</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1028,7 +1008,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge</a></code>
+              <code><a href="#section-config-actionItems">badge</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>Badge</code></div>
@@ -1041,7 +1021,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge.className</a></code>
+              <code><a href="#section-config-actionItems">badge.className</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1054,7 +1034,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge.label</a></code>
+              <code><a href="#section-config-actionItems">badge.label</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1067,7 +1047,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge.value</a></code>
+              <code><a href="#section-config-actionItems">badge.value</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>number</code></div>
@@ -1081,7 +1061,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].icon</a></code>
+              <code><a href="#section-config-actionItems">icon</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1098,7 +1078,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></code>
+              <code><a href="#section-config-actionItems">mobileMenuLocation</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1122,7 +1102,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].showTitle</a></code>
+              <code><a href="#section-config-actionItems">showTitle</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -1136,7 +1116,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].title</a></code>
+              <code><a href="#section-config-actionItems">title</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1269,56 +1249,33 @@ export function UtahHeaderDocumentation() {
       {/* ----     Utah ID     --- */}
       <h3 id="section-utahheader-utahid" className="mb-spacing">Utah ID</h3>
       <h4 id="section-auth-props">Config Props</h4>
+      <h3><code><a href="#section-auth-config">utahId</a></code></h3>
+      <span className="prop__types">UtahIdSettings | boolean</span><br />
+      <span>Default:</span> <code>true</code>
+      <p>
+        Controls the function of the Utah ID button in the Utah Header:
+        <ul>
+          <li>true - auto fetch mode</li>
+          <li>false - turned off, no button</li>
+          <li>UtahIdSettings - custom control of the UtahID button</li>
+        </ul>
+      </p>
+      <hr />
+      <h3><code><a href="#section-auth-currentuser">utahId.currentUser</a></code></h3>
+      <span className="prop__types">UserInfo | null | undefined</span><br />
+      <span>Default:</span> <code>null</code>
+      <p>
+        <ul>
+          <li>UserInfo - details about the current user</li>
+          <li>null - app controls the user, but there is no user</li>
+          <li>undefined - app does not control the user</li>
+        </ul>
+      </p>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-config">utahId</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper">
-                <code>UtahIdSettings</code>
-                <span> | </span>
-                <code>boolean</code>
-              </div>
-            </TableCell>
-            <TableCell><code>true</code></TableCell>
-            <TableCell>
-              Controls the function of the Utah ID button in the Utah Header:
-              <ul>
-                <li>true - auto fetch mode</li>
-                <li>false - turned off, no button</li>
-                <li>UtahIdSettings - custom control of the UtahID button</li>
-              </ul>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper">
-                <code>UserInfo</code>
-                <span> | </span>
-                <code>null</code>
-                <span> | </span>
-                <code>undefined</code>
-              </div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              <ul>
-                <li>UserInfo - details about the current user</li>
-                <li>null - app controls the user, but there is no user</li>
-                <li>undefined - app does not control the user</li>
-              </ul>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.authenticated</a></code>
+              <code><a href="#section-auth-currentuser">authenticated</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -1334,7 +1291,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.disabled</a></code>
+              <code><a href="#section-auth-currentuser">disabled</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -1350,7 +1307,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.env</a></code>
+              <code><a href="#section-auth-currentuser">env</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1363,7 +1320,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.first</a></code>
+              <code><a href="#section-auth-currentuser">first</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1380,7 +1337,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.last</a></code>
+              <code><a href="#section-auth-currentuser">last</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1397,7 +1354,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.mail</a></code>
+              <code><a href="#section-auth-currentuser">mail</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1414,7 +1371,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.middle</a></code>
+              <code><a href="#section-auth-currentuser">middle</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1431,7 +1388,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.status</a></code>
+              <code><a href="#section-auth-currentuser">status</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1448,8 +1405,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.type</a></span><br />
-              <span className="prop__types">string | null</span>
+              <code><a href="#section-auth-currentuser">type</a></code><br />
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1466,7 +1422,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.username</a></code>
+              <code><a href="#section-auth-currentuser">username</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1480,17 +1436,15 @@ export function UtahHeaderDocumentation() {
               Username of the logged in user.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
+      </div>
 
-          <TableRow>
-            {/* @ts-expect-error */}
-            <TableCell colSpan="100">
-              <span className="prop__section-title">UtahId Events</span>
-            </TableCell>
-          </TableRow>
-
+      <h4>UtahId Events</h4>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onauthchanged">utahId.onAuthChanged</a></code>
+              <code><a href="#section-auth-event-onauthchanged">onAuthChanged</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -1503,7 +1457,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onProfile">utahId.onProfile</a></code>
+              <code><a href="#section-auth-event-onProfile">onProfile</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -1517,7 +1471,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onSignIn">utahId.onSignIn</a></code>
+              <code><a href="#section-auth-event-onSignIn">onSignIn</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -1530,7 +1484,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onSignOut">utahId.onSignOut</a></code>
+              <code><a href="#section-auth-event-onSignOut">onSignOut</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -1540,17 +1494,15 @@ export function UtahHeaderDocumentation() {
               Callback triggered when the UtahID button&apos;s Sign Out menu item is triggered.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
+      </div>
 
-          <TableRow>
-            {/* @ts-expect-error */}
-            <TableCell colSpan="100">
-              <span className="prop__section-title">UtahId Custom Menu Items</span>
-            </TableCell>
-          </TableRow>
-
+      <h4>UtahId Custom Menu Items</h4>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">utahId.menuItems</a></code>
+              <code><a href="#section-auth-menu-items">menuItems</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>MenuItem[]</code></div>

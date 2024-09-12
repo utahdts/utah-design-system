@@ -12,24 +12,17 @@ export function MainMenuSettingsAndCode() {
     <>
       <h3 id="section-mainmenu-settings" className="mb-spacing mt-spacing">Main Menu Settings</h3>
       <h4 id="section-mainmenu-props">Config Props</h4>
+      <h3><code><a href="#section-mainMenu">mainMenu</a></code></h3>
+      <span className="prop__types">MainMenu</span>
+      <p>
+        The Utah Header&apos;s Main Menu allows common site navigation across all state of Utah content.
+        Use the Utah Header Main Menu configuration to create your site&apos;s navigation.
+      </p>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-mainMenu">mainMenu</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>MainMenu</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              The Utah Header&apos;s Main Menu allows common site navigation across all state of Utah content.
-              Use the Utah Header Main Menu configuration to create your site&apos;s navigation.
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems</a></code>
+              <code><a href="#section-menuitem-settings">menuItems</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>MainMenuItem[]</code></div>
@@ -39,178 +32,10 @@ export function MainMenuSettingsAndCode() {
               The menu items to show in the Main Menu.
             </TableCell>
           </TableRow>
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].actionUrl</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>MenuItemUrlAction</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              An object which contains the URL to which the menu item will navigate.
-            </TableCell>
-          </TableRow>
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">mainMenu.menuItems[].actionUrl.url</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>string</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              A URL to which the menu item will navigate.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-menu-items">mainMenu.menuItems[].actionUrl.openInNewTab</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>boolean</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              Should the URL open in a new tab?
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].actionFunction</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>function</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              A callback function that will be called when the menu item is triggered.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].actionFunctionUrl</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>MenuItemFunctionUrlAction</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              For Single Page Apps, navigation does not reload the page. The link should still show a url, but the functionality
-              should not be of a link. The actionFunctionUrl option allows specifying the link but also provide a custom
-              callback so as to trigger things like React Router.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].actionMenu</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>MenuItem[]</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              This menu item may have nested children menu items. <a href="#section-menuitem-settings">See here for MenuItem</a>.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].childrenMenuType</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper">
-                <code>flyout </code>
-                <span> | </span>
-                <code>inline </code>
-                <span> | </span>
-                <code>mega-menu</code>
-              </div>
-            </TableCell>
-            <TableCell><code>flyout</code></TableCell>
-            <TableCell>
-              Children menu items can open in different styles:
-              <ul>
-                <li>flyout: opens its own popup</li>
-                <li>inline: has toggles for open close</li>
-                <li>mega-menu: all the menu items are expanded into a single view</li>
-              </ul>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].className</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>string</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              Can provide a css class to put on the menu item. Helpful for marking a menu item as selected or other statuses.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].icon</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>Element</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              An HTML Element to show as the icon next the menu item title.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].isDivider</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>boolean</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              Marks the menu item as a divider by adding aria attributes and a role to the menu item.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].isSelected</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>boolean</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              If true the a class of <code>menu-item--selected</code> is added to the menu item.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.menuItems[].title</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>string</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              The title to show on the menu item.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.parentMenuLinkSuffix</a></code>
+              <code><a href="#section-mainMenu">parentMenuLinkSuffix</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -233,7 +58,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-mainMenu">mainMenu.title</a></code>
+              <code><a href="#section-mainMenu">title</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -249,11 +74,13 @@ export function MainMenuSettingsAndCode() {
 
       <h3 id="section-menuitem-settings" className="mb-spacing mt-spacing">Menu Item Settings</h3>
       <h4 id="section-menuitem-props">Config Props</h4>
+      <h3><code><a href="#section-mainMenu">menuItems</a></code></h3>
+      <span className="prop__types">MainMenuItem[]</span>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionUrl</a></code>
+              <code><a href="#section-auth-menu-items">actionUrl</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>MenuItemUrlAction</code></div>
@@ -266,7 +93,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionUrl.url</a></code>
+              <code><a href="#section-auth-menu-items">actionUrl.url</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -279,7 +106,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionUrl.openInNewTab</a></code>
+              <code><a href="#section-auth-menu-items">actionUrl.openInNewTab</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -292,7 +119,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionFunction</a></code>
+              <code><a href="#section-auth-menu-items">actionFunction</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -305,75 +132,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionFunctionUrl</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>MenuItemFunctionUrlAction</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-
-              For Single Page Apps, navigation does not reload the page. The link should still show a url, but the functionality
-              should not be of a link. The actionFunctionUrl option allows specifying the link but also provide a custom
-              callback so as to trigger things like React Router.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionFunctionUrl.actionFunction</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>function</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              A callback function that will be called when the menu item is triggered.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionFunctionUrl.skipHandleEvent</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>boolean</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              Should handleEvent automatically be used to call your function to stop propagation and prevent default.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionFunctionUrl.openInNewTab</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>boolean</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              <code>True</code> to have the link say it will open in a new window; defaults to <code>false</code>.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionFunctionUrl.url</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>string</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              The url to show when hovered. (Note: the url is not actually navigated to, the <code>actionFunction</code> is called instead.)
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-menu-items">menuItems[].actionMenu</a></code>
+              <code><a href="#section-auth-menu-items">actionMenu</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>MenuItem[]</code></div>
@@ -386,7 +145,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-mainMenu">menuItems[].className</a></code>
+              <code><a href="#section-mainMenu">className</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -399,7 +158,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-mainMenu">menuItems[].icon</a></code>
+              <code><a href="#section-mainMenu">icon</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>Element</code></div>
@@ -412,7 +171,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-mainMenu">menuItems[].isDivider</a></code>
+              <code><a href="#section-mainMenu">isDivider</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -425,7 +184,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-mainMenu">menuItems[].isSelected</a></code>
+              <code><a href="#section-mainMenu">isSelected</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -440,7 +199,7 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-mainMenu">menuItems[].title</a></code>
+              <code><a href="#section-mainMenu">title</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -448,6 +207,69 @@ export function MainMenuSettingsAndCode() {
             <TableCell>null</TableCell>
             <TableCell>
               The title to show on the menu item.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
+
+      <h3><code><a href="#section-mainMenu">menuItems[].actionFunctionUrl</a></code></h3>
+      <span className="prop__types">MenuItemFunctionUrlAction</span>
+      <p>
+        For Single Page Apps, navigation does not reload the page. The link should still show a url, but the functionality
+        should not be of a link. The actionFunctionUrl option allows specifying the link but also provide a custom
+        callback so as to trigger things like React Router.
+      </p>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-menu-items">actionFunction</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>function</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              A callback function that will be called when the menu item is triggered.
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-menu-items">skipHandleEvent</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>boolean</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Should handleEvent automatically be used to call your function to stop propagation and prevent default.
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-menu-items">openInNewTab</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>boolean</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              <code>True</code> to have the link say it will open in a new window; defaults to <code>false</code>.
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-auth-menu-items">url</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>string</code></div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The url to show when hovered. (Note: the url is not actually navigated to, the <code>actionFunction</code> is called instead.)
             </TableCell>
           </TableRow>
         </SettingsDocumentation>
