@@ -551,7 +551,7 @@ export function UtahHeaderDocumentation() {
           </TableRow>
         </SettingsDocumentation>
 
-        <h3><code>Others</code></h3>
+        <h4>Other</h4>
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
