@@ -34,7 +34,7 @@ export function BadgesDocumentation() {
       <h2 id="section-example">Example</h2>
       <SandboxExample
         defaultProps={{
-          children: '99',
+          children: '42',
           className: '',
           title: 'new messages',
         }}
