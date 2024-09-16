@@ -13,7 +13,7 @@ const baseName = '';
 ReactDOM.createRoot(notNull(document.getElementById('root'), 'main.jsx: root not found')).render(
   <React.StrictMode>
     <BrowserRouter basename={baseName}>
-      <UtahDesignSystemContextProvider defaultSettings={{ bannerDuration: 3500 }}>
+      <UtahDesignSystemContextProvider defaultSettings={{ bannerDuration: 35000, defaultClassName: 'banner--dark' }}>
         <AppContextProvider>
           <CssContextProvider>
             <WebsiteUtahHeaderContextProvider>
