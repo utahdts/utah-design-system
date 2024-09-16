@@ -83,7 +83,7 @@ export function BannersGlobal({ banners, bannerDuration, defaultClassName }) {
             <Banner
               key={`banner-${banner.id}`}
               id={`banner-${banner.id}`}
-              className={joinClassNames(banner.className, defaultClassName)}
+              className={banner.className || defaultClassName}
               position={banner.position}
               onClose={(e) => currentOnClose(e, banner)}
             >
