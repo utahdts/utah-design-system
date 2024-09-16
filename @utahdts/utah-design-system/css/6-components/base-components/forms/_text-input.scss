@@ -5,6 +5,7 @@
 #{class-vars.$base-class} {
   input[type="text"],
   input[type="email"],
+  input[type="password"],
   input[type="tel"] {
     color: var(--gray-color);
     min-height: var(--form-ele-medium);
