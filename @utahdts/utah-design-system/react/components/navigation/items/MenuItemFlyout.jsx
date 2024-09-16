@@ -71,7 +71,10 @@ export function MenuItemFlyout({
                 aria-expanded={isExpanded()}
                 aria-controls={`menu-item-${menuItem.id}-${menuItem.link || 'link'}-popup`}
                 aria-haspopup="menu"
-                className="menu-item__button-title"
+                className={joinClassNames(
+                  'menu-item__button-title',
+                  currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') && (currentMenuItem?.children?.length ? '' : 'menu-item--selected_parent')
+                )}
                 id={encodeURI(`menu-item-${menuItem.id}-${menuItem.link || 'link'}`)}
                 onClick={triggerOnHover ? undefined : () => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
                 type="button"
@@ -125,6 +128,7 @@ export function MenuItemFlyout({
                 <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
                   {menuItem.children?.map((menuItemChild) => (
                     <MenuItemFlyout
+                      currentMenuItem={currentMenuItem}
                       key={`menu-item__child__${menuItemChild.link || 'link'}-${menuItemChild.title}}`}
                       menuItem={menuItemChild}
                       menuType={menuType}

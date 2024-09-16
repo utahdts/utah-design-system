@@ -63,7 +63,10 @@ export function MenuItemInline({
             ? (
               <button
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
-                className="menu-item__button-title"
+                className={joinClassNames(
+                  'menu-item__button-title',
+                  currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') && (currentMenuItem?.children?.length ? '' : 'menu-item--selected_parent')
+                )}
                 id={encodeURI(`menu-item-${menuItem.id}-${menuItem.link || 'link'}`)}
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
                 type="button"
@@ -116,6 +119,7 @@ export function MenuItemInline({
             >
               {menuItem.children?.map((menuItemChild) => (
                 <MenuItemInline
+                  currentMenuItem={currentMenuItem}
                   key={`menu-item__child__${menuItemChild.link}-${menuItemChild.title}}`}
                   menuItem={menuItemChild}
                   menuType={menuType}
