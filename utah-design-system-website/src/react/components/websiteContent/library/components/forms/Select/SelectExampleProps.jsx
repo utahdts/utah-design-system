@@ -76,7 +76,7 @@ export function SelectExampleProps({ setState, state }) {
         className="input--height-small1x"
         label="Value"
         onChange={onChange}
-        placeholder={'Choose favorite "Mighty 5"'}
+        placeholder='Choose favorite "Mighty 5"'
         value={valueFn('props.value')}
       >
         <SelectOption label="Arches National Park" value="arches" />

@@ -41,7 +41,7 @@ export function TimeInputExampleCodeReact({
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isRequired ? 'isRequired' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'onChange={(e) => { /* ... do something w/ e ... */ }'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp="onChange={(e) => { /* ... do something w/ e ... */ }" indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'onClear={(e) => { /* ... do something w/ e ... */ }' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={placeholder ? `placeholder="${placeholder}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={timeRangeBegin ? `timeRangeBegin="${timeRangeBegin}"` : null} indentLevel={1} />

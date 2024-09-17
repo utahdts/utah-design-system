@@ -37,7 +37,7 @@ export function SwitchExampleCodeReact({
       <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={labelOff ? `labelOff="${labelOff}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={labelOn ? `labelOn="${labelOn}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'onChange={() => { /* ... do something ... */ }'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp="onChange={() => { /* ... do something ... */ }" indentLevel={1} />
       <ExampleCodeReactProp displayProp={`value={${value}}`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={size ? `size="${size}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={width ? `width={${width}}` : null} indentLevel={1} />

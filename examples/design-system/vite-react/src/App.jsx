@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import { Accordion } from '@utahdts/utah-design-system';
-import '@utahdts/utah-design-system-header/src/css/index.scss';
 import '@utahdts/utah-design-system/css/index.scss';
 import './App.css'
 
@@ -62,16 +61,16 @@ export function App() {
       <main id="main-content" className="px-spacing">
         <h1 className="text-center my-spacing-l">React + Vite</h1>
         <p className="text-center">
-          The header and footer are configured immediately after the initial render.<br/>
-          Check the <code>App.jsx</code> file for the full code.<br/>
+          The header and footer are configured immediately after the initial render.<br />
+          Check the <code>App.jsx</code> file for the full code.<br />
           Find more information on
           the <a href="https://designsystem.utah.gov" target="_blank">
-          Utah Design System Website
-          <span className="utds-new-tab-link-a11y">
-            <span className="visually-hidden">, opens in a new tab</span>
-            <span className="utds-icon-after-external-link" aria-hidden="true"></span>
-          </span>
-        </a>.
+            Utah Design System Website
+            <span className="utds-new-tab-link-a11y">
+              <span className="visually-hidden">, opens in a new tab</span>
+              <span className="utds-icon-after-external-link" aria-hidden="true"></span>
+            </span>
+          </a>.
         </p>
         <h2 className="text-center my-spacing">CSS</h2>
         <p className="text-center">
@@ -134,8 +133,8 @@ export function App() {
             isOpen={true}
           >
             <p>
-              This component has been imported form the Utah Design System:<br/>
-              <code>import &#123; Accordion &#125; from '@utahdts/utah-design-system';</code><br/>
+              This component has been imported form the Utah Design System:<br />
+              <code>import &#123; Accordion &#125; from '@utahdts/utah-design-system';</code><br />
             </p>
             <span>
               Find more information on

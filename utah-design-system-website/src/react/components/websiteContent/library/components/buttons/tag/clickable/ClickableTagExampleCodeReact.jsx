@@ -63,7 +63,7 @@ export function ClickableTagExampleCodeReact({
       />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isSelected ? 'isSelected' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'onClick={() => { /* ... do something ... */ }'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp="onClick={() => { /* ... do something ... */ }" indentLevel={1} />
       <ExampleCodeReactProp displayProp={(!sizeKey || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${sizeKey}}`} indentLevel={1} />
       &gt;
       <br />

@@ -33,10 +33,10 @@ export function TabGroupExampleCodeReact({
       <ExampleCodeReactProp displayProp={`<Tab id="tab-B">${tabB}</Tab>`} indentLevel={2} />
       <ExampleCodeReactProp displayProp="</TabList>" indentLevel={1} />
       <ExampleCodeReactProp displayProp="<TabPanels>" indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'<TabPanel tabId="tab-A">'} indentLevel={2} />
+      <ExampleCodeReactProp displayProp='<TabPanel tabId="tab-A">' indentLevel={2} />
       <ExampleCodeReactProp displayProp={panelA} indentLevel={3} />
       <ExampleCodeReactProp displayProp="</TabPanel>" indentLevel={2} />
-      <ExampleCodeReactProp displayProp={'<TabPanel tabId="tab-B">'} indentLevel={2} />
+      <ExampleCodeReactProp displayProp='<TabPanel tabId="tab-B">' indentLevel={2} />
       <ExampleCodeReactProp displayProp={panelB} indentLevel={3} />
       <ExampleCodeReactProp displayProp="</TabPanel>" indentLevel={2} />
       <ExampleCodeReactProp displayProp="</TabPanels>" indentLevel={1} />
