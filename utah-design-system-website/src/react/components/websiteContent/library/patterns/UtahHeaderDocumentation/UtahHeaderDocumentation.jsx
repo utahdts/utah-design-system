@@ -8,6 +8,7 @@ import {
   Switch,
   TableCell,
   TableRow,
+  useBanner
 } from '@utahdts/utah-design-system';
 import {
   useCallback,
@@ -38,6 +39,7 @@ import { utahHeaderPresets } from './utahHeaderPresets';
 
 export function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
+  const { addBanner } = useBanner();
   const {
     headerString,
     setHeaderString,
@@ -245,29 +247,25 @@ export function UtahHeaderDocumentation() {
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the waffle icon button')}
+              onClick={() => addBanner({ message: 'Triggered the waffle icon button' })}
               title="Waffle icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the alert icon button')}
+              onClick={() => addBanner({ message: 'Triggered the alert icon button' })}
               title="Alert icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the help icon button')}
+              onClick={() => addBanner({ message: 'Triggered the help icon button' })}
               title="Help icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the gear icon button')}
+              onClick={() => addBanner({ message: 'Triggered the gear icon button' })}
               title="Gear icon button"
             />
           </>
@@ -319,8 +317,7 @@ export function UtahHeaderDocumentation() {
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the search icon button')}
+              onClick={() => addBanner({ message: 'Triggered the search icon button' })}
               title="Search"
             />
             <div style={{ width: '100px' }}>&nbsp;</div>

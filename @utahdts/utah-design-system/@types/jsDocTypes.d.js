@@ -223,6 +223,7 @@
 /**
  * @typedef UtahDesignSystemDefaultSettings {
  *  @property {number} [bannerDuration]
+ *  @property {string} [defaultClassName]
  * }
  */
 /**

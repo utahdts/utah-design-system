@@ -89,8 +89,28 @@
       }
     }
     &__group-title {
-      padding: var(--spacing-2xs) var(--spacing-s);
       font-weight: var(--font-weight-bold);
+      position: relative;
+      color: var(--gray-color);
+      span {
+        background: white;
+        z-index: 2;
+        position: relative;
+        padding-right:  var(--spacing-s);
+      }
+      &:hover {
+        background-color: transparent;
+        color: var(--gray-color);
+      }
+      &:after {
+        content: "";
+        background: var(--gray-3-1-contrast);
+        display: block;
+        width: calc(100% - var(--spacing-xl));
+        height: 1px;
+        position: absolute;
+        top: 50%;
+      }
     }
   }
 }
