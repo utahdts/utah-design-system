@@ -4,6 +4,7 @@ import { useRememberCursorPosition } from '../../hooks/useRememberCursorPosition
 import { joinClassNames } from '../../util/joinClassNames';
 import { IconButton } from '../buttons/IconButton';
 import { ErrorMessage } from './ErrorMessage';
+import { useMultiSelectContext } from './MultiSelect/context/useMultiSelectContext';
 import { RequiredStar } from './RequiredStar';
 
 /**
@@ -16,6 +17,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isInvalid]
  * @param {boolean} [props.isLabelSkipped] highly recommended to not skip the label; instead, hide it; multiselect skips label - it renders its own
  * @param {boolean} [props.isRequired]
  * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
@@ -40,6 +42,7 @@ export function TextInput({
   id,
   isClearable,
   isDisabled,
+  isInvalid,
   isLabelSkipped,
   isRequired,
   isShowingClearableIcon,
@@ -56,6 +59,7 @@ export function TextInput({
   ...rest
 }) {
   const inputRef = /** @type {typeof useRef<HTMLInputElement>} */ (useRef)(null);
+  const [multiSelectContext] = useMultiSelectContext();
 
   const onChangeSetCursorPosition = useRememberCursorPosition(inputRef, value || '');
 
@@ -111,8 +115,13 @@ export function TextInput({
       <div className="text-input__inner-wrapper">
         <input
           aria-describedby={errorMessage ? `${id}-error` : undefined}
-          aria-invalid={!!errorMessage}
-          className={joinClassNames(className, showClearIcon ? 'text-input--clear-icon-visible' : null)}
+          aria-invalid={!!errorMessage || isInvalid}
+          className={joinClassNames(
+            className,
+            showClearIcon ? 'text-input--clear-icon-visible' : null,
+            // if inside a multi-select, don't draw red border
+            multiSelectContext.multiSelectId === 'default-context-value' ? null : 'inside-invalid-wrapper'
+          )}
           defaultValue={defaultValue}
           disabled={isDisabled}
           id={id}

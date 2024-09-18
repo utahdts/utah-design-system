@@ -86,7 +86,6 @@ export function MultiSelectComboBox({
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div
           aria-describedby={errorMessage ? `${multiSelectContextValue.multiSelectId}-error` : undefined}
-          aria-invalid={!!errorMessage}
           className={joinClassNames(
             className,
             'multi-select',
@@ -100,7 +99,7 @@ export function MultiSelectComboBox({
             )
               ? 'multi-select--focused'
               : '',
-            errorMessage && ''
+            errorMessage ? 'invalid' : null
           )}
           onClick={() => {
             if (multiSelectContextValue.isOptionsExpanded) {
@@ -124,6 +123,7 @@ export function MultiSelectComboBox({
             className="multi-select__combo-box"
             id={multiSelectContextValue.multiSelectId}
             isDisabled={isDisabled}
+            isInvalid={!!errorMessage}
             isRequired={isRequired}
             isValueClearedOnSelection
             isWrapperSkipped
