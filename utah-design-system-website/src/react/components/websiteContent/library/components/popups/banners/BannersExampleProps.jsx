@@ -69,6 +69,9 @@ export function BannersExampleProps({ setState, state }) {
         <SelectOption label="Success" value="banner--success" />
         <SelectOption label="Danger" value="banner--danger" />
         <SelectOption label="Info" value="banner--info" />
+        <SelectOption label="Primary" value="banner--primary" />
+        <SelectOption label="Secondary" value="banner--secondary" />
+        <SelectOption label="Accent" value="banner--accent" />
       </Select>
       <Select
         id="props.size"
