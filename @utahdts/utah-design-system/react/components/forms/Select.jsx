@@ -78,6 +78,7 @@ export function Select({
       <div className="select-input__inner-wrapper">
         <select
           aria-describedby={errorMessage ? `${id}-error` : undefined}
+          aria-invalid={!!errorMessage}
           className={joinClassNames(className, showClearIcon ? 'select-input--clear-icon-visible' : null)}
           defaultValue={defaultValue ?? undefined}
           disabled={isDisabled}
