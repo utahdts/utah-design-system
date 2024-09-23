@@ -104,10 +104,10 @@ export function UtahFooterDocumentation() {
       </ul>
 
       <h2 id="section-utahheader-settings" className="mb-spacing"> Settings</h2>
-      <div>
-        Footer settings are in the Utah Header settings object. You can set them separately or send them with the Utah Header settings.
-        See these <a href="#section-config-footer_setting">code examples</a> show the ways of specifying settings for the footer.
-      </div>
+      <p>
+        Footer settings are in the Utah Header settings object. You can set them separately or send them with the Utah Header settings.<br />
+        These <a href="#section-config-footer_setting">code examples</a> show the ways to specify those settings.
+      </p>
       <h3><code><a href="#section-config-footer_domLocationTarget">footer</a></code></h3>
       <span className="prop__types">FooterSettings | null | undefined</span>
       <p>
