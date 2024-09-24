@@ -22,6 +22,9 @@
       &--is-disabled {
         color: var(--form-ele-disabled-color);
       }
+      &[disabled]:active {
+        transform: translateY(-50%);
+      }
     }
     &__icon-static {
       display: flex;
