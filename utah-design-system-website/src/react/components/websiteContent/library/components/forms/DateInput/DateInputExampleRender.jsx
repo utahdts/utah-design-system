@@ -22,7 +22,6 @@ export function DateInputExampleRender({
       isDisabled,
       isRequired,
       label,
-      name,
       placeholder,
       showCalendarTodayButton,
       value,
@@ -43,7 +42,6 @@ export function DateInputExampleRender({
         isDisabled={isDisabled}
         isRequired={isRequired}
         label={label ?? ''}
-        name={name}
         placeholder={placeholder}
         onChange={(newValue) => setState((draftState) => {
           draftState.props.value = newValue;

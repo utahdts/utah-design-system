@@ -184,7 +184,6 @@
  *  @property {boolean} isDisabled
  *  @property {boolean} isRequired
  *  @property {string} label
- *  @property {string} name
  *  @property {string} placeholder
  *  @property {boolean} showCalendarTodayButton
  *  @property {string} value
