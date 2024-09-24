@@ -38,13 +38,6 @@ export function TextAreaExampleProps({ setState, state }) {
         onChange={onChange}
         value={valueFn('props.id')}
       />
-      <TextInput
-        id="props.name"
-        className="input--height-small1x"
-        label="Name"
-        onChange={onChange}
-        value={valueFn('props.name')}
-      />
       <Switch
         id="props.isClearable"
         label="Clearable"
