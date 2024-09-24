@@ -86,13 +86,6 @@ export function FileInputExampleProps({ setState, state }) {
         onChange={onChange}
         value={valueFn('props.label')}
       />
-      <TextInput
-        id="props.name"
-        className="input--height-small1x"
-        label="Name"
-        onChange={onChange}
-        value={valueFn('props.name')}
-      />
     </Form>
   );
 }

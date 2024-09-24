@@ -20,7 +20,6 @@ export function FileInputExampleCodeReact({
       isRequired,
       label,
       multiple,
-      name,
     },
   },
 }) {
@@ -37,7 +36,6 @@ export function FileInputExampleCodeReact({
       <ExampleCodeReactProp displayProp={isRequired ? `isRequired="${isRequired}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={multiple ? 'multiple' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={name ? `name="${name}"` : null} indentLevel={1} />
       /&gt;
     </>
   );

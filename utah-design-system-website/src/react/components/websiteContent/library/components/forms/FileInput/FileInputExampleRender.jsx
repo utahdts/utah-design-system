@@ -21,7 +21,6 @@ export function FileInputExampleRender({
       isRequired,
       label,
       multiple,
-      name,
     },
   },
   innerRef,
@@ -38,7 +37,6 @@ export function FileInputExampleRender({
       isRequired={isRequired}
       label={label}
       multiple={multiple}
-      name={name}
     />
   );
 }
