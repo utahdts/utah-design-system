@@ -932,17 +932,17 @@ export function UtahHeaderDocumentation() {
       <h4 id="section-auth-props">Config Props</h4>
       <h3><code>actionItems</code></h3>
       <span className="prop__types">ActionItem[]</span>
-      <p>
+      <p className="mb-auto">
         The header has an area just to the left of the UtahID button for icons buttons. These can icons can
         be used for a myriad of purposes customized for your application. For Icon Button guidance,
         see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
         When the action item is triggered it can have one of the following behaviors:
-        <ul>
-          <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
-          <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
-          <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
-        </ul>
       </p>
+      <ul>
+        <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
+        <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
+        <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
+      </ul>
       <h3><code>actionItem</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
@@ -1249,25 +1249,23 @@ export function UtahHeaderDocumentation() {
       <h3><code><a href="#section-auth-config">utahId</a></code></h3>
       <span className="prop__types">UtahIdSettings | boolean</span><br />
       <span>Default:</span> <code>true</code>
-      <p>
+      <p className="mb-auto">
         Controls the function of the Utah ID button in the Utah Header:
-        <ul>
-          <li>true - auto fetch mode</li>
-          <li>false - turned off, no button</li>
-          <li>UtahIdSettings - custom control of the UtahID button</li>
-        </ul>
       </p>
+      <ul>
+        <li>true - auto fetch mode</li>
+        <li>false - turned off, no button</li>
+        <li>UtahIdSettings - custom control of the UtahID button</li>
+      </ul>
       <hr />
       <h3><code><a href="#section-auth-currentuser">utahId.currentUser</a></code></h3>
       <span className="prop__types">UserInfo | null | undefined</span><br />
       <span>Default:</span> <code>null</code>
-      <p>
-        <ul>
-          <li>UserInfo - details about the current user</li>
-          <li>null - app controls the user, but there is no user</li>
-          <li>undefined - app does not control the user</li>
-        </ul>
-      </p>
+      <ul>
+        <li>UserInfo - details about the current user</li>
+        <li>null - app controls the user, but there is no user</li>
+        <li>undefined - app does not control the user</li>
+      </ul>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
