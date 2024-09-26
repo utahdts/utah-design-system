@@ -101,11 +101,14 @@ export function Routing() {
                 content={page.content}
                 contentRef={contentRef}
                 sidePanelLeftContent={menuSecondary && (
-                  <VerticalMenu
-                    className="menu-side-panel"
-                    currentMenuItem={currentMenuItem}
-                    menus={menuSecondary ?? null}
-                  />
+                  <nav aria-labelledby="side-bar-nav-website">
+                    <h2 id="side-bar-nav-website" className="visually-hidden">Sidebar Menu</h2>
+                    <VerticalMenu
+                      className="menu-side-panel"
+                      currentMenuItem={currentMenuItem}
+                      menus={menuSecondary ?? null}
+                    />
+                  </nav>
                 )}
                 sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />
