@@ -156,22 +156,12 @@ export const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
-  // === guidelines documentation components === //
+  // === guidelines/standards === //
   accessibility: /** @type {Page} */ ({
     content: AccessibilityDocumentation,
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Accessibility',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  accessibilityTesting: /** @type {Page} */ ({
-    content: AccessibilityChecklistDocumentation,
-    legacyLinks: [
-      '/guidelinesStandards/accessibilityChecklist',
-    ],
-    link: pageUrls.accessibilityChecklist,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Accessibility Checklist & Testing',
+    pageTitle: 'Accessibility Overview',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   accessibilityTestingPage: /** @type {Page} */ ({
@@ -181,6 +171,7 @@ export const pages = {
     pageTitle: 'Accessibility Testing',
     template: layoutTemplatesEnum.LANDING_TEMPLATE,
   }),
+  // === guidelines documentation components - design === //
   colorGuidelines: /** @type {Page} */ ({
     content: ColorGuidelinesDocumentation,
     link: pageUrls.colorGuidelines,
@@ -188,56 +179,11 @@ export const pages = {
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
-  validation: /** @type {Page} */ ({
-    content: ValidationDocumentation,
-    link: pageUrls.validation,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Form Validation',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-
-  // === guidelines documentation components === //
-  spacing: /** @type {Page} */ ({
-    content: SpacingDocumentation,
-    link: pageUrls.spacing,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Spacing',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  typography: /** @type {Page} */ ({
-    content: TypographyDocumentation,
-    link: pageUrls.typography,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Typography',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
   depthElevationShadows: /** @type {Page} */ ({
     content: DepthElevationShadowsDocumentation,
     link: pageUrls.depthElevationShadows,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Depth / Elevation / Shadows',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  digitalCredentials: /** @type {Page} */ ({
-    content: DigitalCredentials,
-    link: pageUrls.digitalCredentials,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Verifiable Digital Credentials',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  formGeneralDocumentation: /** @type {Page} */ ({
-    content: FormGeneralDocumentation,
-    link: pageUrls.formGuidelines,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Form General Guidance',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-    legacyLinks: ['guidelinesStandards/formGuidelines'],
-  }),
-  shape: /** @type {Page} */ ({
-    content: ShapesDocumentation,
-    link: pageUrls.shape,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Shape (rounded corners)',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   images: /** @type {Page} */ ({
@@ -261,6 +207,28 @@ export const pages = {
     pageTitle: 'Opacity',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
+  shape: /** @type {Page} */ ({
+    content: ShapesDocumentation,
+    link: pageUrls.shape,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Shape (rounded corners)',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  spacing: /** @type {Page} */ ({
+    content: SpacingDocumentation,
+    link: pageUrls.spacing,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Spacing',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  typography: /** @type {Page} */ ({
+    content: TypographyDocumentation,
+    link: pageUrls.typography,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Typography',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  // === guidelines documentation components - data, privacy, forms === //
   dataPrivacy: /** @type {Page} */ ({
     content: DataPrivacyDocumentation,
     link: pageUrls.dataPrivacy,
@@ -273,6 +241,28 @@ export const pages = {
     link: pageUrls.dataVisualizations,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Data Visualizations',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  digitalCredentials: /** @type {Page} */ ({
+    content: DigitalCredentials,
+    link: pageUrls.digitalCredentials,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Verifiable Digital Credentials',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  formGeneralDocumentation: /** @type {Page} */ ({
+    content: FormGeneralDocumentation,
+    link: pageUrls.formGuidelines,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form General Guidance',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+    legacyLinks: ['guidelinesStandards/formGuidelines'],
+  }),
+  validation: /** @type {Page} */ ({
+    content: ValidationDocumentation,
+    link: pageUrls.validation,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form Validation',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
@@ -293,6 +283,16 @@ export const pages = {
   }),
 
   // === resources documentation components === //
+  accessibilityTesting: /** @type {Page} */ ({
+    content: AccessibilityChecklistDocumentation,
+    legacyLinks: [
+      '/guidelinesStandards/accessibilityChecklist',
+    ],
+    link: pageUrls.accessibilityChecklist,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Accessibility Checklist & Testing',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
   demo: /** @type {Page} */ ({
     content: Demo,
     link: pageUrls.demoPage,

@@ -34,70 +34,33 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
-      link: pages.colorGuidelines.link,
-      title: pages.colorGuidelines.pageTitle,
+      id: 'guidelines__data-privacy-forms',
+      title: 'Data / Privacy / Forms',
       parentLinks: [pages.guidelines.link],
+      children: [
+        { link: pages.dataPrivacy.link, title: pages.dataPrivacy.pageTitle },
+        { link: pages.dataVisualizations.link, title: pages.dataVisualizations.pageTitle },
+        { link: pages.digitalCredentials.link, title: pages.digitalCredentials.pageTitle },
+        { link: pages.formGeneralDocumentation.link, title: pages.formGeneralDocumentation.pageTitle },
+        { link: pages.validation.link, title: pages.validation.pageTitle },
+      ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
     {
-      link: pages.dataPrivacy.link,
-      title: pages.dataPrivacy.pageTitle,
+      id: 'guidelines__design',
+      title: 'Design Guidelines',
       parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.dataVisualizations.link,
-      title: pages.dataVisualizations.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.depthElevationShadows.link,
-      title: pages.depthElevationShadows.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.digitalCredentials.link,
-      title: pages.digitalCredentials.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.formGeneralDocumentation.link,
-      title: pages.formGeneralDocumentation.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      // "form validation"
-      link: pages.validation.link,
-      title: pages.validation.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.images.link,
-      title: pages.images.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.layout.link,
-      title: pages.layout.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.opacity.link,
-      title: pages.opacity.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.shape.link,
-      title: pages.shape.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.spacing.link,
-      title: pages.spacing.pageTitle,
-      parentLinks: [pages.guidelines.link],
-    },
-    {
-      link: pages.typography.link,
-      title: pages.typography.pageTitle,
-      parentLinks: [pages.guidelines.link],
+      children: [
+        { link: pages.colorGuidelines.link, title: pages.colorGuidelines.pageTitle },
+        { link: pages.depthElevationShadows.link, title: pages.depthElevationShadows.pageTitle },
+        { link: pages.images.link, title: pages.images.pageTitle },
+        { link: pages.layout.link, title: pages.layout.pageTitle },
+        { link: pages.opacity.link, title: pages.opacity.pageTitle },
+        { link: pages.shape.link, title: pages.shape.pageTitle },
+        { link: pages.spacing.link, title: pages.spacing.pageTitle },
+        { link: pages.typography.link, title: pages.typography.pageTitle },
+      ],
+      childrenMenuType: childrenMenuTypes.INLINE,
     },
   ],
 };
@@ -329,7 +292,8 @@ function sorter(a, b) {
 }
 
 // sort menu items alphabetically
-menuGuidelinesSecondary.menuItems.sort(sorter);
+// menuGuidelinesSecondary.menuItems.sort(sorter); // we don't want to sort this menu so it stays in a logical order.
+menuGuidelinesSecondary.menuItems.forEach((item) => item.children?.sort(sorter));
 menuLibraryComponentsSecondary.menuItems.sort(sorter);
 menuLibraryComponentsSecondary.menuItems.forEach((item) => item.children?.sort(sorter));
 menuLibraryPatternsSecondary.menuItems.sort(sorter);
