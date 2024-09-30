@@ -123,7 +123,7 @@ export function renderMainMenu() {
           (menuItem.actionFunction
           || menuItem.actionUrl
           || menuItem.actionFunctionUrl)
-          && !menuItem.hideOverview
+          && !menuItem.isOverviewHidden
         ) {
           // add `parentMenuLinkSuffix` menu item to top of children menu
           menuItems.unshift({

@@ -135,7 +135,9 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     popupMenuItem.actionFunction
     || popupMenuItem.actionUrl
     || popupMenuItem.actionFunctionUrl
-  )) {
+  )
+    && !popupMenuItem.isOverviewHidden
+  ) {
     actionMenu.unshift({
       actionFunction: popupMenuItem.actionFunction,
       actionFunctionUrl: popupMenuItem.actionFunctionUrl,

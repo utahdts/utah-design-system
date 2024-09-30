@@ -68,10 +68,10 @@
  *  @property {MenuItem[]} [actionMenu] - children menus
  *  @property {ChildrenMenuTypes} [childrenMenuType] - default is "flyout"
  *  @property {string} [className] - can be used for `selected` or any other purpose
- *  @property {string} [hideOverview] - hide the "overview" page from the main menu (top of the list link)
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {boolean} [isAlternatePath] - there are more than one menu paths to this menu item, and this one is no the "source of truth"
  *  @property {boolean} [isDivider] - this menu item is a divider between other menu items
+ *  @property {boolean} [isOverviewHidden] - hide the "overview" page from the main menu (top of the list link)
  *  @property {boolean} [isSelected] - is this menu item currently a selected thing (on its page?)
  *  @property {string} title - title for the menu item
  * }
@@ -120,6 +120,7 @@
  *  @property {string} [className] - can be used for `selected` or any other purpose
  *  @property {ChildNode} [icon] - icon to show next to this menu item
  *  @property {boolean} [isAlternatePath] - there are more than one menu paths to this menu item, and this one is no the "source of truth"
+ *  @property {boolean} [isOverviewHidden] - hide the "overview" page from the main menu (top of the list link)
  *  @property {boolean} [isDivider] - this menu item is a divider between other menu items
  *  @property {boolean} [isSelected] - is this menu item currently a selected thing (on its page?)
  *  @property {string} title - title for the menu item

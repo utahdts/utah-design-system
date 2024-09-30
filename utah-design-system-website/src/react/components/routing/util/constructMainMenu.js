@@ -104,7 +104,7 @@ export function constructMainMenu(currentMenuItem, navigate) {
         || (mainMenuItem.link && currentMenuItem?.parentLinks?.includes(mainMenuItem.link))
       ),
       title: mainMenuItem.title,
-      hideOverview: !!mainMenuItem.hideOverview,
+      isOverviewHidden: !!mainMenuItem.isOverviewHidden,
     })),
   };
 
