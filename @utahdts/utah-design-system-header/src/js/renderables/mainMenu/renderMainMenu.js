@@ -120,9 +120,10 @@ export function renderMainMenu() {
         // if have both an action url and menu items, show a page link since the menu can't be both clicked to open
         // the sub menu AND clicked to got to the link
         if (
-          menuItem.actionFunction
+          (menuItem.actionFunction
           || menuItem.actionUrl
-          || menuItem.actionFunctionUrl
+          || menuItem.actionFunctionUrl)
+          && !menuItem.hideOverview
         ) {
           // add `parentMenuLinkSuffix` menu item to top of children menu
           menuItems.unshift({
