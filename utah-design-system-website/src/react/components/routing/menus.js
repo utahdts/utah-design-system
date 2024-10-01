@@ -11,7 +11,7 @@ export const menuMain = {
   id: 'main-menu',
   menuItems: [
     { link: pages.home.link, title: pages.home.pageTitle },
-    { link: pages.guidelines.link, title: pages.guidelines.pageTitle },
+    { link: pages.guidelines.link, title: pages.guidelines.pageTitle, isOverviewHidden: true },
     { link: pages.library.link, title: pages.library.pageTitle },
     { link: pages.resources.link, title: pages.resources.pageTitle },
     { link: pages.gettingStarted.link, title: pages.gettingStarted.pageTitle },
