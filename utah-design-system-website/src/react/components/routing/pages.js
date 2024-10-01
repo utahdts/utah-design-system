@@ -5,6 +5,7 @@ import { HomeLanding } from '../websiteContent/HomeLanding';
 import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
+import { AccessibilityForDesigners } from '../websiteContent/guidelines/AccessibilityForDesigners';
 import { ColorGuidelinesDocumentation } from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import { DataPrivacyDocumentation } from '../websiteContent/guidelines/DataPrivacyDocumentation';
 import { DataVisualizationsDocumentation } from '../websiteContent/guidelines/DataVisualizationsDocumentation';
@@ -162,6 +163,13 @@ export const pages = {
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility Overview',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  accessibilityForDesigners: /** @type {Page} */ ({
+    content: AccessibilityForDesigners,
+    link: pageUrls.accessibilityForDesigners,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Accessibility for Designers',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   accessibilityTestingPage: /** @type {Page} */ ({
