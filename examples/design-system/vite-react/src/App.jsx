@@ -66,7 +66,7 @@ export function App() {
           Check the <code>App.jsx</code> file for the full code.<br />
           Find more information on
           the <a href="https://designsystem.utah.gov" target="_blank">
-            Utah Design System Website
+            Utah Design System Website{''}
             <span className="utds-new-tab-link-a11y">
               <span className="visually-hidden">, opens in a new tab</span>
               <span className="utds-icon-after-external-link" aria-hidden="true"></span>
@@ -79,7 +79,7 @@ export function App() {
           The design system colors are overridden.<br />
           Find more information on
           the <a href="https://designsystem.utah.gov/resources/gettingStartedDeveloper#h3-css-color-overrides" target="_blank">
-            Getting Started for Developers Page
+            Getting Started for Developers Page{''}
             <span className="utds-new-tab-link-a11y">
               <span className="visually-hidden">, opens in a new tab</span>
               <span className="utds-icon-after-external-link" aria-hidden="true"></span>
@@ -140,7 +140,7 @@ export function App() {
             <span>
               Find more information on
               the <a href="https://designsystem.utah.gov/library/components/containers/accordion" target="_blank">
-                Accordion Page
+                Accordion Page{''}
                 <span className="utds-new-tab-link-a11y">
                   <span className="visually-hidden">, opens in a new tab</span>
                   <span className="utds-icon-after-external-link" aria-hidden="true"></span>

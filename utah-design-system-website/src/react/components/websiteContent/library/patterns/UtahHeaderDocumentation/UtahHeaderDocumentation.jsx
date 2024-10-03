@@ -85,7 +85,7 @@ export function UtahHeaderDocumentation() {
         provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
       </p>
       <p className="lead-in">
-        The components contained within the header include the <strong>Utah, an official website</strong>,
+        The components contained within the header include the <strong>Utah, an official website</strong>,{' '}
         <strong>Agency Icon and Title</strong>,{' '}
         <strong>Action Items</strong>,{' '}
         <strong>Main Menu</strong>,{' '}
@@ -159,7 +159,7 @@ export function UtahHeaderDocumentation() {
                         // @ts-expect-error
                         Object.entries(selectedOption.settingsSnippet)
                           .forEach(([settingKey, settingValue]) => {
-                          // @ts-expect-error
+                            // @ts-expect-error
                             draftHeaderObject[settingKey] = settingValue;
                           });
                       })

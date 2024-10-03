@@ -55,10 +55,10 @@ export function FileInput({
     if (acceptedFileTypes && files) {
       // Get the list of file extensions allowed
       // e.g. image/png OR .png
-      const types = acceptedFileTypes.split(/,|\//).map((type) => type.trim().split('.').join(''));
+      const types = acceptedFileTypes.split(/[,/]/).map((type) => type.trim().split('.').join(''));
       [...filesList || []].forEach((file) => {
         // Get file(s) extension
-        const fileType = file.name.match(/\.[0-9a-z]+$/i)?.[0].split('.').join('');
+        const fileType = /\.[0-9a-z]+$/i.exec(file.name)?.[0].split('.').join('');
         if (fileType && !types.includes(fileType)) {
           allowed = false;
           addPoliteMessage('File type not accepted.');
