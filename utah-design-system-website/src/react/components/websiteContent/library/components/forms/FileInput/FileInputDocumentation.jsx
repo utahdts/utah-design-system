@@ -29,7 +29,6 @@ export function FileInputDocumentation() {
           isRequired: false,
           label: 'Choose your file',
           multiple: false,
-          name: '',
         }}
         RENDER_EXAMPLE={FileInputExampleRender}
         PROPS_EXAMPLE={FileInputExampleProps}

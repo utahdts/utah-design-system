@@ -33,13 +33,13 @@ import { AccordionDocumentation } from '../websiteContent/library/components/con
 import { CardDocumentation } from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import { CodeBlockDocumentation } from '../websiteContent/library/components/containers/CodeBlock/CodeBlockDocumentation';
 import { DrawerDocumentation } from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
-import { InfoBoxDocumentation } from '../websiteContent/library/components/forms/InfoBox/InfoBoxDocumentation';
 import { TabGroupDocumentation } from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import { CharacterCountDocumentation } from '../websiteContent/library/components/forms/CharacterCount/CharacterCountDocumentation';
 import { CheckboxDocumentation } from '../websiteContent/library/components/forms/Checkbox/CheckboxDocumentation';
 import { ComboBoxDocumentation } from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import { DateInputDocumentation } from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import { FileInputDocumentation } from '../websiteContent/library/components/forms/FileInput/FileInputDocumentation';
+import { InfoBoxDocumentation } from '../websiteContent/library/components/forms/InfoBox/InfoBoxDocumentation';
 import { MultiSelectDocumentation } from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
 import { RadioButtonDocumentation } from '../websiteContent/library/components/forms/RadioButton/RadioButtonDocumentation';
 import { SelectDocumentation } from '../websiteContent/library/components/forms/Select/SelectDocumentation';
@@ -79,10 +79,10 @@ import { GettingStarted } from '../websiteContent/resources/GettingStarted';
 import { GettingStartedDesigner } from '../websiteContent/resources/GettingStartedDesigner';
 import { GettingStartedDeveloper } from '../websiteContent/resources/GettingStartedDeveloper';
 import { IconsDocumentation } from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
-import { WordPressHeaderPlugin } from '../websiteContent/resources/WordPressHeaderPlugin';
 import { Mockups } from '../websiteContent/resources/Mockups';
 import { ResourcesLanding } from '../websiteContent/resources/ResourcesLanding';
 import { Showcase } from '../websiteContent/resources/Showcase/Showcase';
+import { WordPressHeaderPlugin } from '../websiteContent/resources/WordPressHeaderPlugin';
 import { pageUrls } from './pageUrls';
 
 /**
@@ -159,6 +159,7 @@ export const pages = {
   // === guidelines/standards === //
   accessibility: /** @type {Page} */ ({
     content: AccessibilityDocumentation,
+    legacyLinks: ['/guidelinesStandards/accessibility'],
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Accessibility Overview',
@@ -174,6 +175,7 @@ export const pages = {
   // === guidelines documentation components - design === //
   colorGuidelines: /** @type {Page} */ ({
     content: ColorGuidelinesDocumentation,
+    legacyLinks: ['/guidelinesStandards/color'],
     link: pageUrls.colorGuidelines,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Color',
@@ -181,6 +183,7 @@ export const pages = {
   }),
   depthElevationShadows: /** @type {Page} */ ({
     content: DepthElevationShadowsDocumentation,
+    legacyLinks: ['/guidelinesStandards/depthElevationShadows'],
     link: pageUrls.depthElevationShadows,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Depth / Elevation / Shadows',
@@ -188,6 +191,7 @@ export const pages = {
   }),
   images: /** @type {Page} */ ({
     content: ImagesDocumentation,
+    legacyLinks: ['/guidelinesStandards/images'],
     link: pageUrls.images,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Images',
@@ -195,6 +199,7 @@ export const pages = {
   }),
   layout: /** @type {Page} */ ({
     content: LayoutDocumentation,
+    legacyLinks: ['/guidelinesStandards/layoutFlexGridSystem'],
     link: pageUrls.layout,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Layout (Flex, Grid System)',
@@ -202,6 +207,7 @@ export const pages = {
   }),
   opacity: /** @type {Page} */ ({
     content: OpacityDocumentation,
+    legacyLinks: ['/guidelinesStandards/opacity'],
     link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Opacity',
@@ -209,6 +215,7 @@ export const pages = {
   }),
   shape: /** @type {Page} */ ({
     content: ShapesDocumentation,
+    legacyLinks: ['/guidelinesStandards/shapeRoundedCorners'],
     link: pageUrls.shape,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Shape (rounded corners)',
@@ -216,6 +223,7 @@ export const pages = {
   }),
   spacing: /** @type {Page} */ ({
     content: SpacingDocumentation,
+    legacyLinks: ['/guidelinesStandards/spacing'],
     link: pageUrls.spacing,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Spacing',
@@ -223,6 +231,7 @@ export const pages = {
   }),
   typography: /** @type {Page} */ ({
     content: TypographyDocumentation,
+    legacyLinks: ['/guidelinesStandards/typography'],
     link: pageUrls.typography,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Typography',
@@ -231,6 +240,7 @@ export const pages = {
   // === guidelines documentation components - data, privacy, forms === //
   dataPrivacy: /** @type {Page} */ ({
     content: DataPrivacyDocumentation,
+    legacyLinks: ['/guidelinesStandards/dataPrivacy'],
     link: pageUrls.dataPrivacy,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Data Privacy',
@@ -238,6 +248,7 @@ export const pages = {
   }),
   dataVisualizations: /** @type {Page} */ ({
     content: DataVisualizationsDocumentation,
+    legacyLinks: ['/guidelinesStandards/dataVisualizations'],
     link: pageUrls.dataVisualizations,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Data Visualizations',
@@ -245,6 +256,7 @@ export const pages = {
   }),
   digitalCredentials: /** @type {Page} */ ({
     content: DigitalCredentials,
+    legacyLinks: ['/guidelinesStandards/verifiableDigitalCredentials'],
     link: pageUrls.digitalCredentials,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Verifiable Digital Credentials',
@@ -252,14 +264,15 @@ export const pages = {
   }),
   formGeneralDocumentation: /** @type {Page} */ ({
     content: FormGeneralDocumentation,
+    legacyLinks: ['/guidelinesStandards/formGuidelines', '/guidelinesStandards/formGeneralGuidance'],
     link: pageUrls.formGuidelines,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Form General Guidance',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-    legacyLinks: ['guidelinesStandards/formGuidelines'],
   }),
   validation: /** @type {Page} */ ({
     content: ValidationDocumentation,
+    legacyLinks: ['/guidelinesStandards/formValidation'],
     link: pageUrls.validation,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Form Validation',
