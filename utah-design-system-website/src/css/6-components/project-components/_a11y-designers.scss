@@ -1,0 +1,36 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .a11y-contrast-box {
+    &__row {
+      display: flex;
+      gap: var(--spacing);
+      flex-wrap: wrap;
+    }
+    &__wrapper {
+      border-radius: var(--radius-medium);
+      overflow: hidden;
+      flex: 1 1 30%;
+    }
+    &__color {
+      padding: var(--spacing-s);
+      max-height: 95px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    &__info {
+      padding: var(--spacing-s);
+      background: var(--gray-light-color);
+      display: flex;
+      justify-content: space-between;
+    }
+    &__result {
+      font-size: var(--font-size-3xl);
+      font-weight: bold;
+    }
+    &--large-bold {
+      font-size: 19px;
+      font-weight: bold;
+    }
+  }
+}
