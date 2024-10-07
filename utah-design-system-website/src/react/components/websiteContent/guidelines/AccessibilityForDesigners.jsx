@@ -96,7 +96,7 @@ export function AccessibilityForDesigners() {
 
       <h4 className="mb-spacing">
         <strong>Normal Size Text</strong><br />
-        <strong>Size:</strong> 14-18px<br />
+        <strong>Size:</strong> 14-23px<br />
         <strong>AA Contrast Ratio:</strong> 4.5:1<br />
         <strong>AAA Contrast Ratio:</strong> 7:1
       </h4>
