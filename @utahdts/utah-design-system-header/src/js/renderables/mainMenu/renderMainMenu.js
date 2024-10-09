@@ -91,12 +91,12 @@ export function renderMainMenu() {
       }
 
       let menuItemTitleElement;
-      if (menuItem.actionFunctionUrl || menuItem.actionUrl) {
-        menuItemTitleElement = mainMenuItemLinkTitle;
-        mainMenuItemButtonTitle.remove();
-      } else if (menuItem.actionMenu || menuItem.actionFunction) {
+      if (menuItem.actionMenu || menuItem.actionFunction) {
         menuItemTitleElement = mainMenuItemButtonTitle;
         mainMenuItemLinkTitle.remove();
+      } else if (menuItem.actionFunctionUrl || menuItem.actionUrl) {
+        menuItemTitleElement = mainMenuItemLinkTitle;
+        mainMenuItemButtonTitle.remove();
       } else {
         throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
       }
@@ -121,8 +121,8 @@ export function renderMainMenu() {
         // the sub menu AND clicked to got to the link
         if (
           (menuItem.actionFunction
-          || menuItem.actionUrl
-          || menuItem.actionFunctionUrl)
+            || menuItem.actionUrl
+            || menuItem.actionFunctionUrl)
           && !menuItem.isOverviewHidden
         ) {
           // add `parentMenuLinkSuffix` menu item to top of children menu

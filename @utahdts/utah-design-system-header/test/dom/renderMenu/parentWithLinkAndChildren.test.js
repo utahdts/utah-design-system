@@ -225,7 +225,7 @@ describe('renderMenu: parentWithLinkAndChildren - main menu has children & actio
     loadHeader();
 
     testHasMainMenuExists();
-    testMainMenuItemIsA(URL_MENU_ITEM_1, DONT_TOUCH);
+    testMainMenuItemIsButton(DONT_TOUCH);
 
     // has child
     const menuItem1ChildrenMenu = testMainMenuHasChildren();
@@ -267,7 +267,7 @@ describe('renderMenu: parentWithLinkAndChildren - main menu has children & actio
     loadHeader();
 
     testHasMainMenuExists();
-    testMainMenuItemIsA(URL_MENU_ITEM_1, DONT_TOUCH);
+    testMainMenuItemIsButton(DONT_TOUCH);
 
     // has child
     const menuItem1ChildrenMenu = testMainMenuHasChildren();
@@ -309,7 +309,7 @@ describe('renderMenu: parentWithLinkAndChildren - main menu has children & actio
     loadHeader();
 
     testHasMainMenuExists();
-    testMainMenuItemIsA(URL_MENU_ITEM_1, DONT_TOUCH);
+    testMainMenuItemIsButton(DONT_TOUCH);
 
     // has child
     const menuItem1ChildrenMenu = testMainMenuHasChildren();
