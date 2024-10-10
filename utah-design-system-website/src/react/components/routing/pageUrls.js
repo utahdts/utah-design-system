@@ -5,6 +5,7 @@
 export const pageUrls = {
   accessibility: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityOverview'),
   accessibilityChecklist: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityChecklistTesting'),
+  accessibilityForDesigners: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityForDesigners'),
   accessibilityTesting: /** @type {PageUrl} */ ('/resources/accessibilityTesting'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
   backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),

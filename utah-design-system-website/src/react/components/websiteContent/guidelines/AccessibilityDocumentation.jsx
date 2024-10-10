@@ -366,10 +366,10 @@ export function AccessibilityDocumentation() {
       </p>
 
       <h4 id="section-limited-vision-aaa-guidelines" className="mb-spacing">AA and AAA contrast guidelines (definitions)</h4>
-      <h5>Normal Text and Bold Text (14px - 18px)</h5>
+      <h5>Normal Text and Bold Text (14px - 23px)</h5>
       <p>General text and images of text. See <Link to={pageUrls.typography}>Typography</Link>.</p>
 
-      <h5>Large Text (19px Bold, 24px+)</h5>
+      <h5>Large Text (19px+ Bold, 24px+)</h5>
       <p>Large-scale text and images of large-scale text. See <Link to={pageUrls.typography}>Typography</Link>.</p>
 
       <h5>User Interface Components</h5>
@@ -406,14 +406,14 @@ export function AccessibilityDocumentation() {
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell>Normal text, Normal bold text</TableCell>
-              <TableCell>14px - 18px</TableCell>
-              <TableCell>.875rem - 1.125rem</TableCell>
+              <TableCell>Normal text</TableCell>
+              <TableCell>14px - 23px, (14px - 18px Bold)</TableCell>
+              <TableCell>.875rem - 1.4375rem</TableCell>
               <TableCell>4.5:1</TableCell>
               <TableCell>7:1</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Large bold text</TableCell>
+              <TableCell>Bold text</TableCell>
               <TableCell>19px+</TableCell>
               <TableCell>1.1875rem+</TableCell>
               <TableCell>3:1</TableCell>

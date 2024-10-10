@@ -34,6 +34,11 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
+      link: pages.accessibilityForDesigners.link,
+      title: pages.accessibilityForDesigners.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
       id: 'guidelines__data-privacy-forms',
       title: 'Data / Privacy / Forms',
       parentLinks: [pages.guidelines.link],
