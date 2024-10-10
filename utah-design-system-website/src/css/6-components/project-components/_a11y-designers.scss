@@ -23,6 +23,7 @@
       background: var(--gray-light-color);
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
     &__result {
       font-size: var(--font-size-3xl);

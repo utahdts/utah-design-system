@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { ExternalLink } from '@utahdts/utah-design-system';
 import { NavLink } from 'react-router-dom';
 import { pageUrls } from '../../routing/pageUrls';
 import { WcagRulesBlock } from './WcagRulesBlock';
@@ -41,6 +42,12 @@ export function AccessibilityForDesigners() {
           <strong>Are you designing generously with color contrast and size?</strong><br />
           When designing for accessibility, using higher color contrast and larger font sizes ensures that users with visual impairments can easily
           read and interact with content. These design choices make your interface more inclusive and improve usability for a wider audience.
+        </li>
+        <li>
+          <strong>Don&apos;t convey content or links by color alone.</strong><br />
+          Conveying content or links using only color can create accessibility issues for users with visual impairments or color blindness.
+          Relying solely on color can make it difficult for them to distinguish links or important information. To ensure accessibility, always
+          provide additional cues, such as underlining links, using bold text, or adding icons.
         </li>
         <li>
           <strong>Are you designing with mobile-first in mind?</strong><br />
@@ -317,6 +324,15 @@ export function AccessibilityForDesigners() {
           More information about fonts and typography can be found on the typography page.
         </NavLink>
       </p>
+
+      <h2 id="section-webaim" className="mt-spacing-l">Additional tips for designers.</h2>
+      <p>
+        Here are additional tips for designers from WebAIM.org.{' '}
+        <ExternalLink href="https://webaim.org/resources/designers/">For a text version visit https://webaim.org/resources/designers.</ExternalLink>
+      </p>
+      <div className="flex justify-center mb-spacing-xl">
+        <a href="https://webaim.org/resources/designers/" target="_blank" rel="noreferrer" style={{ width: '100%', display: 'block' }}><img src="https://webaim.org/resources/designers/media/designers.svg" alt="Web Accessibility for Designers infographic with link to text version at WebAIM.org" style={{ width: '100%' }} /></a>
+      </div>
     </div>
   );
 }
