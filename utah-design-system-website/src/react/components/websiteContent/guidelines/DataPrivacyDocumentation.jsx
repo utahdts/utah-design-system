@@ -106,7 +106,7 @@ export function DataPrivacyDocumentation() {
               <input type="text" id="first-name" className="mb-spacing" />
               <label htmlFor="quest">What is your quest?</label>
               <input type="text" id="quest" className="mb-spacing" />
-              <label htmlFor="mesopotamia">What is the capitol of Mesopotamia?</label>
+              <label htmlFor="mesopotamia">What is the capital of Mesopotamia?</label>
               <input type="text" id="mesopotamia" className="mb-spacing" />
               <label htmlFor="favorite-color">What is your favorite color?</label>
               <input type="text" id="favorite-color" className="mb-spacing" />
