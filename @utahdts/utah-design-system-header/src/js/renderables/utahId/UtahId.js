@@ -1,8 +1,6 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import UtahIdButtonHtml from './html/UtahIdButton.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import UtahIdWrapperHtml from './html/UtahIdWrapper.html?raw';
 
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';

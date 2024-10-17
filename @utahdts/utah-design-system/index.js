@@ -1,4 +1,5 @@
 import './css/index.scss';
+// eslint-disable-next-line import/extensions
 import packageJson from './package.json';
 
 export { events, renderDOMSingle } from '@utahdts/utah-design-system-header';

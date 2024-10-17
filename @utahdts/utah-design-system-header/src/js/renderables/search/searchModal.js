@@ -1,5 +1,4 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import SearchModalHtml from './html/SearchModal.html?raw';
 
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';

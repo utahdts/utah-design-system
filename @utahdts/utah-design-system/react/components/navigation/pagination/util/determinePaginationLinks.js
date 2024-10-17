@@ -37,7 +37,6 @@ export function determinePaginationLinks({ currentPageIndex, numberOfPages }) {
   let currentPageLeft = currentPageIndexUse - 1;
   let currentPageRight = currentPageIndexUse + 1;
 
-  // eslint-disable-next-line no-constant-condition
   while (true) {
     let slotsLeft = totalSlots - slotsConsumed;
 

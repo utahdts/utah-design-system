@@ -149,7 +149,6 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
     |___/   \___/  |_|\_|       |_|       |_|    \___/   \___/   \___| |_||_|
   */
   if (options?.preventOnClickHandling) {
-    // eslint-disable-next-line no-param-reassign
     checkForError(!!wrapper.onclick, 'popupFocusHandler: wrapper already has an onclick');
     // eslint-disable-next-line no-param-reassign
     wrapper.onclick = (e) => {

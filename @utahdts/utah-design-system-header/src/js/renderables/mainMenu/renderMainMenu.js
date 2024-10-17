@@ -1,11 +1,8 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import MainMenuItem from './html/MainMenuItem.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
@@ -110,7 +107,6 @@ export function renderMainMenu() {
       }
 
       if (menuItem.actionMenu) {
-        // eslint-disable-next-line prefer-destructuring
         const mainMenu = /** @type {MainMenu} */ (settings.mainMenu);
 
         // render children menu items

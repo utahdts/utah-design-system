@@ -31,7 +31,6 @@ export function hookupMobileActionItemKeyboarding() {
       );
 
       // hook up right/left arrow to navigate among action items
-      // eslint-disable-next-line no-param-reassign
       // @ts-expect-error
       draftActionItemButton.onkeyup = (
         /** @param {KeyboardEvent} e */

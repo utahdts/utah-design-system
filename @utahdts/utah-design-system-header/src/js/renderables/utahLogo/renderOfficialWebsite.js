@@ -4,7 +4,6 @@ import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 import { hideMobileMenu } from '../mobile/util/showHideHamburgerElements';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import UtahOfficialWebsitePopupContentHtml from './html/UtahOfficialWebsitePopupContent.html?raw';
 
 export function closeOfficialWebsite() {

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 
 /** @typedef {import('react')} React */
 /** @typedef {import ('@utahdts/utah-design-system-header').ChildrenMenuTypes} ChildrenMenuTypes */

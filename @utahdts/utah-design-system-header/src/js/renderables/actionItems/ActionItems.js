@@ -1,8 +1,8 @@
+// @ts-expect-error
+import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
+
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
 import { renderActionItem } from './renderActionItem';
 
 /**

@@ -38,8 +38,6 @@
     "cleanDist": "rimraf ./dist",
     "cleanNodeModules": "rimraf ./node_modules",
     "cleanPackageLock": "rimraf package-lock.json",
-    "eslint": "npx eslint",
-    "eslintw": "npx eslint-watch -w",
     "npmi": "npm i",
     "preview": "vite preview",
     "publishHeader": "npm publish --access public",

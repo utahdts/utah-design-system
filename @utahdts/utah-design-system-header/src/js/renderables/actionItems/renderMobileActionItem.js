@@ -1,8 +1,6 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import MobileActionItemHtml from './html/MobileActionItem.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import ActionItemMenuContentHtml from './html/ActionItemMenuContent.html?raw';
 
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';

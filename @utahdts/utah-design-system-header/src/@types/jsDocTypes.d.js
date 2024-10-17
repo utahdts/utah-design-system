@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 /** @module @utahdts/utah-design-system-header */
 
 // Types of Events: https://www.w3schools.com/jsref/obj_events.asp

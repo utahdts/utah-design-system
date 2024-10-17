@@ -138,7 +138,6 @@ export function mobileMenuInteractionHandler(
     if (actionItemWrapperValue !== interactiveElement && actionItemWrapperValue.onclick) {
       throw new Error('mobileMenuInteractionHandler: actionItemWrapperValue already has onclick');
     }
-    // eslint-disable-next-line no-param-reassign
     actionItemWrapperValue.onclick = (e) => {
       if (!onClickHandler?.(e)) {
         const contentWrapper = valueOrFunctionValue(mobileMenuContentItem);

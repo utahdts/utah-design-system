@@ -1,4 +1,7 @@
 /* eslint-disable max-len */
+import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
+import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
+
 import {
   Button,
   events,
@@ -18,10 +21,6 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
-// eslint-disable-next-line import/no-unresolved
-import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
 import { documentationTypes } from '../../../../../enums/documentationTypes';
 import { useTextAreaCaretRowColumn } from '../../../../../hooks/useTextAreaCaretRowColumn';

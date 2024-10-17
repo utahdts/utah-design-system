@@ -73,7 +73,6 @@ function testMainMenuHasNoChildren() {
  * @param {HTMLElement | null | undefined} element
  * @param {string} functionContainsContents
  */
-// eslint-disable-next-line no-unused-vars
 function testMenuItemIsButton(element, functionContainsContents) {
   expect(element).toBeTruthy();
   expect(element?.tagName).toBe(BUTTON);

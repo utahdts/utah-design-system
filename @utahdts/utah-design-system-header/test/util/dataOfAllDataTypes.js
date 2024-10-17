@@ -73,7 +73,6 @@ export const DATA_OF_ALL_DATATYPES = {
   object: {
     arrayEmpty: [],
     arrayFull: [1, 2, 3, '4', '5', [6, '7', ['8'], []]],
-    // eslint-disable-next-line object-shorthand, func-names
     func: function () { },
     funcArrow: () => undefined,
     objectClass: new (class { })(),

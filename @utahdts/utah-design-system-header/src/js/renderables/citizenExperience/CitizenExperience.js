@@ -1,5 +1,4 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import CitizenExperienceWrapper from './html/CitizenExperienceWrapper.html?raw';
 
 import { renderDOMSingle } from '../../misc/renderDOMSingle';

@@ -1,5 +1,4 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import ActionItemHtml from './html/ActionItem.html?raw';
 
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';

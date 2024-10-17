@@ -1,14 +1,10 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import CitizenExperienceWrapperMobile from '../citizenExperience/html/CitizenExperienceWrapperMobile.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import headerLogoWrapper from './html/HeaderLogoWrapper.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import headerWrapper from './html/HeaderWrapper.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import verticalLineHtml from './html/VerticalLine.html?raw';
 
 import { sizes } from '../../enumerations/sizes';

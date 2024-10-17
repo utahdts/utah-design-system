@@ -1,11 +1,8 @@
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import UtahLogoLargeHtml from './html/UtahLogoLarge.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import UtahLogoMediumHtml from './html/UtahLogoMedium.html?raw';
 // @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import UtahOfficialWebsiteHoverContentHtml from './html/UtahOfficialWebsiteHoverContent.html?raw';
 
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
