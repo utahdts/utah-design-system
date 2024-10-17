@@ -1,8 +1,4 @@
-// @ts-expect-error
 import mediaQueriesCSS from '../../css/media-queries.css?raw';
-// @ts-expect-error
-import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
-
 import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
 import { events } from '../enumerations/events';
 import { checkForError } from '../misc/checkForError';
@@ -16,14 +12,15 @@ import { renderMenuWithTitle } from '../renderables/menu/renderMenuWithTitle';
 import { addMobileMenuContentItem } from '../renderables/mobile/addMobileMenuContentItem';
 import { hookupHamburger } from '../renderables/mobile/hookupHamburger';
 import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderables/mobile/hookupUtahIdInMobileMenu';
+import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
 import { renderMobileMenuHomeMenu } from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
+import { SkipLink } from '../renderables/skipLink/SkipLink';
 import { renderOfficialWebsite } from '../renderables/utahLogo/renderOfficialWebsite';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import { hookupMobileActionItemKeyboarding } from './hookupMobileActionItemKeyboarding';
-import { SkipLink } from '../renderables/skipLink/SkipLink';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used

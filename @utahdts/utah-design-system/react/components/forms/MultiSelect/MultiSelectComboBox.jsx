@@ -234,7 +234,7 @@ export function MultiSelectComboBox({
                 100
               );
             }}
-            // @ts-expect-error prevent the chevron from closing and reopening the popup
+            // @ts-expect-error
             onMouseDown={(e) => e.preventDefault()}
           />
         </div>

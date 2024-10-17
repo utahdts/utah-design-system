@@ -14,7 +14,7 @@ export function valuesForKey(obj, key, filterFunc) {
   if (obj && isObject(obj)) {
     // @ts-expect-error <-- isObject() removes the case for which this error generates
     if (key in obj && (!filterFunc || filterFunc(obj[key], obj))) {
-      // @ts-expect-error
+      // @ts-expect-error `key in obj` above checks that key does in fact exist in the object
       result.push(obj[key]);
     }
     Object.values(obj).forEach((value) => (

@@ -16,21 +16,21 @@ export function useFriendlyDocumentEvent(eventName, eventHandler) {
   useEffect(
     () => {
       // check if there was already a handler for this event and if so "chain" it to the new event handler
-      // @ts-expect-error
+      // @ts-expect-error document typing is ugly
       if (document[eventName]) {
-        // @ts-expect-error
+        // @ts-expect-error document typing is ugly
         previousEventHandlerRef.current = document[eventName];
       }
 
       // set new event handler in to document
-      // @ts-expect-error
+      // @ts-expect-error document typing is ugly
       document[eventName] = (
         /** @param {import('react').MouseEvent} e */
         (e) => {
           const eventHandlerResult = eventHandler(e);
 
           // if eventHandler returns false then don't propagate event to previous handler
-          // @ts-expect-error
+          // @ts-expect-error document typing is ugly
           if (previousEventHandlerRef.current && eventHandlerResult !== false) {
             previousEventHandlerRef.current(e);
           }
@@ -39,7 +39,7 @@ export function useFriendlyDocumentEvent(eventName, eventHandler) {
 
       return (
         () => {
-          // @ts-expect-error
+          // @ts-expect-error document typing is ugly
           document[eventName] = previousEventHandlerRef.current;
           previousEventHandlerRef.current = null;
         }

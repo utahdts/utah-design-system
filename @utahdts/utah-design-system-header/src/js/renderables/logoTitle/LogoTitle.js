@@ -1,12 +1,9 @@
-// @ts-expect-error
-import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
-// @ts-expect-error
-import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
-
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
+import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 
 /**
  * @returns {Element}
@@ -15,7 +12,7 @@ export function LogoTitle() {
   const utahHeaderSettings = getUtahHeaderSettings();
   const logoTitleURL = (
     utahHeaderSettings.titleUrl
-    // @ts-expect-error backwards-compatibility: once upon a time, titleURL had been incorrectly cased...
+    // @ts-expect-error backwards compatibility
     || /** @type {string | undefined} */ (utahHeaderSettings.titleURL)
   );
   const logoTitleWrapper = !logoTitleURL ? renderDOMSingle(LogoTitleWrapper) : renderDOMSingle(LogoTitleWrapperLink);

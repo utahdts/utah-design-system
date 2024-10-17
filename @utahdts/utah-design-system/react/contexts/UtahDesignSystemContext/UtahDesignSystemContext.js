@@ -11,5 +11,6 @@ export const UtahDesignSystemContext = /** @type {typeof createContext<ImmerHook
     },
     banners: [],
   },
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   () => { },
 ]);

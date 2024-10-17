@@ -5,6 +5,7 @@ import jsdoc from 'eslint-plugin-jsdoc';
 import jsxA11Y from "eslint-plugin-jsx-a11y";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
+import tseslint from 'typescript-eslint';
 
 export default [
   // building the website gets eslint errors without this ignore separated out from the others...
@@ -13,14 +14,19 @@ export default [
       "**/dist/**/*",
       "**/*.es.js",
       "**/*.umd.js",
+      "**/examples/**/*",
+      "**/artifacts/**/*",
     ],
   },
+  ...tseslint.configs.strict,
+  ...tseslint.configs.stylistic,
   {
     ignores: [
       "**/vite.config.js",
       "**/dist/**/*",
       "**/node_modules/**/*",
       "**/examples/**",
+      "**/artifacts/**/*",
       "**/*.es.js",
       "**/*.umd.js",
     ],
@@ -48,6 +54,7 @@ export default [
       sourceType: "module",
 
       parserOptions: {
+        warnOnUnsupportedTypeScriptVersion: false,
         ecmaFeatures: {
           jsx: true,
         },
@@ -55,6 +62,7 @@ export default [
     },
 
     rules: {
+      "@typescript-eslint/no-dynamic-delete": 0,
       "@stylistic/indent": ["error", 2, { SwitchCase: 1 }],
       "no-alert": "error",
       "no-bitwise": "error",

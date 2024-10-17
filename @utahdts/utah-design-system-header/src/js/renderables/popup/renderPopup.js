@@ -1,9 +1,7 @@
-// @ts-expect-error
-import PopupHtml from './html/Popup.html?raw';
-
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
+import PopupHtml from './html/Popup.html?raw';
 
 /** @typedef {import('src/@types/jsDocTypes.d').RenderPopupOptions} RenderPopupOptions */
 

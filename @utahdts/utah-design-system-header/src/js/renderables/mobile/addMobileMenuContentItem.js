@@ -1,9 +1,7 @@
-// @ts-expect-error
-import MobileMenuContentItemWrapper from './html/MobileMenuContentItemWrapper.html?raw';
-
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
+import MobileMenuContentItemWrapper from './html/MobileMenuContentItemWrapper.html?raw';
 
 /**
  * @param {HTMLElement} mobileMenuContentItem

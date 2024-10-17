@@ -4,7 +4,7 @@ import eslintPlugin from 'vite-plugin-eslint';
 import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode, ssrBuild }) => {
+export default defineConfig(({ mode }) => {
   // throw new Error(`website mode: '${mode}'`);
   return {
     css: {

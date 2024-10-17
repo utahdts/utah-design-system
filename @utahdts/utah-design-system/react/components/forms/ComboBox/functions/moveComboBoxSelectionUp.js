@@ -37,7 +37,7 @@ export function moveComboBoxSelectionUp(draftContext, textInput, multiSelectCont
       const newHighlightedValue = optionsToUse[currentSelectionIndex]?.value ?? null;
       draftContext.optionValueHighlighted = newHighlightedValue;
       draftContext.optionValueFocused = newHighlightedValue;
-      // @ts-expect-error
+      // @ts-expect-error this works? querySelector returns a single element so how is it doing an array selector? be careful touching this...
       document.querySelector(`[value="${newHighlightedValue}"]`)?.[0]?.focus();
     } else {
       // if at top, then close the options list

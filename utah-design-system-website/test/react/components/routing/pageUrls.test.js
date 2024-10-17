@@ -2,6 +2,7 @@ import { camelCase } from 'lodash';
 import { describe, expect, test } from 'vitest';
 import { pageUrls } from '../../../../src/react/components/routing/pageUrls';
 import { constructMainMenu } from '../../../../src/react/components/routing/util/constructMainMenu';
+import { notNull } from '../../../../src/react/util/notNull/notNull';
 
 /** @typedef {import('@utahdts/utah-design-system-header').MenuItem} MenuItem */
 /** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
@@ -67,8 +68,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
     // add entry for menuItem
     const menuItemPath = `${basePath}/${cleanMenuItemTitlePath(menuItem.title)}`;
     if (pageUrl) {
-      // @ts-expect-error
-      pagePaths[pageUrlReverseLookup[pageUrl]] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
+      pagePaths[notNull(pageUrlReverseLookup[pageUrl], 'reverse lookup will always get a value')] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
     }
 
     // add menuItem's children to the object
@@ -86,6 +86,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
 }
 
 describe('pageUrls - match menu path', () => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const mainMenu = constructMainMenu(undefined, () => { });
   const menuPaths = deconstructMainMenuPaths(mainMenu.menuItems);
 

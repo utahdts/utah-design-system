@@ -1,8 +1,6 @@
-// @ts-expect-error
-import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
-
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import BadgeWrapperHtml from './html/BadgeWrapperHtml.html?raw';
 
 /** @typedef {import('src/@types/jsDocTypes.d').Badge} Badge */
 

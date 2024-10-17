@@ -70,7 +70,7 @@ export function useCurrentValuesFromStateContext({
     /** @param {TableDataT} newValue */
     (newValue) => {
       if (onChange) {
-        // @ts-expect-error this may be a bug? by sending a value instead of an event
+        // @ts-expect-error The generic types are actually truly the same here...
         onChange(newValue);
       } else {
         setStateContext((draftStateContext) => {
@@ -93,7 +93,7 @@ export function useCurrentValuesFromStateContext({
   if (currentValue && currentValue !== defaultValue) {
     // there is a currentValue without looking at defaultValue so defaultValue should never be used ever again
     // this is a hack. couldn't figure out why TableFilterTextInput was making its defaultValue a blank string.
-    // @ts-expect-error
+    // @ts-expect-error hacked it here real good
     defaultValueRef.current = '';
   }
   if (currentValue === null || currentValue === undefined) {
@@ -126,7 +126,7 @@ export function useCurrentValuesFromStateContext({
           setStateLocal(defaultOnChange(e));
         })
       ),
-      // @ts-expect-error
+      // @ts-expect-error hacked for missing currentValue that shouldn't be?
       currentValue: currentValue ?? '',
       setValue,
     }),

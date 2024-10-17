@@ -1,8 +1,6 @@
-// @ts-expect-error
-import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
-
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
 import { renderActionItem } from './renderActionItem';
 
 /**

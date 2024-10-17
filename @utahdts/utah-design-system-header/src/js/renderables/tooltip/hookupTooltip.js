@@ -1,10 +1,8 @@
-// @ts-expect-error
-import TooltipHTML from './html/Tooltip.html?raw';
-
 import { createPopper } from '@popperjs/core';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { PopupPlacement } from '../../enumerations/popupPlacement';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import TooltipHTML from './html/Tooltip.html?raw';
 
 let tooltipCloseTimeoutId = NaN;
 /**

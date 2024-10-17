@@ -1,16 +1,12 @@
-// @ts-expect-error
-import UtahLogoLargeHtml from './html/UtahLogoLarge.html?raw';
-// @ts-expect-error
-import UtahLogoMediumHtml from './html/UtahLogoMedium.html?raw';
-// @ts-expect-error
-import UtahOfficialWebsiteHoverContentHtml from './html/UtahOfficialWebsiteHoverContent.html?raw';
-
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { sizes } from '../../enumerations/sizes';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { hookupTooltip } from '../tooltip/hookupTooltip';
+import UtahLogoLargeHtml from './html/UtahLogoLarge.html?raw';
+import UtahLogoMediumHtml from './html/UtahLogoMedium.html?raw';
+import UtahOfficialWebsiteHoverContentHtml from './html/UtahOfficialWebsiteHoverContent.html?raw';
 
 /**
  * @returns {Element}

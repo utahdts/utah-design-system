@@ -1,10 +1,3 @@
-// @ts-expect-error
-import MainMenuItem from './html/MainMenuItem.html?raw';
-// @ts-expect-error
-import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
-// @ts-expect-error
-import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
-
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { notNull } from '../../misc/notNull';
@@ -12,10 +5,13 @@ import { popupFocusHandler } from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 import { renderPopupMenu } from '../popupMenu/renderPopupMenu';
 import { setupSearchModal, showSearchModal } from '../search/searchModal';
 import { hookupTooltip } from '../tooltip/hookupTooltip';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
+import MainMenuItem from './html/MainMenuItem.html?raw';
+import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
 import { suffixForMenuItemTitle } from './suffixForMenuItemTitle';
 
 /** @typedef {import('src/@types/jsDocTypes.d').MainMenu} MainMenu */

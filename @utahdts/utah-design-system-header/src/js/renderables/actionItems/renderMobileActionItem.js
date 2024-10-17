@@ -1,13 +1,10 @@
-// @ts-expect-error
-import MobileActionItemHtml from './html/MobileActionItem.html?raw';
-// @ts-expect-error
-import ActionItemMenuContentHtml from './html/ActionItemMenuContent.html?raw';
-
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 import { renderMenu } from '../popupMenu/renderPopupMenu';
+import ActionItemMenuContentHtml from './html/ActionItemMenuContent.html?raw';
+import MobileActionItemHtml from './html/MobileActionItem.html?raw';
 import { renderActionItemBadge } from './renderActionItemBadge';
 
 /** @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem */

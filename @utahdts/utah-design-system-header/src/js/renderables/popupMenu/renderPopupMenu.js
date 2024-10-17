@@ -1,12 +1,3 @@
-// @ts-expect-error
-import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
-// @ts-expect-error
-import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
-// @ts-expect-error
-import PopupMenuHtml from './html/PopupMenu.html?raw';
-// @ts-expect-error
-import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
-
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { PopupPlacement } from '../../enumerations/popupPlacement';
@@ -15,8 +6,12 @@ import { findRecursive } from '../../misc/findRecursive';
 import { popupFocusHandler } from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
+import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
+import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
 import { suffixForMenuItemTitle } from '../mainMenu/suffixForMenuItemTitle';
 import { renderPopup } from '../popup/renderPopup';
+import PopupMenuHtml from './html/PopupMenu.html?raw';
+import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 
 /** @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem */
 /** @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu */

@@ -351,14 +351,14 @@ if (!mainMenusPreset) {
 }
 mainMenusPreset.options.push({
   title: 'All',
-  // @ts-expect-error
+  // @ts-expect-error types here are a mess... ;(
   settingsSnippet: {
     mainMenu: {
       menuItems: (
         mainMenusPreset.options
-          // @ts-expect-error
+          // @ts-expect-error types here are a mess... ;(
           .filter((option) => option.settingsSnippet.mainMenu)
-          // @ts-expect-error
+          // @ts-expect-error types here are a mess... ;(
           .map((option) => option.settingsSnippet.mainMenu.menuItems[0])
       ),
       title: 'Utah Design System Main Menu',
@@ -374,10 +374,10 @@ if (!actionItemsPreset) {
 }
 actionItemsPreset.options.push({
   title: 'All',
-  // @ts-expect-error
+  // @ts-expect-error types here are a mess... ;(
   settingsSnippet: {
     actionItems: [
-      // @ts-expect-error
+      // @ts-expect-error types here are a mess... ;(
       ...actionItemsPreset.options.map((option) => option.settingsSnippet.actionItems).flat(),
     ],
   },
