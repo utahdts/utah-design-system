@@ -1,7 +1,7 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "2.0.3",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --mode development-local",

@@ -5,16 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [x.x.x] x/x/xxxx
+# [3.0.0] 10/31/2024
 ## Breaking Change
 - **[Breaking]** Remove FormContext
   - Individual components inside a form now need individual onChange/value props
   - `<Form state={state} setState={setState}><TextInput /></Form>`
   - becomes ==>
   - `<Form><TextInput onChange={(e) => {setState(...}} value={state.textInputValue} /></Form>`
+- **[Breaking]** Merge CSS
+  - CSS was consolidated into a single file. This has potential to introduce unexpected CSS into your project. 
 
 ## Added
+- Add banner colors
+- Add file input drag and drop
 - Add header setting for `titleFunction` for single page apps
+- Highlight current item on side menu
+- Make Main Menu "overview" link optional
+- Style password input
+- Update close button styles on drawers
+
+## Changed
+- Change default color for banners to dark
+- Reformat Utah Header documentation
+
+## Fixed
+- Allow Demo Form's switch to toggle its value
+- Change alerts to banners
+- Disable Date input calendar icon
+- Disable file tags when File input is disabled
+- Fix background color on website making scrollbar invisible
+- Fix Menu Title wrapping
+- Fix react rendering of Badge
+- Fix tab group css
+- Fix tag clearable button color
+- Improve accordion to follow WCAG example
+- Make main menu actionFunctionUrl items be buttons if menu and function
+- Resolve several accessibility issues
+- Show red border on invalid select and multi-select
+- Stop using <nav> for vertical menu wrapper, add back to sidebar
+- Update block quotes
 
 # [2.0.3] 9/9/2024
 ## Fixed
