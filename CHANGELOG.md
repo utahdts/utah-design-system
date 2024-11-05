@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - All Design System CSS (including the Utah Header CSS) is now contained in a single optimized file.
   - This has potential to introduce unexpected CSS into your project.
   - All CSS should be scoped under the `.utah-design-system` css class.
-  - For instances were both the `Utah Design System` and `Utah Header` CSS were being used, you can use a single import now.
+  - For instances where both the `Utah Design System` and `Utah Header` CSS were being used, you can use a single import now.
+  - See [Design System - Getting Started](https://designsystem.utah.gov/resources/gettingStartedDeveloper) for more information
 - **[Breaking]** Removed FormContext from React Form Components
   - Individual components inside a form now need individual onChange/value props
   - `<Form state={state} setState={setState}><TextInput /></Form>`
