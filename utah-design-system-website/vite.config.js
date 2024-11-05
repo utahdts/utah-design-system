@@ -9,6 +9,11 @@ export default defineConfig(({ mode }) => {
   return {
     css: {
       devSourcemap: true,
+      preprocessorOptions: {
+        scss: {
+          api: 'modern'
+        }
+      }
     },
     build: {
       minify: false,

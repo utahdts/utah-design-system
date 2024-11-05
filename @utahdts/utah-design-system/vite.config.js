@@ -10,6 +10,13 @@ export default defineConfig(({ mode }) => {
       react(),
       eslintPlugin(),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern'
+        }
+      }
+    },
     build: {
       emptyOutDir: false,
       minify: false,

@@ -21,6 +21,13 @@ export default defineConfig(({ mode }) => {
       },
       sourceMap: 'inline',
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern'
+        }
+      }
+    },
     plugins: [
       eslintPlugin(),
     ],
