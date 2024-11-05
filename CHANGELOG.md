@@ -5,45 +5,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [3.0.0] 10/31/2024
-## Breaking Change
-- **[Breaking]** Remove FormContext
+# [3.0.0] 11/05/2024
+## Breaking Changes
+- **[Breaking]** Merged and Optimized CSS
+  - All Design System CSS (including the Utah Header CSS) is now contained in a single optimized file.
+  - This has potential to introduce unexpected CSS into your project.
+  - All CSS should be scoped under the `.utah-design-system` css class.
+  - For instances were both the `Utah Design System` and `Utah Header` CSS were being used, you can use a single import now.
+- **[Breaking]** Removed FormContext from React Form Components
   - Individual components inside a form now need individual onChange/value props
   - `<Form state={state} setState={setState}><TextInput /></Form>`
   - becomes ==>
   - `<Form><TextInput onChange={(e) => {setState(...}} value={state.textInputValue} /></Form>`
-- **[Breaking]** Merge CSS
-  - CSS was consolidated into a single file. This has potential to introduce unexpected CSS into your project. 
 
 ## Added
-- Add banner colors
-- Add file input drag and drop
-- Add header setting for `titleFunction` for single page apps
-- Highlight current item on side menu
-- Make Main Menu "overview" link optional
-- Style password input
-- Update close button styles on drawers
+- Utah Header: Added header setting for `titleFunction` that triggers when a user clicks the site title/logo
+- Added additional banner color classes to the css
+- Added file input drag and drop
+- Styled the password form input
+- Update close button style on drawers to match other close buttons
 
 ## Changed
-- Change default color for banners to dark
-- Reformat Utah Header documentation
+- Utah Header: Reformatted Utah Header documentation page
+- Changed default color for banners to dark
 
 ## Fixed
-- Allow Demo Form's switch to toggle its value
-- Change alerts to banners
-- Disable Date input calendar icon
+- Utah Header - Main Menu: Fixed menu title wrapping
+- Utah Header - Main Menu: Make main menu `actionFunctionUrl` items be buttons if menu and function
+- Disable Date input calendar icon when form element is disabled
 - Disable file tags when File input is disabled
-- Fix background color on website making scrollbar invisible
-- Fix Menu Title wrapping
-- Fix react rendering of Badge
-- Fix tab group css
-- Fix tag clearable button color
-- Improve accordion to follow WCAG example
-- Make main menu actionFunctionUrl items be buttons if menu and function
-- Resolve several accessibility issues
-- Show red border on invalid select and multi-select
 - Stop using <nav> for vertical menu wrapper, add back to sidebar
-- Update block quotes
+- Fixed react rendering of Badge
+- Fixed tab group css
+- Fixed tag clearable button color
+- Improve accordion accessibility to follow WCAG example
+- Show red border on invalid select and multi-select
+- Update block quotes css and documentation
+- Resolved several accessibility issues
+
+## Design System Website Changes
+  - Highlight current item on side menu
+  - Make Main Menu "overview" link optional
+  - Change javascript alerts to banners
+  - Fixed background color on website making scrollbar invisible
+  - Fixed Demo Form's switch to toggle its value
+
 
 # [2.0.3] 9/9/2024
 ## Fixed
