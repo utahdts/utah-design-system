@@ -3,7 +3,7 @@ import './css/index.scss';
 import packageJson from './package.json';
 
 export { events, renderDOMSingle } from '@utahdts/utah-design-system-header';
-export { Tooltip } from './react/components/Tooltip/Tooltip';
+export { Tooltip } from './react/components/tooltip/Tooltip';
 export { Button } from './react/components/buttons/Button';
 export { ClickableTag } from './react/components/buttons/ClickableTag';
 export { ConfirmationButton } from './react/components/buttons/ConfirmationButton/ConfirmationButton';
