@@ -7,20 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [3.0.0] 11/05/2024
 ## Breaking Changes
-- **[Breaking]** Merged and Optimized CSS
+- **[⚠️ Breaking]** Merged and Optimized CSS
   - All Design System CSS (including the Utah Header CSS) is now contained in a single optimized file.
-  - This has potential to introduce unexpected CSS into your project.
-  - All CSS should be scoped under the `.utah-design-system` css class.
-  - For instances where both the `Utah Design System` and `Utah Header` CSS were being used, you can use a single import now.
+  - ⚠️ This has potential to introduce unexpected CSS into your project.
+  - ⚠️ For instances where both the `Utah Design System` and `Utah Header` CSS were being used, you can use a single import now.
+  - All CSS should be scoped under the `utah-design-system` css class.
   - See [Design System - Getting Started](https://designsystem.utah.gov/resources/gettingStartedDeveloper) for more information
-- **[Breaking]** Removed FormContext from React Form Components
-  - Individual components inside a form now need individual onChange/value props
+- **[⚠️ Breaking]** Removed FormContext from React Form Components
+  - ⚠️ Individual components inside a form now need individual onChange/value props
   - `<Form state={state} setState={setState}><TextInput /></Form>`
   - becomes ==>
   - `<Form><TextInput onChange={(e) => {setState(...}} value={state.textInputValue} /></Form>`
 
 ## Added
-- Utah Header: Added header setting for `titleFunction` that triggers when a user clicks the site title/logo
+- Utah Header: Added header setting for `titleFunction` that triggers when a user clicks the site title/logo. This is useful for single page apps to avoid a page reload.
 - Added additional banner color classes to the css
 - Added file input drag and drop
 - Styled the password form input
