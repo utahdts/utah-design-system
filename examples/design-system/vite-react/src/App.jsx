@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import { Accordion } from '@utahdts/utah-design-system';
+// TODO: Fix for version 3.0.0
 import '@utahdts/utah-design-system/css/index.scss';
 import '@utahdts/utah-design-system-header/src/css/index.scss';
 import './App.css'
