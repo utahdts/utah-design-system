@@ -45,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Resolved several accessibility issues
 
 ## Design System Website Changes
+  - Added additional resources and examples on the `Getting Started for Developers` page
   - Highlight current item on side menu
   - Make Main Menu "overview" link optional
   - Change javascript alerts to banners
