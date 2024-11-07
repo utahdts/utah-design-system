@@ -55,6 +55,7 @@
     "test:ci": "npm run test:ci -workspace=@utahdts/utah-design-system",
     "// ======= combo tasks ====== //": "",
     "build": "run-s buildTypes buildHeader buildLibrary buildWebsite",
+    "buildForNPM": "run-s buildLibrary buildHeader && cp ./@utahdts/utah-design-system/dist/style.css ./@utahdts/utah-design-system-header/dist/",
     "buildtest": "run-s build test:ci",
     "clean": "run-s cleanexamples cleanPackageLock cleanCoverage cleanDist cleanSitemap cleanNodeModules",
     "cleanexamples": "run-s cleanExampleTypedUtahHeader cleanExampleUtahHeaderCreateReactApp cleanExampleUtahHeaderAngular cleanExampleUtahHeaderVite cleanExampleDesignSystemViteReact cleanTypedTypedUtahHeader",
