@@ -16,7 +16,7 @@ import { TableContext } from './util/TableContext';
  */
 
 /**
- * used only by !!! Table Filters !!! (TableContext) This is not a general FormContext hook
+ * used only by !!! Table Filters !!! (TableContext)
  * An input can be controlled, uncontrolled, default value, or controlled by a parent context
  * This function takes these values in to account and provides a current value and onChange event
  * The passed in values trump those of the parent context. A local state is used if neither passed in nor
@@ -49,7 +49,7 @@ export function useCurrentValuesFromStateContext({
 }) {
   const defaultValueRef = useRef(defaultValue);
   const { setState: setStateContext, state: stateContext } = useContext(TableContext) || {};
-  const [stateLocal, setStateLocal] = useImmer(defaultValue);
+  const [stateLocal, setStateLocal] = useImmer(defaultValue ?? value);
 
   const fullContextStatePath = `filterValues.value.${contextStatePath}.value`;
 
@@ -70,7 +70,7 @@ export function useCurrentValuesFromStateContext({
     /** @param {TableDataT} newValue */
     (newValue) => {
       if (onChange) {
-        // @ts-ignore this may be a bug? by sending a value instead of an event
+        // @ts-expect-error The generic types are actually truly the same here...
         onChange(newValue);
       } else {
         setStateContext((draftStateContext) => {
@@ -93,7 +93,7 @@ export function useCurrentValuesFromStateContext({
   if (currentValue && currentValue !== defaultValue) {
     // there is a currentValue without looking at defaultValue so defaultValue should never be used ever again
     // this is a hack. couldn't figure out why TableFilterTextInput was making its defaultValue a blank string.
-    // @ts-ignore
+    // @ts-expect-error hacked it here real good
     defaultValueRef.current = '';
   }
   if (currentValue === null || currentValue === undefined) {
@@ -126,7 +126,8 @@ export function useCurrentValuesFromStateContext({
           setStateLocal(defaultOnChange(e));
         })
       ),
-      currentValue,
+      // @ts-expect-error hacked for missing currentValue that shouldn't be?
+      currentValue: currentValue ?? '',
       setValue,
     }),
     [

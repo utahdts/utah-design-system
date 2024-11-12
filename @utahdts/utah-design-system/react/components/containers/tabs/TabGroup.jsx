@@ -53,7 +53,7 @@ export function TabGroup({
         if (checkTab) {
           Object.assign(checkTab, tab?.current);
         } else {
-          // @ts-ignore
+          // @ts-expect-error
           draftState.tabs.push(tab?.current);
         }
       });

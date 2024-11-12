@@ -35,7 +35,7 @@ export function TableFilterDate({
     currentValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    // @ts-ignore
+    // @ts-expect-error
     defaultOnChange: (e) => e.target?.value,
     defaultValue,
     onChange,

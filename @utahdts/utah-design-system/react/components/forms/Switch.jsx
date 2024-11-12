@@ -1,10 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { formElementSizesEnum } from '../../enums/formElementSizesEnum';
 import { joinClassNames } from '../../util/joinClassNames';
-import { setValueAtPath } from '../../util/state/setValueAtPath';
-import { valueAtPath } from '../../util/state/valueAtPath';
 import { ErrorMessage } from './ErrorMessage';
-import { useFormContext } from './FormContext/useFormContext';
 
 /**
  * @param {object} props
@@ -19,7 +16,7 @@ import { useFormContext } from './FormContext/useFormContext';
  * @param {string} [props.labelOn]
  * @param {string} [props.labelOff]
  * @param {string} [props.name]
- * @param {((e: React.KeyboardEvent) => void)} [props.onChange] e => ...; optional if uncontrolled OR controlled by form
+ * @param {((e: React.KeyboardEvent) => void)} [props.onChange]
  * @param {'small' | 'medium' | 'large'} [props.size] formElementSizesEnum
  * @param {import('react').ReactNode} [props.sliderChildren]
  * @param {boolean} [props.value]
@@ -46,54 +43,25 @@ export function Switch({
   ...rest
 }) {
   // there is no "uncontrolled" version of this component
-  const { setState, state } = useFormContext();
-  const [internalState, setInternalState] = useState(!!(defaultValue ?? value));
+  const [currentValue, setCurrentValue] = useState(!!(defaultValue ?? value));
 
   // switch example was passing in a value but it wasn't updating the UI
   useEffect(
     () => {
       if (value !== undefined) {
-        setState?.(
-          /** @param {Record<string, any>} draftState */
-          // @ts-ignore
-          (draftState) => {
-            setValueAtPath({
-              object: draftState,
-              path: id,
-              value,
-            });
-          }
-        );
-        setInternalState(!!value);
+        setCurrentValue(!!value);
       }
     },
     [value]
   );
 
-  const currentValue = valueAtPath({ object: state ?? null, path: id }) ?? internalState;
-
   const internalOnChange = useCallback(
-    /** @param {import('react').KeyboardEvent} e */
+    /** @param {import('react').KeyboardEvent<HTMLInputElement>} e */
     (e) => {
-      if (setState) {
-        setState(
-          /** @param {Record<string, any>} draftState */
-          // @ts-ignore
-          (draftState) => {
-            setValueAtPath({
-              object: draftState,
-              path: id,
-              // @ts-ignore
-              value: e.target.checked,
-            });
-          }
-        );
-      } else {
-        // @ts-ignore
-        setInternalState(e.target.checked);
-      }
+      // @ts-expect-error
+      setCurrentValue(e.target.checked);
     },
-    [id, setState]
+    [id]
   );
   const currentOnChange = onChange ?? internalOnChange;
 
@@ -121,7 +89,7 @@ export function Switch({
           disabled={isDisabled}
           id={id}
           name={name || id}
-          // @ts-ignore
+          // @ts-expect-error
           onChange={currentOnChange}
           role="switch"
           type="checkbox"

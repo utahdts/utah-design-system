@@ -5,10 +5,12 @@ import { HomeLanding } from '../websiteContent/HomeLanding';
 import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
+import { AccessibilityForDesigners } from '../websiteContent/guidelines/AccessibilityForDesigners';
 import { ColorGuidelinesDocumentation } from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import { DataPrivacyDocumentation } from '../websiteContent/guidelines/DataPrivacyDocumentation';
 import { DataVisualizationsDocumentation } from '../websiteContent/guidelines/DataVisualizationsDocumentation';
 import { DepthElevationShadowsDocumentation } from '../websiteContent/guidelines/DepthElevationShadowsDocumentation';
+import { DigitalCredentials } from '../websiteContent/guidelines/DigitalCredentials';
 import { FormGeneralDocumentation } from '../websiteContent/guidelines/FormGeneralDocumentation';
 import { GuidelinesLanding } from '../websiteContent/guidelines/GuidelinesLanding';
 import { ImagesDocumentation } from '../websiteContent/guidelines/ImagesDocumentation';
@@ -32,13 +34,13 @@ import { AccordionDocumentation } from '../websiteContent/library/components/con
 import { CardDocumentation } from '../websiteContent/library/components/containers/Card/CardDocumentation';
 import { CodeBlockDocumentation } from '../websiteContent/library/components/containers/CodeBlock/CodeBlockDocumentation';
 import { DrawerDocumentation } from '../websiteContent/library/components/containers/Drawer/DrawerDocumentation';
-import { InfoBoxDocumentation } from '../websiteContent/library/components/forms/InfoBox/InfoBoxDocumentation';
 import { TabGroupDocumentation } from '../websiteContent/library/components/containers/TabGroup/TabGroupDocumentation';
 import { CharacterCountDocumentation } from '../websiteContent/library/components/forms/CharacterCount/CharacterCountDocumentation';
 import { CheckboxDocumentation } from '../websiteContent/library/components/forms/Checkbox/CheckboxDocumentation';
 import { ComboBoxDocumentation } from '../websiteContent/library/components/forms/ComboBox/ComboBoxDocumentation';
 import { DateInputDocumentation } from '../websiteContent/library/components/forms/DateInput/DateInputDocumentation';
 import { FileInputDocumentation } from '../websiteContent/library/components/forms/FileInput/FileInputDocumentation';
+import { InfoBoxDocumentation } from '../websiteContent/library/components/forms/InfoBox/InfoBoxDocumentation';
 import { MultiSelectDocumentation } from '../websiteContent/library/components/forms/MultiSelect/MultiSelectDocumentation';
 import { RadioButtonDocumentation } from '../websiteContent/library/components/forms/RadioButton/RadioButtonDocumentation';
 import { SelectDocumentation } from '../websiteContent/library/components/forms/Select/SelectDocumentation';
@@ -78,10 +80,10 @@ import { GettingStarted } from '../websiteContent/resources/GettingStarted';
 import { GettingStartedDesigner } from '../websiteContent/resources/GettingStartedDesigner';
 import { GettingStartedDeveloper } from '../websiteContent/resources/GettingStartedDeveloper';
 import { IconsDocumentation } from '../websiteContent/resources/IconsDocumentation/Icons/IconsDocumentation';
-import { WordPressHeaderPlugin } from '../websiteContent/resources/WordPressHeaderPlugin';
 import { Mockups } from '../websiteContent/resources/Mockups';
 import { ResourcesLanding } from '../websiteContent/resources/ResourcesLanding';
 import { Showcase } from '../websiteContent/resources/Showcase/Showcase';
+import { WordPressHeaderPlugin } from '../websiteContent/resources/WordPressHeaderPlugin';
 import { pageUrls } from './pageUrls';
 
 /**
@@ -155,22 +157,20 @@ export const pages = {
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
-  // === guidelines documentation components === //
+  // === guidelines/standards === //
   accessibility: /** @type {Page} */ ({
     content: AccessibilityDocumentation,
+    legacyLinks: ['/guidelinesStandards/accessibility'],
     link: pageUrls.accessibility,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Accessibility',
+    pageTitle: 'Accessibility Overview',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
-  accessibilityTesting: /** @type {Page} */ ({
-    content: AccessibilityChecklistDocumentation,
-    legacyLinks: [
-      '/guidelinesStandards/accessibilityChecklist',
-    ],
-    link: pageUrls.accessibilityChecklist,
+  accessibilityForDesigners: /** @type {Page} */ ({
+    content: AccessibilityForDesigners,
+    link: pageUrls.accessibilityForDesigners,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Accessibility Checklist & Testing',
+    pageTitle: 'Accessibility for Designers',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   accessibilityTestingPage: /** @type {Page} */ ({
@@ -180,60 +180,26 @@ export const pages = {
     pageTitle: 'Accessibility Testing',
     template: layoutTemplatesEnum.LANDING_TEMPLATE,
   }),
+  // === guidelines documentation components - design === //
   colorGuidelines: /** @type {Page} */ ({
     content: ColorGuidelinesDocumentation,
+    legacyLinks: ['/guidelinesStandards/color'],
     link: pageUrls.colorGuidelines,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Color',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
-  validation: /** @type {Page} */ ({
-    content: ValidationDocumentation,
-    link: pageUrls.validation,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Form Validation',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-
-  // === guidelines documentation components === //
-  spacing: /** @type {Page} */ ({
-    content: SpacingDocumentation,
-    link: pageUrls.spacing,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Spacing',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
-  typography: /** @type {Page} */ ({
-    content: TypographyDocumentation,
-    link: pageUrls.typography,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Typography',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
   depthElevationShadows: /** @type {Page} */ ({
     content: DepthElevationShadowsDocumentation,
+    legacyLinks: ['/guidelinesStandards/depthElevationShadows'],
     link: pageUrls.depthElevationShadows,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Depth / Elevation / Shadows',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
-  formGeneralDocumentation: /** @type {Page} */ ({
-    content: FormGeneralDocumentation,
-    link: pageUrls.formGuidelines,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Form General Guidance',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-    legacyLinks: ['guidelinesStandards/formGuidelines'],
-  }),
-  shape: /** @type {Page} */ ({
-    content: ShapesDocumentation,
-    link: pageUrls.shape,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Shape (rounded corners)',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
-  }),
   images: /** @type {Page} */ ({
     content: ImagesDocumentation,
+    legacyLinks: ['/guidelinesStandards/images'],
     link: pageUrls.images,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Images',
@@ -241,6 +207,7 @@ export const pages = {
   }),
   layout: /** @type {Page} */ ({
     content: LayoutDocumentation,
+    legacyLinks: ['/guidelinesStandards/layoutFlexGridSystem'],
     link: pageUrls.layout,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Layout (Flex, Grid System)',
@@ -248,13 +215,40 @@ export const pages = {
   }),
   opacity: /** @type {Page} */ ({
     content: OpacityDocumentation,
+    legacyLinks: ['/guidelinesStandards/opacity'],
     link: pageUrls.opacity,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Opacity',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
+  shape: /** @type {Page} */ ({
+    content: ShapesDocumentation,
+    legacyLinks: ['/guidelinesStandards/shapeRoundedCorners'],
+    link: pageUrls.shape,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Shape (rounded corners)',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  spacing: /** @type {Page} */ ({
+    content: SpacingDocumentation,
+    legacyLinks: ['/guidelinesStandards/spacing'],
+    link: pageUrls.spacing,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Spacing',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  typography: /** @type {Page} */ ({
+    content: TypographyDocumentation,
+    legacyLinks: ['/guidelinesStandards/typography'],
+    link: pageUrls.typography,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Typography',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  // === guidelines documentation components - data, privacy, forms === //
   dataPrivacy: /** @type {Page} */ ({
     content: DataPrivacyDocumentation,
+    legacyLinks: ['/guidelinesStandards/dataPrivacy'],
     link: pageUrls.dataPrivacy,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Data Privacy',
@@ -262,9 +256,34 @@ export const pages = {
   }),
   dataVisualizations: /** @type {Page} */ ({
     content: DataVisualizationsDocumentation,
+    legacyLinks: ['/guidelinesStandards/dataVisualizations'],
     link: pageUrls.dataVisualizations,
     menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
     pageTitle: 'Data Visualizations',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  digitalCredentials: /** @type {Page} */ ({
+    content: DigitalCredentials,
+    legacyLinks: ['/guidelinesStandards/verifiableDigitalCredentials'],
+    link: pageUrls.digitalCredentials,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Verifiable Digital Credentials',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  formGeneralDocumentation: /** @type {Page} */ ({
+    content: FormGeneralDocumentation,
+    legacyLinks: ['/guidelinesStandards/formGuidelines', '/guidelinesStandards/formGeneralGuidance'],
+    link: pageUrls.formGuidelines,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form General Guidance',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  validation: /** @type {Page} */ ({
+    content: ValidationDocumentation,
+    legacyLinks: ['/guidelinesStandards/formValidation'],
+    link: pageUrls.validation,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Form Validation',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
@@ -285,6 +304,16 @@ export const pages = {
   }),
 
   // === resources documentation components === //
+  accessibilityTesting: /** @type {Page} */ ({
+    content: AccessibilityChecklistDocumentation,
+    legacyLinks: [
+      '/guidelinesStandards/accessibilityChecklist',
+    ],
+    link: pageUrls.accessibilityChecklist,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Accessibility Checklist & Testing',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
   demo: /** @type {Page} */ ({
     content: Demo,
     link: pageUrls.demoPage,

@@ -32,7 +32,7 @@ export function ModalsCssClassesDocumentation() {
       <TableRow>
         <TableCell>
           <div className="props-code-wrapper">
-            <code>.modal--small</code> |
+            <code>.modal--small</code> |{' '}
             <code>.modal--large</code>
           </div>
         </TableCell>
@@ -40,7 +40,7 @@ export function ModalsCssClassesDocumentation() {
           CSS class modifiers to change the modal <code>max-width</code>.<br />
           Widths are:
           <div className="props-code-wrapper">
-            <code>440px</code> |
+            <code>440px</code> |{' '}
             <code>990px</code>.
           </div>
         </TableCell>

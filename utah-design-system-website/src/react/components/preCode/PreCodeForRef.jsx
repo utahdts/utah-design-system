@@ -39,7 +39,7 @@ export function PreCodeForRef({
       const events = [
         'onClick',
       ]
-        // @ts-ignore
+        // @ts-expect-error
         .filter((event) => targetRef.current?.[event.toLowerCase()])
         .map((event) => ` ${event}="() => { /* ... do something ... */ }" `)
         .join(' ');

@@ -137,8 +137,8 @@ export function TableExampleCodeReact({
           ? (
             <>
               <ExampleCodeReactProp displayProp="<TablePagination" indentLevel={1} />
-              <ExampleCodeReactProp displayProp={'className="mt-spacing"'} indentLevel={2} />
-              <ExampleCodeReactProp displayProp={'id="table-example-render-pagination-id"'} indentLevel={2} />
+              <ExampleCodeReactProp displayProp='className="mt-spacing"' indentLevel={2} />
+              <ExampleCodeReactProp displayProp='id="table-example-render-pagination-id"' indentLevel={2} />
               <ExampleCodeReactProp displayProp="itemsPerPage={5}" indentLevel={2} />
               <ExampleCodeReactProp displayProp="/>" indentLevel={1} />
             </>

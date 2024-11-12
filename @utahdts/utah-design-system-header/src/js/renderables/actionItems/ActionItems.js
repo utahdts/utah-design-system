@@ -1,7 +1,5 @@
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
 import ActionItemsWrapper from './html/ActionItemsWrapper.html?raw';
 import { renderActionItem } from './renderActionItem';
 

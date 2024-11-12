@@ -1,0 +1,16 @@
+@use "../../../../../@utahdts/utah-design-system/css/1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .wcag-blockquote {
+    &__primary-color {
+      &::before {
+        background: var(--primary-color);
+      }
+    }
+    &__secondary-color {
+      &::before {
+        background: var(--secondary-color);
+      }
+    }
+  }
+}

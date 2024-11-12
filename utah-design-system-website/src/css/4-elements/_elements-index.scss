@@ -8,7 +8,8 @@ elemental html: h1, h2, h3, ul, li, etc.
 html {
   scroll-behavior: smooth;
 }
-body {
+#root {
+  min-height: calc(100vh - 125px);
   background: color-swatches.$neutral-gray-04;
 }
 

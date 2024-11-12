@@ -23,7 +23,7 @@ export function removeSelectedOption(draftContext, addPoliteMessage, selectedVal
   if (selectedValueIndex >= draftContext.selectedValues.length) {
     // focus on the text input if there is not a next item
     draftContext.focusedValueTagIndex = NaN;
-    // @ts-ignore
+    // @ts-expect-error
     multiSelectContextNonStateRef?.current.comboBoxDivElement?.querySelector('.combo-box-input')?.focus();
   }
 }

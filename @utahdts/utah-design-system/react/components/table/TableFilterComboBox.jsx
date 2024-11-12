@@ -39,7 +39,6 @@ export function TableFilterComboBox({
     setValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    // @ts-ignore
     defaultOnChange: (
       /**
        * @param {string} newValue
@@ -61,7 +60,6 @@ export function TableFilterComboBox({
         id={`${tableId}__table-filter-combo-box-${recordFieldPath}`}
         isClearable
         label={`Filter ${a11yLabel}`}
-        // @ts-ignore
         onChange={currentOnChange}
         onClear={() => setValue('')}
         placeholder={placeholder ?? 'Filter'}

@@ -16,23 +16,23 @@ const objectWithKey = {
 
 describe('objectsWithKey', () => {
   test('non object values (BAD TYPES)', () => {
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(null, 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(undefined, 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(NaN, 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(Infinity, 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(3, 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(true, 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(false, 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey(Symbol('not an object!'), 'test')).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsWithKey('not a string', 'test')).toStrictEqual([]);
   });
 

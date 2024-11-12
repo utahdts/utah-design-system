@@ -15,7 +15,7 @@ export function hookupMobileActionItemKeyboarding() {
 
   allActionItemButtons.forEach(
     (draftActionItemButton) => {
-      // @ts-ignore
+      // @ts-expect-error Element vs HTMLElement
       draftActionItemButton.onkeydown = (
         /** @param {KeyboardEvent} draftE */
         (draftE) => {
@@ -31,8 +31,7 @@ export function hookupMobileActionItemKeyboarding() {
       );
 
       // hook up right/left arrow to navigate among action items
-      // eslint-disable-next-line no-param-reassign
-      // @ts-ignore
+      // @ts-expect-error Element vs HTMLElement
       draftActionItemButton.onkeyup = (
         /** @param {KeyboardEvent} e */
         (e) => {
@@ -70,7 +69,7 @@ export function hookupMobileActionItemKeyboarding() {
 
             if (newActionItemContent) {
               // action item is not a custom function, so click away!
-              // @ts-ignore
+              // @ts-expect-error Element vs HTMLElement
               newActionItemButton?.click();
             } else {
               // action item is a custom function so hide hide all action item content

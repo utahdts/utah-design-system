@@ -234,8 +234,7 @@ export function TableDocumentation() {
         </li>
         <li>
           <strong>Aria-sort attribute.</strong> Use
-          <code>aria-sort=&quot;ascending&quot;</code> and <code>aria-sort=&quot;descending&quot;</code>
-          to convey the sort direction.
+          <code>aria-sort=&quot;ascending&quot;</code> and <code>aria-sort=&quot;descending&quot;</code> to convey the sort direction.
         </li>
         <li><strong>Scope header rows.</strong> Each header cell should have <code>scope=&quot;col&quot;</code> or <code>scope=&quot;row&quot;</code>.
         </li>
@@ -245,6 +244,7 @@ export function TableDocumentation() {
         <li><strong>Add title and attribution in a caption.</strong> When adding a title, attribution, or a last-updated date to a table, include it
           in the <code>&lt;caption&gt;</code> tag inside of the <code>&lt;table&gt;</code> element.
         </li>
+        <li><strong>Empty cells.</strong> Try to always include some text in table headers to describe the corresponding column&apos;s content.</li>
         <li><strong>Native Elements.</strong> Where possible, it is recommended that you use native elements rather than using aria and role
           attributes, as native elements are more widely supported by user agents and assistive technology. Remember: The first rule of ARIA: Before
           you use ARIA, use native HTML elements or attributes first!

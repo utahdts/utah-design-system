@@ -49,7 +49,7 @@ export function SwitchExampleRender({
       }
       value={value}
       width={Number(width) || 80}
-      // @ts-ignore
+      // @ts-expect-error
       size={size}
     />
   );

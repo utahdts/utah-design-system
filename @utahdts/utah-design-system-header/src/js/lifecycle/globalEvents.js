@@ -50,8 +50,11 @@ export function loadGlobalEvents() {
     unloadGlobalEvents();
   }
   globalEventFuncs = {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     globalOnClick: () => { },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     globalOnKeyup: () => { },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     globalOnKeydown: () => { },
   };
 

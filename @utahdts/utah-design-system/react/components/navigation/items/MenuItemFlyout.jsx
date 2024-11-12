@@ -47,7 +47,7 @@ export function MenuItemFlyout({
   useEffect(() => {
     if (triggerOnHover && buttonRef?.current && popperRef?.current && !buttonRef?.current.onclick) {
       popupFocusHandler(
-        // @ts-ignore
+        // @ts-expect-error
         wrapperElement.current,
         buttonRef.current,
         popperRef.current,
@@ -71,8 +71,11 @@ export function MenuItemFlyout({
                 aria-expanded={isExpanded()}
                 aria-controls={`menu-item-${menuItem.id}-${menuItem.link || 'link'}-popup`}
                 aria-haspopup="menu"
-                className="menu-item__button-title"
-                id={`menu-item-${menuItem.id}-${menuItem.link || 'link'}`}
+                className={joinClassNames(
+                  'menu-item__button-title',
+                  currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') && (currentMenuItem?.children?.length ? '' : 'menu-item--selected_parent')
+                )}
+                id={encodeURI(`menu-item-${menuItem.id}-${menuItem.link || 'link'}`)}
                 onClick={triggerOnHover ? undefined : () => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
                 type="button"
                 title={!triggerOnHover && menuItem.children ? 'Expand sub-menu' : ''}
@@ -95,7 +98,7 @@ export function MenuItemFlyout({
             ? (
               <IconButton
                 appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-                aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link}`}
+                aria-labelledby={encodeURI(`menu-item-${menuItem.id}-${menuItem.link || 'link'}`)}
                 aria-expanded={isChildrenOpen ? 'true' : 'false'}
                 className="menu-item__chevron"
                 onClick={() => setIsChildrenOpen((previouslyOpen) => !previouslyOpen)}
@@ -111,7 +114,7 @@ export function MenuItemFlyout({
         menuItem.children
           ? (
             <div
-              aria-labelledby={`menu-item-${menuItem.id}-${menuItem.link || 'link'}`}
+              aria-labelledby={encodeURI(`menu-item-${menuItem.id}-${menuItem.link || 'link'}`)}
               className={joinClassNames(
                 'popup__wrapper',
                 isChildrenOpen ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
@@ -122,9 +125,10 @@ export function MenuItemFlyout({
               {...attributes.popper}
             >
               <div className="popup__content flyout-menu">
-                <ul role="menu" className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
+                <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>
                   {menuItem.children?.map((menuItemChild) => (
                     <MenuItemFlyout
+                      currentMenuItem={currentMenuItem}
                       key={`menu-item__child__${menuItemChild.link || 'link'}-${menuItemChild.title}}`}
                       menuItem={menuItemChild}
                       menuType={menuType}

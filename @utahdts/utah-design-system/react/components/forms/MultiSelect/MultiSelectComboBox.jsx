@@ -86,7 +86,6 @@ export function MultiSelectComboBox({
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div
           aria-describedby={errorMessage ? `${multiSelectContextValue.multiSelectId}-error` : undefined}
-          aria-invalid={!!errorMessage}
           className={joinClassNames(
             className,
             'multi-select',
@@ -100,7 +99,7 @@ export function MultiSelectComboBox({
             )
               ? 'multi-select--focused'
               : '',
-            errorMessage && ''
+            errorMessage ? 'invalid' : null
           )}
           onClick={() => {
             if (multiSelectContextValue.isOptionsExpanded) {
@@ -124,6 +123,7 @@ export function MultiSelectComboBox({
             className="multi-select__combo-box"
             id={multiSelectContextValue.multiSelectId}
             isDisabled={isDisabled}
+            isInvalid={!!errorMessage}
             isRequired={isRequired}
             isValueClearedOnSelection
             isWrapperSkipped
@@ -138,7 +138,7 @@ export function MultiSelectComboBox({
               let eventIsHandled = false;
               // check that filter is blank and that there are options selected
               if (!currentFilter && multiSelectContextValueRef.current.selectedValues.length) {
-                // @ts-ignore
+                // @ts-expect-error
                 if (e.key === 'Backspace') {
                   eventIsHandled = true;
                   setMultiSelectContextValue((draftContext) => {
@@ -148,12 +148,12 @@ export function MultiSelectComboBox({
                   // close the combo box popup. the state of the popup being open is in the combobox context and has no external controls
                   // but, it closes when the input blurs, so this is a big hack to make the popup close on blur
                   const { activeElement } = document;
-                  // @ts-ignore
+                  // @ts-expect-error
                   activeElement?.blur();
-                  // @ts-ignore
+                  // @ts-expect-error
                   activeElement?.focus();
                 }
-                // @ts-ignore
+                // @ts-expect-error
                 if (e.key === 'ArrowLeft') {
                   eventIsHandled = true;
                   setMultiSelectContextValue((draftContext) => {
@@ -168,7 +168,7 @@ export function MultiSelectComboBox({
             // the value is always unset because the multi-select will own and show the current value
             value=""
             wrapperClassName={wrapperClassName}
-            // @ts-ignore
+            // @ts-expect-error
             isLabelSkipped // this gets spread down to the textInput so that there is only one label
             onFocus={
               /** @type {UIEventHandler} */ (
@@ -220,22 +220,21 @@ export function MultiSelectComboBox({
               }
             }}
             title="Toggle popup menu"
-            // @ts-ignore
+            // @ts-expect-error
             onBlur={() => {
               // tabbing off of toggle icon while the popper options list was open was not closing the list
               // because the list didn't get focus when it was opened by a click
               setTimeout(
                 () => {
                   const { activeElement } = document;
-                  // @ts-ignore
                   multiSelectContextNonStateRef?.current.textInput?.focus();
-                  // @ts-ignore
+                  // @ts-expect-error
                   activeElement?.focus();
                 },
                 100
               );
             }}
-            // @ts-ignore prevent the chevron from closing and reopening the popup
+            // @ts-expect-error
             onMouseDown={(e) => e.preventDefault()}
           />
         </div>

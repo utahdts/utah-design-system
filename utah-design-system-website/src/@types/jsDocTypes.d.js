@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 
 /**
  * @template UpdaterT
@@ -184,7 +184,6 @@
  *  @property {boolean} isDisabled
  *  @property {boolean} isRequired
  *  @property {string} label
- *  @property {string} name
  *  @property {string} placeholder
  *  @property {boolean} showCalendarTodayButton
  *  @property {string} value
@@ -213,7 +212,6 @@
  *  @property {boolean} isRequired
  *  @property {string} label
  *  @property {boolean} multiple
- *  @property {string} name
  * }
  */
 
@@ -403,7 +401,6 @@
  *  @property {boolean} isDisabled
  *  @property {boolean} isRequired
  *  @property {string} label
- *  @property {string} name
  *  @property {string} placeholder
  *  @property {string} value
  * }
@@ -482,6 +479,7 @@
  *  @property {PageUrl[]} [parentLinks]
  *  @property {WebsiteMainMenuItem[]} [children]
  *  @property {ChildrenMenuTypes | null} [childrenMenuType]
+ *  @property {boolean} [isOverviewHidden]
  *  @property {boolean} [isSelected]
  *  @property {boolean} [isAlternatePath] there are more than one menu paths to this menu item, and this one is no the "source of truth"
  * }

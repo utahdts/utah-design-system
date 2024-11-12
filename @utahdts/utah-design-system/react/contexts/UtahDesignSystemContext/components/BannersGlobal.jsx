@@ -15,9 +15,10 @@ import { useBanner } from '../hooks/useBanner';
  * @param {object} props
  * @param {UtahDesignSystemContextBannerWithId[]} props.banners
  * @param {number} [props.bannerDuration]
+ * @param {string} [props.defaultClassName]
  * @returns {import('react').JSX.Element}
  */
-export function BannersGlobal({ banners, bannerDuration }) {
+export function BannersGlobal({ banners, bannerDuration, defaultClassName }) {
   const { removeBanner } = useBanner();
   const timers = useMemo(() => /** @type {Record<string, number>} */({}), []);
   const [zones, setZones] = useImmer(/** @type {Record<string, UtahDesignSystemContextBannerWithId[]>} */({}));
@@ -44,7 +45,6 @@ export function BannersGlobal({ banners, bannerDuration }) {
     const uniqueZones = [...new Set(banners.map((banner) => banner.position))];
     uniqueZones.forEach((zone) => {
       if (zone) {
-        // @ts-ignore
         draftZones[zone] = [];
       }
     });
@@ -55,7 +55,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
           currentOnClose(undefined, banner);
         }, duration);
       }
-      // @ts-ignore
+      // @ts-expect-error
       draftZones[banner.position].push(banner);
     });
     setZones(draftZones);
@@ -83,7 +83,7 @@ export function BannersGlobal({ banners, bannerDuration }) {
             <Banner
               key={`banner-${banner.id}`}
               id={`banner-${banner.id}`}
-              className={banner.className}
+              className={banner.className || defaultClassName}
               position={banner.position}
               onClose={(e) => currentOnClose(e, banner)}
             >

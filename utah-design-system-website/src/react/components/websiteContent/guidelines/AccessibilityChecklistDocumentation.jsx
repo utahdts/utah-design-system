@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAppContext } from '../../../context/AppContext/useAppContext';
 import { pageUrls } from '../../routing/pageUrls';
+import { WcagRulesBlock } from './WcagRulesBlock';
 
 export function AccessibilityChecklistDocumentation() {
   const { setAppState } = useAppContext();
@@ -17,11 +18,7 @@ export function AccessibilityChecklistDocumentation() {
         Here are some tools to help with accessibility testing. For more in depth information, view the <NavLink to={pageUrls.accessibility}>accessibility overview page</NavLink>.
       </p>
 
-      <p className="block-quote">
-        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
-        This checklist can be used to help achieve this standard.
-        (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
-      </p>
+      <WcagRulesBlock />
 
       <h2 id="section-manual-checklist" className="mb-spacing">Manual Checklist</h2>
       <h3 id="section-manual-checklist-content">Content</h3>

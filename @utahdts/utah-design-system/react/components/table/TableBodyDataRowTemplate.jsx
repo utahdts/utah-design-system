@@ -32,12 +32,12 @@ export function TableBodyDataRowTemplate({
   return (
     <TableRow
       className={joinClassNames(
-        // @ts-ignore
+        // @ts-expect-error
         isFunction(className) ? className(rowContextData) : className
       )}
-      // @ts-ignore
+      // @ts-expect-error
       onClick={(onClick && ((e) => onClick({ e, ...rowContextData }))) ?? undefined}
-      // @ts-ignore
+      // @ts-expect-error
       onDoubleClick={(onDoubleClick && ((e) => onDoubleClick({ e, ...rowContextData }))) ?? undefined}
       innerRef={innerRef}
       // eslint-disable-next-line react/jsx-props-no-spreading

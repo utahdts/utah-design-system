@@ -34,12 +34,12 @@ export function Banner({
       )}
       id={id}
       ref={innerRef}
-      role="status"
     >
-      {children}
+      <div role="status">
+        {children}
+      </div>
       <div className="banner__close-button flex flex-col justify-center">
         <IconButton
-          aria-hidden="true"
           appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
           className="popup__close-button"
           icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}

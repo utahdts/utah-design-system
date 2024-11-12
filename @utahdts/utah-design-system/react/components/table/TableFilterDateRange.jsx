@@ -84,7 +84,7 @@ export function TableFilterDateRange({
           label={`Filter ${a11yLabel}`}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}
-          // @ts-ignore
+          // @ts-expect-error
           onBlur={
             () => {
               setTimeout(

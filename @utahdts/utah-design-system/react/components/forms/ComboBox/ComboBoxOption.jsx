@@ -199,7 +199,6 @@ export function ComboBoxOption({
               });
             }
           }}
-          // @ts-ignore
           onBlur={() => setComboBoxContext((draftContext) => {
             if (draftContext.optionValueFocused === value) {
               draftContext.optionValueFocused = null;
@@ -221,13 +220,9 @@ export function ComboBoxOption({
             }
           }
           onKeyUp={(e) => {
-            // @ts-ignore
             onEnterKeyPress(e);
-            // @ts-ignore
             onCancelKeyPress(e);
-            // @ts-ignore
             onUpArrowPress(e);
-            // @ts-ignore
             onDownArrowPress(e);
           }}
           // https://stackoverflow.com/questions/17769005/onclick-and-onblur-ordering-issue

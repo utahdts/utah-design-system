@@ -31,7 +31,6 @@ export function DateInputDocumentation() {
           isDisabled: false,
           isRequired: false,
           label: 'Enter a date',
-          name: '',
           placeholder: '',
           showCalendarTodayButton: true,
           value: '',

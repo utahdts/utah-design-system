@@ -402,12 +402,12 @@ export function CardDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
+        <TabGroup defaultValue="card-props-css">
           <TabList>
-            <Tab id="button-props-css">CSS</Tab>
+            <Tab id="card-props-css">CSS</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="button-props-css">
+            <TabPanel tabId="card-props-css">
               <CardCssClassesDocumentation />
             </TabPanel>
           </TabPanels>

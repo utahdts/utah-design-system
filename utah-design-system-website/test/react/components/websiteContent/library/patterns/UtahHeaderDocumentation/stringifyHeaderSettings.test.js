@@ -17,7 +17,7 @@ const MATCH_BASIC_FIELDS = [
 
 /**
  * @param {string[]} strings the strings to test to satisfy validity
- * @returns {function(string): boolean} true if all the strings match teh testStr
+ * @returns {function(string): boolean} true if all the strings match the testStr
  */
 function doesMatchStrings(strings) {
   return (resultStr) => strings.every((testStr) => resultStr.includes(testStr));

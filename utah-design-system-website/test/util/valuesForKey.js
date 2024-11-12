@@ -12,9 +12,9 @@ import { isObject } from 'lodash';
 export function valuesForKey(obj, key, filterFunc) {
   const result = [];
   if (obj && isObject(obj)) {
-    // @ts-ignore <-- isObject() removes the case for which this error generates
+    // @ts-expect-error <-- isObject() removes the case for which this error generates
     if (key in obj && (!filterFunc || filterFunc(obj[key], obj))) {
-      // @ts-ignore
+      // @ts-expect-error `key in obj` above checks that key does in fact exist in the object
       result.push(obj[key]);
     }
     Object.values(obj).forEach((value) => (

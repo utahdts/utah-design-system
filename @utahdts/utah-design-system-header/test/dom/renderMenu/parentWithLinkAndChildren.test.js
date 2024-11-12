@@ -73,8 +73,6 @@ function testMainMenuHasNoChildren() {
  * @param {HTMLElement | null | undefined} element
  * @param {string} functionContainsContents
  */
-// @ts-ignore
-// eslint-disable-next-line no-unused-vars
 function testMenuItemIsButton(element, functionContainsContents) {
   expect(element).toBeTruthy();
   expect(element?.tagName).toBe(BUTTON);
@@ -92,7 +90,6 @@ function testMenuItemIsA(menuItemElement, href, functionContainsContents) {
   const menuItem1ChildrenMenuItemTitle = /** @type {HTMLAnchorElement | null} */ (menuItemElement?.querySelector('.vertical-menu__link-title'));
   expect(menuItem1ChildrenMenuItemTitle).toBeTruthy();
   expect(menuItem1ChildrenMenuItemTitle?.tagName).toBe(A);
-  // @ts-ignore
   expect(menuItem1ChildrenMenuItemTitle?.href).toContain(href);
   if (functionContainsContents) {
     expect(menuItem1ChildrenMenuItemTitle?.onclick?.toString()).toContain(functionContainsContents);
@@ -227,7 +224,7 @@ describe('renderMenu: parentWithLinkAndChildren - main menu has children & actio
     loadHeader();
 
     testHasMainMenuExists();
-    testMainMenuItemIsA(URL_MENU_ITEM_1, DONT_TOUCH);
+    testMainMenuItemIsButton(DONT_TOUCH);
 
     // has child
     const menuItem1ChildrenMenu = testMainMenuHasChildren();
@@ -269,7 +266,7 @@ describe('renderMenu: parentWithLinkAndChildren - main menu has children & actio
     loadHeader();
 
     testHasMainMenuExists();
-    testMainMenuItemIsA(URL_MENU_ITEM_1, DONT_TOUCH);
+    testMainMenuItemIsButton(DONT_TOUCH);
 
     // has child
     const menuItem1ChildrenMenu = testMainMenuHasChildren();
@@ -311,7 +308,7 @@ describe('renderMenu: parentWithLinkAndChildren - main menu has children & actio
     loadHeader();
 
     testHasMainMenuExists();
-    testMainMenuItemIsA(URL_MENU_ITEM_1, DONT_TOUCH);
+    testMainMenuItemIsButton(DONT_TOUCH);
 
     // has child
     const menuItem1ChildrenMenu = testMainMenuHasChildren();

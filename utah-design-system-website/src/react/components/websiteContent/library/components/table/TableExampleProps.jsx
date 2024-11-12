@@ -1,4 +1,5 @@
 import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
+import { useFormState } from '../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').TableExamplePropsShape} TableExamplePropsShape */
 
@@ -9,21 +10,46 @@ import { Form, Switch, TextInput } from '@utahdts/utah-design-system';
  * @returns {import('react').JSX.Element}
  */
 export function TableExampleProps({ setState, state }) {
+  const { onChange, valueFn } = useFormState(state, setState);
   return (
-    <Form
-      state={state}
-      // @ts-ignore
-      setState={setState}
-      className="form--stacked"
-    >
-      <Switch id="props.isFiltering" label="Filters" />
-      <Switch id="props.isPaginating" label="Pagination" />
-      <Switch id="props.isSorting" label="Sortable" />
+    <Form className="form--stacked">
+      <Switch
+        id="props.isFiltering"
+        label="Filters"
+        // @ts-expect-error
+        onChange={onChange}
+        value={valueFn('props.isFiltering')}
+      />
+      <Switch
+        id="props.isPaginating"
+        label="Pagination"
+        // @ts-expect-error
+        onChange={onChange}
+        value={valueFn('props.isPaginating')}
+      />
+      <Switch
+        id="props.isSorting"
+        label="Sortable"
+        // @ts-expect-error
+        onChange={onChange}
+        value={valueFn('props.isSorting')}
+      />
 
-      <TextInput id="props.className" label="Class" className="input--height-small1x" />
+      <TextInput
+        id="props.className"
+        className="input--height-small1x"
+        label="Class"
+        onChange={onChange}
+        value={valueFn('props.className')}
+      />
 
-      <TextInput id="props.id" label="ID" className="input--height-small1x" />
-
+      <TextInput
+        id="props.id"
+        className="input--height-small1x"
+        label="ID"
+        onChange={onChange}
+        value={valueFn('props.id')}
+      />
     </Form>
   );
 }

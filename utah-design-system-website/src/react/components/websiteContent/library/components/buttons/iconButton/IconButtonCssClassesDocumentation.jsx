@@ -8,8 +8,8 @@ export function IconButtonCssClassesDocumentation() {
       <TableRow>
         <TableCell><code>.icon-button</code></TableCell>
         <TableCell>
-          The base css class for an icon button. You must include both <code>button</code>
-          and <code>icon-button</code> classes for it to render properly.
+          The base css class for an icon button. You must include
+          both <code>button</code> and <code>icon-button</code> classes for it to render properly.
         </TableCell>
       </TableRow>
       <TableRow>

@@ -8,7 +8,7 @@
 function flattenChildren(parent) {
   return [
     parent,
-    // @ts-ignore
+    // @ts-expect-error oh, but children just might actually exist here
     ...(parent?.children?.map(flattenChildren) || []),
   ];
 }

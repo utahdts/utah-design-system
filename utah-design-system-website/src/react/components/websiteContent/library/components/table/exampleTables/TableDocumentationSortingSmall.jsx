@@ -82,7 +82,7 @@ export function TableDocumentationSortingSmall({ className, isFiltersShown }) {
           </TableSortingRules>
 
           <TableHeadRow>
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */}
             <TableHeadCell recordFieldPath="np" style={{ width: '34%' }}>National Park</TableHeadCell>
             <TableHeadCell recordFieldPath="year">Year Created</TableHeadCell>
             <TableHeadCell recordFieldPath="city">Nearest Cities</TableHeadCell>

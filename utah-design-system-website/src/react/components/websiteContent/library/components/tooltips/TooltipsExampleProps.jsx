@@ -7,6 +7,7 @@ import {
   TextInput,
   popupPlacement
 } from '@utahdts/utah-design-system';
+import { useFormState } from '../../../../../hooks/useFormState';
 
 /** @typedef {import('utah-design-system-website').TooltipsExamplePropsShape} TooltipsExamplePropsShape */
 /** @typedef {import('use-immer').Updater<TooltipsExamplePropsShape>} UpdaterTooltipsExampleProps */
@@ -18,17 +19,33 @@ import {
  * @returns {import('react').JSX.Element}
  */
 export function TooltipsExampleProps({ setState, state }) {
+  const { onChange, valueFn } = useFormState(state, setState);
   return (
-    <Form
-      state={state}
-      setState={setState}
-      className="form--stacked"
-    >
-      <TextInput id="props.popupText" label="Text (children)" className="input--height-small1x" />
+    <Form className="form--stacked">
+      <TextInput
+        id="props.popupText"
+        className="input--height-small1x"
+        label="Text (children)"
+        onChange={onChange}
+        value={valueFn('props.popupText')}
+      />
 
-      <Switch id="props.isPopperVisible" label="Visible" width={20} />
+      <Switch
+        id="props.isPopperVisible"
+        label="Visible"
+        // @ts-expect-error
+        onChange={onChange}
+        value={valueFn('props.isPopperVisible')}
+        width={20}
+      />
 
-      <Select id="props.placement" label="Placement" className="input--height-small1x">
+      <Select
+        id="props.placement"
+        className="input--height-small1x"
+        label="Placement"
+        onChange={onChange}
+        value={valueFn('props.placement')}
+      >
         {
           Object.values(popupPlacement)
             .map((placement) => (
@@ -37,8 +54,20 @@ export function TooltipsExampleProps({ setState, state }) {
         }
       </Select>
 
-      <TextInput id="props.offsetDistance" label="Distance" className="input--height-small1x" />
-      <TextInput id="props.offsetSkidding" label="Skidding" className="input--height-small1x" />
+      <TextInput
+        id="props.offsetDistance"
+        className="input--height-small1x"
+        label="Distance"
+        onChange={onChange}
+        value={valueFn('props.offsetDistance')}
+      />
+      <TextInput
+        id="props.offsetSkidding"
+        className="input--height-small1x"
+        label="Skidding"
+        onChange={onChange}
+        value={valueFn('props.offsetSkidding')}
+      />
       <ExternalLink href="https://popper.js.org/docs/v2/modifiers/offset/">Distance/Skidding Docs</ExternalLink>
     </Form>
   );

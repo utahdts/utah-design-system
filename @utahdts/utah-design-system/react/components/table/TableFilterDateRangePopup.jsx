@@ -58,7 +58,7 @@ export function TableFilterDateRangePopup({
       // when popup first opens, focus on the begin date
       if (isPopupOpen) {
         const beginDateInput = beginDateRef.current?.querySelector('.date-input');
-        // @ts-ignore
+        // @ts-expect-error
         beginDateInput?.focus();
       }
     },
@@ -113,7 +113,7 @@ export function TableFilterDateRangePopup({
           onClear={() => onChange(formatNewValue(BeginEndDates.BEGIN, '', beginDateStr, endDateStr))}
           value={beginDateStr}
           onKeyUp={moveToCalendarInput}
-          // @ts-ignore
+          // @ts-expect-error
           onFocus={() => setCurrentInput(BeginEndDates.BEGIN)}
         />
         <DateInput
@@ -128,7 +128,7 @@ export function TableFilterDateRangePopup({
           onClear={() => onChange(formatNewValue(BeginEndDates.END, '', beginDateStr, endDateStr))}
           onKeyUp={moveToCalendarInput}
           value={endDateStr}
-          // @ts-ignore
+          // @ts-expect-error
           onFocus={() => setCurrentInput(BeginEndDates.END)}
         />
       </div>

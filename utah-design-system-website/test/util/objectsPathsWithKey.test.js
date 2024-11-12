@@ -17,23 +17,23 @@ const objectWithKey = {
 
 describe('objectsPathsWithKeys', () => {
   test('non object values (BAD TYPES)', () => {
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(null, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(undefined, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(NaN, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(Infinity, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(3, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(true, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(false, ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys(Symbol('not an object!'), ['test'])).toStrictEqual([]);
-    // @ts-ignore
+    // @ts-expect-error testing invalid/badly typed values
     expect(objectsPathsWithKeys('not a string', ['test'])).toStrictEqual([]);
   });
 

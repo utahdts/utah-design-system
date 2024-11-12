@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>ThemeDemo</title>
@@ -10,12 +11,25 @@
     document.addEventListener('utahHeaderLoaded', () => {
       //set up the utah header
       window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({
-        "title": "Angular Demo",
+        title: 'Angular Demo',
+        mainMenu: {
+          menuItems: [
+            {
+              actionUrl: {
+                url: "/"
+              },
+              title: "Home"
+            }
+          ],
+          title: "Utah Design System Main Menu"
+        },
       });
     });
   </script>
 </head>
-<body class="utah-design-system" >
+
+<body class="utah-design-system">
   <app-root></app-root>
 </body>
+
 </html>

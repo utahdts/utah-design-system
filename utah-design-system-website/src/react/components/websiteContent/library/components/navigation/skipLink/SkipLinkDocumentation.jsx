@@ -30,7 +30,7 @@ export function SkipLinkDocumentation() {
               <a
                 href="#"
                 onClick={() => {
-                  // @ts-ignore
+                  // @ts-expect-error
                   document.querySelector('.skip-link__link')?.focus();
                 }}
               >

@@ -56,7 +56,6 @@ export function Button({
       )}
       disabled={isDisabled || isBusy}
       id={id}
-      // @ts-ignore
       onClick={handleEvent((e) => onClick?.(e))}
       ref={innerRef}
       // eslint-disable-next-line react/button-has-type

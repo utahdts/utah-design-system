@@ -202,11 +202,11 @@ export function DemoContent() {
       </div>
 
       <div className="permits mb-spacing-xl">
-        <div className="permits__content content-width m-auto p-spacing-xl text-on-primary-color">
+        <div className="permits__content content-width m-auto p-spacing-xl">
           <div className="flex">
             <div className="flex-1">
-              <h2 className="mb-spacing text-on-primary-color">Order a permit</h2>
-              <p className="text-on-primary-color">
+              <h2 className="mb-spacing">Order a permit</h2>
+              <p>
                 Certain areas of Arches National Park require a reservation to manage visitor impact and
                 preserve the natural environment. Please fill out the form below to check availability.
               </p>
@@ -216,7 +216,7 @@ export function DemoContent() {
                   label="Hike"
                   placeholder="Select a hike"
                   isClearable
-                  labelClassName="text-on-primary-color"
+                  labelClassName=" "
                   className="text-on-primary-color-light"
                 >
                   <ComboBoxOption label="Delicate Arch Trail" value="delicate-arch">Delicate Arch</ComboBoxOption>
@@ -224,17 +224,16 @@ export function DemoContent() {
                   <ComboBoxOption label="Fiery Furnace" value="fiery-furnace">Fiery Furnace</ComboBoxOption>
                   <ComboBoxOption label="Tower Arch Trail" value="tower-arch">Tower Arch</ComboBoxOption>
                 </ComboBox>
-                <TextInput id="number-visitor" label="Number of visitors" labelClassName="text-on-primary-color" />
+                <TextInput id="number-visitor" label="Number of visitors" />
                 <DateInput
-                  labelClassName="text-on-primary-color"
                   id="date-input-with-popup"
                   isDisabled={false}
                   label="Date"
                 />
                 <fieldset>
-                  <legend className="text-on-primary-color">Will you be requiring a guide?</legend>
-                  <RadioButton name="guide-required" id="yes" label="Yes" value="yes" labelClassName="text-on-primary-color" />
-                  <RadioButton name="guide-required" id="no" label="No" value="no" labelClassName="text-on-primary-color" />
+                  <legend>Will you be requiring a guide?</legend>
+                  <RadioButton name="guide-required" id="yes" label="Yes" value="yes" />
+                  <RadioButton name="guide-required" id="no" label="No" value="no" />
                 </fieldset>
                 <Button
                   appearance="outlined"

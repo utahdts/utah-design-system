@@ -73,9 +73,10 @@ export const DATA_OF_ALL_DATATYPES = {
   object: {
     arrayEmpty: [],
     arrayFull: [1, 2, 3, '4', '5', [6, '7', ['8'], []]],
-    // eslint-disable-next-line object-shorthand, func-names
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     func: function () { },
     funcArrow: () => undefined,
+    // eslint-disable-next-line @typescript-eslint/no-extraneous-class
     objectClass: new (class { })(),
     objectSimpleEmpty: {},
     objectSimpleFull: { one: 1, two: { three: 3, four: { five: 5 } } },
@@ -120,7 +121,7 @@ export function dataOfAllDataTypes({ includes, excludes } = {}) {
   return (
     Object.keys(DATA_OF_ALL_DATATYPES)
       .filter((key) => (!includes || includes.includes(key)) && (!excludes?.includes(key)))
-      // @ts-ignore
+      // @ts-expect-error intentional for testing
       .map((dataTypeKey) => Object.values(DATA_OF_ALL_DATATYPES[dataTypeKey]))
       .flat()
   );

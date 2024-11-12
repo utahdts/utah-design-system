@@ -96,7 +96,7 @@ export function ShapesDocumentation() {
                 <ul>
                   <li className="menu-item">
                     <span className="menu-item__title">
-                      <a className="menu-item--selected" href="#section-symmetry">Shape (rounded corners)</a>
+                      <a className="shape-examples-link shape-examples-link--selected menu-item--selected" href="#section-symmetry">Shape (rounded corners)</a>
                     </span>
                     <span className="menu-chiclet" />
                   </li>

@@ -99,7 +99,7 @@ export function TableDocumentationSortingTableExample() {
                 <TableHeadCell recordFieldPath="politicalParty" className="text-left">Party</TableHeadCell>
                 <TableHeadCell recordFieldPath="inauguration" className="text-left">Inauguration</TableHeadCell>
                 <TableHeadCell recordFieldPath="birthplace" tableSortingFieldPaths={['birthplace.state', 'birthplace.county']} className="text-left">Birth Place</TableHeadCell>
-                <TableHeadCell />
+                <TableHeadCell>Action</TableHeadCell>
               </TableHeadRow>
             </TableHead>
 

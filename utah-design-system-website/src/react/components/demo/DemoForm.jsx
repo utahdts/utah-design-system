@@ -71,7 +71,7 @@ function validateForm(state, previousFormErrors, addBannerFn, fieldToValidate) {
   validateField(errors, state, 'firstName', (value) => !!value, 'Enter your first name', fieldToValidate);
   validateField(errors, state, 'lastName', (value) => !!value, 'Enter your last name', fieldToValidate);
   validateField(errors, state, 'radioBand', (value) => !!value, 'Select a Radio Band jam', fieldToValidate);
-  validateField(errors, state, 'rockGenre', (value) => value, 'The only valid rock genre is "!!! ROCK & ROLL !!!"', fieldToValidate);
+  validateField(errors, state, 'rockGenre', (value) => !!value, 'You must be sure', fieldToValidate);
   validateField(errors, state, 'phoneNumber', (value) => !value || !!/^\d{3}-\d{3}-\d{4}$/.exec(value), 'Phone number must be in the format of ###-###-####', fieldToValidate);
 
   if (!fieldToValidate) {
@@ -111,6 +111,7 @@ const defaultFormState = {
  */
 export function DemoForm() {
   const [formState, setFormState] = useImmer(defaultFormState);
+
   const [formErrors, setFormErrors] = useImmer(/** @type {Partial<FormErrors>} */({}));
   const [eyeColorOptions, setEyeColorOptions] = useImmer([
     { name: 'Amaranth', hex: '#e63356' },
@@ -152,7 +153,7 @@ export function DemoForm() {
     <>
       <StaticExample
         renderedExample={(
-          <Form setState={setFormState} state={formState}>
+          <Form>
             {
               formErrorsItems.length
                 ? (
@@ -198,7 +199,11 @@ export function DemoForm() {
                 id="firstName"
                 isRequired
                 label="First Name"
-                // @ts-ignore
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.firstName = e.target.value;
+                })}
+                value={formState.firstName}
+                // @ts-expect-error
                 onBlur={onBlurCurry('firstName')}
               />
               <TextInput
@@ -206,14 +211,22 @@ export function DemoForm() {
                 id="lastName"
                 isRequired
                 label="Last Name"
-                // @ts-ignore
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.lastName = e.target.value;
+                })}
+                value={formState.lastName}
+                // @ts-expect-error
                 onBlur={onBlurCurry('lastName')}
               />
               <TextInput
                 errorMessage={formErrors.phoneNumber?.message}
                 id="phoneNumber"
                 label="Phone Number"
-                // @ts-ignore
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.phoneNumber = e.target.value;
+                })}
+                value={formState.phoneNumber}
+                // @ts-expect-error
                 onBlur={onBlurCurry('phoneNumber')}
               />
               <div className="info-box mb-spacing">
@@ -226,18 +239,16 @@ export function DemoForm() {
                 errorMessage={formErrors.eyeColor?.message}
                 id="eyeColor"
                 label="Eye Color"
-                onChange={(newValue) => {
-                  setFormState((draftState) => {
-                    draftState.eyeColor = newValue;
-                  });
-                }}
+                onChange={(newValues) => setFormState((draftState) => {
+                  draftState.eyeColor = newValues;
+                })}
                 onCustomEntry={(newValue) => setEyeColorOptions((draftColors) => {
                   const formattedColor = startCase(newValue);
                   draftColors.push({ name: formattedColor, hex: '' });
                   draftColors.sort((a, b) => a.name.localeCompare(b.name));
                 })}
                 values={formState.eyeColor}
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('eyeColor')}
               >
                 {
@@ -260,7 +271,11 @@ export function DemoForm() {
                 isRequired
                 id="radioBand"
                 label="What's your Radio Band jam?"
-                // @ts-ignore
+                onChange={(newValue) => setFormState((draftState) => {
+                  draftState.radioBand = newValue;
+                })}
+                value={formState.radioBand}
+                // @ts-expect-error
                 onBlur={onBlurCurry('radioBand')}
               >
                 {
@@ -290,26 +305,35 @@ export function DemoForm() {
               <Switch
                 errorMessage={formErrors.rockGenre?.message}
                 id="rockGenre"
-                label="Music Genre"
-                labelOn="!!! ROCK & ROLL !!!"
-                labelOff="Rock & Roll"
+                label="Are you sure?"
+                labelOn="Not Sure"
+                labelOff="Sure"
+                onChange={(e) => setFormState((draftState) => {
+                  onBlurCurry('rockGenre')();
+                  // @ts-expect-error
+                  draftState.rockGenre = e.target.checked;
+                })}
                 size="large"
-                width={150}
-                // @ts-ignore
-                onBlur={onBlurCurry('rockGenre')}
+                value={formState.rockGenre}
+                width={100}
               />
               <TextArea
                 errorMessage={formErrors.comment?.message}
                 id="comment"
                 label="Comment"
-                // @ts-ignore
+                onChange={(e) => setFormState((draftState) => {
+                  // @ts-expect-error
+                  draftState.comment = e.target.value;
+                })}
+                value={formState.comment}
+                // @ts-expect-error
                 onBlur={onBlurCurry('comment')}
               />
               <CharacterCount
                 id="commentCount"
                 maxLength={100}
                 text={formState.comment}
-                // @ts-ignore
+                // @ts-expect-error
                 onBlur={onBlurCurry('commentCount')}
               />
               <Checkbox
@@ -317,7 +341,11 @@ export function DemoForm() {
                 id="approved"
                 isRequired
                 label="Do you approve?"
-                // @ts-ignore
+                onChange={(e) => setFormState((draftState) => {
+                  draftState.approved = e.target.checked;
+                })}
+                value={formState.approved}
+                // @ts-expect-error
                 onBlur={onBlurCurry('approved')}
               />
               {
@@ -330,8 +358,12 @@ export function DemoForm() {
                         isClearable
                         isRequired
                         label="Approved Date"
+                        onChange={(newValue) => setFormState((draftState) => {
+                          draftState.approvedDate = newValue;
+                        })}
                         showCalendarTodayButton
-                        // @ts-ignore
+                        value={formState.approvedDate}
+                        // @ts-expect-error
                         onBlur={onBlurCurry('approvedDate')}
                       />
                       <TimeInput
@@ -340,8 +372,12 @@ export function DemoForm() {
                         isClearable
                         isRequired
                         label="Approved Time"
+                        onChange={(newValue) => setFormState((draftState) => {
+                          draftState.approvedTime = newValue;
+                        })}
                         timeRangeIncrement={30}
-                        // @ts-ignore
+                        value={formState.approvedTime}
+                        // @ts-expect-error
                         onBlur={onBlurCurry('approvedTime')}
                       />
                     </>

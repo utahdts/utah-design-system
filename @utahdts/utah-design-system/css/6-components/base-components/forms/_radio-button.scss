@@ -12,6 +12,9 @@
     margin: 2px var(--spacing-xs) 0 0;
     flex-shrink: 0;
     background: white;
+
+    @include tools-index.form-ele-focus;
+
     &::after {
       content: '';
       display: block;

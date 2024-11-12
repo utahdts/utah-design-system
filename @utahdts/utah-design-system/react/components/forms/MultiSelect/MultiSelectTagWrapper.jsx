@@ -80,7 +80,7 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
             const newIndex = selectedValueIndex + 1;
             if (newIndex >= multiSelectContext.selectedValues.length) {
               draftContext.focusedValueTagIndex = NaN;
-              // @ts-ignore
+              // @ts-expect-error
               multiSelectContextNonStateRef.current.comboBoxDivElement?.querySelector('.combo-box-input')?.focus();
             } else {
               draftContext.focusedValueTagIndex = newIndex;

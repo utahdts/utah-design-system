@@ -60,6 +60,7 @@
         justify-content: flex-start;
         padding-top: var(--spacing);
         position: relative;
+        flex-shrink: 0;
 
         &:after {
           content: '';
