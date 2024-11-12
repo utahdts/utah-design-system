@@ -45,12 +45,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Resolved several accessibility issues
 
 ## Design System Website Changes
-  - Added additional resources and examples on the `Getting Started for Developers` page
-  - Change javascript alerts to banners
-  - Fixed background color on website making scrollbar invisible
-  - Fixed Demo Form's switch to toggle its value
-  - Highlight current item on side menu
-  - Make Main Menu "overview" link optional
+- Added additional resources and examples on the `Getting Started for Developers` page
+- Change javascript alerts to banners
+- Fixed background color on website making scrollbar invisible
+- Fixed Demo Form's switch to toggle its value
+- Highlight current item on side menu
+- Make Main Menu "overview" link optional
 
 
 # [2.0.3] 9/9/2024
