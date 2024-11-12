@@ -38,7 +38,7 @@ export function TableFilterTextInput({
     setValue,
   } = useCurrentValuesFromStateContext({
     contextStatePath: recordFieldPath,
-    // @ts-ignore
+    // @ts-expect-error
     defaultOnChange: (e) => e.target?.value,
     defaultValue,
     onChange,

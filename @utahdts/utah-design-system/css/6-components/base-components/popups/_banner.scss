@@ -62,7 +62,9 @@
           right: 0;
         }
 
-        &--info, &--warning, &--danger, &--success, &--dark {
+        &--info, &--warning, &--danger, &--success, &--dark,
+        &--primary, &--secondary, &--accent,
+        &--primary-dark, &--secondary-dark, &--accent-dark{
           color: white;
           .banner__close-button button, a {
             color: white;
@@ -83,6 +85,33 @@
         }
         &--dark {
           background-color: var(--gray-color);
+        }
+        &--primary {
+          background-color: var(--primary-color);
+        }
+        &--primary-light {
+          background-color: var(--primary-color-light);
+        }
+        &--primary-dark {
+          background-color: var(--primary-color-dark);
+        }
+        &--secondary {
+          background-color: var(--secondary-color);
+        }
+        &--secondary-light {
+          background-color: var(--secondary-color-light);
+        }
+        &--secondary-dark {
+          background-color: var(--secondary-color-dark);
+        }
+        &--accent {
+          background-color: var(--accent-color);
+        }
+        &--accent-light {
+          background-color: var(--accent-color-light);
+        }
+        &--accent-dark {
+          background-color: var(--accent-color-dark);
         }
 
         &--small {

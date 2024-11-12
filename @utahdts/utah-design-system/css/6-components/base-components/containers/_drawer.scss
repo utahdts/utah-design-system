@@ -53,11 +53,14 @@
     }
 
     &__close-button {
-      position: absolute !important;
       top: var(--spacing-2xs);
       right: var(--spacing-2xs);
 
-      .utds-icon-before-x-icon::before {
+      &.button {
+        position: absolute;
+      }
+
+      &.icon-button--small [class*=utds-icon-before-]::before {
         font-size: 0.7rem;
       }
     }

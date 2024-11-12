@@ -16,7 +16,7 @@ export function HeadingWithLink({
 }) {
   return (
     <div className="flex justify-between items-center">
-      {/* @ts-ignore */}
+      {/* @ts-expect-error */}
       <HeadingTag id={id}>
         {headingTitle}
       </HeadingTag>

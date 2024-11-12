@@ -1,7 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { useImmer } from 'use-immer';
 import { joinClassNames } from '../../util/joinClassNames';
-import { FormContextProvider } from '../forms/FormContext/FormContextProvider';
 import { TableContext } from './util/TableContext';
 
 /** @typedef {import('@utahdts/utah-design-system').TableContextStateFilterValueObject} TableContextStateFilterValueObject */
@@ -70,14 +68,9 @@ export function TableFilters({
     [value]
   );
 
-  // headers get their own state so that they don't interact with a global form because they aren't really form
-  // data though they do use inputs that connect to a form.
-  const [formState, setFormState] = useImmer({});
   return (
-    <FormContextProvider state={formState} setState={setFormState}>
-      <tr className={joinClassNames('table-header__row table-header__row--filters', className)} id={id ?? undefined} ref={innerRef} {...rest}>
-        {children}
-      </tr>
-    </FormContextProvider>
+    <tr className={joinClassNames('table-header__row table-header__row--filters', className)} id={id ?? undefined} ref={innerRef} {...rest}>
+      {children}
+    </tr>
   );
 }

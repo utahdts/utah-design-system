@@ -22,6 +22,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {MutableRef<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
+ * @param {boolean} [props.isInvalid]
  * @param {boolean} [props.isRequired]
  * @param {boolean} [props.isShowingClearableIcon] if `isClearable` is true, this can override the logic for showing the clearable `x`
  * @param {boolean} [props.isValueClearedOnSelection] after selection, is the value cleared so it appears to not be selected (multi-select uses this)
@@ -52,6 +53,7 @@ export function ComboBox({
   innerRef: draftInnerRef,
   isClearable,
   isDisabled,
+  isInvalid,
   isRequired,
   isShowingClearableIcon,
   label,
@@ -89,6 +91,7 @@ export function ComboBox({
           setContentRefState(ref);
         }}
         isClearable={isClearable}
+        isInvalid={!!errorMessage || isInvalid}
         isShowingClearableIcon={isShowingClearableIcon}
         isDisabled={isDisabled}
         isRequired={isRequired}
@@ -118,7 +121,7 @@ export function ComboBox({
       isValueClearedOnSelection={isValueClearedOnSelection}
       onChange={onChange}
       onClear={onClear}
-      // @ts-ignore
+      // @ts-expect-error
       onKeyUp={onKeyUp}
       value={value}
     >

@@ -1,13 +1,6 @@
-import {
-  FormContextProvider,
-  joinClassNames,
-  useUtahHeaderContext
-  // @ts-ignore
-} from '@utahdts/utah-design-system';
-import '@utahdts/utah-design-system-header/src/css/index.scss';
+import { joinClassNames, useUtahHeaderContext } from '@utahdts/utah-design-system';
 import '@utahdts/utah-design-system/css/index.scss';
 import { useEffect, useRef } from 'react';
-import { useImmer } from 'use-immer';
 import './css/index.scss';
 import { ColorPopup } from './react/components/color/ColorPopup';
 import { DemoAppStyle } from './react/components/demo/DemoAppStyle';
@@ -19,15 +12,12 @@ import { useCssContext } from './react/context/cssContext/useCssContext';
 import { CSS_CLASS_NAMES } from './react/enums/cssClassNames';
 import { CSS_STATE_KEYS } from './react/enums/cssStateKeys';
 
-/** @typedef {import('@utahdts/utah-design-system').FormContextValue<Record<string, any>>} FormContextValue */
-
 /**
  * @returns {import('react').JSX.Element} the App!
  */
 export function App() {
   const { appState: { isColorPickerShown }, setAppState } = useAppContext();
   const { cssState } = useCssContext();
-  const [state, setState] = useImmer({});
   const { settings: utahHeaderSettings, setSettings: setUtahHeaderSettings } = useUtahHeaderContext();
   const isActionItemsAddedRef = useRef(false);
 
@@ -59,17 +49,16 @@ export function App() {
   );
 
   return (
-    // Wrap entire app in a FormContextProvider so that input components don't have to be "controlled" nor inside a <Form>
-    <FormContextProvider setState={setState} state={state}>
+    <>
       <div
         className={
           joinClassNames([
             'utah-design-system',
-            // @ts-ignore
+            // @ts-expect-error
             cssState?.[CSS_STATE_KEYS.PRIMARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.PRIMARY_COLOR_IS_LIGHT : '',
-            // @ts-ignore
+            // @ts-expect-error
             cssState?.[CSS_STATE_KEYS.SECONDARY_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.SECONDARY_COLOR_IS_LIGHT : '',
-            // @ts-ignore
+            // @ts-expect-error
             cssState?.[CSS_STATE_KEYS.ACCENT_COLOR_IS_LIGHT] ? CSS_CLASS_NAMES.ACCENT_COLOR_IS_LIGHT : '',
           ])
         }
@@ -87,6 +76,6 @@ export function App() {
         <DesignSystemFooterMainContent />
         <div id="utah-footer-placeholder" />
       </footer>
-    </FormContextProvider>
+    </>
   );
 }

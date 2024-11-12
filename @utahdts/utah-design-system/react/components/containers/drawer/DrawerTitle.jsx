@@ -15,7 +15,7 @@ export function DrawerTitle({
   tagName: TagName = 'div',
 }) {
   return (
-    // @ts-ignore
+    // @ts-expect-error
     <TagName
       className={joinClassNames('drawer__title', className)}
       id={id}

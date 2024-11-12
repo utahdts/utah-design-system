@@ -5,7 +5,7 @@ import {
   VerticalMenu,
   useUtahHeaderContext
 } from '@utahdts/utah-design-system';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import {
   Navigate,
   Route,
@@ -21,9 +21,15 @@ import { RoutePage } from './RoutePage';
 import { allMenus } from './menus';
 import { pages } from './pages';
 import { constructMainMenu } from './util/constructMainMenu';
+import { pageUrls } from './pageUrls';
+import { actionFunctionForUrl } from './util/actionFunctionForUrl';
+
+/** @typedef {import('@utahdts/utah-design-system').VerticalMenuMenuItemAdditions} VerticalMenuMenuItemAdditions  */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
+/** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */
 
 export function Routing() {
-  // @ts-ignore
+  // @ts-expect-error
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef(/** @type {HTMLElement | null} */(null));
   const { setSettings = () => { } } = useUtahHeaderContext() || {};
@@ -32,12 +38,33 @@ export function Routing() {
   useEffect(
     () => {
       setSettings((draftSettings) => {
-        // @ts-ignore
+        // @ts-expect-error
         draftSettings.mainMenu = constructMainMenu(currentMenuItem, navigate);
       });
     },
     [currentMenuItem, navigate, setSettings]
   );
+
+  const setActionFunctionUrl = useCallback((/** @type {WebsiteMainMenuItem & VerticalMenuMenuItemAdditions} */ item) => {
+    const newItem = { ...item };
+    if (item.link && !item.actionFunctionUrl) {
+      newItem.actionFunctionUrl = {
+        actionFunction: actionFunctionForUrl(item.link, navigate),
+        skipHandleEvent: true,
+        url: item.link || pageUrls.home,
+      };
+    }
+    if (item.children) { newItem.children = item.children.map(setActionFunctionUrl); }
+    return newItem;
+  }, []);
+
+  const addLinks = useCallback((/** @type {*&{menuItems: *}} */ menu) => {
+    const newMenu = { ...menu };
+    if (menu?.menuItems) {
+      newMenu.menuItems = menu.menuItems?.map(setActionFunctionUrl);
+    }
+    return newMenu;
+  }, []);
 
   return (
     <Routes>
@@ -52,17 +79,17 @@ export function Routing() {
                 break;
               case menusEnum.SECONDARY_MENU_LIBRARY:
                 menuSecondary = [
-                  allMenus.menuLibrarySecondary,
-                  allMenus.menuLibraryComponentsSecondary,
-                  allMenus.menuLibraryPatternsSecondary,
+                  addLinks(allMenus.menuLibrarySecondary),
+                  addLinks(allMenus.menuLibraryComponentsSecondary),
+                  addLinks(allMenus.menuLibraryPatternsSecondary),
                   // allMenus.menuLibraryTemplatesSecondary,
                 ];
                 break;
               case menusEnum.SECONDARY_MENU_GUIDELINES:
-                menuSecondary = [allMenus.menuGuidelinesSecondary];
+                menuSecondary = [addLinks(allMenus.menuGuidelinesSecondary)];
                 break;
               case menusEnum.SECONDARY_MENU_RESOURCES:
-                menuSecondary = [allMenus.menuResourcesSecondary];
+                menuSecondary = [addLinks(allMenus.menuResourcesSecondary)];
                 break;
               default:
                 if (page.menuSecondary) {
@@ -74,12 +101,14 @@ export function Routing() {
                 content={page.content}
                 contentRef={contentRef}
                 sidePanelLeftContent={menuSecondary && (
-                  <VerticalMenu
-                    className="menu-side-panel"
-                    currentMenuItem={currentMenuItem}
-                    // @ts-ignore
-                    menus={menuSecondary ?? null}
-                  />
+                  <nav aria-labelledby="side-bar-nav-website">
+                    <h2 id="side-bar-nav-website" className="visually-hidden">Sidebar Menu</h2>
+                    <VerticalMenu
+                      className="menu-side-panel"
+                      currentMenuItem={currentMenuItem}
+                      menus={menuSecondary ?? null}
+                    />
+                  </nav>
                 )}
                 sidePanelRightContent={<OnThisPage contentRef={contentRef} />}
               />

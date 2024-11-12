@@ -28,7 +28,11 @@ export function UtahDesignSystemContextProvider({ children, defaultSettings }) {
       {children}
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.ASSERTIVE} messages={immerHook[0].ariaLive.assertiveMessages} />
       <AriaLiveMessages ariaLiveType={ariaLiveTypes.POLITE} messages={immerHook[0].ariaLive.politeMessages} />
-      <BannersGlobal banners={immerHook[0].banners} bannerDuration={defaultSettings?.bannerDuration} />
+      <BannersGlobal
+        banners={immerHook[0].banners}
+        bannerDuration={defaultSettings?.bannerDuration}
+        defaultClassName={defaultSettings?.defaultClassName}
+      />
     </UtahDesignSystemContext.Provider>
   );
 }

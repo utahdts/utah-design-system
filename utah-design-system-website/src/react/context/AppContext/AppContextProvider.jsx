@@ -15,7 +15,7 @@ import { AppContext } from './AppContext';
 export function AppContextProvider({ children }) {
   const [appState, setAppState] = useImmer(() => ({ isColorPickerShown: false }));
   /** @type {AppContextValue} */
-  // @ts-ignore
+  // @ts-expect-error
   const contextState = useMemo(
     () => ({
       // data

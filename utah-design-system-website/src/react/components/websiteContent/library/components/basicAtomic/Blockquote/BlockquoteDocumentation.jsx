@@ -1,7 +1,5 @@
 /* eslint-disable max-len */
-import blockquoteScreenshotA from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote1.png';
-import blockquoteScreenshotB from '../../../../../../../static/images/screenshots/components/blockquote/Blockquote2.png';
-import { LightBox } from '../../../../../lightbox/LightBox';
+import { ExternalLink } from '@utahdts/utah-design-system';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
 
@@ -15,20 +13,51 @@ export function BlockquoteDocumentation() {
 
       <h2 id="section-example">Examples</h2>
       <StaticExample
+        className="static-example--blank"
         title="Quotes using a chiclet"
-        renderedExample={<LightBox image={blockquoteScreenshotA} alt="Quotes using a chiclet" className="flex-3up-gap" />}
+        renderedExample={(
+          <>
+            <p className="full-width mb-auto">
+              Arches National Park is a geological marvel, boasting over 2,000 natural stone arches, soaring pinnacles, and massive balanced rocks.
+            </p>
+            <blockquote cite="https://www.nps.gov/" className="block-quote mb-auto">
+              Earth wears down. Some rocks give way while others stand solid. They form a foundation for nature to build arches, buttes, bridges, and
+              more.
+              These features captivate the imagination. Pure art, we wonder how some still stand.<br />
+              <cite className="float-right"><ExternalLink href="https://www.nps.gov/">- nps.gov</ExternalLink></cite>
+            </blockquote>
+            <p className="full-width mb-auto">
+              This breathtaking landscape offers a stunning display of nature’s artistry, sculpted over millions of years by the forces of erosion.
+            </p>
+          </>
+        )}
         quickTips={(
           <ul>
-            <li>These block quotes use a chiclet (vertical line to the left of the quote) as a way to highlight their content.</li>
+            <li>This block quote uses a chiclet (vertical line to the left of the quote) as a way to highlight its content.</li>
           </ul>
         )}
       />
       <StaticExample
+        className="static-example--blank"
         title="Quotes using quotation marks"
-        renderedExample={<LightBox image={blockquoteScreenshotB} alt="Quotes using quotation marks" className="flex-3up-gap" />}
+        renderedExample={(
+          <>
+            <p className="full-width mb-auto">
+              Arches National Park is a geological marvel, boasting over 2,000 natural stone arches, soaring pinnacles, and massive balanced rocks.
+            </p>
+            <blockquote cite="https://www.nps.gov/" className="block-quote block-quote--quotation-marks mb-auto">
+              Earth wears down. Some rocks give way while others stand solid. They form a foundation for nature to build arches, buttes, bridges, and more.
+              These features captivate the imagination. Pure art, we wonder how some still stand.<br />
+              <cite className="float-right"><ExternalLink href="https://www.nps.gov/">- nps.gov</ExternalLink></cite>
+            </blockquote>
+            <p className="full-width mb-auto">
+              This breathtaking landscape offers a stunning display of nature’s artistry, sculpted over millions of years by the forces of erosion.
+            </p>
+          </>
+        )}
         quickTips={(
           <ul>
-            <li>These block quotes use quotation marks.</li>
+            <li>This block quote uses quotation marks.</li>
           </ul>
         )}
       />
@@ -102,7 +131,7 @@ export function BlockquoteDocumentation() {
         showBackgroundColor
         codeRaw={(`
               <figure>
-                <blockquote cite="https://visitutah.com/Places-To-Go">
+                <blockquote cite="https://visitutah.com/Places-To-Go" class="block-quote">
                     <p>These natural landscape are designated as national parks, national monuments, national forests, state parks and millions of acres of open spaces with no official designation save for "Utah".</p>
                 </blockquote>
                 <figcaption>- Utah Office of Tourism,

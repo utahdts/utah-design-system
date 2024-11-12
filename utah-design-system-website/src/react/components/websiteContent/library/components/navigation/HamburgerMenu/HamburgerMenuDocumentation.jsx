@@ -1,28 +1,43 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import { LightBox } from '../../../../../lightbox/LightBox';
+import { IconButton, useBanner } from '@utahdts/utah-design-system';
+import { useState } from 'react';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-import hamburgerClosedScreenshot from '../../../../../../../static/images/screenshots/components/hamburger-menu/hamburger-closed.jpg';
-import hamburgerOpenScreenshot from '../../../../../../../static/images/screenshots/components/hamburger-menu/hamburger-open.jpg';
-import { Disclaimer } from '../../../../Disclaimer';
 
 export function HamburgerMenuDocumentation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Hamburger Menu</h1>
       <p className="lead-in">A &quot;hamburger menu&quot; is a single button that is often used to expand and collapse a set of navigation links.</p>
-      <Disclaimer />
       <hr />
 
       <h2 id="section-example">Examples</h2>
       <StaticExample
-        title="Menu closed"
-        renderedExample={<LightBox image={hamburgerClosedScreenshot} alt="Radio Buttons" className="flex-3up-gap" />}
-      />
-      <StaticExample
-        title="Menu open"
-        renderedExample={<LightBox image={hamburgerOpenScreenshot} alt="Radio Buttons" className="flex-3up-gap" />}
+        title="Hamburger Menu Button"
+        renderedExample={(
+          <IconButton
+            className="icon-button--borderless"
+            icon={<span className={isOpen ? 'utds-icon-before-x-icon' : 'utds-icon-before-hamburger'} aria-hidden="true" />}
+            title={isOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => {
+              if (isOpen) {
+                addBanner({ message: 'Menu closed.' });
+              } else {
+                addBanner({ message: 'Menu opened.' });
+              }
+              setIsOpen(!isOpen);
+            }}
+          />
+        )}
+        quickTips={(
+          <ul>
+            <li>This example uses an <Link to={pageUrls.iconButton}>Icon Button</Link>.</li>
+            <li>The different states (opened and closed) are represented via <Link to={pageUrls.icons}>icons</Link>.</li>
+          </ul>
+        )}
       />
 
       <h2 id="section-guidance" className="mb-spacing">Description and Guidance</h2>

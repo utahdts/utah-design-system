@@ -17,7 +17,7 @@ export function useKeyEventGlobal({ whichKeyCode, onKeyDown, onKeyUp }) {
       keydownFuncRef.current = (e) => {
         if (
           e.code === whichKeyCode
-          // @ts-ignore
+          // @ts-expect-error probably don't really need to do this check on keyCode? esp if the types are mismatched?
           || e.keyCode === whichKeyCode
           || e.key === whichKeyCode
         ) {
@@ -34,15 +34,15 @@ export function useKeyEventGlobal({ whichKeyCode, onKeyDown, onKeyUp }) {
           }
         }
       };
-      // @ts-ignore
+      // @ts-expect-error ya... types here are messy
       document.addEventListener('keydown', keydownFuncRef.current);
-      // @ts-ignore
+      // @ts-expect-error ya... types here are messy
       document.addEventListener('keyup', keydownFuncRef.current);
 
       return () => {
-        // @ts-ignore
+        // @ts-expect-error ya... types here are messy
         document.removeEventListener('keydown', keydownFuncRef.current);
-        // @ts-ignore
+        // @ts-expect-error ya... types here are messy
         document.removeEventListener('keyup', keydownFuncRef.current);
         keydownFuncRef.current = null;
       };

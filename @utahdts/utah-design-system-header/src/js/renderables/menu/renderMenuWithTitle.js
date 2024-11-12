@@ -1,9 +1,6 @@
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import MenuWithTitle from './html/MenuWithTitle.html?raw';
-
-import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
+import { renderDOMSingle } from '../../misc/renderDOMSingle';
+import MenuWithTitle from './html/MenuWithTitle.html?raw';
 
 /**
  * @param {HTMLElement} menu

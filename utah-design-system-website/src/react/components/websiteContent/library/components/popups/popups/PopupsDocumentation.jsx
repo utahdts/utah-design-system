@@ -1,4 +1,7 @@
 /* eslint-disable max-len */
+import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
+import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
+
 import {
   BUTTON_APPEARANCE,
   BUTTON_TYPES,
@@ -27,10 +30,6 @@ import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeStrin
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
 import { PopupsExampleCodeReact } from './PopupsExampleCodeReact';
 import { PopupsExampleProps } from './PopupsExampleProps';
 import { PopupsExampleRender } from './PopupsExampleRender';
@@ -157,7 +156,6 @@ export function PopupsDocumentation() {
             >
               Toggle Popup
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-example1"
               id="id-for-example1"
@@ -185,7 +183,6 @@ export function PopupsDocumentation() {
             >
               Toggle Popup Example 2
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-example-2"
               hasCloseButton
@@ -229,7 +226,6 @@ export function PopupsDocumentation() {
             >
               Open Plain Menu...
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="popups-example-render-button"
               id="popups-example-render-popup"
@@ -275,7 +271,6 @@ export function PopupsDocumentation() {
             >
               Open Flyout Menu...
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="popups-example-render-button"
               id="popups-example-render-popup"
@@ -319,7 +314,6 @@ export function PopupsDocumentation() {
             >
               Toggle Editor Popup Example
             </button>
-            {/* @ts-ignore */}
             <Popup
               ariaLabelledBy="button-for-editor-example"
               className="popup__wrapper--close-button-absolute"
@@ -468,13 +462,13 @@ export function PopupsDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="segmented-button-props-css">
+        <TabGroup defaultValue="popups-props-css">
           <TabList>
-            <Tab id="segmented-button-props-css">CSS</Tab>
-            <Tab id="segmented-button-props-react">React</Tab>
+            <Tab id="popups-props-css">CSS</Tab>
+            <Tab id="popups-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="segmented-button-props-css">
+            <TabPanel tabId="popups-props-css">
               <TableWrapper>
                 <Table className="table--lines-x">
                   <TableHead>
@@ -516,7 +510,7 @@ export function PopupsDocumentation() {
                 </Table>
               </TableWrapper>
             </TabPanel>
-            <TabPanel tabId="segmented-button-props-react">
+            <TabPanel tabId="popups-props-react">
               <TableWrapper>
                 <Table className="table--lines-x">
                   <TableHead>

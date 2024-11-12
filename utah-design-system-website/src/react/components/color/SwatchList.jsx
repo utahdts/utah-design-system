@@ -80,7 +80,7 @@ export function SwatchList({ colorFamily, onColorSelected }) {
     <div className="color-family">
       <button
         className={`color-family__title ${colorIsLight ? CSS_CLASS_NAMES.COLOR_IS_LIGHT : ''}`}
-        // @ts-ignore
+        // @ts-expect-error
         style={{ backgroundColor: baseColor }}
         type="button"
         onClick={() => onColorSelected(baseColor)}
@@ -105,7 +105,7 @@ export function SwatchList({ colorFamily, onColorSelected }) {
                 <button
                   className="color-family__swatch"
                   onClick={() => onColorSelected(swatch)}
-                  // @ts-ignore
+                  // @ts-expect-error
                   style={{ backgroundColor: swatch }}
                   type="button"
                 >

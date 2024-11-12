@@ -99,7 +99,7 @@ export function ColorContrasts() {
     () => (
       USER_COLORS.reduce(
         (draftUseColorsMap, useColor) => {
-          // @ts-ignore
+          // @ts-expect-error
           draftUseColorsMap[useColor.cssVariableKey] = isLightColor(cssState[useColor.cssVariableKey]);
           return draftUseColorsMap;
         },
@@ -120,14 +120,14 @@ export function ColorContrasts() {
       <div className="color-contrast__color-swatches">
         {
           USER_COLORS.map(({ cssVariableKey, title }) => {
-            // @ts-ignore
+            // @ts-expect-error
             const isLight = userColorsIsLight[cssVariableKey];
             return (
               <Button
                 className={joinClassNames('color-contrast__color-swatch', isLight && 'color-is-light')}
                 key={`one-of-nine__${cssVariableKey}`}
                 onClick={setSelectedColorTitleCurry({ hexColor: cssState[cssVariableKey], isLight, title })}
-                // @ts-ignore
+                // @ts-expect-error
                 style={{ backgroundColor: cssState[cssVariableKey] }}
               >
                 {
@@ -147,7 +147,7 @@ export function ColorContrasts() {
               className={joinClassNames('color-contrast__color-swatch', isLight && 'color-is-light')}
               key={`gray-color__${hexColor}`}
               onClick={setSelectedColorTitleCurry({ hexColor, isLight, title })}
-              // @ts-ignore
+              // @ts-expect-error
               style={{ backgroundColor: hexColor }}
             >
               {

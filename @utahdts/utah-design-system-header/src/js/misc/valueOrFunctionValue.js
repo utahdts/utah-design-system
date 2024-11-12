@@ -4,10 +4,5 @@
  * @returns {ValueOrFunctionValueT}
  */
 export function valueOrFunctionValue(valueOrFunction) {
-  return (
-    (typeof valueOrFunction === 'function')
-      // @ts-ignore
-      ? valueOrFunction()
-      : valueOrFunction
-  );
+  return (valueOrFunction instanceof Function) ? valueOrFunction() : valueOrFunction;
 }

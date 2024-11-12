@@ -1,17 +1,3 @@
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import PopupMenuHtml from './html/PopupMenu.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
-
-// eslint-disable-next-line import/order
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { PopupPlacement } from '../../enumerations/popupPlacement';
@@ -20,8 +6,12 @@ import { findRecursive } from '../../misc/findRecursive';
 import { popupFocusHandler } from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
-import { renderPopup } from '../popup/renderPopup';
+import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
+import ChevronIconHtml from '../icons/html/ChevronIcon.html?raw';
 import { suffixForMenuItemTitle } from '../mainMenu/suffixForMenuItemTitle';
+import { renderPopup } from '../popup/renderPopup';
+import PopupMenuHtml from './html/PopupMenu.html?raw';
+import PopupMenuItemHtml from './html/PopupMenuItem.html?raw';
 
 /** @typedef {import('src/@types/jsDocTypes.d').MenuItem} MenuItem */
 /** @typedef {import('src/@types/jsDocTypes.d').PopupMenu} PopupMenu */
@@ -135,7 +125,9 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     popupMenuItem.actionFunction
     || popupMenuItem.actionUrl
     || popupMenuItem.actionFunctionUrl
-  )) {
+  )
+    && !popupMenuItem.isOverviewHidden
+  ) {
     actionMenu.unshift({
       actionFunction: popupMenuItem.actionFunction,
       actionFunctionUrl: popupMenuItem.actionFunctionUrl,

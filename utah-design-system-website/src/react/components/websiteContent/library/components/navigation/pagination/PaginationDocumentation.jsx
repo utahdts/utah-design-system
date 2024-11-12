@@ -84,8 +84,8 @@ export function PaginationDocumentation() {
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Break down large amounts of data into smaller sets.</strong>
-          Use a pagination when a page or set of data displays a significant amount of information.
+          <strong>Break down large amounts of data into smaller sets.</strong> Use
+          a pagination when a page or set of data displays a significant amount of information.
           This improves user comprehension and makes it less overwhelming for them.
         </li>
       </ul>

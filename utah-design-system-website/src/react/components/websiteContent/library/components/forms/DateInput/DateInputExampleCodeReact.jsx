@@ -19,7 +19,6 @@ export function DateInputExampleCodeReact({
       isDisabled,
       isRequired,
       label,
-      name,
       placeholder,
       showCalendarTodayButton,
       value,
@@ -39,7 +38,6 @@ export function DateInputExampleCodeReact({
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isRequired ? 'isRequired' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={name ? `name="${name}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'onClear={(e) => { /* ... do something w/ e ... */ }' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={placeholder ? `placeholder="${placeholder}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={showCalendarTodayButton ? 'showCalendarTodayButton' : null} indentLevel={1} />

@@ -1,23 +1,19 @@
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
-
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
+import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
 
 /**
  * @returns {Element}
  */
 export function LogoTitle() {
+  const utahHeaderSettings = getUtahHeaderSettings();
   const logoTitleURL = (
-    getUtahHeaderSettings().titleUrl
-    // @ts-ignore : backwards-compatibility - once upon a time, titleURL had been incorrectly cased...
-    || getUtahHeaderSettings().titleURL
+    utahHeaderSettings.titleUrl
+    // @ts-expect-error backwards compatibility
+    || /** @type {string | undefined} */ (utahHeaderSettings.titleURL)
   );
   const logoTitleWrapper = !logoTitleURL ? renderDOMSingle(LogoTitleWrapper) : renderDOMSingle(LogoTitleWrapperLink);
   if (!logoTitleWrapper) {
@@ -26,6 +22,13 @@ export function LogoTitle() {
   if (logoTitleURL) {
     logoTitleWrapper.setAttribute('href', logoTitleURL);
   }
+  // type says it can't be null, but for backwards-compatibility, it may be null
+  if (utahHeaderSettings.titleFunction) {
+    if (logoTitleWrapper.onclick) {
+      throw new Error('LogoTitle: logoTitleWrapper already has an onclick');
+    }
+    logoTitleWrapper.onclick = utahHeaderSettings.titleFunction;
+  }
 
   // Render Logo image
   const logoWrapper = logoTitleWrapper.querySelector(getCssClassSelector(domConstants.TITLE__LOGO));
@@ -33,9 +36,9 @@ export function LogoTitle() {
     throw new Error('LogoTitle: logoWrapper is null');
   }
 
-  const settingsLogo = getUtahHeaderSettings().logo;
-  const settingsShowTitle = getUtahHeaderSettings().showTitle;
-  const settingsTitle = getUtahHeaderSettings().title;
+  const settingsLogo = utahHeaderSettings.logo;
+  const settingsShowTitle = utahHeaderSettings.showTitle;
+  const settingsTitle = utahHeaderSettings.title;
   if (settingsLogo) {
     /** @type {HTMLCollection | Element} */
     let settingsLogoElement;

@@ -53,7 +53,7 @@ export function SelectExampleRender({
         }
         label={label ?? ''}
         isRequired={isRequired}
-        placeholder={'Choose favorite "Mighty 5"'}
+        placeholder='Choose favorite "Mighty 5"'
         value={value}
       >
         <SelectOption label="Arches National Park" value="arches" />

@@ -13,6 +13,7 @@ import {
   TableWrapper
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
+import { WcagRulesBlock } from './WcagRulesBlock';
 import badAltAudio from '../../../../static/audio/BadAlt.mp3';
 import goodAltAudio from '../../../../static/audio/GoodAlt.mp3';
 import accessibilityZoomBad from '../../../../static/images/accessibility-zoom-bad.png';
@@ -52,13 +53,7 @@ export function AccessibilityDocumentation() {
         by fostering a sense of inclusivity, and ultimately enhance the user experience for everyone.
       </p>
 
-      <p className="block-quote">
-        State agencies are required by statute to &quot;conform at minimum to W3C Web Content Accessibility Guidelines (WCAG) Version 2.1.
-        This guide can be used to help achieve this standard.
-        (<em><ExternalLink href="https://le.utah.gov/xcode/Title63A/Chapter16/63A-16-S209.html">§63A-16-209</ExternalLink> / <ExternalLink href="https://adminrules.utah.gov/public/rule/R895-14/Current%20Rules">R895-14</ExternalLink>. Access to Information Technology for Users with Disabilities.</em>)
-        <br />
-        In addition, all State and local government entities are required to follow the web accessibility standards under Title II of the Americans with Disabilities Act (ADA). See <ExternalLink href="https://www.ada.gov/notices/2024/03/08/web-rule/">ada.gov</ExternalLink>.
-      </p>
+      <WcagRulesBlock />
 
       <hr />
       <h2 id="section-accessibility-checklist" className="text-center mt-spacing">Accessibility Checklist</h2>
@@ -371,10 +366,10 @@ export function AccessibilityDocumentation() {
       </p>
 
       <h4 id="section-limited-vision-aaa-guidelines" className="mb-spacing">AA and AAA contrast guidelines (definitions)</h4>
-      <h5>Normal Text and Bold Text (14px - 18px)</h5>
+      <h5>Normal Text and Bold Text (14px - 23px)</h5>
       <p>General text and images of text. See <Link to={pageUrls.typography}>Typography</Link>.</p>
 
-      <h5>Large Text (19px Bold, 24px+)</h5>
+      <h5>Large Text (19px+ Bold, 24px+)</h5>
       <p>Large-scale text and images of large-scale text. See <Link to={pageUrls.typography}>Typography</Link>.</p>
 
       <h5>User Interface Components</h5>
@@ -411,14 +406,14 @@ export function AccessibilityDocumentation() {
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell>Normal text, Normal bold text</TableCell>
-              <TableCell>14px - 18px</TableCell>
-              <TableCell>.875rem - 1.125rem</TableCell>
+              <TableCell>Normal text</TableCell>
+              <TableCell>14px - 23px, (14px - 18px Bold)</TableCell>
+              <TableCell>.875rem - 1.4375rem</TableCell>
               <TableCell>4.5:1</TableCell>
               <TableCell>7:1</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Large bold text</TableCell>
+              <TableCell>Bold text</TableCell>
               <TableCell>19px+</TableCell>
               <TableCell>1.1875rem+</TableCell>
               <TableCell>3:1</TableCell>

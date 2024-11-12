@@ -18,7 +18,6 @@ export function TextAreaExampleCodeReact({
       isDisabled,
       isRequired,
       label,
-      name,
       placeholder,
       value,
     },
@@ -31,7 +30,6 @@ export function TextAreaExampleCodeReact({
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={name ? `id="${name}"` : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isClearable ? 'isClearable' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isRequired ? 'isRequired' : null} indentLevel={1} />

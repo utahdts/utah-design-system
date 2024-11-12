@@ -61,7 +61,7 @@ export function TableBodyData({
       const recordsToFilter = convertRecordsToFilterValue(newRecordsForContext, filterValues.value);
 
       // try the filter rules to see if each record should remain visible
-      // @ts-ignore
+      // @ts-expect-error
       newRecordsForContext = filterTableRecords(recordsToFilter, filterRules);
 
       let paginationBeginIndex = (
@@ -81,7 +81,7 @@ export function TableBodyData({
       setPaginatedRecords(newRecordsForContext.slice(paginationBeginIndex, paginationEndIndex));
 
       // create forContexts once for the context provider to avoid recreating objects
-      // @ts-ignore
+      // @ts-expect-error
       setRecordsForContexts(newRecordsForContext);
 
       // register the current data with the TableContext for filtering and other table global data users

@@ -147,9 +147,8 @@ export function ColorPopup({ onClose }) {
             <Button
               className="full-width"
               onClick={() => (
-                // @ts-ignore
                 setCssState((draftCssState) => (
-                  // @ts-ignore
+                  // @ts-expect-error
                   Object.entries(cssContextDefaultColors).forEach(([key, value]) => { draftCssState[key] = value; })
                 ))
               )}
@@ -214,7 +213,7 @@ export function ColorPopup({ onClose }) {
                     onClick={() => (
                       setCssState((draftCssState) => (
                         Object.keys(cssContextDefaultColors).forEach((key) => {
-                          // @ts-ignore
+                          // @ts-expect-error
                           draftCssState[key] = `#${tinycolor.random().toHex()}`;
                         })
                       ))
@@ -249,7 +248,6 @@ export function ColorPopup({ onClose }) {
                       id="primary-prime-color"
                       isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR}
                       label="Primary: Prime"
-                      // @ts-ignore
                       onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR; })}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]}
                       onChange={(newColor) => setColor(newColor)}
@@ -263,7 +261,6 @@ export function ColorPopup({ onClose }) {
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK}
                         label="Primary: Dark"
                         onChange={(newColor) => setColor(newColor)}
-                        // @ts-ignore
                         onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK; })}
                         title="Dark"
                         value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
@@ -275,7 +272,6 @@ export function ColorPopup({ onClose }) {
                         label="Primary: Light"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
-                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT; })
                         )}
                         title="Light"
@@ -292,7 +288,6 @@ export function ColorPopup({ onClose }) {
                       label="Secondary: Prime"
                       onChange={(newColor) => setColor(newColor)}
                       onClick={() => (
-                        // @ts-ignore
                         setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR; })
                       )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]}
@@ -307,7 +302,6 @@ export function ColorPopup({ onClose }) {
                         label="Secondary: Dark"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
-                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK; })
                         )}
                         title="Dark"
@@ -321,7 +315,6 @@ export function ColorPopup({ onClose }) {
                         label="Secondary: Light"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
-                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT; })
                         )}
                         title="Light"
@@ -338,7 +331,6 @@ export function ColorPopup({ onClose }) {
                       label="Accent: Prime"
                       onChange={(newColor) => setColor(newColor)}
                       onClick={() => (
-                        // @ts-ignore
                         setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR; })
                       )}
                       colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
@@ -353,7 +345,6 @@ export function ColorPopup({ onClose }) {
                         label="Accent: Dark"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
-                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK; })
                         )}
                         title="Dark"
@@ -367,7 +358,6 @@ export function ColorPopup({ onClose }) {
                         label="Accent: Light"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
-                          // @ts-ignore
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT; })
                         )}
                         title="Light"
@@ -391,14 +381,14 @@ export function ColorPopup({ onClose }) {
                             <SwatchList
                               colorFamily={color}
                               key={`swatch-list-color-${color.title}`}
-                              // @ts-ignore
+                              // @ts-expect-error
                               onColorSelected={(swatch) => setColor(swatch)}
                             />
                           ))
                         }
                       </TabPanel>
                       <TabPanel tabId="tab-group__color-contrast">
-                        {/* @ts-ignore */}
+                        {/* @ts-expect-error */}
                         <ColorContrasts colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]} />
                       </TabPanel>
                       <TabPanel tabId="tab-group__instructions">

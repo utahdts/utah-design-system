@@ -125,16 +125,16 @@ export function CheckboxDocumentation() {
 
       <h2 id="section-settings-props">Settings and Props</h2>
       <div className="documentation-content--small-text">
-        <TabGroup defaultValue="button-props-css">
+        <TabGroup defaultValue="checkbox-props-css">
           <TabList>
-            <Tab id="button-props-css">CSS</Tab>
-            <Tab id="button-props-react">React</Tab>
+            <Tab id="checkbox-props-css">CSS</Tab>
+            <Tab id="checkbox-props-react">React</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel tabId="button-props-css">
+            <TabPanel tabId="checkbox-props-css">
               <CheckboxCssClassesDocumentation />
             </TabPanel>
-            <TabPanel tabId="button-props-react">
+            <TabPanel tabId="checkbox-props-react">
               <CheckboxPropsDocumentation />
             </TabPanel>
           </TabPanels>

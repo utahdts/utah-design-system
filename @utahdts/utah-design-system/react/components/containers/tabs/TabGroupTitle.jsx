@@ -11,7 +11,7 @@ import { useTabGroupContext } from './context/useTabGroupContext';
 export function TabGroupTitle({ children, className, tagName: TagName = 'div' }) {
   const { tabGroupId } = useTabGroupContext();
   return (
-    // @ts-ignore
+    // @ts-expect-error
     <TagName id={`tab-group-${tabGroupId}`} className={joinClassNames('tag-group__title', className)}>
       {children}
     </TagName>

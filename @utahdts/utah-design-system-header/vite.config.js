@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 
-export default defineConfig(({ command, mode, ssrBuild }) => {
+export default defineConfig(({ mode }) => {
   // throw new Error(`header mode: '${mode}'`);
   return {
     build: {
@@ -20,6 +20,13 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         fileName: (format) => `utah-design-system-header.${format}.js`,
       },
       sourceMap: 'inline',
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern'
+        }
+      }
     },
     plugins: [
       eslintPlugin(),

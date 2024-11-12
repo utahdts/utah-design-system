@@ -17,7 +17,7 @@ export function parseHeaderSettings(settingsString) {
   try {
     resultSettings = JSON.parse(settingsString);
   } catch (e) {
-    // @ts-ignore
+    // @ts-expect-error e is an exception so all good
     throw new ParseHeaderSettingsError(e);
   }
 

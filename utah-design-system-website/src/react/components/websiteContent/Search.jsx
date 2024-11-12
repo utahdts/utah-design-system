@@ -32,7 +32,7 @@ export function Search() {
 
   const skipOnClick = useCallback((/** @type {MouseEvent} */ e) => {
     e.preventDefault();
-    // @ts-ignore
+    // @ts-expect-error
     contentRef?.current?.focus();
   }, []);
 

@@ -39,7 +39,7 @@ export function Modal({
 
   useEffect(() => {
     if (ref) {
-      // @ts-ignore
+      // @ts-expect-error
       const list = getFocusableElements(ref.current);
       if (list.length) {
         const firstElement = list[0];

@@ -40,7 +40,7 @@ export function LightBox({
           });
         }}
       >
-        {/* @ts-ignore */}
+        {/* @ts-expect-error */}
         <img src={image} alt={alt} />
         {hideAlt ? null : <span className="lightbox__button-text hcenter">{alt}</span>}
       </button>
@@ -60,7 +60,7 @@ export function LightBox({
               });
             }}
           >
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */}
             <img src={image} alt={alt} />
             <div className="lightbox__popup-text">{alt}</div>
           </div>

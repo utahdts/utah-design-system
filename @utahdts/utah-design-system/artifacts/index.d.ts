@@ -30,7 +30,7 @@ declare module "@utahdts/utah-design-system" {
     offset?: [number, number] | undefined;
     placement?: import("@utahdts/utah-design-system-header").PopupPlacement | undefined;
     referenceElement: HTMLElement | null;
-  }): JSX.Element;
+  }): React.JSX.Element;
   export namespace formElementSizesEnum {
     let SMALL3X: FormElementSizes;
     let SMALL2X: FormElementSizes;
@@ -67,7 +67,7 @@ declare module "@utahdts/utah-design-system" {
     children: React.ReactNode;
     isClicked: boolean;
   }): React.JSX.Element;
-  export function ConfirmationButton({ appearance, children, className, color, confirmationColor, innerRef, isBusy, isDisabled, id, onClick, size, type, ...rest }: {
+  export function ConfirmationButton({ appearance, children, className, color, confirmationColor, id, innerRef, isBusy, isDisabled, onClick, size, type, ...rest }: {
     appearance?: ButtonAppearance | undefined;
     children: React.ReactNode;
     className?: string | undefined;
@@ -134,7 +134,7 @@ declare module "@utahdts/utah-design-system" {
     onToggle?: ((previousIsOpen: boolean) => void) | undefined;
   }): React.JSX.Element;
   export const UtahDesignSystemContext: React.Context<ImmerHookUtahDesignSystemContext>;
-  export function useUtahDesignSystemContext(): import("use-immer").ImmerHook<UtahDesignSystemContextValue>;
+  export function useUtahDesignSystemContext(): ImmerHookUtahDesignSystemContext;
   export type ImmerHookUtahDesignSystemContext = import("use-immer").ImmerHook<UtahDesignSystemContextValue>;
   export function useAriaMessaging(): {
     addAssertiveMessage: (message: string) => void;
@@ -229,31 +229,11 @@ declare module "@utahdts/utah-design-system" {
     errorMessage?: string | undefined;
     id: string;
   }): React.JSX.Element | null;
-  export function valueAtPath<ObjectT, ValueT>({ object, path }: {
-    object: ObjectT | null;
-    path: string;
-  }): ValueT;
-  export function useFormContext(): FormContextValue<any>;
-  export function useFormContextInputValue<FormContextT, ValueT>({ defaultValue, id, onChange, onClear, value, }: {
-    defaultValue?: ValueT | undefined;
-    id: string;
-    onChange?: ((newValue: string) => void) | undefined;
-    onClear?: (() => void) | undefined;
-    value?: ValueT | undefined;
-  }): useFormContextInputValueResult<FormContextT, ValueT>;
-  export type useFormContextInputValueResult<FormContextT, ValueT> = {
-    onChange: (newValue: ValueT) => void;
-    onClear: () => void;
-    value?: ValueT | undefined;
-    setState?: import("use-immer").Updater<FormContextT> | undefined;
-    state?: FormContextT | undefined;
-  };
   export function RequiredStar(): import("react/jsx-runtime").JSX.Element;
   export function calendarGrid(focusDate: Date | null, selectedDate: Date | null): CalendarGridMonth;
-  export function CalendarInput({ className, dateFormat, defaultValue, errorMessage, id, innerRef, isDisabled, isHidden, isRequired, label, labelClassName, onChange, shouldSetFocusOnMount, showTodayButton, value, wrapperClassName, ...rest }: {
+  export function CalendarInput({ className, dateFormat, errorMessage, id, innerRef, isDisabled, isHidden, isRequired, label, labelClassName, onChange, shouldSetFocusOnMount, showTodayButton, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     dateFormat?: string | undefined;
-    defaultValue?: string | undefined;
     errorMessage?: string | undefined;
     id: string;
     innerRef?: React.RefObject<HTMLDivElement> | undefined;
@@ -262,7 +242,7 @@ declare module "@utahdts/utah-design-system" {
     isRequired?: boolean | undefined;
     label: string;
     labelClassName?: string | undefined;
-    onChange?: ((newValue: string) => void) | undefined;
+    onChange: (newValue: string) => void;
     shouldSetFocusOnMount?: boolean | undefined;
     showTodayButton?: boolean | undefined;
     value?: string | null | undefined;
@@ -275,17 +255,7 @@ declare module "@utahdts/utah-design-system" {
     maxLength: number;
     text?: string | null | undefined;
   }): React.JSX.Element | null;
-  export function useFormContextInput<FormContextT, ValueT, HTMLElementT>({ defaultValue, id, onChange, onClear, onKeyUp, onSubmit, value, }: {
-    defaultValue?: ValueT | undefined;
-    id: string;
-    onChange?: React.ChangeEventHandler<HTMLElementT> | undefined;
-    onKeyUp?: React.KeyboardEventHandler<HTMLElementT> | undefined;
-    onClear?: React.UIEventHandler<HTMLElementT> | undefined;
-    onSubmit?: React.ChangeEventHandler<HTMLElementT> | undefined;
-    value?: ValueT | undefined;
-  }): useFormContextInputResult<FormContextT, ValueT, HTMLElementT>;
-  export type FormEvent<FormEventT> = React.FormEvent<FormEventT>;
-  export function Checkbox({ className, defaultValue, errorMessage, innerRef, id, isDisabled, isRequired, label, labelClassName, name, onChange, onSubmit, value, wrapperClassName, ...rest }: {
+  export function Checkbox({ className, defaultValue, errorMessage, innerRef, id, isDisabled, isRequired, label, labelClassName, name, onChange, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     defaultValue?: boolean | undefined;
     errorMessage?: string | undefined;
@@ -297,15 +267,11 @@ declare module "@utahdts/utah-design-system" {
     labelClassName?: string | undefined;
     name?: string | undefined;
     onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    onSubmit?: (() => void) | undefined;
     value?: boolean | undefined;
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
-  export const MultiSelectContext: React.Context<MultiSelectContext>;
   export function useMultiSelectContext(): MultiSelectContext;
-  export type MultiSelectContextType = MultiSelectContext;
-  export const ComboBoxContext: React.Context<ComboBoxContext>;
-  export function ComboBoxContextProvider({ children, comboBoxId, defaultValue, isValueClearedOnSelection, onChange, onClear, onKeyUp, onSubmit, value, }: {
+  export function ComboBoxContextProvider({ children, comboBoxId, defaultValue, isValueClearedOnSelection, onChange, onClear, onKeyUp, value, }: {
     children: React.ReactNode;
     comboBoxId: string;
     defaultValue?: string | undefined;
@@ -313,19 +279,16 @@ declare module "@utahdts/utah-design-system" {
     onChange?: ((newValue: string) => void) | undefined;
     onClear?: (() => void) | undefined;
     onKeyUp?: ((e: Event, currentFilterValue: string) => boolean) | undefined;
-    onSubmit?: (() => void) | undefined;
     value?: string | undefined;
   }): React.JSX.Element;
-  export type MutableRefObject<MutableRefObjectT> = React.MutableRefObject<MutableRefObjectT>;
-  export type Updater<UpdaterT> = import("use-immer").Updater<UpdaterT>;
   export function useDebounceFunc(func: (...args: any[]) => void, delay?: number | undefined): (...args: any[]) => Promise<any[]>;
-  export type ComboBoxContextType = ComboBoxContext;
+  export function useComboBoxContext(): ComboBoxContext;
   export const ComboBoxOptionGroupContext: React.Context<string>;
   export function useComboBoxOptionGroupContext(): ComboBoxOptionGroupContextValue;
   export function isOptionGroupVisible(optionGroupId: string | null, optionLabel: string, optionsFiltered: ComboBoxOptionType[], selectedValues: string[]): boolean;
   export function moveComboBoxSelectionDown(draftContext: import("immer").Draft<ComboBoxContextValue>, multiSelectContext: MultiSelectContextValue): void;
   export function moveComboBoxSelectionUp(draftContext: import("immer").Draft<ComboBoxContextValue>, textInput: HTMLInputElement | null, multiSelectContext: MultiSelectContextValue): void;
-  export function selectComboBoxSelection(draftContext: import("immer").Draft<ComboBoxContextValue>, textInput: HTMLInputElement | null, onSubmit: (() => void) | undefined): void;
+  export function selectComboBoxSelection(draftContext: import("immer").Draft<ComboBoxContextValue>, textInput: HTMLInputElement | null): void;
   export function ComboBoxOption({ children, className, isDisabled, identifiesWithOptionGroupId, isStatic, isHidden, label, value, ...rest }: {
     children?: React.ReactNode;
     className?: string | undefined;
@@ -344,7 +307,7 @@ declare module "@utahdts/utah-design-system" {
     id: string;
   }): React.JSX.Element;
   export function useRememberCursorPosition(ref: React.RefObject<HTMLElement>, value: string): React.ChangeEventHandler<HTMLElement>;
-  export function TextInput({ className, clearIconRef, defaultValue, errorMessage, innerRef, id, isClearable, isDisabled, isLabelSkipped, isRequired, isShowingClearableIcon, label, labelClassName, name, onChange, onClear, onKeyUp, onSubmit, placeholder, rightContent, value, wrapperClassName, ...rest }: {
+  export function TextInput({ className, clearIconRef, defaultValue, errorMessage, innerRef, id, isClearable, isDisabled, isLabelSkipped, isRequired, isShowingClearableIcon, label, labelClassName, name, onChange, onClear, onKeyUp, placeholder, rightContent, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     clearIconRef?: React.MutableRefObject<HTMLButtonElement | null> | undefined;
     defaultValue?: string | undefined;
@@ -362,14 +325,13 @@ declare module "@utahdts/utah-design-system" {
     onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     onKeyUp?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
     onClear?: React.UIEventHandler<HTMLInputElement> | undefined;
-    onSubmit?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     placeholder?: string | undefined;
     rightContent?: React.ReactNode;
     value?: string | undefined;
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
   export function clearComboBoxSelection(draftContext: import("immer").Draft<ComboBoxContextValue>): void;
-  export function ComboBoxTextInput({ allowCustomEntry, className, comboBoxListId, errorMessage, iconCallback, id, innerRef: draftInnerRef, isClearable, isShowingClearableIcon, isDisabled, onBlur, onClear, onCustomEntry, onKeyUp, onSubmit, placeholder, ...rest }: {
+  export function ComboBoxTextInput({ allowCustomEntry, className, comboBoxListId, errorMessage, iconCallback, id, innerRef: draftInnerRef, isClearable, isShowingClearableIcon, isDisabled, onBlur, onClear, onCustomEntry, onKeyUp, placeholder, ...rest }: {
     allowCustomEntry?: boolean | undefined;
     className?: string | undefined;
     comboBoxListId: string;
@@ -388,11 +350,10 @@ declare module "@utahdts/utah-design-system" {
     onClear?: EventAction | undefined;
     onCustomEntry?: ((customValue: string) => void) | undefined;
     onKeyUp?: ((e: Event, currentFilterValue: string) => boolean) | undefined;
-    onSubmit?: (() => void) | undefined;
     placeholder?: string | undefined;
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
-  export function ComboBox({ allowCustomEntry, children, className, defaultValue, errorMessage, iconCallback, id, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, isShowingClearableIcon, label, labelClassName, name, onChange, onCustomEntry, onClear, onKeyUp, onSubmit, placeholder, popperContentRef, isValueClearedOnSelection, isWrapperSkipped, tagChildren, textInputClassName, value, wrapperClassName, ...rest }: {
+  export function ComboBox({ allowCustomEntry, children, className, defaultValue, errorMessage, iconCallback, id, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, isShowingClearableIcon, label, labelClassName, name, onChange, onCustomEntry, onClear, onKeyUp, placeholder, popperContentRef, isValueClearedOnSelection, isWrapperSkipped, tagChildren, textInputClassName, value, wrapperClassName, ...rest }: {
     allowCustomEntry?: boolean | undefined;
     children?: React.ReactNode;
     className?: string | undefined;
@@ -414,7 +375,6 @@ declare module "@utahdts/utah-design-system" {
     onClear?: (() => void) | undefined;
     onCustomEntry?: ((customValue: string) => void) | undefined;
     onKeyUp?: ((e: Event, currentFilterValue: string) => boolean) | undefined;
-    onSubmit?: (() => void) | undefined;
     placeholder?: string | undefined;
     popperContentRef?: HTMLElement | null | undefined;
     tagChildren?: React.ReactNode;
@@ -435,7 +395,8 @@ declare module "@utahdts/utah-design-system" {
   export type UseIntervalOptions = {
     isDisabled?: boolean | undefined;
   };
-  export function DateInput({ className, dateFormat, defaultValue, errorMessage, hasCalendarPopup, id, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, label, labelClassName, name, onChange, onClear, placeholder, showCalendarTodayButton, value, wrapperClassName, ...rest }: {
+  export function DateInput({ ariaLabel, className, dateFormat, defaultValue, errorMessage, hasCalendarPopup, id, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, label, labelClassName, name, onChange, onClear, onKeyUp, placeholder, showCalendarTodayButton, value, wrapperClassName, ...rest }: {
+    ariaLabel?: string | undefined;
     className?: string | undefined;
     dateFormat?: string | undefined;
     defaultValue?: string | undefined;
@@ -451,6 +412,7 @@ declare module "@utahdts/utah-design-system" {
     name?: string | undefined;
     onChange?: ((newValue: string) => void) | undefined;
     onClear?: (() => void) | undefined;
+    onKeyUp?: ((e: React.KeyboardEvent<HTMLInputElement>) => void) | undefined;
     placeholder?: string | undefined;
     showCalendarTodayButton?: boolean | undefined;
     value?: string | undefined;
@@ -469,37 +431,12 @@ declare module "@utahdts/utah-design-system" {
     label: string;
     multiple?: boolean | undefined;
     name?: string | undefined;
-    onChange?: ((files: FileList | null, event: import('react').ChangeEvent<HTMLInputElement>) => void) | undefined;
+    onChange?: ((files: FileList | null, event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     value?: FileList | undefined;
   }): React.JSX.Element;
-  export function notNull<T>(value: T, errorMessage: string): NonNullable<T>;
-  export function setValueAtPath<SetValueAtPathT>({ object, path, value }: {
-    object: Record<string, any>;
-    path: string;
-    value: SetValueAtPathT;
-  }): Record<string, any>;
-  export function FormContextProvider<FormContextStateT>({ children, onChange, onSubmit, setState, state, }: {
-    children: import('react').ReactNode;
-    onChange?: ((param: {
-      e?: React.ChangeEvent;
-      fieldPath: string;
-      value: any;
-    }) => void) | undefined;
-    onSubmit?: React.ChangeEventHandler<HTMLElement> | undefined;
-    setState: import("use-immer").Updater<FormContextStateT>;
-    state: FormContextStateT;
-  }): React.JSX.Element;
-  export function Form<FormContextStateT>({ children, className, onChange, onSubmit, setState, state, ...rest }: {
+  export function Form({ children, className, ...rest }: {
     children: React.ReactNode;
     className?: string | undefined;
-    onChange?: ((param: {
-      e?: React.ChangeEvent;
-      fieldPath: string;
-      value: any;
-    }) => void) | undefined;
-    onSubmit?: ((e?: React.ChangeEvent) => void) | undefined;
-    setState?: import("use-immer").Updater<FormContextStateT> | undefined;
-    state?: FormContextStateT | undefined;
   }): React.JSX.Element;
   export function MultiSelectClearIcon({ isClearable, isDisabled, }: {
     isClearable?: boolean | undefined;
@@ -514,7 +451,7 @@ declare module "@utahdts/utah-design-system" {
   export function MultiSelectTags({ isDisabled }: {
     isDisabled: boolean | undefined;
   }): React.JSX.Element;
-  export function MultiSelectComboBox({ allowCustomEntry, children, className, errorMessage, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, label, labelClassName, name, onCustomEntry, placeholder, wrapperClassName, ...rest }: {
+  export function MultiSelectComboBox({ allowCustomEntry, children, className, errorMessage, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, label, labelClassName, name, onBlur, onCustomEntry, onFocus, placeholder, wrapperClassName, ...rest }: {
     allowCustomEntry?: boolean | undefined;
     children?: React.ReactNode;
     className?: string | undefined;
@@ -526,6 +463,8 @@ declare module "@utahdts/utah-design-system" {
     label: string;
     labelClassName?: string | undefined;
     name?: string | undefined;
+    onBlur?: React.UIEventHandler<Element> | undefined;
+    onFocus?: React.UIEventHandler<Element> | undefined;
     onCustomEntry?: ((customValue: string) => void) | undefined;
     placeholder?: string | undefined;
     wrapperClassName?: string | undefined;
@@ -585,8 +524,7 @@ declare module "@utahdts/utah-design-system" {
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
   export function useRadioButtonGroupContext(): RadioButtonGroupContext;
-  export type RadioButtonGroupContextType = RadioButtonGroupContext;
-  export function RadioButton({ className, defaultIsChecked, id, isDisabled, innerRef, label, labelClassName, name, value, wrapperClassName, ...rest }: {
+  export function RadioButton({ className, defaultIsChecked, id, innerRef, isDisabled, label, labelClassName, name, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     defaultIsChecked?: boolean | undefined;
     innerRef?: React.RefObject<HTMLDivElement> | undefined;
@@ -623,7 +561,7 @@ declare module "@utahdts/utah-design-system" {
     label: string;
     value: string | number;
   }): React.JSX.Element;
-  export function Select({ children, className, defaultValue, errorMessage, innerRef, id, isClearable, isDisabled, isRequired, label, labelClassName, name, onChange, onClear, onSubmit, placeholder, value, wrapperClassName, ...rest }: {
+  export function Select({ children, className, defaultValue, errorMessage, innerRef, id, isClearable, isDisabled, isRequired, label, labelClassName, name, onChange, onClear, placeholder, value, wrapperClassName, ...rest }: {
     children?: React.ReactNode;
     className?: string | undefined;
     defaultValue?: string | undefined;
@@ -638,7 +576,6 @@ declare module "@utahdts/utah-design-system" {
     name?: string | undefined;
     onChange?: React.ChangeEventHandler<Element> | undefined;
     onClear?: React.UIEventHandler<Element> | undefined;
-    onSubmit?: (() => void) | undefined;
     placeholder?: string | undefined;
     value?: string | undefined;
     wrapperClassName?: string | undefined;
@@ -661,7 +598,7 @@ declare module "@utahdts/utah-design-system" {
     value?: boolean | undefined;
     width?: number | undefined;
   }): React.JSX.Element;
-  export function TextArea({ className, defaultValue, errorMessage, innerRef, id, isClearable, isDisabled, isRequired, label, labelClassName, name, onChange, onClear, onSubmit, placeholder, value, wrapperClassName, ...rest }: {
+  export function TextArea({ className, defaultValue, errorMessage, innerRef, id, isClearable, isDisabled, isRequired, label, labelClassName, name, onChange, onClear, placeholder, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
     defaultValue?: string | undefined;
     errorMessage?: string | undefined;
@@ -675,7 +612,6 @@ declare module "@utahdts/utah-design-system" {
     name?: string | undefined;
     onChange?: React.ChangeEventHandler<Element> | undefined;
     onClear?: React.UIEventHandler<Element> | undefined;
-    onSubmit?: (() => void) | undefined;
     placeholder?: string | undefined;
     value?: string | undefined;
     wrapperClassName?: string | undefined;
@@ -712,6 +648,12 @@ declare module "@utahdts/utah-design-system" {
     let VERTICAL: MenuTypes;
     let HORIZONTAL: MenuTypes;
   }
+  export function MenuItemNavLink({ currentMenuItem, innerRef, menuItem, menuType, }: {
+    currentMenuItem?: WebsiteMainMenu | WebsiteMainMenuItem | undefined;
+    innerRef?: React.RefObject<HTMLAnchorElement> | undefined;
+    menuItem: WebsiteMainMenuItem & VerticalMenuMenuItemAdditions;
+    menuType?: MenuTypes | undefined;
+  }): React.JSX.Element;
   export function MenuItemInline({ currentMenuItem, menuItem, menuType, }: {
     currentMenuItem?: WebsiteMainMenu | WebsiteMainMenuItem | undefined;
     menuItem: WebsiteMainMenuItem & VerticalMenuMenuItemAdditions;
@@ -740,6 +682,7 @@ declare module "@utahdts/utah-design-system" {
     level: 2 | 3 | 4;
     children: Header[];
   };
+  export function notNull<T>(value: T, errorMessage: string): NonNullable<T>;
   export function notNullArray<T>(array: T[] | null | undefined, errorMessage: string): NonNullable<T>[];
   export function findElementsByTagNameMatch(element: HTMLElement | null): Element[];
   export function groupElementsByHeaderLevel(headers: Element[]): HierarchyNode[];
@@ -854,7 +797,7 @@ declare module "@utahdts/utah-design-system" {
     onKeyDown?: React.KeyboardEventHandler<KeyboardEventHandlerT> | undefined;
     onKeyUp?: React.KeyboardEventHandler<KeyboardEventHandlerT> | undefined;
   }): boolean;
-  export function Popup({ ariaLabelledBy, children, className, hasCloseButton, id, innerRef: draftInnerRef, isVisible, offset, onVisibleChange, placement, referenceElement, role, ...rest }: {
+  export function Popup({ ariaLabelledBy, children, className, hasCloseButton, id, innerRef: draftInnerRef, isVisible, offset, onVisibleChange, placement, popperUpdateDependencies, referenceElement, role, ...rest }: {
     ariaLabelledBy: string;
     children: React.ReactNode;
     className?: string | undefined;
@@ -865,8 +808,9 @@ declare module "@utahdts/utah-design-system" {
     offset?: [number, number] | undefined;
     onVisibleChange: (e: React.UIEvent, isVisible: boolean) => void;
     placement?: import("@utahdts/utah-design-system-header").PopupPlacement | undefined;
+    popperUpdateDependencies?: any[] | undefined;
     referenceElement: React.RefObject<HTMLElement | null>;
-    role: 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree';
+    role: "dialog" | "grid" | "listbox" | "menu" | "tree";
   }): React.JSX.Element;
   export function Table({ children, className, id, innerRef, ...rest }: {
     children: React.ReactNode;
@@ -882,15 +826,20 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export function chainSorters(sorters: ((a: any, b: any, ...rest: any[]) => number)[], ...sorterParams: any): (a: any, b: any) => number;
   export function notNullMap<T>(value: T): NonNullable<T>;
-  export const TableBodyDataRowContext: React.Context<TableBodyDataRowContextValue<any>>;
-  export const TableContext: React.Context<TableContextValue<any>>;
+  export function valueAtPath<ObjectT, ValueT>({ object, path }: {
+    object: ObjectT | null;
+    path: string;
+  }): ValueT;
   export function useTableContext(): TableContextValue<any>;
   export function toSafeString(value: string | number | null | undefined): string;
-  export function convertRecordsToFilterValue(records: TableRecord[], filterValues: Record<string, TableFilterValue>): TableRecordForFiltering[];
-  export function createTableFilterFunctions(filterValues: Record<string, TableFilterValue>): Record<string, TableFilterFunction>;
+  export function convertRecordsToFilterValue(records: TableRecord[], filterValues: Record<string, TableContextStateFilterValue>): TableRecordForFiltering[];
+  export namespace tableConstants {
+    let dateFilterSeparator: string;
+  }
+  export function createTableFilterFunctions(filterValues: Record<string, TableContextStateFilterValue>): Record<string, TableFilterFunction>;
   export function filterTableRecords(records: TableRecordForFiltering[], filterRules: Record<string, TableFilterFunction>): TableRecord[];
   export function TableBodyData<RecordT>({ children, recordIdField, records, }: {
-    children: import('react').ReactNode;
+    children: React.ReactNode;
     recordIdField: string;
     records: (RecordT & object)[];
   }): React.JSX.Element[] | null;
@@ -905,14 +854,14 @@ declare module "@utahdts/utah-design-system" {
     className?: string | undefined;
     id?: string | undefined;
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
-    onClick?: ((param: TableBodyDataRowContextValue<TableDataT> & {
+    onClick?: ((param: (TableBodyDataRowContextValue<TableDataT> & {
       e: React.MouseEvent;
       record: TableDataT;
-    }) => void) | undefined;
-    onDoubleClick?: ((param: TableBodyDataRowContextValue<TableDataT> & {
+    })) => void) | undefined;
+    onDoubleClick?: ((param: (TableBodyDataRowContextValue<TableDataT> & {
       e: React.MouseEvent;
       record: TableDataT;
-    }) => void) | undefined;
+    })) => void) | undefined;
     recordFieldPath?: string | undefined;
   }): React.JSX.Element;
   export function TableRow({ children, className, innerRef, id, onClick, onDoubleClick, ...rest }: {
@@ -927,26 +876,31 @@ declare module "@utahdts/utah-design-system" {
     children: React.ReactNode;
     className?: string | ((rowContextData: TableBodyDataRowContextValue<TableDataT>) => string) | undefined;
     innerRef?: React.RefObject<HTMLTableRowElement> | undefined;
-    onClick?: ((param: TableBodyDataRowContextValue<TableDataT> & {
+    onClick?: ((param: (TableBodyDataRowContextValue<TableDataT> & {
       e: React.MouseEvent;
-    }) => void) | undefined;
-    onDoubleClick?: ((param: TableBodyDataRowContextValue<TableDataT> & {
+    })) => void) | undefined;
+    onDoubleClick?: ((param: (TableBodyDataRowContextValue<TableDataT> & {
       e: React.MouseEvent;
-    }) => void) | undefined;
+    })) => void) | undefined;
   }): React.JSX.Element;
-  export function useTableFilterRegistration<TableDataT>(recordFieldPath: string, exactMatch: boolean, defaultValue: TableDataT): void;
-  export function useCurrentValuesFromStateContext<TableDataT>({ contextStatePath, defaultOnChange, defaultValue, onChange, value, }: {
+  export function useTableFilterRegistration(recordFieldPath: string, defaultValue: string | number | undefined | null, filterOptions: TableContextStateFilterValueOptions): void;
+  export function setValueAtPath<SetValueAtPathT>({ object, path, value }: {
+    object: Record<string, any>;
+    path: string;
+    value: SetValueAtPathT;
+  }): Record<string, any>;
+  export function useCurrentValuesFromStateContext<ChangeEventT, TableDataT>({ contextStatePath, defaultOnChange, defaultValue, onChange, value, }: {
     contextStatePath: string;
-    defaultOnChange: (e: React.ChangeEvent) => TableDataT;
+    defaultOnChange: (e: ChangeEventT) => TableDataT;
     defaultValue: TableDataT | null;
-    onChange?: ((e: React.ChangeEvent) => TableDataT) | undefined;
+    onChange?: ((e: ChangeEventT) => void) | undefined;
     value: TableDataT | null;
   }): {
-    currentOnChange: (e: React.ChangeEvent) => TableDataT;
-    currentValue: TableDataT | null;
+    currentOnChange: (e: ChangeEventT) => TableDataT;
+    currentValue: (TableDataT | null);
     setValue: (newValue: TableDataT) => void;
   };
-  export function TableFilterComboBox({ children, className, defaultValue, exactMatch, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export function TableFilterComboBox({ a11yLabel, children, className, defaultValue, exactMatch, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
     children?: React.ReactNode;
     className?: string | undefined;
     defaultValue?: string | number | undefined;
@@ -955,10 +909,11 @@ declare module "@utahdts/utah-design-system" {
     id?: string | undefined;
     a11yLabel: string;
     onChange?: (() => {}) | undefined;
+    placeholder?: string | undefined;
     recordFieldPath: string;
     value?: string | number | undefined;
   }): React.JSX.Element;
-  export function TableFilterComboBoxAllOptions({ className, defaultValue, exactMatch, id, innerRef, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export function TableFilterComboBoxAllOptions({ a11yLabel, className, defaultValue, exactMatch, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
     defaultValue?: string | number | undefined;
     exactMatch?: boolean | undefined;
@@ -966,6 +921,7 @@ declare module "@utahdts/utah-design-system" {
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
     a11yLabel: string;
     onChange?: (() => {}) | undefined;
+    placeholder?: string | undefined;
     recordFieldPath: string;
     value?: string | undefined;
   }): React.JSX.Element;
@@ -987,15 +943,32 @@ declare module "@utahdts/utah-design-system" {
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
   }): React.JSX.Element;
   export type SetterFunc = (setter: ((param: TableContextStateFilterValueObject) => void)) => void;
-  export function TableFilterDate<TableDataT>({ className, defaultValue, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export function TableFilterDateRangeButtonTitle({ currentValue, placeholder }: {
+    currentValue: string | null;
+    placeholder?: string | undefined;
+  }): React.JSX.Element;
+  export function TableFilterDateRangePopup({ dateFormat, id, isPopupOpen, onChange, popperReferenceElement, setIsPopupOpen, tableFilterDateId, value, }: {
+    dateFormat?: string | undefined;
+    id: string;
+    isPopupOpen: boolean;
+    onChange: (newValue: string) => void;
+    popperReferenceElement: React.RefObject<HTMLDivElement>;
+    setIsPopupOpen: (isPopupOpen: boolean) => void;
+    tableFilterDateId: string;
+    value: string;
+  }): React.JSX.Element;
+  export type BeginEndDate = "BEGIN" | "END";
+  export function TableFilterDateRange({ className, dateFormat, defaultValue, innerRef, id, a11yLabel, onChange, placeholder, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
-    defaultValue?: TableDataT | undefined;
+    dateFormat?: string | undefined;
+    defaultValue?: string | undefined;
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
-    id?: string | undefined;
+    id: string;
     a11yLabel: string;
-    onChange?: ((e: React.ChangeEvent) => TableDataT) | undefined;
+    onChange?: ((newValue: string) => void) | undefined;
+    placeholder?: string | undefined;
     recordFieldPath: string;
-    value?: TableDataT | undefined;
+    value?: string | undefined;
   }): React.JSX.Element;
   export function TableFilterNone({ children, className, id, innerRef, ...rest }: {
     children?: React.ReactNode;
@@ -1003,7 +976,7 @@ declare module "@utahdts/utah-design-system" {
     id?: string | undefined;
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
   }): React.JSX.Element;
-  export function TableFilterSelect<TableDataT>({ children, className, defaultValue, exactMatch, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export function TableFilterSelect<TableDataT>({ a11yLabel, children, className, defaultValue, exactMatch, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
     children?: React.ReactNode;
     className?: string | undefined;
     defaultValue?: string | number | undefined;
@@ -1012,10 +985,11 @@ declare module "@utahdts/utah-design-system" {
     id?: string | undefined;
     a11yLabel: string;
     onChange?: ((e: React.ChangeEvent) => TableDataT) | undefined;
+    placeholder?: string | undefined;
     recordFieldPath: string;
     value?: string | number | undefined;
   }): React.JSX.Element;
-  export function TableFilterSelectAllOptions({ className, defaultValue, exactMatch, id, innerRef, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export function TableFilterSelectAllOptions({ a11yLabel, className, defaultValue, exactMatch, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
     defaultValue?: string | number | undefined;
     exactMatch?: boolean | undefined;
@@ -1023,6 +997,7 @@ declare module "@utahdts/utah-design-system" {
     innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
     a11yLabel: string;
     onChange?: (() => {}) | undefined;
+    placeholder?: string | undefined;
     recordFieldPath: string;
     value?: string | undefined;
   }): React.JSX.Element;
@@ -1032,7 +1007,7 @@ declare module "@utahdts/utah-design-system" {
     label: string;
     value: string | number;
   }): React.JSX.Element;
-  export function TableFilterTextInput({ className, defaultValue, exactMatch, innerRef, id, a11yLabel, onChange, recordFieldPath, value, ...rest }: {
+  export function TableFilterTextInput({ a11yLabel, className, defaultValue, exactMatch, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
     defaultValue?: string | undefined;
     exactMatch?: boolean | undefined;
@@ -1040,10 +1015,11 @@ declare module "@utahdts/utah-design-system" {
     id?: string | undefined;
     a11yLabel: string;
     onChange?: ((e: React.ChangeEvent) => (string | void | undefined)) | undefined;
+    placeholder?: string | undefined;
     recordFieldPath: string;
     value?: string | undefined;
   }): React.JSX.Element;
-  export function TableFilters<TableDataT>({ children, className, defaultValue, innerRef, id, onChange, value, ...rest }: {
+  export function TableFilters<TableDataT>({ children, className, defaultValue, id, innerRef, onChange, value, ...rest }: {
     children: React.ReactNode;
     className?: string | undefined;
     defaultValue?: TableContextStateFilterValueObject | undefined;
@@ -1073,13 +1049,13 @@ declare module "@utahdts/utah-design-system" {
     id?: string | undefined;
     innerRef?: React.RefObject<HTMLTableRowElement> | undefined;
   }): React.JSX.Element;
-  export function TableHead({ children, className, innerRef, id, ...rest }: {
+  export function TableHead({ children, className, id, innerRef, ...rest }: {
     children: React.ReactNode;
     className?: string | undefined;
     innerRef?: React.RefObject<HTMLTableSectionElement> | undefined;
     id?: string | undefined;
   }): React.JSX.Element;
-  export function TableHeadCell({ children, className, recordFieldPath, innerRef, id, onClick, scope, tableSortingFieldPaths, ...rest }: {
+  export function TableHeadCell({ children, className, id, innerRef, onClick, recordFieldPath, scope, tableSortingFieldPaths, ...rest }: {
     children?: React.ReactNode;
     className?: string | undefined;
     id?: string | undefined;
@@ -1123,7 +1099,7 @@ declare module "@utahdts/utah-design-system" {
     let NUMBER: TableSortingRuleFieldType;
     let STRING: TableSortingRuleFieldType;
   }
-  export function TableWrapper<TableDataT>({ children, className, innerRef, id, ...rest }: {
+  export function TableWrapper<TableDataT>({ children, className, id, innerRef, ...rest }: {
     children: React.ReactNode;
     className?: string | undefined;
     innerRef?: React.RefObject<HTMLDivElement> | undefined;
@@ -1150,6 +1126,17 @@ declare module "@utahdts/utah-design-system" {
     innerRef?: React.RefObject<HTMLDivElement> | undefined;
     title: string;
   }): React.JSX.Element;
+  export namespace skeletonTypes {
+    let CIRCULAR: SkeletonTypes;
+    let LINEAR: SkeletonTypes;
+    let RECTANGULAR: SkeletonTypes;
+  }
+  export function Skeleton({ className, innerRef, type, ...rest }: {
+    className?: string | undefined;
+    innerRef?: React.RefObject<HTMLDivElement> | undefined;
+    type?: SkeletonTypes | undefined;
+  }): React.JSX.Element;
+  export type ariaLiveTypes = AriaLiveType;
   export namespace ariaLiveTypes {
     let ASSERTIVE: AriaLiveType;
     let POLITE: AriaLiveType;
@@ -1160,7 +1147,7 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export type MessageObject = {
     id: string;
-    message: import('react').ReactNode;
+    message: React.ReactNode;
   };
   export function useBanner(): {
     addBanner: (arg0: UtahDesignSystemContextBanner) => void;
@@ -1172,7 +1159,7 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export function UtahDesignSystemContextProvider({ children, defaultSettings }: {
     children: React.ReactNode;
-    defaultSettings?: UtahDesignSystemDefaultSettings;
+    defaultSettings?: UtahDesignSystemDefaultSettings | undefined;
   }): React.JSX.Element;
   export const UtahHeaderContext: React.Context<{
     settings: import("@utahdts/utah-design-system-header").Settings;
@@ -1185,9 +1172,9 @@ declare module "@utahdts/utah-design-system" {
     defaultSettings?: Partial<import("@utahdts/utah-design-system-header").Settings> | undefined;
   }): React.JSX.Element;
   export function useUtahHeaderContext(): {
-    settings: import('@utahdts/utah-design-system-header').Settings;
-    setSettings: import("use-immer").Updater<import('@utahdts/utah-design-system-header').Settings>;
-    settingsRef: React.RefObject<import('@utahdts/utah-design-system-header').Settings>;
+    settings: import("@utahdts/utah-design-system-header").Settings;
+    setSettings: import("use-immer").Updater<import("@utahdts/utah-design-system-header").Settings>;
+    settingsRef: React.RefObject<import("@utahdts/utah-design-system-header").Settings>;
   };
   export function useMountingTracker(title: string): void;
   export function useRefLazy<T>(lazyValue: T | (() => T)): React.MutableRefObject<T>;
@@ -1199,21 +1186,25 @@ declare module "@utahdts/utah-design-system" {
     y: number;
   }): boolean;
   export function stringToId(inputString: string): string;
-  export type ChildrenMenuTypes = import('@utahdts/utah-design-system-header').ChildrenMenuTypes;
+  export const version: string;
+  export type ChildrenMenuTypes = import("@utahdts/utah-design-system-header").ChildrenMenuTypes;
+  export type MenuItemFunctionUrlAction = import("@utahdts/utah-design-system-header").MenuItemFunctionUrlAction;
+  export type MenuItemUrlAction = import("@utahdts/utah-design-system-header").MenuItemUrlAction;
   export type ImmerHook<ImmerHookT> = import("use-immer").ImmerHook<ImmerHookT>;
   export type MutableRef<MutableRefT> = React.RefCallback<MutableRefT> | React.MutableRefObject<MutableRefT> | null;
-  export type AriaLiveType = 'assertive' | 'polite';
-  export type ButtonAppearance = 'solid' | 'outlined';
-  export type ButtonTypes = 'button' | 'reset' | 'submit';
-  export type ComponentColors = 'primary' | 'secondary' | 'accent' | 'none';
-  export type FormElementSizes = 'small3x' | 'small2x' | 'small1x' | 'small' | 'medium' | 'large' | 'large1x';
-  export type MenuTypes = 'vertical' | 'horizontal';
-  export type IconButtonAppearance = 'solid' | 'outlined' | 'borderless';
-  export type BannerPlacement = 'inline' | 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right';
-  export type DrawerPlacement = 'drawer--right' | 'drawer--left';
-  export type PopupPlacement = 'auto' | 'auto-start' | 'auto-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' | 'top' | 'top-start' | 'top-end';
-  export type TableSortingRuleFieldType = 'date' | 'number' | 'string';
-  export type WrapInElement = 'div' | 'nav';
+  export type AriaLiveType = "assertive" | "polite";
+  export type ButtonAppearance = "solid" | "outlined";
+  export type ButtonTypes = "button" | "reset" | "submit";
+  export type ComponentColors = "primary" | "secondary" | "accent" | "none";
+  export type FormElementSizes = "small3x" | "small2x" | "small1x" | "small" | "medium" | "large" | "large1x";
+  export type MenuTypes = "vertical" | "horizontal";
+  export type SkeletonTypes = "skeleton--circle" | "skeleton--line" | "skeleton--rectangle";
+  export type IconButtonAppearance = "solid" | "outlined" | "borderless";
+  export type BannerPlacement = "inline" | "bottom" | "bottom-left" | "bottom-right" | "top" | "top-left" | "top-right";
+  export type DrawerPlacement = "drawer--right" | "drawer--left";
+  export type PopupPlacement = "auto" | "auto-start" | "auto-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end" | "top" | "top-start" | "top-end";
+  export type TableSortingRuleFieldType = "date" | "number" | "string";
+  export type WrapInElement = "div" | "nav";
   export type Event = MouseEvent | TouchEvent | KeyboardEvent;
   export type EventAction = ((e: Event) => void);
   export type EventActionBoolean = ((e: Event) => boolean);
@@ -1247,22 +1238,22 @@ declare module "@utahdts/utah-design-system" {
     registerSortingRule: (sortingRule: TableSortingRuleType<TableDataT>) => void;
     unregisterSortingRule: (recordFieldPath: string) => void;
     setBodyData: (allData: TableDataT[], filteredData: TableDataT[]) => void;
-    setState: import('use-immer').Updater<TableContextState<TableDataT>>;
+    setState: import("use-immer").Updater<TableContextState<TableDataT>>;
     state: TableContextState<TableDataT>;
   };
+  export type TableContextStateFilterValueOptions = {
+    exactMatch?: boolean | undefined;
+    dateRangeDateFormat?: string | undefined;
+    isDateRange?: boolean | undefined;
+  };
   export type TableContextStateFilterValue = {
-    value: any;
-    exactMatch: boolean;
-    otherFilterSpecificSettings?: any;
+    value: string | number;
+    options: TableContextStateFilterValueOptions;
   };
   export type TableContextStateFilterValueObject = Record<string, TableContextStateFilterValue>;
   export type TableFilterFunction = (value: string) => boolean;
   export type TableFilterOptions = {
     exactMatch: boolean;
-  };
-  export type TableFilterValue = {
-    exactMatch: boolean;
-    value: string;
   };
   export type TableRecord = Record<string, any>;
   export type TableRecordForFiltering = {
@@ -1283,21 +1274,12 @@ declare module "@utahdts/utah-design-system" {
     tabGroupId: string;
     unRegisterTab: (tab: React.RefObject<HTMLButtonElement> | null | null) => void;
   };
-  export type useFormContextInputResult<FormContextT, ValueT, HTMLElementT> = {
-    onChange?: React.ChangeEventHandler<HTMLElementT> | undefined;
-    onClear?: React.UIEventHandler<HTMLElementT> | undefined;
-    onSubmit?: React.ChangeEventHandler<HTMLElementT> | undefined;
-    value?: ValueT | undefined;
-    onFormKeyUp: import('react').KeyboardEventHandler;
-    setState?: import("use-immer").Updater<FormContextT> | undefined;
-    state?: FormContextT | undefined;
-  };
   export type UtahDesignSystemContextBannerWithId = {
     className?: string | undefined;
     duration?: number | undefined;
     id: string;
-    icon?: import('react').ReactNode;
-    message: import('react').ReactNode;
+    icon?: React.ReactNode;
+    message: React.ReactNode;
     onClose?: ((e: React.MouseEvent | undefined) => void) | undefined;
     position?: BannerPlacement | undefined;
     size?: "small" | "medium" | "large" | undefined;
@@ -1306,8 +1288,8 @@ declare module "@utahdts/utah-design-system" {
     className?: string | undefined;
     duration?: number | undefined;
     id?: string | undefined;
-    icon?: import('react').ReactNode;
-    message: import('react').ReactNode;
+    icon?: React.ReactNode;
+    message: React.ReactNode;
     onClose?: ((e: React.MouseEvent | undefined) => void) | undefined;
     position?: BannerPlacement | undefined;
     size?: "small" | "medium" | "large" | undefined;
@@ -1362,7 +1344,7 @@ declare module "@utahdts/utah-design-system" {
     isTodayDate: boolean;
   };
   export type CalendarGridWeek = [CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue];
-  export type CalendarGridMonth = [CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue, CalendarGridValue][];
+  export type CalendarGridMonth = CalendarGridWeek[];
   export type ComboBoxOptionType = {
     isGroupLabel?: boolean | undefined;
     isHidden?: boolean | undefined;
@@ -1391,19 +1373,8 @@ declare module "@utahdts/utah-design-system" {
     onChange: (newValue: string) => void;
     onClear?: (() => void) | undefined;
     onKeyUp?: ((e: Event, currentFilterValue: string) => boolean) | undefined;
-    onSubmit?: (() => void) | undefined;
     registerOption: (option: ComboBoxOptionType) => void;
     unregisterOption: (value: string) => void;
-  };
-  export type FormContextValue<FormStateT> = {
-    onChange?: ((param: {
-      e?: Event;
-      fieldPath: string;
-      value: any;
-    }) => void) | undefined;
-    onSubmit?: ((e?: Event) => void) | undefined;
-    state?: FormStateT | undefined;
-    setState?: import("use-immer").Updater<FormStateT> | undefined;
   };
   export type MenuItem = {
     link: string;
@@ -1444,6 +1415,11 @@ declare module "@utahdts/utah-design-system" {
     ariaLive: UtahDesignSystemContextAria;
     banners: UtahDesignSystemContextBannerWithId[];
   };
+  export type VerticalMenuMenuItemAdditions = {
+    actionUrl?: import("@utahdts/utah-design-system-header").MenuItemUrlAction | undefined;
+    actionFunction?: EventAction | undefined;
+    actionFunctionUrl?: import("@utahdts/utah-design-system-header").MenuItemFunctionUrlAction | undefined;
+  };
   export type WebsiteMainMenuItem = {
     id?: string | undefined;
     link?: string | undefined;
@@ -1454,12 +1430,6 @@ declare module "@utahdts/utah-design-system" {
     isSelected?: boolean | undefined;
     isAlternatePath?: boolean | undefined;
   };
-  export type VerticalMenuMenuItemAdditions = {
-    actionUrl?: import("@utahdts/utah-design-system-header").MenuItemUrlAction
-    actionFunction?: EventAction
-    actionFunctionUrl?: import("@utahdts/utah-design-system-header").MenuItemFunctionUrlAction
-  }
-
   export type WebsiteMainMenu = {
     children?: WebsiteMainMenuItem[] | undefined;
     header: string;
@@ -1510,7 +1480,19 @@ declare module "@utahdts/utah-design-system" {
     type?: ButtonTypes | undefined;
   }): React.JSX.Element;
   export function SegmentedButton(): null;
+  export function TableFilterDate<TableDataT>({ a11yLabel, className, defaultValue, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
+    className?: string | undefined;
+    defaultValue?: TableDataT | undefined;
+    innerRef?: React.RefObject<HTMLTableCellElement> | undefined;
+    id?: string | undefined;
+    a11yLabel: string;
+    onChange?: ((e: React.ChangeEvent) => TableDataT) | undefined;
+    placeholder?: string | undefined;
+    recordFieldPath: string;
+    value?: TableDataT | undefined;
+  }): React.JSX.Element;
   export function useDebugDidIChange<FieldT>(field: FieldT, fieldName: string): void;
+  export function useDebugDidIChanges(fields: Record<string, any> | undefined | null, description?: string | undefined): void;
   export function arrayMatchRecursive({ object, arrayField, isMatchFunc }: {
     object: Record<string, any>;
     arrayField: string;

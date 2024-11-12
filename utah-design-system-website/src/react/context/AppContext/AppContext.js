@@ -9,5 +9,6 @@ export const AppContext = /** @type {typeof createContext<AppContextValue>} */ (
   pages: {},
   pageUrls: {},
   appState: { isColorPickerShown: false },
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setAppState: () => { },
 });

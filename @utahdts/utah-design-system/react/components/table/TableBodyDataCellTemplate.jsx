@@ -37,7 +37,7 @@ export function TableBodyDataCellTemplate({
 
   let content;
   if (isFunction(children)) {
-    // @ts-ignore
+    // @ts-expect-error
     content = children(rowContextData);
   } else if (children) {
     content = children;
@@ -52,9 +52,9 @@ export function TableBodyDataCellTemplate({
       className={className}
       id={id}
       innerRef={innerRef}
-      // @ts-ignore
+      // @ts-expect-error
       onClick={onClick && ((e) => onClick({ e, ...rowContextData }))}
-      // @ts-ignore
+      // @ts-expect-error
       onDoubleClick={onDoubleClick && ((e) => onDoubleClick({ e, ...rowContextData }))}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}

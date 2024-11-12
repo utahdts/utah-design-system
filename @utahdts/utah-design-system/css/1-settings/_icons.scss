@@ -343,4 +343,19 @@
   .utds-icon-after-share::after {
     content: "\0032";
   }
+
+  .utds-icon-before-policy::before,
+  .utds-icon-after-policy::after {
+    content: "\0033";
+  }
+
+  .utds-icon-before-login::before,
+  .utds-icon-after-login::after {
+    content: "\0034";
+  }
+
+  .utds-icon-before-logout::before,
+  .utds-icon-after-logout::after {
+    content: "\0035";
+  }
 }

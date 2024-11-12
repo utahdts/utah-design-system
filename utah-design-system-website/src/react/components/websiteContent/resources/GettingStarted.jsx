@@ -34,10 +34,6 @@ export function GettingStarted() {
       <hr />
       <h2 id="h2-other-resources" className="mb-auto"><strong>Other resources to get help:</strong></h2>
       <ul>
-        <li>
-          <ExternalLink href="https://utahdesignsystem.slack.com">Please join our Design System Slack Channel!</ExternalLink>
-          <br />You can automatically join with your utah.gov email address.
-        </li>
         <li>Send us an email: <ExternalLink href="mailto:dts_ui@utah.gov">dts_ui@utah.gov</ExternalLink></li>
         <li><ExternalLink href="https://github.com/utahdts/utah-design-system">GitHub Repository</ExternalLink></li>
       </ul>

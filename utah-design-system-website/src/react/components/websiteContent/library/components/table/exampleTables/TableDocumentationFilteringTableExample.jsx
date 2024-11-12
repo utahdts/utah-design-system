@@ -2,31 +2,40 @@ import {
   Accordion,
   BUTTON_APPEARANCE,
   Button,
+  ExternalLink,
   Table,
   TableBody,
   TableBodyData,
   TableBodyDataCellTemplate,
   TableBodyDataRowTemplate,
   TableContextConsumer,
+  TableFilterComboBoxAllOptions,
   TableFilterCustom,
   TableFilterDateRange,
   TableFilterNone,
-  TableFilterComboBoxAllOptions,
   TableFilterTextInput,
   TableFilters,
   TableHead,
   TableHeadCell,
   TableHeadRow,
   TableWrapper,
-  componentColors, ExternalLink
+  componentColors
 } from '@utahdts/utah-design-system';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 import { HeadingWithLink } from '../../../../../staticExamples/HeadingWithLink';
 import { examplePresidentsData } from './examplePresidentsData';
-import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
 
 export function TableDocumentationFilteringTableExample() {
   const [funFactsFilter, setFunFactsFilter] = useState('');
+
+  const tableData = useMemo(
+    () => {
+      const funFactsLower = funFactsFilter.toLowerCase();
+      return examplePresidentsData.filter((president) => !funFactsFilter || president.funFacts.toLowerCase().includes(funFactsLower));
+    },
+    [funFactsFilter]
+  );
 
   return (
     <div className="static-example mt-spacing-xl">
@@ -54,7 +63,7 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterTextInput a11yLabel="Name" recordFieldPath="name" />
 
                 {/* Skip a column by using the "None" filter component */}
-                <TableFilterNone />
+                <TableFilterNone><span className="visually-hidden">No filter available for this column</span></TableFilterNone>
 
                 {/*
                   Present a combo box input of the possible values from which to filter;
@@ -81,7 +90,7 @@ export function TableDocumentationFilteringTableExample() {
                 <TableFilterTextInput
                   a11yLabel="Fun Facts"
                   onChange={(e) => (
-                    // @ts-ignore
+                    // @ts-expect-error
                     setFunFactsFilter(e.target?.value)
                   )}
                   recordFieldPath="funFacts"
@@ -123,7 +132,7 @@ export function TableDocumentationFilteringTableExample() {
             </TableHead>
 
             <TableBody>
-              <TableBodyData records={examplePresidentsData} recordIdField="id">
+              <TableBodyData records={tableData} recordIdField="id">
                 <TableBodyDataRowTemplate>
                   <TableBodyDataCellTemplate recordFieldPath="name" />
                   <TableBodyDataCellTemplate recordFieldPath="nthPresident" />

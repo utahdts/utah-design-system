@@ -3,7 +3,7 @@ import { notNull } from './notNull';
 /** @returns {string} */
 export function uuidv4() {
   return (
-    // @ts-ignore
+    // @ts-expect-error this is some funky shtuff
     ([1e7] + -1e3 + -4e3 + -8e3 + -1e11)
       .replace(
         /[018]/g,

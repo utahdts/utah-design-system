@@ -13,6 +13,7 @@ import {
   TabPanels,
   componentColors,
   formElementSizesEnum,
+  useBanner
 } from '@utahdts/utah-design-system';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
@@ -24,6 +25,7 @@ import { IconButtonPropsDocumentation } from './IconButtonPropsDocumentation';
 import { IconButtonCssClassesDocumentation } from './IconButtonCssClassesDocumentation';
 
 export function IconButtonDocumentation() {
+  const { addBanner } = useBanner();
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Icon Button</h1>
@@ -55,31 +57,27 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the gear icon button')}
+              onClick={() => addBanner({ message: 'Triggered the gear icon button' })}
               title="Gear icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the alert icon button')}
+              onClick={() => addBanner({ message: 'Triggered the alert icon button' })}
               title="Alert icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.ACCENT}
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the right arrow icon button')}
+              onClick={() => addBanner({ message: 'Triggered the right arrow icon button' })}
               title="Right arrow icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               icon={(<span className="utds-icon-before-x-icon" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the x icon button')}
+              onClick={() => addBanner({ message: 'Triggered the x icon button' })}
               title="X icon button"
             />
           </>
@@ -106,31 +104,27 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the search icon button')}
+              onClick={() => addBanner({ message: 'Triggered the search icon button' })}
               title="Search icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the bookmark icon button')}
+              onClick={() => addBanner({ message: 'Triggered the bookmark icon button' })}
               title="Bookmark icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               color={componentColors.ACCENT}
               icon={(<span className="utds-icon-before-check" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the check icon button')}
+              onClick={() => addBanner({ message: 'Triggered the check icon button' })}
               title="Check icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               icon={(<span className="utds-icon-before-star" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the star icon button')}
+              onClick={() => addBanner({ message: 'Triggered the star icon button' })}
               title="Star icon button"
             />
           </>
@@ -157,31 +151,27 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-bookmark" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the bookmark icon button')}
+              onClick={() => addBanner({ message: 'Triggered the bookmark icon button' })}
               title="Bookmark icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-info" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the info icon button')}
+              onClick={() => addBanner({ message: 'Triggered the info icon button' })}
               title="Info icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               color={componentColors.ACCENT}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the help icon button')}
+              onClick={() => addBanner({ message: 'Triggered the help icon button' })}
               title="Help icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the copy icon button')}
+              onClick={() => addBanner({ message: 'Triggered the copy icon button' })}
               title="Copy icon button"
             />
           </>
@@ -203,9 +193,8 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the Small1X icon button')}
-              // @ts-ignore
+              onClick={() => addBanner({ message: 'Triggered the Small1X icon button' })}
+              // @ts-expect-error
               size={formElementSizesEnum.SMALL1X}
               title="Gear icon x-small button"
             />
@@ -213,18 +202,16 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the small icon button')}
-              // @ts-ignore
+              onClick={() => addBanner({ message: 'Triggered the small icon button' })}
+              // @ts-expect-error
               size={formElementSizesEnum.SMALL}
               title="Gear icon small button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the medium icon button')}
-              // @ts-ignore
+              onClick={() => addBanner({ message: 'Triggered the medium icon button' })}
+              // @ts-expect-error
               size={formElementSizesEnum.MEDIUM}
               title="Gear icon medium button"
             />
@@ -232,9 +219,8 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the large icon button')}
-              // @ts-ignore
+              onClick={() => addBanner({ message: 'Triggered the large icon button' })}
+              // @ts-expect-error
               size={formElementSizesEnum.LARGE}
               title="Gear icon large button"
             />
@@ -242,9 +228,8 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the Large1X icon button')}
-              // @ts-ignore
+              onClick={() => addBanner({ message: 'Triggered the Large1X icon button' })}
+              // @ts-expect-error
               size={formElementSizesEnum.LARGE1X}
               title="Gear icon x-large button"
             />
@@ -265,8 +250,7 @@ export function IconButtonDocumentation() {
               appearance={ICON_BUTTON_APPEARANCE.SOLID}
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the enabled gear icon button')}
+              onClick={() => addBanner({ message: 'Triggered the enabled gear icon button' })}
               title="Gear icon primary color enabled solid button"
             />
             <IconButton
@@ -274,31 +258,27 @@ export function IconButtonDocumentation() {
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
               isDisabled
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the disabled gear icon button')}
+              onClick={() => addBanner({ message: 'Triggered the disabled gear icon button' })}
               title="Gear icon primary color disabled solid button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the enabled copy icon button')}
+              onClick={() => addBanner({ message: 'Triggered the enabled copy icon button' })}
               title="Gear icon default color enabled outlined button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
               isDisabled
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the disabled copy icon button')}
+              onClick={() => addBanner({ message: 'Triggered the disabled copy icon button' })}
               title="Gear icon default color disabled outlined button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the enabled right arrow icon button')}
+              onClick={() => addBanner({ message: 'Triggered the enabled right arrow icon button' })}
               title="Gear icon secondary color enabled borderless button"
             />
             <IconButton
@@ -306,8 +286,7 @@ export function IconButtonDocumentation() {
               color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
               isDisabled
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the disabled right arrow icon button')}
+              onClick={() => addBanner({ message: 'Triggered the disabled right arrow icon button' })}
               title="Gear icon secondary color disabled borderless button"
             />
           </>
@@ -341,16 +320,14 @@ export function IconButtonDocumentation() {
               className="button--active"
               color={componentColors.PRIMARY}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the pressed gear icon button')}
+              onClick={() => addBanner({ message: 'Triggered the pressed gear icon button' })}
               title="Gear icon primary color pressed button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.OUTLINED}
               className="button--active"
               icon={(<span className="utds-icon-before-copy" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the pressed copy icon button')}
+              onClick={() => addBanner({ message: 'Triggered the pressed copy icon button' })}
               title="Gear icon default color pressed button"
             />
             <IconButton
@@ -358,8 +335,7 @@ export function IconButtonDocumentation() {
               className="button--active"
               color={componentColors.SECONDARY}
               icon={(<span className="utds-icon-before-arrow-right" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the pressed right arrow icon button')}
+              onClick={() => addBanner({ message: 'Triggered the pressed right arrow icon button' })}
               title="Gear icon secondary color pressed button"
             />
           </>
@@ -378,8 +354,7 @@ export function IconButtonDocumentation() {
             appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
             icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
             isTitleVisible
-            // eslint-disable-next-line no-alert
-            onClick={() => alert('Triggered the waffle icon button')}
+            onClick={() => addBanner({ message: 'Triggered the waffle icon button' })}
             title="Divisions"
           />
         )}

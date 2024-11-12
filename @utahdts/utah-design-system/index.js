@@ -1,8 +1,9 @@
 import './css/index.scss';
+// eslint-disable-next-line import/extensions
 import packageJson from './package.json';
 
 export { events, renderDOMSingle } from '@utahdts/utah-design-system-header';
-export { Tooltip } from './react/components/Tooltip/Tooltip';
+export { Tooltip } from './react/components/tooltip/Tooltip';
 export { Button } from './react/components/buttons/Button';
 export { ClickableTag } from './react/components/buttons/ClickableTag';
 export { ConfirmationButton } from './react/components/buttons/ConfirmationButton/ConfirmationButton';
@@ -34,9 +35,6 @@ export { ComboBoxOptionGroup } from './react/components/forms/ComboBox/ComboBoxO
 export { DateInput } from './react/components/forms/DateInput';
 export { FileInput } from './react/components/forms/FileInput';
 export { Form } from './react/components/forms/Form';
-export { FormContext } from './react/components/forms/FormContext/FormContext';
-export { FormContextProvider } from './react/components/forms/FormContext/FormContextProvider';
-export { useFormContext } from './react/components/forms/FormContext/useFormContext';
 export { MultiSelect } from './react/components/forms/MultiSelect/MultiSelect';
 export { MultiSelectOption } from './react/components/forms/MultiSelect/MultiSelectOption';
 export { MultiSelectOptionGroup } from './react/components/forms/MultiSelect/MultiSelectOptionGroup';

@@ -1,15 +1,10 @@
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import footerHTML from './html/Footer.html?raw';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import newTabAccessibilityHTML from '../_html/NewTabAccessibility.html?raw';
-
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { checkForError } from '../../misc/checkForError';
 import { notNull } from '../../misc/notNull';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import newTabAccessibilityHTML from '../_html/NewTabAccessibility.html?raw';
+import footerHTML from './html/Footer.html?raw';
 import { renderFooterCopyrightYear } from './renderFooterCopyrightYear';
 
 /** @typedef {import('src/@types/jsDocTypes.d').DomLocationTarget} DomLocationTarget */

@@ -20,7 +20,6 @@ export function TextAreaExampleRender({
       isClearable,
       isDisabled,
       label,
-      name,
       placeholder,
       isRequired,
       value,
@@ -55,11 +54,10 @@ export function TextAreaExampleRender({
             : undefined
         }
         label={label || 'Text Area Label'}
-        name={name}
         placeholder={placeholder}
         isRequired={isRequired}
         value={value}
-        // @ts-ignore
+        // @ts-expect-error
         autoComplete="off"
       />
     </div>
