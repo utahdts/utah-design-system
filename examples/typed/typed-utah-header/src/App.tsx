@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import './App.css';
-// TODO: Fix for version 3.0.0
 import '@utahdts/utah-design-system-header/css';
+import './App.css';
 import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 
 export function App() {
@@ -23,7 +22,7 @@ export function App() {
               title: "Home"
             }
           ],
-          title: "Utah Design System Main Menu"
+          title: "Utah Design System Main Menu",
         },
       });
     },
