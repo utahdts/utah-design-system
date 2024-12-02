@@ -19,8 +19,7 @@
         "./src/index.js"
       ]
     },
-    "./css": "./dist/style.css",
-    "./src/css/index.scss": "./src/css/index.scss"
+    "./dist/*": "./dist/*"
   },
   "main": "./src/index.js",
   "types": "./dist/index.d.ts",

@@ -20,7 +20,7 @@
         "./index.js"
       ]
     },
-    "./css": "./dist/style.css",
+    "./dist/*": "./dist/*",
     "./src/css/": "./src/css/",
     "./css/index.scss": "./css/index.scss"
   },
