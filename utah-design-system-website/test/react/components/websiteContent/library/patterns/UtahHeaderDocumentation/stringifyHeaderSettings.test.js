@@ -27,6 +27,7 @@ describe('stringifyHeaderSettings', () => {
   test('basic', () => {
     /** @type {Settings} */
     const settings = {
+      applicationType: 'wordpress',
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
@@ -49,6 +50,7 @@ describe('stringifyHeaderSettings', () => {
   test('actionItems: actionFunction', () => {
     /** @type {Settings} */
     const settings = {
+      applicationType: 'wordpress',
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
@@ -87,6 +89,7 @@ describe('stringifyHeaderSettings', () => {
   test('actionItems: onSignIn/onSignOut/onProfile', () => {
     /** @type {Settings} */
     const settings = {
+      applicationType: 'wordpress',
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
@@ -119,6 +122,7 @@ describe('stringifyHeaderSettings', () => {
   test('actionItems: onAuthChanged', () => {
     /** @type {Settings} */
     const settings = {
+      applicationType: 'wordpress',
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
@@ -150,6 +154,7 @@ describe('stringifyHeaderSettings', () => {
   test('actionItems: actionPopupMenu: menuItems: actionFunction', () => {
     /** @type {Settings} */
     const settings = {
+      applicationType: 'wordpress',
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
@@ -194,6 +199,7 @@ describe('stringifyHeaderSettings', () => {
   test('actionItems: actionPopupMenu: menuItems: actionFunction (nested)', () => {
     /** @type {Settings} */
     const settings = {
+      applicationType: 'wordpress',
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',

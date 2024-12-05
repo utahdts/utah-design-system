@@ -13,6 +13,7 @@ import {
 } from './util/defaultValues';
 import * as headerComponentsExist from './util/doHeaderComponentsExist';
 
+/** @typedef {import('@utahdts/utah-design-system-header').HeaderApplicationTypes} HeaderApplicationTypes */
 /** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 /*
@@ -472,7 +473,11 @@ describe('Header Components', () => {
   ])(
     'Header Components Scenarios - %s',
     (_title, settings, results) => {
-      loadTestHeader(settings);
+      loadTestHeader({
+        ...settings,
+        // work some typing hocus pocus
+        applicationType: /** @type {HeaderApplicationTypes} */ (settings.applicationType),
+      });
 
       expect(headerComponentsExist.isActionItemsInCitizenExperience()).toBe(results.isActionItemsInCitizenExperience);
       expect(headerComponentsExist.isDesktopMainMenuOn()).toBe(results.isDesktopMainMenuOn);

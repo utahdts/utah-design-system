@@ -16,12 +16,14 @@ import { uuidv4 } from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { hookupTooltip } from '../tooltip/hookupTooltip';
 
+let isDataCollected = false;
 /**
  * @returns {Element}
  */
 export function UtahLogo() {
+  const settings = getUtahHeaderSettings();
   let sizedLogo;
-  switch (getUtahHeaderSettings().size) {
+  switch (settings.size) {
     case sizes.LARGE:
       sizedLogo = UtahLogoLargeHtml;
       break;
@@ -44,12 +46,16 @@ export function UtahLogo() {
   logoWrapper.setAttribute('id', uuidv4());
   hookupTooltip(logoWrapper, renderDOMSingle(UtahOfficialWebsiteHoverContentHtml));
 
-  if (!window.location.hostname || !['localhost', '127.0.0.1', '::1', '.local'].find((local) => window.location.hostname.includes(local))) {
+  if (
+    !isDataCollected
+    && (!window.location.hostname || !['localhost', '127.0.0.1', '::1', '.local'].find((local) => window.location.hostname.includes(local)))
+  ) {
+    isDataCollected = true;
     const dataImage = document.createElement('img');
     dataImage.classList.add('utah-logo-wrapper__data');
     dataImage.classList.add('hidden');
     dataImage.ariaHidden = 'true';
-    dataImage.src = `https://uds-data-a234spjofq-wm.a.run.app/${packageJson.version}.png`;
+    dataImage.src = `https://uds-data-a234spjofq-wm.a.run.app/${packageJson.version}.png?applicationType=${encodeURIComponent(settings.applicationType || 'unspecified')}`;
     logoWrapper.appendChild(dataImage);
   }
 

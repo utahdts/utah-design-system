@@ -30,6 +30,11 @@
  */
 
 /**
+ * HeaderApplicationTypes
+ * @typedef {'wordpress' | 'static site' | 'salesforce' | 'custom application' | 'microsoft power apps' | 'servicenow'} HeaderApplicationTypes
+ */
+
+/**
  * these match the popper's position options
  * PopupPlacement
  * @typedef {'auto' | 'auto-start' | 'auto-end' |
@@ -285,6 +290,7 @@
  * // !! Make sure to update SettingsShape in the library if this changes !!
  * @typedef Settings {
  *  @property {ActionItem[]} [actionItems] - action items to show in the header
+ *  @property {HeaderApplicationTypes} applicationType - what type of application are you deploying?
  *  @property {DomLocationTarget} [domLocationTarget] - where in the DOM should the header be inserted? (defaults to the top of the body)
  *  @property {FooterSettings | null} [footer] - null means to not show the footer
  *  @property {Logo} [logo] - the logo to show

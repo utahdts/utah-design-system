@@ -401,6 +401,18 @@ export function UtahHeaderDocumentation() {
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
+              <code><a href="#section-config-applicationType">applicationType</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>wordpress | static site | salesforce | custom application | microsoft power apps | servicenow</code></div>
+            </TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>
+              This information is used for understanding how the Utah Header is being distributed. It is suggested to use one of the listed values, but any value will be accepted.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
               <code><a href="#section-config-domLocationTarget">domLocationTarget</a></code>
             </TableCell>
             <TableCell>
@@ -634,6 +646,21 @@ export function UtahHeaderDocumentation() {
             </TableCell>
           </TableRow>
         </SettingsDocumentation>
+      </div>
+
+      <h4 id="section-config-applicationType">applicationType</h4>
+      <div>
+        <PreCodeForCodeString
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                applicationType: 'static site',
+              }
+            )
+          `}
+        />
       </div>
 
       <h4 id="section-config-domLocationTarget" className="mt-spacing">domLocationTarget</h4>
@@ -887,7 +914,7 @@ export function UtahHeaderDocumentation() {
               {
                 ...other settings...,
                 titleFunction: () => { ... do something ... },
-                titleUrl: '/', 
+                titleUrl: '/',
               }
             )
             `}
