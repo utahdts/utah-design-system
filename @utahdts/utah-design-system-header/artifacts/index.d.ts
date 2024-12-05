@@ -7,6 +7,7 @@ declare module "@utahdts/utah-design-system-header" {
   export type ChildrenMenuTypes = ("flyout" | "inline" | "mega-menu" | "plain");
   export type Environments = "none" | "a1" | "a2" | "a3" | "custom" | "unittest";
   export type Events = "utahHeaderLoaded" | "utahHeaderUnloaded";
+  export type HeaderApplicationTypes = 'wordpress' | 'static site' | 'salesforce' | 'custom application' | 'microsoft power apps' | 'servicenow';
   export type PopupPlacement = "auto" | "auto-start" | "auto-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end" | "top" | "top-start" | "top-end";
   export type Size = "SMALL" | "MEDIUM" | "LARGE";
   export type UtahIdFetchStyle = "Automatic" | "None" | "Provided";
@@ -144,6 +145,7 @@ declare module "@utahdts/utah-design-system-header" {
   };
   export type Settings = {
     actionItems?: ActionItem[] | undefined;
+    applicationType: HeaderApplicationTypes,
     domLocationTarget?: DomLocationTarget | undefined;
     footer?: FooterSettings | null | undefined;
     logo?: Logo | undefined;
