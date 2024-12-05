@@ -26,10 +26,9 @@ export function TextAreaDocumentation() {
           id: '',
           isClearable: false,
           isDisabled: false,
-          label: '',
-          name: '',
-          placeholder: '',
           isRequired: false,
+          label: '',
+          placeholder: '',
           value: '',
         }}
         RENDER_EXAMPLE={TextAreaExampleRender}

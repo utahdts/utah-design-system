@@ -1,4 +1,7 @@
 /* eslint-disable max-len */
+import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
+import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
+
 import {
   BUTTON_APPEARANCE,
   BUTTON_TYPES,
@@ -27,10 +30,6 @@ import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeStrin
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { SandboxExample } from '../../../../../sandbox/SandboxExample';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
 import { PopupsExampleCodeReact } from './PopupsExampleCodeReact';
 import { PopupsExampleProps } from './PopupsExampleProps';
 import { PopupsExampleRender } from './PopupsExampleRender';

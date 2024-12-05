@@ -10,16 +10,16 @@ import { notNullArray } from '../../../util/notNullArray';
  * @returns {Element[]}
  */
 export function findElementsByTagNameMatch(element) {
-  // @ts-expect-error
+  // @ts-expect-error messy types involved in this code
   return notNullArray(
     [
       (element?.tagName?.match?.(/^h[23]$/i)) ? element : null,
-      // @ts-expect-error
+      // @ts-expect-error messy types involved in this code
       ...((element?.children) ? Array.from(element.children).map((child) => findElementsByTagNameMatch(child)) : []),
     ]
       .flat(Infinity)
       .filter(identity)
-      // @ts-expect-error
+      // @ts-expect-error messy types involved in this code
       .filter((elementMaybeHasId) => elementMaybeHasId?.id),
     'finedElementsByTagNameMatch: how did a null slip by the identity'
   );

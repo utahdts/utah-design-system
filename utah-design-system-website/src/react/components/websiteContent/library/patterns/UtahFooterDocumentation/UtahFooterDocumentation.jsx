@@ -1,14 +1,8 @@
 /* eslint-disable max-len */
 import {
   ExternalLink,
-  Table,
-  TableBody,
   TableCell,
-  TableHead,
-  TableHeadCell,
-  TableHeadRow,
   TableRow,
-  TableWrapper,
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import footerScreenshot from '../../../../../../static/images/mockups/Footer.jpg';
@@ -19,6 +13,8 @@ import { LightBox } from '../../../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../../../routing/pageUrls';
 import { StaticExample } from '../../../../staticExamples/StaticExample';
+import { documentationTypes } from '../../../../../enums/documentationTypes';
+import { SettingsDocumentation } from '../../documentation/SettingsDocumentation';
 
 export function UtahFooterDocumentation() {
   return (
@@ -108,132 +104,143 @@ export function UtahFooterDocumentation() {
       </ul>
 
       <h2 id="section-utahheader-settings" className="mb-spacing"> Settings</h2>
-      <div>
-        Footer settings are in the Utah Header settings object. You can set them separately or send them with the Utah Header settings.
-        See these <a href="#section-config-footer_setting">code examples</a> show the ways of specifying settings for the footer.
+      <p>
+        Footer settings are in the Utah Header settings object. You can set them separately or send them with the Utah Header settings.<br />
+        These <a href="#section-config-footer_setting">code examples</a> show the ways to specify those settings.
+      </p>
+      <h3><code><a href="#section-config-footer_domLocationTarget">footer</a></code></h3>
+      <span className="prop__types">FooterSettings | null | undefined</span>
+      <p>
+        This optional configuration has settings for where to place the footer and visual settings. A value of <code>undefined</code> will show
+        the default footer. A value of <code>null</code> will remove the footer so it is not displayed. It is encouraged to always show the footer
+        though
+        there may be cases, like maps, that need the full page.
+      </p>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-footer_copyright">copyrightYear</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+                <span> | </span>
+                <code>undefined</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              The Utah Footer always shows the copyright symbol <code>©</code>. Your site can choose to show a year next to the copyright symbol.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-custom-links">linkPrivacyPolicy</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Customize the link for the privacy policy in the footer. This will allow agencies to provide specific agency or application
+              privacy information to visitors as required by state statue.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-custom-links">linkTermsOfUse</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Customize the link for the terms of use in the footer. This will allow agencies to provide specific agency or application
+              terms of use information to visitors as required by state statue.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-footer_domLocationTarget">showHorizontalRule</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>boolean</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              There are three main sections to the footer. See the <Link to={pageUrls.mockups}>mocks</Link> for a visual example. The top bar of the
+              footer is for social media. The next big section is for custom links and content. These top two sections are optional.
+              The bottom bar of state of Utah information and links is required. Set this <code>showHorizontalRule</code> setting to true
+              in order to have a horizontal separator drawn between the bottom footer bar and the main content.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
       </div>
-      <TableWrapper>
-        <Table className="table--lines-x">
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadCell className="text-left">Name / Type / Default</TableHeadCell>
-              <TableHeadCell className="text-left">Description</TableHeadCell>
-            </TableHeadRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer</a></span><br />
-                <span className="prop__types">FooterSettings | null | undefined</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  This optional configuration has settings for where to place the footer and visual settings. A value of <code>undefined</code> will show
-                  the default footer. A value of <code>null</code> will remove the footer so it is not displayed. It is encouraged to always show the footer though
-                  there may be cases, like maps, that need the full page.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_copyright">footer.copyrightYear</a></span><br />
-                <span className="prop__types">string | null | undefined</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  The Utah Footer always shows the copyright symbol <code>©</code>. Your site can choose to show a year next to the copyright symbol.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget</a></span><br />
-                <span className="prop__types">DomLocationTarget</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  By default, the Utah Footer is placed at the bottom of the page. This can be overridden by
-                  providing a DOM target in which the footer will render.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget.cssSelector</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Place the Utah footer in an element selected by a CSS class.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget.element</a></span><br />
-                <span className="prop__types">HTMLElement</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Place the Utah footer in a specific DOM element.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.domLocationTarget.elementFunction</a></span><br />
-                <span className="prop__types">function</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  This function must return a DOM element in to which the Utah footer will be placed. Be aware that the footer code does javascript
-                  pointer comparison between the old and new value of <code>elementFunction</code> to determine if the value has changed. Make sure
-                  to pass the same function as used previously or else the footer will be detect a change and will redraw itself. Having functions
-                  recreated may be an issue with frameworks that create, by default, new functions on every render.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-custom-links">footer.linkPrivacyPolicy</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Customize the link for the privacy policy in the footer. This will allow agencies to provide specific agency or application
-                  privacy information to visitors as required by state statue.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-custom-links">footer.linkTermsOfUse</a></span><br />
-                <span className="prop__types">string</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  Customize the link for the terms of use in the footer. This will allow agencies to provide specific agency or application
-                  terms of use information to visitors as required by state statue.
-                </span>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <span className="prop__name"><a href="#section-config-footer_domLocationTarget">footer.showHorizontalRule</a></span><br />
-                <span className="prop__types">boolean</span>
-              </TableCell>
-              <TableCell>
-                <span className="prop__description">
-                  There are three main sections to the footer. See the <Link to={pageUrls.mockups}>mocks</Link> for a visual example. The top bar of the
-                  footer is for social media. The next big section is for custom links and content. These top two sections are optional.
-                  The bottom bar of state of Utah information and links is required. Set this <code>showHorizontalRule</code> setting to true
-                  in order to have a horizontal separator drawn between the bottom footer bar and the main content.
-                </span>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableWrapper>
+
+      <h3><code><a href="#section-config-footer_domLocationTarget">domLocationTarget</a></code></h3>
+      <span className="prop__types">DomLocationTarget</span>
+      <p>
+        By default, the Utah Footer is placed at the bottom of the page. This can be overridden by
+        providing a DOM target in which the footer will render.
+      </p>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-footer_domLocationTarget">cssSelector</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Place the Utah footer in an element selected by a CSS class.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-footer_domLocationTarget">element</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>HTMLElement</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Place the Utah footer in a specific DOM element.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-footer_domLocationTarget">elementFunction</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>function</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              This function must return a DOM element in to which the Utah footer will be placed. Be aware that the footer code does javascript
+              pointer comparison between the old and new value of <code>elementFunction</code> to determine if the value has changed. Make sure
+              to pass the same function as used previously or else the footer will be detect a change and will redraw itself. Having functions
+              recreated may be an issue with frameworks that create, by default, new functions on every render.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
 
       <h4 id="section-config-footer_setting" className="mt-spacing">Footer Settings</h4>
       <div>

@@ -5,16 +5,19 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-desig
 /**
  * @param {object} props
  * @param {import('react').RefObject<HTMLDivElement>} props.innerRef
+ * @param {import('use-immer').Updater<{props: TabGroupExamplePropsShape}>} props.setState
  * @param {object} props.state
  * @param {TabGroupExamplePropsShape} props.state.props
  * @returns {import('react').JSX.Element}
  */
 export function TabGroupExampleRender({
+  setState,
   state: {
     props: {
+      isVertical,
       panelA,
       panelB,
-      isVertical,
+      selectedTab,
       tabA,
       tabB,
     },
@@ -23,7 +26,14 @@ export function TabGroupExampleRender({
 }) {
   return (
     <div style={{ width: '80%' }} ref={innerRef}>
-      <TabGroup defaultValue="tab-A" isVertical={isVertical}>
+      <TabGroup
+        defaultValue="tab-A"
+        isVertical={isVertical}
+        onChange={(newValue) => setState((draftState) => {
+          draftState.props.selectedTab = newValue;
+        })}
+        value={selectedTab}
+      >
         <TabList>
           <Tab id="tab-A">{tabA}</Tab>
           <Tab id="tab-B">{tabB}</Tab>

@@ -44,11 +44,12 @@ export function Accordion({
   return (
     <div className={joinClassNames(['accordion', className])} id={id}>
       <button
-        className={joinClassNames(['accordion__header', headerClassName, stateIsOpen ? 'accordion__header--open' : ''])}
-        type="button"
-        onClick={handleEvent(toggleAccordion)}
         aria-expanded={stateIsOpen}
-        aria-controls={`${id}-accordion__content`}
+        aria-controls={`accordion-content__${id}`}
+        className={joinClassNames(['accordion__header', headerClassName, stateIsOpen ? 'accordion__header--open' : ''])}
+        id={`accordion-button__${id}`}
+        onClick={handleEvent(toggleAccordion)}
+        type="button"
       >
         {/* @ts-expect-error */}
         <HeadingTag>{headerContent}</HeadingTag>
@@ -57,8 +58,10 @@ export function Accordion({
 
       <div
         aria-hidden={!stateIsOpen}
-        id={`${id}-accordion__content`}
+        aria-labelledby={`accordion-button__${id}`}
         className={joinClassNames(['accordion__content', contentClassName, stateIsOpen ? 'accordion__content--open' : ''])}
+        id={`accordion-content__${id}`}
+        role="region"
       >
         {children}
       </div>

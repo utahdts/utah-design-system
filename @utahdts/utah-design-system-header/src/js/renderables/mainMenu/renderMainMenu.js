@@ -1,13 +1,3 @@
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import MainMenuItem from './html/MainMenuItem.html?raw';
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
-
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { notNull } from '../../misc/notNull';
@@ -15,10 +5,13 @@ import { popupFocusHandler } from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
+import NewTabAccessibility from '../_html/NewTabAccessibility.html?raw';
 import { renderPopupMenu } from '../popupMenu/renderPopupMenu';
 import { setupSearchModal, showSearchModal } from '../search/searchModal';
 import { hookupTooltip } from '../tooltip/hookupTooltip';
 import { renderUtahIdForMobile } from '../utahId/UtahId';
+import MainMenuItem from './html/MainMenuItem.html?raw';
+import MainMenuWrapper from './html/MainMenuWrapper.html?raw';
 import { suffixForMenuItemTitle } from './suffixForMenuItemTitle';
 
 /** @typedef {import('src/@types/jsDocTypes.d').MainMenu} MainMenu */
@@ -91,12 +84,12 @@ export function renderMainMenu() {
       }
 
       let menuItemTitleElement;
-      if (menuItem.actionFunctionUrl || menuItem.actionUrl) {
-        menuItemTitleElement = mainMenuItemLinkTitle;
-        mainMenuItemButtonTitle.remove();
-      } else if (menuItem.actionMenu || menuItem.actionFunction) {
+      if (menuItem.actionMenu || menuItem.actionFunction) {
         menuItemTitleElement = mainMenuItemButtonTitle;
         mainMenuItemLinkTitle.remove();
+      } else if (menuItem.actionFunctionUrl || menuItem.actionUrl) {
+        menuItemTitleElement = mainMenuItemLinkTitle;
+        mainMenuItemButtonTitle.remove();
       } else {
         throw new Error(`renderMainMenu(): menuItem is missing an action: ${menuItem.title}`);
       }
@@ -110,7 +103,6 @@ export function renderMainMenu() {
       }
 
       if (menuItem.actionMenu) {
-        // eslint-disable-next-line prefer-destructuring
         const mainMenu = /** @type {MainMenu} */ (settings.mainMenu);
 
         // render children menu items
@@ -120,9 +112,10 @@ export function renderMainMenu() {
         // if have both an action url and menu items, show a page link since the menu can't be both clicked to open
         // the sub menu AND clicked to got to the link
         if (
-          menuItem.actionFunction
-          || menuItem.actionUrl
-          || menuItem.actionFunctionUrl
+          (menuItem.actionFunction
+            || menuItem.actionUrl
+            || menuItem.actionFunctionUrl)
+          && !menuItem.isOverviewHidden
         ) {
           // add `parentMenuLinkSuffix` menu item to top of children menu
           menuItems.unshift({

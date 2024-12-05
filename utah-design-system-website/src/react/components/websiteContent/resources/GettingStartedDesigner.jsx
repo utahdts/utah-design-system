@@ -33,7 +33,7 @@ export function GettingStartedDesigner() {
         While accessibility is usually associated with the development process, it should actually begin much earlier! By planning accessibility into the design, it not only assists developers when implementing your design, it also ensures your content will be accessible to more people.
         We&apos;ve created a few pages to help demystify and to help check for accessibility.
         The <Link to={pageUrls.accessibility}>Accessibility</Link> page condenses this massive topic down to the most important parts of why accessibility is important and whose needs we are trying to address.
-        The <Link to={pageUrls.accessibilityChecklist}>Accessibility Checklist & Testing</Link> page is a list of items for developers and designers that should be checked. For an alternate view of this list specific to designers, checkout the “Web Accessibility FOR Designers - Infographic below:
+        The <Link to={pageUrls.accessibilityChecklist}>Accessibility Checklist & Testing</Link> page is a list of items for developers and designers that should be checked. For an alternate view of this list specific to designers, checkout the “Web Accessibility FOR Designers - Infographic“ below:
       </p>
       <div className="flex justify-center my-spacing-xl">
         <a href="https://webaim.org/resources/designers/" target="_blank" rel="noreferrer"><img src="https://webaim.org/resources/designers/media/designers.svg" alt="Web Accessibility for Designers infographic with link to text version at WebAIM.org" /></a>

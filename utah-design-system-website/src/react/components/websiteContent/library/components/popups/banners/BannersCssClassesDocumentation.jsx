@@ -31,7 +31,16 @@ export function BannersCssClassesDocumentation() {
             <code>.banner--warning</code> |{' '}
             <code>.banner--danger</code> |{' '}
             <code>.banner--success</code> |{' '}
-            <code>.banner--dark</code>
+            <code>.banner--dark</code> |{' '}
+            <code>.banner--primary</code> |{' '}
+            <code>.banner--primary-light</code> |{' '}
+            <code>.banner--primary-dark</code> |{' '}
+            <code>.banner--secondary</code> |{' '}
+            <code>.banner--secondary-light</code> |{' '}
+            <code>.banner--secondary-dark</code> |{' '}
+            <code>.banner--accent</code> |{' '}
+            <code>.banner--accent-light</code> |{' '}
+            <code>.banner--accent-dark</code>
           </div>
         </TableCell>
         <TableCell>

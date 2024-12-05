@@ -127,28 +127,28 @@ describe('findRecursive', () => {
   });
 
   test('empty object', () => {
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive({}, ['children'], (o) => o.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive(undefined, ['children'], (o) => o?.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive(null, ['children'], (o) => o?.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive(3, ['children'], (o) => o.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive(NaN, ['children'], (o) => o.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive('what a weird test', ['children'], (o) => o.id === 25)).toBe(false);
   });
 
   test('no fields', () => {
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive({}, [], (o) => o.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive({}, null, (o) => o.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive({}, undefined, (o) => o.id === 25)).toBe(false);
-    // @ts-expect-error
+    // @ts-expect-error doing bad value testing
     expect(findRecursive({}, ['i am not a real field'], (o) => o.id === 25)).toBe(false);
   });
 });

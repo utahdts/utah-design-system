@@ -3,8 +3,6 @@ import { notNull } from '../../misc/notNull';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
 import { hideMobileMenu } from '../mobile/util/showHideHamburgerElements';
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
 import UtahOfficialWebsitePopupContentHtml from './html/UtahOfficialWebsitePopupContent.html?raw';
 
 export function closeOfficialWebsite() {
@@ -64,7 +62,7 @@ export function openOfficialWebsite() {
   officialWebsiteWrapper.removeAttribute('tabIndex');
   logoButton.setAttribute('aria-expanded', 'true');
   officialWebsiteWrapper.setAttribute('aria-hidden', 'false');
-  // @ts-expect-error
+  // @ts-expect-error dumb Element vs HTMLElement
   officialWebsiteWrapper.focus();
 
   // hide all tooltips when button is clicked because the popup opens
@@ -113,7 +111,7 @@ export function renderOfficialWebsite() {
     });
   };
 
-  // @ts-expect-error
+  // @ts-expect-error dumb Element vs HTMLElement
   closeButton.onclick = () => {
     officialWebsiteWrapper.classList.toggle(domConstants.VISUALLY_HIDDEN);
     logoButton.focus();

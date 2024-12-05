@@ -5,7 +5,7 @@ describe('dataOfAllDataTypes', () => {
   test.each(Object.values(allDataTypes))(
     'allDataTypes keys all exist',
     (dataTypeKey) => (
-      // @ts-expect-error
+      // @ts-expect-error testing typing is terrible
       expect(DATA_OF_ALL_DATATYPES[dataTypeKey]).not.toBeUndefined()
     )
   );
@@ -21,7 +21,7 @@ describe('dataOfAllDataTypes', () => {
   });
 
   test('excludes', () => {
-    // @ts-expect-error
+    // @ts-expect-error testing typing is terrible
     const excludeAllTypesButString = Object.keys(allDataTypes).filter((key) => key !== 'STRING').map((key) => allDataTypes[key]);
     expect(dataOfAllDataTypes({ excludes: excludeAllTypesButString }).length).toBe(Object.values(DATA_OF_ALL_DATATYPES.string).length);
   });

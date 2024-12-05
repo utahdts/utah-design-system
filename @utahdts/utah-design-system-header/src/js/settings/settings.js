@@ -26,7 +26,7 @@ const intervalId = setInterval(
     numberEventFires += 1;
     if (
       numberEventFires >= MAX_EVENT_FIRES
-      // @ts-expect-error if lib is loaded more than once, it may have overriden the window header object
+      // @ts-expect-error header puts this member on window
       || window['@utahdts/utah-design-system-header']?.isSetUtahHeaderSettingsCalled
     ) {
       clearInterval(intervalId);
@@ -49,9 +49,9 @@ export function setUtahHeaderSettings(newSettings) {
   // this is only a shallow copy, so merging nested settings does not happen.
   settingsKeeper.setSettings(newSettings);
 
-  // @ts-expect-error if lib is loaded more than once, it may have overriden the window header object, so store `isSet` status in window object
+  // @ts-expect-error window has no index signature
   if (window['@utahdts/utah-design-system-header']) {
-    // @ts-expect-error
+    // @ts-expect-error window has no index signature
     window['@utahdts/utah-design-system-header'].isSetUtahHeaderSettingsCalled = true;
   }
 

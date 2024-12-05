@@ -5,6 +5,7 @@
 #{class-vars.$base-class} {
   input[type="text"],
   input[type="email"],
+  input[type="password"],
   input[type="tel"] {
     color: var(--gray-color);
     min-height: var(--form-ele-medium);
@@ -22,8 +23,8 @@
       cursor: not-allowed;
     }
 
-    &[aria-invalid="true"] {
-      border: 2px solid var(--danger-color)
+    &[aria-invalid="true"]:not(.inside-invalid-wrapper) {
+      border: 2px solid var(--danger-color);
     }
 
     &.text-input {
@@ -43,8 +44,8 @@
       right: var(--spacing-xs);
       font-weight: var(--font-weight-normal);
       transition: transform;
-      [class*=utds-icon-before-]::before {
-        font-size: .7rem;
+      [class*="utds-icon-before-"]::before {
+        font-size: 0.7rem;
       }
       &[disabled]:active {
         transform: translateY(-50%);

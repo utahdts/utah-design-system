@@ -1,4 +1,7 @@
 /* eslint-disable max-len */
+import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
+import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
+
 import {
   Button,
   events,
@@ -8,6 +11,7 @@ import {
   Switch,
   TableCell,
   TableRow,
+  useBanner
 } from '@utahdts/utah-design-system';
 import {
   useCallback,
@@ -17,10 +21,6 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
-// eslint-disable-next-line import/no-unresolved
-import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
-// eslint-disable-next-line import/no-unresolved
-import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
 import { documentationTypes } from '../../../../../enums/documentationTypes';
 import { useTextAreaCaretRowColumn } from '../../../../../hooks/useTextAreaCaretRowColumn';
@@ -38,6 +38,7 @@ import { utahHeaderPresets } from './utahHeaderPresets';
 
 export function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
+  const { addBanner } = useBanner();
   const {
     headerString,
     setHeaderString,
@@ -79,11 +80,18 @@ export function UtahHeaderDocumentation() {
     <div className="documentation-content">
       <h1 id="h1-top">Utah Header</h1>
       <p className="lead-in">
-        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. It also provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
+        The header is the focal point of the Utah design system. Its distinguishing characteristics set it apart from all other components. It also
+        provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
       </p>
       <p className="lead-in">
-        The components contained within the header include the <strong>Utah, an official website</strong>, <strong>Agency Icon and Title</strong>,{' '}
-        <strong>Action Items</strong>, <strong>Main Menu</strong>, and <strong>Search</strong>.
+        The components contained within the header include the <strong>Utah, an official website</strong>,{' '}
+        <strong>Agency Icon and Title</strong>,{' '}
+        <strong>Action Items</strong>,{' '}
+        <strong>Main Menu</strong>,{' '}
+        and <strong>Search</strong>.
+      </p>
+      <p>
+        <strong>Note:</strong> Consider various screen sizes when implementing the Utah Header.
       </p>
       <hr />
       <div className="header-config__title">
@@ -103,12 +111,14 @@ export function UtahHeaderDocumentation() {
       <div className="sandbox-example">
         <div className="sandbox-example__top">
           <div className="sandbox-example__component">
+            <label htmlFor="sandbox-example__code-editor" className="visually-hidden">Header Code Textarea</label>
             <div className="sandbox-example__code-editor-wrapper">
               <textarea
                 defaultValue={headerString}
                 className="sandbox-example__code-editor"
                 ref={interactiveTextAreaRef}
                 wrap="off"
+                id="sandbox-example__code-editor"
               />
               <CopyButton
                 copyRef={interactiveTextAreaRef}
@@ -167,6 +177,7 @@ export function UtahHeaderDocumentation() {
                 id="apply-interactive-utah-header"
                 isDisabled={!isDirty}
                 onClick={useCallback(() => setHeaderString(interactiveTextAreaRef.current?.value ?? ''), [setHeaderString])}
+                className="font-semi-bold"
               >
                 Apply
               </Button>
@@ -211,7 +222,7 @@ export function UtahHeaderDocumentation() {
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="utds-title-wrapper" href="#">
                 <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={agencyBrand} /></div>
-                <div className="utds-title-wrapper__title">Agency/Division Title </div>
+                <div className="utds-title-wrapper__title">Agency/Division Title</div>
               </a>
             </h1>
           </div>
@@ -220,7 +231,10 @@ export function UtahHeaderDocumentation() {
           <ul>
             <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
             <li>The title is always required even if it is not visible, so screen readers can identify the site.</li>
-            <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain a <code>4.5:1</code> contrast ratio against the background.</li>
+            <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and
+              title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain
+              a <code>4.5:1</code> contrast ratio against the background.
+            </li>
           </ul>
         )}
       />
@@ -232,29 +246,25 @@ export function UtahHeaderDocumentation() {
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the waffle icon button')}
+              onClick={() => addBanner({ message: 'Triggered the waffle icon button' })}
               title="Waffle icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the alert icon button')}
+              onClick={() => addBanner({ message: 'Triggered the alert icon button' })}
               title="Alert icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the help icon button')}
+              onClick={() => addBanner({ message: 'Triggered the help icon button' })}
               title="Help icon button"
             />
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the gear icon button')}
+              onClick={() => addBanner({ message: 'Triggered the gear icon button' })}
               title="Gear icon button"
             />
           </>
@@ -265,12 +275,20 @@ export function UtahHeaderDocumentation() {
             <li>Action items are not required, but can be utilized based on need.</li>
             <li>Action items are icon buttons that can be used in combination with badges.</li>
             <li>
-              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9 dots. It is a popup menu that can contain additional navigation.
-              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an agency&#39;s divisions.
+              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9
+              dots. It is a popup menu that can contain additional navigation.
+              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an
+              agency&#39;s divisions.
             </li>
-            <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be linked to the Citizen Portal.</li>
-            <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu that provides help items relative to the site.</li>
-            <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that allows the user to configure settings relative to the site or application that they are logged into or viewing.</li>
+            <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be
+              linked to the Citizen Portal.
+            </li>
+            <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu
+              that provides help items relative to the site.
+            </li>
+            <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that
+              allows the user to configure settings relative to the site or application that they are logged into or viewing.
+            </li>
             <li>The UtahID Login is a button that allows the user to login to their UtahID account and Citizen Portal (in the future).</li>
             <li>Action items can have 2 different types of popups.
               <ul>
@@ -282,7 +300,11 @@ export function UtahHeaderDocumentation() {
         )}
       />
 
-      <p>View more information on <Link to={pageUrls.popups}>Popup Menus</Link>, <Link to={pageUrls.iconButton}>Icon Buttons</Link> and <Link to={pageUrls.badges}>Badges</Link>.</p>
+      <p>
+        View more information on <Link to={pageUrls.popups}>Popup Menus</Link>
+        , <Link to={pageUrls.iconButton}>Icon Buttons</Link>
+        and <Link to={pageUrls.badges}>Badges</Link>.
+      </p>
 
       <h3 id="section-main-menu">Main Menu</h3>
       <p>Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.</p>
@@ -294,8 +316,7 @@ export function UtahHeaderDocumentation() {
             <IconButton
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
               icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Triggered the search icon button')}
+              onClick={() => addBanner({ message: 'Triggered the search icon button' })}
               title="Search"
             />
             <div style={{ width: '100px' }}>&nbsp;</div>
@@ -309,7 +330,11 @@ export function UtahHeaderDocumentation() {
           </ul>
         )}
       />
-      <p>View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>, <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</p>
+      <p>
+        View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>
+        , <Link to={pageUrls.modals}>Modals</Link>
+        and <Link to={pageUrls.textInput}>Text Input</Link>.
+      </p>
 
       {/* ---- CODE EXAMPLES --- */}
       <h2 id="section-utahheader-code-examples" className="my-spacing">Code Examples</h2>
@@ -317,9 +342,11 @@ export function UtahHeaderDocumentation() {
       <h3 id="section-utahheader-events" className="mb-spacing">Utah Header Events</h3>
       <h4 id="section-loaded">{events.HEADER_LOADED}</h4>
       <div>
-        The Utah Header javascript library must load before your javascript code can interact with it. After the Utah Header javascript library loads, it
+        The Utah Header javascript library must load before your javascript code can interact with it. After the Utah Header javascript library loads,
+        it
         will wait for your code to call <code>setUtahHeaderSettings()</code> before showing the Utah Header. Your code should listen for
-        the <code>{events.HEADER_LOADED}</code> global document event. The Utah Header will intermittently emit this event until your code calls <code>setUtahHeaderSettings()</code>.
+        the <code>{events.HEADER_LOADED}</code> global document event. The Utah Header will intermittently emit this event until your code
+        calls <code>setUtahHeaderSettings()</code>.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
@@ -333,8 +360,10 @@ export function UtahHeaderDocumentation() {
 
       <h4 id="section-unloaded">{events.HEADER_UNLOADED}</h4>
       <div>
-        To change the content of the header, your code need only call <code>setUtahHeaderSettings()</code> with new settings. It is not advisable to unload the header. But
-        there may be use cases that require the header be unmounted and reloaded. When the Utah Header is unloaded it will emit a <code>{events.HEADER_UNLOADED}</code> global
+        To change the content of the header, your code need only call <code>setUtahHeaderSettings()</code> with new settings. It is not advisable to
+        unload the header. But
+        there may be use cases that require the header be unmounted and reloaded. When the Utah Header is unloaded it will emit
+        a <code>{events.HEADER_UNLOADED}</code> global
         document event.
         <PreCodeForCodeString
           className="gray-block mt-spacing"
@@ -360,14 +389,22 @@ export function UtahHeaderDocumentation() {
 
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
-        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary navigation.</li>
-        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content consider using the search as a way for visitors to easily find information.</li>
+        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary
+          navigation.
+        </li>
+        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content
+          consider using the search as a way for visitors to easily find information.
+        </li>
       </ul>
 
       <h3 id="section-usability-guidance">Usability Guidance</h3>
       <ul className="mb-spacing">
-        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the citizens experience on all public state websites and applications.</li>
-        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header. This will allow the developer to view the header in real time prior to implementing.</li>
+        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the
+          citizens experience on all public state websites and applications.
+        </li>
+        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header.
+          This will allow the developer to view the header in real time prior to implementing.
+        </li>
       </ul>
 
       <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
@@ -382,8 +419,14 @@ export function UtahHeaderDocumentation() {
       </ul>
       <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
       <ul>
-        <li>To ensure a good user experience when navigating the site, follow the accessibility guidance for <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.</li>
-        <li>For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.</li>
+        <li>
+          To ensure a good user experience when navigating the site, follow the accessibility guidance for
+          <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.
+        </li>
+        <li>
+          For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link>
+          and <Link to={pageUrls.textInput}>Text Input</Link>.
+        </li>
         <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
       </ul>
 
@@ -392,41 +435,24 @@ export function UtahHeaderDocumentation() {
       <p>
         Below you will find the configuration settings for the Utah Header.
       </p>
-      <p>You can also find all the <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js">configuration settings in the JSDoc file</ExternalLink>.</p>
+      <p>
+        You can also find all the
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js">configuration settings in the JSDoc file</ExternalLink>.
+      </p>
 
       {/* ----     Settings     --- */}
       <h3 id="section-utahheader-basic-settings" className="mb-spacing">Basic Settings</h3>
       <h4 id="section-auth-props">Config Props</h4>
+      <h3><code><a href="#section-config-domLocationTarget">domLocationTarget</a></code></h3>
+      <span className="prop__types">DomLocationTarget</span>
+      <p>By default, the Utah Header is placed at the top of the page. This can be overridden by
+        providing a DOM target in which the header will render.
+      </p>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-applicationType">applicationType</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>wordpress | static site | salesforce | custom application | microsoft power apps | servicenow</code></div>
-            </TableCell>
-            <TableCell><em>required</em></TableCell>
-            <TableCell>
-              This information is used for understanding how the Utah Header is being distributed. It is suggested to use one of the listed values, but any value will be accepted.
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>DomLocationTarget</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              By default, the Utah Header is placed at the top of the page. This can be overridden by
-              providing a DOM target in which the header will render.
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget.cssSelector</a></code>
+              <code><a href="#section-config-domLocationTarget">cssSelector</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -438,7 +464,7 @@ export function UtahHeaderDocumentation() {
           </TableRow>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget.element</a></code>
+              <code><a href="#section-config-domLocationTarget">element</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>HTMLElement</code></div>
@@ -450,7 +476,7 @@ export function UtahHeaderDocumentation() {
           </TableRow>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-domLocationTarget">domLocationTarget.elementFunction</a></code>
+              <code><a href="#section-config-domLocationTarget">elementFunction</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -460,23 +486,17 @@ export function UtahHeaderDocumentation() {
               This function must return a DOM element in to which the Utah Header will be placed.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
 
+        <h3><code><a href="#section-config-logo">logo</a></code></h3>
+        <span className="prop__types">Logo</span>
+        <p>
+          Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
+        </p>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-logo">logo</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>Logo</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-config-logo">logo.element</a></code>
+              <code><a href="#section-config-logo">element</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -491,10 +511,9 @@ export function UtahHeaderDocumentation() {
               The element will be moved to the header, so be careful to not supply an element that is used elsewhere.
             </TableCell>
           </TableRow>
-
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-logo">logo.htmlString</a></code>
+              <code><a href="#section-config-logo">htmlString</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -509,10 +528,9 @@ export function UtahHeaderDocumentation() {
               as the logo.
             </TableCell>
           </TableRow>
-
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-logo">logo.imageUrl</a></code>
+              <code><a href="#section-config-logo">imageUrl</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -527,7 +545,22 @@ export function UtahHeaderDocumentation() {
               use for the logo image.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
 
+        <h4>Other</h4>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-applicationType">applicationType</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>wordpress | static site | salesforce | custom application | microsoft power apps | servicenow</code></div>
+            </TableCell>
+            <TableCell><em>required</em></TableCell>
+            <TableCell>
+              This information is used for understanding how the Utah Header is being distributed. It is suggested to use one of the listed values, but any value will be accepted.
+            </TableCell>
+          </TableRow>
           <TableRow>
             <TableCell>
               <code><a href="#section-config-mediaSizes">mediaSizes</a></code>
@@ -646,21 +679,6 @@ export function UtahHeaderDocumentation() {
             </TableCell>
           </TableRow>
         </SettingsDocumentation>
-      </div>
-
-      <h4 id="section-config-applicationType">applicationType</h4>
-      <div>
-        <PreCodeForCodeString
-          className="gray-block mt-spacing"
-          codeRaw={`
-            setUtahHeaderSettings(
-              {
-                ...other settings...,
-                applicationType: 'static site',
-              }
-            )
-          `}
-        />
       </div>
 
       <h4 id="section-config-domLocationTarget" className="mt-spacing">domLocationTarget</h4>
@@ -813,6 +831,21 @@ export function UtahHeaderDocumentation() {
         />
       </div>
 
+      <h4 id="section-config-applicationType">applicationType</h4>
+      <div>
+        <PreCodeForCodeString
+          className="gray-block mt-spacing"
+          codeRaw={`
+            setUtahHeaderSettings(
+              {
+                ...other settings...,
+                applicationType: 'static site',
+              }
+            )
+          `}
+        />
+      </div>
+
       <h4 id="section-config-mediaSizes">mediaSizes</h4>
       <div>
         <PreCodeForCodeString
@@ -923,31 +956,25 @@ export function UtahHeaderDocumentation() {
 
       <h3 id="section-utahheader-actionItems" className="mb-spacing">Action Items</h3>
       <h4 id="section-auth-props">Config Props</h4>
+      <h3><code>actionItems</code></h3>
+      <span className="prop__types">ActionItem[]</span>
+      <p className="mb-auto">
+        The header has an area just to the left of the UtahID button for icons buttons. These can icons can
+        be used for a myriad of purposes customized for your application. For Icon Button guidance,
+        see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
+        When the action item is triggered it can have one of the following behaviors:
+      </p>
+      <ul>
+        <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
+        <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
+        <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
+      </ul>
+      <h3><code>actionItem</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper"><code>ActionItem[]</code></div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              The header has an area just to the left of the UtahID button for icons buttons. These can icons can
-              be used for a myriad of purposes customized for your application. For Icon Button guidance, see <Link to={pageUrls.iconButton}>Icon Buttons</Link>.
-              When the action item is triggered it can have one of the following behaviors:
-              <ul>
-                <li><span className="prop__types">callback</span>: <code>(e) =&gt; alert(&apos;I have been summoned&apos;)</code></li>
-                <li><span className="prop__types">popup menu</span>: a popup menu will show with your custom menu items</li>
-                <li><span className="prop__types">custom html</span>: a popup will appear with your custom content</li>
-              </ul>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].actionFunction</a></code>
+              <code><a href="#section-config-actionItems">actionFunction</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -960,7 +987,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].actionPopupMenu</a></code>
+              <code><a href="#section-config-actionItems">actionPopupMenu</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>PopupMenu</code></div>
@@ -973,7 +1000,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].actionDom</a></code>
+              <code><a href="#section-config-actionItems">actionDom</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -991,7 +1018,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].className</a></code>
+              <code><a href="#section-config-actionItems">className</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1004,7 +1031,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge</a></code>
+              <code><a href="#section-config-actionItems">badge</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>Badge</code></div>
@@ -1017,7 +1044,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge.className</a></code>
+              <code><a href="#section-config-actionItems">badge.className</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1030,7 +1057,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge.label</a></code>
+              <code><a href="#section-config-actionItems">badge.label</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1043,20 +1070,21 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].badge.value</a></code>
+              <code><a href="#section-config-actionItems">badge.value</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>number</code></div>
             </TableCell>
             <TableCell>null</TableCell>
             <TableCell>
-              A numeric value to show in the badge. String values tend to be too bulky or vague. See <Link to={pageUrls.badges}>Badges</Link> for more information.
+              A numeric value to show in the badge. String values tend to be too bulky or vague. See <Link to={pageUrls.badges}>Badges</Link> for more
+              information.
             </TableCell>
           </TableRow>
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].icon</a></code>
+              <code><a href="#section-config-actionItems">icon</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1073,7 +1101,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].mobileMenuLocation</a></code>
+              <code><a href="#section-config-actionItems">mobileMenuLocation</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1097,7 +1125,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].showTitle</a></code>
+              <code><a href="#section-config-actionItems">showTitle</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -1111,7 +1139,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-config-actionItems">actionItems[].title</a></code>
+              <code><a href="#section-config-actionItems">title</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1244,56 +1272,31 @@ export function UtahHeaderDocumentation() {
       {/* ----     Utah ID     --- */}
       <h3 id="section-utahheader-utahid" className="mb-spacing">Utah ID</h3>
       <h4 id="section-auth-props">Config Props</h4>
+      <h3><code><a href="#section-auth-config">utahId</a></code></h3>
+      <span className="prop__types">UtahIdSettings | boolean</span><br />
+      <span>Default:</span> <code>true</code>
+      <p className="mb-auto">
+        Controls the function of the Utah ID button in the Utah Header:
+      </p>
+      <ul>
+        <li>true - auto fetch mode</li>
+        <li>false - turned off, no button</li>
+        <li>UtahIdSettings - custom control of the UtahID button</li>
+      </ul>
+      <hr />
+      <h3><code><a href="#section-auth-currentuser">utahId.currentUser</a></code></h3>
+      <span className="prop__types">UserInfo | null | undefined</span><br />
+      <span>Default:</span> <code>null</code>
+      <ul>
+        <li>UserInfo - details about the current user</li>
+        <li>null - app controls the user, but there is no user</li>
+        <li>undefined - app does not control the user</li>
+      </ul>
       <div className="documentation-content--small-text static-example static-example--blank">
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-config">utahId</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper">
-                <code>UtahIdSettings</code>
-                <span> | </span>
-                <code>boolean</code>
-              </div>
-            </TableCell>
-            <TableCell><code>true</code></TableCell>
-            <TableCell>
-              Controls the function of the Utah ID button in the Utah Header:
-              <ul>
-                <li>true - auto fetch mode</li>
-                <li>false - turned off, no button</li>
-                <li>UtahIdSettings - custom control of the UtahID button</li>
-              </ul>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser</a></code>
-            </TableCell>
-            <TableCell>
-              <div className="props-code-wrapper">
-                <code>UserInfo</code>
-                <span> | </span>
-                <code>null</code>
-                <span> | </span>
-                <code>undefined</code>
-              </div>
-            </TableCell>
-            <TableCell>null</TableCell>
-            <TableCell>
-              <ul>
-                <li>UserInfo - details about the current user</li>
-                <li>null - app controls the user, but there is no user</li>
-                <li>undefined - app does not control the user</li>
-              </ul>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.authenticated</a></code>
+              <code><a href="#section-auth-currentuser">authenticated</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -1309,7 +1312,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.disabled</a></code>
+              <code><a href="#section-auth-currentuser">disabled</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>boolean</code></div>
@@ -1325,7 +1328,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.env</a></code>
+              <code><a href="#section-auth-currentuser">env</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>string</code></div>
@@ -1338,7 +1341,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.first</a></code>
+              <code><a href="#section-auth-currentuser">first</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1355,7 +1358,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.last</a></code>
+              <code><a href="#section-auth-currentuser">last</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1372,7 +1375,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.mail</a></code>
+              <code><a href="#section-auth-currentuser">mail</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1389,7 +1392,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.middle</a></code>
+              <code><a href="#section-auth-currentuser">middle</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1406,7 +1409,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.status</a></code>
+              <code><a href="#section-auth-currentuser">status</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1423,8 +1426,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <span className="prop__description"><a href="#section-auth-currentuser">utahId.currentUser.type</a></span><br />
-              <span className="prop__types">string | null</span>
+              <code><a href="#section-auth-currentuser">type</a></code><br />
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1441,7 +1443,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-currentuser">utahId.currentUser.username</a></code>
+              <code><a href="#section-auth-currentuser">username</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper">
@@ -1455,17 +1457,15 @@ export function UtahHeaderDocumentation() {
               Username of the logged in user.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
+      </div>
 
-          <TableRow>
-            {/* @ts-expect-error */}
-            <TableCell colSpan="100">
-              <span className="prop__section-title">UtahId Events</span>
-            </TableCell>
-          </TableRow>
-
+      <h4>UtahId Events</h4>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onauthchanged">utahId.onAuthChanged</a></code>
+              <code><a href="#section-auth-event-onauthchanged">onAuthChanged</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -1478,20 +1478,21 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onProfile">utahId.onProfile</a></code>
+              <code><a href="#section-auth-event-onProfile">onProfile</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
             </TableCell>
             <TableCell>null</TableCell>
             <TableCell>
-              Callback triggered when the UtahID Profile menu item is triggered in the Utah ID menu for a logged in user. The default behavior of this menu item is to navigate the user to their UtahID Profile page.
+              Callback triggered when the UtahID Profile menu item is triggered in the Utah ID menu for a logged in user. The default behavior of this
+              menu item is to navigate the user to their UtahID Profile page.
             </TableCell>
           </TableRow>
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onSignIn">utahId.onSignIn</a></code>
+              <code><a href="#section-auth-event-onSignIn">onSignIn</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -1504,7 +1505,7 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-event-onSignOut">utahId.onSignOut</a></code>
+              <code><a href="#section-auth-event-onSignOut">onSignOut</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>function</code></div>
@@ -1514,17 +1515,15 @@ export function UtahHeaderDocumentation() {
               Callback triggered when the UtahID button&apos;s Sign Out menu item is triggered.
             </TableCell>
           </TableRow>
+        </SettingsDocumentation>
+      </div>
 
-          <TableRow>
-            {/* @ts-expect-error */}
-            <TableCell colSpan="100">
-              <span className="prop__section-title">UtahId Custom Menu Items</span>
-            </TableCell>
-          </TableRow>
-
+      <h4>UtahId Custom Menu Items</h4>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
-              <code><a href="#section-auth-menu-items">utahId.menuItems</a></code>
+              <code><a href="#section-auth-menu-items">menuItems</a></code>
             </TableCell>
             <TableCell>
               <div className="props-code-wrapper"><code>MenuItem[]</code></div>
@@ -1532,7 +1531,8 @@ export function UtahHeaderDocumentation() {
             <TableCell>null</TableCell>
             <TableCell>
               Your application can add its own menu items to the UtahId menu. Make sure that these menu items are relevant
-              to a user&apos;s account. Use an alternate navigation for non-account related links. <a href="#section-menuitem-settings">See here for MenuItem</a>.
+              to a user&apos;s account. Use an alternate navigation for non-account related links.{' '}
+              <a href="#section-menuitem-settings">See here for MenuItem</a>.
             </TableCell>
           </TableRow>
         </SettingsDocumentation>
@@ -1577,8 +1577,14 @@ export function UtahHeaderDocumentation() {
       <div>
         UtahId returns information about the current User. The following end points are useful for getting started connecting to UtahId:
         <ul>
-          <li><strong>Discovery</strong>: <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration">https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration</ExternalLink></li>
-          <li><strong>UserInfo</strong>: <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/userinfo">https://login.dts.utah.gov:443/sso/oauth2/userinfo</ExternalLink></li>
+          <li>
+            <strong>Discovery</strong>:
+            <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration">https://login.dts.utah.gov:443/sso/oauth2/.well-known/openid-configuration</ExternalLink>
+          </li>
+          <li>
+            <strong>UserInfo</strong>:
+            <ExternalLink href="https://login.dts.utah.gov:443/sso/oauth2/userinfo">https://login.dts.utah.gov:443/sso/oauth2/userinfo</ExternalLink>
+          </li>
         </ul>
         This example shows how an application can provide an authenticated user to the Utah Header:
         <PreCodeForCodeString
@@ -1691,7 +1697,8 @@ export function UtahHeaderDocumentation() {
       <h4 id="section-auth-event-onProfile" className="mt-spacing">utahId.onProfile</h4>
       <div>
         This callback is called when the Utah ID button&apos;s UtahId Profile menu item is triggered for a logged in user.
-        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#section-auth-menu-items">custom menu item</a> to access
+        Overriding the functionality of this menu item should be rare. Provide a separate <a href="#section-auth-menu-items">custom menu item</a> to
+        access
         your application&apos;s settings/account page.
         <PreCodeForCodeString
           allowScrollOverflow

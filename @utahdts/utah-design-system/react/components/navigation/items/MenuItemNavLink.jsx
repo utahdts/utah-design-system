@@ -24,7 +24,9 @@ export function MenuItemNavLink({
     <a
       className={joinClassNames(
         menuType === menuTypes.VERTICAL ? 'vertical-menu__link-title' : 'menu-item__link-title',
-        currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') && (currentMenuItem?.children?.length ? 'menu-item--selected_parent' : 'menu-item--selected')
+        currentMenuItem?.parentLinks?.includes(menuItem.link ?? '') && (currentMenuItem?.children?.length ? '' : 'menu-item--selected_parent'),
+        // @ts-expect-error
+        ((currentMenuItem?.link && menuItem?.link) && (currentMenuItem.link === menuItem.link)) ? 'menu-item--selected' : ''
       )}
       href={menuItem.link || menuItem.actionUrl?.url || menuItem.actionFunctionUrl?.url || '#'}
       onClick={(e) => {

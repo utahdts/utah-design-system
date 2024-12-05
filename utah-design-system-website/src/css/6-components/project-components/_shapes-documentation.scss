@@ -1,3 +1,25 @@
 .shape-examples-link {
   box-shadow: inset 0 0 0 1000px var(--hover-gray-color);
+  border-radius: var(--radius-circle);
+  padding: var(--spacing-2xs) var(--spacing);
+
+  &--selected {
+    border-radius: 0 var(--radius-circle) var(--radius-circle) 0;
+    font-weight: bold;
+    position: relative;
+
+    &::before {
+      content: "";
+      height: 100%;
+      width: 4px;
+      background: var(--primary-color);
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: var(--spacing-2xs);
+      outline: none;
+      outline-offset: 0;
+    }
+  }
 }

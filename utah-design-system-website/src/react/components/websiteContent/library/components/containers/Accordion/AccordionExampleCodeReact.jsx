@@ -29,7 +29,7 @@ export function AccordionExampleCodeReact({
       <ExampleCodeReactProp displayProp={`headerClassName="${headerClassName}"`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`headerContent={<span>${headerContent}</span>}`} indentLevel={1} />
       <ExampleCodeReactProp displayProp={`headingLevel={${headingLevel}}`} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={'id="sandbox-accordion"'} indentLevel={1} />
+      <ExampleCodeReactProp displayProp='id="sandbox-accordion"' indentLevel={1} />
       <ExampleCodeReactProp displayProp={`isOpen={${isOpen}}`} indentLevel={1} />
       &gt;
       <br />

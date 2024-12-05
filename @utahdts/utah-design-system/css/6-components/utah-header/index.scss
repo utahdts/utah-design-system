@@ -1,13 +1,9 @@
 @use 'font';
-// We need to pull in only what the header needs this pulls in all the css :-(
-@use '../../../utah-design-system/css/index.scss';
 @use 'citizen-experience';
 @use 'action-items';
-@use 'popup';
 @use 'utah-header-wrapper';
 @use 'logos';
 @use 'official-website-popup';
 @use 'badge';
-@use 'vertical-menu';
 @use 'mobile-menu';
 @use 'footer';

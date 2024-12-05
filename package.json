@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "2.0.2",
+  "version": "3.0.1",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -55,6 +55,7 @@
     "test:ci": "npm run test:ci -workspace=@utahdts/utah-design-system",
     "// ======= combo tasks ====== //": "",
     "build": "run-s buildTypes buildHeader buildLibrary buildWebsite",
+    "buildForNPM": "run-s buildLibrary buildHeader && cp ./@utahdts/utah-design-system/dist/style.css ./@utahdts/utah-design-system-header/dist/",
     "buildtest": "run-s build test:ci",
     "clean": "run-s cleanexamples cleanPackageLock cleanCoverage cleanDist cleanSitemap cleanNodeModules",
     "cleanexamples": "run-s cleanExampleTypedUtahHeader cleanExampleUtahHeaderCreateReactApp cleanExampleUtahHeaderAngular cleanExampleUtahHeaderVite cleanExampleDesignSystemViteReact cleanTypedTypedUtahHeader",
@@ -75,23 +76,28 @@
     "tscw": "run-s tscwHeader tscLibrary tscwWebsite"
   },
   "devDependencies": {
+    "@eslint/compat": "1.2.3",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.15.0",
+    "@stylistic/eslint-plugin": "2.11.0",
     "@types/js-beautify": "1.14.3",
-    "@vitest/coverage-istanbul": "2.0.5",
-    "eslint": "8.57.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsdoc": "50.2.1",
-    "eslint-plugin-jsx-a11y": "6.9.0",
-    "eslint-plugin-react": "7.35.0",
-    "eslint-plugin-react-hooks": "4.6.2",
-    "eslint-plugin-react-refresh": "0.4.9",
+    "@vitest/coverage-istanbul": "2.1.5",
+    "eslint": "9.15.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jsdoc": "50.5.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react": "7.37.2",
+    "eslint-plugin-react-refresh": "0.4.14",
+    "globals": "15.12.0",
     "npm-run-all": "4.1.5",
     "rimraf": "6.0.1",
+    "typescript-eslint": "8.15.0",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "2.0.5"
+    "vitest": "2.1.5"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
+    "@typescript-eslint/eslint-plugin": "8.15.0",
     "immer": "10.1.1",
     "lodash": "4.17.21",
     "use-immer": "0.10.0"

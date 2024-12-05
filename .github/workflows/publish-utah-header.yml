@@ -7,19 +7,19 @@ jobs:
     steps:
       - name: Checkout 🐣
         uses: actions/checkout@v4
-        with: 
+        with:
           ref: ${{ github.ref }}
       - name: Setup Node 🐔
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'  
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
       - name: NPM Install 🪚
         run: |
           npm install
       - name: NPM header Build 🔨
         run: |
-          npm run buildHeader
+          npm run buildForNPM
       - name: Build Types 🪚
         run: |
           npm run buildTypesHeader

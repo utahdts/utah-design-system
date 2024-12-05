@@ -1,8 +1,8 @@
 import { setUtahHeaderSettings } from '@utahdts/utah-design-system-header';
 import '@utahdts/utah-design-system-header/css';
+import './style.css';
 import { setupCounter } from './counter';
 import javascriptLogo from './javascript.svg';
-import './style.css';
 import viteLogo from '/vite.svg';
 
 document.querySelector('#app').innerHTML = `
@@ -21,13 +21,6 @@ document.querySelector('#app').innerHTML = `
       Click on the Vite logo to learn more
     </p>
   </div>
-
-  <!-- 
-  The default style sets body's display to flex. 
-  There are many ways to make the state of Utah Header work with a flexed body.
-  Setting body's display to block is a quick hack to prove the proof of concept of importing the state of Utah Header.
-  -->
-  <style>body { display: block }</style>
 `;
 
 setUtahHeaderSettings({

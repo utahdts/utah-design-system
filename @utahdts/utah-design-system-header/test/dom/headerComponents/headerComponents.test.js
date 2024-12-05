@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { loadTestHeader } from '../util/loadTestHeader';
+// eslint-disable-next-line import/extensions
 import defaultTestSettings from './util/defaultTestSettings.json';
 import {
   actionItemsOff,

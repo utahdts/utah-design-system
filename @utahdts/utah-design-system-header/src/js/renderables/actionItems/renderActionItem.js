@@ -1,7 +1,3 @@
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import ActionItemHtml from './html/ActionItem.html?raw';
-
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { popupFocusHandler } from '../../misc/popupFocusHandler';
@@ -10,6 +6,7 @@ import { uuidv4 } from '../../misc/uuidv4';
 import { renderPopup } from '../popup/renderPopup';
 import { renderPopupMenu } from '../popupMenu/renderPopupMenu';
 import { hookupTooltip } from '../tooltip/hookupTooltip';
+import ActionItemHtml from './html/ActionItem.html?raw';
 import { renderActionItemBadge } from './renderActionItemBadge';
 
 /** @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem */

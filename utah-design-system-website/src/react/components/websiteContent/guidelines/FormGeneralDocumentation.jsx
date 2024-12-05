@@ -134,9 +134,9 @@ export function FormGeneralDocumentation() {
         to make the form elements accessible. Native elements have built-in semantics that convey meaning to assistive technologies.
         By using native elements, you provide a solid foundation for creating accessible web content without relying on additional ARIA attributes.
       </p>
-      <p className="block-quote">
+      <blockquote className="block-quote">
         <strong className="font-size-l"><em>The first rule of ARIA: Before you use ARIA, use native HTML elements and attributes first!</em></strong>
-      </p>
+      </blockquote>
 
       <h3 id="group-form-controls">Group related form controls</h3>
       <p>

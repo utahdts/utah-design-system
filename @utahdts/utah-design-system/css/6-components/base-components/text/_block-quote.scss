@@ -15,5 +15,23 @@
       left: 0;
       background: var(--primary-color-light);
     }
+
+    &--quotation-marks {
+      &::before  {
+        content: '“';
+        font-size: var(--font-size-5xl);
+        width: 5px;
+        background-color: transparent;
+      }
+      &::after  {
+        content: '”';
+        height: 100%;
+        font-size: var(--font-size-5xl);
+        width: 5px;
+        position: absolute;
+        right: var(--spacing);
+        background-color: transparent;
+      }
+    }
   }
 }

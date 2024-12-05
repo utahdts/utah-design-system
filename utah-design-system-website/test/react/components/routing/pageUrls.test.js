@@ -2,6 +2,7 @@ import { camelCase } from 'lodash';
 import { describe, expect, test } from 'vitest';
 import { pageUrls } from '../../../../src/react/components/routing/pageUrls';
 import { constructMainMenu } from '../../../../src/react/components/routing/util/constructMainMenu';
+import { notNull } from '../../../../src/react/util/notNull/notNull';
 
 /** @typedef {import('@utahdts/utah-design-system-header').MenuItem} MenuItem */
 /** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
@@ -67,8 +68,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
     // add entry for menuItem
     const menuItemPath = `${basePath}/${cleanMenuItemTitlePath(menuItem.title)}`;
     if (pageUrl) {
-      // @ts-expect-error
-      pagePaths[pageUrlReverseLookup[pageUrl]] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
+      pagePaths[notNull(pageUrlReverseLookup[pageUrl], 'reverse lookup will always get a value')] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
     }
 
     // add menuItem's children to the object
@@ -86,18 +86,15 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
 }
 
 describe('pageUrls - match menu path', () => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const mainMenu = constructMainMenu(undefined, () => { });
   const menuPaths = deconstructMainMenuPaths(mainMenu.menuItems);
 
+  /* *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! *** */
+
   /*
-   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
-   *
-   *
    * When a test fails this check it means that the pageUrls object's path for the page
    * does not match the path to the page in menus.js
-   *
-   *
-   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
    *
    *
    * This first builds the main menu like how the website builds the main menu.
@@ -106,14 +103,8 @@ describe('pageUrls - match menu path', () => {
    * It then compares the transformed menu title path with the path in pageUrls to make sure they match
    *
    *
-   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
-   *
-   *
    * Feel free to not match the menu path with the pageUrl path, just update this test code
    * to account for the change. eg '/home' gets changed to just '/', but be ready to explain yourself.
-   *
-   *
-   *** !!!!!! PUT OLD LINKS IN pages.[pageBeingChanged].legacyLinks !!! so that links aren't broken !!!!!! ***
   */
   test.each(
     /** @type {[[string, string, string[] | undefined]]} */(
@@ -123,7 +114,7 @@ describe('pageUrls - match menu path', () => {
         .filter(([, , menuPathsForPageUrl]) => menuPathsForPageUrl?.length)
     )
   )(
-    'pageUrls - match menu path: %s, %s, %s',
+    'pageUrls - match menu path: {page: %s, pageUrls: \'%s\', menu: %s}',
     (_pageUrlKey, pageUrlPath, menuPathsForPageUrl) => {
       expect(menuPathsForPageUrl?.includes(pageUrlPath)).toBeTruthy();
     }

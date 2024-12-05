@@ -112,6 +112,7 @@ export function VerticalMenuDocumentation() {
                 {
                   header: '',
                   id: 'static-vertical-menu',
+                  titleTagName: 'span',
                   menuItems: [
                     {
                       id: 'menu-in-popup-A',
@@ -245,7 +246,7 @@ export function VerticalMenuDocumentation() {
           <ul>
             <li>The role should be assigned to the controlling element.</li>
             <li>
-              The <code>role=&quot;navigation&quot;</code> identifies and conveys the structural information of the element on the page. And should be
+              The <code>&lt;nav&gt;</code> / <code>role=&quot;navigation&quot;</code> identifies and conveys the structural information of the element on the page. And should be
               reserved for&nbsp;
               landmark navigation (e.g. The main menu or side menu). You would generally not use <code>role=&quot;navigation&quot;</code> for popup
               menus.
@@ -346,9 +347,9 @@ export function VerticalMenuDocumentation() {
       id: 'menu-item-id',
       title: 'Menu Item',
       children: [
-        { 
+        {
           title: 'Sub-menu Item',
-          id: 'sub-menu-item-id' 
+          id: 'sub-menu-item-id'
         },
       ],
       childrenMenuType: 'inline',

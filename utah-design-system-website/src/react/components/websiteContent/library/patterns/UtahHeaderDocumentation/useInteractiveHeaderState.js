@@ -93,7 +93,7 @@ export function useInteractiveHeaderState() {
         setParseError(null);
       } catch (e) {
         setUtahHeaderSettings(originalHeader.current);
-        // @ts-expect-error
+        // @ts-expect-error e is an exception, so message exists...?
         setParseError(e.message);
       }
 
@@ -116,7 +116,7 @@ export function useInteractiveHeaderState() {
           setHeaderIsOnSafely(true);
           setParseError(null);
         } catch (e) {
-          // @ts-expect-error
+          // @ts-expect-error e is an exception, so message exists...?
           setParseError(e.message);
         }
       },
@@ -139,7 +139,7 @@ export function useInteractiveHeaderState() {
         // clear all settings
         const blankSettings = { ...getUtahHeaderSettings() };
         Object.keys(blankSettings).forEach((settingsKey) => {
-          // @ts-expect-error
+          // @ts-expect-error settingsKey is good here
           blankSettings[settingsKey] = null;
         });
         // add back in defaults and app base settings

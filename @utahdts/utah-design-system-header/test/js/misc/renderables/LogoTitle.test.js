@@ -30,7 +30,7 @@ describe('LogoTitle', () => {
   test('titleUrl: **backwards compatibility (titleURL)** blank (wrapper !link)', () => {
     setUtahHeaderSettingsForTest(
       {
-        // @ts-expect-error
+        // @ts-expect-error intentional for testing
         titleUrl: null,
         titleURL: '',
       },
@@ -48,7 +48,7 @@ describe('LogoTitle', () => {
   test('titleUrl: **backwards compatibility (titleURL)** value (!wrapper link)', () => {
     setUtahHeaderSettingsForTest(
       {
-        // @ts-expect-error
+        // @ts-expect-error intentional for testing
         titleUrl: null,
         titleURL: 'just-a-test',
       },

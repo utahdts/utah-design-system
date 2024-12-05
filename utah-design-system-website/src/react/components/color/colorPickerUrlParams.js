@@ -1,4 +1,3 @@
-/* eslint-disable no-bitwise */
 import { padEnd } from 'lodash';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import { notNull } from '../../util/notNull/notNull';
@@ -63,7 +62,7 @@ export function colorsToCSS(cssState) {
 export function colorsToUrlParams(cssState) {
   const hexes = (
     Object.values(CSS_VARIABLES_KEYS)
-      // @ts-expect-error
+      // @ts-expect-error colorKey is valid here
       .map((colorKey) => /** @type {string | null} */(cssState[colorKey])?.substring(1) || NULL_COLOR_HEX)
       .map((colorHex) => {
         let retVal = colorHex;

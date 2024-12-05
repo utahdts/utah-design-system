@@ -15,8 +15,12 @@ export function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
   useEffect(
     () => {
       keydownFuncRef.current = (e) => {
-        // @ts-expect-error
-        if (e.code === whichKeyCode || e.keyCode === whichKeyCode || e.key === whichKeyCode) {
+        if (
+          e.code === whichKeyCode
+          // @ts-expect-error probably shouldn't use keyCode anymore?
+          || e.keyCode === whichKeyCode
+          || e.key === whichKeyCode
+        ) {
           if (e.type === 'keydown') {
             setKeyPressed(true);
             if (onKeyDown) {
@@ -30,16 +34,16 @@ export function useGlobalKeyEvent({ whichKeyCode, onKeyDown, onKeyUp }) {
           }
         }
       };
-      // @ts-expect-error
+      // @ts-expect-error event typing here is weird
       document.addEventListener('keydown', keydownFuncRef.current);
-      // @ts-expect-error
+      // @ts-expect-error event typing here is weird
       document.addEventListener('keyup', keydownFuncRef.current);
 
       return () => {
         if (keydownFuncRef.current) {
-          // @ts-expect-error
+          // @ts-expect-error event typing here is weird
           document.removeEventListener('keydown', keydownFuncRef.current);
-          // @ts-expect-error
+          // @ts-expect-error event typing here is weird
           document.removeEventListener('keyup', keydownFuncRef.current);
         }
         keydownFuncRef.current = null;

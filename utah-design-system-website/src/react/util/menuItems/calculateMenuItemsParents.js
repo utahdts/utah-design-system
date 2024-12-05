@@ -35,7 +35,7 @@ import { identity } from 'lodash';
  * @returns {WebsiteMainMenuItem} the menuItems now with parentLinks information
  */
 export function calculateMenuItemsParents({ parentLinks = [], menuItems }) {
-  // @ts-expect-error
+  // @ts-expect-error title is missing intentionally?
   return (
     (menuItems || [])
       .map((menuItem) => {

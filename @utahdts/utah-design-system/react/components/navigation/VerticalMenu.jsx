@@ -28,15 +28,20 @@ export function VerticalMenu({
         menus.map((menu) => {
           const TitleTagName = menu.titleTagName || 'h2';
           return (
-            <nav className={className} key={`vertical-menu__${menu.id}`} aria-labelledby={menu.id}>
-              {/* @ts-expect-error */}
-              <TitleTagName
-                id={menu.id}
-                className={joinClassNames(menu.titleTagClassName, 'vertical-menu__header')}
-              >
-                {menu.header}
-              </TitleTagName>
-              <ul key={`vertical-menu__list__${menu.id}`} role="menu" className="vertical-menu">
+            <div className={className} key={`vertical-menu__${menu.id}`} aria-labelledby={menu.header ? menu.id : undefined}>
+              {
+                menu.header ? (
+                  /* @ts-expect-error */
+                  <TitleTagName
+                    id={menu.id}
+                    className={joinClassNames(menu.titleTagClassName, 'vertical-menu__header')}
+                  >
+                    {menu.header}
+                  </TitleTagName>
+                )
+                  : null
+              }
+              <ul key={`vertical-menu__list__${menu.id}`} className="vertical-menu">
                 {menu.menuItems.map((menuItem) => {
                   let result;
                   switch (menuItem.childrenMenuType) {
@@ -74,7 +79,7 @@ export function VerticalMenu({
                   return result;
                 })}
               </ul>
-            </nav>
+            </div>
           );
         })
       }

@@ -5,13 +5,65 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [x.x.x] x/x/xxxx
+# [3.0.1] 12/2/2024
+## Fixed
+- Fixed node module exports for files in the /dist/ directory
+
+# [3.0.0] 11/12/2024
+## Breaking Changes
+- **[⚠️ Breaking]** Merged and Optimized CSS
+  - All Design System CSS (including the Utah Header CSS) is now contained in a single optimized file.
+  - ⚠️ This has potential to introduce unexpected CSS into your project.
+  - ⚠️ For instances where both the `Utah Design System` and `Utah Header` CSS were being used, you can use a single import now.
+  - All CSS should be scoped under the `utah-design-system` css class.
+  - See [Design System - Getting Started](https://designsystem.utah.gov/resources/gettingStartedDeveloper) for more information
+- **[⚠️ Breaking]** Removed FormContext from React Form Components
+  - ⚠️ Individual components inside a form now need individual onChange/value props
+  - `<Form state={state} setState={setState}><TextInput /></Form>`
+  - becomes ==>
+  - `<Form><TextInput onChange={(e) => {setState(...}} value={state.textInputValue} /></Form>`
+
 ## Added
-- Add header setting for `titleFunction` for single page apps
+- Utah Header: Added header setting for `titleFunction` that triggers when a user clicks the site title/logo. This is useful for single page apps to avoid a page reload.
+- Added additional banner color classes to the css
+- Added file input drag and drop
+- Styled the password form input
+- Update close button style on drawers to match other close buttons
+
+## Changed
+- Utah Header: Reformatted Utah Header documentation page
+- Changed default color for banners to dark
+
+## Fixed
+- Utah Header - Main Menu: Fixed menu title wrapping
+- Utah Header - Main Menu: Make main menu `actionFunctionUrl` items be buttons if menu and function
+- Disable Date input calendar icon when form element is disabled
+- Disable file tags when File input is disabled
+- Stop using <nav> for vertical menu wrapper, add back to sidebar
+- Fixed react rendering of Badge
+- Fixed tab group css
+- Fixed tag clearable button color
+- Improve accordion accessibility to follow WCAG example
+- Show red border on invalid select and multi-select
+- Update block quotes css and documentation
+- Resolved several accessibility issues
+
+## Design System Website Changes
+- Added additional resources and examples on the `Getting Started for Developers` page
+- Change javascript alerts to banners
+- Fixed background color on website making scrollbar invisible
+- Fixed Demo Form's switch to toggle its value
+- Highlight current item on side menu
+- Make Main Menu "overview" link optional
+
+
+# [2.0.3] 9/9/2024
+## Fixed
+- Make TabGroup respond to controlled changes
 
 # [2.0.2] 8/13/2024
 ## Fixed
-- Utah Header should have a white background color (just not on the main .utah-design-system css class).
+- Utah Header should have a white background color (just not on the main .utah-design-system css class)
 
 # [2.0.1] 8/5/2024
 ## Fixed

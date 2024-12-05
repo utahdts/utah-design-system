@@ -1,5 +1,3 @@
-import './css/index.scss';
-
 export { childrenMenuTypes } from './js/enumerations/childrenMenuTypes';
 export { PopupPlacement } from './js/enumerations/popupPlacement';
 export { events } from './js/enumerations/events';

@@ -8,6 +8,7 @@ import {
   menuResourcesSecondary,
 } from '../menus';
 import { pageUrls } from '../pageUrls';
+import { actionFunctionForUrl } from './actionFunctionForUrl';
 
 /** @typedef {import('@utahdts/utah-design-system-header').EventAction} EventAction */
 /** @typedef {import('@utahdts/utah-design-system-header').MainMenu} MainMenu */
@@ -17,26 +18,6 @@ import { pageUrls } from '../pageUrls';
 /** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
 /** @typedef {import('utah-design-system-website').WebsiteMainMenu} WebsiteMainMenu */
 /** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */
-
-/**
- * @param {string} url
- * @param {import('react-router-dom').NavigateFunction} navigate
- * @returns {EventAction}
- */
-function actionFunctionForUrl(url, navigate) {
-  return (
-    (e) => {
-      if (e.metaKey) {
-        window.open(url, '_blank');
-      } else {
-        e.preventDefault();
-        e.stopPropagation();
-        // mainMenuItem.link will be there... if not, not my problem
-        navigate(url);
-      }
-    }
-  );
-}
 
 /**
  * @param {WebsiteMainMenuItem[]} websiteMainMenuItems
@@ -76,11 +57,11 @@ function assignSelectedFromHierarchy(parentMenus, draftMenuItem, currentMenuItem
   draftMenuItem.isSelected = (
     draftMenuItem.isSelected
     || (
-      // @ts-expect-error
+      // @ts-expect-error menu types are wild...
       currentMenuItem?.link && (
-        // @ts-expect-error
+        // @ts-expect-error menu types are wild...
         currentMenuItem?.link === draftMenuItem.actionFunctionUrl?.url
-        // @ts-expect-error
+        // @ts-expect-error menu types are wild...
         || currentMenuItem?.link === draftMenuItem?.actionUrl?.url
       )
     )
@@ -115,14 +96,15 @@ export function constructMainMenu(currentMenuItem, navigate) {
         url: mainMenuItem.link || pageUrls.home,
       },
       isSelected: (
-        // @ts-expect-error
+        // @ts-expect-error menu types are wild...
         (mainMenuItem.link && (currentMenuItem?.link === mainMenuItem.link))
-        // @ts-expect-error
+        // @ts-expect-error menu types are wild...
         || (mainMenuItem?.actionFunctionUrl?.url && (currentMenuItem?.link === mainMenuItem?.actionFunctionUrl?.url))
-        // @ts-expect-error
+        // @ts-expect-error menu types are wild...
         || (mainMenuItem.link && currentMenuItem?.parentLinks?.includes(mainMenuItem.link))
       ),
       title: mainMenuItem.title,
+      isOverviewHidden: !!mainMenuItem.isOverviewHidden,
     })),
   };
 
@@ -130,7 +112,7 @@ export function constructMainMenu(currentMenuItem, navigate) {
   /** @type {{[key: string]: MainMenuItem}} */
   const mainMenusByLink = mainMenu.menuItems.reduce(
     (draftMainMenusMap, mainMenuItem) => {
-      // @ts-expect-error
+      // @ts-expect-error menu types are wild...
       draftMainMenusMap[mainMenuItem.actionFunctionUrl?.url || 'missing-action-url'] = mainMenuItem;
       return draftMainMenusMap;
     },
@@ -138,10 +120,10 @@ export function constructMainMenu(currentMenuItem, navigate) {
   );
 
   // add children to each top level menu
-  // @ts-expect-error
+  // @ts-expect-error menu types are wild...
   mainMenusByLink[pageUrls.guidelines].actionMenu = constructMenuItems(menuGuidelinesSecondary.menuItems, navigate);
   const librarySubMenuInitial = constructMenuItems(menuLibrarySecondary.menuItems, navigate);
-  // @ts-expect-error
+  // @ts-expect-error menu types are wild...
   mainMenusByLink[pageUrls.library].actionMenu = librarySubMenuInitial.concat([
     {
       actionMenu: constructMenuItems(menuLibraryComponentsSecondary.menuItems, navigate),
@@ -152,7 +134,7 @@ export function constructMainMenu(currentMenuItem, navigate) {
       title: 'Patterns',
     },
   ]);
-  // @ts-expect-error
+  // @ts-expect-error menu types are wild...
   mainMenusByLink[pageUrls.resources].actionMenu = constructMenuItems(menuResourcesSecondary.menuItems, navigate);
 
   // recursive step through children; if child selected then select all its parents too

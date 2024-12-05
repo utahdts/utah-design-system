@@ -9,29 +9,59 @@
     min-height: var(--form-ele-small);
     line-height: 1;
 
-    &--primary-color {
+    &--primary-color, &--primary-color + .tag__clear-button {
       background-color: var(--primary-color);
       color: white;
       fill: white;
+      &[disabled] {
+        background-color: var(--primary-color) !important;
+        color: var(--primary-color-dark) !important;
+        fill: var(--primary-color-dark) !important;
+      }
     }
-    &--primary-color-light {
+    &--primary-color-light, &--primary-color-light + .tag__clear-button {
       background-color: var(--primary-color-light);
+      &[disabled] {
+        background-color: var(--primary-color-light) !important;
+        color: var(--form-ele-disabled-color) !important;
+        fill: var(--form-ele-disabled-color) !important;
+      }
     }
-    &--secondary-color {
+    &--secondary-color, &--secondary-color + .tag__clear-button {
       background-color: var(--secondary-color);
       color: white;
       fill: white;
+      &[disabled] {
+        background-color: var(--secondary-color) !important;
+        color: var(--secondary-color-dark) !important;
+        fill: var(--secondary-color-dark) !important;
+      }
     }
-    &--secondary-color-light {
+    &--secondary-color-light, &--secondary-color-light + .tag__clear-button {
       background-color: var(--secondary-color-light);
+      &[disabled] {
+        background-color: var(--secondary-color-light) !important;
+        color: var(--form-ele-disabled-color) !important;
+        fill: var(--form-ele-disabled-color) !important;
+      }
     }
-    &--accent-color {
+    &--accent-color, &--accent-color + .tag__clear-button {
       background-color: var(--accent-color);
       color: white;
       fill: white;
+      &[disabled] {
+        background-color: var(--accent-color) !important;
+        color: var(--accent-color-dark) !important;
+        fill: var(--accent-color-dark) !important;
+      }
     }
-    &--accent-color-light {
+    &--accent-color-light, &--accent-color-light + .tag__clear-button {
       background-color: var(--accent-color-light);
+      &[disabled] {
+        background-color: var(--accent-color-light) !important;
+        color: var(--form-ele-disabled-color) !important;
+        fill: var(--form-ele-disabled-color) !important;
+      }
     }
 
     &--selected {
@@ -51,6 +81,11 @@
         background-color: var(--accent-color);
         border: none;
       }
+    }
+
+    &  + .tag__clear-button {
+      border-radius: 0 var(--radius-small) var(--radius-small) 0;
+      height: 100%;
     }
 
     &__button[type="button"] {
@@ -146,6 +181,7 @@
     &--clearable {
       .tag {
         padding: 0 0 0 var(--spacing-xs);
+        border-radius: var(--radius-small) 0 0 var(--radius-small);
       }
       .tag--small {
         padding: 0 0 0 var(--spacing-xs);

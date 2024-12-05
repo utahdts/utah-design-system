@@ -17,6 +17,7 @@ import { pageUrls } from '../../routing/pageUrls';
 export function TypographyDocumentation() {
   return (
     <div className="documentation-content">
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
       <h1 id="h1-top">Typography</h1>
       <p className="lead-in">
         To assist developers in achieving a cohesive and user-friendly design, we offer a range of formatting functions and typography guidelines. These
@@ -379,7 +380,7 @@ export function TypographyDocumentation() {
             of text in a light, extra-light, or thin font. Thin weights inherently make the text harder to see. Thin weights may be used at larger
             font sizes for headings.
           </p>
-          <p className="typography__light-font">
+          <p className="typography__light-font ml-spacing">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum,
             magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
             ultricies quis vel lacus.
@@ -389,7 +390,7 @@ export function TypographyDocumentation() {
             It is also recommended that you don&apos;t set entire paragraphs in a bold or heavy weight as this will also impact the readability of the text.
             On rare occasions you may have the need to dramatically emphasize text.
           </p>
-          <p className="typography__black-font">
+          <p className="typography__black-font ml-spacing">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum,
             magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
             ultricies quis vel lacus.

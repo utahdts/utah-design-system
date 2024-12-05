@@ -31,7 +31,7 @@ export function ComboBoxOptionGroup({
         label={label}
         value={`${label}--group`}
       >
-        {label}
+        <span>{label}</span>
       </ComboBoxOption>
 
       {children}

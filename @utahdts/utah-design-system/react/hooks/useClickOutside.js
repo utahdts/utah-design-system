@@ -21,7 +21,7 @@ export function useClickOutside(refs, handler, isDisabled = false) {
             (!startedInside && startedWhenMounted)
 
             // Do nothing if clicking ref's element or descendent elements
-            // @ts-expect-error
+            // @ts-expect-error this works... types are incongruent
             && (ref.current && !ref.current.contains(event.target))
           ))) {
             handler(event);
@@ -31,7 +31,7 @@ export function useClickOutside(refs, handler, isDisabled = false) {
         /** @type {(e: Event) => void} */
         const validateEventStart = (event) => {
           startedWhenMounted = refs.some((ref) => !!ref.current);
-          // @ts-expect-error
+          // @ts-expect-error this works... types are incongruent
           startedInside = refs.some((ref) => (ref.current === event.target) || !!ref.current?.contains?.(event.target));
           if (!startedInside) {
             handler(event);

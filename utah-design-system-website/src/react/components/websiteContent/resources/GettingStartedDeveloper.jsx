@@ -26,9 +26,15 @@ export function GettingStartedDeveloper() {
         <p>Learn more about it on the <Link to={pageUrls.utahHeader}>Utah Header Documentation Page</Link>.</p>
       </div>
 
+      <div className="getting-started__toc-card my-spacing-l">
+        <div className="getting-started__toc-title mb-spacing">Pre-Built Artifacts, Release Notes, and Versioning</div>
+        <a href="#h2-pre-built-artifacts" className="">Pre-Built Artifacts and Downloads</a>
+        <a href="#h2-release-notes" className="">Design System Release Notes</a>
+        <a href="#h2-design-system-versioning" className="">About Versioning</a>
+      </div>
       <div className="flex getting-started__toc">
         <div className="getting-started__toc-card">
-          <div className="getting-started__toc-title mb-spacing">Using only the Utah Header</div>
+          <div className="getting-started__toc-title mb-spacing">Using the Utah Header</div>
           <div className="getting-started__toc-subtitle">Importing via CDN</div>
           <a href="#example__universal-module-definition" className="">UMD Example (script tag src / require)</a>
           <a href="#example__es-module" className="">ES Module Example (ES import)</a>
@@ -51,7 +57,124 @@ export function GettingStartedDeveloper() {
         <a href="#h3-css-color-overrides" className="">How to override CSS variables (e.g. customize the default colors)</a>
       </div>
 
-      <h2 id="h2-using-header" className="mt-spacing-l">Using only the Utah Header</h2>
+      <h2 id="h2-pre-built-artifacts" className="mt-spacing-l">Pre-Built Artifacts and Downloads</h2>
+      <p>
+        To download using the links below: <br />
+        Right click on the download button and choose <code>Save Link As...</code>
+      </p>
+      <h3>Utah Header</h3>
+      <div className="mb-spacing">
+        <h4 className="mb-auto">style.css</h4>
+        <PreCodeForCodeString
+          allowScrollOverflow
+          showBackgroundColor
+          className="mb-spacing-s"
+          codeRaw={`
+            https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css
+          `}
+        />
+        <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css" className="button" target="_blank">style.css Download</a>
+      </div>
+      <div>
+        <h4 className="mb-auto">utah-design-system-header.umd.js</h4>
+        <PreCodeForCodeString
+          allowScrollOverflow
+          showBackgroundColor
+          className="mb-spacing-s"
+          codeRaw={`
+            https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js
+          `}
+        />
+        <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js" className="button" target="_blank">utah-design-system-header.umd.js Download</a>
+      </div>
+
+      <h2 id="h2-release-notes" className="mt-spacing-l">Release Notes</h2>
+      <p>
+        The release notes are essential for understanding breaking changes and new features. They provide clear
+        documentation of updates, helping developers anticipate impacts on their projects and decide when or how to upgrade.
+      </p>
+      <p>
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">A list of release notes for each version can be found on GitHub.</ExternalLink>
+      </p>
+
+      <h2 id="h2-design-system-versioning" className="mt-spacing">About Versioning</h2>
+      <h3 id="h3-semantic-versioning">Semantic Versioning</h3>
+      <p className="mb-spacing-s">
+        Both the Utah Design System and the Utah Header
+        use <ExternalLink href="https://semver.org/">Semantic Versioning</ExternalLink>
+        , which is represented as <code>MAJOR.MINOR.PATCH</code>:
+      </p>
+      <ol>
+        <li>
+          <strong>Major</strong>.
+          This number represents a significant number of changes and may break compatibility with previous versions.
+          This could include adding new features, or removing existing ones.
+        </li>
+        <li>
+          <strong>Minor</strong>.
+          This number will change when new features are added, or improvements are made, while keeping everything backward-compatible.
+        </li>
+        <li>
+          <strong>Patch</strong>.
+          This last number indicates small changes such as bug fixes, minor tweaks, etc.
+        </li>
+      </ol>
+      <p className="mt-spacing-s">Keep that in mind when upgrading.</p>
+
+      <h3 id="h3-package-json">Package.json</h3>
+      <p>
+        While using npm to import and/or update the Utah Design System and Utah Header,
+        you have control over which version you would like to use.
+        You can specify an exact version in your <code>package.json</code> file:
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={`
+          "@utahdts/utah-design-system": "2.0.2"
+        `}
+      />
+      <p>
+        Use <code>^</code> to allow only patch and minor updates (non-breaking).
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        codeRaw={`
+          "@utahdts/utah-design-system": "^1.0.2"
+          # Will use releases from 1.0.2 to 2.0.0 (non-inclusive)
+        `}
+      />
+      <p>
+        You can also request any version greater than a specific version, greater or equal to, less than, etc.<br />
+        See the full list on the <ExternalLink href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies">npm documentation site</ExternalLink>.
+      </p>
+
+      <h3 id="h3-unpkg-versioning">Using unpkg.com CDN</h3>
+      <p>
+        While using <ExternalLink href="https://unpkg.com/">unpkg</ExternalLink>, you can specify which version of the
+        Utah Design System or Utah Header you want to load. If you omit the version, it will automatically serve the latest version.
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        className="mb-auto"
+        codeRaw={`
+          https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css
+        `}
+      />
+      <p><em>This always uses the latest version!</em></p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        className="mb-auto"
+        codeRaw={`
+          https://unpkg.com/@utahdts/utah-design-system-header@v3/dist/style.css
+        `}
+      />
+      <p><em>This uses the latest of version 3 with all minor and bug fixes, but would not include version 4.</em></p>
+
+      <h2 id="h2-using-header" className="mt-spacing-l">Using the Utah Header</h2>
 
       <div className="text-center mt-spacing-l">
         For a list of Utah Header options:
@@ -70,6 +193,17 @@ export function GettingStartedDeveloper() {
       <p>
         You can use the javascript and CSS directly from the unpkg CDN.
       </p>
+      <p>
+        <strong>Note:</strong> Starting with version 3.0 the <code>@utahdts/utah-design-system-header</code> and <code>@utahdts/utah-design-system</code> use the
+        same CSS file. There is no need to include the <code>.css</code> file from both of these anymore.
+      </p>
+
+      <h4 id="scoped-versions">Important: Limit Major Version for Compatibility</h4>
+      <p>
+        It is best practice to limit the version of the library to a specific major version to avoid unexpected breaking changes. Major version updates often
+        introduce new features, but they can also include modifications or removals of existing functionality that may not be backward compatible.
+      </p>
+      <p>See the <a href="#h2-design-system-versioning">About Versioning</a> section below for examples.</p>
 
       <h4 id="example__universal-module-definition" className="mt-spacing">UMD Example (script tag src / require)</h4>
       <p>The UMD (Universal Module Definition) example uses a CDN to pull in both the javascript and CSS in the <code>&lt;head&gt;</code>.
@@ -249,7 +383,10 @@ export function GettingStartedDeveloper() {
         </li>
         <li>
           Add to the{' '}
-          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/angular/angular.json">angular.json</ExternalLink>{' '}
+          <ExternalLink
+            href="https://github.com/utahdts/utah-design-system/blob/dev/examples/utah-header/angular/angular.json"
+          >angular.json
+          </ExternalLink>{' '}
           file the css and js reference from the design system<br />
           <PreCodeForCodeString
             codeRaw={`
@@ -390,7 +527,9 @@ export function GettingStartedDeveloper() {
         <li>Timing <code>--timing-medium</code></li>
         <li>
           And more! See{' '}
-          <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss">
+          <ExternalLink
+            href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system/css/1-settings/_settings-index.scss"
+          >
             utah-design-system/@utahdts/utah-design-system/css/1-settings/_settings-index.scss
           </ExternalLink> for all the variables.
         </li>

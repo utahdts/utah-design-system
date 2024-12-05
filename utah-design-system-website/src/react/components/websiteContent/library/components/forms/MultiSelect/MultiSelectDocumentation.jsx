@@ -46,7 +46,7 @@ export function MultiSelectDocumentation() {
         title="Multi-Select Example"
         renderedExample={(
           <div style={{ width: '60%' }}>
-            <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
+            <MultiSelect id="multi-select__static-example_simple" label="Which Mythical Creature?">
               <MultiSelectOption label="Basilisk" value="basilisk" />
               <MultiSelectOption label="Blemmyae" value="blemmyae" />
               <MultiSelectOption label="Cardinal" value="cardinal" />
@@ -74,7 +74,7 @@ export function MultiSelectDocumentation() {
         title="Multi-Select With Option Groups Example"
         renderedExample={(
           <div style={{ width: '60%' }}>
-            <MultiSelect id="multi-select__static-example" label="Which Mythical Creature?">
+            <MultiSelect id="multi-select__static-example_group" label="Which Mythical Creature?">
               <MultiSelectOptionGroup label="Lizard-Like">
                 <MultiSelectOption label="Basilisk" value="basilisk" />
                 <MultiSelectOption label="Dragon" value="dragon" />

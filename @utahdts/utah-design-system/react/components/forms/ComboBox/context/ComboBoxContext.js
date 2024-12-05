@@ -9,14 +9,17 @@ export const ComboBoxContext = /** @type {typeof createContext<ComboBoxContext>}
     isFilterValueDirty: false,
     isOptionsExpanded: false,
     isValueClearedOnSelection: false,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onChange: () => { },
     options: [],
     optionsFiltered: [],
     optionsFilteredWithoutGroupLabels: [],
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     registerOption: () => { },
     optionValueFocusedId: null,
     optionValueHighlighted: null,
     optionValueSelected: null,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     unregisterOption: () => { },
   },
   () => {

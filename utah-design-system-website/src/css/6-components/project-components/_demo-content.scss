@@ -2,39 +2,8 @@
 @use "../../../../../@utahdts/utah-design-system/css/1-settings/color-swatches";
 
 /*
-############     _header.scss      ############
+############     _demo-content.scss      ############
 */
-
-.header {
-  padding: var(--spacing-l);
-  background-color: white;
-  display: flex;
-  gap: var(--spacing);
-  align-items: center;
-  border-bottom: 1px solid color-swatches.$neutral-gray-15;
-
-  &__utah-brand {
-    height: 52px;
-    width: 138px;
-    fill: var(--primary-color);
-  }
-
-  &__vertical-rule {
-    height: 52px;
-    width: 1px;
-    background: var(--gray-medium-color);
-  }
-
-  &__department {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--gray-medium-color);
-  }
-
-  &__sign-in {
-    margin-left: auto;
-  }
-}
 
 .text-on-primary-color {
   color: white;
@@ -152,79 +121,10 @@
     }
   }
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    &--align-flex-start {
-      align-items: flex-start;
-    }
-
-    &__icon {
-      font-size: var(--font-size-4xl);
-      font-weight: 100;
-      margin: var(--spacing-l) 0 var(--spacing-s);
-      line-height: 1;
-    }
-    &__title {
-      font-size: var(--font-size-3xl);
-      text-transform: uppercase;
-      font-weight: var(--font-weight-bold);
-      box-sizing: border-box;
-      &--full {
-        width: 100%;
-      }
-    }
-    hr {
-      height: 1px;
-      width: calc(100% - (2 * var(--spacing-l)));
-      box-sizing: border-box;
-      border: none;
-      margin: 0 var(--spacing-l) var(--spacing);
-      &.primary-color-background {
-        @at-root #{class-vars.$primary-color-is-light}#{&} {
-          background-color: var(--primary-color-dark);
-        }
-      }
-    }
-    ul {
-      margin: 0 var(--spacing-s) var(--spacing);
-      padding: 0;
-      list-style-type: none;
-      align-self: stretch;
-      li {
-        padding: 0;
-        a {
-          padding: 4px 10px;
-          text-decoration: none;
-          border-radius: 999px;
-          transition: all var(--timing-quick) ease-in-out;
-          display: flex;
-          align-items: center;
-          &:hover {
-            background: var(--primary-color);
-            color: white;
-            @at-root #{class-vars.$primary-color-is-light}#{&} {
-              background-color: var(--primary-color-dark);
-              color: white;
-            }
-          }
-          .link-icon {
-            vertical-align: middle;
-          }
-        }
-      }
-    }
-    .action-button {
-      margin-top: auto;
-    }
-    &s.grid-fixed {
+  .cards.grid-fixed {
       max-width: 800px;
       gap: var(--spacing);
       grid-template-columns: repeat(2, minmax(375px, 1fr));
-    }
   }
 
   .action-card {
@@ -278,22 +178,13 @@
   }
 
   .permits {
-    background-color: var(--primary-color);
+    background-color: var(--gray-light-color);
     &__image {
       border-radius: 99999px;
       background: url("../static/images/hiker.jpg") no-repeat center/cover;
       width: 350px;
       height: 350px;
-      border: 2px solid white;
-    }
-    p,
-    .permits__content h2,
-    label,
-    legend {
-      color: white;
-    }
-    input {
-      border: none;
+      border: 2px solid var(--primary-color);
     }
   }
 
@@ -324,94 +215,6 @@
     font-size: var(--font-size-3xl);
   }
 
-  .social-bar {
-    padding: var(--spacing);
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-2xl);
-    align-items: center;
-
-    &__wrapper {
-      display: flex;
-      justify-content: center;
-    }
-
-    &__title {
-      font-size: var(--font-size-l);
-      font-weight: var(--font-weight-bold);
-      text-transform: uppercase;
-    }
-    &__icons-list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      gap: var(--spacing);
-      li {
-        padding: 0;
-        margin: 0;
-      }
-    }
-    &__icon {
-      text-decoration: none;
-      height: var(--spacing-xl);
-      width: var(--spacing-xl);
-      background: white;
-      display: block;
-      border-radius: var(--radius-small);
-    }
-  }
-
-  .page-footer {
-    background-color: var(--gray-color);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-xl);
-
-    &__title {
-      font-size: var(--font-size-l);
-      font-weight: var(--font-weight-bold);
-      text-transform: uppercase;
-      margin-bottom: var(--spacing-xs);
-    }
-    &__line {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      gap: var(--spacing-l);
-    }
-    &__info,
-    &_menus {
-      flex: 1 1 20%;
-    }
-    &__menus {
-      display: flex;
-      flex-direction: row;
-      gap: var(--spacing-l);
-    }
-    &__menu {
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0 0 var(--spacing-l) 0;
-        li {
-          padding: 0;
-          margin: 0 0 var(--spacing-2xs) 0;
-          a {
-            color: white;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            .link-icon {
-              font-size: var(--font-size-xs);
-            }
-          }
-        }
-      }
-    }
-  }
 
   @media screen and (max-width: 875px) {
     .content-width {

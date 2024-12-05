@@ -50,10 +50,30 @@ export function FileInput({
   const [files, setFiles] = useImmer(value || null);
   const inputRef = useRef(/** @type {HTMLInputElement | null} */(null));
 
+  const checkFiles = useCallback((/** @type {FileList | null | undefined} */ filesList) => {
+    let allowed = true;
+    if (acceptedFileTypes && files) {
+      // Get the list of file extensions allowed
+      // e.g. image/png OR .png
+      const types = acceptedFileTypes.split(/[,/]/).map((type) => type.trim().split('.').join(''));
+      [...filesList || []].forEach((file) => {
+        // Get file(s) extension
+        const fileType = /\.[0-9a-z]+$/i.exec(file.name)?.[0].split('.').join('');
+        if (fileType && !types.includes(fileType)) {
+          allowed = false;
+          addPoliteMessage('File type not accepted.');
+        }
+      });
+    }
+    return allowed;
+  }, [acceptedFileTypes]);
+
   const currentOnChange = useCallback((/** @type {import('react').ChangeEvent<HTMLInputElement>} */ event) => {
-    onChange?.(inputRef.current?.files || null, event);
-    setFiles(inputRef.current?.files || null);
-  }, []);
+    if (checkFiles(inputRef.current?.files)) {
+      onChange?.(inputRef.current?.files || null, event);
+      setFiles(inputRef.current?.files || null);
+    }
+  }, [acceptedFileTypes]);
 
   const removeFile = useCallback((/** @type {File} */ file) => {
     const currentFiles = [...inputRef.current?.files || []];
@@ -75,6 +95,13 @@ export function FileInput({
       addPoliteMessage('No file selected.');
     }
   }, [files]);
+
+  let ariaDescribedBy = '';
+  if (errorMessage) {
+    ariaDescribedBy = `${id}-error`;
+  } else if (hint) {
+    ariaDescribedBy = `${id}-hint`;
+  }
 
   return (
     <div className={joinClassNames('input-wrapper', className)} ref={innerRef}>
@@ -111,7 +138,7 @@ export function FileInput({
         }
         <input
           accept={acceptedFileTypes}
-          aria-describedby={errorMessage ? `${id}-error` : `${id}-hint`}
+          aria-describedby={ariaDescribedBy}
           disabled={isDisabled}
           id={id}
           multiple={multiple}
@@ -139,6 +166,7 @@ export function FileInput({
                       : (
                         <Tag
                           clearMessage={`Remove file: ${file.name}.`}
+                          isDisabled={isDisabled}
                           key={file.name}
                           onClear={() => removeFile(file)}
                         >

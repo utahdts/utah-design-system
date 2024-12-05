@@ -1,22 +1,13 @@
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import CitizenExperienceWrapperMobile from '../citizenExperience/html/CitizenExperienceWrapperMobile.html?raw';
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import headerLogoWrapper from './html/HeaderLogoWrapper.html?raw';
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import headerWrapper from './html/HeaderWrapper.html?raw';
-// @ts-expect-error
-// eslint-disable-next-line import/no-unresolved
-import verticalLineHtml from './html/VerticalLine.html?raw';
-
 import { sizes } from '../../enumerations/sizes';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { CitizenExperience } from '../citizenExperience/CitizenExperience';
+import CitizenExperienceWrapperMobile from '../citizenExperience/html/CitizenExperienceWrapperMobile.html?raw';
 import { LogoTitle } from '../logoTitle/LogoTitle';
 import { UtahLogo } from '../utahLogo/UtahLogo';
+import headerLogoWrapper from './html/HeaderLogoWrapper.html?raw';
+import headerWrapper from './html/HeaderWrapper.html?raw';
+import verticalLineHtml from './html/VerticalLine.html?raw';
 
 /**
  * Creates the header wrapper DOM and appends the:

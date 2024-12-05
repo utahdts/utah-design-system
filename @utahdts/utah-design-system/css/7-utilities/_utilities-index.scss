@@ -134,6 +134,16 @@ utility classes, atomic css
     transform: translate(-50%, -50%);
   }
 
+  /* ----- Float ---- */
+  .float-right {
+    float: right;
+  }
+
+  .float-left {
+    float: left;
+  }
+
+
   /* ----- Transformation ---- */
   .rotate90 {
     transform: rotate(90deg);
