@@ -1,7 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import { loadTestHeader } from '../util/loadTestHeader';
 // eslint-disable-next-line import/extensions
-import defaultTestSettings from './util/defaultTestSettings.json';
+import defaultTestSettingsJSON from './util/defaultTestSettings.json?raw';
+const defaultTestSettings = /** @type {object} */ (/** @type {unknown} */ (defaultTestSettingsJSON));
 import {
   actionItemsOff,
   actionItemsOn,
@@ -474,9 +475,11 @@ describe('Header Components', () => {
   ])(
     'Header Components Scenarios - %s',
     (_title, settings, results) => {
+      // @ts-ignore
       loadTestHeader({
         ...settings,
         // work some typing hocus pocus
+        // @ts-ignore
         applicationType: /** @type {HeaderApplicationTypes} */ (settings.applicationType),
       });
 

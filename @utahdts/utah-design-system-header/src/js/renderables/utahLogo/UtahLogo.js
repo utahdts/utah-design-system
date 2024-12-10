@@ -1,4 +1,7 @@
-import packageJson from '../../../../package.json';
+// eslint-disable-next-line import/extensions
+import packageJsonJSON from '../../../../package.json?raw';
+const packageJson = /** @type {{version: string}} */ (/** @type {unknown} */ (packageJsonJSON));
+
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { sizes } from '../../enumerations/sizes';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
