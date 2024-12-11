@@ -80,7 +80,7 @@ export function TableFilterDateRange({
           aria-expanded={state.isPopupOpen}
           aria-haspopup="dialog"
           className={currentValue ? '' : 'table-header__cell--filter-date--is-empty'}
-          id={`${tableId}__table-filter-date-${recordFieldPath}`}
+          id={`table-filter-date-range__${tableId}__${recordFieldPath}`}
           label={`Filter ${a11yLabel}`}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}

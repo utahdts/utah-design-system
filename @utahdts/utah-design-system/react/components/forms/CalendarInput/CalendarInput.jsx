@@ -273,7 +273,7 @@ export function CalendarInput({
                           cellGridValue.isSelectedDate && 'calendar-input__cell--selected',
                           cellGridValue.isTodayDate && 'calendar-input__cell--today'
                         )}
-                        id={`${calendarInputId}__${formattedDate}`}
+                        id={`calendar-input__${calendarInputId}__${formattedDate}`}
                         isDisabled={isDisabled}
                         key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
                         onClick={() => onChange?.(formattedDate)}

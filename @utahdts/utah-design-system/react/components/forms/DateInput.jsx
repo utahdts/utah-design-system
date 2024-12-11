@@ -227,7 +227,7 @@ export function DateInput({
                     // @ts-expect-error
                     textInput?.focus();
                   }}
-                  id={`${id}__calendar-input`}
+                  id={`calendar-input__${id}`}
                   shouldSetFocusOnMount
                   showTodayButton={showCalendarTodayButton}
                   value={value}

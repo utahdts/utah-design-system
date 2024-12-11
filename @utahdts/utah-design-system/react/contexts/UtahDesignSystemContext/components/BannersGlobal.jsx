@@ -81,8 +81,8 @@ export function BannersGlobal({ banners, bannerDuration, defaultClassName }) {
         >
           {zones[zone]?.map((banner) => (
             <Banner
-              key={`banner-${banner.id}`}
-              id={`banner-${banner.id}`}
+              key={`banner__${banner.id}`}
+              id={`banner__${banner.id}`}
               className={banner.className || defaultClassName}
               position={banner.position}
               onClose={(e) => currentOnClose(e, banner)}

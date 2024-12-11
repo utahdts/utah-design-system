@@ -12,7 +12,7 @@ export function TabGroupTitle({ children, className, tagName: TagName = 'div' })
   const { tabGroupId } = useTabGroupContext();
   return (
     // @ts-expect-error
-    <TagName id={`tab-group-${tabGroupId}`} className={joinClassNames('tag-group__title', className)}>
+    <TagName id={`tab-group__${tabGroupId}`} className={joinClassNames('tag-group__title', className)}>
       {children}
     </TagName>
   );

@@ -105,7 +105,7 @@ export function TableFilterDateRangePopup({
           className="table-filter-date-popup__begin-date"
           dateFormat={dateFormat}
           hasCalendarPopup={false}
-          id={`${tableFilterDateId}__begin-date`}
+          id={`table-filter-date-range-popup__${tableFilterDateId}__begin-date`}
           innerRef={beginDateRef}
           isClearable
           label="Date Begin"
@@ -121,7 +121,7 @@ export function TableFilterDateRangePopup({
           className="table-filter-date-popup__end-date"
           dateFormat={dateFormat}
           hasCalendarPopup={false}
-          id={`${tableFilterDateId}__end-date`}
+          id={`table-filter-date-range-popup__${tableFilterDateId}__end-date`}
           isClearable
           label="Date End"
           onChange={(newValue) => onChange(formatNewValue(BeginEndDates.END, newValue, beginDateStr, endDateStr))}
@@ -155,7 +155,7 @@ export function TableFilterDateRangePopup({
         <CalendarInput
           className="table-filter-date-popup__calendar"
           dateFormat={dateFormat}
-          id={`${tableFilterDateId}__calendar`}
+          id={`calendar-input__${tableFilterDateId}`}
           innerRef={calendarInputRef}
           label={`Calendar for table filter ${currentInput === BeginEndDates.BEGIN ? 'begin' : 'end'} date`}
           labelClassName="visually-hidden"
