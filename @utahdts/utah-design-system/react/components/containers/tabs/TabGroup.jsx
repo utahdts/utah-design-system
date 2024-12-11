@@ -47,7 +47,7 @@ export function TabGroup({
   );
 
   const registerTab = useCallback(
-    (/** @type {React.RefObject<HTMLButtonElement> | null} */ tab) => {
+    (/** @type {React.RefObject<HTMLButtonElement | null> | null} */ tab) => {
       setTabGroupState((draftState) => {
         const checkTab = draftState.tabs.find((/** @type {HTMLButtonElement | null} */ tabSearch) => tabSearch?.id === tab?.current?.id);
         if (checkTab) {
@@ -61,7 +61,7 @@ export function TabGroup({
     [tabGroupState, setTabGroupState]
   );
   const unRegisterTab = useCallback(
-    (/** @type {React.RefObject<HTMLButtonElement> | null} */ tab) => {
+    (/** @type {React.RefObject<HTMLButtonElement | null> | null} */ tab) => {
       setTabGroupState((draftState) => {
         draftState.tabs = draftState.tabs.filter((/** @type {HTMLButtonElement | null} */ filterTab) => filterTab?.id !== tab?.current?.id);
       });

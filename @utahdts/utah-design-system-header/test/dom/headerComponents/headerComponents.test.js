@@ -475,11 +475,11 @@ describe('Header Components', () => {
   ])(
     'Header Components Scenarios - %s',
     (_title, settings, results) => {
-      // @ts-ignore
+      // @ts-expect-error the types here are way nasty
       loadTestHeader({
         ...settings,
         // work some typing hocus pocus
-        // @ts-ignore
+        // @ts-expect-error the types here are way nasty
         applicationType: /** @type {HeaderApplicationTypes} */ (settings.applicationType),
       });
 

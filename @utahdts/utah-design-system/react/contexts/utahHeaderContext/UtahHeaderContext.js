@@ -8,5 +8,5 @@ export const UtahHeaderContext = createContext({
   settings: getUtahHeaderSettings(),
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setSettings: /** @type {import('use-immer').Updater<Settings>} */(() => { }),
-  settingsRef: /** @type {import('react').RefObject<Settings>} */({ current: null }),
+  settingsRef: /** @type {import('react').RefObject<Settings>} */(/** @type {unknown} */ ({ current: null })),
 });

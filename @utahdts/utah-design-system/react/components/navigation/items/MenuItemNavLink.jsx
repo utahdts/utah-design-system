@@ -9,7 +9,7 @@ import { joinClassNames } from '../../../util/joinClassNames';
 /**
  * @param {object} props
  * @param {WebsiteMainMenu | WebsiteMainMenuItem} [props.currentMenuItem]
- * @param {import('react').RefObject<HTMLAnchorElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLAnchorElement | null>} [props.innerRef]
  * @param {WebsiteMainMenuItem & VerticalMenuMenuItemAdditions} props.menuItem
  * @param {MenuTypes} [props.menuType]
  * @returns {import('react').JSX.Element}

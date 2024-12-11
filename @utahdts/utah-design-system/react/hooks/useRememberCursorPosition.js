@@ -8,7 +8,7 @@ import { useImmer } from 'use-immer';
  * this hook remembers the cursor position between updates so that it doesn't jump
  * after a state change.
  * Make sure to call the returned onChange function when the input's value changes.
- * @param {import('react').RefObject<HTMLElement>} ref
+ * @param {import('react').RefObject<HTMLElement | null>} ref
  * @param {string} value
  * @returns {import('react').ChangeEventHandler<HTMLElement> }
  */

@@ -16,7 +16,7 @@ import { Spinner } from '../widgetsIndicators/Spinner';
  * @param {import('react').ReactNode} props.children most often is the title of the button, but can also contain most anything
  * @param {string} [props.className] modify your button via className like 'button--primary' and other modifiers found in the button.scss
  * @param {ComponentColors} [props.color] the base color of the button
- * @param {import('react').RefObject<HTMLButtonElement>} [props.innerRef] a ref to attach to the actual DOM <button> element
+ * @param {import('react').RefObject<HTMLButtonElement | null>} [props.innerRef] a ref to attach to the actual DOM <button> element
  * @param {import('react').ReactNode} [props.iconLeft] an icon for the left/right side
  * @param {import('react').ReactNode} [props.iconRight]
  * @param {boolean} [props.isDisabled] button isDisabled state
