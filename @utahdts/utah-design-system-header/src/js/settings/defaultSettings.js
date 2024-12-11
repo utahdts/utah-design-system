@@ -13,6 +13,8 @@ import { sizes } from '../enumerations/sizes';
  * @type {Settings} the current settings of the header
  */
 export const defaultSettings = {
+  // @ts-expect-error a blank string is not a valid value; applicationType needs set in the header settings by the application
+  applicationType: '',
   onSearch: false,
   mainMenu: false,
   mediaSizes: {

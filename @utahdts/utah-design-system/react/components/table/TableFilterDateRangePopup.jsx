@@ -33,7 +33,7 @@ function formatNewValue(whichInput, newValue, currentBeginDate, currentEndDate) 
  * @param {string} props.id
  * @param {boolean} props.isPopupOpen
  * @param {(newValue: string) => void} props.onChange
- * @param {import('react').RefObject<HTMLDivElement>} props.popperReferenceElement
+ * @param {import('react').RefObject<HTMLDivElement | null>} props.popperReferenceElement
  * @param {(isPopupOpen: boolean) => void} props.setIsPopupOpen
  * @param {string} props.tableFilterDateId
  * @param {string} props.value

@@ -7,7 +7,7 @@
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.id]
- * @param {import('react').RefObject<HTMLElement>} [props.innerRef]
+ * @param {import('react').RefObject<HTMLElement | null>} [props.innerRef]
  * @returns {import('react').JSX.Element}
  */
 export function MainContent({

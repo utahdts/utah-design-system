@@ -107,7 +107,7 @@ const defaultFormState = {
 };
 
 /**
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function DemoForm() {
   const [formState, setFormState] = useImmer(defaultFormState);

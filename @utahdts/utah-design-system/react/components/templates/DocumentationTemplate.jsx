@@ -4,7 +4,7 @@ import { MainContent } from './MainContent';
 /**
  * @param {object} props
  * @param {() => React.JSX.Element} props.content
- * @param {import('react').RefObject<HTMLElement>} [props.contentRef]
+ * @param {import('react').RefObject<HTMLElement | null>} [props.contentRef]
  * @param {import('react').ReactNode} props.sidePanelRightContent
  * @param {import('react').ReactNode} [props.sidePanelLeftContent]
  * @returns {import('react').JSX.Element}

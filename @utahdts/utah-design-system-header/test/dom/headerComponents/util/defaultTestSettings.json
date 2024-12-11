@@ -1,4 +1,5 @@
 {
+  "applicationType": "static site",
   "mediaSizes": {
     "mobile": 640,
     "tabletPortrait": 768,

@@ -112,7 +112,7 @@ export function SwatchList({ colorFamily, onColorSelected }) {
                   <span className="visually-hidden">
                     Pick
                     {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
-                    <>{swatch}</>
+                    <>{/** @type {any} */ (swatch)}</>
                   </span>
                 </button>
               </li>

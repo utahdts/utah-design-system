@@ -36,6 +36,9 @@ utility classes, atomic css
     position: absolute;
     width: 1px;
   }
+  .hidden {
+    display: none;
+  }
 
   /* alignment */
   .text-left { text-align: left; }
