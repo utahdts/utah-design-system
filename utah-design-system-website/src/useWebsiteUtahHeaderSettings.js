@@ -14,6 +14,7 @@ export function useWebsiteUtahHeaderSettings() {
   const navigate = useNavigate();
   return useMemo(
     () => ({
+      applicationType: 'custom application',
       footer: {
         showHorizontalRule: true,
         domLocationTarget: {

@@ -5,7 +5,7 @@ import { PreCodeForCodeString } from './PreCodeForCodeString';
 /**
  * @param {object} props
  * @param {any[]} props.deps what dependencies determine when the targetRef has changed content
- * @param {import('react').RefObject<HTMLElement>} props.targetRef target DOM element from which to pull the DOM string
+ * @param {import('react').RefObject<HTMLElement | null>} props.targetRef target DOM element from which to pull the DOM string
  * @param {boolean} [props.addHorizontalPadding]
  * @param {boolean} [props.allowScrollOverflow]
  * @param {string} [props.className]

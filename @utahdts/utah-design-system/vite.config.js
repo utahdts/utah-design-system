@@ -32,6 +32,7 @@ export default defineConfig(({ mode }) => {
         // the proper extensions will be added
         formats: ['es', 'umd'],
         fileName: (format) => `utah-design-system.${format}.js`,
+        cssFileName: 'style',
       },
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled

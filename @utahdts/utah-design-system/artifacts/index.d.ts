@@ -1268,11 +1268,11 @@ declare module "@utahdts/utah-design-system" {
     isVertical: boolean;
     navigateNext: () => void;
     navigatePrevious: () => void;
-    registerTab: (tab: React.RefObject<HTMLButtonElement> | null) => void;
+    registerTab: (tab: React.RefObject<HTMLButtonElement | null> | null) => void;
     selectedTabId: string;
     setSelectedTabId: (tabId: string) => void;
     tabGroupId: string;
-    unRegisterTab: (tab: React.RefObject<HTMLButtonElement> | null | null) => void;
+    unRegisterTab: (tab: React.RefObject<HTMLButtonElement | null> | null) => void;
   };
   export type UtahDesignSystemContextBannerWithId = {
     className?: string | undefined;

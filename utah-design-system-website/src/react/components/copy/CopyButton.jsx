@@ -7,7 +7,7 @@ const COPIED = 'Copied';
 
 /**
  * @param {object} props
- * @param {import('react').RefObject<HTMLElement>} props.copyRef Ref to the element that will be copied from
+ * @param {import('react').RefObject<HTMLElement | null>} props.copyRef Ref to the element that will be copied from
  * @param {(copiedText: string) => string} [props.onCopy] allows morphing the text to copy eg. (draftText) => transformedText
  * @returns {import('react').JSX.Element}
  */

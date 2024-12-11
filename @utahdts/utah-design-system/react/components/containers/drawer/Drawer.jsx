@@ -20,7 +20,7 @@ import { DRAWER_PLACEMENT } from '../../../enums/drawerPlacement';
  * @param {import('react').KeyboardEventHandler} [props.onEscape]
  * @param {import('react').MouseEventHandler} [props.onClose]
  * @param {DrawerPlacement} [props.position]
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function Drawer({
   ariaLabelledBy,

@@ -1,7 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import { loadTestHeader } from '../util/loadTestHeader';
 // eslint-disable-next-line import/extensions
-import defaultTestSettings from './util/defaultTestSettings.json';
+import defaultTestSettingsJSON from './util/defaultTestSettings.json?raw';
+const defaultTestSettings = /** @type {object} */ (/** @type {unknown} */ (defaultTestSettingsJSON));
 import {
   actionItemsOff,
   actionItemsOn,
@@ -14,6 +15,7 @@ import {
 } from './util/defaultValues';
 import * as headerComponentsExist from './util/doHeaderComponentsExist';
 
+/** @typedef {import('@utahdts/utah-design-system-header').HeaderApplicationTypes} HeaderApplicationTypes */
 /** @typedef {import('@utahdts/utah-design-system-header').Settings} Settings */
 
 /*
@@ -473,7 +475,13 @@ describe('Header Components', () => {
   ])(
     'Header Components Scenarios - %s',
     (_title, settings, results) => {
-      loadTestHeader(settings);
+      // @ts-expect-error the types here are way nasty
+      loadTestHeader({
+        ...settings,
+        // work some typing hocus pocus
+        // @ts-expect-error the types here are way nasty
+        applicationType: /** @type {HeaderApplicationTypes} */ (settings.applicationType),
+      });
 
       expect(headerComponentsExist.isActionItemsInCitizenExperience()).toBe(results.isActionItemsInCitizenExperience);
       expect(headerComponentsExist.isDesktopMainMenuOn()).toBe(results.isDesktopMainMenuOn);

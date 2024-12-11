@@ -6,7 +6,7 @@ import { useWebsiteUtahHeaderSettings } from '../../useWebsiteUtahHeaderSettings
 /**
  * @param {object} props
  * @param {React.ReactNode} props.children
- * @returns {JSX.Element}
+ * @returns {React.JSX.Element}
  */
 export function WebsiteUtahHeaderContextProvider({ children }) {
   const websiteUtahHeaderSettings = useWebsiteUtahHeaderSettings();
