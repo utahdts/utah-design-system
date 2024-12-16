@@ -68,7 +68,6 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
               selectedValueIndex,
               selectedOption,
               multiSelectContextNonStateRef,
-              multiSelectContext.onChange
             );
           });
         } else if (e.code === 'ArrowLeft') {

@@ -59,7 +59,6 @@ export function MultiSelectTags({ isDisabled }) {
                                   selectedValueIndex,
                                   selectedOption,
                                   multiSelectContextNonStateRef,
-                                  multiSelectContext.onChange
                                 );
                               })
                             )
