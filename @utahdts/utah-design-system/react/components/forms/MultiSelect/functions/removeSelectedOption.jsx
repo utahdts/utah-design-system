@@ -9,13 +9,10 @@
  * @param {number} selectedValueIndex the index of the tag being deleted
  * @param {ComboBoxOptionType} selectedOption the option being removed
  * @param {import('react').MutableRefObject<MultiSelectContextNonStateRef> | null} multiSelectContextNonStateRef
- * @param {(newValues: string[]) => void} onChange
  */
-export function removeSelectedOption(draftContext, addPoliteMessage, selectedValueIndex, selectedOption, multiSelectContextNonStateRef, onChange) {
+export function removeSelectedOption(draftContext, addPoliteMessage, selectedValueIndex, selectedOption, multiSelectContextNonStateRef) {
   // remove from selected values
   draftContext.selectedValues.splice(selectedValueIndex, 1);
-
-  onChange(JSON.parse(JSON.stringify(draftContext.selectedValues)));
 
   addPoliteMessage(`Removed ${selectedOption?.label}`);
 
