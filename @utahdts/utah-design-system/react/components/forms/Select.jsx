@@ -13,15 +13,15 @@ import { SelectOption } from './SelectOption';
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
- * @param {string} props.id id of the input; the 'dot' path to the data in the form's state: ie person.contact.address.line1
+ * @param {string} props.id
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name]
- * @param {import('react').ChangeEventHandler} [props.onChange] can be omitted to be uncontrolled OR if changes are sent through form's onChange
- * @param {import('react').UIEventHandler} [props.onClear] do something when the field should be cleared
+ * @param {import('react').ChangeEventHandler<HTMLInputElement>} [props.onChange] can be omitted to be uncontrolled
+ * @param {import('react').UIEventHandler<HTMLElement>} [props.onClear] do something when the field should be cleared
  * @param {string} [props.placeholder]
  * @param {string} [props.value]
  * @param {string} [props.wrapperClassName]
@@ -52,7 +52,7 @@ export function Select({
   const { addPoliteMessage } = useAriaMessaging();
 
   const clearInput = useCallback(
-    /** @param {import('react').MouseEvent} e */
+    /** @param {import('react').MouseEvent<HTMLInputElement>} e */
     (e) => {
       onClear?.(e);
       addPoliteMessage(`${label} input was cleared`);
@@ -64,7 +64,7 @@ export function Select({
   const showClearIcon = !!((isClearable || onClear) && value);
 
   const onChangeCallback = useCallback(
-    /** @param {import('react').ChangeEvent} e */
+    /** @param {import('react').ChangeEvent<HTMLInputElement>} e */
     (e) => { onChange?.(e); },
     [onChange]
   );
@@ -84,7 +84,7 @@ export function Select({
           disabled={isDisabled}
           id={id}
           name={name || id}
-          onChange={value !== undefined ? onChangeCallback : undefined}
+          onChange={value !== undefined ? (e) => onChangeCallback(/** @type {any} */(e)) : undefined}
           onKeyUp={useCallback(
             /** @param {import('react').KeyboardEvent} e */
             (e) => {
@@ -109,7 +109,7 @@ export function Select({
               <IconButton
                 className={joinClassNames('select-input__clear-button icon-button--borderless icon-button--small1x')}
                 icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
-                onClick={clearInput}
+                onClick={(e) => clearInput(/** @type {any} */(e))}
                 title="Clear select"
                 isDisabled={isDisabled}
               />

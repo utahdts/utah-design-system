@@ -574,8 +574,8 @@ declare module "@utahdts/utah-design-system" {
     label: string;
     labelClassName?: string | undefined;
     name?: string | undefined;
-    onChange?: React.ChangeEventHandler<Element> | undefined;
-    onClear?: React.UIEventHandler<Element> | undefined;
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+    onClear?: React.UIEventHandler<HTMLElement> | undefined;
     placeholder?: string | undefined;
     value?: string | undefined;
     wrapperClassName?: string | undefined;
