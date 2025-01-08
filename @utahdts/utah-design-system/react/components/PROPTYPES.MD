@@ -15,7 +15,8 @@ props that are true/false should generally start with the word `is`. ie:
   There may be some props like `showChildContent` that would be awkward if they started with is `isShowChildContent` so those props should start with a verb.
 
 ## Common Properties
-* `children`
+* `children` (React.ReactNode)
+Children to be wrapped in the Component. ie a label for a button.
 
 * `className` (string)
 Every rendering component should have a className property that allows the parent component to pass in a className to be applied to this child item. The supplied className should go on the html tag that is the central focus of the component. The component should be single focused so that there is some rendered piece of the component that is the reason the component was written. For instance, for a Switch, the input that displays the switch value would receive the className. Other items can have classNames, but will need their own prop.
@@ -75,6 +76,9 @@ like a Spinner won't have a rest spread property.
 ## Uncommon props from other components
 You can check here to see if some other component already does something your component is wanting to do.
 
+### Button
+* `onClick`: MouseEventHandler<HTMLButtonElement>
+
 ### Switch, Button, etc.
 * `size`: (formElementSizesEnum - may be limited in possibilities)
 Refers to the height and text size (like buttons)
@@ -114,3 +118,18 @@ Switches, buttons have size; Text Input, Select does not
   </label>
 </div>
 ```
+
+## Component Review
+Things to check when reviewing a component:
+* [ ] props all are either unique or on the "common" list in this document
+* [ ] prop types are correct including specifying generics ie `{MouseEventHandler<HTMLButtonElement>} props.onClick`
+* [ ] `rest` spread operator is used correctly
+* [ ] move magic numbers to constants
+* [ ] review coding practices
+* [ ] sandbox
+  * covers as many props as appropriate
+  * all works
+  * html tab
+  * react tab
+    * props sorting
+    * props accuracy

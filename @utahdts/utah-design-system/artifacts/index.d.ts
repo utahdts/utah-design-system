@@ -157,7 +157,7 @@ declare module "@utahdts/utah-design-system" {
     onEscape?: React.KeyboardEventHandler<Element> | undefined;
     onClose?: React.MouseEventHandler<Element> | undefined;
     position?: DrawerPlacement | undefined;
-  }): JSX.Element;
+  }): React.JSX.Element;
   export function DrawerContent({ children, className, id, }: {
     children: React.ReactNode;
     className?: string | undefined;
@@ -229,7 +229,7 @@ declare module "@utahdts/utah-design-system" {
     errorMessage?: string | undefined;
     id: string;
   }): React.JSX.Element | null;
-  export function RequiredStar(): import("react/jsx-runtime").JSX.Element;
+  export function RequiredStar(): React.JSX.Element;
   export function calendarGrid(focusDate: Date | null, selectedDate: Date | null): CalendarGridMonth;
   export function CalendarInput({ className, dateFormat, errorMessage, id, innerRef, isDisabled, isHidden, isRequired, label, labelClassName, onChange, shouldSetFocusOnMount, showTodayButton, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
@@ -1475,7 +1475,7 @@ declare module "@utahdts/utah-design-system" {
     isDisabled?: boolean | undefined;
     id?: string | undefined;
     isBusy?: boolean | undefined;
-    onClick: React.MouseEventHandler;
+    onClick: React.MouseEventHandler<HTMLButtonElement>;
     size?: FormElementSizes | undefined;
     type?: ButtonTypes | undefined;
   }): React.JSX.Element;
