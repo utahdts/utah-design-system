@@ -13,7 +13,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
- * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
+ * @param {string} props.id
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isRequired]
  * @param {string} props.label

@@ -8,7 +8,7 @@ import { ErrorMessage } from './ErrorMessage';
  * @param {string} [props.className]
  * @param {boolean} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
+ * @param {string} props.id
  * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {string} props.label
