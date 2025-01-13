@@ -1470,16 +1470,15 @@ declare module "@utahdts/utah-design-system" {
     className?: string | undefined;
     color?: ComponentColors | undefined;
     innerRef?: React.RefObject<HTMLButtonElement> | undefined;
-    iconLeft?: React.ReactNode;
-    iconRight?: React.ReactNode;
-    isDisabled?: boolean | undefined;
+    iconLeft?: React.ReactNode | undefined;
+    iconRight?: React.ReactNode | undefined;
     id?: string | undefined;
     isBusy?: boolean | undefined;
+    isDisabled?: boolean | undefined;
     onClick: React.MouseEventHandler<HTMLButtonElement>;
     size?: FormElementSizes | undefined;
     type?: ButtonTypes | undefined;
   }): React.JSX.Element;
-  export function SegmentedButton(): null;
   export function TableFilterDate<TableDataT>({ a11yLabel, className, defaultValue, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
     defaultValue?: TableDataT | undefined;

@@ -8,13 +8,13 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {object} props
  * @param {import('react').ReactNode} props.children most often is the title of the tag, but can also contain most anything
  * @param {string} [props.className] modify your tag via className like 'tag--primary' and other modifiers found in the tag.scss
- * @param {string} [props.id] the tag id
- * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef] a ref to attach to the actual DOM <button> or <span> element
- * @param {import('react').ReactNode} [props.iconLeft] an icon for the left side
- * @param {import('react').ReactNode} [props.iconRight] an icon for the right side
- * @param {boolean} [props.isDisabled] tag isDisabled state
+ * @param {string} [props.id]
+ * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef] a ref to attach to the wrapper <div>
+ * @param {import('react').ReactNode} [props.iconLeft] an icon for the left side of props.children
+ * @param {import('react').ReactNode} [props.iconRight] an icon for the right side of props.children
+ * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isSelected]
- * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick] (e) => { ... do something with e ...}
+ * @param {import('react').MouseEventHandler<HTMLButtonElement>} [props.onClick]
  * @param {FormElementSizes} [props.size]
  * @returns {import('react').JSX.Element}
  */
@@ -22,9 +22,9 @@ export function ClickableTag({
   children,
   className,
   id,
-  innerRef,
   iconLeft,
   iconRight,
+  innerRef,
   isDisabled,
   isSelected,
   onClick,
@@ -38,13 +38,13 @@ export function ClickableTag({
         className={joinClassNames(
           'tag',
           'tag__button',
+          `tag--${size}`,
           className,
-          isSelected ? 'tag--selected' : '',
-          `tag--${size}`
+          isSelected ? 'tag--selected' : ''
         )}
         disabled={isDisabled}
         id={id}
-        onClick={onClick && handleEvent((e) => onClick?.(e))}
+        onClick={onClick && handleEvent((e) => onClick(e))}
         type="button"
         {...rest}
       >
