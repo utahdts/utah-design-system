@@ -58,7 +58,7 @@ export function TableFilterSelect({
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-select', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       <Select
-        id={`${tableId}__table-filter-select-${recordFieldPath}`}
+        id={`table-filter-select__${tableId}__${recordFieldPath}`}
         label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}
         placeholder={placeholder ?? 'Filter'}

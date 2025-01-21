@@ -29,6 +29,12 @@ The message to show if there is an error with the data the component renders.
 
 * `id` (string.isRequired)
 An `id` is required to tie the label and input together for accessibility. When using an "automatic" where an object is given at the form level and each input then is just a field name of the object, the `id` tells which field to use.
+NOTE: The `id` prop of a component should be something like `calendar-input__${id}` where:
+  1. Starts with the type of the component for easily seeing the component type in the DOM
+  1. Separates parts of the id (ie "name" and "id(s)") with double underscores (`__`), which is similar to the BEMS mentality: ie `tabpanel__${tabGroupId}__${tabId}`
+  1. Multiple part ids should be sorted from parent to child: `{component-type}__{top-parent}__{direct-parent}__{dynamic-id}__{child-identifier}`
+  * Doing such should make the id of the components globally understandable, identifiable, and more easily targeted
+  * Most, if not all, things should target based on class names instead of dynamic ids if at all possible
 
 * `innerRef` (ref) (often optional - make sure the RefObject<generic> generic type is correct)
 This goes on the outer wrapper element of the entire component. The parent then has the ability to target inner elements.
