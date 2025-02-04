@@ -320,7 +320,7 @@ export function UtahHeaderDocumentation() {
           Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.
         </li>
         <li>
-          The main menus's color can also be customized. See <a href="#color-customization">color customization section below</a>.
+          The main menu's color can also be customized. See <a href="#color-customization">color customization section below</a>.
         </li>
       </ul>
 
