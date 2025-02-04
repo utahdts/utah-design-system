@@ -35,6 +35,7 @@ import { formatHeaderSettingsForCopy } from './formatHeaderSettingsForCopy';
 import { useInteractiveHeaderState } from './useInteractiveHeaderState';
 import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
 import { utahHeaderPresets } from './utahHeaderPresets';
+import { ColorCustomization } from '../../../resources/ColorCustomization';
 
 export function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
@@ -210,12 +211,16 @@ export function UtahHeaderDocumentation() {
                 <li><code>Utah, an official website</code> (for <code>MEDIUM</code> and <code>SMALL</code> headers)</li>
               </ul>
             </li>
+            <li>
+              The color of this identification can be customized to match the color of your website or application.
+              See the <a href="#color-customization">color customization section below</a>.
+            </li>
           </ul>
         )}
       />
 
       <StaticExample
-        title="Agency Icon and Title"
+        title="Agency Logo and Title"
         renderedExample={(
           <div style={{ height: '50px' }}>
             <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
@@ -229,11 +234,14 @@ export function UtahHeaderDocumentation() {
         )}
         quickTips={(
           <ul>
-            <li>The Agency Icon and Title section is required on all headers. It can be just a logo, or a title or a combination of both.</li>
+            <li>The Agency Logo and Title section is required on all headers. It can be just a logo, or a title, or a combination of both.</li>
             <li>The title is always required even if it is not visible, so screen readers can identify the site.</li>
             <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and
               title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain
               a <code>4.5:1</code> contrast ratio against the background.
+            </li>
+            <li>The rendered size of the Agency Logo is <code>53px</code> tall. Therefore an optimal size for a logo image @2x would
+              be <code>106px</code> tall. A logo at this size will provide enhanced sharpness and clarity on high-density screens.
             </li>
           </ul>
         )}
@@ -307,7 +315,14 @@ export function UtahHeaderDocumentation() {
       </p>
 
       <h3 id="section-main-menu">Main Menu</h3>
-      <p>Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.</p>
+      <ul className="mb-spacing">
+        <li>
+          Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.
+        </li>
+        <li>
+          The main menus's color can also be customized. See <a href="#color-customization">color customization section below</a>.
+        </li>
+      </ul>
 
       <StaticExample
         title="Search"
@@ -327,14 +342,20 @@ export function UtahHeaderDocumentation() {
           <ul>
             <li>The Search functionality will be indicated by a Magnifying Glass icon button.</li>
             <li>When the icon button is clicked, it will open a modal with a text input field.</li>
+            <li>A search input example can be found on the <Link to={pageUrls.textInput}>Text Input page</Link>.</li>
           </ul>
         )}
       />
       <p>
         View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>
-        , <Link to={pageUrls.modals}>Modals</Link>
-        and <Link to={pageUrls.textInput}>Text Input</Link>.
+        , <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.
       </p>
+
+      <h3 id="color-customization">Color Customization</h3>
+      <ul>
+        <li>The colors used in the Utah Header can be customized. Below is an example of how you can customize the colors used in the Utah Design System.</li>
+      </ul>
+      <ColorCustomization />
 
       {/* ---- CODE EXAMPLES --- */}
       <h2 id="section-utahheader-code-examples" className="my-spacing">Code Examples</h2>
