@@ -35,7 +35,7 @@ export function Banner({
       id={id}
       ref={innerRef}
     >
-      <div role="status">
+      <div role="status" className="banner__content-wrapper">
         {children}
       </div>
       <div className="banner__close-button flex flex-col justify-center">
