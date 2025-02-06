@@ -40,12 +40,12 @@
     "@types/react-dom": "19.0.2",
     "@types/tinycolor2": "1.4.6",
     "@vitejs/plugin-react": "4.3.4",
-    "jsdom": "25.0.1",
-    "sass": "1.82.0",
-    "vite": "6.0.3",
+    "jsdom": "26.0.0",
+    "sass": "1.83.4",
+    "vite": "6.1.0",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-mkcert": "1.17.6",
-    "vitest": "2.1.8"
+    "vitest": "3.0.5"
   },
   "eslint.workingDirectories": [
     "./src",

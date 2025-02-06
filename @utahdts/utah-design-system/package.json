@@ -84,13 +84,13 @@
     "@types/react-dom": "19.0.2",
     "@types/uuid": "10.0.0",
     "@vitejs/plugin-react": "4.3.4",
-    "@vitest/coverage-istanbul": "2.1.8",
-    "@vitest/ui": "2.1.8",
-    "jsdom": "25.0.1",
-    "sass": "1.82.0",
+    "@vitest/coverage-istanbul": "3.0.5",
+    "@vitest/ui": "3.0.5",
+    "jsdom": "26.0.0",
+    "sass": "1.83.4",
     "typescript": "5.7.2",
-    "vite": "6.0.3",
-    "vitest": "2.1.8"
+    "vite": "6.1.0",
+    "vitest": "3.0.5"
   },
   "type": "module"
 }
