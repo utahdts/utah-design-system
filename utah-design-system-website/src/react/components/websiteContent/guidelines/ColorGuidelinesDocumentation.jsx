@@ -26,7 +26,7 @@ export function ColorGuidelinesDocumentation() {
       </p>
       <p className="mb-auto">
         The Utah Design System provides a base palette of colors that has already been tested for accessibility and spans a wide color spectrum.
-        The base text color (#474747) ensures that your main body text meets accessibility requirements.
+        The base text color (#474747) ensures that your main body text meets accessibility requirements.{' '}
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         A color picker is provided at the top of every page under the gear icon <a href="#" onClick={toggleColorPickerPopup}><span className="utds-icon-before-gear" aria-hidden="true" /><span className="visually-hidden">open color tool</span></a>
         that allows you to choose primary, secondary, and accent colors. It allows you to preview these colors on this site, as well as with components, patterns, and the <NavLink to={pageUrls.demoPage}>demo page</NavLink>.
@@ -59,7 +59,7 @@ export function ColorGuidelinesDocumentation() {
       <h2 id="section-direction-guidance" className="mb-spacing">Direction & Guidance</h2>
       <ul>
         <li>
-          <strong>Begin with black and white.</strong> Using the fundamental colors of black and white provides a solid foundation for organizing a website&#39;s elements.. Thus
+          <strong>Begin with black and white.</strong> Using black and white provides a solid foundation for organizing a website&#39;s interface. Thus
           allowing the developer/designer to focus on the visual hierarchy and not rely on color to convey a particular meaning.
         </li>
         <li>
@@ -84,10 +84,10 @@ export function ColorGuidelinesDocumentation() {
             </li>
             <li>
               <code>10%</code> (optional) of the site should be the accent color. This should meet contrast requirements for both the primary and secondary colors and is
-              typically used for smaller components like Call to Action <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.links}>links</Link>, or focus states.
+              typically used for smaller components like call to action <Link to={pageUrls.button}>buttons</Link>, <Link to={pageUrls.links}>links</Link>, or focus states.
             </li>
           </ul>
-          Simplify color usage by prioritizing functional requirements, such as status states or directions. Afterwards, employ color as a progressive enhancement
+          Simplify color usage by prioritizing functional requirements, such as statuses or directions. Afterwards, use color as a progressive enhancement
           to strengthen or harmonize the emotional aspects of the content.
         </li>
         <li>
@@ -98,8 +98,8 @@ export function ColorGuidelinesDocumentation() {
         <li>
           <strong>Get feedback from visual designers.</strong> Visual designers, or those who have experience with visual design, can be a fantastic resource to help
           develop color palettes or get feedback on your existing color schemes. If you do not have access to any visual designers, feel free to reach out to the Digital Experience
-          Team (DXP) at <a href="mailto:dts_ui@utah.gov">dts_ui@utah.gov</a>, or other methods on our <Link to={pageUrls.gettingStarted}>Getting Started</Link> page. We are happy
-          to assist in any way we can.
+          Team (DXP) at <a href="mailto:dxp@utah.gov">dxp@utah.gov</a>, or other methods on our <Link to={pageUrls.gettingStarted}>Getting Started</Link> page. <br />
+          We are happy to assist in any way we can.
         </li>
       </ul>
 
@@ -194,7 +194,7 @@ export function ColorGuidelinesDocumentation() {
 
       <h2 id="section-color-overrides" className="mt-spacing mb-spacing">How to override the colors in CSS</h2>
       <p>
-        It is anticipated that the colors of the design system will be overridden to match the color palette of your Agency brand or
+        It is anticipated that the colors of the design system will be overridden to match the color palette of your agency brand or
         to meet your specific website or application requirements.
       </p>
       <div className="flex justify-center mb-spacing-xl">

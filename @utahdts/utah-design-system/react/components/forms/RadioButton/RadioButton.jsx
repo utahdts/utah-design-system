@@ -14,7 +14,7 @@ import { useRadioButtonGroupContext } from './context/useRadioButtonGroupContext
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {string} [props.name] groups radio buttons together in the DOM; from context, though can override or be solo
- * @param {string} props.value the html radio button's value to put in to the form data if this radio button is selected
+ * @param {string} props.value
  * @param {string} [props.wrapperClassName]
  * @returns {import('react').JSX.Element}
  */

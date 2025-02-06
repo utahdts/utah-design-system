@@ -21,7 +21,7 @@ export function TabPanel({ children, className, tabId }) {
         'tab-group__panel'
       )}
       // `id` must match the related Tab's `aria-controls`
-      id={`tabpanel-${tabGroupId}-${tabId}`}
+      id={`tabpanel__${tabGroupId}__${tabId}`}
       role="tabpanel"
       tabIndex={selectedTabId === tabId ? 0 : -1}
     >

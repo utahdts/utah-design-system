@@ -34,7 +34,6 @@ export function ClickableTagExampleCodeReact({
       &lt;ClickableTag
       <br />
       <ExampleCodeReactProp displayProp={className || color ? `className="${joinClassNames(className, color)}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp
         displayProp={
           ((iconLeft === 'none') || !iconLeft)
@@ -62,6 +61,7 @@ export function ClickableTagExampleCodeReact({
         indentLevel={1}
       />
       <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp={isSelected ? 'isSelected' : null} indentLevel={1} />
       <ExampleCodeReactProp displayProp="onClick={() => { /* ... do something ... */ }" indentLevel={1} />
       <ExampleCodeReactProp displayProp={(!sizeKey || size === formElementSizesEnum.MEDIUM) ? null : `size={formElementSizesEnum.${sizeKey}}`} indentLevel={1} />

@@ -8,7 +8,7 @@ export function ErrorMessage({ errorMessage, id }) {
   return (
     errorMessage
       ? (
-        <div className="input-wrapper__error-message" id={`${id}-error`}>
+        <div className="input-wrapper__error-message" id={`error__${id}`}>
           {errorMessage}
         </div>
       )

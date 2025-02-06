@@ -157,7 +157,7 @@ declare module "@utahdts/utah-design-system" {
     onEscape?: React.KeyboardEventHandler<Element> | undefined;
     onClose?: React.MouseEventHandler<Element> | undefined;
     position?: DrawerPlacement | undefined;
-  }): JSX.Element;
+  }): React.JSX.Element;
   export function DrawerContent({ children, className, id, }: {
     children: React.ReactNode;
     className?: string | undefined;
@@ -229,7 +229,7 @@ declare module "@utahdts/utah-design-system" {
     errorMessage?: string | undefined;
     id: string;
   }): React.JSX.Element | null;
-  export function RequiredStar(): import("react/jsx-runtime").JSX.Element;
+  export function RequiredStar(): React.JSX.Element;
   export function calendarGrid(focusDate: Date | null, selectedDate: Date | null): CalendarGridMonth;
   export function CalendarInput({ className, dateFormat, errorMessage, id, innerRef, isDisabled, isHidden, isRequired, label, labelClassName, onChange, shouldSetFocusOnMount, showTodayButton, value, wrapperClassName, ...rest }: {
     className?: string | undefined;
@@ -574,8 +574,8 @@ declare module "@utahdts/utah-design-system" {
     label: string;
     labelClassName?: string | undefined;
     name?: string | undefined;
-    onChange?: React.ChangeEventHandler<Element> | undefined;
-    onClear?: React.UIEventHandler<Element> | undefined;
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+    onClear?: React.UIEventHandler<HTMLElement> | undefined;
     placeholder?: string | undefined;
     value?: string | undefined;
     wrapperClassName?: string | undefined;
@@ -1470,16 +1470,15 @@ declare module "@utahdts/utah-design-system" {
     className?: string | undefined;
     color?: ComponentColors | undefined;
     innerRef?: React.RefObject<HTMLButtonElement> | undefined;
-    iconLeft?: React.ReactNode;
-    iconRight?: React.ReactNode;
-    isDisabled?: boolean | undefined;
+    iconLeft?: React.ReactNode | undefined;
+    iconRight?: React.ReactNode | undefined;
     id?: string | undefined;
     isBusy?: boolean | undefined;
-    onClick: React.MouseEventHandler;
+    isDisabled?: boolean | undefined;
+    onClick: React.MouseEventHandler<HTMLButtonElement>;
     size?: FormElementSizes | undefined;
     type?: ButtonTypes | undefined;
   }): React.JSX.Element;
-  export function SegmentedButton(): null;
   export function TableFilterDate<TableDataT>({ a11yLabel, className, defaultValue, id, innerRef, onChange, placeholder, recordFieldPath, value, ...rest }: {
     className?: string | undefined;
     defaultValue?: TableDataT | undefined;

@@ -113,7 +113,7 @@ export function FileInput({
         hint
           ? (
             <div className="info-box file-input__info-box my-spacing-xs">
-              <div className="info-box__content" id={`${id}-hint`}>
+              <div className="info-box__content" id={`hint__${id}`}>
                 {hint}
               </div>
             </div>

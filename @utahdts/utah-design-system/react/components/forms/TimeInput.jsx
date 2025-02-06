@@ -12,7 +12,7 @@ import { TextInput } from './TextInput';
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {boolean} [props.hasTimePopup] is there a popup from which the user can select the time?
- * @param {string} props.id when tied to a Form, the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
+ * @param {string} props.id
  * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]

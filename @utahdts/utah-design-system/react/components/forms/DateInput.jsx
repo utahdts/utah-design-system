@@ -25,7 +25,7 @@ function isActiveElementInsideCalendarInput(myWrapper) {
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
  * @param {boolean} [props.hasCalendarPopup] defaults to true so that the calendar popup opens; otherwise entry is only textual keyboard
- * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
+ * @param {string} props.id
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isClearable]
  * @param {boolean} [props.isDisabled]
@@ -227,7 +227,7 @@ export function DateInput({
                     // @ts-expect-error
                     textInput?.focus();
                   }}
-                  id={`${id}__calendar-input`}
+                  id={`calendar-input__${id}`}
                   shouldSetFocusOnMount
                   showTodayButton={showCalendarTodayButton}
                   value={value}

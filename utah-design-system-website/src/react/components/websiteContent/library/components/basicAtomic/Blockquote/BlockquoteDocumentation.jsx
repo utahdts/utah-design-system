@@ -66,7 +66,7 @@ export function BlockquoteDocumentation() {
       <h3 id="section-when-to-use">When to use</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Two ways.</strong> Block quotes can be used in on of two ways:
+          <strong>Two ways.</strong> Block quotes can be used in one of two ways:
           <ul>
             <li>
               <strong>Highlighting a key message.</strong> A short snippet extracted from the main content to highlight and emphasize a key message.  Sometimes this is referred to as a “Pull Quote”, because you are “pulling” copy from the main content.  This does not include a citation or source.
@@ -89,7 +89,7 @@ export function BlockquoteDocumentation() {
           <strong>Breaking up a large body of text.</strong>
         </li>
         <li>
-          <strong>Providing visual markers.</strong> Providing the reader with visual markers.
+          <strong>Providing visual markers.</strong>
         </li>
       </ul>
 
@@ -115,7 +115,7 @@ export function BlockquoteDocumentation() {
               <strong>Not using a chiclet:</strong> If you are not using a chiclet (i.e. the vertical line to the left of your quote), you don&apos;t need to include quotation marks in your block quote copy – the blockquote style will add the quotation marks for you.
             </li>
             <li>
-              <strong>Using a chiclet:</strong> If you are using a chiclet, you will want to add the quotation marks to the copy inside the block quote tags. (e.g.<code>&lt;blockquote&gt;”Welcome to Utah!”&lt;blockquote&gt;</code>).
+              <strong>Using a chiclet:</strong> If you are using a chiclet, you will want to add the quotation marks to the copy inside the block quote tags. (e.g.<code>&lt;blockquote&gt;“Welcome to Utah!”&lt;blockquote&gt;</code>).
             </li>
             <li>Position the quote near the surrounding text.</li>
             <li>Keep text brief.</li>

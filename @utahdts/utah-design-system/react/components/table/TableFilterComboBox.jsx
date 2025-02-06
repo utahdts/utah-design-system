@@ -57,7 +57,7 @@ export function TableFilterComboBox({
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-combo-box', className)} id={id ?? undefined} ref={innerRef} {...rest}>
       <ComboBox
-        id={`${tableId}__table-filter-combo-box-${recordFieldPath}`}
+        id={`table-filter-combo-box__${tableId}__${recordFieldPath}`}
         isClearable
         label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}

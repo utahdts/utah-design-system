@@ -15,9 +15,10 @@ props that are true/false should generally start with the word `is`. ie:
   There may be some props like `showChildContent` that would be awkward if they started with is `isShowChildContent` so those props should start with a verb.
 
 ## Common Properties
-* `children`
+* `children` (React.ReactNode) (often optional)
+Children to be wrapped in the Component. ie a label for a button.
 
-* `className` (string)
+* `className` (string) (often optional)
 Every rendering component should have a className property that allows the parent component to pass in a className to be applied to this child item. The supplied className should go on the html tag that is the central focus of the component. The component should be single focused so that there is some rendered piece of the component that is the reason the component was written. For instance, for a Switch, the input that displays the switch value would receive the className. Other items can have classNames, but will need their own prop.
 
 * `defaultValue` (component specific)
@@ -28,8 +29,14 @@ The message to show if there is an error with the data the component renders.
 
 * `id` (string.isRequired)
 An `id` is required to tie the label and input together for accessibility. When using an "automatic" where an object is given at the form level and each input then is just a field name of the object, the `id` tells which field to use.
+NOTE: The `id` prop of a component should be something like `calendar-input__${id}` where:
+  1. Starts with the type of the component for easily seeing the component type in the DOM
+  1. Separates parts of the id (ie "name" and "id(s)") with double underscores (`__`), which is similar to the BEMS mentality: ie `tabpanel__${tabGroupId}__${tabId}`
+  1. Multiple part ids should be sorted from parent to child: `{component-type}__{top-parent}__{direct-parent}__{dynamic-id}__{child-identifier}`
+  * Doing such should make the id of the components globally understandable, identifiable, and more easily targeted
+  * Most, if not all, things should target based on class names instead of dynamic ids if at all possible
 
-* `innerRef` (ref)
+* `innerRef` (ref) (often optional - make sure the RefObject<generic> generic type is correct)
 This goes on the outer wrapper element of the entire component. The parent then has the ability to target inner elements.
 Refs tend to be helpful for inputs but not so much for other things?
 
@@ -56,6 +63,11 @@ should be coupled with isClearable
 * `placeholder`: (string)
 text to show in the input until a value is entered
 
+* `size`: (formElementSizesEnum/FormElementSizes - may be limited in possibilities)
+Refers to the height and text size (like buttons)
+Many controls will not support all sizes
+Switches, buttons have size; Text Input, Select does not
+
 * `title`: (string | React.ReactNode)
 Button/ToolTip have their "title" as a child element so in the sandbox props label for the title entry it is labeled "Title (children)"
 IconButton has a title as a prop so it's sandbox prop label is just "Title"
@@ -75,11 +87,15 @@ like a Spinner won't have a rest spread property.
 ## Uncommon props from other components
 You can check here to see if some other component already does something your component is wanting to do.
 
+### Button
+* `onClick`: MouseEventHandler<HTMLButtonElement>
+
+### ClickableTag
+* `iconLeft` : ReactNode
+* `iconRight`: ReactNode
+* `isSelected`: boolean
+
 ### Switch, Button, etc.
-* `size`: (formElementSizesEnum - may be limited in possibilities)
-Refers to the height and text size (like buttons)
-Many controls will not support all sizes
-Switches, buttons have size; Text Input, Select does not
 
 ### Switch
 * `labelOff`: PropTypes.node
@@ -114,3 +130,21 @@ Switches, buttons have size; Text Input, Select does not
   </label>
 </div>
 ```
+
+## Component Review
+Things to check when reviewing a component:
+* [ ] props all are either unique or on the "common" list in this document
+* [ ] prop types are correct including specifying generics ie `{MouseEventHandler<HTMLButtonElement>} props.onClick`
+* [ ] `rest` spread operator is used correctly
+* [ ] move magic numbers to constants
+* [ ] review coding practices
+* [ ] sandbox
+  * covers as many props as appropriate
+  * all works
+  * html tab
+  * react tab
+    * props sorting
+    * props accuracy
+* [ ] check types in index.d.ts to make sure:
+  * props match types between component and index.d.ts
+  * all props are represented

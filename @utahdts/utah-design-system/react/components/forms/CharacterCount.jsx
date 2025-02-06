@@ -50,7 +50,7 @@ export function CharacterCount({
       ? (
         <div
           className={joinClassNames('character-count', className, overLimit && 'character-count--over-limit')}
-          id={`${id}-character-count`}
+          id={`character-count__${id}`}
         >
           {displayMessage}
         </div>
