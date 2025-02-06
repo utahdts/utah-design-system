@@ -9,11 +9,6 @@ export default defineConfig(({ mode }) => {
   return {
     css: {
       devSourcemap: true,
-      preprocessorOptions: {
-        scss: {
-          api: 'modern'
-        }
-      }
     },
     build: {
       minify: false,
@@ -29,14 +24,14 @@ export default defineConfig(({ mode }) => {
       mode === 'production-website' ? eslintPlugin() : null,
       mkcert({
         force: true,
-        hosts: ['*.utah.gov', '*.local.utah.gov', '127.0.0.1', 'localhost', '::1'],
+        hosts: ['designsystem.local.utah.gov'],
       }),
     ],
     server: {
       https: true,
       host: 'designsystem.local.utah.gov',
       port: 9180,
-      open: true,
+      open: false,
     },
     preview: {
       port: 8080,
