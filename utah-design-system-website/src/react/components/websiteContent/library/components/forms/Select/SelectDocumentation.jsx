@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { useState } from 'react';
 import {
   Select,
   SelectOption,
@@ -19,6 +20,7 @@ import { SelectExampleRender } from './SelectExampleRender';
 import { SelectPropsDocumentation } from './SelectPropsDocumentation';
 
 export function SelectDocumentation() {
+  const [selectExampleValue, setSelectExampleValue] = useState('');
   return (
     <div className="documentation-content">
       <h1 id="h1-top">Select</h1>
@@ -49,7 +51,21 @@ export function SelectDocumentation() {
       <StaticExample
         title="Select Input Example"
         renderedExample={(
-          <Select id="select-input-example" label="Choose the best wild animal">
+          <Select
+            id="select-input-example"
+            isClearable={true}
+            isRequired={false}
+            label="Choose the best wild animal"
+            onChange={
+              /** @param {import('react').BaseSyntheticEvent} e */
+              (e) => setSelectExampleValue(e.target.value)
+            }
+            onClear={() => setSelectExampleValue('')}
+            placeholder="Choose a wild animal"
+            value={selectExampleValue}
+            // @ts-expect-error
+            style={{ width: '250px' }}
+          >
             <SelectOption label="Antelope" value="antelope" />
             <SelectOption label="Black Bear" value="black-bear" />
             <SelectOption label="Golden Eagle" value="golden-eagle" />
@@ -62,6 +78,15 @@ export function SelectDocumentation() {
         quickTips={(
           <ul>
             <li>A select input allows the user to select from a list of options.</li>
+            <li>React Notes:
+              <ul>
+                <li>A <code>placeholder</code> is required in order to allow the clear button to appear.</li>
+                <li>
+                  The <code>placeholder</code> prop creates a select value with an empty string.
+                  When <code>onClear</code> is called the value must be set to an empty string.
+                </li>
+              </ul>
+            </li>
           </ul>
         )}
       />

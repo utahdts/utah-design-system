@@ -9,7 +9,7 @@ import { RadioButtonGroupContextProvider } from './context/RadioButtonGroupConte
  * @param {string} [props.className]
  * @param {string} [props.defaultValue] starting value if not controlled
  * @param {string} [props.errorMessage]
- * @param {string} props.id // the field id for the form to put the value in to the form
+ * @param {string} props.id
  * @param {boolean} [props.isRequired]
  * @param {string} props.label
  * @param {(newValue: string) => void} [props.onChange] respond to changes of current value if controlled

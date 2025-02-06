@@ -79,7 +79,7 @@ export function TableFilterComboBoxAllOptions({
       {...rest}
     >
       <ComboBox
-        id={`${tableId}__table-filter-combo-box-${recordFieldPath}`}
+        id={`table-filter-combo-box-all-options__${recordFieldPath}__${tableId}`}
         isClearable
         label={`Filter ${a11yLabel}`}
         onChange={currentOnChange}

@@ -114,7 +114,7 @@ export function TabGroup({
     <TabGroupContext.Provider value={contextValue}>
       <div
         className={joinClassNames('tab-group', className, isVertical && 'tab-group--vertical')}
-        id={`tab-group-${tabGroupState.tabGroupId}`}
+        id={`tab-group__${tabGroupState.tabGroupId}`}
         ref={tabGroupRef}
       >
         {children}

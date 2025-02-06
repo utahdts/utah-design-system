@@ -13,7 +13,7 @@ import { RequiredStar } from './RequiredStar';
  * @param {import('react').MutableRefObject<HTMLButtonElement | null>} [props.clearIconRef]
  * @param {string} [props.defaultValue]
  * @param {string} [props.errorMessage]
- * @param {string} props.id when tied to a Form, the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
+ * @param {string} props.id
  * @param {import('react').Ref<HTMLDivElement>} [props.innerRef]
  * @param {boolean} [props.isClearable] should the clearable "X" icon be shown; is auto set to true if onClear is passed in
  * @param {boolean} [props.isDisabled]

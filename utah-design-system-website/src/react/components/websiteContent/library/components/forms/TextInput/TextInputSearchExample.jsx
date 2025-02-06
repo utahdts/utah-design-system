@@ -7,7 +7,7 @@ export function TextInputSearchExample() {
   const search = /** @type {import('react').FormEventHandler} */ (
     (e) => {
       e.preventDefault();
-      addBanner({ message: 'You have are searching!' });
+      addBanner({ message: `You have searched for "${query}"!` });
     }
   );
 

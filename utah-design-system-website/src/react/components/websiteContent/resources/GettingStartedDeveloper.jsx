@@ -2,6 +2,7 @@ import { ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';
+import { ColorCustomization } from './ColorCustomization';
 
 export function GettingStartedDeveloper() {
   return (
@@ -572,32 +573,7 @@ export function GettingStartedDeveloper() {
       </ol>
 
       <div className="mt-spacing">CSS override code example:</div>
-      <PreCodeForCodeString
-        showBackgroundColor
-        codeRaw={`
-          <!-- Include the CSS and Javascript for the Utah Header -->
-          <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
-
-          <!-- Override the default design system css -->
-          <style>
-            /* Override the default design system colors */
-            .utah-design-system {
-              --primary-color: #3c7b24;
-              --primary-color-dark: #2e4326;
-              --primary-color-light: #e1eadd;
-
-              --secondary-color: #0e80a7;
-              --secondary-color-dark: #205162;
-              --secondary-color-light: #edf5f8;
-
-              --accent-color: #ffb100;
-              --accent-color-dark: #745a1e;
-              --accent-color-light: #fff9ec;
-            }
-          </style>
-        `}
-        className="mt-spacing"
-      />
+      <ColorCustomization />
 
       <div className="flex justify-end mb-spacing-l">
         <ExternalLink

@@ -119,7 +119,7 @@ export function MenuItemFlyout({
                 'popup__wrapper',
                 isChildrenOpen ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
               )}
-              id={`menu-item-${menuItem.id}-${menuItem.link || 'link'}-popup`}
+              id={`menu-item__${menuItem.id}__${menuItem.link || 'link'}-popup`}
               ref={popperRef}
               style={styles.popper}
               {...attributes.popper}

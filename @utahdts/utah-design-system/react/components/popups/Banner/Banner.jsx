@@ -35,9 +35,7 @@ export function Banner({
       id={id}
       ref={innerRef}
     >
-      <div role="status">
-        {children}
-      </div>
+      {children}
       <div className="banner__close-button flex flex-col justify-center">
         <IconButton
           appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}

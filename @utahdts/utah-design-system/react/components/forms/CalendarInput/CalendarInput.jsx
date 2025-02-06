@@ -49,7 +49,7 @@ function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
  * @param {string} [props.className]
  * @param {string} [props.dateFormat] use `date-fns` modifiers for formatting the date https://date-fns.org/v3.2.0/docs/format
  * @param {string} [props.errorMessage]
- * @param {string} props.id when tied to a Form the `id` is also the 'dot' path to the data in the form's state: ie person.contact.address.line1
+ * @param {string} props.id
  * @param {import('react').RefObject<HTMLDivElement | null>} [props.innerRef]
  * @param {boolean} [props.isDisabled]
  * @param {boolean} [props.isHidden] a dateInput will hide its calendar popup when not in use
@@ -273,7 +273,7 @@ export function CalendarInput({
                           cellGridValue.isSelectedDate && 'calendar-input__cell--selected',
                           cellGridValue.isTodayDate && 'calendar-input__cell--today'
                         )}
-                        id={`${calendarInputId}__${formattedDate}`}
+                        id={`calendar-input__${calendarInputId}__${formattedDate}`}
                         isDisabled={isDisabled}
                         key={`calendar-input__cell__${cellGridValue.date.getTime()}`}
                         onClick={() => onChange?.(formattedDate)}
