@@ -144,6 +144,25 @@ export function MainMenuSettingsAndCode() {
           </TableRow>
 
           <TableRow>
+          <TableCell>
+            <code><a href="#section-mainMenu">actionMenu.childrenMenuType</a></code>
+          </TableCell>
+          <TableCell>
+            <div className="props-code-wrapper">
+              <code>inline</code>
+              <span> | </span>
+              <code>flyout</code>
+              <span> | </span>
+              <code>mega-menu</code>
+            </div>
+          </TableCell>
+          <TableCell><code>flyout</code></TableCell>
+          <TableCell>
+            How should the children be displayed.
+          </TableCell>
+        </TableRow>
+
+          <TableRow>
             <TableCell>
               <code><a href="#section-mainMenu">className</a></code>
             </TableCell>
@@ -305,7 +324,7 @@ export function MainMenuSettingsAndCode() {
                       title: 'Function',
                       actionFunction: () => window.location = '/Function',
                     },
-                    {
+                    {x
                       actionFunctionUrl: {
                         url: 'https://visible-url.edu',
                         actionFunction: () => window.location = '/nowhere',
