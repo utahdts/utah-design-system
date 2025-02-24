@@ -324,7 +324,7 @@ export function MainMenuSettingsAndCode() {
                       title: 'Function',
                       actionFunction: () => window.location = '/Function',
                     },
-                    {x
+                    {
                       actionFunctionUrl: {
                         url: 'https://visible-url.edu',
                         actionFunction: () => window.location = '/nowhere',
