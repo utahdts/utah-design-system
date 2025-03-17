@@ -30,3 +30,5 @@ coverage
 build/
 
 sitemap.txt
+
+.history
