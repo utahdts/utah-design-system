@@ -145,6 +145,25 @@ export function MainMenuSettingsAndCode() {
 
           <TableRow>
             <TableCell>
+              <code><a href="#section-mainMenu">actionMenu.childrenMenuType</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>inline</code>
+                <span> | </span>
+                <code>flyout</code>
+                <span> | </span>
+                <code>mega-menu</code>
+              </div>
+            </TableCell>
+            <TableCell><code>flyout</code></TableCell>
+            <TableCell>
+              How should the children be displayed.
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
               <code><a href="#section-mainMenu">className</a></code>
             </TableCell>
             <TableCell>
