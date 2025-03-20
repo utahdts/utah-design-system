@@ -61,5 +61,6 @@
     "connectionId": "utahdts",
     "projectKey": "utahdts_utah-design-system"
   },
-  "testing.automaticallyOpenPeekView": "never"
+  "testing.automaticallyOpenPeekView": "never",
+  "typescript.preferences.importModuleSpecifier": "relative"
 }
