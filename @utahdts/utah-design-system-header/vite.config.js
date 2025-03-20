@@ -33,6 +33,10 @@ export default defineConfig(({ mode }) => {
     ],
     define: {
       'process.env': {}
+    },
+    preview : {
+      port: 5550,
+      cors: true
     }
   };
 });
