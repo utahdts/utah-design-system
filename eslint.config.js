@@ -16,6 +16,7 @@ export default [
       "**/*.umd.js",
       "**/examples/**/*",
       "**/artifacts/**/*",
+      "**/.history/**/*",
     ],
   },
   ...tseslint.configs.strict,

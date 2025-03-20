@@ -4,6 +4,7 @@ import { utahIdUrls } from '../../enumerations/utahIdUrls';
 import { popupFocusHandler } from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { uuidv4 } from '../../misc/uuidv4';
+import { doUtahIdOnSignIn } from '../../renderables/utahId/utahIdCommon';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { renderMenuWithTitle } from '../menu/renderMenuWithTitle';
 import { renderPopup } from '../popup/renderPopup';
@@ -163,9 +164,6 @@ export function renderUtahIdForDesktop() {
   doAriaForUtahId(utahIdButton, utahIdPopupMenu);
 
   // hook up menu to be a popup
-  const settings = getUtahHeaderSettings();
-  const onSignIn = (settings.utahId !== false && settings.utahId !== true && settings.utahId?.onSignIn);
-
   popupFocusHandler(
     utahIdWrapper,
     utahIdButton,
@@ -173,17 +171,7 @@ export function renderUtahIdForDesktop() {
     'menu',
     {
       isPerformPopup: () => !!utahIdData?.isDefinitive && !!utahIdData?.userInfo?.authenticated,
-      onClick: (e) => {
-        if (!utahIdData?.isDefinitive || !utahIdData?.userInfo?.authenticated) {
-          if (onSignIn) {
-            onSignIn(e);
-          } else {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = utahIdUrls.SIGN_IN;
-          }
-        }
-      },
+      onClick: (e) => doUtahIdOnSignIn(e),
     }
   );
 
