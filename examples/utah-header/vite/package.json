@@ -12,6 +12,6 @@
     "vite": "6.2.2"
   },
   "dependencies": {
-    "@utahdts/utah-design-system-header": "3.0.4"
+    "@utahdts/utah-design-system-header": "3.0.5"
   }
 }
