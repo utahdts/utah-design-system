@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # [3.0.5] 03/18/2025
 ## Fixed
 - Fixed mobile UtahId button to only sign in if not signed in
+- Added missing documentation for "childrenMenuType" with all the possible types
+- Removed CSS in a modal popup that was forcing an arbitrary line-height
+- Added CSS to allow modal popups to overflow and scroll when there is lots of content
 
 # [3.0.4] 02/06/2025
 ## Fixed
