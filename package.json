@@ -1,6 +1,6 @@
 {
   "name": "design-system-packages",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "workspaces": [
     "@utahdts/utah-design-system-header",
     "@utahdts/utah-design-system",
@@ -77,25 +77,25 @@
     "tscw": "run-s tscwHeader tscLibrary tscwWebsite"
   },
   "devDependencies": {
-    "@eslint/compat": "1.2.6",
-    "@eslint/eslintrc": "3.2.0",
-    "@eslint/js": "9.19.0",
-    "@stylistic/eslint-plugin": "3.0.1",
+    "@eslint/compat": "1.2.7",
+    "@eslint/eslintrc": "3.3.0",
+    "@eslint/js": "9.22.0",
+    "@stylistic/eslint-plugin": "4.2.0",
     "@types/js-beautify": "1.14.3",
-    "@vitest/coverage-istanbul": "3.0.5",
-    "eslint": "9.19.0",
+    "@vitest/coverage-istanbul": "3.0.9",
+    "eslint": "9.22.0",
     "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-jsdoc": "50.6.3",
+    "eslint-plugin-jsdoc": "50.6.8",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.4",
-    "eslint-plugin-react-refresh": "0.4.18",
-    "globals": "15.14.0",
+    "eslint-plugin-react-refresh": "0.4.19",
+    "globals": "16.0.0",
     "npm-run-all": "4.1.5",
     "rimraf": "6.0.1",
-    "typescript-eslint": "8.23.0",
-    "@typescript-eslint/eslint-plugin": "8.23.0",
+    "typescript-eslint": "8.27.0",
+    "@typescript-eslint/eslint-plugin": "8.27.0",
     "vite-plugin-eslint": "1.8.1",
-    "vitest": "3.0.5"
+    "vitest": "3.0.9"
   },
   "dependencies": {
   }
