@@ -276,7 +276,7 @@ export function HomeLanding() {
           <IconsWebsite.IconChatBubbles isHidden />
           <h2 className="text-center mt-spacing-l">Don&apos;t be Shy!</h2>
           <p>
-            Have a question? <a href="mailto:dts_ui@utah.gov">Contact us</a>. Got a suggestion? <a href="mailto:dts_ui@utah.gov">Contact us</a>.<br />
+            Have a question? <a href="mailto:dxp@utah.gov">Contact us</a>. Got a suggestion? <a href="mailto:dxp@utah.gov">Contact us</a>.<br />
             We like hearing from you, and this space is for all of us; Help us make it better!
           </p>
         </div>

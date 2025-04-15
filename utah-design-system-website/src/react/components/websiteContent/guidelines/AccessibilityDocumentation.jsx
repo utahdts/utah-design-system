@@ -201,7 +201,7 @@ export function AccessibilityDocumentation() {
             <li>
               Links to email addresses should include the actual email address in the text of the link.
               Additionally, if there is no text to indicate the link is for an email address, include visually hidden text to inform screen reader users.
-              For example: <a href="mailto:dts_ui@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dts_ui@utah.gov</a>
+              For example: <a href="mailto:dxp@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dxp@utah.gov</a>
             </li>
           </ul>
         </li>

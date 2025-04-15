@@ -5,7 +5,7 @@ export function DesignSystemFooterSocialMedia() {
   return (
     <FooterSocialMediaBar title="Connect with us">
       <a
-        href="mailto:dts_ui@utah.gov"
+        href="mailto:dxp@utah.gov"
         className="icon-link"
         target="_blank"
         rel="noreferrer"

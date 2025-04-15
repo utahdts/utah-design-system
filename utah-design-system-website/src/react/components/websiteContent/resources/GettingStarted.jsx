@@ -34,7 +34,7 @@ export function GettingStarted() {
       <hr />
       <h2 id="h2-other-resources" className="mb-auto"><strong>Other resources to get help:</strong></h2>
       <ul>
-        <li>Send us an email: <ExternalLink href="mailto:dts_ui@utah.gov">dts_ui@utah.gov</ExternalLink></li>
+        <li>Send us an email: <ExternalLink href="mailto:dxp@utah.gov">dxp@utah.gov</ExternalLink></li>
         <li><ExternalLink href="https://github.com/utahdts/utah-design-system">GitHub Repository</ExternalLink></li>
       </ul>
     </div>

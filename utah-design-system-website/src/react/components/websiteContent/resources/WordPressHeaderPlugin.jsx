@@ -200,7 +200,7 @@ export function WordPressHeaderPlugin() {
         showBackgroundColor
       />
       <h2 id="get-help">Get help</h2>
-      <p>You can <a href="mailto:dts_ui@utah.gov">contact the DTS Digital Experience Team (dts_ui@utah.gov)</a> for help with this plugin.</p>
+      <p>You can <a href="mailto:dxp@utah.gov">contact the DTS Digital Experience Team (dxp@utah.gov)</a> for help with this plugin.</p>
     </div>
   );
 }

@@ -24,7 +24,7 @@ export function DesignSystemFooterMainContent() {
           }}
           agencyTitleSecondLine="Utah Design System"
           agencyTitleFirstLine="Department of Government Operations"
-          email="dts_ui@utah.gov"
+          email="dxp@utah.gov"
           logo={<img src={govOps} alt="Division of Technology Services" />}
         />
       </FooterAgencyInformationColumn>

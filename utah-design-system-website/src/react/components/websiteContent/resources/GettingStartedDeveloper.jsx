@@ -16,7 +16,7 @@ export function GettingStartedDeveloper() {
       <div><strong>Help us make this page better.</strong></div>
       <p>
         There is no limit to the technology stacks that can incorporate the Utah Header and Design System. We want
-        to <ExternalLink href="mailto:dts_ui@utah.gov">hear from you</ExternalLink> about your stack, your
+        to <ExternalLink href="mailto:dxp@utah.gov">hear from you</ExternalLink> about your stack, your
         successes, and pain points. Please send us your experiences and/or code and stack. We would love to add it here!
       </p>
 
