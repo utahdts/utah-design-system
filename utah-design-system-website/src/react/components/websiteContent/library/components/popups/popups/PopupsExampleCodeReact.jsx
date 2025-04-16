@@ -27,7 +27,7 @@ export function PopupsExampleCodeReact({
       <br />
       <ExampleCodeReactCode isRenderable={popupType === 'onClick'} code="const onClickEvent = () => setVisible((oldVisible) => !oldVisible);" />
       <ExampleCodeReactCode isRenderable={popupType === 'onHover'} code="const onMouseEnter = () => setVisible(true);" />
-      <ExampleCodeReactCode isRenderable={popupType === 'onHover'} code="const onMouseEnter = () => setVisible(false);" />
+      <ExampleCodeReactCode isRenderable={popupType === 'onHover'} code="const onMouseLeave = () => setVisible(false);" />
       const buttonRef = useRef();
       <br />
 
