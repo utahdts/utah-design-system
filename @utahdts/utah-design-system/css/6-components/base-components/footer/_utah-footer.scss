@@ -12,6 +12,11 @@
     position: relative;
     box-sizing: border-box;
     width: 100%;
+    a:focus-visible {
+      outline: 2px solid #FFF;
+      outline-offset: 2px;
+      border-radius: var(--radius-small1x);
+    }
   }
 }
 .utds {
