@@ -26,17 +26,20 @@ export function CheckboxExampleRender({
 }) {
   return (
     <div ref={innerRef}>
-      <Checkbox
-        className={className}
-        errorMessage={errorMessage}
-        id={id}
-        isDisabled={isDisabled}
-        label={label}
-        onChange={() => setState((draftState) => {
-          draftState.props.value = !draftState.props.value;
-        })}
-        value={value}
-      />
+      <fieldset>
+        <legend className="mb-spacing-xs">Checkbox example</legend>
+        <Checkbox
+          className={className}
+          errorMessage={errorMessage}
+          id={id}
+          isDisabled={isDisabled}
+          label={label}
+          onChange={() => setState((draftState) => {
+            draftState.props.value = !draftState.props.value;
+          })}
+          value={value}
+        />
+      </fieldset>
     </div>
   );
 }
