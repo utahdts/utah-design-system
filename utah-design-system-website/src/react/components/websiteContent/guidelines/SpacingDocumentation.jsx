@@ -19,6 +19,9 @@ import spacingScreenshot8 from '../../../../static/images/screenshots/spacing/sp
 import { LightBox } from '../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { StaticExample } from '../../staticExamples/StaticExample';
+import { Link } from 'react-router-dom';
+import { pageUrls } from '../../routing/pageUrls.js';
+import spacingExample from '../../../../static/images/screenshots/spacing/size_spacing.webp';
 
 export function SpacingDocumentation() {
   return (
@@ -56,6 +59,12 @@ export function SpacingDocumentation() {
         By default list items <code>&lt;li&gt;</code> are spaced further apart using a bottom margin of <code>spacing&#8209;2xl (40px)</code> with a line height of <code>1.7</code>.
       </p>
       <p>These defaults can be overridden to meet your site&apos;s particular needs.</p>
+
+      <h2 id="section-interactive-elements">Interactive Element Spacing</h2>
+      <p>
+        When interactive elements can not match the <Link to={`${pageUrls.accessibility}#section-motor-functionality`}>minimum size requirement</Link> of 24 by 24 pixels, they should be spaced accordingly to meet the target size.
+      </p>
+      <div className="text-center"><img src={spacingExample} alt="Example of acceptable and unacceptable spacing between interactive elements" style={{ maxWidth: '50%' }} /></div>
 
       <h2 id="section-sizes-table">Spacing Sizes</h2>
       <TableWrapper>
