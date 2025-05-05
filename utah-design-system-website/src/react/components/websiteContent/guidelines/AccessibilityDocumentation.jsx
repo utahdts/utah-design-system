@@ -30,6 +30,8 @@ import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { pageUrls } from '../../routing/pageUrls';
 import { StaticExample } from '../../staticExamples/StaticExample';
 import { IconsWebsite } from '../IconsWebsite';
+import sizeExample from '../../../../static/images/screenshots/spacing/size_target.webp';
+import spacingExample from '../../../../static/images/screenshots/spacing/size_spacing.webp';
 
 export function AccessibilityDocumentation() {
   const goodAltAudioVtt = new URL('../../../../static/audio/vtt/GoodAlt.vtt', import.meta.url).href;
@@ -201,7 +203,7 @@ export function AccessibilityDocumentation() {
             <li>
               Links to email addresses should include the actual email address in the text of the link.
               Additionally, if there is no text to indicate the link is for an email address, include visually hidden text to inform screen reader users.
-              For example: <a href="mailto:dts_ui@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dts_ui@utah.gov</a>
+              For example: <a href="mailto:dxp@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dxp@utah.gov</a>
             </li>
           </ul>
         </li>
@@ -538,7 +540,7 @@ export function AccessibilityDocumentation() {
           is critical to understanding, be sure to give them an alternative source for the information.
         </li>
         <li>
-          <strong>Interactive content.</strong>  When possible, ensure that the user:
+          <strong>Interactive content.</strong> When possible, ensure that the user:
           <ul>
             <li>Can activate or dismiss content using the keyboard.
               <ul>
@@ -564,9 +566,26 @@ export function AccessibilityDocumentation() {
                 </li>
               </ul>
             </li>
-            <li>Will be able to easily click the object (has a large clickable area).</li>
             <li>Has enough time to complete necessary tasks.</li>
             <li>Can correct any errors that may have been made.</li>
+            <li>
+              Will be able to easily interact with controls.
+              Interactive elements should have a size of at least <strong>24 by 24 pixels</strong>, without overlapping with other elements.
+              <div className="text-center"><img src={sizeExample} alt="Example of acceptable and unacceptable size for interactive elements" style={{ maxWidth: '100%' }} /></div>
+              <ul>
+                <li>
+                  <strong>Exception.</strong>
+                  <ul>
+                    <li>When the element is positioned inline, as a part of some text. Rely on the line-height instead.</li>
+                    <li>When the element is deemed essential. For example, locations on a map that are close together.</li>
+                  </ul>
+                </li>
+              </ul>
+              <ul>
+                <ul><li>If elements do not meet the minimum requirement, you can improve the user experience by accounting for the <Link to={pageUrls.spacing}>spacing</Link>.</li></ul>
+              </ul>
+              <div className="text-center"><img src={spacingExample} alt="Example of acceptable and unacceptable spacing between interactive elements" style={{ maxWidth: '50%' }} /></div>
+            </li>
           </ul>
         </li>
       </ul>

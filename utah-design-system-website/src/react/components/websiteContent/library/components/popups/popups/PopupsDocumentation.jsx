@@ -20,7 +20,8 @@ import {
   VerticalMenu,
   componentColors,
   formElementSizesEnum,
-  popupPlacement
+  popupPlacement,
+  ExternalLink
 } from '@utahdts/utah-design-system';
 import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
@@ -523,6 +524,18 @@ export function PopupsDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
+                      <TableCell><code className="primary-color">ariaLabelledBy</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>string</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        The <code>id</code> of the element - typically a button - that controls the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
                       <TableCell><code className="primary-color">children</code></TableCell>
                       <TableCell>
                         <div className="props-code-wrapper">
@@ -631,6 +644,18 @@ export function PopupsDocumentation() {
                       </TableCell>
                     </TableRow>
                     <TableRow>
+                      <TableCell><code className="primary-color">popperUpdateDependencies</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>any[]</code>
+                        </div>
+                      </TableCell>
+                      <TableCell>null</TableCell>
+                      <TableCell>
+                        <code>useEffect</code> dependencies for updating popper placement.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
                       <TableCell><code className="primary-color">referenceElement</code></TableCell>
                       <TableCell>
                         <div className="props-code-wrapper">
@@ -640,6 +665,22 @@ export function PopupsDocumentation() {
                       <TableCell><em>required</em></TableCell>
                       <TableCell>
                         A ref to the button or place where the popup will appear. Usually this is the button that activated the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">role</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>dialog</code>
+                          <code>grid</code>
+                          <code>listbox</code>
+                          <code>menu</code>
+                          <code>tree</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        For accessibility purposes. <ExternalLink href='https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles'>See more</ExternalLink>.
                       </TableCell>
                     </TableRow>
                   </TableBody>

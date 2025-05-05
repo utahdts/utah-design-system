@@ -336,18 +336,20 @@ export function DemoForm() {
                 // @ts-expect-error
                 onBlur={onBlurCurry('commentCount')}
               />
-              <Checkbox
-                errorMessage={formErrors.approved?.message}
-                id="approved"
-                isRequired
-                label="Do you approve?"
-                onChange={(e) => setFormState((draftState) => {
-                  draftState.approved = e.target.checked;
-                })}
-                value={formState.approved}
-                // @ts-expect-error
-                onBlur={onBlurCurry('approved')}
-              />
+              <fieldset>
+                <Checkbox
+                  errorMessage={formErrors.approved?.message}
+                  id="approved"
+                  isRequired
+                  label="Do you approve?"
+                  onChange={(e) => setFormState((draftState) => {
+                    draftState.approved = e.target.checked;
+                  })}
+                  value={formState.approved}
+                  // @ts-expect-error
+                  onBlur={onBlurCurry('approved')}
+                />
+              </fieldset>
               {
                 formState.approved
                   ? (

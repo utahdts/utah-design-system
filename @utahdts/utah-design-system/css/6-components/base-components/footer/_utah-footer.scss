@@ -12,6 +12,11 @@
     position: relative;
     box-sizing: border-box;
     width: 100%;
+    a:focus-visible {
+      outline: 2px solid #FFF;
+      outline-offset: 2px;
+      border-radius: var(--radius-small1x);
+    }
   }
 }
 .utds {
@@ -127,11 +132,14 @@
       &__vertical-divider {
         display: none;
       }
-      &__official-site-wrapper {
-        flex: 1 0 100%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+      &__official-site {
+        text-align: center;
+        &-site-wrapper {
+          flex: 1 0 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
       }
     }
   }

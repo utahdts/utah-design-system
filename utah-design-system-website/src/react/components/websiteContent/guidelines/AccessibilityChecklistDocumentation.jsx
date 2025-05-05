@@ -63,6 +63,7 @@ export function AccessibilityChecklistDocumentation() {
                 </li>
               </ul>
             </li>
+            <li>Interactive elements such as <Link to={pageUrls.button}>Buttons</Link> should be at least <Link to={`${pageUrls.accessibility}#section-motor-functionality`}>24 by 24 pixels</Link>.</li>
           </ul>
         </li>
         <li>
