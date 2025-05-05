@@ -33,6 +33,10 @@ export function renderNotificationsDrawer() {
     notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__DRAWER_TITLE)), 'renderNotificationsDrawer: drawer title not found')
   );
 
+  const drawerEndFocus = /** @type {HTMLElement} */ (
+    notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__DRAWER_END_FOCUS)), 'renderNotificationsDrawer: drawer end focus not found')
+  );
+
   // close button will close it
   closeButton.onclick = (e) => {
     e.preventDefault();
@@ -72,6 +76,13 @@ export function renderNotificationsDrawer() {
     className: 'notifications-settings-button',
   });
   drawer.querySelector('.utds-notifications-drawer__header-buttons')?.appendChild(settingsButton);
+
+  //set focus back to the start of the dialog
+  drawerEndFocus.addEventListener('focus', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    drawerTitle.focus();
+  });
 
   // add drawer to the DOM
   domTarget?.appendChild(drawer);

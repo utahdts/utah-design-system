@@ -157,4 +157,5 @@ export const domConstants = {
   NOTIFICATIONS__DRAWER_BACKDROP: 'drawer__backdrop',
   NOTIFICATIONS__DRAWER_INNER: 'drawer__inner',
   NOTIFICATIONS__DRAWER_TITLE: 'drawer__title',
+  NOTIFICATIONS__DRAWER_END_FOCUS: 'drawer__end-focus',
 };
