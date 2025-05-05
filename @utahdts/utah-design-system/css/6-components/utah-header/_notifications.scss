@@ -1,0 +1,32 @@
+@use "../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .utds {
+    &-notifications-drawer {
+      &__header-buttons {
+        background: var(--gray-light-color);
+        display: flex;
+        gap: var(--spacing-s);
+        padding: var(--spacing);
+      }
+      .utds-icon-before-alert {
+        font-size: 1.2rem;
+      }
+      &__header-buttons {
+        .button {
+          padding: 0 var(--spacing);
+        }
+      }
+      .notifications-settings-button {
+        background: var(--gray-color);
+        color: white;
+        fill: white;
+        &:hover {
+          background-color: var(--gray-dark-color);
+          color: white;
+          fill: white;
+        }
+      }
+    }
+  }
+}
