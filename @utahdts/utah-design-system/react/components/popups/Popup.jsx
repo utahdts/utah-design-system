@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import { usePopper } from 'react-popper';
+import React, { useCallback, useRef } from 'react';
+import { useFloating, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/react-dom';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { useClickOutside } from '../../hooks/useClickOutside';
@@ -18,10 +18,9 @@ import { IconButton } from '../buttons/IconButton';
  * @param {string} props.id used for hooking up to the button that controls the popup by aria-control
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
  * @param {boolean} props.isVisible Control the visibility of the popup
- * @param {[number, number]} [props.offset] [x, y] offset of popped content from
+ * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.offsetProp] [x, y] offset of popped content from
  * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }
  * @param {PopupPlacement} [props.placement] The Popper Placement
- * @param {any[]} [props.popperUpdateDependencies] useEffect dependencies for updating popper placement
  * @param {import('react').RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
  * @param {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} props.role popup must tell its role for accessibility
  * @returns {import('react').JSX.Element}
@@ -34,10 +33,9 @@ export function Popup({
   id,
   innerRef: draftInnerRef,
   isVisible,
-  offset = [0, 10],
+  offsetProp = 10,
   onVisibleChange,
-  placement = popupPlacement.AUTO,
-  popperUpdateDependencies,
+  placement = popupPlacement.BOTTOM,
   referenceElement,
   role,
   ...rest
@@ -50,29 +48,23 @@ export function Popup({
     draftInnerRef.current = popperRef.current;
   }
 
-  const { styles, attributes, update } = usePopper(referenceElement.current, popperRef.current, {
-    placement,
-    modifiers: [
-      {
-        name: 'arrow',
-        options: { element: arrowRef.current },
-      },
-      {
-        name: 'offset',
-        options: { offset },
-      },
-    ],
-  });
-
-  useEffect(
-    () => {
-      if (update) {
-        // eslint-disable-next-line no-console
-        update().catch((e) => console.error(e));
-      }
+  const { floatingStyles, middlewareData } = useFloating({
+    elements: {
+      reference: referenceElement.current,
+      floating: popperRef.current,
     },
-    [isVisible, update, ...(popperUpdateDependencies || [])]
-  );
+    middleware: [
+      offset(offsetProp),
+      flip(),
+      shift(),
+      arrow({
+        element: arrowRef.current,
+      }),
+    ],
+    open: isVisible,
+    placement,
+    whileElementsMounted: autoUpdate,
+  });
 
   useGlobalKeyEvent({
     whichKeyCode: 'Escape',
@@ -92,8 +84,7 @@ export function Popup({
       aria-labelledby={ariaLabelledBy}
       id={id}
       ref={popperRef}
-      style={styles.popper}
-      {...attributes.popper}
+      style={floatingStyles}
       className={joinClassNames(
         'popup__wrapper',
         className,
@@ -101,6 +92,7 @@ export function Popup({
         isVisible ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
       )}
       role={role}
+      data-popper-placement={placement}
       {...rest}
     >
       <div className="popup__content">
@@ -119,7 +111,7 @@ export function Popup({
             : undefined
         }
         {children}
-        <div ref={arrowRef} style={styles.arrow} className="popup__arrow" />
+        <div ref={arrowRef} style={{left: middlewareData.arrow?.x, top: middlewareData.arrow?.y}} className="popup__arrow" />
       </div>
     </div>
   );

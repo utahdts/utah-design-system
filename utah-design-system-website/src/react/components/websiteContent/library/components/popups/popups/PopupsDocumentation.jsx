@@ -638,7 +638,7 @@ export function PopupsDocumentation() {
                           <code>string</code>
                         </div>
                       </TableCell>
-                      <TableCell>popupPlacement.AUTO</TableCell>
+                      <TableCell>popupPlacement.BOTTOM</TableCell>
                       <TableCell>
                         The default placement of the popup. See the popupPlacement ENUM for the correct values to use.
                       </TableCell>

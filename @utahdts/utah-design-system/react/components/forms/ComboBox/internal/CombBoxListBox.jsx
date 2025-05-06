@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { usePopper } from 'react-popper';
+import { useFloating, autoUpdate, offset, shift, flip } from '@floating-ui/react-dom';
 import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { popupPlacement } from '../../../../enums/popupPlacement';
 import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
@@ -42,16 +42,20 @@ export function CombBoxListBox({
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
   const announcedArrowKeysRef = useRef(false);
 
-  const { styles, attributes, update } = usePopper(
-    popperReferenceElement,
-    ulRef.current,
-    {
-      placement: popupPlacement.BOTTOM,
-      modifiers: [
-        { name: 'offset', options: { offset: [0, 4] } },
-      ],
-    }
-  );
+  const { floatingStyles } = useFloating({
+    elements: {
+      reference: popperReferenceElement,
+      floating: ulRef.current,
+    },
+    middleware: [
+      offset(4),
+      flip(),
+      shift(),
+    ],
+    open: isOptionsExpanded,
+    placement: popupPlacement.BOTTOM,
+    whileElementsMounted: autoUpdate,
+  });
 
   const lastMessageRef = useRef(/** @type {string | null} */(null));
   const addPoliteMessageDebounced = useDebounceFunc(
@@ -65,15 +69,6 @@ export function CombBoxListBox({
       [addPoliteMessage]
     ),
     1500
-  );
-
-  useEffect(
-    () => {
-      if (update) {
-        update();
-      }
-    },
-    [isOptionsExpanded, selectedValues, update]
   );
 
   useEffect(
@@ -128,11 +123,10 @@ export function CombBoxListBox({
       ref={ulRef}
       role="listbox"
       style={{
-        ...styles.popper,
+        ...floatingStyles,
         minWidth: popperReferenceElement?.scrollWidth,
       }}
       tabIndex={-1}
-      {...attributes.popper}
     >
       {children}
       {

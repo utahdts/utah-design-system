@@ -1,6 +1,6 @@
 import { popupFocusHandler } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
-import { usePopper } from 'react-popper';
+import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { menuTypes } from '../../../enums/menuTypes';
@@ -32,7 +32,21 @@ export function MenuItemFlyout({
   const wrapperElement = useRef(/** @type {HTMLLIElement | null} */(null));
   const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const popperRef = useRef(/** @type {HTMLDivElement | null} */(null));
-  const { styles, attributes } = usePopper(wrapperElement.current, popperRef.current, { placement: 'right-start' });
+
+  const { floatingStyles } = useFloating({
+    elements: {
+      reference: buttonRef.current,
+      floating: popperRef.current,
+    },
+    open: isChildrenOpen,
+    placement: 'right-start',
+    middleware: [
+      offset(10),
+      flip(),
+      shift(),
+    ],
+    whileElementsMounted: autoUpdate,
+  });
 
   useClickOutside([popperRef], () => setIsChildrenOpen(false), !isChildrenOpen);
 
@@ -59,7 +73,7 @@ export function MenuItemFlyout({
         }
       );
     }
-  }, [triggerOnHover, buttonRef, popperRef, buttonRef]);
+  }, [triggerOnHover, buttonRef, popperRef]);
 
   return (
     <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={wrapperElement}>
@@ -121,8 +135,7 @@ export function MenuItemFlyout({
               )}
               id={`menu-item__${menuItem.id}__${menuItem.link || 'link'}-popup`}
               ref={popperRef}
-              style={styles.popper}
-              {...attributes.popper}
+              style={floatingStyles}
             >
               <div className="popup__content flyout-menu">
                 <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>

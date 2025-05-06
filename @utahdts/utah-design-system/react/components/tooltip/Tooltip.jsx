@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { usePopper } from 'react-popper';
+import { useFloating, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/react-dom';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { usePopupDelay } from '../../hooks/usePopupDelay';
-import { useRefAlways } from '../../hooks/useRefAlways';
 import { joinClassNames } from '../../util/joinClassNames';
 
 /** @typedef {import('@utahdts/utah-design-system-header').PopupPlacement} PopupPlacement */
@@ -16,7 +15,7 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {string} [props.className] CSS class to apply to the popup
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
  * @param {boolean} [props.isPopperVisible] controlled value for telling if tool tip is visible
- * @param {[number, number]} [props.offset] default offset is [0, 5] (see popper documentation for details)
+ * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.offsetProp] default offset is [0, 5] (see popper documentation for details)
  * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
  * @param {HTMLElement | null} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
  * @returns {import('react').JSX.Element}
@@ -26,38 +25,33 @@ export function Tooltip({
   className,
   innerRef: draftInnerRef,
   isPopperVisible,
-  offset = [0, 5],
+  offsetProp = 5,
   placement = popupPlacement.BOTTOM,
   referenceElement: draftReferenceElement,
 }) {
   const [isPopperVisibleInternal, setIsPopperVisibleInternal] = useState(false);
   const [popperElement, setPopperElement] = /** @type {typeof useState<HTMLDivElement | null>} */ (useState)(null);
   const [arrowElement, setArrowElement] = /** @type {typeof useState<HTMLDivElement | null>} */ (useState)(null);
-  const { styles, attributes, update } = usePopper(
-    draftReferenceElement,
-    popperElement,
-    {
-      placement,
-      modifiers: [
-        {
-          name: 'offset',
-          options: { offset },
-        },
-        {
-          name: 'arrow',
-          options: { element: arrowElement },
-        },
-      ],
-    }
-  );
-  const updateRef = useRefAlways(update);
+  const { floatingStyles, middlewareData } = useFloating({
+    elements: {
+      reference: draftReferenceElement,
+      floating: popperElement,
+    },
+    middleware: [
+      offset(offsetProp),
+      flip(),
+      shift(),
+      arrow({
+        element: arrowElement,
+      }),
+    ],
+    open: !(isPopperVisible ?? isPopperVisibleInternal),
+    placement,
+    whileElementsMounted: autoUpdate,
+  });
+  // const updateRef = useRefAlways(update);
 
   const { startNoPopupTimer, startPopupTimer } = usePopupDelay();
-
-  // When the children update recalculate the popper position
-  useEffect(() => {
-    updateRef.current?.();
-  }, [children, updateRef]);
 
   useEffect(
     () => {
@@ -78,13 +72,11 @@ export function Tooltip({
         draftReferenceElement.onmouseenter = () => (
           startPopupTimer(() => {
             setIsPopperVisibleInternal(true);
-            updateRef.current?.();
           })
         );
         // onfocus and onblur don't wait on the popupTimer to popup
         draftReferenceElement.onfocus = () => {
           setIsPopperVisibleInternal(true);
-          updateRef.current?.();
         };
         draftReferenceElement.onmouseleave = () => {
           startNoPopupTimer();
@@ -103,7 +95,7 @@ export function Tooltip({
         }
       );
     },
-    [draftReferenceElement, isPopperVisible, startNoPopupTimer, startPopupTimer, updateRef]
+    [draftReferenceElement, isPopperVisible, startNoPopupTimer, startPopupTimer]
   );
 
   return (
@@ -114,18 +106,18 @@ export function Tooltip({
           draftInnerRef.current = refValue;
         }
       }}
-      style={styles.popper}
-      {...attributes.popper}
+      style={floatingStyles}
       className={joinClassNames(
         className,
         'tooltip__wrapper',
         (!(isPopperVisible ?? isPopperVisibleInternal)) && 'tooltip__wrapper--hidden'
       )}
       aria-hidden="true"
+      data-popper-placement={placement}
     >
       <div className="tooltip__content">
         {children}
-        <div ref={setArrowElement} style={styles.arrow} className="tooltip__arrow" />
+        <div ref={setArrowElement} style={{left: middlewareData.arrow?.x, top: middlewareData.arrow?.y}} className="tooltip__arrow" />
       </div>
     </div>
   );
