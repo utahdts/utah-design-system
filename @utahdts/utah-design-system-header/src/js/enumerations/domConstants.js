@@ -152,7 +152,9 @@ export const domConstants = {
   UTAH_ID: 'utds-utah-id-wrapper',
   UTAH_ID__BUTTON: 'utds-utah-id__button',
 
-  NOTIFICATIONS__DRAWER_ID: 'notifications-drawer',
+  NOTIFICATIONS__DRAWER_ID: 'utds-notifications__drawer',
+  NOTIFICATIONS__DRAWER_MARK_ALL_READ: 'utds-notifications__mark-all-read',
+  NOTIFICATIONS__DRAWER_VIEW_ALL: 'utds-notifications__view-all',
   NOTIFICATIONS__DRAWER_CLOSE_BUTTON: 'notifications-drawer__close-button',
   NOTIFICATIONS__DRAWER_BACKDROP: 'drawer__backdrop',
   NOTIFICATIONS__DRAWER_INNER: 'drawer__inner',

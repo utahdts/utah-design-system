@@ -1,4 +1,4 @@
-<div class="utah-design-system" id="notifications-drawer">
+<div class="utah-design-system" id="utds-notifications__drawer">
   <div class="drawer-wrapper utds-notifications-drawer">
     <div class="drawer__backdrop backdrop-dark">
       <dialog
@@ -19,14 +19,20 @@
           <button
             class="button button--solid button--primary-color"
             type="button"
+            id="utds-notifications__mark-all-read"
           >
             Mark all as read
           </button>
           <button
             class="button button--solid"
             type="button"
+            id="utds-notifications__view-all"
           >
             View all
+            <span class="utds-new-tab-link-a11y">
+              <span class="visually-hidden">opens in a new tab</span>
+              <span class="utds-icon-after-external-link" aria-hidden="true" />
+            </span>
           </button>
         </div>
         <button class="button icon-button drawer__close-button icon-button--borderless icon-button--small notifications-drawer__close-button" type="button"><span class="utds-icon-before-x-icon" aria-hidden="true"></span><span class="visually-hidden">Close</span></button>

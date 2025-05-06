@@ -37,6 +37,14 @@ export function renderNotificationsDrawer() {
     notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__DRAWER_END_FOCUS)), 'renderNotificationsDrawer: drawer end focus not found')
   );
 
+  const drawerMarkAllRead = /** @type {HTMLElement} */ (
+    notNull(drawer.querySelector(`#${domConstants.NOTIFICATIONS__DRAWER_MARK_ALL_READ}`), 'renderNotificationsDrawer: drawer "mark all read" not found')
+  );
+
+  const drawerViewAll = /** @type {HTMLElement} */ (
+    notNull(drawer.querySelector(`#${domConstants.NOTIFICATIONS__DRAWER_VIEW_ALL}`), 'renderNotificationsDrawer: drawer "mark all read" not found')
+  );
+
   // close button will close it
   closeButton.onclick = (e) => {
     e.preventDefault();
@@ -65,6 +73,7 @@ export function renderNotificationsDrawer() {
     e.stopPropagation();
   };
 
+  // settings button
   const settingsButton = renderActionItem({
     icon: '<span class="utds-icon-before-gear" aria-hidden="true"></span>',
     title: 'Settings',
@@ -76,6 +85,20 @@ export function renderNotificationsDrawer() {
     className: 'notifications-settings-button',
   });
   drawer.querySelector('.utds-notifications-drawer__header-buttons')?.appendChild(settingsButton);
+
+  // mark all read button
+  drawerMarkAllRead.onclick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log('click mark all read');
+  }
+
+  // view all read button
+  drawerViewAll.onclick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log('click view all');
+  }
 
   //set focus back to the start of the dialog
   drawerEndFocus.addEventListener('focus', (e) => {
