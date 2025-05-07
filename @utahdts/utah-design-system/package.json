@@ -32,9 +32,6 @@
     "dist",
     "react"
   ],
-  "peerDependencies": {
-    "react": "18.x"
-  },
   "scripts": {
     "build": "vite build",
     "buildw": "vite build --watch",
@@ -73,7 +70,8 @@
     "immer": "10.1.1",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
-    "react": "18.x",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-popper": "2.3.0",
     "use-immer": "0.11.0",
     "uuid": "11.1.0"
