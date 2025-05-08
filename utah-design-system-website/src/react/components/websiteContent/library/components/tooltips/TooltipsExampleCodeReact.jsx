@@ -23,7 +23,7 @@ export function TooltipsExampleCodeReact({
 }) {
   const offsetDistanceUse = Number(offsetDistance) || 0;
   const offsetSkiddingUse = Number(offsetSkidding) || 0;
-  const offsetProp = (
+  const position = (
     (offsetDistanceUse !== 0 || offsetSkiddingUse !== 5)
       ? `offset={[${offsetDistanceUse}, ${offsetSkiddingUse}]}`
       : null
@@ -58,8 +58,8 @@ export function TooltipsExampleCodeReact({
       <br />
       <ExampleCodeReactProp displayProp={isPopperVisible ? 'isPopperVisible' : null} indentLevel={1} />
       {
-        offsetProp
-          ? <ExampleCodeReactProp displayProp={offsetProp} indentLevel={1} />
+        position
+          ? <ExampleCodeReactProp displayProp={position} indentLevel={1} />
           : null
       }
       {

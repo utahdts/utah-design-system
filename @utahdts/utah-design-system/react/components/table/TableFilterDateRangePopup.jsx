@@ -95,7 +95,6 @@ export function TableFilterDateRangePopup({
       id={id}
       isVisible={isPopupOpen}
       onVisibleChange={(_, isVisible) => setIsPopupOpen(isVisible)}
-      popperUpdateDependencies={[beginDateStr, endDateStr]}
       referenceElement={popperReferenceElement}
       role="dialog"
     >

@@ -18,7 +18,7 @@ import { IconButton } from '../buttons/IconButton';
  * @param {string} props.id used for hooking up to the button that controls the popup by aria-control
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
  * @param {boolean} props.isVisible Control the visibility of the popup
- * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.offsetProp] [x, y] offset of popped content from
+ * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.position] [x, y] offset of popped content from
  * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }
  * @param {PopupPlacement} [props.placement] The Popper Placement
  * @param {import('react').RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
@@ -33,7 +33,7 @@ export function Popup({
   id,
   innerRef: draftInnerRef,
   isVisible,
-  offsetProp = 10,
+  position = 10,
   onVisibleChange,
   placement = popupPlacement.BOTTOM,
   referenceElement,
@@ -54,7 +54,7 @@ export function Popup({
       floating: popperRef.current,
     },
     middleware: [
-      offset(offsetProp),
+      offset(position),
       flip(),
       shift(),
       arrow({

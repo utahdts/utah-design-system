@@ -24,7 +24,6 @@
     "@utahdts/utah-design-system": "3.0.5",
     "@utahdts/utah-design-system-header": "3.0.5",
     "date-fns": "4.1.0",
-    "js-beautify": "1.15.4",
     "lodash": "4.17.21",
     "prop-types": "15.8.1",
     "react": "^19.1.0",
@@ -36,6 +35,7 @@
     "use-immer": "0.11.0"
   },
   "devDependencies": {
+    "@types/js-beautify": "^1.14.3",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "@types/tinycolor2": "1.4.6",

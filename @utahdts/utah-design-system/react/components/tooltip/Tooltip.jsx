@@ -15,7 +15,7 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {string} [props.className] CSS class to apply to the popup
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
  * @param {boolean} [props.isPopperVisible] controlled value for telling if tool tip is visible
- * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.offsetProp] default offset is [0, 5] (see popper documentation for details)
+ * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.position] default offset is [0, 5] (see popper documentation for details)
  * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
  * @param {HTMLElement | null} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
  * @returns {import('react').JSX.Element}
@@ -25,7 +25,7 @@ export function Tooltip({
   className,
   innerRef: draftInnerRef,
   isPopperVisible,
-  offsetProp = 5,
+  position = 5,
   placement = popupPlacement.BOTTOM,
   referenceElement: draftReferenceElement,
 }) {
@@ -38,7 +38,7 @@ export function Tooltip({
       floating: popperElement,
     },
     middleware: [
-      offset(offsetProp),
+      offset(position),
       flip(),
       shift(),
       arrow({

@@ -36,7 +36,11 @@ export function TooltipsExampleRender({
       </Button>
       <Tooltip
         isPopperVisible={isPopperVisible || undefined}
-        offset={[Number(offsetDistance) || 0, Number(offsetSkidding) || 0]}
+        position={{
+          mainAxis: Number(offsetDistance) || 0,
+          crossAxis: Number(offsetSkidding) || 0,
+          alignmentAxis: 0
+        }}
         placement={placement}
         referenceElement={referenceElement.current}
       >
