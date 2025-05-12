@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [4.0.0] 05/12/2025
+## Breaking Changes
+- **[Breaking]** Update React to version `19.1.0`
+- **[Breaking]** Changed library used to position tooltips / popups. 
+Some props have been updated accordingly.
+  - `ComboBox`:
+    - `popperContentRef` is now `poppupContentRef`
+  - `Popup`:
+    - `offset` is now `position`:
+      - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
+      - default value is now `{mainAxis: 10, crossAxis: 0, alignmentAxis: 0}`
+    - `popperUpdateDependencies` has been removed
+    - `placement` default value is now `popupPlacement.BOTTOM`
+      - values `'auto'`, `'auto-start'` and `'auto-end'` have been removed
+    - CSS change: `data-popper-placement` is now `data-poppup-placement`
+  - `TableFilterDateRangePopup`:
+    - `popperReferenceElement` is now `poppupReferenceElement`
+  - `Tooltip`:
+    - `isPopperVisible` is now `isPoppupVisible`
+    - `offset` is now `position`
+      - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
+      - default value is now `5`
+    - CSS change: `data-popper-placement` is now `data-poppup-placement`
+
 # [3.0.5] 03/18/2025
 ## Fixed
 - Fixed mobile UtahId button to only sign in if not signed in
