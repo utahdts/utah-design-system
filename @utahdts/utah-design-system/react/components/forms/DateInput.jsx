@@ -76,7 +76,7 @@ export function DateInput({
       floating: calendarRef.current,
     },
     middleware: [
-      offset(4),
+      offset({mainAxis: 4, crossAxis: 0, alignmentAxis: 0}),
       flip(),
       shift(),
     ],

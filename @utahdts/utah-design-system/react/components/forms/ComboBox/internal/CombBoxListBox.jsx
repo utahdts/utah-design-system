@@ -48,7 +48,7 @@ export function CombBoxListBox({
       floating: ulRef.current,
     },
     middleware: [
-      offset(4),
+      offset({mainAxis: 4, crossAxis: 0, alignmentAxis: 0}),
       flip(),
       shift(),
     ],

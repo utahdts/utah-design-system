@@ -33,7 +33,7 @@ export function Popup({
   id,
   innerRef: draftInnerRef,
   isVisible,
-  position = 10,
+  position = {mainAxis: 10, crossAxis: 0, alignmentAxis: 0},
   onVisibleChange,
   placement = popupPlacement.BOTTOM,
   referenceElement,

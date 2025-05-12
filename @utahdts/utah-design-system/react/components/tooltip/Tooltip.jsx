@@ -49,7 +49,6 @@ export function Tooltip({
     placement,
     whileElementsMounted: autoUpdate,
   });
-  // const updateRef = useRefAlways(update);
 
   const { startNoPopupTimer, startPopupTimer } = usePopupDelay();
 

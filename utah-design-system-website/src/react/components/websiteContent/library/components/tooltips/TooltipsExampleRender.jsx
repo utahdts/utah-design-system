@@ -37,8 +37,8 @@ export function TooltipsExampleRender({
       <Tooltip
         isPopperVisible={isPopperVisible || undefined}
         position={{
-          mainAxis: Number(offsetDistance) || 0,
-          crossAxis: Number(offsetSkidding) || 0,
+          mainAxis: Number(offsetSkidding) || 0,
+          crossAxis: Number(offsetDistance) || 0,
           alignmentAxis: 0
         }}
         placement={placement}
