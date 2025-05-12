@@ -68,11 +68,11 @@ export function DateInput({
 }) {
   const wrapperInternalRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [isCalendarPopupOpen, setIsCalendarPopupOpen] = useImmer(false);
-  const popperReferenceElementRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const poppupReferenceElementRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const calendarRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const { floatingStyles } = useFloating({
     elements: {
-      reference: popperReferenceElementRef.current,
+      reference: poppupReferenceElementRef.current,
       floating: calendarRef.current,
     },
     middleware: [
@@ -124,7 +124,7 @@ export function DateInput({
             defaultValue={defaultValue}
             errorMessage={errorMessage}
             id={id}
-            innerRef={popperReferenceElementRef}
+            innerRef={poppupReferenceElementRef}
             isClearable={isClearable}
             isDisabled={isDisabled}
             isRequired={isRequired}
@@ -151,7 +151,7 @@ export function DateInput({
                       e.stopPropagation();
                       setIsCalendarPopupOpen((isOpen) => {
                         if (isOpen) {
-                          const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                          const textInput = poppupReferenceElementRef.current?.querySelector('input[type="text"]');
                           // @ts-expect-error
                           textInput?.focus();
                         }
@@ -172,7 +172,7 @@ export function DateInput({
                     onMouseDown={(e) => {
                       // without the preventDefault, clicking the calendar was closing the popup instead of focusing in the text input
                       e.preventDefault();
-                      popperReferenceElementRef.current?.querySelector('input')?.focus();
+                      poppupReferenceElementRef.current?.querySelector('input')?.focus();
                     }}
                   >
                     <span className="utds-icon-before-calendar " aria-hidden="true" />
@@ -205,7 +205,7 @@ export function DateInput({
                 ref={calendarRef}
                 style={{
                   ...floatingStyles,
-                  minWidth: popperReferenceElementRef.current?.offsetWidth,
+                  minWidth: poppupReferenceElementRef.current?.offsetWidth,
                 }}
               >
                 <CalendarInput
@@ -217,7 +217,7 @@ export function DateInput({
                   onChange={(newValue) => {
                     onChange?.(newValue);
                     setIsCalendarPopupOpen(false);
-                    const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                    const textInput = poppupReferenceElementRef.current?.querySelector('input[type="text"]');
                     // @ts-expect-error
                     textInput?.focus();
                   }}

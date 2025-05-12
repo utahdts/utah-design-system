@@ -20,7 +20,7 @@ import { IconButton } from '../buttons/IconButton';
  * @param {boolean} props.isVisible Control the visibility of the popup
  * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.position] [x, y] offset of popped content from
  * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }
- * @param {PopupPlacement} [props.placement] The Popper Placement
+ * @param {PopupPlacement} [props.placement] The Poppup Placement
  * @param {import('react').RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
  * @param {'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'} props.role popup must tell its role for accessibility
  * @returns {import('react').JSX.Element}
@@ -40,18 +40,18 @@ export function Popup({
   role,
   ...rest
 }) {
-  const popperRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const poppupRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const arrowRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
   if (draftInnerRef) {
     // eslint-disable-next-line no-param-reassign
-    draftInnerRef.current = popperRef.current;
+    draftInnerRef.current = poppupRef.current;
   }
 
   const { floatingStyles, middlewareData } = useFloating({
     elements: {
       reference: referenceElement.current,
-      floating: popperRef.current,
+      floating: poppupRef.current,
     },
     middleware: [
       offset(position),
@@ -77,13 +77,13 @@ export function Popup({
     [onVisibleChange]
   );
 
-  useClickOutside([popperRef, referenceElement], onVisibleChangeCallback, !isVisible);
+  useClickOutside([poppupRef, referenceElement], onVisibleChangeCallback, !isVisible);
 
   return (
     <div
       aria-labelledby={ariaLabelledBy}
       id={id}
-      ref={popperRef}
+      ref={poppupRef}
       style={floatingStyles}
       className={joinClassNames(
         'popup__wrapper',
@@ -92,7 +92,7 @@ export function Popup({
         isVisible ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
       )}
       role={role}
-      data-popper-placement={placement}
+      data-poppup-placement={placement}
       {...rest}
     >
       <div className="popup__content">

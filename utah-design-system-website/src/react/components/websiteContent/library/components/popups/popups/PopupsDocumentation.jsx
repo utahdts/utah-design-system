@@ -608,15 +608,16 @@ export function PopupsDocumentation() {
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell><code className="primary-color">offset</code></TableCell>
+                      <TableCell><code className="primary-color">position</code></TableCell>
                       <TableCell>
-                        <div className="props-code-wrapper">
-                          <code>array of numbers</code>
-                        </div>
+                        <code>number</code>
+                        <span> | </span>
+                        <code>&#123;mainAxis: number, crossAxis: number, alignmentAxis: number&#125;</code>
                       </TableCell>
-                      <TableCell>[0, 10]</TableCell>
+                      <TableCell><code>&#123;mainAxis: 10, crossAxis: 0, alignmentAxis: 0&#125;</code></TableCell>
                       <TableCell>
-                        The offset used by Popper to position the popup.
+                        Control the popup distance from its anchor.<br />
+                        See <ExternalLink href="https://floating-ui.com/docs/offset">official documentation</ExternalLink>.
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -641,18 +642,6 @@ export function PopupsDocumentation() {
                       <TableCell>popupPlacement.BOTTOM</TableCell>
                       <TableCell>
                         The default placement of the popup. See the popupPlacement ENUM for the correct values to use.
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell><code className="primary-color">popperUpdateDependencies</code></TableCell>
-                      <TableCell>
-                        <div className="props-code-wrapper">
-                          <code>any[]</code>
-                        </div>
-                      </TableCell>
-                      <TableCell>null</TableCell>
-                      <TableCell>
-                        <code>useEffect</code> dependencies for updating popper placement.
                       </TableCell>
                     </TableRow>
                     <TableRow>

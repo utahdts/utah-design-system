@@ -13,7 +13,7 @@ import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
 export function TooltipsExampleCodeReact({
   state: {
     props: {
-      isPopperVisible,
+      isPoppupVisible,
       offsetDistance,
       offsetSkidding,
       placement,
@@ -56,7 +56,7 @@ export function TooltipsExampleCodeReact({
 
       &lt;Tooltip
       <br />
-      <ExampleCodeReactProp displayProp={isPopperVisible ? 'isPopperVisible' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isPoppupVisible ? 'isPoppupVisible' : null} indentLevel={1} />
       {
         position
           ? <ExampleCodeReactProp displayProp={position} indentLevel={1} />

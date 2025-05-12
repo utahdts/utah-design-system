@@ -14,7 +14,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
  * @param {boolean} [props.allowCustomEntry] if allowing custom entry, add the custom item if the list is empty; Must be a controlled component
  * @param {string} props.ariaLabelledById
  * @param {import('react').ReactNode | null} [props.children]
- * @param {HTMLElement | null} props.popperReferenceElement
+ * @param {HTMLElement | null} props.poppupReferenceElement
  * @param {string} props.id
  * @returns {import('react').JSX.Element}
  */
@@ -23,7 +23,7 @@ export function CombBoxListBox({
   ariaLabelledById,
   children,
   id,
-  popperReferenceElement,
+  poppupReferenceElement,
 }) {
   const [{ selectedValues }] = useMultiSelectContext();
   const { addPoliteMessage } = useAriaMessaging();
@@ -44,7 +44,7 @@ export function CombBoxListBox({
 
   const { floatingStyles } = useFloating({
     elements: {
-      reference: popperReferenceElement,
+      reference: poppupReferenceElement,
       floating: ulRef.current,
     },
     middleware: [
@@ -124,7 +124,7 @@ export function CombBoxListBox({
       role="listbox"
       style={{
         ...floatingStyles,
-        minWidth: popperReferenceElement?.scrollWidth,
+        minWidth: poppupReferenceElement?.scrollWidth,
       }}
       tabIndex={-1}
     >

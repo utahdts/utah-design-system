@@ -31,12 +31,12 @@ export function MenuItemFlyout({
   const [isChildrenOpen, setIsChildrenOpen] = useImmer(false);
   const wrapperElement = useRef(/** @type {HTMLLIElement | null} */(null));
   const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
-  const popperRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const poppupRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
   const { floatingStyles } = useFloating({
     elements: {
       reference: buttonRef.current,
-      floating: popperRef.current,
+      floating: poppupRef.current,
     },
     open: isChildrenOpen,
     placement: 'right-start',
@@ -48,7 +48,7 @@ export function MenuItemFlyout({
     whileElementsMounted: autoUpdate,
   });
 
-  useClickOutside([popperRef], () => setIsChildrenOpen(false), !isChildrenOpen);
+  useClickOutside([poppupRef], () => setIsChildrenOpen(false), !isChildrenOpen);
 
   const isExpanded = () => {
     let retVal;
@@ -59,12 +59,12 @@ export function MenuItemFlyout({
   };
 
   useEffect(() => {
-    if (triggerOnHover && buttonRef?.current && popperRef?.current && !buttonRef?.current.onclick) {
+    if (triggerOnHover && buttonRef?.current && poppupRef?.current && !buttonRef?.current.onclick) {
       popupFocusHandler(
         // @ts-expect-error
         wrapperElement.current,
         buttonRef.current,
-        popperRef.current,
+        poppupRef.current,
         'menu',
         {
           shouldFocusOnHover: true,
@@ -73,7 +73,7 @@ export function MenuItemFlyout({
         }
       );
     }
-  }, [triggerOnHover, buttonRef, popperRef]);
+  }, [triggerOnHover, buttonRef, poppupRef]);
 
   return (
     <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={wrapperElement}>
@@ -134,7 +134,7 @@ export function MenuItemFlyout({
                 isChildrenOpen ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
               )}
               id={`menu-item__${menuItem.id}__${menuItem.link || 'link'}-popup`}
-              ref={popperRef}
+              ref={poppupRef}
               style={floatingStyles}
             >
               <div className="popup__content flyout-menu">
