@@ -13,7 +13,7 @@ import { useRef } from 'react';
 export function TooltipsExampleRender({
   state: {
     props: {
-      isPopperVisible,
+      isPopupVisible,
       offsetDistance,
       offsetSkidding,
       placement,
@@ -35,8 +35,12 @@ export function TooltipsExampleRender({
         <span className="visually-hidden">{popupText}</span>
       </Button>
       <Tooltip
-        isPopperVisible={isPopperVisible || undefined}
-        offset={[Number(offsetDistance) || 0, Number(offsetSkidding) || 0]}
+        isPopupVisible={isPopupVisible || undefined}
+        offset={{
+          mainAxis: Number(offsetSkidding) || 0,
+          crossAxis: Number(offsetDistance) || 0,
+          alignmentAxis: 0
+        }}
         placement={placement}
         referenceElement={referenceElement.current}
       >

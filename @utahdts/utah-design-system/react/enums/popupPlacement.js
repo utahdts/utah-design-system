@@ -6,9 +6,6 @@
 
 /** @enum {PopupPlacement} */
 export const popupPlacement = {
-  AUTO: /** @type {PopupPlacement} */ ('auto'),
-  AUTO_START: /** @type {PopupPlacement} */ ('auto-start'),
-  AUTO_END: /** @type {PopupPlacement} */ ('auto-end'),
   BOTTOM: /** @type {PopupPlacement} */ ('bottom'),
   BOTTOM_START: /** @type {PopupPlacement} */ ('bottom-start'),
   BOTTOM_END: /** @type {PopupPlacement} */ ('bottom-end'),
