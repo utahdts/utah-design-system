@@ -31,11 +31,11 @@ export function TooltipsExampleProps({ setState, state }) {
       />
 
       <Switch
-        id="props.isPoppupVisible"
+        id="props.isPopupVisible"
         label="Visible"
         // @ts-expect-error
         onChange={onChange}
-        value={valueFn('props.isPoppupVisible')}
+        value={valueFn('props.isPopupVisible')}
         width={20}
       />
 

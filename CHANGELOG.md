@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **[Breaking]** Changed library used to position tooltips / popups. 
 Some props have been updated accordingly.
   - `ComboBox`:
-    - `popperContentRef` is now `poppupContentRef`
+    - `popperContentRef` is now `popupContentRef`
   - `Popup`:
     - `offset` is now `position`:
       - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
@@ -19,15 +19,15 @@ Some props have been updated accordingly.
     - `popperUpdateDependencies` has been removed
     - `placement` default value is now `popupPlacement.BOTTOM`
       - values `'auto'`, `'auto-start'` and `'auto-end'` have been removed
-    - CSS change: `data-popper-placement` is now `data-poppup-placement`
+    - CSS change: `data-popper-placement` is now `data-popup-placement`
   - `TableFilterDateRangePopup`:
-    - `popperReferenceElement` is now `poppupReferenceElement`
+    - `popperReferenceElement` is now `popupReferenceElement`
   - `Tooltip`:
-    - `isPopperVisible` is now `isPoppupVisible`
+    - `isPopperVisible` is now `isPopupVisible`
     - `offset` is now `position`
       - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
       - default value is now `5`
-    - CSS change: `data-popper-placement` is now `data-poppup-placement`
+    - CSS change: `data-popper-placement` is now `data-popup-placement`
 
 # [3.0.5] 03/18/2025
 ## Fixed

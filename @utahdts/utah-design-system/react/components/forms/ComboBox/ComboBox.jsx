@@ -35,7 +35,7 @@ import { ComboBoxTextInput } from './internal/ComboBoxTextInput';
  * @param {(customValue: string) => void} [props.onCustomEntry] caller is responsible for adding options when they are added
  * @param {(e: Event, currentFilterValue: string) => boolean} [props.onKeyUp]
  * @param {string} [props.placeholder]
- * @param {HTMLElement | null} [props.poppupContentRef] for multi-select the popup relates to the multi-select wrapper, not the input
+ * @param {HTMLElement | null} [props.popupContentRef] for multi-select the popup relates to the multi-select wrapper, not the input
  * @param {import('react').ReactNode} [props.tagChildren]
  * @param {string} [props.textInputClassName] className to put on the TextInput
  * @param {string} [props.value]
@@ -64,7 +64,7 @@ export function ComboBox({
   onClear,
   onKeyUp,
   placeholder,
-  poppupContentRef,
+  popupContentRef,
   isValueClearedOnSelection,
   isWrapperSkipped,
   tagChildren,
@@ -107,7 +107,7 @@ export function ComboBox({
         allowCustomEntry={allowCustomEntry}
         id={comboBoxListId}
         ariaLabelledById={id}
-        poppupReferenceElement={poppupContentRef ?? contentRefState ?? null}
+        popupReferenceElement={popupContentRef ?? contentRefState ?? null}
       >
         {children}
       </CombBoxListBox>

@@ -9,13 +9,13 @@ import { joinClassNames } from '../../util/joinClassNames';
 /**
  * A ToolTip is only in charge of positioning and rendering a tooltip.
  * Pass in a "referenceElement" to have "zero-config" for onMouseEnter and onMouseLeave triggering
- * Pass in a isPoppupVisible and setIsPoppupVisible to have it be a controlled component
+ * Pass in a isPopupVisible and setIsPopupVisible to have it be a controlled component
  * @param {object} props
  * @param {import('react').ReactNode} props.children The content of the tool tip
  * @param {string} [props.className] CSS class to apply to the popup
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
- * @param {boolean} [props.isPoppupVisible] controlled value for telling if tool tip is visible
- * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.position] default offset is [0, 5] (see poppup documentation for details)
+ * @param {boolean} [props.isPopupVisible] controlled value for telling if tool tip is visible
+ * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.position] default offset is [0, 5] (see popup documentation for details)
  * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
  * @param {HTMLElement | null} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
  * @returns {import('react').JSX.Element}
@@ -24,18 +24,18 @@ export function Tooltip({
   children,
   className,
   innerRef: draftInnerRef,
-  isPoppupVisible,
+  isPopupVisible,
   position = 5,
   placement = popupPlacement.BOTTOM,
   referenceElement: draftReferenceElement,
 }) {
-  const [isPoppupVisibleInternal, setIsPoppupVisibleInternal] = useState(false);
-  const [poppupElement, setPoppupElement] = /** @type {typeof useState<HTMLDivElement | null>} */ (useState)(null);
+  const [isPopupVisibleInternal, setIsPopupVisibleInternal] = useState(false);
+  const [popupElement, setPopupElement] = /** @type {typeof useState<HTMLDivElement | null>} */ (useState)(null);
   const [arrowElement, setArrowElement] = /** @type {typeof useState<HTMLDivElement | null>} */ (useState)(null);
   const { floatingStyles, middlewareData } = useFloating({
     elements: {
       reference: draftReferenceElement,
-      floating: poppupElement,
+      floating: popupElement,
     },
     middleware: [
       offset(position),
@@ -45,7 +45,7 @@ export function Tooltip({
         element: arrowElement,
       }),
     ],
-    open: !(isPoppupVisible ?? isPoppupVisibleInternal),
+    open: !(isPopupVisible ?? isPopupVisibleInternal),
     placement,
     whileElementsMounted: autoUpdate,
   });
@@ -55,7 +55,7 @@ export function Tooltip({
   useEffect(
     () => {
       // parent is not controlling visibility, so hookup visibility to the `referenceElement`
-      if (draftReferenceElement && isPoppupVisible === undefined) {
+      if (draftReferenceElement && isPopupVisible === undefined) {
         if (draftReferenceElement.onmouseenter) {
           throw new Error('ToolTip: onMouseEnter previously set');
         }
@@ -70,18 +70,18 @@ export function Tooltip({
         }
         draftReferenceElement.onmouseenter = () => (
           startPopupTimer(() => {
-            setIsPoppupVisibleInternal(true);
+            setIsPopupVisibleInternal(true);
           })
         );
         // onfocus and onblur don't wait on the popupTimer to popup
         draftReferenceElement.onfocus = () => {
-          setIsPoppupVisibleInternal(true);
+          setIsPopupVisibleInternal(true);
         };
         draftReferenceElement.onmouseleave = () => {
           startNoPopupTimer();
-          setIsPoppupVisibleInternal(false);
+          setIsPopupVisibleInternal(false);
         };
-        draftReferenceElement.onblur = () => setIsPoppupVisibleInternal(false);
+        draftReferenceElement.onblur = () => setIsPopupVisibleInternal(false);
       }
       return (
         () => {
@@ -94,13 +94,13 @@ export function Tooltip({
         }
       );
     },
-    [draftReferenceElement, isPoppupVisible, startNoPopupTimer, startPopupTimer]
+    [draftReferenceElement, isPopupVisible, startNoPopupTimer, startPopupTimer]
   );
 
   return (
     <div
       ref={(refValue) => {
-        setPoppupElement(refValue);
+        setPopupElement(refValue);
         if (draftInnerRef) {
           draftInnerRef.current = refValue;
         }
@@ -109,10 +109,10 @@ export function Tooltip({
       className={joinClassNames(
         className,
         'tooltip__wrapper',
-        (!(isPoppupVisible ?? isPoppupVisibleInternal)) && 'tooltip__wrapper--hidden'
+        (!(isPopupVisible ?? isPopupVisibleInternal)) && 'tooltip__wrapper--hidden'
       )}
       aria-hidden="true"
-      data-poppup-placement={placement}
+      data-popup-placement={placement}
     >
       <div className="tooltip__content">
         {children}

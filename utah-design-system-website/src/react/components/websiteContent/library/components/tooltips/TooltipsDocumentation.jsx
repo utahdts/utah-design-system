@@ -25,7 +25,7 @@ export function TooltipsDocumentation() {
       <h2 id="section-example">Example</h2>
       <SandboxExample
         defaultProps={{
-          isPoppupVisible: false,
+          isPopupVisible: false,
           offsetDistance: '0',
           offsetSkidding: '5',
           placement: popupPlacement.BOTTOM,

@@ -443,7 +443,7 @@
 
 /**
  * @typedef TooltipsExamplePropsShape {
- *  @property {boolean} isPoppupVisible
+ *  @property {boolean} isPopupVisible
  *  @property {string} offsetDistance
  *  @property {string} offsetSkidding
  *  @property {PopupPlacement} placement

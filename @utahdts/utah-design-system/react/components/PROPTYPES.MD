@@ -10,7 +10,7 @@ When adding a new prop, make sure it fits these guidelines and doesn't already e
 * `Boolean props`
 props that are true/false should generally start with the word `is`. ie:
   - `isDisabled`
-  - `isPoppupVisible`
+  - `isPopupVisible`
 
   There may be some props like `showChildContent` that would be awkward if they started with is `isShowChildContent` so those props should start with a verb.
 

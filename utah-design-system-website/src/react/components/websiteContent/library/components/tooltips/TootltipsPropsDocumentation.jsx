@@ -32,7 +32,7 @@ export function TootltipsPropsDocumentation() {
       </TableRow>
 
       <TableRow>
-        <TableCell><code className="primary-color">isPoppupVisible</code></TableCell>
+        <TableCell><code className="primary-color">isPopupVisible</code></TableCell>
         <TableCell>
           <div className="props-code-wrapper">
             <code>true</code>

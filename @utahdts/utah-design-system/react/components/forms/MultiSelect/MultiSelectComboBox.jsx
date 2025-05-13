@@ -164,7 +164,7 @@ export function MultiSelectComboBox({
               return eventIsHandled;
             }}
             placeholder={placeholder}
-            poppupContentRef={multiSelectContextNonStateRef?.current.comboBoxDivElement}
+            popupContentRef={multiSelectContextNonStateRef?.current.comboBoxDivElement}
             // the value is always unset because the multi-select will own and show the current value
             value=""
             wrapperClassName={wrapperClassName}
@@ -222,7 +222,7 @@ export function MultiSelectComboBox({
             title="Toggle popup menu"
             // @ts-expect-error
             onBlur={() => {
-              // tabbing off of toggle icon while the poppup options list was open was not closing the list
+              // tabbing off of toggle icon while the popup options list was open was not closing the list
               // because the list didn't get focus when it was opened by a click
               setTimeout(
                 () => {

@@ -33,7 +33,7 @@ function formatNewValue(whichInput, newValue, currentBeginDate, currentEndDate) 
  * @param {string} props.id
  * @param {boolean} props.isPopupOpen
  * @param {(newValue: string) => void} props.onChange
- * @param {import('react').RefObject<HTMLDivElement | null>} props.poppupReferenceElement
+ * @param {import('react').RefObject<HTMLDivElement | null>} props.popupReferenceElement
  * @param {(isPopupOpen: boolean) => void} props.setIsPopupOpen
  * @param {string} props.tableFilterDateId
  * @param {string} props.value
@@ -44,7 +44,7 @@ export function TableFilterDateRangePopup({
   id,
   isPopupOpen,
   onChange,
-  poppupReferenceElement,
+  popupReferenceElement,
   setIsPopupOpen,
   tableFilterDateId,
   value,
@@ -95,7 +95,7 @@ export function TableFilterDateRangePopup({
       id={id}
       isVisible={isPopupOpen}
       onVisibleChange={(_, isVisible) => setIsPopupOpen(isVisible)}
-      referenceElement={poppupReferenceElement}
+      referenceElement={popupReferenceElement}
       role="dialog"
     >
       <div className="flex gap-xs full-width">
