@@ -113,7 +113,7 @@ export function Tooltip({
         (!(isPopupVisible ?? isPopupVisibleInternal)) && 'tooltip__wrapper--hidden'
       )}
       aria-hidden="true"
-      data-popup-placement={placement}
+      data-popup-placement={middlewareData?.offset?.placement || placement}
     >
       <div className="tooltip__content">
         {children}
