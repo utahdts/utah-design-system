@@ -47,7 +47,7 @@ export function TootltipsPropsDocumentation() {
       </TableRow>
 
       <TableRow>
-        <TableCell><code className="primary-color">position</code></TableCell>
+        <TableCell><code className="primary-color">offset</code></TableCell>
         <TableCell>
           <code>number</code>
           <span> | </span>

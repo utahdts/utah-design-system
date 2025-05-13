@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react';
-import { useFloating, autoUpdate, offset, shift, flip } from '@floating-ui/react-dom';
+import { useFloating, autoUpdate, offset as floatingOffset, shift, flip } from '@floating-ui/react-dom';
 import { useImmer } from 'use-immer';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { useInterval } from '../../hooks/useInterval';
@@ -76,7 +76,7 @@ export function DateInput({
       floating: calendarRef.current,
     },
     middleware: [
-      offset({mainAxis: 4, crossAxis: 0, alignmentAxis: 0}),
+      floatingOffset({mainAxis: 4, crossAxis: 0, alignmentAxis: 0}),
       flip(),
       shift(),
     ],

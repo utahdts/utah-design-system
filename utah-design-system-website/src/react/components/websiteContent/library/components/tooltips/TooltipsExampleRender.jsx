@@ -36,7 +36,7 @@ export function TooltipsExampleRender({
       </Button>
       <Tooltip
         isPopupVisible={isPopupVisible || undefined}
-        position={{
+        offset={{
           mainAxis: Number(offsetSkidding) || 0,
           crossAxis: Number(offsetDistance) || 0,
           alignmentAxis: 0

@@ -25,7 +25,7 @@ export function TooltipsExampleCodeReact({
   const offsetSkiddingUse = Number(offsetSkidding) || 0;
   const position = (
     (offsetDistanceUse !== 0 || offsetSkiddingUse !== 5)
-      ? `offset={[${offsetDistanceUse}, ${offsetSkiddingUse}]}`
+      ? `offset={{crossAxis: ${offsetDistanceUse}, mainAxis: ${offsetSkiddingUse}}}`
       : null
   );
 

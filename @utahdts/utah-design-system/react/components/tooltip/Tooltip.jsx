@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useFloating, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/react-dom';
+import { useFloating, autoUpdate, offset as floatingOffset, shift, flip, arrow } from '@floating-ui/react-dom';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { usePopupDelay } from '../../hooks/usePopupDelay';
 import { joinClassNames } from '../../util/joinClassNames';
@@ -15,7 +15,8 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {string} [props.className] CSS class to apply to the popup
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
  * @param {boolean} [props.isPopupVisible] controlled value for telling if tool tip is visible
- * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.position] default offset is [0, 5] (see popup documentation for details)
+ * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis?: number}} [props.offset] default offset is 5 (see popup documentation
+ * for details)
  * @param {PopupPlacement} [props.placement] where to put the tooltip in reference to the referenceElement
  * @param {HTMLElement | null} props.referenceElement the referenceElement from which the tool tip will toggle (first render will most likely be null)
  * @returns {import('react').JSX.Element}
@@ -25,7 +26,7 @@ export function Tooltip({
   className,
   innerRef: draftInnerRef,
   isPopupVisible,
-  position = 5,
+  offset = 5,
   placement = popupPlacement.BOTTOM,
   referenceElement: draftReferenceElement,
 }) {
@@ -38,7 +39,7 @@ export function Tooltip({
       floating: popupElement,
     },
     middleware: [
-      offset(position),
+      floatingOffset(offset),
       flip(),
       shift(),
       arrow({

@@ -8,12 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # [4.0.0] 05/12/2025
 ## Breaking Changes
 - **[Breaking]** Update React to version `19.1.0`
+  - You must upgrade to `React 19` to use `v4.0.0`
 - **[Breaking]** Changed library used to position tooltips / popups. 
 Some props have been updated accordingly.
   - `ComboBox`:
     - `popperContentRef` is now `popupContentRef`
   - `Popup`:
-    - `offset` is now `position`:
+    - `offset` type is now:
       - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
       - default value is now `{mainAxis: 10, crossAxis: 0, alignmentAxis: 0}`
     - `popperUpdateDependencies` has been removed
@@ -24,7 +25,7 @@ Some props have been updated accordingly.
     - `popperReferenceElement` is now `popupReferenceElement`
   - `Tooltip`:
     - `isPopperVisible` is now `isPopupVisible`
-    - `offset` is now `position`
+    - `offset` type is now
       - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
       - default value is now `5`
     - CSS change: `data-popper-placement` is now `data-popup-placement`

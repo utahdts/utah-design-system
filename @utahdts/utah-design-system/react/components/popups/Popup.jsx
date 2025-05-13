@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { useFloating, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/react-dom';
+import { useFloating, autoUpdate, offset as floatingOffset, shift, flip, arrow } from '@floating-ui/react-dom';
 import { ICON_BUTTON_APPEARANCE } from '../../enums/buttonEnums';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { useClickOutside } from '../../hooks/useClickOutside';
@@ -18,7 +18,7 @@ import { IconButton } from '../buttons/IconButton';
  * @param {string} props.id used for hooking up to the button that controls the popup by aria-control
  * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
  * @param {boolean} props.isVisible Control the visibility of the popup
- * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis: number}} [props.position] [x, y] offset of popped content from
+ * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis?: number}} [props.offset] offset of popped content from
  * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }
  * @param {PopupPlacement} [props.placement] The Popup Placement
  * @param {import('react').RefObject<HTMLElement | null>} props.referenceElement the anchor element around which the popup content will pop
@@ -33,7 +33,7 @@ export function Popup({
   id,
   innerRef: draftInnerRef,
   isVisible,
-  position = {mainAxis: 10, crossAxis: 0, alignmentAxis: 0},
+  offset = {mainAxis: 10, crossAxis: 0},
   onVisibleChange,
   placement = popupPlacement.BOTTOM,
   referenceElement,
@@ -54,7 +54,7 @@ export function Popup({
       floating: popupRef.current,
     },
     middleware: [
-      offset(position),
+      floatingOffset(offset),
       flip(),
       shift(),
       arrow({
