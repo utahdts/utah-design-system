@@ -20,7 +20,7 @@
     "testOnce": "vitest run"
   },
   "dependencies": {
-    "@utahdts/utah-design-system": "3.0.5",
+    "@utahdts/utah-design-system": "4.0.0",
     "@utahdts/utah-design-system-header": "3.0.5",
     "date-fns": "4.1.0",
     "js-beautify": "1.15.4",
@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "@types/js-beautify": "1.14.3",
-    "@types/react": "19.0.12",
-    "@types/react-dom": "19.0.4",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.0",
     "@types/tinycolor2": "1.4.6",
     "@vitejs/plugin-react": "4.3.4",
     "jsdom": "26.0.0",
