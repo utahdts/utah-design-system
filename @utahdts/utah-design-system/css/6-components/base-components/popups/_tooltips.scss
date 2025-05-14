@@ -59,7 +59,8 @@
       }
     }
 
-    &__wrapper[data-popup-placement^="top"] {
+    &__wrapper[data-popup-placement^="top"],
+    &__wrapper[data-popper-placement^="top"] {
       .tooltip__content {
         transform-origin: bottom;
       }
@@ -68,7 +69,8 @@
       }
     }
 
-    &__wrapper[data-popup-placement^="bottom"] {
+    &__wrapper[data-popup-placement^="bottom"],
+    &__wrapper[data-popper-placement^="bottom"] {
       .tooltip__content {
         transform-origin: top;
       }
@@ -77,7 +79,8 @@
       }
     }
 
-    &__wrapper[data-popup-placement^="left"] {
+    &__wrapper[data-popup-placement^="left"],
+    &__wrapper[data-popper-placement^="left"] {
       .tooltip__content {
         transform-origin: right;
       }
@@ -86,7 +89,8 @@
       }
     }
 
-    &__wrapper[data-popup-placement^="right"] {
+    &__wrapper[data-popup-placement^="right"],
+    &__wrapper[data-poppper-placement^="right"] {
       .tooltip__content {
         transform-origin: left;
       }
