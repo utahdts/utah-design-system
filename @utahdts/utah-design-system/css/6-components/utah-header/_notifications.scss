@@ -1,18 +1,28 @@
 @use "../../1-settings/class-vars";
+@use "../../1-settings/color-swatches.scss";
 
 #{class-vars.$base-class} {
   .utds {
     &-notifications-drawer {
-      &__header-buttons {
+      .drawer__inner {
+        max-width: 350px;
+        color: var(--gray-color);
         background: var(--gray-light-color);
-        display: flex;
-        gap: var(--spacing-s);
-        padding: var(--spacing);
+      }
+      .drawer__title {
+        background: white;
+        height: 38px;
       }
       .utds-icon-before-alert {
         font-size: 1.2rem;
       }
       &__header-buttons {
+        background: var(--gray-light-color);
+        display: flex;
+        gap: var(--spacing-s);
+        padding: var(--spacing);
+        border-bottom: 1px solid var(--gray-3-1-contrast);
+
         .button {
           padding: 0 var(--spacing);
         }
@@ -26,6 +36,112 @@
           color: white;
           fill: white;
         }
+      }
+    }
+
+    &-notifications__list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      height: calc(100vh - (55px + 68px));
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    &-notify-list-item {
+      border-bottom: 1px solid var(--gray-3-1-contrast);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2xs);
+      padding: 0 0 var(--spacing-s) 0;
+      background: white;
+
+      &:focus-visible, &:focus {
+        outline: 3px solid var(--form-ele-color);
+        outline-offset: -3px;
+      }
+      &:hover {
+        background: var(--gray-light-color);
+        cursor: pointer;
+      }
+
+      &__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+      }
+      &__title {
+        font-size: var(--font-size-m);
+        line-height: 1.1;
+        flex: 1;
+        font-weight: bold;
+      }
+      &__status {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        height: calc(100% - 4px);
+        width: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        background: var(--form-ele-color);
+        &--is-read {
+          background: transparent;
+          font-weight: normal;
+        }
+      }
+      &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing-s) 0 var(--spacing-s) var(--spacing);
+        span {
+          font-size: 1.5rem;
+          &[class*='error'] {
+            color: color-swatches.$red-rock-04;
+          }
+          &[class*='clock'] {
+            color: color-swatches.$aspen-green-04;
+          }
+          &[class*='info'] {
+            color: color-swatches.$azul-04;
+          }
+          &[class*='help'] {
+            color: color-swatches.$neutral-gray-07;
+          }
+          &[class*='account'] {
+            color: color-swatches.$azul-04;
+          }
+          &[class*='utds-icon-before']::before {
+            margin: 0;
+          }
+        }
+      }
+      &__time {
+        padding: var(--spacing-s) var(--spacing-s) var(--spacing-s) 0;
+        color: var(--gray-medium-color);
+      }
+      &__brand-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      &__brand {
+        max-height: 50px;
+      }
+      &__message {
+        padding: 0 var(--spacing);
+        line-height: 1.3;
+      }
+      &__footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 var(--spacing);
+      }
+
+      &:last-of-type {
+        border-bottom: 1px solid var(--gray-3-1-contrast);
       }
     }
   }

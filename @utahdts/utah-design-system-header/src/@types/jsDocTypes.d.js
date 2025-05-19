@@ -312,4 +312,22 @@
  * }
  */
 
+/**
+ * A single notification
+ * @typedef NotificationItem {
+ *  @property {string} agencyDivisionFilename - the agency/division brand (found on cdn.utah.gov)
+ *  @property {string} agencyDivisionName - the agency/division name (used for describing the brand image)
+ *  @property {string} createDate - the date the notification was published
+ *  @property {string} cursor - the cursor for pagination
+ *  @property {string | null} expireDate - the date the notification will expire
+ *  @property {string} icon - the icon for the card
+ *  @property {string} id - the record id
+ *  @property {string | null} isReadDate - the date the notification was read
+ *  @property {string} linkText - the notification link text
+ *  @property {string} linkUrl - the notification link URL
+ *  @property {string} message - the notification message
+ *  @property {string} title - the title of the notification
+ * }
+ */
+
 export default false;

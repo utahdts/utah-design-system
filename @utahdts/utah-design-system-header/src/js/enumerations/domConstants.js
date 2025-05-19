@@ -153,11 +153,27 @@ export const domConstants = {
   UTAH_ID__BUTTON: 'utds-utah-id__button',
 
   NOTIFICATIONS__DRAWER_ID: 'utds-notifications__drawer',
-  NOTIFICATIONS__DRAWER_MARK_ALL_READ: 'utds-notifications__mark-all-read',
-  NOTIFICATIONS__DRAWER_VIEW_ALL: 'utds-notifications__view-all',
-  NOTIFICATIONS__DRAWER_CLOSE_BUTTON: 'notifications-drawer__close-button',
+  NOTIFICATIONS__DRAWER_HEADER_BUTTONS: 'utds-notifications-drawer__header-buttons',
+  NOTIFICATIONS__DRAWER_MARK_ALL_READ_ID: 'utds-notifications__mark-all-read',
+  NOTIFICATIONS__DRAWER_VIEW_ALL_ID: 'utds-notifications__view-all',
+
+  NOTIFICATIONS__DRAWER_CLOSE_BUTTON: 'drawer__close-button',
   NOTIFICATIONS__DRAWER_BACKDROP: 'drawer__backdrop',
   NOTIFICATIONS__DRAWER_INNER: 'drawer__inner',
   NOTIFICATIONS__DRAWER_TITLE: 'drawer__title',
   NOTIFICATIONS__DRAWER_END_FOCUS: 'drawer__end-focus',
+
+  NOTIFICATIONS__LIST: 'utds-notifications__list',
+
+  NOTIFY__LIST_ITEM: 'utds-notify-list-item',
+  NOTIFY__LIST_ITEM_STATUS: 'utds-notify-list-item__status',
+  NOTIFY__LIST_ITEM_STATUS_IS_READ: 'utds-notify-list-item__status--is-read',
+  NOTIFY__LIST_ITEM_ICON: 'utds-notify-list-item__icon',
+  NOTIFY__LIST_ITEM_TITLE: 'utds-notify-list-item__title',
+  NOTIFY__LIST_ITEM_TIME: 'utds-notify-list-item__time',
+  NOTIFY__LIST_ITEM_BRAND: 'utds-notify-list-item__brand',
+  NOTIFY__LIST_ITEM_MESSAGE: 'utds-notify-list-item__message',
+  NOTIFY__LIST_ITEM_LINK: 'utds-notify-list-item__link',
+  NOTIFY__LIST_ITEM_LINK_TEXT: 'utds-notify-list-item__link-text',
+
 };
