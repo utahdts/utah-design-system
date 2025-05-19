@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef } from 'react';
-import { usePopper } from 'react-popper';
+import { useCallback, useRef } from 'react';
+import { useFloating, autoUpdate, offset as floatingOffset, shift, flip } from '@floating-ui/react-dom';
 import { useImmer } from 'use-immer';
 import { popupPlacement } from '../../enums/popupPlacement';
 import { useInterval } from '../../hooks/useInterval';
@@ -68,27 +68,22 @@ export function DateInput({
 }) {
   const wrapperInternalRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [isCalendarPopupOpen, setIsCalendarPopupOpen] = useImmer(false);
-  const popperReferenceElementRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const popupReferenceElementRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const calendarRef = useRef(/** @type {HTMLDivElement | null} */(null));
-  const { styles, attributes, update } = usePopper(
-    popperReferenceElementRef.current,
-    calendarRef.current,
-    {
-      placement: popupPlacement.BOTTOM,
-      modifiers: [
-        { name: 'offset', options: { offset: [0, 4] } },
-      ],
-    }
-  );
-  // update popper location on changes
-  useEffect(
-    () => {
-      if (update) {
-        update();
-      }
+  const { floatingStyles } = useFloating({
+    elements: {
+      reference: popupReferenceElementRef.current,
+      floating: calendarRef.current,
     },
-    [isCalendarPopupOpen, value, update]
-  );
+    middleware: [
+      floatingOffset({mainAxis: 4, crossAxis: 0, alignmentAxis: 0}),
+      flip(),
+      shift(),
+    ],
+    open: isCalendarPopupOpen,
+    placement: popupPlacement.BOTTOM,
+    whileElementsMounted: autoUpdate,
+  });
 
   // check if no longer have focus when open
   useInterval(
@@ -129,7 +124,7 @@ export function DateInput({
             defaultValue={defaultValue}
             errorMessage={errorMessage}
             id={id}
-            innerRef={popperReferenceElementRef}
+            innerRef={popupReferenceElementRef}
             isClearable={isClearable}
             isDisabled={isDisabled}
             isRequired={isRequired}
@@ -156,7 +151,7 @@ export function DateInput({
                       e.stopPropagation();
                       setIsCalendarPopupOpen((isOpen) => {
                         if (isOpen) {
-                          const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                          const textInput = popupReferenceElementRef.current?.querySelector('input[type="text"]');
                           // @ts-expect-error
                           textInput?.focus();
                         }
@@ -177,7 +172,7 @@ export function DateInput({
                     onMouseDown={(e) => {
                       // without the preventDefault, clicking the calendar was closing the popup instead of focusing in the text input
                       e.preventDefault();
-                      popperReferenceElementRef.current?.querySelector('input')?.focus();
+                      popupReferenceElementRef.current?.querySelector('input')?.focus();
                     }}
                   >
                     <span className="utds-icon-before-calendar " aria-hidden="true" />
@@ -209,10 +204,9 @@ export function DateInput({
                 className={joinClassNames('date-input__popup', isCalendarPopupOpen ? '' : 'visually-hidden')}
                 ref={calendarRef}
                 style={{
-                  ...styles.popper,
-                  minWidth: popperReferenceElementRef.current?.offsetWidth,
+                  ...floatingStyles,
+                  minWidth: popupReferenceElementRef.current?.offsetWidth,
                 }}
-                {...attributes.popper}
               >
                 <CalendarInput
                   dateFormat={dateFormat}
@@ -223,7 +217,7 @@ export function DateInput({
                   onChange={(newValue) => {
                     onChange?.(newValue);
                     setIsCalendarPopupOpen(false);
-                    const textInput = popperReferenceElementRef.current?.querySelector('input[type="text"]');
+                    const textInput = popupReferenceElementRef.current?.querySelector('input[type="text"]');
                     // @ts-expect-error
                     textInput?.focus();
                   }}

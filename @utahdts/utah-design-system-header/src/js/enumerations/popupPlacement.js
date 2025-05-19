@@ -12,9 +12,6 @@
 
 /** @enum {PopupPlacementType} */
 export const PopupPlacement = {
-  AUTO: /** @type {PopupPlacementType} */ ('auto'),
-  AUTO_START: /** @type {PopupPlacementType} */ ('auto-start'),
-  AUTO_END: /** @type {PopupPlacementType} */ ('auto-end'),
   BOTTOM: /** @type {PopupPlacementType} */ ('bottom'),
   BOTTOM_START: /** @type {PopupPlacementType} */ ('bottom-start'),
   BOTTOM_END: /** @type {PopupPlacementType} */ ('bottom-end'),

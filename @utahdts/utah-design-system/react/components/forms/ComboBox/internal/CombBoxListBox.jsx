@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { usePopper } from 'react-popper';
+import { useFloating, autoUpdate, offset as floatingOffset, shift, flip } from '@floating-ui/react-dom';
 import { useAriaMessaging } from '../../../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
 import { popupPlacement } from '../../../../enums/popupPlacement';
 import { useDebounceFunc } from '../../../../hooks/useDebounceFunc';
@@ -14,7 +14,7 @@ import { isOptionGroupVisible } from '../functions/isOptionGroupVisible';
  * @param {boolean} [props.allowCustomEntry] if allowing custom entry, add the custom item if the list is empty; Must be a controlled component
  * @param {string} props.ariaLabelledById
  * @param {import('react').ReactNode | null} [props.children]
- * @param {HTMLElement | null} props.popperReferenceElement
+ * @param {HTMLElement | null} props.popupReferenceElement
  * @param {string} props.id
  * @returns {import('react').JSX.Element}
  */
@@ -23,7 +23,7 @@ export function CombBoxListBox({
   ariaLabelledById,
   children,
   id,
-  popperReferenceElement,
+  popupReferenceElement,
 }) {
   const [{ selectedValues }] = useMultiSelectContext();
   const { addPoliteMessage } = useAriaMessaging();
@@ -42,16 +42,20 @@ export function CombBoxListBox({
   const ulRef = useRef(/** @type {HTMLUListElement | null} */(null));
   const announcedArrowKeysRef = useRef(false);
 
-  const { styles, attributes, update } = usePopper(
-    popperReferenceElement,
-    ulRef.current,
-    {
-      placement: popupPlacement.BOTTOM,
-      modifiers: [
-        { name: 'offset', options: { offset: [0, 4] } },
-      ],
-    }
-  );
+  const { floatingStyles } = useFloating({
+    elements: {
+      reference: popupReferenceElement,
+      floating: ulRef.current,
+    },
+    middleware: [
+      floatingOffset({mainAxis: 4, crossAxis: 0, alignmentAxis: 0}),
+      flip(),
+      shift(),
+    ],
+    open: isOptionsExpanded,
+    placement: popupPlacement.BOTTOM,
+    whileElementsMounted: autoUpdate,
+  });
 
   const lastMessageRef = useRef(/** @type {string | null} */(null));
   const addPoliteMessageDebounced = useDebounceFunc(
@@ -65,15 +69,6 @@ export function CombBoxListBox({
       [addPoliteMessage]
     ),
     1500
-  );
-
-  useEffect(
-    () => {
-      if (update) {
-        update();
-      }
-    },
-    [isOptionsExpanded, selectedValues, update]
   );
 
   useEffect(
@@ -128,11 +123,10 @@ export function CombBoxListBox({
       ref={ulRef}
       role="listbox"
       style={{
-        ...styles.popper,
-        minWidth: popperReferenceElement?.scrollWidth,
+        ...floatingStyles,
+        minWidth: popupReferenceElement?.scrollWidth,
       }}
       tabIndex={-1}
-      {...attributes.popper}
     >
       {children}
       {

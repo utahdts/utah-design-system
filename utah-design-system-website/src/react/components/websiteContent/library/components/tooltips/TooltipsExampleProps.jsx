@@ -31,11 +31,11 @@ export function TooltipsExampleProps({ setState, state }) {
       />
 
       <Switch
-        id="props.isPopperVisible"
+        id="props.isPopupVisible"
         label="Visible"
         // @ts-expect-error
         onChange={onChange}
-        value={valueFn('props.isPopperVisible')}
+        value={valueFn('props.isPopupVisible')}
         width={20}
       />
 
@@ -57,18 +57,18 @@ export function TooltipsExampleProps({ setState, state }) {
       <TextInput
         id="props.offsetDistance"
         className="input--height-small1x"
-        label="Distance"
+        label="crossAxis"
         onChange={onChange}
         value={valueFn('props.offsetDistance')}
       />
       <TextInput
         id="props.offsetSkidding"
         className="input--height-small1x"
-        label="Skidding"
+        label="mainAxis"
         onChange={onChange}
         value={valueFn('props.offsetSkidding')}
       />
-      <ExternalLink href="https://popper.js.org/docs/v2/modifiers/offset/">Distance/Skidding Docs</ExternalLink>
+      <ExternalLink href="https://floating-ui.com/docs/offset">crossAxis/mainAxis Docs</ExternalLink>
     </Form>
   );
 }

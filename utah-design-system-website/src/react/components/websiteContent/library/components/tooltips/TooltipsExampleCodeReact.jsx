@@ -13,7 +13,7 @@ import { SandboxIndent } from '../../../../sandbox/SandboxIndent';
 export function TooltipsExampleCodeReact({
   state: {
     props: {
-      isPopperVisible,
+      isPopupVisible,
       offsetDistance,
       offsetSkidding,
       placement,
@@ -23,9 +23,9 @@ export function TooltipsExampleCodeReact({
 }) {
   const offsetDistanceUse = Number(offsetDistance) || 0;
   const offsetSkiddingUse = Number(offsetSkidding) || 0;
-  const offsetProp = (
+  const position = (
     (offsetDistanceUse !== 0 || offsetSkiddingUse !== 5)
-      ? `offset={[${offsetDistanceUse}, ${offsetSkiddingUse}]}`
+      ? `offset={{crossAxis: ${offsetDistanceUse}, mainAxis: ${offsetSkiddingUse}}}`
       : null
   );
 
@@ -56,10 +56,10 @@ export function TooltipsExampleCodeReact({
 
       &lt;Tooltip
       <br />
-      <ExampleCodeReactProp displayProp={isPopperVisible ? 'isPopperVisible' : null} indentLevel={1} />
+      <ExampleCodeReactProp displayProp={isPopupVisible ? 'isPopupVisible' : null} indentLevel={1} />
       {
-        offsetProp
-          ? <ExampleCodeReactProp displayProp={offsetProp} indentLevel={1} />
+        position
+          ? <ExampleCodeReactProp displayProp={position} indentLevel={1} />
           : null
       }
       {
