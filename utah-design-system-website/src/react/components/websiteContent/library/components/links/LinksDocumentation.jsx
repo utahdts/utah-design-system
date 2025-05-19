@@ -144,9 +144,9 @@ export function LinksDocumentation() {
             codeRaw={`
               <a href="https://google.com" target="_blank" rel="noreferrer">
                 external link
-                <span className="utds-new-tab-link-a11y">
-                  <span className="visually-hidden">opens in a new tab</span>
-                  <span className="utds-icon-after-external-link" aria-hidden="true" />
+                <span class="utds-new-tab-link-a11y">
+                  <span class="visually-hidden">opens in a new tab</span>
+                  <span class="utds-icon-after-external-link" aria-hidden="true" />
                 </span>
               </a>
             `}
