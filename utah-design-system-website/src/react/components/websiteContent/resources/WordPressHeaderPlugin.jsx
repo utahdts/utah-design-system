@@ -15,7 +15,7 @@ export function WordPressHeaderPlugin() {
       </p>
       <h2 id="download-and-installation">Download and installation</h2>
       <p>Use the link below to download the latest version of the plugin.</p>
-      <div className="flex justify-center mt-spacing"><a href="https://drive.google.com/file/d/1BjLm6KZkPx0T6GvXnBm9hdvzIUuLsoCC/view?usp=sharing" className="button button--primary-color button--solid">Download Utah Header Plugin</a></div>
+      <div className="flex justify-center mt-spacing"><a href="https://drive.google.com/file/d/10U0FbfWi9zwtoRWbrcmfynMI0hAb6AN1/view?usp=sharing" className="button button--primary-color button--solid">Download Utah Header Plugin</a></div>
       <h3 id="installation-instructions" className="mt-spacing">Installation instructions</h3>
       <ol>
         <li>On the WordPress plugins admin page click the &quot;Add New&quot; button.</li>
