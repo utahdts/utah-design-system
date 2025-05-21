@@ -70,9 +70,7 @@
     "date-fns": "4.1.0",
     "immer": "10.1.1",
     "lodash": "4.17.21",
-    "prop-types": "15.8.1",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
     "use-immer": "0.11.0",
     "uuid": "11.1.0"
   },
@@ -85,6 +83,7 @@
     "@vitest/coverage-istanbul": "3.0.9",
     "@vitest/ui": "3.0.9",
     "jsdom": "26.0.0",
+    "prop-types": "^15.8.1",
     "sass": "1.86.0",
     "typescript": "5.8.2",
     "vite": "6.2.2",
