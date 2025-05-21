@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "6.2.2"
+    "vite": "6.3.5"
   },
   "dependencies": {
     "@utahdts/utah-design-system-header": "3.0.5"
