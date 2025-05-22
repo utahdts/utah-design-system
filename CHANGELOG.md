@@ -28,6 +28,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       - from `[number, number]` → to → `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
       - default value is now `5`
     - CSS change: `data-popper-placement` is now `data-popup-placement`
+## Fixed
+- Fixed documentation for `Popup`,`Link`, `Drawer` and `Utah Header`
+- Update ids for menu items to correctly link `aria-labelledby` attribute
+- Added `<fieldset>` to all radio buttons and checkboxes
+- Added CSS to footer links
+- Center text in footer when on mobile size screen
+- Remove extra gap in mobile menu
+- Match placeholder for `SelectInput` with the rest of the Design System
+
+## Update
+- Update contact email address
+- Update documentation regarding the size of clickable elements
+
+
 
 # [3.0.5] 03/18/2025
 ## Fixed
