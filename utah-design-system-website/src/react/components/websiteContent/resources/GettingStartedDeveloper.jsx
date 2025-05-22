@@ -450,6 +450,9 @@ export function GettingStartedDeveloper() {
         While widely used, unpkg.com can suffer from occasional outages. To mitigate this risk, implementing a fallback mechanism is beneficial.
         Both the Utah Header JavaScript and CSS files are hosted on cdn.utah.gov.
       </p>
+      <p>
+        <strong>Note:</strong> We recommend using unpkg.com as the primary source.
+      </p>
       <PreCodeForCodeString
         allowScrollOverflow
         showBackgroundColor
@@ -472,14 +475,14 @@ export function GettingStartedDeveloper() {
           // @ts-expect-error
           className="button button--primary-color button--small"
         >
-          View a detailed example on GitHub using async
+          View a detailed example of using async
         </ExternalLink>
         <ExternalLink
           href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/fallback/fetch"
           // @ts-expect-error
           className="button button--primary-color button--small"
         >
-          View a detailed example on GitHub using fetch
+          View a detailed example of using fetch
         </ExternalLink>
       </div>
 
