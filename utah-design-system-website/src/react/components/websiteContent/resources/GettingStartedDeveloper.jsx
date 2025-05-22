@@ -445,6 +445,44 @@ export function GettingStartedDeveloper() {
         </ExternalLink>
       </div>
 
+      <h3 id="h3-fallback" className="mt-spacing">CDN Fallback</h3>
+      <p>
+        While widely used, unpkg.com can suffer from occasional outages. To mitigate this risk, implementing a fallback mechanism is beneficial.
+        Both the Utah Header JavaScript and CSS files are hosted on cdn.utah.gov.
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        className="mb-spacing"
+        codeRaw={`
+          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v4/utah-design-system-header.umd.js
+        `}
+      />
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        className="mb-auto"
+        codeRaw={`
+          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v4/style.css
+        `}
+      />
+      <div className="flex justify-end my-spacing-l gap flex-wrap">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/fallback/async"
+          // @ts-expect-error
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub using async
+        </ExternalLink>
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/fallback/fetch"
+          // @ts-expect-error
+          className="button button--primary-color button--small"
+        >
+          View a detailed example on GitHub using fetch
+        </ExternalLink>
+      </div>
+
       <h2 id="h2-using-design-system" className="mt-spacing-l">Using the Design System</h2>
       <p>
         Javascript and CSS libraries are provided for the Design System that can help springboard an application&apos;s

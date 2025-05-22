@@ -41,6 +41,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update contact email address
 - Update documentation regarding the size of clickable elements
 
+## Added
+- Added examples for CDN fallback
+
 
 
 # [3.0.5] 03/18/2025
