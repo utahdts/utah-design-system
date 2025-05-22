@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CDN Fallback - fetch</title>
+  <script type='text/javascript'>
+    async function isFileAvailable(url, timeout = 500) {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeout);
+
+      try {
+        const response = await fetch(url, {
+          method: 'HEAD',
+          signal: controller.signal,
+        });
+
+        clearTimeout(id);
+        return response.status === 200;
+      } catch (error) {
+        return `Error: ${error.message}`;
+      }
+    }
+
+    const unpkgJs = 'https://unpkg.com/@utahdts/utah-design-system-header@v3/dist/utah-design-system-header.umd.js';
+    const unpkgCss = 'https://unpkg.com/@utahdts/utah-design-system-header@v3/dist/style.css';
+
+    const cdnJs = 'https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v3/utah-design-system-header.umd.js';
+    const cdnCss = 'https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v3/style.css';
+
+    isFileAvailable(unpkgJs).then(result => {
+      const utahHeaderJs = document.createElement('script');
+      const utahHeaderCss = document.createElement('link');
+      utahHeaderCss.setAttribute('rel', 'stylesheet');
+
+      if (result) {
+        utahHeaderJs.setAttribute('src', unpkgJs);
+        utahHeaderCss.setAttribute('href', unpkgCss);
+      } else if (!result) {
+        // Fallback to CDN
+        utahHeaderJs.setAttribute('src', cdnJs);
+        utahHeaderCss.setAttribute('href', cdnCss);
+      } else {
+        console.log(result);
+      }
+
+      utahHeaderCss.onload = () => {
+        document.head.appendChild(utahHeaderJs);
+      };
+
+      document.head.appendChild(utahHeaderCss);
+    });
+  </script>
+  <script>
+    document.addEventListener('utahHeaderLoaded', () => {
+      window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({
+        title: 'CDN Fallback - fetch'
+      });
+    });
+  </script>
+</head>
+<body class="utah-design-system">
+  <main class="p-spacing-xl"><h1>Hello, world!</h1></main>
+</body>
+</html>
