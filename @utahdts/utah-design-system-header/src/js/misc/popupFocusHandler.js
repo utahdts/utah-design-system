@@ -1,4 +1,4 @@
-import { createPopper } from '@popperjs/core';
+import { arrow, computePosition, flip, offset, shift } from '@floating-ui/dom';
 import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
 import { PopupPlacement } from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
@@ -94,14 +94,31 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
     if (!options?.isPerformPopup || options?.isPerformPopup()) {
       delayPopupTimeoutId = window.setTimeout(
         () => {
-          createPopper(button, popup, {
-            placement: options?.popupPlacement || PopupPlacement.BOTTOM,
-            modifiers: [
-              {
-                name: 'offset',
-                options: { offset: [0, 11] },
-              },
-            ],
+          const tooltipArrow = popup.querySelector(getCssClassSelector(domConstants.POPUP_ARROW));
+          computePosition(
+            button,
+            popup,
+            {
+              placement: options?.popupPlacement || PopupPlacement.BOTTOM,
+              middleware: [
+                offset(11),
+                flip(),
+                shift(),
+                // @ts-expect-error We know there is an arrow
+                arrow({element: tooltipArrow}),
+              ],
+            }
+          ).then(({x, y, middlewareData}) => {
+            popup.setAttribute('data-popup-placement', options?.popupPlacement || PopupPlacement.BOTTOM);
+            Object.assign(popup.style, {
+              left: `${x}px`,
+              top: `${y}px`,
+            });
+            // @ts-expect-error Position the arrow
+            Object.assign(tooltipArrow?.style, {
+              left: x != null ? `${middlewareData?.arrow?.x}px` : '',
+              top: y != null ? `${middlewareData?.arrow?.y}px` : '',
+            });
           });
           showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           if (allowAriaExpanded(button)) {

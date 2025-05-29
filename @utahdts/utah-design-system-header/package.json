@@ -68,7 +68,7 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system#readme",
   "dependencies": {
-    "@popperjs/core": "2.11.8"
+    "@floating-ui/dom": "1.7.0"
   },
   "devDependencies": {
     "@vitest/ui": "3.1.4",
