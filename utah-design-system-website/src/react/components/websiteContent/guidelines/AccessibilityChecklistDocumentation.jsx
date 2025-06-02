@@ -55,7 +55,7 @@ export function AccessibilityChecklistDocumentation() {
             <li>Links to phone numbers and email address should be readable by screen readers.</li>
             <li>Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.</li>
             <li>
-              <Link to={pageUrls.table}>Tables</Link> should used for presenting rows and columns of data.
+              <Link to={pageUrls.table}>Tables</Link> should be used for presenting rows and columns of data.
               <ul>
                 <li>Never use tables for layout.</li>
                 <li>
