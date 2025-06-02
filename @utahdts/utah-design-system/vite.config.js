@@ -42,15 +42,14 @@ export default defineConfig(({ mode }) => {
           // Provide global variables to use in the UMD build
           // for externalized deps
           globals: {
-            react: 'React',
-            'react/jsx-runtime': 'jsxRuntime',
-            'react-dom': 'ReactDOM',
-            'date-fns': 'dateFns',
             '@floating-ui/react-dom': '@floating-ui/react-dom',
             '@utahdts/utah-design-system-header': '@utahdts/utah-design-system-header',
+            'date-fns': 'dateFns',
+            'react/jsx-runtime': 'jsxRuntime',
+            'use-immer': 'useImmer',
             immer: 'immer',
             lodash: 'lodash',
-            'use-immer': 'useImmer',
+            react: 'React',
             uuid: 'uuid',
           },
         },
