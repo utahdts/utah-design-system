@@ -165,13 +165,13 @@ export function renderMainMenu() {
 
       if (menuItem.actionFunction) {
         // custom function when triggered
-        menuItemTitleSpanElement.innerHTML = (menuItem.icon ?? '') + menuItem.title;
+        menuItemTitleSpanElement.innerHTML = menuItem.title;
         // if have children, then the action is moved to the `parentMenuLinkSuffix` menu item and not here
         if (!menuItem.actionMenu) {
           menuItemTitleElement.onclick = menuItem.actionFunction;
         }
       } else if (menuItem.actionFunctionUrl) {
-        menuItemTitleSpanElement.innerHTML = (menuItem.icon ?? '') + menuItem.title;
+        menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
 
         // if have children, then the action is moved to the `parentMenuLinkSuffix` menu item and not here
@@ -186,7 +186,7 @@ export function renderMainMenu() {
         }
       } else if (menuItem.actionUrl) {
         // go to url when triggered
-        menuItemTitleSpanElement.innerHTML = (menuItem.icon ?? '') + menuItem.title;
+        menuItemTitleSpanElement.innerHTML = menuItem.title;
         menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
       }
 
