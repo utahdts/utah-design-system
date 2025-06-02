@@ -24,18 +24,21 @@ export function hookupTooltip(element, dom) {
 
   element.appendChild(tooltip);
 
+  const middleware = [
+    offset(5),
+    flip(),
+    shift(),
+  ]
+  if (tooltipArrow) {
+    middleware.push(arrow({element: tooltipArrow}));
+  }
+
   const updatePosition = () => computePosition(
     element,
     tooltip,
     {
       placement: PopupPlacement.BOTTOM,
-      middleware: [
-        offset(5),
-        flip(),
-        shift(),
-        // @ts-expect-error We know there is an arrow
-        arrow({element: tooltipArrow}),
-      ],
+      middleware,
     }
   ).then(({x, y, middlewareData}) => {
     tooltip.setAttribute('data-popup-placement', PopupPlacement.BOTTOM);
@@ -43,11 +46,13 @@ export function hookupTooltip(element, dom) {
       left: `${x}px`,
       top: `${y}px`,
     });
-    // @ts-expect-error Position the arrow
-    Object.assign(tooltipArrow?.style, {
-      left: `${middlewareData.arrow?.x}px`,
-      top: `${middlewareData?.arrow?.y}px`,
-    });
+    if(tooltipArrow) {
+      // @ts-expect-error Position the arrow
+      Object.assign(tooltipArrow?.style, {
+        left: `${middlewareData.arrow?.x}px`,
+        top: `${middlewareData?.arrow?.y}px`,
+      });
+    }
   });
 
   if (element.onmouseenter || element.onmouseleave) {
