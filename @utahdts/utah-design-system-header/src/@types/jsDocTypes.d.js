@@ -3,7 +3,7 @@
 
 // Types of Events: https://www.w3schools.com/jsref/obj_events.asp
 
-/** @typedef {Element} ChildNode */
+/** @typedef {HTMLElement} ChildNode */
 
 /** @typedef {(function(MouseEvent | TouchEvent | KeyboardEvent): void)} EventAction */
 
