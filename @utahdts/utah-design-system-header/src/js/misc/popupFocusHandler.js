@@ -95,18 +95,20 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
       delayPopupTimeoutId = window.setTimeout(
         () => {
           const tooltipArrow = popup.querySelector(getCssClassSelector(domConstants.POPUP_ARROW));
+          const middleware = [
+            offset(11),
+            flip(),
+            shift(),
+          ]
+          if (tooltipArrow) {
+            middleware.push(arrow({element: tooltipArrow}));
+          }
           computePosition(
             button,
             popup,
             {
               placement: options?.popupPlacement || PopupPlacement.BOTTOM,
-              middleware: [
-                offset(11),
-                flip(),
-                shift(),
-                // @ts-expect-error We know there is an arrow
-                arrow({element: tooltipArrow}),
-              ],
+              middleware,
             }
           ).then(({x, y, middlewareData}) => {
             popup.setAttribute('data-popup-placement', options?.popupPlacement || PopupPlacement.BOTTOM);
@@ -114,11 +116,13 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
               left: `${x}px`,
               top: `${y}px`,
             });
-            // @ts-expect-error Position the arrow
-            Object.assign(tooltipArrow?.style, {
-              left: x != null ? `${middlewareData?.arrow?.x}px` : '',
-              top: y != null ? `${middlewareData?.arrow?.y}px` : '',
-            });
+            if(tooltipArrow) {
+              // @ts-expect-error Position the arrow
+              Object.assign(tooltipArrow.style, {
+                left: x != null ? `${middlewareData?.arrow?.x}px` : '',
+                top: y != null ? `${middlewareData?.arrow?.y}px` : '',
+              });
+            }
           });
           showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
           if (allowAriaExpanded(button)) {
