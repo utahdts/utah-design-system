@@ -64,13 +64,15 @@
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
   "dependencies": {
     "@floating-ui/react-dom": "2.1.2",
     "@utahdts/utah-design-system-header": "4.0.0",
     "date-fns": "4.1.0",
     "immer": "10.1.1",
     "lodash": "4.17.21",
-    "react": "19.1.0",
     "use-immer": "0.11.0",
     "uuid": "11.1.0"
   },
