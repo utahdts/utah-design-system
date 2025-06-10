@@ -192,6 +192,13 @@ export function AccessibilityDocumentation() {
               The link text should accurately describe where or what is being linked to. This will also help your page achieve a better SEO score.
             </li>
             <li>
+              Links should be easily identified from the rest of the content on a page.
+              Use both color and some form of styling (underlined, bolded, or italicized) to highlight them (links as part of navigation are exempt).
+            </li>
+            <li>
+              Links should have a clear hover state: underline or background color change.
+            </li>
+            <li>
               Links that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.
               For example: <ExternalLink href="https://www.google.com/search?q=arches+national+park">Arches National Park</ExternalLink>
             </li>

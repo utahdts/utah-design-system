@@ -51,6 +51,8 @@ export function AccessibilityChecklistDocumentation() {
             </li>
             <li><Link to={pageUrls.lists}>Lists</Link> (<code>ul, ol</code>) are used to identify all content that can be described as a list of something.</li>
             <li><Link to={pageUrls.links}>Links</Link> do not include generic text such as &quot;click here&quot; or &quot;view more&quot;.</li>
+            <li>Links are easily identifiable from the rest of the content on a page.</li>
+            <li>Links have a clear hover state: underline or background color change.</li>
             <li>Links that open a new tab have a visual indicator and visually hidden text like &quot;opens in a new tab&quot; to warn screen reader users.</li>
             <li>Links to phone numbers and email address should be readable by screen readers.</li>
             <li>Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.</li>
