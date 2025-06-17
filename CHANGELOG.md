@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Breaking Changes
 - **[⚠️ Breaking]** Update React to version `19.1.0`
   - You may be required to use `React 19` in order to use `v4.0.0` of the Utah Design System component library.
-- **[⚠️ Breaking]** Changed library used to position tooltips / popups from `Popper` to `Floating UI`. Some props have been updated accordingly.
+- **[⚠️ Breaking]** Changed library used to position tooltips / popups from `Popper` to `Floating UI` (including the Utah Header). Some props have been updated accordingly.
   - ⚠️ `ComboBox`:
     - `popperContentRef` is now `popupContentRef`
   - ⚠️ `Popup`:

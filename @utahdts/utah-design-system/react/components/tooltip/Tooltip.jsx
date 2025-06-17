@@ -13,7 +13,7 @@ import { joinClassNames } from '../../util/joinClassNames';
  * @param {object} props
  * @param {import('react').ReactNode} props.children The content of the tool tip
  * @param {string} [props.className] CSS class to apply to the popup
- * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
+ * @param {import('react').RefObject<HTMLDivElement | null>} [props.innerRef] ref of the popup wrapper
  * @param {boolean} [props.isPopupVisible] controlled value for telling if tool tip is visible
  * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis?: number}} [props.offset] default offset is 5 (see popup documentation
  * for details)

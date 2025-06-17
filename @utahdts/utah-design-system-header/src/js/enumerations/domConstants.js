@@ -144,6 +144,7 @@ export const domConstants = {
   TITLE__TITLE: 'utds-title-wrapper__title',
 
   TOOLTIP: 'utds-tooltip',
+  TOOLTIP__ARROW: 'tooltip__arrow',
   TOOLTIP__CONTENT: 'tooltip__content',
   TOOLTIP__WRAPPER: 'tooltip__wrapper',
   TOOLTIP__WRAPPER__HIDDEN: 'tooltip__wrapper--hidden',
