@@ -115,9 +115,10 @@ export function AccessibilityChecklistDocumentation() {
           </ul>
         </li>
         <li>
-          Videos
+          Audios/Videos
           <ul>
-            <li>Provide captions or transcripts of videos for those who have limited or no auditory perception.</li>
+            <li>Use players that give the user control over the media (play, pause, stop, and adjust the volume).</li>
+            <li>Provide captions and/or transcripts of the media for those who have limited or no auditory perception.</li>
           </ul>
         </li>
         <li>
