@@ -4,9 +4,12 @@ import absWebsiteScreenshot from '../../../../../static/images/screenshots/showc
 import archivesWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/archives.webp';
 import businessWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/business-utah-gov.webp';
 import chipWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/chip-utah-gov.webp';
+import correctionsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/corrections.webp';
 import dhhsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhhs-utah-gov.webp';
 import dhrmWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dhrm-utah-gov.webp';
-import siacWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dps-siac.webp';
+import earlyChildhoodWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/early-childhood.webp';
+import governorWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/governor.webp';
+import guardWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/national-guard.webp';
 import healthcarestatsWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/healthcarestats-utah-gov.webp';
 import insuranceWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/insurance-department.webp';
 import kidsReadyToReadWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/kids-ready-to-read.webp';
@@ -17,9 +20,10 @@ import ogmWebsiteScreenshot from '../../../../../static/images/screenshots/showc
 import oneutahsummitWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/oneutahsummit-utah-gov.webp';
 import onlineLibraryWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/online-library.webp';
 import publicSafetyWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/public-safety.webp';
+import siacWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/dps-siac.webp';
 import startupWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/startup-utah-gov.webp';
-import utahsOwnWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/utahs-own.webp';
 import utahStateCapitolWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/utahstatecapitol-utah-gov.webp';
+import utahsOwnWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/utahs-own.webp';
 import { ShowcaseExample } from './ShowcaseExample';
 
 export function Showcase() {
@@ -165,6 +169,34 @@ export function Showcase() {
         image: utahsOwnWebsiteScreenshot,
         title: 'Utah\'s Own Website',
         url: 'https://utahsown.org/',
+      },
+      {
+        agency: 'Department of Corrections',
+        id: 'corrections',
+        image: correctionsWebsiteScreenshot,
+        title: 'Utah\'s Department of Corrections Website',
+        url: 'https://corrections.utah.gov/',
+      },
+      {
+        agency: 'Department of Health and Human Services',
+        id: 'early-childhood',
+        image: earlyChildhoodWebsiteScreenshot,
+        title: 'Early Childhood',
+        url: 'https://earlychildhood.utah.gov/',
+      },
+      {
+        agency: 'Executive Branch',
+        id: 'governor',
+        image: governorWebsiteScreenshot,
+        title: 'Governor of Utah Website',
+        url: 'https://governor.utah.gov/',
+      },
+      {
+        agency: 'Utah National Guard',
+        id: 'national-guard',
+        image: guardWebsiteScreenshot,
+        title: 'Utah National Guard Website',
+        url: 'https://guard.utah.gov/',
       },
     ]),
     []
