@@ -62,7 +62,7 @@
     "utah header",
     "components"
   ],
-  "license": "State of Utah - TOT",
+  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
