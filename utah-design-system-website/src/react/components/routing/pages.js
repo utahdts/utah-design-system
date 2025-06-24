@@ -668,6 +668,13 @@ export const pages = {
     pageTitle: 'Radio Button',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
+  searchInput: /** @type {Page} */ ({
+    content: TextInputDocumentation,
+    link: `${pageUrls.textInput}#search-input`,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Search Input',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
   select: /** @type {Page} */ ({
     content: SelectDocumentation,
     link: pageUrls.select,

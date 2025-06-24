@@ -128,6 +128,7 @@ export const menuLibraryComponentsSecondary = {
         { link: pages.fileInput.link, title: pages.fileInput.pageTitle },
         { link: pages.multiSelect.link, title: pages.multiSelect.pageTitle },
         { link: pages.radioButton.link, title: pages.radioButton.pageTitle },
+        { link: pages.searchInput.link, title: pages.searchInput.pageTitle },
         { link: pages.select.link, title: pages.select.pageTitle },
         { link: pages.switch.link, title: pages.switch.pageTitle },
         { link: pages.characterCount.link, title: pages.characterCount.pageTitle },
