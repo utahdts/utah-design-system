@@ -52,4 +52,35 @@
       }
     }
   }
+  .search-input {
+    &__wrapper {
+      position: relative;
+      input[type="text"] {
+        border-radius: var(--radius-circle);
+        padding: var(--spacing-s) 170px var(--spacing-s) var(--spacing-3xl);
+      }
+    }
+    &__button-wrapper {
+      position: absolute;
+      right: var(--spacing-xs);
+      &:has(button:focus) {
+        clip: unset;
+        height: unset;
+        margin: unset;
+        overflow: unset;
+        padding: unset;
+        position: absolute;
+        width: unset;
+      }
+    }
+    &__icon-search {
+      position: absolute;
+      top: calc(50% + 2px);
+      left: var(--spacing);
+      &[class*=utds-icon-before-]::before {
+        display: block;
+        font-size: 1.2rem;
+      }
+    }
+  }
 }

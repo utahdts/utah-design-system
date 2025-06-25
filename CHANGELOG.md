@@ -50,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Added
 - Added examples for CDN fallback
+- Added CSS for a search input and updated the example on the text-input page
 
 
 
