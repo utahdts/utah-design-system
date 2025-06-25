@@ -73,7 +73,7 @@ export function TextInputDocumentation() {
           <ul>
             <li>The search input box should have a placeholder. The label is still visible to screen readers. (Use the css class <code>visually-hidden</code> to hide the label on the screen.)</li>
             <li>To the left of the placeholder there should be a magnifying glass icon to signify that this is a search input box.</li>
-            <li>Optionally, you may place an <code>X icon</code> on the right to clear the input field.</li>
+            <li>Optionally, you may place an <Link to={pageUrls.icons}><code><span className="uds-icon" aria-label="X" style={{verticalAlign: 'middle'}}>&#xe917;</span> icon</code></Link> on the right to clear the input field.</li>
             <li>There should be a submit button (visible or visually-hidden) to trigger the search.</li>
             <li>Use an event handler to trigger the search when the user presses <code>return</code> or <code>enter</code>.</li>
           </ul>
