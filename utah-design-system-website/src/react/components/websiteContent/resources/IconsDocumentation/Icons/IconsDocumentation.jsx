@@ -32,19 +32,21 @@ export function IconsDocumentation() {
       <hr />
 
       <h2 id="section-icon-resource-location">Icon Resource Location</h2>
-      <p className="mb-spacing-xs">The Utah Design System Icons are now embedded directly in the css file:</p>
-      <div className="mb-spacing">
-        <h4 className="mb-auto">style.css</h4>
-        <PreCodeForCodeString
-          allowScrollOverflow
-          showBackgroundColor
-          className="mb-spacing-s"
-          codeRaw={`
-            https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css
-          `}
-        />
-        <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css" className="button" target="_blank">style.css Download</a>
-      </div>
+       <p className="mb-spacing-xs">The Utah Design System Icons can be found on the state CDN:</p>
+      <PreCodeForCodeString
+        codeRaw={`
+@font-face {
+  font-family: 'utah design system';
+       url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.woff') format('woff'),
+       url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.ttf') format('truetype'),
+       url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.svg#utah-design-system') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+        `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
       <hr />
 
       <h2 id="section-example">Example</h2>

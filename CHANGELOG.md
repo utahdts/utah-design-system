@@ -31,9 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **[⚠️ Breaking]** Design System Icons have been renumber to the unicode private use area starting with #e900.
     - If you have used icons via html entities such as `&#xe900;` or directly with the equivalent character you will need to adjust to the new numbering.
     - NO CHANGE is required if you have used icons using css classes i.e. `<span class="utds-icon-before-star"></span>`.
-- **[⚠️ Breaking]** Design System Icons updates are no longer available as a separate font file. The font file has been embedded directly in the CSS.
-  - NO CHANGE is required if you were not directly downloading the font file.
-  - You must use the Design System CSS to get the icon font.
+- **[⚠️ Breaking]** Design System Icons are now on version 2 and found in the following location:
+  - https://cdn.utah.gov/design-system/fonts/v2/
 
 ## Fixed
 - Fixed documentation for `Popup`,`Link`, `Drawer` and `Utah Header`
