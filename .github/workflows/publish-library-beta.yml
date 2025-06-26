@@ -1,4 +1,4 @@
-name: Build and Publish library
+name: Build and Publish library BETA
 on: [workflow_dispatch]
 jobs:
   build-and-deploy:

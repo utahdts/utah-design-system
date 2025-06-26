@@ -1,4 +1,4 @@
-name: Build and Publish utah-header
+name: Build and Publish utah-header BETA
 on: [workflow_dispatch]
 jobs:
   build-and-deploy:
