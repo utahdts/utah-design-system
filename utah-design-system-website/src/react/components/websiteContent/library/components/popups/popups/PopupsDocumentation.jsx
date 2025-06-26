@@ -20,7 +20,8 @@ import {
   VerticalMenu,
   componentColors,
   formElementSizesEnum,
-  popupPlacement
+  popupPlacement,
+  ExternalLink
 } from '@utahdts/utah-design-system';
 import { childrenMenuTypes } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
@@ -523,6 +524,18 @@ export function PopupsDocumentation() {
                   </TableHead>
                   <TableBody>
                     <TableRow>
+                      <TableCell><code className="primary-color">ariaLabelledBy</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>string</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        The <code>id</code> of the element - typically a button - that controls the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
                       <TableCell><code className="primary-color">children</code></TableCell>
                       <TableCell>
                         <div className="props-code-wrapper">
@@ -597,13 +610,14 @@ export function PopupsDocumentation() {
                     <TableRow>
                       <TableCell><code className="primary-color">offset</code></TableCell>
                       <TableCell>
-                        <div className="props-code-wrapper">
-                          <code>array of numbers</code>
-                        </div>
+                        <code>number</code>
+                        <span> | </span>
+                        <code>&#123;mainAxis: number, crossAxis: number, alignmentAxis: number&#125;</code>
                       </TableCell>
-                      <TableCell>[0, 10]</TableCell>
+                      <TableCell><code>&#123;mainAxis: 10, crossAxis: 0, alignmentAxis: 0&#125;</code></TableCell>
                       <TableCell>
-                        The offset used by Popper to position the popup.
+                        Control the popup distance from its anchor.<br />
+                        See <ExternalLink href="https://floating-ui.com/docs/offset">official documentation</ExternalLink>.
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -625,7 +639,7 @@ export function PopupsDocumentation() {
                           <code>string</code>
                         </div>
                       </TableCell>
-                      <TableCell>popupPlacement.AUTO</TableCell>
+                      <TableCell>popupPlacement.BOTTOM</TableCell>
                       <TableCell>
                         The default placement of the popup. See the popupPlacement ENUM for the correct values to use.
                       </TableCell>
@@ -640,6 +654,22 @@ export function PopupsDocumentation() {
                       <TableCell><em>required</em></TableCell>
                       <TableCell>
                         A ref to the button or place where the popup will appear. Usually this is the button that activated the popup.
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell><code className="primary-color">role</code></TableCell>
+                      <TableCell>
+                        <div className="props-code-wrapper">
+                          <code>dialog</code>
+                          <code>grid</code>
+                          <code>listbox</code>
+                          <code>menu</code>
+                          <code>tree</code>
+                        </div>
+                      </TableCell>
+                      <TableCell><em>required</em></TableCell>
+                      <TableCell>
+                        For accessibility purposes. <ExternalLink href='https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles'>See more</ExternalLink>.
                       </TableCell>
                     </TableRow>
                   </TableBody>

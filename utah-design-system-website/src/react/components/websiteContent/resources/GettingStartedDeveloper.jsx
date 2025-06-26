@@ -16,7 +16,7 @@ export function GettingStartedDeveloper() {
       <div><strong>Help us make this page better.</strong></div>
       <p>
         There is no limit to the technology stacks that can incorporate the Utah Header and Design System. We want
-        to <ExternalLink href="mailto:dts_ui@utah.gov">hear from you</ExternalLink> about your stack, your
+        to <ExternalLink href="mailto:dxp@utah.gov">hear from you</ExternalLink> about your stack, your
         successes, and pain points. Please send us your experiences and/or code and stack. We would love to add it here!
       </p>
 
@@ -442,6 +442,47 @@ export function GettingStartedDeveloper() {
           className="button button--primary-color button--small"
         >
           View a detailed example on GitHub
+        </ExternalLink>
+      </div>
+
+      <h3 id="h3-fallback" className="mt-spacing">CDN Fallback</h3>
+      <p>
+        While widely used, unpkg.com can suffer from occasional outages. To mitigate this risk, implementing a fallback mechanism is beneficial.
+        Both the Utah Header JavaScript and CSS files are hosted on cdn.utah.gov.
+      </p>
+      <p>
+        <strong>Note:</strong> We recommend using unpkg.com as the primary source.
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        className="mb-spacing"
+        codeRaw={`
+          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v4/utah-design-system-header.umd.js
+        `}
+      />
+      <PreCodeForCodeString
+        allowScrollOverflow
+        showBackgroundColor
+        className="mb-auto"
+        codeRaw={`
+          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v4/style.css
+        `}
+      />
+      <div className="flex justify-end my-spacing-l gap flex-wrap">
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/fallback/async"
+          // @ts-expect-error
+          className="button button--primary-color button--small"
+        >
+          View a detailed example of using async
+        </ExternalLink>
+        <ExternalLink
+          href="https://github.com/utahdts/utah-design-system/tree/main/examples/utah-header/fallback/fetch"
+          // @ts-expect-error
+          className="button button--primary-color button--small"
+        >
+          View a detailed example of using fetch
         </ExternalLink>
       </div>
 

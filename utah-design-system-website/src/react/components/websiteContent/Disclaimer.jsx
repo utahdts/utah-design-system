@@ -7,7 +7,7 @@ export function Disclaimer() {
         Please note that this component is not implemented in the design system.
         This current version serves as a guideline and offers best practices for design consistency.
       </p>
-      <p>If you are interested in further development of this component please <a href="mailto:dts_ui@utah.gov">reach out to us</a>.</p>
+      <p>If you are interested in further development of this component please <a href="mailto:dxp@utah.gov">reach out to us</a>.</p>
     </div>
   );
 }

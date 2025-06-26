@@ -70,8 +70,7 @@
 /**
  * these match the popper's position options
  * PopupPlacement
- * @typedef {'auto' | 'auto-start' | 'auto-end' |
- *   'bottom' | 'bottom-start' | 'bottom-end' |
+ * @typedef { 'bottom' | 'bottom-start' | 'bottom-end' |
  *    'left' | 'left-start' | 'left-end' |
  *    'right' | 'right-start' | 'right-end' |
  *    'top' | 'top-start' | 'top-end'

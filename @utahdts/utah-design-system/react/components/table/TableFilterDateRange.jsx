@@ -40,7 +40,7 @@ export function TableFilterDateRange({
 }) {
   useTableFilterRegistration(recordFieldPath, defaultValue, { exactMatch: false, isDateRange: true, dateRangeDateFormat: dateFormat });
   const { state: { tableId } } = useTableContext();
-  const popperContentRef = useRef(/** @type {HTMLDivElement | null} */(null));
+  const popupContentRef = useRef(/** @type {HTMLDivElement | null} */(null));
   const [state, setState] = useImmer({ isPopupOpen: false });
 
   const {
@@ -74,7 +74,7 @@ export function TableFilterDateRange({
 
   return (
     <th className={joinClassNames('table-header__cell table-header__cell--filter-date', className)} id={id ?? undefined} ref={innerRef}>
-      <div ref={popperContentRef}>
+      <div ref={popupContentRef}>
         <Button
           aria-controls={popupId}
           aria-expanded={state.isPopupOpen}
@@ -141,7 +141,7 @@ export function TableFilterDateRange({
         isPopupOpen={state.isPopupOpen}
         onChange={currentOnChange}
         setIsPopupOpen={(newIsPopupOpen) => setState((draftState) => { draftState.isPopupOpen = newIsPopupOpen; })}
-        popperReferenceElement={popperContentRef}
+        popupReferenceElement={popupContentRef}
         tableFilterDateId={id}
         value={currentValue || ''}
       />

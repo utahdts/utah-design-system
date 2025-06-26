@@ -1,4 +1,5 @@
 import { ExampleCodeReactProp } from '../../../../../sandbox/ExampleCodeReactProp';
+import { SandboxIndent } from '../../../../../sandbox/SandboxIndent.jsx';
 
 /** @typedef {import('utah-design-system-website').CheckboxExamplePropsShape} CheckboxExamplePropsShape */
 
@@ -22,16 +23,25 @@ export function CheckboxExampleCodeReact({
 }) {
   return (
     <>
-      &lt;Checkbox
-      <br />
-      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={1} />
-      <ExampleCodeReactProp displayProp="onChange={() => ...flip state...}" indentLevel={1} />
-      <ExampleCodeReactProp displayProp={`value={${value}}`} indentLevel={1} />
-      /&gt;
+      &lt;fieldset&gt;
+        <br />
+        <SandboxIndent indentLevel={2} />
+        &lt;legend className="mb-spacing-xs"&gt;Checkbox example&lt;/legend&gt;
+        <br />
+        <SandboxIndent indentLevel={2} />
+        &lt;Checkbox
+        <br />
+        <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={3} />
+        <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={3} />
+        <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={3} />
+        <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={3} />
+        <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={3} />
+        <ExampleCodeReactProp displayProp="onChange={() => ...flip state...}" indentLevel={3} />
+        <ExampleCodeReactProp displayProp={`value={${value}}`} indentLevel={3} />
+        <SandboxIndent indentLevel={2} />
+        /&gt;
+        <br />
+      &lt;/fieldset&gt;
     </>
   );
 }

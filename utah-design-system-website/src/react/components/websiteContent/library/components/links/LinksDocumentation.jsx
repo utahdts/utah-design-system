@@ -26,7 +26,7 @@ export function LinksDocumentation() {
             <p>This is an example of what a <a href="#section-example">link</a> should appear like within a block of text.</p>
             <p>This is an example of what an external link or link that opens in a new tab should appear like within a block of text: <ExternalLink href="https://www.google.com/search?q=utah+state+flag">Utah State Flag</ExternalLink></p>
             <p>This is an example of a phone number link: <a href="tel:18006783440"><span className="visually-hidden">DTS help desk phone number:</span>800-678-3440</a></p>
-            <p className="mb-auto">This is an example of a email address link: <a href="mailto:dts_ui@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dts_ui@utah.gov</a></p>
+            <p className="mb-auto">This is an example of a email address link: <a href="mailto:dxp@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dxp@utah.gov</a></p>
           </div>
         )}
         quickTips={(
@@ -94,6 +94,14 @@ export function LinksDocumentation() {
           or can break when being viewed on a mobile device. Using descriptive links can also improve SEO.
         </li>
         <li>
+          <strong>Appearance.</strong> Links should be easily identified from the rest of the content on a page.
+          Use both color and some form of styling (underlined, bolded, or italicized) to highlight them.<br/>
+          <strong>Note</strong>: this rule does not apply when a link is part of some navigation such as in main menus.
+        </li>
+        <li>
+          <strong>Interaction.</strong> Ensure links have a clear hover state, like an underline or background color change, to provide visual feedback to the user.
+        </li>
+        <li>
           <strong>Minimize using duplicate text language on a page with multiple links.</strong> This can cause issues using screen readers, when there are multiple links using
           the text, &quot;click here&quot;, &quot;click here&quot;, &quot;click here&quot;, etc.
         </li>
@@ -106,7 +114,7 @@ export function LinksDocumentation() {
             showBackgroundColor
             codeRaw={`
               <a href="tel:3852290540">385-229-0540</a>
-              <a href="mailto:dts_ui@utah.gov">Email the Digital Experience Team</a>
+              <a href="mailto:dxp@utah.gov">Email the Digital Experience Team</a>
             `}
           />
         </li>
@@ -144,9 +152,9 @@ export function LinksDocumentation() {
             codeRaw={`
               <a href="https://google.com" target="_blank" rel="noreferrer">
                 external link
-                <span className="utds-new-tab-link-a11y">
-                  <span className="visually-hidden">opens in a new tab</span>
-                  <span className="utds-icon-after-external-link" aria-hidden="true" />
+                <span class="utds-new-tab-link-a11y">
+                  <span class="visually-hidden">opens in a new tab</span>
+                  <span class="utds-icon-after-external-link" aria-hidden="true" />
                 </span>
               </a>
             `}
@@ -161,7 +169,7 @@ export function LinksDocumentation() {
         <li>
           Links to email addresses should include the actual email address in the text of the link.
           Additionally, if there is no text to indicate the link is for an email address, include visually hidden text to inform screen reader users.
-          For example: <a href="mailto:dts_ui@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dts_ui@utah.gov</a>
+          For example: <a href="mailto:dxp@utah.gov"><span className="visually-hidden">Digital experience team email:</span>dxp@utah.gov</a>
         </li>
       </ul>
     </div>

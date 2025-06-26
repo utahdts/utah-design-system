@@ -3,7 +3,7 @@
 
 // Types of Events: https://www.w3schools.com/jsref/obj_events.asp
 
-/** @typedef {Element} ChildNode */
+/** @typedef {HTMLElement} ChildNode */
 
 /** @typedef {(function(MouseEvent | TouchEvent | KeyboardEvent): void)} EventAction */
 
@@ -35,10 +35,9 @@
  */
 
 /**
- * these match the popper's position options
+ * these match the popup's position options
  * PopupPlacement
- * @typedef {'auto' | 'auto-start' | 'auto-end' |
- *   'bottom' | 'bottom-start' | 'bottom-end' |
+ * @typedef { 'bottom' | 'bottom-start' | 'bottom-end' |
  *    'left' | 'left-start' | 'left-end' |
  *    'right' | 'right-start' | 'right-end' |
  *    'top' | 'top-start' | 'top-end'
@@ -153,7 +152,7 @@
  * @typedef PopupFocusHandlerOptions {
  *  @property {() => boolean} [isPerformPopup] should the popup pop open? Helpful for utahId that doesn't pop until user loaded
  *  @property {function(UIEvent): void} [onClick] custom onclick handler
- *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and popper will place where it can)
+ *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and Floating UI will place where it can)
  *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
  *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
  *  @property {boolean} [doNotClosePopupOnClick] main menu items should not close popup when it's clicked

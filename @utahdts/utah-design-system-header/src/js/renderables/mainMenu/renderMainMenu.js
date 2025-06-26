@@ -67,7 +67,7 @@ export function renderMainMenu() {
         ),
         `renderMainMenu(): button title not found for ${menuItem.title}`
       );
-      mainMenuItemButtonTitle.setAttribute('id', `${domConstants.MENU_ITEM__BUTTON_TITLE}__${menuItem.title}-${uuidv4()}`);
+      mainMenuItemButtonTitle.setAttribute('id', `${domConstants.MENU_ITEM__BUTTON_TITLE}__${menuItem.title.replaceAll(' ', '')}-${uuidv4()}`);
       if (menuItem.className) {
         mainMenuItemButtonTitle.classList.add(menuItem.className);
       }
@@ -78,7 +78,7 @@ export function renderMainMenu() {
         ),
         `renderMainMenu(): link title not found for ${menuItem.title}`
       );
-      mainMenuItemLinkTitle.setAttribute('id', `${domConstants.MENU_ITEM__LINK_TITLE}__${menuItem.title}-${uuidv4()}`);
+      mainMenuItemLinkTitle.setAttribute('id', `${domConstants.MENU_ITEM__LINK_TITLE}__${menuItem.title.replaceAll(' ', '')}-${uuidv4()}`);
       if (menuItem.className) {
         mainMenuItemLinkTitle.classList.add(menuItem.className);
       }
@@ -196,6 +196,12 @@ export function renderMainMenu() {
       ) {
         menuItemTitleElement.setAttribute('target', '_blank');
         menuItemTitleElement.appendChild(renderDOMSingle(NewTabAccessibility));
+      }
+
+      if(menuItem.icon) {
+        const actionItemIcon = renderDOMSingle(menuItem.icon);
+        actionItemIcon.setAttribute('role', 'presentation');
+        menuItemTitleElement.insertBefore(actionItemIcon, menuItemTitleSpanElement);
       }
     });
   }

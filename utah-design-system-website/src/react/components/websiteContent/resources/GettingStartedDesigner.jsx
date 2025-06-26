@@ -68,7 +68,7 @@ export function GettingStartedDesigner() {
       <div>
         <p>The Library is important to designers when picking components for mockups. Every component in the library has static examples*, usage guidelines and component specific accessibility requirements.  See the <Link to={pageUrls.library}>Library Landing Page</Link> for more information on how components are structured.</p>
         <p>*Future releases will include interactive components. See the <Link to={pageUrls.button}>Button</Link> component for reference.</p>
-        <p>To give feedback or make a request please reach out to <a href="mailto:dts_ui@utah.gov">dts_ui@utah.gov</a>.</p>
+        <p>To give feedback or make a request please reach out to <a href="mailto:dxp@utah.gov">dxp@utah.gov</a>.</p>
       </div>
     </div>
   );

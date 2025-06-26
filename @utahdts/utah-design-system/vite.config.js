@@ -37,12 +37,20 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: ['react', '@utahdts/utah-design-system-header'],
+        external: ['react', 'react/jsx-runtime', 'react-dom', '@floating-ui/react-dom', 'date-fns', 'immer', 'lodash', 'use-immer', 'uuid', '@utahdts/utah-design-system-header'],
         output: {
           // Provide global variables to use in the UMD build
           // for externalized deps
           globals: {
-            react: 'React'
+            '@floating-ui/react-dom': '@floating-ui/react-dom',
+            '@utahdts/utah-design-system-header': '@utahdts/utah-design-system-header',
+            'date-fns': 'dateFns',
+            'react/jsx-runtime': 'jsxRuntime',
+            'use-immer': 'useImmer',
+            immer: 'immer',
+            lodash: 'lodash',
+            react: 'React',
+            uuid: 'uuid',
           },
         },
       },

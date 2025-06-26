@@ -32,7 +32,7 @@ export function TootltipsPropsDocumentation() {
       </TableRow>
 
       <TableRow>
-        <TableCell><code className="primary-color">isPopperVisible</code></TableCell>
+        <TableCell><code className="primary-color">isPopupVisible</code></TableCell>
         <TableCell>
           <div className="props-code-wrapper">
             <code>true</code>
@@ -48,11 +48,15 @@ export function TootltipsPropsDocumentation() {
 
       <TableRow>
         <TableCell><code className="primary-color">offset</code></TableCell>
-        <TableCell><code>[number, number]</code></TableCell>
-        <TableCell><code>[0, 5]</code></TableCell>
+        <TableCell>
+          <code>number</code>
+          <span> | </span>
+          <code>&#123;mainAxis: number, crossAxis: number, alignmentAxis: number&#125;</code>
+        </TableCell>
+        <TableCell><code>5</code></TableCell>
         <TableCell>
           Control the tooltip distance from its anchor.<br />
-          See <ExternalLink href="https://popper.js.org/docs/v2/tutorial/#offset">official documentation</ExternalLink>.
+          See <ExternalLink href="https://floating-ui.com/docs/offset">official documentation</ExternalLink>.
         </TableCell>
       </TableRow>
 
@@ -60,12 +64,6 @@ export function TootltipsPropsDocumentation() {
         <TableCell><code className="primary-color">placement</code></TableCell>
         <TableCell>
           <div className="props-code-wrapper">
-            <code>auto</code>
-            <span> | </span>
-            <code>auto-start</code>
-            <span> | </span>
-            <code>auto-end</code>
-            <span> | </span>
             <code>bottom</code>
             <span> | </span>
             <code>bottom-start</code>
@@ -94,7 +92,7 @@ export function TootltipsPropsDocumentation() {
         <TableCell><code>bottom</code></TableCell>
         <TableCell>
           How should the tooltip should be positioned from its anchor.<br />
-          See <ExternalLink href="https://popper.js.org/docs/v2/constructors/#options">official documentation</ExternalLink>.
+          See <ExternalLink href="https://floating-ui.com/docs/arrow#placement">official documentation</ExternalLink>.
         </TableCell>
       </TableRow>
 
