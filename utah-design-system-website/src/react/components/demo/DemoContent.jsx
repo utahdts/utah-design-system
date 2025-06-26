@@ -16,11 +16,11 @@ export function DemoContent() {
 
   const today = new Date();
 
-  const formatDate = (/** @type {number} */ days) => {
-    const aMonthFromNow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + days);
-    const month = (aMonthFromNow.getMonth() + 1).toString().padStart(2, '0'); // Add 1 because getMonth() is 0-indexed
-    const day = aMonthFromNow.getDate().toString().padStart(2, '0');
-    const year = aMonthFromNow.getFullYear();
+  const generateDate = (/** @type {number} */ days) => {
+    const xDaysFromNow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + days);
+    const month = (xDaysFromNow.getMonth() + 1).toString().padStart(2, '0'); // Add 1 because getMonth() is 0-indexed
+    const day = xDaysFromNow.getDate().toString().padStart(2, '0');
+    const year = xDaysFromNow.getFullYear();
     return `${month}/${day}/${year}`;
   }
 
@@ -29,17 +29,17 @@ export function DemoContent() {
     {
       name: 'Junior Ranger Program',
       place: 'Visitor Center',
-      date: `${formatDate(30)} - 8:00 AM`,
+      date: `${generateDate(30)} - 8:00 AM`,
     },
     {
       name: 'Stargazing',
       place: 'Visitor Center',
-      date: `${formatDate(14)} - 9:00 PM`,
+      date: `${generateDate(14)} - 9:00 PM`,
     },
     {
       name: 'Discover Arches',
       place: 'Moab, UT',
-      date: `${formatDate(21)} - 10:00 AM`,
+      date: `${generateDate(21)} - 10:00 AM`,
     },
   ].map((event) => ({
     ...event,
