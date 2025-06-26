@@ -16,7 +16,7 @@ import { IconButton } from '../buttons/IconButton';
  * @param {string} [props.className] CSS class to apply to the popup
  * @param {boolean} [props.hasCloseButton] the top right `X` close button
  * @param {string} props.id used for hooking up to the button that controls the popup by aria-control
- * @param {import('react').MutableRefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
+ * @param {import('react').RefObject<HTMLDivElement | null>} [props.innerRef] ref to the popup wrapper
  * @param {boolean} props.isVisible Control the visibility of the popup
  * @param {number | {mainAxis: number, crossAxis: number, alignmentAxis?: number}} [props.offset] offset of popped content from
  * @param {(e: React.UIEvent, isVisible: boolean) => void} props.onVisibleChange popup closed; (e, newVisibility) => { ... do something ... }

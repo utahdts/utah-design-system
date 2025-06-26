@@ -273,7 +273,6 @@ export function ComboBoxTextInput({
         placeholder={placeholder}
         rightContent={(
           <IconButton
-            aria-hidden="true"
             className="combo-box-input__chevron icon-button--borderless icon-button--small1x"
             icon={
               iconCallback?.(isOptionsExpanded)

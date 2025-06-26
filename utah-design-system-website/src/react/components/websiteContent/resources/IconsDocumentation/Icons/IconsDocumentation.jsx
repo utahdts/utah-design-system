@@ -32,23 +32,19 @@ export function IconsDocumentation() {
       <hr />
 
       <h2 id="section-icon-resource-location">Icon Resource Location</h2>
-      <p className="mb-spacing-xs">The Utah Design System Icons can be found on the state CDN:</p>
-      <PreCodeForCodeString
-        codeRaw={`
-@font-face {
-  font-family: 'utah design system';
-  src: url('https://cdn.utah.gov/design-system/fonts/utah-design-system.eot');
-  src: url('https://cdn.utah.gov/design-system/fonts/utah-design-system.eot?#iefix') format('embedded-opentype'),
-       url('https://cdn.utah.gov/design-system/fonts/utah-design-system.woff') format('woff'),
-       url('https://cdn.utah.gov/design-system/fonts/utah-design-system.ttf') format('truetype'),
-       url('https://cdn.utah.gov/design-system/fonts/utah-design-system.svg#utah-design-system') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-        `}
-        allowScrollOverflow
-        showBackgroundColor
-      />
+      <p className="mb-spacing-xs">The Utah Design System Icons are now embedded directly in the css file:</p>
+      <div className="mb-spacing">
+        <h4 className="mb-auto">style.css</h4>
+        <PreCodeForCodeString
+          allowScrollOverflow
+          showBackgroundColor
+          className="mb-spacing-s"
+          codeRaw={`
+            https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css
+          `}
+        />
+        <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css" className="button" target="_blank">style.css Download</a>
+      </div>
       <hr />
 
       <h2 id="section-example">Example</h2>
@@ -68,6 +64,35 @@ export function IconsDocumentation() {
           </button>
         ))}
       </div>
+      <StaticExample
+        title="Using icons directly as HTML entities"
+        className="icon-example__static"
+        renderedExample={(
+          <>
+            <div className="icon-example__icon-big">
+              <span
+                className="uds-icon"
+                dangerouslySetInnerHTML={{ __html: `&#x${state.currentIcon?.letter};` }}
+              />
+            </div>
+            <div className="flex-1">
+              <PreCodeForCodeString
+                allowScrollOverflow
+                showBackgroundColor
+                codeRaw={`
+                  <span class="uds-icon">&#x${state.currentIcon?.letter};</span>
+                `}
+              />
+            </div>
+          </>
+        )}
+        quickTips={(
+          <ul>
+            <li>The icon is rendered directly from the font as an HTML entity.</li>
+            <li>The icon character is invisible to screen readers since its unicode value has no meaning.</li>
+          </ul>
+        )}
+      />
       <StaticExample
         title="Accessible Icon Strategy 1"
         className="icon-example__static"

@@ -1,8 +1,5 @@
 declare module "@utahdts/utah-design-system" {
   export namespace popupPlacement {
-    let AUTO: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let AUTO_START: import("@utahdts/utah-design-system-header").PopupPlacement;
-    let AUTO_END: import("@utahdts/utah-design-system-header").PopupPlacement;
     let BOTTOM: import("@utahdts/utah-design-system-header").PopupPlacement;
     let BOTTOM_START: import("@utahdts/utah-design-system-header").PopupPlacement;
     let BOTTOM_END: import("@utahdts/utah-design-system-header").PopupPlacement;
@@ -22,12 +19,12 @@ declare module "@utahdts/utah-design-system" {
   };
   export function useRefAlways<UseRefAlwaysT>(value: UseRefAlwaysT): React.MutableRefObject<UseRefAlwaysT>;
   export function joinClassNames(...classNames: (string | boolean | any[] | null | undefined)[]): string;
-  export function Tooltip({ children, className, innerRef: draftInnerRef, isPopperVisible, offset, placement, referenceElement: draftReferenceElement, }: {
+  export function Tooltip({ children, className, innerRef: draftInnerRef, isPopupVisible, offset, placement, referenceElement: draftReferenceElement, }: {
     children: React.ReactNode;
     className?: string | undefined;
-    innerRef?: React.MutableRefObject<HTMLDivElement | null> | undefined;
-    isPopperVisible?: boolean | undefined;
-    offset?: [number, number] | undefined;
+    innerRef?: React.RefObject<HTMLDivElement | null> | undefined;
+    isPopupVisible?: boolean | undefined;
+    offset?: number | {mainAxis: number, crossAxis: number, alignmentAxis?: number} | undefined;
     placement?: import("@utahdts/utah-design-system-header").PopupPlacement | undefined;
     referenceElement: HTMLElement | null;
   }): React.JSX.Element;
@@ -299,11 +296,11 @@ declare module "@utahdts/utah-design-system" {
     label: string;
     value: string;
   }): React.JSX.Element | null;
-  export function CombBoxListBox({ allowCustomEntry, ariaLabelledById, children, id, popperReferenceElement, }: {
+  export function CombBoxListBox({ allowCustomEntry, ariaLabelledById, children, id, popupReferenceElement, }: {
     allowCustomEntry?: boolean | undefined;
     ariaLabelledById: string;
     children?: React.ReactNode | null;
-    popperReferenceElement: HTMLElement | null;
+    popupReferenceElement: HTMLElement | null;
     id: string;
   }): React.JSX.Element;
   export function useRememberCursorPosition(ref: React.RefObject<HTMLElement>, value: string): React.ChangeEventHandler<HTMLElement>;
@@ -353,7 +350,7 @@ declare module "@utahdts/utah-design-system" {
     placeholder?: string | undefined;
     wrapperClassName?: string | undefined;
   }): React.JSX.Element;
-  export function ComboBox({ allowCustomEntry, children, className, defaultValue, errorMessage, iconCallback, id, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, isShowingClearableIcon, label, labelClassName, name, onChange, onCustomEntry, onClear, onKeyUp, placeholder, popperContentRef, isValueClearedOnSelection, isWrapperSkipped, tagChildren, textInputClassName, value, wrapperClassName, ...rest }: {
+  export function ComboBox({ allowCustomEntry, children, className, defaultValue, errorMessage, iconCallback, id, innerRef: draftInnerRef, isClearable, isDisabled, isRequired, isShowingClearableIcon, label, labelClassName, name, onChange, onCustomEntry, onClear, onKeyUp, placeholder, popupContentRef, isValueClearedOnSelection, isWrapperSkipped, tagChildren, textInputClassName, value, wrapperClassName, ...rest }: {
     allowCustomEntry?: boolean | undefined;
     children?: React.ReactNode;
     className?: string | undefined;
@@ -376,7 +373,7 @@ declare module "@utahdts/utah-design-system" {
     onCustomEntry?: ((customValue: string) => void) | undefined;
     onKeyUp?: ((e: Event, currentFilterValue: string) => boolean) | undefined;
     placeholder?: string | undefined;
-    popperContentRef?: HTMLElement | null | undefined;
+    popupContentRef?: HTMLElement | null | undefined;
     tagChildren?: React.ReactNode;
     textInputClassName?: string | undefined;
     value?: string | undefined;
@@ -403,7 +400,7 @@ declare module "@utahdts/utah-design-system" {
     errorMessage?: string | undefined;
     hasCalendarPopup?: boolean | undefined;
     id: string;
-    innerRef?: React.MutableRefObject<HTMLDivElement | null> | undefined;
+    innerRef?: React.RefObject<HTMLDivElement | null> | undefined;
     isClearable?: boolean | undefined;
     isDisabled?: boolean | undefined;
     isRequired?: boolean | undefined;
@@ -797,18 +794,17 @@ declare module "@utahdts/utah-design-system" {
     onKeyDown?: React.KeyboardEventHandler<KeyboardEventHandlerT> | undefined;
     onKeyUp?: React.KeyboardEventHandler<KeyboardEventHandlerT> | undefined;
   }): boolean;
-  export function Popup({ ariaLabelledBy, children, className, hasCloseButton, id, innerRef: draftInnerRef, isVisible, offset, onVisibleChange, placement, popperUpdateDependencies, referenceElement, role, ...rest }: {
+  export function Popup({ ariaLabelledBy, children, className, hasCloseButton, id, innerRef: draftInnerRef, isVisible, offset, onVisibleChange, placement, referenceElement, role, ...rest }: {
     ariaLabelledBy: string;
     children: React.ReactNode;
     className?: string | undefined;
     hasCloseButton?: boolean | undefined;
     id: string;
-    innerRef?: React.MutableRefObject<HTMLDivElement | null> | undefined;
+    innerRef?: React.RefObject<HTMLDivElement | null> | undefined;
     isVisible: boolean;
-    offset?: [number, number] | undefined;
+    offset?: number | {mainAxis: number, crossAxis: number, alignmentAxis?: number} | undefined;
     onVisibleChange: (e: React.UIEvent, isVisible: boolean) => void;
     placement?: import("@utahdts/utah-design-system-header").PopupPlacement | undefined;
-    popperUpdateDependencies?: any[] | undefined;
     referenceElement: React.RefObject<HTMLElement | null>;
     role: "dialog" | "grid" | "listbox" | "menu" | "tree";
   }): React.JSX.Element;
@@ -947,12 +943,12 @@ declare module "@utahdts/utah-design-system" {
     currentValue: string | null;
     placeholder?: string | undefined;
   }): React.JSX.Element;
-  export function TableFilterDateRangePopup({ dateFormat, id, isPopupOpen, onChange, popperReferenceElement, setIsPopupOpen, tableFilterDateId, value, }: {
+  export function TableFilterDateRangePopup({ dateFormat, id, isPopupOpen, onChange, popupReferenceElement, setIsPopupOpen, tableFilterDateId, value, }: {
     dateFormat?: string | undefined;
     id: string;
     isPopupOpen: boolean;
     onChange: (newValue: string) => void;
-    popperReferenceElement: React.RefObject<HTMLDivElement>;
+    popupReferenceElement: React.RefObject<HTMLDivElement>;
     setIsPopupOpen: (isPopupOpen: boolean) => void;
     tableFilterDateId: string;
     value: string;

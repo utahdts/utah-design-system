@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CDN Fallback - async</title>
+  <script type="text/javascript" src="https://unpkg.com/@utahdts/utah-design-system-header@3/dist/utah-design-system-header.umd.js?ver=1.7.1" async="async"></script>
+  <link rel="stylesheet" id="ds-style-css" href="https://unpkg.com/@utahdts/utah-design-system-header@3/dist/style.css?ver=1.7.1" type="text/css" media="all">
+  <script type="text/javascript">
+    function utahHeaderFallback() {
+      const fallbackTimeout = setTimeout(function() {
+        if (!window["@utahdts/utah-design-system-header"]) {
+          console.warn("Utah Header not loaded! Falling back.");
+
+          const originalUnpkgJS = document.querySelector('script[src*="unpkg.com/@utahdts/utah-design-system-header"]');
+          const originalCdnJS = document.querySelector('script[src*="cdn.utah.gov/dts-ds-custom-header-plugin/header-dist"]');
+          const originalUnpkgCSS = document.querySelector('link[href*="unpkg.com/@utahdts/utah-design-system-header"]');
+          const originalCdnCSS = document.querySelector('link[href*="cdn.utah.gov/dts-ds-custom-header-plugin/header-dist"]');
+
+          const utahHeaderJs = document.createElement('script');
+          const utahHeaderCss = document.createElement('link');
+          utahHeaderCss.setAttribute('rel', 'stylesheet');
+
+          if (originalUnpkgJS) {
+            // fallback to cdn.utah.gov
+            utahHeaderJs.setAttribute('src', 'https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v3/utah-design-system-header.umd.js');
+            utahHeaderCss.setAttribute('href', 'https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v3/style.css');
+            originalUnpkgCSS.insertAdjacentElement('afterend', utahHeaderCss);
+            originalUnpkgJS.insertAdjacentElement('afterend', utahHeaderJs);
+          } else {
+            // fallback to unpkg.com
+            utahHeaderJs.setAttribute('src', 'https://unpkg.com/@utahdts/utah-design-system-header@^4/dist/utah-design-system-header.umd.js');
+            utahHeaderCss.setAttribute('href', 'https://unpkg.com/@utahdts/utah-design-system-header@^4/dist/style.css');
+            originalCdnCSS.insertAdjacentElement('afterend', utahHeaderCss);
+            originalCdnJS.insertAdjacentElement('afterend', utahHeaderJs);
+          }
+        }
+      }, 500)
+    }
+    utahHeaderFallback();
+  </script>
+  <script>
+    document.addEventListener('utahHeaderLoaded', () => {
+      window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({
+        title: 'CDN Fallback - async'
+      });
+    });
+  </script>
+</head>
+<body class="utah-design-system">
+  <main class="p-spacing-xl"><h1>Hello, world!</h1></main>
+</body>
+</html>

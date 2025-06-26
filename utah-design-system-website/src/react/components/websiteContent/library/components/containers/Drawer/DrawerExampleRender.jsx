@@ -1,4 +1,13 @@
-import { Button, Drawer, DrawerContent, DrawerFooter, DrawerTitle, joinClassNames } from '@utahdts/utah-design-system';
+import {
+  Button,
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerTitle,
+  ICON_BUTTON_APPEARANCE,
+  IconButton,
+  joinClassNames
+} from '@utahdts/utah-design-system';
 import { useCallback, useState } from 'react';
 
 /** @typedef {import('utah-design-system-website').DrawerExamplePropsShape} DrawerExamplePropsShape */
@@ -84,6 +93,20 @@ export function DrawerExampleRender({
                   Okay
                 </Button>
               </DrawerFooter>
+              {
+                showCloseButton
+                  ? (
+                    <IconButton
+                      appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                      className="drawer__close-button"
+                      icon={<span className="utds-icon-before-x-icon" aria-hidden="true" />}
+                      onClick={() => undefined}
+                      size="small"
+                      title="Close"
+                    />
+                  )
+                  : undefined
+              }
             </dialog>
           </div>
         </div>

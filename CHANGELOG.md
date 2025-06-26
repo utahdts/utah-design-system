@@ -7,28 +7,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [4.0.0] 05/12/2025
 ## Breaking Changes
-- **[Breaking]** Update React to version `19.1.0`
-  - You must upgrade to `React 19` to use `v4.0.0`
-- **[Breaking]** Changed library used to position tooltips / popups. 
-Some props have been updated accordingly.
-  - `ComboBox`:
+- **[⚠️ Breaking]** Update React to version `19.1.0`
+  - You may be required to use `React 19` in order to use `v4.0.0` of the Utah Design System component library.
+- **[⚠️ Breaking]** Changed library used to position tooltips / popups from `Popper` to `Floating UI` (including the Utah Header). Some props have been updated accordingly.
+  - ⚠️ `ComboBox`:
     - `popperContentRef` is now `popupContentRef`
-  - `Popup`:
-    - `offset` type is now:
-      - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
+  - ⚠️ `Popup`:
+    - `offset` type has changed
+      - from `[number, number]` → to → `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
       - default value is now `{mainAxis: 10, crossAxis: 0, alignmentAxis: 0}`
     - `popperUpdateDependencies` has been removed
     - `placement` default value is now `popupPlacement.BOTTOM`
       - values `'auto'`, `'auto-start'` and `'auto-end'` have been removed
     - CSS change: `data-popper-placement` is now `data-popup-placement`
-  - `TableFilterDateRangePopup`:
+  - ⚠️ `TableFilterDateRangePopup`:
     - `popperReferenceElement` is now `popupReferenceElement`
-  - `Tooltip`:
+  - ⚠️ `Tooltip`:
     - `isPopperVisible` is now `isPopupVisible`
-    - `offset` type is now
-      - from `[number, number]` to `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
+    - `offset` type has changed
+      - from `[number, number]` → to → `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
       - default value is now `5`
     - CSS change: `data-popper-placement` is now `data-popup-placement`
+- **[⚠️ Breaking]** Design System Icons have been renumber to the unicode private use area starting with #e900.
+    - If you have used icons via html entities such as `&#xe900;` or directly with the equivalent character you will need to adjust to the new numbering.
+    - NO CHANGE is required if you have used icons using css classes i.e. `<span class="utds-icon-before-star"></span>`.
+- **[⚠️ Breaking]** Design System Icons updates are no longer available as a separate font file. The font file has been embedded directly in the CSS.
+  - NO CHANGE is required if you were not directly downloading the font file.
+  - You must use the Design System CSS to get the icon font.
+
+## Fixed
+- Fixed documentation for `Popup`,`Link`, `Drawer` and `Utah Header`
+- Update ids for menu items to correctly link `aria-labelledby` attribute
+- Added `<fieldset>` to all radio buttons and checkboxes
+- Added CSS to footer links
+- Center text in footer when on mobile size screen
+- Remove extra gap in mobile menu
+- Match placeholder for `SelectInput` with the rest of the Design System
+
+## Update
+- Update contact email address
+- Update documentation regarding the size of clickable elements
+
+## Added
+- Added examples for CDN fallback
+- Added CSS for a search input and updated the example on the text-input page
+
+
 
 # [3.0.5] 03/18/2025
 ## Fixed

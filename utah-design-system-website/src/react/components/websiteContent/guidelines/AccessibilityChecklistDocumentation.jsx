@@ -51,11 +51,13 @@ export function AccessibilityChecklistDocumentation() {
             </li>
             <li><Link to={pageUrls.lists}>Lists</Link> (<code>ul, ol</code>) are used to identify all content that can be described as a list of something.</li>
             <li><Link to={pageUrls.links}>Links</Link> do not include generic text such as &quot;click here&quot; or &quot;view more&quot;.</li>
+            <li>Links are easily identifiable from the rest of the content on a page.</li>
+            <li>Links have a clear hover state: underline or background color change.</li>
             <li>Links that open a new tab have a visual indicator and visually hidden text like &quot;opens in a new tab&quot; to warn screen reader users.</li>
             <li>Links to phone numbers and email address should be readable by screen readers.</li>
             <li>Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.</li>
             <li>
-              <Link to={pageUrls.table}>Tables</Link> should used for presenting rows and columns of data.
+              <Link to={pageUrls.table}>Tables</Link> should be used for presenting rows and columns of data.
               <ul>
                 <li>Never use tables for layout.</li>
                 <li>
@@ -113,9 +115,10 @@ export function AccessibilityChecklistDocumentation() {
           </ul>
         </li>
         <li>
-          Videos
+          Audios/Videos
           <ul>
-            <li>Provide captions or transcripts of videos for those who have limited or no auditory perception.</li>
+            <li>Use players that give the user control over the media (play, pause, stop, and adjust the volume).</li>
+            <li>Provide captions and/or transcripts of the media for those who have limited or no auditory perception.</li>
           </ul>
         </li>
         <li>
