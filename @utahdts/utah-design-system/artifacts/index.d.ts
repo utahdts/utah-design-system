@@ -1488,9 +1488,4 @@ declare module "@utahdts/utah-design-system" {
   }): React.JSX.Element;
   export function useDebugDidIChange<FieldT>(field: FieldT, fieldName: string): void;
   export function useDebugDidIChanges(fields: Record<string, any> | undefined | null, description?: string | undefined): void;
-  export function arrayMatchRecursive({ object, arrayField, isMatchFunc }: {
-    object: Record<string, any>;
-    arrayField: string;
-    isMatchFunc: (arrayItem: any) => boolean;
-  }): boolean;
 }
