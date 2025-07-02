@@ -20,11 +20,6 @@
  */
 
 /**
- * Environments
- * @typedef {'none' | 'a1' | 'a2' | 'a3' | 'custom' | 'unittest'} Environments
- */
-
-/**
  * Events
  * @typedef {'utahHeaderLoaded' | 'utahHeaderUnloaded'} Events
  */
