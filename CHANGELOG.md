@@ -5,10 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [4.0.0] 05/12/2025
+# [4.0.0] 06/02/2025
 ## Breaking Changes
-- **[⚠️ Breaking]** Update React to version `19.1.0`
-  - You may be required to use `React 19` in order to use `v4.0.0` of the Utah Design System component library.
 - **[⚠️ Breaking]** Changed library used to position tooltips / popups from `Popper` to `Floating UI` (including the Utah Header). Some props have been updated accordingly.
   - ⚠️ `ComboBox`:
     - `popperContentRef` is now `popupContentRef`
@@ -32,9 +30,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - If you have used icons via html entities such as `&#xe900;` or directly with the equivalent character you will need to adjust to the new numbering.
     - NO CHANGE is required if you have used icons using css classes i.e. `<span class="utds-icon-before-star"></span>`.
 - **[⚠️ Breaking]** Design System Icons are now on version 2 and found in the following location:
-  - https://cdn.utah.gov/design-system/fonts/v2/
+  - https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.woff
 
 ## Fixed
+- Removed downstream dependency for React, which should allow you to use React 18 or 19 with your project.
 - Fixed documentation for `Popup`,`Link`, `Drawer` and `Utah Header`
 - Update ids for menu items to correctly link `aria-labelledby` attribute
 - Added `<fieldset>` to all radio buttons and checkboxes
@@ -44,8 +43,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Match placeholder for `SelectInput` with the rest of the Design System
 
 ## Update
-- Update contact email address
-- Update documentation regarding the size of clickable elements
+- Updated React to version `19.1.0`
+  - React and other libraries have been excluded from the published library to reduce the size of downstream projects.
+- Updated contact email address
+- Updated and enhanced documentation regarding the size of clickable elements
 
 ## Added
 - Added examples for CDN fallback
