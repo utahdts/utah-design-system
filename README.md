@@ -53,4 +53,4 @@ Department of Government Operations - Division of Technology Services - [dts.uta
 
 ### License
 
-[STATE OF UTAH: MEMORANDUM OF AGREEMENT TO TRANSFER SOFTWARE](https://github.com/utahdts/utah-design-system/tree/main/LICENSE)
+Apache License, Version 2.0
