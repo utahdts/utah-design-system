@@ -9,7 +9,7 @@
 
 @media screen and (max-width: media-size__tablet-portrait__PLACEHOLDER) {
   .utds-header-desktop--hidden {
-    display: block !important;
+    display: flex !important;
   }
   .utds-header-mobile--hidden {
     display: none !important;
