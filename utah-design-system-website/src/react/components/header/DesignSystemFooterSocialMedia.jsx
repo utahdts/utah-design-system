@@ -14,15 +14,6 @@ export function DesignSystemFooterSocialMedia() {
         <span className="visually-hidden">Email us, opens in a new tab</span>
       </a>
       <a
-        href="https://utahdesignsystem.slack.com"
-        className="icon-link"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <IconsWebsite.IconSlack />
-        <span className="visually-hidden">Utah Design System Slack, opens in a new tab</span>
-      </a>
-      <a
         href="https://github.com/utahdts/utah-design-system"
         className="icon-link"
         target="_blank"

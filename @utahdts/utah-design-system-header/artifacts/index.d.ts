@@ -5,10 +5,9 @@ declare module "@utahdts/utah-design-system-header" {
   export type EventAction = ((arg0: MouseEvent | TouchEvent | KeyboardEvent) => void);
   export type AriaHasPopupType = "dialog" | "grid" | "listbox" | "menu" | "tree";
   export type ChildrenMenuTypes = ("flyout" | "inline" | "mega-menu" | "plain");
-  export type Environments = "none" | "a1" | "a2" | "a3" | "custom" | "unittest";
   export type Events = "utahHeaderLoaded" | "utahHeaderUnloaded";
   export type HeaderApplicationTypes = 'wordpress' | 'static site' | 'salesforce' | 'custom application' | 'microsoft power apps' | 'servicenow';
-  export type PopupPlacement = "auto" | "auto-start" | "auto-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end" | "top" | "top-start" | "top-end";
+  export type PopupPlacement = "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end" | "top" | "top-start" | "top-end";
   export type Size = "SMALL" | "MEDIUM" | "LARGE";
   export type UtahIdFetchStyle = "Automatic" | "None" | "Provided";
   export type MainMenuItem = {
@@ -421,16 +420,6 @@ declare module "@utahdts/utah-design-system-header" {
   export function removeHeader(shouldTriggerUnloadEvent: boolean): void;
   export function setUtahHeaderSettings(newSettings: SettingsInput): Settings;
   export function setUtahFooterSettings(footerSettings?: FooterSettings | undefined): FooterSettings | undefined;
-  export type environments = Environments;
-  export function toHash(thing: object | string): number;
-  export function httpRequest({ url, method, headers, timeout, onResolve, onReject, }: {
-    url: string;
-    method: string;
-    headers: Record<string, string>;
-    timeout: number;
-    onResolve: Function;
-    onReject: Function;
-  }): void;
   export function loadTestHeader(settings: Settings): void;
   export namespace mainMenuOn {
     let menuItems: {

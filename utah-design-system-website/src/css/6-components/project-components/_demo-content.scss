@@ -222,13 +222,6 @@
     }
   }
 
-  @media screen and (max-width: 860px) {
-    .faq,
-    .news {
-      padding: 0 var(--spacing-xl);
-    }
-  }
-
   @media screen and (max-width: 800px) {
     .cards.grid-fixed {
       padding: 0 var(--spacing);

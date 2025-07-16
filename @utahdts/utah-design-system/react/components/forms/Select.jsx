@@ -79,7 +79,7 @@ export function Select({
         <select
           aria-describedby={errorMessage ? `${id}-error` : undefined}
           aria-invalid={!!errorMessage}
-          className={joinClassNames(className, showClearIcon ? 'select-input--clear-icon-visible' : null)}
+          className={joinClassNames(className, showClearIcon ? 'select-input--clear-icon-visible' : null, value ? '' : 'select-input--placeholder')}
           defaultValue={defaultValue ?? undefined}
           disabled={isDisabled}
           id={id}

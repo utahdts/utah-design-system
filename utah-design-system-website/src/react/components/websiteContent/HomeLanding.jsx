@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Accordion, ExternalLink, MainContent } from '@utahdts/utah-design-system';
+import { Accordion, ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
 import { LightBox } from '../lightbox/LightBox';
@@ -9,7 +9,7 @@ import { WcagRulesBlock } from './guidelines/WcagRulesBlock';
 
 export function HomeLanding() {
   return (
-    <MainContent className="landing-page-template">
+    <section className="landing-page-template">
       <div className="home-banner">
         <div className="home-banner__title">Utah<br />Design<br />System</div>
       </div>
@@ -282,6 +282,6 @@ export function HomeLanding() {
         </div>
       </div>
 
-    </MainContent>
+    </section>
   );
 }

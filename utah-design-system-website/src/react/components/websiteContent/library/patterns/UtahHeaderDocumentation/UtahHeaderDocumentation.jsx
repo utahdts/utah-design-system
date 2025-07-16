@@ -1752,7 +1752,6 @@ export function UtahHeaderDocumentation() {
                 {
                   ...other settings...,
                   utahId: {
-                    currentUser: null,
                     onSignIn: (e) => window.location.href = \`https://id.utah.gov/login?goto=\${window.location}\`,
                   }
                 }
@@ -1774,8 +1773,7 @@ export function UtahHeaderDocumentation() {
                 {
                   ...other settings...,
                   utahId: {
-                    currentUser: null,
-                    onSignIn: (e) => window.location.href = \`https://id.utah.gov/logout?goto=\${window.location}\`,
+                    onSignOut: (e) => window.location.href = \`https://id.utah.gov/logout?goto=\${window.location}\`,
                   }
                 }
               )

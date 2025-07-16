@@ -7,26 +7,39 @@ import {
   TableSortingRule,
   TableSortingRules, TableWrapper, TextInput
 } from '@utahdts/utah-design-system';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import jeep from '../../../static/images/jeep.jpg';
 import camping from '../../../static/images/camping.jpg';
 
 export function DemoContent() {
+  const [visitors, setVisitors] = useState('')
+
+  const today = new Date();
+
+  const generateDate = (/** @type {number} */ days) => {
+    const xDaysFromNow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + days);
+    const month = (xDaysFromNow.getMonth() + 1).toString().padStart(2, '0'); // Add 1 because getMonth() is 0-indexed
+    const day = xDaysFromNow.getDate().toString().padStart(2, '0');
+    const year = xDaysFromNow.getFullYear();
+    return `${month}/${day}/${year}`;
+  }
+
+
   const eventsRecords = [
     {
       name: 'Junior Ranger Program',
       place: 'Visitor Center',
-      date: '06/26/2024 - 8:00 AM',
+      date: `${generateDate(30)} - 8:00 AM`,
     },
     {
       name: 'Stargazing',
       place: 'Visitor Center',
-      date: '06/28/2024 - 9:00 PM',
+      date: `${generateDate(14)} - 9:00 PM`,
     },
     {
       name: 'Discover Arches',
       place: 'Moab, UT',
-      date: '07/04/2024 - 10:00 AM',
+      date: `${generateDate(21)} - 10:00 AM`,
     },
   ].map((event) => ({
     ...event,
@@ -166,11 +179,10 @@ export function DemoContent() {
           <TableWrapper>
             <Table className="table table--lines-x table--alt table--v-align-center table--full-width">
               <TableHead>
-                <TableSortingRules defaultValue="name">
+                <TableSortingRules defaultValue="date">
                   <TableSortingRule a11yLabel="Name" recordFieldPath="name" />
                   <TableSortingRule a11yLabel="Place" recordFieldPath="place" />
                   <TableSortingRule a11yLabel="Date" recordFieldPath="date" />
-
                 </TableSortingRules>
                 <TableHeadRow>
                   <TableHeadCell recordFieldPath="name" className="text-left">Name</TableHeadCell>
@@ -229,6 +241,8 @@ export function DemoContent() {
                   id="date-input-with-popup"
                   isDisabled={false}
                   label="Date"
+                  value={visitors}
+                  onChange={setVisitors}
                 />
                 <fieldset>
                   <legend>Will you be requiring a guide?</legend>
@@ -252,10 +266,10 @@ export function DemoContent() {
         </div>
       </div>
 
-      <div className="visit">
+      <div className="flex visit">
         <div className="content-width m-auto p-spacing-xl">
           <h2 className="mb-spacing">Visit Us</h2>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap">
             <div className="flex">
               <div>
                 <svg width="50" height="50" viewBox="0 0 50 50">
@@ -336,8 +350,8 @@ export function DemoContent() {
         </div>
       </div>
 
-      <div className="faq">
-        <div className="m-auto content-width">
+      <div className="faq flex">
+        <div className="content-width m-auto p-spacing-xl">
           <div>
             <h2 className="mb-spacing">FAQ</h2>
           </div>
@@ -375,8 +389,8 @@ export function DemoContent() {
         </div>
       </div>
 
-      <div className="news">
-        <div className="content-width m-auto pb-spacing-xl">
+      <div className="news flex">
+        <div className="content-width m-auto p-spacing-xl">
           <div>
             <h2 className="mb-spacing">News</h2>
           </div>

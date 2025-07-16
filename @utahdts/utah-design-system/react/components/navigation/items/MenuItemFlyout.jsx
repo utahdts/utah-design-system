@@ -1,6 +1,6 @@
 import { popupFocusHandler } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
-import { usePopper } from 'react-popper';
+import { autoUpdate, flip, offset as floatingOffset, shift, useFloating } from '@floating-ui/react-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { menuTypes } from '../../../enums/menuTypes';
@@ -31,10 +31,24 @@ export function MenuItemFlyout({
   const [isChildrenOpen, setIsChildrenOpen] = useImmer(false);
   const wrapperElement = useRef(/** @type {HTMLLIElement | null} */(null));
   const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
-  const popperRef = useRef(/** @type {HTMLDivElement | null} */(null));
-  const { styles, attributes } = usePopper(wrapperElement.current, popperRef.current, { placement: 'right-start' });
+  const popupRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
-  useClickOutside([popperRef], () => setIsChildrenOpen(false), !isChildrenOpen);
+  const { floatingStyles } = useFloating({
+    elements: {
+      reference: buttonRef.current,
+      floating: popupRef.current,
+    },
+    open: isChildrenOpen,
+    placement: 'right-start',
+    middleware: [
+      floatingOffset(10),
+      flip(),
+      shift(),
+    ],
+    whileElementsMounted: autoUpdate,
+  });
+
+  useClickOutside([popupRef], () => setIsChildrenOpen(false), !isChildrenOpen);
 
   const isExpanded = () => {
     let retVal;
@@ -45,12 +59,12 @@ export function MenuItemFlyout({
   };
 
   useEffect(() => {
-    if (triggerOnHover && buttonRef?.current && popperRef?.current && !buttonRef?.current.onclick) {
+    if (triggerOnHover && buttonRef?.current && popupRef?.current && !buttonRef?.current.onclick) {
       popupFocusHandler(
         // @ts-expect-error
         wrapperElement.current,
         buttonRef.current,
-        popperRef.current,
+        popupRef.current,
         'menu',
         {
           shouldFocusOnHover: true,
@@ -59,7 +73,7 @@ export function MenuItemFlyout({
         }
       );
     }
-  }, [triggerOnHover, buttonRef, popperRef, buttonRef]);
+  }, [triggerOnHover, buttonRef, popupRef]);
 
   return (
     <li className={menuType === menuTypes.VERTICAL ? 'vertical-menu__item' : 'menu-item'} ref={wrapperElement}>
@@ -120,9 +134,8 @@ export function MenuItemFlyout({
                 isChildrenOpen ? 'popup__wrapper--visible' : 'popup__wrapper--hidden'
               )}
               id={`menu-item__${menuItem.id}__${menuItem.link || 'link'}-popup`}
-              ref={popperRef}
-              style={styles.popper}
-              {...attributes.popper}
+              ref={popupRef}
+              style={floatingStyles}
             >
               <div className="popup__content flyout-menu">
                 <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>

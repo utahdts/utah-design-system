@@ -283,6 +283,12 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
 
   // dividers do not use a title, though title still required in jsDoc for troubleshooting and simplicity of jsDoc
   if (!popupMenuItem.isDivider) {
+    if(popupMenuItem.icon) {
+      const actionItemIcon = renderDOMSingle(popupMenuItem.icon);
+      actionItemIcon.setAttribute('role', 'presentation');
+      titleSpanButton.appendChild(actionItemIcon);
+      titleSpanLink.appendChild(actionItemIcon);
+    }
     titleSpanButton.appendChild(document.createTextNode(popupMenuItem.title));
     titleSpanLink.appendChild(document.createTextNode(popupMenuItem.title));
     if (popupMenuItem.actionUrl?.openInNewTab || popupMenuItem.actionFunctionUrl?.openInNewTab) {

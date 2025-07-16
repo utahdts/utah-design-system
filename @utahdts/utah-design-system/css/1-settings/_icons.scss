@@ -5,12 +5,10 @@
 
 @font-face {
   font-family: "utah design system";
-  src: url("https://cdn.utah.gov/design-system/fonts/utah-design-system.eot");
   src:
-    url("https://cdn.utah.gov/design-system/fonts/utah-design-system.eot?#iefix") format("embedded-opentype"),
-    url("https://cdn.utah.gov/design-system/fonts/utah-design-system.woff") format("woff"),
-    url("https://cdn.utah.gov/design-system/fonts/utah-design-system.ttf") format("truetype"),
-    url("https://cdn.utah.gov/design-system/fonts/utah-design-system.svg#utah-design-system") format("svg");
+    url("https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.woff") format("woff"),
+    url("https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.ttf") format("truetype"),
+    url("https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.svg#utah-design-system") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -19,6 +17,10 @@
 #{class-vars.$base-class} {
   --icon-check-mark-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12.15'%3E%3Cg%3E%3Cpath d='M6.185,12.15L0,5.966,2.335,3.631l3.85,3.849L13.665,0l2.335,2.335L6.185,12.15Z' style='fill: %23fff;'/%3E%3C/g%3E%3C/svg%3E");
   --icon-chevron-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cg%3E%3Crect width='14' height='14' style='fill: none;'/%3E%3Cpath d='M3.142,5l3.716,3.71,3.717-3.71,1.142,1.142-4.859,4.858L2,6.142l1.142-1.142Z' style='fill: %23474747;'/%3E%3C/g%3E%3C/svg%3E");
+
+  .uds-icon {
+    font-family: 'utah design system';
+  }
 
   [class*="utds-icon-before-"],
   [class*="utds-icon-after-"] {
@@ -50,312 +52,322 @@
   }
   .utds-icon-before-external-link::before,
   .utds-icon-after-external-link::after {
-    content: "\0041";
+    content: "\e900";
     font-size: 0.65em;
   }
 
   .utds-icon-before-waffle::before,
   .utds-icon-after-waffle::after {
-    content: "\0042";
+    content: "\e901";
   }
 
   .utds-icon-before-alert::before,
   .utds-icon-after-alert::after {
-    content: "\0043";
+    content: "\e902";
   }
 
   .utds-icon-before-help::before,
   .utds-icon-after-help::after {
-    content: "\0044";
+    content: "\e903";
   }
 
   .utds-icon-before-bookmark::before,
   .utds-icon-after-bookmark::after {
-    content: "\0045";
+    content: "\e904";
   }
 
   .utds-icon-before-search::before,
   .utds-icon-after-search::after {
-    content: "\0046";
+    content: "\e905";
   }
 
   .utds-icon-before-check::before,
   .utds-icon-after-check::after {
-    content: "\0047";
+    content: "\e906";
   }
 
   .utds-icon-before-star::before,
   .utds-icon-after-star::after {
-    content: "\0048";
+    content: "\e907";
   }
 
   .utds-icon-before-info::before,
   .utds-icon-after-info::after {
-    content: "\0049";
+    content: "\e908";
   }
 
   .utds-icon-before-unfold-less::before,
   .utds-icon-after-unfold-less::after {
-    content: "\004a";
+    content: "\e909";
   }
 
   .utds-icon-before-unfold-more::before,
   .utds-icon-after-unfold-more::after {
-    content: "\004b";
+    content: "\e90a";
   }
 
   .utds-icon-before-circle-chevron-down::before,
   .utds-icon-after-circle-chevron-down::after {
-    content: "\004c";
+    content: "\e90b";
   }
 
   .utds-icon-before-circle-chevron-up::before,
   .utds-icon-after-circle-chevron-up::after {
-    content: "\004d";
+    content: "\e90c";
   }
 
   .utds-icon-before-chevron-up::before,
   .utds-icon-after-chevron-up::after {
-    content: "\004e";
+    content: "\e90d";
   }
 
   .utds-icon-before-chevron-right::before,
   .utds-icon-after-chevron-right::after {
-    content: "\004f";
+    content: "\e90e";
   }
 
   .utds-icon-before-chevron-down::before,
   .utds-icon-after-chevron-down::after {
-    content: "\0050";
+    content: "\e90f";
   }
 
   .utds-icon-before-chevron-left::before,
   .utds-icon-after-chevron-left::after {
-    content: "\0051";
+    content: "\e910";
   }
 
   .utds-icon-before-arrow-up::before,
   .utds-icon-after-arrow-up::after {
-    content: "\0052";
+    content: "\e911";
   }
 
   .utds-icon-before-arrow-right::before,
   .utds-icon-after-arrow-right::after {
-    content: "\0053";
+    content: "\e912";
   }
 
   .utds-icon-before-arrow-down::before,
   .utds-icon-after-arrow-down::after {
-    content: "\0054";
+    content: "\e913";
   }
 
   .utds-icon-before-arrow-left::before,
   .utds-icon-after-arrow-left::after {
-    content: "\0055";
+    content: "\e914";
   }
 
   .utds-icon-before-plus::before,
   .utds-icon-after-plus::after {
-    content: "\0056";
+    content: "\e915";
   }
 
   .utds-icon-before-minus::before,
   .utds-icon-after-minus::after {
-    content: "\0057";
+    content: "\e916";
   }
 
   .utds-icon-before-x-icon::before,
   .utds-icon-after-x-icon::after {
-    content: "\0058";
+    content: "\e917";
   }
 
   .utds-icon-before-edit::before,
   .utds-icon-after-edit::after {
-    content: "\0059";
+    content: "\e918";
   }
 
   .utds-icon-before-edit-box::before,
   .utds-icon-after-edit-box::after {
-    content: "\005a";
+    content: "\e919";
   }
 
   .utds-icon-before-verified::before,
   .utds-icon-after-verified::after {
-    content: "\0061";
+    content: "\e91a";
   }
 
   .utds-icon-before-gear::before,
   .utds-icon-after-gear::after {
-    content: "\0062";
+    content: "\e91b";
   }
 
   .utds-icon-before-doc::before,
   .utds-icon-after-doc::after {
-    content: "\0063";
+    content: "\e91c";
   }
 
   .utds-icon-before-doc-square::before,
   .utds-icon-after-doc-square::after {
-    content: "\0064";
+    content: "\e91d";
   }
 
   .utds-icon-before-warning::before,
   .utds-icon-after-warning::after {
-    content: "\0065";
+    content: "\e91e";
   }
 
   .utds-icon-before-error::before,
   .utds-icon-after-error::after {
-    content: "\0066";
+    content: "\e91f";
   }
 
   .utds-icon-before-copy::before,
   .utds-icon-after-copy::after {
-    content: "\0067";
+    content: "\e920";
   }
 
   .utds-icon-before-home-menu::before,
   .utds-icon-after-home-menu::after {
-    content: "\0068";
+    content: "\e921";
   }
 
   .utds-icon-before-hamburger::before,
   .utds-icon-after-hamburger::after {
-    content: "\0069";
+    content: "\e922";
   }
 
   .utds-icon-before-account::before,
   .utds-icon-after-account::after {
-    content: "\006a";
+    content: "\e923";
   }
 
   .utds-icon-before-lock::before,
   .utds-icon-after-lock::after {
-    content: "\006b";
+    content: "\e924";
   }
 
   .utds-icon-before-more-vertical::before,
   .utds-icon-after-more-vertical::after {
-    content: "\006c";
+    content: "\e925";
   }
 
   .utds-icon-before-more-horizontal::before,
   .utds-icon-after-more-horizontal::after {
-    content: "\006d";
+    content: "\e926";
   }
 
   .utds-icon-before-download::before,
   .utds-icon-after-download::after {
-    content: "\006e";
+    content: "\e927";
   }
 
   .utds-icon-before-upload::before,
   .utds-icon-after-upload::after {
-    content: "\006f";
+    content: "\e928";
   }
 
   .utds-icon-before-favorite::before,
   .utds-icon-after-favorite::after {
-    content: "\0070";
+    content: "\e929";
   }
 
   .utds-icon-before-visibility::before,
   .utds-icon-after-visibility::after {
-    content: "\0071";
+    content: "\e92a";
   }
 
   .utds-icon-before-visibility-off::before,
   .utds-icon-after-visibility-off::after {
-    content: "\0072";
+    content: "\e92b";
   }
 
   .utds-icon-before-trash::before,
   .utds-icon-after-trash::after {
-    content: "\0073";
+    content: "\e92c";
   }
 
   .utds-icon-before-calendar::before,
   .utds-icon-after-calendar::after {
-    content: "\0074";
+    content: "\e92d";
   }
 
   .utds-icon-before-clock::before,
   .utds-icon-after-clock::after {
-    content: "\0075";
+    content: "\e92e";
   }
 
   .utds-icon-before-double-arrow-up::before,
   .utds-icon-after-double-arrow-up::after {
-    content: "\0076";
+    content: "\e92f";
   }
 
   .utds-icon-before-double-arrow-right::before,
   .utds-icon-after-double-arrow-right::after {
-    content: "\0077";
+    content: "\e930";
   }
 
   .utds-icon-before-double-arrow-down::before,
   .utds-icon-after-double-arrow-down::after {
-    content: "\0078";
+    content: "\e931";
   }
 
   .utds-icon-before-double-arrow-left::before,
   .utds-icon-after-double-arrow-left::after {
-    content: "\0079";
+    content: "\e932";
   }
 
   .utds-icon-before-filter::before,
   .utds-icon-after-filter::after {
-    content: "\007a";
+    content: "\e933";
   }
 
   .utds-icon-before-restart::before,
   .utds-icon-after-restart::after {
-    content: "\007b";
+    content: "\e934";
   }
 
   .utds-icon-before-sync::before,
   .utds-icon-after-sync::after {
-    content: "\007c";
+    content: "\e935";
   }
 
   .utds-icon-before-refresh::before,
   .utds-icon-after-refresh::after {
-    content: "\007d";
+    content: "\e936";
   }
 
   .utds-icon-before-light-mode::before,
   .utds-icon-after-light-mode::after {
-    content: "\007e";
+    content: "\e937";
   }
 
   .utds-icon-before-dark-mode::before,
   .utds-icon-after-dark-mode::after {
-    content: "\0030";
+    content: "\e938";
   }
 
   .utds-icon-before-mail::before,
   .utds-icon-after-mail::after {
-    content: "\0031";
+    content: "\e939";
   }
 
   .utds-icon-before-share::before,
   .utds-icon-after-share::after {
-    content: "\0032";
+    content: "\e93a";
   }
 
   .utds-icon-before-policy::before,
   .utds-icon-after-policy::after {
-    content: "\0033";
+    content: "\e93b";
   }
 
   .utds-icon-before-login::before,
   .utds-icon-after-login::after {
-    content: "\0034";
+    content: "\e93c";
   }
 
   .utds-icon-before-logout::before,
   .utds-icon-after-logout::after {
-    content: "\0035";
+    content: "\e93d";
+  }
+
+  .utds-icon-before-circle-check::before,
+  .utds-icon-after-circle-check::after {
+    content: "\e93e";
+  }
+
+  .utds-icon-before-mail-open::before,
+  .utds-icon-after-mail-open::after {
+    content: "\e93f";
   }
 }

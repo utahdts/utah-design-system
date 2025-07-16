@@ -42,11 +42,7 @@
       }
     }
     &__icon-search {
-      position: absolute;
-      top: calc(50% + 2px);
-      left: var(--spacing);
       &[class*=utds-icon-before-]::before {
-        display: block;
         font-size: 1.3rem;
       }
     }

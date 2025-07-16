@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import {
+  ExternalLink,
   ICON_BUTTON_APPEARANCE, IconButton, popupPlacement, Tab, TabGroup, TabList, TabPanel, TabPanels, useBanner
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
@@ -25,7 +26,7 @@ export function TooltipsDocumentation() {
       <h2 id="section-example">Example</h2>
       <SandboxExample
         defaultProps={{
-          isPopperVisible: false,
+          isPopupVisible: false,
           offsetDistance: '0',
           offsetSkidding: '5',
           placement: popupPlacement.BOTTOM,
@@ -35,6 +36,28 @@ export function TooltipsDocumentation() {
         PROPS_EXAMPLE={TooltipsExampleProps}
         CODE_EXAMPLE={TooltipsExampleCodeReact}
       />
+      <div className="home-page__color-card home-page__card-wide mb-spacing-l">
+        <h3 className="home-page__color-card-title flex mb-spacing-xs"><span className="utds-icon-before-info mr-spacing-xs" aria-hidden="true" /> Note
+        </h3>
+        <p>
+          Starting with version <code className="color-picker--light">4.0.0</code>, the Design System uses <code className="color-picker--light">@floating-ui/react-dom</code>.
+        </p>
+        <p>
+          The offset property has been updated accordingly. You will need to make the following changes:
+        </p>
+        <PreCodeForCodeString
+          className="gray-block color-picker--light my-spacing"
+          codeRaw={`// Before
+offset: [0, 10]
+
+// Now
+offset: {
+  mainAxis: 10,
+  crossAxis: 0
+}`}
+        />
+        See <ExternalLink href="https://floating-ui.com/docs/offset">official documentation</ExternalLink>.
+      </div>
       <StaticExample
         title="Tooltip Example"
         renderedExample={(

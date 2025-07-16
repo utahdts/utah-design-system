@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "3.0.5",
+  "version": "4.0.0",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -32,9 +32,6 @@
     "dist",
     "react"
   ],
-  "peerDependencies": {
-    "react": "18.x"
-  },
   "scripts": {
     "build": "vite build",
     "buildw": "vite build --watch",
@@ -62,35 +59,37 @@
     "components"
   ],
   "author": "DTS Digital Experience <dtsui@utah.gov>",
-  "license": "State of Utah - TOT",
+  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/utahdts/utah-design-system/issues"
   },
   "homepage": "https://github.com/utahdts/utah-design-system",
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
   "dependencies": {
-    "@utahdts/utah-design-system-header": "3.0.5",
+    "@floating-ui/react-dom": "2.1.2",
+    "@utahdts/utah-design-system-header": "4.0.0",
     "date-fns": "4.1.0",
     "immer": "10.1.1",
     "lodash": "4.17.21",
-    "prop-types": "15.8.1",
-    "react": "18.x",
-    "react-popper": "2.3.0",
     "use-immer": "0.11.0",
     "uuid": "11.1.0"
   },
   "devDependencies": {
-    "@types/lodash": "4.17.16",
-    "@types/react": "19.0.12",
-    "@types/react-dom": "19.0.4",
+    "@types/lodash": "4.17.17",
+    "@types/react": "19.1.5",
+    "@types/react-dom": "19.1.5",
     "@types/uuid": "10.0.0",
-    "@vitejs/plugin-react": "4.3.4",
-    "@vitest/coverage-istanbul": "3.0.9",
-    "@vitest/ui": "3.0.9",
-    "jsdom": "26.0.0",
-    "sass": "1.86.0",
-    "typescript": "5.8.2",
-    "vite": "6.2.2",
-    "vitest": "3.0.9"
+    "@vitejs/plugin-react": "4.4.1",
+    "@vitest/coverage-istanbul": "3.1.4",
+    "@vitest/ui": "3.1.4",
+    "jsdom": "26.1.0",
+    "prop-types": "15.8.1",
+    "sass": "1.89.0",
+    "typescript": "5.8.3",
+    "vite": "6.3.5",
+    "vitest": "3.1.4"
   },
   "type": "module"
 }
