@@ -301,12 +301,15 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     menuAHref.classList.add(selectedClassName);
   }
 
-  if (popupMenuItem.isSelected) {
-    // toggle open the selected menu item so that the mobile menu shows the expanded path to this menu item
-    toggleChildMenuExpansion(menuItemWrapper);
-    menuItemWrapper.classList.add(selectedClassName);
-  } else {
-    menuItemWrapper.classList.remove(selectedClassName);
+  // this is needed because the main menu may have a mega in it which doesn't have a button to expand
+  if (options.childrenMenuType !== childrenMenuTypes.MEGA_MENU) {
+    if (popupMenuItem.isSelected) {
+      // toggle open the selected menu item so that the mobile menu shows the expanded path to this menu item
+      toggleChildMenuExpansion(menuItemWrapper);
+      menuItemWrapper.classList.add(selectedClassName);
+    } else {
+      menuItemWrapper.classList.remove(selectedClassName);
+    }
   }
 
   if (popupMenuItem.className) {
