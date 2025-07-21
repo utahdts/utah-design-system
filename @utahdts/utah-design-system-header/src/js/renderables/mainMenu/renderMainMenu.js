@@ -197,6 +197,12 @@ export function renderMainMenu() {
         menuItemTitleElement.setAttribute('target', '_blank');
         menuItemTitleElement.appendChild(renderDOMSingle(NewTabAccessibility));
       }
+
+      if(menuItem.icon) {
+        const actionItemIcon = renderDOMSingle(menuItem.icon);
+        actionItemIcon.setAttribute('role', 'presentation');
+        menuItemTitleElement.insertBefore(actionItemIcon, menuItemTitleSpanElement);
+      }
     });
   }
 

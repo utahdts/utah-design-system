@@ -1,4 +1,4 @@
-import { createPopper } from '@popperjs/core';
+import { arrow, autoUpdate, computePosition, flip, offset, shift } from '@floating-ui/dom';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { PopupPlacement } from '../../enumerations/popupPlacement';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
@@ -12,6 +12,11 @@ let tooltipCloseTimeoutId = NaN;
 export function hookupTooltip(element, dom) {
   const tooltip = renderDOMSingle(TooltipHTML);
   const tooltipContent = tooltip.querySelector(getCssClassSelector(domConstants.TOOLTIP__CONTENT));
+  const tooltipArrow = tooltip.querySelector(getCssClassSelector(domConstants.TOOLTIP__ARROW));
+  /**
+     * @type {() => void}
+   */
+  let cleanup;
   if (!tooltipContent) {
     throw new Error('hookupTooltip: tooltipContent not found');
   }
@@ -19,19 +24,36 @@ export function hookupTooltip(element, dom) {
 
   element.appendChild(tooltip);
 
-  const tooltipPopper = createPopper(
+  const middleware = [
+    offset(5),
+    flip(),
+    shift(),
+  ]
+  if (tooltipArrow) {
+    middleware.push(arrow({element: tooltipArrow}));
+  }
+
+  const updatePosition = () => computePosition(
     element,
     tooltip,
     {
       placement: PopupPlacement.BOTTOM,
-      modifiers: [
-        {
-          name: 'offset',
-          options: { offset: [0, 5] },
-        },
-      ],
+      middleware,
     }
-  );
+  ).then(({x, y, middlewareData}) => {
+    tooltip.setAttribute('data-popup-placement', PopupPlacement.BOTTOM);
+    Object.assign(tooltip.style, {
+      left: `${x}px`,
+      top: `${y}px`,
+    });
+    if(tooltipArrow) {
+      // @ts-expect-error Position the arrow
+      Object.assign(tooltipArrow?.style, {
+        left: `${middlewareData.arrow?.x}px`,
+        top: `${middlewareData?.arrow?.y}px`,
+      });
+    }
+  });
 
   if (element.onmouseenter || element.onmouseleave) {
     throw new Error('hookupTooltip: element already has an onmouseenter and/or onmouseleave event');
@@ -51,9 +73,12 @@ export function hookupTooltip(element, dom) {
         if (!popup || popup.classList.contains(domConstants.POPUP__HIDDEN)) {
           tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__HIDDEN);
           tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__VISIBLE);
-          tooltipPopper.update()
-            // eslint-disable-next-line no-console
-            .catch((e) => console.error(e));
+          // Call autoUpdate() only when the floating element is open
+          cleanup = autoUpdate(
+            element,
+            tooltip,
+            updatePosition
+          );
         }
       },
       // tooltip was already opened on another item, so instantly open tooltip
@@ -66,6 +91,8 @@ export function hookupTooltip(element, dom) {
     clearTimeout(tooltipOpenTimeoutId);
     tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__HIDDEN);
     tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__VISIBLE);
+    // Call the cleanup function to stop the auto updates
+    if (typeof cleanup === 'function') { cleanup(); }
     clearTimeout(tooltipCloseTimeoutId);
     tooltipCloseTimeoutId = window.setTimeout(
       () => {

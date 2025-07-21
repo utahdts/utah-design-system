@@ -13,6 +13,7 @@ export const pageUrls = {
   banners: /** @type {PageUrl} */ ('/library/components/popups/banners'),
   blockquote: /** @type {PageUrl} */ ('/library/components/textLayout/blockQuote'),
   breadcrumb: /** @type {PageUrl} */ ('/library/components/navigationLinks/breadcrumb'),
+  browserCompatibility: /** @type {PageUrl} */ ('/guidelinesStandards/browserCompatibility'),
   button: /** @type {PageUrl} */ ('/library/components/buttonsTags/button'),
   card: /** @type {PageUrl} */ ('/library/components/containers/card'),
   carousel: /** @type {PageUrl} */ ('/library/components/slidersCarousels/carousel'),

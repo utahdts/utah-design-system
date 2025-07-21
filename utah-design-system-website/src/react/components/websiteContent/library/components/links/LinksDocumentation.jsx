@@ -94,6 +94,14 @@ export function LinksDocumentation() {
           or can break when being viewed on a mobile device. Using descriptive links can also improve SEO.
         </li>
         <li>
+          <strong>Appearance.</strong> Links should be easily identified from the rest of the content on a page.
+          Use both color and some form of styling (underlined, bolded, or italicized) to highlight them.<br/>
+          <strong>Note</strong>: this rule does not apply when a link is part of some navigation such as in main menus.
+        </li>
+        <li>
+          <strong>Interaction.</strong> Ensure links have a clear hover state, like an underline or background color change, to provide visual feedback to the user.
+        </li>
+        <li>
           <strong>Minimize using duplicate text language on a page with multiple links.</strong> This can cause issues using screen readers, when there are multiple links using
           the text, &quot;click here&quot;, &quot;click here&quot;, &quot;click here&quot;, etc.
         </li>
@@ -144,9 +152,9 @@ export function LinksDocumentation() {
             codeRaw={`
               <a href="https://google.com" target="_blank" rel="noreferrer">
                 external link
-                <span className="utds-new-tab-link-a11y">
-                  <span className="visually-hidden">opens in a new tab</span>
-                  <span className="utds-icon-after-external-link" aria-hidden="true" />
+                <span class="utds-new-tab-link-a11y">
+                  <span class="visually-hidden">opens in a new tab</span>
+                  <span class="utds-icon-after-external-link" aria-hidden="true" />
                 </span>
               </a>
             `}

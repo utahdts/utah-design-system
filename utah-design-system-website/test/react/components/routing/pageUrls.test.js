@@ -68,7 +68,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
     // add entry for menuItem
     const menuItemPath = `${basePath}/${cleanMenuItemTitlePath(menuItem.title)}`;
     if (pageUrl) {
-      pagePaths[notNull(pageUrlReverseLookup[pageUrl], 'reverse lookup will always get a value')] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
+      pagePaths[notNull(pageUrlReverseLookup[pageUrl], `reverse lookup will always get a value: ${pageUrl}`)] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
     }
 
     // add menuItem's children to the object

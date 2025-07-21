@@ -6,6 +6,7 @@ import { Search } from '../websiteContent/Search';
 import { AccessibilityChecklistDocumentation } from '../websiteContent/guidelines/AccessibilityChecklistDocumentation';
 import { AccessibilityDocumentation } from '../websiteContent/guidelines/AccessibilityDocumentation';
 import { AccessibilityForDesigners } from '../websiteContent/guidelines/AccessibilityForDesigners';
+import { BrowserCompatibilityMobileFirst } from '../websiteContent/guidelines/BrowserCompatibilityMobileFirst';
 import { ColorGuidelinesDocumentation } from '../websiteContent/guidelines/ColorGuidelinesDocumentation';
 import { DataPrivacyDocumentation } from '../websiteContent/guidelines/DataPrivacyDocumentation';
 import { DataVisualizationsDocumentation } from '../websiteContent/guidelines/DataVisualizationsDocumentation';
@@ -158,6 +159,16 @@ export const pages = {
   }),
 
   // === guidelines/standards === //
+  accessibilityChecklist: /** @type {Page} */ ({
+    content: AccessibilityChecklistDocumentation,
+    legacyLinks: [
+      '/guidelinesStandards/accessibilityChecklist',
+    ],
+    link: pageUrls.accessibilityChecklist,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Accessibility Checklist & Testing',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
   accessibility: /** @type {Page} */ ({
     content: AccessibilityDocumentation,
     legacyLinks: ['/guidelinesStandards/accessibility'],
@@ -173,13 +184,14 @@ export const pages = {
     pageTitle: 'Accessibility for Designers',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
-  accessibilityTestingPage: /** @type {Page} */ ({
-    content: AccessibilityTesting,
-    link: pageUrls.accessibilityTesting,
-    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
-    pageTitle: 'Accessibility Testing',
-    template: layoutTemplatesEnum.LANDING_TEMPLATE,
+  browserCompatibilityPage: /** @type {Page} */ ({
+    content: BrowserCompatibilityMobileFirst,
+    link: pageUrls.browserCompatibility,
+    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
+    pageTitle: 'Browser Compatibility & Mobile First',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
+
   // === guidelines documentation components - design === //
   colorGuidelines: /** @type {Page} */ ({
     content: ColorGuidelinesDocumentation,
@@ -304,15 +316,13 @@ export const pages = {
   }),
 
   // === resources documentation components === //
-  accessibilityTesting: /** @type {Page} */ ({
-    content: AccessibilityChecklistDocumentation,
-    legacyLinks: [
-      '/guidelinesStandards/accessibilityChecklist',
-    ],
-    link: pageUrls.accessibilityChecklist,
-    menuSecondary: menusEnum.SECONDARY_MENU_GUIDELINES,
-    pageTitle: 'Accessibility Checklist & Testing',
-    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  //TODO: 👇 This is not really being used
+  accessibilityTestingPage: /** @type {Page} */ ({
+    content: AccessibilityTesting,
+    link: pageUrls.accessibilityTesting,
+    menuSecondary: menusEnum.SECONDARY_MENU_RESOURCES,
+    pageTitle: 'Accessibility Testing',
+    template: layoutTemplatesEnum.LANDING_TEMPLATE,
   }),
   demo: /** @type {Page} */ ({
     content: Demo,
@@ -666,6 +676,13 @@ export const pages = {
     link: pageUrls.radioButton,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Radio Button',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
+  }),
+  searchInput: /** @type {Page} */ ({
+    content: TextInputDocumentation,
+    link: `${pageUrls.textInput}#search-input`,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'Search Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
   select: /** @type {Page} */ ({

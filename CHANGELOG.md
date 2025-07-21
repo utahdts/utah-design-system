@@ -5,6 +5,65 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [4.1.0] 07/15/2025
+## Added
+- Browser Compatibility, Mobile-First, Acceptance Testing, and SDLC documentation page.
+
+## Fixed
+- Fixed styling of the search button when it appears in the header if there is no menu.
+- Fixed styling of the mobile menu bar when there is no menu.
+
+
+
+# [4.0.0] 06/02/2025
+## Breaking Changes
+- **[⚠️ Breaking]** Changed library used to position tooltips / popups from `Popper` to `Floating UI` (including the Utah Header). Some props have been updated accordingly.
+  - ⚠️ `ComboBox`:
+    - `popperContentRef` is now `popupContentRef`
+  - ⚠️ `Popup`:
+    - `offset` type has changed
+      - from `[number, number]` → to → `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
+      - default value is now `{mainAxis: 10, crossAxis: 0, alignmentAxis: 0}`
+    - `popperUpdateDependencies` has been removed
+    - `placement` default value is now `popupPlacement.BOTTOM`
+      - values `'auto'`, `'auto-start'` and `'auto-end'` have been removed
+    - CSS change: `data-popper-placement` is now `data-popup-placement`
+  - ⚠️ `TableFilterDateRangePopup`:
+    - `popperReferenceElement` is now `popupReferenceElement`
+  - ⚠️ `Tooltip`:
+    - `isPopperVisible` is now `isPopupVisible`
+    - `offset` type has changed
+      - from `[number, number]` → to → `number | {mainAxis: number, crossAxis: number, alignmentAxis: number}`
+      - default value is now `5`
+    - CSS change: `data-popper-placement` is now `data-popup-placement`
+- **[⚠️ Breaking]** Design System Icons have been renumber to the unicode private use area starting with #e900.
+    - If you have used icons via html entities such as `&#xe900;` or directly with the equivalent character you will need to adjust to the new numbering.
+    - NO CHANGE is required if you have used icons using css classes i.e. `<span class="utds-icon-before-star"></span>`.
+- **[⚠️ Breaking]** Design System Icons are now on version 2 and found in the following location:
+  - https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.woff
+
+## Fixed
+- Removed downstream dependency for React, which should allow you to use React 18 or 19 with your project.
+- Fixed documentation for `Popup`,`Link`, `Drawer` and `Utah Header`
+- Update ids for menu items to correctly link `aria-labelledby` attribute
+- Added `<fieldset>` to all radio buttons and checkboxes
+- Added CSS to footer links
+- Center text in footer when on mobile size screen
+- Remove extra gap in mobile menu
+- Match placeholder for `SelectInput` with the rest of the Design System
+
+## Update
+- Updated React to version `19.1.0`
+  - React and other libraries have been excluded from the published library to reduce the size of downstream projects.
+- Updated contact email address
+- Updated and enhanced documentation regarding the size of clickable elements
+
+## Added
+- Added examples for CDN fallback
+- Added CSS for a search input and updated the example on the text-input page
+
+
+
 # [3.0.5] 03/18/2025
 ## Fixed
 - Fixed mobile UtahId button to only sign in if not signed in

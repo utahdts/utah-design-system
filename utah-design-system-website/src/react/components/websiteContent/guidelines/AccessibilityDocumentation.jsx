@@ -192,6 +192,13 @@ export function AccessibilityDocumentation() {
               The link text should accurately describe where or what is being linked to. This will also help your page achieve a better SEO score.
             </li>
             <li>
+              Links should be easily identified from the rest of the content on a page.
+              Use both color and some form of styling (underlined, bolded, or italicized) to highlight them (links as part of navigation are exempt).
+            </li>
+            <li>
+              Links should have a clear hover state: underline or background color change.
+            </li>
+            <li>
               Links that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.
               For example: <ExternalLink href="https://www.google.com/search?q=arches+national+park">Arches National Park</ExternalLink>
             </li>
@@ -605,9 +612,8 @@ export function AccessibilityDocumentation() {
           and adjust the volume.
         </li>
         <li>
-          <strong>Captions.</strong> Captions provide a text based alternative that is synchronized to the audio being played. It is highly
-          recommended to use a media player that also allows the user to change the size and color of the captions. These can also be
-          known as &quot;sub-titles&quot; and is available with most media players. To view more information on captions see
+          <strong>Captions.</strong> Captions provide a text based alternative that is synchronized to the audio being played. To ensure optimal accessibility, use a media player that also allows the user to change the size and color of the captions. These can also be
+          known as &quot;sub-titles&quot; and is available with most media players. To view more information on this requirement see
           the <ExternalLink href="https://www.w3.org/WAI/media/av/captions/">w3.org page on Captions/Subtitles</ExternalLink>.
           <StaticExample
             renderedExample={<LightBox image={captionsImg} alt="Video providing captions" />}
@@ -615,9 +621,9 @@ export function AccessibilityDocumentation() {
           />
         </li>
         <li>
-          <strong>Transcripts.</strong> Transcripts refers to a written version of the spoken content in an audio or video file. Not only
+          <strong>Transcripts.</strong> Transcripts refer to a written version of the spoken content in an audio or video file. Not only
           does this benefit individuals who are deaf or hard of hearing, but also people who may have difficulty understanding or processing
-          spoken language. For more information on how to get or create transcripts please refer to
+          spoken language. For more information on this requirement and on how to get or create transcripts, please refer to
           the <ExternalLink href="https://www.w3.org/WAI/media/av/transcripts/#creating-transcripts+">w3.orgs&apos; information on Creating Transcripts</ExternalLink>.
         </li>
       </ul>

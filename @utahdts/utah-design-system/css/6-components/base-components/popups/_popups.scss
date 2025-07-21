@@ -77,7 +77,7 @@ $dsc: rgb(0, 0, 0);
       }
     }
 
-    &__wrapper[data-popper-placement^="top"] {
+    &__wrapper[data-popup-placement^="top"] {
       .popup__content {
         transform-origin: bottom;
       }
@@ -90,7 +90,7 @@ $dsc: rgb(0, 0, 0);
       }
     }
 
-    &__wrapper[data-popper-placement^="bottom"] {
+    &__wrapper[data-popup-placement^="bottom"] {
       .popup__content {
         transform-origin: top;
       }
@@ -103,7 +103,7 @@ $dsc: rgb(0, 0, 0);
       }
     }
 
-    &__wrapper[data-popper-placement^="left"] {
+    &__wrapper[data-popup-placement^="left"] {
       .popup__content {
         transform-origin: right;
       }
@@ -116,7 +116,7 @@ $dsc: rgb(0, 0, 0);
       }
     }
 
-    &__wrapper[data-popper-placement^="right"] {
+    &__wrapper[data-popup-placement^="right"] {
       .popup__content {
         transform-origin: left;
       }
