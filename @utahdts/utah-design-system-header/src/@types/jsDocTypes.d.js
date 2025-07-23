@@ -307,21 +307,26 @@
  */
 
 /**
- * A single notification
- * @typedef NotificationItem {
- *  @property {string} agencyDivisionFilename - the agency/division brand (found on cdn.utah.gov)
- *  @property {string} agencyDivisionName - the agency/division name (used for describing the brand image)
- *  @property {string} createDate - the date the notification was published
- *  @property {string} cursor - the cursor for pagination
- *  @property {string | null} expireDate - the date the notification will expire
- *  @property {string} icon - the icon for the card
- *  @property {string} id - the record id
- *  @property {string | null} isReadDate - the date the notification was read
- *  @property {string} linkText - the notification link text
- *  @property {string} linkUrl - the notification link URL
- *  @property {string} message - the notification message
- *  @property {string} title - the title of the notification
+ * A single notification from the API
+ * @typedef NotificationNode {
+ *  @property {string} createDate - The date and time when the notification was created, in a string format (e.g., "MM/DD/YYYY HH:mm:ss").
+ *  @property {string} expireDate - The date and time when the notification expires, in a string format (e.g., "MM/DD/YYYY HH:mm:ss").
+ *  @property {string} icon - The name or identifier for the icon associated with the notification (e.g., "clock").
+ *  @property {string} id - A unique identifier for the notification.
+ *  @property {boolean} isRead - Indicates whether the notification has been read by the user.
+ *  @property {string} linkText - The display text for a call-to-action link within the notification (e.g., "Read More").
+ *  @property {string} linkUrl - The URL that the call-to-action link points to (e.g., "dld.utah.gov").
+ *  @property {string} logoDescription - A description for the logo image, typically for accessibility (alt text).
+ *  @property {string} logoUrl - The URL of the logo image associated with the notification.
+ *  @property {string} message - The main body text or content of the notification.
+ *  @property {string} title - The title or subject of the notification.
  * }
+ */
+
+/**
+ * A 'node' wrapper for a single notification from the API
+ * @typedef {Object} NotificationAPI
+ * @property {NotificationNode} node - The core notification data object.
  */
 
 export default false;

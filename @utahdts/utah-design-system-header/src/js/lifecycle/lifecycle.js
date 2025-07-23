@@ -15,7 +15,7 @@ import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderabl
 import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
 import { renderMobileMenuHomeMenu } from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
-import { renderNotificationsIFrame } from '../renderables/notifications/renderNotificationsIFrame';
+import { setupNotifications } from '../renderables/notifications/setupNotifications';
 import { SkipLink } from '../renderables/skipLink/SkipLink';
 import { renderOfficialWebsite } from '../renderables/utahLogo/renderOfficialWebsite';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
@@ -97,8 +97,7 @@ export function loadHeader() {
     }
 
     // Load the notifications iFrame
-    const notificationsIFrame = renderNotificationsIFrame();
-    document.body.appendChild(notificationsIFrame);
+    setupNotifications();
 
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
@@ -178,7 +177,6 @@ export function removeHeader(shouldTriggerUnloadEvent) {
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MOBILE_MENU]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.LOGO_OFFICIAL_WRAPPER]))?.remove();
   document.getElementById(domConstants.SEARCH__SEARCH_MODAL)?.remove();
-  document.getElementById(domConstants.NOTIFICATIONS_IFRAME)?.remove();
 
   unloadGlobalEvents();
 

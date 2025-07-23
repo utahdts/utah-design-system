@@ -4,10 +4,10 @@ import { domConstants } from '../../enumerations/domConstants';
 import { timeSince } from '../../misc/timeSince';
 import { getNotificationCardDom } from './getNotificationCardDom';
 
-/** @typedef {import('src/@types/jsDocTypes.d').NotificationItem} NotificationItem */
+/** @typedef {import('src/@types/jsDocTypes.d').NotificationNode} NotificationNode */
 
 /**
- * @param {NotificationItem} notificationData
+ * @param {NotificationNode} notificationData
  * @returns {Element}
  */
 export function renderNotificationItem(notificationData) {
@@ -47,8 +47,9 @@ export function renderNotificationItem(notificationData) {
     clearTimeout(cardFocusTimeout);
   });
 
-  if (notificationData.isReadDate) {
+  if (notificationData.isRead) {
     status.classList.add(`${domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ}`);
+    title.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
   }
 
   icon.className = `utds-icon-before-${notificationData.icon}`;
@@ -57,8 +58,8 @@ export function renderNotificationItem(notificationData) {
 
   time.innerText = timeSince(notificationData.createDate);
 
-  brand.setAttribute('src',notificationData.agencyDivisionFilename);
-  brand.setAttribute('alt', `logo for ${notificationData.agencyDivisionName}`);
+  brand.setAttribute('src',notificationData.logoUrl);
+  brand.setAttribute('alt', `logo for ${notificationData.logoUrl}`);
 
   message.innerText = notificationData.message;
 

@@ -1,10 +1,11 @@
+import { globalState } from '../../storage/globalState';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { notNull } from '../../misc/notNull';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import { renderActionItem } from '../actionItems/renderActionItem';
 import drawerHTML from './html/NotificationsDrawer.html?raw';
 import { markAllAsRead } from './markAllAsRead';
-import { renderNotificationItem } from './renderNotificationItem';
+import { renderNotificationCards } from './renderNotificationCards';
 
 export function renderNotificationsDrawer() {
   /**
@@ -110,86 +111,11 @@ export function renderNotificationsDrawer() {
     console.log('click view all');
   }
 
-  notificationsList.appendChild(
-    renderNotificationItem({
-      agencyDivisionFilename: 'http://localhost/cdn-img/dgo-dts.svg',
-      agencyDivisionName: 'Division of Technology Services',
-      createDate: '2025-05-05T14:48:00.000Z',
-      cursor: 'CursorPlaceholder',
-      expireDate: '2025-07-05T14:48:00.000Z',
-      icon: 'info',
-      id: 'b9338920-680e-436c-998d-6699ee3b4911',
-      isReadDate: null,
-      linkText: 'Read more',
-      linkUrl: 'https://www.guidgenerator.com',
-      message: '128-bit GUIDs offer extremely low collision probability. Generating 1 billion/sec for a year or 600 million per person on Earth yields only a 50% chance of a duplicate.',
-      title: 'GUIDs are cool, you should make a billion or so.',
-    })
-  );
-  notificationsList.appendChild(
-    renderNotificationItem({
-      agencyDivisionFilename: 'http://localhost/cdn-img/dgo-dts.svg',
-      agencyDivisionName: 'Division of Technology Services',
-      createDate: '2025-05-05T14:48:00.000Z',
-      cursor: 'CursorPlaceholder',
-      expireDate: '2025-07-05T14:48:00.000Z',
-      icon: 'help',
-      id: 'b9338920-680e-436c-998d-6699ee3b4911',
-      isReadDate: null,
-      linkText: 'Read more',
-      linkUrl: 'https://www.guidgenerator.com',
-      message: '128-bit GUIDs offer extremely low collision probability. Generating 1 billion/sec for a year or 600 million per person on Earth yields only a 50% chance of a duplicate.',
-      title: 'GUIDs are cool, you should make a billion or so.',
-    })
-  );
-  notificationsList.appendChild(
-    renderNotificationItem({
-      agencyDivisionFilename: 'http://localhost/cdn-img/dgo-dts.svg',
-      agencyDivisionName: 'Division of Technology Services',
-      createDate: '2025-05-05T14:48:00.000Z',
-      cursor: 'CursorPlaceholder',
-      expireDate: '2025-07-05T14:48:00.000Z',
-      icon: 'error',
-      id: 'b9338920-680e-436c-998d-6699ee3b4911',
-      isReadDate: null,
-      linkText: 'Read more',
-      linkUrl: 'https://www.guidgenerator.com',
-      message: '128-bit GUIDs offer extremely low collision probability. Generating 1 billion/sec for a year or 600 million per person on Earth yields only a 50% chance of a duplicate.',
-      title: 'GUIDs are cool, you should make a billion or so.',
-    })
-  );
-  notificationsList.appendChild(
-    renderNotificationItem({
-      agencyDivisionFilename: 'http://localhost/cdn-img/dnr-dwr.png',
-      agencyDivisionName: 'Division of Wildlife Resources',
-      createDate: '2025-05-08T05:48:00.000Z',
-      cursor: 'CursorPlaceholder',
-      expireDate: '2025-07-05T14:48:00.000Z',
-      icon: 'account',
-      id: 'ba881982-eccd-4691-bdc9-b97c59a03627',
-      isReadDate: null,
-      linkText: 'Download here',
-      linkUrl: 'https://wildlife.utah.gov/hunting/main-hunting-page/big-game.html',
-      message: 'Download the Utah Big Game Application Guidebook to learn more about applying for a Utah big game permit.',
-      title: 'Get your big game tag.',
-    })
-  );
-  notificationsList.appendChild(
-    renderNotificationItem({
-      agencyDivisionFilename: 'http://localhost/cdn-img/dnr-dwr.png',
-      agencyDivisionName: 'Division of Wildlife Resources',
-      createDate: '2025-05-08T05:48:00.000Z',
-      cursor: 'CursorPlaceholder',
-      expireDate: '2025-07-05T14:48:00.000Z',
-      icon: 'clock',
-      id: 'ba881982-eccd-4691-bdc9-b97c59a03627',
-      isReadDate: null,
-      linkText: 'Download here',
-      linkUrl: 'https://wildlife.utah.gov/hunting/main-hunting-page/big-game.html',
-      message: 'Download the Utah Big Game Application Guidebook to learn more about applying for a Utah big game permit.',
-      title: 'Get your big game tag.',
-    })
-  );
+  const { notifications } = globalState.getState();
+  console.log(notifications);
+  if (notifications) {
+    renderNotificationCards(notifications.edges, notificationsList);
+  }
 
   //set focus back to the start of the dialog
   drawerEndFocus.addEventListener('focus', (e) => {
