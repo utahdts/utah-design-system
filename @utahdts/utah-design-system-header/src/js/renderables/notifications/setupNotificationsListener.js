@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
-import { domConstants } from '../../enumerations/domConstants';
+import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { getIframeUrl } from './getIframeUrl';
 import { globalState } from '../../storage/globalState';
+import { notNull } from '../../misc/notNull';
+import { renderNotificationCards } from './renderNotificationCards';
 
 export function setupNotificationsListener() {
   const apiIframe = /** @type {HTMLIFrameElement | null} */ (document.getElementById(domConstants.NOTIFICATIONS__IFRAME));
@@ -17,7 +19,7 @@ export function setupNotificationsListener() {
   function requestNotifications(options = {}) {
     if (apiIframe?.contentWindow) {
       console.log('Parent: Requesting data from iframe with options:', options);
-      globalState.setState({busy: true});
+      globalState.setState({isBusy: true});
       apiIframe.contentWindow.postMessage({
         request: 'getNotifications',
         options,
@@ -48,8 +50,23 @@ export function setupNotificationsListener() {
 
       // Render notifications
       globalState.setState({notifications: notifications});
-      if (document.getElementById(domConstants.NOTIFICATIONS__DRAWER_ID)) {
-        // Notifications is open, so render them now
+
+      const drawer = /** @type {HTMLElement} */ (
+        document.getElementById(domConstants.NOTIFICATIONS__DRAWER_ID)
+      );
+
+      console.log('drawer:', drawer);
+
+      if (drawer) {
+        const notificationsList = /** @type {HTMLElement} */ (
+          notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST)), 'setupNotificationsListener: notifications list end not found')
+        );
+        renderNotificationCards(notifications.edges, notificationsList)
+
+        const busySpinner = drawer.querySelector(`.${domConstants.NOTIFY__BUSY_CARD}`);
+        if (busySpinner) {
+          busySpinner.remove();
+        }
       }
       console.log('Parent: Notifications received from iframe:', notifications);
     } else {
@@ -57,7 +74,7 @@ export function setupNotificationsListener() {
       console.warn('Parent: Error receiving notifications from iframe:', error);
     }
 
-    globalState.setState({busy: false});
+    globalState.setState({isBusy: false});
   });
 
   // This listener ensures that `requestNotifications()` is called only after the iframe is fully loaded.

@@ -2,15 +2,18 @@
  * A class to manage global application state, promoting immutability.
  * State access provides a deep copy, and updates create a new internal state object.
  */
+
+/** @typedef {import('src/@types/jsDocTypes.d').AppState} AppState */
 class GlobalStateManager {
-  #state = {}; // Private field to hold the actual state object
+  /** @type {AppState} */
+  #state = {notifications: null, isBusy: false}; // Private field to hold the actual state object
 
   /**
    * Initializes the GlobalStateManager with an optional initial state.
    * The initial state is deep-copied to ensure immutability from the start.
-   * @param {Object} initialState - The initial state object. Defaults to an empty object.
+   * @param {Partial<AppState>} [initialState] - The initial state object. Defaults to an empty object.
    */
-  constructor(initialState = {}) {
+  constructor(initialState) {
     // Deep copy the initial state to ensure it's not a reference to an external object
     this.#state = JSON.parse(JSON.stringify(initialState));
   }
@@ -20,7 +23,7 @@ class GlobalStateManager {
    * This ensures that any modifications made to the returned object
    * do not affect the internal, managed state, thus maintaining immutability
    * of the stored state.
-   * @returns {Object} A deep copy of the current state.
+   * @returns {AppState} A deep copy of the current state.
    */
   getState() {
     return JSON.parse(JSON.stringify(this.#state));
@@ -31,7 +34,7 @@ class GlobalStateManager {
    * This method creates a new state object internally by spreading the current state
    * and then the partial state, ensuring that the internal state reference changes
    * and previous state snapshots remain unaffected.
-   * @param {Object} partialState - An object containing properties to update or add to the state.
+   * @param {Partial<AppState>} partialState - An object containing properties to update or add to the state.
    */
   setState(partialState) {
     // Create a new state object by merging the current state with the partial state.
@@ -48,7 +51,7 @@ class GlobalStateManager {
 // Export a single instance of the GlobalStateManager.
 // This creates a singleton-like pattern, ensuring there's only one
 // global state object accessible throughout your application.
-export const globalState = new GlobalStateManager();
+export const globalState = new GlobalStateManager({});
 
 // --- Example Usage (for demonstration purposes, not part of the exported module) ---
 /*
@@ -93,4 +96,3 @@ globalState.setState({
 console.log('State after adding notifications:', globalState.getState());
 // Output: State after adding notifications: { user: { id: 1, name: 'Charlie' }, theme: 'dark', notifications: [] }
 */
-

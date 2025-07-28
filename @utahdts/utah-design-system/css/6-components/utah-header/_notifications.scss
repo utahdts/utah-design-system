@@ -143,6 +143,10 @@
       &:last-of-type {
         border-bottom: 1px solid var(--gray-3-1-contrast);
       }
+
+      &--busy-card {
+        padding: 3rem 1rem;
+      }
     }
   }
 }

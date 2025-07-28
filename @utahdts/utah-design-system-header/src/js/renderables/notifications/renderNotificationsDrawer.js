@@ -6,6 +6,7 @@ import { renderActionItem } from '../actionItems/renderActionItem';
 import drawerHTML from './html/NotificationsDrawer.html?raw';
 import { markAllAsRead } from './markAllAsRead';
 import { renderNotificationCards } from './renderNotificationCards';
+import { renderBusyCard } from './renderBusyCard';
 
 export function renderNotificationsDrawer() {
   /**
@@ -111,8 +112,12 @@ export function renderNotificationsDrawer() {
     console.log('click view all');
   }
 
-  const { notifications } = globalState.getState();
-  console.log(notifications);
+  //add busy spinner card to drawer
+  const { notifications, isBusy } = globalState.getState();
+  if (isBusy) {
+    notificationsList.appendChild(renderBusyCard());
+  }
+
   if (notifications) {
     renderNotificationCards(notifications.edges, notificationsList);
   }
@@ -127,6 +132,7 @@ export function renderNotificationsDrawer() {
   // add drawer to the DOM
   domTarget?.appendChild(drawer);
 
+  // hack to make the page not have double scroll bars
   document.body.style.overflow = 'hidden';
 
   //focus on the drawer title

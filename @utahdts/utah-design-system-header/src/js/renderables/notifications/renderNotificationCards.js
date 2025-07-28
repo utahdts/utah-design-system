@@ -1,15 +1,15 @@
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderNotificationItem } from './renderNotificationItem';
 
-/** @typedef {import('src/@types/jsDocTypes.d').NotificationAPI} NotificationAPI */
+/** @typedef {import('src/@types/jsDocTypes.d').NotificationEdge} NotificationEdge */
 
 /**
  * Render an array of notifications into the drawer.
- * @param {NotificationAPI[]} notificationsData
+ * @param {NotificationEdge[]} notificationsData
  * @param {null|HTMLElement} [notificationsList=null]
  */
 export function renderNotificationCards(notificationsData, notificationsList = null) {
-  let notificationsListDom = notificationsList || document.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST));
+  const notificationsListDom = notificationsList || document.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST));
 
   if (notificationsListDom) {
     notificationsData.map((notificationItem) => {

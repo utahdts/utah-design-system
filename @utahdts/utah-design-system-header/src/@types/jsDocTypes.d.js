@@ -325,8 +325,36 @@
 
 /**
  * A 'node' wrapper for a single notification from the API
- * @typedef {Object} NotificationAPI
+ * @typedef {Object} NotificationEdge
  * @property {NotificationNode} node - The core notification data object.
+ */
+
+/**
+ * PageInfo from the API
+ * @typedef PageInfo {
+ *  @property {string} endCursor - A cursor string for pagination, indicating the end of the current page.
+ *  @property {boolean} hasNextPage - Indicates if there are more pages of data after the current one.
+ *  @property {boolean} hasPreviousPage - Indicates if there are pages of data before the current one.
+ *  @property {string} startCursor - A cursor string for pagination, indicating the start of the current page.
+ * }
+ */
+
+/**
+ * The full API response
+ * @typedef NotificationsResponse {
+ *  @property {NotificationEdge[]} edges - An array of notification edges, where each edge contains a 'node' with notification details.
+ *  @property {PageInfo} pageInfo - Pagination information for the current set of notifications.
+ *  @property {number} totalCount - The total count of available notifications.
+ *  @property {number} unreadCount - The total unread notifications out of the total count.
+ * }
+ */
+
+/**
+ * Application state
+ * @typedef AppState {
+ *  @property {NotificationsResponse | null} notifications
+ *  @property {boolean} isBusy
+ * }
  */
 
 export default false;

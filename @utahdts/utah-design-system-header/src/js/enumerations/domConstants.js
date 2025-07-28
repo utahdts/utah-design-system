@@ -179,5 +179,9 @@ export const domConstants = {
   NOTIFY__LIST_ITEM_MESSAGE: 'utds-notify-list-item__message',
   NOTIFY__LIST_ITEM_LINK: 'utds-notify-list-item__link',
   NOTIFY__LIST_ITEM_LINK_TEXT: 'utds-notify-list-item__link-text',
+  NOTIFY__BUSY_CARD: 'utds-notify-list-item--busy-card',
+
+  SPINNER__ANIMATION: 'spinner__animation',
+  SPINNER__VALUE: 'spinner__value',
 
 };
