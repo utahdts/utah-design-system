@@ -4,6 +4,7 @@ import { getIframeUrl } from './getIframeUrl';
 import { globalState } from '../../storage/globalState';
 import { notNull } from '../../misc/notNull';
 import { renderNotificationCards } from './renderNotificationCards';
+import { renderNotificationBadge } from './renderNotificationBadge';
 
 export function setupNotificationsListener() {
   const apiIframe = /** @type {HTMLIFrameElement | null} */ (document.getElementById(domConstants.NOTIFICATIONS__IFRAME));
@@ -51,11 +52,11 @@ export function setupNotificationsListener() {
       // Render notifications
       globalState.setState({notifications: notifications});
 
+      renderNotificationBadge();
+
       const drawer = /** @type {HTMLElement} */ (
         document.getElementById(domConstants.NOTIFICATIONS__DRAWER_ID)
       );
-
-      console.log('drawer:', drawer);
 
       if (drawer) {
         const notificationsList = /** @type {HTMLElement} */ (

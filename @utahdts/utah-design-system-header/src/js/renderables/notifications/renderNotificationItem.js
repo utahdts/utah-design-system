@@ -3,6 +3,7 @@ import cardHTML from './html/NotificationCard.html?raw';
 import { domConstants } from '../../enumerations/domConstants';
 import { timeSince } from '../../misc/timeSince';
 import { getNotificationCardDom } from './getNotificationCardDom';
+import { markNotificationAsRead } from './markNotificationAsRead';
 
 /** @typedef {import('src/@types/jsDocTypes.d').NotificationNode} NotificationNode */
 
@@ -37,8 +38,8 @@ export function renderNotificationItem(notificationData) {
   card.addEventListener('focusin', () => {
     clearTimeout(cardFocusTimeout);
     cardFocusTimeout = window.setTimeout(() => {
-      // TODO: API - mark the notification as read
-      console.log('mark as read');
+      markNotificationAsRead(notificationData.id);
+
       status.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
       title.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
     }, 2000);

@@ -181,6 +181,9 @@ export const domConstants = {
   NOTIFY__LIST_ITEM_LINK_TEXT: 'utds-notify-list-item__link-text',
   NOTIFY__BUSY_CARD: 'utds-notify-list-item--busy-card',
 
+  NOTIFICATIONS__ACTION_ITEM: 'utds-header-action-item--notifications',
+  NOTIFICATIONS__ACTION_ITEM_BADGE: 'utds-badge--notifications',
+
   SPINNER__ANIMATION: 'spinner__animation',
   SPINNER__VALUE: 'spinner__value',
 
