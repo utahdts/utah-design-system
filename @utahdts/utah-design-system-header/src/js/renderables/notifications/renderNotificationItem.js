@@ -57,7 +57,7 @@ export function renderNotificationItem(notificationData) {
 
   title.innerText = notificationData.title;
 
-  time.innerText = timeSince(notificationData.createDate);
+  time.innerText = notificationData.createDate ? timeSince(notificationData.createDate) : '';
 
   brand.setAttribute('src',notificationData.logoUrl);
   brand.setAttribute('alt', `logo for ${notificationData.logoUrl}`);

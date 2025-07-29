@@ -8,11 +8,6 @@ import { renderNotificationsDrawer } from './renderNotificationsDrawer';
  */
 export function getNotificationsActionItem() {
   return  {
-    //TODO make this notifications badge dynamic
-    // badge: {
-    //   label: 'Unread Notifications',
-    //   value: 2,
-    // },
     showTitle: false,
     title: 'Notifications',
     actionFunction: () => {

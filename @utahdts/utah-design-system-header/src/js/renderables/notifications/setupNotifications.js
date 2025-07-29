@@ -3,6 +3,7 @@ import { renderDOMSingle } from '../../misc/renderDOMSingle';
 import NotificationsIFrame from './html/NotificationsIFrame.html?raw';
 import { setupNotificationsListener } from './setupNotificationsListener';
 
+// a way to possibly turn off notifications
 const enableNotifications = true;
 
 export function setupNotifications() {

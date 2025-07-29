@@ -44,7 +44,7 @@ export function renderNotificationsDrawer() {
     notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__DRAWER_HEADER_BUTTONS)), 'renderNotificationsDrawer: drawer "header buttons" not found')
   );
 
-  const drawerMarkAllRead = /** @type {HTMLElement} */ (
+  const drawerMarkAllRead = /** @type {HTMLButtonElement} */ (
     notNull(drawer.querySelector(`#${domConstants.NOTIFICATIONS__DRAWER_MARK_ALL_READ_ID}`), 'renderNotificationsDrawer: drawer "mark all read" not found')
   );
 
@@ -101,7 +101,6 @@ export function renderNotificationsDrawer() {
   drawerMarkAllRead.onclick = (e) => {
     e.stopPropagation();
     e.preventDefault();
-    console.log('click mark all read');
     markAllAsRead();
   }
 
