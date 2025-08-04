@@ -1,4 +1,5 @@
 import { globalState } from '../../storage/globalState';
+import { postMessageMarkAsRead } from './postMessageMarkAsRead';
 import { renderNotificationBadge } from './renderNotificationBadge';
 
 /**
@@ -45,6 +46,8 @@ export function markNotificationAsRead(notificationId) {
         },
       });
       renderNotificationBadge();
+
+      postMessageMarkAsRead(notificationId);
     }
   }
 }
