@@ -6,7 +6,7 @@
 /** @typedef {import('src/@types/jsDocTypes.d').AppState} AppState */
 class GlobalStateManager {
   /** @type {AppState} */
-  #state = {notifications: null, isBusy: false}; // Private field to hold the actual state object
+  #state = {notifications: null, isBusy: false, isLoggedIn: false}; // Private field to hold the actual state object
 
   /**
    * Initializes the GlobalStateManager with an optional initial state.
