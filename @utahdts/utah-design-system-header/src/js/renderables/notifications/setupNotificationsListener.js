@@ -46,8 +46,8 @@ export function setupNotificationsListener() {
 
     console.log('Parent: Received response from iframe:', messageData);
 
-    if (messageData.notifications?.data?.notifications) {
-      const notifications = messageData.notifications.data.notifications;
+    if (messageData.notifications) {
+      const notifications = messageData.notifications;
 
       // Render notifications
       globalState.setState({notifications: notifications});
