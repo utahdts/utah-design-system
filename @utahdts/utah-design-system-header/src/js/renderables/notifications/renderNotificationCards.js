@@ -1,6 +1,7 @@
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderNotificationItem } from './renderNotificationItem';
 import { renderZeroUnreadMessages } from './renderZeroUnreadMessages';
+import { renderNotLoggedMessage } from './renderNotLoggedMessage';
 
 /** @typedef {import('src/@types/jsDocTypes.d').NotificationEdge} NotificationEdge */
 
@@ -8,8 +9,9 @@ import { renderZeroUnreadMessages } from './renderZeroUnreadMessages';
  * Render an array of notifications into the drawer.
  * @param {NotificationEdge[]} notificationsData
  * @param {null|HTMLElement} [notificationsList=null]
+ * @param {boolean} [isLoggedIn]
  */
-export function renderNotificationCards(notificationsData, notificationsList = null) {
+export function renderNotificationCards(notificationsData, notificationsList = null, isLoggedIn = false) {
   const notificationsListDom = notificationsList || document.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST));
 
   if (notificationsListDom) {
@@ -39,7 +41,11 @@ export function renderNotificationCards(notificationsData, notificationsList = n
         drawerMarkAllRead.disabled = false;
       }
     } else {
-      notificationsListDom.appendChild(renderZeroUnreadMessages());
+      if (isLoggedIn) {
+        notificationsListDom.appendChild(renderZeroUnreadMessages());
+      } else {
+        notificationsListDom.appendChild(renderNotLoggedMessage());
+      }
     }
   } else {
     throw new Error('renderNotificationCards: notificationsListDom not found!');
