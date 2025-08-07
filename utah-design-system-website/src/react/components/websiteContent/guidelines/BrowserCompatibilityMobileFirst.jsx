@@ -20,12 +20,12 @@ export function BrowserCompatibilityMobileFirst() {
       </p>
       <ul>
         <li>
-          The last two previous stable versions of major desktop web browsers. This includes,
+          Compatibility with current versions of major desktop web browsers. This includes,
           (but does not have to be limited to), Google Chrome, Mozilla Firefox, Microsoft Edge,
           and Apple Safari.
         </li>
         <li>
-          The last two previous stable versions of the mobile equivalents of each major browser.
+          Compatibility with current versions of the mobile equivalents of each major browser.
           This ensures optimal performance and display on smartphones and tablets, encompassing
           browsers like Chrome for Android, Safari for iOS, and Firefox Mobile.
         </li>
