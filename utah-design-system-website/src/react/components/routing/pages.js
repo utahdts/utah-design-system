@@ -680,7 +680,7 @@ export const pages = {
   }),
   searchInput: /** @type {Page} */ ({
     content: TextInputDocumentation,
-    link: `${pageUrls.textInput}#search-input`,
+    link: pageUrls.textInputSearch,
     menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
     pageTitle: 'Search Input',
     template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,

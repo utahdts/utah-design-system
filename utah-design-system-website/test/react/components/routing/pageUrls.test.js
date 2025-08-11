@@ -109,6 +109,8 @@ describe('pageUrls - match menu path', () => {
   test.each(
     /** @type {[[string, string, string[] | undefined]]} */(
       Object.entries(pageUrls)
+        // Filter out any page URLs that contain an anchor link.
+        .filter(([, pageUrlPath]) => !pageUrlPath.includes('#'))
         .map(([pageUrlKey, pageUrlPath]) => [pageUrlKey, pageUrlPath, menuPaths[pageUrlKey]])
         // remove pages that are not in the menu
         .filter(([, , menuPathsForPageUrl]) => menuPathsForPageUrl?.length)
