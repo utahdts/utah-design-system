@@ -14,7 +14,7 @@ export function renderNotLoggedMessage() {
     isRead: true,
     linkText: 'MyUtah Portal',
     linkUrl: 'https://my.utah.gov',
-    message: 'To get started, log in into the MyUtah portal or create an account.',
-    title: 'You Are Not Logged In',
+    message: 'Access all your services from the State of Utah in one convenient place. Sign in or create your account to get started.',
+    title: 'Welcome',
   });
 }
