@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed styling of the search button when it appears in the header if there is no menu.
 - Fixed styling of the mobile menu bar when there is no menu.
 - Fixed mega menu crash when it tried to incorrectly expand child menu items.
+- Fixed Typescript errors
 
 
 
