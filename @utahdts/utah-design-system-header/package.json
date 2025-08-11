@@ -68,17 +68,17 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system#readme",
   "dependencies": {
-    "@floating-ui/dom": "1.7.0"
+    "@floating-ui/dom": "1.7.3"
   },
   "devDependencies": {
-    "@vitest/ui": "3.1.4",
+    "@vitest/ui": "3.2.4",
     "jsdom": "26.1.0",
     "replace": "1.2.2",
-    "sass": "1.89.0",
+    "sass": "1.90.0",
     "tslib": "2.8.1",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
-    "vitest": "3.1.4"
+    "typescript": "5.9.2",
+    "vite": "7.1.0",
+    "vitest": "3.2.4"
   },
   "type": "module"
 }
