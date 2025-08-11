@@ -48,7 +48,6 @@ export function setupNotificationsListener() {
 
     if (messageData.notifications) {
       const notifications = messageData.notifications;
-      const isLoggedIn = !!messageData.isLoggedIn;
 
       // Render notifications
       globalState.setState({notifications: notifications});
@@ -63,7 +62,7 @@ export function setupNotificationsListener() {
         const notificationsList = /** @type {HTMLElement} */ (
           notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST)), 'setupNotificationsListener: notifications list end not found')
         );
-        renderNotificationCards(notifications.edges, notificationsList, isLoggedIn)
+        renderNotificationCards(notifications.edges, notificationsList)
 
         const busySpinner = drawer.querySelector(`.${domConstants.NOTIFY__BUSY_CARD}`);
         if (busySpinner) {

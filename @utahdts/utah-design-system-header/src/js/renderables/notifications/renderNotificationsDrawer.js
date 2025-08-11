@@ -112,13 +112,13 @@ export function renderNotificationsDrawer() {
   }
 
   //add busy spinner card to drawer
-  const { notifications, isBusy, isLoggedIn } = globalState.getState();
+  const { notifications, isBusy } = globalState.getState();
   if (isBusy) {
     notificationsList.appendChild(renderBusyCard());
   }
 
   if (notifications) {
-    renderNotificationCards(notifications.edges, notificationsList, isLoggedIn);
+    renderNotificationCards(notifications.edges, notificationsList);
   }
 
   //set focus back to the start of the dialog

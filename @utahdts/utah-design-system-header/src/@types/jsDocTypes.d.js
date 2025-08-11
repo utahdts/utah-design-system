@@ -354,7 +354,6 @@
  * @typedef AppState {
  *  @property {NotificationsResponse | null} notifications
  *  @property {boolean} isBusy
- *  @property {boolean} isLoggedIn
  * }
  */
 
