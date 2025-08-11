@@ -27,7 +27,7 @@ import { TableContext } from './util/TableContext';
  * @param {string} param.contextStatePath path to the data inside the state; ie {filterValues:{...}} where filterValues is actual state in the context
  * @param {(e: ChangeEventT) => TableDataT} param.defaultOnChange
  * @param {TableDataT | null} param.defaultValue starting value for this component (controlled and uncontrolled)
- * @param {(e: ChangeEventT) => void} [param.onChange]
+ * @param {(e: ChangeEventT) => TableDataT} [param.onChange]
  * @param {TableDataT | null} param.value the current value of this item
  * @returns {{
  *   currentOnChange: (e: ChangeEventT) => TableDataT
