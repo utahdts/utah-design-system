@@ -26,6 +26,7 @@ const intervalId = setInterval(
     numberEventFires += 1;
     if (
       numberEventFires >= MAX_EVENT_FIRES
+      || (typeof window === 'undefined')
       // @ts-expect-error header puts this member on window
       || window['@utahdts/utah-design-system-header']?.isSetUtahHeaderSettingsCalled
     ) {
@@ -38,6 +39,10 @@ const intervalId = setInterval(
   },
   2
 );
+
+window.addEventListener('unload', ()=> {
+  clearInterval(intervalId);
+});
 
 /**
  * @param {SettingsInput} newSettings

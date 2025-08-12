@@ -19,7 +19,7 @@ import { useCurrentValuesFromStateContext } from './useCurrentValuesFromStateCon
  * @param {import('react').RefObject<HTMLTableCellElement>} [props.innerRef]
  * @param {string} props.id
  * @param {string} props.a11yLabel This should be an accessibility readable field name. 'Filter' will be prepended to it.
- * @param {(newValue: string) => void} [props.onChange]
+ * @param {(newValue: string) => string} [props.onChange]
  * @param {string} [props.placeholder]
  * @param {string} props.recordFieldPath
  * @param {string} [props.value]
