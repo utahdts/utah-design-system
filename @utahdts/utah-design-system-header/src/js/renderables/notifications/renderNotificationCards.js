@@ -13,7 +13,13 @@ export function renderNotificationCards(notificationsData, notificationsList = n
   const notificationsListDom = notificationsList || document.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST));
   if (notificationsListDom) {
     if (notificationsData.length > 0) {
-      notificationsData.map((notificationItem) => {
+      // Sort notifications by isRead, then by createDate
+      notificationsData.sort((a,b) => {
+        const aCreateDate = new Date(a.node.createDate).valueOf();
+        const bCreateDate = new Date(b.node.createDate).valueOf();
+        return (Number(b.node.isRead) - Number(a.node.isRead))
+          || (bCreateDate - aCreateDate);
+      }).map((notificationItem) => {
         notificationsListDom.appendChild(
           renderNotificationItem({
             logoUrl: notificationItem.node.logoUrl,
