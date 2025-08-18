@@ -12,7 +12,7 @@ export function renderZeroUnreadMessages() {
     isRead: true,
     linkText: 'Visit MyUtah',
     linkUrl: 'https://my.utah.gov',
-    message: 'You currently have no unread notifications. Learn more about the MyUtah portal and services that are offered there.',
+    message: 'Your notifications will appear here. You may also receive email and text messages. Enroll or review your preferences.',
     title: 'No Unread Notifications',
   });
 }
