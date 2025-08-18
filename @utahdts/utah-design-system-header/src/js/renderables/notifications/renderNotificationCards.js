@@ -1,15 +1,18 @@
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { renderNotificationItem } from './renderNotificationItem';
 import { renderZeroUnreadMessages } from './renderZeroUnreadMessages';
+import { renderNextButton } from './renderNextButton';
 
 /** @typedef {import('src/@types/jsDocTypes.d').NotificationEdge} NotificationEdge */
+/** @typedef {import('src/@types/jsDocTypes.d').PageInfo} PageInfo */
 
 /**
  * Render an array of notifications into the drawer.
  * @param {NotificationEdge[]} notificationsData
  * @param {null|HTMLElement} [notificationsList=null]
+ * @param {PageInfo} [pageInfo]
  */
-export function renderNotificationCards(notificationsData, notificationsList = null) {
+export function renderNotificationCards(notificationsData, notificationsList = null, pageInfo) {
   const notificationsListDom = notificationsList || document.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST));
   if (notificationsListDom) {
     if (notificationsData.length > 0) {
@@ -42,6 +45,9 @@ export function renderNotificationCards(notificationsData, notificationsList = n
       );
       if (drawerMarkAllRead) {
         drawerMarkAllRead.disabled = false;
+      }
+      if (pageInfo?.hasNextPage) {
+        notificationsListDom.appendChild(renderNextButton(pageInfo.endCursor));
       }
     } else {
       notificationsListDom.appendChild(renderZeroUnreadMessages());

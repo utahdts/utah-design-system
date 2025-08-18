@@ -62,7 +62,7 @@ export function setupNotificationsListener() {
         const notificationsList = /** @type {HTMLElement} */ (
           notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST)), 'setupNotificationsListener: notifications list end not found')
         );
-        renderNotificationCards(notifications.edges, notificationsList)
+        renderNotificationCards(notifications.edges, notificationsList, notifications.pageInfo)
 
         const busySpinner = drawer.querySelector(`.${domConstants.NOTIFY__BUSY_CARD}`);
         if (busySpinner) {
