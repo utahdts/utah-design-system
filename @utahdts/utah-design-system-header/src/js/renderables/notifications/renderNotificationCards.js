@@ -49,7 +49,7 @@ export function renderNotificationCards(notificationsData, notificationsList = n
       if (pageInfo?.hasNextPage) {
         notificationsListDom.appendChild(renderNextButton(pageInfo.endCursor));
       } else {
-        document.getElementById('load-more-notifications')?.parentElement?.remove();
+        document.getElementById(domConstants.NOTIFICATIONS__LOAD_MORE)?.parentElement?.remove();
       }
     } else {
       notificationsListDom.appendChild(renderZeroUnreadMessages());

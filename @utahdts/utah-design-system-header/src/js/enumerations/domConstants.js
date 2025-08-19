@@ -168,6 +168,7 @@ export const domConstants = {
   NOTIFICATIONS__DRAWER_END_FOCUS: 'drawer__end-focus',
 
   NOTIFICATIONS__LIST: 'utds-notifications__list',
+  NOTIFICATIONS__LOAD_MORE: 'load-more-notifications',
 
   NOTIFY__LIST_ITEM: 'utds-notify-list-item',
   NOTIFY__LIST_ITEM_STATUS: 'utds-notify-list-item__status',

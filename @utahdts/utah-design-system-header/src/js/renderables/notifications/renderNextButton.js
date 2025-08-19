@@ -24,7 +24,7 @@ function getNotifications(endCursor) {
  * @returns {Element}
  */
 export function renderNextButton(endCursor) {
-  const oldButton = document.getElementById('load-more-notifications');
+  const oldButton = document.getElementById(domConstants.NOTIFICATIONS__LOAD_MORE);
   if (oldButton) oldButton.parentElement?.remove();
 
   const buttonCard = renderDOMSingle(buttonHTML);
