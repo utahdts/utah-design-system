@@ -111,14 +111,14 @@ export function renderNotificationsDrawer() {
     console.log('click view all');
   }
 
-  //add busy spinner card to drawer
+  // add busy spinner card to drawer
   const { notifications, isBusy } = globalState.getState();
   if (isBusy) {
     notificationsList.appendChild(renderBusyCard());
   }
 
   if (notifications) {
-    renderNotificationCards(notifications.edges, notificationsList);
+    renderNotificationCards(notifications.edges, notificationsList, notifications.pageInfo);
   }
 
   //set focus back to the start of the dialog
