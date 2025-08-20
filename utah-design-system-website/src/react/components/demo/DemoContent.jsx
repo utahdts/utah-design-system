@@ -8,8 +8,8 @@ import {
   TableSortingRules, TableWrapper, TextInput
 } from '@utahdts/utah-design-system';
 import { useEffect, useState } from 'react';
-import jeep from '../../../static/images/jeep.jpg';
-import camping from '../../../static/images/camping.jpg';
+import jeep from '../../../static/images/mesa-arch.webp';
+import camping from '../../../static/images/camping.webp';
 
 export function DemoContent() {
   const [visitors, setVisitors] = useState('')
@@ -398,7 +398,7 @@ export function DemoContent() {
             <div className="card flex-1">
               <img src={jeep} alt="Delicate Arch" className="card__image" />
               <div className=" p-spacing-xl">
-                <div className="card__title">Driving through Arches</div>
+                <div className="card__title">Off-road in Moab</div>
                 <p>
                   Embarking on an off-road adventure is an exhilarating way to explore rugged terrains and untouched landscapes.
                   This comprehensive guide will equip you with essential tips and techniques for driving off-road, ensuring you
