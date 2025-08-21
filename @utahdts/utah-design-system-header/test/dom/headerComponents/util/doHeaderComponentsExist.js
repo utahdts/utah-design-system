@@ -227,7 +227,7 @@ export function isMobileSearchInCitizenExperience() {
   const mobileSearchInCitizenExperience = document.querySelector('.utds-citizen-experience-wrapper--mobile .main-menu__search');
   if (mobileSearchInCitizenExperience) {
     // should render as a button, not a div
-    if (mobileSearchInCitizenExperience.tagName !== 'BUTTON') {
+    if (mobileSearchInCitizenExperience?.querySelector('button')?.tagName !== 'BUTTON') {
       throw new Error(`isMobileSearchInCitizenExperience: mobile search icon should be a button but was a '${mobileSearchInCitizenExperience.tagName}'`);
     }
   }

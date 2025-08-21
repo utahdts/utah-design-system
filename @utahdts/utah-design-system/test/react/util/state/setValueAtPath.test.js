@@ -1,4 +1,4 @@
-import { isArray } from 'lodash';
+import { isArray } from 'lodash-es';
 import { describe, expect, it } from 'vitest';
 import { setValueAtPath } from '../../../../react/util/state/setValueAtPath';
 

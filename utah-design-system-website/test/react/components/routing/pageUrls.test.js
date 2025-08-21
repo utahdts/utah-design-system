@@ -1,4 +1,4 @@
-import { camelCase } from 'lodash';
+import { camelCase } from 'lodash-es';
 import { describe, expect, test } from 'vitest';
 import { pageUrls } from '../../../../src/react/components/routing/pageUrls';
 import { constructMainMenu } from '../../../../src/react/components/routing/util/constructMainMenu';
@@ -68,7 +68,7 @@ function deconstructMainMenuPaths(menuItems, basePath = '') {
     // add entry for menuItem
     const menuItemPath = `${basePath}/${cleanMenuItemTitlePath(menuItem.title)}`;
     if (pageUrl) {
-      pagePaths[notNull(pageUrlReverseLookup[pageUrl], 'reverse lookup will always get a value')] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
+      pagePaths[notNull(pageUrlReverseLookup[pageUrl], `reverse lookup will always get a value: ${pageUrl}`)] = combinePaths(pagePaths[pageUrl], [menuItemPath]);
     }
 
     // add menuItem's children to the object
@@ -109,6 +109,8 @@ describe('pageUrls - match menu path', () => {
   test.each(
     /** @type {[[string, string, string[] | undefined]]} */(
       Object.entries(pageUrls)
+        // Filter out any page URLs that contain an anchor link.
+        .filter(([, pageUrlPath]) => !pageUrlPath.includes('#'))
         .map(([pageUrlKey, pageUrlPath]) => [pageUrlKey, pageUrlPath, menuPaths[pageUrlKey]])
         // remove pages that are not in the menu
         .filter(([, , menuPathsForPageUrl]) => menuPathsForPageUrl?.length)

@@ -1,4 +1,4 @@
-import { identity } from 'lodash';
+import { identity } from 'lodash-es';
 import React, { useCallback, useContext } from 'react';
 import { joinClassNames } from '../../util/joinClassNames';
 import { TableContext } from './util/TableContext';

@@ -1,4 +1,4 @@
-import { cloneDeep, isArray, isObject } from 'lodash';
+import { cloneDeep, isArray, isObject } from 'lodash-es';
 import { notNull } from '../notNull';
 
 /**
