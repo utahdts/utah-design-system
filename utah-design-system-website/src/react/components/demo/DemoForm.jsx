@@ -1,5 +1,5 @@
 import { BUTTON_APPEARANCE, Button, CharacterCount, Checkbox, DateInput, ExternalLink, Form, MultiSelect, MultiSelectOption, RadioButton, RadioButtonGroup, Switch, TextArea, TextInput, TimeInput, componentColors, useBanner } from '@utahdts/utah-design-system';
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import { useCallback } from 'react';
 import { useImmer } from 'use-immer';
 import { StaticExample } from '../staticExamples/StaticExample';

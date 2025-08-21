@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [4.1.0] 08/20/2025
+# [4.1.0] 08/21/2025
 ## Added
 - Browser Compatibility, Mobile-First, Acceptance Testing, and SDLC documentation page.
 
@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed styling of the mobile menu bar when there is no menu.
 - Fixed mega menu crash when it tried to incorrectly expand child menu items.
 - Fixed Typescript errors
+- Replaced lodash with lodash-es to resolve compatibility issues and enable tree-shaking for a smaller bundle size.
 
 
 

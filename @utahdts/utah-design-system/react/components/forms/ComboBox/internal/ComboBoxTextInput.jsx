@@ -1,4 +1,4 @@
-import { identity, isFunction } from 'lodash';
+import { identity, isFunction } from 'lodash-es';
 import { useCallback, useEffect, useRef } from 'react';
 import { joinClassNames } from '../../../../util/joinClassNames';
 import { useOnKeyUp } from '../../../../util/useOnKeyUp';

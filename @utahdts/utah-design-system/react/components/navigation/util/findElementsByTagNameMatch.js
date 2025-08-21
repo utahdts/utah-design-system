@@ -1,4 +1,4 @@
-import { identity } from 'lodash';
+import { identity } from 'lodash-es';
 import { notNullArray } from '../../../util/notNullArray';
 
 // takes an element and all its children and pulls out an ordered lists of all the valid h2/h3 elements

@@ -1,5 +1,5 @@
 import { ComboBox, ComboBoxOption, ComboBoxOptionGroup } from '@utahdts/utah-design-system';
-import { sortBy } from 'lodash';
+import { sortBy } from 'lodash-es';
 import { useMemo } from 'react';
 import { examplePresidentsData } from '../../library/components/table/exampleTables/examplePresidentsData';
 import { AccessibilityTestingScenario } from './AccessibilityTestingScenario';

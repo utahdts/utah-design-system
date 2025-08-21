@@ -1,4 +1,4 @@
-import { identity } from 'lodash';
+import { identity } from 'lodash-es';
 
 /** @typedef {import('utah-design-system-website').PageUrl} PageUrl */
 /** @typedef {import('utah-design-system-website').WebsiteMainMenuItem} WebsiteMainMenuItem */

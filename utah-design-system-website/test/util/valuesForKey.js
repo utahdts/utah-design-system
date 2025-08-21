@@ -1,4 +1,4 @@
-import { isObject } from 'lodash';
+import { isObject } from 'lodash-es';
 
 /**
  * Recursively search an "object" for a key and return its value no matter at what level in the object's tree the value is found
