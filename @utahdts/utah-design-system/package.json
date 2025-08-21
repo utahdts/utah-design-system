@@ -72,12 +72,12 @@
     "@utahdts/utah-design-system-header": "4.1.0",
     "date-fns": "4.1.0",
     "immer": "10.1.1",
-    "lodash": "4.17.21",
+    "lodash-es": "4.17.21",
     "use-immer": "0.11.0",
     "uuid": "11.1.0"
   },
   "devDependencies": {
-    "@types/lodash": "4.17.20",
+    "@types/lodash-es": "4.17.12",
     "@types/react": "19.1.10",
     "@types/react-dom": "19.1.7",
     "@types/uuid": "10.0.0",

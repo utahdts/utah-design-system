@@ -2,7 +2,7 @@ import { useImmer } from 'use-immer';
 import {
   useCallback, useEffect, useRef
 } from 'react';
-import { isEqual, isFunction } from 'lodash';
+import { isEqual, isFunction } from 'lodash-es';
 import { RequiredStar } from './RequiredStar';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Tag } from '../buttons/Tag';

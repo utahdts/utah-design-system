@@ -1,4 +1,4 @@
-import { castArray, identity, trim } from 'lodash';
+import { castArray, identity, trim } from 'lodash-es';
 
 /**
  * pass in comma separated list of class name strings to be trimmed, filtered, and joined together with a space

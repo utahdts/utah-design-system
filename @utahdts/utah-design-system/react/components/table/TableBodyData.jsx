@@ -1,4 +1,4 @@
-import { castArray, identity, isEqual } from 'lodash';
+import { castArray, identity, isEqual } from 'lodash-es';
 import { useEffect, useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { useAriaMessaging } from '../../contexts/UtahDesignSystemContext/hooks/useAriaMessaging';
