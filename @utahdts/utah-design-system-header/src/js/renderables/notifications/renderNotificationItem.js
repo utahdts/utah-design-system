@@ -66,6 +66,7 @@ export function renderNotificationItem(notificationData) {
 
   link.setAttribute('href', notificationData.linkUrl);
   linkText.innerText = notificationData.linkText
+  link.addEventListener('click', (event) => event.stopPropagation());
 
   return card;
 }
