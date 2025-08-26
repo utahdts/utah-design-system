@@ -20,7 +20,7 @@ export function renderNotificationCards(notificationsData, notificationsList = n
       notificationsData.sort((a,b) => {
         const aCreateDate = new Date(a.node.createDate).valueOf();
         const bCreateDate = new Date(b.node.createDate).valueOf();
-        return (Number(b.node.isRead) - Number(a.node.isRead))
+        return (Number(a.node.isRead) - Number(b.node.isRead))
           || (bCreateDate - aCreateDate);
       }).map((notificationItem) => {
         notificationsListDom.appendChild(
