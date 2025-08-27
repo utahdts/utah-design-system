@@ -129,7 +129,8 @@
       }
       &__brand-wrapper {
         display: flex;
-        justify-content: center;
+        flex-grow: 1;
+        max-height: 34px;
       }
       &__brand {
         max-height: 50px;
@@ -140,8 +141,9 @@
       }
       &__footer {
         display: flex;
-        justify-content: flex-end;
-        padding: 0 var(--spacing);
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--spacing-xs) var(--spacing) 0 var(--spacing);
       }
 
       &:last-of-type {
