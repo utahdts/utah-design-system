@@ -11,7 +11,7 @@ export function getIframeUrl() {
 
   // Define the local and production iframe URLs
   const localIframeUrl = "https://notiframe.local.utah.gov:5174";
-  const productionIframeUrl = "https://cdn.utah.gov/myutah-notifications/index.html";
+  const productionIframeUrl = "https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v5/notifications/beta/index.html";
 
   // Check if the current URL contains ".local"
   if (currentUrl.includes(".local")) {
