@@ -1,4 +1,4 @@
-import { padEnd } from 'lodash';
+import { padEnd } from 'lodash-es';
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import { notNull } from '../../util/notNull/notNull';
 

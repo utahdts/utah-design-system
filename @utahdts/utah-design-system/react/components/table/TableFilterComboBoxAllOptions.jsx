@@ -1,4 +1,4 @@
-import { identity, uniq } from 'lodash';
+import { identity, uniq } from 'lodash-es';
 import { useMemo } from 'react';
 import { chainSorters } from '../../util/chainSorters';
 import { joinClassNames } from '../../util/joinClassNames';

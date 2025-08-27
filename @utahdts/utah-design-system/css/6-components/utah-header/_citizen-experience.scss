@@ -1,10 +1,13 @@
-.utds-citizen-experience-wrapper, .utds-citizen-experience-wrapper--mobile {
-  justify-content: flex-end;
-  flex: 1;
-}
 .utds-citizen-experience-wrapper {
   display: flex;
-}
-.utds-citizen-experience-wrapper--mobile {
-  display: none;
+  justify-content: flex-end;
+  flex: 1;
+
+  &--mobile {
+    display: none;
+  }
+
+  .main-menu__search {
+    margin-right: var(--spacing);
+  }
 }

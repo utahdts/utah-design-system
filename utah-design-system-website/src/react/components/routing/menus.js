@@ -29,13 +29,18 @@ export const menuGuidelinesSecondary = {
       parentLinks: [pages.guidelines.link],
     },
     {
-      link: pages.accessibilityTesting.link,
-      title: pages.accessibilityTesting.pageTitle,
+      link: pages.accessibilityChecklist.link,
+      title: pages.accessibilityChecklist.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
     {
       link: pages.accessibilityForDesigners.link,
       title: pages.accessibilityForDesigners.pageTitle,
+      parentLinks: [pages.guidelines.link],
+    },
+    {
+      link: pages.browserCompatibilityPage.link,
+      title: pages.browserCompatibilityPage.pageTitle,
       parentLinks: [pages.guidelines.link],
     },
     {

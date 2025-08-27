@@ -2,7 +2,7 @@ import { useImmer } from 'use-immer';
 import {
   useCallback, useEffect, useRef
 } from 'react';
-import { isEqual, isFunction } from 'lodash';
+import { isEqual, isFunction } from 'lodash-es';
 import { RequiredStar } from './RequiredStar';
 import { joinClassNames } from '../../util/joinClassNames';
 import { Tag } from '../buttons/Tag';
@@ -12,7 +12,7 @@ import { ErrorMessage } from './ErrorMessage';
 /**
  * @param {object} props
  * @param {string} [props.acceptedFileTypes]
- * @param {(file: File, removeFile: (file: File) => void) => React.ReactNode} [props.children]
+ * @param {(file: File, removeFile: (file: File, event?: import('react').MouseEvent<HTMLButtonElement, MouseEvent> | null) => void) => React.ReactNode} [props.children]
  * @param {string} [props.className]
  * @param {string} [props.errorMessage]
  * @param {string} [props.hint]
@@ -23,7 +23,7 @@ import { ErrorMessage } from './ErrorMessage';
  * @param {string} props.label
  * @param {boolean} [props.multiple]
  * @param {string} [props.name]
- * @param {(files: FileList | null, event: import('react').ChangeEvent<HTMLInputElement>) => void} [props.onChange]
+ * @param {(files: FileList | null, event: import('react').ChangeEvent<HTMLInputElement> | import('react').MouseEvent<HTMLButtonElement, MouseEvent> | null | undefined) => void} [props.onChange]
  * @param {FileList} [props.value]
  * @returns {import('react').JSX.Element}
  */
@@ -68,14 +68,14 @@ export function FileInput({
     return allowed;
   }, [acceptedFileTypes]);
 
-  const currentOnChange = useCallback((/** @type {import('react').ChangeEvent<HTMLInputElement>} */ event) => {
+  const currentOnChange = useCallback((/** @type {import('react').ChangeEvent<HTMLInputElement> | import('react').MouseEvent<HTMLButtonElement, MouseEvent> | null | undefined} */ event) => {
     if (checkFiles(inputRef.current?.files)) {
       onChange?.(inputRef.current?.files || null, event);
       setFiles(inputRef.current?.files || null);
     }
   }, [acceptedFileTypes]);
 
-  const removeFile = useCallback((/** @type {File} */ file) => {
+  const removeFile = useCallback((/** @type {File} */ file, /** @type {import('react').MouseEvent<HTMLButtonElement, MouseEvent> | null | undefined} */ event) => {
     const currentFiles = [...inputRef.current?.files || []];
     const fileIndex = currentFiles.findIndex((item) => isEqual(file, item));
     if (fileIndex !== -1) {
@@ -84,7 +84,7 @@ export function FileInput({
       const dataTransfer = new DataTransfer();
       currentFiles.forEach((item) => dataTransfer.items.add(item));
       if (inputRef.current) inputRef.current.files = dataTransfer.files;
-      currentOnChange();
+      currentOnChange(event);
     }
   }, [currentOnChange]);
 
@@ -168,7 +168,7 @@ export function FileInput({
                           clearMessage={`Remove file: ${file.name}.`}
                           isDisabled={isDisabled}
                           key={file.name}
-                          onClear={() => removeFile(file)}
+                          onClear={(event) => removeFile(file, event)}
                         >
                           {file.name}
                         </Tag>

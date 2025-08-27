@@ -1,4 +1,4 @@
-import { shuffle } from 'lodash';
+import { shuffle } from 'lodash-es';
 import { useMemo } from 'react';
 import absWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/abs-utah-gov.webp';
 import archivesWebsiteScreenshot from '../../../../../static/images/screenshots/showcase/archives.webp';

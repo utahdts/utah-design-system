@@ -1,4 +1,4 @@
-import { isArray, isObject } from 'lodash';
+import { isArray, isObject } from 'lodash-es';
 
 /**
  * the "key-del" library seemed to be fighting with immer, so rewrote a poor-man's version here

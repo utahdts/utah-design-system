@@ -2,7 +2,7 @@
 
 .home-banner {
   width: 100%;
-  background: url('../static/images/delicate-arch-tom-gainor-unsplash.webp') no-repeat 100% center;
+  background: url('../../../../static/images/delicate-arch-tom-gainor-unsplash.webp') no-repeat 100% center;
   background-size: cover;
   display: flex;
   justify-content: flex-end;
@@ -25,7 +25,7 @@
 }
 .home-page {
   &__benefits-section {
-    background: url('../static/images/laptop-background-blur.webp') no-repeat 100% center;
+    background: url('../../../../static/images/laptop-background-blur.webp') no-repeat 100% center;
     background-size: cover;
     min-height: 400px;
     width: 100%;

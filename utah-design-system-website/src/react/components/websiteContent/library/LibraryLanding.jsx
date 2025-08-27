@@ -3,7 +3,7 @@ import { LightBox } from '../../lightbox/LightBox';
 import atomicComponents from '../../../../static/images/atomicComponents.svg';
 import atomicPatterns from '../../../../static/images/atomicPatterns.svg';
 import atomicTemplate from '../../../../static/images/atomicTemplate.svg';
-import libraryOverview from '../../../../static/images/layout-overview.jpg';
+import libraryOverview from '../../../../static/images/layout-overview.webp';
 
 export function LibraryLanding() {
   return (
