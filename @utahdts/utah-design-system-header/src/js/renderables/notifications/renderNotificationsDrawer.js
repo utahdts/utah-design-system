@@ -91,6 +91,7 @@ export function renderNotificationsDrawer() {
     showTitle: false,
     actionFunction: () => {
       //TODO Click Settings
+      // eslint-disable-next-line no-console
       console.log('click settings');
     },
     className: 'notifications-settings-button',
@@ -108,6 +109,7 @@ export function renderNotificationsDrawer() {
   drawerViewAll.onclick = (e) => {
     e.stopPropagation();
     e.preventDefault();
+    // eslint-disable-next-line no-console
     console.log('click view all');
   }
 

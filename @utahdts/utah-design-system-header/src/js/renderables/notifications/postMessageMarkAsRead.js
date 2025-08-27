@@ -12,6 +12,7 @@ export function postMessageMarkAsRead(notificationId) {
   const iframeOrigin = getIframeUrl();
 
   if (apiIframe?.contentWindow) {
+    // eslint-disable-next-line no-console
     console.log('Parent: Mark a notification as read:', notificationId);
     apiIframe.contentWindow.postMessage({
       request: 'markAsRead',
