@@ -7,6 +7,7 @@ import drawerHTML from './html/NotificationsDrawer.html?raw';
 import { markAllAsRead } from './markAllAsRead';
 import { renderNotificationCards } from './renderNotificationCards';
 import { renderBusyCard } from './renderBusyCard';
+import { MY_UTAH_REGEX } from '../../enumerations/regularExpressions';
 
 export function renderNotificationsDrawer() {
   /**
@@ -19,6 +20,7 @@ export function renderNotificationsDrawer() {
 
   let drawer = renderDOMSingle(drawerHTML);
   let domTarget = document.body;
+  const isMyUtah = MY_UTAH_REGEX.test(document.location.hostname);
 
   const closeButton = /** @type {HTMLElement} */ (
     notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__DRAWER_CLOSE_BUTTON)), 'renderNotificationsDrawer: closeButton not found')
@@ -90,9 +92,7 @@ export function renderNotificationsDrawer() {
     title: 'Settings',
     showTitle: false,
     actionFunction: () => {
-      //TODO Click Settings
-      // eslint-disable-next-line no-console
-      console.log('click settings');
+      window.location.href = isMyUtah ? '/u?id=my_information&wgt=my_notifications' : 'https://my.utah.gov';
     },
     className: 'notifications-settings-button',
   });
@@ -109,8 +109,7 @@ export function renderNotificationsDrawer() {
   drawerViewAll.onclick = (e) => {
     e.stopPropagation();
     e.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log('click view all');
+    window.location.href = isMyUtah ? '/u?id=my_notifications' : 'https://my.utah.gov';
   }
 
   // add busy spinner card to drawer
