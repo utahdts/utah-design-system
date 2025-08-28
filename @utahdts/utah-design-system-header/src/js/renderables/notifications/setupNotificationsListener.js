@@ -5,6 +5,7 @@ import { globalState } from '../../storage/globalState';
 import { notNull } from '../../misc/notNull';
 import { renderNotificationCards } from './renderNotificationCards';
 import { renderNotificationBadge } from './renderNotificationBadge';
+import { areDomainsMatching } from '../../misc/areDomainsMatching';
 
 export function setupNotificationsListener() {
   const apiIframe = /** @type {HTMLIFrameElement | null} */ (document.getElementById(domConstants.NOTIFICATIONS__IFRAME));
@@ -33,7 +34,8 @@ export function setupNotificationsListener() {
   window.addEventListener('message', (event) => {
     // IMPORTANT: For security, always verify event.origin in production.
     // Ensure the message comes from the expected iframe origin
-    if (event.origin !== iframeOrigin) {
+    console.log('message event:',event);
+    if (!areDomainsMatching(event.origin,iframeOrigin)) {
       console.warn(`Parent: Blocking message from untrusted origin: ${event.origin}. Expected: ${iframeOrigin}`);
       return;
     }
