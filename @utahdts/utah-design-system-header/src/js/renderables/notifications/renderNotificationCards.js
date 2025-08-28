@@ -11,8 +11,9 @@ import { renderNextButton } from './renderNextButton';
  * @param {NotificationEdge[]} notificationsData
  * @param {null|HTMLElement} [notificationsList=null]
  * @param {PageInfo} [pageInfo]
+ * @param {boolean} [isMyUtah]
  */
-export function renderNotificationCards(notificationsData, notificationsList = null, pageInfo) {
+export function renderNotificationCards(notificationsData, notificationsList = null, pageInfo, isMyUtah = false) {
   const notificationsListDom = notificationsList || document.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST));
   if (notificationsListDom) {
     if (notificationsData.length > 0) {
@@ -52,7 +53,7 @@ export function renderNotificationCards(notificationsData, notificationsList = n
         document.getElementById(domConstants.NOTIFICATIONS__LOAD_MORE)?.parentElement?.remove();
       }
     } else {
-      notificationsListDom.appendChild(renderZeroUnreadMessages());
+      notificationsListDom.appendChild(renderZeroUnreadMessages(isMyUtah));
     }
   } else {
     throw new Error('renderNotificationCards: notificationsListDom not found!');

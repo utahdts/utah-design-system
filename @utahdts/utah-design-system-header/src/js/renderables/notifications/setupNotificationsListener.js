@@ -5,6 +5,7 @@ import { globalState } from '../../storage/globalState';
 import { notNull } from '../../misc/notNull';
 import { renderNotificationCards } from './renderNotificationCards';
 import { renderNotificationBadge } from './renderNotificationBadge';
+import { MY_UTAH_REGEX } from '../../enumerations/regularExpressions';
 import { areDomainsMatching } from '../../misc/areDomainsMatching';
 
 export function setupNotificationsListener() {
@@ -12,6 +13,7 @@ export function setupNotificationsListener() {
 
   // Derive the origin from the iframe's full URL for postMessage security
   const iframeOrigin = getIframeUrl();
+  const isMyUtah = MY_UTAH_REGEX.test(document.location.hostname);
 
   /**
    * Requests notifications data by sending a message to the iframe.
@@ -64,7 +66,7 @@ export function setupNotificationsListener() {
         const notificationsList = /** @type {HTMLElement} */ (
           notNull(drawer.querySelector(getCssClassSelector(domConstants.NOTIFICATIONS__LIST)), 'setupNotificationsListener: notifications list end not found')
         );
-        renderNotificationCards(notifications.edges, notificationsList, notifications.pageInfo)
+        renderNotificationCards(notifications.edges, notificationsList, notifications.pageInfo, isMyUtah)
 
         const busySpinner = drawer.querySelector(`.${domConstants.NOTIFY__BUSY_CARD}`);
         if (busySpinner) {
@@ -82,6 +84,6 @@ export function setupNotificationsListener() {
 
   // This listener ensures that `requestNotifications()` is called only after the iframe is fully loaded.
   apiIframe?.addEventListener('load', function() {
-    requestNotifications();
+    requestNotifications({ hostname: document.location.hostname });
   });
 }

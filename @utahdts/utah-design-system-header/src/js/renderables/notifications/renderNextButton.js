@@ -14,7 +14,7 @@ function getNotifications(endCursor) {
   if (apiIframe?.contentWindow) {
     apiIframe.contentWindow.postMessage({
       request: 'getNotifications',
-      options: { endCursor },
+      options: { endCursor, hostname: document.location.hostname },
     }, iframeOrigin);
   }
 }

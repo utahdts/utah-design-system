@@ -105,7 +105,7 @@ export function renderNotificationsDrawer() {
     markAllAsRead();
   }
 
-  // view all read button
+  // view "all read" button
   drawerViewAll.onclick = (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -119,7 +119,7 @@ export function renderNotificationsDrawer() {
   }
 
   if (notifications) {
-    renderNotificationCards(notifications.edges, notificationsList, notifications.pageInfo);
+    renderNotificationCards(notifications.edges, notificationsList, notifications.pageInfo, isMyUtah);
   }
 
   //set focus back to the start of the dialog
