@@ -120,6 +120,7 @@ export function renderNotificationsDrawer() {
 
   if (notifications) {
     renderNotificationCards(notifications.edges, notificationsList, notifications.pageInfo, isMyUtah);
+    drawerMarkAllRead.disabled = false;
   }
 
   //set focus back to the start of the dialog
