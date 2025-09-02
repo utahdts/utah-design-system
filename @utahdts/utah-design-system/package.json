@@ -68,7 +68,7 @@
     "react": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "2.1.5",
+    "@floating-ui/react-dom": "2.1.6",
     "@utahdts/utah-design-system-header": "4.1.0",
     "date-fns": "4.1.0",
     "immer": "10.1.1",
