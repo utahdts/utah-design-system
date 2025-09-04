@@ -16,6 +16,7 @@
         display: flex;
         align-items: center;
         gap: .5rem;
+        box-sizing: content-box;
       }
       .utds-icon-before-alert {
         font-size: 1.2rem;
@@ -40,6 +41,13 @@
           color: white;
           fill: white;
         }
+      }
+
+      .utds-notify-list-item:focus, .utds-notify-list-item:focus-visible, [tabindex]:focus, [tabindex]:focus-visible {
+        outline: 3px solid var(--form-ele-color);
+        outline-offset: -3px;
+        border: none;
+        box-shadow: none;
       }
     }
 
@@ -129,11 +137,11 @@
       }
       &__brand-wrapper {
         display: flex;
-        flex-grow: 1;
-        max-height: 34px;
+        height: 34px;
       }
       &__brand {
-        max-height: 50px;
+        max-height: 35px;
+        min-width: 0;
       }
       &__message {
         padding: 0 var(--spacing);
