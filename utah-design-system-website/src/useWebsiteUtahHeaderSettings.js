@@ -37,7 +37,11 @@ export function useWebsiteUtahHeaderSettings() {
         navigate('/');
       },
       titleUrl: '/',
-      utahId: true,
+      utahId: {
+        currentUser: undefined,
+        notifications: true,
+        identityProvider: ['mylogin'],
+      },
       skipLinkUrl: '#main-content',
     }),
     []

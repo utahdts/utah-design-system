@@ -50,6 +50,11 @@
  */
 
 /**
+ * UtahIDProvider
+ * @typedef {'mylogin' | 'entra' | 'legacy'} UtahIDProvider
+ */
+
+/**
  * @typedef MainMenuItem {
  *  // this started as a copy of MenuItem but can diverge to be its own thing
  *  // wordpress has the concept of a menu item that is a link AND has children, but when it goes mobile the link is no longer available
@@ -247,7 +252,7 @@
  * // The UtahID header will auto fetch the user from UtahID if it is not told that your application will be controlling the signed in user
  * // This may cause the header to jump as data comes from UtahID and your application gets data from its data source.
  * // To prevent this jankiness, your application should call setUtahHeaderSettings with a userInfo.currentUser value of `null`. This way
- * // the header knows not to fetch the user and your application can later call setSettings again with the current user.
+ * // the header knows not to fetch the user, and your application can later call setSettings again with the current user.
  * @typedef UtahIDSettings {
  *  @property {UserInfo | undefined | null} currentUser - null: app controls the user, undefined: header will fetch current user
  *  @property {function(UtahIdData): void | undefined} [onAuthChanged] - auth user changes, eg (newUserData) => { ... do something ... }
@@ -255,6 +260,8 @@
  *  @property {function(UIEvent): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in: (e) => { }
  *  @property {function(UIEvent): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
  *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
+ *  @property {boolean | undefined} [notifications] - turn on fetching of notifications
+ *  @property {Array<UtahIDProvider> | undefined} [identityProvider] - options are ['entra','legacy','mylogin']. 'mylogin' is required for notifications
  * }
  */
 

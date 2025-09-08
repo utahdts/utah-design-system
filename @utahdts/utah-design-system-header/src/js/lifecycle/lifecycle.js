@@ -96,9 +96,6 @@ export function loadHeader() {
       skipLinkTarget.insertBefore(skipLink, skipLinkTarget.firstChild);
     }
 
-    // Load the notifications iFrame
-    setupNotifications();
-
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
     if (mainMenuWrapper) {
@@ -161,6 +158,11 @@ export function loadHeader() {
       || (!settings.mainMenu && settings.actionItems && !settings.utahId && settings.onSearch)
     ) {
       mainMenuWrapper.classList.add(domConstants.DESKTOP__HIDDEN);
+    }
+    // @ts-expect-error 'notifications' has to be turned on
+    if (settings.utahId?.notifications && settings.utahId?.identityProvider.includes('mylogin')) {
+      // Load the notifications iFrame
+      setupNotifications();
     }
   }
 
