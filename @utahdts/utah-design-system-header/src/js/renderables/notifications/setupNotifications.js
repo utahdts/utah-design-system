@@ -4,12 +4,17 @@ import { getIframeUrl } from './getIframeUrl';
 import NotificationsIFrame from './html/NotificationsIFrame.html?raw';
 import { setupNotificationsListener } from './setupNotificationsListener';
 
+// a way to possibly turn off notifications
+const enableNotifications = true;
+
 export function setupNotifications() {
-  if (!document.getElementById(domConstants.NOTIFICATIONS__IFRAME)) {
-    // add Notifications iFrame to the document body
-    const iframe = renderDOMSingle(NotificationsIFrame);
-    iframe.setAttribute('src', getIframeUrl());
-    document.body.appendChild(iframe);
-    setupNotificationsListener();
+  if (enableNotifications) {
+    if (!document.getElementById(domConstants.NOTIFICATIONS__IFRAME)) {
+      // add Notifications iFrame to the document body
+      const iframe = renderDOMSingle(NotificationsIFrame);
+      iframe.setAttribute('src', getIframeUrl());
+      document.body.appendChild(iframe);
+      setupNotificationsListener();
+    }
   }
 }

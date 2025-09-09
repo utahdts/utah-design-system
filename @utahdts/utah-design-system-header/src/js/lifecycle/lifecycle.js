@@ -159,8 +159,8 @@ export function loadHeader() {
     ) {
       mainMenuWrapper.classList.add(domConstants.DESKTOP__HIDDEN);
     }
-    // @ts-expect-error 'notifications' has to be turned on
-    if (settings.utahId?.notifications && settings.utahId?.identityProvider.includes('mylogin')) {
+    // @ts-expect-error I don't know, ask the devs
+    if (settings.utahId?.notifications !== false && !settings.utahId?.identityProvider?.includes('entra') && !settings.utahId?.identityProvider?.includes('legacy')) {
       // Load the notifications iFrame
       setupNotifications();
     }
