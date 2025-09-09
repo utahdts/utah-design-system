@@ -1,7 +1,7 @@
 {
   "name": "utah-design-system-website",
   "private": true,
-  "version": "5.0.0-beta.0",
+  "version": "5.0.0-beta.1",
   "type": "module",
   "scripts": {
     "dev": "vite --mode development-local",
@@ -20,8 +20,8 @@
     "testOnce": "vitest run"
   },
   "dependencies": {
-    "@utahdts/utah-design-system": "5.0.0-beta.0",
-    "@utahdts/utah-design-system-header": "5.0.0-beta.0",
+    "@utahdts/utah-design-system": "5.0.0-beta.1",
+    "@utahdts/utah-design-system-header": "5.0.0-beta.1",
     "date-fns": "4.1.0",
     "js-beautify": "1.15.4",
     "lodash-es": "4.17.21",
