@@ -18,6 +18,7 @@ export function markAllAsRead() {
 
     status.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
     title.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
+    item.classList.add(domConstants.NOTIFY__LIST_ITEM_IS_READ);
   });
 
 }

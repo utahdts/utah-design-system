@@ -162,6 +162,10 @@
       &--busy-card {
         padding: 3rem 1rem;
       }
+
+      &--is-read {
+        background-color: var(--gray-light-color);
+      }
     }
   }
 }

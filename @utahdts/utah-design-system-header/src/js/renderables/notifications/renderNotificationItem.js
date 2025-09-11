@@ -42,6 +42,7 @@ export function renderNotificationItem(notificationData) {
 
       status.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
       title.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
+      card.classList.add(domConstants.NOTIFY__LIST_ITEM_IS_READ);
     }, 2000);
   });
   card.addEventListener('focusout', () => {
@@ -51,6 +52,7 @@ export function renderNotificationItem(notificationData) {
   if (notificationData.isRead) {
     status.classList.add(`${domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ}`);
     title.classList.add(domConstants.NOTIFY__LIST_ITEM_STATUS_IS_READ);
+    card.classList.add(domConstants.NOTIFY__LIST_ITEM_IS_READ);
   }
 
   icon.className = `utds-icon-before-${notificationData.icon}`;
