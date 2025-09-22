@@ -7,6 +7,8 @@ import { renderNotificationCards } from './renderNotificationCards';
 import { renderNotificationBadge } from './renderNotificationBadge';
 import { MY_UTAH_REGEX } from '../../enumerations/regularExpressions';
 import { areDomainsMatching } from '../../misc/areDomainsMatching';
+import { showDebugMessage } from './showDebugMessage';
+import { SET_DEBUG } from './utahHeaderSetDebug';
 
 export function setupNotificationsListener() {
   const apiIframe = /** @type {HTMLIFrameElement | null} */ (document.getElementById(domConstants.NOTIFICATIONS__IFRAME));
@@ -22,7 +24,7 @@ export function setupNotificationsListener() {
    */
   function requestNotifications(options = {}) {
     if (apiIframe?.contentWindow) {
-      console.log('Parent: Requesting data from iframe with options:', options);
+      showDebugMessage('Parent: Requesting data from iframe with options:', options);
       globalState.setState({isBusy: true});
       apiIframe.contentWindow.postMessage({
         request: 'getNotifications',
@@ -36,7 +38,7 @@ export function setupNotificationsListener() {
   window.addEventListener('message', (event) => {
     // IMPORTANT: For security, always verify event.origin in production.
     // Ensure the message comes from the expected iframe origin
-    console.log('message event:',event);
+    showDebugMessage('message event:',event);
     if (!areDomainsMatching(event.origin,iframeOrigin)) {
       console.warn(`Parent: Blocking message from untrusted origin: ${event.origin}. Expected: ${iframeOrigin}`);
       return;
@@ -48,7 +50,7 @@ export function setupNotificationsListener() {
       return;
     }
 
-    console.log('Parent: Received response from iframe:', messageData);
+    showDebugMessage('Parent: Received response from iframe:', messageData);
 
     if (messageData.notifications) {
       const notifications = messageData.notifications;
@@ -73,7 +75,7 @@ export function setupNotificationsListener() {
           busySpinner.remove();
         }
       }
-      console.log('Parent: Notifications received from iframe:', notifications);
+      showDebugMessage('Parent: Notifications received from iframe:', notifications);
     } else {
       const error = messageData.notifications?.errors?.[0]?.message || 'An unknown error occurred.';
       console.warn('Parent: Error receiving notifications from iframe:', error);
@@ -85,5 +87,12 @@ export function setupNotificationsListener() {
   // This listener ensures that `requestNotifications()` is called only after the iframe is fully loaded.
   apiIframe?.addEventListener('load', function() {
     requestNotifications({ hostname: document.location.hostname });
+    // @ts-expect-error The iframe should be loaded already
+    apiIframe.contentWindow.postMessage({
+      request: 'setDebug',
+      options: {
+        setDebug: localStorage.getItem(SET_DEBUG),
+      },
+    }, iframeOrigin);
   });
 }

@@ -1,5 +1,6 @@
 import { domConstants } from '../../enumerations/domConstants';
 import { getIframeUrl } from './getIframeUrl';
+import { showDebugMessage } from './showDebugMessage';
 
 /**
  * Post a message to the iFrame to mark a notification as read.
@@ -12,8 +13,7 @@ export function postMessageMarkAsRead(notificationId) {
   const iframeOrigin = getIframeUrl();
 
   if (apiIframe?.contentWindow) {
-    // eslint-disable-next-line no-console
-    console.log('Parent: Mark a notification as read:', notificationId);
+    showDebugMessage('Parent: Mark a notification as read:', notificationId);
     apiIframe.contentWindow.postMessage({
       request: 'markAsRead',
       options: { id: notificationId },
