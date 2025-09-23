@@ -91,7 +91,7 @@ export function renderNotificationsDrawer() {
     icon: '<span class="utds-icon-before-gear" aria-hidden="true"></span>',
     title: 'Settings',
     showTitle: false,
-    actionLink: isMyUtah ? '/u?id=my_information&wgt=my_notifications' : 'https://my.utah.gov',
+    actionLink: isMyUtah ? '/u?id=my_information&wgt=my_notifications' : 'https://my.utah.gov/u?id=my_information&wgt=my_notifications',
     className: 'notifications-settings-button',
   });
   drawerHeaderButtons.appendChild(settingsButton);
@@ -104,7 +104,7 @@ export function renderNotificationsDrawer() {
   }
 
   // view "all read" link
-  drawerViewAll.href = isMyUtah ? '/u?id=my_notifications' : 'https://my.utah.gov';
+  drawerViewAll.href = isMyUtah ? '/u?id=my_notifications' : 'https://my.utah.gov/u?id=my_notifications';
 
   // add busy spinner card to drawer
   const { notifications, isBusy } = globalState.getState();

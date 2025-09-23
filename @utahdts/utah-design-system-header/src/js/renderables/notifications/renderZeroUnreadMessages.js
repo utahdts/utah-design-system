@@ -14,7 +14,7 @@ export function renderZeroUnreadMessages(isMyUtah = false) {
     id: uuidv4(),
     isRead: true,
     linkText: isMyUtah ? 'Manage Settings' : 'Visit MyUtah',
-    linkUrl: isMyUtah ? '/u?id=my_information&wgt=my_notifications' : 'https://my.utah.gov',
+    linkUrl: isMyUtah ? '/u?id=my_information&wgt=my_notifications' : 'https://my.utah.gov/u?id=my_information&wgt=my_notifications',
     message: 'Your notifications will appear here. You may also receive email and text messages. Enroll or review your preferences.',
     title: 'No Unread Notifications',
   });
