@@ -18,13 +18,13 @@ export function renderNotificationBadge(count = NaN) {
       ' action item not found')
   );
 
-  const mobileHamburgerMenu= /** @type {HTMLElement} */ (
+  const mobileHamburgerMenu = /** @type {HTMLElement} */ (
     notNull(document.getElementById(domConstants.MAIN_MENU__HAMBURGER_ID), 'renderNotificationBadge: notifications' +
       ' hamburger menu item not found')
   );
 
   const arrayOfItems = Array.from(notificationsActionItems);
-  if(mobileHamburgerMenu) arrayOfItems.push(mobileHamburgerMenu);
+  if (mobileHamburgerMenu) arrayOfItems.push(mobileHamburgerMenu);
 
   arrayOfItems.forEach((notificationsActionItem) => {
     let badgeDOM = notificationsActionItem.querySelector(`.${domConstants.NOTIFICATIONS__ACTION_ITEM_BADGE}`);
