@@ -32,14 +32,20 @@
           padding: 0 var(--spacing);
         }
       }
-      .notifications-settings-button {
+      a.notifications-settings-button {
         background: var(--gray-color);
         color: white;
         fill: white;
         &:hover {
           background-color: var(--gray-dark-color);
+          box-shadow: none;
           color: white;
           fill: white;
+        }
+        &:focus-visible {
+          outline: 2px solid var(--form-ele-color);
+          outline-offset: 2px;
+          transition: none;
         }
       }
 

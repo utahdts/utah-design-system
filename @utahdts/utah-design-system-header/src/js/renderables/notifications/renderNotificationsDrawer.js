@@ -2,7 +2,7 @@ import { globalState } from '../../storage/globalState';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { notNull } from '../../misc/notNull';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
-import { renderActionItem } from '../actionItems/renderActionItem';
+import { renderAnchorActionItem } from '../actionItems/renderAnchorActionItem';
 import drawerHTML from './html/NotificationsDrawer.html?raw';
 import { markAllAsRead } from './markAllAsRead';
 import { renderNotificationCards } from './renderNotificationCards';
@@ -50,7 +50,7 @@ export function renderNotificationsDrawer() {
     notNull(drawer.querySelector(`#${domConstants.NOTIFICATIONS__DRAWER_MARK_ALL_READ_ID}`), 'renderNotificationsDrawer: drawer "mark all read" not found')
   );
 
-  const drawerViewAll = /** @type {HTMLElement} */ (
+  const drawerViewAll = /** @type {HTMLAnchorElement} */ (
     notNull(drawer.querySelector(`#${domConstants.NOTIFICATIONS__DRAWER_VIEW_ALL_ID}`), 'renderNotificationsDrawer: drawer "mark all read" not found')
   );
 
@@ -87,13 +87,11 @@ export function renderNotificationsDrawer() {
   };
 
   // settings button
-  const settingsButton = renderActionItem({
+  const settingsButton = renderAnchorActionItem({
     icon: '<span class="utds-icon-before-gear" aria-hidden="true"></span>',
     title: 'Settings',
     showTitle: false,
-    actionFunction: () => {
-      window.location.href = isMyUtah ? '/u?id=my_information&wgt=my_notifications' : 'https://my.utah.gov';
-    },
+    actionLink: isMyUtah ? '/u?id=my_information&wgt=my_notifications' : 'https://my.utah.gov',
     className: 'notifications-settings-button',
   });
   drawerHeaderButtons.appendChild(settingsButton);
@@ -105,12 +103,8 @@ export function renderNotificationsDrawer() {
     markAllAsRead();
   }
 
-  // view "all read" button
-  drawerViewAll.onclick = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    window.location.href = isMyUtah ? '/u?id=my_notifications' : 'https://my.utah.gov';
-  }
+  // view "all read" link
+  drawerViewAll.href = isMyUtah ? '/u?id=my_notifications' : 'https://my.utah.gov';
 
   // add busy spinner card to drawer
   const { notifications, isBusy } = globalState.getState();

@@ -200,6 +200,17 @@
  */
 
 /**
+ * @typedef AnchorActionItem {
+ *  @property {String} actionLink - link of the anchor
+ *  @property {string} [className] - CSS classes for the action item
+ *  @property {Badge} [badge] - the badge to show in the action item's badge icon
+ *  @property {HTMLElement | string} icon - DOM or DOM string of icon to show
+ *  @property {boolean} showTitle - Should the title always be visible?
+ *  @property {string} title - Title of the action item (required for accessibility)
+ * }
+ */
+
+/**
  * // must use one and only one of the properties here
  * @typedef DomLocationTarget {
  *  @property {string} [cssSelector] - find a target DOM element by document.querySelector(cssSelector) (throws error if not found)
