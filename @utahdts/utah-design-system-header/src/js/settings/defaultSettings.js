@@ -28,5 +28,5 @@ export const defaultSettings = {
   skipLinkUrl: '#main-content',
   title: 'My Utah.gov Site',
   titleUrl: '/',
-  utahId: false,
+  utahId: true,
 };
