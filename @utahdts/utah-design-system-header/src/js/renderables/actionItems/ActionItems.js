@@ -24,7 +24,7 @@ export function ActionItems() {
   }
 
   if (notifications) {
-    actionItemsWrapper?.append(renderActionItem(getNotificationsActionItem()))
+    actionItemsWrapper?.append(renderActionItem(getNotificationsActionItem()));
   }
 
   return actionItemsWrapper;

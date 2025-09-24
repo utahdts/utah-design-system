@@ -15,6 +15,7 @@ import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderabl
 import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
 import { renderMobileMenuHomeMenu } from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
+import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge';
 import { setupNotifications } from '../renderables/notifications/setupNotifications';
 import { SkipLink } from '../renderables/skipLink/SkipLink';
 import { renderOfficialWebsite } from '../renderables/utahLogo/renderOfficialWebsite';
@@ -163,6 +164,7 @@ export function loadHeader() {
     if (settings.utahId?.notifications !== false && !settings.utahId?.identityProvider?.includes('entra') && !settings.utahId?.identityProvider?.includes('legacy')) {
       // Load the notifications iFrame
       setupNotifications();
+      renderNotificationBadge();
     }
   }
 
