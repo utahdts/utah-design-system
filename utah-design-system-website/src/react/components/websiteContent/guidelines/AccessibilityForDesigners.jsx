@@ -16,6 +16,14 @@ export function AccessibilityForDesigners() {
 
       <WcagRulesBlock />
 
+      <p>
+        Key dates for the Federal Rule:
+        <ul>
+          <li><strong>Effective Date for Executive Agencies</strong>: June 1, 2015</li>
+          <li><strong>Compliance Deadline</strong>: April 24, 2026</li>
+        </ul>
+      </p>
+
       <h2 id="section-designers-role">The Designer’s Role in Accessibility</h2>
       <p>
         Designers play a critical role in ensuring accessibility by creating interface and web designs that accommodate people with varying degrees of
