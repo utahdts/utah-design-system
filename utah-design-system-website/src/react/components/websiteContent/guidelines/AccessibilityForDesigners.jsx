@@ -16,13 +16,13 @@ export function AccessibilityForDesigners() {
 
       <WcagRulesBlock />
 
-      <p>
+      <span>
         Key dates for the Federal Rule:
-        <ul>
-          <li><strong>Effective Date for Executive Agencies</strong>: June 1, 2015</li>
-          <li><strong>Compliance Deadline</strong>: April 24, 2026</li>
-        </ul>
-      </p>
+      </span>
+      <ul className="pb-spacing">
+        <li><strong>Effective Date for Executive Agencies</strong>: June 1, 2015</li>
+        <li><strong>Compliance Deadline</strong>: April 24, 2026</li>
+      </ul>
 
       <h2 id="section-designers-role">The Designer’s Role in Accessibility</h2>
       <p>
