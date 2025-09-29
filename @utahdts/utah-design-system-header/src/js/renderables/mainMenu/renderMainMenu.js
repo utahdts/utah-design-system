@@ -228,6 +228,9 @@ export function renderMainMenu() {
   if (settings.onSearch) {
     setupSearchModal();
 
+    // copy the search button now so we don't also copy the tooltip
+    const mobileSearchIcon = renderDOMSingle(searchIcon.outerHTML);
+
     hookupTooltip(searchIcon, document.createTextNode('Search'));
     if (searchIcon.onclick) {
       throw new Error('searchIcon already has onclick');
@@ -243,7 +246,6 @@ export function renderMainMenu() {
       // Desktop: the search is with the action icons
       // mobile: the search is on main menu bar with hamburger
       // so make a copy of the menu bar search so it can be mobile and citizen
-      const mobileSearchIcon = renderDOMSingle(searchIcon.outerHTML);
       hookupTooltip(mobileSearchIcon, document.createTextNode('Search'));
       mobileSearchIcon.onclick = () => showSearchModal();
       searchIcon.classList.add(domConstants.DESKTOP__HIDDEN);
