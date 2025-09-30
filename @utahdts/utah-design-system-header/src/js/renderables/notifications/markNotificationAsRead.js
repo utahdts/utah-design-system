@@ -7,11 +7,10 @@ import { renderNotificationBadge } from './renderNotificationBadge';
  * @param {string} notificationId
  */
 export function markNotificationAsRead(notificationId) {
-  // TODO: API - mark the notification as read
   const currentState = globalState.getState();
   const notifications = currentState?.notifications;
   if (!notifications || !notifications.edges) {
-    throw new Error('renderNotificationsItem: No notifications object found in current state!');
+    throw new Error('No notifications object found in current state!');
   } else {
     //Loop through the notifications and find the matching ID and change its isRead value to true
     const existingNotification = notifications.edges.find(
