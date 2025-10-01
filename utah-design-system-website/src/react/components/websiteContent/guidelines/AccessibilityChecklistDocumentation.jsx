@@ -20,14 +20,6 @@ export function AccessibilityChecklistDocumentation() {
 
       <WcagRulesBlock />
 
-      <span>
-        Key dates for the Federal Rule:
-      </span>
-      <ul className="pb-spacing">
-        <li><strong>Effective Date for Executive Agencies</strong>: June 1, 2015</li>
-        <li><strong>Compliance Deadline</strong>: April 24, 2026</li>
-      </ul>
-
       <h2 id="section-manual-checklist" className="mb-spacing">Manual Checklist</h2>
       <h3 id="section-manual-checklist-content">Content</h3>
       <ul>

@@ -107,16 +107,6 @@ export function AccessibilityDocumentation() {
       </p>
 
       <hr />
-      <h2 id="section-rules" className="mb-spacing">Rules and Deadlines</h2>
-      <span>
-        Key dates for the Federal Rule:
-      </span>
-      <ul className="pb-spacing">
-        <li><strong>Effective Date for Executive Agencies</strong>: June 1, 2015</li>
-        <li><strong>Compliance Deadline</strong>: April 24, 2026</li>
-      </ul>
-
-      <hr />
       <h2 id="section-areas-to-consider" className="mb-spacing">Areas to Consider</h2>
       <h3 id="section-limited-vision">Limited or No Vision</h3>
       <p>
