@@ -376,7 +376,7 @@ export function UtahFooterDocumentation() {
               {
                 ...other settings...,
                 footer: {
-                  copyrightYear: '2023'
+                  copyrightYear: '2025'
                 }
               }
             )
