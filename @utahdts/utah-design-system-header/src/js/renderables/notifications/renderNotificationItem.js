@@ -36,7 +36,6 @@ export function renderNotificationItem(notificationData) {
   /** @type {number} */
   let cardFocusTimeout = NaN;
   card.addEventListener('focusin', () => {
-    console.log('---------- FOCUS ----------');
     clearTimeout(cardFocusTimeout);
     cardFocusTimeout = window.setTimeout(() => {
       markNotificationAsRead(notificationData.id);
