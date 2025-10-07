@@ -36,6 +36,7 @@ export function renderNotificationItem(notificationData) {
   /** @type {number} */
   let cardFocusTimeout = NaN;
   card.addEventListener('focusin', () => {
+    console.log('---------- FOCUS ----------');
     clearTimeout(cardFocusTimeout);
     cardFocusTimeout = window.setTimeout(() => {
       markNotificationAsRead(notificationData.id);
@@ -68,7 +69,10 @@ export function renderNotificationItem(notificationData) {
 
   link.setAttribute('href', notificationData.linkUrl);
   linkText.innerText = notificationData.linkText
-  link.addEventListener('click', (event) => event.stopPropagation());
+  link.addEventListener('click', (event) => {
+    markNotificationAsRead(notificationData.id);
+    event.stopPropagation();
+  });
 
   return card;
 }
