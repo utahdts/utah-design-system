@@ -28,6 +28,7 @@ export function useWebsiteUtahHeaderSettings() {
         tabletPortrait: 768,
         tabletLandscape: 1024,
       },
+      notifications: false,
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',

@@ -1268,6 +1268,26 @@ export function UtahHeaderDocumentation() {
 
       <MainMenuSettingsAndCode />
 
+      <h3 id="section-utahheader-notifications" className="mb-spacing">Notifications</h3>
+      <h4 id="section-auth-props">Config Props</h4>
+      <div className="documentation-content--small-text static-example static-example--blank">
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+          <TableRow>
+            <TableCell>
+              <code>notifications</code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper"><code>boolean</code></div>
+            </TableCell>
+            <TableCell>false</TableCell>
+            <TableCell>
+              Should the notifications action item be displayed in the Utah Header.
+            </TableCell>
+          </TableRow>
+        </SettingsDocumentation>
+      </div>
+      <br />
+
       <h3 id="section-utahheader-footer" className="mb-spacing">Footer</h3>
       <h4 id="section-auth-props">Config Props</h4>
       <div className="documentation-content--small-text static-example static-example--blank">

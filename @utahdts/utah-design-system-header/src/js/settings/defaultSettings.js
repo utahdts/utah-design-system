@@ -22,7 +22,7 @@ export const defaultSettings = {
     tabletPortrait: 768,
     tabletLandscape: 1024,
   },
-  notifications: true,
+  notifications: false,
   showTitle: true,
   size: sizes.MEDIUM,
   skipLinkUrl: '#main-content',

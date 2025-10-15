@@ -319,6 +319,26 @@ export const utahHeaderPresets = [
     ],
     title: 'Main Menu',
   },
+  // --- notifications --- //
+  {
+    options: [
+      // -- off -- //
+      {
+        settingsSnippet: {
+          notifications: false,
+        },
+        title: 'Off',
+      },
+      // -- on -- //
+      {
+        settingsSnippet: {
+          notifications: true,
+        },
+        title: 'On',
+      },
+    ],
+    title: 'Notifications',
+  },
   // --- onSearch --- //
   {
     options: [

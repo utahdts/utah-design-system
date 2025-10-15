@@ -161,7 +161,7 @@ export function loadHeader() {
       mainMenuWrapper.classList.add(domConstants.DESKTOP__HIDDEN);
     }
     // @ts-expect-error I don't know, ask the devs
-    if (settings.utahId?.notifications !== false && !settings.utahId?.identityProvider?.includes('entra') && !settings.utahId?.identityProvider?.includes('legacy')) {
+    if (settings.notifications !== false && !settings.utahId?.identityProvider?.includes('entra') && !settings.utahId?.identityProvider?.includes('legacy')) {
       // Load the notifications iFrame
       setupNotifications();
       renderNotificationBadge();
