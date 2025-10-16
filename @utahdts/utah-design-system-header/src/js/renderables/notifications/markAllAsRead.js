@@ -40,7 +40,7 @@ export function markAllAsRead() {
         return notification;
       }
     });
-    const newUnreadCount = Math.max(0, notifications.unreadCount - 1);
+    const newUnreadCount = 0;
 
     globalState.setState({
       notifications: {
