@@ -53,6 +53,13 @@ export function Tooltip({
 
   const { startNoPopupTimer, startPopupTimer } = usePopupDelay();
 
+  const onEscape = (/** @type {KeyboardEvent} */ e) => {
+    if (e.code === 'Escape' || e.key === 'Escape') {
+      setIsPopupVisibleInternal(false);
+      document.removeEventListener('keyup', onEscape);
+    }
+  };
+
   useEffect(
     () => {
       // parent is not controlling visibility, so hookup visibility to the `referenceElement`
@@ -83,6 +90,7 @@ export function Tooltip({
           setIsPopupVisibleInternal(false);
         };
         draftReferenceElement.onblur = () => setIsPopupVisibleInternal(false);
+        document.addEventListener('keyup', onEscape);
       }
       return (
         () => {
@@ -95,7 +103,7 @@ export function Tooltip({
         }
       );
     },
-    [draftReferenceElement, isPopupVisible, startNoPopupTimer, startPopupTimer]
+    [draftReferenceElement, isPopupVisible, startNoPopupTimer, startPopupTimer, onEscape]
   );
 
   return (
