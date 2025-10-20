@@ -97,6 +97,13 @@ export function loadHeader() {
 
     const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
     officialWebsite.after(mobileMenuWrapper);
+    mobileMenuWrapper.onkeyup = (e) => {
+      if (e.code === 'Escape' || e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        hideMobileMenu()
+      }
+    };
 
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
