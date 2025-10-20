@@ -95,13 +95,14 @@ export function loadHeader() {
       skipLinkTarget.insertBefore(skipLink, skipLinkTarget.firstChild);
     }
 
+    const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
+    officialWebsite.after(mobileMenuWrapper);
+
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
     if (mainMenuWrapper) {
       officialWebsite.after(mainMenuWrapper);
     }
-    const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
-    officialWebsite.after(mobileMenuWrapper);
 
     // hide mobile menu on background trigger
     const mobileMenuBackdrop = /** @type {HTMLElement} */ (document.querySelector(getCssClassSelector(domConstants.MOBILE_MENU__BACKDROP)));
