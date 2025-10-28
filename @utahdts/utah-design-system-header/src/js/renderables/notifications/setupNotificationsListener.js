@@ -56,7 +56,11 @@ export function setupNotificationsListener() {
       const notifications = messageData.notifications;
 
       // Render notifications
-      globalState.setState({notifications: notifications});
+      // We don't want to overwrite the state with data from the "load more"
+      if (!event.data?.options?.endCursor) {
+        globalState.setState({notifications: notifications});
+      }
+
 
       renderNotificationBadge();
 
