@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # [4.2.0] 11/06/2025
+## Added
+- Utah Footer now includes linkTextPrivacyPolicy to customize the privacy link text
+
 ## Change
 - Complete rewrite of the Accessibility Checklist to:
   - Reorganize checklist into automated and manual testing
@@ -13,9 +16,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - More comprehensive checklist to cover more accessibility requirements
   - Updated accessibility testing tools list instructions
   - Updated screen reader documentation
+- Popups now close on hitting escape
+- Content change for Links, Vertical Menu, miscellaneous
 
 ## Fixed
 - Adjusted package.json for React to use latest versions to avoid conflict downstream (e.g., "react": "^19.0.0").
+- Fixed CalendarInput keyboard accessibility
+- Utah Header:
+  - Improve hamburger menu accessibility
+  - Mobile menu closes on hitting escape
+  - Mobile menu rendering order has been changed to accommodate tabbing order
+  - Removed duplicate tooltip
+- Side panel styling
+- Focusing inside an Accordion will now open it
+- Ensure inputs have white background
+- Focus styling for buttons with Firefox
+- Cards on the Demo Page are now links
 
 # [4.1.0] 08/21/2025
 ## Added
