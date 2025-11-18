@@ -172,7 +172,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
           'menu',
           {
             popupPlacement: PopupPlacement.RIGHT_START,
-            preventOnClickHandling: true,
+            preventOnClickHandling: false,
             shouldFocusOnHover: true,
           }
         );

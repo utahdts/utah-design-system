@@ -2,7 +2,6 @@ import { arrow, computePosition, flip, offset, shift } from '@floating-ui/dom';
 import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
 import { PopupPlacement } from '../enumerations/popupPlacement';
 import { hideAllMenus } from '../lifecycle/globalEvents';
-import { allowAriaExpanded } from './allowAriaExpanded';
 import { checkForError } from './checkForError';
 import { isTouchDevice } from './isTouchDevice';
 import { showHideElement } from './showHideElement';
@@ -40,6 +39,7 @@ import { showHideElement } from './showHideElement';
   * Added a timeout to the open/close because the focusin, mousedown, and onclick were fighting with timing issues
     * sometimes onfocusin would fire first, other times onmousedown would fire first
     * and they would cause each other to see different statuses because one would open and another would close the menu
+  * 'inert' elements are hidden from assistive technologies as they are excluded from the accessibility tree
 
   !!!!  WARNING  !!!!
   Schrödinger's cat may live here!
@@ -73,10 +73,12 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
   const TIMEOUT_MS_MEDIUM = 150;
   const TIMEOUT_MS_SHORT = 50;
 
-  if (allowAriaExpanded(button)) {
+  if (ariaHasPopup) {
     button.setAttribute('aria-expanded', 'false');
   }
   button.setAttribute('aria-haspopup', ariaHasPopup);
+  // The whole popup is not accessible until it's open
+  popup.setAttribute('inert', 'true');
 
   /*
      ___     ___    _  _   _   _____     _____    ___    _   _    ___   _  _
@@ -125,7 +127,13 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
             }
           });
           showHideElement(popup, true, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          if (allowAriaExpanded(button)) {
+          // We make the popup accessible to interaction - mouse and keyboard
+          popup.removeAttribute('inert');
+          if (!options?.shouldFocusOnTab) {
+            wrapper.addEventListener('focusin', handleFocusIn);
+            wrapper.addEventListener('focusout', handleFocusOut);
+          }
+          if (ariaHasPopup) {
             button.setAttribute('aria-expanded', 'true');
           }
 
@@ -154,7 +162,13 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
       delayHideTimeoutId = window.setTimeout(
         () => {
           showHideElement(popup, false, domConstants.POPUP__VISIBLE, domConstants.POPUP__HIDDEN);
-          if (allowAriaExpanded(button)) {
+          // When closed, the popup remains inaccessible
+          popup.setAttribute('inert', 'true');
+          if (!options?.shouldFocusOnTab) {
+            wrapper.removeEventListener('focusin', handleFocusIn);
+            wrapper.removeEventListener('focusout', handleFocusOut);
+          }
+          if (ariaHasPopup) {
             button.setAttribute('aria-expanded', 'false');
           }
         },
@@ -180,8 +194,10 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
     };
   }
 
-  wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
-  wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
+  if (options?.shouldFocusOnTab) {
+    wrapper.addEventListener('focusin', handleFocusIn);
+    wrapper.addEventListener('focusout', handleFocusOut);
+  }
 
   if (options?.shouldFocusOnHover) {
     wrapper.addEventListener('mouseenter', () => performPopup(TIMEOUT_MS_LONG));
@@ -230,6 +246,14 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
         options.onClick(e);
       }
     };
+  }
+
+  function handleFocusIn() {
+    performPopup(TIMEOUT_MS_MEDIUM);
+  }
+
+  function handleFocusOut() {
+    hidePopup(TIMEOUT_MS_MEDIUM);
   }
 }
 /*
