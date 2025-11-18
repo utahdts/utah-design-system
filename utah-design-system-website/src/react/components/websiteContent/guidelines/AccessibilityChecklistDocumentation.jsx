@@ -42,6 +42,24 @@ export function AccessibilityChecklistDocumentation() {
 
       <hr />
 
+      <h2 id="section-checklist-download">Checklist Download</h2>
+      <p className="mb-spacing">
+        This checklist is available as a Google Sheet to aid in website testing.
+        Make a copy of the checklist to test your websites:
+      </p>
+      <div className="flex justify-center mb-spacing-l">
+        <ExternalLink
+          href="https://docs.google.com/spreadsheets/d/1q_jnJv6jx4b6zBYdrnqt5xUAHF4VUwd4YQjrU7ziSx0/edit?usp=sharing"
+          //@ts-expect-error This is spread into the component
+          className="button button--primary-color button--solid button--large"
+        >
+          <span className="button--icon button--icon-left"><span className="utds-icon-before-doc-square" aria-hidden="true" /></span>
+          Get the checklist
+        </ExternalLink>
+      </div>
+
+      <hr />
+
       <h2 id="automated-testing">
         <strong>Automated Testing</strong>
       </h2>
@@ -933,9 +951,9 @@ export function AccessibilityChecklistDocumentation() {
               provides a sidebar report detailing Errors, Alerts, Features, and the reading Order.
             </li>
             <li>
-              <strong>Hot to use WAVE website:</strong>{' '}
-              <ExternalLink href="https://wave.webaim.org/">Navigate to the WAVE website.</ExternalLink>{' '}
-              Enter you website’s urls in the "Web page address" field and click the arrow or hit Enter.
+              <strong>How to use WAVE website:</strong>{' '}
+              <ExternalLink href="https://wave.webaim.org/">Navigate to the WAVE website</ExternalLink>, and
+              enter you website’s url in the "Web page address" field then click the arrow or hit Enter.
             </li>
           </ul>
         </li>
@@ -967,7 +985,7 @@ export function AccessibilityChecklistDocumentation() {
               {' '}in the header. Enter the hex code or choose colors using the visual spectrum (eye dropper).
               The tool will display the contrast ratio and show you a preview of how the
               colors look together on the website, helping you achieve compliance visually.
-              Use the contrast tab to see the contrast for two selected colors.
+              Use the contrast tab to see the contrast ratio for two selected colors.
             </li>
           </ul>
         </li>
