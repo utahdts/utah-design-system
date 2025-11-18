@@ -1027,6 +1027,38 @@ export function AccessibilityChecklistDocumentation() {
             </li>
           </ul>
         </li>
+        <li>
+          <strong>Accessibility Insights</strong> (Chrome/Edge Extension or Desktop App): Developed by Microsoft,
+          this is a comprehensive tool that provides FastPass, a two-step process to quickly find
+          common, high-impact accessibility issues using automated checks and assisted manual
+          review (Tab Stops). It also offers a full Assessment against WCAG 2.1 AA standards.
+          <ul>
+            <li>
+              <strong>How to Use:</strong> <ExternalLink href="https://accessibilityinsights.io/downloads/">Install the browser extension</ExternalLink>,
+              navigate to the page, and click the extension icon. Choose FastPass for a
+              quick check or Assessment for a guided, full WCAG audit. It provides clear
+              visual highlighting of failures directly on the page.
+            </li>
+          </ul>
+
+        </li>
+        <li>
+          <strong>Social Security Administration - ANDI</strong> (Accessible Name & Description Inspector)
+          (Bookmarklet): A lightweight, browser-based tool developed by the SSA that
+          specializes in element-by-element inspection. It is designed to reveal what
+          a screen reader should say (the accessible name and description) for
+          interactive elements, tables, and images.
+
+          <ul>
+            <li>
+              <strong>How to Use:</strong> <ExternalLink href="https://www.ssa.gov/accessibility/andi/help/install.html">Install it as a bookmarklet</ExternalLink>{" "}
+              (a bookmark that runs JavaScript). Click the bookmark to launch ANDI on
+              any page. Use the module dropdown (e.g., "Focusable elements," "Tables")
+              to inspect specific areas and review the "ANDI Output" box to see how a
+              screen reader interprets the selected element.
+            </li>
+          </ul>
+        </li>
       </ul>
 
       <hr />
