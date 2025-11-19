@@ -33,6 +33,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Focus styling for buttons with Firefox
 - Cards on the Demo Page are now links
 
+## Website
+- Fixed tab order for component sandbox examples
+
 # [4.1.0] 08/21/2025
 ## Added
 - Browser Compatibility, Mobile-First, Acceptance Testing, and SDLC documentation page.

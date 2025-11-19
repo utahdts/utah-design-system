@@ -42,6 +42,24 @@ export function AccessibilityChecklistDocumentation() {
 
       <hr />
 
+      <h2 id="section-checklist-download">Checklist Download</h2>
+      <p className="mb-spacing">
+        This checklist is available as a Google Sheet to aid in website testing.
+        Make a copy of the checklist to test your websites:
+      </p>
+      <div className="flex justify-center mb-spacing-l">
+        <ExternalLink
+          href="https://docs.google.com/spreadsheets/d/1q_jnJv6jx4b6zBYdrnqt5xUAHF4VUwd4YQjrU7ziSx0/edit?usp=sharing"
+          //@ts-expect-error This is spread into the component
+          className="button button--primary-color button--solid button--large"
+        >
+          <span className="button--icon button--icon-left"><span className="utds-icon-before-doc-square" aria-hidden="true" /></span>
+          Get the checklist
+        </ExternalLink>
+      </div>
+
+      <hr />
+
       <h2 id="automated-testing">
         <strong>Automated Testing</strong>
       </h2>
@@ -933,9 +951,9 @@ export function AccessibilityChecklistDocumentation() {
               provides a sidebar report detailing Errors, Alerts, Features, and the reading Order.
             </li>
             <li>
-              <strong>Hot to use WAVE website:</strong>{' '}
-              <ExternalLink href="https://wave.webaim.org/">Navigate to the WAVE website.</ExternalLink>{' '}
-              Enter you website’s urls in the "Web page address" field and click the arrow or hit Enter.
+              <strong>How to use WAVE website:</strong>{' '}
+              <ExternalLink href="https://wave.webaim.org/">Navigate to the WAVE website</ExternalLink>, and
+              enter you website’s url in the "Web page address" field then click the arrow or hit Enter.
             </li>
           </ul>
         </li>
@@ -967,7 +985,7 @@ export function AccessibilityChecklistDocumentation() {
               {' '}in the header. Enter the hex code or choose colors using the visual spectrum (eye dropper).
               The tool will display the contrast ratio and show you a preview of how the
               colors look together on the website, helping you achieve compliance visually.
-              Use the contrast tab to see the contrast for two selected colors.
+              Use the contrast tab to see the contrast ratio for two selected colors.
             </li>
           </ul>
         </li>
@@ -991,9 +1009,9 @@ export function AccessibilityChecklistDocumentation() {
           <ul>
             <li>
               <strong>How to Use:</strong> Open Chrome Developer Tools (F12 or
-              right-click &gt; Inspect). In the <strong>Elements</strong> panel,
-              find the tab or button to switch from the standard DOM view to the{' '}
-              <strong>Accessibility Tree</strong> view to check roles, names, and properties.{' '}
+              right-click &gt; Inspect). In the Elements panel,
+              find the floating accessibility button to switch from the standard DOM view to the
+              Accessibility Tree view to check roles, names, and properties.{' '}
               <ExternalLink href="https://blog.pope.tech/2023/11/27/how-to-use-chromes-accessibility-tree/">Learn about Chrome Accessibility Tree here.</ExternalLink>
             </li>
           </ul>
@@ -1003,9 +1021,41 @@ export function AccessibilityChecklistDocumentation() {
           providing a high-level score and actionable recommendations across performance, SEO, and accessibility.
           <ul>
             <li>
-              <strong>How to Use:</strong> Open Chrome Developer Tools. Click the <strong>Lighthouse</strong> tab.
-              Select the <strong>Accessibility</strong> category and click "Analyze page load."
+              <strong>How to Use:</strong> Open Chrome Developer Tools. Click the Lighthouse tab.
+              Select the Accessibility category and click "Analyze page load."
               It generates a score and a list of specific pass/fail audits.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Accessibility Insights</strong> (Chrome/Edge Extension or Desktop App): Developed by Microsoft,
+          this is a comprehensive tool that provides FastPass, a two-step process to quickly find
+          common, high-impact accessibility issues using automated checks and assisted manual
+          review (Tab Stops). It also offers a full Assessment against WCAG 2.1 AA standards.
+          <ul>
+            <li>
+              <strong>How to Use:</strong> <ExternalLink href="https://accessibilityinsights.io/downloads/">Install the browser extension</ExternalLink>,
+              navigate to the page, and click the extension icon. Choose FastPass for a
+              quick check or Assessment for a guided, full WCAG audit. It provides clear
+              visual highlighting of failures directly on the page.
+            </li>
+          </ul>
+
+        </li>
+        <li>
+          <strong>Social Security Administration - ANDI</strong> (Accessible Name & Description Inspector)
+          (Bookmarklet): A lightweight, browser-based tool developed by the SSA that
+          specializes in element-by-element inspection. It is designed to reveal what
+          a screen reader should say (the accessible name and description) for
+          interactive elements, tables, and images.
+
+          <ul>
+            <li>
+              <strong>How to Use:</strong> <ExternalLink href="https://www.ssa.gov/accessibility/andi/help/install.html">Install it as a bookmarklet</ExternalLink>{" "}
+              (a bookmark that runs JavaScript). Click the bookmark to launch ANDI on
+              any page. Use the module dropdown (e.g., "Focusable elements," "Tables")
+              to inspect specific areas and review the "ANDI Output" box to see how a
+              screen reader interprets the selected element.
             </li>
           </ul>
         </li>
