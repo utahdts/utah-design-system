@@ -1009,9 +1009,9 @@ export function AccessibilityChecklistDocumentation() {
           <ul>
             <li>
               <strong>How to Use:</strong> Open Chrome Developer Tools (F12 or
-              right-click &gt; Inspect). In the <strong>Elements</strong> panel,
-              find the tab or button to switch from the standard DOM view to the{' '}
-              <strong>Accessibility Tree</strong> view to check roles, names, and properties.{' '}
+              right-click &gt; Inspect). In the Elements panel,
+              find the floating accessibility button to switch from the standard DOM view to the
+              Accessibility Tree view to check roles, names, and properties.{' '}
               <ExternalLink href="https://blog.pope.tech/2023/11/27/how-to-use-chromes-accessibility-tree/">Learn about Chrome Accessibility Tree here.</ExternalLink>
             </li>
           </ul>
@@ -1021,8 +1021,8 @@ export function AccessibilityChecklistDocumentation() {
           providing a high-level score and actionable recommendations across performance, SEO, and accessibility.
           <ul>
             <li>
-              <strong>How to Use:</strong> Open Chrome Developer Tools. Click the <strong>Lighthouse</strong> tab.
-              Select the <strong>Accessibility</strong> category and click "Analyze page load."
+              <strong>How to Use:</strong> Open Chrome Developer Tools. Click the Lighthouse tab.
+              Select the Accessibility category and click "Analyze page load."
               It generates a score and a list of specific pass/fail audits.
             </li>
           </ul>
