@@ -187,7 +187,7 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
     // then we close the popup
     if (e.code === 'Escape' || e.key === 'Escape') {
       button.focus();
-      hidePopup(TIMEOUT_MS_MEDIUM);
+      hidePopup(TIMEOUT_MS_SHORT);
     }
   });
 
