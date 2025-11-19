@@ -30,16 +30,8 @@ export function renderMainMenu() {
     throw new Error('renderMainMenu(): mainMenu not created');
   }
 
-  const titleTag = mainMenuNav.querySelector(getCssClassSelector(domConstants.MAIN_MENU__TITLE));
-  if (!titleTag) {
-    throw new Error('renderMainMenu(): titleTag not found');
-  }
-
-  const mainMenuId = 'main-menu__nav';
-  mainMenuNav.setAttribute('aria-labelledby', mainMenuId);
-  titleTag.setAttribute('id', mainMenuId);
   if (settings.mainMenu) {
-    titleTag.innerHTML = settings.mainMenu.title || 'Main Menu';
+    mainMenuNav.setAttribute('aria-label', settings.mainMenu.title || 'Main Menu');
   } else {
     mainMenuNav.remove();
     mainMenuNav = null;
