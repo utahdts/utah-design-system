@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - More comprehensive checklist to cover more accessibility requirements
   - Updated accessibility testing tools list instructions
   - Updated screen reader documentation
-- Popups now close on hitting escape
+- Utah Header Popups now close on hitting escape
 - Content change for Links, Vertical Menu, miscellaneous
 
 ## Fixed
