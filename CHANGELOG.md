@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [4.2.0] 11/06/2025
+# [4.2.0] 11/20/2025
 ## Added
 - Utah Footer now includes linkTextPrivacyPolicy to customize the privacy link text
 
@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - More comprehensive checklist to cover more accessibility requirements
   - Updated accessibility testing tools list instructions
   - Updated screen reader documentation
-- Popups now close on hitting escape
+- Utah Header Popups now close on hitting escape
 - Content change for Links, Vertical Menu, miscellaneous
 
 ## Fixed
