@@ -152,7 +152,8 @@ export function AccessibilityChecklistDocumentation() {
             </li>
             <li>
               <strong>Title attribute:</strong> The title attribute is unreliable for accessible content
-              because it often fails to display on touch devices and is ignored by many screen readers.
+              because it is not visible for keyboard-only users, often fails to display on touch devices,
+              and may be ignored by screen readers.
               <Tag size={formElementSizesEnum.SMALL} className="tag--warning">Alert: Redundant title text</Tag>
             </li>
           </ul>
