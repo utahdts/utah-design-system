@@ -1,5 +1,8 @@
 name: Build and Publish utah-header
 on: [workflow_dispatch]
+permissions:
+  id-token: write
+  contents: read
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
@@ -26,5 +29,3 @@ jobs:
       - name: NPM Publish 🏠
         run: |
           npm run publishHeader
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

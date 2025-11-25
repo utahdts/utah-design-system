@@ -193,10 +193,10 @@ export function AccessibilityDocumentation() {
             </li>
             <li>
               Links should be easily identified from the rest of the content on a page.
-              Use both color and some form of styling (underlined, bolded, or italicized) to highlight them (links as part of navigation are exempt).
+              Use <strong>both</strong> color and some form of styling (underlined, bolded, or italicized) to highlight them (links as part of navigation are exempt).
             </li>
             <li>
-              Links should have a clear hover state: underline or background color change.
+              A link's hover state is indicated by the cursor changing to a hand pointer <strong>and</strong> a visual effect, such as an underline or a background color change.
             </li>
             <li>
               Links that open a new tab have a visual indicator and visually hidden text like “opens in a new tab” to warn screen reader users.
