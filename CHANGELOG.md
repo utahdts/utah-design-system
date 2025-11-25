@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated screen reader documentation
 - Utah Header Popups now close on hitting escape
 - Content change for Links, Vertical Menu, miscellaneous
-- The <h1> and <h2> tags have been removed from the Utah Header
+- The &lt;h1&gt; and &lt;h2&gt; tags have been removed from the Utah Header
 - The tracking pixel image has been removed from the Utah Header
 - The title of the main menu is now read via an aria-label
 
