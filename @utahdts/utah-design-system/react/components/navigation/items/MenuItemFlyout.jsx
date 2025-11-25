@@ -33,22 +33,22 @@ export function MenuItemFlyout({
   const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const popupRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
-  const { floatingStyles } = useFloating({
+  const {} = useFloating({
     elements: {
       reference: buttonRef.current,
       floating: popupRef.current,
     },
-    open: isChildrenOpen,
-    placement: 'right-start',
     middleware: [
       floatingOffset(10),
       flip(),
       shift(),
     ],
+    open: isChildrenOpen,
+    placement: 'right-start',
     whileElementsMounted: autoUpdate,
   });
 
-  useClickOutside([popupRef], () => setIsChildrenOpen(false), !isChildrenOpen);
+  useClickOutside([popupRef, wrapperElement], () => setIsChildrenOpen(false), !isChildrenOpen);
 
   const isExpanded = () => {
     let retVal;
@@ -135,7 +135,6 @@ export function MenuItemFlyout({
               )}
               id={`menu-item__${menuItem.id}__${menuItem.link || 'link'}-popup`}
               ref={popupRef}
-              style={floatingStyles}
             >
               <div className="popup__content flyout-menu">
                 <ul className={menuType === menuTypes.VERTICAL ? 'vertical-menu' : ''}>

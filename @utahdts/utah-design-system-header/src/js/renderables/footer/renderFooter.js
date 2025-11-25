@@ -104,6 +104,12 @@ export function renderFooter() {
         privacyLink?.setAttribute('href', settings.footer.linkPrivacyPolicy);
       }
 
+      if (settings?.footer?.linkTextPrivacyPolicy) {
+        const privacyLink = document.getElementById(domConstants.FOOTER_LINK_PRIVACY_ID);
+        checkForError(!privacyLink, 'renderFooter: cannot find privacy policy link');
+        if (privacyLink) privacyLink.innerText = settings.footer.linkTextPrivacyPolicy;
+      }
+
       // add custom terms of use link
       if (settings?.footer?.linkTermsOfUse) {
         const termsLink = document.getElementById(domConstants.FOOTER_LINK_TERMS_ID);

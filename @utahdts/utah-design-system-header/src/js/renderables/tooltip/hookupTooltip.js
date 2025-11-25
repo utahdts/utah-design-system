@@ -71,6 +71,28 @@ export function hookupTooltip(element, dom) {
         // if a popup tied to this same item is open, don't open the tooltip
         const popup = element.querySelector(getCssClassSelector(domConstants.POPUP_WRAPPER));
         if (!popup || popup.classList.contains(domConstants.POPUP__HIDDEN)) {
+          const close = () => {
+            clearTimeout(tooltipOpenTimeoutId);
+            tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__HIDDEN);
+            tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__VISIBLE);
+            // Call the cleanup function to stop the auto updates
+            if (typeof cleanup === 'function') {
+              cleanup();
+            }
+            tooltipCloseTimeoutId = window.setTimeout(
+              () => {
+                tooltipCloseTimeoutId = NaN;
+              },
+              500
+            );
+          };
+          const onEscape = (/** @type {KeyboardEvent} */ e) => {
+            if (e.code === 'Escape' || e.key === 'Escape') {
+              close();
+              document.removeEventListener('keyup', onEscape);
+            }
+          };
+
           tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__HIDDEN);
           tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__VISIBLE);
           // Call autoUpdate() only when the floating element is open
@@ -79,26 +101,15 @@ export function hookupTooltip(element, dom) {
             tooltip,
             updatePosition
           );
+
+          // Add listeners
+          // eslint-disable-next-line no-param-reassign
+          element.onmouseleave = close;
+          document.addEventListener('keyup', onEscape);
         }
       },
       // tooltip was already opened on another item, so instantly open tooltip
       tooltipCloseTimeoutId ? 0 : 500
-    );
-  };
-
-  // eslint-disable-next-line no-param-reassign
-  element.onmouseleave = () => {
-    clearTimeout(tooltipOpenTimeoutId);
-    tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__HIDDEN);
-    tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__VISIBLE);
-    // Call the cleanup function to stop the auto updates
-    if (typeof cleanup === 'function') { cleanup(); }
-    clearTimeout(tooltipCloseTimeoutId);
-    tooltipCloseTimeoutId = window.setTimeout(
-      () => {
-        tooltipCloseTimeoutId = NaN;
-      },
-      500
     );
   };
 }

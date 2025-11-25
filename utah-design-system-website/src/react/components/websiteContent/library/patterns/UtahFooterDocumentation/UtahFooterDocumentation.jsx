@@ -168,6 +168,20 @@ export function UtahFooterDocumentation() {
           </TableRow>
           <TableRow>
             <TableCell>
+              <code><a href="#section-config-custom-links">linkTextPrivacyPolicy</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Customize the text for the link for the terms of use in the footer.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
               <code><a href="#section-config-footer_domLocationTarget">showHorizontalRule</a></code>
             </TableCell>
             <TableCell>
@@ -376,7 +390,7 @@ export function UtahFooterDocumentation() {
               {
                 ...other settings...,
                 footer: {
-                  copyrightYear: '2023'
+                  copyrightYear: '2025'
                 }
               }
             )
@@ -384,7 +398,7 @@ export function UtahFooterDocumentation() {
         />
       </div>
 
-      <h4 id="section-config-custom-links" className="mt-spacing">linkPrivacyPolicy, linkTermsOfUse</h4>
+      <h4 id="section-config-custom-links" className="mt-spacing">linkPrivacyPolicy, linkTextPrivacyPolicy, linkTermsOfUse</h4>
       <div>
         Customize the privacy policy and/or terms of use links in the footer.
         <br /><br />
@@ -397,6 +411,7 @@ export function UtahFooterDocumentation() {
                 ...other settings...,
                 footer: {
                   linkPrivacyPolicy: 'https://dts.utah.gov/privacy-policy',
+                  linkTextPrivacyPolicy: 'Policy Link',
                   linkTermsOfUse: 'https://dts.utah.gov/terms-of-use'
                 }
               }

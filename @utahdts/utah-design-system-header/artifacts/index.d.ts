@@ -140,6 +140,7 @@ declare module "@utahdts/utah-design-system-header" {
     domLocationTarget?: DomLocationTarget | undefined;
     linkPrivacyPolicy?: string | null | undefined;
     linkTermsOfUse?: string | null | undefined;
+    linkTextPrivacyPolicy?: string | null | undefined;
     showHorizontalRule?: boolean | undefined;
   };
   export type Settings = {

@@ -82,7 +82,7 @@ export function Tab({ children, id }) {
     >
       <button
         // `aria-controls` must match the TabPanel's `id`
-        aria-controls={`tabpanel-${tabGroupId}-${id}`}
+        aria-controls={`tabpanel__${tabGroupId}__${id}`}
         aria-selected={selectedTabId === id}
         className={joinClassNames(
           (selectedTabId === id) && 'tab-group__tab-button--selected',

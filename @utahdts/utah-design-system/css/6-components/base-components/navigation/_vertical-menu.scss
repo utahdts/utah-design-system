@@ -25,6 +25,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      position: relative;
 
       .menu-item__chevron {
         min-height: unset;
@@ -35,6 +36,24 @@
       &__plain {
         margin: var(--spacing-2xs) 0;
         padding: var(--spacing-2xs) var(--spacing);
+      }
+    }
+
+    .menu-item__title {
+      position: relative;
+    }
+
+    &__link-title {
+      &.menu-item--selected {
+        & + .menu-chiclet {
+          height: calc(100% - var(--spacing-xs));
+          width: 5px;
+          background: var(--form-ele-color);
+          display: block;
+          position: absolute;
+          border-radius: var(--radius-circle);
+          left: -3px;
+        }
       }
     }
 
