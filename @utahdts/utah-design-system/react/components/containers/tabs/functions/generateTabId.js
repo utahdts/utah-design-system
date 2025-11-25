@@ -4,5 +4,5 @@
  * @returns {string}
  */
 export function generateTabId(tabGroupId, tabId) {
-  return `tab-${tabGroupId}-${tabId}`;
+  return `tab__${tabGroupId}__${tabId}`;
 }
