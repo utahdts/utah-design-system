@@ -1,5 +1,8 @@
 name: Build and Publish library
 on: [workflow_dispatch]
+permissions:
+  id-token: write
+  contents: read
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
@@ -11,7 +14,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          registry-url: 'https://registry.npmjs.org'  
+          registry-url: 'https://registry.npmjs.org'
       - name: NPM Install 🪚
         run: |
           npm install
@@ -24,5 +27,3 @@ jobs:
       - name: NPM Publish 🏠
         run: |
           npm run publishLibrary
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
