@@ -17,6 +17,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: NPM Install 🪚
         run: |
+          npm --version
+          npm install -g npm@latest
           npm install
       - name: NPM Build 🔨
         run: |
