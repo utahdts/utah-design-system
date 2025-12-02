@@ -381,14 +381,14 @@ export function CardDocumentation() {
 
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>The tab key should take the user through the elements of the card.</li>
+        <li>The <code>Tab</code> key should take the user through the elements of the card.</li>
         <li>Make sure that users can clearly see where the focus is when navigating with a keyboard or assistive technology by providing clear focus styles.</li>
         <li>
           Action cards
           <ul>
             <li>Wrap the entire action card in a <code>&lt;button&gt;</code>, or use the <code>role=&quot;button&quot;</code>.</li>
             <li>Use <code>tabindex=&quot;0&quot;</code> if you are not using a <code>&lt;button&gt;</code>.</li>
-            <li>The <code>enter</code> or <code>return</code> keys should take the user to the corresponding page.</li>
+            <li>The <code>Enter</code> or <code>Return</code> keys should take the user to the corresponding page.</li>
           </ul>
         </li>
       </ul>

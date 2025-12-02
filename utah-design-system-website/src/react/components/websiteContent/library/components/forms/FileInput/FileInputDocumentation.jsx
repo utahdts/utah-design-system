@@ -108,9 +108,9 @@ export function FileInputDocumentation() {
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
         <li>The file input should behave like a <Link to={pageUrls.button}>button</Link> to a user. Hitting
-          the <code>spacebar</code> or <code>enter</code> key should prompt the user to select a file.
+          the <code>Spacebar</code> or <code>Enter</code> key should prompt the user to select a file.
         </li>
-        <li>The file input should receive focus when the user presses the <code>tab</code> key.</li>
+        <li>The file input should receive focus when the user presses the <code>Tab</code> key.</li>
         <li>
           Do not only accept files via drag and drop.
           You must provide a focusable element (button or file input) that the user can trigger using only the keyboard.

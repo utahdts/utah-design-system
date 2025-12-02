@@ -405,14 +405,14 @@ export function IconButtonDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>The icon button must receive focus when the user presses the <code>tab</code> key.
+        <li>The icon button must receive focus when the user presses the <code>Tab</code> key.
           <ul>
             <li>Buttons natively receive keyboard focus so there&apos;s no need to add a tabindex attribute.</li>
           </ul>
         </li>
         <li>When the icon button receives focus, the tooltip should be visible (except when the icon button displays a popup).</li>
         <li>The icon button should display a visible focus state when users tab to it.</li>
-        <li>You should be able to press the button by using the <code>enter</code> or <code>space</code> key.</li>
+        <li>You should be able to press the button by using the <code>Enter</code> or <code>Space</code> key.</li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">

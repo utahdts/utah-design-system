@@ -212,8 +212,8 @@ export function SwitchDocumentation() {
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Use the <code>tab</code> key to move between form elements. The switch should display a visible focus state when users tab to it.</li>
-        <li>A switch component can be triggered by pressing the <code>spacebar</code>.</li>
+        <li>Use the <code>Tab</code> key to move between form elements. The switch should display a visible focus state when users tab to it.</li>
+        <li>A switch component can be triggered by pressing the <code>Spacebar</code>.</li>
       </ul>
 
       <h4 id="section-screen-readers">Screen readers</h4>

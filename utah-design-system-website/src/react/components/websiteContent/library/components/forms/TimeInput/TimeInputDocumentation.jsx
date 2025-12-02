@@ -184,7 +184,7 @@ export function TimeInputDocumentation() {
               the <Link to={pageUrls.iconButton}>icon button</Link> that houses the <Link to={pageUrls.popups}>popup menu</Link>.
             </li>
             <li>
-              <code>Arrows (left and right)</code> or tab keys should move the user between the hour, minute, and time of day inputs.
+              <code>Arrows (left and right)</code> or <code>Tab</code> keys should move the user between the hour, minute, and time of day inputs.
             </li>
             <li>
               <code>Enter</code> or <code>Space</code> key should open the <Link to={pageUrls.popups}>popup</Link>.

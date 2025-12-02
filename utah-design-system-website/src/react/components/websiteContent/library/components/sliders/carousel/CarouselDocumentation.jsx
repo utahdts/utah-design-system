@@ -92,7 +92,7 @@ export function CarouselDocumentation() {
         <li>Once the carousel receives focus, rotation should be paused until the user explicitly turns it back on or leaves focus.</li>
         <li>If the carousel has a <Link to={pageUrls.button}>button</Link> to pause rotation, it should be the first focusable element.</li>
         <li>If the carousel includes a list of controls, selecting one of those controls should rotate the carousel to its associated slide. The focus should then be placed on the slide.</li>
-        <li>Controls can be activated by hitting <code>enter</code> or <code>spacebar</code>.</li>
+        <li>Controls can be activated by hitting <code>Enter</code> or <code>Spacebar</code>.</li>
       </ul>
 
       <h4 id="section-screen-readers">Screen readers</h4>
