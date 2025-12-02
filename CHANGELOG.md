@@ -5,7 +5,6 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # [4.2.1] 12/02/2025
-
 ## Fixed
 - Removed &lt;h2&gt; from official website popup in the Utah Header
 
