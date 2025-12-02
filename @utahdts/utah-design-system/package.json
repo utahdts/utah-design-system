@@ -2,7 +2,7 @@
   "name": "@utahdts/utah-design-system",
   "description": "Utah Design System React Library",
   "displayName": "Utah Design System React Library",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "exports": {
     ".": {
       "development-local": "./index.js",
@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "2.1.6",
-    "@utahdts/utah-design-system-header": "4.2.0",
+    "@utahdts/utah-design-system-header": "4.2.1",
     "date-fns": "4.1.0",
     "immer": "10.2.0",
     "lodash-es": "4.17.21",
