@@ -161,10 +161,10 @@ export function TabGroupDocumentation() {
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
         <li>
-          When the user hits the <code>tab</code> key to navigate to the tab group, the focus should be placed on the active tab.
+          When the user hits the <code>Tab</code> key to navigate to the tab group, the focus should be placed on the active tab.
         </li>
         <li>
-          Hitting <code>tab</code> after focus has been placed on the active tab will move the focus to the next interactive element
+          Hitting <code>Tab</code> after focus has been placed on the active tab will move the focus to the next interactive element
           outside the tab list (whether it be inside a tab panel or outside the tab group).
         </li>
         <li>
@@ -175,7 +175,7 @@ export function TabGroupDocumentation() {
           tab.
         </li>
         <li>
-          It is recommended that tabs activate automatically following focus. If not, hitting the <code>spacebar</code> or <code>enter</code> should
+          It is recommended that tabs activate automatically following focus. If not, hitting the <code>Spacebar</code> or <code>Enter</code> should
           activate the tab and display the panel associated with it.
         </li>
       </ul>

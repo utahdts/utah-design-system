@@ -75,7 +75,7 @@ export function TextInputDocumentation() {
             <li>To the left of the placeholder there should be a magnifying glass icon to signify that this is a search input box.</li>
             <li>Optionally, you may place an <Link to={pageUrls.icons}><code><span className="uds-icon" aria-label="X" style={{verticalAlign: 'middle'}}>&#xe917;</span> icon</code></Link> on the right to clear the input field.</li>
             <li>There should be a submit button (visible or visually-hidden) to trigger the search.</li>
-            <li>Use an event handler to trigger the search when the user presses <code>return</code> or <code>enter</code>.</li>
+            <li>Use an event handler to trigger the search when the user presses <code>Return</code> or <code>Enter</code>.</li>
           </ul>
         )}
       />
@@ -144,7 +144,7 @@ export function TextInputDocumentation() {
       </ul>
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>When navigating the form, the user should be able to move in and out of focus on the text area using the <code>tab</code> key.</li>
+        <li>When navigating the form, the user should be able to move in and out of focus on the text area using the <code>Tab</code> key.</li>
       </ul>
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">

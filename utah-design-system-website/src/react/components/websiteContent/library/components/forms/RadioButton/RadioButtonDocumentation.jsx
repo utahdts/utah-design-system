@@ -106,7 +106,7 @@ export function RadioButtonDocumentation() {
 
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>The user should be able to navigate into and out of a radio button group using the <code>tab</code> key.</li>
+        <li>The user should be able to navigate into and out of a radio button group using the <code>Tab</code> key.</li>
         <li>The user should be able to navigate and make their selection through the list of options using
           the <code>up</code> and <code>down</code> or <code>left</code> and <code>right</code> arrow keys.
         </li>

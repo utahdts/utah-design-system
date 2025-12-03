@@ -364,7 +364,7 @@ export function BannersDocumentation() {
       <ul className="mb-spacing">
         <li>Floating banners do not receive focus.</li>
         <li>
-          Users can close a landmark banner by pressing the <code>spacebar</code> while the close{' '}
+          Users can close a landmark banner by pressing the <code>Spacebar</code> while the close{' '}
           <Link to={pageUrls.iconButton}>icon button</Link> has focus.
         </li>
       </ul>
