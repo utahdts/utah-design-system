@@ -1,7 +1,6 @@
 import { childrenMenuTypes } from '../../enumerations/childrenMenuTypes';
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { PopupPlacement } from '../../enumerations/popupPlacement';
-import { allowAriaExpanded } from '../../misc/allowAriaExpanded';
 import { findRecursive } from '../../misc/findRecursive';
 import { popupFocusHandler } from '../../misc/popupFocusHandler';
 import { renderDOMSingle } from '../../misc/renderDOMSingle';
@@ -41,15 +40,13 @@ function toggleChildMenuExpansion(element) {
       // toggle child menu items open close
       childUl.classList.toggle(domConstants.VISUALLY_HIDDEN);
       if (childUl.classList.contains(domConstants.VISUALLY_HIDDEN)) {
-        if (allowAriaExpanded(button)) {
-          button.setAttribute('aria-expanded', 'false');
-        }
+        button.setAttribute('aria-expanded', 'false');
+        childUl.setAttribute('inert', 'true');
         chevron.classList.add(domConstants.IS_CLOSED);
         chevron.classList.remove(domConstants.IS_OPEN);
       } else {
-        if (allowAriaExpanded(button)) {
-          button.setAttribute('aria-expanded', 'true');
-        }
+        button.setAttribute('aria-expanded', 'true');
+        childUl.removeAttribute('inert');
         chevron.classList.remove(domConstants.IS_CLOSED);
         chevron.classList.add(domConstants.IS_OPEN);
       }
@@ -190,11 +187,10 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
         subMenu.setAttribute('id', subMenuId);
         // these are all sub children so hide them initially
         subMenu.classList.add(domConstants.VISUALLY_HIDDEN);
+        subMenu.setAttribute('inert', 'true');
         menuItemWrapper.appendChild(subMenu);
         menuButton.onclick = handleMenuExpansion(menuButton);
-        if (allowAriaExpanded(menuButton)) {
-          menuButton.setAttribute('aria-expanded', 'false');
-        }
+        menuButton.setAttribute('aria-expanded', 'false');
         menuButton.setAttribute('aria-controls', subMenuId);
         chevron = renderChevron();
         menuButton.appendChild(chevron);
@@ -203,14 +199,13 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
         plainTitle.remove();
 
         // open all parent uls so that this menu item shows
-        menuItemWrapper.addEventListener('focusin', (e) => {
+        menuItemWrapper.addEventListener('click', (e) => {
           // Do not stop propagation as trickling-up will make parents open
           // if e.target is switched to e.currenttarget then tabbing through child popup menus does not open the children
           for (let childUl = /** @type {Element | null | undefined} */(e.target)?.closest('ul'); childUl; childUl = childUl.parentElement?.closest('ul')) {
             childUl.classList.remove(domConstants.VISUALLY_HIDDEN);
-            if (allowAriaExpanded(menuButton)) {
-              menuButton.setAttribute('aria-expanded', 'true');
-            }
+            subMenu.removeAttribute('inert');
+            menuButton.setAttribute('aria-expanded', 'true');
             // if target is the button then don't expand chevron just yet, wait for a child to be visible
             // (happens when tabbing to the chevron menu item)
             // using e.currentTarget caused the chevron to expand on the parent before the children were tabbed into
