@@ -57,6 +57,7 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
 /**
  * @template TableDataT extends TableDataT & { [x: string]: any; }
  * @param {object} props
+ * @param {boolean} [props.allowScrollOverflow]
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
@@ -64,6 +65,7 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
  * @returns {import('react').JSX.Element}
  */
 export function TableWrapper({
+  allowScrollOverflow,
   children,
   className,
   id,
@@ -212,7 +214,12 @@ export function TableWrapper({
 
   return (
     <TableContext.Provider value={contextValue}>
-      <div className={joinClassNames('table__wrapper', className)} id={id} ref={innerRef} {...rest}>
+      <div
+        className={joinClassNames('table__wrapper', className)}
+        id={id} ref={innerRef}
+        tabIndex={allowScrollOverflow ? 0 : undefined}
+        {...rest}
+      >
         {children}
       </div>
     </TableContext.Provider>
