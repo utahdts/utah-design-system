@@ -102,7 +102,7 @@ export function DataPrivacyDocumentation() {
             <h2>Example Form</h2>
             <p>This is an example where a user will need to fill out the following form in order to cross the bridge to the next step.</p>
             <form autoComplete="off">
-              <label htmlFor="name">What is your name?</label>
+              <label htmlFor="first-name">What is your name?</label>
               <input type="text" id="first-name" className="mb-spacing" />
               <label htmlFor="quest">What is your quest?</label>
               <input type="text" id="quest" className="mb-spacing" />

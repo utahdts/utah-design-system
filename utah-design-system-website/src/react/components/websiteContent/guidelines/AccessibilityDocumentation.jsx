@@ -589,7 +589,7 @@ export function AccessibilityDocumentation() {
                 </li>
               </ul>
               <ul>
-                <ul><li>If elements do not meet the minimum requirement, you can improve the user experience by accounting for the <Link to={pageUrls.spacing}>spacing</Link>.</li></ul>
+                <li>If elements do not meet the minimum requirement, you can improve the user experience by accounting for the <Link to={pageUrls.spacing}>spacing</Link>.</li>
               </ul>
               <div className="text-center"><img src={spacingExample} alt="Example of acceptable and unacceptable spacing between interactive elements" style={{ maxWidth: '50%' }} /></div>
             </li>

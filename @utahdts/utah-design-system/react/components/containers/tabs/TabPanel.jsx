@@ -24,6 +24,7 @@ export function TabPanel({ children, className, tabId }) {
       id={`tabpanel__${tabGroupId}__${tabId}`}
       role="tabpanel"
       tabIndex={selectedTabId === tabId ? 0 : -1}
+      inert={selectedTabId !== tabId}
     >
       {children}
     </div>

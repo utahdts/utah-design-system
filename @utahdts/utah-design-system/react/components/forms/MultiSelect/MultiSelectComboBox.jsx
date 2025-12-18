@@ -202,7 +202,6 @@ export function MultiSelectComboBox({
           </ComboBox>
           <MultiSelectClearIcon isClearable={isClearable} isDisabled={isDisabled} />
           <IconButton
-            aria-hidden="true"
             className={joinClassNames(
               'multi-select__chevron',
               'icon-button--borderless',
