@@ -179,7 +179,9 @@ export function AccessibilityDocumentation() {
         </li>
         <li>
           <strong>General text.</strong> The majority of text should be a minimum of <code>16px</code> (<code>1rem</code>).
-          All normal size text must maintain a minimum contrast ratio of <code>4.5:1</code>. See <Link to={pageUrls.typography}>typography</Link> for more information.
+          All normal size text must maintain a minimum contrast ratio of <code>4.5:1</code>. <br/>
+          Keep styling to a minimum. Underlining should be reserved for links. Avoid justifying text.
+          See <Link to={pageUrls.typography}>typography</Link> for more information.
         </li>
         <li>
           <strong>Headings.</strong> <Link to={pageUrls.headings}>Headings</Link> (<code>h1, h2, h3, h4, h5, h6</code>) should create an outline for the page content. They are sequential and clearly distinct from the body text.
