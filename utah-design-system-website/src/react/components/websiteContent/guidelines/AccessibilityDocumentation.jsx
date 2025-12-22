@@ -117,7 +117,12 @@ export function AccessibilityDocumentation() {
       <h4 id="section-limited-vision-general-guidelines">General vision guidelines</h4>
       <ul className="mb-spacing">
         <li>
-          <strong>Semantic HTML.</strong> <Link to={pageUrls.paragraphs}>Semantic HTML</Link> should be used to provide clear and meaningful structure to web documents, making them more accessible to people with disabilities and improving overall search engine optimization (SEO) efforts.
+          <strong>Semantic HTML.</strong> <Link to={pageUrls.paragraphs}>Semantic HTML</Link> should be used to provide clear and meaningful structure to web documents, making them more accessible to people with disabilities and improving overall search engine optimization (SEO) efforts.<br/>
+          Some general guidelines include:
+          <ul>
+            <li>A language tag: <code>&lt;html lang="en-US" … &gt;</code></li>
+            <li>A page title: should be succinct and accurately describe the purpose of the page.</li>
+          </ul>
         </li>
         <li>
           <strong id="section-landmark-roles">Landmark role elements.</strong> In HTML, a landmark role refers to the use of specific HTML elements to define and label certain regions or sections of a webpage.
@@ -191,6 +196,7 @@ export function AccessibilityDocumentation() {
               Links (hyperlinks) <code>&lt;a&gt;</code> should not include generic text such as &quot;click here&quot; or &quot;view more&quot;.
               The link text should accurately describe where or what is being linked to. This will also help your page achieve a better SEO score.
             </li>
+            <li>A link should not be empty. Use hidden text to convey its purpose. This typically apply to icon button and/or links.</li>
             <li>
               Links should be easily identified from the rest of the content on a page.
               Use <strong>both</strong> color and some form of styling (underlined, bolded, or italicized) to highlight them (links as part of navigation are exempt).
@@ -215,6 +221,9 @@ export function AccessibilityDocumentation() {
           </ul>
         </li>
         <li>
+          <strong>Buttons.</strong> Every button element requires valid descriptive text.
+        </li>
+        <li>
           <strong>Skip Link.</strong> Provide a <Link to={pageUrls.skipLink}>Skip Link</Link> at the top of all pages to aid those using assistive technology navigate your site.
           This will allow visitor to skip past repetitive sections of your site such as the header and menus.
           The skip link is built into the <Link to={pageUrls.utahHeader}>Utah Header</Link>.
@@ -226,6 +235,7 @@ export function AccessibilityDocumentation() {
             <li>
               Column and row headers must be correctly identified using <code>scope=&quot;row&quot;</code> or <code>scope=&quot;col&quot;</code>.
             </li>
+            <li>Use a <code>&lt;caption&gt;</code> element to describe the table instead of using the colspan attribute to provide a pseudo table caption.</li>
           </ul>
         </li>
         <li>
