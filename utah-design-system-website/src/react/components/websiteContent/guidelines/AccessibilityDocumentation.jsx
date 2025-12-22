@@ -815,6 +815,7 @@ export function AccessibilityDocumentation() {
         the <ExternalLink href="https://webaim.org/techniques/acrobat/">PDF Accessibility</ExternalLink> documentation provided
         by <ExternalLink href="https://webaim.org/">WebAIM</ExternalLink>.
       </p>
+      <p>As an additional note, consider prioritizing HTML over PDF whenever possible.</p>
     </div>
   );
 }
