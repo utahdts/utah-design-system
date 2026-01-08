@@ -95,7 +95,10 @@ export function renderOfficialWebsite() {
     throw new Error('renderOfficialWebsite: closeButton not found');
   }
 
-  logoButton.onclick = () => {
+  logoButton.onclick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     officialWebsiteWrapper.classList.toggle(domConstants.VISUALLY_HIDDEN);
     if (officialWebsiteWrapper.classList.contains(domConstants.VISUALLY_HIDDEN)) {
       closeOfficialWebsite();
