@@ -82,7 +82,6 @@ export function expectHeaderComponentsExistSanityCheck() {
   expect(domConstants.MAIN_MENU__NAV).toBe('main-menu__nav');
   expect(domConstants.MAIN_MENU__OUTER).toBe('main-menu__outer');
   expect(domConstants.MAIN_MENU__SEARCH).toBe('main-menu__search');
-  expect(domConstants.MAIN_MENU__TITLE).toBe('main-menu__title');
   expect(domConstants.MENU_ITEM).toBe('menu-item');
   expect(domConstants.MENU_ITEM__BUTTON_TITLE).toBe('menu-item__button-title');
   expect(domConstants.MENU_ITEM__LINK_TITLE).toBe('menu-item__link-title');

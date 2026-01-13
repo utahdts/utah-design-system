@@ -371,9 +371,9 @@ export function UtahHeaderDocumentation() {
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
-            addEventListener(
+            document.addEventListener(
               '${events.HEADER_LOADED}',
-              () => setUtahHeaderSettings({title: 'My utah.gov Site'})
+              () => window["@utahdts/utah-design-system-header"].setUtahHeaderSettings({title: 'My utah.gov Site'})
             )
           `}
         />
@@ -389,7 +389,7 @@ export function UtahHeaderDocumentation() {
         <PreCodeForCodeString
           className="gray-block mt-spacing"
           codeRaw={`
-            addEventListener(
+            document.addEventListener(
               '${events.HEADER_UNLOADED}',
               () => alert('Where did the header go?')
             )

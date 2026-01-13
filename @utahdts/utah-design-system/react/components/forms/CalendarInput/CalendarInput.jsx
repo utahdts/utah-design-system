@@ -36,7 +36,7 @@ function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
   // focus on the next date; delay so that the new month's view draws before it tries to focus on the new date
   oldMoveCurrentValueFocusTimeoutId = window.setTimeout(
     () => {
-      document.getElementById(`${calendarInputId}__${format(newDate, dateFormat)}`)?.focus();
+      document.getElementById(`calendar-input__${calendarInputId}__${format(newDate, dateFormat)}`)?.focus();
     },
     0
   );

@@ -95,11 +95,13 @@ export function LinksDocumentation() {
         </li>
         <li>
           <strong>Appearance.</strong> Links should be easily identified from the rest of the content on a page.
-          Use both color and some form of styling (underlined, bolded, or italicized) to highlight them.<br/>
+          Use <strong>both</strong> color and some form of styling (underlined, bolded, or italicized) to highlight them.<br/>
+          <ExternalLink href="https://www.w3.org/TR/WCAG20-TECHS/F73.html">Learn more about links and visual cues.</ExternalLink>
+          <br/>
           <strong>Note</strong>: this rule does not apply when a link is part of some navigation such as in main menus.
         </li>
         <li>
-          <strong>Interaction.</strong> Ensure links have a clear hover state, like an underline or background color change, to provide visual feedback to the user.
+          <strong>Interaction.</strong> Ensure links have a clear hover state (in addition of the cursor changing to a hand pointer), like an underline or background color change, to provide visual feedback to the user.
         </li>
         <li>
           <strong>Minimize using duplicate text language on a page with multiple links.</strong> This can cause issues using screen readers, when there are multiple links using

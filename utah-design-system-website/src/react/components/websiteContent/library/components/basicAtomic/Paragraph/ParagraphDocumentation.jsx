@@ -75,7 +75,7 @@ export function ParagraphDocumentation() {
             <span style={{ fontSize: '18px' }}>
               <strong>Important Announcement:</strong>
             </span>
-            <p style={{ color: 'red' }}>Due to unforeseen circumstances, the event scheduled for this Saturday has been canceled.</p>
+            <p style={{ color: '#d90000' }}>Due to unforeseen circumstances, the event scheduled for this Saturday has been canceled.</p>
             <div>
               <span>
                 We apologize for any inconvenience caused. Please stay tuned for updates on future events.

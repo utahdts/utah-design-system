@@ -70,7 +70,6 @@ export const domConstants = {
   MAIN_MENU__OUTER: 'main-menu__outer',
   MAIN_MENU__REMOVED: 'main-menu-is-removed',
   MAIN_MENU__SEARCH: 'main-menu__search',
-  MAIN_MENU__TITLE: 'main-menu__title',
 
   MENU_ITEM: 'menu-item',
   MENU_ITEM__ARROW: 'menu-item__menu-arrow',

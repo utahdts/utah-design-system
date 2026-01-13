@@ -55,3 +55,8 @@ This repo consists of the following:
 - [![Design System Library (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Library-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/%40utahdts/utah-design-system) ![README](https://img.shields.io/badge/README-gray)
 - [![Examples](https://img.shields.io/badge/GitHub-Examples-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/examples) ![README](https://img.shields.io/badge/README-gray)
 - [![Design System Website (SCSS / React)](https://img.shields.io/badge/GitHub-Design_System_Website-blue?logo=github)](https://github.com/utahdts/utah-design-system/tree/main/utah-design-system-website) ![README](https://img.shields.io/badge/README-gray)
+
+## License
+
+The Utah Design System and the Utah Design System Header. Copyright © 2025 State of Utah.<br/>
+Licensed under Apache License, Version 2.0. This program is distributed on an “AS IS” BASIS, WITHOUT ANY WARRANTY OR CONDITIONS OF ANY KIND, either express or implied. See the [license](https://github.com/utahdts/utah-design-system/raw/main/LICENSE) for more details.

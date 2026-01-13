@@ -182,6 +182,14 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
 
   wrapper.addEventListener('focusin', () => performPopup(TIMEOUT_MS_MEDIUM));
   wrapper.addEventListener('focusout', () => hidePopup(TIMEOUT_MS_MEDIUM));
+  wrapper.addEventListener('keyup', (e) => {
+    // When the user hits escape, we send the focus back to the main button
+    // then we close the popup
+    if (e.code === 'Escape' || e.key === 'Escape') {
+      button.focus();
+      hidePopup(TIMEOUT_MS_SHORT);
+    }
+  });
 
   if (options?.shouldFocusOnHover) {
     wrapper.addEventListener('mouseenter', () => performPopup(TIMEOUT_MS_LONG));

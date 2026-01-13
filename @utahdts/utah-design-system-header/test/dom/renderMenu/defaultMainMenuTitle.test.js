@@ -22,9 +22,10 @@ describe('renderMenu: main menu title', () => {
     setUtahHeaderSettings({ mainMenu });
     loadHeader();
 
-    const mainMenuTag = document.querySelector('.main-menu__title');
-    expect(mainMenuTag).not.toBeFalsy();
-    expect(mainMenuTag?.innerHTML).toBe('main-menu');
+    const mainMenuNav = document.querySelector('.main-menu__nav');
+    expect(mainMenuNav).not.toBeFalsy();
+    // defaults to Main Menu if a title is not provided
+    expect(mainMenuNav?.getAttribute('aria-label')).toBe('main-menu');
   });
 
   test('undefined title', () => {
@@ -45,9 +46,9 @@ describe('renderMenu: main menu title', () => {
     setUtahHeaderSettings({ mainMenu });
     loadHeader();
 
-    const mainMenuTag = document.querySelector('.main-menu__title');
-    expect(mainMenuTag).not.toBeFalsy();
+    const mainMenuNav = document.querySelector('.main-menu__nav');
+    expect(mainMenuNav).not.toBeFalsy();
     // defaults to Main Menu if a title is not provided
-    expect(mainMenuTag?.innerHTML).toBe('Main Menu');
+    expect(mainMenuNav?.getAttribute('aria-label')).toBe('Main Menu');
   });
 });

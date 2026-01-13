@@ -16,3 +16,36 @@ html {
 #{class-vars.$base-class} {
   background-color: white;
 }
+
+ul.checkbox-list, ul.checkbox-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    position: relative;
+    padding-left: 24px; /* Space for the custom marker */
+
+    &::before {
+      content: '\2610'; /* Unicode for ballot box (empty checkbox) */
+      position: absolute;
+      left: 0;
+      top: -5px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+    &.checked::before {
+      content: '\2611'; /* Unicode for ballot box with check */
+    }
+  }
+}
+ul.checkbox-list ul {
+  li {
+    padding-left: 22px; /* Space for the custom marker */
+    &::before {
+      top: -3px;
+      font-size: 1.2rem;
+    }
+  }
+}
+

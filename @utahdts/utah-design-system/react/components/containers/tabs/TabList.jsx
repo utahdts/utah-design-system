@@ -11,13 +11,12 @@ export function TabList({
   children,
   className,
 }) {
-  const { tabGroupId, isVertical } = useTabGroupContext();
+  const {  isVertical } = useTabGroupContext();
 
   return (
     <div
       className={joinClassNames(className, 'tab-group__list')}
       role="tablist"
-      aria-labelledby={`tab-group-${tabGroupId}`}
       aria-orientation={isVertical ? 'vertical' : 'horizontal'}
     >
       {children}

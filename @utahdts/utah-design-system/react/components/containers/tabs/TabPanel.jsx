@@ -14,7 +14,7 @@ export function TabPanel({ children, className, tabId }) {
   return (
     <div
       // `aria-labelledby` must match the related Tab's `id`
-      aria-labelledby={`tab-${tabGroupId}-${tabId}`}
+      aria-labelledby={`tab__${tabGroupId}__${tabId}`}
       className={joinClassNames(
         className,
         selectedTabId !== tabId && 'visually-hidden',
@@ -24,6 +24,7 @@ export function TabPanel({ children, className, tabId }) {
       id={`tabpanel__${tabGroupId}__${tabId}`}
       role="tabpanel"
       tabIndex={selectedTabId === tabId ? 0 : -1}
+      inert={selectedTabId !== tabId}
     >
       {children}
     </div>

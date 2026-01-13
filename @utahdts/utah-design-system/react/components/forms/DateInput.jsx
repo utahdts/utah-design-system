@@ -207,6 +207,11 @@ export function DateInput({
                   ...floatingStyles,
                   minWidth: popupReferenceElementRef.current?.offsetWidth,
                 }}
+                onKeyUp={(e) => {
+                  if (e.key === 'Escape') {
+                    setIsCalendarPopupOpen(false);
+                  }
+                }}
               >
                 <CalendarInput
                   dateFormat={dateFormat}

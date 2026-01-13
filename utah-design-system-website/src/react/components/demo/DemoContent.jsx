@@ -83,7 +83,7 @@ export function DemoContent() {
 
       <div className="grid-wrapper px-spacing-ls">
         <div className="grid-fixed grid-fixed--2col mb-spacing-xl cards">
-          <span className="action-card action-card--primary-color action-card--solid text-on-primary-color">
+          <a href="#" className="action-card action-card--primary-color action-card--solid text-on-primary-color">
             <div className="action-card__title">
               <h3>Plan Your Visit</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
@@ -91,8 +91,8 @@ export function DemoContent() {
             <div className="action-card__body">
               Directions to the park, transportation...
             </div>
-          </span>
-          <span className="action-card action-card--primary-color white-color-background">
+          </a>
+          <a href="#" className="action-card action-card--primary-color white-color-background">
             <div className="action-card__title">
               <h3>About Arches</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
@@ -100,8 +100,8 @@ export function DemoContent() {
             <div className="action-card__body">
               Establishment of the park and its natural history.
             </div>
-          </span>
-          <span className="action-card action-card--primary-color white-color-background">
+          </a>
+          <a href="#" className="action-card action-card--primary-color white-color-background">
             <div className="action-card__title">
               <h3>Volunteering</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
@@ -109,8 +109,8 @@ export function DemoContent() {
             <div className="action-card__body">
               Get involved with the park&apos;s conservation efforts.
             </div>
-          </span>
-          <span className="action-card action-card--primary-color white-color-background">
+          </a>
+          <a href="#" className="action-card action-card--primary-color white-color-background">
             <div className="action-card__title">
               <h3>Contact</h3>
               <span className="button--icon button--icon-right"><span className="utds-icon-before-arrow-right" aria-hidden="true" /></span>
@@ -118,7 +118,7 @@ export function DemoContent() {
             <div className="action-card__body">
               How to reach us.
             </div>
-          </span>
+          </a>
         </div>
       </div>
 

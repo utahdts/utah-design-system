@@ -42,7 +42,7 @@
         border-bottom-left-radius: var(--radius-small);
         border-bottom-right-radius: var(--radius-small);
 
-        &--open {
+        &--open, &:focus-within {
           height: auto;
           padding: var(--spacing);
 

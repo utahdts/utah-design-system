@@ -25,13 +25,15 @@ export function ProcessListDocumentation() {
               <li>A number for each item in the list, enclosed in a circle.</li>
               <li>Lines connecting all the circled numbers.</li>
               <li>A title for each step.</li>
-              <li>Detail for each step (optional) can include:</li>
-              <ul>
-                <li>Text.</li>
-                <li><Link to={pageUrls.links}>Hyperlinks</Link>.</li>
-                <li><Link to={pageUrls.lists}>Lists</Link>.</li>
-                <li>Form elements and <Link to={pageUrls.button}>buttons</Link>.</li>
-              </ul>
+              <li>
+                Detail for each step (optional) can include:
+                <ul>
+                  <li>Text.</li>
+                  <li><Link to={pageUrls.links}>Hyperlinks</Link>.</li>
+                  <li><Link to={pageUrls.lists}>Lists</Link>.</li>
+                  <li>Form elements and <Link to={pageUrls.button}>buttons</Link>.</li>
+                </ul>
+              </li>
             </ul>
           </>
         )}

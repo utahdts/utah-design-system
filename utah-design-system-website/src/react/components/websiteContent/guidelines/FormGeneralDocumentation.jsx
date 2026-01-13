@@ -61,6 +61,7 @@ export function FormGeneralDocumentation() {
         </li>
         <li>Group form elements together, where needed, using the <code>fieldset</code> element.</li>
         <li>Focus should follow a natural flow. Don&apos;t change the focus index to alter the tabbing order.</li>
+        <li>Buttons elements require valid descriptive text.</li>
       </ul>
 
       <h2 id="section-forms" className="mt-spacing">Form Accessibility</h2>
