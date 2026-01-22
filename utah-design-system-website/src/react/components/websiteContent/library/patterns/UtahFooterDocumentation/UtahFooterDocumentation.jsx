@@ -92,8 +92,8 @@ export function UtahFooterDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Users must be able to to navigate using the tab key</li>
-        <li>Users must be able to select the navigation item using the Enter/Return key</li>
+        <li>Users must be able to to navigate using the <code>Tab</code> key</li>
+        <li>Users must be able to select the navigation item using the <code>Enter/Return</code> key</li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">

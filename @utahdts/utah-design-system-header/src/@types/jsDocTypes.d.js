@@ -149,7 +149,8 @@
  *  @property {function(UIEvent): void} [onClick] custom onclick handler
  *  @property {PopupPlacement} [popupPlacement] which side should the popup place itself (defaults to bottom and Floating UI will place where it can)
  *  @property {boolean} [preventOnClickHandling] turns off click handling for popup invocation
- *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover as well as the focus event
+ *  @property {boolean} [shouldFocusOnHover] will perform the popup on hover
+ *  @property {boolean} [shouldFocusOnTab] will perform the popup on focus event
  *  @property {boolean} [doNotClosePopupOnClick] main menu items should not close popup when it's clicked
  * }
  */

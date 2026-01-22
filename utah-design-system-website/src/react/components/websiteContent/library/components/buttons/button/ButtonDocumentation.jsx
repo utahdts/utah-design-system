@@ -443,12 +443,12 @@ export function ButtonDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>The button must receive focus when the user presses the <code>tab</code> key.
+        <li>The button must receive focus when the user presses the <code>Tab</code> key.
           <ul>
             <li>Buttons natively receive keyboard focus so there&apos;s no need to add a tabindex attribute.</li>
           </ul>
         </li>
-        <li>You should be able to press the button by using the <code>enter</code> or <code>space</code> key.</li>
+        <li>You should be able to press the button by using the <code>Enter</code> or <code>Space</code> key.</li>
 
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>

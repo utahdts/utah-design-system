@@ -237,7 +237,8 @@ export function VerticalMenuDocumentation() {
       </ul>
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>The user should be able to easily navigate the entire menu with a <code>tab</code> key.</li>
+        <li>The user should be able to easily navigate the entire menu with a <code>Tab</code> key.</li>
+        <li>The user should be able to access sub-menus with the <code>Enter/Return</code> or <code>Space</code> key.</li>
       </ul>
       <h4>Screen Readers</h4>
       <ul className="mb-spacing">

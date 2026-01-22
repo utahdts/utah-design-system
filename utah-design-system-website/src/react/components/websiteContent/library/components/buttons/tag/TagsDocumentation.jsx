@@ -256,7 +256,7 @@ export function TagsDocumentation() {
           provides the required keyboard navigability.
         </li>
         <li>
-          Use the <code>tab</code> key to move between form elements. An interactive tag should display a visible focus state when users tab to them.
+          Use the <code>Tab</code> key to move between form elements. An interactive tag should display a visible focus state when users tab to them.
         </li>
       </ul>
 
