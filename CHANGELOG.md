@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [4.3.0] 01/22/2026
+## Added
+- Header: Additional accessibility support for the main menu and the mobile main menu
+- Header and Components: Update popup content to be “inert” when is it not visible so that elements within cannot be focusable
+- Component: Added a tab-index to tables that will overflow so they can get focus for keyboard only users
+- Component: Update pagination component to provide better accessibility support
+
+## Fixed
+- Click event on Utah Official Website graphic doesn't propagate anymore
+- Fixed contrast issues with various components
+- Make Accordion and TabPanel use the “inert” attribute, so that elements within cannot be focusable when hidden
+
+## Website
+- Updated and refined documentation for consistency, and HTML structure
+- Fixed tooltip on lightbox
+- Fixed misconfigured form labels
+
 # [4.2.1] 12/02/2025
 ## Fixed
 - Removed &lt;h2&gt; from official website popup in the Utah Header
