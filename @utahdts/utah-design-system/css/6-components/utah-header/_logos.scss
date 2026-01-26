@@ -52,7 +52,9 @@
       }
       &__title {
         line-height: .8;
-        color: var(--gray-medium-color);
+        font-weight: bold;
+        font-family: 'UT Industry', serif;
+        color: var(--header-title-color);
       }
     }
   }

@@ -59,7 +59,6 @@ export const domConstants = {
   LOGO_OFFICIAL_CLOSE_BUTTON: 'utds-official-website-popup__close-button',
   LOGO_OFFICIAL_WRAPPER: 'utds-official-website-popup__wrapper',
   LOGO_SVG: 'utah-logo-svg',
-  LOGO_VERT_LINE: 'utds-logo-vert-line',
 
   MAIN_MENU: 'main-menu__wrapper',
   MAIN_MENU__HAMBURGER: 'main-menu__hamburger',
@@ -101,6 +100,10 @@ export const domConstants = {
   MOBILE_MENU_ACTON_BAR__HOME_ID: 'utds-header-mobile-menu_action-bar__home',
   MOBILE_MENU_ACTON_BAR__PROFILE_ID: 'utds-header-mobile-menu_action-bar__profile',
   MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER: 'utds-header-mobile-menu__action-item',
+
+  OFFICIAL_BANNER: 'utds-official-website__wrapper',
+  OFFICIAL_BUTTON: 'utds-official-website__button',
+  OFFICIAL_WRAPPER: 'utds-official-website-popup__wrapper',
 
   VERTICAL_MENU: 'vertical-menu',
   VERTICAL_MENU__BUTTON_TITLE: 'vertical-menu__button-title',

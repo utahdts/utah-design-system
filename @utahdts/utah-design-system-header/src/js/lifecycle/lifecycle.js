@@ -18,11 +18,11 @@ import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElem
 import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge';
 import { setupNotifications } from '../renderables/notifications/setupNotifications';
 import { SkipLink } from '../renderables/skipLink/SkipLink';
-import { renderOfficialWebsite } from '../renderables/utahLogo/renderOfficialWebsite';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import { hookupMobileActionItemKeyboarding } from './hookupMobileActionItemKeyboarding';
+import { renderOfficialBanner } from '../renderables/officialBanner/renderOfficialBanner';
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -87,8 +87,8 @@ export function loadHeader() {
     const domTarget = determineTargetElementForHeader();
     domTarget.insertBefore(header, domTarget.firstChild);
 
-    const officialWebsite = renderOfficialWebsite();
-    header.after(officialWebsite);
+    const officialBanner = renderOfficialBanner();
+    header.before(officialBanner);
 
     // Load the skip link
     const skipLink = SkipLink();
@@ -98,7 +98,7 @@ export function loadHeader() {
     }
 
     const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
-    officialWebsite.after(mobileMenuWrapper);
+    header.after(mobileMenuWrapper);
     mobileMenuWrapper.onkeyup = (e) => {
       if (e.code === 'Escape' || e.key === 'Escape') {
         e.preventDefault();
@@ -110,7 +110,7 @@ export function loadHeader() {
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
     if (mainMenuWrapper) {
-      officialWebsite.after(mainMenuWrapper);
+      header.after(mainMenuWrapper);
     }
 
     // hide mobile menu on background trigger
@@ -180,10 +180,11 @@ export function loadHeader() {
 }
 
 /**
- * @param {boolean} shouldTriggerUnloadEvent if removing to readd, then the event shouldn't fire
+ * @param {boolean} shouldTriggerUnloadEvent if removing to read, then the event shouldn't fire
  */
 export function removeHeader(shouldTriggerUnloadEvent) {
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.SKIP_LINK_WRAPPER]))?.remove();
+  document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.OFFICIAL_BANNER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU__OUTER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MOBILE_MENU]))?.remove();

@@ -1,7 +1,7 @@
 .utah-design-system {
   &.utds-official-website-popup {
     &__wrapper {
-      background: var(--gray-color);
+      background: var(--gray-dark-color);
       color: white;
       padding: var(--spacing-l);
       position: relative;
@@ -63,7 +63,7 @@
       margin-top: var(--spacing-xs);
     }
     &__official-image {
-      width: 150px;
+      width: 250px;
       font-family: 'Source Sans 3', 'Source Sans Pro', Arial, Helvetica, sans-serif;
       font-weight: normal;
       font-size: 14px;
