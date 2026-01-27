@@ -1,17 +1,16 @@
 @use "../../../../../@utahdts/utah-design-system/css/1-settings/color-swatches";
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 .typography {
   &__font-family {
     display: flex;
     gap: var(--spacing);
+    flex-wrap: wrap;
   }
   &__font-demo {
     font-size: var(--font-size-xl);
     flex: 1 1 0;
+    flex-basis: calc(50% - 40px);
     background: var(--gray-light-color);
     padding: var(--spacing);
   }
@@ -33,17 +32,8 @@
     font-family: var(--fixed-width-font-family);
     font-size: calc(var(--font-size-xl) - .25em);
   }
-  &__roboto-font {
-    font-family: 'Roboto', sans-serif;
-  }
-  &__merriweather-font {
-    font-family: 'Merriweather', serif;
-    font-size: calc(var(--font-size-xl) - 0.15em);
-    line-height: 1.57;
-  }
-  &__roboto-mono-font {
-    font-family: 'Roboto Mono', var(--fixed-width-font-family), monospace;
-    font-size: calc(var(--font-size-xl) - .25em);
+  &__ut-industry-font {
+    font-family: 'UT Industry', serif;
   }
   &__light-font {
     font-weight: var(--font-weight-extra-light);

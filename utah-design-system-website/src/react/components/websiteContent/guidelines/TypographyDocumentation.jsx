@@ -50,15 +50,25 @@ export function TypographyDocumentation() {
         <li>Comic Sans ☹️</li>
       </ul>
 
-      <h3 id="font-family-source-sans" className="mt-spacing">Source Sans 3</h3>
-      <p>Font pairing: Source Sans 3, Lora, Source Code Pro</p>
-      <div className="typography__font-family">
+      <h3 id="font-family-source-sans" className="mt-spacing">UT Industry</h3>
+      <p>Font pairing: UT Industry, Source Sans 3, Lora, Source Code Pro</p>
+      <div className="typography__font-family mb-spacing">
+        <div className="typography__font-demo  typography__ut-industry-font">
+          <div>
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name flex gap align-items-center items-end">
+            <ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf">UT Industry <br />(Serif)</ExternalLink>
+            <span>Recommended for headings</span>
+          </div>
+        </div>
         <div className="typography__font-demo">
           <div>
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
-          <div className="typography__font-name">
+          <div className="typography__font-name flex gap align-items-center items-end">
             <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+3">Source Sans 3 <br />(Sans Serif)</ExternalLink>
+            <span>Recommended for body text</span>
           </div>
         </div>
         <div className="typography__font-demo typography__lora-font">
@@ -75,35 +85,6 @@ export function TypographyDocumentation() {
           </div>
           <div className="typography__font-name">
             <ExternalLink href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro <br />(Monospace)</ExternalLink>
-          </div>
-        </div>
-      </div>
-
-      <h3 id="font-family-roboto" className="mt-spacing">Roboto</h3>
-      <p>Font pairing: Roboto, Merriweather, Roboto Mono</p>
-      <div className="typography__font-family mb-spacing">
-        <div className="typography__font-demo typography__roboto-font">
-          <div>
-            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
-          </div>
-          <div className="typography__font-name">
-            <ExternalLink href="https://fonts.google.com/specimen/Roboto">Roboto <br />(Sans Serif)</ExternalLink>
-          </div>
-        </div>
-        <div className="typography__font-demo typography__merriweather-font">
-          <div>
-            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
-          </div>
-          <div className="typography__font-name">
-            <ExternalLink href="https://fonts.google.com/specimen/Merriweather">Merriweather <br />(Serif)</ExternalLink>
-          </div>
-        </div>
-        <div className="typography__font-demo typography__roboto-mono-font">
-          <div>
-            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
-          </div>
-          <div className="typography__font-name">
-            <ExternalLink href="https://fonts.google.com/specimen/Roboto+Mono">Roboto Mono <br />(Monospace)</ExternalLink>
           </div>
         </div>
       </div>
@@ -128,7 +109,6 @@ export function TypographyDocumentation() {
                 </TableHeadRow>
               </TableHead>
               <TableBody>
-                <TableRow><TableCell>--font-size-2xs</TableCell><TableCell>.font-size-2xs</TableCell><TableCell> .8125rem</TableCell><TableCell>13px</TableCell></TableRow>
                 <TableRow><TableCell>--font-size-xs</TableCell><TableCell>.font-size-xs</TableCell><TableCell> .875rem</TableCell><TableCell>14px</TableCell></TableRow>
                 <TableRow><TableCell>--font-size-s</TableCell><TableCell>.font-size-s</TableCell><TableCell> .9375rem</TableCell><TableCell>15px</TableCell></TableRow>
                 <TableRow><TableCell>--font-size</TableCell><TableCell>.font-size</TableCell><TableCell>1rem</TableCell><TableCell>16px <em className="ml-spacing">(Base Font Size)</em></TableCell></TableRow>

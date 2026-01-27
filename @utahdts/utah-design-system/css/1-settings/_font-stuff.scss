@@ -52,7 +52,6 @@ Font size variables
   --normal-font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
   --fixed-width-font-family: 'Source Code Pro', monospace;
 
-  --font-size-2xs: .8125rem; //13
   --font-size-xs:  .875rem;  //14
   --font-size-s:   .9375rem; //15
   --font-size:     1rem;     //16
@@ -73,7 +72,6 @@ Font size variables
   --font-weight-bold: 700;
   --font-weight-black: 900;
 
-  .font-size-2xs { font-size: var(--font-size-2xs); }
   .font-size-xs  { font-size: var(--font-size-xs);  }
   .font-size-s   { font-size: var(--font-size-s);   }
   .font-size     { font-size: var(--font-size);     }
