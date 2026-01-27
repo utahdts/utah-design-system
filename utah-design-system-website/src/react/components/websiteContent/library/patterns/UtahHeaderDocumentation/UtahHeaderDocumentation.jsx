@@ -1,7 +1,4 @@
-/* eslint-disable max-len */
-import utahUnbrandLarge from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoLarge.html?raw';
-import utahUnbrandMedium from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/utahLogo/html/UtahLogoMedium.html?raw';
-
+import officialBanner from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/officialBanner/html/OfficialBanner.html?raw'
 import {
   Button,
   events,
@@ -85,7 +82,7 @@ export function UtahHeaderDocumentation() {
         provides a consistent look, feel, and user experience for the state agencies and divisions that adopt it.
       </p>
       <p className="lead-in">
-        The components contained within the header include the <strong>Utah, an official website</strong>,{' '}
+        The components contained within the header include the <strong>An official website of the State of Utah banner</strong>,{' '}
         <strong>Agency Icon and Title</strong>,{' '}
         <strong>Action Items</strong>,{' '}
         <strong>Main Menu</strong>,{' '}
@@ -190,31 +187,18 @@ export function UtahHeaderDocumentation() {
       <p>Go to the <a href="#section-utahheader-code-examples">Code Examples</a>.</p>
 
       <StaticExample
-        title="Utah, an official website"
+        title="An official website of the State of Utah"
         renderedExample={(
           <>
-            {/* eslint-disable-next-line react/no-danger */}
-            <div dangerouslySetInnerHTML={{ __html: utahUnbrandLarge }} style={{ height: '70px' }} />
-            <div style={{ width: '100px' }}>&nbsp;</div>
-            {/* eslint-disable-next-line react/no-danger */}
-            <div dangerouslySetInnerHTML={{ __html: utahUnbrandMedium }} style={{ height: '60px' }} />
+            <div dangerouslySetInnerHTML={{ __html: officialBanner }} className="full-width"/>
           </>
         )}
         quickTips={(
           <ul>
             <li>The Utah identification is required on all headers.</li>
-            <li>The <code>Utah, an official website</code> helps the user to know that they are visiting an official state website.</li>
-            <li>At the moment, the color of the identification can be changed to match the primary or secondary color of the site.</li>
-            <li>Depending on the height of the header use one of the above sizes (eg <code>SMALL</code>, <code>MEDIUM</code>, or <code>LARGE</code>).
-              <ul>
-                <li><code>Utah, an official state website</code> (for <code>LARGE</code> headers)</li>
-                <li><code>Utah, an official website</code> (for <code>MEDIUM</code> and <code>SMALL</code> headers)</li>
-              </ul>
+            <li>The <code>An official website of the State of Utah.</code> helps the user to know that they are visiting an official state website.
             </li>
-            <li>
-              The color of this identification can be customized to match the color of your website or application.
-              See the <a href="#color-customization">color customization section below</a>.
-            </li>
+            <li>The banner should be positioned at the top of the page header and span the full width.</li>
           </ul>
         )}
       />
