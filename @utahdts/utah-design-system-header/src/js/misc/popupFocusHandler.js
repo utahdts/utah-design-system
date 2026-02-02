@@ -242,7 +242,6 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
         if (wasAlreadyOpen && button.getAttribute('aria-expanded') === 'true') {
           if (!options?.doNotClosePopupOnClick) {
             hidePopup(TIMEOUT_MS_SHORT);
-            /** @type {HTMLElement | null} */(document.activeElement)?.blur();
           }
         } else {
           if (isTouchDevice()) {
