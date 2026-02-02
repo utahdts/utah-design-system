@@ -60,6 +60,35 @@ export function hookupTooltip(element, dom) {
   }
 
   let tooltipOpenTimeoutId = NaN;
+
+  const close = () => {
+    clearTimeout(tooltipOpenTimeoutId);
+    tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__HIDDEN);
+    tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__VISIBLE);
+    // Call the cleanup function to stop the auto updates
+    if (typeof cleanup === 'function') {
+      cleanup();
+    }
+    tooltipCloseTimeoutId = window.setTimeout(
+      () => {
+        tooltipCloseTimeoutId = NaN;
+      },
+      500
+    );
+  };
+
+  const onEscape = (/** @type {KeyboardEvent} */ e) => {
+    if (e.code === 'Escape' || e.key === 'Escape') {
+      close();
+      document.removeEventListener('keyup', onEscape);
+    }
+  };
+
+  element.onmouseleave = () => {
+    close();
+    document.removeEventListener('keyup', onEscape);
+  };
+
   // eslint-disable-next-line no-param-reassign
   element.onmouseenter = () => {
     clearTimeout(tooltipOpenTimeoutId);
@@ -71,28 +100,6 @@ export function hookupTooltip(element, dom) {
         // if a popup tied to this same item is open, don't open the tooltip
         const popup = element.querySelector(getCssClassSelector(domConstants.POPUP_WRAPPER));
         if (!popup || popup.classList.contains(domConstants.POPUP__HIDDEN)) {
-          const close = () => {
-            clearTimeout(tooltipOpenTimeoutId);
-            tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__HIDDEN);
-            tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__VISIBLE);
-            // Call the cleanup function to stop the auto updates
-            if (typeof cleanup === 'function') {
-              cleanup();
-            }
-            tooltipCloseTimeoutId = window.setTimeout(
-              () => {
-                tooltipCloseTimeoutId = NaN;
-              },
-              500
-            );
-          };
-          const onEscape = (/** @type {KeyboardEvent} */ e) => {
-            if (e.code === 'Escape' || e.key === 'Escape') {
-              close();
-              document.removeEventListener('keyup', onEscape);
-            }
-          };
-
           tooltip.classList.remove(domConstants.TOOLTIP__WRAPPER__HIDDEN);
           tooltip.classList.add(domConstants.TOOLTIP__WRAPPER__VISIBLE);
           // Call autoUpdate() only when the floating element is open
@@ -103,8 +110,6 @@ export function hookupTooltip(element, dom) {
           );
 
           // Add listeners
-          // eslint-disable-next-line no-param-reassign
-          element.onmouseleave = close;
           document.addEventListener('keyup', onEscape);
         }
       },
