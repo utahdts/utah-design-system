@@ -84,6 +84,7 @@ export function hookupTooltip(element, dom) {
     }
   };
 
+  // eslint-disable-next-line no-param-reassign
   element.onmouseleave = () => {
     close();
     document.removeEventListener('keyup', onEscape);
