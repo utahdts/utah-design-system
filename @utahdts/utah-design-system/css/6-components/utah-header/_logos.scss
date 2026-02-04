@@ -53,7 +53,7 @@
       &__title {
         line-height: .8;
         font-weight: bold;
-        font-family: 'UT Industry', serif;
+        font-family: var(--ut-industry-font-family);
         color: var(--header-title-color);
       }
     }

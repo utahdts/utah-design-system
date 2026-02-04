@@ -48,6 +48,10 @@ Font size variables
   font-display: block;
 }
 
+:root {
+  --ut-industry-font-family: 'UT Industry', Georgia, serif;
+}
+
 #{class-vars.$base-class} {
   --normal-font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
   --fixed-width-font-family: 'Source Code Pro', monospace;
