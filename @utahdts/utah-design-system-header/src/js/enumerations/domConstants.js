@@ -22,6 +22,7 @@ export const domConstants = {
 
   // IDs
   CSS_HEADER_MEDIA_TAG_ID: 'cssHeaderMediaTag',
+  SSO_HEADER_SCRIPT_TAG_ID: 'ssoHeaderScriptTag',
 
   // Modifiers
   IS_CLOSED: 'is-closed',

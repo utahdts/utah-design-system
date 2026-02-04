@@ -19,10 +19,12 @@ import { renderNotificationBadge } from '../renderables/notifications/renderNoti
 import { setupNotifications } from '../renderables/notifications/setupNotifications';
 import { SkipLink } from '../renderables/skipLink/SkipLink';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
-import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
+import { handleMyLoginInfo } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import { hookupMobileActionItemKeyboarding } from './hookupMobileActionItemKeyboarding';
 import { renderOfficialBanner } from '../renderables/officialBanner/renderOfficialBanner';
+
+/** @typedef {import('src/@types/jsDocTypes.d').UtahIdProfile} UtahIdProfile */
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -37,6 +39,28 @@ function loadCssSettings() {
   }
   cssHeaderMediaTag.innerHTML = mediaQueriesCssReplaced;
   document.body.appendChild(cssHeaderMediaTag);
+}
+
+/**
+ * @param {Event} e
+ */
+function handleMyLoginEvent(e) {
+  /** @type {{ currentValues: { utahid: UtahIdProfile } }} */
+  const eventData = /** @type {any} */ (e);
+  const userInfo = eventData.currentValues.utahid;
+  handleMyLoginInfo(userInfo);
+}
+
+function loadSSOUserInfo() {
+  let ssoHeaderScriptTag = document.getElementById(domConstants.SSO_HEADER_SCRIPT_TAG_ID);
+  if (!ssoHeaderScriptTag) {
+    ssoHeaderScriptTag = document.createElement('script');
+    ssoHeaderScriptTag.id = domConstants.SSO_HEADER_SCRIPT_TAG_ID;
+    ssoHeaderScriptTag.setAttribute('src', 'https://mylogin.utah.gov/ssouserinfo/ssouserinfo.js');
+    document.head.appendChild(ssoHeaderScriptTag);
+    document.addEventListener('ssoUserInfo.pollComplete', handleMyLoginEvent);
+    document.addEventListener('ssoUserInfo.valuesChanged', handleMyLoginEvent);
+  }
 }
 
 /**
@@ -144,9 +168,9 @@ export function loadHeader() {
 
     loadCssSettings();
 
-    fetchUtahIdUserDataAsync()
-      // eslint-disable-next-line no-console
-      .catch((e) => console.error(e));
+    loadSSOUserInfo();
+
+    //fetchUtahIdUserDataAsync().catch((e) => console.error(e));
 
     // UDS-564
     // there are four parts to deciding the state of the main menu bar: main menu, search, utahId, action items

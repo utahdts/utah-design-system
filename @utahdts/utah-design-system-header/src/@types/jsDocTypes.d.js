@@ -241,9 +241,11 @@
  *  @property {string | undefined} [env] - the UtahId environment
  *  @property {string | null | undefined} first - the name shown on the UtahId button when logged in
  *  @property {string | null | undefined} [id]
+ *  @property {boolean | null | undefined} [isPublic] - is the user eligible to receive notifications
  *  @property {string | null | undefined} [last]
  *  @property {string[] | null | undefined} [mail]
  *  @property {string | null | undefined} [middle]
+ *  @property {string | null | undefined} [name]
  *  @property {string | null | undefined} [status]
  *  @property {string | undefined} [type]
  *  @property {string | null | undefined} [username]
@@ -255,6 +257,16 @@
  *  @property {boolean | null} isDefinitive - true when the user's state is known, false while the ajax request is inflight
  *  @property {string | null} lastError - true when the user's state is known, false while the ajax request is inflight
  *  @property {UserInfo | null} userInfo - the current logged in user info or null if not found
+ * }
+ */
+
+/**
+ * @typedef {Object} UtahIdProfile {
+ *  @property {string} label
+ *  @property {string} login
+ *  @property {string} logout
+ *  @property {string} profile
+ *  @property {UserInfo} userInfo
  * }
  */
 

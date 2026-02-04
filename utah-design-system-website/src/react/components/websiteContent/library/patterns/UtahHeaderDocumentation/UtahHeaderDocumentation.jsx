@@ -1706,7 +1706,7 @@ export function UtahHeaderDocumentation() {
                     (newUserData) => {
                       // incomplete: other 'status' fields should be consulted
                       if (newUserData?.userInfo?.first) {
-                        alert(\`Hello \${newUserData.userInfo.first}!\`);
+                        alert(\`Hello \${newUserData.userInfo.name}!\`);
                       } else {
                         alert('User is signed out');
                       }

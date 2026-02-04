@@ -1,4 +1,3 @@
-import { utahIdUrls } from '../enumerations/utahIdUrls';
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 
@@ -6,20 +5,21 @@ import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdFetchStyle} UtahIdFetchStyle */
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIDSettings} UtahIDSettings */
 /** @typedef {import('src/@types/jsDocTypes.d').UserInfo} UserInfo */
+/** @typedef {import('src/@types/jsDocTypes.d').UtahIdProfile} UtahIdProfile */
 
 /** @enum {UtahIdFetchStyle} */
-const UtahIdFetchStyle = {
-  AUTOMATIC: /** @type {UtahIdFetchStyle} */ ('Automatic'),
-  NONE: /** @type {UtahIdFetchStyle} */ ('None'),
-  PROVIDED: /** @type {UtahIdFetchStyle} */ ('Provided'),
-};
-let lastFetchStyle = UtahIdFetchStyle.NONE;
+/* const UtahIdFetchStyle = {
+  AUTOMATIC: /!** @type {UtahIdFetchStyle} *!/ ('Automatic'),
+  NONE: /!** @type {UtahIdFetchStyle} *!/ ('None'),
+  PROVIDED: /!** @type {UtahIdFetchStyle} *!/ ('Provided'),
+}; */
+//let lastFetchStyle = UtahIdFetchStyle.NONE;
 /**
  * @param {UtahIDSettings | boolean | undefined} utahIdData
  * @returns {UtahIdFetchStyle}
  */
-function determineFetchStyle(utahIdData) {
-  /** @type {UtahIdFetchStyle} */
+/* function determineFetchStyle(utahIdData) {
+  /!** @type {UtahIdFetchStyle} *!/
   let fetchStyle;
   if (utahIdData === true) {
     fetchStyle = UtahIdFetchStyle.AUTOMATIC;
@@ -33,7 +33,7 @@ function determineFetchStyle(utahIdData) {
     throw new Error('determineFetchStyle: Unknown utah id fetch style');
   }
   return fetchStyle;
-}
+} */
 
 /**
  * @type {UtahIdData}
@@ -69,17 +69,17 @@ function maybeTriggerAuthEvent(newUtahIdData) {
 // within this "waitForLaunch" window, the application must call setUtahHeaderSettings()
 // if the current user is not yet known, make sure to set `settings.utahId.currentUser = null`
 // this way the header knows the user is controlled by the app and to not go fetch the user.
-let waitingForLaunch = true;
-const WAIT_FOR_LAUNCH_MS = 500;
+//let waitingForLaunch = true;
+//const WAIT_FOR_LAUNCH_MS = 500;
 
 /** @type {number} */
-let fetchUserTimeoutId = NaN;
+//let fetchUserTimeoutId = NaN;
 
 /**
  * @returns {Promise<UtahIdData>}
  */
-export async function fetchUtahIdUserDataAsync() {
-  /** @type {Promise<UtahIdData>} */
+/* export async function fetchUtahIdUserDataAsync() {
+  /!** @type {Promise<UtahIdData>} *!/
   let result = Promise.resolve(utahIdData);
   const settings = getUtahHeaderSettings();
   const fetchStyle = determineFetchStyle(settings.utahId);
@@ -123,7 +123,7 @@ export async function fetchUtahIdUserDataAsync() {
         .then((authResult) => {
           if (authResult.status === 200) {
             utahIdData.lastError = null;
-            utahIdData.userInfo = /** @type {UserInfo} */ (authResult.data);
+            utahIdData.userInfo = /!** @type {UserInfo} *!/ (authResult.data);
           } else {
             throw new Error(authResult.err);
           }
@@ -151,6 +151,37 @@ export async function fetchUtahIdUserDataAsync() {
     maybeTriggerAuthEvent(resultData);
   }
   lastFetchStyle = fetchStyle;
+  return result;
+} */
+
+/**
+ * Handle data sent from mylogin
+ * @param {UtahIdProfile} data the current information to store
+ */
+export function handleMyLoginInfo(data) {
+  let result = utahIdData;
+  const settings = getUtahHeaderSettings();
+  if (settings.utahId === false) {
+    utahIdData.lastError = 'Utah ID is off';
+    utahIdData.userInfo = null;
+    utahIdData.isDefinitive = true;
+  } else if (settings.utahId === true || settings.utahId?.currentUser === undefined) {
+    if (data && data.userInfo) {
+      utahIdData.lastError = null;
+      utahIdData.userInfo = /** @type {UserInfo} */ (data.userInfo);
+      utahIdData.isDefinitive = true;
+      result = utahIdData;
+      maybeTriggerAuthEvent(utahIdData);
+    }
+  } else {
+    const resultData = {
+      isDefinitive: true,
+      lastError: null,
+      userInfo: settings.utahId?.currentUser,
+    };
+    result = resultData;
+    maybeTriggerAuthEvent(resultData);
+  }
   return result;
 }
 
