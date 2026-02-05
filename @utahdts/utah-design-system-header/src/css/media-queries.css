@@ -60,10 +60,6 @@
     width: max-content;
   }
 
-  .utah-design-system .utds-official-website-popup__content {
-    flex-wrap: wrap;
-    gap: var(--spacing-l);
-  }
   .utah-design-system .utds-official-website-popup__col {
     width: 100%;
   }

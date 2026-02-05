@@ -63,7 +63,7 @@
       margin-top: var(--spacing-xs);
     }
     &__official-image {
-      width: 250px;
+      width: 325px;
       font-family: 'Source Sans 3', 'Source Sans Pro', Arial, Helvetica, sans-serif;
       font-weight: normal;
       font-size: 14px;
@@ -72,6 +72,7 @@
     }
     &__copyright {
       font-size: var(--font-size-s);
+      margin-left: 27%;
     }
   }
 }
