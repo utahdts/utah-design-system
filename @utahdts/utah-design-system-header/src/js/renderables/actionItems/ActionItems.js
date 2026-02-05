@@ -23,7 +23,7 @@ export function ActionItems() {
       ?.forEach((renderedActionItem) => actionItemsWrapper?.appendChild(renderedActionItem));
   }
 
-  if (!notifications) {
+  if (notifications) {
     actionItemsWrapper?.append(renderActionItem(getNotificationsActionItem()));
   }
 
