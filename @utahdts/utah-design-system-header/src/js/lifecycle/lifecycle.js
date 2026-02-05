@@ -15,8 +15,6 @@ import { hookupUtahIdInMobileMenu, removeUtahIdInMobileMenu } from '../renderabl
 import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html?raw';
 import { renderMobileMenuHomeMenu } from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
-import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge';
-import { setupNotifications } from '../renderables/notifications/setupNotifications';
 import { SkipLink } from '../renderables/skipLink/SkipLink';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 import { handleMyLoginInfo } from '../utahId/utahIdData';
@@ -191,12 +189,6 @@ export function loadHeader() {
       || (!settings.mainMenu && settings.actionItems && !settings.utahId && settings.onSearch)
     ) {
       mainMenuWrapper.classList.add(domConstants.DESKTOP__HIDDEN);
-    }
-    // @ts-expect-error I don't know, ask the devs
-    if (settings.notifications !== false && !settings.utahId?.identityProvider?.includes('entra') && !settings.utahId?.identityProvider?.includes('legacy')) {
-      // Load the notifications iFrame
-      setupNotifications();
-      renderNotificationBadge();
     }
   }
 

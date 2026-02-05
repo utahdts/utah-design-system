@@ -40,7 +40,7 @@ function getSignInFn() {
  * Get the current user info based on whether the header's utahId user is controlled by the app.
  * @returns {UserInfo | null}
  */
-function getUtahIdUserInfo() {
+export function getUtahIdUserInfo() {
   const currentUtahIdData = getCurrentUtahIdData();
   const settings = getUtahHeaderSettings();
 

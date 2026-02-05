@@ -1,5 +1,7 @@
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
+import { setupNotifications } from '../renderables/notifications/setupNotifications.js';
+import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge.js';
 
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData */
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdFetchStyle} UtahIdFetchStyle */
@@ -172,6 +174,16 @@ export function handleMyLoginInfo(data) {
       utahIdData.isDefinitive = true;
       result = utahIdData;
       maybeTriggerAuthEvent(utahIdData);
+      // Once we have our user, we set up notifications
+      if (settings.notifications !== false
+        && typeof settings.utahId === 'object'
+        && !settings.utahId?.identityProvider?.includes('entra')
+        && !settings.utahId?.identityProvider?.includes('legacy')
+      ) {
+        // Load the notifications iFrame
+        setupNotifications();
+        renderNotificationBadge();
+      }
     }
   } else {
     const resultData = {

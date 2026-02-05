@@ -9,6 +9,7 @@ import { MY_UTAH_REGEX } from '../../enumerations/regularExpressions';
 import { areDomainsMatching } from '../../misc/areDomainsMatching';
 import { showDebugMessage } from './showDebugMessage';
 import { SET_DEBUG } from './utahHeaderSetDebug';
+import { getUtahIdUserInfo } from '../utahId/utahIdCommon';
 
 export function setupNotificationsListener() {
   const apiIframe = /** @type {HTMLIFrameElement | null} */ (document.getElementById(domConstants.NOTIFICATIONS__IFRAME));
@@ -23,11 +24,12 @@ export function setupNotificationsListener() {
    * @param {Object} options - Options to pass to the iframe request.
    */
   function requestNotifications(options = {}) {
+    const userInfo = getUtahIdUserInfo();
     if (apiIframe?.contentWindow) {
       showDebugMessage('Parent: Requesting data from iframe with options:', options);
       globalState.setState({isBusy: true});
       apiIframe.contentWindow.postMessage({
-        request: 'getNotifications',
+        request: userInfo?.isPublic ? 'getNotifications' : 'getMessageNotLoggedIn',
         options,
       }, iframeOrigin); // Use the correctly derived iframeOrigin
     } else {

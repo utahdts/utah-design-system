@@ -284,7 +284,8 @@
  *  @property {function(UIEvent): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
  *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
  *  @property {boolean | undefined} [notifications] - turn on fetching of notifications
- *  @property {Array<UtahIDProvider> | undefined} [identityProvider] - options are ['entra','legacy','mylogin']. 'mylogin' is required for notifications
+ *  @property {UtahIDProvider[] | undefined} [identityProvider] - options are ['entra','legacy','mylogin']. 'mylogin' is required for
+ *  notifications
  * }
  */
 
