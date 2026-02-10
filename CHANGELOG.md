@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 # [4.3.0] 01/22/2026
 ## Added
 - Header: Additional accessibility support for the main menu and the mobile main menu
+- Header: Additional accessibility support for the agency logo
 - Header and Components: Update popup content to be “inert” when is it not visible so that elements within cannot be focusable
 - Component: Added a tab-index to tables that will overflow so they can get focus for keyboard only users
 - Component: Update pagination component to provide better accessibility support
