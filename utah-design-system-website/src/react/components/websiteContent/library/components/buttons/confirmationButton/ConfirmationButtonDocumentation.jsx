@@ -162,10 +162,10 @@ export function ConfirmationButtonDocumentation() {
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
         <li>
-          The button should display a visible focus state when users tab to it. Pressing the <code>spacebar</code> or <code>return</code> key will
+          The button should display a visible focus state when users tab to it. Pressing the <code>Spacebar</code> or <code>Return</code> key will
           activate
           the initial action of the button. When the confirmation text is shown in the button, the user can confirm their selection
-          by pressing the <code>spacebar</code> or <code>return</code> key again. Alternately the user may cancel the action by hitting
+          by pressing the <code>Spacebar</code> or <code>Return</code> key again. Alternately the user may cancel the action by hitting
           the <code>escape</code> key.
         </li>
         <li>
@@ -173,7 +173,7 @@ export function ConfirmationButtonDocumentation() {
         </li>
         <li>
           When you much us aria, ensure elements with ARIA <code>role=&quot;button&quot;</code> can be activated with both key commands (Pressing
-          the <code>spacebar</code> or <code>return</code> key).
+          the <code>Spacebar</code> or <code>Return</code> key).
         </li>
         <li>
           Remember, the first rule of ARIA: Before you use ARIA, use native HTML elements or attributes first!

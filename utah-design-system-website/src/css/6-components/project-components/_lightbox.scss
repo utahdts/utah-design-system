@@ -64,6 +64,10 @@
       top: var(--spacing);
       right: var(--spacing);
       z-index: 4020;
+
+      & + .tooltip__wrapper{
+        z-index: 9000;
+      }
     }
   }
 }

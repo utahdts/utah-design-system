@@ -93,6 +93,7 @@ export function Popup({
       )}
       role={role}
       data-popup-placement={middlewareData?.offset?.placement || placement}
+      inert={!isVisible}
       {...rest}
     >
       <div className="popup__content">

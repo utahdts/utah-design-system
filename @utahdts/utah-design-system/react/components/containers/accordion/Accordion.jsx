@@ -59,6 +59,7 @@ export function Accordion({
       <div
         aria-hidden={!stateIsOpen}
         aria-labelledby={`accordion-button__${id}`}
+        inert={!stateIsOpen}
         className={joinClassNames(['accordion__content', contentClassName, stateIsOpen ? 'accordion__content--open' : ''])}
         id={`accordion-content__${id}`}
         role="region"

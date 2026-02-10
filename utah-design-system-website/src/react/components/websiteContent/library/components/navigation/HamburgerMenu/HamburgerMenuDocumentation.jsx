@@ -74,8 +74,8 @@ export function HamburgerMenuDocumentation() {
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>The hamburger button should be able to receive focus by hitting the <code>tab</code> key.</li>
-        <li>Hitting <code>enter</code> or <code>spacebar</code> triggers the opening or closing of the menu.</li>
+        <li>The hamburger button should be able to receive focus by hitting the <code>Tab</code> key.</li>
+        <li>Hitting <code>Enter</code> or <code>Spacebar</code> triggers the opening or closing of the menu.</li>
         <li>Once the menu is opened, hitting the <code>esc</code> key should close the menu.</li>
         <li>The next focusable element should be the first link within the menu.</li>
         <li>When leaving the menu, the next focusable element should be the hamburger button (x).</li>
