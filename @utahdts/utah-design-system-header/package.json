@@ -1,6 +1,6 @@
 {
   "name": "@utahdts/utah-design-system-header",
-  "version": "4.2.1",
+  "version": "4.3.0",
   "description": "Utah Header for the Utah Design System",
   "exports": {
     ".": {
@@ -68,17 +68,17 @@
   },
   "homepage": "https://github.com/utahdts/utah-design-system#readme",
   "dependencies": {
-    "@floating-ui/dom": "1.7.4"
+    "@floating-ui/dom": "1.7.5"
   },
   "devDependencies": {
-    "@vitest/ui": "4.0.10",
-    "jsdom": "27.2.0",
+    "@vitest/ui": "4.0.18",
+    "jsdom": "28.0.0",
     "replace": "1.2.2",
-    "sass": "1.94.1",
+    "sass": "1.97.3",
     "tslib": "2.8.1",
     "typescript": "5.9.3",
-    "vite": "7.2.2",
-    "vitest": "4.0.10"
+    "vite": "7.3.1",
+    "vitest": "4.0.18"
   },
   "type": "module"
 }

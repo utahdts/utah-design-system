@@ -51,8 +51,11 @@ export function LogoTitle() {
     } else {
       throw new Error('LogoTitle: logo set but has no settings');
     }
-    settingsLogoElement.setAttribute('role', 'presentation');
-    // settingsLogoElement.setAttribute('alt', '');
+    if (!settingsShowTitle && settingsLogo) {
+      settingsLogoElement.setAttribute('alt', `${settingsTitle} logo`);
+    } else {
+      settingsLogoElement.setAttribute('role', 'presentation');
+    }
     logoWrapper.appendChild(settingsLogoElement);
   } else {
     logoTitleWrapper.removeChild(logoWrapper);
@@ -63,7 +66,7 @@ export function LogoTitle() {
   const titleWrapper = logoTitleWrapper.querySelector(getCssClassSelector(domConstants.TITLE__TITLE));
   titleWrapper?.appendChild(title);
   if (!settingsShowTitle && settingsLogo) {
-    titleWrapper?.classList.add(domConstants.VISUALLY_HIDDEN);
+    titleWrapper?.remove();
   }
 
   return logoTitleWrapper;

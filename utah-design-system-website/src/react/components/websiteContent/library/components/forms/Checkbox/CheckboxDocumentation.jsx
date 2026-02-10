@@ -107,8 +107,8 @@ export function CheckboxDocumentation() {
 
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>The user should be able to navigate through a list of checkboxes using the <code>tab</code> key.</li>
-        <li>Once on focus, hitting the <code>spacebar</code> should select or deselect the checkbox.</li>
+        <li>The user should be able to navigate through a list of checkboxes using the <code>Tab</code> key.</li>
+        <li>Once on focus, hitting the <code>Spacebar</code> should select or deselect the checkbox.</li>
       </ul>
 
       <h4>Screen Readers</h4>

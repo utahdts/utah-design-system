@@ -84,26 +84,28 @@ export function Pagination({
     // eslint-disable-next-line react/jsx-props-no-spreading
     <WrapInElement ref={innerRef} className={joinClassNames('pagination', className)} id={id} aria-label={ariaLabel} {...rest}>
       <ul>
-        <IconButton
-          appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-          className="pagination__prev"
-          icon={<span className="utds-icon-before-arrow-left" aria-hidden="true" />}
-          isDisabled={currentPageIndex === 0}
-          onClick={useCallback(() => currentOnChange(currentPageIndexRef.current - 1), [currentOnChange, currentPageIndexRef])}
-          title="Previous page"
-        />
+        <li>
+          <IconButton
+            appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+            className="pagination__prev"
+            icon={<span className="utds-icon-before-arrow-left" aria-hidden="true" />}
+            isDisabled={currentPageIndex === 0}
+            onClick={useCallback(() => currentOnChange(currentPageIndexRef.current - 1), [currentOnChange, currentPageIndexRef])}
+            title="Previous page"
+          />
+        </li>
 
         {
           paginationLinks.map((paginationLink, paginationLinkIndex) => (
             paginationLink.isEllipsis
               ? (
-                <span
-                  className="pagination__ellipsis"
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={`pagination-link__ellipsis__${paginationLinkIndex}`}
-                >
-                  <span className="utds-icon-before-more-horizontal" aria-hidden="true" />
-                </span>
+                <li key={`pagination-link__ellipsis__${paginationLinkIndex}`}>
+                  <span
+                    className="pagination__ellipsis"
+                  >
+                    <span className="utds-icon-before-more-horizontal" aria-hidden="true" />
+                  </span>
+                </li>
               )
               : (
                 <PaginationLink
@@ -118,14 +120,16 @@ export function Pagination({
           ))
         }
 
-        <IconButton
-          appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-          className="pagination__next"
-          icon={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}
-          isDisabled={currentPageIndex === numberOfPages - 1}
-          onClick={useCallback(() => currentOnChange(currentPageIndexRef.current + 1), [currentOnChange, currentPageIndexRef])}
-          title="Next page"
-        />
+        <li>
+          <IconButton
+            appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+            className="pagination__next"
+            icon={<span className="utds-icon-before-arrow-right" aria-hidden="true" />}
+            isDisabled={currentPageIndex === numberOfPages - 1}
+            onClick={useCallback(() => currentOnChange(currentPageIndexRef.current + 1), [currentOnChange, currentPageIndexRef])}
+            title="Next page"
+          />
+        </li>
       </ul>
     </WrapInElement>
   );

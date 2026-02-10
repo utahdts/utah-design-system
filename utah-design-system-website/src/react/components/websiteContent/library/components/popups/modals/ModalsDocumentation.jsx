@@ -133,13 +133,13 @@ export function ModalsDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Once the user triggers the modal, the modal will automatically receive focus, hitting the <code>tab</code> key should put the focus on the
+        <li>Once the user triggers the modal, the modal will automatically receive focus, hitting the <code>Tab</code> key should put the focus on the
           first tabbable element within the modal.
         </li>
-        <li>Using the <code>tab</code> key, the user should be able to only navigate through elements within the modal. When the user tabs to the last
-          element of the modal the next <code>tab</code> key press should return them to the beginning of the modal again.
+        <li>Using the <code>Tab</code> key, the user should be able to only navigate through elements within the modal. When the user tabs to the last
+          element of the modal the next <code>Tab</code> key press should return them to the beginning of the modal again.
         </li>
-        <li>If the modal includes a <code>close</code> button, pressing the <code>esc</code> key should close the modal. The <code>close</code> button
+        <li>If the modal includes a <code>Close</code> button, pressing the <code>Esc</code> key should close the modal. The <code>close</code> button
           should be the last focusable element.
         </li>
         <li>When closing the modal, the focus should be returned on the element that triggered it.</li>

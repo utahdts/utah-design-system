@@ -359,8 +359,7 @@ export function AccessibilityChecklistDocumentation() {
       </p>
       <ul className="checkbox-list">
         <li>
-          <strong>HTML structure, semantic HTML, and content:</strong>
-          Use <Link to={pageUrls.paragraphs}>semantic HTML</Link> markup.
+          <strong>HTML structure, semantic HTML, and content:</strong> Use <Link to={pageUrls.paragraphs}>semantic HTML</Link> markup.
           <ul>
             <li>
               <strong>Language Tag:</strong> Every page must have a defined

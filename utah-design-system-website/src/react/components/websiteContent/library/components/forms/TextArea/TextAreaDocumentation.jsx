@@ -145,7 +145,7 @@ export function TextAreaDocumentation() {
 
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>When navigating the form, the user should be able to move in and out of focus on the text area using the <code>tab</code> key.</li>
+        <li>When navigating the form, the user should be able to move in and out of focus on the text area using the <code>Tab</code> key.</li>
       </ul>
 
       <h4>Screen Readers</h4>

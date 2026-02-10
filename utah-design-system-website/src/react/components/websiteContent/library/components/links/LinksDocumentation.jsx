@@ -131,7 +131,7 @@ export function LinksDocumentation() {
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>Users must be able to navigate to a link using the tab key. (There must be some indicator that the link has received focus.)</li>
+        <li>Users must be able to navigate to a link using the <code>Tab</code> key. (There must be some indicator that the link has received focus.)</li>
         <li>Users must be able to select the link item using the Enter/Return key</li>
         <li>Using <code>tabindex=&quot;0&quot;</code> inserts the element into the tab order, thus allowing the element to gain focus using the tab key </li>
       </ul>

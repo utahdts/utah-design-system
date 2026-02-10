@@ -162,8 +162,8 @@ export function BreadcrumbDocumentation() {
 
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
-        <li>The <code>tab</code> key should take the user through the breadcrumb trail.</li>
-        <li>The <code>enter</code> or <code>return</code> keys should take the user to the corresponding page.</li>
+        <li>The <code>Tab</code> key should take the user through the breadcrumb trail.</li>
+        <li>The <code>Enter</code> or <code>Return</code> keys should take the user to the corresponding page.</li>
       </ul>
       <h4 id="section-screen-readers">Screen readers</h4>
       <ul className="mb-spacing">

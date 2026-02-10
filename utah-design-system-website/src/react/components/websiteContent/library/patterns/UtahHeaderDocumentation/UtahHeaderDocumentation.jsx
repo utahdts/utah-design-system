@@ -435,7 +435,7 @@ export function UtahHeaderDocumentation() {
       </ul>
       <h4 id="section-keyboard-interactivity" className="mt-spacing">Keyboard Interactivity</h4>
       <ul>
-        <li>Users must be able to to navigate using the <code>tab</code> key.</li>
+        <li>Users must be able to to navigate using the <code>Tab</code> key.</li>
         <li>Users must be able to select the navigation item using the <code>Enter/Return</code> keys.</li>
       </ul>
       <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
