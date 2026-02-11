@@ -1,7 +1,7 @@
 import { authChangedEventHandler } from '../renderables/utahId/UtahId';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
-import { setupNotifications } from '../renderables/notifications/setupNotifications.js';
-import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge.js';
+import { setupNotifications } from '../renderables/notifications/setupNotifications';
+import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge';
 
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData */
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdFetchStyle} UtahIdFetchStyle */
