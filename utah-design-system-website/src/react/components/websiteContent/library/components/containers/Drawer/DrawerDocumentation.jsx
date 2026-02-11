@@ -107,7 +107,7 @@ export function DrawerDocumentation() {
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
         <li>Upon opening, focus should be put on the first element within the drawer.</li>
-        <li>Using the <code>tab</code> key, the user should only navigate through elements within the drawer.</li>
+        <li>Using the <code>Tab</code> key, the user should only navigate through elements within the drawer.</li>
         <li>If the drawer includes a close button, pressing the <code>esc</code> key should close the drawer. The close button should be the last
           focusable element.
         </li>

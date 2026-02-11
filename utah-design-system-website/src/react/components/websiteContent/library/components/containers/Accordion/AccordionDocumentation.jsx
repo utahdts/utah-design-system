@@ -173,7 +173,7 @@ export function AccordionDocumentation() {
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
         <li>
-          Every accordion within the component is a tab stop, and can be expanded or collapsed using the <code>space</code> or <code>enter</code> keys.
+          Every accordion within the component is a tab stop, and can be expanded or collapsed using the <code>Space</code> or <code>Enter</code> keys.
           By default, the accordions are collapsed. When an accordion is expanded, its interactive elements are automatically integrated into
           the tab order.
         </li>

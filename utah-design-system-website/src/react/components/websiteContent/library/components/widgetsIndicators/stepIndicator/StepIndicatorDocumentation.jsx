@@ -153,8 +153,8 @@ export function StepIndicatorDocumentation() {
       <h4 id="section-keyboard-interactivity">Keyboard interactivity</h4>
       <ul className="mb-spacing">
         <li>
-          When a user is allowed to navigate by the step indicators, use the <code>tab</code> key to navigate to each enabled step.
-          Use <code>space</code> or <code>enter</code> to select the step.
+          When a user is allowed to navigate by the step indicators, use the <code>Tab</code> key to navigate to each enabled step.
+          Use <code>Space</code> or <code>Enter</code> to select the step.
         </li>
       </ul>
 

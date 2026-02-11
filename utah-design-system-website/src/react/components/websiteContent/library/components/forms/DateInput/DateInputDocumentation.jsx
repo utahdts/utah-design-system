@@ -127,9 +127,9 @@ export function DateInputDocumentation() {
       </ul>
       <h4>Keyboard Interactivity</h4>
       <ul className="mb-spacing">
-        <li>You should be able to navigate the entire date popup using only the keyboard. Pressing <code>return</code> or <code>space</code> on the calendar icon button will cause the date picker popup to appear. Focus will be automatically set to the selected date.</li>
+        <li>You should be able to navigate the entire date popup using only the keyboard. Pressing <code>Return</code> or <code>Space</code> on the calendar icon button will cause the date picker popup to appear. Focus will be automatically set to the selected date.</li>
         <li>You can close the popup by hitting the <code>escape</code> key.</li>
-        <li>The <code>tab</code> key will focus on the month and year arrows, the currently selected day, and the &quot;today&quot; button.</li>
+        <li>The <code>Tab</code> key will focus on the month and year arrows, the currently selected day, and the &quot;today&quot; button.</li>
         <li>When the user presses &quot;return/enter&quot; the date picker popup will close with the highlighted date being added to the input field.</li>
         <li>Additionally you may navigate the date picker popup with the following keyboard shortcuts (Mac-equivalent commands are in parentheses):
           <ul>
