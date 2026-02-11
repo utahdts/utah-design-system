@@ -38,10 +38,15 @@ variables and settings
 
   --form-ele-color: #{color-swatches.$azul-05};
   --form-ele-color-light: #{color-swatches.$azul-12};
+  --form-ele-color-dark: #{color-swatches.$azul-02};
   --form-ele-disabled-color: #{color-swatches.$neutral-gray-10};
   --form-ele-placeholder-color: #757575;
 
-  --header-title-color: var(--gray-medium-color);
+  --header-primary-color: var(--primary-color);
+  --header-primary-color-dark: var(--primary-color-dark);
+  --header-title-color: var(--header-primary-color);
+  --notifications-drawer-color: var(--form-ele-color);
+  --notifications-drawer-color-dark: var(--form-ele-color-dark);
 
   /* ######## --------------------------------------------- ######## */
 

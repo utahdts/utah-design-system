@@ -43,18 +43,37 @@
           fill: white;
         }
         &:focus-visible {
-          outline: 2px solid var(--form-ele-color);
+          outline: 2px solid var(--notifications-drawer-color);
           outline-offset: 2px;
           transition: none;
         }
       }
 
       .utds-notify-list-item:focus, .utds-notify-list-item:focus-visible, [tabindex]:focus, [tabindex]:focus-visible {
-        outline: 3px solid var(--form-ele-color);
+        outline: 3px solid var(--notifications-drawer-color);
         outline-offset: -3px;
         border: none;
         border-bottom: 1px solid var(--gray-3-1-contrast);
         box-shadow: none;
+      }
+
+      .button--primary-color {
+        border-color: var(--notifications-drawer-color);
+        color: var(--notifications-drawer-color);
+        &:hover {
+          background-color: var(--notifications-drawer-color);
+          color: white;
+        }
+      }
+
+      button.button--solid.button--primary-color {
+        background-color: var(--notifications-drawer-color);
+        border-color: var(--notifications-drawer-color);
+        color: white;
+        &:hover {
+          background-color: var(--notifications-drawer-color-dark);
+          border-color: var(--notifications-drawer-color-dark);
+        }
       }
     }
 
@@ -76,7 +95,7 @@
       background: white;
 
       &:focus-visible, &:focus {
-        outline: 3px solid var(--form-ele-color);
+        outline: 3px solid var(--notifications-drawer-color);
         outline-offset: -3px;
       }
       &:hover {
@@ -105,7 +124,7 @@
         width: 6px;
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
-        background: var(--form-ele-color);
+        background: var(--notifications-drawer-colorr);
         &--is-read {
           background: transparent;
           font-weight: normal;

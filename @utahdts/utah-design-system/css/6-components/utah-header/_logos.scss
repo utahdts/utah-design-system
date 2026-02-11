@@ -17,7 +17,7 @@
       display: block;
     }
     &-title-wrapper {
-      font-size: var(--font-size-3xl);
+      font-size: var(--font-size-4xl);
       font-weight: 600;
       color: var(--gray-medium-color);
       display: flex;
@@ -55,6 +55,7 @@
         font-weight: bold;
         font-family: var(--ut-industry-font-family);
         color: var(--header-title-color);
+        margin-top: .5rem;
       }
     }
   }
