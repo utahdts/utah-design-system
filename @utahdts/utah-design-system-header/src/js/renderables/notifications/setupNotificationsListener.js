@@ -40,6 +40,7 @@ export function setupNotificationsListener() {
   window.addEventListener('message', (event) => {
     // IMPORTANT: For security, always verify event.origin in production.
     // Ensure the message comes from the expected iframe origin
+    if (['https://mylogin.utah.gov', 'https://mylogin.at.utah.gov'].includes(event.origin)) { return }
     showDebugMessage('message event:',event);
     if (!areDomainsMatching(event.origin,iframeOrigin)) {
       console.warn(`Parent: Blocking message from untrusted origin: ${event.origin}. Expected: ${iframeOrigin}`);
