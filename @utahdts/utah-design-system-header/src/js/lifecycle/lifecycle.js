@@ -59,8 +59,6 @@ function loadSSOUserInfo() {
     document.head.appendChild(ssoHeaderScriptTag);
     document.addEventListener('ssoUserInfo.pollComplete', handleMyLoginEvent);
     document.addEventListener('ssoUserInfo.valuesChanged', handleMyLoginEvent);
-    // @ts-expect-error We manually do a poll once the library is loaded
-    window["ssouserinfo"]?.triggerPoll();
   }
 }
 
@@ -173,11 +171,18 @@ export function loadHeader() {
 
     //fetchUtahIdUserDataAsync().catch((e) => console.error(e));
 
+    const settings = getUtahHeaderSettings();
+
+    // We manually do a poll once the library is loaded if notifications is turned on
+    if (settings.notifications) {
+      // @ts-expect-error because ¯\_(ツ)_/¯
+      window["ssouserinfo"]?.triggerPoll();
+    }
+
     // UDS-564
     // there are four parts to deciding the state of the main menu bar: main menu, search, utahId, action items
     // there are certain scenarios where the main menu bar is not shown
     // the following removes the bar if any of these scenarios occur
-    const settings = getUtahHeaderSettings();
     if (
       (!settings.mainMenu && !settings.actionItems && settings.utahId === false && !settings.onSearch)
       || (!settings.mainMenu && !settings.actionItems && settings.utahId === false && settings.onSearch)
@@ -209,9 +214,6 @@ export function removeHeader(shouldTriggerUnloadEvent) {
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MOBILE_MENU]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.LOGO_OFFICIAL_WRAPPER]))?.remove();
   document.getElementById(domConstants.SEARCH__SEARCH_MODAL)?.remove();
-  document.getElementById(domConstants.SSO_HEADER_SCRIPT_TAG_ID)?.remove();
-  document.removeEventListener('ssoUserInfo.pollComplete', handleMyLoginEvent);
-  document.removeEventListener('ssoUserInfo.valuesChanged', handleMyLoginEvent);
 
   unloadGlobalEvents();
 
