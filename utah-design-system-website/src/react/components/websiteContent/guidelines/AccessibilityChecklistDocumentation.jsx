@@ -1060,6 +1060,7 @@ export function AccessibilityChecklistDocumentation() {
           </ul>
         </li>
       </ul>
+      <p>As an additional note, avoid using accessibility widgets to make a website accessible. <a href={`${pageUrls.accessibility}#accessibility-widgets-recommendation`}>Learn more about this recommendation</a>.</p>
 
       <hr />
 

@@ -818,6 +818,39 @@ export function AccessibilityDocumentation() {
         by <ExternalLink href="https://webaim.org/">WebAIM</ExternalLink>.
       </p>
       <p>As an additional note, consider prioritizing HTML over PDF whenever possible.</p>
+
+      <hr />
+
+      <h2 id="accessibility-widgets-recommendation">
+        <strong>Accessibility Widgets Recommendation</strong>
+      </h2>
+
+      <h3>What Are Accessibility Widgets?</h3>
+
+      <p>Accessibility widgets are third-party tools that can be added to a website to provide users with a variety of accessibility features. These features are often toggled on and off by the user and can include options like adjusting font size, changing color contrast, or highlighting links. While these widgets may seem like a quick fix to make a website more accessible, <strong>they're not a recommended solution</strong>.</p>
+
+      <h3>Reasons We Strongly Recommend Not Using Accessibility Widgets</h3>
+
+      <p>We don't recommend using these widgets because they don't address the fundamental issues of web accessibility. It's better to stick to established standards and practices like the Utah Design System, the Accessibility Checklist, and automated testing tools, which ensure a website and new pages are built accessibly from the ground up. Here's why relying on widgets is problematic:</p>
+
+      <ul>
+        <li>
+          <strong>Superficial Fixes:</strong> Widgets are a superficial solution and fail to fix underlying accessibility issues. They often only modify the visual presentation of a page, leaving critical barriers untouched. True accessibility requires a solid foundation, not a temporary layer on top.
+        </li>
+
+
+        <li>
+          <strong>False Sense of Security:</strong> Relying on widgets can create a false sense of security. A website owner might believe their site is accessible simply because they have a widget, but the site could still have significant compliance issues. This can lead to legal problems and significant user frustration.
+        </li>
+
+        <li>
+          <strong>Limited Scope:</strong> Widgets primarily focus on visual adjustments like high contrast or font changes. They don't address core accessibility barriers such as proper semantic structure, keyboard navigation, or screen reader compatibility. A site's structure needs to be understandable to assistive technologies, and a widget can't fix a broken structure.
+        </li>
+
+        <li>
+          <strong>Poor User Experience:</strong> These widgets can create a terrible user experience, especially for those they're meant to help. Imagine a user who is blind or has low vision having to navigate a website to find a non-standard accessibility tool and activate it before they can even begin using the site's content. This adds an unnecessary hurdle and goes against the principle of universal design, which aims to make sites usable for everyone without extra effort.
+        </li>
+      </ul>
     </div>
   );
 }
