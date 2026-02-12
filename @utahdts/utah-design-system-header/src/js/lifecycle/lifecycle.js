@@ -59,6 +59,8 @@ function loadSSOUserInfo() {
     document.head.appendChild(ssoHeaderScriptTag);
     document.addEventListener('ssoUserInfo.pollComplete', handleMyLoginEvent);
     document.addEventListener('ssoUserInfo.valuesChanged', handleMyLoginEvent);
+    // @ts-expect-error We manually do a poll once the library is loaded
+    window["ssouserinfo"]?.triggerPoll()
   }
 }
 
