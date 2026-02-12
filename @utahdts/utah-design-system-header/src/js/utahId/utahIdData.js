@@ -176,9 +176,7 @@ export function handleMyLoginInfo(data) {
       maybeTriggerAuthEvent(utahIdData);
       // Once we have our user, we set up notifications
       if (settings.notifications !== false
-        && typeof settings.utahId === 'object'
-        && !settings.utahId?.identityProvider?.includes('entra')
-        && !settings.utahId?.identityProvider?.includes('legacy')
+        && settings.utahId
       ) {
         // Load the notifications iFrame
         setupNotifications();

@@ -10,7 +10,6 @@ declare module "@utahdts/utah-design-system-header" {
   export type PopupPlacement = "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end" | "top" | "top-start" | "top-end";
   export type Size = "SMALL" | "MEDIUM" | "LARGE";
   export type UtahIdFetchStyle = "Automatic" | "None" | "Provided";
-  export type UtahIDProvider = 'mylogin' | 'entra' | 'legacy';
   export type MainMenuItem = {
     actionUrl?: MenuItemUrlAction | undefined;
     actionFunction?: EventAction | undefined;
@@ -132,7 +131,6 @@ declare module "@utahdts/utah-design-system-header" {
     onSignOut?: ((arg0: UIEvent) => void | undefined) | undefined;
     menuItems?: MenuItem[] | undefined;
     notifications?: boolean | undefined;
-    identityProvider?: UtahIDProvider[] | undefined;
   };
   export type Logo = {
     element?: HTMLElement | (() => HTMLElement) | undefined;

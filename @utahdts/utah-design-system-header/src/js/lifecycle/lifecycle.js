@@ -50,8 +50,9 @@ function handleMyLoginEvent(e) {
 }
 
 function loadSSOUserInfo() {
+  const settings = getUtahHeaderSettings();
   let ssoHeaderScriptTag = document.getElementById(domConstants.SSO_HEADER_SCRIPT_TAG_ID);
-  if (!ssoHeaderScriptTag) {
+  if (!ssoHeaderScriptTag && settings.utahId) {
     ssoHeaderScriptTag = document.createElement('script');
     ssoHeaderScriptTag.id = domConstants.SSO_HEADER_SCRIPT_TAG_ID;
     ssoHeaderScriptTag.setAttribute('src', 'https://mylogin.utah.gov/ssouserinfo/ssouserinfo.js');
@@ -206,6 +207,9 @@ export function removeHeader(shouldTriggerUnloadEvent) {
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MOBILE_MENU]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.LOGO_OFFICIAL_WRAPPER]))?.remove();
   document.getElementById(domConstants.SEARCH__SEARCH_MODAL)?.remove();
+  document.getElementById(domConstants.SSO_HEADER_SCRIPT_TAG_ID)?.remove();
+  document.removeEventListener('ssoUserInfo.pollComplete', handleMyLoginEvent);
+  document.removeEventListener('ssoUserInfo.valuesChanged', handleMyLoginEvent);
 
   unloadGlobalEvents();
 

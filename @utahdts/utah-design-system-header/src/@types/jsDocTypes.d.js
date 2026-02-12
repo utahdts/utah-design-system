@@ -50,11 +50,6 @@
  */
 
 /**
- * UtahIDProvider
- * @typedef {'mylogin' | 'entra' | 'legacy'} UtahIDProvider
- */
-
-/**
  * @typedef MainMenuItem {
  *  // this started as a copy of MenuItem but can diverge to be its own thing
  *  // wordpress has the concept of a menu item that is a link AND has children, but when it goes mobile the link is no longer available
@@ -285,7 +280,6 @@
  *  @property {function(UIEvent): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
  *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
  *  @property {boolean | undefined} [notifications] - turn on fetching of notifications
- *  @property {UtahIDProvider[] | undefined} [identityProvider] - options are ['entra','legacy','mylogin']. 'mylogin' is required for
  *  notifications
  * }
  */
