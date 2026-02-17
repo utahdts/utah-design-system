@@ -21,6 +21,7 @@ import { handleMyLoginInfo } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import { hookupMobileActionItemKeyboarding } from './hookupMobileActionItemKeyboarding';
 import { renderOfficialBanner } from '../renderables/officialBanner/renderOfficialBanner';
+import { showDebugMessage } from '../renderables/notifications/showDebugMessage';
 
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdProfile} UtahIdProfile */
 
@@ -46,6 +47,7 @@ function handleMyLoginEvent(e) {
   /** @type {{ currentValues: { utahid: UtahIdProfile } }} */
   const eventData = /** @type {any} */ (e);
   const userInfo = eventData.currentValues.utahid;
+  showDebugMessage('********** handleMyLoginEvent:', userInfo);
   handleMyLoginInfo(userInfo);
 }
 

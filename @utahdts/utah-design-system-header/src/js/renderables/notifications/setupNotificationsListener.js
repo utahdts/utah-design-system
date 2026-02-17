@@ -27,6 +27,7 @@ export function setupNotificationsListener() {
     const userInfo = getUtahIdUserInfo();
     if (apiIframe?.contentWindow) {
       showDebugMessage('Parent: Requesting data from iframe with options:', options);
+      showDebugMessage('***** requestNotifications userInfo:',userInfo);
       globalState.setState({isBusy: true});
       apiIframe.contentWindow.postMessage({
         request: userInfo?.isPublic ? 'getNotifications' : 'getMessageNotLoggedIn',

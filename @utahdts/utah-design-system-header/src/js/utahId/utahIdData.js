@@ -175,9 +175,7 @@ export function handleMyLoginInfo(data) {
       result = utahIdData;
       maybeTriggerAuthEvent(utahIdData);
       // Once we have our user, we set up notifications
-      if (settings.notifications !== false
-        && settings.utahId
-      ) {
+      if (settings.notifications !== false && settings.utahId) {
         // Load the notifications iFrame
         setupNotifications();
         renderNotificationBadge();
@@ -191,6 +189,11 @@ export function handleMyLoginInfo(data) {
     };
     result = resultData;
     maybeTriggerAuthEvent(resultData);
+    if (settings.notifications === true) {
+      // Load the notifications iFrame
+      setupNotifications();
+      renderNotificationBadge();
+    }
   }
   return result;
 }

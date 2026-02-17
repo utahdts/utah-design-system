@@ -39,6 +39,14 @@ export function useWebsiteUtahHeaderSettings() {
       },
       titleUrl: '/',
       utahId: true,
+      // utahId: {
+      //   currentUser: {
+      //     authenticated: true,
+      //     first: 'Bob',
+      //   },
+      //   onProfile: (e) => console.log(e),
+      //   onSignOut: (e) => console.log(e),
+      // },
       skipLinkUrl: '#main-content',
     }),
     []
