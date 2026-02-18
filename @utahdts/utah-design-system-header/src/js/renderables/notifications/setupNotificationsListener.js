@@ -13,7 +13,6 @@ import { getUtahIdUserInfo } from '../utahId/utahIdCommon';
 
 export function setupNotificationsListener() {
   const apiIframe = /** @type {HTMLIFrameElement | null} */ (document.getElementById(domConstants.NOTIFICATIONS__IFRAME));
-
   // Derive the origin from the iframe's full URL for postMessage security
   const iframeOrigin = getIframeUrl();
   const isMyUtah = MY_UTAH_REGEX.test(document.location.hostname);
@@ -24,13 +23,16 @@ export function setupNotificationsListener() {
    * @param {Object} options - Options to pass to the iframe request.
    */
   function requestNotifications(options = {}) {
+    // @ts-expect-error window doesn't know what's in it
+    showDebugMessage('has utah header settings been set yet?', window['@utahdts/utah-design-system-header']?.isSetUtahHeaderSettingsCalled);
     const userInfo = getUtahIdUserInfo();
     if (apiIframe?.contentWindow) {
       showDebugMessage('Parent: Requesting data from iframe with options:', options);
       showDebugMessage('***** requestNotifications userInfo:',userInfo);
       globalState.setState({isBusy: true});
       apiIframe.contentWindow.postMessage({
-        request: userInfo?.isPublic ? 'getNotifications' : 'getMessageNotLoggedIn',
+        // public employees will have isPublic === false, so they don't get notifications, everyone else will try to get notifications
+        request: (userInfo?.authenticated === false || (userInfo?.authenticated && userInfo?.isPublic === false)) ? 'getMessageNotLoggedIn' : 'getNotifications', //// <---- this needs to call getNotifications when the currentUser is defined. If they have defined this we assume they are right.
         options,
       }, iframeOrigin); // Use the correctly derived iframeOrigin
     } else {

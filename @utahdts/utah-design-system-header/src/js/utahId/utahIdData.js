@@ -2,6 +2,7 @@ import { authChangedEventHandler } from '../renderables/utahId/UtahId';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 import { setupNotifications } from '../renderables/notifications/setupNotifications';
 import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge';
+import { showDebugMessage } from '../renderables/notifications/showDebugMessage';
 
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData */
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdFetchStyle} UtahIdFetchStyle */
@@ -158,19 +159,20 @@ function maybeTriggerAuthEvent(newUtahIdData) {
 
 /**
  * Handle data sent from mylogin
- * @param {UtahIdProfile} data the current information to store
+ * @param {UtahIdProfile} [ssoData] the current information from ssoUserInfo
  */
-export function handleMyLoginInfo(data) {
+export function handleMyLoginInfo(ssoData) {
   let result = utahIdData;
   const settings = getUtahHeaderSettings();
+  showDebugMessage('handleMyLogInInfo hit...', JSON.parse(JSON.stringify(settings)));
   if (settings.utahId === false) {
     utahIdData.lastError = 'Utah ID is off';
     utahIdData.userInfo = null;
     utahIdData.isDefinitive = true;
   } else if (settings.utahId === true || settings.utahId?.currentUser === undefined) {
-    if (data && data.userInfo) {
+    if (ssoData && ssoData.userInfo) {
       utahIdData.lastError = null;
-      utahIdData.userInfo = /** @type {UserInfo} */ (data.userInfo);
+      utahIdData.userInfo = /** @type {UserInfo} */ (ssoData.userInfo);
       utahIdData.isDefinitive = true;
       result = utahIdData;
       maybeTriggerAuthEvent(utahIdData);

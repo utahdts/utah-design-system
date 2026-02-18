@@ -44,14 +44,21 @@ export function getUtahIdUserInfo() {
   const currentUtahIdData = getCurrentUtahIdData();
   const settings = getUtahHeaderSettings();
 
-  const isUserControlledByApp = (
-    settings.utahId !== false
-    && settings.utahId !== true
-    && !!settings.utahId?.currentUser
-  );
+  /** @type { UserInfo | null} */
+  let userToShowInHeader;
 
-  const appControlledUser = typeof settings.utahId === 'object' ? settings.utahId.currentUser ?? null : currentUtahIdData.userInfo;
-  return isUserControlledByApp ? appControlledUser : currentUtahIdData.userInfo;
+  if (settings.utahId === true) {
+    // header is loading the user
+    userToShowInHeader = currentUtahIdData.userInfo;
+  } else if (settings.utahId === false) {
+    // there is no user ever to display
+    userToShowInHeader = null;
+  } else {
+    // app/website is going to tell the header what to display
+    userToShowInHeader = settings.utahId?.currentUser ?? null;
+  }
+
+  return userToShowInHeader;
 }
 
 /**

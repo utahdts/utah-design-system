@@ -54,13 +54,22 @@ function handleMyLoginEvent(e) {
 function loadSSOUserInfo() {
   const settings = getUtahHeaderSettings();
   let ssoHeaderScriptTag = document.getElementById(domConstants.SSO_HEADER_SCRIPT_TAG_ID);
-  if (!ssoHeaderScriptTag && settings.utahId) {
+
+  // @ts-expect-error window doesn't know what's in it
+  showDebugMessage('isSetUtahHeaderSettingsCalled', window['@utahdts/utah-design-system-header']?.isSetUtahHeaderSettingsCalled);
+  showDebugMessage('utah header settings', JSON.parse(JSON.stringify(settings)));
+  const currentUser = (typeof settings.utahId === 'object' ? settings.utahId?.currentUser : null) ?? null;
+  if (!ssoHeaderScriptTag && !currentUser) {
+    showDebugMessage('going to create script for ssouserinfo.js iframe');
     ssoHeaderScriptTag = document.createElement('script');
     ssoHeaderScriptTag.id = domConstants.SSO_HEADER_SCRIPT_TAG_ID;
     ssoHeaderScriptTag.setAttribute('src', 'https://mylogin.utah.gov/ssouserinfo/ssouserinfo.js');
     document.head.appendChild(ssoHeaderScriptTag);
     document.addEventListener('ssoUserInfo.pollComplete', handleMyLoginEvent);
     document.addEventListener('ssoUserInfo.valuesChanged', handleMyLoginEvent);
+  } else if (currentUser) {
+    showDebugMessage('handling my login info immediately!');
+    handleMyLoginInfo();
   }
 }
 
@@ -169,6 +178,7 @@ export function loadHeader() {
 
     loadCssSettings();
 
+    // This begins the chain of setting up the ssoUserInfo and Notifications
     loadSSOUserInfo();
 
     //fetchUtahIdUserDataAsync().catch((e) => console.error(e));
@@ -176,6 +186,7 @@ export function loadHeader() {
     const settings = getUtahHeaderSettings();
 
     // We manually do a poll once the library is loaded if notifications is turned on
+    // This will trigger notifications to get information
     if (settings.notifications) {
       // @ts-expect-error because ¯\_(ツ)_/¯
       window["ssouserinfo"]?.triggerPoll();
