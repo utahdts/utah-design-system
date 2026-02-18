@@ -868,6 +868,7 @@ export function AccessibilityChecklistDocumentation() {
                     (like podcasts) must include an accurate full text transcript.</li>
                   </ul>
                 </li>
+                <li><strong>Autoplay:</strong> Avoid autoplaying video with audio and audio elements. If not, a mechanism must be present to let users pause or stop the audio.</li>
                 <li>
                   <strong>Manual Testing Note: </strong>
                   Remember to <strong>manually test</strong> all captions, transcripts,
