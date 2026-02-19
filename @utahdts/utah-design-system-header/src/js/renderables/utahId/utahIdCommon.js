@@ -3,6 +3,8 @@ import { utahIdUrls } from "../../enumerations/utahIdUrls";
 import { getUtahHeaderSettings } from "../../settings/getUtahHeaderSettings";
 
 /** @typedef {import ('@utahdts/utah-design-system-header').UserInfo} UserInfo */
+/** @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData */
+
 
 /**
  * by default, go to utah id to log in
@@ -22,13 +24,19 @@ function defaultOnSignIn(e) {
 function getSignInFn() {
   /** @type {((e: MouseEvent | UIEvent) => void) | null} */
   let onSignInFn;
+  /** @type {UtahIdData} */
+  const currentUtahIdData = getCurrentUtahIdData();
 
   const settings = getUtahHeaderSettings();
   if (settings.utahId === false) {
     onSignInFn = null;
   } else if (settings.utahId === true) {
     // generic default sign method
-    onSignInFn = defaultOnSignIn;
+    onSignInFn = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = currentUtahIdData.login ?? utahIdUrls.SIGN_IN;
+    };
   } else {
     // custom onSignIn passed in settings?
     onSignInFn = settings.utahId?.onSignIn ?? defaultOnSignIn;

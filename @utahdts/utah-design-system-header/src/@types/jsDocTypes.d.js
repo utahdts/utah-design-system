@@ -252,6 +252,7 @@
  * @typedef UtahIdData {
  *  @property {boolean | null} isDefinitive - true when the user's state is known, false while the ajax request is inflight
  *  @property {string | null} lastError - true when the user's state is known, false while the ajax request is inflight
+ *  @property {string | null} login - login url - comes from mylogin
  *  @property {UserInfo | null} userInfo - the current logged in user info or null if not found
  * }
  */
