@@ -3,7 +3,6 @@ import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
 import { setupNotifications } from '../renderables/notifications/setupNotifications';
 import { renderNotificationBadge } from '../renderables/notifications/renderNotificationBadge';
 import { showDebugMessage } from '../renderables/notifications/showDebugMessage';
-import { utahIdUrls } from '../enumerations/utahIdUrls';
 
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdData} UtahIdData */
 /** @typedef {import('src/@types/jsDocTypes.d').UtahIdFetchStyle} UtahIdFetchStyle */
@@ -46,7 +45,6 @@ const utahIdData = {
   // null = not yet loaded, false = ajaxing, true = have a result (may be error or user data)
   isDefinitive: null,
   lastError: null,
-  login: utahIdUrls.SIGN_IN,
   userInfo: null,
 };
 
@@ -166,7 +164,6 @@ function maybeTriggerAuthEvent(newUtahIdData) {
 export function handleMyLoginInfo(ssoData) {
   let result = utahIdData;
   const settings = getUtahHeaderSettings();
-  const regex = new RegExp(`${window.location}login.html?`);
   showDebugMessage('handleMyLogInInfo hit...', JSON.parse(JSON.stringify(settings)));
   if (settings.utahId === false) {
     utahIdData.lastError = 'Utah ID is off';
@@ -176,7 +173,6 @@ export function handleMyLoginInfo(ssoData) {
     if (ssoData && ssoData.userInfo) {
       utahIdData.lastError = null;
       utahIdData.userInfo = /** @type {UserInfo} */ (ssoData.userInfo);
-      utahIdData.login = ssoData.login.replace(regex, 'https://mylogin.utah.gov/login/?realm=/alpha&');
       utahIdData.isDefinitive = true;
       result = utahIdData;
       maybeTriggerAuthEvent(utahIdData);
@@ -191,7 +187,6 @@ export function handleMyLoginInfo(ssoData) {
     const resultData = {
       isDefinitive: true,
       lastError: null,
-      login: utahIdData.login,
       userInfo: settings.utahId?.currentUser,
     };
     result = resultData;
