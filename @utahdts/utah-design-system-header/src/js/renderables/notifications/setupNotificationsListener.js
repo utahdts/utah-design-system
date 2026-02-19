@@ -9,6 +9,7 @@ import { areDomainsMatching } from '../../misc/areDomainsMatching';
 import { showDebugMessage, showErrorMessage, showWarningMessage } from './showDebugMessage';
 import { SET_DEBUG } from './utahHeaderSetDebug';
 import { getUtahIdUserInfo } from '../utahId/utahIdCommon';
+import { whitelist } from './whitelist';
 
 export function setupNotificationsListener() {
   const apiIframe = /** @type {HTMLIFrameElement | null} */ (document.getElementById(domConstants.NOTIFICATIONS__IFRAME));
@@ -45,7 +46,10 @@ export function setupNotificationsListener() {
     if (['https://mylogin.utah.gov', 'https://mylogin.at.utah.gov'].includes(event.origin)) { return }
     showDebugMessage('message event:',event);
     if (!areDomainsMatching(event.origin,iframeOrigin)) {
-      showWarningMessage(`Parent: Blocking message from untrusted origin: ${event.origin}. Expected: ${iframeOrigin}`);
+      // We only want to log site that aren't whitelisted
+      if (!Object.values(whitelist).includes(event.origin)) {
+        showWarningMessage(`Parent: Blocking message from untrusted origin: ${event.origin}. Expected: ${iframeOrigin}`);
+      }
       return;
     }
 
