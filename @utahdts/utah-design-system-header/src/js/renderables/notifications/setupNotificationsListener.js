@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { getIframeUrl } from './getIframeUrl';
 import { globalState } from '../../storage/globalState';
@@ -7,7 +6,7 @@ import { renderNotificationCards } from './renderNotificationCards';
 import { renderNotificationBadge } from './renderNotificationBadge';
 import { MY_UTAH_REGEX } from '../../enumerations/regularExpressions';
 import { areDomainsMatching } from '../../misc/areDomainsMatching';
-import { showDebugMessage } from './showDebugMessage';
+import { showDebugMessage, showErrorMessage, showWarningMessage } from './showDebugMessage';
 import { SET_DEBUG } from './utahHeaderSetDebug';
 import { getUtahIdUserInfo } from '../utahId/utahIdCommon';
 
@@ -36,7 +35,7 @@ export function setupNotificationsListener() {
         options,
       }, iframeOrigin); // Use the correctly derived iframeOrigin
     } else {
-      console.error('Parent: Iframe is not ready or not found. Cannot request notifications.');
+      showErrorMessage('Parent: Iframe is not ready or not found. Cannot request notifications.');
     }
   }
 
@@ -46,7 +45,7 @@ export function setupNotificationsListener() {
     if (['https://mylogin.utah.gov', 'https://mylogin.at.utah.gov'].includes(event.origin)) { return }
     showDebugMessage('message event:',event);
     if (!areDomainsMatching(event.origin,iframeOrigin)) {
-      console.warn(`Parent: Blocking message from untrusted origin: ${event.origin}. Expected: ${iframeOrigin}`);
+      showWarningMessage(`Parent: Blocking message from untrusted origin: ${event.origin}. Expected: ${iframeOrigin}`);
       return;
     }
 
@@ -88,7 +87,7 @@ export function setupNotificationsListener() {
       showDebugMessage('Parent: Notifications received from iframe:', notifications);
     } else {
       const error = messageData.notifications?.errors?.[0]?.message || 'An unknown error occurred.';
-      console.warn('Parent: Error receiving notifications from iframe:', error);
+      showWarningMessage('Parent: Error receiving notifications from iframe:', error);
     }
 
     globalState.setState({isBusy: false});
