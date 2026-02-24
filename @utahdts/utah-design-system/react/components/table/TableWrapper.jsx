@@ -58,6 +58,7 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
  * @template TableDataT extends TableDataT & { [x: string]: any; }
  * @param {object} props
  * @param {boolean} [props.allowScrollOverflow]
+ * @param {string} [props.ariaLabelledBy]
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {import('react').RefObject<HTMLDivElement>} [props.innerRef]
@@ -66,12 +67,16 @@ function sortByFieldType(sortingRule, fieldValueA, fieldValueB) {
  */
 export function TableWrapper({
   allowScrollOverflow,
+  ariaLabelledBy,
   children,
   className,
   id,
   innerRef,
   ...rest
 }) {
+  if (allowScrollOverflow && !ariaLabelledBy) {
+    console.warn(`allowScrollOverflow: TableWrapper is missing a valid ariaLabelledBy attribute`);
+  }
   const internalId = useId();
   /** @type {[TableContextState<TableDataT>, import('use-immer').Updater<import('@utahdts/utah-design-system').TableContextState<TableDataT>>]} */
   const [state, setState] = useImmer(
@@ -215,9 +220,11 @@ export function TableWrapper({
   return (
     <TableContext.Provider value={contextValue}>
       <div
+        aria-labelledby={ariaLabelledBy}
         className={joinClassNames('table__wrapper', className)}
         id={id} ref={innerRef}
         tabIndex={allowScrollOverflow ? 0 : undefined}
+        role={allowScrollOverflow ? 'region' : undefined}
         {...rest}
       >
         {children}

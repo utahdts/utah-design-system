@@ -179,7 +179,7 @@ export function LayoutDocumentation() {
       </p>
       <PreCodeForCodeString
         className="size-small"
-        allowScrollOverflow={true}
+        allowScrollOverflow
         showBackgroundColor
         codeRaw={`
         /* flex */
