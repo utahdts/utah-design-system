@@ -1,0 +1,78 @@
+.utds-official-website {
+  &__wrapper {
+    button {
+      padding: 0;
+      border: none;
+      display: inline-flex;
+      min-height: 0;
+      background: transparent;
+      color: var(--gray-light-color);
+      font-size: var(--font-size-xs);
+      border-radius: 0;
+
+      span {
+        text-decoration: underline;
+      }
+
+      svg {
+        margin-left: var(--spacing-2xs);
+      }
+
+      &:hover {
+        color: white;
+      }
+
+      &:active {
+        scale: 1;
+        box-shadow: none;
+      }
+
+      &[aria-expanded="true"] {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__banner {
+    padding: var(--spacing-3xs) var(--spacing-l);
+    background: var(--gray-color);
+    color: var(--gray-light-color);
+    font-size: var(--font-size-xs);
+  }
+
+  &-popup__wrapper {
+    background: var(--gray-dark-color);
+  }
+
+  &__button-title--mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .utah-design-system .utds-official-website-popup__content {
+    flex-wrap: wrap;
+    gap: var(--spacing-l);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .utds-official-website__banner > span:first-child, .utds-official-website__button-title--desktop {
+    display: none;
+  }
+  .utds-official-website__button-title--mobile {
+    display: inline;
+  }
+  .utds-official-website__banner {
+    padding: var(--spacing-3xs) 0;
+  }
+  .utds-official-website__button {
+    width: 100%;
+    justify-content: flex-start !important;
+    padding: 0 var(--spacing-l) !important;
+  }
+}

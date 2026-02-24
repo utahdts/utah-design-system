@@ -46,5 +46,12 @@
         font-size: 1.3rem;
       }
     }
+    .button.button--solid.button--primary-color {
+      background-color: var(--header-primary-color);
+      &:hover {
+        background-color: var(--header-primary-color-dark);
+        border-color: var(--header-primary-color-dark);
+      }
+    }
   }
 }

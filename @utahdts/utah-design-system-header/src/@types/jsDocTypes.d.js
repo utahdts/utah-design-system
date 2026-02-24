@@ -196,6 +196,17 @@
  */
 
 /**
+ * @typedef AnchorActionItem {
+ *  @property {String} actionLink - link of the anchor
+ *  @property {string} [className] - CSS classes for the action item
+ *  @property {Badge} [badge] - the badge to show in the action item's badge icon
+ *  @property {HTMLElement | string} icon - DOM or DOM string of icon to show
+ *  @property {boolean} showTitle - Should the title always be visible?
+ *  @property {string} title - Title of the action item (required for accessibility)
+ * }
+ */
+
+/**
  * // must use one and only one of the properties here
  * @typedef DomLocationTarget {
  *  @property {string} [cssSelector] - find a target DOM element by document.querySelector(cssSelector) (throws error if not found)
@@ -226,9 +237,11 @@
  *  @property {string | undefined} [env] - the UtahId environment
  *  @property {string | null | undefined} first - the name shown on the UtahId button when logged in
  *  @property {string | null | undefined} [id]
+ *  @property {boolean | null | undefined} [isPublic] - is the user eligible to receive notifications
  *  @property {string | null | undefined} [last]
  *  @property {string[] | null | undefined} [mail]
  *  @property {string | null | undefined} [middle]
+ *  @property {string | null | undefined} [name]
  *  @property {string | null | undefined} [status]
  *  @property {string | undefined} [type]
  *  @property {string | null | undefined} [username]
@@ -244,11 +257,21 @@
  */
 
 /**
+ * @typedef {Object} UtahIdProfile {
+ *  @property {string} label
+ *  @property {string} login
+ *  @property {string} logout
+ *  @property {string} profile
+ *  @property {UserInfo} userInfo
+ * }
+ */
+
+/**
  * // only fill in what you want to change, the rest will be defaults
  * // The UtahID header will auto fetch the user from UtahID if it is not told that your application will be controlling the signed in user
  * // This may cause the header to jump as data comes from UtahID and your application gets data from its data source.
  * // To prevent this jankiness, your application should call setUtahHeaderSettings with a userInfo.currentUser value of `null`. This way
- * // the header knows not to fetch the user and your application can later call setSettings again with the current user.
+ * // the header knows not to fetch the user, and your application can later call setSettings again with the current user.
  * @typedef UtahIDSettings {
  *  @property {UserInfo | undefined | null} currentUser - null: app controls the user, undefined: header will fetch current user
  *  @property {function(UtahIdData): void | undefined} [onAuthChanged] - auth user changes, eg (newUserData) => { ... do something ... }
@@ -256,6 +279,8 @@
  *  @property {function(UIEvent): void | undefined} [onSignIn] - when the UtahId button is pressed to sign in: (e) => { }
  *  @property {function(UIEvent): void | undefined} [onSignOut] - when the UtahId's menu item for sign out is triggered: (e) => { }
  *  @property {MenuItem[] | undefined} [menuItems] - menu items to add to the UtahId menu (user must be logged in to open the menu): (e) => { }
+ *  @property {boolean | undefined} [notifications] - turn on fetching of notifications
+ *  notifications
  * }
  */
 
@@ -294,6 +319,7 @@
  *  @property {Logo} [logo] - the logo to show
  *  @property {MainMenu | false} [mainMenu] - the main menu to show on a line below the citizen experience/unbrand line
  *  @property {MediaSizes} mediaSizes - sizes for triggering media queries
+ *  @property {boolean} [notifications] - should the notifications be displayed?
  *  @property {((search: string) => void) | false} [onSearch] - if onSearch is provided, the search icon will show in the main menu bar
  *  @property {boolean} showTitle - should the title be shown (it will always be on the page for accessibility)
  *  @property {string} size - size has to be one of the `Size` types
@@ -304,6 +330,57 @@
  *  @property {UtahIDSettings | boolean} [utahId] - settings for the utahId button; true = turned on, false = turned off, object = custom
  *  === Deprecated Properties ===
  *  {string} [titleURL] - this property was replaced by titleUrl. (is backwards compatible)
+ * }
+ */
+
+/**
+ * A single notification from the API
+ * @typedef NotificationNode {
+ *  @property {string} createDate - The date and time when the notification was created, in a string format (e.g., "MM/DD/YYYY HH:mm:ss").
+ *  @property {string} expireDate - The date and time when the notification expires, in a string format (e.g., "MM/DD/YYYY HH:mm:ss").
+ *  @property {string} icon - The name or identifier for the icon associated with the notification (e.g., "clock").
+ *  @property {string} id - A unique identifier for the notification.
+ *  @property {boolean} isRead - Indicates whether the notification has been read by the user.
+ *  @property {string} linkText - The display text for a call-to-action link within the notification (e.g., "Read More").
+ *  @property {string} linkUrl - The URL that the call-to-action link points to (e.g., "dld.utah.gov").
+ *  @property {string} logoDescription - A description for the logo image, typically for accessibility (alt text).
+ *  @property {string} logoUrl - The URL of the logo image associated with the notification.
+ *  @property {string} message - The main body text or content of the notification.
+ *  @property {string} title - The title or subject of the notification.
+ * }
+ */
+
+/**
+ * A 'node' wrapper for a single notification from the API
+ * @typedef {Object} NotificationEdge
+ * @property {NotificationNode} node - The core notification data object.
+ */
+
+/**
+ * PageInfo from the API
+ * @typedef PageInfo {
+ *  @property {string} endCursor - A cursor string for pagination, indicating the end of the current page.
+ *  @property {boolean} hasNextPage - Indicates if there are more pages of data after the current one.
+ *  @property {boolean} hasPreviousPage - Indicates if there are pages of data before the current one.
+ *  @property {string} startCursor - A cursor string for pagination, indicating the start of the current page.
+ * }
+ */
+
+/**
+ * The full API response
+ * @typedef NotificationsResponse {
+ *  @property {NotificationEdge[]} edges - An array of notification edges, where each edge contains a 'node' with notification details.
+ *  @property {PageInfo} pageInfo - Pagination information for the current set of notifications.
+ *  @property {number} totalCount - The total count of available notifications.
+ *  @property {number} unreadCount - The total unread notifications out of the total count.
+ * }
+ */
+
+/**
+ * Application state
+ * @typedef AppState {
+ *  @property {NotificationsResponse | null} notifications
+ *  @property {boolean} isBusy
  * }
  */
 

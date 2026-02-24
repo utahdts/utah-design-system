@@ -44,7 +44,7 @@ export function authChangedEventHandler(newUtahIdData) {
         utahIDText.classList.add(domConstants.VISUALLY_HIDDEN);
         utahIdButton.appendChild(utahIDText);
         // visible text in the button
-        utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.first || ''}`));
+        utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.name || utahIdData.userInfo.first || ''}`));
       } else {
         utahIdButton.appendChild(document.createTextNode('UtahID Sign In'));
       }

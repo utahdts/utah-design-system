@@ -60,6 +60,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## Website
 - Fixed tab order for component sandbox examples
 
+# [5.0.0] 08/27/2025
+## Added
+- Utah Header Notifications powered by MyUtah. (my.utah.gov)
+
 # [4.1.0] 08/21/2025
 ## Added
 - Browser Compatibility, Mobile-First, Acceptance Testing, and SDLC documentation page.

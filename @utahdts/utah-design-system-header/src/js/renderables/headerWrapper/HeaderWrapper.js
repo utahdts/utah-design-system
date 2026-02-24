@@ -4,10 +4,8 @@ import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { CitizenExperience } from '../citizenExperience/CitizenExperience';
 import CitizenExperienceWrapperMobile from '../citizenExperience/html/CitizenExperienceWrapperMobile.html?raw';
 import { LogoTitle } from '../logoTitle/LogoTitle';
-import { UtahLogo } from '../utahLogo/UtahLogo';
 import headerLogoWrapper from './html/HeaderLogoWrapper.html?raw';
 import headerWrapper from './html/HeaderWrapper.html?raw';
-import verticalLineHtml from './html/VerticalLine.html?raw';
 
 /**
  * Creates the header wrapper DOM and appends the:
@@ -21,10 +19,6 @@ export function HeaderWrapper() {
 
   const logoWrapper = renderDOMSingle(headerLogoWrapper);
   header.appendChild(logoWrapper);
-
-  logoWrapper.appendChild(UtahLogo());
-
-  logoWrapper.appendChild(renderDOMSingle(verticalLineHtml));
 
   logoWrapper.appendChild(LogoTitle());
 

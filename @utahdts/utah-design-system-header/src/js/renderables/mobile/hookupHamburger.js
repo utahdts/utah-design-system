@@ -3,7 +3,7 @@ import { checkForError } from '../../misc/checkForError';
 import { notNull } from '../../misc/notNull';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { renderActionItemBadge } from '../actionItems/renderActionItemBadge';
-import { closeOfficialWebsite } from '../utahLogo/renderOfficialWebsite';
+import { closeOfficialWebsite } from '../officialBanner/renderOfficialBanner';
 import { mobileMenuInteractionHandler } from './mobileMenuInteractionHandler';
 import { getHamburgerElements } from './util/getHamburgerElements';
 import { hideMobileMenu } from './util/showHideHamburgerElements';

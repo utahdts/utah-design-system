@@ -28,6 +28,7 @@ export function useWebsiteUtahHeaderSettings() {
         tabletPortrait: 768,
         tabletLandscape: 1024,
       },
+      notifications: true,
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
@@ -38,6 +39,14 @@ export function useWebsiteUtahHeaderSettings() {
       },
       titleUrl: '/',
       utahId: true,
+      // utahId: {
+      //   currentUser: {
+      //     authenticated: true,
+      //     first: 'Bob',
+      //   },
+      //   onProfile: (e) => console.log(e),
+      //   onSignOut: (e) => console.log(e),
+      // },
       skipLinkUrl: '#main-content',
     }),
     []
