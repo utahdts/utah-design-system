@@ -1434,6 +1434,23 @@ export function UtahHeaderDocumentation() {
 
           <TableRow>
             <TableCell>
+              <code><a href="#section-auth-currentuser">name</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>string</code>
+                <span> | </span>
+                <code>null</code>
+              </div>
+            </TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Full name of the logged in user.
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
               <code><a href="#section-auth-currentuser">status</a></code>
             </TableCell>
             <TableCell>
