@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [5.0.0] 02/26/2026
+# Added
+- Notifications: The header now features notifications powered by MyUtah.
+  - For Notifications to function you must turn on both of the following settings:
+      ```
+      utahId: true,
+      notifications: true,
+      ```
+  - Notifications are for public facing MyLogin accounts. It doesn't work with state employee accounts.
+- The Utah Header has been reconfigured to accommodate the new Utah branding.
+  - "Utah, an official site" graphic has been replaced by a gray bar above the header which features "An official website of the state of Utah. <u>Here is how you know</u>"
+  - Inside the official website popup is featured the new state brand.
+- The Utah Footer now feature the new Utah brand.
+
+
 # [4.3.0] 01/22/2026
 ## Added
 - Header: Additional accessibility support for the main menu and the mobile main menu
