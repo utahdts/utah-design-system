@@ -130,6 +130,7 @@ export function renderMainMenu() {
             parentMenuLinkSuffix: mainMenu.parentMenuLinkSuffix,
           }
         );
+        subMenuPopup.setAttribute('role', 'menu');
         mainMenuItem.appendChild(subMenuPopup);
         popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true, doNotClosePopupOnClick: true });
         /** @type {string} */
@@ -164,7 +165,9 @@ export function renderMainMenu() {
         }
       } else if (menuItem.actionFunctionUrl) {
         menuItemTitleSpanElement.innerHTML = menuItem.title;
-        menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
+        if (menuItemTitleElement.tagName === 'A') {
+          menuItemTitleElement.setAttribute('href', menuItem.actionFunctionUrl.url);
+        }
 
         // if have children, then the action is moved to the `parentMenuLinkSuffix` menu item and not here
         if (!menuItem.actionMenu) {
@@ -179,7 +182,9 @@ export function renderMainMenu() {
       } else if (menuItem.actionUrl) {
         // go to url when triggered
         menuItemTitleSpanElement.innerHTML = menuItem.title;
-        menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
+        if (menuItemTitleElement.tagName === 'A') {
+          menuItemTitleElement.setAttribute('href', menuItem.actionUrl.url);
+        }
       }
 
       if (
