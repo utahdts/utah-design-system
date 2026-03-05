@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # [5.0.0] 02/26/2026
-# Added
+## Added
 - Notifications: The header now features notifications powered by MyUtah.
   - For Notifications to function you must turn on both of the following settings:
       ```
@@ -17,6 +17,33 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - "Utah, an official site" graphic has been replaced by a gray bar above the header which features "An official website of the state of Utah. <u>Here is how you know</u>"
   - Inside the official website popup is featured the new state brand.
 - The Utah Footer now feature the new Utah brand.
+- The Utah Header provides access to the new `UT Industry` font.
+  - Use the css variable to start using the font. `--ut-industry-font-family`
+    ```
+    h1, h2, h3, h4 {
+      font-family: var(--ut-industry-font-family);
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+    }
+    ```
+- The Utah Header now uses the follow css variables to better support the new Utah brand.
+  ```
+    --header-primary-color
+    --header-primary-color-dark
+    --header-title-color
+  ```
+
+## Breaking Changes
+  - Utah ID Sign In button now uses mylogin.utah.gov instead of id.utah.gov.
+    - When UtahID is controlled notifications may not be in sync with what user info you display if your not using MyLogin.
+  - The website title, when visible, uses UT Industry font.
+
+## Website Changes
+- Update accessibility documentation
+    - video/audio auto play
+    - accessibility widgets
+    - Fonts and Typography updates for UT Industry
 
 
 # [4.3.0] 01/22/2026
