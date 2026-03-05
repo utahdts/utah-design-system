@@ -682,6 +682,18 @@ export function AccessibilityChecklistDocumentation() {
             </li>
           </ul>
         </li>
+        <li>
+          <strong>Text spacing:</strong>
+          <ul>
+            <li>
+              <strong>Changing settings:</strong> Manually change the line height to 1.5 times the font size,
+              the spacing following paragraphs to 2 time the font size,
+              the letter spacing to 0.12 times the font size,
+              and the word spacing 0.16 times the font size.
+              The content should remain functional and readable.
+            </li>
+          </ul>
+        </li>
       </ul>
 
       <h3 id="test-everything" className="mt-spacing">Test All Instances</h3>

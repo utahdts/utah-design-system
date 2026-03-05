@@ -51,6 +51,9 @@
       &--selected {
         display: block;
       }
+      &:focus-visible {
+        outline-offset: 2px;
+      }
     }
     &--vertical {
       display: flex;
