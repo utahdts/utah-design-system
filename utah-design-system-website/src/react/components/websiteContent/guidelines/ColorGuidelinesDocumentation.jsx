@@ -45,8 +45,11 @@ export function ColorGuidelinesDocumentation() {
 
       <h3 id="section-brand-identity">Brand Identity</h3>
       <p>
-        Color is a powerful tool for brand recognition and identity. Consistent use of colors that align with your brand&apos;s visual identity helps
-        reinforce your brand image and create a memorable user experience.
+        Color is a powerful tool for brand recognition and identity. Consistent use of colors that align with the state brand&apos;s visual identity helps
+        reinforce the image of the state of Utah and create a consistent user experience.
+      </p>
+      <p>
+        The State of Utah's primary colors are unified with the flag, augmented with additional complimentary shades for broader use cases.
       </p>
 
       <h3 id="section-color-psychology">Color Psychology</h3>
