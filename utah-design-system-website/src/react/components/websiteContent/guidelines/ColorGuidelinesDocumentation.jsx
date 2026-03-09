@@ -53,32 +53,32 @@ export function ColorGuidelinesDocumentation() {
       </p>
 
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--brand-primary-blue-dark" />
-          Dark blue - #071D49
+          <code>--utah-brand-primary-color-blue-dark</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--brand-primary-blue-medium" />
-          Medium blue - #093692
+          <code>--utah-brand-primary-color-blue-medium</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--brand-primary-blue-light" />
-          Light blue - #81D0F0
+          <code>--utah-brand-primary-color-blue-light</code>
         </div>
       </div>
 
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--brand-primary-gold-light" />
-          Light gold - #FFB81D
+          <code>--utah-brand-primary-color-gold-light</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--brand-primary-gold-medium" />
-          Medium gold - #FF8C03
+          <code>--utah-brand-primary-color-gold-medium</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--brand-primary-red" />
-          Red - #AA0200
+          <code>--utah-brand-primary-color-red</code>
         </div>
       </div>
 
@@ -142,49 +142,49 @@ export function ColorGuidelinesDocumentation() {
 
       <h3 id="section-primary-colors">Primary</h3>
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--primary-color" />
-          --primary-color
+          <code>--primary-color</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--primary-color-dark" />
-          --primary-color--dark
+          <code>--primary-color--dark</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--primary-color-light" />
-          --primary-color--light
+          <code>--primary-color--light</code>
         </div>
       </div>
 
       <h3 id="section-secondary-colors">Secondary</h3>
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--secondary-color" />
-          --secondary-color
+          <code>--secondary-color</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--secondary-color-dark" />
-          --secondary-color--dark
+          <code>--secondary-color--dark</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--secondary-color-light" />
-          --secondary-color--light
+          <code>--secondary-color--light</code>
         </div>
       </div>
 
       <h3 id="section-accent-colors">Accent</h3>
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--accent-color" />
-          --accent-color
+          <code>--accent-color</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--accent-color-dark" />
-          --accent-color--dark
+          <code>--accent-color--dark</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--accent-color-light" />
-          --accent-color--light
+          <code>--accent-color--light</code>
         </div>
       </div>
 
@@ -192,37 +192,37 @@ export function ColorGuidelinesDocumentation() {
       <p>The system palette helps you design forms and consistent user interfaces. We recommend that this color scheme remains the same to give users a homogeneous experience.</p>
       <h3 id="section-form-colors">Forms</h3>
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--form-ele-color" />
-          --form-ele-color
+          <code>--form-ele-color</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--form-ele-color-light" />
-          --form-ele-color-light
+          <code>--form-ele-color-light</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--form-ele-disabled-color" />
-          --form-ele-disabled-color
+          <code>--form-ele-disabled-color</code>
         </div>
       </div>
 
       <h3 id="section-status-colors">Status</h3>
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--danger-color" />
-          --danger-color
+          <code>--danger-color</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--warning-color" />
-          --warning-color
+          <code>--warning-color</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--info-color" />
-          --info-color
+          <code>--info-color</code>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center gap-s">
           <div className="color-example_item color-example_item--success-color" />
-          --success-color
+          <code>--success-color</code>
         </div>
       </div>
 
