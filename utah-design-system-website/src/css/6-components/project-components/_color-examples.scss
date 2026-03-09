@@ -5,6 +5,13 @@
     border-radius: 50%;
     background-color: var(--gray-color);
 
+    &--brand-primary-blue-dark { background-color: var(--utah-brand-primary-color-blue-dark);}
+    &--brand-primary-blue-medium { background-color: var(--utah-brand-primary-color-blue-medium);}
+    &--brand-primary-blue-light { background-color: var(--utah-brand-primary-color-blue-light);}
+    &--brand-primary-gold-light { background-color: var(--utah-brand-primary-color-gold-light);}
+    &--brand-primary-gold-medium { background-color: var(--utah-brand-primary-color-gold-medium);}
+    &--brand-primary-red { background-color: var(--utah-brand-primary-color-red);}
+
     &--primary-color { background-color: var(--primary-color); }
     &--primary-color-dark { background-color: var(--primary-color-dark); }
     &--primary-color-light {
@@ -50,6 +57,9 @@
       width: 60px;
       height: 60px;
     }
+  }
+  &.col-3 > div {
+    width: calc(33% - var(--spacing));
   }
 }
 

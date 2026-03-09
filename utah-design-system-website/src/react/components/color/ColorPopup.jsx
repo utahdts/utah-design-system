@@ -375,7 +375,7 @@ export function ColorPopup({ onClose }) {
                       <Tab id="tab-group__instructions">Instructions</Tab>
                     </TabList>
                     <TabPanels>
-                      <TabPanel tabId="tab-group__swatches">
+                      <TabPanel tabId="tab-group__swatches" className="swatches">
                         {
                           Object.values(colors).map((color) => (
                             <SwatchList

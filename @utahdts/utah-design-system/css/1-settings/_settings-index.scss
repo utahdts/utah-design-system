@@ -21,19 +21,19 @@ variables and settings
 #{class-vars.$base-class} {
   /* color */
   /* ######## Pick these colors to match your desired style ######## */
-  --primary-color: #{color-swatches.$red-rock-05};
-  --primary-color-dark: #{color-swatches.$red-rock-01};
-  --primary-color-light: #{color-swatches.$red-rock-17};
+  --primary-color: #{color-swatches.$orange-04};
+  --primary-color-dark: #{color-swatches.$orange-05};
+  --primary-color-light: #{color-swatches.$orange-00};
   --gray-on-primary-color: #474747;
 
-  --secondary-color: #{color-swatches.$celadon-blue-05};
-  --secondary-color-dark: #{color-swatches.$celadon-blue-00};
-  --secondary-color-light: #{color-swatches.$celadon-blue-17};
+  --secondary-color: #{color-swatches.$teal-03};
+  --secondary-color-dark: #{color-swatches.$teal-05};
+  --secondary-color-light: #{color-swatches.$teal-00};
   --gray-on-secondary-color: #474747;
 
-  --accent-color: #{color-swatches.$electric-yellow-05};
-  --accent-color-dark: #{color-swatches.$electric-yellow-00};
-  --accent-color-light: #{color-swatches.$electric-yellow-17};
+  --accent-color: #{color-swatches.$yellow-04};
+  --accent-color-dark: #{color-swatches.$yellow-05};
+  --accent-color-light: #{color-swatches.$yellow-01};
   --gray-on-accent-color: #474747;
 
   --form-ele-color: #{color-swatches.$azul-05};
@@ -47,6 +47,13 @@ variables and settings
   --header-title-color: var(--header-primary-color);
   --notifications-drawer-color: var(--form-ele-color);
   --notifications-drawer-color-dark: var(--form-ele-color-dark);
+
+  --utah-brand-primary-color-blue-dark: #071D49;
+  --utah-brand-primary-color-blue-medium: #093692;
+  --utah-brand-primary-color-blue-light: #81D0F0;
+  --utah-brand-primary-color-gold-light: #FFB81D;
+  --utah-brand-primary-color-gold-medium: #FF8C03;
+  --utah-brand-primary-color-red: #AA0200;
 
   /* ######## --------------------------------------------- ######## */
 

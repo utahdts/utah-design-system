@@ -71,6 +71,9 @@
 
   .color-example {
     flex-direction: column;
+    &.col-3 > div {
+      width: 100%;
+    }
   }
   .color-example > div:not(:last-child) {
     margin-bottom: var(--spacing-l);

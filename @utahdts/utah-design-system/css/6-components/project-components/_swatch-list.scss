@@ -4,6 +4,9 @@
 ############     _popup.scss      ############
 */
 #{class-vars.$base-class} {
+  .swatches {
+    display: inline-block;
+  }
   .color-family {
     display: flex;
     margin: 0 0 var(--spacing-2xs) 0;

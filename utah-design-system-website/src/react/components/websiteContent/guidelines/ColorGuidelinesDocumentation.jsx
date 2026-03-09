@@ -52,6 +52,37 @@ export function ColorGuidelinesDocumentation() {
         The State of Utah's primary colors are unified with the flag, augmented with additional complimentary shades for broader use cases.
       </p>
 
+      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
+        <div className="flex flex-col items-center text-center">
+          <div className="color-example_item color-example_item--brand-primary-blue-dark" />
+          Dark blue - #071D49
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <div className="color-example_item color-example_item--brand-primary-blue-medium" />
+          Medium blue - #093692
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <div className="color-example_item color-example_item--brand-primary-blue-light" />
+          Light blue - #81D0F0
+        </div>
+      </div>
+
+      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
+        <div className="flex flex-col items-center text-center">
+          <div className="color-example_item color-example_item--brand-primary-gold-light" />
+          Light gold - #FFB81D
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <div className="color-example_item color-example_item--brand-primary-gold-medium" />
+          Medium gold - #FF8C03
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <div className="color-example_item color-example_item--brand-primary-red" />
+          Red - #AA0200
+        </div>
+      </div>
+
+
       <h3 id="section-color-psychology">Color Psychology</h3>
       <p>
         Color psychology refers to the study of how colors can impact human behavior, emotions, and perceptions. It explores the psychological and emotional
@@ -110,48 +141,48 @@ export function ColorGuidelinesDocumentation() {
       <p>Here is the palette used for the Utah Design System website. It uses a primary color, a secondary color, and an accent color.</p>
 
       <h3 id="section-primary-colors">Primary</h3>
-      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--primary-color" />
           --primary-color
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--primary-color-dark" />
           --primary-color--dark
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--primary-color-light" />
           --primary-color--light
         </div>
       </div>
 
       <h3 id="section-secondary-colors">Secondary</h3>
-      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--secondary-color" />
           --secondary-color
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--secondary-color-dark" />
           --secondary-color--dark
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--secondary-color-light" />
           --secondary-color--light
         </div>
       </div>
 
       <h3 id="section-accent-colors">Accent</h3>
-      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--accent-color" />
           --accent-color
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--accent-color-dark" />
           --accent-color--dark
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--accent-color-light" />
           --accent-color--light
         </div>
@@ -160,16 +191,16 @@ export function ColorGuidelinesDocumentation() {
       <h2 id="section-system-palette" className="mt-spacing mb-spacing">System Palette</h2>
       <p>The system palette helps you design forms and consistent user interfaces. We recommend that this color scheme remains the same to give users a homogeneous experience.</p>
       <h3 id="section-form-colors">Forms</h3>
-      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--form-ele-color" />
           --form-ele-color
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--form-ele-color-light" />
           --form-ele-color-light
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--form-ele-disabled-color" />
           --form-ele-disabled-color
         </div>
@@ -177,19 +208,19 @@ export function ColorGuidelinesDocumentation() {
 
       <h3 id="section-status-colors">Status</h3>
       <div className="flex flex-1 justify-around p-spacing mb-spacing color-example">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--danger-color" />
           --danger-color
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--warning-color" />
           --warning-color
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--info-color" />
           --info-color
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="color-example_item color-example_item--success-color" />
           --success-color
         </div>
