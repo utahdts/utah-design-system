@@ -17,6 +17,8 @@
   .utds-header {
     height: 60px;
     padding: var(--spacing-xs) var(--spacing);
+    display: flex;
+    justify-content: space-between;
   }
   .utds-title-wrapper {
     font-size: var(--font-size-xl);
