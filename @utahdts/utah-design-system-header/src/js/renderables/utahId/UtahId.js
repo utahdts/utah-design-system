@@ -154,7 +154,7 @@ export function renderUtahIdForDesktop() {
 
   const utahIdMenu = renderUtahIdMenu(false);
   const utahIdPopupMenu = renderPopup(utahIdButton);
-  utahIdPopupMenu.setAttribute('role', 'dialog');
+
   const popupContentWrapper = /** @type {HTMLElement} */(utahIdPopupMenu.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
   if (!popupContentWrapper) {
     throw new Error('renderUtahIdForDesktop: contentWrapper not found');

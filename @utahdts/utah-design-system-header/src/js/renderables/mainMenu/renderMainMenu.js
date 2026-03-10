@@ -130,7 +130,7 @@ export function renderMainMenu() {
             parentMenuLinkSuffix: mainMenu.parentMenuLinkSuffix,
           }
         );
-        subMenuPopup.setAttribute('role', 'menu');
+        subMenuPopup.setAttribute('role', 'dialog');
         mainMenuItem.appendChild(subMenuPopup);
         popupFocusHandler(mainMenuItem, menuItemTitleElement, subMenuPopup, 'menu', { shouldFocusOnHover: true, doNotClosePopupOnClick: true });
         /** @type {string} */
