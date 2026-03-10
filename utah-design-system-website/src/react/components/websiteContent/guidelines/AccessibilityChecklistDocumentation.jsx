@@ -504,8 +504,8 @@ export function AccessibilityChecklistDocumentation() {
               </ul>
             </li>
             <li>
-              <strong>Plain language:</strong> The body text should be clear
-              and understandable, typically at an 8th-grade reading level.
+              <strong>Reading Level (AAA):</strong> The body text should be clear
+              and understandable, typically at an 8th-grade reading level. <ExternalLink href='https://www.w3.org/WAI/WCAG21/Understanding/reading-level.html'>See success criterion</ExternalLink>.
             </li>
           </ul>
         </li>
