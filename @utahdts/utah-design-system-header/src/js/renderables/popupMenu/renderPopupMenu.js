@@ -316,6 +316,7 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
   if (popupMenuItem.className) {
     menuItemWrapper.classList.add(popupMenuItem.className);
   }
+  menuItemWrapper.setAttribute('role', 'menuitem');
 
   menuUl.appendChild(menuItemWrapper);
 
