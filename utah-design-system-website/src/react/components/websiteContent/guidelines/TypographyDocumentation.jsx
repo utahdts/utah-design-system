@@ -89,6 +89,101 @@ export function TypographyDocumentation() {
         </div>
       </div>
 
+      <h3 id="download-font" className="mt-spacing">Download UT Industry</h3>
+      <p className="mb-spacing-xs">The UT Industry font can be found on the state CDN:</p>
+      <TableWrapper className="my-spacing">
+        <Table className="full-width table--lines-x">
+          <TableHead>
+            <TableHeadRow>
+              <TableHeadCell className="text-left">Format</TableHeadCell>
+              <TableHeadCell className="text-left">Weight</TableHeadCell>
+              <TableHeadCell className="text-left">Link</TableHeadCell>
+            </TableHeadRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell><code>.tiff</code></TableCell>
+              <TableCell>Regular</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf">UT Industry (Regular)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.tiff</code></TableCell>
+              <TableCell className="font-semi-bold">Medium</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Medium.ttf">UT Industry (Medium)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.tiff</code></TableCell>
+              <TableCell className="font-bold">Bold</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Bold.ttf">UT Industry (Bold)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.tiff</code></TableCell>
+              <TableCell className="font-black">Heavy</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Heavy.ttf">UT Industry (Heavy)</ExternalLink></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell><code>.woff</code></TableCell>
+              <TableCell>Regular</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Regular.woff">UT Industry (Regular)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.woff</code></TableCell>
+              <TableCell className="font-semi-bold">Medium</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Medium.woff">UT Industry (Medium)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.woff</code></TableCell>
+              <TableCell className="font-bold">Bold</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Bold.woff">UT Industry (Bold)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.woff</code></TableCell>
+              <TableCell className="font-black">Heavy</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Heavy.woff">UT Industry (Heavy)</ExternalLink></TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell><code>.woff2</code></TableCell>
+              <TableCell>Regular</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Regular.woff2">UT Industry (Regular)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.woff2</code></TableCell>
+              <TableCell className="font-semi-bold">Medium</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Medium.woff2">UT Industry (Medium)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.woff2</code></TableCell>
+              <TableCell className="font-bold">Bold</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Bold.woff2">UT Industry (Bold)</ExternalLink></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell><code>.woff2</code></TableCell>
+              <TableCell className="font-black">Heavy</TableCell>
+              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Heavy.woff2">UT Industry (Heavy)</ExternalLink></TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
+
+      <p className="mb-spacing-xs">Example on how to import UT Industry using CSS:</p>
+      <PreCodeForCodeString
+        codeRaw={`
+@font-face {
+  font-family: "UT Industry";
+  src:
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf") format("truetype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Regular.woff") format("woff"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+        `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
+
       <h2 id="section-font-size" className="mb-spacing">Font Size</h2>
       <ul className="mb-spacing">
         <li>

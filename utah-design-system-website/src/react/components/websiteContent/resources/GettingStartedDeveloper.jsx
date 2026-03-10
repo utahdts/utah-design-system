@@ -49,6 +49,9 @@ export function GettingStartedDeveloper() {
           <a href="#h3-import-ds-css" className="">Example Using Plain CSS and CDN</a>
           <div className="getting-started__toc-subtitle mt-spacing">Importing via NPM</div>
           <a href="#h3-import-ds-sass" className="">Example using SCSS</a>
+          <div className="getting-started__toc-subtitle mt-spacing">Using UT Industry Font / Icons</div>
+          <a href={pageUrls.typography} className="">Typography Overview</a>
+          <a href={pageUrls.icons} className="">Icons</a>
         </div>
       </div>
       <div className="getting-started__toc-card mt-spacing-l">
@@ -526,7 +529,7 @@ export function GettingStartedDeveloper() {
 
           # In your scss, use the scss variables
           h1 {
-            background-color: #{ds-settings.$electric-yellow-05};
+            background-color: #{ds-settings.$yellow-05};
           }
 
           # Your html will now be styled with the scss variables (make sure to scope to utah-design-system)
@@ -539,7 +542,7 @@ export function GettingStartedDeveloper() {
         The Design System library provides SASS SCSS variables that can be used in your SCSS. These include variables for:
       </p>
       <ul className="mb-spacing">
-        <li>Color <code>$purple_00</code></li>
+        <li>Color <code>$violet-00</code></li>
         <li>Base Class <code>$base-class</code></li>
         <li>Light/Dark colors <code>$color-is-light</code></li>
         <li>
