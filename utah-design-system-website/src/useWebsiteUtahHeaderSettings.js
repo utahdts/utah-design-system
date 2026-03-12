@@ -1,7 +1,7 @@
 import { sizes } from '@utahdts/utah-design-system-header';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logoPng from './static/images/designSystemCircleGray.png';
+import logoPng from './static/images/Utah-Industry-Icon-Small@2x.png';
 
 /** @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput */
 
