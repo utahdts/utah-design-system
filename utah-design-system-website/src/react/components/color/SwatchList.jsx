@@ -97,7 +97,9 @@ export function SwatchList({ colorFamily, onColorSelected }) {
       <ul className="color-family__swatches">
         {
           colorFamily.swatches.map((swatch) => {
-            const selectedColor = selectedColors.find((testColor) => testColor.value === swatch);
+            const selectedColor = selectedColors.find((testColor) => {
+              return ((testColor.value === swatch) && (testColor.key === cssState.selectedColorPicker));
+            });
             const isSelectedGroup = !!selectedColor;
             const isSelected = selectedColor?.key === cssState.selectedColorPicker;
             return (

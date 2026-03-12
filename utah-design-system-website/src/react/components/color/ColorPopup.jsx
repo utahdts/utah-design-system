@@ -368,29 +368,31 @@ export function ColorPopup({ onClose }) {
 
                   <div className="color-pickers__group">
                     <ColorPicker
-                      className="accent-color-background"
-                      id="accent-color-background"
+                      className="header-color"
+                      id="header-color"
                       isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR}
                       label="Header: Prime"
                       onChange={(newColor) => setColor(newColor)}
                       onClick={() => (
                         setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR; })
                       )}
-                      colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
+                      colorGray={'#f1f1f1'}
+                      textColorValue={'#f1f1f1'}
                       title="Header"
                       value={cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR]}
                     />
                     <div className="color-pickers__light-dark">
                       <ColorPicker
-                        className="accent-color-background"
-                        id="accent-color-background"
+                        className="header-color-dark"
+                        id="header-color-dark"
                         isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK}
                         label="Header: Dark"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => (
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK; })
                         )}
-                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
+                        colorGray={'#f1f1f1'}
+                        textColorValue={'#f1f1f1'}
                         title="Dark"
                         value={cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK]}
                       />
