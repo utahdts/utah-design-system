@@ -3,7 +3,7 @@ import { colors } from '../../util/color/colors';
 
 export const cssContextDefaultColors = {
   // default --primary-color for website
-  [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.PRIMARY_BRAND.swatches[4],
+  [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.BLUE.swatches[3],
   [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.BLUE.swatches[5],
   [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.BLUE.swatches[0],
   [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[0],
@@ -18,7 +18,7 @@ export const cssContextDefaultColors = {
   [CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]: colors.YELLOW.swatches[1],
   [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: colors.NEUTRAL_GRAY.swatches[5],
 
-  [CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR]: colors.PRIMARY_BRAND.swatches[4],
+  [CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR]: colors.BLUE.swatches[3],
   [CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK]: colors.BLUE.swatches[5],
   [CSS_VARIABLES_KEYS.HEADER_GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[0],
 };
