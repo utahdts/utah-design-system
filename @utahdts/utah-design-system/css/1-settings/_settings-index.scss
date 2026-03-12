@@ -18,36 +18,7 @@ variables and settings
 @forward "media-size-vars";
 @use "media-size-vars";
 
-#{class-vars.$base-class} {
-  /* color */
-  /* ######## Pick these colors to match your desired style ######## */
-  --primary-color: var(--utah-brand-primary-color-blue-medium);
-  --primary-color-dark: var(--utah-brand-primary-color-blue-dark);
-  --primary-color-light: var(--utah-brand-primary-color-blue-light);
-  --gray-on-primary-color: white;
-
-  --secondary-color: var(--utah-brand-secondary-color-teal-03);
-  --secondary-color-dark: var(--utah-brand-secondary-color-teal-05);
-  --secondary-color-light: var(--utah-brand-secondary-color-teal-00);
-  --gray-on-secondary-color: #474747;
-
-  --accent-color: var(--utah-brand-primary-color-gold-light);
-  --accent-color-dark: var(--utah-brand-primary-color-gold-medium);
-  --accent-color-light: var(--utah-brand-secondary-color-yellow-00);
-  --gray-on-accent-color: #474747;
-
-  --form-ele-color: #{color-swatches.$azul-05};
-  --form-ele-color-light: #{color-swatches.$azul-12};
-  --form-ele-color-dark: #{color-swatches.$azul-02};
-  --form-ele-disabled-color: #{color-swatches.$neutral-gray-10};
-  --form-ele-placeholder-color: #757575;
-
-  --header-primary-color: var(--primary-color);
-  --header-primary-color-dark: var(--primary-color-dark);
-  --header-title-color: var(--utah-brand-primary-color-blue-dark);
-  --notifications-drawer-color: var(--form-ele-color);
-  --notifications-drawer-color-dark: var(--form-ele-color-dark);
-
+:root {
   /* ######## ---------- Branding --------- ######## */
   --utah-brand-primary-color-blue-dark: #{color-swatches.$branding-blue-dark};
   --utah-brand-primary-color-blue-medium: #{color-swatches.$branding-blue-medium};
@@ -117,9 +88,38 @@ variables and settings
   --utah-brand-secondary-color-yellow-02: #{color-swatches.$yellow-02};
   --utah-brand-secondary-color-yellow-03: #{color-swatches.$yellow-03};
   --utah-brand-secondary-color-yellow-04: #{color-swatches.$yellow-04};
-
-
   /* ######## --------------------------------------------- ######## */
+}
+
+#{class-vars.$base-class} {
+  /* color */
+  /* ######## Pick these colors to match your desired style ######## */
+  --primary-color: var(--utah-brand-primary-color-blue-medium);
+  --primary-color-dark: var(--utah-brand-primary-color-blue-dark);
+  --primary-color-light: var(--utah-brand-primary-color-blue-light);
+  --gray-on-primary-color: white;
+
+  --secondary-color: var(--utah-brand-secondary-color-teal-03);
+  --secondary-color-dark: var(--utah-brand-secondary-color-teal-05);
+  --secondary-color-light: var(--utah-brand-secondary-color-teal-00);
+  --gray-on-secondary-color: #474747;
+
+  --accent-color: var(--utah-brand-primary-color-gold-light);
+  --accent-color-dark: var(--utah-brand-primary-color-gold-medium);
+  --accent-color-light: var(--utah-brand-secondary-color-yellow-00);
+  --gray-on-accent-color: #474747;
+
+  --form-ele-color: #{color-swatches.$azul-05};
+  --form-ele-color-light: #{color-swatches.$azul-12};
+  --form-ele-color-dark: #{color-swatches.$azul-02};
+  --form-ele-disabled-color: #{color-swatches.$neutral-gray-10};
+  --form-ele-placeholder-color: #757575;
+
+  --header-primary-color: var(--primary-color);
+  --header-primary-color-dark: var(--primary-color-dark);
+  --header-title-color: var(--utah-brand-primary-color-blue-dark);
+  --notifications-drawer-color: var(--form-ele-color);
+  --notifications-drawer-color-dark: var(--form-ele-color-dark);
 
   --gray-color: #{color-swatches.$neutral-gray-04};
   --gray-medium-color: #{color-swatches.$neutral-gray-06};
