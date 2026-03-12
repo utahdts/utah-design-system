@@ -45,6 +45,11 @@ export function SwatchList({ colorFamily, onColorSelected }) {
           case CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT:
             setChangedColorKeys([CSS_VARIABLES_KEYS.ACCENT_COLOR, CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK, CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]);
             break;
+          case CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR:
+          case CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK:
+          case CSS_VARIABLES_KEYS.HEADER_GRAY_ON_PRIMARY_COLOR:
+            setChangedColorKeys([CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR, CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK, CSS_VARIABLES_KEYS.HEADER_GRAY_ON_PRIMARY_COLOR]);
+            break;
           default:
             throw new Error(`unknown selectedColorPicker: '${cssState.selectedColorPicker}'`);
         }
@@ -72,6 +77,8 @@ export function SwatchList({ colorFamily, onColorSelected }) {
       { key: CSS_VARIABLES_KEYS.ACCENT_COLOR, value: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR] },
       { key: CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK, value: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK] },
       { key: CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT, value: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT] },
+      { key: CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR, value: cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR] },
+      { key: CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK, value: cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK] },
     ]),
     [cssState]
   );

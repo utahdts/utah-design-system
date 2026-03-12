@@ -366,6 +366,37 @@ export function ColorPopup({ onClose }) {
                     </div>
                   </div>
 
+                  <div className="color-pickers__group">
+                    <ColorPicker
+                      className="accent-color-background"
+                      id="accent-color-background"
+                      isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR}
+                      label="Header: Prime"
+                      onChange={(newColor) => setColor(newColor)}
+                      onClick={() => (
+                        setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR; })
+                      )}
+                      colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
+                      title="Header"
+                      value={cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR]}
+                    />
+                    <div className="color-pickers__light-dark">
+                      <ColorPicker
+                        className="accent-color-background"
+                        id="accent-color-background"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK}
+                        label="Header: Dark"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => (
+                          setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK; })
+                        )}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]}
+                        title="Dark"
+                        value={cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK]}
+                      />
+                    </div>
+                  </div>
+
                 </div>
                 <div className="color-pickers__compare-colors color-pickers__swatches">
                   <TabGroup defaultValue="tab-group__swatches">
