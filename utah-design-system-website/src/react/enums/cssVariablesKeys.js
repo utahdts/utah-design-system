@@ -14,4 +14,7 @@ export const CSS_VARIABLES_KEYS = {
   ACCENT_COLOR_LIGHT: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--accent-color-light'),
   GRAY_ON_ACCENT_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--gray-on-accent-color'),
   GRAY_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--gray-color'),
+  HEADER_PRIMARY_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--header-primary-color'),
+  HEADER_PRIMARY_COLOR_DARK: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--header-primary-color-dark'),
+  HEADER_GRAY_ON_PRIMARY_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--gray-on-primary-color'),
 };

@@ -38,7 +38,7 @@
 /**
  * CSS_VARIABLES_KEYS
  * 'selectedColorPicker' is a member just so an object can have a key of that value
- * @typedef { '--primary-color' | '--primary-color-dark' | '--primary-color-light' | '--gray-on-primary-color' | '--secondary-color' | '--secondary-color-dark' | '--secondary-color-light' | '--gray-on-secondary-color' | '--accent-color' | '--accent-color-dark' | '--accent-color-light' | '--gray-on-accent-color' | '--gray-color' | 'selectedColorPicker'} CSS_VARIABLES_KEYS
+ * @typedef { '--primary-color' | '--primary-color-dark' | '--primary-color-light' | '--gray-on-primary-color' | '--secondary-color' | '--secondary-color-dark' | '--secondary-color-light' | '--gray-on-secondary-color' | '--accent-color' | '--accent-color-dark' | '--accent-color-light' | '--gray-on-accent-color' | '--gray-color' | 'selectedColorPicker' | '--header-primary-color' | '--header-primary-color-dark'} CSS_VARIABLES_KEYS
  */
 /**
  * LayoutTemplate
