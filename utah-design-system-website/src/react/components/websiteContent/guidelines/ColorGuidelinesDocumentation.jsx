@@ -41,6 +41,7 @@ export function ColorGuidelinesDocumentation() {
         detailed information on <Link to={`${pageUrls.accessibility}#section-limited-vision-contrast`}>contrast</Link>.
         Check your custom colors with the <a href="#" onClick={toggleColorPickerPopup}>Utah Design System color tool</a>.
         Or use <ExternalLink href="https://webaim.org/resources/contrastchecker/">WebAIM&apos;s contrast tool</ExternalLink>.
+        Or use the <ExternalLink href="https://chromewebstore.google.com/detail/color-contrast-checker/gbfgefkhkofclanlcgnhlbmfgjjomock?hl=en">Pivotal Color Contrast Checker</ExternalLink> (Chrome plugin).
       </p>
 
       <h3 id="section-brand-identity">Brand Identity</h3>
@@ -52,33 +53,253 @@ export function ColorGuidelinesDocumentation() {
         The State of Utah's primary colors are unified with the flag, augmented with additional complimentary shades for broader use cases.
       </p>
 
-      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center gap-s">
-          <div className="color-example_item color-example_item--brand-primary-blue-dark" />
-          <code>--utah-brand-primary-color-blue-dark</code>
-        </div>
-        <div className="flex flex-col items-center text-center gap-s">
-          <div className="color-example_item color-example_item--brand-primary-blue-medium" />
-          <code>--utah-brand-primary-color-blue-medium</code>
-        </div>
-        <div className="flex flex-col items-center text-center gap-s">
-          <div className="color-example_item color-example_item--brand-primary-blue-light" />
-          <code>--utah-brand-primary-color-blue-light</code>
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-primary-color-blue-dark: #071D49;<br />
+          --utah-brand-primary-color-blue-medium: #093692;<br />
+          --utah-brand-primary-color-blue-light: #81D0F0;<br />
+          --utah-brand-primary-color-gold-light: #FFB81D;<br />
+          --utah-brand-primary-color-gold-medium: #FF8C03;<br />
+          --utah-brand-primary-color-red: #AA0200;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-primary-color-blue-dark)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-primary-color-blue-medium)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-primary-color-blue-light)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-primary-color-gold-light)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-primary-color-gold-medium)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-primary-color-red)'}}></div>
         </div>
       </div>
 
-      <div className="flex flex-1 justify-around p-spacing mb-spacing color-example col-3 gap">
-        <div className="flex flex-col items-center text-center gap-s">
-          <div className="color-example_item color-example_item--brand-primary-gold-light" />
-          <code>--utah-brand-primary-color-gold-light</code>
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-clay-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-clay-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-clay-02: #9C837E;<br />
+          --utah-brand-secondary-color-clay-03: #78555A;<br />
+          --utah-brand-secondary-color-clay-04: #52393B;<br />
+          --utah-brand-secondary-color-clay-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-clay-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-clay-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-clay-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-clay-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-clay-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-clay-05)'}}></div>
         </div>
-        <div className="flex flex-col items-center text-center gap-s">
-          <div className="color-example_item color-example_item--brand-primary-gold-medium" />
-          <code>--utah-brand-primary-color-gold-medium</code>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-green-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-green-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-green-02: #9C837E;<br />
+          --utah-brand-secondary-color-green-03: #78555A;<br />
+          --utah-brand-secondary-color-green-04: #52393B;<br />
+          --utah-brand-secondary-color-green-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-green-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-green-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-green-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-green-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-green-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-green-05)'}}></div>
         </div>
-        <div className="flex flex-col items-center text-center gap-s">
-          <div className="color-example_item color-example_item--brand-primary-red" />
-          <code>--utah-brand-primary-color-red</code>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-teal-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-teal-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-teal-02: #9C837E;<br />
+          --utah-brand-secondary-color-teal-03: #78555A;<br />
+          --utah-brand-secondary-color-teal-04: #52393B;<br />
+          --utah-brand-secondary-color-teal-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-teal-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-teal-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-teal-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-teal-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-teal-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-teal-05)'}}></div>
+        </div>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-blue-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-blue-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-blue-02: #9C837E;<br />
+          --utah-brand-secondary-color-blue-03: #78555A;<br />
+          --utah-brand-secondary-color-blue-04: #52393B;<br />
+          --utah-brand-secondary-color-blue-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-blue-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-blue-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-blue-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-blue-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-blue-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-blue-05)'}}></div>
+        </div>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-violet-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-violet-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-violet-02: #9C837E;<br />
+          --utah-brand-secondary-color-violet-03: #78555A;<br />
+          --utah-brand-secondary-color-violet-04: #52393B;<br />
+          --utah-brand-secondary-color-violet-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-violet-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-violet-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-violet-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-violet-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-violet-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-violet-05)'}}></div>
+        </div>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-raspberry-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-raspberry-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-raspberry-02: #9C837E;<br />
+          --utah-brand-secondary-color-raspberry-03: #78555A;<br />
+          --utah-brand-secondary-color-raspberry-04: #52393B;<br />
+          --utah-brand-secondary-color-raspberry-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-raspberry-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-raspberry-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-raspberry-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-raspberry-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-raspberry-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-raspberry-05)'}}></div>
+        </div>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-red-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-red-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-red-02: #9C837E;<br />
+          --utah-brand-secondary-color-red-03: #78555A;<br />
+          --utah-brand-secondary-color-red-04: #52393B;<br />
+          --utah-brand-secondary-color-red-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-red-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-red-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-red-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-red-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-red-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-red-05)'}}></div>
+        </div>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-orange-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-orange-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-orange-02: #9C837E;<br />
+          --utah-brand-secondary-color-orange-03: #78555A;<br />
+          --utah-brand-secondary-color-orange-04: #52393B;<br />
+          --utah-brand-secondary-color-orange-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-orange-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-orange-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-orange-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-orange-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-orange-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-orange-05)'}}></div>
+        </div>
+      </div>
+
+      <div className="flex justify-between gap">
+        <pre
+          className="gray-block pre-code--overflow"
+          // @ts-expect-error needs to scroll with the keyboard if it overflows, shame on you ts
+          tabindex="0"
+        >
+          <div className="pre-code__overflow-content color-swatch-names">
+          --utah-brand-secondary-color-yellow-00: #E9DCC8;<br />
+          --utah-brand-secondary-color-yellow-01: #C0B1A1;<br />
+          --utah-brand-secondary-color-yellow-02: #9C837E;<br />
+          --utah-brand-secondary-color-yellow-03: #78555A;<br />
+          --utah-brand-secondary-color-yellow-04: #52393B;<br />
+          --utah-brand-secondary-color-yellow-05: #2C1E1B;
+          </div>
+        </pre>
+        <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-yellow-00)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-yellow-01)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-yellow-02)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-yellow-03)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-yellow-04)'}}></div>
+          <div className="color-swatch" style={{backgroundColor: 'var(--utah-brand-secondary-color-yellow-05)'}}></div>
         </div>
       </div>
 
