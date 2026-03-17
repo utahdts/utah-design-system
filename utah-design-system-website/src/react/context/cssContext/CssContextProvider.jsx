@@ -117,12 +117,36 @@ export function CssContextProvider({ children }) {
           color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR],
           colorList: fallbackGrayColors,
         }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR_DARK]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR_LIGHT]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT],
+          colorList: fallbackGrayColors,
+        }),
         [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: readableColor({
           color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR],
           colorList: fallbackGrayColors,
         }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_DARK]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_LIGHT]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT],
+          colorList: fallbackGrayColors,
+        }),
         [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: readableColor({
           color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR_DARK]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK],
+          colorList: fallbackGrayColors,
+        }),
+        [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR_LIGHT]: readableColor({
+          color: cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT],
           colorList: fallbackGrayColors,
         }),
       };
