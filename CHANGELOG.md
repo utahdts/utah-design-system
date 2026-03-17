@@ -31,19 +31,22 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   ```
     --header-primary-color
     --header-primary-color-dark
-    --header-title-color
   ```
 
 ## Breaking Changes
-  - Utah ID Sign In button now uses mylogin.utah.gov instead of id.utah.gov.
-    - When UtahID is controlled notifications may not be in sync with what user info you display if your not using MyLogin.
-  - The website title, when visible, uses UT Industry font.
+- Utah ID Sign In button now uses mylogin.utah.gov instead of id.utah.gov.
+  - When UtahID is controlled notifications may not be in sync with what user info you display if your not using MyLogin.
+- The website title, when visible, uses UT Industry font.
 
 ## Website Changes
-- Update accessibility documentation
-    - video/audio auto play
-    - accessibility widgets
-    - Fonts and Typography updates for UT Industry
+- Design System color picker update for Utah brand colors
+  - You can also choose colors for the Utah Header now
+- Fonts and Typography updates for UT Industry
+- Color Guidelines updated with brand primary and secondary colors
+- Updated accessibility documentation
+  - Video/audio auto play information added to Accessibility Guidelines
+  - Accessibility widgets information added to Accessibility Guidelines
+
 
 
 # [4.3.0] 01/22/2026
