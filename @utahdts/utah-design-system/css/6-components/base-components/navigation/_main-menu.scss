@@ -5,6 +5,9 @@
   &.main-menu__outer {
     position: relative;
     z-index: 2500;
+    &:hover {
+      z-index: 4000;
+    }
   }
   .main-menu {
     &__wrapper {
