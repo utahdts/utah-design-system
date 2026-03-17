@@ -68,7 +68,7 @@ export function GettingStartedDeveloper() {
       </p>
       <h3>Utah Header</h3>
       <div className="mb-spacing">
-        <h4 className="mb-auto">style.css</h4>
+        <div className="mb-auto font-bold font-size-l">style.css</div>
         <PreCodeForCodeString
           allowScrollOverflow
           showBackgroundColor
@@ -80,7 +80,7 @@ export function GettingStartedDeveloper() {
         <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css" className="button" target="_blank">style.css Download</a>
       </div>
       <div>
-        <h4 className="mb-auto">utah-design-system-header.umd.js</h4>
+        <div className="mb-auto font-bold font-size-l">utah-design-system-header.umd.js</div>
         <PreCodeForCodeString
           allowScrollOverflow
           showBackgroundColor
