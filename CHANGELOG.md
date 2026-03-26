@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [5.0.0] 02/26/2026
+# [5.0.0] 03/31/2026
 ## Added
 - Notifications: The header now features notifications powered by MyUtah.
   - For Notifications to function you must turn on both of the following settings:
@@ -34,15 +34,18 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   ```
 
 ## Breaking Changes
-- Utah ID Sign In button now uses mylogin.utah.gov instead of id.utah.gov.
-  - When UtahID is controlled notifications may not be in sync with what user info you display if your not using MyLogin.
-- The website title, when visible, uses UT Industry font.
+- Utah ID Sign In button now uses mylogin.utah.gov (identity cloud) instead of id.utah.gov.
+  - User Synchronization:
+    - To use the notification system, applications currently using a legacy identity provider like id.utah.gov must migrate to the new identity cloud at mylogin.utah.gov.
+    - To avoid user confusion, if you are manually displaying user information in the Utah Header, do not use the Notifications component unless you are integrating with mylogin.utah.gov. This is because the user account and notifications will not display consistent user information otherwise.
+  - Account Access: State employees cannot receive notifications via @utah.gov accounts; a personal MyLogin account is required for this public-facing service.
+- The header text title font has transitioned to `UT Industry`. Sites utilizing only a graphic for their header will not be impacted.
 
 ## Website Changes
 - Design System color picker update for Utah brand colors
   - You can also choose colors for the Utah Header now
 - Fonts and Typography updates for UT Industry
-- Color Guidelines updated with brand primary and secondary colors
+- Color Guidelines updated with brand primary and secondary colors, including css variables each color.
 - Updated accessibility documentation
   - Video/audio auto play information added to Accessibility Guidelines
   - Accessibility widgets information added to Accessibility Guidelines
