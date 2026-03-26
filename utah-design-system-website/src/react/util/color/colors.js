@@ -14,7 +14,7 @@ export const colors = {
       '#81D0F0',
       '#093692',
       '#071D49',
-    ]
+    ],
   },
   CLAY: {
     title: 'Clay',
@@ -25,7 +25,7 @@ export const colors = {
       '#78555A',
       '#52393B',
       '#2C1E1B',
-    ]
+    ],
   },
   GREEN: {
     title: 'Green',
@@ -36,7 +36,7 @@ export const colors = {
       '#007000',
       '#1C4C10',
       '#092908',
-    ]
+    ],
   },
   TEAL: {
     title: 'Teal',
@@ -47,7 +47,7 @@ export const colors = {
       '#008072',
       '#165857',
       '#0D262E',
-    ]
+    ],
   },
   BLUE: {
     title: 'Blue',
@@ -58,7 +58,7 @@ export const colors = {
       '#0258BB',
       '#103982',
       '#0E1C3B',
-    ]
+    ],
   },
   VIOLET: {
     title: 'Violet',
@@ -69,7 +69,7 @@ export const colors = {
       '#3F1EAD',
       '#301C5C',
       '#1F0A45',
-    ]
+    ],
   },
   RASPBERRY: {
     title: 'Raspberry',
@@ -80,7 +80,7 @@ export const colors = {
       '#BA004F',
       '#870746',
       '#530D3C',
-    ]
+    ],
   },
   RED: {
     title: 'Red',
@@ -91,7 +91,7 @@ export const colors = {
       '#E70015',
       '#9B1B15',
       '#61100A',
-    ]
+    ],
   },
   ORANGE: {
     title: 'Orange',
@@ -102,7 +102,7 @@ export const colors = {
       '#E2521F',
       '#A34818',
       '#633D11',
-    ]
+    ],
   },
   YELLOW: {
     title: 'Yellow',
@@ -113,7 +113,7 @@ export const colors = {
       '#F2FA00',
       '#CBB60C',
       '#A47217',
-    ]
+    ],
   },
   NEUTRAL_GRAY: {
     title: 'Neutral Gray',
