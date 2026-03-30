@@ -75,6 +75,7 @@
     &__title {
       font-size: var(--font-size-6xl);
       font-weight: var(--font-weight-semi-bold);
+      font-family: var(--ut-industry-font-family);
       text-align: center;
       z-index: 1;
       padding: var(--spacing-l) 0;
@@ -211,7 +212,6 @@
 
   *:not(.accordion__header) > h2 {
     color: var(--primary-color);
-    text-transform: uppercase;
     font-size: var(--font-size-3xl);
   }
 
