@@ -49,7 +49,10 @@ ul.checkbox-list ul {
   }
 }
 
-h1, h2:not(.on-this-page h2):not(.menu-side-panel h2), h3, h4 {
+h1:not(.accordion__header h1),
+h2:not(.on-this-page h2):not(.menu-side-panel h2):not(.accordion__header h2),
+h3:not(.accordion__header h3),
+h4:not(.accordion__header h4) {
   font-family: var(--ut-industry-font-family);
   font-optical-sizing: auto;
   font-weight: 600;
