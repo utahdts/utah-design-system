@@ -9,12 +9,15 @@ export function getIframeUrl() {
   // Get the current URL of the browser
   const currentUrl = window.location.href;
 
+  // Should we debug locally?
+  const debugIframeLocal = false;
+
   // Define the local and production iframe URLs
   const localIframeUrl = "https://notiframe.local.utah.gov:5174";
-  const productionIframeUrl = "https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v5/notifications/beta/index.html";
+  const productionIframeUrl = "https://cdn.utah.gov/dts-ds-custom-header-plugin/notifications/v1/index.html";
 
   // Check if the current URL contains ".local"
-  if (currentUrl.includes(".local")) {
+  if (currentUrl.includes(".local") && debugIframeLocal) {
     return localIframeUrl;
   } else {
     return productionIframeUrl;
