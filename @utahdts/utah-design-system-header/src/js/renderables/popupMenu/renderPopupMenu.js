@@ -317,6 +317,8 @@ function renderPopupMenuItem(menuUl, popupMenuItem, options) {
     menuItemWrapper.classList.add(popupMenuItem.className);
   }
 
+  menuItemWrapper.setAttribute('role', 'menuitem');
+  menuUl.setAttribute('role', 'menu');
   menuUl.appendChild(menuItemWrapper);
 
   return menuItemWrapper;
@@ -344,6 +346,7 @@ export function renderMenu(menuItems, options) {
 export function renderPopupMenu(popupMenu, labelledByElement, options) {
   // create the popup
   const popupWrapper = renderPopup(labelledByElement, { removePopupArrow: options.removePopupArrow });
+  popupWrapper.setAttribute('role', 'dialog');
 
   // put the menu in the popup
   const popupContentWrapper = popupWrapper.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER));

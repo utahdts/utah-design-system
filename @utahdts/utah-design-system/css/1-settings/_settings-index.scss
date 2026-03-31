@@ -18,30 +18,109 @@ variables and settings
 @forward "media-size-vars";
 @use "media-size-vars";
 
+:root {
+  /* ######## ---------- Branding --------- ######## */
+  --utah-brand-primary-color-blue-dark: #{color-swatches.$branding-blue-dark};
+  --utah-brand-primary-color-blue-medium: #{color-swatches.$branding-blue-medium};
+  --utah-brand-primary-color-blue-light: #{color-swatches.$branding-blue-light};
+  --utah-brand-primary-color-gold-light: #{color-swatches.$branding-gold-light};
+  --utah-brand-primary-color-gold-medium: #{color-swatches.$branding-gold-medium};
+  --utah-brand-primary-color-red: #{color-swatches.$branding-red};
+
+  --utah-brand-secondary-color-clay-00: #{color-swatches.$clay-00};
+  --utah-brand-secondary-color-clay-01: #{color-swatches.$clay-01};
+  --utah-brand-secondary-color-clay-02: #{color-swatches.$clay-02};
+  --utah-brand-secondary-color-clay-03: #{color-swatches.$clay-03};
+  --utah-brand-secondary-color-clay-04: #{color-swatches.$clay-04};
+  --utah-brand-secondary-color-clay-05: #{color-swatches.$clay-05};
+
+  --utah-brand-secondary-color-green-00: #{color-swatches.$green-00};
+  --utah-brand-secondary-color-green-01: #{color-swatches.$green-01};
+  --utah-brand-secondary-color-green-02: #{color-swatches.$green-02};
+  --utah-brand-secondary-color-green-03: #{color-swatches.$green-03};
+  --utah-brand-secondary-color-green-04: #{color-swatches.$green-04};
+  --utah-brand-secondary-color-green-05: #{color-swatches.$green-05};
+
+  --utah-brand-secondary-color-teal-00: #{color-swatches.$teal-00};
+  --utah-brand-secondary-color-teal-01: #{color-swatches.$teal-01};
+  --utah-brand-secondary-color-teal-02: #{color-swatches.$teal-02};
+  --utah-brand-secondary-color-teal-03: #{color-swatches.$teal-03};
+  --utah-brand-secondary-color-teal-04: #{color-swatches.$teal-04};
+  --utah-brand-secondary-color-teal-05: #{color-swatches.$teal-05};
+
+  --utah-brand-secondary-color-blue-00: #{color-swatches.$blue-00};
+  --utah-brand-secondary-color-blue-01: #{color-swatches.$blue-01};
+  --utah-brand-secondary-color-blue-02: #{color-swatches.$blue-02};
+  --utah-brand-secondary-color-blue-03: #{color-swatches.$blue-03};
+  --utah-brand-secondary-color-blue-04: #{color-swatches.$blue-04};
+  --utah-brand-secondary-color-blue-05: #{color-swatches.$blue-05};
+
+  --utah-brand-secondary-color-violet-00: #{color-swatches.$violet-00};
+  --utah-brand-secondary-color-violet-01: #{color-swatches.$violet-01};
+  --utah-brand-secondary-color-violet-02: #{color-swatches.$violet-02};
+  --utah-brand-secondary-color-violet-03: #{color-swatches.$violet-03};
+  --utah-brand-secondary-color-violet-04: #{color-swatches.$violet-04};
+  --utah-brand-secondary-color-violet-05: #{color-swatches.$violet-05};
+
+  --utah-brand-secondary-color-raspberry-00: #{color-swatches.$raspberry-00};
+  --utah-brand-secondary-color-raspberry-01: #{color-swatches.$raspberry-01};
+  --utah-brand-secondary-color-raspberry-02: #{color-swatches.$raspberry-02};
+  --utah-brand-secondary-color-raspberry-03: #{color-swatches.$raspberry-03};
+  --utah-brand-secondary-color-raspberry-04: #{color-swatches.$raspberry-04};
+  --utah-brand-secondary-color-raspberry-05: #{color-swatches.$raspberry-05};
+
+  --utah-brand-secondary-color-red-00: #{color-swatches.$red-00};
+  --utah-brand-secondary-color-red-01: #{color-swatches.$red-01};
+  --utah-brand-secondary-color-red-02: #{color-swatches.$red-02};
+  --utah-brand-secondary-color-red-03: #{color-swatches.$red-03};
+  --utah-brand-secondary-color-red-04: #{color-swatches.$red-04};
+  --utah-brand-secondary-color-red-05: #{color-swatches.$red-05};
+
+  --utah-brand-secondary-color-orange-00: #{color-swatches.$orange-00};
+  --utah-brand-secondary-color-orange-01: #{color-swatches.$orange-01};
+  --utah-brand-secondary-color-orange-02: #{color-swatches.$orange-02};
+  --utah-brand-secondary-color-orange-03: #{color-swatches.$orange-03};
+  --utah-brand-secondary-color-orange-04: #{color-swatches.$orange-04};
+  --utah-brand-secondary-color-orange-05: #{color-swatches.$orange-05};
+
+  --utah-brand-secondary-color-yellow-00: #{color-swatches.$yellow-00};
+  --utah-brand-secondary-color-yellow-01: #{color-swatches.$yellow-01};
+  --utah-brand-secondary-color-yellow-02: #{color-swatches.$yellow-02};
+  --utah-brand-secondary-color-yellow-03: #{color-swatches.$yellow-03};
+  --utah-brand-secondary-color-yellow-04: #{color-swatches.$yellow-04};
+  --utah-brand-secondary-color-yellow-05: #{color-swatches.$yellow-05};
+  /* ######## --------------------------------------------- ######## */
+}
+
 #{class-vars.$base-class} {
   /* color */
   /* ######## Pick these colors to match your desired style ######## */
-  --primary-color: #{color-swatches.$red-rock-05};
-  --primary-color-dark: #{color-swatches.$red-rock-01};
-  --primary-color-light: #{color-swatches.$red-rock-17};
-  --gray-on-primary-color: #474747;
+  --primary-color: var(--utah-brand-primary-color-blue-medium);
+  --primary-color-dark: var(--utah-brand-primary-color-blue-dark);
+  --primary-color-light: var(--utah-brand-primary-color-blue-light);
+  --gray-on-primary-color: white;
 
-  --secondary-color: #{color-swatches.$celadon-blue-05};
-  --secondary-color-dark: #{color-swatches.$celadon-blue-00};
-  --secondary-color-light: #{color-swatches.$celadon-blue-17};
+  --secondary-color: var(--utah-brand-secondary-color-teal-03);
+  --secondary-color-dark: var(--utah-brand-secondary-color-teal-05);
+  --secondary-color-light: var(--utah-brand-secondary-color-teal-00);
   --gray-on-secondary-color: #474747;
 
-  --accent-color: #{color-swatches.$electric-yellow-05};
-  --accent-color-dark: #{color-swatches.$electric-yellow-00};
-  --accent-color-light: #{color-swatches.$electric-yellow-17};
+  --accent-color: var(--utah-brand-primary-color-gold-light);
+  --accent-color-dark: var(--utah-brand-primary-color-gold-medium);
+  --accent-color-light: var(--utah-brand-secondary-color-yellow-00);
   --gray-on-accent-color: #474747;
 
   --form-ele-color: #{color-swatches.$azul-05};
   --form-ele-color-light: #{color-swatches.$azul-12};
+  --form-ele-color-dark: #{color-swatches.$azul-02};
   --form-ele-disabled-color: #{color-swatches.$neutral-gray-10};
   --form-ele-placeholder-color: #757575;
 
-  /* ######## --------------------------------------------- ######## */
+  --header-primary-color: var(--primary-color);
+  --header-primary-color-dark: var(--primary-color-dark);
+  --header-title-color: var(--utah-brand-primary-color-blue-dark);
+  --notifications-drawer-color: var(--form-ele-color);
+  --notifications-drawer-color-dark: var(--form-ele-color-dark);
 
   --gray-color: #{color-swatches.$neutral-gray-04};
   --gray-medium-color: #{color-swatches.$neutral-gray-06};

@@ -1,6 +1,6 @@
 .utds {
   &-header {
-    padding: var(--spacing-s) var(--spacing-l);
+    padding: var(--spacing-s) var(--spacing);
     border-bottom: 1px solid #d7d7d7 !important;
     width: 100%;
     justify-content: flex-start;
@@ -18,6 +18,17 @@
 
     &--small {
       height: 60px;
+    }
+
+    & + .main-menu__outer {
+      .menu-item a[href].menu-item--selected,
+      .vertical-menu a[href].vertical-menu__link-title:hover,
+      .vertical-menu button.vertical-menu__button-title:hover {
+        color: var(--header-primary-color);
+      }
+      .horizontal-menu > ul li a[href].menu-item--selected + span.menu-chiclet::after {
+        background-color: var(--header-primary-color);
+      }
     }
   }
 }

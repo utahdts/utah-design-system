@@ -4,6 +4,54 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [5.0.0] 03/31/2026
+## Added
+- Notifications: The header now features notifications powered by MyUtah.
+  - For Notifications to function you must turn on both of the following settings:
+      ```
+      utahId: true,
+      notifications: true,
+      ```
+  - Notifications are for public facing MyLogin accounts. It doesn't work with state employee accounts.
+- The Utah Header has been reconfigured to accommodate the new Utah branding.
+  - "Utah, an official site" graphic has been replaced by a gray bar above the header which features "An official website of the state of Utah. <u>Here is how you know</u>"
+  - Inside the official website popup is featured the new state brand.
+- The Utah Footer now feature the new Utah brand.
+- The Utah Header provides access to the new `UT Industry` font.
+  - Use the css variable to start using the font. `--ut-industry-font-family`
+    ```
+    h1, h2, h3, h4 {
+      font-family: var(--ut-industry-font-family);
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+    }
+    ```
+- The Utah Header now uses the follow css variables to better support the new Utah brand.
+  ```
+    --header-primary-color
+    --header-primary-color-dark
+  ```
+
+## Breaking Changes
+- Utah ID Sign In button now uses mylogin.utah.gov (identity cloud) instead of id.utah.gov.
+  - User Synchronization:
+    - To use the notification system, applications currently using a legacy identity provider like id.utah.gov must migrate to the new identity cloud at mylogin.utah.gov.
+    - To avoid user confusion, if you are manually displaying user information in the Utah Header, do not use the Notifications component unless you are integrating with mylogin.utah.gov. This is because the user account and notifications will not display consistent user information otherwise.
+  - Account Access: State employees cannot receive notifications via @utah.gov accounts; a personal MyLogin account is required for this public-facing service.
+- The header text title font has transitioned to `UT Industry`. Sites utilizing only a graphic for their header will not be impacted.
+
+## Website Changes
+- Design System color picker update for Utah brand colors
+  - You can also choose colors for the Utah Header now
+- Fonts and Typography updates for UT Industry
+- Color Guidelines updated with brand primary and secondary colors, including css variables each color.
+- Updated accessibility documentation
+  - Video/audio auto play information added to Accessibility Guidelines
+  - Accessibility widgets information added to Accessibility Guidelines
+
+
+
 # [4.3.0] 01/22/2026
 ## Added
 - Header: Additional accessibility support for the main menu and the mobile main menu
@@ -59,6 +107,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Website
 - Fixed tab order for component sandbox examples
+
+# [5.0.0] 08/27/2025
+## Added
+- Utah Header Notifications powered by MyUtah. (my.utah.gov)
 
 # [4.1.0] 08/21/2025
 ## Added

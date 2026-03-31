@@ -73,7 +73,6 @@ export function expectHeaderComponentsExistSanityCheck() {
   expect(domConstants.LOGO_OFFICIAL_CLOSE_BUTTON).toBe('utds-official-website-popup__close-button');
   expect(domConstants.LOGO_OFFICIAL_WRAPPER).toBe('utds-official-website-popup__wrapper');
   expect(domConstants.LOGO_SVG).toBe('utah-logo-svg');
-  expect(domConstants.LOGO_VERT_LINE).toBe('utds-logo-vert-line');
   expect(domConstants.MAIN_MENU).toBe('main-menu__wrapper');
   expect(domConstants.MAIN_MENU__HAMBURGER).toBe('main-menu__hamburger');
   expect(domConstants.MAIN_MENU__HAMBURGER_ID).toBe('utds-main-menu__hamburger');

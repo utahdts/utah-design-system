@@ -44,7 +44,7 @@ export function authChangedEventHandler(newUtahIdData) {
         utahIDText.classList.add(domConstants.VISUALLY_HIDDEN);
         utahIdButton.appendChild(utahIDText);
         // visible text in the button
-        utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.first || ''}`));
+        utahIdButton.appendChild(document.createTextNode(`Hello, ${utahIdData.userInfo.name || utahIdData.userInfo.first || ''}`));
       } else {
         utahIdButton.appendChild(document.createTextNode('UtahID Sign In'));
       }
@@ -137,6 +137,7 @@ export function renderUtahIdMenu(shouldAddMenuTitle) {
   const returnMenu = shouldAddMenuTitle ? renderMenuWithTitle(utahIdPopupMenu, 'Utah ID Menu') : utahIdPopupMenu;
 
   returnMenu.setAttribute('aria-label', 'Utah Id Menu');
+  returnMenu.setAttribute('role', 'menu');
   returnMenu.setAttribute('id', uuidv4());
   return returnMenu;
 }
@@ -153,6 +154,7 @@ export function renderUtahIdForDesktop() {
 
   const utahIdMenu = renderUtahIdMenu(false);
   const utahIdPopupMenu = renderPopup(utahIdButton);
+
   const popupContentWrapper = /** @type {HTMLElement} */(utahIdPopupMenu.querySelector(getCssClassSelector(domConstants.POPUP_CONTENT_WRAPPER)));
   if (!popupContentWrapper) {
     throw new Error('renderUtahIdForDesktop: contentWrapper not found');

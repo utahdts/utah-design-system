@@ -4,6 +4,7 @@ import { getUtahHeaderSettings } from "../../settings/getUtahHeaderSettings";
 
 /** @typedef {import ('@utahdts/utah-design-system-header').UserInfo} UserInfo */
 
+
 /**
  * by default, go to utah id to log in
  * @param {MouseEvent | UIEvent} e
@@ -22,7 +23,6 @@ function defaultOnSignIn(e) {
 function getSignInFn() {
   /** @type {((e: MouseEvent | UIEvent) => void) | null} */
   let onSignInFn;
-
   const settings = getUtahHeaderSettings();
   if (settings.utahId === false) {
     onSignInFn = null;
@@ -40,18 +40,25 @@ function getSignInFn() {
  * Get the current user info based on whether the header's utahId user is controlled by the app.
  * @returns {UserInfo | null}
  */
-function getUtahIdUserInfo() {
+export function getUtahIdUserInfo() {
   const currentUtahIdData = getCurrentUtahIdData();
   const settings = getUtahHeaderSettings();
 
-  const isUserControlledByApp = (
-    settings.utahId !== false
-    && settings.utahId !== true
-    && !!settings.utahId?.currentUser
-  );
+  /** @type { UserInfo | null} */
+  let userToShowInHeader;
 
-  const appControlledUser = typeof settings.utahId === 'object' ? settings.utahId.currentUser ?? null : currentUtahIdData.userInfo;
-  return isUserControlledByApp ? appControlledUser : currentUtahIdData.userInfo;
+  if (settings.utahId === true) {
+    // header is loading the user
+    userToShowInHeader = currentUtahIdData.userInfo;
+  } else if (settings.utahId === false) {
+    // there is no user ever to display
+    userToShowInHeader = null;
+  } else {
+    // app/website is going to tell the header what to display
+    userToShowInHeader = settings.utahId?.currentUser ?? null;
+  }
+
+  return userToShowInHeader;
 }
 
 /**

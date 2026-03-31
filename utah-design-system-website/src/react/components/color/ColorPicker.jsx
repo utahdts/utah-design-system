@@ -23,6 +23,7 @@ import { IconsWebsite } from '../websiteContent/IconsWebsite';
  * @param {string} props.label
  * @param {(newColor: string) => void} props.onChange
  * @param {import('react').MouseEventHandler<HTMLButtonElement>} props.onClick
+ * @param {string} [props.textColorValue] Overwrites the text color
  * @param {string} props.title
  * @param {string} props.value
  * @returns {import('react').JSX.Element}
@@ -36,12 +37,13 @@ export function ColorPicker({
   label,
   onChange,
   onClick,
+  textColorValue,
   title,
 }) {
   const [isColorPickerPopupVisible, setIsColorPickerPopupVisible] = useImmer(false);
   const colorPickerIconRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const isLight = isLightColor(value);
-  const textColor = isLight ? (colorGray || '#474747') : '#ffffff';
+  const textColor = textColorValue || isLight ? (colorGray || '#474747') : '#ffffff';
   const tinyColorValue = tinycolor(value).toHexString();
 
   const { setAppState } = useAppContext();

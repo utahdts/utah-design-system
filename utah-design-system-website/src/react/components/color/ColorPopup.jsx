@@ -262,6 +262,7 @@ export function ColorPopup({ onClose }) {
                         label="Primary: Dark"
                         onChange={(newColor) => setColor(newColor)}
                         onClick={() => setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK; })}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR_DARK]}
                         title="Dark"
                         value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]}
                       />
@@ -274,6 +275,7 @@ export function ColorPopup({ onClose }) {
                         onClick={() => (
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT; })
                         )}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR_LIGHT]}
                         title="Light"
                         value={cssState[CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]}
                       />
@@ -304,6 +306,7 @@ export function ColorPopup({ onClose }) {
                         onClick={() => (
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK; })
                         )}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_DARK]}
                         title="Dark"
                         value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]}
                       />
@@ -317,6 +320,7 @@ export function ColorPopup({ onClose }) {
                         onClick={() => (
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT; })
                         )}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_LIGHT]}
                         title="Light"
                         value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]}
                       />
@@ -347,6 +351,7 @@ export function ColorPopup({ onClose }) {
                         onClick={() => (
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK; })
                         )}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR_DARK]}
                         title="Dark"
                         value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]}
                       />
@@ -360,8 +365,42 @@ export function ColorPopup({ onClose }) {
                         onClick={() => (
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT; })
                         )}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR_LIGHT]}
                         title="Light"
                         value={cssState[CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="color-pickers__group">
+                    <ColorPicker
+                      className="header-color"
+                      id="header-color"
+                      isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR}
+                      label="Header: Prime"
+                      onChange={(newColor) => setColor(newColor)}
+                      onClick={() => (
+                        setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR; })
+                      )}
+                      colorGray={'#f1f1f1'}
+                      textColorValue={'#f1f1f1'}
+                      title="Header"
+                      value={cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR]}
+                    />
+                    <div className="color-pickers__light-dark">
+                      <ColorPicker
+                        className="header-color-dark"
+                        id="header-color-dark"
+                        isSelected={cssState.selectedColorPicker === CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK}
+                        label="Header: Dark"
+                        onChange={(newColor) => setColor(newColor)}
+                        onClick={() => (
+                          setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK; })
+                        )}
+                        colorGray={'#f1f1f1'}
+                        textColorValue={'#f1f1f1'}
+                        title="Dark"
+                        value={cssState[CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK]}
                       />
                     </div>
                   </div>
@@ -375,7 +414,7 @@ export function ColorPopup({ onClose }) {
                       <Tab id="tab-group__instructions">Instructions</Tab>
                     </TabList>
                     <TabPanels>
-                      <TabPanel tabId="tab-group__swatches">
+                      <TabPanel tabId="tab-group__swatches" className="swatches">
                         {
                           Object.values(colors).map((color) => (
                             <SwatchList

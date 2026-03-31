@@ -1,20 +1,30 @@
 import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
-import { colors, colorsIndexes } from '../../util/color/colors';
+import { colors } from '../../util/color/colors';
 
 export const cssContextDefaultColors = {
-  // default --primary-color for website
-  [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.CELTIC.swatches[colorsIndexes.primeIndex],
-  [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.CELTIC.swatches[0],
-  [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.CELTIC.swatches[17],
-  [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+  // default colors for website
+  [CSS_VARIABLES_KEYS.PRIMARY_COLOR]: colors.BLUE.swatches[3],
+  [CSS_VARIABLES_KEYS.PRIMARY_COLOR_DARK]: colors.BLUE.swatches[5],
+  [CSS_VARIABLES_KEYS.PRIMARY_COLOR_LIGHT]: colors.BLUE.swatches[0],
+  [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[0],
+  [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR_DARK]: colors.NEUTRAL_GRAY.swatches[0],
+  [CSS_VARIABLES_KEYS.GRAY_ON_PRIMARY_COLOR_LIGHT]: colors.NEUTRAL_GRAY.swatches[0],
 
-  [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.CELEDON_BLUE.swatches[colorsIndexes.primeIndex],
-  [CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]: colors.CELEDON_BLUE.swatches[1],
-  [CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]: colors.CELEDON_BLUE.swatches[17],
-  [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+  [CSS_VARIABLES_KEYS.SECONDARY_COLOR]: colors.TEAL.swatches[3],
+  [CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]: colors.TEAL.swatches[5],
+  [CSS_VARIABLES_KEYS.SECONDARY_COLOR_LIGHT]: colors.TEAL.swatches[0],
+  [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR]: colors.NEUTRAL_GRAY.swatches[0],
+  [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_DARK]: colors.NEUTRAL_GRAY.swatches[0],
+  [CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_LIGHT]: colors.NEUTRAL_GRAY.swatches[0],
 
-  [CSS_VARIABLES_KEYS.ACCENT_COLOR]: colors.ELECTRIC_YELLOW.swatches[colorsIndexes.primeIndex],
-  [CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]: colors.ELECTRIC_YELLOW.swatches[1],
-  [CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]: colors.ELECTRIC_YELLOW.swatches[17],
-  [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: colors.NEUTRAL_GRAY.swatches[colorsIndexes.primeIndex],
+  [CSS_VARIABLES_KEYS.ACCENT_COLOR]: colors.PRIMARY_BRAND.swatches[2],
+  [CSS_VARIABLES_KEYS.ACCENT_COLOR_DARK]: colors.PRIMARY_BRAND.swatches[1],
+  [CSS_VARIABLES_KEYS.ACCENT_COLOR_LIGHT]: colors.YELLOW.swatches[0],
+  [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR]: colors.NEUTRAL_GRAY.swatches[5],
+  [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR_DARK]: colors.NEUTRAL_GRAY.swatches[5],
+  [CSS_VARIABLES_KEYS.GRAY_ON_ACCENT_COLOR_LIGHT]: colors.NEUTRAL_GRAY.swatches[5],
+
+  [CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR]: colors.BLUE.swatches[3],
+  [CSS_VARIABLES_KEYS.HEADER_PRIMARY_COLOR_DARK]: colors.BLUE.swatches[5],
+  [CSS_VARIABLES_KEYS.HEADER_GRAY_ON_PRIMARY_COLOR]: colors.NEUTRAL_GRAY.swatches[0],
 };

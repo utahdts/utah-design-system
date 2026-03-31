@@ -51,6 +51,16 @@
       height: 60px;
     }
   }
+  &.col-3 > div {
+    width: calc(33% - var(--spacing));
+  }
+}
+.color-swatch {
+  width: 100px;
+  height: 1.5rem;
+}
+.color-swatch-names {
+  line-height: 1.7;
 }
 
 

@@ -6,12 +6,14 @@ import { documentationTypes } from '../../../../enums/documentationTypes';
 
 /**
  * @param {object} props
+ * @param {boolean} [props.allowScrollOverflow]
+ * @param {string} [props.ariaLabelledBy]
  * @param {import('react').ReactNode} props.children
  * @param {DocumentationTypes} props.type
  * @param {string} [props.className]
  * @returns {import('react').JSX.Element}
  */
-export function SettingsDocumentation({ children, className, type }) {
+export function SettingsDocumentation({ children, className, type, allowScrollOverflow , ariaLabelledBy}) {
   const renderHeader = useCallback(
     () => {
       let retVal = null;
@@ -44,7 +46,7 @@ export function SettingsDocumentation({ children, className, type }) {
 
   return (
     <div className={joinClassNames('documentation-content--small-text', className)}>
-      <TableWrapper className="full-width">
+      <TableWrapper className="full-width" allowScrollOverflow={allowScrollOverflow} ariaLabelledBy={ariaLabelledBy}>
         <Table className="table--lines-x table--full-width">
           <TableHead>
             <TableHeadRow>

@@ -5,6 +5,9 @@
   &.main-menu__outer {
     position: relative;
     z-index: 2500;
+    &:hover {
+      z-index: 4000;
+    }
   }
   .main-menu {
     &__wrapper {
@@ -78,7 +81,7 @@
               content: "";
               width: 100%;
               height: var(--spacing-2xs);
-              background: var(--primary-color);
+              background: var(--header-primary-color);
               display: block;
               position: absolute;
               top: 0;
