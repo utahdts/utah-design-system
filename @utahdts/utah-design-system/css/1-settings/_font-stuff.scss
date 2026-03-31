@@ -7,9 +7,10 @@ Font size variables
 @font-face {
   font-family: "UT Industry";
   src:
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf") format("truetype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Regular.woff2") format("woff2"),
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Regular.woff") format("woff"),
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Regular.woff2") format("woff2");
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/otf/UTIndustry-Regular.otf") format("opentype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: block;
@@ -18,9 +19,10 @@ Font size variables
 @font-face {
   font-family: "UT Industry";
   src:
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Medium.ttf") format("truetype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Medium.woff2") format("woff2"),
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Medium.woff") format("woff"),
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Medium.woff2") format("woff2");
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/otf/UTIndustry-Medium.otf") format("opentype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: block;
@@ -29,9 +31,10 @@ Font size variables
 @font-face {
   font-family: "UT Industry";
   src:
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Bold.ttf") format("truetype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Bold.woff2") format("woff2"),
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Bold.woff") format("woff"),
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Bold.woff2") format("woff2");
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/otf/UTIndustry-Bold.otf") format("opentype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: block;
@@ -40,9 +43,10 @@ Font size variables
 @font-face {
   font-family: "UT Industry";
   src:
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Heavy.ttf") format("truetype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Heavy.woff2") format("woff2"),
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Heavy.woff") format("woff"),
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Heavy.woff2") format("woff2");
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/otf/UTIndustry-Heavy.otf") format("opentype"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Heavy.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: block;
