@@ -1159,8 +1159,8 @@ export function UtahHeaderDocumentation() {
 
       <h4 id="section-config-actionItems" className="mt-spacing">actionItems</h4>
       <div>
-        <code>actionItems</code> give your users notifications and global app utility. Use the main menu for navigation items and
-        action items for notifications, alerts, and global considerations.
+        <code>actionItems</code> give your users global app utility. Use the main menu for navigation items and
+        action items for help, and global considerations.
         <PreCodeForCodeString
           allowScrollOverflow
           className="gray-block mt-spacing"
@@ -1270,6 +1270,19 @@ export function UtahHeaderDocumentation() {
           </TableRow>
         </SettingsDocumentation>
       </div>
+      <p className="mb-auto">
+        Please note: State employees cannot receive notifications via @utah.gov accounts; a personal
+        MyLogin account is required for this public-facing service.
+        You must also configure UtahID to receive notifications:
+      </p>
+      <PreCodeForCodeString
+        allowScrollOverflow
+        className="gray-block mt-spacing"
+        codeRaw={`
+          utahId: true,
+          notifications: true
+        `}
+      />
       <br />
 
       <h3 id="section-utahheader-footer" className="mb-spacing">Footer</h3>
