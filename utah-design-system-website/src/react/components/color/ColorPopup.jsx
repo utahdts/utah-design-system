@@ -306,7 +306,7 @@ export function ColorPopup({ onClose }) {
                         onClick={() => (
                           setCssState((draftCssState) => { draftCssState.selectedColorPicker = CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK; })
                         )}
-                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_LIGHT]}
+                        colorGray={cssState[CSS_VARIABLES_KEYS.GRAY_ON_SECONDARY_COLOR_DARK]}
                         title="Dark"
                         value={cssState[CSS_VARIABLES_KEYS.SECONDARY_COLOR_DARK]}
                       />
