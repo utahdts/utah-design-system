@@ -22,6 +22,7 @@ export const domConstants = {
 
   // IDs
   CSS_HEADER_MEDIA_TAG_ID: 'cssHeaderMediaTag',
+  SSO_HEADER_SCRIPT_TAG_ID: 'ssoHeaderScriptTag',
 
   // Modifiers
   IS_CLOSED: 'is-closed',
@@ -59,7 +60,6 @@ export const domConstants = {
   LOGO_OFFICIAL_CLOSE_BUTTON: 'utds-official-website-popup__close-button',
   LOGO_OFFICIAL_WRAPPER: 'utds-official-website-popup__wrapper',
   LOGO_SVG: 'utah-logo-svg',
-  LOGO_VERT_LINE: 'utds-logo-vert-line',
 
   MAIN_MENU: 'main-menu__wrapper',
   MAIN_MENU__HAMBURGER: 'main-menu__hamburger',
@@ -101,6 +101,10 @@ export const domConstants = {
   MOBILE_MENU_ACTON_BAR__HOME_ID: 'utds-header-mobile-menu_action-bar__home',
   MOBILE_MENU_ACTON_BAR__PROFILE_ID: 'utds-header-mobile-menu_action-bar__profile',
   MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER: 'utds-header-mobile-menu__action-item',
+
+  OFFICIAL_BANNER: 'utds-official-website__wrapper',
+  OFFICIAL_BUTTON: 'utds-official-website__button',
+  OFFICIAL_WRAPPER: 'utds-official-website-popup__wrapper',
 
   VERTICAL_MENU: 'vertical-menu',
   VERTICAL_MENU__BUTTON_TITLE: 'vertical-menu__button-title',
@@ -151,4 +155,41 @@ export const domConstants = {
 
   UTAH_ID: 'utds-utah-id-wrapper',
   UTAH_ID__BUTTON: 'utds-utah-id__button',
+
+  NOTIFICATIONS__IFRAME: 'utds-notifications-iframe',
+  NOTIFICATIONS__CACHE_KEY: 'utds-notifications-cache',
+
+  NOTIFICATIONS__DRAWER_ID: 'utds-notifications__drawer',
+  NOTIFICATIONS__DRAWER_HEADER_BUTTONS: 'utds-notifications-drawer__header-buttons',
+  NOTIFICATIONS__DRAWER_MARK_ALL_READ_ID: 'utds-notifications__mark-all-read',
+  NOTIFICATIONS__DRAWER_VIEW_ALL_ID: 'utds-notifications__view-all',
+
+  NOTIFICATIONS__DRAWER_CLOSE_BUTTON: 'drawer__close-button',
+  NOTIFICATIONS__DRAWER_BACKDROP: 'drawer__backdrop',
+  NOTIFICATIONS__DRAWER_INNER: 'drawer__inner',
+  NOTIFICATIONS__DRAWER_TITLE: 'drawer__title',
+  NOTIFICATIONS__DRAWER_END_FOCUS: 'drawer__end-focus',
+
+  NOTIFICATIONS__LIST: 'utds-notifications__list',
+  NOTIFICATIONS__LOAD_MORE: 'load-more-notifications',
+
+  NOTIFY__LIST_ITEM: 'utds-notify-list-item',
+  NOTIFY__LIST_ITEM_IS_READ: 'utds-notify-list-item--is-read',
+  NOTIFY__LIST_ITEM_STATUS: 'utds-notify-list-item__status',
+  NOTIFY__LIST_ITEM_STATUS_IS_READ: 'utds-notify-list-item__status--is-read',
+  NOTIFY__LIST_ITEM_ICON: 'utds-notify-list-item__icon',
+  NOTIFY__LIST_ITEM_TITLE: 'utds-notify-list-item__title',
+  NOTIFY__LIST_ITEM_TIME: 'utds-notify-list-item__time',
+  NOTIFY__LIST_ITEM_BRAND: 'utds-notify-list-item__brand',
+  NOTIFY__LIST_ITEM_MESSAGE: 'utds-notify-list-item__message',
+  NOTIFY__LIST_ITEM_LINK: 'utds-notify-list-item__link',
+  NOTIFY__LIST_ITEM_LINK_TEXT: 'utds-notify-list-item__link-text',
+  NOTIFY__BUSY_CARD: 'utds-notify-list-item--busy-card',
+
+  NOTIFICATIONS__ACTION_ITEM: 'utds-header-action-item--notifications',
+  NOTIFICATIONS__ACTION_ITEM_BADGE: 'utds-badge--notifications',
+
+  SPINNER__ANIMATION: 'spinner__animation',
+  SPINNER__VALUE: 'spinner__value',
+
 };

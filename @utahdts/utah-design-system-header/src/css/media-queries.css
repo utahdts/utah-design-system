@@ -17,6 +17,8 @@
   .utds-header {
     height: 60px;
     padding: var(--spacing-xs) var(--spacing);
+    display: flex;
+    justify-content: space-between;
   }
   .utds-title-wrapper {
     font-size: var(--font-size-xl);
@@ -60,10 +62,6 @@
     width: max-content;
   }
 
-  .utah-design-system .utds-official-website-popup__content {
-    flex-wrap: wrap;
-    gap: var(--spacing-l);
-  }
   .utah-design-system .utds-official-website-popup__col {
     width: 100%;
   }
@@ -75,6 +73,9 @@
 
   .color-example {
     flex-direction: column;
+    &.col-3 > div {
+      width: 100%;
+    }
   }
   .color-example > div:not(:last-child) {
     margin-bottom: var(--spacing-l);

@@ -12,7 +12,7 @@
     &__code-editor {
       font-family: var(--fixed-width-font-family);
       font-weight: var(--font-weight-normal);
-      font-size: var(--font-size-2xs);
+      font-size: var(--font-size-xs);
       width: 100%;
       min-height: 615px;
       resize: none;
@@ -36,7 +36,7 @@
       position: absolute;
       bottom: 0;
       left: calc(0 - var(--spacing));
-      font-size: var(--font-size-2xs);
+      font-size: var(--font-size-xs);
       background: var(--gray-border);
       width: 100%;
       text-align: center;

@@ -26,7 +26,7 @@
       display: inline-block;
       height: 100%;
       overflow-y: auto;
-      padding: var(--spacing);
+      padding: 0;
 
       &.drawer--right {
         animation: 200ms ease-in-out 100ms right-in both;

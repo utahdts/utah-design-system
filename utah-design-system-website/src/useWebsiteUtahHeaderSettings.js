@@ -1,7 +1,7 @@
 import { sizes } from '@utahdts/utah-design-system-header';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logoPng from './static/images/designSystemCircleGray.png';
+import logoPng from './static/images/Utah-Industry-Icon-Small@2x.png';
 
 /** @typedef {import('@utahdts/utah-design-system-header').SettingsInput} SettingsInput */
 
@@ -28,6 +28,7 @@ export function useWebsiteUtahHeaderSettings() {
         tabletPortrait: 768,
         tabletLandscape: 1024,
       },
+      notifications: true,
       showTitle: true,
       size: sizes.MEDIUM,
       title: 'Utah Design System',
@@ -38,6 +39,14 @@ export function useWebsiteUtahHeaderSettings() {
       },
       titleUrl: '/',
       utahId: true,
+      // utahId: {
+      //   currentUser: {
+      //     authenticated: true,
+      //     first: 'Bob',
+      //   },
+      //   onProfile: (e) => console.log(e),
+      //   onSignOut: (e) => console.log(e),
+      // },
       skipLinkUrl: '#main-content',
     }),
     []

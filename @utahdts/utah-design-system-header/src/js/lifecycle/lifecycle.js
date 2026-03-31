@@ -16,11 +16,14 @@ import MobileMenuWrapper from '../renderables/mobile/html/MobileMenuWrapper.html
 import { renderMobileMenuHomeMenu } from '../renderables/mobile/renderMobileMenuHomeMenu';
 import { hideMobileMenu } from '../renderables/mobile/util/showHideHamburgerElements';
 import { SkipLink } from '../renderables/skipLink/SkipLink';
-import { renderOfficialWebsite } from '../renderables/utahLogo/renderOfficialWebsite';
 import { getUtahHeaderSettings } from '../settings/getUtahHeaderSettings';
-import { fetchUtahIdUserDataAsync } from '../utahId/utahIdData';
+import { handleMyLoginInfo } from '../utahId/utahIdData';
 import { loadGlobalEvents, unloadGlobalEvents } from './globalEvents';
 import { hookupMobileActionItemKeyboarding } from './hookupMobileActionItemKeyboarding';
+import { renderOfficialBanner } from '../renderables/officialBanner/renderOfficialBanner';
+import { showDebugMessage } from '../renderables/notifications/showDebugMessage';
+
+/** @typedef {import('src/@types/jsDocTypes.d').UtahIdProfile} UtahIdProfile */
 
 function loadCssSettings() {
   // see the file `media-queries.css` for where these placeholders are used
@@ -35,6 +38,39 @@ function loadCssSettings() {
   }
   cssHeaderMediaTag.innerHTML = mediaQueriesCssReplaced;
   document.body.appendChild(cssHeaderMediaTag);
+}
+
+/**
+ * @param {Event} e
+ */
+function handleMyLoginEvent(e) {
+  /** @type {{ currentValues: { utahid: UtahIdProfile } }} */
+  const eventData = /** @type {any} */ (e);
+  const userInfo = eventData.currentValues.utahid;
+  showDebugMessage('********** handleMyLoginEvent:', userInfo);
+  handleMyLoginInfo(userInfo);
+}
+
+function loadSSOUserInfo() {
+  const settings = getUtahHeaderSettings();
+  let ssoHeaderScriptTag = document.getElementById(domConstants.SSO_HEADER_SCRIPT_TAG_ID);
+
+  // @ts-expect-error window doesn't know what's in it
+  showDebugMessage('isSetUtahHeaderSettingsCalled', window['@utahdts/utah-design-system-header']?.isSetUtahHeaderSettingsCalled);
+  showDebugMessage('utah header settings', JSON.parse(JSON.stringify(settings)));
+  const currentUser = (typeof settings.utahId === 'object' ? settings.utahId?.currentUser : null) ?? null;
+  if (!ssoHeaderScriptTag && !currentUser) {
+    showDebugMessage('going to create script for ssouserinfo.js iframe');
+    ssoHeaderScriptTag = document.createElement('script');
+    ssoHeaderScriptTag.id = domConstants.SSO_HEADER_SCRIPT_TAG_ID;
+    ssoHeaderScriptTag.setAttribute('src', 'https://mylogin.utah.gov/ssouserinfo/ssouserinfo.js');
+    document.head.appendChild(ssoHeaderScriptTag);
+    document.addEventListener('ssoUserInfo.pollComplete', handleMyLoginEvent);
+    document.addEventListener('ssoUserInfo.valuesChanged', handleMyLoginEvent);
+  } else if (currentUser) {
+    showDebugMessage('handling my login info immediately!');
+    handleMyLoginInfo();
+  }
 }
 
 /**
@@ -85,8 +121,8 @@ export function loadHeader() {
     const domTarget = determineTargetElementForHeader();
     domTarget.insertBefore(header, domTarget.firstChild);
 
-    const officialWebsite = renderOfficialWebsite();
-    header.after(officialWebsite);
+    const officialBanner = renderOfficialBanner();
+    header.before(officialBanner);
 
     // Load the skip link
     const skipLink = SkipLink();
@@ -96,7 +132,7 @@ export function loadHeader() {
     }
 
     const mobileMenuWrapper = renderDOMSingle(MobileMenuWrapper);
-    officialWebsite.after(mobileMenuWrapper);
+    header.after(mobileMenuWrapper);
     mobileMenuWrapper.onkeyup = (e) => {
       if (e.code === 'Escape' || e.key === 'Escape') {
         e.preventDefault();
@@ -108,7 +144,7 @@ export function loadHeader() {
     // load the main menu
     const { mainMenuWrapper, utahIdPopup } = renderMainMenu();
     if (mainMenuWrapper) {
-      officialWebsite.after(mainMenuWrapper);
+      header.after(mainMenuWrapper);
     }
 
     // hide mobile menu on background trigger
@@ -142,15 +178,24 @@ export function loadHeader() {
 
     loadCssSettings();
 
-    fetchUtahIdUserDataAsync()
-      // eslint-disable-next-line no-console
-      .catch((e) => console.error(e));
+    // This begins the chain of setting up the ssoUserInfo and Notifications
+    loadSSOUserInfo();
+
+    //fetchUtahIdUserDataAsync().catch((e) => console.error(e));
+
+    const settings = getUtahHeaderSettings();
+
+    // We manually do a poll once the library is loaded if notifications is turned on
+    // This will trigger notifications to get information
+    if (settings.notifications) {
+      // @ts-expect-error because ¯\_(ツ)_/¯
+      window["ssouserinfo"]?.triggerPoll();
+    }
 
     // UDS-564
     // there are four parts to deciding the state of the main menu bar: main menu, search, utahId, action items
     // there are certain scenarios where the main menu bar is not shown
     // the following removes the bar if any of these scenarios occur
-    const settings = getUtahHeaderSettings();
     if (
       (!settings.mainMenu && !settings.actionItems && settings.utahId === false && !settings.onSearch)
       || (!settings.mainMenu && !settings.actionItems && settings.utahId === false && settings.onSearch)
@@ -172,10 +217,11 @@ export function loadHeader() {
 }
 
 /**
- * @param {boolean} shouldTriggerUnloadEvent if removing to readd, then the event shouldn't fire
+ * @param {boolean} shouldTriggerUnloadEvent if removing to read, then the event shouldn't fire
  */
 export function removeHeader(shouldTriggerUnloadEvent) {
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.SKIP_LINK_WRAPPER]))?.remove();
+  document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.OFFICIAL_BANNER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.HEADER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MAIN_MENU__OUTER]))?.remove();
   document.querySelector(getCssClassSelector([domConstants.UTAH_DESIGN_SYSTEM, domConstants.MOBILE_MENU]))?.remove();

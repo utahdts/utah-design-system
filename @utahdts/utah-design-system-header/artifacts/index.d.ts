@@ -110,6 +110,7 @@ declare module "@utahdts/utah-design-system-header" {
     env?: string | undefined;
     first: string | null | undefined;
     id?: string | null | undefined;
+    isPublic?: string | null | undefined;
     last?: string | null | undefined;
     mail?: string[] | null | undefined;
     middle?: string | null | undefined;
@@ -129,6 +130,7 @@ declare module "@utahdts/utah-design-system-header" {
     onSignIn?: ((arg0: UIEvent) => void | undefined) | undefined;
     onSignOut?: ((arg0: UIEvent) => void | undefined) | undefined;
     menuItems?: MenuItem[] | undefined;
+    notifications?: boolean | undefined;
   };
   export type Logo = {
     element?: HTMLElement | (() => HTMLElement) | undefined;
@@ -158,7 +160,7 @@ declare module "@utahdts/utah-design-system-header" {
     title: string;
     titleFunction?: EventAction | undefined;
     titleUrl?: string | undefined;
-    utahId?: boolean | UtahIDSettings | undefined;
+    utahId?: UtahIDSettings | boolean | undefined;
   };
   export type childrenMenuTypes = ChildrenMenuTypes;
   export namespace childrenMenuTypes {

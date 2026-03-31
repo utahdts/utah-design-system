@@ -217,7 +217,7 @@ export function DemoContent() {
         <div className="permits__content content-width m-auto p-spacing-xl">
           <div className="flex">
             <div className="flex-1">
-              <h2 className="mb-spacing">Order a permit</h2>
+              <h2 className="mb-spacing">Order a Permit</h2>
               <p>
                 Certain areas of Arches National Park require a reservation to manage visitor impact and
                 preserve the natural environment. Please fill out the form below to check availability.
@@ -360,6 +360,7 @@ export function DemoContent() {
             className="mb-spacing-l"
             headerClassName="primary-color-background white-color text-on-primary-color"
             headerContent="Is Arches National Park open all year?"
+            headingLevel={3}
           >
             <p className="my-auto">
               Yes, Arches National Park is open all year, offering visitors the chance to explore its stunning landscapes in every season.
@@ -371,6 +372,7 @@ export function DemoContent() {
             className="mb-spacing-l"
             headerClassName="button button--secondary-color button--solid"
             headerContent="What are the other National Parks in Utah?"
+            headingLevel={3}
           >
             <p className="my-auto">
               Utah is home to five stunning national parks, often referred to as the &quot;Mighty 5.&quot; These include:

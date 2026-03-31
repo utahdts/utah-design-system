@@ -2,6 +2,7 @@ import { domConstants, getCssClassSelector } from '../../enumerations/domConstan
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import { addMobileMenuContentItem } from '../mobile/addMobileMenuContentItem';
 import { mobileMenuInteractionHandler } from '../mobile/mobileMenuInteractionHandler';
+import { getNotificationsActionItem } from '../notifications/getNotificationsActionItem';
 import { renderMobileActionItem } from './renderMobileActionItem';
 
 /** @typedef {import('src/@types/jsDocTypes.d').ActionItem} ActionItem */
@@ -24,7 +25,14 @@ export function renderMobileActionItems() {
     /** @type {HTMLElement} */ (profileActionItem?.closest?.(getCssClassSelector(domConstants.MOBILE_MENU_ACTION_BAR__ACTION_ITEM_WRAPPER)))
   );
 
-  [...(getUtahHeaderSettings().actionItems || [])]
+  // add notifications to the action items list
+  const { actionItems, notifications } = getUtahHeaderSettings();
+  const actionItemsList = [...actionItems || []];
+  if (notifications) {
+    actionItemsList.push(getNotificationsActionItem())
+  }
+
+  [...(actionItemsList)]
     ?.reverse()
     ?.map((actionItemToRender) => ({ actionItem: actionItemToRender, ...renderMobileActionItem(actionItemToRender) }))
     ?.forEach(({ actionItem, actionItemContent, actionItemElement }) => {

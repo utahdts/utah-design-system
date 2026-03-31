@@ -49,6 +49,9 @@ export function GettingStartedDeveloper() {
           <a href="#h3-import-ds-css" className="">Example Using Plain CSS and CDN</a>
           <div className="getting-started__toc-subtitle mt-spacing">Importing via NPM</div>
           <a href="#h3-import-ds-sass" className="">Example using SCSS</a>
+          <div className="getting-started__toc-subtitle mt-spacing">Using UT Industry Font / Icons</div>
+          <Link to={pageUrls.typography}>Typography Overview</Link>
+          <Link to={pageUrls.icons} className="">Icons</Link>
         </div>
       </div>
       <div className="getting-started__toc-card mt-spacing-l">
@@ -63,29 +66,52 @@ export function GettingStartedDeveloper() {
         To download using the links below: <br />
         Right click on the download button and choose <code>Save Link As...</code>
       </p>
+      <p>
+        You can also get pre-built artifacts with <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">each release on github</ExternalLink>.
+      </p>
       <h3>Utah Header</h3>
       <div className="mb-spacing">
-        <h4 className="mb-auto">style.css</h4>
+        <div className="mb-auto font-bold font-size-l">style.css</div>
         <PreCodeForCodeString
           allowScrollOverflow
           showBackgroundColor
-          className="mb-spacing-s"
+          className="mb-auto"
           codeRaw={`
             https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css
           `}
         />
-        <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css" className="button" target="_blank">style.css Download</a>
-      </div>
-      <div>
-        <h4 className="mb-auto">utah-design-system-header.umd.js</h4>
+        <p><em>This always uses the latest version.</em></p>
         <PreCodeForCodeString
           allowScrollOverflow
           showBackgroundColor
-          className="mb-spacing-s"
+          className="mb-auto"
+          codeRaw={`
+            https://unpkg.com/@utahdts/utah-design-system-header@v5/dist/style.css
+          `}
+        />
+        <p><em>This will use version 5.0.</em></p>
+        <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css" className="button" target="_blank">style.css Download</a>
+      </div>
+      <div>
+        <div className="mb-auto font-bold font-size-l">utah-design-system-header.umd.js</div>
+        <PreCodeForCodeString
+          allowScrollOverflow
+          showBackgroundColor
+          className="mb-auto"
           codeRaw={`
             https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js
           `}
         />
+        <p><em>This always uses the latest version.</em></p>
+        <PreCodeForCodeString
+          allowScrollOverflow
+          showBackgroundColor
+          className="mb-auto"
+          codeRaw={`
+            https://unpkg.com/@utahdts/utah-design-system-header@v5/dist/utah-design-system-header.umd.js
+          `}
+        />
+        <p><em>This will use version 5.0.</em></p>
         <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js" className="button" target="_blank">utah-design-system-header.umd.js Download</a>
       </div>
 
@@ -132,7 +158,7 @@ export function GettingStartedDeveloper() {
         allowScrollOverflow
         showBackgroundColor
         codeRaw={`
-          "@utahdts/utah-design-system": "2.0.2"
+          "@utahdts/utah-design-system": "5.0.0"
         `}
       />
       <p>
@@ -142,8 +168,8 @@ export function GettingStartedDeveloper() {
         allowScrollOverflow
         showBackgroundColor
         codeRaw={`
-          "@utahdts/utah-design-system": "^1.0.2"
-          # Will use releases from 1.0.2 to 2.0.0 (non-inclusive)
+          "@utahdts/utah-design-system": "^4.0.0"
+          # Will use releases from 4.0.0 to 5.0.0 (non-inclusive)
         `}
       />
       <p>
@@ -151,9 +177,9 @@ export function GettingStartedDeveloper() {
         See the full list on the <ExternalLink href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies">npm documentation site</ExternalLink>.
       </p>
 
-      <h3 id="h3-unpkg-versioning">Using unpkg.com CDN</h3>
+      <h3 id="h3-unpkg-versioning">Versioning with unpkg.com CDN</h3>
       <p>
-        While using <ExternalLink href="https://unpkg.com/">unpkg</ExternalLink>, you can specify which version of the
+        With <ExternalLink href="https://unpkg.com/">unpkg</ExternalLink>, you can specify which version of the
         Utah Design System or Utah Header you want to load. If you omit the version, it will automatically serve the latest version.
       </p>
       <PreCodeForCodeString
@@ -170,10 +196,10 @@ export function GettingStartedDeveloper() {
         showBackgroundColor
         className="mb-auto"
         codeRaw={`
-          https://unpkg.com/@utahdts/utah-design-system-header@v3/dist/style.css
+          https://unpkg.com/@utahdts/utah-design-system-header@v5/dist/style.css
         `}
       />
-      <p><em>This uses the latest of version 3 with all minor and bug fixes, but would not include version 4.</em></p>
+      <p><em>This uses the latest of version 5 with all minor and bug fixes, but would not include future versions.</em></p>
 
       <h2 id="h2-using-header" className="mt-spacing-l">Using the Utah Header</h2>
 
@@ -458,7 +484,7 @@ export function GettingStartedDeveloper() {
         showBackgroundColor
         className="mb-spacing"
         codeRaw={`
-          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v4/utah-design-system-header.umd.js
+          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v5/utah-design-system-header.umd.js
         `}
       />
       <PreCodeForCodeString
@@ -466,7 +492,7 @@ export function GettingStartedDeveloper() {
         showBackgroundColor
         className="mb-auto"
         codeRaw={`
-          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v4/style.css
+          https://cdn.utah.gov/dts-ds-custom-header-plugin/header-dist/v5/style.css
         `}
       />
       <div className="flex justify-end my-spacing-l gap flex-wrap">
@@ -526,7 +552,7 @@ export function GettingStartedDeveloper() {
 
           # In your scss, use the scss variables
           h1 {
-            background-color: #{ds-settings.$electric-yellow-05};
+            background-color: #{ds-settings.$yellow-05};
           }
 
           # Your html will now be styled with the scss variables (make sure to scope to utah-design-system)
@@ -539,7 +565,7 @@ export function GettingStartedDeveloper() {
         The Design System library provides SASS SCSS variables that can be used in your SCSS. These include variables for:
       </p>
       <ul className="mb-spacing">
-        <li>Color <code>$purple_00</code></li>
+        <li>Color <code>$violet-00</code></li>
         <li>Base Class <code>$base-class</code></li>
         <li>Light/Dark colors <code>$color-is-light</code></li>
         <li>

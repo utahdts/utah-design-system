@@ -504,8 +504,8 @@ export function AccessibilityChecklistDocumentation() {
               </ul>
             </li>
             <li>
-              <strong>Plain language:</strong> The body text should be clear
-              and understandable, typically at an 8th-grade reading level.
+              <strong>Reading Level (AAA):</strong> The body text should be clear
+              and understandable, typically at an 8th-grade reading level. <ExternalLink href='https://www.w3.org/WAI/WCAG21/Understanding/reading-level.html'>See success criterion</ExternalLink>.
             </li>
           </ul>
         </li>
@@ -679,6 +679,18 @@ export function AccessibilityChecklistDocumentation() {
               <strong>Orientation:</strong> Test the site in different
               screen orientations (e.g., portrait vs. landscape on a mobile
               device).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Text spacing:</strong>
+          <ul>
+            <li>
+              <strong>Changing settings:</strong> Manually change the line height to 1.5 times the font size,
+              the spacing following paragraphs to 2 time the font size,
+              the letter spacing to 0.12 times the font size,
+              and the word spacing 0.16 times the font size.
+              The content should remain functional and readable.
             </li>
           </ul>
         </li>
@@ -868,6 +880,7 @@ export function AccessibilityChecklistDocumentation() {
                     (like podcasts) must include an accurate full text transcript.</li>
                   </ul>
                 </li>
+                <li><strong>Autoplay:</strong> Avoid autoplaying video with audio and audio elements. If not, a mechanism must be present to let users pause or stop the audio.</li>
                 <li>
                   <strong>Manual Testing Note: </strong>
                   Remember to <strong>manually test</strong> all captions, transcripts,
@@ -1060,6 +1073,7 @@ export function AccessibilityChecklistDocumentation() {
           </ul>
         </li>
       </ul>
+      <p>As an additional note, avoid using accessibility widgets to make a website accessible. <a href={`${pageUrls.accessibility}#accessibility-widgets-recommendation`}>Learn more about this recommendation</a>.</p>
 
       <hr />
 

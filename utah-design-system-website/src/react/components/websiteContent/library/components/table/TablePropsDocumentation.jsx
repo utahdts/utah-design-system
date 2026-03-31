@@ -7,9 +7,9 @@ import { SettingsDocumentation } from '../../documentation/SettingsDocumentation
 export function TablePropsDocumentation() {
   return (
     <>
-      <h3><code>Table</code></h3>
+      <h3 id="table-props"><code>Table</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="table-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -56,9 +56,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableBody</code></h3>
+      <h3 id="tablebody-props"><code>TableBody</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="table-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -105,9 +105,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableBodyData</code></h3>
+      <h3 id="tablebodydata-props"><code>TableBodyData</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablebodydata-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -135,9 +135,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableBodyDataCellTemplate</code></h3>
+      <h3 id="tablebodydatacelltemplate-props"><code>TableBodyDataCellTemplate</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablebodydatacelltemplate-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell>
@@ -217,9 +217,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableBodyDataRowTemplate</code></h3>
+      <h3 id="tablebodydatatowtemplate-props"><code>TableBodyDataRowTemplate</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablebodydatatowtemplate-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -277,9 +277,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableCell</code></h3>
+      <h3 id="tableCell-props"><code>TableCell</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tableCell-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -326,9 +326,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterComboBox</code></h3>
+      <h3 id="tablefiltercombobox-props"><code>TableFilterComboBox</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefiltercombobox-props">
           <TableRow>
             <TableCell><code className="primary-color">a11yLabel</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -441,9 +441,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterComboBoxAllOptions</code></h3>
+      <h3 id="tablefiltercomboboxalloptions-props"><code>TableFilterComboBoxAllOptions</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefiltercomboboxalloptions-props">
           <TableRow>
             <TableCell><code className="primary-color">a11yLabel</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -547,9 +547,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterComboBoxOption</code></h3>
+      <h3 id="tablefiltercomboboxoption-props"><code>TableFilterComboBoxOption</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefiltercomboboxoption-props">
           <TableRow>
             <TableCell><code className="primary-color">className</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -587,9 +587,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableContextConsumer</code></h3>
+      <h3 id="tablecontextconsumer-props"><code>TableContextConsumer</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablecontextconsumer-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>function</code></TableCell>
@@ -602,9 +602,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterCustom</code></h3>
+      <h3 id="tablefiltercustom-props"><code>TableFilterCustom</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefiltercustom-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>function</code></TableCell>
@@ -653,9 +653,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterDate</code></h3>
+      <h3 id="tablefilterdate-props"><code>TableFilterDate</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefilterdate-props">
           <TableRow>
             <TableCell><code className="primary-color">a11yLabel</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -733,9 +733,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterNone</code></h3>
+      <h3 id="tablefilternone-props"><code>TableFilterNone</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefilternone-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -782,9 +782,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterSelect</code></h3>
+      <h3 id="tablefilterselect-props"><code>TableFilterSelect</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefilterselect-props">
           <TableRow>
             <TableCell><code className="primary-color">a11yLabel</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -897,9 +897,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterSelectAllOptions</code></h3>
+      <h3 id="tablefiltersselectalloptions-props"><code>TableFilterSelectAllOptions</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefiltersselectalloptions-props">
           <TableRow>
             <TableCell><code className="primary-color">a11yLabel</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -1003,9 +1003,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterSelectOption</code></h3>
+      <h3 id="tablefiltersselectoption-props"><code>TableFilterSelectOption</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefiltersselectoption-props">
           <TableRow>
             <TableCell><code className="primary-color">className</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -1043,9 +1043,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilterTextInput</code></h3>
+      <h3 id="tablefiltertextinput-props"><code>TableFilterTextInput</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefiltertextinput-props">
           <TableRow>
             <TableCell><code className="primary-color">a11yLabel</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -1137,9 +1137,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFilters</code></h3>
+      <h3 id="tablefilters-props"><code>TableFilters</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefilters-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1223,9 +1223,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFoot</code></h3>
+      <h3 id="tablefoot-props"><code>TableFoot</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefoot-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1272,9 +1272,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFootCell</code></h3>
+      <h3 id="tablefootcell-props"><code>TableFootCell</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefootcell-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1321,9 +1321,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableFootRow</code></h3>
+      <h3 id="tablefootrow-props"><code>TableFootRow</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablefootrow-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1370,9 +1370,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableHead</code></h3>
+      <h3 id="tablehead-props"><code>TableHead</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablehead-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1419,9 +1419,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableHeadCell</code></h3>
+      <h3 id="tableheadcell-props"><code>TableHeadCell</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tableheadcell-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1515,9 +1515,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableHeadRow</code></h3>
+      <h3 id="tableheadrow-props"><code>TableHeadRow</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tableheadrow-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1564,9 +1564,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TablePagination</code></h3>
+      <h3 id="tablepagination-props"><code>TablePagination</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablepagination-props">
           <TableRow>
             <TableCell>All</TableCell>
             <TableCell>N/A</TableCell>
@@ -1578,9 +1578,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableRow</code></h3>
+      <h3 id="tablerow-props"><code>TableRow</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablerow-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1627,9 +1627,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableSortingRule</code></h3>
+      <h3 id="tablesortingrule-props"><code>TableSortingRule</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablesortingrule-props">
           <TableRow>
             <TableCell><code className="primary-color">a11yLabel</code></TableCell>
             <TableCell><code>string</code></TableCell>
@@ -1686,9 +1686,9 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableSortingRules</code></h3>
+      <h3 id="tablesortingrules-props"><code>TableSortingRules</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow  ariaLabelledBy="tablesortingrules-props">
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1724,9 +1724,27 @@ export function TablePropsDocumentation() {
         </SettingsDocumentation>
       </div>
 
-      <h3><code>TableWrapper</code></h3>
+      <h3 id="tablewrapper-props"><code>TableWrapper</code></h3>
       <div className="documentation-content--small-text static-example static-example--blank">
-        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
+        <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS} allowScrollOverflow ariaLabelledBy="tablewrapper-props">
+          <TableRow>
+            <TableCell><code className="primary-color">allowScrollOverflow</code></TableCell>
+            <TableCell><code>boolean</code></TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              If set to true, will set <code>tabIndex='0'</code> and <code>role='region'</code> to the  <code>&lt;div&gt;</code>.<br />
+              Makes responsive tables accessible. A valid <code>ariaLabelledBy</code> is required.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><code className="primary-color">ariaLabelledBy</code></TableCell>
+            <TableCell><code>string</code></TableCell>
+            <TableCell>null</TableCell>
+            <TableCell>
+              Must match the <code>id</code> of the element used as title of the table.<br />
+              Needed for accessibility if using <code>allowScrollOverflow</code>.
+            </TableCell>
+          </TableRow>
           <TableRow>
             <TableCell><code className="primary-color">children</code></TableCell>
             <TableCell><code>React.ReactNode</code></TableCell>
@@ -1740,7 +1758,7 @@ export function TablePropsDocumentation() {
             <TableCell><code>string</code></TableCell>
             <TableCell>null</TableCell>
             <TableCell>
-              This CSS class will be added to the <code>div</code>.
+              This CSS class will be added to the  <code>&lt;div&gt;</code>.
             </TableCell>
           </TableRow>
           <TableRow>

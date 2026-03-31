@@ -285,11 +285,6 @@ export const menuResourcesSecondary = {
       title: pages.wordPressHeaderPlugin.pageTitle,
       parentLinks: [pages.wordPressHeaderPlugin.link],
     },
-    {
-      link: pages.accessibilityTestingPage.link,
-      title: pages.accessibilityTestingPage.pageTitle,
-      parentLinks: [pages.resources.link],
-    },
   ],
 };
 

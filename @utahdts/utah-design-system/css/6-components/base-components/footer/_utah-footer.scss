@@ -52,8 +52,11 @@
       height: 100%;
     }
     &__official-site {
-      font-size: var(--font-size-l);
+      font-size: var(--font-size);
       font-weight: var(--font-weight-semi-bold);
+      &-wrapper {
+        line-height: var(--spacing);
+      }
     }
     &__copyright {
       font-size: var(--font-size-s);

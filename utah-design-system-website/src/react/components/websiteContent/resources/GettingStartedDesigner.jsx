@@ -46,6 +46,12 @@ export function GettingStartedDesigner() {
         <p>The Color Picker Tool is perhaps one of the most useful tools in the design system. Some of the benefits are the ability to create a color palette and share it via a url, as well as easy to understand contrast requirements. After picking your palette you can view a <Link to={pageUrls.demoPage}>Demo Page</Link> that has multiple types of components to see how the palette colors work together.</p>
       </div>
 
+      <h2 id="section-font" className="mb-spacing mt-spacing">Font</h2>
+      <div>
+        <p>The Utah Design System utilizes a set of fonts to help provide a consistent experience for its users. <br/>
+          Head to the  <Link to={pageUrls.typography}>Typography Guidelines Overview</Link> to learn more.</p>
+      </div>
+
       <h2 id="section-mockups" className="mb-spacing mt-spacing">Mockups</h2>
       <p>
         The Utah Design System mockups provide a set of predefined elements and styles that can be easily reused, enabling designers to focus on the creative aspects of their work rather than the repetitive tasks.
