@@ -63,5 +63,6 @@
     "projectKey": "utahdts_utah-design-system"
   },
   "testing.automaticallyOpenPeekView": "never",
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
