@@ -52,7 +52,7 @@
           padding: var(--spacing-3xs) var(--spacing);
           margin: var(--spacing-xs) 0;
           border-radius: 999px;
-          transition: all var(--timing-quick) ease-in-out;
+          transition: background-color var(--timing-quick) ease-in-out;
           position: relative;
           box-sizing: border-box;
           font-size: var(--font-size);
