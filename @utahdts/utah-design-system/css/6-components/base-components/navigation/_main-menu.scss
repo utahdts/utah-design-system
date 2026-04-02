@@ -5,7 +5,9 @@
   &.main-menu__outer {
     position: relative;
     z-index: 2500;
-    &:hover {
+
+    // Only elevate z-index if a child popup is currently active/visible
+    &:has(.popup__wrapper:not(.popup__wrapper--hidden)) {
       z-index: 4000;
     }
   }

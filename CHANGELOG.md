@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [5.0.1] 03/31/2026
+## Fixed in Utah Header
+- Fixed an issue where the Main Menu container would overlap other header popups on hover. Improved layering logic now only prioritizes the Main Menu when a submenu is explicitly open.
+- Removed transition effects on the focus indicator of the main menu items.
+
 # [5.0.0] 03/31/2026
 ## Added
 - Notifications: The header now features notifications powered by MyUtah.
