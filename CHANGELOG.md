@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Utah Header:
   - Improve contrast when focusing button
 
+## Website Changes
+- Updated accessibility documentation
+  - Added level A guidelines for video/audio
+
 # [5.0.0] 03/31/2026
 ## Added
 - Notifications: The header now features notifications powered by MyUtah.
