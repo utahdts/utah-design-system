@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # [5.X.X] 04/07/2026
+## Added
+- New pattern on AI Chatbot
+
 ## Fixed
 - Utah Header:
   - Improve contrast when focusing button
