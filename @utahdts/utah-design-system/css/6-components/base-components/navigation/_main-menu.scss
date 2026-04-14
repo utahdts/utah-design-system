@@ -20,7 +20,7 @@
       padding: 0 var(--spacing-l) 0 var(--spacing-xs);
 
       .utds-icon-before-search::before {
-       font-size: 1.1rem;
+        font-size: 1.1rem;
       }
     }
 
@@ -54,7 +54,7 @@
           padding: var(--spacing-3xs) var(--spacing);
           margin: var(--spacing-xs) 0;
           border-radius: 999px;
-          transition: background-color var(--timing-quick) ease-in-out;
+          transition: box-shadow var(--timing-quick) ease-in-out;
           position: relative;
           box-sizing: border-box;
           font-size: var(--font-size);
