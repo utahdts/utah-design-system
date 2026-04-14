@@ -32,6 +32,12 @@
           transform: rotate(180deg);
         }
       }
+
+      &:focus-visible {
+        outline: 2px solid #FFF;
+        outline-offset: 2px;
+        border-radius: var(--radius-small1x);
+      }
     }
   }
 
@@ -72,6 +78,7 @@
   }
   .utds-official-website__button {
     width: 100%;
+    outline-offset: 0 !important;
     justify-content: flex-start !important;
     padding: 0 var(--spacing-l) !important;
   }
