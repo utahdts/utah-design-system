@@ -7,9 +7,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 # [5.0.1] 04/14/2026
 ## Fixed
 - Utah Header:
-  - Improve contrast when focusing button
+  - Improved the color contrast when focusing button.
   - Fixed an issue where the Main Menu container would overlap other header popups on hover. Improved layering logic now only prioritizes the Main Menu when a submenu is explicitly open.
   - Fixed transition effects on the focus indicator of the main menu items.
+  - Fixed header title wrapping on mobile size screens.
+  - Added CSS to more elegantly wrap long user names in the UtahID button.
 
 ## Added
 - New pattern on AI Chatbot
