@@ -125,3 +125,16 @@
   }
 }
 
+@media screen and (max-width: #{media-size-vars.$media-size-mobile}) {
+  .utah-design-system {
+    .utds {
+      &-title-wrapper__logo {
+        flex: 1 0 auto;
+      }
+      &-title-wrapper__title {
+        flex: 1 1 auto;
+        white-space: normal;
+      }
+    }
+  }
+}

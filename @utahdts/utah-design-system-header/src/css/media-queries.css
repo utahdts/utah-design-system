@@ -16,12 +16,9 @@
   }
   .utds-header {
     height: 60px;
-    padding: var(--spacing-xs) var(--spacing);
+    padding: var(--spacing-xs) var(--spacing-s);
     display: flex;
     justify-content: space-between;
-  }
-  .utds-title-wrapper {
-    font-size: var(--font-size-xl);
   }
   .utds-citizen-experience-wrapper {
     display: none;
