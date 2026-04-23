@@ -13,6 +13,9 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Fixed header title wrapping on mobile size screens.
   - Added CSS to more elegantly wrap long user names in the UtahID button.
 
+- Website:
+  - Fixed Utah Branding color hex codes on the color guidelines page.
+
 ## Added
 - New pattern on AI Chatbot
 
