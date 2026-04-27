@@ -16,9 +16,9 @@ describe('constructMainMenu: isAlternatePath', () => {
     expect(mainMenu.menuItems[1]?.isSelected).toBe(true);
 
     // library -> patterns -> form validation is selected, but library is not
-    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[0]?.title).toBe('Form Validation');
+    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[1]?.title).toBe('Form Validation');
     expect(mainMenu.menuItems[2]?.isSelected).toBe(false);
-    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[0]?.isSelected).toBe(true);
+    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[1]?.isSelected).toBe(true);
   });
 
   test('constructMainMenu-isAlternatePath: is alternate', () => {
@@ -34,8 +34,8 @@ describe('constructMainMenu: isAlternatePath', () => {
     expect(mainMenu.menuItems[1]?.isSelected).toBe(true);
 
     // library -> patterns -> form validation is selected, but library is not
-    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[0]?.title).toBe('Form Validation');
+    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[1]?.title).toBe('Form Validation');
     expect(mainMenu.menuItems[2]?.isSelected).toBe(false);
-    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[0]?.isSelected).toBe(true);
+    expect(mainMenu.menuItems[2]?.actionMenu?.[3]?.actionMenu?.[1]?.isSelected).toBe(true);
   });
 });
