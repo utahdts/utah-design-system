@@ -75,6 +75,7 @@
       padding: var(--spacing-2xs) var(--spacing);
       text-align: left;
       text-decoration: none;
+      transition: background-color var(--timing-quick) ease-in-out;
       width: 100%;
       position: relative;
 

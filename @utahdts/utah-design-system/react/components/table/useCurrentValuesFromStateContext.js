@@ -100,7 +100,6 @@ export function useCurrentValuesFromStateContext({
     currentValue = defaultValueRef.current;
   }
 
-  // @ts-expect-error I dont know how to fix this Austin
   return useMemo(
     () => ({
       currentOnChange: (
@@ -127,7 +126,7 @@ export function useCurrentValuesFromStateContext({
           setStateLocal(defaultOnChange(e));
         })
       ),
-      currentValue: currentValue ?? '',
+      currentValue: currentValue ?? /** @type {any} */(''),
       setValue,
     }),
     [

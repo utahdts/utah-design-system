@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [5.0.1] 04/14/2026
+## Fixed
+- Utah Header:
+  - Improved the color contrast when focusing button.
+  - Fixed an issue where the Main Menu container would overlap other header popups on hover. Improved layering logic now only prioritizes the Main Menu when a submenu is explicitly open.
+  - Fixed transition effects on the focus indicator of the main menu items.
+  - Fixed header title wrapping on mobile size screens.
+  - Added CSS to more elegantly wrap long user names in the UtahID button.
+
+- Website:
+  - Fixed Utah Branding color hex codes on the color guidelines page.
+
+## Added
+- New pattern on AI Chatbot
+
+## Website Changes
+- Updated accessibility documentation
+  - Added level A guidelines for video/audio, pause/stop/hide - WCAG 2.2.2
+
 # [5.0.0] 03/31/2026
 ## Added
 - Notifications: The header now features notifications powered by MyUtah.

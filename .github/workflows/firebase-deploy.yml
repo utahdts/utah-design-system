@@ -7,15 +7,15 @@ jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: 'read'
       id-token: 'write'
-    
+
     steps:
       - name: Checkout 🛎️🧳🎫🤑
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+        uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
 
@@ -25,11 +25,11 @@ jobs:
 
       - name: Submit sitemap 🗾🔭🤠🚣‍♀️💰🏴‍☠️💀
         run: |
-          npm run sitemap 
+          npm run sitemap
 
       - name: Build 👎🌑🏚️🛠️🏠🌕👍
         run: |
-          npm run build 
+          npm run build
 
       - id: auth
         name: 🗝️ Authenticate to Google Cloud

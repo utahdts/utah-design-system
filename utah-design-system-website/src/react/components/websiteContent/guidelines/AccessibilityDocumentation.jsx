@@ -693,6 +693,20 @@ export function AccessibilityDocumentation() {
         </li>
       </ul>
 
+      <h4 id="section-motion-guidelines" className="mt-spacing">Level A guidelines</h4>
+      <p>Any content or media that start automatically, last longer than five seconds, and are presented in parallel with other content are need a mechanism to pause, stop, or hide them. This applies to animations, carousels, and scrolling text.</p>
+      <h5>Video Applicability</h5>
+      <p>Any auto-playing video, including motion pictures or synchronized media, must have user-controllable pause or stop functionality.</p>
+
+      <h5>Conditions</h5>
+      <p>The requirement applies to content that starts automatically, lasts more than 5 seconds, and is presented alongside other content.</p>
+
+      <h5>Exemptions</h5>
+      <p>Content that is essential for an activity (e.g., a game) or does not last more than 5 seconds does not require a pause mechanism.</p>
+
+      <h5>Purpose</h5>
+      <p>The rule aims to reduce distractions for users, particularly those with cognitive or attention-related disabilities.</p>
+
       <hr />
       <h2 id="section-form-accessibility" className="text-center mt-spacing">Form Accessibility</h2>
       <div className="text-center">

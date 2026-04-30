@@ -76,6 +76,7 @@ import { StatusIndicatorDocumentation } from '../websiteContent/library/componen
 import { StepIndicatorDocumentation } from '../websiteContent/library/components/widgetsIndicators/stepIndicator/StepIndicatorDocumentation';
 import { UtahFooterDocumentation } from '../websiteContent/library/patterns/UtahFooterDocumentation/UtahFooterDocumentation';
 import { UtahHeaderDocumentation } from '../websiteContent/library/patterns/UtahHeaderDocumentation/UtahHeaderDocumentation';
+import { AIChatbotPattern } from '../websiteContent/library/patterns/AIChatbotPattern';
 import { AccessibilityTesting } from '../websiteContent/resources/AccessibilityTesting/AccessibilityTesting';
 import { GettingStarted } from '../websiteContent/resources/GettingStarted';
 import { GettingStartedDesigner } from '../websiteContent/resources/GettingStartedDesigner';
@@ -813,6 +814,15 @@ export const pages = {
     link: pageUrls.search,
     pageTitle: 'Search Results',
     template: layoutTemplatesEnum.LANDING_TEMPLATE,
+  }),
+
+  // === Patterns === //
+  aiChatbot: /** @type {Page} */ ({
+    content: AIChatbotPattern,
+    link: pageUrls.aiChatbotPattern,
+    menuSecondary: menusEnum.SECONDARY_MENU_LIBRARY,
+    pageTitle: 'AI Chatbot',
+    template: layoutTemplatesEnum.DOCUMENTATION_TEMPLATE,
   }),
 
 };

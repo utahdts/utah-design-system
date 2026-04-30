@@ -8,6 +8,7 @@ export const pageUrls = {
   accessibilityForDesigners: /** @type {PageUrl} */ ('/guidelinesStandards/accessibilityForDesigners'),
   accessibilityTesting: /** @type {PageUrl} */ ('/resources/accessibilityTesting'),
   accordion: /** @type {PageUrl} */ ('/library/components/containers/accordion'),
+  aiChatbotPattern: /** @type {PageUrl} */ ('/library/patterns/aiChatbot'),
   backTopTop: /** @type {PageUrl} */ ('/library/components/navigationLinks/backToTop'),
   badges: /** @type {PageUrl} */ ('/library/components/widgetsIndicators/badges'),
   banners: /** @type {PageUrl} */ ('/library/components/popups/banners'),
