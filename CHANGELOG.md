@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [5.0.1] 04/14/2026
+# [5.0.1] 05/01/2026
 ## Fixed
 - Utah Header:
   - Improved the color contrast when focusing button.
