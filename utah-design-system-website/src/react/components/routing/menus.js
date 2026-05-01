@@ -220,6 +220,11 @@ export const menuLibraryPatternsSecondary = {
       parentLinks: [pages.guidelines.link],
       isAlternatePath: true,
     },
+    {
+      title: 'AI Chatbot',
+      link: pages.aiChatbot.link,
+      parentLinks: [pages.library.link],
+    },
   ],
 };
 

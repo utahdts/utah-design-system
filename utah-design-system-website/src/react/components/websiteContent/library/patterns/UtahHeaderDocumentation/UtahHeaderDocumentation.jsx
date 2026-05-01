@@ -17,7 +17,7 @@ import {
   useState
 } from 'react';
 import { Link } from 'react-router-dom';
-import agencyBrand from '../../../../../../static/images/logoPlaceholder.png';
+import utahIndustryBrand from '../../../../../../static/images/Utah-Industry-Icon-Small@2x.png';
 import searchModalScreenshot from '../../../../../../static/images/screenshots/patterns/header/searchModal.jpg';
 import { documentationTypes } from '../../../../../enums/documentationTypes';
 import { useTextAreaCaretRowColumn } from '../../../../../hooks/useTextAreaCaretRowColumn';
@@ -210,7 +210,7 @@ export function UtahHeaderDocumentation() {
             <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="utds-title-wrapper" href="#">
-                <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={agencyBrand} /></div>
+                <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={utahIndustryBrand} /></div>
                 <div className="utds-title-wrapper__title">Agency/Division Title</div>
               </a>
             </h1>

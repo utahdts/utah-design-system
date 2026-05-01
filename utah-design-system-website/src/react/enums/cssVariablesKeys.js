@@ -22,5 +22,5 @@ export const CSS_VARIABLES_KEYS = {
   GRAY_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--gray-color'),
   HEADER_PRIMARY_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--header-primary-color'),
   HEADER_PRIMARY_COLOR_DARK: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--header-primary-color-dark'),
-  HEADER_GRAY_ON_PRIMARY_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--gray-on-primary-color'),
+  HEADER_GRAY_ON_PRIMARY_COLOR: /** @type {CSS_VARIABLES_KEYS_TYPE} */ ('--header-gray-on-primary-color'),
 };

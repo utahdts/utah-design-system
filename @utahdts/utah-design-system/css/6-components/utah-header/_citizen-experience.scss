@@ -1,3 +1,5 @@
+@use "../../1-settings/class-vars";
+
 .utds-citizen-experience-wrapper {
   display: flex;
   justify-content: flex-end;
@@ -10,4 +12,18 @@
   .main-menu__search {
     margin-right: var(--spacing);
   }
+
 }
+
+#{class-vars.$base-class} {
+  .utds-utah-id__button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 0 var(--spacing);
+  }
+}
+

@@ -110,12 +110,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-green-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-green-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-green-02: #9C837E;<br />
-          --utah-brand-secondary-color-green-03: #78555A;<br />
-          --utah-brand-secondary-color-green-04: #52393B;<br />
-          --utah-brand-secondary-color-green-05: #2C1E1B;
+          --utah-brand-secondary-color-green-00: #C6D0BE;<br />
+          --utah-brand-secondary-color-green-01: #94AF87;<br />
+          --utah-brand-secondary-color-green-02: #4A9044;<br />
+          --utah-brand-secondary-color-green-03: #007000;<br />
+          --utah-brand-secondary-color-green-04: #1C4C10;<br />
+          --utah-brand-secondary-color-green-05: #092908;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
@@ -135,12 +135,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-teal-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-teal-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-teal-02: #9C837E;<br />
-          --utah-brand-secondary-color-teal-03: #78555A;<br />
-          --utah-brand-secondary-color-teal-04: #52393B;<br />
-          --utah-brand-secondary-color-teal-05: #2C1E1B;
+          --utah-brand-secondary-color-teal-00: #A6C4CA;<br />
+          --utah-brand-secondary-color-teal-01: #79B1B1;<br />
+          --utah-brand-secondary-color-teal-02: #3D9992;<br />
+          --utah-brand-secondary-color-teal-03: #008072;<br />
+          --utah-brand-secondary-color-teal-04: #165857;<br />
+          --utah-brand-secondary-color-teal-05: #0D262E;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
@@ -160,12 +160,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-blue-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-blue-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-blue-02: #9C837E;<br />
-          --utah-brand-secondary-color-blue-03: #78555A;<br />
-          --utah-brand-secondary-color-blue-04: #52393B;<br />
-          --utah-brand-secondary-color-blue-05: #2C1E1B;
+          --utah-brand-secondary-color-blue-00: #C1CFE7;<br />
+          --utah-brand-secondary-color-blue-01: #89A4D4;<br />
+          --utah-brand-secondary-color-blue-02: #467EC8;<br />
+          --utah-brand-secondary-color-blue-03: #0258BB;<br />
+          --utah-brand-secondary-color-blue-04: #103982;<br />
+          --utah-brand-secondary-color-blue-05: #0E1C3B;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
@@ -185,12 +185,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-violet-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-violet-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-violet-02: #9C837E;<br />
-          --utah-brand-secondary-color-violet-03: #78555A;<br />
-          --utah-brand-secondary-color-violet-04: #52393B;<br />
-          --utah-brand-secondary-color-violet-05: #2C1E1B;
+          --utah-brand-secondary-color-violet-00: #D6CEDF;<br />
+          --utah-brand-secondary-color-violet-01: #9F8DB4;<br />
+          --utah-brand-secondary-color-violet-02: #7259AA;<br />
+          --utah-brand-secondary-color-violet-03: #3F1EAD;<br />
+          --utah-brand-secondary-color-violet-04: #301C5C;<br />
+          --utah-brand-secondary-color-violet-05: #1F0A45;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
@@ -210,12 +210,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-raspberry-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-raspberry-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-raspberry-02: #9C837E;<br />
-          --utah-brand-secondary-color-raspberry-03: #78555A;<br />
-          --utah-brand-secondary-color-raspberry-04: #52393B;<br />
-          --utah-brand-secondary-color-raspberry-05: #2C1E1B;
+          --utah-brand-secondary-color-raspberry-00: #D0A7BB;<br />
+          --utah-brand-secondary-color-raspberry-01: #C9829E;<br />
+          --utah-brand-secondary-color-raspberry-02: #C24177;<br />
+          --utah-brand-secondary-color-raspberry-03: #BA004F;<br />
+          --utah-brand-secondary-color-raspberry-04: #870746;<br />
+          --utah-brand-secondary-color-raspberry-05: #530D3C;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
@@ -235,12 +235,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-red-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-red-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-red-02: #9C837E;<br />
-          --utah-brand-secondary-color-red-03: #78555A;<br />
-          --utah-brand-secondary-color-red-04: #52393B;<br />
-          --utah-brand-secondary-color-red-05: #2C1E1B;
+          --utah-brand-secondary-color-red-00: #E1ACA1;<br />
+          --utah-brand-secondary-color-red-01: #DF897D;<br />
+          --utah-brand-secondary-color-red-02: #FF5D5F;<br />
+          --utah-brand-secondary-color-red-03: #E70015;<br />
+          --utah-brand-secondary-color-red-04: #9B1B15;<br />
+          --utah-brand-secondary-color-red-05: #61100A;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
@@ -260,12 +260,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-orange-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-orange-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-orange-02: #9C837E;<br />
-          --utah-brand-secondary-color-orange-03: #78555A;<br />
-          --utah-brand-secondary-color-orange-04: #52393B;<br />
-          --utah-brand-secondary-color-orange-05: #2C1E1B;
+          --utah-brand-secondary-color-orange-00: #E9C997;<br />
+          --utah-brand-secondary-color-orange-01: #E5A873;<br />
+          --utah-brand-secondary-color-orange-02: #E37D49;<br />
+          --utah-brand-secondary-color-orange-03: #E2521F;<br />
+          --utah-brand-secondary-color-orange-04: #A34818;<br />
+          --utah-brand-secondary-color-orange-05: #633D11;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
@@ -285,12 +285,12 @@ export function ColorGuidelinesDocumentation() {
           tabindex="0"
         >
           <div className="pre-code__overflow-content color-swatch-names">
-          --utah-brand-secondary-color-yellow-00: #E9DCC8;<br />
-          --utah-brand-secondary-color-yellow-01: #C0B1A1;<br />
-          --utah-brand-secondary-color-yellow-02: #9C837E;<br />
-          --utah-brand-secondary-color-yellow-03: #78555A;<br />
-          --utah-brand-secondary-color-yellow-04: #52393B;<br />
-          --utah-brand-secondary-color-yellow-05: #2C1E1B;
+          --utah-brand-secondary-color-yellow-00: #FAFAD4;<br />
+          --utah-brand-secondary-color-yellow-01: #F8FAAF;<br />
+          --utah-brand-secondary-color-yellow-02: #F5FA7D;<br />
+          --utah-brand-secondary-color-yellow-03: #F2FA00;<br />
+          --utah-brand-secondary-color-yellow-04: #CBB60C;<br />
+          --utah-brand-secondary-color-yellow-05: #A47217;
           </div>
         </pre>
         <div className="flex flex-col py-spacing-s" style={{gap: '3px'}}>
