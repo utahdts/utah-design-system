@@ -11,6 +11,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Website
   - Fixed the appearance of the Search Page search input.
 
+## Added
+- New AI Chatbot example
+- New AI icon
+
 # [5.0.1] 05/01/2026
 ## Fixed
 - Utah Header:
