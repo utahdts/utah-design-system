@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [5.0.2] 05/05/2026
+## Fixed
+- Utah Header:
+  - Fixed a race condition where calling `ssouserinfo.triggerPoll()` was called before it was ready.
+- Website
+  - Fixed the appearance of the Search Page search input.
+
 # [5.0.1] 05/01/2026
 ## Fixed
 - Utah Header:

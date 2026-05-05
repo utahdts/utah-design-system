@@ -51,6 +51,10 @@ function handleMyLoginEvent(e) {
   handleMyLoginInfo(userInfo);
 }
 
+/**
+ * Load the myUtah SSO User Information:
+ * https://mylogin.utah.gov/ssouserinfo/demo.html
+ */
 function loadSSOUserInfo() {
   const settings = getUtahHeaderSettings();
   let ssoHeaderScriptTag = document.getElementById(domConstants.SSO_HEADER_SCRIPT_TAG_ID);
@@ -181,15 +185,15 @@ export function loadHeader() {
     // This begins the chain of setting up the ssoUserInfo and Notifications
     loadSSOUserInfo();
 
-    //fetchUtahIdUserDataAsync().catch((e) => console.error(e));
-
     const settings = getUtahHeaderSettings();
 
     // We manually do a poll once the library is loaded if notifications is turned on
     // This will trigger notifications to get information
     if (settings.notifications) {
-      // @ts-expect-error because ¯\_(ツ)_/¯
-      window["ssouserinfo"]?.triggerPoll();
+      const ssoDoc = /** @type {import('src/@types/jsDocTypes.d').SsoDocument} */ (document);
+      if (typeof ssoDoc.ssouserinfo?.triggerPoll === "function") {
+        ssoDoc.ssouserinfo.triggerPoll();
+      }
     }
 
     // UDS-564

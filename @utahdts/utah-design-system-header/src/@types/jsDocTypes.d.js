@@ -229,6 +229,27 @@
  * @typedef {Partial<Settings>} SettingsInput
  */
 
+
+/**
+ * The SSO User Info utility object
+ * @typedef {Object} SsoUserInfo
+ * @property {function(): UserInfo} currentValues - Returns the current user info values
+ * @property {function(number): void} startPolling - Starts polling at the specified frequency (ms)
+ * @property {function(): void} stopPolling - Stops the polling cycle
+ * @property {function(): void} triggerPoll - Manually triggers a polling cycle
+ */
+
+/**
+ * Custom Event structure for SSO updates
+ * @typedef {CustomEvent} SsoUserInfoEvent
+ * @property {UserInfo} detail - The currentValues() at the time of the event
+ */
+
+/**
+ * Extension for the global Document interface
+ * @typedef {Document & { ssouserinfo: SsoUserInfo }} SsoDocument
+ */
+
 /**
  * // User fields from the UtahId authority
  * @typedef UserInfo {
