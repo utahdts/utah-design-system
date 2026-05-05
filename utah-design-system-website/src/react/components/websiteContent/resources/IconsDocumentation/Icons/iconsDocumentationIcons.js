@@ -319,4 +319,9 @@ export const iconsDocumentationIcons = [
     title: 'mail-open',
     letter: 'e93f',
   },
+  {
+    cssClass: 'ai ',
+    title: 'ai',
+    letter: 'e940',
+  },
 ];
