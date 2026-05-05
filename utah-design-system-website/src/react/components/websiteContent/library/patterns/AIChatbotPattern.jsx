@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../../routing/pageUrls';
+import { StaticExample } from '../../../staticExamples/StaticExample';
+import { DemoAI } from '../../../demo/DemoAI';
 
 export function AIChatbotPattern() {
   return (
@@ -11,6 +13,13 @@ export function AIChatbotPattern() {
       <hr />
 
       <h2 id="section-example">Examples</h2>
+      <StaticExample
+        className="static-example--blank"
+        renderedExample={<DemoAI />}
+        quickTips={(
+          <p>This example only serves as a showcase of the behavior of a chatbot.</p>
+        )}
+      />
 
       <h2 id="section-guidance" className="mb-spacing mt-spacing">Guidance</h2>
       <h3 id="section-when-to-use">When to use</h3>

@@ -102,22 +102,22 @@ export function TypographyDocumentation() {
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell><code>.tiff</code></TableCell>
+              <TableCell><code>.tff</code></TableCell>
               <TableCell>Regular</TableCell>
               <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf">UT Industry (Regular)</ExternalLink></TableCell>
             </TableRow>
             <TableRow>
-              <TableCell><code>.tiff</code></TableCell>
+              <TableCell><code>.tff</code></TableCell>
               <TableCell className="font-semi-bold">Medium</TableCell>
               <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Medium.ttf">UT Industry (Medium)</ExternalLink></TableCell>
             </TableRow>
             <TableRow>
-              <TableCell><code>.tiff</code></TableCell>
+              <TableCell><code>.tff</code></TableCell>
               <TableCell className="font-bold">Bold</TableCell>
               <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Bold.ttf">UT Industry (Bold)</ExternalLink></TableCell>
             </TableRow>
             <TableRow>
-              <TableCell><code>.tiff</code></TableCell>
+              <TableCell><code>.tff</code></TableCell>
               <TableCell className="font-black">Heavy</TableCell>
               <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Heavy.ttf">UT Industry (Heavy)</ExternalLink></TableCell>
             </TableRow>

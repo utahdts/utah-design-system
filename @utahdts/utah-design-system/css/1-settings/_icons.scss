@@ -370,4 +370,9 @@
   .utds-icon-after-mail-open::after {
     content: "\e93f";
   }
+
+  .utds-icon-before-ai::before,
+  .utds-icon-after-ai::after {
+    content: "\e940";
+  }
 }
