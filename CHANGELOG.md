@@ -10,9 +10,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Fixed a race condition where calling `ssouserinfo.triggerPoll()` was called before it was ready.
 - Website
   - Fixed the appearance of the Search Page search input.
+  - Adjusted and clarified information on autoplay audio and video accessibility requirements
 
 ## Added
-- New AI Chatbot example
+- New AI Chatbot example (WIP)
 - New AI icon
 
 # [5.0.1] 05/01/2026
