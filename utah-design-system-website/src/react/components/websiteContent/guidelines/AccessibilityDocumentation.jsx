@@ -321,7 +321,7 @@ export function AccessibilityDocumentation() {
           that users may identify these components and interact with them as required.
         </li>
         <li>
-          <strong>Color representation.</strong> Avoid using colors to represent important information, such as red to
+          <strong>Color representation.</strong> Avoid using colors as the sole indicator to represent important information, such as red to
           mean &quot;danger&quot; or &quot;warning&quot;. Individuals that are challenged by red-green or other forms of color blindness will need additional indicators
           such as <Link to={pageUrls.typography}>text</Link> or <Link to={pageUrls.icons}>icons</Link> to convey the correct meaning.
           <StaticExample
@@ -335,7 +335,7 @@ export function AccessibilityDocumentation() {
           />
         </li>
         <li>
-          <strong>Assistive technology.</strong> Many components in the Utah Design System require additional <abbr>ARIA</abbr> (Accessible Rich Internet Applications)
+          <strong>ARIA for Assistive Technology.</strong> Many components in the Utah Design System require additional <abbr>ARIA</abbr> (Accessible Rich Internet Applications)
           attributes and testing to ensure they are usable by those using assistive technology, such as screen readers and braille reader devices. ARIA involves
           a range of <code>roles</code> and <code>attributes</code> designed to enhance web content and web applications, with a specific focus on improving accessibility
           for individuals with disabilities.
@@ -355,6 +355,21 @@ export function AccessibilityDocumentation() {
             )}
             className="mb-auto mt-spacing-s"
           />
+        </li>
+        <li>
+          <strong>Never Autoplay Audio.</strong> Autoplay audio&mdash;whether from a standalone audio source or an unmuted video&mdash;is one
+          of the most significant barriers to web accessibility. It creates an immediate conflict for users of screen readers, as the incoming
+          audio overlaps with the synthetic speech they use to navigate the page, often making the site completely unusable. Beyond that, it
+          can be physically and mentally distressing for individuals with vestibular disorders, sensory processing sensitivities, or anxiety,
+          who may experience a "startle response" or find it difficult to locate and silence the noise. For a truly inclusive experience,
+          users must always be given the agency to initiate sound on their own terms.
+        </li>
+        <li>
+          <strong>Audio Control.</strong> Providing clear, keyboard-accessible options to play, pause, stop, and adjust volume ensures that users
+          can consume content at their own pace and comfort level. This is particularly vital for people with cognitive or attention-related
+          disabilities who may need to pause to process information, as well as those with sensory sensitivities who require precise volume
+          calibration to avoid distress. When these controls are missing or difficult to find, you risk alienating users who cannot
+          quickly stop a distraction or adjust the audio to a level that works for their hearing needs.
         </li>
       </ul>
 
@@ -498,7 +513,7 @@ export function AccessibilityDocumentation() {
           </div>
           <div className="typography__font-name">
             <span>
-              <strong className="mr-spacing-s">Avoid</strong>
+              <strong className="mr-spacing-s">Doesn't meet requirement</strong>
               <code>1.87:1</code>
             </span>
           </div>
@@ -531,7 +546,7 @@ export function AccessibilityDocumentation() {
           <Button className="typography__avoid-contrast--button m-auto" onClick={(e) => e.preventDefault()}>Button</Button>
           <div className="typography__font-name">
             <span>
-              <strong className="mr-spacing-s">Avoid</strong>
+              <strong className="mr-spacing-s">Doesn't meet requirement</strong>
               <code>1.66:1</code>
             </span>
           </div>
@@ -619,14 +634,14 @@ export function AccessibilityDocumentation() {
       <h4 id="section-auditory-general-guidelines">General guidelines</h4>
       <ul>
         <li>
-          <strong>Audio Control.</strong> Depending on the type of auditory disability the user has, it may require adjustments to be
-          made. Disable audio and video that starts automatically and use media players that give the user the option to play, pause, stop
-          and adjust the volume.
-        </li>
-        <li>
-          <strong>Captions.</strong> Captions provide a text based alternative that is synchronized to the audio being played. To ensure optimal accessibility, use a media player that also allows the user to change the size and color of the captions. These can also be
-          known as &quot;sub-titles&quot; and is available with most media players. To view more information on this requirement see
-          the <ExternalLink href="https://www.w3.org/WAI/media/av/captions/">w3.org page on Captions/Subtitles</ExternalLink>.
+          <strong>Captions.</strong> Captions provide a synchronized text-based alternative to audio
+          content, ensuring access for users who are deaf or hard of hearing. While many platforms
+          offer auto-generated captions, these must be manually reviewed and edited to ensure they are{' '}
+          <strong>accurate and perfectly synchronized</strong> with the spoken word and visual action.
+          To ensure optimal accessibility, use a media player that allows users to customize the size,
+          position, and color of the text. For more information on providing high-quality captions,
+          visit the <ExternalLink href="https://www.w3.org/WAI/media/av/captions/">w3.org page on
+          Captions/Subtitles</ExternalLink>.
           <StaticExample
             renderedExample={<LightBox image={captionsImg} alt="Video providing captions" />}
             className="mb-auto mt-spacing-s"
@@ -693,8 +708,9 @@ export function AccessibilityDocumentation() {
         </li>
       </ul>
 
-      <h4 id="section-motion-guidelines" className="mt-spacing">Level A guidelines</h4>
-      <p>Any content or media that start automatically, last longer than five seconds, and are presented in parallel with other content are need a mechanism to pause, stop, or hide them. This applies to animations, carousels, and scrolling text.</p>
+      <h4 id="section-motion-guidelines" className="mt-spacing">Level A requirements</h4>
+      <p>Any content or media that starts automatically, last longer than five seconds, and are presented in parallel with other content
+        are need a mechanism to pause, stop, or hide them. This applies to auto-updating content, animations, carousels, and scrolling text.</p>
       <h5>Video Applicability</h5>
       <p>Any auto-playing video, including motion pictures or synchronized media, must have user-controllable pause or stop functionality.</p>
 

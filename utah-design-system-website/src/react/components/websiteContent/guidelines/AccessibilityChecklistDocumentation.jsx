@@ -843,13 +843,20 @@ export function AccessibilityChecklistDocumentation() {
           <ul>
             <li>
               <strong>Motion control:</strong> Check if motion can
-              be controlled (stopped, started, or paused). Use both your
+              be controlled (stopped, started, paused, or hidden). Use both your
               mouse and keyboard to control the motion.
             </li>
             <li>
-              <strong>Don’t start automatically:</strong> Motion should not
-              start automatically if it lasts more than five seconds, or if
-              it contains any flashing elements that can cause seizures.
+              <strong>Motion that start automatically:</strong>
+              <ul>
+                <li><strong>Moving, blinking, scrolling: </strong>
+                  For any auto-updating content, moving (including video), blinking or scrolling information that (1) starts automatically,
+                  (2) lasts more than five seconds, and (3) is presented in parallel with other
+                  content, there is a mechanism for the user to <strong>pause, stop, or hide</strong>{' '}
+                  it unless the movement, blinking, or scrolling is part of an activity where it is
+                  essential; and
+                </li>
+              </ul>
             </li>
             <li>
               <strong>Enough time:</strong> Content stays on the screen for
@@ -880,7 +887,9 @@ export function AccessibilityChecklistDocumentation() {
                     (like podcasts) must include an accurate full text transcript.</li>
                   </ul>
                 </li>
-                <li><strong>Autoplay:</strong> Avoid autoplaying video with audio and audio elements. If not, a mechanism must be present to let users pause or stop the audio.</li>
+                <li><strong>Never Autoplay Audio:</strong> Audio elements should never autoplay,
+                this includes video. Video elements that autoplay must be muted. A mechanism must
+                be present to let users pause or stop the audio.</li>
                 <li>
                   <strong>Manual Testing Note: </strong>
                   Remember to <strong>manually test</strong> all captions, transcripts,
