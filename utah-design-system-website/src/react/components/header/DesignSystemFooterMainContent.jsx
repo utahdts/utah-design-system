@@ -7,7 +7,7 @@ import {
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import packageJSON from '../../../../package.json';
-import govOps from '../../../static/images/DTS-Color-Reversed.svg';
+import govOps from '../../../static/images/DTS-GovOps-UTBrand.svg';
 import { pageUrls } from '../routing/pageUrls';
 
 export function DesignSystemFooterMainContent() {
@@ -22,10 +22,9 @@ export function DesignSystemFooterMainContent() {
             streetAddress1: '4315 South 2700 West',
             zipCode: '84129',
           }}
-          agencyTitleSecondLine="Utah Design System"
-          agencyTitleFirstLine="Department of Government Operations"
+          agencyTitleFirstLine="Utah Design System"
           email="dxp@utah.gov"
-          logo={<img src={govOps} alt="Division of Technology Services" />}
+          logo={<img src={govOps} alt="Department of Government Operations, Division of Technology Services" />}
         />
       </FooterAgencyInformationColumn>
 

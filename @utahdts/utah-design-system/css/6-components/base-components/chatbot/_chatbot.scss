@@ -1,0 +1,75 @@
+@use "../../../1-settings/class-vars";
+
+#{class-vars.$base-class} {
+  .chatbot {
+    &__wrapper {
+      max-width: calc(100% - 2 * (1rem + var(--spacing-2xs)));
+    }
+
+    &__input-wrapper {
+      label.text-area__label {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &:before {
+          content: '\e940';
+          display: inline-block;
+          font-family: "utah design system";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 1em;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          position: absolute;
+          left: calc(-1rem - var(--spacing-2xs));
+        }
+      }
+    }
+
+    &__answer-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__answer-user {
+      align-self: flex-end;
+      background-color: var(--gray-light-color);
+      padding: var(--spacing-s) var(--spacing);
+      border-radius: var(--radius-medium) var(--radius-medium) 0 var(--radius-medium);
+      margin-bottom: var(--spacing);
+      max-width: 85%;
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        bottom: 0;
+        right: -10px;
+        border-style: solid;
+        border-width: 5px;
+        border-color: transparent transparent var(--gray-light-color) var(--gray-light-color);
+      }
+    }
+
+    &__answer-ai {
+      position: relative;
+      &:before {
+        content: '\e940';
+        display: inline-block;
+        font-family: "utah design system";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1em;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        left: calc(-1rem - var(--spacing-2xs));
+      }
+    }
+  }
+}
