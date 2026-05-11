@@ -310,6 +310,7 @@
  *  @property {HTMLElement | function(): HTMLElement} [element] an HTML Element to render
  *  @property {string | function(): string} [htmlString] string containing html that will be rendered
  *  @property {string | function(): string} [imageUrl] url to an image
+ *  @property {"utah" | "industry"} [icon] branding icons/logos
  * }
  */
 
