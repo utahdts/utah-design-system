@@ -100,9 +100,9 @@ export function DemoAI() {
   const onEnter = useCallback((/** @type {import('react').KeyboardEvent} */ event) => {
     if (event.key === 'Enter' && !(event.key === 'Enter' && event.shiftKey)) {
       event.preventDefault();
-      if (!isDisabled || draft.length !== 0) submit();
+      if (!isDisabled && draft.length !== 0) submit();
     }
-  }, [submit]);
+  }, [submit, draft]);
 
   return (
     <div className="chatbot__wrapper">
@@ -116,7 +116,7 @@ export function DemoAI() {
             value={draft}
             isDisabled={isDisabled}
             // @ts-ignore
-            onKeyUp={onEnter}
+            onKeyDown={onEnter}
             onChange={onChange} />
         </div>
         <div className="flex justify-between items-center gap">
