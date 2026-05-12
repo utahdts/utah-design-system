@@ -52,7 +52,7 @@ export function hookupHamburger(mobileMainMenuContentItem) {
   if (!actionItemId) {
     throw new Error('mobileMenuInteractionHandler: actionItemId not found');
   }
-  if (mobileMainMenuContentItem) {
+  if (mobileMainMenuContentItem && settings.mainMenu) {
     const mobileMainMenuContentItemId = mobileMainMenuContentItem.getAttribute('id');
     if (!mobileMainMenuContentItemId) {
       throw new Error('mobileMenuInteractionHandler: mobileMainMenuContentItemId not found');

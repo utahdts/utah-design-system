@@ -4,6 +4,8 @@ import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
 import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 import LogoTitleWrapper from './html/LogoTitleWrapper.html?raw';
 import LogoTitleWrapperLink from './html/LogoTitleWrapperLink.html?raw';
+import IconIndustry from './icons/icon_industry.svg?raw';
+import IconUtah from './icons/icon_utah.svg?raw';
 
 /**
  * @returns {Element}
@@ -48,6 +50,15 @@ export function LogoTitle() {
       settingsLogoElement = valueOrFunctionValue(settingsLogo.element);
     } else if (settingsLogo.imageUrl) {
       settingsLogoElement = renderDOMSingle(`<img src=${valueOrFunctionValue(settingsLogo.imageUrl)}  id="design-system-logo" />`);
+    } else if (settingsLogo.icon) {
+      switch (settingsLogo.icon) {
+        case 'industry':
+          settingsLogoElement = renderDOMSingle(IconIndustry);
+          break;
+        default:
+          settingsLogoElement = renderDOMSingle(IconUtah);
+          break;
+      }
     } else {
       throw new Error('LogoTitle: logo set but has no settings');
     }

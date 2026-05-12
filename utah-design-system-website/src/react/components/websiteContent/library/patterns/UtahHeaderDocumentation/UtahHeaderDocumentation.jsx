@@ -654,6 +654,26 @@ export function UtahHeaderDocumentation() {
               use for the logo image.
             </TableCell>
           </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-logo">icon</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>"utah"</code>
+                <span> | </span>
+                <code>"industry"</code>
+              </div>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>"utah"</code>
+              </div>
+            </TableCell>
+            <TableCell>
+              You can use the official Utah icons. They can either display "Utah" or "Industry".
+            </TableCell>
+          </TableRow>
         </SettingsDocumentation>
 
         <h4>Other</h4>

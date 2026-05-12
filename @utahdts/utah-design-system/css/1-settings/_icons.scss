@@ -375,4 +375,9 @@
   .utds-icon-after-ai::after {
     content: "\e940";
   }
+
+  .utds-icon-before-send::before,
+  .utds-icon-after-send::after {
+    content: "\e941";
+  }
 }

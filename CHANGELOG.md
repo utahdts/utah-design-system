@@ -10,10 +10,13 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Fixed a race condition where calling `ssouserinfo.triggerPoll()` was called before it was ready.
 - Website
   - Fixed the appearance of the Search Page search input.
+  - Fixed "On this page" list structure.
 
 ## Added
-- New AI Chatbot example
-- New AI icon
+- Utah Header:
+  - Add new property for logo: `icon`. Can be `"utah"` or `"industry"`.
+- New AI Chatbot example.
+- New AI, send icons.
 
 # [5.0.1] 05/01/2026
 ## Fixed
