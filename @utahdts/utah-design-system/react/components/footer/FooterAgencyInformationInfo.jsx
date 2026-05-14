@@ -3,7 +3,7 @@
 /**
  * @param {object} props
  * @param {string} props.agencyTitleFirstLine ie Utah Department of (smaller font above main title)
- * @param {string} props.agencyTitleSecondLine ie Government Operations (larger font below firstLine)
+ * @param {string} [props.agencyTitleSecondLine] ie Government Operations (larger font below firstLine)
  * @param {Address} props.address
  * @param {string} props.email
  * @param {import('react').ReactNode} props.logo
