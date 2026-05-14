@@ -12,7 +12,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Added
   - ### Utah Header:
-    - The Utah Header now exports the version of the Design System it is running on.
+    - The Utah Header now exports the version of the Design System it is running on (UTDS_VERSION).
       - UMD: `window['@utahdts/utah-design-system-header'].UTDS_VERSION`
       - ESM: `import { UTDS_VERSION } from 'path.to/utah-design-system-header.es.js';`
 
