@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [5.0.3] 05/05/2026
+## Fixed
+- Utah Header:
+  - Fixed UtahID sign in button not providing a fallback currentUser when the onSignIn/onSignOut was controlled but no currentUser was supplied.
+    - If onSignIn/onSignOut are controlled the header will first check for a currentUser. If none is present it will default back to the automatically provided user. Warning: This has potential to cause the displayed user and the signed in user of the application to appear out of sync.
+
 # [5.0.2] 05/05/2026
 ## Fixed
 - Utah Header:
