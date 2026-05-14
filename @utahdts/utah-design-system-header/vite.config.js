@@ -1,6 +1,8 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
+import pkg from './package.json' assert { type: 'json' };
+
 
 export default defineConfig(({ mode }) => {
   // throw new Error(`header mode: '${mode}'`);
@@ -32,7 +34,8 @@ export default defineConfig(({ mode }) => {
       eslintPlugin(),
     ],
     define: {
-      'process.env': {}
+      'process.env': {},
+      __UtahHeaderVersion__: JSON.stringify(pkg.version),
     },
     preview : {
       port: 5550,

@@ -6,9 +6,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 # [5.0.3] 05/05/2026
 ## Fixed
-- Utah Header:
+- ### Utah Header:
   - Fixed UtahID sign in button not providing a fallback currentUser when the onSignIn/onSignOut was controlled but no currentUser was supplied.
     - If onSignIn/onSignOut are controlled the header will first check for a currentUser. If none is present it will default back to the automatically provided user. Warning: This has potential to cause the displayed user and the signed in user of the application to appear out of sync.
+
+## Added
+  - ### Utah Header:
+    - The Utah Header now exports the version of the Design System it is running on.
+      - UMD: `window['@utahdts/utah-design-system-header'].UTDS_VERSION`
+      - ESM: `import { UTDS_VERSION } from 'path.to/utah-design-system-header.es.js';`
 
 # [5.0.2] 05/05/2026
 ## Fixed
