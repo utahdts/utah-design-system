@@ -22,6 +22,9 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
     - New AI Chatbot example.
     - New AI, send icons.
 
+## Update
+  - Updated package libraries for examples.
+
 # [5.0.2] 05/07/2026
 ## Fixed
 - Utah Header:
