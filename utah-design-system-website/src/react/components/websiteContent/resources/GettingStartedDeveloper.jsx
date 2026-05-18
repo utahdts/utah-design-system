@@ -92,7 +92,7 @@ export function GettingStartedDeveloper() {
         <p><em>This will use version 5.0.</em></p>
         <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css" className="button" target="_blank">style.css Download</a>
       </div>
-      <div>
+      <div className="mb-spacing">
         <div className="mb-auto font-bold font-size-l">utah-design-system-header.umd.js</div>
         <PreCodeForCodeString
           allowScrollOverflow
@@ -113,6 +113,29 @@ export function GettingStartedDeveloper() {
         />
         <p><em>This will use version 5.0.</em></p>
         <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js" className="button" target="_blank">utah-design-system-header.umd.js Download</a>
+      </div>
+      <div>
+        <div className="mb-auto font-bold font-size-l">utah-design-system-header.es.js</div>
+        <div className="mb-spacing-s">The ES Module (ESM) version is the modern standard for JavaScript imports. It uses the import and export syntax.</div>
+        <PreCodeForCodeString
+          allowScrollOverflow
+          showBackgroundColor
+          className="mb-auto"
+          codeRaw={`
+            https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.es.js
+          `}
+        />
+        <p><em>This always uses the latest version.</em></p>
+        <PreCodeForCodeString
+          allowScrollOverflow
+          showBackgroundColor
+          className="mb-auto"
+          codeRaw={`
+            https://unpkg.com/@utahdts/utah-design-system-header@v5/dist/utah-design-system-header.es.js
+          `}
+        />
+        <p><em>This will use version 5.0.</em></p>
+        <a href="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.es.js" className="button" target="_blank">utah-design-system-header.es.js Download</a>
       </div>
 
       <h2 id="h2-release-notes" className="mt-spacing-l">Release Notes</h2>
@@ -230,7 +253,7 @@ export function GettingStartedDeveloper() {
         It is best practice to limit the version of the library to a specific major version to avoid unexpected breaking changes. Major version updates often
         introduce new features, but they can also include modifications or removals of existing functionality that may not be backward compatible.
       </p>
-      <p>See the <a href="#h2-design-system-versioning">About Versioning</a> section below for examples.</p>
+      <p>See the <a href="#h2-design-system-versioning">About Versioning</a> section above for examples.</p>
 
       <h4 id="example__universal-module-definition" className="mt-spacing">UMD Example (script tag src / require)</h4>
       <p>The UMD (Universal Module Definition) example uses a CDN to pull in both the javascript and CSS in the <code>&lt;head&gt;</code>.

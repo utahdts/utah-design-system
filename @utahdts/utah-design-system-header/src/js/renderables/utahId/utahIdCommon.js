@@ -55,7 +55,7 @@ export function getUtahIdUserInfo() {
     userToShowInHeader = null;
   } else {
     // app/website is going to tell the header what to display
-    userToShowInHeader = settings.utahId?.currentUser ?? null;
+    userToShowInHeader = settings.utahId?.currentUser || currentUtahIdData.userInfo || null;
   }
 
   return userToShowInHeader;

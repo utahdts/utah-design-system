@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "6.3.5",
-    "vite-plugin-mkcert": "1.17.8"
+    "vite": "8.0.13",
+    "vite-plugin-mkcert": "2.0.0"
   },
   "dependencies": {
   }

@@ -9,11 +9,11 @@ export function App() {
     setUtahHeaderSettings({
       title: 'My utah.gov Site',
       domLocationTarget: {
-        element: document.getElementById('utah-header-target'),
+        cssSelector: '#utah-header-target',
       },
       footer: {
         domLocationTarget: {
-          element: document.getElementById('footer-target'),
+          cssSelector: '#footer-target',
         }
       },
       mainMenu: {

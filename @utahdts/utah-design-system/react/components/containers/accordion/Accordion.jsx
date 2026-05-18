@@ -52,7 +52,7 @@ export function Accordion({
         type="button"
       >
         {/* @ts-expect-error */}
-        <HeadingTag>{headerContent}</HeadingTag>
+        <HeadingTag id={`accordion-heading__${id}`}>{headerContent}</HeadingTag>
         <span className={`utds-icon-before-circle-chevron-up icon-button__icon ${stateIsOpen ? '' : 'icon-button__icon--rotate180'}`} aria-hidden="true" />
       </button>
 

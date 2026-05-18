@@ -324,4 +324,9 @@ export const iconsDocumentationIcons = [
     title: 'ai',
     letter: 'e940',
   },
+  {
+    cssClass: 'send ',
+    title: 'send',
+    letter: 'e941',
+  },
 ];

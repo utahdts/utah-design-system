@@ -1,6 +1,7 @@
 import { domConstants, getCssClassSelector } from '../../enumerations/domConstants';
 import { valueOrFunctionValue } from '../../misc/valueOrFunctionValue';
 import { hideMobileMenu, showMobileMenu } from './util/showHideHamburgerElements';
+import { getUtahHeaderSettings } from '../../settings/getUtahHeaderSettings';
 
 /** @typedef {import('src/@types/jsDocTypes.d').AriaHasPopupType} AriaHasPopupType */
 
@@ -68,6 +69,7 @@ export function mobileMenuInteractionHandler(
     shouldOnClickCloseMenu,
   }
 ) {
+  const settings = getUtahHeaderSettings();
   if (mobileMenuContentItem && !ariaHasPopupType) {
     throw new Error('mobileMenuInteractionHandler: there is content, but the aria type is not given');
   }
@@ -92,7 +94,7 @@ export function mobileMenuInteractionHandler(
   if (!interactiveElementId) {
     throw new Error('mobileMenuInteractionHandler: interactiveElementId not found');
   }
-  if (mobileMenuContentItem) {
+  if (mobileMenuContentItem && settings.mainMenu) {
     const mobileMenuContentItemValue = valueOrFunctionValue(mobileMenuContentItem);
     if (mobileMenuContentItemValue) {
       const mobileMenuContentItemId = mobileMenuContentItemValue.getAttribute('id');

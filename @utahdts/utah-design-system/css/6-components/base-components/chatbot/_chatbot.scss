@@ -4,13 +4,23 @@
   .chatbot {
     &__wrapper {
       max-width: calc(100% - 2 * (1rem + var(--spacing-2xs)));
+
+      .button--confirm {
+        padding: 0 var(--spacing-xs);
+      }
     }
 
     &__input-wrapper {
+      background: var(--gray-light-color);
+      border-radius: var(--radius-small);
+      padding: var(--spacing-s) var(--spacing);
+
       label.text-area__label {
+        /*
         display: flex;
         align-items: center;
         position: relative;
+        margin-left: calc(1rem + var(--spacing-2xs));
 
         &:before {
           content: '\e940';
@@ -25,6 +35,14 @@
           position: absolute;
           left: calc(-1rem - var(--spacing-2xs));
         }
+         */
+      }
+
+      textarea {
+        border: none;
+        background: none;
+        padding: var(--spacing-xs) 0;
+        field-sizing: content;
       }
     }
 
@@ -57,6 +75,7 @@
 
     &__answer-ai {
       position: relative;
+      padding-left: calc(1rem + var(--spacing-2xs));
       &:before {
         content: '\e940';
         display: inline-block;
@@ -68,7 +87,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         position: absolute;
-        left: calc(-1rem - var(--spacing-2xs));
+        left: 0;
       }
     }
   }

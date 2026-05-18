@@ -1,5 +1,6 @@
 import officialBanner from '../../../../../../../../@utahdts/utah-design-system-header/src/js/renderables/officialBanner/html/OfficialBanner.html?raw'
 import {
+  Accordion,
   Button,
   events,
   ExternalLink,
@@ -32,7 +33,6 @@ import { formatHeaderSettingsForCopy } from './formatHeaderSettingsForCopy';
 import { useInteractiveHeaderState } from './useInteractiveHeaderState';
 import { UtahHeaderInteractivePresetSelector } from './UtahHeaderInteractivePresetSelector';
 import { utahHeaderPresets } from './utahHeaderPresets';
-import { ColorCustomization } from '../../../resources/ColorCustomization';
 
 export function UtahHeaderDocumentation() {
   const interactiveTextAreaRef = useRef(/** @type {HTMLTextAreaElement | null} */(null));
@@ -93,7 +93,7 @@ export function UtahHeaderDocumentation() {
       </p>
       <hr />
       <div className="header-config__title">
-        <h2 id="section-example">Configuration</h2>
+        <h2 id="section-example">Configuration Tool</h2>
         <Switch
           id="header-config-on-off"
           label="Turn On/Off Custom Header"
@@ -184,166 +184,328 @@ export function UtahHeaderDocumentation() {
         </div>
       </div>
 
-      <p>Go to the <a href="#section-utahheader-code-examples">Code Examples</a>.</p>
+      <Accordion
+        className="mb-spacing"
+        headerContent={'Features of the Utah Header'}
+        headerClassName="button--primary-color button--solid"
+        id="header-features"
+        headingLevel={2}
+      >
+        <StaticExample
+          title="An official website of the State of Utah"
+          renderedExample={(
+            <>
+              <div dangerouslySetInnerHTML={{ __html: officialBanner }} className="full-width"/>
+            </>
+          )}
+          quickTips={(
+            <ul>
+              <li>The Utah identification is required on all headers.</li>
+              <li>The <code>An official website of the state of Utah.</code> helps the user to know that they are visiting an official state website.</li>
+              <li>The banner should be positioned at the top of the page header and span the full width.</li>
+              <li>The banner opens an accordion section that explains how to identify an official state website.</li>
+            </ul>
+          )}
+        />
 
-      <StaticExample
-        title="An official website of the State of Utah"
-        renderedExample={(
-          <>
-            <div dangerouslySetInnerHTML={{ __html: officialBanner }} className="full-width"/>
-          </>
-        )}
-        quickTips={(
-          <ul>
-            <li>The Utah identification is required on all headers.</li>
-            <li>The <code>An official website of the State of Utah.</code> helps the user to know that they are visiting an official state website.
-            </li>
-            <li>The banner should be positioned at the top of the page header and span the full width.</li>
-          </ul>
-        )}
-      />
+        <StaticExample
+          title="Agency Logo and Title"
+          renderedExample={(
+            <div style={{ height: '50px' }}>
+              <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a className="utds-title-wrapper" href="#">
+                  <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={utahIndustryBrand} /></div>
+                  <div className="utds-title-wrapper__title">Agency/Division Title</div>
+                </a>
+              </h1>
+            </div>
+          )}
+          quickTips={(
+            <ul>
+              <li>The Agency Logo and Title section is required on all headers. It can be just a logo, or a title, or a combination of both.</li>
+              <li>The title is always required even if it is not visible, so screen readers can identify the site.</li>
+              <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and
+                title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain
+                a <code>4.5:1</code> contrast ratio against the background.
+              </li>
+              <li>The rendered size of the Agency Logo is <code>53px</code> tall. Therefore an optimal size for a logo image @2x would
+                be <code>106px</code> tall. A logo at this size will provide enhanced sharpness and clarity on high-density screens.
+              </li>
+            </ul>
+          )}
+        />
 
-      <StaticExample
-        title="Agency Logo and Title"
-        renderedExample={(
-          <div style={{ height: '50px' }}>
-            <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="utds-title-wrapper" href="#">
-                <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={utahIndustryBrand} /></div>
-                <div className="utds-title-wrapper__title">Agency/Division Title</div>
-              </a>
-            </h1>
-          </div>
-        )}
-        quickTips={(
-          <ul>
-            <li>The Agency Logo and Title section is required on all headers. It can be just a logo, or a title, or a combination of both.</li>
-            <li>The title is always required even if it is not visible, so screen readers can identify the site.</li>
-            <li>If you are using an image, such as a <code>png</code>, <code>jpg</code> or <code>svg</code> that contains both the agency logo and
-              title, the text of the agency title should be at least <code>14px</code> as well. The text should also maintain
-              a <code>4.5:1</code> contrast ratio against the background.
-            </li>
-            <li>The rendered size of the Agency Logo is <code>53px</code> tall. Therefore an optimal size for a logo image @2x would
-              be <code>106px</code> tall. A logo at this size will provide enhanced sharpness and clarity on high-density screens.
-            </li>
-          </ul>
-        )}
-      />
+        <StaticExample
+          title="Action Items"
+          renderedExample={(
+            <>
+              <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
+                onClick={() => addBanner({ message: 'Triggered the waffle icon button' })}
+                title="Waffle icon button"
+              />
+              <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
+                onClick={() => addBanner({ message: 'Triggered the help icon button' })}
+                title="Help icon button"
+              />
+              <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
+                onClick={() => addBanner({ message: 'Triggered the gear icon button' })}
+                title="Gear icon button"
+              />
+            </>
 
-      <StaticExample
-        title="Action Items"
-        renderedExample={(
-          <>
-            <IconButton
-              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-              icon={(<span className="utds-icon-before-waffle" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the waffle icon button' })}
-              title="Waffle icon button"
-            />
-            <IconButton
-              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-              icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the alert icon button' })}
-              title="Alert icon button"
-            />
-            <IconButton
-              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-              icon={(<span className="utds-icon-before-help" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the help icon button' })}
-              title="Help icon button"
-            />
-            <IconButton
-              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-              icon={(<span className="utds-icon-before-gear" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the gear icon button' })}
-              title="Gear icon button"
-            />
-          </>
+          )}
+          quickTips={(
+            <ul>
+              <li>Action items are not required, but can be utilized based on need.</li>
+              <li>Action items are icon buttons that can be used in combination with badges.</li>
+              <li>
+                <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9
+                dots. It is a popup menu that can contain additional navigation.
+                One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an
+                agency&#39;s divisions.
+              </li>
+              <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu
+                that provides help items relative to the site.
+              </li>
+              <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that
+                allows the user to configure settings relative to the site or application that they are logged into or viewing.
+              </li>
+              <li>The UtahID Login is a button that allows the user to login to their MyLogin (UtahID) account.</li>
+              <li>Action items can have 2 different types of popups.
+                <ul>
+                  <li>Contains a menu</li>
+                  <li>Contains custom content</li>
+                </ul>
+              </li>
+            </ul>
+          )}
+        />
 
-        )}
-        quickTips={(
-          <ul>
-            <li>Action items are not required, but can be utilized based on need.</li>
-            <li>Action items are icon buttons that can be used in combination with badges.</li>
-            <li>
-              <span className="utds-icon-before-waffle" aria-hidden="true" /> The Waffle icon is represented by an icon that is a square made up of 9
-              dots. It is a popup menu that can contain additional navigation.
-              One of the recommended uses of the waffle menu is to include links to similarly related services, frequently used applications, or an
-              agency&#39;s divisions.
-            </li>
-            <li><span className="utds-icon-before-alert" aria-hidden="true" /> The Alert icon is represented by a bell icon. It will eventually be
-              linked to the Citizen Portal.
-            </li>
-            <li><span className="utds-icon-before-help" aria-hidden="true" /> The Help icon is represented by a question mark icon. It is a popup menu
-              that provides help items relative to the site.
-            </li>
-            <li><span className="utds-icon-before-gear" aria-hidden="true" /> The Settings icon is represented by a gear icon. It is a popup menu that
-              allows the user to configure settings relative to the site or application that they are logged into or viewing.
-            </li>
-            <li>The UtahID Login is a button that allows the user to login to their UtahID account and Citizen Portal (in the future).</li>
-            <li>Action items can have 2 different types of popups.
-              <ul>
-                <li>Contains a menu</li>
-                <li>Contains custom content</li>
-              </ul>
-            </li>
-          </ul>
-        )}
-      />
+        <StaticExample
+          title="Notifications"
+          renderedExample={(
+            <>
+              <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                icon={(<span className="utds-icon-before-alert" aria-hidden="true" />)}
+                onClick={() => addBanner({ message: 'Triggered the notifications icon button' })}
+                title="Notifications"
+              />
+            </>
 
-      <p>
-        View more information on <Link to={pageUrls.popups}>Popup Menus</Link>
-        , <Link to={pageUrls.iconButton}>Icon Buttons</Link>
-        and <Link to={pageUrls.badges}>Badges</Link>.
-      </p>
+          )}
+          quickTips={(
+            <ul>
+              <li>The header now features notifications powered by MyUtah.</li>
+              <li>For notifications to function you must turn on both of the following settings:</li>
+                <ul>
+                  <li>utahId: true</li>
+                  <li>notifications: true</li>
+                </ul>
+              <li>Notifications are for public facing MyLogin accounts. It doesn't work with state employee accounts.</li>
+            </ul>
+          )}
+        />
 
-      <h3 id="section-main-menu">Main Menu</h3>
-      <ul className="mb-spacing">
-        <li>
-          Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.
-        </li>
-        <li>
-          The main menu's color can also be customized. See <a href="#color-customization">color customization section below</a>.
-        </li>
-      </ul>
+        <p>
+          View more information on <Link to={pageUrls.popups}>Popup Menus</Link>
+          , <Link to={pageUrls.iconButton}>Icon Buttons</Link>
+          and <Link to={pageUrls.badges}>Badges</Link>.
+        </p>
 
-      <StaticExample
-        title="Search"
-        renderedExample={(
-          <>
-            <IconButton
-              appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-              icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
-              onClick={() => addBanner({ message: 'Triggered the search icon button' })}
-              title="Search"
-            />
-            <div style={{ width: '100px' }}>&nbsp;</div>
-            <LightBox image={searchModalScreenshot} alt="Search Modal Example" className="flex-3up-gap" />
-          </>
-        )}
-        quickTips={(
-          <ul>
-            <li>The Search functionality will be indicated by a Magnifying Glass icon button.</li>
-            <li>When the icon button is clicked, it will open a modal with a text input field.</li>
-            <li>A search input example can be found on the <Link to={pageUrls.textInput}>Text Input page</Link>.</li>
-          </ul>
-        )}
-      />
-      <p>
-        View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>
-        , <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.
-      </p>
+        <h3 id="section-main-menu">Main Menu</h3>
+        <ul className="mb-spacing">
+          <li>
+            Information and examples for the Main Menu can be found on the <Link to={pageUrls.mainMenu}>Main Menu Documentation</Link> page.
+          </li>
+          <li>
+            The main menu's color can also be customized. See <a href="#color-customization">color customization section below</a>.
+          </li>
+        </ul>
 
-      <h3 id="color-customization">Color Customization</h3>
-      <ul>
-        <li>The colors used in the Utah Header can be customized. Below is an example of how you can customize the colors used in the Utah Design System.</li>
-      </ul>
-      <ColorCustomization />
+        <StaticExample
+          title="Search"
+          renderedExample={(
+            <>
+              <IconButton
+                appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
+                icon={(<span className="utds-icon-before-search" aria-hidden="true" />)}
+                onClick={() => addBanner({ message: 'Triggered the search icon button' })}
+                title="Search"
+              />
+              <div style={{ width: '100px' }}>&nbsp;</div>
+              <LightBox image={searchModalScreenshot} alt="Search Modal Example" className="flex-3up-gap" />
+            </>
+          )}
+          quickTips={(
+            <ul>
+              <li>The Search functionality will be indicated by a Magnifying Glass icon button.</li>
+              <li>When the icon button is clicked, it will open a modal with a text input field.</li>
+              <li>A search input example can be found on the <Link to={pageUrls.textInput}>Text Input page</Link>.</li>
+            </ul>
+          )}
+        />
+        <p>
+          View more information on <Link to={pageUrls.iconButton}>Icon Buttons</Link>
+          , <Link to={pageUrls.modals}>Modals</Link> and <Link to={pageUrls.textInput}>Text Input</Link>.
+        </p>
+      </Accordion>
+
+      <Accordion
+        className="mb-spacing"
+        headerContent={'Guidance'}
+        headerClassName="button--primary-color button--solid"
+        id="section-guidance"
+        headingLevel={2}
+      >
+        <h3 id="section-when-to-use">When to use</h3>
+        <ul className="mb-spacing">
+          <li><strong>Utah Header</strong>
+            <ul>
+              <li><strong>Always Use</strong>. The header is required on all sites.</li>
+              <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3 id="section-when-to-use-something-else">When to use something else</h3>
+        <ul className="mb-spacing">
+          <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary
+            navigation.
+          </li>
+          <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content
+            consider using the search as a way for visitors to easily find information.
+          </li>
+        </ul>
+
+        <h3 id="section-usability-guidance">Usability Guidance</h3>
+        <ul className="mb-spacing">
+          <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the
+            citizens experience on all public state websites and applications.
+          </li>
+          <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header.
+            This will allow the developer to view the header in real time prior to implementing.
+          </li>
+        </ul>
+
+        <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
+        <h4 id="section-contrast" className="mt-spacing">Contrast</h4>
+        <ul>
+          <li>Maintain a minimum <code>4.5:1 </code>contrast ratio for all interactions (e.g. hover, focus).</li>
+        </ul>
+        <h4 id="section-keyboard-interactivity" className="mt-spacing">Keyboard Interactivity</h4>
+        <ul>
+          <li>Users must be able to to navigate using the <code>Tab</code> key.</li>
+          <li>Users must be able to select the navigation item using the <code>Enter/Return</code> keys.</li>
+        </ul>
+        <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
+        <ul>
+          <li>
+            To ensure a good user experience when navigating the site, follow the accessibility guidance for
+            <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.
+          </li>
+          <li>
+            For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link>
+            and <Link to={pageUrls.textInput}>Text Input</Link>.
+          </li>
+          <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
+        </ul>
+
+      </Accordion>
 
       {/* ---- CODE EXAMPLES --- */}
       <h2 id="section-utahheader-code-examples" className="my-spacing">Code Examples</h2>
+
+      <ul className="mb-spacing">
+        <li>
+          <Link
+            to={{
+              pathname: pageUrls.gettingStartedDeveloper,
+              hash: '#h2-pre-built-artifacts'
+            }}
+          >
+            Pre-Built Artifacts and Downloads
+          </Link>
+          <br />
+          How to integrate the official Utah Header by importing the stylesheet and JavaScript library (UMD or ES modules),
+          with additional guidance on pinning your project to a specific resource version.
+        </li>
+        <li>
+          <Link
+            to={{
+              pathname: pageUrls.gettingStartedDeveloper,
+              hash: '#h3-header-importing-cdn'
+            }}
+          >
+            Example Header using Unpkg CDN
+          </Link>
+          <br />
+          Here you can find a UMD and ESM example that uses a CDN to pull in both the javascript and CSS in the <code>&lt;head&gt;</code>.
+          The header is configured when the <code>utahHeaderLoaded</code> event fires.
+        </li>
+        <li>
+          <Link
+            to={{
+              pathname: pageUrls.gettingStartedDeveloper,
+              hash: '#h3-header-importing-npm'
+            }}
+          >
+            Example Header using NPM
+          </Link>
+          <br />
+          Here you can find a find an example of using NPM to use the Utah Header in a javascript based project.
+        </li>
+        <li>
+          <Link
+            to={{
+              pathname: pageUrls.gettingStartedDeveloper,
+              hash: '#h3-fallback'
+            }}
+          >
+            CDN Fallback
+          </Link>
+          <br />
+          While widely used, unpkg.com can suffer from occasional outages. To mitigate this risk, implementing a fallback mechanism
+          is beneficial. Both the Utah Header JavaScript and CSS files are hosted on cdn.utah.gov.
+        </li>
+        <li>
+          <Link
+            to={{
+              pathname: pageUrls.gettingStartedDeveloper,
+              hash: '#h3-css-color-overrides'
+            }}
+          >
+            Customize the Header and Design System Colors
+          </Link>
+          <br />
+          The colors used in the Utah Header can be customized. Below is an example of how you can customize the colors
+          used in the Utah Design System.
+        </li>
+        <li>
+          <Link
+            to={pageUrls.wordPressHeaderPlugin}
+          >
+            WordPress Header Plugin
+          </Link>
+          <br />
+          This WordPress plugin makes using and configuring the official Utah Header easy.
+        </li>
+        <li>
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">A list of release notes for each version can be found on GitHub.</ExternalLink><br />
+        The release notes are essential for understanding breaking changes and new features. They provide clear
+        documentation of updates, helping developers anticipate impacts on their projects and decide when or how to upgrade.
+        </li>
+      </ul>
+
       {/* ----     Header Events     --- */}
+
       <h3 id="section-utahheader-events" className="mb-spacing">Utah Header Events</h3>
       <h4 id="section-loaded">{events.HEADER_LOADED}</h4>
       <div>
@@ -381,67 +543,13 @@ export function UtahHeaderDocumentation() {
         />
       </div>
 
-      <h2 id="section-guidance" className="mb-spacing">Guidance</h2>
-      <h3 id="section-when-to-use">When to use</h3>
-      <ul className="mb-spacing">
-        <li><strong>Utah Header</strong>
-          <ul>
-            <li><strong>Always Use</strong>. The header is required on all sites.</li>
-            <li><strong>Customizable header</strong>. The action button group can be omitted or customized to best fit the site needs.</li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3 id="section-when-to-use-something-else">When to use something else</h3>
-      <ul className="mb-spacing">
-        <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary
-          navigation.
-        </li>
-        <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content
-          consider using the search as a way for visitors to easily find information.
-        </li>
-      </ul>
-
-      <h3 id="section-usability-guidance">Usability Guidance</h3>
-      <ul className="mb-spacing">
-        <li><strong>Consistency</strong>. Never change the look and feel of the header nor main menu and search bar as they are central to the
-          citizens experience on all public state websites and applications.
-        </li>
-        <li><strong>Developer Tools</strong>. There will be tools available allowing the developer to toggle on and off the options in the header.
-          This will allow the developer to view the header in real time prior to implementing.
-        </li>
-      </ul>
-
-      <h3 id="section-accessibility" className="mb-spacing">Accessibility</h3>
-      <h4 id="section-contrast" className="mt-spacing">Contrast</h4>
-      <ul>
-        <li>Maintain a minimum <code>4.5:1 </code>contrast ratio for all interactions (e.g. hover, focus).</li>
-      </ul>
-      <h4 id="section-keyboard-interactivity" className="mt-spacing">Keyboard Interactivity</h4>
-      <ul>
-        <li>Users must be able to to navigate using the <code>Tab</code> key.</li>
-        <li>Users must be able to select the navigation item using the <code>Enter/Return</code> keys.</li>
-      </ul>
-      <h4 id="section-screen-readers" className="mt-spacing">Screen Readers</h4>
-      <ul>
-        <li>
-          To ensure a good user experience when navigating the site, follow the accessibility guidance for
-          <Link to={pageUrls.popups}>Popup menus and Flyout Menus</Link>.
-        </li>
-        <li>
-          For the search form refer to accessibility guidance for <Link to={pageUrls.modals}>Modals</Link>
-          and <Link to={pageUrls.textInput}>Text Input</Link>.
-        </li>
-        <li>For the search icon, see the <Link to={pageUrls.iconButton}>Icon Button</Link> and for accessibility guidance.</li>
-      </ul>
-
       {/* ---- CONFIG SETTINGS --- */}
       <h2 id="section-utahheader-config-settings" className="my-spacing">Configuration Settings</h2>
       <p>
         Below you will find the configuration settings for the Utah Header.
       </p>
       <p>
-        You can also find all the
+        You can also find all the {' '}
         <ExternalLink href="https://github.com/utahdts/utah-design-system/blob/main/%40utahdts/utah-design-system-header/src/js/misc/jsDocTypes.js">configuration settings in the JSDoc file</ExternalLink>.
       </p>
 
@@ -495,9 +603,14 @@ export function UtahHeaderDocumentation() {
 
         <h3><code><a href="#section-config-logo">logo</a></code></h3>
         <span className="prop__types">Logo</span>
-        <p>
+        <p className="mb-auto">
           Your site may have a logo and/or a title. Your logo should be an image such as an SVG or PNG.
         </p>
+        <ul className="mb-spacing">
+          <li>The rendered size of the Agency Logo is <code>53px</code> tall. Therefore an optimal size for a logo image @2x would
+            be <code>106px</code> tall. A logo at this size will provide enhanced sharpness and clarity on high-density screens.
+          </li>
+        </ul>
         <SettingsDocumentation className="static-example__component-wrapper" type={documentationTypes.PROPS}>
           <TableRow>
             <TableCell>
@@ -548,6 +661,26 @@ export function UtahHeaderDocumentation() {
             <TableCell>
               You can supply a url, or a function that returns a url, that specifies the source location to
               use for the logo image.
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <code><a href="#section-config-logo">icon</a></code>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>"utah"</code>
+                <span> | </span>
+                <code>"industry"</code>
+              </div>
+            </TableCell>
+            <TableCell>
+              <div className="props-code-wrapper">
+                <code>"utah"</code>
+              </div>
+            </TableCell>
+            <TableCell>
+              You can use the official Utah icons. They can either display "Utah" or "Industry".
             </TableCell>
           </TableRow>
         </SettingsDocumentation>
