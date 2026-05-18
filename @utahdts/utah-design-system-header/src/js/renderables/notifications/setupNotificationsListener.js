@@ -30,9 +30,15 @@ export function setupNotificationsListener() {
       showDebugMessage('Parent: Requesting data from iframe with options:', options);
       showDebugMessage('***** requestNotifications userInfo:',userInfo);
       globalState.setState({isBusy: true});
+      const request = userInfo?.authenticated === false ?
+        'getMessageNotLoggedIn'
+        : userInfo?.authenticated && userInfo?.isPublic === false ?
+          'getMessageNotLoggedInEmployee'
+          : 'getNotifications';
       apiIframe.contentWindow.postMessage({
         // public employees will have isPublic === false, so they don't get notifications, everyone else will try to get notifications
-        request: (userInfo?.authenticated === false || (userInfo?.authenticated && userInfo?.isPublic === false)) ? 'getMessageNotLoggedIn' : 'getNotifications', //// <---- this needs to call getNotifications when the currentUser is defined. If they have defined this we assume they are right.
+        request: request, //// <---- this needs to call getNotifications when the currentUser is defined. If they have defined this we assume they are
+        // right.
         options,
       }, iframeOrigin); // Use the correctly derived iframeOrigin
     } else {

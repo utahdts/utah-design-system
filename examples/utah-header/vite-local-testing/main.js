@@ -1,4 +1,4 @@
-import { setUtahHeaderSettings } from 'http://localhost:5550/utah-design-system-header.es.js';
+import { setUtahHeaderSettings, UTDS_VERSION } from 'http://localhost:5550/utah-design-system-header.es.js';
 import './style.css';
 import { setupCounter } from './counter';
 import javascriptLogo from './javascript.svg';
@@ -14,6 +14,7 @@ document.querySelector('#app').innerHTML = `
     </a>
     <h1>Hello Vite!</h1>
     <div class="card">
+      <div>Design System Header Version: ${UTDS_VERSION}</div>
       <button id="counter" type="button"></button>
     </div>
     <p class="read-the-docs">

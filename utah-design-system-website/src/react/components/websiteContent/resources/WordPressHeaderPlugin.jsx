@@ -107,8 +107,8 @@ export function WordPressHeaderPlugin() {
           <PreCodeForCodeString
             codeRaw={`
               footer: {
-                  showHorizontalRule: true
-                }
+                showHorizontalRule: true
+              }
             `}
             showBackgroundColor
           />
@@ -157,32 +157,48 @@ export function WordPressHeaderPlugin() {
       />
 
       <h2 id="header-colors">Header Colors</h2>
-      <p>
-        You can customize the header colors by adding the following css to your website. Modify the <code style={{ whiteSpace: 'nowrap' }}>--primary-color</code> or
-        the <code style={{ whiteSpace: 'nowrap' }}>--header-primary-color</code> to change the colors in the header.{' '}
-        <strong>
-          The color must meet a minimum of <code>4.5:1</code> contrast
-          ratio or greater since this color is used to render text and other interactive elements in the header.
-        </strong>{' '}
-        The color variables must be scoped under <code>.utah-design-system</code>. See example below:
-      </p>
+      <ul className="mb-spacing">
+        <li>
+          You can customize the header colors by adding the following css to your website. Modify the following css variable to
+          change the colors in the header.
+          <ul>
+            <li><code style={{ whiteSpace: 'nowrap' }}>--header-primary-color</code></li>
+            <li><code style={{ whiteSpace: 'nowrap' }}>--header-primary-color-dark</code></li>
+          </ul>
+        </li>
+        <li>
+          <strong>
+            The color must meet a minimum of <code>4.5:1</code> contrast ratio or greater against <code style={{ whiteSpace: 'nowrap' }}>#f1f1f1</code>
+            since this color is used to render text and other interactive elements in the header.
+          </strong>
+        </li>
+        <li>
+          You can use the color configuration tool on this website to ensure the chosen colors meet accessibility requirements against the gray color of the header.
+          (<code style={{ whiteSpace: 'nowrap' }}>#f1f1f1</code>)
+        </li>
+        <li>
+          The color variables must be scoped under <code>.utah-design-system</code>. See example below:
+        </li>
+      </ul>
 
       <PreCodeForCodeString
         codeRaw={`
-          .utah-design-system {
-            --primary-color: #175ae2;
-            --primary-color-dark: #2f3d5a;
-            --primary-color-light: #eef3fc;
+          .utah-design-system, :root {
+            --primary-color: var(--utah-brand-secondary-color-blue-03);
+            --primary-color-dark: var(--utah-brand-secondary-color-blue-05);
+            --primary-color-light: var(--utah-brand-secondary-color-blue-00);
 
-            --secondary-color: #0e496f;
-            --secondary-color-dark: #2a4058;
-            --secondary-color-light: #edf2f4;
+            --secondary-color: var(--utah-brand-secondary-color-teal-03);
+            --secondary-color-dark: var(--utah-brand-secondary-color-teal-05);
+            --secondary-color-light: var(--utah-brand-secondary-color-teal-00);
 
-            --accent-color: #ad360d;
-            --accent-color-dark: #5d3122;
-            --accent-color-light: #f9f0ed;
+            --accent-color: var(--utah-brand-primary-color-gold-light);
+            --accent-color-dark: #a26100;
+            --accent-color-light: #ffecc3;
 
             --header-primary-color: var(--primary-color);
+            --header-primary-color-dark: var(--primary-color-dark);
+
             --link-color: var(--primary-color);
             --link-color-dark: var(--primary-color-dark);
 

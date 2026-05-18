@@ -13,11 +13,13 @@ import { htmlDecode } from '../../util/htmlDecode';
 /**
  * @param {object} props
  * @param {HierarchyNode[]} props.headersLevel
+ * @param {boolean} [props.backToTop]
  * @returns {import('react').JSX.Element}
  */
-export function OnThisPageHeadersLevel({ headersLevel }) {
+export function OnThisPageHeadersLevel({ headersLevel, backToTop = false }) {
   return (
     <ul className="on-this-page__list">
+      {backToTop ? <li className="back-to-top"><a href="#">Back to top</a></li> : ''}
       {
         headersLevel.map((header) => {
           let node = null;

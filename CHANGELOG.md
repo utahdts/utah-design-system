@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [5.1.0] 05/18/2026
+## Fixed
+- ### Utah Header:
+  - Fixed UtahID sign in button not providing a fallback currentUser when the onSignIn/onSignOut was controlled but no currentUser was supplied.
+    - If onSignIn/onSignOut are controlled the header will first check for a currentUser. If none is present it will default back to the automatically provided user. Warning: This has potential to cause the displayed user and the signed in user of the application to appear out of sync.
+
+- ### Website:
+  - Fixed "On this page" list structure.
+
+## Added
+  - ### Utah Header:
+    - The Utah Header now exports the version of the Design System it is running on (UTDS_VERSION).
+      - UMD: `window['@utahdts/utah-design-system-header'].UTDS_VERSION`
+      - ESM: `import { UTDS_VERSION } from 'path.to/utah-design-system-header.es.js';`
+    - Add new property for logo: `icon`. Can be `"utah"` or `"industry"`.
+    - New AI Chatbot example.
+    - New AI, send icons.
+
+## Update
+  - Updated package libraries for examples.
+
 # [5.0.2] 05/07/2026
 ## Fixed
 - Utah Header:
