@@ -15,10 +15,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <!-- Include the CSS and Javascript for the Utah Header -->
-  <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/@utahdts/utah-design-system-header/dist/style.css"> -->
 
   <!-- To test locally uncomment the following line. -->
-  <!-- <link rel="stylesheet" href="http://localhost:5550/style.css"> -->
+  <link rel="stylesheet" href="http://localhost:5550/style.css">
 
   <!-- Some basic styling for this example. -->
   <style>
@@ -54,12 +54,13 @@
     }
   </style>
 
-  <script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script>
+  <!-- <script src="https://unpkg.com/@utahdts/utah-design-system-header/dist/utah-design-system-header.umd.js"></script> -->
 
   <!-- To test locally uncomment the following line. -->
-  <!-- <script src="http://localhost:5550/utah-design-system-header.umd.js"></script> -->
+  <script src="http://localhost:5550/utah-design-system-header.umd.js"></script>
 
   <script>
+    let designSystemVersion;
     // Wait for the utah header to be ready
     document.addEventListener('utahHeaderLoaded', () => {
       // Set up the utah header
@@ -95,6 +96,8 @@
         "actionItems": null,
         "onSearch": false
       });
+      designSystemVersion = window['@utahdts/utah-design-system-header'].UTDS_VERSION;
+      document.getElementById('version-span').textContent = designSystemVersion;
     });
   </script>
 
@@ -118,9 +121,10 @@
   <div id="header-target"></div>
   <aside aria-label="side menu">Aside - Sidebar</aside>
   <main>
-    <h1>Universal Module Definition (UMD) - Using Unpkg CDN</h1>
+    <h1>Universal Module Definition (UMD) - Using Unpkg CDN or Local</h1>
     <ul>
-      <li>This example uses the unpkg CDN to pull in the javascript in with a <code>&lt;script&gt;</code> tag in the <code>&lt;head&gt;</code>.</li>
+      <li>This example uses the unpkg CDN or Local to pull in the javascript in with a <code>&lt;script&gt;</code> tag in the <code>&lt;head&gt;</code>.</li>
+      <li>Utah Design System Version: <span id="version-span"></span></li>
       <li>The Utah Header functions are available on the window object: <code>window[&quot;@utahdts/utah-design-system-header&quot;]</code></li>
       <li>The CSS is included as a standard stylesheet link.</li>
       <li>The design system colors are overridden.</li>
