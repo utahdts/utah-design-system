@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import {
+  Accordion,
   ExternalLink,
   Table,
   TableBody,
@@ -16,13 +17,13 @@ import { pageUrls } from '../../routing/pageUrls';
 
 export function TypographyDocumentation() {
   return (
-    <div className="documentation-content">
+    <div className="documentation-content typography">
       <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
       <h1 id="h1-top">Typography</h1>
       <p className="lead-in">
         To assist developers in achieving a cohesive and user-friendly design, we offer a range of formatting functions and typography guidelines. These
         resources enable the creation of clear and consistent headings, highly legible body paragraphs, and easily recognizable UI elements on your
-        website. Our default typefaces are thoughtfully chosen for their legibility and accessibility across different user environments.
+        website. Typefaces have been chosen for their brand identity, legibility, and accessibility across different user environments.
       </p>
       <p>
         When utilizing a content management system, such as WordPress, you will be using the built in tools to make changes to font sizes, weights, and other
@@ -33,149 +34,156 @@ export function TypographyDocumentation() {
 
       <hr />
 
-      <h2 id="section-font-family" className="mb-spacing">Font Family</h2>
+      <h2 id="section-font-family" className="mt-spacing">Design System Font Families</h2>
       <p>
-        The Utah Design System recommends the follow font family pairings.
-        In the majority of cases these fonts are an excellent choice for websites and applications within the state of Utah.
-        These fonts were carefully chosen for ease of reading and professional appearance.
+        The Utah Design System recommends the following font families, each selected for its legibility, professional appearance, and
+        alignment with the state's brand identity. These fonts are ideal for most State of Utah websites and applications, provided
+        they are applied according to their designated use cases.
       </p>
-      <p className="mb-auto">
-        However, there may be times were other fonts are warranted.
-        Consider these points when choosing fonts as they may impact your site&apos;s professional appearance and the font&apos;s readability especially at lower contrast levels:
+      <p>
+        When designing digital content and user interfaces for webpages and applications, <strong>using a sans-serif font for body text is a critical best practice for accessibility</strong>.
+        Because digital text is read on-screen rather than in print, the decorative strokes of serif fonts can significantly degrade legibility, especially for users with
+        low vision. While serif fonts are perfectly acceptable for larger headings or brief moments of emphasis, a clean sans-serif typeface is essential for main body copy
+        and user interface elements to ensure fluid reading and an accessible user experience.
       </p>
-      <ul>
-        <li>Fonts with extraordinarily thin strokes</li>
-        <li>Unusual features and characteristics that reduce the familiarity of their letter forms</li>
-        <li>Handwritten or script typefaces</li>
-        <li>Comic Sans ☹️</li>
-      </ul>
 
-      <h3 id="font-family-source-sans" className="mt-spacing">UT Industry</h3>
-      <p>Font pairing: UT Industry, Source Sans 3, Lora, Source Code Pro</p>
+      <h3 id="font-family-ut-industry">UT Industry</h3>
+      <p>
+        As a key component of our branding strategy, the UT Industry font was custom-designed exclusively for the State of Utah.
+      </p>
       <div className="typography__font-family mb-spacing">
-        <div className="typography__font-demo  typography__ut-industry-font">
-          <div>
+        <div className="typography__font-demo">
+          <div className="typography__ut-industry-font">
             In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
           </div>
-          <div className="typography__font-name flex gap align-items-center items-end">
-            <ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf">UT Industry <br />(Serif)</ExternalLink>
-            <span>Recommended for headings</span>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> UT Industry Regular (400)</div>
+            <div><strong>Usage:</strong> Use only for high-impact, short-form text like callouts and quotes. Never use for main body copy, as it reduces readability. Can also be used for Headings.</div>
           </div>
         </div>
         <div className="typography__font-demo">
-          <div>
-            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
-          </div>
-          <div className="typography__font-name flex gap align-items-center items-end">
-            <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+3">Source Sans 3 <br />(Sans Serif)</ExternalLink>
-            <span>Recommended for body text</span>
-          </div>
-        </div>
-        <div className="typography__font-demo typography__lora-font">
-          <div>
-            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          <div className="typography__ut-industry-font typography__ut-industry-font--medium">
+            Expect a dazzling, unique journey with off-roading, mountain biking, hiking, and river rafting in Moab with access to Arches National Park, Canyonlands National Park, and Dead Horse Point State Park.
           </div>
           <div className="typography__font-name">
-            <ExternalLink href="https://fonts.google.com/specimen/Lora">Lora <br />(Serif)</ExternalLink>
+            <div><strong>Font Name / Weight:</strong> UT Industry Medium (500)</div>
+            <div><strong>Usage:</strong> Use only for high-impact, short-form text like callouts and quotes. Never use for main body copy, as it reduces readability. Can also be used for Headings.</div>
           </div>
         </div>
-        <div className="typography__font-demo typography__source-code-pro">
-          <div>
-            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+        <div className="typography__font-demo">
+          <div className="typography__ut-industry-font typography__ut-industry-font--bold">
+            A quick journey from Capitol Reef National Park to Goblin Valley State Park amazes crowds with its hoodoos, fixing extreme boredom.
           </div>
           <div className="typography__font-name">
-            <ExternalLink href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro <br />(Monospace)</ExternalLink>
+            <div><strong>Font Name / Weight:</strong> UT Industry Bold (700)</div>
+            <div><strong>Usage:</strong> Use only for large, high-impact text elements such as Headings. Never use for any text smaller than 20px, as the heavy weight compromises legibility at smaller sizes.</div>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <div className="typography__ut-industry-font typography__ut-industry-font--heavy">
+            Just marvel at the exquisite, crazy, glowing hoodoos found while exploring Bryce Canyon National Park and Kodachrome Basin State Park.
+          </div>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> UT Industry Heavy (900)</div>
+            <div><strong>Usage:</strong> Use only for large, high-impact text elements such as Headings. Never use for any text smaller than 28px, as the heavy weight compromises legibility at smaller sizes.</div>
           </div>
         </div>
       </div>
 
-      <h3 id="download-font" className="mt-spacing">Download UT Industry</h3>
-      <p className="mb-spacing-xs">The UT Industry font can be found on the state CDN:</p>
-      <TableWrapper className="my-spacing">
-        <Table className="full-width table--lines-x">
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadCell className="text-left">Format</TableHeadCell>
-              <TableHeadCell className="text-left">Weight</TableHeadCell>
-              <TableHeadCell className="text-left">Link</TableHeadCell>
-            </TableHeadRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell><code>.ttf</code></TableCell>
-              <TableCell>Regular</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf">UT Industry (Regular)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.ttf</code></TableCell>
-              <TableCell className="font-semi-bold">Medium</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Medium.ttf">UT Industry (Medium)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.ttf</code></TableCell>
-              <TableCell className="font-bold">Bold</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Bold.ttf">UT Industry (Bold)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.ttf</code></TableCell>
-              <TableCell className="font-black">Heavy</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Heavy.ttf">UT Industry (Heavy)</ExternalLink></TableCell>
-            </TableRow>
+      <Accordion
+        headerContent={<span>Download UT Industry Font</span>}
+        headerClassName="button--primary-color button--solid download-font-heading"
+        headingLevel={4}
+        id="opened-accordion"
+      >
+        <p>You can <ExternalLink href="https://drive.google.com/drive/folders/1ksXhzCfi9C-v0sBW56078XWxMpQpZzIQ?usp=drive_link">download the desktop version (and the web versions) of the UT Industry font</ExternalLink> from the Utah Branding shared folder.</p>
+        <p className="mb-spacing-xs">The UT Industry web font can also be found on the state CDN:</p>
+        <TableWrapper className="my-spacing">
+          <Table className="full-width table--lines-x">
+            <TableHead>
+              <TableHeadRow>
+                <TableHeadCell className="text-left">Format</TableHeadCell>
+                <TableHeadCell className="text-left">Weight</TableHeadCell>
+                <TableHeadCell className="text-left">Link</TableHeadCell>
+              </TableHeadRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell><code>.woff2</code></TableCell>
+                <TableCell>Regular</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Regular.woff2">UT Industry (Regular)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.woff2</code></TableCell>
+                <TableCell className="font-semi-bold">Medium</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Medium.woff2">UT Industry (Medium)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.woff2</code></TableCell>
+                <TableCell className="font-bold">Bold</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Bold.woff2">UT Industry (Bold)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.woff2</code></TableCell>
+                <TableCell className="font-black">Heavy</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Heavy.woff2">UT Industry (Heavy)</ExternalLink></TableCell>
+              </TableRow>
 
-            <TableRow>
-              <TableCell><code>.woff</code></TableCell>
-              <TableCell>Regular</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Regular.woff">UT Industry (Regular)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.woff</code></TableCell>
-              <TableCell className="font-semi-bold">Medium</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Medium.woff">UT Industry (Medium)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.woff</code></TableCell>
-              <TableCell className="font-bold">Bold</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Bold.woff">UT Industry (Bold)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.woff</code></TableCell>
-              <TableCell className="font-black">Heavy</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Heavy.woff">UT Industry (Heavy)</ExternalLink></TableCell>
-            </TableRow>
+              <TableRow>
+                <TableCell><code>.woff</code></TableCell>
+                <TableCell>Regular</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Regular.woff">UT Industry (Regular)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.woff</code></TableCell>
+                <TableCell className="font-semi-bold">Medium</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Medium.woff">UT Industry (Medium)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.woff</code></TableCell>
+                <TableCell className="font-bold">Bold</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Bold.woff">UT Industry (Bold)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.woff</code></TableCell>
+                <TableCell className="font-black">Heavy</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Heavy.woff">UT Industry (Heavy)</ExternalLink></TableCell>
+              </TableRow>
 
-            <TableRow>
-              <TableCell><code>.woff2</code></TableCell>
-              <TableCell>Regular</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Regular.woff2">UT Industry (Regular)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.woff2</code></TableCell>
-              <TableCell className="font-semi-bold">Medium</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Medium.woff2">UT Industry (Medium)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.woff2</code></TableCell>
-              <TableCell className="font-bold">Bold</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Bold.woff2">UT Industry (Bold)</ExternalLink></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell><code>.woff2</code></TableCell>
-              <TableCell className="font-black">Heavy</TableCell>
-              <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Heavy.woff2">UT Industry (Heavy)</ExternalLink></TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableWrapper>
+              <TableRow>
+                <TableCell><code>.ttf</code></TableCell>
+                <TableCell>Regular</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf">UT Industry (Regular)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.ttf</code></TableCell>
+                <TableCell className="font-semi-bold">Medium</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Medium.ttf">UT Industry (Medium)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.ttf</code></TableCell>
+                <TableCell className="font-bold">Bold</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Bold.ttf">UT Industry (Bold)</ExternalLink></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell><code>.ttf</code></TableCell>
+                <TableCell className="font-black">Heavy</TableCell>
+                <TableCell><ExternalLink href="https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Heavy.ttf">UT Industry (Heavy)</ExternalLink></TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableWrapper>
+      </Accordion>
 
-      <p className="mb-spacing-xs">Example on how to import UT Industry using CSS:</p>
+      <p className="mb-spacing-xs mt-spacing">Example on how to import UT Industry Regular using CSS:</p>
       <PreCodeForCodeString
         codeRaw={`
 @font-face {
   font-family: "UT Industry";
   src:
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf") format("truetype"),
-    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Regular.woff") format("woff"),
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff2/UTIndustry-Regular.woff2") format("woff2");
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Regular.woff") format("woff"),
+    url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Regular.ttf") format("truetype"),
   font-weight: 400;
   font-style: normal;
 }
@@ -184,7 +192,168 @@ export function TypographyDocumentation() {
         showBackgroundColor
       />
 
-      <h2 id="section-font-size" className="mb-spacing">Font Size</h2>
+      <p>
+        <strong>Please note:</strong> the UT Industry Font is imported and ready to use if you're using the Utah Header (v5.0 or later).
+        You will not need to import the font as shown above if this is the case. Additionally a css variable is provided by the header to
+        enable quick access to the font family.
+      </p>
+
+      <p><strong>CSS variable:</strong> <code>--ut-industry-font-family</code></p>
+
+      <p className="mb-auto"><strong>Example:</strong></p>
+
+      <PreCodeForCodeString
+        codeRaw={`
+h1, h2 {
+  font-family: var(--ut-industry-font-family);
+}
+        `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
+
+      <h3 id="font-family-source-sans" className="mt-spacing">Source Sans 3</h3>
+      <p>
+        Source Sans 3 is an exceptional choice for a state websites and applications because it was specifically engineered for high readability,
+        user interface (UI) design, and digital accessibility.
+      </p>
+      <div className="typography__font-family mb-spacing">
+        <div className="typography__font-demo">
+          <div className="typography__source-sans">
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> Source Sans 3 Regular (400)</div>
+            <div><strong>Usage:</strong> Can be universally used.</div>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <div className="typography__source-sans typography__source-sans--medium">
+            Expect a dazzling, unique journey with off-roading, mountain biking, hiking, and river rafting in Moab with access to Arches National Park, Canyonlands National Park, and Dead Horse Point State Park.
+          </div>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> Source Sans 3 Medium (500)</div>
+            <div><strong>Usage:</strong> Can be universally used.</div>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <div className="typography__source-sans typography__source-sans--bold">
+            A quick journey from Capitol Reef National Park to Goblin Valley State Park amazes crowds with its hoodoos, fixing extreme boredom.
+          </div>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> Source Sans 3 Bold (700)</div>
+            <div><strong>Usage:</strong> Can be universally used.</div>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <div className="typography__source-sans typography__source-sans--heavy">
+            Just marvel at the exquisite, crazy, glowing hoodoos found while exploring Bryce Canyon National Park and Kodachrome Basin State Park.
+          </div>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> Source Sans 3 Black (900)</div>
+            <div><strong>Usage:</strong> This weight should not be used at sizes smaller than 20px to ensure that it is legible.</div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Download Source Sans 3</h4>
+      <p>This font is highly available via <ExternalLink href="https://fonts.google.com/specimen/Source+Sans+3">Google Fonts (Source Sans 3)</ExternalLink></p>
+      <p className="mb-auto">The Utah Header includes a few weights of Source Sans 3:</p>
+      <ul className="mb-spacing">
+        <li>Font style: Normal
+          <ul>
+            <li>Regular (400)</li>
+            <li>Semi-Bold (600)</li>
+            <li>Bold (700)</li>
+          </ul>
+        </li>
+        <li>Font style: Italic
+          <ul>
+            <li>Italic (400)</li>
+            <li>Bold Italic (700)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><strong>CSS variable:</strong> <code>--source-sans-font-family</code></p>
+
+      <p className="mb-auto"><strong>Example:</strong></p>
+
+      <PreCodeForCodeString
+        codeRaw={`
+body {
+  font-family: var(--source-sans-font-family);
+}
+        `}
+        allowScrollOverflow
+        showBackgroundColor
+      />
+
+
+      <h3 id="source-code-pro">Source Code Pro (Monospace)</h3>
+      <p>
+        A companion to Source Sans, this complementary family is a monospaced version for coding applications. Source Code preserves
+        the design features and vertical proportions of Source Sans, but alters the glyph widths so that they are uniform across all glyphs and weights.
+      </p>
+      <div className="typography__font-family mb-spacing">
+        <div className="typography__font-demo">
+          <div className="typography__source-code-pro">
+            In Zion National Park expect to be welcomed by majestic views, people having fun, and quaint local attractions!
+          </div>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> Source Code Pro Regular (400)</div>
+            <div><strong>Usage:</strong> Can be universally used, but most useful to display code.</div>
+          </div>
+        </div>
+        <div className="typography__font-demo">
+          <div className="typography__source-code-pro typography__source-code-pro--bold">
+            A quick journey from Capitol Reef National Pa rk to Goblin Valley State Park amazes crowds with its hoodoos, fixing extreme boredom.
+          </div>
+          <div className="typography__font-name">
+            <div><strong>Font Name / Weight:</strong> Source Code Pro Bold (700)</div>
+            <div><strong>Usage:</strong> Can be universally used, but most useful to display code.</div>
+          </div>
+        </div>
+      </div>
+      <h4>Download Source Code Pro</h4>
+      <p>
+        This font is highly available via <ExternalLink href="https://fonts.google.com/specimen/Source+Code+Pro">Google Fonts (Source Code Pro)</ExternalLink>
+      </p>
+
+      <h2 id="choose-fonts">Choosing additional fonts</h2>
+      <p className="mb-auto">
+        There may be times were other fonts are needed.
+        Consider these points when choosing fonts as they may impact your site&apos;s professional appearance and
+        the font&apos;s readability especially at lower contrast levels:
+      </p>
+      <ul>
+        <li>Fonts with extraordinarily thin strokes</li>
+        <li>Unusual features and characteristics that reduce the familiarity of their letter forms</li>
+        <li>Handwritten or script typefaces</li>
+        <li>Comic Sans ☹️</li>
+      </ul>
+
+      <h2 id="section-font-color" className="mt-spacing">Font Color</h2>
+      <ul className="mb-spacing">
+        <li>
+          <strong>Color and accessibility guidelines.</strong> Color plays a vital role in the legibility of text. Our color palette is built upon our steadfast commitment
+          to meeting the <ExternalLink href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">Web Content Accessibility Guidelines</ExternalLink> 2.1 AA
+          standard contrast ratios, ensuring accessibility. When feasible we try to achieve the AAA &quot;enhanced&quot; standard.
+          <ul>
+            <li>AA requires a <code>4.5:1</code> color contrast between text and background for normal text, and <code>3:1</code> for large text.</li>
+            <li>AAA requires a <code>7:1</code> color contrast between text and background for normal text, and <code>4.5:1</code> for large text.</li>
+            <li>The default color for text on a white background in the Utah Design System is <code>#474747</code> which achieves a <code>9.29:1</code> contrast ratio.</li>
+            <li>Use our color contrast tool to measure the contrast between two colors.</li>
+            <li>Information about <Link to={{pathname: pageUrls.accessibility, hash: "section-limited-vision-aaa-guidelines"}}>font sizes and required contrast ratios.</Link></li>
+          </ul>
+        </li>
+        <li>
+          <strong>Recommended font colors.</strong> When working with light backgrounds, it is recommended to utilize darker text, while white text is preferred for
+          dark backgrounds. If your application incorporates both light and dark themes, make certain that the text is available in a contrasting color for each respective theme.
+        </li>
+      </ul>
+
+      <h2 id="section-font-size">Font Size</h2>
       <ul className="mb-spacing">
         <li>
           <strong>Use a comfortable reading size for body text.</strong> For most text, including body copy, use at least an effective size of <code>1rem</code> (<code>16px</code> is
@@ -222,7 +391,7 @@ export function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-font-weight" className="mb-spacing">Font Weight</h2>
+      <h2 id="section-font-weight">Font Weight</h2>
       <ul>
         <li>
           <strong>Use font weight for emphasis.</strong> For most text, including body copy, use the base font weight of <code>normal</code>.
@@ -241,9 +410,8 @@ export function TypographyDocumentation() {
                 </TableHeadRow>
               </TableHead>
               <TableBody>
-                <TableRow><TableCell>--font-weight-extra-light</TableCell><TableCell>.font-extra-light</TableCell><TableCell>200</TableCell><TableCell className="font-extra-light">Demo Font Weight</TableCell></TableRow>
-                <TableRow><TableCell>--font-weight-light</TableCell><TableCell>.font-light</TableCell><TableCell>300</TableCell><TableCell className="font-light">Demo Font Weight</TableCell></TableRow>
                 <TableRow><TableCell>--font-weight-normal</TableCell><TableCell>.font-normal</TableCell><TableCell>400 <em className="ml-spacing">(Base Font Weight)</em></TableCell><TableCell className="font-normal">Demo Font Weight</TableCell></TableRow>
+                <TableRow><TableCell>--font-weight-medium</TableCell><TableCell>.font-medium</TableCell><TableCell>500</TableCell><TableCell className="font-medium">Demo Font Weight</TableCell></TableRow>
                 <TableRow><TableCell>--font-weight-semi-bold</TableCell><TableCell>.font-semi-bold</TableCell><TableCell>600</TableCell><TableCell className="font-semi-bold">Demo Font Weight</TableCell></TableRow>
                 <TableRow><TableCell>--font-weight-bold</TableCell><TableCell>.font-bold</TableCell><TableCell>700</TableCell><TableCell className="font-bold">Demo Font Weight</TableCell></TableRow>
                 <TableRow><TableCell>--font-weight-black</TableCell><TableCell>.font-black</TableCell><TableCell>900</TableCell><TableCell className="font-black">Demo Font Weight</TableCell></TableRow>
@@ -253,12 +421,13 @@ export function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-text-alignment" className="mb-spacing">Text Alignment</h2>
+      <h2 id="section-text-alignment">Text Alignment</h2>
       <ul className="mb-spacing">
         <li>
-          <strong>Text alignment.</strong> While <code>right-aligned</code>, <code>centered</code>, and <code>justified</code> text have their place, most websites
-          benefit from a consistent use of <code>left-aligned</code> text. Justified text, common in print, does not yet display well enough in a web browser to
-          be considered a best practice. Setting the type to the left provides the eye a constant starting point for each line, making text easier for the user to read.
+          <strong>Text alignment.</strong> While <code>right-aligned</code> and <code>centered</code> text have their place for specific use cases, websites benefit from
+          the consistent use of <code>left-aligned</code> text. Never use justified text. While common in print, <code>justified</code> text creates uneven word spacing
+          on digital screens that can severely hinder reading for users with cognitive or visual disabilities. Setting the type to the left provides a consistent
+          starting point and a "ragged" right edge, which helps the eye easily track from the end of one line to the beginning of the next.
         </li>
         <li>
           Utah Design System Alignment Options:
@@ -266,7 +435,6 @@ export function TypographyDocumentation() {
             <li><code>.text-left &#123; text-align: left; &#125;</code></li>
             <li><code>.text-center &#123; text-align: center; &#125;</code></li>
             <li><code>.text-right &#123; text-align: right; &#125;</code></li>
-            <li><code>.text-justify &#123; text-align: justify; &#125;</code></li>
           </ul>
         </li>
         <li>
@@ -278,14 +446,12 @@ export function TypographyDocumentation() {
               <div class="text-left">Apples are delicious</div>
               <div class="text-center">Apples are delicious</div>
               <div class="text-right">Apples are delicious</div>
-              <div class="text-justify">Apples are delicious</div>
-              (font used above, Source Code Pro)
             `}
           />
         </li>
       </ul>
 
-      <h2 id="section-line-height" className="mb-spacing">Line Height</h2>
+      <h2 id="section-line-height">Line Height</h2>
       <ul className="mb-spacing">
         <li>
           <strong>Line Height.</strong> Line height controls the vertical rhythm and density of a block of text. It is written as a unitless multiplier of
@@ -297,7 +463,7 @@ export function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-whitespace" className="mb-spacing">Whitespace</h2>
+      <h2 id="section-whitespace">Whitespace</h2>
       <ul className="mb-spacing">
         <li>
           <strong>Whitespace.</strong>  The space around your content elements affects the relationship between these elements. Use less whitespace
@@ -320,46 +486,29 @@ export function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-font-color" className="mb-spacing">Font Color</h2>
-      <ul className="mb-spacing">
-        <li>
-          <strong>Color and accessibility guidelines.</strong> Color plays a vital role in the legibility of text. Our color palette is built upon our steadfast commitment
-          to meeting the <ExternalLink href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">Web Content Accessibility Guidelines</ExternalLink> 2.1 AA
-          standard contrast ratios, ensuring accessibility. When feasible we try to achieve the AAA &quot;enhanced&quot; standard.
-          <ul>
-            <li>AA requires a <code>4.5:1</code> color contrast between text and background for normal text, and <code>3:1</code> for large text.</li>
-            <li>AAA requires a <code>7:1</code> color contrast between text and background for normal text, and <code>4.5:1</code> for large text.</li>
-            <li>The default color for text on a white background in the Utah Design System is <code>#474747</code> which achieves a <code>9.29:1</code> contrast ratio.</li>
-            <li>Use our color contrast tool to measure the contrast between two colors.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Recommended font colors.</strong> When working with light backgrounds, it is recommended to utilize darker text, while white text is preferred for
-          dark backgrounds. If your application incorporates both light and dark themes, make certain that the text is available in a contrasting color for each respective theme.
-        </li>
-      </ul>
-
-      <h2 id="section-font-style" className="mb-spacing">Font Style</h2>
+      <h2 id="section-font-style">Font Style</h2>
       <p>
-        The style of a typeface affects its readability. In general, serif typefaces are more appropriate for long blocks of text and sans serif typefaces are more
-        appropriate for UIs — but this norm is not a hard-and-fast rule. The conventions of the web are more forgiving of longer, sans serif texts and
-        serif UIs are not out of the question for sites of a certain tone.
+        The style of a typeface affects its readability. Follow the guidelines below to achieve the best user experience and meet accessibility requirements.
       </p>
       <ul className="mb-spacing">
         <li className="typography__lora-font normal">
-          <strong>Serif typefaces can be a good choice for long texts</strong> <i>(font used: Lora)</i>. Serif typefaces tend to be designed for
-          readability. While they are most useful for true extended longform reading like novels, nonfiction, and essays, any site that requires
-          long stretches of continuous reading, such as documentation manuals, could benefit from using a serif body
-          typeface. <i>If in doubt, use the recommended sans serif font.</i>
+          <strong>Serif vs Sans Serif Fonts:</strong> When designing digital content and user interfaces for webpages and applications, <strong>using a sans-serif font for body text is a critical best practice for accessibility</strong>.
+          Because digital text is read on-screen rather than in print, the decorative strokes of serif fonts can significantly degrade legibility, especially for users with
+          low vision. While serif fonts are perfectly acceptable for larger headings or brief moments of emphasis, a clean sans-serif typeface is essential for main body copy
+          and user interface elements to ensure fluid reading and an accessible user experience.
         </li>
         <li>
-          <strong>Neutral typefaces can be a good choice for interfaces</strong> <i>(font used: Source Sans 3)</i>. UIs are the practical expression of a site&apos;s organization and functionality. A straightforward and neutral typeface can help the user focus on using the interface as a tool.
+          <strong>Use sans serif fonts for user interfaces (Source Sans 3).</strong> UIs are the practical expression of a
+          site&apos;s organization and functionality. A font such as Source Sans 3 can help the user focus on using the interface as a tool.
         </li>
         <li>
-          <strong>Avoid long sections of italic or bold text.</strong> Both italic and bold text can degrade readability. Both are best used for limited sections of contrast. Consider replacing long sections of bold or italic text with a callout box, a section header, or some other technique that avoids extended stretches of styled text.
+          <strong>Avoid long sections of italic or bold text.</strong> Both italic and bold text can degrade readability. Both are best used for limited
+          sections of contrast. Consider replacing long sections of bold or italic text with a callout box, a section header, or some other technique that
+          avoids extended stretches of styled text.
         </li>
         <li>
-          <strong>Avoid long sections of uppercase text.</strong> Uppercase text has a serious negative effect on readability. Unless mandated by law, consider other type treatments for any uppercase text longer than just a few words.
+          <strong>Avoid long sections of uppercase text.</strong> Uppercase text has a serious negative effect on readability. Unless mandated by law,
+          consider other type treatments for any uppercase text longer than just a few words.
         </li>
         <li>
           <a href="#section-font-family">See Font Family for more information.</a>
@@ -407,9 +556,8 @@ export function TypographyDocumentation() {
       <h3 id="section-underline">Underline</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>Use bold or italics first.</strong> When it comes to writing for the web, it is recommended to use the underline tag
-          very sparingly (if at all). Rather than relying on underlines, you can utilize bold or italics to add emphasis to certain
-          words or phrases.
+          <strong>Use bold or italics.</strong> Never use underlines for emphasis; reserve them exclusively for links. Instead, use bold or
+          italics to draw attention to specific words or phrases.
         </li>
         <li>
           <strong>Underline is often mistaken for links.</strong> It is a common assumption that underlined text indicates a hyperlink,
@@ -440,36 +588,64 @@ export function TypographyDocumentation() {
         </li>
       </ul>
 
-      <h2 id="section-accessibility-summary" className="mb-spacing">Accessibility Summary</h2>
+      <h2 id="section-accessibility-summary">Accessibility Summary</h2>
       <ul className="mb-spacing">
         <li>
-          Text must maintain a <code>4.5:1</code> contrast ratio or better.
+          Use <strong>sans serif fonts</strong> (Source Sans 3) for the body copy and user interface elements for a website or application.
         </li>
         <li>
-          Selecting an appropriate font size for body text is crucial to ensure comfortable reading. While a minimum font size of <code>16px</code> is
+          Use <strong>serif fonts</strong> (UT Industry) for headings and emphasis. Don't use serif fonts for body copy because the decorative strokes
+          of serif fonts can significantly degrade legibility, especially for users with low vision. {' '}
+          <ExternalLink href="https://www.section508.gov/develop/fonts-typography/">Font accessibility reference from 508.</ExternalLink>
+        </li>
+        <li>
+          Text must maintain a <strong><code>4.5:1</code> contrast ratio</strong> or better.
+        </li>
+        <li>
+          Selecting an appropriate font size for body text is crucial to ensure comfortable reading. While a <strong>minimum font size of <code>16px</code></strong> is
           recommended, it&apos;s important to account for potential variations based on the specific design of the font.
         </li>
         <li>
           <p>
-            Font weight can also play a factor in the perceivability and readability. For example, it is not recommended to set entire paragraphs
+            <strong>Font weight</strong> can also play a factor in the perceivability and readability. For example, it is not recommended to set entire paragraphs
             of text in a light, extra-light, or thin font. Thin weights inherently make the text harder to see. Thin weights may be used at larger
-            font sizes for headings.
+            font sizes for headings. <strong>The following example is not accessible!</strong>
           </p>
           <p className="typography__light-font ml-spacing">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum,
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur. Donec condimentum,
             magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
             ultricies quis vel lacus.
           </p>
 
           <p>
             It is also recommended that you don&apos;t set entire paragraphs in a bold or heavy weight as this will also impact the readability of the text.
-            On rare occasions you may have the need to dramatically emphasize text.
+            On rare occasions you may have the need to dramatically emphasize text. <strong>The following example is not accessible because the font is using
+            a heavy font! The size of the text should be increased to 20px or larger when using a heavy font.</strong>
           </p>
           <p className="typography__black-font ml-spacing">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur molestie. Donec condimentum,
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur. Donec condimentum,
             magna et rutrum elementum, massa urna placerat odio, ut varius nisl eros ut odio. Vivamus eget lacus et nibh porttitor
             ultricies quis vel lacus.
           </p>
+        </li>
+        <li>
+          <strong>Text alignment:</strong> Don't use <code>justified</code> text because it creates uneven word spacing on digital screens that can
+          severely hinder reading for users with cognitive or visual disabilities. Use <code>right-aligned</code> and <code>centered</code> text for specific use cases.
+          Use <code>left-aligned</code> in the vast majority of cases for body copy text.
+        </li>
+        <li>
+          To make text easy to read, the Utah Design System uses a <strong>line height of <code>1.4</code></strong> for body text.
+        </li>
+        <li>
+          <strong>Font style:</strong>
+          <ul>
+            <li>Use <strong>bold</strong>, <strong>italic</strong>, and <strong>all caps</strong> sparingly to provide emphasis.</li>
+            <li>Reserve <strong>underline</strong> exclusively for links.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Headings</strong> can effectively communicate hierarchy in your content. Their size, weight, and typeface can help distinguish them
+          from paragraph text. This makes headings stand out, which aids in scanning the content. More on <Link to={pageUrls.headings}>headings</Link>.
         </li>
         <li>
           Choose a typeface that emphasizes clarity and legibility.
@@ -498,17 +674,7 @@ export function TypographyDocumentation() {
                 <li>The typeface supports all of the characters and font styles that are needed.</li>
               </ul>
             </li>
-            <li>
-              Some designers suggest using sans-serif typefaces for user interfaces and serif typefaces for long-form reading. However,
-              this is ultimately a matter of personal preference and context.
-            </li>
-            <li>
-              Headings can effectively communicate hierarchy in your content. Their size, weight, and typeface can help distinguish them
-              from paragraph text. This makes headings stand out, which aids in scanning the content. More on <Link to={pageUrls.headings}>headings</Link>.
-            </li>
-            <li>
-              To make text easy to read, the Utah Design System uses a line height of <code>1.4</code> for body text.
-            </li>
+
           </ul>
         </li>
       </ul>
