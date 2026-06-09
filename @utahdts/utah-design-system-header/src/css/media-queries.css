@@ -30,6 +30,8 @@
     padding: 0 var(--spacing);
     /* The utah id button is this tall, but without it, the menu doesn't fill the space up to the mobile menu content popup */
     min-height: 46px;
+    width: 100%;
+    max-width: calc(100% - (2 * var(--spacing)));
   }
   .utah-design-system .main-menu__nav {
     display: none;
