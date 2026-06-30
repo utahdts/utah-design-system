@@ -1,15 +1,16 @@
 import {
   Button,
-  ConfirmationButton,
-  ConfirmationChildren,
-  ExternalLink,
   ICON_BUTTON_APPEARANCE,
   IconButton,
-  InitialChildren,
+  Modal,
+  ModalContent,
+  ModalFooter,
+  ModalTitle,
   TextArea,
   useAriaMessaging
 } from '@utahdts/utah-design-system';
 import { useCallback, useRef, useState } from 'react';
+import { DemoAIResponse } from './DemoAIResponse.jsx';
 
 export function DemoAI() {
   const timer = useRef(NaN);
@@ -18,22 +19,29 @@ export function DemoAI() {
   const [draft, setDraft] = useState('');
   const [answers, setAnswers] = useState(/** @type { {id: number, isGenerating: boolean, prompt: string}[] } */([]));
   const [isDisabled, setIsDisabled] = useState(false);
+  const [showModal, setModal] = useState(false);
 
   const onChange = useCallback((/** @type {import('react').ChangeEvent<HTMLTextAreaElement>} */ e) => {
     setDraft(e.target.value);
   }, [setDraft]);
 
-  const reset = useCallback(() => setDraft(''), [setDraft]);
-
   const setFocus = useCallback(() => {
     document.getElementById("utah-ai")?.focus();
   }, []);
 
+  const openModal = useCallback(() => {
+    setModal(true);
+  }, [setModal]);
+
+  const closeModal = useCallback(() => {
+    setModal(false);
+  }, [setModal]);
+
   const newChat = useCallback(() => {
+    closeModal()
     setDraft('');
     setAnswers([]);
-    setFocus();
-  }, [setDraft, setAnswers, setFocus]);
+  }, [setDraft, setAnswers, closeModal]);
 
   const timeoutCallback = useCallback(() => {
     setIsDisabled(false);
@@ -121,29 +129,16 @@ export function DemoAI() {
         </div>
         <div className="flex justify-between items-center gap">
           <div className="flex justify-start items-center gap">
-            <ConfirmationButton
-              className="button icon-button icon-button--borderless icon-button--small1x"
-              appearance="outlined"
-              onClick={newChat}
-              size="small1x"
-            >
-              <InitialChildren>
-                <span className="utds-icon-before-edit-box" aria-hidden="true" />
-                <span className="visually-hidden">Start a new chat</span>
-              </InitialChildren>
-              <ConfirmationChildren>
-                Are you sure?
-              </ConfirmationChildren>
-            </ConfirmationButton>
-          </div>
-          <div className="flex justify-end items-center gap">
             <IconButton
+              icon={<span className="utds-icon-before-edit-box" aria-hidden="true" />}
               size="small1x"
               appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-              icon={(<span className="utds-icon-before-restart" aria-hidden="true" />)}
-              onClick={reset}
+              onClick={openModal}
               isDisabled={isDisabled}
-              title="Reset prompt" />
+              title="Start a new chat"
+            />
+          </div>
+          <div className="flex justify-end items-center gap">
             <Button
               onClick={submit}
               size="small"
@@ -162,67 +157,34 @@ export function DemoAI() {
       </p>
       {!!answers.length && <div className="chatbot__answers">
         {answers.sort((a, b) => b.id - a.id).map((answer) => (
-          <div key={answer.id}>
-            <hr />
-            <div className="chatbot__answer-wrapper">
-              <div className="chatbot__answer-user mt-spacing-xs answer" tabIndex={0} id={`user-prompt_${answer.id}`} onKeyDown={onKeyChange}>
-                <p className="mb-auto">
-                  <span className="visually-hidden">User prompt: </span>
-                  {answer.prompt}
-                </p>
-              </div>
-              <div className="chatbot__answer-ai">
-                {answer.isGenerating ?
-                  <div aria-busy="true" className="flex flex-col gap-s">
-                    <div className="skeleton skeleton--line"></div>
-                    <div className="skeleton skeleton--line"></div>
-                  </div>
-                  : <div>
-                    <p className="answer mb-spacing-s" tabIndex={0} id={`ai-answer_${answer.id}`} onKeyDown={onKeyChange}>
-                      <span className="visually-hidden">Utah A.I. response: </span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Vivamus nunc nisi, efficitur ac pellentesque at, auctor id ante. Vivamus at blandit lorem.{" "}
-                      <ExternalLink href="#">Source</ExternalLink>
-                    </p>
-                    <div className="flex gap-xs">
-                      <IconButton
-                        icon={(
-                          <svg width="15" height="12" viewBox="0 0 15 12">
-                            <path d="M10 12L8.83333 10.7786L11.8125 7.71429H3.75C2.70833 7.71429 1.82292 7.33929 1.09375 6.58929C0.364583 5.83929 0 4.92857 0 3.85714C0 2.78571 0.364583 1.875 1.09375 1.125C1.82292 0.375 2.70833 0 3.75 0H4.16667V1.71429H3.75C3.16667 1.71429 2.67361 1.92143 2.27083 2.33571C1.86806 2.75 1.66667 3.25714 1.66667 3.85714C1.66667 4.45714 1.86806 4.96429 2.27083 5.37857C2.67361 5.79286 3.16667 6 3.75 6H11.8125L8.83333 2.91429L10 1.71429L15 6.85714L10 12Z"/>
-                          </svg>
-                        )}
-                        size="small1x"
-                        appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-                        onClick={setFocus}
-                        title="Follow-up or ask something else" />
-                      <ConfirmationButton
-                        className="button icon-button icon-button--borderless icon-button--small1x"
-                        appearance="outlined"
-                        onClick={newChat}
-                        size="small1x"
-                      >
-                        <InitialChildren>
-                          <span className="utds-icon-before-edit-box" aria-hidden="true" />
-                          <span className="visually-hidden">Start a new chat</span>
-                        </InitialChildren>
-                        <ConfirmationChildren>
-                          Are you sure?
-                        </ConfirmationChildren>
-                      </ConfirmationButton>
-                      <IconButton
-                        icon={(<span className="uds-icon">&#xe925;</span>)}
-                        size="small1x"
-                        appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-                        onClick={()=>{}}
-                        title="See more options" />
-                    </div>
-                  </div>
-                }
-              </div>
-            </div>
-          </div>
+          <DemoAIResponse
+            key={answer.id}
+            answer={answer}
+            onKeyChange={onKeyChange}
+            setFocus={setFocus}
+            openModal={openModal}
+            isDisabled={isDisabled}
+          />
         ))}
       </div>}
+      {showModal ?
+        <Modal
+          ariaLabelledBy="new-chat-modal-title"
+          id="new-chat-modal"
+          onClose={closeModal}
+          onEscape={closeModal}
+        >
+          <ModalTitle id="new-chat-modal-title">
+            Start new chat?
+          </ModalTitle>
+          <ModalContent id="new-chat-modal-content">
+            Utah A.I. doesn’t save your conversations. Are you sure you wish to clear the chat history and start a new chat? (This cannot be undone.)
+          </ModalContent>
+          <ModalFooter className="flex float-right flex-wrap" id="new-chat-modal-footer">
+            <Button onClick={closeModal} className="mr-spacing">Cancel</Button>
+            <Button onClick={newChat} className="button--solid button--primary-color">Start New Chat</Button>
+          </ModalFooter>
+        </Modal> : ''}
     </div>
   )
 }
