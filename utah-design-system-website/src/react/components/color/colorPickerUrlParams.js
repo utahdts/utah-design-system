@@ -3,6 +3,7 @@ import { CSS_VARIABLES_KEYS } from '../../enums/cssVariablesKeys';
 import { notNull } from '../../util/notNull/notNull';
 
 const NULL_COLOR_HEX = '_';
+const REGEX_COLOR_HEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 
 /**
  * @param {object} cssState state from the css context... someday it will be typed
@@ -63,7 +64,8 @@ export function colorsToUrlParams(cssState) {
   const hexes = (
     Object.values(CSS_VARIABLES_KEYS)
       // @ts-expect-error colorKey is valid here
-      .map((colorKey) => /** @type {string | null} */(cssState[colorKey])?.substring(1) || NULL_COLOR_HEX)
+      // eslint-disable-next-line @stylistic/max-len
+      .map((colorKey) => /** @type {string | null} */(REGEX_COLOR_HEX.test(cssState[colorKey]) && (cssState[colorKey])?.substring(1)) || NULL_COLOR_HEX)
       .map((colorHex) => {
         let retVal = colorHex;
         if (retVal !== NULL_COLOR_HEX) {
