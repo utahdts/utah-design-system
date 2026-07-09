@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 # [5.2.0] 06/30/2026
 ## Update
 - Updated AI Chatbot pattern with new functionalities.
+
+- ### Utah Header:
+  - Removed unused CSS.
+
 - ### Utah Footer:
   - Removed "Translate" link.
   - Update "Accessibility" link.

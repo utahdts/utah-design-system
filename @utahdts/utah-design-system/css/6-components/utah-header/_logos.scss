@@ -80,36 +80,6 @@
       }
     }
   }
-  button.utah-logo-svg {
-    height: 100%;
-    position: relative;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    &:hover {
-      background: none;
-    }
-    &:active {
-      box-shadow: none;
-    }
-    svg {
-      height: 100%;
-      width: auto;
-      fill: var(--primary-color);
-      font-family: 'Source Sans 3', 'Source Sans Pro', Helvetica, Arial, sans-serif;
-      font-weight: normal;
-      font-size: 14px;
-      display: block;
-    }
-  }
-  .utds-official-website-hover {
-    &__wrapper {
-      font-size: 1rem;
-      font-weight: var(--font-weight-normal);
-      font-family: var(--normal-font-family);
-      text-align: center;
-    }
-  }
   a[href].utds-title-wrapper {
     text-decoration: none;
   }
