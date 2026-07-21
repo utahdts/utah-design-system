@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [5.2.0] 07/16/2026
+# [5.2.0] 07/21/2026
 - ## Website
   - Updated AI Chatbot pattern with new functionalities.
   - Updated the typography page with font families for the current state brand.
@@ -19,7 +19,6 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - ### Utah Footer:
   - Removed "Translate" link.
   - Update "Accessibility" link.
-
 
 # [5.1.0] 05/18/2026
 ## Fixed
