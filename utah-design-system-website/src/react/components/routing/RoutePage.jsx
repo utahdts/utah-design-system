@@ -29,6 +29,5 @@ export function RoutePage({ children, page }) {
     },
     [location.hash, location.pathname]
   );
-  // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 }

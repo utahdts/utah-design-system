@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import skipLinkScreenshot from '../../../../../../../static/images/screenshots/components/skip-link/SkipLink.png';
 import { LightBox } from '../../../../../lightbox/LightBox';
@@ -26,7 +26,6 @@ export function SkipLinkDocumentation() {
             <li>The skip link is the first focusable element on the page.</li>
             <li>When the user activates the link it takes them to the main content.</li>
             <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
                 href="#"
                 onClick={() => {

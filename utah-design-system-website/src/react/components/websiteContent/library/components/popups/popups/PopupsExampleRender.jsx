@@ -29,7 +29,6 @@ export function PopupsExampleRender({
     (e) => {
       e.preventDefault();
       e.stopPropagation();
-      // eslint-disable-next-line no-param-reassign
       setState((draftState) => { draftState.props.isVisible = !draftState.props.isVisible; });
     },
     [setState]
@@ -63,7 +62,6 @@ export function PopupsExampleRender({
         id="popups-example-render-popup"
         hasCloseButton={!!hasCloseButton}
         isVisible={!!isVisible}
-        // eslint-disable-next-line no-param-reassign
         onVisibleChange={useCallback(
           (_e, newIsVisible) => setState((draftState) => { draftState.props.isVisible = newIsVisible; }),
           [setState]

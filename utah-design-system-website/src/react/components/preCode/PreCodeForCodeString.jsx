@@ -18,6 +18,6 @@ export function PreCodeForCodeString({
   ...rest
 }) {
   const formattedCode = useMemo(() => formatPreCode(codeRaw || ''), [codeRaw]);
-  // eslint-disable-next-line react/jsx-props-no-spreading
+  // old-eslint-disable-next-line react/jsx-props-no-spreading
   return <PreCode {...rest}>{formattedCode}</PreCode>;
 }

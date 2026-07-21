@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import {
   ExternalLink,
   formElementSizesEnum,
@@ -115,10 +115,10 @@ export function AccessibilityChecklistDocumentation() {
               <Tag size={formElementSizesEnum.SMALL} className="tag--error">Error: Empty heading</Tag>
             </li>
             <li>
-                  <strong>Lists:</strong> Ensure that <Link to={pageUrls.lists}>lists</Link> (&lt;ul&gt;,
-                  &lt;ol&gt;) are used for list-like content.
-                  <Tag size={formElementSizesEnum.SMALL} className="tag--warning">Alert: Possible list</Tag>
-                </li>
+              <strong>Lists:</strong> Ensure that <Link to={pageUrls.lists}>lists</Link> (&lt;ul&gt;,
+              &lt;ol&gt;) are used for list-like content.
+              <Tag size={formElementSizesEnum.SMALL} className="tag--warning">Alert: Possible list</Tag>
+            </li>
             <li>
               <strong>Text size:</strong> Generally the <Link to={pageUrls.typography}>page text size</Link> should be 16px
               or larger, and generally no smaller than 14px for things like captions.
@@ -531,7 +531,7 @@ export function AccessibilityChecklistDocumentation() {
                 </li>
               </ul>
               <em>You may need to check for this on all pages or one time
-              depending how your website implements a solution.</em>
+                depending how your website implements a solution.</em>
             </li>
           </ul>
         </li>
@@ -544,7 +544,8 @@ export function AccessibilityChecklistDocumentation() {
           <ul>
             <li>
               <strong>Alternative (alt) text:</strong> The image’s alt
-              attribute (<Link to={`${pageUrls.accessibility}#alt-text`}>alt text</Link>) gives a description of an image for
+              attribute (<Link to={`${pageUrls.accessibility}#alt-text`}>alt text</Link>) gives
+              a description of an image for
               people who may not be able to view them. Make sure the alt
               description includes any text within the image. Don’t make
               descriptions too long. In WordPress use the media library to
@@ -883,13 +884,17 @@ export function AccessibilityChecklistDocumentation() {
                 <li>
                   <strong>Audio Accessibility Requirements</strong>
                   <ul>
-                    <li><strong>Transcripts:</strong> All standalone audio content
-                    (like podcasts) must include an accurate full text transcript.</li>
+                    <li>
+                      <strong>Transcripts:</strong> All standalone audio content
+                      (like podcasts) must include an accurate full text transcript.
+                    </li>
                   </ul>
                 </li>
-                <li><strong>Never Autoplay Audio:</strong> Audio elements should never autoplay,
-                this includes video. Video elements that autoplay must be muted. A mechanism must
-                be present to let users pause or stop the audio.</li>
+                <li>
+                  <strong>Never Autoplay Audio:</strong> Audio elements should never autoplay,
+                  this includes video. Video elements that autoplay must be muted. A mechanism must
+                  be present to let users pause or stop the audio.
+                </li>
                 <li>
                   <strong>Manual Testing Note: </strong>
                   Remember to <strong>manually test</strong> all captions, transcripts,

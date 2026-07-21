@@ -123,7 +123,7 @@ export function DemoAI() {
             placeholder="Ask Utah A.I. anything"
             value={draft}
             isDisabled={isDisabled}
-            // @ts-ignore
+            // @ts-expect-error
             onKeyDown={onEnter}
             onChange={onChange} />
         </div>
@@ -153,7 +153,8 @@ export function DemoAI() {
         </div>
       </div>
       <p className="disclaimer text-center font-size-xs my-spacing-xs">
-        Utah A.I. provides general information only and may make mistakes. Its responses should not be considered or relied upon as legal advice and do not constitute an official agency decision. Do not enter personal or sensitive information in this chat.
+        Utah A.I. provides general information only and may make mistakes. Its responses should not be considered or relied upon
+        as legal advice and do not constitute an official agency decision. Do not enter personal or sensitive information in this chat.
       </p>
       {!!answers.length && <div className="chatbot__answers">
         {answers.sort((a, b) => b.id - a.id).map((answer) => (

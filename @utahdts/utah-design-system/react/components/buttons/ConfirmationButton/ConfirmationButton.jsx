@@ -81,7 +81,7 @@ export function ConfirmationButton({
       onClick={onClickCallback}
       onBlur={resetButton}
       onKeyUp={handleKeyPress('Escape', resetButton)}
-      // eslint-disable-next-line react/button-has-type
+      // old-eslint-disable-next-line react/button-has-type
       type={type}
       {...rest}
     >

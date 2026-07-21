@@ -27,7 +27,8 @@ export function TooltipsExampleRender({
     <div ref={innerRef}>
       <Button
         className="button icon-button button--outlined"
-        onClick={() => { }}
+        // eslint-disable-next-line no-console
+        onClick={() => {console.log('click button')}}
         innerRef={referenceElement}
         type="button"
       >
@@ -39,7 +40,7 @@ export function TooltipsExampleRender({
         offset={{
           mainAxis: Number(offsetSkidding) || 0,
           crossAxis: Number(offsetDistance) || 0,
-          alignmentAxis: 0
+          alignmentAxis: 0,
         }}
         placement={placement}
         referenceElement={referenceElement.current}

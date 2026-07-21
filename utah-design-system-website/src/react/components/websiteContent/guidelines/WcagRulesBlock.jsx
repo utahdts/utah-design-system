@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+
 import {
   ExternalLink,
   joinClassNames,
@@ -28,7 +28,7 @@ export function WcagRulesBlock({ className }) {
             <li>0 to 49,999 persons: April 26, 2027</li>
             <li>Special district governments: April 26, 2027</li>
           </ul>
-</li>
+        </li>
       </ul>
     </blockquote>
   );

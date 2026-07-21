@@ -33,7 +33,7 @@ export function VerticalMenuExampleRender({
               children: [
                 {
                   title: 'Back to Top',
-                  // @ts-ignore
+                  // @ts-expect-error
                   actionFunction: () => navigate(pageUrls.backTopTop),
                   id: 'vertical-menu-back-to-top-item',
                 },
@@ -51,13 +51,13 @@ export function VerticalMenuExampleRender({
                 {
                   title: 'Side Panel',
                   id: 'vertical-menu-side-panel-item',
-                  // @ts-ignore
+                  // @ts-expect-error
                   actionFunction: () => navigate(pageUrls.sidePanelNavigation),
                 },
                 {
                   title: 'Skip Link',
                   id: 'vertical-menu-skip-link-item',
-                  // @ts-ignore
+                  // @ts-expect-error
                   actionFunction: () => navigate(pageUrls.skipLink),
                 },
               ],

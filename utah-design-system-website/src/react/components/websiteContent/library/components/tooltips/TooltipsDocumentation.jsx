@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import {
   ExternalLink,
   ICON_BUTTON_APPEARANCE, IconButton, popupPlacement, Tab, TabGroup, TabList, TabPanel, TabPanels, useBanner

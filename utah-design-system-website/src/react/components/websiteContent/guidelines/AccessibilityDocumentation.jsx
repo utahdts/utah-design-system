@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import {
   Button,
   ExternalLink,
@@ -259,7 +258,7 @@ export function AccessibilityDocumentation() {
               </p>
               <div className="flex gap justify-center mb-spacing flex-wrap">
                 <div className="flex flex-col">
-                  {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                  { }
                   <img src={boatImage} alt="an image of a boat at Jordanelle State Park" className="flex-3up-gap m-auto" style={{ width: '50%', minWidth: '0' }} />
                   <figure className="m-auto">
                     <figcaption>Poor alternative text: </figcaption>
@@ -640,8 +639,7 @@ export function AccessibilityDocumentation() {
           <strong>accurate and perfectly synchronized</strong> with the spoken word and visual action.
           To ensure optimal accessibility, use a media player that allows users to customize the size,
           position, and color of the text. For more information on providing high-quality captions,
-          visit the <ExternalLink href="https://www.w3.org/WAI/media/av/captions/">w3.org page on
-          Captions/Subtitles</ExternalLink>.
+          visit the <ExternalLink href="https://www.w3.org/WAI/media/av/captions/">w3.org page on Captions/Subtitles</ExternalLink>.
           <StaticExample
             renderedExample={<LightBox image={captionsImg} alt="Video providing captions" />}
             className="mb-auto mt-spacing-s"

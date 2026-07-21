@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import {
   Accordion,
   ExternalLink,
@@ -620,7 +620,7 @@ body {
           <p>
             It is also recommended that you don&apos;t set entire paragraphs in a bold or heavy weight as this will also impact the readability of the text.
             On rare occasions you may have the need to dramatically emphasize text. <strong>The following example is not accessible because the font is using
-            a heavy font! The size of the text should be increased to 20px or larger when using a heavy font.</strong>
+              a heavy font! The size of the text should be increased to 20px or larger when using a heavy font.</strong>
           </p>
           <p className="typography__black-font ml-spacing">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum efficitur. Donec condimentum,

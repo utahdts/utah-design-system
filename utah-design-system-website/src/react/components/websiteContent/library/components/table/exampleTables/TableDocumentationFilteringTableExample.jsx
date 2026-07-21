@@ -139,7 +139,6 @@ export function TableDocumentationFilteringTableExample() {
                   <TableBodyDataCellTemplate recordFieldPath="politicalParty" />
                   <TableBodyDataCellTemplate recordFieldPath="inauguration" />
                   <TableBodyDataCellTemplate recordFieldPath="funFacts">
-                    {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
                     {({ record }) => <>{`${record.funFacts.substring(0, 20)}...`}</>}
                   </TableBodyDataCellTemplate>
                   <TableBodyDataCellTemplate recordFieldPath="birthPlace">

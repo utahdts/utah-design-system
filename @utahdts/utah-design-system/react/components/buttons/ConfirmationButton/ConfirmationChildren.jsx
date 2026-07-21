@@ -9,6 +9,6 @@ export function ConfirmationChildren({
   children,
 }) {
   const isClicked = useConfirmationButtonContext();
-  // eslint-disable-next-line react/jsx-no-useless-fragment
+  // old-eslint-disable-next-line react/jsx-no-useless-fragment
   return (isClicked ? <>{children}</> : null);
 }

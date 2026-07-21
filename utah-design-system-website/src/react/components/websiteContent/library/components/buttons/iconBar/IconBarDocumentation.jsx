@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import actionBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/ActionBar.png';
 import iconBarScreenshot from '../../../../../../../static/images/screenshots/components/icon-bar/IconBar.png';

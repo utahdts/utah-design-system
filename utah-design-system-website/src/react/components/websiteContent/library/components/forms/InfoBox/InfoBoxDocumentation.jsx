@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import { Tab, TabGroup, TableCell, TableRow, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
@@ -24,7 +24,7 @@ export function InfoBoxDocumentation() {
           <div className="info-box">
             <div className="info-box__content">Here is some useful information.</div>
           </div>
-)}
+        )}
         quickTips={(
           <ul>
             <li>Concise text giving information.</li>

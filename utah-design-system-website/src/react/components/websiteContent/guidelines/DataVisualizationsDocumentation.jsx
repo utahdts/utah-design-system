@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import barChart from '../../../../static/images/screenshots/examples/BarChart.png';
 import lineChart from '../../../../static/images/screenshots/examples/LineChart.png';
 import { LightBox } from '../../lightbox/LightBox';

@@ -244,14 +244,16 @@ export function GettingStartedDeveloper() {
         You can use the javascript and CSS directly from the unpkg CDN.
       </p>
       <p>
-        <strong>Note:</strong> Starting with version 3.0 the <code>@utahdts/utah-design-system-header</code> and <code>@utahdts/utah-design-system</code> use the
-        same CSS file. There is no need to include the <code>.css</code> file from both of these anymore.
+        <strong>Note:</strong> Starting with version 3.0 the <code>@utahdts/utah-design-system-header</code> and{' '}
+        <code>@utahdts/utah-design-system</code> use the same CSS file. There is no need to
+        include the <code>.css</code> file from both of these anymore.
       </p>
 
       <h4 id="scoped-versions">Important: Limit Major Version for Compatibility</h4>
       <p>
-        It is best practice to limit the version of the library to a specific major version to avoid unexpected breaking changes. Major version updates often
-        introduce new features, but they can also include modifications or removals of existing functionality that may not be backward compatible.
+        It is best practice to limit the version of the library to a specific major version to avoid unexpected breaking changes.
+        Major version updates often introduce new features, but they can also include modifications or removals of existing
+        functionality that may not be backward compatible.
       </p>
       <p>See the <a href="#h2-design-system-versioning">About Versioning</a> section above for examples.</p>
 

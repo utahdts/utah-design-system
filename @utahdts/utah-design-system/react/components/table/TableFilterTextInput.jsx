@@ -56,7 +56,7 @@ export function TableFilterTextInput({
         onClear={() => setValue('')}
         placeholder={placeholder ?? 'Filter'}
         value={currentValue}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+        // old-eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
     </th>

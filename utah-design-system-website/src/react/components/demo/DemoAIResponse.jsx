@@ -69,7 +69,8 @@ export function DemoAIResponse({
                   icon={(<span className="uds-icon">&#xe925;</span>)}
                   size="small1x"
                   appearance={ICON_BUTTON_APPEARANCE.BORDERLESS}
-                  onClick={()=>{}}
+                  // eslint-disable-next-line no-console
+                  onClick={()=>{console.log('Clicked see more options')}}
                   isDisabled={isDisabled}
                   title="See more options" />
               </div>

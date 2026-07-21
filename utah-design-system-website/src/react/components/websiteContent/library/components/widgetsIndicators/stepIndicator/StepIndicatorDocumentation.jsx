@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import stepIndicatorScreenshot from '../../../../../../../static/images/mockups/StepIndicator.jpg';
 import stepIndicatorMobileScreenshot from '../../../../../../../static/images/mockups/StepIndicatorMobile.png';

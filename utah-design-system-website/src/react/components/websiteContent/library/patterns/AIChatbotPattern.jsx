@@ -35,7 +35,8 @@ export function AIChatbotPattern() {
       <h3 id="section-when-to-use-something-else">When to use something else</h3>
       <ul className="mb-spacing">
         <li>
-          <strong>FAQ.</strong> A simple Frequently Asked Questions (FAQ) page is often sufficient if users can find the majority of the information they require within a minimal number of questions.
+          <strong>FAQ.</strong> A simple Frequently Asked Questions (FAQ) page is often sufficient if users can
+          find the majority of the information they require within a minimal number of questions.
         </li>
         <li>
           <strong>Contact Us.</strong> Offering a contact form is an effective way to help users get more information.
@@ -52,13 +53,16 @@ export function AIChatbotPattern() {
       <h4 id="section-usability-common">In common</h4>
       <ul className="mb-spacing">
         <li>
-          <strong>Clear Intent.</strong> The chatbot should introduce itself as such and clearly state when it is expecting the user to provide information.
+          <strong>Clear Intent.</strong> The chatbot should introduce itself as such and
+          clearly state when it is expecting the user to provide information.
         </li>
         <li>
-          <strong>Conversational.</strong> Keep the user’s request and the chatbot’s answer visually different. It should be easy at a glance to identify the author. Color alone is not enough.
+          <strong>Conversational.</strong> Keep the user’s request and the chatbot’s answer visually different.
+          It should be easy at a glance to identify the author. Color alone is not enough.
         </li>
         <li>
-          <strong>Thinking.</strong> While the chatbot is generating an answer, the input should be disabled, and a placeholder should be displayed where the reply would appear. Typically, a skeleton is used.
+          <strong>Thinking.</strong> While the chatbot is generating an answer, the input should be disabled,
+          and a placeholder should be displayed where the reply would appear. Typically, a skeleton is used.
         </li>
       </ul>
 
@@ -68,7 +72,8 @@ export function AIChatbotPattern() {
           <strong>Popup.</strong> In this approach, the chatbot should behave like a <Link to={pageUrls.popups}>Popup</Link>.
         </li>
         <li>
-          <strong>Bottom-to-top.</strong> Replies should be structured in a messaging style, with the newest response placed at the end of the conversation thread.
+          <strong>Bottom-to-top.</strong> Replies should be structured in a messaging style, with the
+          newest response placed at the end of the conversation thread.
         </li>
         <li>
           <strong>Focus.</strong> After the user opens the chatbot, focus should be placed on the text area.
@@ -77,7 +82,8 @@ export function AIChatbotPattern() {
           <strong>Persistence.</strong> Closing the popup would minimize it. The chatbot is persistent.
         </li>
         <li>
-          <strong>Skip to chatbot.</strong> Similar to a <Link to={pageUrls.skipLink}>Skip Link</Link>, a link should be present to allow users to skip the main content and start using the widget. <i>E.g</i> “Skip to chatbot”.
+          <strong>Skip to chatbot.</strong> Similar to a <Link to={pageUrls.skipLink}>Skip Link</Link>, a link should be present
+          to allow users to skip the main content and start using the widget. <i>E.g</i> “Skip to chatbot”.
         </li>
       </ul>
 
@@ -87,7 +93,9 @@ export function AIChatbotPattern() {
           <strong>Top-to-bottom.</strong> The most recent answer should appear at the top of the chain of replies.
         </li>
         <li>
-          <strong>Reply.</strong> To facilitate the process of replying to an answer, a button should be present after each reply from the chatbot. It should clearly indicate its purpose. <i>E.g</i> “Follow-up or ask something else”. Clicking on it should put the focus back onto the text area.
+          <strong>Reply.</strong> To facilitate the process of replying to an answer, a button should be present after each
+          reply from the chatbot. It should clearly indicate its purpose. <i>E.g</i> “Follow-up or ask something else”.
+          Clicking on it should put the focus back onto the text area.
         </li>
       </ul>
 

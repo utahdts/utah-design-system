@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-escape */
-// navigation
 import { Link } from 'react-router-dom';
 import { pageUrls } from '../../routing/pageUrls';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
@@ -173,7 +171,8 @@ export function WordPressHeaderPlugin() {
           </strong>
         </li>
         <li>
-          You can use the color configuration tool on this website to ensure the chosen colors meet accessibility requirements against the gray color of the header.
+          You can use the color configuration tool on this website to ensure the chosen colors
+          meet accessibility requirements against the gray color of the header.
           (<code style={{ whiteSpace: 'nowrap' }}>#f1f1f1</code>)
         </li>
         <li>

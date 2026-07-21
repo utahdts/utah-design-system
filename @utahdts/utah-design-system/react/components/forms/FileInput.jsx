@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import { useImmer } from 'use-immer';
 import {
   useCallback, useEffect, useRef

@@ -32,6 +32,7 @@ export function Routing() {
   // @ts-expect-error
   const currentMenuItem = useCurrentMenuItem(Object.values(allMenus));
   const contentRef = useRef(/** @type {HTMLElement | null} */(null));
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const { setSettings = () => { } } = useUtahHeaderContext() || {};
   const navigate = useNavigate();
 

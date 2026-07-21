@@ -158,7 +158,6 @@ export function ComboBoxContextProvider({
     [comboBoxImmer[0].filterValue, comboBoxImmer[0].optionValueSelected, comboBoxImmer[0].options, setComboBoxState]
   );
 
-  // eslint-disable-next-line max-len
   /** @type {[ComboBoxContextValue, Updater<ComboBoxContextValue>, MutableRefObject<ComboBoxContextNonStateRef>]} */
   const providerValue = useMemo(
     () => [

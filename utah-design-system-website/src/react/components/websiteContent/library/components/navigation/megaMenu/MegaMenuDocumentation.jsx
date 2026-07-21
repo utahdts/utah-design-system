@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import megaMenuScreenshot from '../../../../../../../static/images/screenshots/components/megaMenu/MegaMenu.png';
 import { LightBox } from '../../../../../lightbox/LightBox';

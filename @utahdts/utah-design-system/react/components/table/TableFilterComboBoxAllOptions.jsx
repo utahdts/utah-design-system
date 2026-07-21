@@ -86,14 +86,14 @@ export function TableFilterComboBoxAllOptions({
         onClear={() => setValue('')}
         placeholder={placeholder ?? 'Filter'}
         value={currentValue?.toString()}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+        // old-eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
         <ComboBoxOption
           className={className ?? undefined}
           label=""
           value=""
-          // eslint-disable-next-line react/jsx-props-no-spreading
+          // old-eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}
         />
         {
@@ -104,7 +104,7 @@ export function TableFilterComboBoxAllOptions({
               key={`${id || 'table-filter-combo-box-all-options'}-${recordFieldPath}-${dataOption}`}
               label={dataOption}
               value={dataOption}
-              // eslint-disable-next-line react/jsx-props-no-spreading
+              // old-eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}
             />
           ))

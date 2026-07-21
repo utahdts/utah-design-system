@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link, NavLink } from 'react-router-dom';
 import menusDropdownScreenshot from '../../../../../../../static/images/mockups/MenusDropdown.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';

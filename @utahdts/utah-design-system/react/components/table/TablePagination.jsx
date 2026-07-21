@@ -60,7 +60,7 @@ export function TablePagination({
       totalNumberItems={filteredData.length}
       value={state.pagination?.currentPageIndex ?? 0}
       wrapInElement={wrapInElement}
-      // eslint-disable-next-line react/jsx-props-no-spreading
+      // old-eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
   );

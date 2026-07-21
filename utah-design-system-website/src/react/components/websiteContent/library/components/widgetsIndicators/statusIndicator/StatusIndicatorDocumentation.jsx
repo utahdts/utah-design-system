@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import statusIndicatorScreenshot from '../../../../../../../static/images/screenshots/components/statusIndicator/StatusIndicator.png';
 import { LightBox } from '../../../../../lightbox/LightBox';

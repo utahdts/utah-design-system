@@ -26,7 +26,7 @@ export function TableFilterDateRangeButtonTitle({ currentValue, placeholder }) {
           {endDate}
         </>
       )
-      // eslint-disable-next-line react/jsx-no-useless-fragment
+      // old-eslint-disable-next-line react/jsx-no-useless-fragment
       : <>{placeholder ?? 'Filter'}</>
   );
 }
