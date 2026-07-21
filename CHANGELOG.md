@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 # [5.2.0] 07/21/2026
 - ## Website
-  - Updated AI Chatbot pattern with new functionalities.
+  - Updated AI Chatbot pattern with new functionality.
   - Updated the typography page with font families for the current state brand.
   - Updated the fonts accessibility guidelines to be consistent with the WCAG rules.
   - Added a mockup for the step indicator for a mobile device.
