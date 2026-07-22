@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Updated the fonts accessibility guidelines to be consistent with the WCAG rules.
   - Added a mockup for the step indicator for a mobile device.
   - Fixed exporting colors from color picker tool.
+  - Update ADA deadline dates
 
 - ### Utah Header:
   - Removed unused CSS.
