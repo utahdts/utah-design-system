@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import {
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextInput
 } from '@utahdts/utah-design-system';

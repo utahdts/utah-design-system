@@ -65,13 +65,13 @@ export function AriaLiveMessages({ ariaLiveType, messages }) {
           .map((messagesListMessage, i) => (
             messagesListMessage
               ? (
-                // eslint-disable-next-line react/no-array-index-key
+                // old-eslint-disable-next-line react/no-array-index-key
                 <div aria-live={ariaLiveType} key={`${ariaLiveType}-messages-${i}`} role={role}>
                   {messagesListMessage.message}
                 </div>
               )
               : (
-                // eslint-disable-next-line react/no-array-index-key
+                // old-eslint-disable-next-line react/no-array-index-key
                 <div aria-live={ariaLiveType} key={`${ariaLiveType}-messages-${i}`} role={role} />
               )
           ))

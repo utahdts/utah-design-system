@@ -10,7 +10,7 @@
   &__font-demo {
     font-size: var(--font-size-xl);
     flex: 1 1 0;
-    flex-basis: calc(50% - 40px);
+    flex-basis: calc(100%);
     background: var(--gray-light-color);
     padding: var(--spacing);
   }
@@ -20,23 +20,41 @@
     padding-top: var(--spacing-s);
     margin-top: var(--spacing-s);
   }
-  &__lora-font {
-    font-family: 'Lora', serif;
-    font-size: calc(var(--font-size-xl) - 0.15em);
-    line-height: 1.57;
-    &.normal {
-      font-size: calc(var(--font-size) - 0.05em);
-    }
-  }
   &__source-code-pro {
     font-family: var(--fixed-width-font-family);
     font-size: calc(var(--font-size-xl) - .25em);
+    &--bold {
+      font-weight: 700;
+    }
   }
   &__ut-industry-font {
-    font-family: 'UT Industry', serif;
+    font-family: var(--ut-industry-font-family);
+    &--medium {
+      font-weight: 500;
+    }
+    &--bold {
+      font-weight: 700;
+    }
+    &--heavy {
+      font-weight: 900;
+      font-size: 28px;
+    }
+  }
+  &__source-sans {
+    font-family: var(--normal-font-family);
+    &--medium {
+      font-weight: 500;
+    }
+    &--bold {
+      font-weight: 700;
+    }
+    &--heavy {
+      font-weight: 900;
+      font-size: 28px;
+    }
   }
   &__light-font {
-    font-weight: var(--font-weight-extra-light);
+    font-weight: 200;
   }
   &__black-font {
     font-weight: var(--font-weight-black);
@@ -51,5 +69,9 @@
       background-color: var(--gray-light-color) !important;
       border-color: color-swatches.$neutral-gray-13 !important;
     }
+  }
+
+  .download-font-heading h4 {
+    font-size: 20px;
   }
 }

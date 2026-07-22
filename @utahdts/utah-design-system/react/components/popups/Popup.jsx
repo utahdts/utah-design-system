@@ -44,7 +44,7 @@ export function Popup({
   const arrowRef = useRef(/** @type {HTMLDivElement | null} */(null));
 
   if (draftInnerRef) {
-    // eslint-disable-next-line no-param-reassign
+     
     draftInnerRef.current = popupRef.current;
   }
 

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import {
   Table,
   TableBody,
@@ -20,7 +20,7 @@ import { LightBox } from '../../lightbox/LightBox';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';
 import { StaticExample } from '../../staticExamples/StaticExample';
 import { Link } from 'react-router-dom';
-import { pageUrls } from '../../routing/pageUrls.js';
+import { pageUrls } from '../../routing/pageUrls';
 import spacingExample from '../../../../static/images/screenshots/spacing/size_spacing.webp';
 
 export function SpacingDocumentation() {
@@ -253,7 +253,7 @@ export function SpacingDocumentation() {
           .pl-spacing-l { padding-left: var(--spacing-l); }
           .px-spacing-l { padding-left: var(--spacing-l); padding-right: var(--spacing-l); }
           .py-spacing-l { padding-top: var(--spacing-l); padding-bottom: var(--spacing-l); }
-          
+
           .p-spacing-s { padding: var(--spacing-s); }
           .pt-spacing-s { padding-top: var(--spacing-s); }
           .pr-spacing-s { padding-right: var(--spacing-s); }
@@ -261,7 +261,7 @@ export function SpacingDocumentation() {
           .pl-spacing-s { padding-left: var(--spacing-s); }
           .px-spacing-s { padding-left: var(--spacing-s); padding-right: var(--spacing-s); }
           .py-spacing-s { padding-top: var(--spacing-s); padding-bottom: var(--spacing-s); }
-          
+
           .p-spacing-xs { padding: var(--spacing-xs); }
           .pt-spacing-xs { padding-top: var(--spacing-xs); }
           .pr-spacing-xs { padding-right: var(--spacing-xs); }

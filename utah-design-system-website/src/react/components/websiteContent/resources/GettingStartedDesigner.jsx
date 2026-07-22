@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 // navigation
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../../../context/AppContext/useAppContext';
@@ -41,7 +41,6 @@ export function GettingStartedDesigner() {
 
       <h2 id="section-color" className="mb-spacing mt-spacing">Color</h2>
       <div>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <p>Color is foundational to every design. When viewed through the lens of accessibility, it can become confusing. Because of this, there is a page dedicated to just the <Link to={pageUrls.colorGuidelines}>Color Guidelines Overview</Link> and to the <a href="#" onClick={toggleColorPickerPopup}>Color picker tool <span className="utds-icon-before-gear" aria-hidden="true" /><span className="visually-hidden" /></a>.</p>
         <p>The Color Picker Tool is perhaps one of the most useful tools in the design system. Some of the benefits are the ability to create a color palette and share it via a url, as well as easy to understand contrast requirements. After picking your palette you can view a <Link to={pageUrls.demoPage}>Demo Page</Link> that has multiple types of components to see how the palette colors work together.</p>
       </div>

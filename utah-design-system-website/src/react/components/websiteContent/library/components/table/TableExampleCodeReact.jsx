@@ -50,7 +50,7 @@ export function TableExampleCodeReact({
               &lt;TableSortingRule a11yLabel=&quot;Symbol&quot; recordFieldPath=&quot;symbol&quot; /&gt;
               <br />
               <SandboxIndent indentLevel={4} />
-              {/* eslint-disable-next-line max-len */}
+              {/* eslint-disable-next-line @stylistic/max-len */}
               &lt;TableSortingRule a11yLabel=&quot;Year&quot; recordFieldPath=&quot;year&quot; fieldType=&#123;tableSortingRuleFieldType.NUMBER&#125; defaultIsAscending=&#123;false&#125; /&gt;
               <br />
               <SandboxIndent indentLevel={3} />

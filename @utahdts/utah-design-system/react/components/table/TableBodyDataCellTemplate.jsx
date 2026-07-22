@@ -56,7 +56,7 @@ export function TableBodyDataCellTemplate({
       onClick={onClick && ((e) => onClick({ e, ...rowContextData }))}
       // @ts-expect-error
       onDoubleClick={onDoubleClick && ((e) => onDoubleClick({ e, ...rowContextData }))}
-      // eslint-disable-next-line react/jsx-props-no-spreading
+      // old-eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     >
       {content}

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { ExternalLink, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import tableMobileScroll from '../../../../../../static/images/screenshots/components/table/tableMobileScroll.png';
@@ -133,7 +132,8 @@ export function TableDocumentation() {
         </li>
         <li><strong>Page layout.</strong> Don&apos;t use tables in place of a css grid for web page layout.</li>
         <li><strong>Table structure.</strong> Table content should follow a consistent structure using headers and logical columns and rows.</li>
-        <li><strong>Long-form content.</strong> Table cell content should be brief and scannable. If you find yourself drafting multiple bullet points
+        <li>
+          <strong>Long-form content.</strong> Table cell content should be brief and scannable. If you find yourself drafting multiple bullet points
           or paragraphs within a single table cell, the content is likely better off under conventional page headers or in an
           <Link to={pageUrls.accordion}>accordion</Link>.
         </li>
@@ -148,7 +148,8 @@ export function TableDocumentation() {
         <li><strong>Keep it simple.</strong> Tables are great at displaying data and complex information. Minimal visual styling helps surface this
           information more easily.
         </li>
-        <li><strong>Always use a header row.</strong> Use plain language and short labels to define the type of information that can be found in each
+        <li>
+          <strong>Always use a header row.</strong> Use plain language and short labels to define the type of information that can be found in each
           column or row. For more complex table structures, review the
           <ExternalLink href="https://www.w3.org/WAI/tutorials/tables/">WCAG accessibility recommendations for tables</ExternalLink>.
         </li>
@@ -157,7 +158,8 @@ export function TableDocumentation() {
           weeks.
         </li>
         <li><strong>Right-align numerical data.</strong> Align numbers that represent a sum to the right in the table cells.</li>
-        <li><strong>Use a monospace font for numerical data.</strong> For even better readability of dense, numerical data, consider formatting
+        <li>
+          <strong>Use a monospace font for numerical data.</strong> For even better readability of dense, numerical data, consider formatting
           numbers that convey amounts, such as percentages, currency, or tallies, in a monospace font. See
           <Link to={pageUrls.typography}>typography</Link>.
           (There&apos;s no need to apply monospace formatting or alignment to phone numbers, zip codes,
@@ -213,13 +215,18 @@ export function TableDocumentation() {
       </ul>
       <h4 id="section-contrast">Screen Readers</h4>
       <ul className="mb-spacing">
-        <li><strong>Interactive tables and table cells.</strong> When table cells are clickable
+        <li>
+          <strong>Interactive tables and table cells.</strong> When table cells are clickable
           the <code>table</code> requires <code>role=&quot;grid&quot;</code>
           <ul>
-            <li><strong>Clickable table cell option 1:</strong> Use <code>role=&quot;grid-cell&quot;</code> on the <code>&lt;td&gt;</code></li>
-            and attach a click event to the cell.
-            <li><strong>Clickable table cell option 2:</strong> Use a <code>button</code> in the <code>&lt;td&gt;</code></li> and encapsulate the
-            cell&apos;s content inside the button.
+            <li>
+              <strong>Clickable table cell option 1:</strong> Use <code>role=&quot;grid-cell&quot;</code> on the <code>&lt;td&gt;</code>
+              and attach a click event to the cell.
+            </li>
+            <li>
+              <strong>Clickable table cell option 2:</strong> Use a <code>button</code> in the <code>&lt;td&gt;</code> and encapsulate the
+              cell&apos;s content inside the button.
+            </li>
           </ul>
         </li>
         <li><strong>Add an aria-live region to the page when enabling row sorting.</strong> An <code>aria-live</code> region immediately following

@@ -76,7 +76,7 @@ export default function MultiSelectContextProvider({
     [multiSelectImmer[0].selectedValues]
   );
 
-  // eslint-disable-next-line max-len
+  //eslint-disable-next-line @stylistic/max-len
   /** @type {[MultiSelectContextValue, import('use-immer').Updater<MultiSelectContextValue>, import('react').MutableRefObject<MultiSelectContextNonStateRef>]} */
   const providerValue = useMemo(
     () => [...multiSelectImmer, multiSelectContextNonStateRef],

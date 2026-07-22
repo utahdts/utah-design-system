@@ -53,6 +53,5 @@ export function PreCodeForRef({
     deps
   );
 
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return <PreCodeForCodeString codeRaw={innerHtml} {...preCodeProps} />;
 }

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';
@@ -70,8 +70,8 @@ export function CardDocumentation() {
             <p>Sed ut perspiciatis unde omnis iste natus error.</p>
             <div class="flex justify-end">
               <button type="button" class="button">Contact Us</button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 class="button button--solid ml-spacing"
               >
                 <span>See More</span>
@@ -131,15 +131,15 @@ export function CardDocumentation() {
       <PreCodeForCodeString
         className="gray-block mt-spacing"
         codeRaw={`
-          <a 
-            class="action-card action-card--primary-color action-card--solid" 
+          <a
+            class="action-card action-card--primary-color action-card--solid"
             href="/gettingStarted"
           >
             <div class="action-card__title">
                 <h3>Getting Started</h3>
                 <span class="button--icon button--icon-right">
                   <span
-                    class="utds-icon-before-arrow-right" 
+                    class="utds-icon-before-arrow-right"
                     aria-hidden="true">
                   </span>
                 </span>

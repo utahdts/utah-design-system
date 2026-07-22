@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { useRef } from 'react';
 import { useImmer } from 'use-immer';
 import { PreCodeForCodeString } from '../../../../preCode/PreCodeForCodeString';
@@ -32,14 +32,14 @@ export function IconsDocumentation() {
       <hr />
 
       <h2 id="section-icon-resource-location">Icon Resource Location</h2>
-       <p className="mb-spacing-xs">The Utah Design System Icons can be found on the state CDN:</p>
+      <p className="mb-spacing-xs">The Utah Design System Icons can be found on the state CDN:</p>
       <PreCodeForCodeString
         codeRaw={`
 @font-face {
   font-family: 'utah design system';
-       url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.woff') format('woff'),
-       url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.ttf') format('truetype'),
-       url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.svg#utah-design-system') format('svg');
+    url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.woff') format('woff'),
+    url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.ttf') format('truetype'),
+    url('https://cdn.utah.gov/design-system/fonts/v2/utah-design-system.svg#utah-design-system') format('svg');
   font-weight: normal;
   font-style: normal;
 }

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import {
   ExternalLink,
 } from '@utahdts/utah-design-system';
@@ -16,7 +15,7 @@ export function BrowserCompatibilityMobileFirst() {
       <h2 id="section-browser-compatibility" className="mb-spacing">Browser Compatibility Standard</h2>
       <p>
         <strong>It is a requirement for all websites and applications developed for
-        the State of Utah to adhere to the following browser compatibility standard:</strong>
+          the State of Utah to adhere to the following browser compatibility standard:</strong>
       </p>
       <ul>
         <li>
@@ -45,9 +44,9 @@ export function BrowserCompatibilityMobileFirst() {
         device, a <strong>Mobile-First design approach is paramount</strong>.
       </p>
       <p>
-        Mobile-First design advocates for starting the design and development process with the <strong>smallest
-        screen size in mind</strong> (e.g., smartphones) and progressively enhancing the experience
-        for larger screens (e.g., tablets, desktops). This approach offers several key benefits:
+        Mobile-First design advocates for starting the design and development process with
+        the <strong>smallest screen size in mind</strong> (e.g., smartphones) and progressively enhancing
+        the experience for larger screens (e.g., tablets, desktops). This approach offers several key benefits:
       </p>
       <ul>
         <li>

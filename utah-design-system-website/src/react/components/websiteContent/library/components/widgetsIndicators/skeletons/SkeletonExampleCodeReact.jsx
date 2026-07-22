@@ -23,15 +23,15 @@ export function SkeletonExampleCodeReact({
       <SandboxIndent indentLevel={1} />
       &lt;Skeleton
       {
-          className
-            ? (
-              <>
-                <br />
-                <SandboxIndent indentLevel={2} />
-              </>
-            )
-            : null
-        }
+        className
+          ? (
+            <>
+              <br />
+              <SandboxIndent indentLevel={2} />
+            </>
+          )
+          : null
+      }
       <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={1} />
       {
         className

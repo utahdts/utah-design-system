@@ -68,7 +68,7 @@ export function MultiSelect({
         onCustomEntry={onCustomEntry}
         placeholder={placeholder}
         wrapperClassName={wrapperClassName}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+        // old-eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
         {children}

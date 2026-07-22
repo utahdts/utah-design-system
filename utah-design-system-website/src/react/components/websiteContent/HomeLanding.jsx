@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Accordion, ExternalLink } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
 import layoutScreenshot from '../../../static/images/screenshots/layout.webp';
@@ -249,9 +249,10 @@ export function HomeLanding() {
         <div className="home-page__color-card home-page__card-narrow home-page__color-card--secondary">
           <h3 className="home-page__color-card-title">Typography</h3>
           <p>
-            With a focus on comfort and readability, six different fonts and thirteen different sizing options can be used to bring your content and headlines to life.
-            To make things even easier, our typographers have even taken the time to pair the various fonts with one another, should you want to go with the
-            &quot;What would you recommend?&quot; option.
+            Designed for optimal legibility and strict accessibility, the Utah Design System offers carefully selected
+            font families and sizing options to elevate your digital content. To streamline your workflow, we provide
+            explicit guidelines and recommended font pairings, ensuring a consistent, professional, and on-brand
+            experience across all state applications.
           </p>
         </div>
 

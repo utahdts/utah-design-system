@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import { Accordion, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { PreCodeForCodeString } from '../../../../../preCode/PreCodeForCodeString';
@@ -44,9 +44,9 @@ export function AccordionDocumentation() {
         showBackgroundColor
         codeRaw={(`
 <div class="accordion">
-  <button 
+  <button
     class="accordion__header button--primary-color button--solid accordion__header--open"
-    type="button" 
+    type="button"
     onclick="toggleAccordion(this)"
   >
     <h4><span>An Accordion</span></h4>
@@ -66,7 +66,7 @@ export function AccordionDocumentation() {
     const accordionContent = button.nextElementSibling;
     accordionContent.classList.toggle('accordion__content--open');
     button.classList.toggle('accordion__header--open');
-        
+
     const icon = button.querySelector('.icon-button__icon');
     if (button.classList.contains('accordion__header--open')) {
       icon.classList.remove('utds-icon-before-circle-chevron-down');
@@ -75,7 +75,7 @@ export function AccordionDocumentation() {
       icon.classList.remove('utds-icon-before-circle-chevron-up');
       icon.classList.add('utds-icon-before-circle-chevron-down');
     }
-  }                
+  }
 </script>
             `)}
       />

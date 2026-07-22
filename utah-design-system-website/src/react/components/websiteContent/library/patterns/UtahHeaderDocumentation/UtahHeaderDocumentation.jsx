@@ -201,7 +201,10 @@ export function UtahHeaderDocumentation() {
           quickTips={(
             <ul>
               <li>The Utah identification is required on all headers.</li>
-              <li>The <code>An official website of the state of Utah.</code> helps the user to know that they are visiting an official state website.</li>
+              <li>
+                The <code>An official website of the state of Utah.</code> helps
+                the user to know that they are visiting an official state website.
+              </li>
               <li>The banner should be positioned at the top of the page header and span the full width.</li>
               <li>The banner opens an accordion section that explains how to identify an official state website.</li>
             </ul>
@@ -213,7 +216,7 @@ export function UtahHeaderDocumentation() {
           renderedExample={(
             <div style={{ height: '50px' }}>
               <h1 className="utds-logo-wrapper agency-brand-example" style={{ marginBottom: '0' }}>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                { }
                 <a className="utds-title-wrapper" href="#">
                   <div className="utds-title-wrapper__logo"><img alt="agency brand example" src={utahIndustryBrand} /></div>
                   <div className="utds-title-wrapper__title">Agency/Division Title</div>
@@ -305,10 +308,10 @@ export function UtahHeaderDocumentation() {
             <ul>
               <li>The header now features notifications powered by MyUtah.</li>
               <li>For notifications to function you must turn on both of the following settings:</li>
-                <ul>
-                  <li>utahId: true</li>
-                  <li>notifications: true</li>
-                </ul>
+              <ul>
+                <li>utahId: true</li>
+                <li>notifications: true</li>
+              </ul>
               <li>Notifications are for public facing MyLogin accounts. It doesn't work with state employee accounts.</li>
             </ul>
           )}
@@ -377,8 +380,8 @@ export function UtahHeaderDocumentation() {
 
         <h3 id="section-when-to-use-something-else">When to use something else</h3>
         <ul className="mb-spacing">
-          <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the primary
-            navigation.
+          <li><strong>Waffle, Help and Setting buttons</strong>. If the information contained within is too verbose or can be placed within the
+            primary navigation.
           </li>
           <li><strong>Search is optional.</strong> If the site is small there may be no need for the Search tool. For sites that have more content
             consider using the search as a way for visitors to easily find information.
@@ -428,7 +431,7 @@ export function UtahHeaderDocumentation() {
           <Link
             to={{
               pathname: pageUrls.gettingStartedDeveloper,
-              hash: '#h2-pre-built-artifacts'
+              hash: '#h2-pre-built-artifacts',
             }}
           >
             Pre-Built Artifacts and Downloads
@@ -441,7 +444,7 @@ export function UtahHeaderDocumentation() {
           <Link
             to={{
               pathname: pageUrls.gettingStartedDeveloper,
-              hash: '#h3-header-importing-cdn'
+              hash: '#h3-header-importing-cdn',
             }}
           >
             Example Header using Unpkg CDN
@@ -454,7 +457,7 @@ export function UtahHeaderDocumentation() {
           <Link
             to={{
               pathname: pageUrls.gettingStartedDeveloper,
-              hash: '#h3-header-importing-npm'
+              hash: '#h3-header-importing-npm',
             }}
           >
             Example Header using NPM
@@ -466,7 +469,7 @@ export function UtahHeaderDocumentation() {
           <Link
             to={{
               pathname: pageUrls.gettingStartedDeveloper,
-              hash: '#h3-fallback'
+              hash: '#h3-fallback',
             }}
           >
             CDN Fallback
@@ -479,7 +482,7 @@ export function UtahHeaderDocumentation() {
           <Link
             to={{
               pathname: pageUrls.gettingStartedDeveloper,
-              hash: '#h3-css-color-overrides'
+              hash: '#h3-css-color-overrides',
             }}
           >
             Customize the Header and Design System Colors
@@ -498,9 +501,9 @@ export function UtahHeaderDocumentation() {
           This WordPress plugin makes using and configuring the official Utah Header easy.
         </li>
         <li>
-        <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">A list of release notes for each version can be found on GitHub.</ExternalLink><br />
-        The release notes are essential for understanding breaking changes and new features. They provide clear
-        documentation of updates, helping developers anticipate impacts on their projects and decide when or how to upgrade.
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">A list of release notes for each version can be found on GitHub.</ExternalLink><br />
+          The release notes are essential for understanding breaking changes and new features. They provide clear
+          documentation of updates, helping developers anticipate impacts on their projects and decide when or how to upgrade.
         </li>
       </ul>
 
@@ -696,7 +699,8 @@ export function UtahHeaderDocumentation() {
             </TableCell>
             <TableCell><em>required</em></TableCell>
             <TableCell>
-              This information is used for understanding how the Utah Header is being distributed. It is suggested to use one of the listed values, but any value will be accepted.
+              This information is used for understanding how the Utah Header is being distributed.
+              It is suggested to use one of the listed values, but any value will be accepted.
             </TableCell>
           </TableRow>
           <TableRow>

@@ -82,7 +82,7 @@ export function TableFilterDateRange({
           className={currentValue ? '' : 'table-header__cell--filter-date--is-empty'}
           id={`table-filter-date-range__${tableId}__${recordFieldPath}`}
           label={`Filter ${a11yLabel}`}
-          // eslint-disable-next-line react/jsx-props-no-spreading
+          // old-eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}
           // @ts-expect-error
           onBlur={

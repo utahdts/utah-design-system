@@ -9,15 +9,17 @@ const COPIED = 'Copied';
  * @param {object} props
  * @param {import('react').RefObject<HTMLElement | null>} props.copyRef Ref to the element that will be copied from
  * @param {(copiedText: string) => string} [props.onCopy] allows morphing the text to copy eg. (draftText) => transformedText
+ * @param {string} [props.copyCode] what should the title be
+ * @param {boolean} [props.isDisabled] should the button be disabled
  * @returns {import('react').JSX.Element}
  */
-export function CopyButton({ copyRef, onCopy }) {
+export function CopyButton({ copyRef, onCopy, copyCode =  COPY_CODE, isDisabled = false }) {
   const { addPoliteMessage } = useAriaMessaging();
 
   const [state, setState] = useImmer({
     showFeedback: false,
-    copyButtonTitle: COPY_CODE,
-    copyButtonTooltip: COPY_CODE,
+    copyButtonTitle: copyCode,
+    copyButtonTooltip: copyCode,
   });
 
   useEffect(
@@ -30,7 +32,7 @@ export function CopyButton({ copyRef, onCopy }) {
         delay = window.setTimeout(() => {
           setState((draftState) => {
             draftState.showFeedback = false;
-            draftState.copyButtonTitle = COPY_CODE;
+            draftState.copyButtonTitle = copyCode;
           });
         }, 1500);
       }
@@ -75,7 +77,8 @@ export function CopyButton({ copyRef, onCopy }) {
             console.error('Clipboard is not available');
           }
         }}
-        title={COPY_CODE}
+        title={copyCode}
+        isDisabled={isDisabled}
         tooltipText={state.copyButtonTitle}
       />
     </div>

@@ -83,7 +83,7 @@ export function MultiSelectComboBox({
       </label>
 
       <div className="multi-select__wrapper">
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+        { }
         <div
           aria-describedby={errorMessage ? `${multiSelectContextValue.multiSelectId}-error` : undefined}
           className={joinClassNames(
@@ -194,7 +194,7 @@ export function MultiSelectComboBox({
                 }
               )
             }
-            // eslint-disable-next-line react/jsx-props-no-spreading
+            // old-eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
           >
             {/* children has the multiselect options in it */}

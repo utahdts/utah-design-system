@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@utahdts/utah-design-system';
 import { pageUrls } from '../../../../../routing/pageUrls';

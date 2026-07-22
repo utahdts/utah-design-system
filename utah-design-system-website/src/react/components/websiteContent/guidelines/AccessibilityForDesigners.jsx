@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { ExternalLink } from '@utahdts/utah-design-system';
 import { NavLink } from 'react-router-dom';
 import { pageUrls } from '../../routing/pageUrls';

@@ -114,7 +114,8 @@ export function TableDocumentationSortingTableExample() {
                     {({ record }) => <>{[record.birthplace.county, record.birthplace.state].join(', ')}</>}
                   </TableBodyDataCellTemplate>
                   <TableBodyDataCellTemplate>
-                    <Button className="button--small" onClick={() => { }}>More</Button>
+                    {/* eslint-disable-next-line no-console */}
+                    <Button className="button--small" onClick={() => {console.log('click button')}}>More</Button>
                   </TableBodyDataCellTemplate>
                 </TableBodyDataRowTemplate>
               </TableBodyData>

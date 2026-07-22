@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import backToTopScreenshot from '../../../../../../../static/images/screenshots/components/backToTop/BackToTop.png';
 import { LightBox } from '../../../../../lightbox/LightBox';
