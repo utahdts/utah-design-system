@@ -8,5 +8,5 @@ export { defaultSettings } from './js/settings/defaultSettings';
 export { getUtahHeaderSettings } from './js/settings/getUtahHeaderSettings';
 export { setUtahFooterSettings, setUtahHeaderSettings } from './js/settings/settings';
 export { popupFocusHandler } from './js/misc/popupFocusHandler';
-// @ts-expect-error __UtahHeaderVersion__ is populated at build time by vite, see vite.config.js
-export const UTDS_VERSION = __UtahHeaderVersion__ || 'unknown';
+// @ts-expect-error - Vite injects import.meta.env
+export const UTDS_VERSION = import.meta.env.UTDS_VERSION || 'unknown';

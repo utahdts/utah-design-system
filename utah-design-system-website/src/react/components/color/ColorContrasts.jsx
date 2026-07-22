@@ -66,7 +66,7 @@ export function ColorContrasts() {
       const colorInfos = selectedColorTitles.map((selectedColorTitle) => {
         const matchingUserColor = USER_COLORS.find((userColor) => userColor.title === selectedColorTitle);
         /** @type {ColorInfo | null} */
-        let colorInfo = null;
+        let colorInfo;
         if (matchingUserColor) {
           colorInfo = {
             hexColor: /** @type {string} */ (cssState[matchingUserColor.cssVariableKey]),

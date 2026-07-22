@@ -58,7 +58,7 @@ export function Tag({
               onClick={onClear}
               title={clearMessage}
               isDisabled={isDisabled}
-              // eslint-disable-next-line react/jsx-props-no-spreading
+              // old-eslint-disable-next-line react/jsx-props-no-spreading
               {...iconButtonProps}
             />
           )

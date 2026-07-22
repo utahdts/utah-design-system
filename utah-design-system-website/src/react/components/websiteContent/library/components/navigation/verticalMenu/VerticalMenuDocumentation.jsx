@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import { Popup, popupPlacement, Tab, TabGroup, TabList, TabPanel, TabPanels, VerticalMenu } from '@utahdts/utah-design-system';
 import { childrenMenuTypes } from '@utahdts/utah-design-system-header';

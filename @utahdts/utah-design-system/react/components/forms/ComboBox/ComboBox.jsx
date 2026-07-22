@@ -100,7 +100,7 @@ export function ComboBox({
         name={name}
         onCustomEntry={onCustomEntry}
         placeholder={placeholder}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+        // old-eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
       <CombBoxListBox

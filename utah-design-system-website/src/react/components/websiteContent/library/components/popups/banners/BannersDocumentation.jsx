@@ -192,8 +192,7 @@ export function BannersDocumentation() {
               </BannerIcon>
               <BannerMessage>
                 <span>
-                  The TSOB will be closed on Saturday, August 13th, 2022 from 7:00am
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  The TSOB will be closed on {new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} from 7:00am
                   to 4:00pm for a power upgrade. <a href="#">Learn more.</a>
                 </span>
               </BannerMessage>

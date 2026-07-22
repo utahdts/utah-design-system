@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import carouselScreenshot from '../../../../../../../static/images/screenshots/components/carousel/Carousel.jpg';
 import { LightBox } from '../../../../../lightbox/LightBox';

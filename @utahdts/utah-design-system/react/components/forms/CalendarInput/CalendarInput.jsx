@@ -158,7 +158,7 @@ export function CalendarInput({
                     aria-label="You are in a calendar date picker. Press tab to interact. Use arrow keys on days to navigate."
                     className="calendar-input__first-focusable-element"
                     ref={firstFocusableElementRef}
-                    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+
                     tabIndex={isHidden ? -1 : 0}
                   >
                     {/* First focusable item w/o tooltip */}
@@ -255,7 +255,7 @@ export function CalendarInput({
             (weekGridValues, weekGridValuesIndex) => (
               <div
                 className="calendar-input__row"
-                // eslint-disable-next-line react/no-array-index-key
+                // old-eslint-disable-next-line react/no-array-index-key
                 key={`calendar-input__row__${weekGridValuesIndex}`}
                 role="row"
               >

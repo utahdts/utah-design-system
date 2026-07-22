@@ -53,6 +53,6 @@ export function TableSortingRules({
     [value, !setState, !state]
   );
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
+  // old-eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 }

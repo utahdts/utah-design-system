@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable max-len */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable @stylistic/max-len */
 import {
   ICON_BUTTON_APPEARANCE,
   IconButton,

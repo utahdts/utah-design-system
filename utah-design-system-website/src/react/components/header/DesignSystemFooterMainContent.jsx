@@ -6,6 +6,7 @@ import {
   useUtahHeaderContext
 } from '@utahdts/utah-design-system';
 import { Link } from 'react-router-dom';
+// eslint-disable-next-line import/extensions
 import packageJSON from '../../../../package.json';
 import govOps from '../../../static/images/DTS-GovOps-UTBrand.svg';
 import { pageUrls } from '../routing/pageUrls';

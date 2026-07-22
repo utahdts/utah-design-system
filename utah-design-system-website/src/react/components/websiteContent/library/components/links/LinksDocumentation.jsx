@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import { ExternalLink } from '@utahdts/utah-design-system';
 import traxImage from '../../../../../../static/images/trax.jpg';

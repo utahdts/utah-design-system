@@ -9,7 +9,7 @@ import { split } from 'lodash-es';
  * @returns {ValueT}
  */
 export function valueAtPath({ object, path }) {
-  // eslint-disable-next-line jsdoc/no-undefined-types
+   
   return /** @type {ValueT} */ (
     /** @type {any} */ (
       split(path, '.').reduce(

@@ -37,7 +37,6 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
 
   return (
     // This was a div, but then the aria-label wouldn't work
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/role-supports-aria-props
     <li
       className={
         joinClassNames(
@@ -67,7 +66,7 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
               addPoliteMessage,
               selectedValueIndex,
               selectedOption,
-              multiSelectContextNonStateRef,
+              multiSelectContextNonStateRef
             );
           });
         } else if (e.code === 'ArrowLeft') {
@@ -87,7 +86,7 @@ export function MultiSelectTagWrapper({ children, selectedOption, selectedValueI
           });
         }
       }}
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+
       tabIndex={0}
       aria-label={`${selectedOption.label}, press delete to remove.`}
       aria-selected="true"

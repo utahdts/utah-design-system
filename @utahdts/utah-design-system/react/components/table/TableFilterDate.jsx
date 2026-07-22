@@ -50,7 +50,7 @@ export function TableFilterDate({
         onChange={currentOnChange}
         placeholder={placeholder ?? 'Filter'}
         value={currentValue?.toString()}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+        // old-eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
     </th>

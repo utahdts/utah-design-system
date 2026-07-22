@@ -1,9 +1,7 @@
 import { arrow, computePosition, flip, offset, shift } from '@floating-ui/dom';
 import { domConstants, getCssClassSelector } from '../enumerations/domConstants';
 import { PopupPlacement } from '../enumerations/popupPlacement';
-import { hideAllMenus } from '../lifecycle/globalEvents';
 import { checkForError } from './checkForError';
-import { isTouchDevice } from './isTouchDevice';
 import { showHideElement } from './showHideElement';
 
 /*
@@ -244,9 +242,11 @@ export function popupFocusHandler(wrapper, button, popup, ariaHasPopup, options)
             hidePopup(TIMEOUT_MS_SHORT);
           }
         } else {
+          /* See UDS-2307
           if (isTouchDevice()) {
             hideAllMenus();
           }
+          */
           performPopup(TIMEOUT_MS_SHORT);
         }
       }

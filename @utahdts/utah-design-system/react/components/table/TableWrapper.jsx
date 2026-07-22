@@ -75,6 +75,7 @@ export function TableWrapper({
   ...rest
 }) {
   if (allowScrollOverflow && !ariaLabelledBy) {
+    // eslint-disable-next-line no-console
     console.warn(`allowScrollOverflow: TableWrapper is missing a valid ariaLabelledBy attribute`);
   }
   const internalId = useId();

@@ -24,23 +24,23 @@ export function CheckboxExampleCodeReact({
   return (
     <>
       &lt;fieldset&gt;
-        <br />
-        <SandboxIndent indentLevel={2} />
-        &lt;legend className="mb-spacing-xs"&gt;Checkbox example&lt;/legend&gt;
-        <br />
-        <SandboxIndent indentLevel={2} />
-        &lt;Checkbox
-        <br />
-        <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={3} />
-        <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={3} />
-        <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={3} />
-        <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={3} />
-        <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={3} />
-        <ExampleCodeReactProp displayProp="onChange={() => ...flip state...}" indentLevel={3} />
-        <ExampleCodeReactProp displayProp={`value={${value}}`} indentLevel={3} />
-        <SandboxIndent indentLevel={2} />
-        /&gt;
-        <br />
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;legend className="mb-spacing-xs"&gt;Checkbox example&lt;/legend&gt;
+      <br />
+      <SandboxIndent indentLevel={2} />
+      &lt;Checkbox
+      <br />
+      <ExampleCodeReactProp displayProp={className ? `className="${className}"` : null} indentLevel={3} />
+      <ExampleCodeReactProp displayProp={errorMessage ? `errorMessage="${errorMessage}"` : null} indentLevel={3} />
+      <ExampleCodeReactProp displayProp={id ? `id="${id}"` : null} indentLevel={3} />
+      <ExampleCodeReactProp displayProp={isDisabled ? 'isDisabled' : null} indentLevel={3} />
+      <ExampleCodeReactProp displayProp={label ? `label="${label}"` : null} indentLevel={3} />
+      <ExampleCodeReactProp displayProp="onChange={() => ...flip state...}" indentLevel={3} />
+      <ExampleCodeReactProp displayProp={`value={${value}}`} indentLevel={3} />
+      <SandboxIndent indentLevel={2} />
+      /&gt;
+      <br />
       &lt;/fieldset&gt;
     </>
   );

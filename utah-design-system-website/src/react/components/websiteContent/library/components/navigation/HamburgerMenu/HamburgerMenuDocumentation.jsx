@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import { IconButton, useBanner } from '@utahdts/utah-design-system';
 import { useState } from 'react';

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import {
   CharacterCount,
   Tab, TabGroup, TabList, TabPanel, TabPanels, TextArea

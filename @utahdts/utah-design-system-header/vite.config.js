@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => {
     ],
     define: {
       'process.env': {},
-      __UtahHeaderVersion__: JSON.stringify(pkg.version),
+      'import.meta.env.UTDS_VERSION': JSON.stringify(pkg.version),
     },
     preview : {
       port: 5550,

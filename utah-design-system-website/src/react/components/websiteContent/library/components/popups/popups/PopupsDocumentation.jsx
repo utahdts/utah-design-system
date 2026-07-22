@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import PopupExampleAriaDialog from './PopupExampleAriaDialog.html?raw';
 import PopupExampleAriaMenu from './PopupExampleAriaMenu.html?raw';
 
@@ -231,7 +231,6 @@ export function PopupsDocumentation() {
               ariaLabelledBy="popups-example-render-button"
               id="popups-example-render-popup"
               isVisible={!!popupsState.example3}
-              // eslint-disable-next-line no-param-reassign
               onVisibleChange={(_e, newIsVisible) => setPopupsState((draftState) => { draftState.example3 = newIsVisible; })}
               referenceElement={button3Ref}
               role="dialog"
@@ -276,7 +275,6 @@ export function PopupsDocumentation() {
               ariaLabelledBy="popups-example-render-button"
               id="popups-example-render-popup"
               isVisible={!!popupsState.example4}
-              // eslint-disable-next-line no-param-reassign
               onVisibleChange={(_e, newIsVisible) => setPopupsState((draftState) => { draftState.example4 = newIsVisible; })}
               referenceElement={button4Ref}
               role="dialog"

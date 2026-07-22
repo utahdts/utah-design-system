@@ -40,7 +40,7 @@ const intervalId = setInterval(
   2
 );
 
-window.addEventListener('unload', ()=> {
+window.addEventListener('pagehide', ()=> {
   clearInterval(intervalId);
 });
 

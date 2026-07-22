@@ -18,7 +18,7 @@ export function TableFilterComboBoxOption({
       className={className ?? undefined}
       label={label}
       value={value}
-      // eslint-disable-next-line react/jsx-props-no-spreading
+      // old-eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
   );

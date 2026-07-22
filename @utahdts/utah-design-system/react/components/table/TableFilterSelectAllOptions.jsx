@@ -83,14 +83,14 @@ export function TableFilterSelectAllOptions({
         onChange={currentOnChange}
         placeholder={placeholder ?? 'Filter'}
         value={currentValue}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+        // old-eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
         <SelectOption
           className={className ?? undefined}
           label=""
           value=""
-          // eslint-disable-next-line react/jsx-props-no-spreading
+          // old-eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}
         />
         {
@@ -101,7 +101,7 @@ export function TableFilterSelectAllOptions({
               key={`${id || 'table-filter-select-all-options'}-${recordFieldPath}-${dataOption}`}
               label={dataOption}
               value={dataOption}
-              // eslint-disable-next-line react/jsx-props-no-spreading
+              // old-eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}
             />
           ))

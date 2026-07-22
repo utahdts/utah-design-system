@@ -112,7 +112,7 @@ export function TimeInput({
               allowCustomEntry={allowCustomEntry}
               iconCallback={() => clockIcon}
               onChange={onChange}
-              // eslint-disable-next-line react/jsx-props-no-spreading
+              // old-eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}
             >
               {
@@ -145,7 +145,7 @@ export function TimeInput({
               // END COMMON PROPS
               onChange={(e) => onChange?.(e.target.value)}
               rightContent={clockIcon}
-              // eslint-disable-next-line react/jsx-props-no-spreading
+              // old-eslint-disable-next-line react/jsx-props-no-spreading
               {...rest}
             />
           )

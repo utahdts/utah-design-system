@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import elevationExample from '../../../../static/images/screenshots/spacing/guidelines/elevation-best-practice.webp';
 import { PreCodeForCodeString } from '../../preCode/PreCodeForCodeString';

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext } from 'react';
 
 /** @typedef {import('@utahdts/utah-design-system').TabGroupContextValue} TabGroupContextValue */

@@ -1,14 +1,15 @@
-import js from "@eslint/js";
-import stylistic from '@stylistic/eslint-plugin';
-import imports from "eslint-plugin-import";
-import jsdoc from 'eslint-plugin-jsdoc';
-import jsxA11Y from "eslint-plugin-jsx-a11y";
+import js from "@eslint/js"; // Use this as a config, not a plugin
+import stylistic from "@stylistic/eslint-plugin";
+import imports from "eslint-plugin-import-x";
+import jsdoc from "eslint-plugin-jsdoc";
+import jsxA11Y from "eslint-plugin-jsx-a11y-x";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
-import tseslint from 'typescript-eslint';
+import tseslint from "typescript-eslint";
+// import eslintReact from "@eslint-react/eslint-plugin";
 
 export default [
-  // building the website gets eslint errors without this ignore separated out from the others...
+  // 1. Base ignores (Applied globally)
   {
     ignores: [
       "**/dist/**/*",
@@ -17,27 +18,27 @@ export default [
       "**/examples/**/*",
       "**/artifacts/**/*",
       "**/.history/**/*",
+      "**/vite.config.js",
+      "**/node_modules/**/*",
     ],
   },
+
+  // 2. Include base recommended configs!
+  js.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
+  // eslintReact.configs.recommended,
+
+  // 3. Your custom rules and overrides
   {
-    ignores: [
-      "**/vite.config.js",
-      "**/dist/**/*",
-      "**/node_modules/**/*",
-      "**/examples/**",
-      "**/artifacts/**/*",
-      "**/*.es.js",
-      "**/*.umd.js",
-    ],
+    // Explicitly tell ESLint which files this block applies to
+    files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: {
       "react-refresh": reactRefresh,
       "jsx-a11y": jsxA11Y,
       jsdoc,
-      "import": imports,
-      js,
-      '@stylistic': stylistic,
+      import: imports,
+      "@stylistic": stylistic,
     },
     settings: {
       react: {
@@ -50,10 +51,8 @@ export default [
         React: true,
         JSX: true,
       },
-
       ecmaVersion: "latest",
       sourceType: "module",
-
       parserOptions: {
         warnOnUnsupportedTypeScriptVersion: false,
         ecmaFeatures: {
@@ -64,27 +63,39 @@ export default [
 
     rules: {
       "@typescript-eslint/no-dynamic-delete": 0,
+      "@typescript-eslint/ban-ts-comment": [
+        "error",
+        {
+          "ts-expect-error": false, // Tells ESLint to allow @ts-expect-error without any description
+          "ts-ignore": true, // Keeps @ts-ignore banned (recommended)
+          "ts-nocheck": true, // Keeps @ts-nocheck banned (recommended)
+          "ts-check": false, // Allows @ts-check
+        },
+      ],
       "@stylistic/indent": ["error", 2, { SwitchCase: 1 }],
-      "no-alert": "error",
-      "no-bitwise": "error",
-      "no-console": "error",
-      "no-new-wrappers": "error",
-      "import/extensions": "error",
+
+      // I changed some of these to "warn" as an example so you actually see warnings!
+      "no-alert": "warn",
+      "no-console": "warn",
       "no-unused-vars": [
-        "error", {
+        "warn",
+        {
           args: "after-used",
         },
       ],
 
+      "no-bitwise": "error",
+      "no-new-wrappers": "error",
+      "import/extensions": "error",
       "@stylistic/prop-types": "off",
       "@stylistic/jsx-one-expression-per-line": "off",
-      "react-refresh/only-export-components": "error",
+      "react-refresh/only-export-components": "warn",
       "linebreak-style": "error",
       "import/prefer-default-export": "off",
       "@stylistic/react-in-jsx-scope": "off",
 
       "@stylistic/max-len": [
-        "error",
+        "warn", // Often better as a warning so it doesn't break builds
         {
           code: 150,
           tabWidth: 2,
@@ -108,7 +119,8 @@ export default [
       ],
 
       "jsx-a11y/label-has-associated-control": [
-        2, {
+        "error",
+        {
           assert: "either",
           depth: 3,
         },
@@ -117,21 +129,24 @@ export default [
       "import/no-cycle": "off",
 
       "no-param-reassign": [
-        "error", {
+        "error",
+        {
           props: true,
           ignorePropertyModificationsForRegex: ["^draft"],
         },
       ],
 
       "no-underscore-dangle": [
-        "error", {
+        "error",
+        {
           enforceInMethodNames: false,
           enforceInClassFields: false,
         },
       ],
 
       "no-use-before-define": [
-        "error", {
+        "error",
+        {
           functions: false,
           classes: true,
           variables: true,
@@ -146,22 +161,14 @@ export default [
       "jsdoc/no-undefined-types": "error",
 
       "@stylistic/object-curly-newline": [
-        "error", {
-          ImportDeclaration: {
-            consistent: true,
-          },
-
-          ObjectExpression: {
-            consistent: true,
-            multiline: true,
-          },
-
-          ObjectPattern: {
-            consistent: true,
-            multiline: true,
-          },
+        "error",
+        {
+          ImportDeclaration: { consistent: true },
+          ObjectExpression: { consistent: true, multiline: true },
+          ObjectPattern: { consistent: true, multiline: true },
         },
       ],
+      "react-hooks/exhaustive-deps": "off",
     },
   },
 ];

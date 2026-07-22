@@ -1,6 +1,7 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import stepIndicatorScreenshot from '../../../../../../../static/images/mockups/StepIndicator.jpg';
+import stepIndicatorMobileScreenshot from '../../../../../../../static/images/mockups/StepIndicatorMobile.png';
 import { LightBox } from '../../../../../lightbox/LightBox';
 import { pageUrls } from '../../../../../routing/pageUrls';
 import { StaticExample } from '../../../../../staticExamples/StaticExample';
@@ -18,7 +19,12 @@ export function StepIndicatorDocumentation() {
       <h2 id="section-example">Example</h2>
       <StaticExample
         title="Step Indicator"
-        renderedExample={<LightBox image={stepIndicatorScreenshot} alt="Step Indicator" className="flex-3up-gap" />}
+        renderedExample={(
+          <>
+            <LightBox image={stepIndicatorScreenshot} alt="Step Indicator" className="flex-3up-gap" />
+            <LightBox image={stepIndicatorMobileScreenshot} alt="Mobile Step Indicator" className="flex-3up-gap" />
+          </>
+        )}
         quickTips={(
           <ul>
             <li>Progress track: This line links the steps together in a gated step indicator.</li>

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { Link } from 'react-router-dom';
 import processListScreenshot from '../../../../../../../static/images/screenshots/components/progress-list/ProcessList.png';
 import { LightBox } from '../../../../../lightbox/LightBox';

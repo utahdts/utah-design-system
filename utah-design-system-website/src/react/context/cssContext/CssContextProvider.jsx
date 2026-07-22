@@ -68,7 +68,7 @@ export function CssContextProvider({ children }) {
       // user to have lost their color selection.
       if (currentQueryParameters.get('colors')) {
         // @ts-expect-error
-        // eslint-disable-next-line no-unused-vars
+        // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
         const { colors, ...paramsMinusColors } = currentQueryParameters;
         setSearchParams(paramsMinusColors);
         setAppState((draftAppState) => { draftAppState.isColorPickerShown = true; });

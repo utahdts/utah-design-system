@@ -299,7 +299,7 @@ export function ComboBoxTextInput({
         )}
         role="combobox"
         value={filterValue}
-        // eslint-disable-next-line react/jsx-props-no-spreading
+        // old-eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
     </div>

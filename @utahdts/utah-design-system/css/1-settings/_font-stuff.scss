@@ -4,6 +4,8 @@ Font size variables
 */
 @use "../1-settings/class-vars";
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
+
 @font-face {
   font-family: "UT Industry";
   src:
@@ -35,7 +37,7 @@ Font size variables
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/woff/UTIndustry-Bold.woff") format("woff"),
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/otf/UTIndustry-Bold.otf") format("opentype"),
     url("https://cdn.utah.gov/design-system/fonts/ut-industry/ttf/UTIndustry-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
   font-display: block;
 }
@@ -54,10 +56,11 @@ Font size variables
 
 :root {
   --ut-industry-font-family: 'UT Industry', Georgia, serif;
+  --source-sans-font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 #{class-vars.$base-class} {
-  --normal-font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
+  --normal-font-family: var(--source-sans-font-family);
   --fixed-width-font-family: 'Source Code Pro', monospace;
 
   --font-size-xs:  .875rem;  //14
@@ -73,9 +76,8 @@ Font size variables
   --font-size-6xl: 3.5rem;   //56
   --font-size-7xl: 4.5rem;   //72
 
-  --font-weight-extra-light: 200;
-  --font-weight-light: 300;
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
   --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
@@ -93,9 +95,8 @@ Font size variables
   .font-size-6xl { font-size: var(--font-size-6xl); }
   .font-size-7xl { font-size: var(--font-size-7xl); }
 
-  .font-extra-light { font-weight: var(--font-weight-extra-light); }
-  .font-light { font-weight: var(--font-weight-light); }
   .font-normal { font-weight: var(--font-weight-normal); }
+  .font-medium { font-weight: var(--font-weight-medium); }
   .font-semi-bold { font-weight: var(--font-weight-semi-bold); }
   .font-bold { font-weight: var(--font-weight-bold); }
   .font-black { font-weight: var(--font-weight-black); }

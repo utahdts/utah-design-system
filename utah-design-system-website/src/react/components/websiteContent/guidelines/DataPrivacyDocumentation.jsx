@@ -131,7 +131,7 @@ export function DataPrivacyDocumentation() {
             <ModalTitle id="modal-example-render-title">
               <span
                 // @ts-expect-error
-                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                 
                 tabIndex="0"
               >
                 Notice of Collection / Data Privacy

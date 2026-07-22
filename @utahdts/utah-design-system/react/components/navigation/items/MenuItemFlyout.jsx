@@ -1,6 +1,5 @@
 import { popupFocusHandler } from '@utahdts/utah-design-system-header';
 import { useEffect, useRef } from 'react';
-import { autoUpdate, flip, offset as floatingOffset, shift, useFloating } from '@floating-ui/react-dom';
 import { useImmer } from 'use-immer';
 import { ICON_BUTTON_APPEARANCE } from '../../../enums/buttonEnums';
 import { menuTypes } from '../../../enums/menuTypes';
@@ -32,21 +31,6 @@ export function MenuItemFlyout({
   const wrapperElement = useRef(/** @type {HTMLLIElement | null} */(null));
   const buttonRef = useRef(/** @type {HTMLButtonElement | null} */(null));
   const popupRef = useRef(/** @type {HTMLDivElement | null} */(null));
-
-  const {} = useFloating({
-    elements: {
-      reference: buttonRef.current,
-      floating: popupRef.current,
-    },
-    middleware: [
-      floatingOffset(10),
-      flip(),
-      shift(),
-    ],
-    open: isChildrenOpen,
-    placement: 'right-start',
-    whileElementsMounted: autoUpdate,
-  });
 
   useClickOutside([popupRef, wrapperElement], () => setIsChildrenOpen(false), !isChildrenOpen);
 

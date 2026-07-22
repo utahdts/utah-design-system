@@ -40,7 +40,7 @@ export function TableBodyDataRowTemplate({
       // @ts-expect-error
       onDoubleClick={(onDoubleClick && ((e) => onDoubleClick({ e, ...rowContextData }))) ?? undefined}
       innerRef={innerRef}
-      // eslint-disable-next-line react/jsx-props-no-spreading
+      // old-eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     >
       {children}
