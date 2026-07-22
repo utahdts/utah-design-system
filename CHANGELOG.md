@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - ### Utah Header:
   - Removed unused CSS.
   - Fixed main menu navigation on a touch device, when the user would open a child menu the whole menu would close.
+  - Switch to more reliable page unload event (PR508)
 
 - ### Utah Footer:
   - Removed "Translate" link.
