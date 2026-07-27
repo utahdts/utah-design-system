@@ -226,6 +226,7 @@ export function DateInput({
                     // @ts-expect-error
                     textInput?.focus();
                   }}
+                  onClose={() => setIsCalendarPopupOpen(false)}
                   id={`calendar-input__${id}`}
                   shouldSetFocusOnMount
                   showTodayButton={showCalendarTodayButton}
