@@ -94,13 +94,13 @@ export function TableFilterDateRangePopup({
           value={beginDateStr}
         />
         <div className="flex flex-col justify-end">
-            <span
-              className="utds-icon-before-arrow-right date-input__icon-static"
-              aria-hidden="true"
-            />
+          <span
+            className="utds-icon-before-arrow-right date-input__icon-static"
+            aria-hidden="true"
+          />
           <span className="visually-hidden">
-              to
-            </span>
+            to
+          </span>
         </div>
         <DateInput
           ariaLabel="Date Filter Date End."
