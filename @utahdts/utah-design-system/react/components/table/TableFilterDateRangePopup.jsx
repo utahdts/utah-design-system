@@ -54,7 +54,7 @@ export function TableFilterDateRangePopup({
       // when popup first opens, focus on the begin date
       if (isPopupOpen) {
         const beginDateInput = beginDateRef.current?.querySelector('.date-input');
-        // @ts-expect-error
+        // @ts-expect-error We know this element is focusable
         beginDateInput?.focus();
       }
     },
