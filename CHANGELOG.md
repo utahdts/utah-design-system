@@ -5,11 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # [5.3.0] 08/10/2026
-## Update
-- Updated accessibility of the DateInput component
-  - Add circular tabbing
-  - Add "Cancel" and "OK" buttons
-  - Change date filter on tables
+- ## Update
+  - Updated accessibility of the DateInput component
+    - Add circular tabbing
+    - Add "Cancel" and "OK" buttons
+    - Change date filter on tables
+
+- ## Utah Header:
+  - Ensure header displays correctly on mobile
+  - Increase notifications drawer maximum width by 20px
 
 # [5.2.0] 07/21/2026
 - ## Website
