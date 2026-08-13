@@ -20,6 +20,7 @@ import { IconButton } from '../../buttons/IconButton';
 import { ErrorMessage } from '../ErrorMessage';
 import { RequiredStar } from '../RequiredStar';
 import { calendarGrid } from './calendarGrid';
+import { useHandleTab } from '../../../hooks/useHandleTab';
 
 let oldMoveCurrentValueFocusTimeoutId = NaN;
 /**
@@ -57,6 +58,7 @@ function moveCurrentValueFocus(calendarInputId, oldDate, dateFormat, duration) {
  * @param {string} props.label
  * @param {string} [props.labelClassName]
  * @param {(newValue: string) => void} props.onChange
+ * @param {() => void} [props.onClose] what should happen when the user hits "Close"
  * @param {boolean} [props.shouldSetFocusOnMount] if rendered in a popup, then set focus to first focusable element when first shown
  * @param {boolean} [props.showTodayButton]
  * @param {string | null} [props.value] expects value to be in format of props.dateFormat
@@ -75,6 +77,7 @@ export function CalendarInput({
   label,
   labelClassName,
   onChange,
+  onClose,
   shouldSetFocusOnMount,
   showTodayButton,
   value,
@@ -84,6 +87,9 @@ export function CalendarInput({
   const { addPoliteMessage } = useAriaMessaging();
   const calendarInputId = useId();
   const firstFocusableElementRef = useRef(/** @type {any | null} */(null));
+  const lastFocusableElementRef = useRef(/** @type {any | null} */(null));
+
+  const handleTab = useHandleTab(firstFocusableElementRef.current, lastFocusableElementRef.current);
 
   // currentValueDate is the currently selected date
   const currentValueDate = value ? parse(value, dateFormat, new Date()) : null;
@@ -142,6 +148,7 @@ export function CalendarInput({
     <div
       className={joinClassNames('input-wrapper input-wrapper--calendar-input', wrapperClassName, className)}
       ref={innerRef}
+      onKeyDown={handleTab}
       {...rest}
     >
       <label htmlFor={id} className={labelClassName ?? undefined}>
@@ -336,6 +343,33 @@ export function CalendarInput({
           )
           : null
       }
+      <div className="flex gap justify-center p-spacing-xs border-top">
+        {
+          onClose
+            ?  (
+              <button
+                className="button--small"
+                onClick={onClose}
+                tabIndex={isHidden ? -1 : 0}
+                type="button"
+              >
+                Cancel
+              </button>
+            )
+            : null
+        }
+        <button
+          className="button--small button--solid"
+          onClick={() => {
+            onChange?.(format(currentValueDateInternal || new Date(), dateFormat));
+          }}
+          tabIndex={isHidden ? -1 : 0}
+          type="button"
+          ref={lastFocusableElementRef}
+        >
+          OK
+        </button>
+      </div>
       <ErrorMessage errorMessage={errorMessage} id={id} />
     </div>
   );
