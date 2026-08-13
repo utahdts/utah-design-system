@@ -152,15 +152,14 @@ export function DateInput({
                       setIsCalendarPopupOpen((isOpen) => {
                         if (isOpen) {
                           const textInput = popupReferenceElementRef.current?.querySelector('input[type="text"]');
-                          // @ts-expect-error
+                          // @ts-expect-error  We know this element is focusable
                           textInput?.focus();
                         }
                         return !isOpen;
                       });
                     }}
                     title="Open popup calendar"
-                    // prevent closing and reopening the popup
-                    // @ts-expect-error
+                    // @ts-expect-error Prevent closing and reopening the popup
                     onMouseDown={(e) => e.preventDefault()}
                     onFocus={() => setIsCalendarPopupOpen(false)}
                   />
@@ -179,9 +178,8 @@ export function DateInput({
                   </div>
                 )
             )}
-            // @ts-expect-error
+            // @ts-expect-error Give time for new item to become focused
             onBlur={() => {
-              // give time for new item to become focused
               setTimeout(
                 () => {
                   // if still active inside the wrapper, don't close the popup
@@ -223,9 +221,10 @@ export function DateInput({
                     onChange?.(newValue);
                     setIsCalendarPopupOpen(false);
                     const textInput = popupReferenceElementRef.current?.querySelector('input[type="text"]');
-                    // @ts-expect-error
+                    // @ts-expect-error We know this element is focusable
                     textInput?.focus();
                   }}
+                  onClose={() => setIsCalendarPopupOpen(false)}
                   id={`calendar-input__${id}`}
                   shouldSetFocusOnMount
                   showTodayButton={showCalendarTodayButton}
