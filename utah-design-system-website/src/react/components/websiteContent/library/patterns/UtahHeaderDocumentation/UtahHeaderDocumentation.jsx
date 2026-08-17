@@ -501,7 +501,7 @@ export function UtahHeaderDocumentation() {
           This WordPress plugin makes using and configuring the official Utah Header easy.
         </li>
         <li>
-          <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">A list of release notes for each version can be found on GitHub.</ExternalLink><br />
+          <ExternalLink href="https://github.com/utahdts/utah-design-system/releases/">A list of release notes for each version can be found on GitHub.</ExternalLink><br />
           The release notes are essential for understanding breaking changes and new features. They provide clear
           documentation of updates, helping developers anticipate impacts on their projects and decide when or how to upgrade.
         </li>

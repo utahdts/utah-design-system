@@ -67,7 +67,7 @@ export function GettingStartedDeveloper() {
         Right click on the download button and choose <code>Save Link As...</code>
       </p>
       <p>
-        You can also get pre-built artifacts with <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">each release on github</ExternalLink>.
+        You can also get pre-built artifacts with <ExternalLink href="https://github.com/utahdts/utah-design-system/releases/">each release on github</ExternalLink>.
       </p>
       <h3>Utah Header</h3>
       <div className="mb-spacing">
@@ -144,7 +144,7 @@ export function GettingStartedDeveloper() {
         documentation of updates, helping developers anticipate impacts on their projects and decide when or how to upgrade.
       </p>
       <p>
-        <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">A list of release notes for each version can be found on GitHub.</ExternalLink>
+        <ExternalLink href="https://github.com/utahdts/utah-design-system/releases/">A list of release notes for each version can be found on GitHub.</ExternalLink>
       </p>
 
       <h2 id="h2-design-system-versioning" className="mt-spacing">About Versioning</h2>

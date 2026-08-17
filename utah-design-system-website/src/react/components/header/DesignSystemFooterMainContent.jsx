@@ -56,7 +56,7 @@ export function DesignSystemFooterMainContent() {
         <ul className="footer-agency-information__menu">
           <li>Version: {packageJSON.version}</li>
           <li>
-            <ExternalLink href="https://github.com/utahdts/utah-design-system/releases">
+            <ExternalLink href="https://github.com/utahdts/utah-design-system/releases/">
               Release Notes
             </ExternalLink>
           </li>
