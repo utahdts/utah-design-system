@@ -28,6 +28,7 @@
     "prop-types": "15.8.1",
     "react": "^19.2.8",
     "react-colorful": "5.8.0",
+    "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.2",
     "tinycolor2": "1.6.0",
     "use-immer": "0.11.0"
