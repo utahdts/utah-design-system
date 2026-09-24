@@ -51,8 +51,10 @@ function handleMyLoginEvent(e) {
     if (userInfo.userInfo.name) {
       userInfo.userInfo.name = decodeURIComponent(userInfo.userInfo.name);
     }
-  } catch (e) {
+  } catch (/** @type {any} */ e) {
     // Ignore if it's not URI encoded
+    // eslint-disable-next-line no-console
+    console.warn(e);
   }
   showDebugMessage('********** handleMyLoginEvent:', userInfo);
   handleMyLoginInfo(userInfo);
