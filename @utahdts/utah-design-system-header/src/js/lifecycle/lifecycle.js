@@ -47,6 +47,15 @@ function handleMyLoginEvent(e) {
   /** @type {{ currentValues: { utahid: UtahIdProfile } }} */
   const eventData = /** @type {any} */ (e);
   const userInfo = eventData.currentValues.utahid;
+  try {
+    if (userInfo.userInfo.name) {
+      userInfo.userInfo.name = decodeURIComponent(userInfo.userInfo.name);
+    }
+  } catch (/** @type {any} */ e) {
+    // Ignore if it's not URI encoded
+    // eslint-disable-next-line no-console
+    console.warn(e);
+  }
   showDebugMessage('********** handleMyLoginEvent:', userInfo);
   handleMyLoginInfo(userInfo);
 }
