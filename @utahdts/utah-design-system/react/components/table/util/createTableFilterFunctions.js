@@ -36,7 +36,12 @@ export function createTableFilterFunctions(filterValues) {
             const beginDateDate = beginDate ? parse(beginDate, dateFormat, new Date()) : null;
             const endDateDate = endDate ? parse(endDate, dateFormat, new Date()) : null;
             testFunc = (value) => {
-              const valueDate = value && parse(value, dateFormat, new Date());
+              // If no date range is set, include all records (including nulls)
+              if (!beginDateDate && !endDateDate) {
+                return true;
+              }
+              // Use new Date() constructor instead of parse() to support ISO strings (e.g., "2026-03-25")
+              const valueDate = value && new Date(value);
               return (
                 !!valueDate
                 && (!beginDateDate || valueDate.getTime() >= beginDateDate.getTime())
